@@ -1,42 +1,57 @@
 ---
-title: Agregar colaboradores externos a los repositorios en tu organización
-intro: Un *colaborador externo* es una persona que no es explícitamente un miembro en tu organización pero tiene premisos de lectura.
+title: Adding outside collaborators to repositories in your organization
+intro: 'An *outside collaborator* is a person who isn''t explicitly a member of your organization, but who has Read, Write, or Admin permissions to one or more repositories in your organization.'
 redirect_from:
   - /articles/adding-outside-collaborators-to-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Add outside collaborator
+permissions: People with admin access to a repository can add an outside collaborator to the repository.
 ---
 
-{% data reusables.organizations.owners-and-admins-can %} agregar colaboradores externos a un repositorio, a menos que un propietario de la organización haya restringido la capacidad para invitar colaboradores. Para obtener más información, consulta "[Establecer permisos para agregar colaboradores externos](/articles/setting-permissions-for-adding-outside-collaborators)".
+## About outside collaborators
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
-{% if currentVersion != "github-ae@latest" %}
-Si tu organización [requiere miembros y colaboradores externos para usar la autenticación de dos factores](/articles/requiring-two-factor-authentication-in-your-organization), deben habilitar la autenticación de dos factores antes de que puedan aceptar tu invitación para colaborar en el repositorio de una organización.
+An organization owner can restrict the ability to invite collaborators. For more information, see "[Setting permissions for adding outside collaborators](/articles/setting-permissions-for-adding-outside-collaborators)."
+
+{% ifversion ghes %}
+Before you can add someone as an outside collaborator on a repository, the person must have a user account on {% data variables.product.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site admin can create a user account for the person. For more information, see "[Using built-in authentication](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)."
+{% endif %}
+
+{% ifversion not ghae %}
+If your organization [requires members and outside collaborators to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), they must enable two-factor authentication before they can accept your invitation to collaborate on an organization repository.
 {% endif %}
 
 {% data reusables.organizations.outside_collaborator_forks %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.repositories.navigate-to-manage-access %}
-{% data reusables.organizations.invite-teams-or-people %}
-5. En el campo de búsqueda, comienza a teclear el nombre de la persona que quieres invitar, luego da clic en un nombre de la lista de resultados. ![Campo de búsqueda para teclear el nombre de una persona e invitarla al repositorio](/assets/images/help/repository/manage-access-invite-search-field.png)
-6. Debajo de "Selecciona un rol", selecciona los permisos que quieres otorgar a la persona, luego da clic en **"Añadir NOMBRE a REPOSITORIO**. ![Seleccionar los permisos para la persona](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
-{% else %}
-5. En la barra lateral izquierda, haz clic en **Collaborators & teams** (Colaboradores y equipos). ![Barra lateral de configuraciones del repositorio con Colaboradores y equipos resaltados](/assets/images/help/repository/org-repo-settings-collaborators-and-teams.png)
-6. En "Collaborators" (Colaboradores), escribe el nombre de la persona a la que te gustaría brindar acceso al repositorio, luego haz clic en **Add collaborator** (Agregar colaborador). ![La sección Collaborators (Colaboradores) con el nombre de usuario de Octocat ingresado en el campo de búsqueda](/assets/images/help/repository/org-repo-collaborators-find-name.png)
-7. Junto al nombre del colaborador, escribe el nivel de permiso correspondiente: *Write* (Escritura) *Read* (Lectura) o *Admin* (Administración). ![El recolector de permisos del repositorio](/assets/images/help/repository/org-repo-collaborators-choose-permissions.png)
+{% ifversion fpt %}
+To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
-### Leer más
+## Adding outside collaborators to a repository
 
-- "[Convertir a un miembro de la organización en colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator)"
-- "[Eliminar a un colaborador externo desde el repositorio de una organización](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% ifversion fpt or ghec %}
+{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.organizations.invite-teams-or-people %}
+5. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.
+  ![Search field for typing the name of a person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
+6. Under "Choose a role", select the permissions to grant to the person, then click **Add NAME to REPOSITORY**.
+  ![Selecting permissions for the person](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
+{% else %}
+5. In the left sidebar, click **Collaborators & teams**.
+  ![Repository settings sidebar with Collaborators & teams highlighted](/assets/images/help/repository/org-repo-settings-collaborators-and-teams.png)
+6. Under "Collaborators", type the name of the person you'd like to give access to the repository, then click **Add collaborator**.
+![The Collaborators section with the Octocat's username entered in the search field](/assets/images/help/repository/org-repo-collaborators-find-name.png)
+7. Next to the new collaborator's name, choose the appropriate permission level: *Write*, *Read*, or *Admin*.
+![The repository permissions picker](/assets/images/help/repository/org-repo-collaborators-choose-permissions.png)
+{% endif %}

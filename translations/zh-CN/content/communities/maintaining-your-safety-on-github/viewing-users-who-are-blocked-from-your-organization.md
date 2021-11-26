@@ -5,9 +5,11 @@ redirect_from:
   - /articles/viewing-users-who-are-blocked-from-your-organization
   - /github/building-a-strong-community/viewing-users-who-are-blocked-from-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: 查看组织中被阻止的用户
 ---
 
 
@@ -16,7 +18,7 @@ topics:
 {% data reusables.organizations.block_users %}
 5. 在“Blocked users（被阻止的用户）”下，查看被阻止访问组织的用户的列表。 ![被阻止的用户的列表](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - “[阻止用户访问组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”
 - “[解除阻止用户访问组织](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”

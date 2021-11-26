@@ -5,9 +5,10 @@ intro: 'You can use the {% data variables.product.prodname_dotcom %} REST API to
 redirect_from:
   - /v3
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - /overview
   - /reference

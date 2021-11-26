@@ -4,9 +4,11 @@ intro: '{% data variables.product.prodname_marketplace %} 包含的应用程序�
 redirect_from:
   - /articles/purchasing-and-installing-apps-in-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 children:
   - /installing-an-app-in-your-personal-account
   - /installing-an-app-in-your-organization
+shortTitle: 安装 Marketplace app
 ---
 

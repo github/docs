@@ -6,11 +6,13 @@ redirect_from:
   - /articles/manually-creating-a-single-issue-template-for-your-repository
   - /github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Criar um modelo de problema
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -36,19 +38,19 @@ assignees: octocat
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-### Adicionar um modelo de problema
+## Adicionar um modelo de problema
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -66,7 +68,7 @@ assignees: octocat
 {% data reusables.files.choose_commit_branch %} Os modelos são disponibilizados para os colaboradores quando sofrem merge no branch padrão do repositório.
 {% data reusables.files.propose_new_file %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)"
 - "[Configurando modelos de problemas para seu repositório](/articles/configuring-issue-templates-for-your-repository)"

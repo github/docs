@@ -10,7 +10,7 @@
 // content model, add the entry to this list, and ensure you loop in the
 // content and/or content strategy team for review.
 
-module.exports = [
+export default [
   '2FA',
   'Access management',
   'Accounts',
@@ -43,6 +43,7 @@ module.exports = [
   'Codespaces',
   'Collaboration',
   'Community',
+  'Copilot',
   'Contacting sponsors',
   'Containers',
   'CVEs',
@@ -108,7 +109,7 @@ module.exports = [
   'Permissions',
   'Policies',
   'Policy',
-  'Powershell',
+  'PowerShell',
   'Pre-receive hooks',
   'Privacy',
   'Profile',
@@ -155,5 +156,5 @@ module.exports = [
   'Xamarin.Android',
   'Xamarin.iOS',
   'Xamarin',
-  'Xcode'
+  'Xcode',
 ]

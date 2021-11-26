@@ -6,8 +6,11 @@ redirect_from:
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: 使用 GitHub 导入工具
 ---
+
 {% tip %}
 
 **提示：**GitHub 导入工具不适用于所有导入。 例如，如果您现有的代码托管在私有网络上，我们的工具便无法访问。 在这些情况下，我们建议对 Git 仓库[使用命令行导入](/articles/importing-a-git-repository-using-the-command-line)，或者对导入自其他版本控制系统的项目使用[源代码迁移工具](/articles/source-code-migration-tools)。
@@ -15,8 +18,6 @@ versions:
 {% endtip %}
 
 如果在导入时要将仓库中的提交匹配到作者的 GitHub 用户帐户，请确保在开始导入之前，仓库的每个贡献者都有 GitHub 帐户。
-
-{% data reusables.repositories.migrating-from-codeplex %}
 
 {% data reusables.repositories.repo-size-limit %}
 
@@ -31,6 +32,6 @@ versions:
 
 在仓库完成导入时，您会收到一封电子邮件。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[使用 GitHub 导入工具更新提交作者属性](/articles/updating-commit-author-attribution-with-github-importer)"

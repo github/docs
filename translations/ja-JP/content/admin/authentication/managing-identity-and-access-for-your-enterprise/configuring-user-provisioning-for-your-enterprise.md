@@ -5,7 +5,7 @@ intro: 'System for Cross-domain Identity Management (SCIM) のシステムを設
 permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -16,13 +16,14 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
 ---
-### Enterprise 向けのユーザプロビジョニングについて
+
+## Enterprise 向けのユーザプロビジョニングについて
 
 {% data reusables.saml.ae-uses-saml-sso %}詳しい情報については、「[Enterprise 向けの SAML シングルサインオンを設定する](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
 
 {% data reusables.scim.after-you-configure-saml %} SCIM の詳細については、IETF Web サイトの「[System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644)」を参照してください。
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 プロビジョニングを設定すると、{% data variables.product.product_name %} のアプリケーションを IdP のユーザに割り当てたり、割り当て解除したりするときに、IdP が {% data variables.product.product_location %} と通信できるようになります。 アプリケーションを割り当てると、IdP は {% data variables.product.product_location %} にアカウントを作成し、オンボーディングメールをユーザに送信するように求めます。 アプリケーションの割り当てを解除すると、IdP は {% data variables.product.product_name %} と通信して、SAML セッションを無効にし、メンバーのアカウントを無効にします。
 
@@ -32,15 +33,15 @@ IdP のプロビジョニングアプリケーションは、Enterprise 向け�
 
 {% endif %}
 
-### サポートされているアイデンティティプロバイダ
+## サポートされているアイデンティティプロバイダ
 
 {% data reusables.scim.supported-idps %}
 
 サポートされている IdP を使用してユーザプロビジョニングを設定する場合、{% data variables.product.product_name %} のアプリケーションをユーザのグループに割り当てたり、割り当てを解除したりすることもできます。 これらのグループは、{% data variables.product.product_location %} の Organization のオーナーとチームメンテナが {% data variables.product.product_name %} Team にマッピングできるようになります。 詳しい情報については「[アイデンティティプロバイダグループとTeamの同期](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)」を参照してください。
 
-### 必要な環境
+## 必要な環境
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 IdP から {% data variables.product.product_location %} へのアクセスを自動的にプロビジョニングおよびプロビジョニング解除するには、{% data variables.product.product_name %} を初期化するときに最初に SAML SSO を設定する必要があります。 詳しい情報については、「[{% data variables.product.prodname_ghe_managed %} を初期化する](/admin/configuration/initializing-github-ae)」を参照してください。
 
@@ -48,13 +49,11 @@ IdP から {% data variables.product.product_location %} へのアクセスを�
 
 {% endif %}
 
-### Enterprise 向けのユーザプロビジョニングを有効化する
+## Enterprise 向けのユーザプロビジョニングを有効化する
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
-1. Enterprise オーナーとして
-
-{% data variables.product.product_location %} にサインインしているときに、**admin:enterprise** スコープで個人アクセストークンを作成します。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+1. While signed into {% data variables.product.product_location %} as an enterprise owner, create a personal access token with **admin:enterprise** scope. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
   {% note %}
 
   設定ファイルでクエリスイートを指定すると、{% data variables.product.prodname_codeql %} 分析エンジンは、デフォルトのクエリセットに加えて、スイートに含まれるクエリを実行します。
@@ -82,9 +81,9 @@ IdP から {% data variables.product.product_location %} へのアクセスを�
 
   IdP のアプリケーションでは、{% data variables.product.product_location %} でユーザアカウントをプロビジョニングまたはプロビジョニング解除するために 2 つの値が必要です。
 
-  | 値        | 別名                    | 説明                                                                                            | サンプル                      |
-  |:-------- |:--------------------- |:--------------------------------------------------------------------------------------------- |:------------------------- |
-  | URL      | テナント URL              | {% data variables.product.prodname_ghe_managed %} にある Enterprise の SCIM プロビジョニング API への URL | <pre>https&colon;//api.<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</pre> |
-  | 共有シークレット | 個人アクセストークン、シークレットトークン | Enterprise オーナーに代わってプロビジョニングタスクを実行するための IdP 上のアプリケーションのトークン                                   | ステップ 1 で作成した個人アクセストークン    |
+  | 値        | 別名                    | 説明                                                                                            | サンプル                                                               |
+  |:-------- |:--------------------- |:--------------------------------------------------------------------------------------------- |:------------------------------------------------------------------ |
+  | URL      | テナント URL              | {% data variables.product.prodname_ghe_managed %} にある Enterprise の SCIM プロビジョニング API への URL | <nobr>`{% data variables.product.api_url_pre %}/scim/v2</nobr>` |
+  | 共有シークレット | 個人アクセストークン、シークレットトークン | Enterprise オーナーに代わってプロビジョニングタスクを実行するための IdP 上のアプリケーションのトークン                                   | ステップ 1 で作成した個人アクセストークン                                             |
 
 {% endif %}

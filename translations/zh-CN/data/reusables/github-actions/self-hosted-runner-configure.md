@@ -1,6 +1,4 @@
-1. 选择自托管运行器机器的操作系统和架构。 ![选择自托管运行器操作系统](/assets/images/help/settings/actions-runner-architecture-os.png)
-
-
+1. Select the operating system image and architecture of your self-hosted runner machine.
 1. 您将看到指示您如何下载运行器应用程序并安装到自托管运行器机器上的说明。
 
    在自托管运行器机器上打开 shell，并按显示的顺序运行每个 shell 命令。

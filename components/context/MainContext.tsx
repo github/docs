@@ -1,10 +1,11 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
 
-import type { BreadcrumbT } from 'components/Breadcrumbs'
+import type { BreadcrumbT } from 'components/page-header/Breadcrumbs'
 import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
+import { ExcludesNull } from 'components/lib/ExcludesNull'
 
-type ProductT = {
+export type ProductT = {
   external: boolean
   href: string
   id: string
@@ -12,20 +13,21 @@ type ProductT = {
   versions?: Array<string>
 }
 
-type LanguageItem = {
+export type ProductGroupT = {
   name: string
-  nativeName: string
-  code: string
-  hreflang: string
-  wip?: boolean
+  icon: string
+  octicon: string
+  children: Array<ProductT>
 }
 
 type VersionItem = {
   version: string
   versionTitle: string
+  currentRelease: string
+  latestVersion: string
 }
 
-export type CurrentProductTree = {
+export type ProductTreeNode = {
   page: {
     hidden?: boolean
     documentType: 'article' | 'mapTopic'
@@ -35,7 +37,7 @@ export type CurrentProductTree = {
   renderedShortTitle?: string
   renderedFullTitle: string
   href: string
-  childPages: Array<CurrentProductTree>
+  childPages: Array<ProductTreeNode>
 }
 
 type DataT = {
@@ -59,6 +61,7 @@ type EnterpriseServerReleases = {
   isOldestReleaseDeprecated: boolean
   oldestSupported: string
   nextDeprecationDate: string
+  supported: Array<string>
 }
 export type MainContextT = {
   breadcrumbs: {
@@ -67,26 +70,34 @@ export type MainContextT = {
     maptopic?: BreadcrumbT
     article?: BreadcrumbT
   }
-  builtAssets: { main: { js: string } }
-  expose: string
   activeProducts: Array<ProductT>
-  currentProduct: ProductT
+  productGroups: Array<ProductGroupT>
+  communityRedirect: {
+    name: string
+    href: string
+  }
+  currentProduct?: ProductT
   currentLayoutName: string
+  isHomepageVersion: boolean
+  isFPT: boolean
   data: DataT
   airGap?: boolean
   error: string
   currentCategory?: string
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
-  currentLanguage: string
-  languages: Record<string, LanguageItem>
+  currentPathWithoutLanguage: string
+  userLanguage: string
   allVersions: Record<string, VersionItem>
-  currentProductTree?: CurrentProductTree
+  currentVersion?: string
+  currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
     documentType: string
+    type?: string
     languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
+    title: string
     fullTitle?: string
     introPlainText?: string
     hidden: boolean
@@ -101,17 +112,25 @@ export type MainContextT = {
   }
 
   enterpriseServerVersions: Array<string>
+
+  searchVersions: Record<string, string>
+  nonEnterpriseDefaultVersion: string
+
+  status: number
+  fullUrl: string
 }
 
-export const getMainContextFromRequest = (req: any): MainContextT => {
+export const getMainContext = (req: any, res: any): MainContextT => {
   return {
-    builtAssets: { main: { js: req.context.builtAssets.main.js } },
-    expose: req.context.expose,
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
-    currentProduct: req.context.productMap[req.context.currentProduct],
+    productGroups: req.context.productGroups,
+    communityRedirect: req.context.page?.communityRedirect || {},
+    currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
-    error: req.context.error || '',
+    isHomepageVersion: req.context.page?.documentType === 'homepage',
+    isFPT: req.context.currentVersion === 'free-pro-team@latest',
+    error: req.context.error ? req.context.error.toString() : '',
     data: {
       ui: req.context.site.data.ui,
       reusables: {
@@ -124,10 +143,13 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     },
     airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
+    currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
     relativePath: req.context.page?.relativePath,
     page: {
       languageVariants: req.context.page.languageVariants,
       documentType: req.context.page.documentType,
+      type: req.context.page.type || null,
+      title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
@@ -147,30 +169,29 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       'isOldestReleaseDeprecated',
       'oldestSupported',
       'nextDeprecationDate',
+      'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
-    currentLanguage: req.context.currentLanguage,
-    languages: Object.fromEntries(
-      Object.entries(req.context.languages).map(([key, entry]: any) => {
-        return [
-          key,
-          {
-            name: entry.name,
-            nativeName: entry.nativeName || '',
-            code: entry.code,
-            hreflang: entry.hreflang,
-          },
-        ]
-      })
-    ),
+    userLanguage: req.context.userLanguage || '',
     allVersions: req.context.allVersions,
-    currentProductTree: getCurrentProductTree(req.context.currentProductTree),
+    currentVersion: req.context.currentVersion,
+    currentProductTree: req.context.currentProductTree
+      ? getCurrentProductTree(req.context.currentProductTree)
+      : null,
     featureFlags: {},
+    searchVersions: req.context.searchVersions,
+    nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
+    status: res.statusCode,
+    fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
   }
 }
 
 // only pull things we need from the product tree, and make sure there are default values instead of `undefined`
-const getCurrentProductTree = (input: any): CurrentProductTree => {
+const getCurrentProductTree = (input: any): ProductTreeNode | null => {
+  if (input.page.hidden) {
+    return null
+  }
+
   return {
     href: input.href,
     renderedShortTitle: input.renderedShortTitle || '',
@@ -181,7 +202,7 @@ const getCurrentProductTree = (input: any): CurrentProductTree => {
       title: input.page.title,
       shortTitle: input.page.shortTitle || '',
     },
-    childPages: (input.childPages || []).map(getCurrentProductTree),
+    childPages: (input.childPages || []).map(getCurrentProductTree).filter(ExcludesNull),
   }
 }
 

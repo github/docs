@@ -10,16 +10,18 @@ redirect_from:
   - /enterprise/admin/guides/installation/configuring-github-pages-for-your-enterprise/
   - /admin/configuration/configuring-github-pages-for-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Pages
+shortTitle: Configure GitHub Pages
 ---
-### {% data variables.product.prodname_pages %} の公開サイトを有効にする
 
-{% if enterpriseServerVersions contains currentVersion %} Enterprise でプライベートモードが有効になっている場合、{% else %}公開{% endif %}は、公開サイトを有効にしない限り、Enterprise がホストする {% data variables.product.prodname_pages %} サイトにアクセスできません。
+## {% data variables.product.prodname_pages %} の公開サイトを有効にする
+
+{% ifversion ghes %} Enterprise でプライベートモードが有効になっている場合、{% else %}公開{% endif %}は、公開サイトを有効にしない限り、Enterprise がホストする {% data variables.product.prodname_pages %} サイトにアクセスできません。
 
 {% warning %}
 
@@ -27,13 +29,13 @@ topics:
 
 {% endwarning %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. **Public Pages（公開ページ）**を選択してください。 ![[Public Pages] を有効化するチェックボックス](/assets/images/enterprise/management-console/public-pages-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
@@ -41,20 +43,19 @@ topics:
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-### Enterprise 向けの {% data variables.product.prodname_pages %} を無効にする
+## Enterprise 向けの {% data variables.product.prodname_pages %} を無効にする
 
-{% if enterpriseServerVersions contains currentVersion %}
-Enterprise で Subdomain Isolation が無効になっている場合は、
-{% data variables.product.prodname_pages %} も無効にして、潜在的なセキュリティの脆弱性から身を守る必要があります。 詳しい情報については、「[Subdomain Isolation の有効化](/admin/configuration/enabling-subdomain-isolation)」を参照してください。
+{% ifversion ghes %}
+If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. 詳しい情報については、「[Subdomain Isolation の有効化](/admin/configuration/enabling-subdomain-isolation)」を参照してください。
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. **Enable Pages（ページの有効化）**の選択を解除してください。 ![{% data variables.product.prodname_pages %} を無効化するチェックボックス](/assets/images/enterprise/management-console/pages-select-button.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
@@ -62,8 +63,8 @@ Enterprise で Subdomain Isolation が無効になっている場合は、
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-### 参考リンク
+{% ifversion ghes %}
+## 参考リンク
 
 - [プライベートモードの有効化](/admin/configuration/enabling-private-mode)
 {% endif %}

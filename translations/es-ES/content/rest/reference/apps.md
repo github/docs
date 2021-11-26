@@ -1,63 +1,64 @@
 ---
-title: Aplicaciones
+title: Apps
+intro: 'The GitHub Apps API enables you to retrieve the information about the installation as well as specific information about GitHub Apps.'
 redirect_from:
   - /v3/apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
-
-La API de GitHub Apps te permite obtener información de alto nivel acerca de una GitHub App así como la información específica acerca de las instalaciones de la misma. Para conocer más sobre las GitHub Apps, consulta la sección "[Autenticarte como una GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)".
 
 {% data reusables.apps.general-apps-restrictions %}
 
-Esta página lista las terminales a las que puedes acceder mientras te autenticas como una GitHub App. Consulta la sección "[Autenticarse como una GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)" para conocer más.
+This page lists endpoints that you can access while authenticated as a GitHub App. See "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)" to learn more.
 
-Cuando estás autenticado como una GitHub App, la API de GitHub Apps te habilita para obtener información de alto nivel sobre una GitHub App así como para obtener información específica sobre las instalaciones de éstas.
+When authenticated as a GitHub App, the GitHub Apps API enables you to get high-level information about a GitHub App as well as specific information about installations of an app.
 
-Puedes acceder a las terminales de la API v3 de REST mientras estás autenticado como una GitHub App. Estas terminales tienen una sección de "Notas" que contiene una viñeta que dice "Funciona con las GitHub Apps". También puedes acceder a estas terminales mientras estás autenticado como un usuario.
+You can access REST API v3 endpoints while authenticated as a GitHub App. These endpoints have a "Notes" section that contains a bullet point that says "Works with GitHub Apps." You can also access these endpoints while authenticated as a user.
 
-Un subconjunto de terminales de la API v3 de REST requiere que te autentiques como una instalación de una GitHub App. Consulta las [Instalaciones](/rest/reference/apps#installations) para obtener una lista de estas terminales.
+A subset of REST API v3 endpoints requires authenticating as a GitHub App installation. See [Installations](/rest/reference/apps#installations) for a list of these endpoints.
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## API de las Aplicaciones de OAuth
+## OAuth Applications API
 
-Puedes utilizar esta API para administrar los tokens de OAuth que utiliza una aplicación de OAuth para acceder a las cuentas de {% data variables.product.prodname_dotcom %} de las personas.
+You can use this API to manage the OAuth tokens an OAuth application uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'oauth-applications' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Instalaciones
+## Installations
 
-La API de instalaciones te habilita para obtener información acerca de las instalaciones de tu GitHub App y para realizar acciones dentro de esas instalaciones. Una _instalación_ se refiere a cualquier cuenta de usuario o de organización que tenga la app instalada. Para obtener más información sobre cómo autenticarte como una instalación y limitar el acceso a repositorios específicos, consulta la sección "[Autenticarte como una instalación](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
+The Installations API enables you to get information about installations of your GitHub App and perform actions within those installations. An _installation_ refers to any user or organization account that has installed the app. For information on how to authenticate as an installation and limit access to specific repositories, see "[Authenticating as an installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 
-Para listar las instalaciones de una GitHub App para una organización, consulta la sección "[Listar instalaciones de la app para una organización](/rest/reference/orgs#list-app-installations-for-an-organization)".
+To list all GitHub App installations for an organization, see "[List app installations for an organization](/rest/reference/orgs#list-app-installations-for-an-organization)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 ## Marketplace
 
-Para obtener más información acerca de {% data variables.product.prodname_marketplace %}, consulta "[GitHub Marketplace](/marketplace/)".
+For more information about {% data variables.product.prodname_marketplace %}, see "[GitHub Marketplace](/marketplace/)."
 
-La API de {% data variables.product.prodname_marketplace %} te permite ver qué clientes están utilizando un plan de precios, ver sus compras y también ver si una cuenta tiene una suscripción activa.
+The {% data variables.product.prodname_marketplace %} API allows you to see which customers are using a pricing plan, see a customer's purchases, and see if an account has an active subscription.
 
-### Hacer pruebas con terminales de muestra
+### Testing with stubbed endpoints
 
-Esta API incluye terminales que te permiten [probar tu {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) con **datos de muestra**. Los datos de muestra son datos falsos y preprogramados que no cambiarán con base en las suscripciones reales.
+This API includes endpoints that allow you to [test your {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) with **stubbed data**. Stubbed data is hard-coded, fake data that will not change based on actual subscriptions.
 
-Para hacer pruebas con estos datos, utiliza una terminal de muestra en vez de su contraparte productiva. Esto te permite probar si la lógica de la API tendrá éxito antes de listar tus {% data variables.product.prodname_github_app %} en {% data variables.product.prodname_marketplace %}.
+To test with stubbed data, use a stubbed endpoint in place of its production counterpart. This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_apps %} on {% data variables.product.prodname_marketplace %}.
 
-Asegúrate de reemplazar tus terminales de muestra con aquellas productivas antes de desplegar tu {% data variables.product.prodname_github_app %}.
+Be sure to replace stubbed endpoints with production endpoints before deploying your {% data variables.product.prodname_github_app %}.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'marketplace' %}{% include rest_operation %}{% endif %}
@@ -65,8 +66,10 @@ Asegúrate de reemplazar tus terminales de muestra con aquellas productivas ante
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Webhooks
+
+A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}

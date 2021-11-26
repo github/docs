@@ -6,24 +6,26 @@ redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
   - /packages/guides/connecting-a-repository-to-a-container-image
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: リポジトリの接続
 ---
 
 リポジトリをパッケージに接続することによって、パッケージのランディングページには、READMEなどのリポジトリからの情報やリンクが表示されるようになります。
 
-### リポジトリを{% data variables.product.prodname_dotcom %}上のユーザが所有するパッケージに接続する
+## リポジトリを{% data variables.product.prodname_dotcom %}上のユーザが所有するパッケージに接続する
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### リポジトリを{% data variables.product.prodname_dotcom %}上のOrganizationが所有するパッケージに接続する
+## リポジトリを{% data variables.product.prodname_dotcom %}上のOrganizationが所有するパッケージに接続する
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### コマンドラインを使ってリポジトリをコンテナイメージに接続する
+## コマンドラインを使ってリポジトリをコンテナイメージに接続する
 
 1. Dockerfile に以下の行を追加します。`OWNER` と `REPO` は、あなたの情報に置き換えてください。
 

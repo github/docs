@@ -5,21 +5,23 @@ redirect_from:
   - /articles/viewing-people-with-access-to-your-repository
   - /github/setting-up-and-managing-organizations-and-teams/viewing-people-with-access-to-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Visualizar a las personas con acceso
 ---
 
 Los administradores pueden utilizar esta información para ayudar a personas externas, reunir datos de cumplimiento y otras verificaciones generales de seguridad.
 
 ![Lista de permisos de personas a un repositorio](/assets/images/help/repository/repository-permissions-list.png)
 
-### Ver personas con acceso a tu repositorio
+## Ver personas con acceso a tu repositorio
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Nota**: También puedes tener una vista general combinada de los equipos y personas con acceso a tu repositorio. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)".
@@ -31,7 +33,7 @@ Los administradores pueden utilizar esta información para ayudar a personas ext
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.accessing-repository-people %}
 
-### Exportar una lista de personas con acceso a tu repositorio
+## Exportar una lista de personas con acceso a tu repositorio
 
 Los propietario de organizaciones en {% data variables.product.prodname_ghe_cloud %} o {% data variables.product.prodname_ghe_server %} pueden exportar una lista CSV de personas que tienen acceso a un repositorio.
 

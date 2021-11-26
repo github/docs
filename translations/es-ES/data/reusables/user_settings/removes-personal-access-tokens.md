@@ -1,1 +1,1 @@
-Como precaución de seguridad, {% data variables.product.prodname_dotcom %} elimina automáticamente los tokens de acceso personales que no se han usado durante un año.
+Como medida precautoria de seguridad, {% data variables.product.company_short %} elimina automáticamente los tokens de acceso personal que no se hayan utilizado en un año.{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %} Para proporcionar seguridad adicional, te recomendamos ampliamente agregar un vencimiento a tus tokens de acceso personal.{% endif %}
