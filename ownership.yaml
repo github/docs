@@ -6,18 +6,17 @@ ownership:
     kind: heroku
     repo: https://github.com/github/docs-internal
     team: github/docs-engineering
-    maintainer: sarahs
+    maintainer: chiedo
     exec_sponsor: scottdensmore
-    product_manager: simpsoka
-    mention: github/docs-engineering
+    product_manager: emilyistoofunky
     qos: critical
     dependencies: []
     sev1:
       pagerduty: https://github.pagerduty.com/escalation_policies#PN57VQ1
-      tta: 30 min
+      tta: '30 min'
     sev2:
       issue: https://github.com/github/docs-internal/issues
-      tta: 5 business days
+      tta: '1 business day'
     sev3:
       slack: docs-engineering
-      tta: 30 min
+      tta: '1 week'

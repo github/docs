@@ -1,1 +1,1 @@
-1. Under "Value", type the value of your secret. !["Value" textbox](/assets/images/help/settings/codespaces-secret-value-field.png)
+1. Em "Valor", digite o valor do seu segredo. ![Caixa de texto "Valor"](/assets/images/help/settings/codespaces-secret-value-field.png)

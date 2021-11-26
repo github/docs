@@ -1,1 +1,1 @@
-You can request publication with or without verification. Requesting publication without verification allows you to launch a free version of your app quickly. If you then request publication with verification, your listing will be updated to include the marketplace badge and any paid pricing plans when you complete verification and financial onboarding.
+検証の有無にかかわらず、公開をリクエストできます。 検証なしで公開をリクエストすれば、アプリケーションの無料バージョンを素早く立ち上げることができます。 その後に検証ありで公開をリクエストすれば、検証と財務上のオンボーディングが終わった時点で、リストはMarketplaceのバッジと有料価格プランを含むように更新されます。

@@ -2,6 +2,10 @@
 
 name: Node.js Tests
 
+# **What it does**: Runs our tests.
+# **Why we have it**: We want our tests to pass before merging code.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
+
 on:
   workflow_dispatch:
   push:
@@ -13,22 +17,7 @@ env:
   CI: true
 
 jobs:
-  see_if_should_skip:
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289
-        with:
-          cancel_others: 'false'
-          github_token: ${{ github.token }}
-          paths: '[".github/workflows/test.yml", ".node-version", ".npmrc", "app.json", "content/**", "data/**","lib/**", "Dockerfile", "feature-flags.json", "Gemfile", "Gemfile.lock", "middleware/**", "node_modules/**","package.json", "package-lock.json", "server.js", "tests/**", "translations/**", "Procfile", "webpack.config.js"]'
-
   test:
-    needs: see_if_should_skip
     # Run on self-hosted if the private repo or ubuntu-latest if the public repo
     # See pull # 17442 in the private repo for context
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
@@ -36,55 +25,60 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-group: [content, graphql, meta, rendering, routing, unit]
+        # The same array lives in test-windows.yml, so make any updates there too.
+        test-group:
+          [
+            content,
+            graphql,
+            meta,
+            rendering,
+            routing,
+            unit,
+            linting,
+            translations,
+          ]
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+      - name: Check out repo
+        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
         with:
           # Enables cloning the Early Access repo later with the relevant PAT
           persist-credentials: 'false'
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Setup node
-        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+      - name: Gather files changed
+        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
+        id: get_diff_files
         with:
-          node-version: 14.x
+          # So that `steps.get_diff_files.outputs.files` becomes
+          # a string like `foo.js path/bar.md`
+          output: ' '
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Get npm cache directory
-        id: npm-cache
+      - name: Insight into changed files
         run: |
-          echo "::set-output name=dir::$(npm config get cache)"
+          echo ${{ steps.get_diff_files.outputs.files }}
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Cache node modules
-        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
+      - name: Setup node
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: 16.13.x
+          cache: npm
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Install dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
+      - if: ${{ github.repository == 'github/docs-internal' }}
         name: Clone early access
         run: npm run heroku-postbuild
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: ${{ github.ref }}
+          GIT_BRANCH: ${{ github.head_ref || github.ref }}
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository != 'github/docs-internal' }}
+      - if: ${{ github.repository != 'github/docs-internal' }}
         name: Run build script
         run: npm run build
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Run tests
-        run: npx jest tests/${{ matrix.test-group }}/
+      - name: Run tests
         env:
-          NODE_OPTIONS: '--max_old_space_size=4096'
+          DIFF_FILES: ${{ steps.get_diff_files.outputs.files }}
+        run: npm run test tests/${{ matrix.test-group }}/

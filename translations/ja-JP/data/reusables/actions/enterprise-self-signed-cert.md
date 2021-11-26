@@ -1,1 +1,1 @@
-We strongly recommend that you configure TLS on {% data variables.product.prodname_ghe_server %} with a certificate signed by a trusted authority. Although a self-signed certificate can work, extra configuration is required for your self-hosted runners, and it is not recommended for production environments.
+信頼された認証局によって署名された証明書で{% data variables.product.prodname_ghe_server %}上のTLSを設定することを強くおすすめします。 自己署名証明書でも動作はしますが、セルフホストランナーに追加の設定が必要になり、プロダクションの環境では推奨されません。

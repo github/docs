@@ -7,14 +7,17 @@ redirect_from:
   - /github-cookies/
   - /articles/github-subprocessors-and-cookies
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-生效日期：**2021 年 1 月 29 日**
+生效日期：**2021 年 4 月 2 日**
 
 GitHub 在如何使用您的数据、如何收集您的数据以及与谁分享您的数据方面提供很大的透明度。 为此，我们提供此页面，以详细介绍了我们的[子处理商](#github-subprocessors)，以及我们如何使用 [cookie](#cookies-on-github)。
 
-### GitHub 子处理商
+## GitHub 子处理商
 
 我们与第三方子处理商（例如我们的供应商和服务提供商）分享您的信息时，我们仍对您的信息负责。 我们在引入新供应商时，会竭尽所能保持您的信任，并且要求所有供应商与我们签订数据保护协议，以约束他们对用户个人信息（定义见[隐私声明](/articles/github-privacy-statement/)）的处理。
 
@@ -30,7 +33,6 @@ GitHub 在如何使用您的数据、如何收集您的数据以及与谁分享�
 | MailChimp                | 客户事件单邮件服务提供商      | 美国   | 美国   |
 | Mailgun                  | 交易邮件服务提供商         | 美国   | 美国   |
 | Microsoft                | Microsoft 服务      | 美国   | 美国   |
-| Monday.com               | 团队协作和项目管理平台       | 美国   | 以色列  |
 | Nexmo                    | 短信通知提供商           | 美国   | 美国   |
 | Salesforce.com           | 客户关系管理            | 美国   | 美国   |
 | Sentry.io                | 应用程序监控提供商         | 美国   | 美国   |
@@ -41,7 +43,7 @@ GitHub 在如何使用您的数据、如何收集您的数据以及与谁分享�
 
 在我们引入新的子处理商来处理用户个人信息、删除子处理商或更改使用子处理商的方式时，我们将更新本页面。 如果您对新的子处理商有疑问或疑虑，我们乐意提供帮助。 请通过 {% data variables.contact.contact_privacy %} 联系我们。
 
-### GitHub 上的 Cookie
+## GitHub 上的 Cookie
 
 GitHub 使用 Cookie 来提供和保护我们的网站，并分析我们网站的使用情况，以便为您提供出色的用户体验。 为此，我们制作了本页面，详细介绍[我们的子处理商](#github-subprocessors)、我们如何使用 [cookie](#cookies-on-github)、在何处进行跟踪以及如何[在 GitHub 上执行跟踪](#tracking-on-github)。
 
@@ -50,6 +52,7 @@ GitHub 使用 Cookie 来提供和保护我们的网站，并分析我们网站�
 | Cookie 名称 | 原因                                   | 描述                                                      | 过期*                |
 |:--------- |:------------------------------------ |:------------------------------------------------------- |:------------------ |
 | GitHub    | `app_manifest_token`                 | 此 cookie 用于表明页面之间的临时应用程序和框架状态，例如用户在多步骤表单中处于哪一步。         | 5 分钟               |
+| GitHub    | `color_mode`                         | 此 cookie 用于指示用户选择的主题首选项。                                | 会话                 |
 | GitHub    | `_device_id`                         | 出于安全考虑，此 Cookie 用于跟踪已识别的设备。                             | 1 年                |
 | GitHub    | `dotcom_user`                        | 此 cookie 用于向我们表明用户已登录。                                  | 1 年                |
 | GitHub    | `_gh_ent`                            | 此 cookie 用于表明页面之间的临时应用程序和框架状态，例如客户在多步骤表单中处于哪一步。         | 两周                 |

@@ -4,12 +4,15 @@ redirect_from:
   - /v4/interface
   - /v4/reference/interface
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
 ---
 
-### About interfaces
+## About interfaces
 
 [Interfaces](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces) serve as parent objects from which other objects can inherit.
 

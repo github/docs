@@ -1,57 +1,81 @@
 ---
-title: Repositorios
+title: Repositories
+intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} repositories.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Ramas
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4742 %}
+## Autolinks
+
+{% tip %}
+
+**Note:** The Autolinks API is in beta and may change.
+
+{% endtip %}
+
+To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets. For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+
+{% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'autolinks' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
+
+## Branches
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'branches' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Colaboradores
+## Collaborators
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'collaborators' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Comentarios
+## Comments
 
-### Tipos de medios personalizados para los comentarios de las confirmaciones
+### Custom media types for commit comments
 
-Estos son los tipos de medios compatibles para los comentarios de las confirmaciones. Puedes leer más acerca del uso de los tipos de medios en la API [aquí](/rest/overview/media-types).
+These are the supported media types for commit comments. You can read more
+about the use of media types in the API [here](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
     application/vnd.github-commitcomment.html+json
     application/vnd.github-commitcomment.full+json
 
-Para obtener más información, consulta la sección "[Tipos de medios personalizados](/rest/overview/media-types)".
+For more information, see "[Custom media types](/rest/overview/media-types)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Confirmaciones
+## Commits
 
-La API de Confirmaciones del Repositorio puede listar, ver y comparar las confirmaciones de un repositorio.
+The Repo Commits API supports listing, viewing, and comparing commits in a repository.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-## Comunidad
+{% ifversion fpt or ghec %}
+## Community
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'community' %}{% include rest_operation %}{% endif %}
@@ -59,54 +83,56 @@ La API de Confirmaciones del Repositorio puede listar, ver y comparar las confir
 
 {% endif %}
 
-## Contenido
+## Contents
 
-Las terminales de esta API te permiten crear, modificar y borrar contenido cifrado en Base64 en un repositorio. Para solicitar el formato sin procesar y interpretado en HTML (cuando sea posible), utiliza los tipos de medios personalizados para el contenido de un repositorio.
+These API endpoints let you create, modify, and delete Base64 encoded content in a repository. To request the raw format or rendered HTML (when supported), use custom media types for repository contents.
 
-### Tipos de medios personalizados para el contenido de un repositorio
+### Custom media types for repository contents
 
-Los [README](/rest/reference/repos#get-a-repository-readme), [archivos](/rest/reference/repos#get-repository-content), y [symlinks](/rest/reference/repos#get-repository-content) son compatibles con los siguientes tipos de medios:
+[READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
 
-Utiliza el tipo de medios `.raw` para recuperar el contenido del archivo.
+Use the `.raw` media type to retrieve the contents of the file.
 
-Para archivos de markup tales como Markdown o AsciiDoc, puedes recuperar la interpretación en HTML si utilizas el tipo de medios `.html`. Los lenguajes de Markup se interpretan en HTML utilizando nuestra [biblioteca de Markup](https://github.com/github/markup) de código abierto.
+For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
 
-[Todos los objetos](/rest/reference/repos#get-repository-content) son compatibles con los siguientes tipos de medios personalizados:
+[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
 
     application/vnd.github.VERSION.object
 
-Utiliza el parámetro de tipo de medios `object` para recuperar el contenido en un formato de objeto consistente sin importar el tipo de contenido. Por ejemplo, en vez de ser una matriz de objetos para un directorio, la respuesta será un objeto con un atributo de `entries` que contenga la matriz de objetos.
+Use the `object` media type parameter to retrieve the contents in a consistent object format regardless of the content type. For example, instead of an array of objects
+for a directory, the response will be an object with an `entries` attribute containing the array of objects.
 
-Puedes leer más acerca del uso de tipos de medios en la API [aquí](/rest/overview/media-types).
+You can read more about the use of media types in the API [here](/rest/overview/media-types).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Llaves de implementación
+## Deploy keys
 
 {% data reusables.repositories.deploy-keys %}
 
-Las llaves de despliegue pueden ya sea configurarse utilizando las siguientes terminales de la API, o mediante GitHub. Para aprender cómo configurar las llaves de despliegue en GitHub, consulta la sección "[Administrar las llaves de despliegue](/developers/overview/managing-deploy-keys)".
+Deploy keys can either be setup using the following API endpoints, or by using GitHub. To learn how to set deploy keys up in GitHub, see "[Managing deploy keys](/developers/overview/managing-deploy-keys)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'keys' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Implementaciones
+## Deployments
 
-Los despliegues son slicitudes para desplegar una ref específica (rma, SHA, etiqueta). GitHub despliega un [evento de `deployment`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) al que puedan escuchar los servicios externos y al con el cual puedan actuar cuando se creen los despliegues nuevos. Los despliegues habilitan a los desarrolladores y a las organizaciones para crear herramientas sin conexión directa en torno a los despliegues, sin tener que preocuparse acerca de los detalles de implementación de entregar tipos de aplicaciones diferentes (por ejemplo, web o nativas).
+Deployments are requests to deploy a specific ref (branch, SHA, tag). GitHub dispatches a [`deployment` event](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) that external services can listen for and act on when new deployments are created. Deployments enable developers and organizations to build loosely coupled tooling around deployments, without having to worry about the implementation details of delivering different types of applications (e.g., web, native).
 
-Los estados de despliegue permiten que los servicios externos marquen estos despliegues con un estado de `error`, `failure`, `pending`, `in_progress`, `queued`, o `success` que pueden consumir los sistemas que escuchan a los [eventos de `deployment_status`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status).
+Deployment statuses allow external services to mark deployments with an `error`, `failure`, `pending`, `in_progress`, `queued`, or `success` state that systems listening to [`deployment_status` events](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status) can consume.
 
-Los estados de despliegue también incluyen una `description` y una `log_url` opcionales, las cuales se recomiendan ampliamente, ya que hacen que los estados de despliegue sean más útiles. La `log_url` es la URL completa para la salida del despliegue, y la `description` es el resumen de alto nivel de lo que pasó con este despliegue.
+Deployment statuses can also include an optional `description` and `log_url`, which are highly recommended because they make deployment statuses more useful. The `log_url` is the full URL to the deployment output, and
+the `description` is a high-level summary of what happened with the deployment.
 
-GitHub envía eventos de `deployment` y `deployment_status` cuando se crean despliegues y estados de despliegue nuevos. Estos eventos permiten que las integraciones de terceros reciban respuesta de las solicitudes de despliegue y actualizan el estado de un despliegue conforme éste progrese.
+GitHub dispatches `deployment` and `deployment_status` events when new deployments and deployment statuses are created. These events allows third-party integrations to receive respond to deployment requests and update the status of a deployment as progress is made.
 
-Debajo encontrarás un diagrama de secuencia simple que explica cómo funcionarían estas interacciones.
+Below is a simple sequence diagram for how these interactions would work.
 
 ```
 +---------+             +--------+            +-----------+        +-------------+
@@ -135,45 +161,72 @@ Debajo encontrarás un diagrama de secuencia simple que explica cómo funcionar�
      |                      |                       |                     |
 ```
 
-Ten en cuenta que GitHub jamás accede a tus servidores realmente. La interacción con los eventos de despliegue dependerá de tu integración de terceros. Varios sistemas pueden escuchar a los eventos de despliegue, y depende de cada uno de ellos decidir si son responsables de cargar el código a tus servidores, si crean código nativo, etc.
+Keep in mind that GitHub is never actually accessing your servers. It's up to your third-party integration to interact with deployment events. Multiple systems can listen for deployment events, and it's up to each of those systems to decide whether they're responsible for pushing the code out to your servers, building native code, etc.
 
-Nota que el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps) `repo_deployment`concede acceso dirigido a los despliegues y estados de despliegue **sin** otorgar acceso al código del repositorio, mientras que los alcances `public_repo` y `repo` otorgan permiso para el código también.
+Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% ifversion not ghae %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
 
-### Despliegues inactivos
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository to the same environment name will become `inactive`. Para evitar esto, puedes configurar a `auto_inactive` como `false` cuando creas el estado del servidor.
+### Inactive deployments
 
-Puedes comunicar que un ambiente transitorio ya no existe si configuras el `state` como `inactive`.  El configurar al `state` como `inactive`muestra el despliegue como `destroyed` en {% data variables.product.prodname_dotcom %} y elimina el acceso al mismo.
+When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
+
+You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Bifurcaciones
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+## Environments
+
+The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+
+{% data reusables.gated-features.environments %}
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
+
+## Forks
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'forks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Invitaciones
+## Invitations
 
-La API de Invitaciones al Repositorio permite a los usuarios o a los servicios externos invitar a otros usuarios para colaborar en un repositorio. Los usuarios invitados (o los servicios externos en nombre de estos) pueden elegir aceptar o rechazar la invitación.
+The Repository Invitations API allows users or external services to invite other users to collaborate on a repo. The invited users (or external services on behalf of invited users) can choose to accept or decline the invitations.
 
-Toma en cuenta que el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps) `repo:invite` otorga un acceso dirigido a las invitaciones **sin** otorgar también el acceso al código del repositorio, mientras que el alcance `repo` otorga permisos para el código así como para las invitaciones.
+Note that the `repo:invite` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted
+access to invitations **without** also granting access to repository code, while the
+`repo` scope grants permission to code as well as invitations.
 
-### Invitar a un usuario a un repositorio
+### Invite a user to a repository		
 
-Utiliza la terminal de la API para agregar un colaborador. Para obtener más información, consulta la sección "[Agregar un colaborador del repositorio](/rest/reference/repos#add-a-repository-collaborator)".
+Use the API endpoint for adding a collaborator. For more information, see "[Add a repository collaborator](/rest/reference/repos#add-a-repository-collaborator)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Fusionar
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 
-La API de Fusión de Repositorios puede fusionar ramas en un repositorio. Esto logra esencialmente lo mismo que el fusionar una rama con otra en un repositorio local para después cargarlo a {% data variables.product.product_name %}. El beneficio es que esta fusión se lleva a cabo del lado del servidor y no se requiere un repositorio local. Esto lo hace más adecuado para la automatización y para otras herramientas mientras que el mantener repositorios locales sería incómodo e ineficiente.
+## Git LFS
 
-El usuario autenticado será el autor de cualquier fusión que se realice a través de esta terminal.
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'lfs' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+## Merging
+
+The Repo Merging API supports merging branches in a repository. This accomplishes
+essentially the same thing as merging one branch into another in a local repository
+and then pushing to {% data variables.product.product_name %}. The benefit is that the merge is done on the server side and a local repository is not needed. This makes it more appropriate for automation and other tools where maintaining local repositories would be cumbersome and inefficient.
+
+The authenticated user will be the author of any merges done through this endpoint.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'merging' %}{% include rest_operation %}{% endif %}
@@ -181,30 +234,30 @@ El usuario autenticado será el autor de cualquier fusión que se realice a trav
 
 ## Pages
 
-La API de {% data variables.product.prodname_pages %} recupera información sobre tu configuración de {% data variables.product.prodname_pages %} y sobre los estados de tus compilaciones. La información sobre este sitio y sobre las compilaciones solo es accesible mediante los propietarios autenticados, aún cuando los sitios web son públicos. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)".
+The {% data variables.product.prodname_pages %} API retrieves information about your {% data variables.product.prodname_pages %} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners{% ifversion not ghae %}, even if the websites are public{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
 
-En las terminales de la API de {% data variables.product.prodname_pages %} que llevan una clave de `status` en su respuesta, el valor puede ser uno de entre los siguientes:
-* `null`: El sitio aún tiene que crearse.
-* `queued`: Se solicitó la compilación, pero no ha iniciado.
-* `building`: La compilación está en curso.
-* `built`: Se creó el sitio.
-* `errored`: Indica que ocurrió un error durante la compilación.
+In {% data variables.product.prodname_pages %} API endpoints with a `status` key in their response, the value can be one of:
+* `null`: The site has yet to be built.
+* `queued`: The build has been requested but not yet begun.
+* `building`:The build is in progress.
+* `built`: The site has been built.
+* `errored`: Indicates an error occurred during the build.
 
-En las terminales de la API de {% data variables.product.prodname_pages %} que devulenven información del sitio de GitHub Pages, las respuestas de JSON incluyen estos campos:
-* `html_url`: La URL absoluta (incluyendo el modelo) del sitio de Páginas que se interpretó. Por ejemplo, `https://username.github.io`.
-* `source`: Un objeto que contiene la rama origen y el directorio del sitio de Páginas que se interpretó. Esto incluye:
-   - `branch`: La rama del repositorio que se utilizó para publicar los [archivos de código fuente de tu sitio](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Por ejemplo, _main_ o _gh-pages_.
-   - `path`: El directorio del repositorio desde el cual publica el sitio. Podría ser `/` o `/docs`.
+In {% data variables.product.prodname_pages %} API endpoints that  return GitHub Pages site information, the JSON responses include these fields:
+* `html_url`: The absolute URL (including scheme) of the rendered Pages site. For example, `https://username.github.io`.
+* `source`: An object that contains the source branch and directory for the rendered Pages site. This includes:
+   - `branch`: The repository branch used to publish your [site's source files](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
+   - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'pages' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Lanzamientos
+## Releases
 
 {% note %}
 
-**Nota:** La API de Lanzamientos reemplaza a la API de Descargas. Puedes recuperar el conteo de descargas y la URL de descarga del buscador desde las terminales en esta API, las cuales devuelven los lanzamientos y los activos de éstos.
+**Note:** The Releases API replaces the Downloads API. You can retrieve the download count and browser download URL from the endpoints in this API that return releases and release assets.
 
 {% endnote %}
 
@@ -212,50 +265,68 @@ En las terminales de la API de {% data variables.product.prodname_pages %} que d
   {% if operation.subcategory == 'releases' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Estadísticas
+## Statistics
 
-La API de Estadísticas del Repositorio te permite recuperar los datos que {% data variables.product.product_name %} utiliza para visualizar los diferentes tipos de actividad del repositorio.
+The Repository Statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different
+types of repository activity.
 
-### Unas palabras sobre el almacenamiento en caché
+### A word about caching
 
-El calcular las estadísitcas del repositorio es una operación costosa, así que intentamos devolver los datos almacenados en caché cuando nos es posible.  Si los datos no se han almacenado en caché cuando consultas la estadística de un repositorio, recibirás una respuesta `202`; también se dispara un job en segundo plano para comenzar a compilar estas estadísticas. Permite que el job se complete, y luego emite la solicitud nuevamente. Si el job ya terminó, esa solicitud recibirá una respuesta `200` con la estadística en el cuerpo de la respuesta.
+Computing repository statistics is an expensive operation, so we try to return cached
+data whenever possible.  If the data hasn't been cached when you query a repository's
+statistics, you'll receive a `202` response; a background job is also fired to
+start compiling these statistics. Give the job a few moments to complete, and
+then submit the request again. If the job has completed, that request will receive a
+`200` response with the statistics in the response body.
 
-El SHA de la rama predeterminada del repositorio guarda en caché las estadísticas del repositorio; el subir información a la rama predeterminada restablece el caché de de las estadísticas.
+Repository statistics are cached by the SHA of the repository's default branch; pushing to the default branch resets the statistics cache.
 
-### Las estadísticas excluyen algunos tipos de confirmaciones
+### Statistics exclude some types of commits
 
-Las estadísticas que expone la API empatan con aquellas que muestran [diversas gráficas del repositorio](/github/visualizing-repository-data-with-graphs/about-repository-graphs).
+The statistics exposed by the API match the statistics shown by [different repository graphs](/github/visualizing-repository-data-with-graphs/about-repository-graphs).
 
-Para resumir:
-- Todas las estadísticas excluyen las confirmaciones de fusión.
-- Las estadísticas del colaborador también excluyen a las confirmaciones vacías.
+To summarize:
+- All statistics exclude merge commits.
+- Contributor statistics also exclude empty commits.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'statistics' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Estados
+## Statuses
 
-La API de estados permite que los servicios externos marquen las confirmaciones con un estado de `error`, `failure`, `pending`, o `success`, el cual se refleja después en las solicitudes de extracción que involucran a esas confirmaciones.
+The status API allows external services to mark commits with an `error`,
+`failure`, `pending`, or `success` state, which is then reflected in pull requests
+involving those commits.
 
-Los estados también incluyen una `description` y una `target_url` opcionales, y recomendamos ampliamente proporcionarlas, ya que hacen mucho más útiles a los estados en la IU de GitHub.
+Statuses can also include an optional `description` and `target_url`, and
+we highly recommend providing them as they make statuses much more
+useful in the GitHub UI.
 
-Como ejemplo, un uso común es que los servicios de integración contínua marquen a las confirmaciones como compilaciones que pasan o fallan utilizando los estados.  La `target_url` sería la URL completa de la salida de la compilación, y la `description` sería el resumen de alto nivel de lo que pasó con la compilación.
+As an example, one common use is for continuous integration
+services to mark commits as passing or failing builds using status.  The
+`target_url` would be the full URL to the build output, and the
+`description` would be the high level summary of what happened with the
+build.
 
-Los estados pueden incluir un `context` para indicar qué servicio está proporcionando ese estado. Por ejemplo, puedes hacer que tu servicio de integración continua cargue estados con un contexto de `ci`, y que una herramienta de auditoria de seguridad cargue estados con un contexto de `security`.  Puedes utilizar entonces el [Obtener el estado combinado para una referencia específica](/rest/reference/repos#get-the-combined-status-for-a-specific-reference) para recuperar todo el estado de una confirmación.
+Statuses can include a `context` to indicate what service is providing that status.
+For example, you may have your continuous integration service push statuses with a context of `ci`, and a security audit tool push statuses with a context of `security`.  You can
+then use the [Get the combined status for a specific reference](/rest/reference/repos#get-the-combined-status-for-a-specific-reference) to retrieve the whole status for a commit.
 
-Toma en cuenta que el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps) de `repo:status` otorga acceso dirigido a los estados **sin** otorgar también el acceso al código del repositorio, mientras que el alcance `repo` otorga permisos para el código y también para los estados.
+Note that the `repo:status` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to statuses **without** also granting access to repository code, while the
+`repo` scope grants permission to code as well as statuses.
 
-Si estás desarrollando una GitHub App y quieres proporcionar información más detallada sobre un servicio externo, tal vez quieras utilizar la [API de Verificaciones](/rest/reference/checks).
+If you are developing a GitHub App and want to provide more detailed information about an external service, you may want to use the [Checks API](/rest/reference/checks).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-## Tráfico
+{% ifversion fpt or ghec %}
+## Traffic
 
-Para los repositorios en los que tienes acceso de carga, la API de tráfico proporciona acceso a la información proporcionada en tu gráfica de repositorio. Para obtener más información, consulta la sección "<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">Ver el tráfico de un repositorio</a>."
+For repositories that you have push access to, the traffic API provides access
+to the information provided in your repository graph. For more information, see "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Viewing traffic to a repository</a>."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
@@ -264,54 +335,50 @@ Para los repositorios en los que tienes acceso de carga, la API de tráfico prop
 
 ## Webhooks
 
-La API de Webhooks del Repositorio le permite a los administradoresd e un repositorio administrar los ganchos de post-recepción para el mismo. Los webhooks se pueden administrar utilizando la API de HTTP de JSON, o la API de [PubSubHubbub](#PubSubHubbub).
+Repository webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in a repository. {% data reusables.webhooks.webhooks-rest-api-links %}
 
-Si te gustaría configurar un solo webhook para recibir eventos de todos los repositorios de tu organización, consulta nuestra documentación de la API para los [Webhooks de una Organización](/rest/reference/orgs#webhooks).
+If you would like to set up a single webhook to receive events from all of your organization's repositories, see our API documentation for [Organization Webhooks](/rest/reference/orgs#webhooks).
+
+In addition to the REST API, {% data variables.product.prodname_dotcom %} can also serve as a [PubSubHubbub](#pubsubhubbub) hub for repositories.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-### Recibir Webhooks
+### Receiving Webhooks
 
-Para que {% data variables.product.product_name %} envíe cargas útiles de webhooks, se necesita que se pueda acceder a tu servidor desde la internet. También sugerimos ampliamente utilizar SSL para que podamos enviar cargas útiles cifradas a través de HTTPS.
+In order for {% data variables.product.product_name %} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
 
-#### Encabezados de Webhook
+#### Webhook headers
 
-{% data variables.product.product_name %} enviará varios encabezados de HTTP para diferenciar los tipos de eventos y los identificadores de las cargas útiles. Consulta la sección de [encabezados de webhook](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) para encontrar más detalles.
+{% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) for details.
 
 ### PubSubHubbub
 
-GitHub también puede fungir como un centro de [PubSubHubbub](https://github.com/pubsubhubbub/PubSubHubbub) para todos los repositorios. PSHB es un proptocolo simple de publicación/suscripción que permite a los servidores registrarse para recibir actualizaciones de cuándo se actualiza un tema. Las actualizaciones se mandan con una solicitud HTTP de tipo POST a una URL de rellamado. Las URL de tema para las cargas a un repositorio de GitHub están en este formato:
+GitHub can also serve as a [PubSubHubbub](https://github.com/pubsubhubbub/PubSubHubbub) hub for all repositories. PSHB is a simple publish/subscribe protocol that lets servers register to receive updates when a topic is updated. The updates are sent with an HTTP POST request to a callback URL.
+Topic URLs for a GitHub repository's pushes are in this format:
 
 `https://github.com/{owner}/{repo}/events/{event}`
 
-El veneto puede ser cualquier evento de webhook disponible. Para obtener más información, consulta la sección "[eventos y cargas útiles de los webhooks](/developers/webhooks-and-events/webhook-events-and-payloads)".
+The event can be any available webhook event. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
 
-#### Formato de respuesta
+#### Response format
 
-El formato predeterminado es lo que [deberían esperar los ganchos de pre-recepción existentes](/post-receive-hooks/): Un cuerpo de JSON que se envía como parámetro de `payload` en un POST.  También puedes especificar si quieres recibir el cuerpo en JSON sin procesar, ya sea un encabezado de `Accept` o una extensión `.json`.
+The default format is what [existing post-receive hooks should expect](/post-receive-hooks/): A JSON body sent as the `payload` parameter in a POST.  You can also specify to receive the raw JSON body with either an `Accept` header, or a `.json` extension.
 
     Accept: application/json
     https://github.com/{owner}/{repo}/events/push.json
 
-#### URL de Rellamado
-Las URL de rellamado puede utilizar el protocolo `http://`.
+#### Callback URLs
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}También puedes hacer rellamados de `github://` para especificar un servicio de GitHub.
-{% data reusables.apps.deprecating_github_services_ghe %}
-{% endif %}
+Callback URLs can use the `http://` protocol.
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-    # Send updates to Campfire github://campfire?subdomain=github&room=Commits&token=abc123
-{% endif %}
+#### Subscribing
 
-#### Suscribirse
-
-La terminal de PubSubHubbub de GitHub es: `{% data variables.product.api_url_code %}/hub`. Una solicitud exitosa con curl se vería así:
+The GitHub PubSubHubbub endpoint is: `{% data variables.product.api_url_code %}/hub`. A successful request with curl looks like:
 
 ``` shell
 curl -u "user" -i \
@@ -321,13 +388,13 @@ curl -u "user" -i \
   -F "hub.callback=http://postbin.org/123"
 ```
 
-Las solicitudes de PubSubHubbub pueden enviarse varias veces. Si el gancho ya existe, se modificará de acuerdo con la solicitud.
+PubSubHubbub requests can be sent multiple times. If the hook already exists, it will be modified according to the request.
 
-##### Parámetros
+##### Parameters
 
-| Nombre         | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                   |
-| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hub.mode`     | `secuencia` | **Requerido**. Ya sea `subscribe` o `unsubscribe`.                                                                                                                                                                                                                                                                                                                                                            |
-| `hub.topic`    | `secuencia` | **Requerido**.  La URI del repositorio de GitHub al cual suscribirse.  La ruta debe estar en el formato `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                                                                     |
-| `hub.callback` | `secuencia` | La URI para recibir las actualizaciones del tema.                                                                                                                                                                                                                                                                                                                                                             |
-| `hub.secret`   | `secuencia` | Una llave secreta compartida que genera un HMAC de SHA1 del contenido del cuerpo de salida.  Puedes verificar si una carga vino de GitHub si comparas el cuerpo de la solicitud sin procesar con el contenido del encabezado `X-Hub-Signature`. Puedes ver [la documentación de PubSubHubbub](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) para obtener más detalles. |
+Name | Type | Description
+-----|------|--------------
+``hub.mode``|`string` | **Required**. Either `subscribe` or `unsubscribe`.
+``hub.topic``|`string` |**Required**.  The URI of the GitHub repository to subscribe to.  The path must be in the format of `/{owner}/{repo}/events/{event}`.
+``hub.callback``|`string` | The URI to receive the updates to the topic.
+``hub.secret``|`string` | A shared secret key that generates a hash signature of the outgoing body content.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes > 2.22 or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghes < 3.0 %}`X-Hub-Signature` header{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. You can see [the PubSubHubbub documentation](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) for more details.

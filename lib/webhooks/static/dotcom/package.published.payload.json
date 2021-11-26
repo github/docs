@@ -3,6 +3,9 @@
     "package":{
        "id":10696,
        "name":"hello-world-npm",
+       "namespace":"Codertocat/hello-world-npm",
+       "description":null,
+       "ecosystem":"docker",
        "package_type":"npm",
        "html_url":"https://github.com/Codertocat/hello-world-npm/packages/10696",
        "created_at":"2019-05-09T23:28:29Z",
@@ -31,6 +34,8 @@
           "id":24147,
           "version":"1.0.0",
           "summary":"A simple npm package to demonstrate GitHub Packages",
+          "name":"sha256:3da1996a8115d7616457760d9920b815241d0a03b34cf5f04e9a0e9d8de37498",
+          "description":"",
           "body":"# hello-world-npm\n\nThis is a simple npm package that demonstrates the [Github Packages](https://github.com/features/package).\n\n## Installation \n\n`$ npm install`\n\n## Usage\n\n```\nconst myPackage = require('hello-world-node-package');\nmyPackage.helloWorld();\n```\n\n",
           "body_html":"<h1>hello-world-npm</h1>\n<p>This is a simple npm package that demonstrates the <a href=\"https://github.com/features/package\">Github Package Registry</a>.</p>\n<h2>Installation</h2>\n<p><code>$ npm install</code></p>\n<h2>Usage</h2>\n<pre><code>const myPackage = require('hello-world-node-package');\nmyPackage.helloWorld();\n</code></pre>",
           "release":{
@@ -77,6 +82,9 @@
           "metadata":[
 
           ],
+          "docker_metadata":[
+
+         ],
           "package_files":[
              {
                 "download_url":"https://github-production-package-file-4f11e5.s3.amazonaws.com/185882436/3e6d9b00-7288-11e9-9d72-c0df4c711800?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190509%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190509T232830Z&X-Amz-Expires=300&X-Amz-Signature=4b825c49cd93370123a77d0f97a4ebb0d44efb76da46faf1e382f0c668b35819&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=filename%3Dhello-world-npm-1.0.0-npm.tgz&response-content-type=application%2Foctet-stream",
@@ -112,6 +120,7 @@
              "type":"User",
              "site_admin":false
           },
+          "source_url":"ghcr.io/Codertocat/hello-world-npm/image-1:v1",
           "installation_command":"npm install @Codertocat/@1.0.0"
        },
        "registry":{

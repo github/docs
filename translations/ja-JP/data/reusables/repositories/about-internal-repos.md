@@ -1,1 +1,1 @@
-You can use internal repositories to practice "innersource" within your enterprise. Members of your enterprise can collaborate using open source methodologies without sharing proprietary information publicly{% if enterpriseServerVersions contains currentVersion %}, even with private mode disabled{% endif %}.
+インターナルリポジトリを使って、Enterprise内で「インナーソース」を実践できます。 Enterpriseアカウントのメンバーは、{% ifversion ghes %}プライベートモードを無効化されていても、{% endif %}プロプライエタリな情報をパブリックに共有することなく、オープンソースの方法論を用いてコラボレートできます。

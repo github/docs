@@ -1,148 +1,91 @@
 ---
 title: Início rápido para GitHub Actions
-intro: 'Adicione um fluxo de trabalho do {% data variables.product.prodname_actions %} a um repositório existente em até 5 minutos ou menos.'
+intro: 'Experimente as funcionalidades de {% data variables.product.prodname_actions %} em 5 minutos ou menos.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-type: 'quick_start'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: quick_start
 topics:
-  - 'Princípios básicos'
+  - Fundamentals
+shortTitle: QuickStart
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### Introdução
+## Introdução
 
-Você só precisa de um repositório de {% data variables.product.prodname_dotcom %} existente para criar e executar um fluxo de trabalho de {% data variables.product.prodname_actions %}. Neste guia, você adicionará um fluxo de trabalho que cria várias linguagens de codificação usando a [Ação de Super-Linter de {% data variables.product.prodname_dotcom %}](https://github.com/github/super-linter). O fluxo de trabalho usa o Super-Linter para validar o seu código-fonte toda vez que um novo commit é subido para o seu repositório.
+Você precisa apenas de um repositório de {% data variables.product.prodname_dotcom %} para criar e executar um fluxo de trabalho de {% data variables.product.prodname_actions %}. Neste guia, você adicionará um fluxo de trabalho que demonstra algumas das funcionalidades essenciais de {% data variables.product.prodname_actions %}.
 
-### Criar o seu primeiro fluxo de trabalho
+O exemplo a seguir mostra como os trabalhos de {% data variables.product.prodname_actions %} podem ser acionados automaticamente, onde são executados e como podem interagir com o código no seu repositório.
 
-1. Do seu repositório no {% data variables.product.prodname_dotcom %}, crie um novo arquivo no diretório `.github/workflows` denominado `superlinter.yml`. Para obter mais informações, consulte "[Criar arquivos](/github/managing-files-in-a-repository/creating-new-files)".
-2. Copie o conteúdo de YAML a seguir para o arquivo `superlinter.yml`. **Observação:** Se seu branch-padrão não for `principal`, atualize o valor de `DEFAULT_BRANCH` para corresponder ao nome do branch-padrão do seu repositório.
+## Criar o seu primeiro fluxo de trabalho
+
+1. Crie um diretório `.github/workflows` no repositório {% data variables.product.prodname_dotcom %} se este diretório não existir.
+2. No diretório `.github/workflows`, crie um arquivo denominado `github-actions-demo.yml`. Para obter mais informações, consulte "[Criar arquivos](/github/managing-files-in-a-repository/creating-new-files)".
+3. Copie o conteúdo de YAML a seguir para o arquivo `github-actions-demo.yml`:
     {% raw %}
     ```yaml{:copy}
-    name: Super-Linter
-
-    # Run this workflow every time a new commit pushed to your repository
-    on: push
-
+    name: GitHub Actions Demo
+    on: [push]
     jobs:
-      # Set the job key. The key is displayed as the job name
-      # when a job name is not provided
-      super-lint:
-        # Name the Job
-        name: Lint code base
-        # Set the type of machine to run on
+      Explore-GitHub-Actions:
         runs-on: ubuntu-latest
-
         steps:
-          # Checks out a copy of your repository on the ubuntu-latest machine
-          - name: Checkout code
+          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+          - name: Check out repository code
             uses: actions/checkout@v2
+          - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+          - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+          - name: List files in the repository
+            run: |
+              ls ${{ github.workspace }}
+          - run: echo "🍏 This job's status is ${{ job.status }}."
 
-          # Runs the Super-Linter action
-          - name: Run Super-Linter
-            uses: github/super-linter@v3
-            env:
-              DEFAULT_BRANCH: main
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
     {% endraw %}
-3. Para executar seu fluxo de trabalho, desça a barra de rolagem da página e selecione **Criar um novo branch para este commit e iniciar um pull request**. Em seguida, para criar um pull request, clique em **Propor novo arquivo**. ![Arquivo do fluxo de trabalho do commit](/assets/images/commit-workflow-file.png)
+3. Vá até o final da página e selecione **Criar um novo branch para este commit e iniciar um pull request**. Em seguida, para criar um pull request, clique em **Propor novo arquivo**. ![Arquivo do fluxo de trabalho do commit](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
 
-Fazer commit do arquivo de fluxo de trabalho no repositório aciona o evento `push` e executa seu fluxo de trabalho.
+Fazer commit do arquivo de fluxo de trabalho para um branch em seu repositório aciona o evento `push` e executa seu fluxo de trabalho.
 
-### Visualizar seus resultados do fluxo de trabalho
+## Visualizar os resultados do seu fluxo de trabalho
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-1. Em **Trabalhos** ou no gráfico de visualização, clique no trabalho de **base de código Lint**. ![Lint do trabalho do código-base](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
-{% else %}
-1. Na barra lateral esquerda, clique no trabalho **Lint de código-bsee**. ![Lint do trabalho do código-base](/assets/images/help/repository/superlinter-lint-code-base-job.png)
-{% endif %}
-{% data reusables.repositories.view-failed-job-results-superlinter %}
+1. Na barra lateral esquerda, clique no fluxo de trabalho que deseja ver.
 
-### Mais modelos de fluxo de trabalho
+   ![Lista de fluxo de trabalho na barra lateral esquerda](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
+1. Na lista de execuções do fluxo de trabalho, clique no nome da execução que você deseja visualizar.
 
-{% data reusables.actions.workflow-template-overview %}
+   ![Nome da execução do fluxo de trabalho](/assets/images/help/repository/actions-quickstart-run-name.png)
+1. Em **Trabalhos**, clique no trabalho **Explore-GitHub-Actions**.
 
-### Próximas etapas
+   ![Localizar trabalho](/assets/images/help/repository/actions-quickstart-job.png)
+1. O registro mostra como cada uma das etapas foi processada. Expanda qualquer um dos passos para ver seus detalhes.
 
-O fluxo de trabalho do super-linter que você acabou de adicionar é executado sempre que o código é enviado para o seu repositório para ajudá-lo a detectar erros e inconsistências no seu código. Mas este é apenas o início do que você pode fazer com {% data variables.product.prodname_actions %}. O seu repositório pode conter vários fluxos de trabalho que ativam diferentes tarefas com base em diferentes eventos. O {% data variables.product.prodname_actions %} pode ajudá-lo a automatizar quase todos os aspectos dos processos de desenvolvimento do seu aplicativo. Pronto para começar? Aqui estão alguns recursos úteis para dar seus próximos passos com {% data variables.product.prodname_actions %}:
+   ![Exemplos de resultados do fluxo de trabalho](/assets/images/help/repository/actions-quickstart-logs.png)
 
-- "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" para obter um tutorial aprofundado
-- "[Guias](/actions/guides)" para casos e exemplos específicos de uso
-- [github/super-linter](https://github.com/github/super-linter) para obter mais informações sobre a configuração da ação de Super-Linter
+   Por exemplo, você pode ver a lista de arquivos no seu repositório: ![Exemplo do detalhe da ação](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-<div id="quickstart-treatment" hidden>
-
-### Introdução
-
-Imprimir "Olá, mundo!" é uma ótima maneira de explorar a configuração e a sintaxe básicas de uma nova linguagem de programação. Neste guia, você usará o GitHub Actions para imprimir "Hello, World!" dentro dos registros do fluxo de trabalho do seu repositório de {% data variables.product.prodname_dotcom %}. Tudo o que você precisa para começar é um repositório de {% data variables.product.prodname_dotcom %} em que você se sente confortável para criar e executar um fluxo de trabalho de amostra de {% data variables.product.prodname_actions %}. Sinta-se à vontade para criar um novo repositório para este Início rápido. Você pode usá-lo para testar este e futuros fluxos de trabalho de {% data variables.product.prodname_actions %}.
-
-### Criar o seu primeiro fluxo de trabalho
-
-1. Do seu repositório em {% data variables.product.prodname_dotcom %}, crie um novo arquivo no diretório `.github/workflows` denominado `hello-world.yml`. Para obter mais informações, consulte "[Criar novos arquivos](/github/managing-files-in-a-repository/creating-new-files)."
-2. Copie o seguinte conteúdo YAML para o arquivo `hello-world.yml`.
-    {% raw %}
-    ```yaml{:copy}
-    name: Say hello!
-
-    # GitHub Actions Workflows are automatically triggered by GitHub events
-    on:
-      # For this workflow, we're using the workflow_dispatch event which is triggered when the user clicks Run workflow in the GitHub Actions UI
-      workflow_dispatch:
-        # The workflow_dispatch event accepts optional inputs so you can customize the behavior of the workflow
-        inputs:
-          name:
-            description: 'Person to greet'
-            required: true
-            default: 'World'
-    # When the event is triggered, GitHub Actions will run the jobs indicated
-    jobs:
-      say_hello:
-        # Uses a ubuntu-latest runner to complete the requested steps
-        runs-on: ubuntu-latest
-        steps:
-        - run: |
-            echo "Hello ${{ github.event.inputs.name }}!"
-    ```
-    {% endraw %}
-3. Vá até o final da página e selecione **Criar um novo branch para este commit e inicie um pull request**. Em seguida, para criar um pull request, clique em **Propor novo arquivo**.
-    ![Commit workflow file](/assets/images/help/repository/commit-hello-world-file.png)
-4. Assim que o merge do pull request for realizado, você estará pronto para "Acionar o seu fluxo de trabalho".
-
-### Acionar o seu fluxo de trabalho
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-1. Na barra lateral esquerda, clique no fluxo de trabalho que deseja executar.
-   ![Selecione o trabalho "say hello"](/assets/images/help/repository/say-hello-job.png)
-1. À direita, clique no menu suspenso **Executar fluxo de trabalho** e clique em **Executar fluxo de trabalho**. Opcionalmente, você pode inserir uma mensagem personalizada na entrada "Pessoa a saudar" antes de executar o fluxo de trabalho.
-   ![Acionar o fluxo de trabalho manual](/assets/images/help/repository/manual-workflow-trigger.png)
-1. A execução do fluxo de trabalho irá aparecer na parte superior da lista de execuções de fluxos de trabalho "Say hello!". Clique em "Say hello!" para ver o resultado da execução do fluxo de trabalho.
-   ![Lista de resultado da execução do fluxo de trabalho](/assets/images/help/repository/workflow-run-listing.png)
-1. Na barra lateral esquerda, clique no trabalho "say_hello".
-   ![Lista de trabalhos do fluxo de trabalho](/assets/images/help/repository/workflow-job-listing.png)
-1. Nos registros do fluxo de trabalho, expanda a seção 'Run echo "Hello World!"'.
-   ![Workflow detail](/assets/images/help/repository/workflow-log-listing.png)
-
-### More workflow templates
+## Mais modelos de fluxo de trabalho
 
 {% data reusables.actions.workflow-template-overview %}
 
-### Next steps
+## Próximas etapas
 
-The hello-world workflow you just added is a simple example of a manually triggered workflow. Esse é apenas o início do que você pode fazer com {% data variables.product.prodname_actions %}. O seu repositório pode conter vários fluxos de trabalho que ativam diferentes tarefas com base em diferentes eventos. O {% data variables.product.prodname_actions %} pode ajudá-lo a automatizar quase todos os aspectos dos processos de desenvolvimento do seu aplicativo. Pronto para começar? Aqui estão alguns recursos úteis para dar seus próximos passos com {% data variables.product.prodname_actions %}:
+O exemplo do fluxo de trabalho que você acabou de adicionar é executado cada vez que o código for enviado para o branch e mostra como {% data variables.product.prodname_actions %} pode funcionar com o conteúdo do seu repositório. Mas este é apenas o início do que você pode fazer com {% data variables.product.prodname_actions %}:
 
-- "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" para um tutorial detalhado
-- "[Guides](/actions/guides)" para casos específicos de usos e exemplos
+- O seu repositório pode conter vários fluxos de trabalho que ativam diferentes tarefas com base em diferentes eventos.
+- Você pode usar um fluxo de trabalho para instalar aplicativos de teste de software e fazer com que testem automaticamente seu código nos executores de {% data variables.product.prodname_dotcom %}.
 
-</div>
+O {% data variables.product.prodname_actions %} pode ajudá-lo a automatizar quase todos os aspectos dos processos de desenvolvimento do seu aplicativo. Pronto para começar? Aqui estão alguns recursos úteis para dar seus próximos passos com {% data variables.product.prodname_actions %}:
+
+- "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" para obter um tutorial aprofundado.

@@ -3,19 +3,21 @@ title: デプロイメントのレビュー
 intro: レビュー待ちのジョブを承認もしくは拒否できます。
 product: '{% data reusables.gated-features.environments %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.1'
+  fpt: '*'
+  ghes: '>=3.1'
+  ghae: '*'
+  ghec: '*'
 ---
 
-{% data reusables.actions.environments-beta %}
+{% data reusables.actions.ae-beta %}
 
-### ワークフローで必須のレビューについて
+## ワークフローで必須のレビューについて
 
 必須のレビュー担当者が設定された環境を参照するジョブは、開始前に承認を待ちます。 承認を待っている間のジョブは、ステータスが"Waiting"になります。 ジョブが30日以内に承認されなければ、そのワークフローは自動的にキャンセルされます。
 
-環境と必須の承認に関する詳しい情報については「[環境](/actions/reference/environments)」を参照してください。
+For more information about environments and required approvals, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %} For information about how to review deployments with the REST API, see "[Workflow Runs](/rest/reference/actions#workflow-runs)."{% endif %}
 
-### ジョブの承認もしくは拒否
+## ジョブの承認もしくは拒否
 
 1. レビューを必要とするワークフローの実行へ移動してください。 ワークフローの実行への移動に関する詳しい情報については「[ワークフロー実行の履歴の表示](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
 2. **Review deployments（デプロイメントのレビュー）**をクリックしてください。 ![デプロイメントのレビュー](/assets/images/actions-review-deployments.png)

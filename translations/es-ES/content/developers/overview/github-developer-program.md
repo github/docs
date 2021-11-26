@@ -4,7 +4,10 @@ intro: 'Si creas herramientas que se integren con {% data variables.product.prod
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - API
 ---
 
 ¿Estás creando una aplicación que se integra con GitHub? ¡Regístrate para nuestro Programa de Desarrollador! Las posibilidades son infinitas, y disfrutarás del reconocimiento de la comunidad. [Regístrate ahora](https://github.com/developer/register)
@@ -19,7 +22,7 @@ Crea tus propias herramientas que se integren de manera continua con el lugar en
 
 ## Házte cargo de la empresa
 
-[Obtén licencias de desarrollador](http://github.com/contact?form%5Bsubject%5D=Development+licenses) para crear y probar tu aplicación contra {% data variables.product.prodname_ghe_server %} o {% data variables.product.prodname_ghe_managed %}.
+[Obten licencias de desarrollador](http://github.com/contact?form%5Bsubject%5D=Development+licenses) para crear y probar tu aplicación contra el {% data variables.product.prodname_ghe_server %}.
 
 
 ## ¿Tienes una integración que opera con GitHub?

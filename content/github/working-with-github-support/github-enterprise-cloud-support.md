@@ -6,7 +6,11 @@ redirect_from:
   - /articles/github-enterprise-cloud-support
 intro: '{% data variables.product.prodname_ghe_cloud %} includes a target eight-hour response time for priority support requests, Monday to Friday in your local time zone.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - Jobs
+shortTitle: GitHub Enterprise Cloud
 ---
 
 {% note %}
@@ -14,6 +18,8 @@ versions:
 **Note:** {% data variables.product.prodname_ghe_cloud %} customers can sign up for {% data variables.contact.premium_support %}. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)."
 
 {% endnote %}
+
+{% data reusables.support.zendesk-old-tickets %}
 
 You can submit priority questions if you have purchased {% data variables.product.prodname_ghe_cloud %} or if you're a member, outside collaborator, or billing manager of a {% data variables.product.prodname_dotcom %} organization currently subscribed to {% data variables.product.prodname_ghe_cloud %}.
 
@@ -24,7 +30,7 @@ Questions that qualify for priority responses:
 - Include questions only about organizations currently using {% data variables.product.prodname_ghe_cloud %}
 
 To qualify for a priority response, you must:
-- Submit your question to [{% data variables.contact.enterprise_support %}](https://enterprise.githubsupport.com/hc/en-us/requests/new?github_product=cloud) from a verified email address that's associated with an organization currently using {% data variables.product.prodname_ghe_cloud %}
+- Submit your question to [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic) from a verified email address that's associated with an organization currently using {% data variables.product.prodname_ghe_cloud %}
 - Submit a new support ticket for each individual priority situation
 - Submit your question from Monday-Friday in your local time zone
 - Understand that the response to a priority question will be received via email

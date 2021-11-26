@@ -1,11 +1,15 @@
 ---
 title: 关于 GitHub Enterprise Cloud 的 GitHub 高级支持
-intro: '{% data variables.contact.premium_support %} 是向 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_ghe_one %} 客户提供的一种付费、补充支持服务。'
+intro: '{% data variables.contact.premium_support %} 是向 {% data variables.product.prodname_ghe_cloud %} 客户提供的一种付费、补充服务。'
 redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - Jobs
+shortTitle: GitHub 高级支持
 ---
 
 {% note %}
@@ -16,11 +20,11 @@ versions:
 
 - {% data reusables.support.data-protection-and-privacy %}
 
-- 本文包含 {% data variables.contact.premium_support %} 对于 {% data variables.product.prodname_ghe_cloud %} 客户的条款。 对于于 {% data variables.product.prodname_ghe_server %} 客户或一起购买 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.product.prodname_enterprise %} 客户，这些条款可能不同。 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_server %} 的 {% data variables.contact.premium_support %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)”和“[关于 {% data variables.product.prodname_enterprise %} 的 {% data variables.contact.premium_support %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)”。
+- 本文包含 {% data variables.contact.premium_support %} 对于 {% data variables.product.prodname_ghe_cloud %} 客户的条款。 对于于 {% data variables.product.prodname_ghe_server %} 客户或一起购买 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.product.prodname_enterprise %} 客户，这些条款可能不同。 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_server %} 的 {% data variables.contact.premium_support %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)”和“[关于 {% data variables.product.prodname_enterprise %} 的 {% data variables.contact.premium_support %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)”。
 
 {% endnote %}
 
-### 关于 {% data variables.contact.premium_support %}
+## 关于 {% data variables.contact.premium_support %}
 
 {% data variables.contact.premium_support %} 提供：
   - 我们的支持门户全天候提供英语书面支持
@@ -38,13 +42,13 @@ versions:
 
 {% data reusables.support.contacting-premium-support %}
 
-### 运行时间
+## 运行时间
 
 {% data variables.contact.premium_support %} 全天候提供。
 
 {% data reusables.support.service-level-agreement-response-times %}
 
-### 为支持事件单分配优先级
+## 为支持事件单分配优先级
 
 联系 {% data variables.contact.premium_support %} 时，可为事件单选择以下四种优先级之一：{% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %} 或 {% data variables.product.support_ticket_priority_low %}。
 
@@ -52,7 +56,7 @@ versions:
 
 {% data reusables.support.ghec-premium-priorities %}
 
-### 解决和关闭支持事件单
+## 解决和关闭支持事件单
 
 {% data variables.contact.premium_support %} 在提供解释、建议、使用说明或变通方法后，可能认为事件单已解决。
 
@@ -64,6 +68,6 @@ versions:
 
 {% data reusables.support.accessing-premium-content %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[提交事件单](/articles/submitting-a-ticket)"

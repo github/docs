@@ -1,3 +1,1 @@
-Te recomendamos que no utilices ejecutores auto-hospedados con repositorios públicos.
-
-Las bifurcaciones de tu repositorio público pueden ejecutar código potencialmente peligroso en tu máquina de ejecutor auto-hospedado creando una solicitud de extracción que ejecute el código en un flujo de trabajo.
+Te recomendamos que solo utilices los ejecutores auto-hospedados con los repositorios privados. Esto se debe a que tu repositorio podría ejecutar código peligroso en tu máquina de ejecutor auto-hospedado potencialmente al crear una solicitud de cambios que excluya el código en un flujo de trabajo.

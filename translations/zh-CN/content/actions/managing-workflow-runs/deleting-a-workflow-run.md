@@ -1,14 +1,16 @@
 ---
 title: 删除工作流程运行
-intro: '您可以删除已完成或超过两周的工作流程运行。'
-product: '{% data reusables.gated-features.actions %}'
+intro: 您可以删除已完成或超过两周的工作流程运行。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-write %}
 

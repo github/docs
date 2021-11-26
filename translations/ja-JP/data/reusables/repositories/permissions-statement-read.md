@@ -1,1 +1,1 @@
-Read access to the repository is required to perform these steps.
+これらのステップを実行するには、リポジトリへの読み取りアクセスが必要です。

@@ -6,7 +6,7 @@ redirect_from:
   - /articles/github-enterprise-subscription-agreement
   - /github/site-policy/github-enterprise-subscription-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 _These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
@@ -15,7 +15,7 @@ BY CLICKING THE "I AGREE" OR SIMILAR BUTTON OR BY USING ANY OF THE PRODUCTS (DEF
 
 This Agreement applies to the following GitHub offerings, as further defined below (collectively, the **"Products"**):
 
--   GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud) and GitHub One;
+-   GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud);
 
 -   Any Beta Previews;
 
@@ -265,7 +265,7 @@ In order to create an account, Customer must adhere to the following:
 
 #### 3.1.3 Account Security.
 
-Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) promptly [notifying GitHub](https://support.github.com/contact) upon becoming aware of any unauthorized use of, or access to, the Service through its account.  GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section 3.1.3.
+Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) promptly [notifying GitHub](https://support.github.com/contact?tags=docs-policy) upon becoming aware of any unauthorized use of, or access to, the Service through its account.  GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section 3.1.3.
 
 #### 3.1.4 Additional Terms.
 
@@ -405,8 +405,6 @@ Some Service features may be subject to additional terms as set forth in the [Gi
 **"GitHub Content"** means Content that GitHub creates, owns, or to which it holds the rights.
 
 **"GitHub Insights"** or **“Insights”** means the Software feature which provides Customer with metrics, analytics, and recommendations relating to their use of the Software. GitHub Insights does not include legacy features of GitHub including Organization insights and repository insights.
-
-**“GitHub One”** means the Product bundle which includes GitHub Enterprise, Advanced Security, Insights, Learning Lab for Enterprise Server, and Premium Plus or Engineering Direct Support.
 
 **"Learning Lab for Enterprise Server"** means the Software feature that enables Users to learn about GitHub functionality, including associated Documentation.
 

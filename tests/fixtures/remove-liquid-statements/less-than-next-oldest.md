@@ -8,7 +8,7 @@ intro: Remove liquid and content
 
 Alpha
 
-{% if currentVersion ver_lt "enterprise-server@2.14" %}
+{% ifversion ghes < 2.14 %}
 
 Bravo
 
@@ -21,7 +21,7 @@ Bravo
 
 Alpha
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_lt "enterprise-server@2.14" %}
+{% ifversion fpt or ghes < 2.14 %}
 
 Bravo
 
@@ -32,7 +32,7 @@ Bravo
 ## 3
 <div class="example3">
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 Alpha
 
@@ -40,11 +40,12 @@ Alpha
 
 Bravo
 
-{% if currentVersion ver_lt "enterprise-server@2.14" %}
+{% ifversion ghes < 2.14 %}
 
 Charlie
 
 {% endif %}
+
 {% endif %}
 
 </div>
@@ -53,11 +54,11 @@ Charlie
 
 <div class="example4">
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 Alpha
 
-{% if currentVersion ver_lt "enterprise-server@2.14" %}
+{% ifversion ghes < 2.14 %}
 
 Bravo
 
@@ -74,11 +75,11 @@ Charlie
 ## 5
 <div class="example5">
 
-{% if currentVersion ver_lt "enterprise-server@2.14" %}
+{% ifversion ghes < 2.14 %}
 
 Alpha
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 Bravo
 
@@ -95,7 +96,7 @@ Charlie
 ## 6
 <div class="example6">
 
-{% if currentVersion ver_lt "enterprise-server@2.16" %}
+{% ifversion ghes < 2.16 %}
 
 Alpha
 
@@ -103,7 +104,7 @@ Alpha
 
 Charlie
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.14" %}
+{% ifversion not fpt and ghes < 2.14 %}
 
 Bravo
 
@@ -116,11 +117,11 @@ Bravo
 ## 7
 <div class="example7">
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.14" %}
+{% ifversion not fpt and ghes < 2.14 %}
 
 Alpha
 
-{% if currentVersion ver_lt "enterprise-server@2.14" %}
+{% ifversion ghes < 2.14 %}
 
 Bravo
 
@@ -137,7 +138,7 @@ Charlie
 ## 8
 <div class="example8">
 
-{% if currentVersion ver_lt "enterprise-server@2.14" %}
+{% ifversion ghes < 2.14 %}
 
 Alpha
 
@@ -145,7 +146,7 @@ Alpha
 
 Bravo
 
-{% if currentVersion ver_gt "enterprise-server@2.16" %}
+{% ifversion ghes > 2.16 %}
 
 Charlie
 

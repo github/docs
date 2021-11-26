@@ -1,14 +1,14 @@
-1. Open the **Repository** menu, then click **Repository settings...**.
+1. 打开 **Repository（仓库）**菜单，然后单击 **Repository settings...（仓库设置...）**。
 
   {% mac %}
 
-  ![Repository settings menu option in the Mac app](/assets/images/help/desktop/mac-repository-settings.png)
+  ![Mac 应用中的仓库设置菜单选项](/assets/images/help/desktop/mac-repository-settings.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![Repository settings menu option in the Windows app](/assets/images/help/desktop/windows-repository-settings.png)
+  ![Windows 应用中的仓库设置菜单选项](/assets/images/help/desktop/windows-repository-settings.png)
 
   {% endwindows %}
   

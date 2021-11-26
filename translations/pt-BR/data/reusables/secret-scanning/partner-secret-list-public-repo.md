@@ -1,69 +1,97 @@
-| Partner                   | Supported secret                                                            |
-| ------------------------- | --------------------------------------------------------------------------- |
-| Adafruit IO               | Adafruit IO Key                                                             |
-| Alibaba Cloud             | Alibaba Cloud Access Key ID and Access Key Secret pair                      |
-| Amazon Web Services (AWS) | Amazon AWS Access Key ID and Secret Access Key pair                         |
-| Atlassian                 | Atlassian API Token                                                         |
-| Atlassian                 | Atlassian JSON Web Token                                                    |
-| Azure                     | Azure DevOps Personal Access Token | azure_devops_personal_access_token |
-| Azure                     | Azure SAS Token | azure_sas_token                                         |
-| Azure                     | Azure Service Management Certificate | azure_management_certificate       |
-| Azure                     | Azure SQL Connection String | azure_sql_connection_string                 |
-| Azure                     | Azure Storage Account Key | azure_storage_account_key                     |
-| Clojars                   | Clojars Deploy Token                                                        |
-| CloudBees CodeShip        | CloudBees CodeShip Credential                                               |
-| Databricks                | Databricks Access Token                                                     |
-| Datadog                   | Datadog API Key                                                             |
-| Discord                   | Discord Bot Token                                                           |
-| Doppler                   | Doppler Personal Token                                                      |
-| Doppler                   | Doppler Service Token                                                       |
-| Doppler                   | Doppler CLI Token                                                           |
-| Doppler                   | Doppler SCIM Token                                                          |
-| Dropbox                   | Dropbox Access Token                                                        |
-| Dropbox                   | Dropbox Short Lived Access Token                                            |
-| Dynatrace                 | Dynatrace Access Token                                                      |
-| Dynatrace                 | Dynatrace Internal Token                                                    |
-| Finicity                  | Finicity App Key                                                            |
-| Frame.io                  | Frame.io JSON Web Token                                                     |
-| Frame.io                  | Frame.io Developer Token                                                    |
-| GitHub                    | GitHub SSH Private Key                                                      |
-| GitHub                    | GitHub Personal Access Token                                                |
-| GitHub                    | GitHub App Installation Access Token                                        |
-| GoCardless                | GoCardless Live Access Token                                                |
-| GoCardless                | GoCardless Sandbox Access Token                                             |
-| Google Cloud              | Google API Key                                                              |
-| Google Cloud              | Google Cloud Private Key ID                                                 |
-| Hashicorp Terraform       | Terraform Cloud / Enterprise API Token                                      |
-| Hubspot                   | Hubspot API Key                                                             |
-| Mailchimp                 | Mailchimp API Key                                                           |
-| Mailchimp                 | Mandrill API Key                                                            |
-| Mailgun                   | Mailgun API Key                                                             |
-| MessageBird               | MessageBird API Key                                                         |
-| npm                       | npm Access Token                                                            |
-| NuGet                     | NuGet API Key                                                               |
-| Palantir                  | Palantir JSON Web Token                                                     |
-| Plivo                     | Plivo Auth Token                                                            |
-| Postman                   | Postman API Key                                                             |
-| Proctorio                 | Proctorio Consumer Key                                                      |
-| Proctorio                 | Proctorio Linkage Key                                                       |
-| Proctorio                 | Proctorio Registration Key                                                  |
-| Proctorio                 | Proctorio Secret Key                                                        |
-| Pulumi                    | Pulumi Access Token                                                         |
-| Samsara                   | Samsara API Token                                                           |
-| Samsara                   | Samsara OAuth Access Token                                                  |
-| Shopify                   | Shopify App Shared Secret                                                   |
-| Shopify                   | Shopify Access Token                                                        |
-| Shopify                   | Shopify Custom App Access Token                                             |
-| Shopify                   | Shopify Private App Password                                                |
-| Slack                     | Slack API Token                                                             |
-| Slack                     | Slack Incoming Webhook URL                                                  |
-| Slack                     | Slack Workflow Webhook URL                                                  |
-| SSLMate                   | SSLMate API Key                                                             |
-| SSLMate                   | SSLMate Cluster Secret                                                      |
-| Stripe                    | Stripe Live API Secret Key                                                  |
-| Stripe                    | Stripe Test API Secret Key                                                  |
-| Stripe                    | Stripe Live API Restricted Key                                              |
-| Stripe                    | Stripe Test API Restricted Key                                              |
-| Tencent Cloud             | Tencent Cloud Secret ID                                                     |
-| Twilio                    | Twilio Account String Identifier                                            |
-| Twilio                    | Twilio API Key                                                              |
+| Parceiro                  | Segredo compatível                                        |
+| ------------------------- | --------------------------------------------------------- |
+| Adafruit IO               | Chave de IO de Adafruit                                   |
+| Adobe                     | Adobe Device Token                                        |
+| Adobe                     | Adobe Service Token                                       |
+| Adobe                     | Adobe Short-Lived Access Token                            |
+| Adobe                     | Adobe JSON Web Token                                      |
+| Alibaba Cloud             | Par de ID e segredo da chave de acesso à nuvem do Alibaba |
+| Amazon Web Services (AWS) | Par do ID de segredo da chave de acesso ao AWS da Amazon  |
+| Atlassian                 | Token da API de Atlassian                                 |
+| Atlassian                 | Token web de JSON de Atlassian                            |
+| Azure                     | Azure Active Directory Application Secret                 |
+| Azure                     | Token de acesso pessoal do Azure DevOps                   |
+| Azure                     | Token do Azure SAS                                        |
+| Azure                     | Certificado de Gerenciamento de Serviços do Azure         |
+| Azure                     | String de conexão do Azure SQL                            |
+| Azure                     | Chave da conta de armazenamento do Azure                  |
+| Checkout.com              | Checkout.com Production Secret Key                        |
+| Checkout.com              | Checkout.com Test Secret Key                              |
+| Clojars                   | Token de implantação de Clojars                           |
+| CloudBees CodeShip        | Credencial de Coadship de CloudBees                       |
+| Contributed Systems       | Contributed Systems Credentials                           |
+| Databricks                | Token de acesso de Databricks                             |
+| Datadog                   | Chave de API de Datadog                                   |
+| Discord                   | Token de Bot de Discord                                   |
+| Doppler                   | Token pessoal de Doppler                                  |
+| Doppler                   | Token de serviço de Doppler                               |
+| Doppler                   | Token de CLI de Doppler                                   |
+| Doppler                   | Token de SCIM de Doppler                                  |
+| Doppler                   | Doppler Audit Token                                       |
+| Dropbox                   | Token de Acesso de Dropbox                                |
+| Dropbox                   | Token de acesso à vida curta do Dropbox                   |
+| Dynatrace                 | Token de acesso de Dynatrace                              |
+| Dynatrace                 | Token interno de Dynatrace                                |
+| Finicity                  | Chave do aplicativo de Finicity                           |
+| Frame.io                  | Token web do JSON de Frame.io                             |
+| Frame.io                  | Token do desenvolvedor de Frame.io                        |
+| FullStory                 | FullStory API Key                                         |
+| GitHub                    | Token de acesso pessoal do GitHub                         |
+| GitHub                    | GitHub OAuth Access Token                                 |
+| GitHub                    | GitHub Refresh Token                                      |
+| GitHub                    | Token de acesso à instalação do aplicativo GitHub         |
+| GitHub                    | Chave privada de SSH do GitHub                            |
+| GoCardless                | Token de acesso ao vivo ao GoCardless                     |
+| GoCardless                | Token de acesso de GoCardless Sandbox                     |
+| Google Cloud              | Chave da API do GOogle                                    |
+| Google Cloud              | ID da chave privada do Google Cloud                       |
+| Hashicorp Terraform       | Token da API de Terraform Cloud / Enterprise              |
+| Hubspot                   | Chave da API de Hubspot                                   |
+| Ionic                     | Ionic Personal Access Token                               |
+| Ionic                     | Ionic Refresh Token                                       |
+| Linear                    | Linear API Key                                            |
+| Linear                    | Linear OAuth Access Token                                 |
+| Mailchimp                 | Chave da API de Mailchimp                                 |
+| Mailchimp                 | Chave da API de Mandrill                                  |
+| Mailgun                   | Chave da API de Mailgun                                   |
+| MessageBird               | Chave da API de MessageBird                               |
+| Meta                      | Facebook Access Token                                     |
+| npm                       | Token de acesso de npm                                    |
+| NuGet                     | Chave de API de NuGet                                     |
+| OpenAI                    | OpenAI API Key                                            |
+| Palantir                  | Token web de JSON de Palantir                             |
+| PlanetScale               | PlanetScale Database Password                             |
+| PlanetScale               | PlanetScale OAuth Token                                   |
+| PlanetScale               | PlanetScale Service Token                                 |
+| Plivo                     | Plivo Auth ID and Token                                   |
+| Postman                   | Chave da API de Postman                                   |
+| Proctorio                 | Chave de Consumidor de Proctorio                          |
+| Proctorio                 | Chave de vínculo de Proctorio                             |
+| Proctorio                 | Chave de registro de Proctorio                            |
+| Proctorio                 | Chave de segredo de Proctorio                             |
+| Pulumi                    | Token de acesso de Pulumi                                 |
+| PyPI                      | PyPI API Token                                            |
+| RubyGems                  | RubyGems API Key                                          |
+| Samsara                   | Token de API de Samsara                                   |
+| Samsara                   | Token de acesso de OAuth de Samsara                       |
+| SendGrid                  | SendGrid API Key                                          |
+| Sendinblue                | Sendinblue API Key                                        |
+| Sendinblue                | Sendinblue SMTP Key                                       |
+| Shopify                   | Segredo compartilhado do aplicativo Shopify               |
+| Shopify                   | Token de acesso de Shopify                                |
+| Shopify                   | Token de acesso do aplicativo personalizado Shopify       |
+| Shopify                   | Senha do aplicativo privado Shopify                       |
+| Slack                     | Token da API de Slack                                     |
+| Slack                     | URL de entrada do webhook de Slack                        |
+| Slack                     | URL do fluxo de trabalho do webhook de Slack              |
+| SSLMate                   | Chave da API de SSLMate                                   |
+| SSLMate                   | Segredo do cluster de SSLMate                             |
+| Stripe                    | Chave de segredo Stripe Live                              |
+| Stripe                    | Chave secreta da API de Teste de Stripe                   |
+| Stripe                    | Chave restrita da API de Stripe Live                      |
+| Stripe                    | Chave restrita da API de testes de Stripe                 |
+| Tencent Cloud             | ID de segredot de Tencent Cloud                           |
+| Twilio                    | Identificador de string de conta de Twilio                |
+| Twilio                    | Chave da API de Twilio                                    |
+| Typeform                  | Typeform Personal Access Token                            |
+| Valour                    | Valour Access Token                                       |

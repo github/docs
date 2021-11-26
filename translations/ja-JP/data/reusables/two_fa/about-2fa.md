@@ -1,1 +1,1 @@
-Two-factor authentication (2FA) is an extra layer of security used when logging into websites or apps.
+2 要素認証（2FA） は、Web サイトあるいはアプリケーションにログインする際に使われる追加のセキュリティレイヤーです。

@@ -1,7 +1,17 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes = 3.0 or ghae %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for organization-owned{% if currentVersion ver_gt "enterprise-server@2.22" %} public and{% endif %} private repositories is currently in beta and subject to change.
+**Observação:** {% data variables.product.prodname_secret_scanning_caps %} para repositórios pertencentes à organização, está atualmente na versão beta e sujeita a alterações.
+
+{% endnote %}
+
+{% endif %}
+{% ifversion ghes > 3.0 %}
+
+{% note %}
+
+**Observação:** {% data variables.product.prodname_secret_scanning_caps %} estava em beta em {% data variables.product.prodname_ghe_server %} 3.0. Para a versão geral disponível de {% data variables.product.prodname_secret_scanning %}, faça a atualização para a versão mais recente de {% data variables.product.prodname_ghe_server %}.
+
 
 {% endnote %}
 

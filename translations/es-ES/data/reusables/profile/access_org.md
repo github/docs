@@ -1,1 +1,1 @@
-1. En la parte izquierda de tu página de perfil, debajo de "Organizaciones", da clic en el icono de tu organización. ![iconos de organización](/assets/images/help/profile/profile_orgs_box.png)
+1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Your organizations**. ![Tus organizaciones en el menú de perfil](/assets/images/help/profile/your-organizations.png)

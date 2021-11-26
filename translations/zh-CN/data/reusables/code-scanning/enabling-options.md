@@ -1,4 +1,4 @@
-<table spaces-before="0" line-breaks-before="1">
+<table spaces-before="0">
   <tr>
     <th>
       <nobr>分析类型</nobr>
@@ -11,21 +11,18 @@
   
   <tr>
     <td>
-      {% data variables.product.prodname_codeql %}
     </td>
     
     <td>
-      Using {% data variables.product.prodname_actions %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Setting up {% data variables.product.prodname_code_scanning %} using actions</a>") or using the {% data variables.product.prodname_codeql_runner %} in a third-party continuous integration (CI) system (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system">Running code scanning in your CI system</a>").
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      第三方
-    </td>
-    
-    <td>
-      Using {% data variables.product.prodname_actions %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Setting up {% data variables.product.prodname_code_scanning %} using actions</a>") or generated externally and uploaded to {% data variables.product.product_name %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github">Uploading a SARIF file to {% data variables.product.prodname_dotcom %}</a>").
     </td>
   </tr>
 </table>
+{%- ifversion fpt or ghes > 3.0 or ghae-next %}
+|
+{% data variables.product.prodname_codeql %} | 使用 {% data variables.product.prodname_actions %}（请参阅“[使用操作设置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)”）或在第三方持续集成 (CI) 系统中运行 {% data variables.product.prodname_codeql %} 分析（请参阅“[关于 CI 系统中的 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)”）。
+{%- else %}
+|
+{% data variables.product.prodname_codeql %} | 使用 {% data variables.product.prodname_actions %}（请参阅“[使用操作设置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)”）或使用第三方持续集成 (CI) 系统中的 {% data variables.product.prodname_codeql_runner %}（请参阅“[在 CI 系统中运行 {% data variables.product.prodname_codeql %} 代码扫码](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)”）。
+{%- endif %}
+| 第三&#8209;方 | 使用
+{% data variables.product.prodname_actions %}（请参阅“[使用操作设置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)”）或在外部生成并上传到 {% data variables.product.product_name %}（请参阅“[将 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)”）。|

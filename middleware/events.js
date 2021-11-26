@@ -1,54 +1,29 @@
-const express = require('express')
-const { omit } = require('lodash')
-const Ajv = require('ajv')
-const schema = require('../lib/schema-event')
-const FailBot = require('../lib/failbot')
+import express from 'express'
+import { omit } from 'lodash-es'
+import Ajv from 'ajv'
+import addFormats from 'ajv-formats'
+import { eventSchema, hydroNames } from '../lib/schema-event.js'
 
-const OMIT_FIELDS = ['type', 'token']
+const OMIT_FIELDS = ['type']
 
 const ajv = new Ajv()
+addFormats(ajv)
 
 const router = express.Router()
 
-router.post('/', async (req, res, next) => {
+router.post('/', async function postEvents(req, res, next) {
   const isDev = process.env.NODE_ENV === 'development'
   const fields = omit(req.body, '_csrf')
 
-  if (!ajv.validate(schema, fields)) {
-    if (isDev) console.log(ajv.errorsText())
-    return res.status(400).json({})
+  if (!ajv.validate(eventSchema, fields)) {
+    return res.status(400).json(isDev ? ajv.errorsText() : {})
   }
 
-  // Don't depend on Hydro on local development
-  if (isDev && !req.hydro.maySend()) {
-    return res.status(200).json({})
-  }
+  res.json({})
 
-  try {
-    const hydroRes = await req.hydro.publish(
-      req.hydro.schemas[fields.type],
-      omit(fields, OMIT_FIELDS)
-    )
-
-    if (!hydroRes.ok) {
-      const err = new Error('Hydro request failed')
-      err.status = hydroRes.status
-      err.path = fields.path
-
-      await FailBot.report(err, {
-        path: fields.path,
-        hydroStatus: hydroRes.status,
-        hydroText: await hydroRes.text()
-      })
-
-      throw err
-    }
-
-    return res.status(201).json(fields)
-  } catch (err) {
-    if (isDev) console.error(err)
-    return res.status(502).json({})
+  if (req.hydro.maySend()) {
+    await req.hydro.publish(hydroNames[fields.type], omit(fields, OMIT_FIELDS))
   }
 })
 
-module.exports = router
+export default router

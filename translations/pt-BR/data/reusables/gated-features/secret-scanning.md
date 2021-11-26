@@ -1,1 +1,6 @@
-{% data variables.product.prodname_secret_scanning_caps %} está disponível {% if currentVersion == "free-pro-team@latest" %}em repositórios públicos, e em repositórios privados pertencentes a organizações com {% else %}se você tiver {% endif %}uma licença de {% data variables.product.prodname_advanced_security %}. {% data reusables.advanced-security.more-info-ghas %}
+{% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} está disponível para todos os repositórios públicos e para repositórios privados pertencentes a organizações em que {% data variables.product.prodname_GH_advanced_security %} está habilitado.
+{%- elsif ghes > 3.0 or ghae-next %}{% data variables.product.prodname_secret_scanning_caps %} está disponível para repositórios de organizações onde {% data variables.product.prodname_GH_advanced_security %} está habilitado.
+{%- elsif ghae %}
+{% data variables.product.prodname_secret_scanning_caps %} está disponível como parte de {% data variables.product.prodname_GH_advanced_security %}, que é grátis durante a versão beta.
+{%- else %}
+{% data variables.product.prodname_secret_scanning_caps %} está disponível se você tiver uma licença para {% data variables.product.prodname_GH_advanced_security %}.{% endif %} {% data reusables.advanced-security.more-info-ghas %}

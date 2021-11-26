@@ -1,7 +1,7 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 {% note %}
 
-**Note:** Organization owners can restrict the publication of {% data variables.product.prodname_pages %} sites from repositories owned by the organization. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization)."
+**注意：**组织所有者现在可以限制从组织拥有的仓库发布 {% data variables.product.prodname_pages %} 站点。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 站点的发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”。
 
 {% endnote %}
 {% endif %}

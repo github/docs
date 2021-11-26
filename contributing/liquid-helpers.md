@@ -1,163 +1,90 @@
 # Liquid helpers <!-- omit in toc -->
 
-We use the [liquid template language](https://shopify.github.io/liquid/basics/introduction/) (specifically, [this Node.js port](https://github.com/docs/liquid)) to create different versions of our content.
+We use the [Liquid template language](https://shopify.github.io/liquid/basics/introduction/) (specifically, [this Node.js port](https://github.com/harttle/liquidjs)) and a custom `{% ifversion ... %}` tag to create versions of our documentation.
 
 Note: If you are an open source contributor, you should not worry about versioning content. This document is only here as reference.
 
-## Versioning documentation for GitHub Enterprise <!-- omit in toc -->
+:arrow_upper_left:  TOC
 
-**In this guide**
-- [Versioned documentation types for GitHub Enterprise](#versioned-documentation-types-for-github-enterprise)
-- [Liquid conditional operators](#liquid-conditional-operators)
-  - [Comparison operators](#comparison-operators)
-  - [Logical operators](#logical-operators)
-- [Liquid conditional statements for GitHub Enterprise](#liquid-conditional-statements-for-github-enterprise)
-  - [Including content in *all* supported versions](#including-content-in-all-supported-versions)
-  - [Including content that *only applies to Dotcom*](#including-content-that-only-applies-to-dotcom)
-  - [Including content for *new Dotcom features* that will be included in Enterprise](#including-content-for-new-dotcom-features-that-will-be-included-in-enterprise)
-  - [Including content for *changed* Dotcom features that will also change in Enterprise](#including-content-for-changed-dotcom-features-that-will-also-change-in-enterprise)
-  - [Including content for *changed* Dotcom features that will also change in Enterprise but don't exist in some older versions](#including-content-for-changed-dotcom-features-that-will-also-change-in-enterprise-but-dont-exist-in-some-older-versions)
-  - [Including content for *new Enterprise features* that don't exist on Dotcom](#including-content-for-new-enterprise-features-that-dont-exist-on-dotcom)
-  - [Including content for *changed Enterprise features* that don't exist on Dotcom](#including-content-for-changed-enterprise-features-that-dont-exist-on-dotcom)
+## Versioned documentation
 
-### Versioned documentation types for GitHub Enterprise
+We provide versioned documentation for users of GitHub.com, Enterprise Server, and GitHub AE (with more to come). If multiple versions of a Docs site page exist, readers can choose the version from the version picker at the top of the page.
 
-We provide versioned documentation for GitHub Enterprise users. This means the material on docs.github.com is scoped to specific product offerings.
+### Dotcom
 
-Documentation for GitHub Enterprise can generally be divided into three types: documentation for the latest release, documentation for any previous supported release, and documentation for a deprecated release.
+Documentation for Dotcom has one version: the `free-pro-team@latest` version. The short name is `fpt`.
 
+### Enterprise Server
 
-### Liquid conditional operators
+Documentation for Enterprise Server has multiple versions and can be divided into two types: documentation for **supported releases** (we support four at any one time), and documentation for **deprecated releases** (we do not link to these on the Docs site but we support a "frozen" snapshot of these docs in perpetuity, so they can still be accessed if you know the URLs). See `lib/enterprise-server-releases.js` for a list.
 
-#### Comparison operators
+The versions are named `enterprise-server@<release>`. The short name is `ghes`. In Liquid conditionals, we can specify ranges, like `ghes > 3.0`. (See more on operators below.)
 
-|Operator | Meaning|
-|--|--|
-|`ver_gt`| Greater than|
-|`ver_lt`| Less than|
-|`==`| Equal to|
-|`!=`| Not equal to**|
+### GitHub AE
 
-#### Logical operators
+Documentation for GitHub AE is similar to Dotcom: we only offer one version of the content for the product, the `github-ae@latest` version. The short name is `ghae`.
 
-Note: The below examples are only intended to show Liquid syntax and operators. The variables may not reflect what's currently in the content files.
+## Versioning in the YAML frontmatter
 
-In statements where **all** operands must be true for the condition to be true, use the operator `and`:
+Use the `versions` property within the file's frontmatter to define which products an entire page applies to. For more information, see [the _content_ directory's README](/content#versions).
 
-```
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}
-```
+## Liquid conditional operators
 
-In statements where **at least one** operand must be true for the condition to be true, use the operator `or`:
+If you define multiple products in the `versions` key within a page's YAML frontmatter, you can use the conditional operators `ifversion`/`else` (or `ifversion`/`elsif`/`else`) in the Markdown to control how the site renders content on the page for a particular product. For example, a feature may have more options on Dotcom than on GitHub Enterprise Server, so you can version the content for both Dotcom and GitHub Enterprise Server via the `versions` frontmatter, and use Liquid conditionals to describe the additional options for Dotcom.
 
-```
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-```
+Important notes:
 
-Do **not** use the operators `&&` or `||`. If you do, the content will not render in the intended versions. Only use `and` or `or`.
+* Make sure to use `ifversion` and not `if`. A test will fail if an `if` statement is used for versioning.
+* Make sure to use `elsif` and not `else if`. Liquid does not recognize `else if` and will not render content inside an `else if` block.
 
-### Liquid conditional statements for GitHub Enterprise
+### Comparison operators
 
-Use the custom `ver_gt` and `ver_lt` Liquid operators to conditionally include or exclude GitHub Enterprise content.
+For versions that don't have numbered releases (like `fpt` and `ghae`), you have two options:
 
-- `ver_lt` stands for "version less than"
-- `ver_gt` stands for "version" greater than"
+* `{% ifversion ghae %}`
+* `{% ifversion not ghae %}`
 
-See the [Semantic Versioning specification](https://semver.org/#spec-item-11) for more details on version precedence.
+For versions that have numbered releases (currently only `ghes`), you can do the same for content that is either available in all of the releases or not available in any of the releases:
 
-#### Including content in *all* supported versions
+* `{% ifversion ghes %}`
+* `{% ifversion not ghes %}`
 
-If your content is included in all versions of Enterprise, you need not include any Liquid logic at all. The Markdown source will automatically generate the HTML content for all supported versions.
+If you need to denote content that is only available (or not available) in **certain** releases, you can use the following operators:
 
-#### Including content that *only applies to Dotcom*
+|Operator | Meaning| Example
+|--|--|--|
+|`=`| Equal to| `{% ifversion ghes = 3.0 %}`
+|`>`| Newer than| `{% ifversion ghes > 3.0 %}`
+|`<`| Older than| `{% ifversion ghes < 3.0 %}`
+|`!=`| Not equal to| `{% ifversion ghes != 3.0 %}` (don't use `not` in ranges)
 
-If your content only applies to GitHub.com, such as billing information, use this logic:
+### Logical operators
+
+When **all** operands must be true for the condition to be true, use the operator `and`:
 
 ```
-{% if currentVersion == "free-pro-team@latest" %}This is how you pay for your personal account, which is something you wouldn't do in Enterprise.{% endif %}
+{% ifversion ghes > 2.21 and ghes < 3.1 %}
 ```
 
-In this example:
-- `if currentVersion == "free-pro-team@latest"` will include the content for Dotcom output and *only* Dotcom.
-- `{% endif %}` ends the statement.
-
-#### Including content for *new Dotcom features* that will be included in Enterprise
-
-If your content is describing a new feature that was added to GitHub.com and will be automatically included in the next release of GitHub Enterprise, use this logic:
+When **at least one** operand must be true for the condition to be true, use the operator `or`:
 
 ```
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}This is a brand new feature, the likes of which have never been seen at this company before!{% endif %}
+{% ifversion fpt or ghes > 2.21 %}
 ```
 
-In this example:
+Do **not** use the operators `&&` or `||`. Liquid does not recognize them, and the content will not render in the intended versions.
 
-- `if currentVersion == "free-pro-team@latest"` will include the content for GitHub.com output.
-- `or currentVersion ver_gt "enterprise-server@2.21"` will include the content for releases *after* Enterprise 2.21, which means the content will be included for 2.22+.
-- `{% endif %}` ends the statement.
+### Versioning content for _future_ releases of GitHub AE
 
-#### Including content for *changed* Dotcom features that will also change in Enterprise
+If your content describes a feature that will be included in the next release of GitHub AE, you can use a placeholder version string, `ghae-next`. Before the next GitHub AE release, we will run a script to replace the placeholder with `ghae`.
 
-If your content is describing a change to existing functionality in Dotcom, such as changed UI text or a more simple means of completing a task, use this logic:
-
+For example, you can use this logic for a feature that's shipping on GitHub.com and will also be available in a future update to GitHub AE:
 ```
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}This is the new way of doing things {% else %}This is the old way of doing things {% endif %}
+{% ifversion fpt or ghae-next %}This is a brand new feature, the likes of which have never been seen at this company before!{% endif %}
 ```
-
-In this example:
-
-- `if currentVersion == "free-pro-team@latest"` will include the content for GitHub.com output.
-- `or currentVersion ver_gt "enterprise-server@2.21"` will include the content for releases *after* Enterprise 2.21, which means the content will be included for 2.22+.
-- `{% else %}` means if the above is NOT true, then display the content that follows, `This is the old way of doing things`.
-- `{% endif %}` ends the statement.
-
-#### Including content for *changed* Dotcom features that will also change in Enterprise but don't exist in some older versions
-
-If your content is describing a change to existing functionality in Dotcom, and that functionality doesn't exist in all older Enterprise versions, use logic like this:
-
+After the feature becomes available in GitHub AE and we run the replacement script, this statement will become:
 ```
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-
-This is the new way of doing things.
-
-{% elsif currentVersion ver_gt "enterprise-server@2.19" and currentVersion ver_lt "enterprise-server@2.21" %}
-
-This is the old way of doing things (which did not exist before 2.20).
-
-{% endif %}
+{% ifversion fpt or ghae %}This is a brand new feature, the likes of which have never been seen at this company before!{% endif %}
 ```
 
-In this example:
-
-- `if currentVersion == "free-pro-team@latest"` will include the content for GitHub.com output.
-- `or currentVersion ver_gt "enterprise-server@2.20"` will include the content for releases *after* Enterprise 2.20, which means the content will be included for 2.21+.
-- `elsif currentVersion ver_gt "enterprise-server@2.19" and currentVersion ver_lt "enterprise-server@2.21"` means if the above is NOT true, and the version is 2.20, then display the content that follows, `This is the old way of doing things`. No content will be displayed for versions older than 2.20.
-- `{% endif %}` ends the statement.
-
-#### Including content for *new Enterprise features* that don't exist on Dotcom
-
-If your content is describing a new feature that was added to GitHub Enterprise but not GitHub, such as LDAP support, use this logic:
-
-```
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}This is a brand new feature, admin-type people!{% endif %}
-```
-
-In this example:
-
-- `if currentVersion != "free-pro-team@latest"` will exclude the content for GitHub.com output.
-- `and currentVersion ver_gt "enterprise-server@2.21"` will *additionally* include the content for releases *after* Enterprise 2.21, which means the content will be included for 2.22+.
-- `{% endif %}` ends the statement.
-
-#### Including content for *changed Enterprise features* that don't exist on Dotcom
-
-If your content is describing a change to existing functionality in GitHub Enterprise, such as changed UI text or a more simple means of completing a task in the Management Console, use this logic:
-
-```
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}This is the new way of doing things, admins! {% else %}This is the old way of doing things, admins! {% endif %}
-```
-
-In this example:
-
-- `if currentVersion != "free-pro-team@latest"` will exclude the content for GitHub.com output.
-- `and currentVersion ver_gt "enterprise-server@2.21"` will *additionally* include the content for releases *after* Enterprise 2.21, which means the content will be included for 2.22+.
-- `{% else %}` means if the above is NOT true, then display the content that follows, `This is the old way of doing things, admins!`.
-- `{% endif %}` ends the statement.
+`ifversion` tags can also support `ghae-issue-<number>` as an additional way to version content more granularly for upcoming GitHub AE releases.

@@ -1,1 +1,0 @@
-3. Bestätige, dass SAML SSO aktiviert ist. Weitere Informationen findest Du unter „[SAML Single Sign-On für Deine Organisation verwalten](/articles/managing-saml-single-sign-on-for-your-organization).“

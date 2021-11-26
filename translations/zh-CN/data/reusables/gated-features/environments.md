@@ -1,1 +1,1 @@
-{% data reusables.gated-features.actions-shared %} Environments, environment protection rules, and environment secrets are available in public repositories for all products and in private repositories for {% data variables.product.prodname_enterprise %}. {% if currentVersion == "free-pro-team@latest" %}{% data reusables.gated-features.more-info %}{% endif %}
+所有产品的**公共**仓库提供环境、环境保护规则和环境机密。 要访问**私人**仓库的环境，您必须使用 {% data variables.product.prodname_enterprise %}。{% ifversion fpt or ghec %} {% data reusables.gated-features.more-info %}{% endif %}

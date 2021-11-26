@@ -1,1 +1,0 @@
-1. Klicke unter „Billing overview“ (Abrechnungsübersicht) auf **Update payment method** (Zahlungsmethode aktualisieren). ![Schaltfläche zum Aktualisieren der Zahlungsmethode](/assets/images/help/billing/update_payment_method.png)

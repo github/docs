@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
-Additionally,
-{% data variables.product.prodname_dotcom %} can review any dependencies added, updated, or removed in a pull request made against the default branch of a repository, and flag any changes that would introduce a vulnerability into your project. This allows you to spot and deal with vulnerable dependencies before, rather than after, they reach your codebase. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
+加えて、
+{% data variables.product.prodname_dotcom %}は、リポジトリのデフォルトブランチに対して作成されたPull Request中で追加、更新、削除された依存関係のレビューを行うことができ、プロジェクトに脆弱性をもたらすような変更にフラグを立てることができます。 これによって、脆弱な依存関係がコードベースに達したあとではなく、達する前に特定して対処できるようになります。 詳しい情報については「[Pull Request中の依存関係の変更のレビュー](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)」を参照してください。
 {% endif %}

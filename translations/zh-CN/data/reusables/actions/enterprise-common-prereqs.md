@@ -1,5 +1,5 @@
-* Review the hardware requirements for {% data variables.product.prodname_actions %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
-* TLS must be configured for {% data variables.product.product_location %}'s domain. For more information, see "[Configuring TLS](/admin/configuration/configuring-tls)."
+* 查看 {% data variables.product.prodname_actions %} 的硬件要求。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)”。
+* 必须为 {% data variables.product.product_location %} 的域配置 TLS。 更多信息请参阅“[配置 TLS](/admin/configuration/configuring-tls)”。
 
   {% note %}
 

@@ -1,1 +1,1 @@
-Artifacts enable you to share data between jobs in a workflow and store data once that workflow has completed.
+成果物を使うと、ワークフロー内のジョブ間でデータを共有し、ワークフローが完了したときに、そのワークフローのデータを保存できるようになります。

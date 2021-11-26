@@ -8,7 +8,7 @@ Sometimes we change the name of an article but want its old URL to redirect to i
 
 ## External redirects
 
-Sometimes the canonical home of some content moves outside the help site. For these types of redirects, we add entries to [/lib/redirects/external-redirects.json](/lib/redirects/external-redirects.json).
+Sometimes the canonical home of some content moves outside the help site. For these types of redirects, we add entries to [/lib/redirects/external-sites.json](/lib/redirects/external-sites.json).
 
 ## Custom redirects
 

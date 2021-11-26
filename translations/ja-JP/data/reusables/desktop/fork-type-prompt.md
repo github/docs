@@ -1,42 +1,42 @@
-1. If you plan to use this fork for contributing to the original upstream repository, click **To contribute to the parent project**.
+1. オリジナルの上流のリポジトリへのコントリビューションにこのフォークを使うつもりなのであれば、**To contribute to the parent project（パートナープロジェクトへのコントリビュート）**をクリックしてください。
 
   {% mac %}
 
-  ![Contribute to the parent project menu option](/assets/images/help/desktop/mac-fork-options-prompt.png)
+  ![親プロジェクトへのコントリビュートメニューオプション](/assets/images/help/desktop/windows-forking-continue.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![Contribute to the parent project menu option](/assets/images/help/desktop/windows-fork-options-prompt.png)
+  ![親プロジェクトへのコントリビュートメニューオプション](/assets/images/help/desktop/windows-fork-options-prompt.png)
 
   {% endwindows %}
 
-2. If you plan to use this fork for a project not connected to the upstream, click **For my own purposes**.
+2. 上流に接続されていないプロジェクトにこのフォークを使うつもりなのであれば、**For my own purposes（自分自身の目的のため）**をクリックしてください。
 
   {% mac %}
 
-  ![Contribute to an independent project menu option](/assets/images/help/desktop/mac-fork-own-purposes.png)
+  ![独立したプロジェクトへのコントリビュートメニューオプション](/assets/images/help/desktop/mac-fork-own-purposes.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![Contribute to an independent project menu option](/assets/images/help/desktop/windows-fork-own-purposes.png)
+  ![独立したプロジェクトへのコントリビュートメニューオプション](/assets/images/help/desktop/windows-fork-own-purposes.png)
 
   {% endwindows %}
 
-3. Click **Continue**.
+3. **Continue（続ける）**をクリックしてください。
 
   {% mac %}
 
-  ![The continue button](/assets/images/help/desktop/mac-forking-continue.png)
+  ![継続ボタン](/assets/images/help/desktop/mac-forking-continue.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![The continue button](/assets/images/help/desktop/windows-forking-continue.png)
+  ![継続ボタン](/assets/images/help/desktop/windows-forking-continue.png)
 
   {% endwindows %}
   

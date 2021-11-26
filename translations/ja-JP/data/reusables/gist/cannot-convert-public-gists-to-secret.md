@@ -1,1 +1,1 @@
-After creating a gist, you cannot convert it from {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} to secret.
+Gistを作成した後は、それを{% ifversion ghae %}インターナル{% else %}パブリック{% endif %}からシークレットに変換することはできません。

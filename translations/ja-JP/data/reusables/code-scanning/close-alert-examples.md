@@ -1,1 +1,1 @@
-For example, an error in code that's used only for testing, or when the effort of fixing the error is greater than the potential benefit of improving the code.
+たとえば、テストで使われるだけのコードのエラーや、エラーを修正するための労力がコードを改善することによる潜在的な利点よりも大きい場合です。

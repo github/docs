@@ -1,5 +1,9 @@
 name: Lint Yaml
 
+# **What it does**: This lints our yaml files in the docs repository.
+# **Why we have it**: We want some level of consistent formatting for YAML files.
+# **Who does it impact**: Docs engineering, docs content.
+
 on:
   workflow_dispatch:
   push:
@@ -18,25 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
 
       - name: Setup node
-        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 14.x
-
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache node modules
-        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: 16.13.x
+          cache: npm
 
       - name: Install dependencies
         run: npm ci

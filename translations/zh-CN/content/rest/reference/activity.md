@@ -1,11 +1,16 @@
 ---
 title: 活动
+intro: 'The Activity API allows you to list events and feeds and manage notifications, starring, and watching for the authenticated user.'
 redirect_from:
   - /v3/activity
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
@@ -22,18 +27,16 @@ versions:
 
 ``` shell
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-Poll-Interval: 60
 > ETag: "a18c3bded88eb5dbb5c849a489412bf3"
 
 # The quotes around the ETag value are important
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events \
 $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > X-Poll-Interval: 60
 ```
-
-事件支持分页，但不支持 `per_page` 选项。 固定页面大小为 30 个条目。 支持最多获取 10 页，总共 300 个事件。 更多信息请参阅“[使用分页遍历](/rest/guides/traversing-with-pagination)”。
 
 时间表中只包含过去 90 天内创建的事件。 超过 90 天的活动将不包括在内（即使时间表中的活动总数不到 300 个）。
 
@@ -56,7 +59,7 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 #### 响应
 
 ```shell
-Status: 200 OK
+HTTP/2 200
 ```
 
 ```xml
@@ -122,14 +125,14 @@ Status: 200 OK
 ``` shell
 # Add authentication to your requests
 $ curl -I {% data variables.product.api_url_pre %}/notifications
-HTTP/1.1 200 OK
+HTTP/2 200
 Last-Modified: Thu, 25 Oct 2012 15:16:27 GMT
 X-Poll-Interval: 60
 
 # Pass the Last-Modified header exactly
 $ curl -I {% data variables.product.api_url_pre %}/notifications
 $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > X-Poll-Interval: 60
 ```
 
@@ -144,10 +147,11 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 | `assign`           | 您被分配到议题。                                                                                                                                                     |
 | `作者`               | 您创建了帖子。                                                                                                                                                      |
 | `注释，评论`            | 您评论了帖子。                                                                                                                                                      |
+| `ci_activity`      | 当 {% data variables.product.prodname_actions %} 工作流程运行被请求或完成时。                                                                                               |
 | `邀请`               | 您接受了参与仓库的邀请。                                                                                                                                                 |
 | `manual`           | 您订阅了帖子（通过议题或拉取请求）                                                                                                                                            |
 | `提及`               | 您在内容中被特别 **@提及**。                                                                                                                                            |
-| `review_requested` | 您或您所属的团队被请求审查拉取请求。{% if currentVersion == "free-pro-team@latest" %}
+| `review_requested` | 您或您所属的团队被请求审查拉取请求。{% ifversion fpt or ghec %}
 | `security_alert`   | {% data variables.product.prodname_dotcom %} 在您的仓库中发现了[安全漏洞](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)。{% endif %}
 | `state_change`     | 您更改了帖子主题（例如关闭议题或合并拉取请求）。                                                                                                                                     |
 | `subscribed`       | 您在关注仓库。                                                                                                                                                      |

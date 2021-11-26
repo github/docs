@@ -1,0 +1,1 @@
+サブスクリプションの支払いにクーポンを使う場合、クーポンが期限切れになると、支払い方法にサブスクリプションのコストすべてが課金されます。 保存された支払い方法がない場合、アカウントはユーザアカウントなら{% data variables.product.prodname_free_user %}に、もしくはOrganizationなら{% data variables.product.prodname_free_team %}にダウングレードされます。

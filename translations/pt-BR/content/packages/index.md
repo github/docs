@@ -8,38 +8,34 @@ introLinks:
 featuredLinks:
   guides:
     - /packages/learn-github-packages
-    - /packages/guides/using-github-packages-with-github-actions
-    - /packages/manage-packages/installing-a-package
+    - /packages/managing-github-packages-using-github-actions-workflows
+    - /packages/learn-github-packages/installing-a-package
   popular:
-    - /packages/guides/configuring-npm-for-use-with-github-packages
-    - /packages/guides/configuring-docker-for-use-with-github-packages
+    - /packages/working-with-a-github-packages-registry/working-with-the-npm-registry
+    - '{% ifversion fpt %}/packages/working-with-a-github-packages-registry/working-with-the-container-registry{% else %}/packages/working-with-a-github-packages-registry/working-with-the-docker-registry{% endif %}'
     - /packages/learn-github-packages
-    - /packages/guides/configuring-apache-maven-for-use-with-github-packages
+    - /packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry
   guideCards:
-    - /packages/guides/configuring-npm-for-use-with-github-packages
-    - /packages/guides/enabling-improved-container-support
-    - /packages/guides/configuring-rubygems-for-use-with-github-packages
+    - '{% ifversion fpt %}/packages/working-with-a-github-packages-registry/working-with-the-container-registry{% else %}/packages/working-with-a-github-packages-registry/working-with-the-docker-registry{% endif %}'
+    - /packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry
 changelog:
-  - title: Modo de manutenção do ghcr.io em 2021-01-09
-    date: '2021-01-08'
-    href: 'https://github.blog/changelog/2021-01-08-packages-ghcr-io-maintenance-mode-on-2021-01-09/'
-  - title: Os nomes de contêineres de ghcr.io redirecionam para a página do contêiner
-    date: '2020-12-14'
-    href: 'https://github.blog/changelog/2020-12-14-ghcr-io-container-names-redirect-to-the-container-page/'
-  - title: Filtro para contêineres marcados e sem tags
-    date: '2020-12-14'
-    href: 'https://github.blog/changelog/2020-12-14-packages-can-filter-for-tagged-and-untagged-containers/'
+  label: packages
+  prefix: 'Packages: '
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry
   - /github/managing-packages-with-github-package-registry
 layout: product-landing
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+children:
+  - /quickstart
+  - /learn-github-packages
+  - /working-with-a-github-packages-registry
+  - /managing-github-packages-using-github-actions-workflows
 ---
 
-<!-- {% link_with_intro /quickstart %}  -->
-<!-- {% link_with_intro /guides %} -->
-<!-- {% link_with_intro /learn-github-packages %} -->
-<!-- {% link_with_intro /manage-packages %} -->
+<!--This section is needed to determine the order of the left sidebar for now-->

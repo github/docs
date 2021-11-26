@@ -1,7 +1,7 @@
 ---
 - 
   term: '@menção'
-  description: notificar uma pessoa no GitHub adicionando `@` antes do nome de usuário. Os usuários de uma organização no GitHub também podem integrar uma equipe que pode ser mencionada.
+  description: Notificar uma pessoa no GitHub adicionando `@` antes do nome de usuário. Os usuários de uma organização no GitHub também podem integrar uma equipe que pode ser mencionada.
 - 
   term: token de acesso
   description: >-
@@ -9,7 +9,7 @@
 - 
   term: token de recuperação de conta
   description: >-
-    Credencial de autenticação armazenada como parte de uma configuração de recuperação de conta chamada Recuperação de contas em outro lugar que permite armazenar essa credencial de backup.
+    **Obsoleto e será desativado em 1 de dezembro de 2021.** A credencial de autenticação armazenada como parte de uma configuração de recuperação de conta denominada Recuperação de Contas em Outro Lugar Recover que permite que você armazene essa credencial de backup.
 - 
   term: Visualização da API
   description: >-
@@ -78,7 +78,7 @@
   term: cartão
   description: Quadrado móvel em um quadro de projeto associado a um problema ou pull request.
 - 
-  term: Verificação
+  term: marcar
   description: >-
     Uma verificação é um tipo de verificação de status em {% data variables.product.product_name %}. Consulte "[Verificações de status](#status-checks)".
 - 
@@ -88,7 +88,7 @@
 - 
   term: cherry-picking
   description: >-
-    Escolher um subconjunto em uma série de alterações (geralmente commits) e registrá-lo como uma nova série de alterações em uma base de código diferente. No Git, isso acontece pelo comando `git cherry-pick` para extrair a alteração apresentada por um commit existente em outro branch e registrá-la com base no branch atual como um novo commit.
+    Para escolher um subconjunto de alterações de uma série de alterações (tipicamente commits) e registrá-los como uma nova série de alterações no topo de uma base de código diferente. No Git, isto é executado pelo comando `git cherry-pick` para extrair a alteração introduzida por um commit existente em outro branch e registrá-la com base na ponta do branch atual como um novo commit. Para obter mais informações, consulte [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) na documentação do Git.
 - 
   term: equipe secundária
   description: >-
@@ -175,19 +175,19 @@
   term: cURL
   description: Usado em scripts ou linhas de comando para transferir dados.
 - 
-  term: Painel
+  term: painel
   description: >-
     Seu painel pessoal é o principal centro da sua atividade no GitHub. No seu painel pessoal, você pode monitorar problemas e pull requests que está acompanhando ou nos quais está trabalhando, acessar os seus melhores repositórios e páginas de equipe e aprender sobre as atividades recentes em repositórios dos quais você está assistindo ou participando. Também é possível descobrir novos repositórios, que são recomendados com base em usuários que você está seguindo e com base em repositórios que você favoritou. Para visualizar somente as atividades de uma organização específica, visite o painel da sua organização. Para obter mais informações, consulte "[Sobre o seu painel pessoal](/articles/about-your-personal-dashboard)" ou "[Sobre o painel da sua organização](/articles/about-your-organization-dashboard)."
 - 
   term: branch padrão
   description: >-
-    O branch de base para novos pull requests e commits de código em um repositório. Cada repositório tem pelo menos um branch, que o Git cria quando você inicializa o repositório. O primeiro branch é geralmente denominado `main`, e é, muitas vezes, o branch-padrão.
+    O branch base para os novos pull requests e commits de código em um repositório. Cada repositório tem pelo menos um branch, que o Git cria quando você inicializa o repositório. Geralmente, o primeiro branch é denominado {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, e, muitas vezes, é o branch padrão.
 - 
   term: gráfico de dependentes
   description: >-
     Gráfico que mostra os pacotes, projetos e repositórios que dependem de um repositório público.
 - 
-  term: Gráfico de dependências
+  term: gráfico de dependências
   description: >-
     Gráfico que mostra os pacotes e projetos dos quais o repositório depende.
 - 
@@ -213,7 +213,7 @@
   term: notificações de e-mail
   description: Notificações enviadas para o endereço de e-mail de um usuário.
 - 
-  term: conta corporativa
+  term: enterprise account
   description: As contas corporativas permitem que você gerencie a política e a cobrança centralmente para várias organizações de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorador
@@ -250,9 +250,9 @@
   description: >-
     Plano de cobrança grátis para contas de usuário. Os usuários podem contribuir em repositórios públicos ilimitados com colaboradores ilimitados.
 - 
-  term: Gist
+  term: gist
   description: >-
-    Um gist é um arquivo compartilhável que você pode editar, clonar e bifurcar no GitHub. Você pode criar um gist {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} ou secreto, embora os gists secretos estejam disponíveis para {% if currentVersion == "github-ae@latest" %}qualquer membro corporativo{% else %}qualquer pessoa{% endif %} com a URL.
+    Um gist é um arquivo compartilhável que você pode editar, clonar e bifurcar no GitHub. Você pode criar um gist {% ifversion ghae %}interno{% else %}público{% endif %} ou secreto, embora os gists secretos estejam disponíveis para {% ifversion ghae %}qualquer membro corporativo{% else %}qualquer pessoa{% endif %} com a URL.
 - 
   term: Git
   description: >-
@@ -377,7 +377,7 @@
   description: >-
     Conta pessoal que não pode ser acessada pelo usuário. As contas ficam bloqueadas após o downgrade da modalidade paga para a grátis ou após o vencimento do plano da conta paga.
 - 
-  term: Console de gerenciamento
+  term: console de gerenciamento
   description: >-
     Seção na interface do GitHub Enterprise que contém recursos administrativos.
 - 
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    Branch de desenvolvimento padrão. Sempre que um repositório do Git é criado, um branch "principal" também é criado e passa a ser o branch ativo. Contém o desenvolvimento local na maioria dos casos, embora isso ocorra meramente por convenção e não seja obrigatório.
+    {% ifversion fpt or ghes > 3.1 or ghae %} O branch de desenvolvimento padrão. Sempre que você criar um repositório Git, será criado um branch denominado `main` e irá tornar-se o branch ativo. Na maioria dos casos, isto contém o desenvolvimento local, embora isso seja puramente por convenção e não seja necessário.{% else %}Nome frequentemente escolhido como uma alternativa para 'master' para o branch padrão de um repositório.{% endif %}
 - 
   term: mestre
   description: >-
-    O branch padrão em muitos repositórios do Git. Por padrão, ao criar um novo repositório do Git na linha de comando um branch denominado "mestre" é criado. Muitas ferramentas agora usam um nome alternativo para o branch padrão. Por exemplo, quando você cria um novo repositório no GitHub, a branch padrão é chamada de "principal".
+    O branch padrão em muitos repositórios Git. Por padrão, quando você cria um novo repositório Git na linha de comando, um branch denominado `master` será criado. Muitas ferramentas agora usam um nome alternativo para o branch padrão.{% ifversion fpt or ghes > 3.1 or ghae %} Por exemplo, quando você cria um novo repositório no GitHub, o branch padrão é denominado `main`.{% endif %}
 - 
   term: gráfico de integrantes
   description: Gráfico que exibe todas as bifurcações de um repositório.
@@ -565,8 +565,8 @@
   description: >-
     Nível de permissão que permite ao usuário ler ou fazer pull das informações do repositório. Todos os repositórios públicos dão acesso de leitura a todos os usuários do GitHub. Sinônimo para acesso pull.
 - 
-  term: LEIAME
-  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo LEIAME ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
+  term: README
+  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo README ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
 - 
   term: rebase
   description: >-
@@ -574,7 +574,7 @@
 - 
   term: recuperação de contas em outro lugar
   description: >-
-    Permite aos usuários adicionar uma camada de segurança extra à conta do GitHub em caso de perda do acesso à autenticação de dois fatores ou aos códigos de recuperação. Os usuários podem associar suas contas do GitHub às contas do Facebook armazenando uma credencial de autenticação em forma de token de recuperação para a conta do GitHub no Facebook.
+    **Obsoleto e será desabilitado em 1 de dezembro de 2021.** Permite aos usuários adicionar uma camada de segurança extra à conta do GitHub em caso de perda do acesso à autenticação de dois fatores ou aos códigos de recuperação. Os usuários podem associar suas contas do GitHub às contas do Facebook armazenando uma credencial de autenticação em forma de token de recuperação para a conta do GitHub no Facebook.
 - 
   term: código de recuperação
   description: Código que ajuda a recuperar o acesso à conta do GitHub.
@@ -602,12 +602,16 @@
   description: >-
     Repositórios são o elemento mais essencial do GitHub e podem ser imaginados como pastas de um projeto. O repositório contém todos os arquivos do projeto (inclusive a documentação) e armazena o histórico de revisão de cada arquivo. Repositórios podem ter vários colaboradores e podem ser públicos ou privados.
 - 
+  term: repository cache
+  description: >-
+    A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
+- 
   term: gráfico do repositório
   description: Representação visual dos dados do seu repositório.
 - 
   term: mantenedor de repositório
   description: >-
-    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o LEIAME e os arquivos de contribuição atualizados.
+    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o README e os arquivos de contribuição atualizados.
 - 
   term: revisão obrigatória de pull request
   description: >-
@@ -654,6 +658,10 @@
   description: >-
     Log que relaciona as últimas 50 ações ou as ações executadas nos últimos 90 dias.
 - 
+  term: server-to-server request
+  description: >-
+    Uma solicitação de API usada por um aplicativo que atua como um bot, independentemente de qualquer usuário em particular. Por exemplo, um aplicativo que é executado de forma programada e fecha problemas onde não há atividade há muito tempo. Os aplicativos que usam este tipo de autenticação não usam uma conta do GitHub licenciada. Portanto, em uma empresa com um plano de cobrança que permite a utilização de um determinado número de licenças, um bot de servidor para servidor não está consumindo uma das suas licenças do GitHub. O token usado em uma solicitação de servidor para servidor é adquirido de forma programática por meio da [API do GitHub](/rest/reference/apps#create-an-installation-access-token-for-an-app). Consulte também, "[pedido do usuário usuário para servidor](#user-to-server-request)."
+- 
   term: hook de serviço
   description: >-
     Também chamado de "webhook". Os webhooks permitem que notificações sejam entregues a um servidor web externo sempre que determinadas ações ocorrem em um repositório ou uma organização.
@@ -680,7 +688,7 @@
   description: >-
     Representação visual em uma pull request indicativa de que os seus commit atendem às condições definidas para o repositório com o qual você está contribuindo.
 - 
-  term: Verificações de status
+  term: verificações de status
   description: >-
     Verificações de status são processos externos, como criações de integração contínua, que são executadas para cada commit que você fizer em um repositório. Para obter mais informações, consulte "[Verificações de status](/articles/about-status-checks)".
 - 
@@ -714,7 +722,7 @@
   description: >-
     Uma forma de explorar repositórios em uma área de assunto específica, encontrar projetos com os quais contribuir e descobrir novas soluções para um problema específico no GitHub.
 - 
-  term: gráfico de tráfego
+  term: traffic graph
   description: >-
     Gráfico que mostra o tráfego de um repositório, inclusive clones totais (sem fetch), visitantes dos últimos 14 dias, sites de referência e conteúdo popular.
 - 
@@ -737,6 +745,10 @@
   term: nome de usuário
   description: Identificador de um usuário no GitHub.
 - 
+  term: user-to-server request
+  description: >-
+    A solicitação de uma API usada por um aplicativo que executa uma tarefa em nome de um usuário em particular. Quando uma tarefa é realizada com autenticação de usuário para servidor é exibida no GitHub como sido feita por um usuário por meio de um aplicativo. Por exemplo, você pode optar por criar um problema dentro de um aplicativo de terceiros, e o aplicativo faria isso no seu nome no GitHub. O escopo de tarefas que um aplicativo pode executar usando uma solicitação de usuário para servidor é restrito tanto pelas permissões e acesso do aplicativo quanto pelo usuário. O token usado em um pedido do usuário para servidor é otido por meio do OAuth. Para obter mais informações, consulte "[Identificar e autorizar usuários para aplicativos GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)". Consulte também, "[server-to-server request](#server-to-server-request)."
+- 
   term: equipe visível
   description: Equipe que pode ser vista e @mencionada por qualquer integrante da organização.
 - 
@@ -754,9 +766,6 @@
   term: webhooks
   description: >-
     Os webhooks permitem criar ou configurar aplicativos do GitHub associados a determinados eventos no GitHub.com. Com os webhooks, é possível entregar notificações a um servidor da web externo sempre que determinadas ações ocorrem em um repositório ou organização. Também são conhecidos como hooks de serviço.
-- 
-  term: compatível com GitHub
-  description: Listagem de integrações compatíveis com o GitHub.
 - 
   term: acesso de gravação
   description: >-
