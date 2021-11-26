@@ -70,7 +70,7 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 1. To commit your staged changes, click the check mark at the top the source control side bar.
 ![Click the check mark icon](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)  
     You can push the changes you've made. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
-1. At the top of the side bar, click the ellipsis (**...**).
+1. At ..the top of the side bar, click the ellipsis (**...**).
 ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
 1. In the drop-down menu, click **Push**.
 
