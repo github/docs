@@ -13,13 +13,18 @@ topics:
   - Organizations
   - Teams
 shortTitle: Adicionar colaborador externo
+permissions: People with admin access to a repository can add an outside collaborator to the repository.
 ---
 
 ## Sobre colaboradores externos
 
-O {% data reusables.organizations.owners-and-admins-can %} adiciona colaboradores externos em um repositório, a menos que o proprietário da organização tenha restringido a possibilidade de convidar colaboradores. Para obter mais informações, consulte "[Configurar permissões para adicionar colaboradores externos](/articles/setting-permissions-for-adding-outside-collaborators)".
-
 {% data reusables.organizations.outside-collaborators-use-seats %}
+
+An organization owner can restrict the ability to invite collaborators. Para obter mais informações, consulte "[Configurar permissões para adicionar colaboradores externos](/articles/setting-permissions-for-adding-outside-collaborators)".
+
+{% ifversion ghes %}
+Before you can add someone as an outside collaborator on a repository, the person must have a user account on {% data variables.product.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site admin can create a user account for the person. Para obter mais informações, consulte "[Usar autenticação integrada](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)".
+{% endif %}
 
 {% ifversion not ghae %}
 Se sua organização [exigir que integrantes e colaboradores externos usem a autenticação de dois fatores](/articles/requiring-two-factor-authentication-in-your-organization), eles deverão habilitar a autenticação de dois fatores antes de aceitar seu convite para colaborar no repositório de uma organização.

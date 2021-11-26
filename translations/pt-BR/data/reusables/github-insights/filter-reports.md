@@ -1,1 +1,0 @@
-1. Como alternativa, para arquivar todas as métricas na página, acima das métricas, use o menu suspenso "Times", "Repos", ou o intervalo de datas. ![Menu suspenso Filter (Filtro)](/assets/images/help/insights/filter-drop-downs.png)

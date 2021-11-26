@@ -19,9 +19,7 @@ on:
 jobs:
   sync:
     name: Get the latest docs
-    if: >-
-      github.event.pull_request.merged == true &&
-      github.repository == 'github/docs-internal'
+    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && github.repository == 'github/docs-internal')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -49,6 +47,7 @@ jobs:
           git checkout -b automated-sync-$GITHUB_RUN_ID
           git add .
           PR_TITLE=${{ github.event.pull_request.title }}
+          echo PR_TITLE: $PR_TITLE
           [[ ! -z $PR_TITLE ]] && DESCRIPTION="${PR_TITLE}" || DESCRIPTION="Update manually triggered by workflow"
           echo "DESCRIPTION=$DESCRIPTION" >> $GITHUB_ENV
           git commit -m "$(echo $DESCRIPTION)"

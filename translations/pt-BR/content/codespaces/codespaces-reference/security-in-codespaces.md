@@ -58,7 +58,7 @@ Se você precisar conectar-se a um serviço (como um servidor web de desenvolvim
 
 **Portas encaminhadas em particular**: Podem ser acessadas na internet, mas somente o criador do codespace pode acessá-las, após efetuar a autenticação em {% data variables.product.product_name %}.
 
-**Publicly forwarded ports within your organization**: Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
+**Portas encaminhadas publicamente dentro da sua organização**: podem ser acessdas na internet mas apenas por integrantes da mesma organização como o espaço, depois de efetuar a autenticação em {% data variables.product.product_name %}.
 
 **portas encaminhadas publicamente**: Podem ser acessadas na internet, e qualquer pessoa na internet pode acessá-las. Não é necessária autenticação para acessar portas públicas encaminhadas.
 

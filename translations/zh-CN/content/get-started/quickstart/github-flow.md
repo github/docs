@@ -89,7 +89,7 @@ miniTocMaxHeadingLevel: 3
 
 ### 合并拉取请求
 
-拉取请求获得批准后，合并您的拉取请求。 这将自动合并您的分支，以便您的更改显示在默认分支上。 {% data variables.product.prodname_dotcom %} 会保留拉取请求中的评论和提交历史记录，以帮助未来的贡献者了解您的更改。 更多信息请参阅“[合并拉取请求](/articles/merging-a-pull-request)”。
+拉取请求获得批准后，合并您的拉取请求。 这将自动合并您的分支，以便您的更改显示在默认分支上。 {% data variables.product.prodname_dotcom %} 会保留拉取请求中的评论和提交历史记录，以帮助未来的贡献者了解您的更改。 更多信息请参阅“[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。
 
 {% data variables.product.prodname_dotcom %} 会告知您的拉取请求是否有必须在合并前解决的冲突。 更多信息请参阅“[解决合并冲突](/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts)”。
 

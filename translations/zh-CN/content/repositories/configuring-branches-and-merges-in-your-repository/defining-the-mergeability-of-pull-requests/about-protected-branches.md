@@ -74,9 +74,9 @@ remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Changes have been requested.
 ```
 
-（可选）您可以选择在推送提交时忽略旧拉取请求批准。 如果有人将修改代码的提交推送到已批准的拉取请求，则该批准将被忽略，拉取请求无法合并。 这不适用于协作者推送不修改代码的提交，例如将基础分值合并到拉取请求的分支。 有关基础分支的信息，请参阅“[关于拉取请求](/articles/about-pull-requests)”。
+（可选）您可以选择在推送提交时忽略旧拉取请求批准。 如果有人将修改代码的提交推送到已批准的拉取请求，则该批准将被忽略，拉取请求无法合并。 这不适用于协作者推送不修改代码的提交，例如将基础分值合并到拉取请求的分支。 有关基础分支的信息，请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
 
-（可选）您可以限制特定人员或团队忽略拉取请求审查的权限。 更多信息请参阅“[忽略拉取请求审查](/articles/dismissing-a-pull-request-review)”。
+（可选）您可以限制特定人员或团队忽略拉取请求审查的权限。 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。
 
 （可选）您可以选择要求代码所有者进行审查。 如果这样做，则任何影响代码的拉取请求都必须得到代码所有者的批准，才能合并到受保护分支。
 
@@ -128,7 +128,7 @@ remote: error: Changes have been requested.
 
 {% endnote %}
 
-如果提交已进行签名和验证，则始终可以将本地提交推送到分支。 {% ifversion fpt or ghec %}您也可以使用 {% data variables.product.product_name %} 上的拉请求将已经签名和验证的提交合并到分支。 但除非您是拉取请求的作者，否则不能将拉取请求压缩并合并到 {% data variables.product.product_name %} 。{% else %}但不能将拉取请求合并到 {% data variables.product.product_name %} 上的分支。{% endif %} 您可以在本地{% ifversion fpt or ghec %}压缩和{% endif %}合并拉取请求。 更多信息请参阅“[在本地检出拉取请求](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)”。
+如果提交已进行签名和验证，则始终可以将本地提交推送到分支。 {% ifversion fpt or ghec %}您也可以使用 {% data variables.product.product_name %} 上的拉请求将已经签名和验证的提交合并到分支。 但除非您是拉取请求的作者，否则不能将拉取请求压缩并合并到 {% data variables.product.product_name %} 。{% else %}但不能将拉取请求合并到 {% data variables.product.product_name %} 上的分支。{% endif %} 您可以在本地{% ifversion fpt or ghec %}压缩和{% endif %}合并拉取请求。 更多信息请参阅“[在本地检出拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)”。
 
 {% ifversion fpt or ghec %} 有关合并方法的更多信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的合并方法](/github/administering-a-repository/about-merge-methods-on-github)”。{% endif %}
 

@@ -84,5 +84,5 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 ## 参考リンク
 
-- "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
+- "[Why are my commits linked to the wrong user?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
 - "[{% data variables.product.prodname_dotcom %} Username Policy](/free-pro-team@latest/github/site-policy/github-username-policy)"{% endif %}

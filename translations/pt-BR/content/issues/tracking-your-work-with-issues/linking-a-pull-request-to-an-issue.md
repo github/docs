@@ -47,6 +47,8 @@ Você pode vincular uma solicitação de pull a um problema usando uma palavra-c
 * resolve
 * resolved
 
+If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request will also close the referenced pull request.
+
 A sintaxe para fechar palavras-chave depende se o problema está no mesmo repositório que a pull request.
 
 | Problemas vinculado                  | Sintaxe                                       | Exemplo                                                        |
