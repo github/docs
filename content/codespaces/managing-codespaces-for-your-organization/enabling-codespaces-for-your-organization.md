@@ -1,6 +1,6 @@
 ---
 title: Enabling Codespaces for your organization
-shortTitle: Enabling Codespaces
+shortTitle: Enable Codespaces
 intro: 'You can control which users in your organization can use {% data variables.product.prodname_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage user permissions for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'

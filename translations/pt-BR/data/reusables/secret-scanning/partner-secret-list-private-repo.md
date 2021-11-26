@@ -140,7 +140,11 @@ Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Shippo | Shippo Live API Token | shippo_live_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
-Shippo | Shippo Test API Token | shippo_test_api_token{% endif %} Shopify | Shopify App Shared Secret | shopify_app_shared_secret Shopify | Shopify Access Token | shopify_access_token Shopify | Shopify Custom App Access Token | shopify_custom_app_access_token Shopify | Shopify Private App Password | shopify_private_app_password Slack | Slack API Token | slack_api_token Slack | Slack Incoming Webhook URL | slack_incoming_webhook_url Slack | Slack Workflow Webhook URL | slack_workflow_webhook_url SSLMate | SSLMate API Key | sslmate_api_key SSLMate | SSLMate Cluster Secret | sslmate_cluster_secret Stripe | Stripe API Key | stripe_api_key
+Shippo | Shippo Test API Token | shippo_test_api_token{% endif %} Shopify | Shopify App Shared Secret | shopify_app_shared_secret Shopify | Shopify Access Token | shopify_access_token Shopify | Shopify Custom App Access Token | shopify_custom_app_access_token Shopify | Shopify Private App Password | shopify_private_app_password Slack | Slack API Token | slack_api_token Slack | Slack Incoming Webhook URL | slack_incoming_webhook_url Slack | Slack Workflow Webhook URL | slack_workflow_webhook_url
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Square | Square Production Application Secret | square_production_application_secret{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Square | Square Sandbox Application Secret | square_sandbox_application_secret{% endif %} SSLMate | SSLMate API Key | sslmate_api_key SSLMate | SSLMate Cluster Secret | sslmate_cluster_secret Stripe | Stripe API Key | stripe_api_key
 {%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
 Stripe | Stripe Live API Secret Key | stripe_live_secret_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
