@@ -259,6 +259,36 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 **Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Required if `run` is set.
 {% endif %}
 
+#### `runs.steps[*].if`
+
+**Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
+
+{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+
+**Example: Using contexts**
+
+ This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
+
+ ```yaml
+steps:
+  - name: My first step
+    if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
+    run: echo This event is a pull request that had an assignee removed.
+```
+
+**Example: Using status check functions**
+
+The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+
+```yaml
+steps:
+  - name: My first step
+    uses: octo-org/action-name@main
+  - name: My backup step
+    if: {% raw %}${{ failure() }}{% endraw %}
+    uses: actions/heroku@1.0.0
+```
+
 #### `runs.steps[*].name`
 
 **Optional** The name of the composite step.
