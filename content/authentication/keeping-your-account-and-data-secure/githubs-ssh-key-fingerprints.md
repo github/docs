@@ -27,3 +27,4 @@ These keys will be supported beginning September 14, 2021:
 This key will be sunset on November 16, 2021:
 
 - `SHA256:br9IjFspm1vxR3iA35FWE+4VTyz1hYVLIE2t1/CeyWQ` (DSA)
+mutual2bargain3toss4ensure5autumn6togetherimmune8this9walk10witness11elegant12robot
