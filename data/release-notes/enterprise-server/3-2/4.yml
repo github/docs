@@ -1,4 +1,5 @@
 date: '2021-11-23'
+intro: Downloads have been disabled due to a major bug affecting multiple customers. A fix will be available in the next patch.
 sections:
   security_fixes:
     - Packages have been updated to the latest security versions.
