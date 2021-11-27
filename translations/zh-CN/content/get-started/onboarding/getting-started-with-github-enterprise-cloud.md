@@ -119,7 +119,6 @@ You can help keep your organization secure by requiring two-factor authenticatio
 
 #### 3. Reviewing your organization's audit log and integrations
 {% data reusables.getting-started.reviewing-org-audit-log-and-integrations %}
-
 #### 4. Enabling and enforcing SAML single sign-on for your organization
 If you manage your applications and the identities of your organization members with an identity provider (IdP), you can configure SAML single-sign-on (SSO) to control and secure access to organization resources like repositories, issues and pull requests. When members of your organization access organization resources that use SAML SSO, {% data variables.product.prodname_dotcom %} will redirect them to your IdP to authenticate. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
 
@@ -157,7 +156,7 @@ For more information on enforcing two-factor authentication and allowed IP addre
 You can centrally manage access to your enterprise's resources, organization membership and team membership using your IdP and SAM single sign-on (SSO). Enterprise owners can enable SAML SSO across all organizations owned by an enterprise account. 更多信息请参阅“[关于企业的身份和访问权限管理](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)”。
 
 #### 3. Managing team synchronization
-You can enable and manage team synchronization between an identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. 更多信息请参阅“[管理企业帐户中组织的团队同步](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
+You can enable and manage team sychronization between an identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. 更多信息请参阅“[管理企业帐户中组织的团队同步](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
 
 #### 4. Enforcing policies for Advanced Security features in your enterprise account
 {% data reusables.getting-started.enterprise-advanced-security %}

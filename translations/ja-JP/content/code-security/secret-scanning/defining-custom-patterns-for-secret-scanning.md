@@ -26,7 +26,7 @@ topics:
 
 {% data variables.product.company_short %}は、{% ifversion fpt or ghec %}パブリック及びプライベート{% endif %}リポジトリ上で{% data variables.product.company_short %}及び{% data variables.product.company_short %}パートナーが提供するシークレットのパターンの{% data variables.product.prodname_secret_scanning %}を行います。 {% data variables.product.prodname_secret_scanning %}パートナープログラムに関する詳しい情報については「<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">Secret scanningパートナープログラム</a>」を参照してください。
 
-ただし、{% ifversion fpt or ghec %}プライベート{% endif %}リポジトリ中で他のシークレットのパターンをスキャンしたいこともあるでしょう。 たとえば、Organizationの内部的なシークレットのパターンを持っていることもあるかもしれません。 For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in your enterprise, organization, or {% ifversion fpt or ghec %}private{% endif %} repository on {% data variables.product.product_name %}. You can define up to 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per {% ifversion fpt or ghec %}private{% endif %} repository.
+ただし、{% ifversion fpt or ghec %}プライベート{% endif %}リポジトリ中で他のシークレットのパターンをスキャンしたいこともあるでしょう。 たとえば、Organizationの内部的なシークレットのパターンを持っていることもあるかもしれません。 For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in your enterprise, organization, or {% ifversion fpt or ghec %}private{% endif %} repository on {% data variables.product.product_name %}. You can define up to 100 custom patterns for each organization or enterprise account, and up to 20 custom patterns per {% ifversion fpt or ghec %}private{% endif %} repository.
 
 {% ifversion ghes < 3.3 or ghae %}
 {% note %}
@@ -78,11 +78,7 @@ topics:
 
 ## Defining a custom pattern for an enterprise account
 
-{% ifversion fpt or ghec or ghes %}
-
 Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
-
-{% endif %}
 
 {% note %}
 

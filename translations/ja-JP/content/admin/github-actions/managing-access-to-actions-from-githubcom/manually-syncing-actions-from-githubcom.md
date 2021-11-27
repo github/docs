@@ -34,14 +34,6 @@ However, if you want stricter control over which actions are allowed in your ent
 
 `actions-sync` ツールは、パブリックリポジトリに保存されている {% data variables.product.prodname_dotcom_the_website %} からのみアクションをダウンロードできます。
 
-{% ifversion ghes > 3.2 or ghae-issue-4815 %}
-{% note %}
-
-**Note:** The `actions-sync` tool is intended for use in systems where {% data variables.product.prodname_github_connect %} is not enabled. If you run the tool on a system with {% data variables.product.prodname_github_connect %} enabled, you may see the error `The repository <repo_name> has been retired and cannot be reused`. This indicates that a workflow has used that action directly on {% data variables.product.prodname_dotcom_the_website %} and the namespace is retired on {% data variables.product.product_location %}. For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
-
-{% endnote %}
-{% endif %}
-
 ## 必要な環境
 
 * `actions-sync` ツールを使用する前に、すべての宛先 Organization が Enterprise にすでに存在していることを確認する必要があります。 次の例は、`synced-actions` という名前の Organization にアクションを同期する方法を示しています。 詳しい情報については、「[新しい Organization をゼロから作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。

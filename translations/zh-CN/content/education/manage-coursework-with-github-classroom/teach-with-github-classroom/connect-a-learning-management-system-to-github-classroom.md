@@ -99,7 +99,7 @@ shortTitle: 连接 LMS
 
 您必须使用 Moodle 版本 3.0 或更高版本。
 
-1. 登录 [Moodle](https://moodle.org/login/)。
+1. 登录 [Moodle](https://moodle.org/login/index.php)。
 1. 选择要与 {% data variables.product.prodname_classroom %} 集成的 Moodle 课程。
 1. 单击 **Turn editing on（打开编辑）**。
 1. 当希望 {% data variables.product.prodname_classroom %} 在 Moodle 中可用时，单击 **Add an activity or resource（添加活动或资源）**。

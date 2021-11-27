@@ -1,0 +1,1 @@
+1. Em "URL da API de {% data variables.product.prodname_dotcom %}", digite {% if currentVersion == "free-pro-team@latest" %}https://api.github.com {% else %}a URL que você usa para acessar {% data variables.product.prodname_enterprise %}{% endif %}. ![{% data variables.product.prodname_enterprise %} Campo de URL API](/assets/images/help/insights/enterprise-api-url.png)

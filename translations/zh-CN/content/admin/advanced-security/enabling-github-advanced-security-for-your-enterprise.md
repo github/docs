@@ -107,7 +107,7 @@ topics:
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - 要禁用 {% data variables.product.prodname_dependabot_alerts %}，请输入以下 {% ifversion ghes > 3.1 %}命令{% else %}命令{% endif %}。
+    - 要禁用 {% data variables.product.prodname_dependabot %}，请输入以下 {% ifversion ghes > 3.1 %}命令{% else %}命令{% endif %}。
     {% ifversion ghes > 3.1 %}```shell
     ghe-config app.dependency-graph.enabled false
     ```

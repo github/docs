@@ -90,18 +90,15 @@ Organizationのオーナーは、Organizationのリポジトリからの{% data 
 
 {% data variables.product.prodname_pages %} は、PHP、Ruby、Python などのサーバーサイド言語はサポートしていません。
 
-## Limits on use of {% data variables.product.prodname_pages %}
+## {% data variables.product.prodname_pages %} を使用するためのガイドライン
 
 {% ifversion fpt or ghec %}
-2016 年 6 月 15 日以降に作成され、`github.io` ドメインを使用して作成された {% data variables.product.prodname_pages %} サイトは、HTTPS 経由で配信されます。 2016 年 6 月 15 日までにサイトを作成した場合は、サイトへのトラフィックに対して、HTTPS サポートを有効にすることができます。 詳しい情報については「[HTTPS で{% data variables.product.prodname_pages %}サイトをセキュアにする](/articles/securing-your-github-pages-site-with-https)」を参照してください。
-
-### 禁止される用途
-{% endif %}
-{% data variables.product.prodname_pages %} は、オンラインビジネス、eコマースサイト、主に商取引の円滑化またはサービスとしての商用ソフトウェアの提供 (SaaS) のどちらかを目的とする、その他のウェブサイトを運営するための無料のウェブホスティングサービスとしての使用を意図したものではなく、またそのような使用を許可するものでもありません。 {% data reusables.pages.no_sensitive_data_pages %}
-
-In addition, your use of {% data variables.product.prodname_pages %} is subject to the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/), including the restrictions on get rich quick schemes, sexually obscene content, and violent or threatening content or activity.
+- 2016 年 6 月 15 日以降に作成され、`github.io` ドメインを使用して作成された {% data variables.product.prodname_pages %} サイトは、HTTPS 経由で配信されます。 2016 年 6 月 15 日までにサイトを作成した場合は、サイトへのトラフィックに対して、HTTPS サポートを有効にすることができます。 詳しい情報については「[HTTPS で{% data variables.product.prodname_pages %}サイトをセキュアにする](/articles/securing-your-github-pages-site-with-https)」を参照してください。
+- {% data reusables.pages.no_sensitive_data_pages %}
+- {% data variables.product.prodname_pages %} の使用には、転売禁止を含めて、[GitHub 利用規約](/free-pro-team@latest/github/site-policy/github-terms-of-service/)が適用されます。
 
 ### 使用制限
+{% endif %}
 {% data variables.product.prodname_pages %} サイトには、次の使用制限があります:
 
   - {% data variables.product.prodname_pages %} ソースリポジトリには、1GB の推奨上限があります。{% ifversion fpt or ghec %}詳しい情報については、「[私のディスク容量はいくつですか？](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations)」を参照してください。{% endif %}
@@ -112,6 +109,11 @@ In addition, your use of {% data variables.product.prodname_pages %} is subject 
 
 あなたのサイトがこれらの使用割当量を超えている場合、あなたのサイトにサービスを提供できないか、{% data variables.contact.contact_support %} から、あなたのサイトが当社のサーバーに与える影響を減らす方法を示唆するメールが届くことがあります。そうした方法の例としては、サードパーティのコンテンツ配信ネットワーク (CDN) をサイトの前に配置したり、リリースなどの他の {% data variables.product.prodname_dotcom %} 機能を利用したり、ニーズに合った別のホスティングサービスに移行したりすることなどが挙げられます。
 
+### 禁止される用途
+
+{% data variables.product.prodname_pages %} は、オンラインビジネス、eコマースサイト、主に商取引の円滑化またはサービスとしての商用ソフトウェアの提供 (SaaS) のどちらかを目的とする、その他のウェブサイトを運営するための無料のウェブホスティングサービスとしての使用を意図したものではなく、またそのような使用を許可するものでもありません。
+
+加えて、{% data variables.product.prodname_dotcom %} は{% data variables.product.prodname_pages %} の特定の目的またはアクティビティへの使用を許可していません。 禁止されている用途のリストについては、「[{% data variables.product.prodname_dotcom %} の {% data variables.product.prodname_pages %} に関する追加製品の利用規約](/free-pro-team@latest/github/site-policy/github-terms-for-additional-products-and-features#pages)」を参照してください。
 {% endif %}
 
 ## {% data variables.product.prodname_pages %} での MIME タイプ

@@ -37,18 +37,11 @@ const resetToEnglishSource = (translationFilePath) => {
     translationFilePath.startsWith('translations/'),
     'path argument must be in the format `translations/<lang>/path/to/file`'
   )
-
-  if (!fs.existsSync(translationFilePath)) {
-    return
-  }
+  assert(fs.existsSync(translationFilePath), `file does not exist: ${translationFilePath}`)
 
   const relativePath = translationFilePath.split(path.sep).slice(2).join(path.sep)
   const englishFile = path.join(process.cwd(), relativePath)
-
-  if (!fs.existsSync(englishFile)) {
-    fs.unlinkSync(translationFilePath)
-    return
-  }
+  assert(fs.existsSync(englishFile), `file does not exist: ${englishFile}`)
 
   // replace file with English source
   const englishContent = fs.readFileSync(englishFile, 'utf8')

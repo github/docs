@@ -2,19 +2,10 @@ import FailBot from '../../lib/failbot.js'
 import nock from 'nock'
 
 describe('FailBot', () => {
-  const requestBodiesSent = []
-
   beforeEach(() => {
-    delete process.env.HAYSTACK_URL
-
-    // Always reset the array to an empty one between tests
-    // so it doesn't intefere across tests.
-    requestBodiesSent.length = 0
-
-    nock('https://haystack.example.com')
+    nock('https://haystack.com')
       .post('/')
       .reply(200, (uri, requestBody) => {
-        requestBodiesSent.push(requestBody)
         return requestBody
       })
   })
@@ -27,27 +18,22 @@ describe('FailBot', () => {
     it('returns early if `HAYSTACK_URL` is not set', async () => {
       const result = await FailBot.report()
       expect(result).toBeUndefined()
-      expect(requestBodiesSent.length).toBe(0)
     })
 
     it('sends the expected report', async () => {
-      process.env.HAYSTACK_URL = 'https://haystack.example.com'
+      process.env.HAYSTACK_URL = 'https://haystack.com'
       const err = new Error('Kaboom')
-      const backendPromises = FailBot.report(err, { foo: 'bar' })
-      // Note! You don't need to await the promises it returns to be
-      // able to use `FailBot.report()`. It will send.
-      // But here in the context of jest, we need to await *now*
-      // so we can assert that it did make the relevant post requests.
-      // Once we've done this, we can immediate check what it did.
-      await Promise.all(await backendPromises)
+      const result = await FailBot.report(err)
 
-      // It's not interesting or relevant what the `.report()` static
-      // method returns. All that matters is that it did a POST
-      // request.
-      expect(requestBodiesSent.length).toBe(1)
+      // Check that we made a request
+      expect(result.status).toBe(200)
 
-      // Verify what was sent in that POST request.
-      expect(requestBodiesSent[0]).toMatchObject({
+      // Verify the basic fetch params
+      expect(result.headers.get('content-type')).toBe('application/json')
+
+      // Check that we send the expected body
+      const body = await result.json()
+      expect(body).toMatchObject({
         app: 'docs',
         backtrace: expect.stringContaining('Error: Kaboom'),
         class: 'Error',

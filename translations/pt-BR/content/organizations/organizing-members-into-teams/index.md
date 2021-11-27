@@ -26,7 +26,7 @@ children:
   - /adding-organization-members-to-a-team
   - /assigning-the-team-maintainer-role-to-a-team-member
   - /setting-your-teams-profile-picture
-  - /managing-code-review-settings-for-your-team
+  - /managing-code-review-assignment-for-your-team
   - /renaming-a-team
   - /changing-team-visibility
   - /synchronizing-a-team-with-an-identity-provider-group

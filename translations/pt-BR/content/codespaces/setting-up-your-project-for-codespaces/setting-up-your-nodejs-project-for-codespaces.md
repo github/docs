@@ -105,7 +105,7 @@ O arquivo recém-adicionado `devcontainer.json` define algumas propriedades que 
   - **Terminal.integrated.shell.linux** - Embora o bash seja o padrão, você pode usar outros shells do terminal, fazendo a modificação.
 - **Extensões** - Estas são extensões incluídas por padrão.
   - <**Dbaeumer.vscode-eslint** - ES lint é uma ótima extensão para linting, mas para o JavaScript, há uma série de ótimas extensões do Marketplace que você também pode incluir.
-- **forwardPorts** - Todas as portas listadas aqui serão encaminhadas automaticamente. Para obter mais informações, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
+- **forwardPorts** - Todas as portas listadas aqui serão encaminhadas automaticamente.
 - **postCreateCommand** - Se você quiser executar qualquer coisa depois de chegar ao seu codespace que não está definido no arquivo Docker, você poderá fazer isso aqui.
 - **remoteUser** - Por padrão, você está executando como usuário do vscode, mas, opcionalmente, você pode definir isso como root.
 

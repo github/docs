@@ -23,25 +23,36 @@ describe('products module', () => {
 })
 
 describe('mobile-only products nav', () => {
-  const cases = [
+  test('renders current product on various product pages for each product', async () => {
     // Note the unversioned homepage at `/` does not have a product selected in the mobile dropdown
-    ['/github', 'GitHub'],
-    // Enterprise server
-    ['/en/enterprise/admin', 'Enterprise administrators'],
-    [
-      '/en/enterprise/user/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line',
-      'GitHub',
-    ],
+    expect((await getDOM('/github'))('[data-testid=current-product]').text().trim()).toBe('GitHub')
 
-    ['/desktop', 'GitHub Desktop'],
-    ['/actions', 'GitHub Actions'],
+    // Enterprise server
+    expect(
+      (await getDOM('/en/enterprise/admin'))('[data-testid=current-product]').text().trim()
+    ).toBe('Enterprise administrators')
+    expect(
+      (
+        await getDOM(
+          '/en/enterprise/user/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line'
+        )
+      )('[data-testid=current-product]')
+        .text()
+        .trim()
+    ).toBe('GitHub')
+
+    expect((await getDOM('/desktop'))('[data-testid=current-product]').text().trim()).toBe(
+      'GitHub Desktop'
+    )
+
+    expect((await getDOM('/actions'))('[data-testid=current-product]').text().trim()).toBe(
+      'GitHub Actions'
+    )
 
     // localized
-    ['/ja/desktop', 'GitHub Desktop'],
-  ]
-
-  test.each(cases)('on %p, renders current product %p', async (url, name) => {
-    expect((await getDOM(url))('[data-testid=product-picker] summary').text().trim()).toBe(name)
+    expect((await getDOM('/ja/desktop'))('[data-testid=current-product]').text().trim()).toBe(
+      'GitHub Desktop'
+    )
   })
 })
 

@@ -15,73 +15,80 @@ from https://unpkg.com/highlight.js@9.15.8/styles/github.css
 
 .hljs-comment,
 .hljs-quote {
-  color: var(--color-prettylights-syntax-comment);
+  color: var(--color-fg-muted);
+  font-style: italic;
 }
 
 .hljs-keyword,
-.hljs-selector-tag {
-  color: var(--color-prettylights-syntax-keyword);
+.hljs-selector-tag,
+.hljs-subst {
+  color: var(--color-fg-default);
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: var(--color-success-fg);
 }
 
 .hljs-string,
-.hljs-doctag,
-.hljs-template-variable {
-  color: var(--color-prettylights-syntax-string);
+.hljs-doctag {
+  color: var(--color-accent-fg);
 }
 
 .hljs-title,
 .hljs-section,
 .hljs-selector-id {
-  color: var(--color-prettylights-syntax-markup-heading);
-}
-
-.hljs-section {
+  color: var(--color-danger-fg);
   font-weight: bold;
 }
 
-.hljs-type,
-.hljs-class,
-.hljs-variable {
-  color: var(--color-prettylights-syntax-variable);
-}
-
-.hljs-language,
 .hljs-subst {
-  color: var(--color-prettylights-syntax-storage-modifier-import);
+  font-weight: normal;
 }
 
-.hljs-number,
-.hljs-literal,
-.hljs-symbol,
-.hljs-property,
-.hljs-constant {
-  color: var(--color-prettylights-syntax-constant);
+.hljs-type,
+.hljs-class .hljs-title {
+  color: var(--color-accent-fg);
+  font-weight: bold;
 }
 
 .hljs-tag,
 .hljs-name,
-.hljs-attribute,
-.hljs-attr {
-  color: var(--color-prettylights-syntax-entity-tag);
+.hljs-attribute {
+  color: var(--color-accent-fg);
+  font-weight: normal;
 }
 
 .hljs-regexp,
 .hljs-link {
-  color: var(--color-prettylights-syntax-string-regexp);
+  color: var(--color-success-fg);
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: var(--color-done-fg);
 }
 
 .hljs-built_in,
-.hljs-builtin-name,
-.hljs-function {
-  color: var(--color-prettylights-syntax-entity);
+.hljs-builtin-name {
+  color: var(--color-accent-fg);
+}
+
+.hljs-meta {
+  color: var(--color-fg-subtle);
+  font-weight: bold;
 }
 
 .hljs-deletion {
-  background: var(--color-prettylights-syntax-markup-deleted-bg);
+  background: var(--color-danger-subtle);
 }
 
 .hljs-addition {
-  background: var(--color-prettylights-syntax-markup-inserted-bg);
+  background: var(--color-success-subtle);
 }
 
 .hljs-emphasis {

@@ -48,7 +48,7 @@ shortTitle: 管理团队同步
 
 您必须为您的组织和支持的 IdP 启用 SAML 单点登录。 更多信息请参阅“[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
 
-You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. 更多信息请参阅“[使用 SAML 单点登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
+您必须使用 SAML SSO 和支持的 IdP 向组织验证。 更多信息请参阅“[使用 SAML 单点登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
 
 ### 为 Azure AD 启用团队同步
 

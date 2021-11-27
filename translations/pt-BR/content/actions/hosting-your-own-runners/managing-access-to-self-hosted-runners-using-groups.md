@@ -66,7 +66,7 @@ Ao criar um grupo, você deverá escolher uma política que defina quais reposit
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Insira um nome para o seu grupo de executor e atribua uma política para acesso ao repositório.
 
-   {% ifversion ghes or ghae %} Você pode configurar um grupo de executores para poder ser acessado por uma lista específica de repositórios ou por todos os repositórios na organização. Por padrão, apenas repositórios privados podem acessar executores em um grupo de executores, mas você pode substituir isso. Esta configuração não pode ser substituída se configurar o grupo de executores da organização que foi compartilhado por uma empresa.{% endif %}
+   {% ifversion ghes or ghae %} Você pode configurar um grupo de executores para poder ser acessado por uma lista específica de repositórios ou por todos os repositórios na organização. Por padrão, apenas repositórios privados podem acessar executores em um grupo de executores, mas você pode substituir isso. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
 
    {% warning %}
 

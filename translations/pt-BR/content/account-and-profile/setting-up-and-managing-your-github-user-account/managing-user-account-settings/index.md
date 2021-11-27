@@ -1,6 +1,6 @@
 ---
-title: Managing user account settings
-intro: 'You can change several settings for your personal account, including changing your username and deleting your account.'
+title: Gerenciar configurações de conta de usuário
+intro: 'Você pode alterar várias configurações de sua conta pessoal, inclusive alterar seu nome de usuário e excluir sua conta.'
 redirect_from:
   - /categories/29/articles/
   - /categories/user-accounts/
@@ -23,13 +23,12 @@ children:
   - /deleting-your-user-account
   - /permission-levels-for-a-user-account-repository
   - /permission-levels-for-user-owned-project-boards
-  - /managing-accessibility-settings
   - /managing-the-default-branch-name-for-your-repositories
   - /managing-security-and-analysis-settings-for-your-user-account
   - /managing-access-to-your-user-accounts-project-boards
   - /integrating-jira-with-your-personal-projects
   - /best-practices-for-leaving-your-company
   - /what-does-the-available-for-hire-checkbox-do
-shortTitle: User account settings
+shortTitle: Configurações de conta de usuário
 ---
 

@@ -18,7 +18,7 @@ shortTitle: 管理主题设置
 
 您可能需要使用深色主题来减少某些设备的功耗，以在低光条件下减小眼睛的压力，或者因为您更喜欢主题的外观。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}If you have low vision, you may benefit from a high contrast theme, with greater contrast between foreground and background elements.{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} If you have colorblindness, you may benefit from our light and dark colorblind themes.
+{% ifversion fpt or ghae-issue-4618 or ghec %} If you have low vision, you may benefit from a high contrast theme, with greater contrast between foreground and background elements.{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} If you have colorblindness, you may benefit from our light and dark colorblind themes.
 
 {% note %}
 
@@ -29,20 +29,13 @@ shortTitle: 管理主题设置
 {% endif %}
 
 {% data reusables.user_settings.access_settings %}
-1. 在用户设置侧边栏中，单击 **Appearance（外观）**。
-
-   ![用户设置侧边栏中的"外观"选项卡](/assets/images/help/settings/appearance-tab.png)
-
-1. Under "Theme mode", select the drop-down menu, then click a theme preference.
-
-   !["主题模式"下的下拉菜单用于选择主题首选项](/assets/images/help/settings/theme-mode-drop-down-menu.png)
-1. 单击想要使用的主题。
+1. 在用户设置侧边栏中，单击 **Appearance（外观）**。 ![用户设置侧边栏中的"外观"选项卡](/assets/images/help/settings/appearance-tab.png)
+2. 在“Theme mode（主题模式）”下，选择下拉菜单，然后单击主题首选项。 !["主题模式"下的下拉菜单用于选择主题首选项](/assets/images/help/settings/theme-mode-drop-down-menu.png)
+3. 单击想要使用的主题。
     - 如果您选择单个主题，请单击一个主题。
-
-      {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
+      {% ifversion fpt or ghae-issue-4618 or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
     - 如果您选择遵循系统设置，请单击白天主题和夜间主题。
-
-      {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %}
+      {% ifversion fpt or ghae-issue-4618 or ghec %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %}
     {% ifversion fpt or ghae-issue-4619 or ghec %}
     - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
 

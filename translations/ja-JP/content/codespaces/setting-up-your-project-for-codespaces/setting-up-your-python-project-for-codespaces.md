@@ -124,7 +124,7 @@ Python 開発コンテナテンプレートを追加すると、次のファイ�
   - **Terminal.integrated.shell.linux** - ここでは bash がデフォルトですが、これを変更することで他のターミナルシェルを使用できます。
 - **機能拡張** - これらはデフォルト設定で含まれている機能拡張です。
   - **ms-python.python** - Microsoft Python 機能拡張は、IntelliSense、linting、デバッグ、コードナビゲーション、コード形式、リファクタリング、変数エクスプローラ、テストエクスプローラなどの機能を含む、Python 言語（言語のアクティブにサポートされているすべてのバージョン 3.6 または以降）の豊富なサポートを提供します。
-- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。
 - **postCreateCommand** - `dotnet restore` のように、Dockerfileで定義されていない codespace への到達後に何らかの操作を実行する場合は、ここで実行できます。
 - **remoteUser** - デフォルト設定では、`vscode` ユーザとして実行していますが、オプションでこれを `root` に設定できます。
 

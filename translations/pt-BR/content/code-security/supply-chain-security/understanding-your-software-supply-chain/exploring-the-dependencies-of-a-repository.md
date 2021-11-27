@@ -105,7 +105,7 @@ A seção "Usado por" representa um único pacote do repositório. Se você tive
 Se seu gráfico de dependências estiver vazio, poderá haver um problema com o arquivo que contém suas dependências. Selecione o arquivo para garantir que ele esteja corretamente formatado para o tipo de arquivo.
 
 {% ifversion fpt or ghec %}
-Se o arquivo estiver formatado corretamente, verifique o seu tamanho. O gráfico de dependências ignora arquivos de manifesto individual e os arquivos e bloqueio com tamanho superior a 1.5 Mb, a menos que você seja um usuário do {% data variables.product.prodname_enterprise %}. Ele processa até 20 arquivos de manifesto ou de bloqueio por repositório por padrão; logo você pode dividir dependências em arquivos menores em subdiretórios do repositório.{% endif %}
+Se o arquivo estiver formatado corretamente, verifique o seu tamanho. O gráfico de dependências ignora arquivos de manifesto individual e os arquivos e bloqueio com tamanho superior a Mb, a menos que você seja um usuário do {% data variables.product.prodname_enterprise %}. Ele processa até 20 arquivos de manifesto ou de bloqueio por repositório por padrão; logo você pode dividir dependências em arquivos menores em subdiretórios do repositório.{% endif %}
 
 Se um arquivo de manifesto ou de bloqueio não for processado, suas dependências serão omitidas no gráfico de dependências e não será possível verificar se há dependências.
 

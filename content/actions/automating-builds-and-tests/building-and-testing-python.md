@@ -241,24 +241,38 @@ steps:
 
 ### Caching Dependencies
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache and restore the dependencies using the [`setup-python` action](https://github.com/actions/setup-python).
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
-The following example caches dependencies for pip.
+Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example below depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip).
 
+{% raw %}
 ```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
-- uses: actions/setup-python@v2
+- name: Setup Python
+  uses: actions/setup-python@v2
   with:
-    python-version: '3.9'
-    cache: 'pip'
-- run: pip install -r requirements.txt
-- run: pip test
+    python-version: '3.x'
+- name: Cache pip
+  uses: actions/cache@v2
+  with:
+    # This path is specific to Ubuntu
+    path: ~/.cache/pip
+    # Look to see if there is a cache hit for the corresponding requirements file
+    key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+    restore-keys: |
+      ${{ runner.os }}-pip-
+      ${{ runner.os }}-
+- name: Install dependencies
+  run: pip install -r requirements.txt
 ```
+{% endraw %}
 
-By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip or `Pipfile.lock` for pipenv) in the whole repository. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching packages dependencies</a>" in the `setup-python` actions README. 
+{% note %}
 
-If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example above, depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip) in the `cache` action repository.
+**Note:** Depending on the number of dependencies, it may be faster to use the dependency cache. Projects with many large dependencies should see a performance increase as it cuts down the time required for downloading. Projects with fewer dependencies may not see a significant performance increase and may even see a slight decrease due to how pip installs cached dependencies. The performance varies from project to project.
+
+{% endnote %}
 
 ## Testing your code
 

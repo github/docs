@@ -47,4 +47,4 @@ Depois de alterar o nome da organização:
 
 ## Leia mais
 
-* "[Por que meus commits estão vinculados ao usuário errado?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"
+* "[Por que meus commits estão vinculados ao usuário errado?](/articles/why-are-my-commits-linked-to-the-wrong-user)"

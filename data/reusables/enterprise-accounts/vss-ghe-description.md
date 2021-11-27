@@ -1,1 +1,0 @@
-{% data variables.product.prodname_vss_ghe %} is a combined offering from Microsoft that allows a subscriber to use both {% data variables.product.prodname_vs %} and {% data variables.product.prodname_enterprise %}.

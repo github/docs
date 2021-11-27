@@ -36,9 +36,7 @@ Organizations are shared accounts where enterprise members can collaborate acros
 
 {% ifversion ghec %}
 
-Enterprise owners can create organizations and link the organizations to the enterprise. Como alternativa, você pode convidar uma organização existente para participar da conta corporativa. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. Opções específicas de aplicação variam de acordo com a configuração; normalmente, é possível optar por aplicar uma única política para cada organização na sua conta corporativa ou permitir que proprietários definam a política no nível da organização. Para obter mais informações, consulte "[Definindo políticas para a sua empresa](/admin/policies)".
-
-{% data reusables.enterprise.create-an-enterprise-account %} Para obter mais informações, consulte "[Criando uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
+Enterprise owners can create organizations and link the organizations to the enterprise. Alternatively, you can invite an existing organization to join your enterprise account. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. Opções específicas de aplicação variam de acordo com a configuração; normalmente, é possível optar por aplicar uma única política para cada organização na sua conta corporativa ou permitir que proprietários definam a política no nível da organização. Para obter mais informações, consulte "[Definindo políticas para a sua empresa](/admin/policies)".
 
 {% elsif ghes or ghae %}
 

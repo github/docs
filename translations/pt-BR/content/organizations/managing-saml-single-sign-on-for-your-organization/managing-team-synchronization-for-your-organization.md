@@ -48,7 +48,7 @@ As etapas para habilitar a sincronização de equipe dependem do IdP que você d
 
 Você deve habilitar o logon único SAML para sua organização e seu IdP compatível. Para obter mais informações, consulte "[Aplicando o logon único SAML para a sua organização](/articles/enforcing-saml-single-sign-on-for-your-organization)".
 
-You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. Para obter mais informações, consulte "[Autenticar com logon único de SAML](/articles/authenticating-with-saml-single-sign-on)".
+Você deve efetuar a autenticação para a sua organização usando SAML SSO e o IdP compatível. Para obter mais informações, consulte "[Autenticar com logon único de SAML](/articles/authenticating-with-saml-single-sign-on)".
 
 ### Habilitar a sincronização de equipe para o Azure AD
 

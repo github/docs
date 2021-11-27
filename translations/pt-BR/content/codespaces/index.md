@@ -11,7 +11,7 @@ featuredLinks:
     - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
     - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
     - /codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces
-    - /codespaces/developing-in-codespaces/codespaces-lifecycle
+    - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces
   popular:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces

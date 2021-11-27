@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -17,8 +16,6 @@ topics:
   - Dependencies
 shortTitle: Gerenciar segredos criptografados
 ---
-
-{% data reusables.dependabot.beta-security-and-version-updates %}
 
 ## Sobre os segredos criptografados para {% data variables.product.prodname_dependabot %}
 
@@ -83,7 +80,7 @@ Ao criar um segredo em uma organização, você pode usar uma política para lim
 
    O nome do segredo está listado na página de segredos do Dependabot. Você pode clicar em **Atualizar** para alterar o valor secreto ou sua política de acesso. Você pode clicar em **Remover** para excluir o segredo.
 
-   ![Atualizar ou remover um segredo da organização](/assets/images/help/dependabot/update-remove-org-secret.png)
+   ![Atualizar ou remover um segredo da organização](/assets/images/help/dependabot/update-remove-repo-secret.png)
 
 ## Adicionar {% data variables.product.prodname_dependabot %} à sua lista de permissão de endereços IP
 

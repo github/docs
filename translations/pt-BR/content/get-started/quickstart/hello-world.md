@@ -13,7 +13,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Introduction
+## Introdução
 
 {% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
@@ -28,7 +28,7 @@ In this quickstart guide, you will:
 
 To complete this tutorial, you need a [{% data variables.product.product_name %} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on).
 
-## Creating a repository
+## Criar um repositório
 
 A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a `README` file, a file with information about your project. {% data variables.product.product_name %} makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file.
 
@@ -38,11 +38,11 @@ Your `hello-world` repository can be a place where you store ideas, resources, o
 1. In the **Repository name** box, enter `hello-world`.
 2. In the **Description** box, write a short description.
 3. Select **Add a README file**.
-4. Click **Create repository**.
+4. Clique em **Create Repository** (Criar repositório).
 
    ![Create a hello world repository](/assets/images/help/repository/hello-world-repo.png)
 
-## Creating a branch
+## Criar um branch
 
 Branching lets you have different versions of a repository at one time.
 
@@ -68,11 +68,10 @@ Branches accomplish similar goals in {% data variables.product.product_name %} r
 
 Here at {% data variables.product.product_name %}, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our `main` (production) branch. When a change is ready, they merge their branch into `main`.
 
-### Create a branch
+### Criar uma branch
 
 1. Click the **Code** tab of your `hello-world` repository.
-2. Click the drop down at the top of the file list that says **main**.
-   ![Branch menu](/assets/images/help/branch/branch-selection-dropdown.png)
+2. Click the drop down at the top of the file list that says **main**. ![Branch menu](/assets/images/help/branch/branch-selection-dropdown.png)
 4. Type a branch name, `readme-edits`, into the text box.
 5. Click **Create branch: readme-edits from main**.
 
@@ -90,13 +89,13 @@ You can make and save changes to the files in your repository. On {% data variab
 1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
 3. In the editor, write a bit about yourself.
 4. In the **Commit changes** box, write a commit message that describes your changes.
-5. Click **Commit changes**.
+5. Clique em **Commit changes** (Fazer commit das alterações).
 
    ![Commit example](/assets/images/help/repository/first-commit.png)
 
 These changes will be made only to the README file on your `readme-edits` branch, so now this branch contains content that's different from `main`.
 
-## Opening a pull request
+## Abrir um pull request
 
 Now that you have changes in a branch off of `main`, you can open a pull request.
 
@@ -115,9 +114,9 @@ You can even open pull requests in your own repository and merge them yourself. 
 
    ![diff example](/assets/images/help/repository/diffs.png)
 
-5. Click **Create pull request**.
+5. Clique em **Create pull request** (Criar pull request).
 6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
-7. Click **Create pull request**.
+7. Clique em **Create pull request** (Criar pull request).
 
 Your collaborators can now review your edits and make suggestions.
 
@@ -126,10 +125,10 @@ Your collaborators can now review your edits and make suggestions.
 In this final step, you will merge your `readme-edits` branch into the `main` branch.
 
 1. Click **Merge pull request** to merge the changes into `main`.
-2. Click **Confirm merge**.
+2. Clique em **Confirmar a merge**.
 3. Go ahead and delete the branch, since its changes have been incorporated, by clicking **Delete branch**.
 
-## Next steps
+## Próximas etapas
 
 By completing this tutorial, you've learned to create a project and make a pull request on {% data variables.product.product_name %}.
 

@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,15 +15,8 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "noEmit": true,
-    "allowSyntheticDefaultImports": true,
-    "incremental": true
+    "allowSyntheticDefaultImports": true
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "*.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["*.d.ts", "**/*.ts", "**/*.tsx"]
 }

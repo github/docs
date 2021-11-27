@@ -81,7 +81,7 @@ git commit
 
 ## 链接
 
-通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}您也可以使用键盘快捷键 `command + k` 创建链接。{% endif %}
 
 `本站点是使用 [GitHub Pages](https://pages.github.com/) 构建的。`
 
@@ -263,7 +263,7 @@ git commit
 
 通过在文本行之间留一个空白行，可创建新段落。
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae-next or ghes > 3.3 or ghec %}
 ## 脚注
 
 您可以使用此括号语法为您的内容添加脚注：

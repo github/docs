@@ -1,0 +1,1 @@
+1. "Webhook Secret（webhookのシークレット）"の下で、アプリケーションを作成したときに記録した{% data variables.product.prodname_github_app %}のwebhookシークレットを入力してください。 ![Webhookのシークレットフィールド](/assets/images/help/insights/webhook-secret.png)

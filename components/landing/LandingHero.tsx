@@ -22,13 +22,13 @@ export const LandingHero = () => {
 
   return (
     <header className="d-lg-flex gutter-lg mb-6">
-      <div className={cx('col-12 mb-3 mb-lg-0', product_video && 'col-lg-6')}>
-        <h1>
+      <div className={cx(product_video && 'col-12 col-lg-6 mb-3 mb-lg-0')}>
+        <h1 className="mb-3">
           {shortTitle}{' '}
           {beta_product && <span className="Label Label--success v-align-middle">Beta</span>}
         </h1>
 
-        {intro && <Lead data-search="lead">{intro}</Lead>}
+        {intro && <Lead>{intro}</Lead>}
 
         {introLinks &&
           Object.entries(introLinks)

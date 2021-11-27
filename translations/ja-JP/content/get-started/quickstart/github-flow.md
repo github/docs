@@ -89,7 +89,7 @@ You can continue to commit and push changes in response to the reviews. プル�
 
 ### Merge your pull request
 
-Once your pull request is approved, merge your pull request. This will automatically merge your branch so that your changes appear on the default branch. {% data variables.product.prodname_dotcom %} retains the history of comments and commits in the pull request to help future contributors understand your changes. 詳しい情報については[プルリクエストのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)を参照してください。
+Once your pull request is approved, merge your pull request. This will automatically merge your branch so that your changes appear on the default branch. {% data variables.product.prodname_dotcom %} retains the history of comments and commits in the pull request to help future contributors understand your changes. 詳しい情報については[プルリクエストのマージ](/articles/merging-a-pull-request)を参照してください。
 
 {% data variables.product.prodname_dotcom %} will tell you if your pull request has conflicts that must be resolved before merging. 詳細は「[マージコンフリクトに対処する](/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts)」を参照してください。
 

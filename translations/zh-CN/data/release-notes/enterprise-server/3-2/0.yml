@@ -196,7 +196,7 @@ sections:
     - 
       heading: XenServer Hypervisor 支持终止
       notes:
-        - Beginning in {% data variables.product.prodname_ghe_server %} 3.1, we will begin discontinuing support for Xen Hypervisor. The complete deprecation is scheduled for {% data variables.product.prodname_ghe_server %} 3.3, following the standard one year deprecation window. Please contact [GitHub Support](https://support.github.com/contact) with questions or concerns.
+        - 从 {% data variables.product.prodname_ghe_server %} 3.1 开始，我们将开始停止对 Xen Hypervisor 的支持。计划对 {% data variables.product.prodname_ghe_server %} 3.3 完全停止支持，遵循标准的一年停止窗口期。如有疑问或顾虑，请联系 [GitHub 支持](https://enterprise.githubsupport.com/hc/en-us/signin)。
     - 
       heading: 删除旧 GitHub 服务
       notes:

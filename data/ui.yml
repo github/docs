@@ -31,7 +31,6 @@ search:
   placeholder: Search topics, products...
   loading: Loading
   no_results: No results found
-  no_content: No content
 homepage:
   explore_by_product: Explore by product
   version_picker: Version

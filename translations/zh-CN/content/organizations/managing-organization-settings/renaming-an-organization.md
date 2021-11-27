@@ -47,4 +47,4 @@ topics:
 
 ## 延伸阅读
 
-* “[我的提交为什么链接到错误的用户？](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)”
+* “[我的提交为什么链接到错误的用户？](/articles/why-are-my-commits-linked-to-the-wrong-user)”

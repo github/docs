@@ -19,22 +19,23 @@ topics:
 
 ## {% data variables.contact.enterprise_support %} への連絡
 
-{% data reusables.support.zendesk-old-tickets %}
+{% data reusables.support.zendesk-deprecation %}
 
-{% data variables.contact.enterprise_support %} のお客様は、{% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% data variables.enterprise.management_console %} または {% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} the {% data variables.contact.contact_ae_portal %}サポートチケットをオープンできます{% endif %}。 詳しい情報については[チケットのサブミット](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)を参照してください。
+{% data variables.contact.enterprise_support %} のお客様は、{% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% data variables.enterprise.management_console %} または {% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} the {% data variables.contact.contact_ae_portal %}サポートチケットをオープンできます{% endif %}。 チケットの優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} としてマークします。 詳しい情報については、「[サポートチケットに優先度を割り当てる](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket)」および「[チケットをサブミットする](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)」を参照してください。
+
+## {% data variables.contact.enterprise_support %} への連絡
 
 {% ifversion ghes %}
-
-## {% data variables.contact.premium_support %} への連絡
-
-{% data variables.contact.enterprise_support %} のお客様は、{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} あるいは {% data variables.contact.contact_enterprise_portal %} を使ってサポートチケットをオープンできます。 その優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} としてマークします。 詳しい情報については、「[サポートチケットに優先度を割り当てる](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server#assigning-a-priority-to-a-support-ticket)」および「[チケットをサブミットする](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)」を参照してください。
-
 ### 過去のサポートチケットの閲覧
 
 {% data variables.contact.enterprise_portal %} を使って過去のサポートチケットを見ることができます。
 
 1. {% data variables.contact.contact_enterprise_portal %} に移動します。
-2. [**My tickets**] をクリックします。
+2. [**My tickets**] をクリックします。 ![過去にサブミットされたチケットを表示する](/assets/images/enterprise/support/view-past-tickets.png)
+
+## {% data variables.contact.premium_support %} への連絡
+
+{% data variables.contact.enterprise_support %} のお客様は、{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} あるいは {% data variables.contact.contact_enterprise_portal %} を使ってサポートチケットをオープンできます。 その優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} としてマークします。 詳しい情報については、「[サポートチケットに優先度を割り当てる](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server#assigning-a-priority-to-a-support-ticket)」および「[チケットをサブミットする](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)」を参照してください。
 
 {% endif %}
 ## 営業チームへの連絡

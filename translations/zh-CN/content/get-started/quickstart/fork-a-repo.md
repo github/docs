@@ -169,7 +169,7 @@ gh repo fork <em>repository</em> --clone=true
   > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
 
-现在，您可以使用一些 Git 命令使您的复刻与上游仓库保持同步。 更多信息请参阅“[同步复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)”。
+现在，您可以使用一些 Git 命令使您的复刻与上游仓库保持同步。 更多信息请参阅“[同步复刻](/articles/syncing-a-fork)”。
 
 {% endwebui %}
 
@@ -196,7 +196,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 您可以对复刻进行任何更改，包括：
 
 - **创建分支：**[*分支*](/articles/creating-and-deleting-branches-within-your-repository/)允许您在不影响主项目的情况下构建新功能或测试创意。
-- **打开拉取请求：**如果您希望回馈原始仓库，您可以通过提交[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)请求原作者将您的复刻拉取到他们的仓库。
+- **打开拉取请求：**如果您希望回馈原始仓库，您可以通过提交[拉取请求](/articles/about-pull-requests)请求原作者将您的复刻拉取到他们的仓库。
 
 ## 另找一个仓库进行复刻
 复刻仓库，开始参与项目。 {% data reusables.repositories.you-can-fork %}

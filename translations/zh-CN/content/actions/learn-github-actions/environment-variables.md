@@ -68,10 +68,14 @@ You can also use the `GITHUB_ENV` environment file to set an environment variabl
 | `GITHUB_WORKSPACE`   | {% data variables.product.prodname_dotcom %} 工作空间目录路径，初始为空白。 例如 `/home/runner/work/my-repo-name/my-repo-name`。 [actions/checkout](https://github.com/actions/checkout) 操作将在此目录内检出文件，默认情况下是仓库的副本。 |
 | `GITHUB_SHA`         | 触发工作流程的提交 SHA。 例如 `ffac537e6cbbf934b08745a378932722df287a53`。                                                                                                                                    |
 | `GITHUB_REF`         | 触发工作流程的分支或标记参考。 例如 `refs/heads/feature-branch-1`。 如果分支或标记都不适用于事件类型，则变量不会存在。                                                                                                                      |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
-| `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} | | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} | | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %}
-{%- endif %}
-| `GITHUB_HEAD_REF` | Only set for pull request events. 头部分支的名称。 | `GITHUB_BASE_REF` | Only set for pull request events. 基础分支的名称。 | `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. 例如： `https://{% data variables.product.product_url %}`。 | `GITHUB_API_URL` | Returns the API URL. 例如： `{% data variables.product.api_url_code %}`。 | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. 例如： `{% data variables.product.graphql_url_code %}`。 | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} | `RUNNER_OS` | {% data reusables.actions.runner-os-description %} | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
+| `GITHUB_HEAD_REF`    | 仅为拉取请求事件设置。 头部分支的名称。                                                                                                                                                                             |
+| `GITHUB_BASE_REF`    | 仅为拉取请求事件设置。 基础分支的名称。                                                                                                                                                                             |
+| `GITHUB_SERVER_URL`  | 返回 {% data variables.product.product_name %} 服务器的 URL。 例如： `https://{% data variables.product.product_url %}`。                                                                                   |
+| `GITHUB_API_URL`     | 返回 API URL。 例如： `{% data variables.product.api_url_code %}`。                                                                                                                                     |
+| `GITHUB_GRAPHQL_URL` | 返回 GraphQL API URL。 例如： `{% data variables.product.graphql_url_code %}`。                                                                                                                         |
+| `RUNNER_NAME`        | {% data reusables.actions.runner-name-description %}
+| `RUNNER_OS`          | {% data reusables.actions.runner-os-description %}
+| `RUNNER_TEMP`        | {% data reusables.actions.runner-temp-directory-description %}
 {% ifversion not ghae %}| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %}{% endif %}
 
 {% tip %}

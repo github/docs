@@ -10,13 +10,13 @@ topics:
 ---
 
 ## 摘要
-1. We want you to coordinate disclosure through our bug bounty program, and don't want researchers put in fear of legal consequences because of their good faith attempts to comply with our bug bounty policy. 我们无法约束任何第三方，因此不要假设这种保护适用于任何第三方。 如有疑问，请在采取您认为_可能_超出我们政策范围的任何具体行动之前先询问我们。
+1. 我们希望您通过我们的漏洞悬赏计划负责任地披露漏洞，不希望研究人员在有诚意遵守我们的漏洞悬赏政策时担心法律后果。 我们无法约束任何第三方，因此不要假设这种保护适用于任何第三方。 如有疑问，请在采取您认为_可能_超出我们政策范围的任何具体行动之前先询问我们。
 2. 由于识别和非识别信息都可能使研究人员面临风险，因此我们限制与第三方分享信息的范围。 我们可能会将您报告中的非识别实质性信息提供给受影响的第三方，但必须在通知您并得到第三方不会对您提起法律诉讼的承诺之后才这样做。 我们只在您提供书面许可的情况下才会与第三方分享识别信息（姓名、电子邮件地址、电话号码等）。
 3. 如果您在参与漏洞悬赏计划时的安全研究违反了我们站点政策中的某些限制，可根据安全港条款获得有限的豁免。
 
 ## 1. 安全港条款
 
-To encourage research and coordinated disclosure of security vulnerabilities, we will not pursue civil or criminal action, or send notice to law enforcement for accidental or good faith violations of this policy. 我们认为，根据本政策进行的安全研究和漏洞披露活动，属于《计算机欺诈和滥用法案》、DMCA 及其他适用的计算机使用法律（例如 Cal. Penal Code 502(c)）下的“授权”行为。 如果您在本漏洞悬赏计划的范围内绕过我们用来保护应用程序的技术措施，我们放弃对您提出任何潜在 DMCA 索赔的权利。
+为鼓励研究和负责任地披露安全漏洞，对于意外或善意违反本政策的行为，我们不会提起民事或刑事诉讼，也不会通知执法机构。 我们认为，根据本政策进行的安全研究和漏洞披露活动，属于《计算机欺诈和滥用法案》、DMCA 及其他适用的计算机使用法律（例如 Cal. Penal Code 502(c)）下的“授权”行为。 如果您在本漏洞悬赏计划的范围内绕过我们用来保护应用程序的技术措施，我们放弃对您提出任何潜在 DMCA 索赔的权利。
 
 请注意，如果您的安全研究涉及第三方（不是我们）的网络、系统、信息、应用程序、产品或服务，由于我们无法约束第三方，因此他们可能会提起法律诉讼或通知执法机构。 我们不能也不会以其他实体的名义授权安全研究，对于任何第三方针对您的行动提起的诉讼，我们不会以任何方式为您提供辩护、赔偿或其他形式的保护。
 

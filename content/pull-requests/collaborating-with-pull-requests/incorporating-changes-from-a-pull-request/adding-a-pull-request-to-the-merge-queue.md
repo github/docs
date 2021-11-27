@@ -7,8 +7,6 @@ versions:
 topics:
   - Pull requests
 shortTitle: Add PR to merge queue
-redirect_from:  
-  - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
 ---
 
 {% data reusables.pull_requests.merge-queue-beta %}

@@ -75,8 +75,8 @@ shortTitle: Export data from GitHub.com
     * 認証のためのアクセストークン。
     * 移行の一意の `id`。
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      curl -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      -u <em>GITHUB_USERNAME</em>:<em>GITHUB_ACCESS_TOKEN</em> \
       -L -o migration_archive.tar.gz \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```

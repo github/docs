@@ -105,7 +105,7 @@ topics:
   - **Terminal.integrated.shell.linux** - 虽然 bash 是此处的默认设置，但您可以通过修改它来使用其他终端 shell。
 - **Extensions** - 它们是默认包含的扩展名。
   - **Dbaeumer.vscode-eslint** - ES lint 是 linting 的良好扩展，但是对于 JavaScript，您还可以包括许多出色的 Marketplace 扩展。
-- **forwardPorts** - 此处列出的任何端口都将自动转发。 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+- **forwardPorts** - 此处列出的任何端口都将自动转发。
 - **postCreateCommand** - 如果您要在进入 Dockerfile 中未定义的代码空间后执行任何操作，您可以在此处执行。
 - **remoteUser** - 默认情况下，您以 vscode 用户身份运行，但您可以选择将其设置为 root。
 

@@ -75,8 +75,8 @@ Migrations API 目前正处于预览阶段，这意味着端点和参数未来�
     * 身份验证的访问令牌。
     * 迁移的唯一 `id`：
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      curl -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      -u <em>GITHUB_USERNAME</em>:<em>GITHUB_ACCESS_TOKEN</em> \
       -L -o migration_archive.tar.gz \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```

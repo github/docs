@@ -45,12 +45,12 @@ You can generate a certificate signing request (CSR) for your instance using the
   ![Radio buttons with options to choose TLS protocols](/assets/images/enterprise/management-console/tls-protocol-support.png)
 5. Under "Certificate", click **Choose File** to choose a TLS certificate or certificate chain (in PEM format) to install. This file will usually have a *.pem*, *.crt*, or *.cer* extension.
   ![Button to find TLS certificate file](/assets/images/enterprise/management-console/install-tls-certificate.png)
-6. Under "Unencrypted key", click **Choose File** to choose an RSA key (in PEM format) to install. This file will usually have a *.key* extension.
+6. Under "Unencrypted key", click **Choose File** to choose a TLS key (in PEM format) to install. This file will usually have a *.key* extension.
   ![Button to find TLS key file](/assets/images/enterprise/management-console/install-tls-key.png)
 
   {% warning %}
 
-  **Warning**: Your key must be an RSA key and must not have a passphrase. For more information, see "[Removing the passphrase from your key file](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
+  **Warning**: Your TLS key must not have a passphrase. For more information, see "[Removing the passphrase from your key file](/enterprise/{{ currentVersion }}/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
 
   {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}

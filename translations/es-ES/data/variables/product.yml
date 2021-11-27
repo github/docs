@@ -136,7 +136,7 @@ prodname_codeql_workflow: 'Flujo de trabajo de análisis de CodeQL'
 #Visual Studio
 prodname_vs: 'Visual Studio'
 prodname_vscode: 'Visual Studio Code'
-prodname_vss_ghe: 'Visual Studio subscriptions with GitHub Enterprise'
+prodname_vss_ghe: 'Suscripción de Visual Studio con GitHub Enterprise'
 prodname_vss_admin_portal_with_url: 'el [portal de admnistrador para las suscripciones de Visual Studio](https://visualstudio.microsoft.com/subscriptions-administration/)'
 prodname_vscode_command_palette: 'VS Code Command Palette'
 #GitHub Dependabot

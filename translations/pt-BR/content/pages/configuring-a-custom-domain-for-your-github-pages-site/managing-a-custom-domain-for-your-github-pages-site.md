@@ -133,10 +133,6 @@ Depois de configurar o domínio apex, você deverá configurar um registro CNAME
 {% data reusables.pages.sidebar-pages %}
 4. Em "Domínio personalizado, clique em **Remover**. ![Botão Salvar domínio personalizado](/assets/images/help/pages/remove-custom-domain.png)
 
-## Securing your custom domain
-
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
-
 ## Leia mais
 
 - "[Solucionar problemas de domínios personalizados e do {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"

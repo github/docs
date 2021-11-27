@@ -35,24 +35,6 @@ topics:
 
 To produce more detailed logging output, you can enable step debug logging. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)."
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
-
-## Creating {% data variables.product.prodname_codeql %} debugging artifacts
-
-You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %} by setting a debug configuration flag. Modify the `init` step of your {% data variables.product.prodname_codeql %} workflow file and set `debug: true`.
-
-```
-- name: Initialize CodeQL
-  uses: github/codeql-action/init@v1
-  with:
-    debug: true
-```
-The debug artifacts will be uploaded to the workflow run as an artifact named `debug-artifacts`. The data contains the {% data variables.product.prodname_codeql %} logs, {% data variables.product.prodname_codeql %} database(s), and any SARIF file(s) produced by the workflow. 
-
-These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} code scanning. If you contact GitHub support, they might ask for this data.
-
-{% endif %}
-
 ## Automatic build for a compiled language fails
 
 If an automatic build of code for a compiled language within your project fails, try the following troubleshooting steps.

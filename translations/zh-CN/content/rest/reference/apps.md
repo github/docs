@@ -1,6 +1,5 @@
 ---
 title: 应用
-intro: The GitHub Apps API enables you to retrieve the information about the installation as well as specific information about GitHub Apps.
 redirect_from:
   - /v3/apps
 versions:
@@ -12,6 +11,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次信息以及有关应用程序安装设施的特定信息。 要了解有关 GitHub 应用程序的更多信息，请参阅“[验证为 GitHub 应用程序](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)”。
 
 {% data reusables.apps.general-apps-restrictions %}
 
@@ -54,7 +55,7 @@ miniTocMaxHeadingLevel: 3
 
 ### 使用存根端点进行测试
 
-This API includes endpoints that allow you to [test your {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) with **stubbed data**. 存根数据是硬编码的假数据，不会根据实际订阅而更改。
+此 API 包括允许您使用**存根数据**测试 {% data variables.product.prodname_github_app %} 的端点。 存根数据是硬编码的假数据，不会根据实际订阅而更改。
 
 要使用存根数据进行测试，请使用存根端点代替其对应的生产端点。 这允许您在 {% data variables.product.prodname_marketplace %} 上列出 {% data variables.product.prodname_github_apps %} 之前测试 API 逻辑是否成功。
 

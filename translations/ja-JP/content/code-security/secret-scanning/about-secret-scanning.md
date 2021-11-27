@@ -2,7 +2,6 @@
 title: シークレットスキャンニングについて
 intro: '{% data variables.product.product_name %} はリポジトリをスキャンして既知のシークレットのタイプを探し、誤ってコミットされたシークレットの不正使用を防止します。'
 product: '{% data reusables.gated-features.secret-scanning %}'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning
@@ -36,8 +35,6 @@ topics:
 パブリックリポジトリでは、{% data variables.product.prodname_secret_scanning_caps %}は自動的に有効になります。 パブリックリポジトリにプッシュすると、{% data variables.product.product_name %} がコミットの内容をスキャンしてシークレットを探します。 プライベートリポジトリをパブリックに切り替えると、{% data variables.product.product_name %} はリポジトリ全体をスキャンしてシークレットを探します。
 
 {% data variables.product.prodname_secret_scanning %} が認証情報一式を検出すると、弊社はそのシークレットを発行したサービスプロバイダに通知します。 サービスプロバイダは認証情報を検証し、シークレットを取り消すか、新しいシークレットを発行するか、または直接連絡する必要があるかを決定します。これは、ユーザまたはサービスプロバイダに関連するリスクに依存します。 トークン発行パートナーと弊社との連携の概要については、「[Secret scanningのパートナープログラム](/developers/overview/secret-scanning-partner-program)」を参照してください。
-
-### List of supported secrets for public repositories
 
 現在 {% data variables.product.product_name %} は、パブリックリポジトリをスキャンして、次のサービスプロバイダが発行したシークレットを探します。
 
@@ -73,11 +70,6 @@ When {% data variables.product.prodname_secret_scanning %} detects a secret in a
 
 {% ifversion fpt or ghes > 3.0 or ghec %}
 プライベートリポジトリあるいはOrganizationに渡る{% data variables.product.prodname_secret_scanning %}からの結果をモニターするには、{% data variables.product.prodname_secret_scanning %} APIが利用できます。 API に関する詳しい情報については、「[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)」を参照してください。{% endif %}
-
-{% ifversion ghes or ghae %}
-## List of supported secrets{% else %}
-### List of supported secrets for private repositories
-{% endif %}
 
 {% data variables.product.prodname_dotcom %}  currently scans{% ifversion fpt or ghec %} private{% endif %} repositories for secrets issued by the following service providers.
 

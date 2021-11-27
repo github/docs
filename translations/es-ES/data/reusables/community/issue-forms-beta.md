@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Issue forms are currently in beta for public repositories on {% data variables.product.prodname_dotcom_the_website %} only.
+**Nota:** Los formatos de propuesta se encuentran actualmente en beta y están sujetos a cambios.
 
 {% endnote %}

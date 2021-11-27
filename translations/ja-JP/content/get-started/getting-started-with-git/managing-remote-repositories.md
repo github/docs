@@ -173,7 +173,7 @@ $ git remote -v
 
 ### Troubleshooting: Could not rename config section 'remote.[old name]' to 'remote.[new name]'
 
-This error means that the old remote name you typed doesn't exist.
+このエラーは、名前を変更しようとして入力した古いリモート名のリモートが存在しない、という意味です。
 
 現在どのリモートが存在するかは、次のように `git remote -v` コマンドでチェックできます:
 

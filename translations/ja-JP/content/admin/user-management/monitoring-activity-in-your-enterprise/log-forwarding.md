@@ -18,11 +18,7 @@ topics:
   - Security
 ---
 
-## About log forwarding
-
 syslog-style 式のログストリームに対応するログ回収システムは、サポートしています。（例えば、[Logstash](http://logstash.net/) や [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)など）
-
-When you enable log forwarding, you must upload a CA certificate to encrypt communications between syslog endpoints. Your appliance and the remote syslog server will perform two-way SSL, each providing a certificate to the other and validating the certificate which is received.
 
 ## ログの転送を有効化
 
@@ -31,8 +27,8 @@ When you enable log forwarding, you must upload a CA certificate to encrypt comm
 1. **Enable log forwarding** を選択する。
 1. [**Server address**] フィールドに、ログの転送先となるサーバーのアドレスを入力します。 コンマ区切りリストで複数のアドレスを指定できます。
 1. [Protocol] ドロップダウンメニューで、ログサーバーとの通信に使用するプロトコルを選択します。 そのプロトコルは指定されたすべてのログ送信先に適用されます。
-1. Optionally, select **Enable TLS**. We recommend enabling TLS according to your local security policies, especially if there are untrusted networks between the appliance and any remote log servers.
-1. To encrypt communication between syslog endpoints, click **Choose File** and choose a CA certificate for the remote syslog server. You should upload a CA bundle containing a concatenation of the certificates of the CAs involved in signing the certificate of the remote log server. 一連の証明書の全体が確認され、ルート証明書で終了しなければなりません。 詳しくは、[syslog-ng のドキュメントのTLSオプション](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599)を参照してください。
+1. **Enable TLS** を選択する。
+1. **Choose File** をクリックして、syslog のエンドポイントの間の通信を暗号化するためのCA証明書を選択する。 一連の証明書の全体が確認され、ルート証明書で終了しなければなりません。 詳しくは、[syslog-ng のドキュメントのTLSオプション](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599)を参照してください。
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

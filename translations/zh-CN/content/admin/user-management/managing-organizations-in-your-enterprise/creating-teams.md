@@ -37,8 +37,6 @@ topics:
 
 使用 LDAP 进行用户身份验证的实例可以使用 LDAP 同步管理团队的成员。 在 **LDAP group（LDAP 组）** 字段中设置组的 **Distinguished Name（识别名称）**(DN) 会在您的 LDAP 服务器上将团队映射到 LDAP 组。 如果您使用 LDAP 同步管理团队的成员，将无法管理 {% data variables.product.product_location %} 内的团队。 启用 LDAP 同步后，映射的团队将以配置的间隔定期在后台同步成员。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
 
-You must be a site admin and an organization owner to create a team with LDAP sync enabled.
-
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 {% warning %}

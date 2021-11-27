@@ -1,3 +1,0 @@
-If your {% data variables.product.prodname_pages %} site is disabled but has a custom domain set up, it is at risk of a domain takeover. 在您的网站被禁用时拥有通过 DNS 提供商配置的自定义域，可能会导致其他人在您的一个子域上托管网站。
-
-Verifying your custom domain prevents other GitHub users from using your domain with their repositories. If your domain is not verified, and your {% data variables.product.prodname_pages %} site is disabled, you should immediately update or remove your DNS records with your DNS provider.

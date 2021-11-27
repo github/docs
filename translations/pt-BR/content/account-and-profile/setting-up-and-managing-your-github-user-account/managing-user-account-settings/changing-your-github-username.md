@@ -84,5 +84,5 @@ Após alteração do nome de usuário, os links para sua página de perfil anter
 
 ## Leia mais
 
-- "[Por que os meus commits estão vinculados ao usuário incorreto?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
+- "[Por que os meus commits estão vinculados ao usuário incorreto?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
 - "[{% data variables.product.prodname_dotcom %} Política de nome de usuário](/free-pro-team@latest/github/site-policy/github-username-policy)"{% endif %}

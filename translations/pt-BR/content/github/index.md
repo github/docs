@@ -4,7 +4,7 @@ redirect_from:
   - /articles/
   - /common-issues-and-questions/
   - /troubleshooting-common-issues/
-intro: 'Documentation, guides, and help topics for software developers, designers, and project managers. Covers using Git, pull requests, issues, wikis, gists, and everything you need to make the most of GitHub for development.'
+intro: 'Documentação, guias e tópicos de ajuda para desenvolvedores de software, engenheiros e gerentes de projeto. O conteúdo abrange o uso do Git, pull requests, problemas, wikis, gists e todas as informações necessárias para aproveitar ao máximo os recursos de desenvolvimento do GitHub.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,6 +13,8 @@ versions:
 children:
   - /copilot
   - /writing-on-github
+  - /committing-changes-to-your-project
+  - /collaborating-with-pull-requests
   - /importing-your-projects-to-github
   - /customizing-your-github-workflow
   - /extending-github

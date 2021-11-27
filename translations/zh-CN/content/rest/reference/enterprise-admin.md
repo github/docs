@@ -61,7 +61,7 @@ http(s)://<em>hostname</em>/
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec %}
 
 ## 审核日志
 

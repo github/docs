@@ -35,7 +35,7 @@ shortTitle: Learning resources
 
 ### ブランチ、フォーク、プルリクエスト
 
-インタラクティブなツールを使用して、[Git のブランチ](http://learngitbranching.js.org/)について学びましょう。 [フォーク](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)や[プルリクエスト](/articles/using-pull-requests)、および {% data variables.product.prodname_dotcom %} で[プルリクエストがどのように使用されているのか](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)をお読みください。 [コマンドライン](https://cli.github.com/)から {% data variables.product.prodname_dotcom %} の使用に関するリファレンスにアクセスしてください。
+インタラクティブなツールを使用して、[Git のブランチ](http://learngitbranching.js.org/)について学びましょう。 [フォーク](/articles/about-forks)や[プルリクエスト](/articles/using-pull-requests)、および {% data variables.product.prodname_dotcom %} で[プルリクエストがどのように使用されているのか](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)をお読みください。 [コマンドライン](https://cli.github.com/)から {% data variables.product.prodname_dotcom %} の使用に関するリファレンスにアクセスしてください。
 
 ### 動画
 

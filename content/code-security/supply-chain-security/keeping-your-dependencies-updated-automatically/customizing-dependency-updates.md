@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -20,10 +19,6 @@ topics:
   - Vulnerabilities
 shortTitle: Customize updates
 ---
-
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
-
 ## About customizing dependency updates
 
 After you've enabled version updates, you can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies by adding further options to the *dependabot.yml* file. For example, you could:
@@ -34,9 +29,9 @@ After you've enabled version updates, you can customize how {% data variables.pr
 - Change the maximum number of open pull requests for version updates from the default of 5: `open-pull-requests-limit`
 - Open pull requests for version updates to target a specific branch, instead of the default branch: `target-branch`
 
-For more information about the configuration options, see "[Configuration options for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+For more information about the configuration options, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates)."
 
-When you update the *dependabot.yml* file in your repository, {% data variables.product.prodname_dependabot %} runs an immediate check with the new configuration. Within minutes you will see an updated list of dependencies on the **{% data variables.product.prodname_dependabot %}** tab, this may take longer if the repository has many dependencies. You may also see new pull requests for version updates. For more information, see "[Listing dependencies configured for version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)."
+When you update the *dependabot.yml* file in your repository, {% data variables.product.prodname_dependabot %} runs an immediate check with the new configuration. Within minutes you will see an updated list of dependencies on the **{% data variables.product.prodname_dependabot %}** tab, this may take longer if the repository has many dependencies. You may also see new pull requests for version updates. For more information, see "[Listing dependencies configured for version updates](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)."
 
 ## Impact of configuration changes on security updates
 
@@ -140,4 +135,4 @@ updates:
 
 ## More examples
 
-For more examples, see "[Configuration options for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+For more examples, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates)."

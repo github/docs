@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
 ![发行版概述](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% elsif ghes > 3.3 or ghae-issue-4972 %}
+{% elsif ghes > 3.2 or ghae-issue-4972 %}
 ![发行版概述](/assets/images/help/releases/releases-overview-with-contributors.png)
 {% else %}
 ![发行版概述](/assets/images/help/releases/releases-overview.png)

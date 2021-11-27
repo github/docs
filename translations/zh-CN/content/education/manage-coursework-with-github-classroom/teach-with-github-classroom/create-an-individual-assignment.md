@@ -112,7 +112,7 @@ shortTitle: 个人作业
 
 - 当学生完成作业时，您可以查看仓库中的文件，或者查看仓库的历史和可视化内容，以更好地了解学生的工作。 更多信息请参阅“[使用图表可视化仓库](/github/visualizing-repository-data-with-graphs)”。
 
-- 您可以通过在拉取请求中评论个别提交或行来提供作业反馈。 更多信息请参阅“[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”和“[从代码打开议题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。 有关创建已保存回复以对常见错误提供反馈的信息，请参阅“[关于已保存回复](/github/writing-on-github/about-saved-replies)”。
+- 您可以通过在拉取请求中评论个别提交或行来提供作业反馈。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)”和“[从代码打开议题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。 有关创建已保存回复以对常见错误提供反馈的信息，请参阅“[关于已保存回复](/github/writing-on-github/about-saved-replies)”。
 
 ## 延伸阅读
 

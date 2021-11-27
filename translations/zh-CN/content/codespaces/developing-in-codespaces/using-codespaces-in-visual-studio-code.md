@@ -18,17 +18,10 @@ shortTitle: Visual Studio Code
 ---
 
  
-## About {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}
-
-You can use your local install of {% data variables.product.prodname_vscode %} to create, manage, work in, and delete codespaces. To use {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}, you need to install the {% data variables.product.prodname_github_codespaces %} extension. For more information on setting up Codespaces in {% data variables.product.prodname_vscode %}, see "[Prerequisites](#prerequisites)."
-
-By default, if you create a new codespace on {% data variables.product.prodname_dotcom_the_website %}, it will open in the browser. If you would prefer to open any new codespaces in {% data variables.product.prodname_vscode %} automatically, you can set your default editor to be {% data variables.product.prodname_vscode %}. For more information, see "[Setting your default editor for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)."
-
-If you prefer to work in the browser, but want to continue using your existing {% data variables.product.prodname_vscode %} extensions, themes, and shortcuts, you can turn on Settings Sync. 更多信息请参阅“[为帐户个性化 {% data variables.product.prodname_codespaces %}](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account#settings-sync)”。
 
 ## 基本要求
 
-To develop in a codespace directly in {% data variables.product.prodname_vscode %}, you must install and sign into the {% data variables.product.prodname_github_codespaces %} extension with your {% data variables.product.product_name %} credentials. {% data variables.product.prodname_github_codespaces %} 扩展需要 {% data variables.product.prodname_vscode %} 2020 年 10 月 1 日版本 1.51 或更高版本。
+要直接在 {% data variables.product.prodname_vscode %} 中开发代码空间，必须登录到 {% data variables.product.prodname_github_codespaces %} 扩展。 {% data variables.product.prodname_github_codespaces %} 扩展需要 {% data variables.product.prodname_vscode %} 2020 年 10 月 1 日版本 1.51 或更高版本。
 
 使用 {% data variables.product.prodname_vs %} Marketplace 安装 [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 扩展。 更多信息请参阅 {% data variables.product.prodname_vscode %} 文档中的[扩展 Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery)。
 
@@ -95,13 +88,3 @@ To develop in a codespace directly in {% data variables.product.prodname_vscode 
 ## 在 {% data variables.product.prodname_vscode %} 中删除代码空间
 
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
-
-## Switching to the Insiders build of {% data variables.product.prodname_vscode %}
-
-You can use the [Insiders Build of Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) within {% data variables.product.prodname_codespaces %}.
-
-1. In bottom left of your {% data variables.product.prodname_codespaces %} window, select **{% octicon "gear" aria-label="The settings icon" %} Settings**.
-2. From the list, select "Switch to Insiders Version".
-
-   ![Clicking on "Insiders Build" in {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
-3. Once selected, {% data variables.product.prodname_codespaces %} will continue to open in Insiders Version.

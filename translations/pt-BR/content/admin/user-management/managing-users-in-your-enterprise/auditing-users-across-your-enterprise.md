@@ -1,6 +1,6 @@
 ---
 title: Auditar de usuários em toda a sua empresa
-intro: 'O painel do log de auditoria mostra aos administradores do site as ações realizadas por todos os usuários e organizações de toda a sua empresa dentro do mês atual e dos seis meses anteriores. O log de auditoria inclui detalhes como quem realizou a ação, qual foi a ação e quando a ação foi realizada.'
+intro: 'O painel de log de auditoria mostra aos administradores do site as ações realizadas por todos os usuários e organizações de sua empresa nos últimos 90 dias incluindo detalhes como quem executou a ação, qual era a ação e quando a ação foi realizada.'
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -47,7 +47,7 @@ O log de auditoria lista as seguintes informações sobre as ações feitas na s
 **Notas:**
 
 - Embora não seja possível usar texto para pesquisar entradas de auditoria, você pode criar consultas de pesquisa usando filtros diversificados. {% data variables.product.product_name %} é compatível com muitos operadores para fazer pesquisa em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)".
-- Os registros de auditoria estão disponíveis para o mês atual e todos os dias dos seis meses anteriores.
+- Para pesquisar eventos com mais de 90 dias, use o qualificador `created`.
 
 {% endwarning %}
 

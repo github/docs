@@ -34,10 +34,7 @@ export default async function renderPage(req, res, next) {
 
   // Updating the Last-Modified header for substantive changes on a page for engineering
   // Docs Engineering Issue #945
-  if (context.page.effectiveDate) {
-    // Note that if a page has an invalidate `effectiveDate` string value,
-    // it would be caught prior to this usage and ultimately lead to
-    // 500 error.
+  if (context.page.effectiveDate !== '') {
     res.setHeader('Last-Modified', new Date(context.page.effectiveDate).toUTCString())
   }
 

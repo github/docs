@@ -83,19 +83,4 @@ describe('help.github.com redirect middleware', () => {
       `<p>Moved Permanently. Redirecting to <a href="${expectedRedirect}">${expectedRedirect}</a></p>`
     )
   })
-
-  it('only redirects to a docs.github.com path backlash edition', async () => {
-    const req = {
-      hostname: 'help.github.com',
-      protocol: 'https',
-      originalUrl: '/\\evil.com',
-    }
-    const res = new MockExpressResponse()
-    const next = jest.fn()
-    await middleware(req, res, next)
-    const expectedRedirect = 'https://docs.github.com/evil.com'
-    expect(res._getString()).toEqual(
-      `<p>Moved Permanently. Redirecting to <a href="${expectedRedirect}">${expectedRedirect}</a></p>`
-    )
-  })
 })

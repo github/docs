@@ -1,0 +1,1 @@
+1. Em {% data variables.product.prodname_insights %}, clique em **{% octicon "graph" aria-label="The graph icon" %} Métricas-chave**. ![Aba de Métricas Chave](/assets/images/help/insights/key-metrics-tab.png)
