@@ -82,7 +82,7 @@ For example, your repository or a web application might contain SASS and TypeScr
 
 This example shows you how to create a workflow for a Node.js project that builds the code in the `src` directory and runs the tests in the `tests` directory. You can assume that running `npm test` produces a code coverage report named `code-coverage.html` stored in the `output/test/` directory.
 
-The workflow uploads the production artifacts in the `dist` directory, but excludes any markdown files. It also and uploads the `code-coverage.html` report as another artifact.
+The workflow uploads the production artifacts in the `dist` directory, but excludes any markdown files. It also uploads the `code-coverage.html` report as another artifact.
 
 ```yaml{:copy}
 name: Node CI
@@ -161,7 +161,7 @@ You can also download all artifacts in a workflow run by not specifying a name. 
   uses: actions/download-artifact@v2
 ```
 
-If you download all a workflow run's artifacts, a directory for each artifact is created using its name.
+If you download all workflow run's artifacts, a directory for each artifact is created using its name.
 
 For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.product_location %}{% endif %}.
 

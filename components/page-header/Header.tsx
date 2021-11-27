@@ -10,24 +10,18 @@ import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ProductPicker } from 'components/page-header/ProductPicker'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Search } from 'components/Search'
-import { VersionPicker } from 'components/VersionPicker'
+import { VersionPicker } from 'components/page-header/VersionPicker'
 import { Breadcrumbs } from './Breadcrumbs'
 import styles from './Header.module.scss'
 
 export const Header = () => {
   const router = useRouter()
-  const { relativePath, currentLayoutName, error } = useMainContext()
+  const { relativePath, error } = useMainContext()
   const { t } = useTranslation(['header', 'homepage'])
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(
+    router.pathname !== '/' && router.query.query && true
+  )
   const [scroll, setScroll] = useState(false)
-
-  // the graphiql explorer utilizes `?query=` in the url and we don't want our search bar to mess that up
-  const updateSearchParams = router.asPath !== 'graphql/overview/explorer'
-  const showVersionPicker =
-    relativePath === 'index.md' ||
-    currentLayoutName === 'product-landing' ||
-    currentLayoutName === 'product-sublanding' ||
-    currentLayoutName === 'release-notes'
 
   useEffect(() => {
     function onScroll() {
@@ -49,30 +43,32 @@ export const Header = () => {
       {error !== '404' && <HeaderNotifications />}
       <header
         className={cx(
-          'color-bg-default px-3 px-md-6 pt-3 pb-3 position-sticky top-0 z-3',
-          scroll ? 'color-shadow-medium' : 'color-shadow-small'
+          'color-bg-default px-3 px-md-6 pt-3 pb-3 position-sticky top-0 z-3 border-bottom',
+          scroll && 'color-shadow-small'
         )}
       >
         {/* desktop header */}
         <div
-          className="d-none d-lg-flex flex-justify-end flex-items-center"
+          className="d-none d-lg-flex flex-justify-end flex-items-center flex-wrap flex-xl-nowrap"
           data-testid="desktop-header"
         >
-          <div className={cx('mr-auto', scroll && styles.breadcrumbs)}>
+          <div
+            className={cx('mr-auto width-full width-xl-auto', scroll && styles.breadcrumbs)}
+            data-search="breadcrumbs"
+          >
             <Breadcrumbs />
           </div>
-          {showVersionPicker && (
-            <div className="mr-2">
-              <VersionPicker hideLabel={true} variant="compact" />
-            </div>
-          )}
+
+          <div className="mr-2">
+            <VersionPicker />
+          </div>
 
           <LanguagePicker />
 
           {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
           {relativePath !== 'index.md' && error !== '404' && (
             <div className="d-inline-block ml-3">
-              <Search updateSearchParams={updateSearchParams} isOverlay={true} />
+              <Search iconSize={16} isHeaderSearch={true} />
             </div>
           )}
         </div>
@@ -110,31 +106,22 @@ export const Header = () => {
             <div
               className={cx('width-full position-sticky top-0', isMenuOpen ? 'd-block' : 'd-none')}
             >
-              <div className="mt-3 mb-2">
-                <div className="pt-3 mb-4 ml-2">
-                  <Breadcrumbs />
-                </div>
-                <h4 className="f5 text-normal color-fg-muted ml-3">{t('explore_by_product')}</h4>
-
-                <ProductPicker />
+              <div className="my-4">
+                <Breadcrumbs />
               </div>
 
-              {/* <!-- Versions picker that only appears in the header on landing pages --> */}
-              {showVersionPicker && (
-                <>
-                  <div className="border-top my-2 mx-3" />
-                  <VersionPicker hideLabel={true} variant="inline" popoverVariant={'inline'} />
-                </>
-              )}
+              <ProductPicker />
 
-              {/* <!-- Language picker - 'English', 'Japanese', etc --> */}
-              <div className="border-top my-2 mx-3" />
+              <div className="border-top my-2" />
+              <VersionPicker variant="inline" />
+
+              <div className="border-top my-2" />
               <LanguagePicker variant="inline" />
 
               {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
               {relativePath !== 'index.md' && error !== '404' && (
-                <div className="my-2 pt-3 mx-3">
-                  <Search updateSearchParams={updateSearchParams} />
+                <div className="my-2 pt-3">
+                  <Search iconSize={16} isMobileSearch={true} />
                 </div>
               )}
             </div>

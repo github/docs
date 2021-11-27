@@ -20,14 +20,14 @@ shortTitle: Excluir & restaurar um pacote
 
 Em {% data variables.product.prodname_dotcom %} se você tiver o acesso necessário, você poderá excluir:
 - um pacote privado inteiro
-- um pacote público inteiro, se não houver mais de 25 downloads de qualquer versão do pacote
+- um pacote público inteiro, se não houver mais de 5000 downloads de qualquer versão do pacote
 - uma versão específica de um pacote privado
-- uma versão específica de um pacote público, se a versão do pacote não tiver mais de 25 downloads
+- uma versão específica de um pacote público, se a versão do pacote não tiver mais de 5000 downloads
 
 {% note %}
 
 **Observação:**
-- Você não pode excluir um pacote público se uma versão do pacote tiver mais de 25 downloads. Neste caso, entre em contato com o [suporte do GitHub](https://support.github.com/contact?tags=docs-packages) para obter mais assistência.
+- Você não pode excluir um pacote público se uma versão do pacote tiver mais de 5000 downloads. Neste caso, entre em contato com o [suporte do GitHub](https://support.github.com/contact?tags=docs-packages) para obter mais assistência.
 - Ao excluir pacotes públicos, esteja ciente de que você pode quebrar projetos que dependem do seu pacote.
 
 {% endnote %}

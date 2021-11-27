@@ -24,7 +24,7 @@ You can work with {% data variables.product.prodname_codespaces %} in the  {% da
 - [Delete a codespace](#delete-a-codespace)
 - [SSH into a codespace](#ssh-into-a-codespace)
 - [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in-visual-studio-code)
-- [Copying a file to/from a codespace](#copying-a-file-tofrom-a-codespace)
+- [Copying a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
 - [Modify ports in a codespace](#modify-ports-in-a-codespace)
 - [Access codespace logs](#access-codespace-logs)
 

@@ -157,7 +157,7 @@ Para ajudar a mitigar o risco de um token exposto, considere restringir as permi
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
-## Using OpenID Connect to access cloud resources
+## Usando o OpenID Connect para acessar os recursos da nuvem
 
 {% data reusables.actions.about-oidc-short-overview %}
 
@@ -269,22 +269,22 @@ Você também deve considerar o ambiente das máquinas de executores auto-hosped
 
 Alguns clientes podem tentar mitigar parcialmente esses riscos implementando sistemas que destroem automaticamente o executor auto-hospedado após cada execução do trabalho. No entanto, esta abordagem poderá não ser tão eficaz como pretendido, uma vez que não há forma de garantir que um executor auto-hospedado execute apenas um trabalho. Algumas tarefas usarão segredos como argumentos de linha de comando que podem ser vistos por outra tarefa executando no mesmo executor como, por exemplo, `ps x -w`. Isso pode gerar vazamento de segredos.
 
-### Planning your management strategy for self-hosted runners
+### Planejando sua estratégia de gerenciamento para executores auto-hospedados
 
-A self-hosted runner can be added to various levels in your {% data variables.product.prodname_dotcom %} hierarchy: the enterprise, organization, or repository level. This placement determines who will be able to manage the runner:
+Um executor auto-hospedado pode ser adicionado aos vários níveis na sua hierarquia de {% data variables.product.prodname_dotcom %}: empresa, organização ou repositório. Este posicionamento determina quem será poderá de gerenciar o executor:
 
-**Centralised management:**
-  - If you plan to have a centralized team own the self-hosted runners, then the recommendation is to add your runners at the highest mutual organization or enterprise level. This gives your team a single location to view and manage your runners.
-  - If you only have a single organization, then adding your runners at the organization level is effectively the same approach, but you might encounter difficulties if you add another organization in the future.
+**Gerenciamento centralizado:**
+  - Se você planeja ter uma equipe centralizada que detém os executores auto-hospedados, recomenda-se adicionar seus executores ao nível mais alto da organização mútua ou da empresa. Isto fornece à sua equipe um único local para visualizar e gerenciar seus executores.
+  - Se você tiver apenas uma única organização, adicionar seus executores ao nível da organização é, de fato, a mesma abordagem, mas você pode encontrar dificuldades se você adicionar outra organização no futuro.
 
-**De-centralised management:**
-  - If each team will manage their own self-hosted runners, then its recommended that you add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
-  - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
+**Gestão descentralizada:**
+  - Se cada equipe irá gerenciar seus próprios executores hospedados, recomenda-se que você adicione os executores ao mais alto nível de propriedade da equipe. Por exemplo, se cada equipe possui sua própria organização, será mais simples se os executores também forem adicionados ao nível da organização.
+  - Você também pode adicionar executores no nível de repositório, mas isso adicionará uma sobrecarga de gerenciamento e também aumentará o número de executores necessários já que você não pode compartilhar executores entre repositórios.
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
-### Authenticating to your cloud provider
+### Efetuando a autenticação para seu provedor de nuvem
 
-If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then its recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
+Se você está usando {% data variables.product.prodname_actions %} para implantar para um provedor da nuvem, ou pretender usar o HashiCorp Vault para o gerenciamento de segredos, recomenda-se que você use o OpenID Connect para criar tokens de acesso com escopos bem definidos, curtos e para as execuções do seu fluxo de trabalho. Para obter mais informações, consulte[Sobre o enrijecimento da segurança com o OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
 
 {% endif %}
 

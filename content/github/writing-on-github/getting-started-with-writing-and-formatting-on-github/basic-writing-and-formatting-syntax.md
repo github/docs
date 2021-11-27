@@ -80,7 +80,7 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 ## Links
 
-You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}
+You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
 `This site was built using [GitHub Pages](https://pages.github.com/).`
 
@@ -134,6 +134,18 @@ Here are some examples for using relative links to display an image.
 
 For more information, see "[Relative Links](#relative-links)."
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
+### Specifying the theme an image is shown to
+
+You can specify the theme an image is displayed to by appending `#gh-dark-mode-only` or `#gh-light-mode-only` to the end of an image URL, in Markdown.
+
+We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
+
+| Context | URL |
+|--------|--------|
+| Dark Theme | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
+| Light Theme | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)` |
+{% endif %}
 
 ## Lists
 

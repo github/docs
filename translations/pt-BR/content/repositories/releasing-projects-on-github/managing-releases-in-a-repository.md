@@ -54,17 +54,17 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
 
 {% data reusables.repositories.releases %}
 
-3. Clique em **Draft a new release** (Rascunhar uma nova versão). 
+3. Clique em **Draft a new release** (Rascunhar uma nova versão).
    
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}![Releases draft button](/assets/images/help/releases/draft-release-button-with-search.png){% else %}![Releases draft button](/assets/images/help/releases/draft_release_button.png){% endif %}
 
-4. {% ifversion fpt or ghec %}Click **Choose a tag**, type{% else %}Type{% endif %} a version number for your release{% ifversion fpt or ghec %}, and press **Enter**{% endif %}. Como alternativa, selecione um tag existente. 
+4. {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}Click **Choose a tag**, type{% else %}Type{% endif %} a version number for your release{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}, and press **Enter**{% endif %}. Como alternativa, selecione um tag existente.
    
-   {% ifversion fpt or ghec %}
-   
-   ![Insira uma tag](/assets/images/help/releases/releases-tag-create.png)
+   {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Insira uma tag](/assets/images/help/releases/releases-tag-create.png)
 
-5. Se você estiver criando uma nova tag, clique em **Criar nova tag**. ![Confirme que você deseja criar uma nova tag](/assets/images/help/releases/releases-tag-create-confirm.png) 
+5. Se você estiver criando uma nova tag, clique em **Criar nova tag**.
+   
+   ![Confirme que você deseja criar uma nova tag](/assets/images/help/releases/releases-tag-create-confirm.png) 
    
    {% else %}
    
@@ -72,17 +72,15 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    
    {% endif %}
 
-5. Se você criou uma nova tag, use o menu suspenso para selecionar o branch que contém o projeto que você deseja liberar. 
+5. Se você criou uma nova tag, use o menu suspenso para selecionar o branch que contém o projeto que você deseja liberar.
    
-   {% ifversion fpt or ghec %}![Escolha um branch](/assets/images/help/releases/releases-choose-branch.png) 
+   {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Escolha um branch](/assets/images/help/releases/releases-choose-branch.png) 
    
-   {% else %}![Branch com tag das versões](/assets/images/enterprise/releases/releases-tag-branch.png) 
-   
-   {% endif %}
+   {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
 
 6. Digite um título e uma descrição para a sua versão. 
    
-   {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4972 %}
+   {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %}
 
    
    Se você @mencionar qualquer usuário de {% data variables.product.product_name %} na descrição, a versão publicada incluirá uma seção de **Colaboradores** com uma lista de avatar de todos os usuários mencionados. 
@@ -153,7 +151,7 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    ```
 
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4972 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4972 or ghec %}
 
 
 Se você @mencionar qualquer usuário de {% data variables.product.product_name %} nas observações, a versão publicada em {% data variables.product.prodname_dotcom_the_website %} incluirá uma seção **Colaboradores** com uma lista de avatar de todos os usuários mencionados. 
@@ -188,7 +186,7 @@ Se você @mencionar qualquer usuário de {% data variables.product.product_name 
    
    {% endif %}
 
-4. Edite as informações da versão no formulário e, em seguida, clique em **Atualizar versão**.{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4972 %} Se você adicionar ou remover quaisquer @menções de usuários do GitHub na descrição, esses usuários serão adicionados ou removidos da lista de avatares na seção **Colaboradores** da versão.{% endif %} ![Atualizar uma versão](/assets/images/help/releases/update-release.png)
+4. Edite as informações da versão no formulário e, em seguida, clique em **Atualizar versão**.{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %} Se você adicionar ou remover quaisquer @menções de usuários do GitHub na descrição, esses usuários serão adicionados ou removidos da lista de avatares na seção **Colaboradores** da versão.{% endif %} ![Atualizar uma versão](/assets/images/help/releases/update-release.png)
 
 {% endwebui %}
 
