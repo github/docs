@@ -78,7 +78,7 @@ versions:
   ghes: '*'
 ```
 
-You can also version a page for a range of releases. This would version the page for GitHub.com, and GitHub Enterprise Server versions 2.22 and 3.0 only:
+You can also version a page for a range of releases. This would version the page for GitHub.com and GitHub Enterprise Server versions 2.22 and 3.0 only:
 
 ```yaml
 versions:
@@ -143,7 +143,7 @@ shortTitle: Contributing to projects
 
 ### `product`
 
-- Purpose: Sets the product callout for the article. This string will render after the `intro` and `permissions` statement.
+- Purpose: Sets the product callout for the article. This string will render after the `intro` and `permissions` statements.
 - Type: `String`
 - Optional.
 
@@ -216,7 +216,7 @@ featuredLinks:
 
 ### `defaultPlatform`
 
-- Purpose: Override the initial platform selection for a page. If this frontmatter is omitted, then the platform-specific content matching the reader's operating system is shown by default. This behavior can be changed for individual pages, for which a manual selection is more reasonable. For example, most GitHub Actions runners use Linux and their operating system is independent of the reader's operating system.
+- Purpose: Override the initial platform selection for a page. If this frontmatter is omitted, the platform-specific content matching the reader's operating system is shown by default. This behavior can be changed for individual pages, for which a manual selection is more reasonable. For example, most GitHub Actions runners use Linux, and their operating system is independent of the reader's operating system.
 - Type: `String`, one of: `mac`, `windows`, `linux`.
 - Optional.
 
@@ -228,7 +228,7 @@ defaultPlatform: linux
 
 ### `defaultTool`
 
-- Purpose: Override the initial tool selection for a page, where tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs (such as cURL or the GitHub CLI). If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. This behavior can be changed for individual pages, for which a manual selection is more reasonable.
+- Purpose: Override the initial tool selection for a page, where tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs (such as cURL or the GitHub CLI). If this frontmatter is omitted, the tool-specific content matching the GitHub web UI is shown by default. This behavior can be changed for individual pages, for which a manual selection is more reasonable.
 - Type: `String`, one of: `webui`, `cli`, `desktop`, `curl`, `codespaces`, `vscode`.
 - Optional.
 
@@ -264,9 +264,9 @@ includeGuides:
 - Optional.
 
 ### `topics`
-- Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of [this page](https://docs.github.com/en/actions/guides) can be filtered by topics and the topics are listed under the guide intro. Topics are also added to all search records that get created for each page. The search records contain a `topics` property that is used to filter search results by topics. For more information, see the [Search](/contributing/search.md) contributing guide. Refer to the content models for more details around adding topics. A full list of  existing topics is located in the [allowed topics file](/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/tests/unit/search/topics.js) will fail.
+- Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of [this page](https://docs.github.com/en/actions/guides) can be filtered by topics, and the topics are listed under the guide intro. Topics are also added to all search records that get created for each page. The search records contain a `topics` property that is used to filter search results by topics. For more information, see the [Search](/contributing/search.md) contributing guide. Refer to the content models for more details around adding topics. A full list of existing topics is located in the [allowed topics file](/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/tests/unit/search/topics.js) will fail.
 - Type: Array of `String`s
-- Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics or a adding a topic to a new article may not add value.
+- Optional: Topics are preferred for each article, but there may be cases where existing articles don't yet have topics or adding a topic to a new article may not add value.
 
 ### `contributor`
 - Purpose: Indicate an article is contributed and maintained by a third-party organization, typically a GitHub Technology Partner.
@@ -274,13 +274,13 @@ includeGuides:
 - Optional.
 
 ### `communityRedirect`
-- Purpose: Set a custom link and link name for `Ask the GitHub community` link in the footer.
+- Purpose: Set a custom link and link name for the `Ask the GitHub community` link in the footer.
 - Type: `Object`. Properties are `name` and `href`.
 - Optional.
 
 ### `effectiveDate`
 - **For GitHub staff only**: Set an effective date for Terms of Service articles so that engineering teams can automatically re-prompt users to confirm the terms
-- Type: `string` YEAR-MONTH-DAY e.g. 2021-10-04 is October 4th, 2021
+- Type: `string` YEAR-MONTH-DAY, e.g., 2021-10-04 is October 4th, 2021
 - Optional.
 
 Example:
@@ -297,7 +297,7 @@ If you see two single quotes in a row (`''`) in YML frontmatter where you might 
 
 > In single quoted leaves, a single quote character needs to be escaped. This is done by repeating the character.
 
-As an alternative, you can change the single quotes surrounding the frontmatter field to double quotes and leave interior single quotes unescaped.
+Alternatively, you can change the single quotes surrounding the frontmatter field to double quotes and leave single interior quotes unescaped.
 
 ## Autogenerated mini TOCs
 
@@ -308,7 +308,7 @@ Every article on the help site displays an autogenerated "In this article" secti
 
 Mini TOCs do not appear on product landing pages, category landing pages, or map topic pages.
 
-Make sure not to add hardcoded "In this article" sections in the Markdown source or else the page will display duplicate mini TOCs.
+Make sure not to add hardcoded "In this article" sections in the Markdown source, or else the page will display duplicate mini TOCs.
 
 ## Versioning
 
@@ -321,9 +321,9 @@ A content file can have **two** types of versioning:
 
 ### Free-pro-team vs. GitHub.com versioning
 
-As of early 2021, the `free-pro-team@latest` version is **only** supported in content files (in both frontmatter and Liquid versioning) and throughout the docs site backend. It is **not** user facing. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs. Users now select `GitHub.com` in the Article Versions dropdown instead of `Free, Pro, Team`.
+As of early 2021, the `free-pro-team@latest` version is **only** supported in content files (in both frontmatter and Liquid versioning) and throughout the docs site backend. It is **not** user-facing. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs. Users now select `GitHub.com` in the Article Versions dropdown instead of `Free, Pro, Team`.
 
-The convenience function allows us to continue supporting a consistent versioning structure under-the-hood while not displaying plan information to users that may be potentially confusing.
+The convenience function allows us to continue supporting a consistent versioning structure under-the-hood while not displaying plan information that may be potentially confusing to users.
 
 ## Filenames
 
@@ -341,7 +341,7 @@ Just add a hyphen on either the left, right, or both sides to indicate that ther
 
 ## Links and image paths
 
-Local links must start with a product ID (like `/actions` or `/admin`), and image paths must start with `/assets`. The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](lib/render-content/plugins/rewrite-local-links.js).
+Local links must start with a product ID (like `/actions` or `/admin`), and image paths must start with `/assets`. The links to Markdown pages undergo some transformations on the server-side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](lib/render-content/plugins/rewrite-local-links.js).
 
 For example, if you include the following link in a content file:
 
@@ -361,7 +361,7 @@ There are transformations for image paths in GitHub Enterprise Server (versions 
 
 ### Preventing transformations
 
-Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, write the link using HTML and add a class of `dotcom-only`. For example:
+Sometimes you want to link to a Dotcom-only article in Enterprise content, and you don't want the link to be Enterprise-ified. To prevent the transformation, write the link using HTML and add a class of `dotcom-only`. For example:
 
 ```html
 <a href="/github/site-policy/github-terms-of-service" class="dotcom-only">GitHub's Terms of Service</a>
@@ -373,7 +373,7 @@ Sometimes the canonical home of content moves outside the docs site. None of the
 
 Index pages are the Table of Contents files for the docs site. Every product, category, and map topic subdirectory has an `index.md` that serves as the landing page. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic.
 
-**Important note**: The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will 404.
+**Important note**: The site only knows about paths included in the `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will 404.
 
 ### Homepage
 
