@@ -19,9 +19,12 @@ title: About [subject]
 shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
+ circleci-project-setup
 type: overview
 topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
   - [topic]
+=======
+ content-template-versions
 versions:
 ---
 
@@ -58,9 +61,12 @@ title: Nouns describing your subject
 shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
+ circleci-project-setup
 type: reference
 topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
   - [topic]
+=======
+ contnt-template-versions
 versions:
 ---
 
@@ -97,9 +103,12 @@ title: Start with a gerund
 shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
+ circleci-project-setup
 type: how_to
 topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
   - [topic]
+=======
+ content-template-versions
 versions:
 ---
 
@@ -135,9 +144,12 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 title: Quickstart title
 shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. Highlight that the guide is quick and to the point.'
+ circleci-project-setup
 type: quick_start
 topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
   - [topic]
+=======
+ content-template-versions
 versions:
 ---
 
@@ -189,9 +201,12 @@ title: Tutorial title
 shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below'
 product: '{{ optional product callout }}'
+ circleci-project-setup
 type: tutorial
 topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
   - [topic]
+=======
+ content-template-versions
 versions:
 ---
 
@@ -256,9 +271,12 @@ title: Guide title
 shortTitle: [subject] # Max 31 characters
 intro: 'Article intro. See tips for a great intro below'
 product: '{{ site.data.reusables.gated-features.actions }}'
+ circleci-project-setup
 type: tutorial
 topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
   - [topic]
+=======
+ content-template-versions
 versions:
 ---
 
