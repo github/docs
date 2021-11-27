@@ -6,7 +6,11 @@ permissions:
   checks: read|write|none
   contents: read|write|none
   deployments: read|write|none
+------- main
   id_token: read|write|none
+=======
+  discussions: read|write|none
+------- add-dicussions-permission
   issues: read|write|none
   discussions: read|write|none
   packages: read|write|none
