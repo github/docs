@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Packages**. ![Packages tab in management console sidebar](/assets/images/enterprise/site-admin-settings/management-console-packages-tab.png)
+1. 左のサイドバーで**Packages**をクリックしてください。 ![管理コンソールのサイドバーのPackagesタブ](/assets/images/enterprise/site-admin-settings/management-console-packages-tab.png)

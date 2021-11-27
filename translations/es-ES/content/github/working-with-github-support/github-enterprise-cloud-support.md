@@ -1,48 +1,54 @@
 ---
-title: Asistencia para Enterprise Cloud de GitHub
+title: GitHub Enterprise Cloud support
 redirect_from:
   - /articles/business-plan-support/
   - /articles/github-business-cloud-support/
   - /articles/github-enterprise-cloud-support
-intro: '{% data variables.product.prodname_ghe_cloud %} incluye un tiempo de respuesta objetivo de ocho horas para las solicitudes de asistencia prioritarias, de lunes a viernes en tu zona horaria local.'
+intro: '{% data variables.product.prodname_ghe_cloud %} includes a target eight-hour response time for priority support requests, Monday to Friday in your local time zone.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - Jobs
+shortTitle: GitHub Enterprise Cloud
 ---
 
 {% note %}
 
-**Notq:** Los clientes de {% data variables.product.prodname_ghe_cloud %} pueden registrarse para {% data variables.contact.premium_support %}. Para obtener más información, consulta "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)".
+**Note:** {% data variables.product.prodname_ghe_cloud %} customers can sign up for {% data variables.contact.premium_support %}. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)."
 
 {% endnote %}
 
-Puedes enviar preguntas prioritarias si has comprado {% data variables.product.prodname_ghe_cloud %} o si eres miembro, colaborador externo o gerente de facturación de una organización {% data variables.product.prodname_dotcom %} actualmente suscrita en {% data variables.product.prodname_ghe_cloud %}.
+{% data reusables.support.zendesk-old-tickets %}
 
-Preguntas que califican para recibir respuestas prioritarias:
-- Incluyen preguntas relacionadas con tu imposibilidad para acceder o usar la funcionalidad de control de la versión principal de {% data variables.product.prodname_dotcom %}
-- Incluyen situaciones relacionadas con la seguridad de tu cuenta
-- No incluyen servicios y funciones periféricos, como preguntas acerca de Gists, {% data variables.product.prodname_pages %} o notificaciones de correo electrónico
-- Incluyen preguntas acerca de organizaciones que actualmente usan {% data variables.product.prodname_ghe_cloud %}
+You can submit priority questions if you have purchased {% data variables.product.prodname_ghe_cloud %} or if you're a member, outside collaborator, or billing manager of a {% data variables.product.prodname_dotcom %} organization currently subscribed to {% data variables.product.prodname_ghe_cloud %}.
 
-Para calificar para una respuesta prioritaria, debes hacer lo siguiente:
-- Enviar tu pregunta a [{% data variables.contact.enterprise_support %}](https://enterprise.githubsupport.com/hc/en-us/requests/new?github_product=cloud) desde una dirección de correo verificada que esté asociada con la organización que actualmente usa {% data variables.product.prodname_ghe_cloud %}
-- Enviar un ticket de asistencia nuevo para cada situación prioritaria particular
-- Enviar tu pregunta de lunes a viernes en tu zona horaria local
-- Comprender que la respuesta a una pregunta prioritaria será recibida por correo electrónico
-- Colaborar con {% data variables.contact.github_support %} y proporcionar toda la información que solicite {% data variables.contact.github_support %}
+Questions that qualify for priority responses:
+- Include questions related to your inability to access or use {% data variables.product.prodname_dotcom %}'s core version control functionality
+- Include situations related to your account security
+- Do not include peripheral services and features, such as questions about Gists, {% data variables.product.prodname_pages %}, or email notifications
+- Include questions only about organizations currently using {% data variables.product.prodname_ghe_cloud %}
+
+To qualify for a priority response, you must:
+- Submit your question to [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic) from a verified email address that's associated with an organization currently using {% data variables.product.prodname_ghe_cloud %}
+- Submit a new support ticket for each individual priority situation
+- Submit your question from Monday-Friday in your local time zone
+- Understand that the response to a priority question will be received via email
+- Cooperate with {% data variables.contact.github_support %} and provide all of the information that {% data variables.contact.github_support %} asks for
 
 {% tip %}
 
-**Consejo:** Las preguntas no califican para recibir respuestas prioritarias si se envían durante un feriado local de tu jurisdicción.
+**Tip:** Questions do not qualify for a priority response if they are submitted on a local holiday in your jurisdiction.
 
 {% endtip %}
 
-El tiempo de respuesta objetivo de ocho horas:
-- Comienza cuando {% data variables.contact.github_support %} recibe tu pregunta que califica
-- No comienza hasta que hayas proporcionada la suficiente información para responder la pregunta, a menos que específicamente indiques que no cuentas con la información suficiente
-- No aplica durante los fines de semana de tu zona horaria local o durante los feriados locales de tu jurisdicción
+The target eight-hour response time:
+- Begins when {% data variables.contact.github_support %} receives your qualifying question
+- Does not begin until you have provided sufficient information to answer the question, unless you specifically indicate that you do not have sufficient information
+- Does not apply on weekends in your local timezone or local holidays in your jurisdiction
 
 {% note %}
 
-**Nota:** {% data variables.contact.github_support %} no garantiza una resolución para tu pregunta prioritaria. {% data variables.contact.github_support %} puede escalar problemas al estado de pregunta prioritaria o bajarlos en función de nuestra evaluación razonable de la información que nos proporcionas.
+**Note:** {% data variables.contact.github_support %} does not guarantee a resolution to your priority question. {% data variables.contact.github_support %} may escalate or deescalate issues to or from priority question status, based on our reasonable evaluation of the information you give to us.
 
 {% endnote %}

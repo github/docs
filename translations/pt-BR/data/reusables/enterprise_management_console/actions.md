@@ -1,1 +1,1 @@
-1. Na barra lateral esquerda, clique em **Actions** (Ações). ![Actions tab in the settings sidebar](/assets/images/enterprise/management-console/sidebar-actions.png)
+1. Na barra lateral esquerda, clique em **Actions** (Ações). ![Aba Ações na barra lateral de configurações](/assets/images/enterprise/management-console/sidebar-actions.png)

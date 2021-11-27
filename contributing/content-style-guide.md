@@ -4,56 +4,7 @@ Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
 These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [GitHub Brand Guide](https://brand.github.com/content/) first, then the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md).
 
-## Table of contents <!-- omit in toc -->
-- [The GitHub Docs approach to style](#the-github-docs-approach-to-style)
-- [Callouts](#callouts)
-  - [Formatting callouts](#formatting-callouts)
-- [Code](#code)
-  - [Code blocks](#code-blocks)
-  - [Commands](#commands)
-  - [Examples](#examples)
-  - [Indentation](#indentation)
-- [Headers](#headers)
-- [Images](#images)
-  - [Alt text](#alt-text)
-  - [Filenames](#filenames)
-  - [Screenshots](#screenshots)
-- [Inclusive language](#inclusive-language)
-  - [Resources about inclusive language](#resources-about-inclusive-language)
-- [Linebreaks](#linebreaks)
-- [Links](#links)
-  - [Links to external resources](#links-to-external-resources)
-- [Lists](#lists)
-- [Procedural steps](#procedural-steps)
-- [Product names](#product-names)
-- [Punctuation](#punctuation)
-- [Reusables and variables](#reusables-and-variables)
-- [Tables](#tables)
-- [Titles](#titles)
-- [User interface elements](#user-interface-elements)
-  - [Boldface](#boldface)
-  - [Branch names](#branch-names)
-  - [Buttons](#buttons)
-  - [Checkboxes](#checkboxes)
-  - [Drop-down menus](#drop-down-menus)
-  - [Dynamic text](#dynamic-text)
-  - [Location](#location)
-  - [Radio buttons](#radio-buttons)
-  - [Repository names](#repository-names)
-  - [User interface text](#user-interface-text)
-  - [More resources](#more-resources)
-- [Voice and tone](#voice-and-tone)
-- [Word choice and terminology](#word-choice-and-terminology)
-  - [Abbreviations](#abbreviations)
-  - [Accounts](#accounts)
-  - [Acronyms](#acronyms)
-  - [Apps](#apps)
-  - [Inclusive language](#inclusive-language-1)
-  - [Prepositions](#prepositions)
-  - [Product names](#product-names-1)
-  - [Terms to use or avoid](#terms-to-use-or-avoid)
-- [Word order](#word-order)
-  - [Strings of nouns](#strings-of-nouns)
+Use table of contents icon <img src="../assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
 
 ## The GitHub Docs approach to style
 
@@ -97,6 +48,19 @@ Keep lines in code samples to about 60 characters, to avoid requiring readers to
 Within code blocks:
 - Do not use markup before the command output.
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
+- If your code example includes `{` or `}` that should render, wrap that section in `{% raw %}` `{% endraw %}` to disable Liquid processing for that section.
+  - **Use**:
+
+    ```
+    GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+    ```
+
+  - **Avoid**:
+ 
+    ```
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    ```
+
 
 ### Commands
 
@@ -145,9 +109,17 @@ In YAML examples, such as actions and workflow files, use two spaces to indent l
           python-version: ${{ matrix.python }}
 ```
 
+### Scheduled workflows
+
+Workflow runs are delayed when too many workflows run at once. Since many users copy code from the GitHub docs, we should use examples that guide users away from congested times.
+
+- Do not use examples that run on the hour. (The Actions team reports that times at the start of the hour, especially UTC midnight, are disproportionately overloaded.)
+- Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
+- Use a different time for each example.
+
 ## Headers
 
-Use H3 for headers, and H4 for subheaders. When referring to headers, surround the header name with quotation marks.
+Use H2 for headers, and H3 for subheaders. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under “User licenses”, view your total licenses.
 
 To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
@@ -156,7 +128,7 @@ To orient readers and help them understand if the section is relevant to them, i
 
 ### Alt text
 
-Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Images, image maps, and multimedia](https://docs.microsoft.com/style-guide/accessibility/graphics-design-media#images-image-maps-and-multimedia)” in Microsoft’s Style Guide.
+Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Accessibility guidelines for images and videos](https://review.docs.microsoft.com/en-us/help/contribute/contribute-accessibility-multimedia)” in the Microsoft Docs Contributor Guide.
 
 ### Filenames
 
@@ -166,13 +138,13 @@ Be descriptive when naming image files: include the name, action, and UI element
 
 ### Screenshots
 
-When you take a screenshot, avoid overly wide images. If you're trying to bring attention to a button, don't take a shot of the entire page. Focus on the area around the button instead and crop near the focal point of the image. Leave enough of a margin around the focal point so that some other elements of the page are visible, helping the viewer find the area of the screenshot when looking at the user interface.
-
-Do not include your username or avatar in any images. If a screenshot must include a username or avatar, use the Inspect function in your browser to add the [Octocat](https://github.com/octocat)'s username or avatar instead.
+To learn about creating and versioning images, see "[Creating and updating screenshots](./images-and-versioning.md)."
 
 ## Inclusive language
 
-It’s critical that all of our documentation is inclusive and respectful of our audience of people in widely varying circumstances from all over the planet. Be empathetic in all word and style choices. Be accurate when referring to people and communities.
+As home to the largest developer community in the world, GitHub is committed to promoting diversity and inclusion in every aspect of what we do. It is critical that all of our documentation is inclusive and respectful of our audience, which consists of people in widely varying circumstances from all over the planet. When we write our documentation, we use words that are inclusive, anti-racist, and accessible.
+
+Individual words might be small, but together they can create community, belonging, and equity. Be empathetic in all word and style choices. Be accurate when referring to people and communities.
 
 | Use | Avoid |
 | --- | --- |
@@ -206,13 +178,37 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 Introduce links consistently using a standard format that clearly indicates where we’re linking: "For more information, see X [or "Page/article title"] in the X documentation." Do not include quotation marks within a hyperlink.
 
-Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H3 header.
+Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
 
 For accessibility and readability, avoid inline or midsentence links.
 - **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
 - **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.     
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
+
+### Links between versions
+
+Sometimes, you need to link from one version of GitHub Docs to another. For example, the Free, Pro, & Team version of "[Managing the publication of GitHub Pages sites for your organization](https://docs.github.com/en/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the Enterprise Cloud version of the same article like this:
+
+>You can choose to allow or disallow the publication of GitHub Pages sites.
+>
+>Organizations that use GitHub Enterprise Cloud can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
+
+To link to a different article in a different version, use this format:
+
+> For more information, see "[ARTICLE TITLE]()" in the VERSION documentation.
+
+To link to the same article in a different version, use this format:
+
+> For more information, see [the VERSION documentation]().
+
+To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/admin/overview/about-enterprise-accounts`).
+
+### Links to learning paths
+
+Use this format to link to a learning path.
+
+> For more information, follow the "[LEARNING PATH TITLE]()" learning path.
 
 ### Links to external resources
 
@@ -225,6 +221,10 @@ It's not necessary to link to an external product’s website when we mention an
 For general guidelines, see “[Lists](https://brand.github.com/content/grammar#lists)” in GitHub’s Brand Guide.
 
 Capitalize the first letter in each line of a list. Use periods at the end of lines in a list only if the line contains a complete sentence.
+
+When writing a list of items that consist of primary and secondary text, such as a `term` and its definition, use a colon delimiter. The secondary text should be capitalized as if it was the beginning of the line. For example:
+* `foo`: Something that provides bar.
+* `bar`: Something provided by foo.
 
 Formatting unordered lists:
 - If the order of items in the list is not important, alphabetize the list items.
@@ -271,6 +271,63 @@ Take care to distinguish between product names and product elements. For more in
 | GitHub Packages | a package |
 | GitHub Pages | a GitHub Pages site |
 
+## Product-specific conventions
+
+This section describes additional conventions that are specific to GitHub products. 
+
+### GitHub Actions
+
+#### Disclaimers for third-party actions
+
+Code examples that use third-party actions must include the following disclaimer as part of the code block:
+
+```
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+```
+To insert this disclaimer, use the `{% data reusables.actions.actions-not-certified-by-github-comment %}` reusable. If the code block is indented, you must use `indented_data_reference` along with the reusable. For example: 
+
+```
+{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+```
+
+For GitHub Docs purposes, a third-party action is any action that doesn't have the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
+
+```
+steps:
+  - uses: actions/javascript-action@main
+```
+
+This is an example of a third-party action:
+
+```
+steps:
+    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+```
+
+Examples:
+- See the code block in "[Publishing to package registries](https://docs.github.com/en/actions/guides/building-and-testing-python#publishing-to-package-registries)"
+
+### Pinning version numbers to SHA
+
+Code examples that use third-party actions must always pin to a full length commit SHA, instead of the version number or branch:
+
+```
+steps:
+    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+```
+
+For GitHub Docs purposes, a third-party action is any action that doesn't have one of the following prefixes: `actions/`, `github/`, and `octo-org/`. For example, this is a first-party action:
+
+```
+steps:
+  - uses: actions/javascript-action@main
+```
+
+For more information, see "[Using SHAs](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-shas)"
+
 ## Punctuation
 
 Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://brand.github.com/content/grammar#punctuation)” in GitHub’s Brand Guide and “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
@@ -289,6 +346,26 @@ A table’s contents should be clear from the preceding content - avoid unneeded
 Use quotation marks around article titles, whether the article is hosted on GitHub Docs or elsewhere. Do not include quotation marks around the names of external sites.
 
 For further guidance, see “[Formatting titles](https://docs.microsoft.com/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
+
+## Short titles
+We use short titles to populate the sidebar navigation. They should give users contextual understanding of the article, but align to the following standards:
+
+- Short titles are 2-3 words long, yet should still convey the full meaning of the title.
+- To help cut words, look at the title in context:
+  - Are there words in the breadcrumb that you can omit in the short title?
+  - Remove repeated words possible
+- Don’t introduce new words in short titles that aren’t in the full title
+- Short titles should be parallel to short titles for similar content
+  - **Use:** 
+    - Organizations and teams
+    - Enterprise accounts
+- Short titles should still mimic format of the full title
+  - For task-based titles, if there’s a preposition or object or it’s otherwise awkward to shorten, try to find a verb but you can use a nouns when needed
+  
+| Instead of | Use |
+|---|---|
+| Authenticating to GitHub | Authentication |
+| Installing and configuring GHE Server | Installation and configuration |
 
 ## User interface elements
 
@@ -398,9 +475,63 @@ Use "Apps" when referring to specific apps or types of apps.
 
 GitHub Apps is always capitalized, because it’s a feature name.
 
+### Currency
+
+When referring to dollars, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible. 
+
+Use lowercase for currency names, but capitalize the reference to the country or region.
+- **Use:** US dollar.
+- **Avoid:** US Dollar, $USD dollar.
+
+Use uppercase for currency codes.
+- **Use:** USD.
+
+Where there is only one reference in an article, use the currency name without a `$` sign preceding the amount.
+- **Use:** `10 US dollars` for a single reference to currency.
+
+Where an article contains several references to the same currency, ensure that the first reference uses the currency name without a `$` sign preceding the amount and includes the currency code in parentheses following the currency name.
+
+For subsequent references to currency in an article or where appropriate (such as when space is a consideration, or when several amounts are presented in a table or list), include the `$` sign preceding the amount and use the ISO standard currency code following the amount.
+- **Use:** `10 US dollars (USD)` for the first reference, and `$0.25 USD` for subsequent references.
+- **Avoid:** `$10 US dollars (USD)`, `USD$0.25`.
+
+Where the first reference concerns `cents` or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
+
+- **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
+- **Avoid:** `$0.99 (US currency)`, `$0.99 USD cents`, `USD$0.99 cents`.
+
 ### Inclusive language
 
 See the “Inclusive language” section of this guide.
+
+### Permissions
+
+A **permission** is the ability to perform a specific action. For example, the ability to delete an issue is a permission. 
+
+A **role** is a set of permissions that can be assigned to a user. Roles exist at different levels.
+
+- Accounts (e.g., organization owner, billing manager for an enterprise account)
+- Resources (e.g., "Write" for a repository, "Admin" for a security advisory)
+- Teams (e.g., "team maintainer")
+
+A person's **access** refers generally to all the abilities the person has in a particular context, regardless of which roles or individual permissions those abilities come from.
+
+Only use **permission** or **role** when the distinction between the two is important. Otherwise, use **access**.
+
+- **Use:** `To create a custom repository role, you choose an inherited role and then add individual permissions.`
+- **Use:** `Managing a team's access to your organization's repository`
+- **Use:** `If your team membership gives you a different level of access than your role as organization owner...`
+- **Use:** `People with write access can...`
+- **Avoid:** `People with the write role can...`
+- **Avoid:** `People with write permissions can...`
+- **Avoid:** `People with write privileges can...`
+
+When specifying the access required to take an action, refer only to the role at the same level as the action. For example, you need admin access to a repository, which is a repository-level role, to configure protected branches. You can get admin access to a repository by being an organization owner, an organization-level role, but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned.
+
+- **Use:** `People with write access to a repository can do X to the repository.`
+- **Avoid:** `Organization owners and people with write access can do X to the repository.`
+
+For more information about word choice for permissions statments, see "[Permissions statements](/contributing/content-model.md#permissions-statements)" in the content model.
 
 ### Prepositions
 

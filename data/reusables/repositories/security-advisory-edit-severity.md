@@ -1,0 +1,2 @@
+1. Select the severity of the security vulnerability. To assign a CVSS score, select "Assess severity using CVSS" and click the appropriate values in the calculator. {% data variables.product.product_name %} calculates the score according to the "[Common Vulnerability Scoring System Calculator](https://www.first.org/cvss/calculator)."
+  ![Drop-down menu to select the severity](/assets/images/help/security/security-advisory-severity.png)

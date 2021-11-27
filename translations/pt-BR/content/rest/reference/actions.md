@@ -1,14 +1,21 @@
 ---
 title: Ações
-product: '{% data reusables.gated-features.actions %}'
+intro: 'With the Actions API, you can manage and control {% data variables.product.prodname_actions %} for an organization or repository.'
 redirect_from:
   - /v3/actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
-A API de {% data variables.product.prodname_actions %} permite que você gerencie {% data variables.product.prodname_actions %} usando a API REST. {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_app %} exigem as permissões mencionadas em cada ponto de extremidade. Para obter mais informações, consulte "[Documentação do {% data variables.product.prodname_actions %}](/actions)".
+{% data reusables.actions.ae-beta %}
+
+A API de {% data variables.product.prodname_actions %} permite que você gerencie {% data variables.product.prodname_actions %} usando a API REST. {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} exige permissões mencionadas em cada ponto de extremidade. Para obter mais informações, consulte "[Documentação do {% data variables.product.prodname_actions %}](/actions)".
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -24,7 +31,7 @@ A API de Artefatos permite que você faça o download, exclua e recupere informa
   {% if operation.subcategory == 'artifacts' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Permissões
 
 A API de Permissões permite que você defina permissões para quais organizações e repositórios têm permissão para executar {% data variables.product.prodname_actions %}, e quais ações podem ser executadas. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)".
@@ -40,7 +47,7 @@ Você também pode definir permissões para uma empresa. Para obter mais informa
 
 A API Segredos permite criar, atualizar, excluir e recuperar informações sobre segredos criptografados. {% data reusables.actions.about-secrets %} Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_app %} devem ter a permissão de `segredos` para usar esta API. Os usuários autenticados devem ter acesso de colaborador em um repositório para criar, atualizar ou ler segredos.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} deve ter a permissão `segredos` para usar esta API. Os usuários autenticados devem ter acesso de colaborador em um repositório para criar, atualizar ou ler segredos.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'secrets' %}{% include rest_operation %}{% endif %}
@@ -48,9 +55,11 @@ A API Segredos permite criar, atualizar, excluir e recuperar informações sobre
 
 ## Executores auto-hospedados
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
+
 A API de executores auto-hospedados permite que você registre, visualize e exclua executores auto-hospedados. {% data reusables.actions.about-self-hosted-runners %} Para obter mais informações, consulte "[Hospedando seus próprios executores](/actions/hosting-your-own-runners)".
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_app %} deve ter a permissão de `administração` para repositórios ou a permissão `organization_self_hosted_runners` para organizações. Usuários autenticados devem ter acesso de administrador ao repositório ou à organização para usar essa API.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} deve ter a permissão de administração `` para repositórios ou a permissão `organization_self_hosted_runners` para as organizações. Usuários autenticados devem ter acesso de administrador ao repositório ou à organização para usar essa API.
 
 Você pode gerenciar runners auto-hospedados para uma empresa. Para obter mais informações, consulte a "[{% data variables.product.prodname_dotcom %} administração do Enterprise](/rest/reference/enterprise-admin#github-actions)" API REST.
 
@@ -60,9 +69,11 @@ Você pode gerenciar runners auto-hospedados para uma empresa. Para obter mais i
 
 ## Grupos de runner auto-hospedados
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
+
 A API dos Grupos de Runners auto-hospedados permite que você gerencie grupos de runners auto-hospedados. Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_app %} deve ter a permissão de `administração` para repositórios ou a permissão `organization_self_hosted_runners` para organizações. Usuários autenticados devem ter acesso de administrador ao repositório ou à organização para usar essa API.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} deve ter a permissão de administração `` para repositórios ou a permissão `organization_self_hosted_runners` para as organizações. Usuários autenticados devem ter acesso de administrador ao repositório ou à organização para usar essa API.
 
 Você pode gerenciar grupos de runners auto-hospedados para uma empresa. Para obter mais informações, consulte a "[{% data variables.product.prodname_dotcom %} administração do Enterprise](/rest/reference/enterprise-admin##github-actions)" API REST.
 

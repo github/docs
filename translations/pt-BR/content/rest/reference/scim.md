@@ -1,18 +1,25 @@
 ---
 title: SCIM
+intro: 'Você pode controlar e gerenciar seu acesso dos integrantes de {% data variables.product.product_name %} da organização usando a API SCIM.'
 redirect_from:
   - /v3/scim
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Provisionamento de SCIM para Organizações
 
-A API do SCIM é usada pelos provedores de identidade (IdPs) habilitados pelo SCIM para automatizar o provisionamento de integrantes da organização de {% data variables.product.product_name %}. A API {% data variables.product.product_name %} é baseada na versão 2.0 do [padrão SCIM](http://www.simplecloud.info/). O ponto de extremidade do SCIM do {% data variables.product.product_name %} que um IdP deve usar é: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
+A API do SCIM é usada pelos provedores de identidade (IdPs) habilitados pelo SCIM para automatizar o provisionamento de integrantes da organização de {% data variables.product.product_name %}. The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). O ponto de extremidade do SCIM do {% data variables.product.product_name %} que um IdP deve usar é: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
 
 {% note %}
 
-**Observação:** A API do SCIM está disponível apenas para organizações em [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) com [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. Para obter mais informações sobre o SCIM, consulte "[Sobre o SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)."
+**Notas:**
+  - A API do SCIM está disponível apenas para organizações em [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) com o [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. {% data reusables.scim.enterprise-account-scim %} Para obter mais informações sobre o SCIM, consulte "[Sobre o SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+  - A API SCIM não pode ser usada com {% data variables.product.prodname_emus %}.
 
 {% endnote %}
 

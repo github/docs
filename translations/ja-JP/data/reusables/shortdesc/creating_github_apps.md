@@ -1,1 +1,1 @@
-You can create and register a GitHub App under your personal account or under any organization you have administrative access to.
+個人アカウントの下で、あるいは管理アクセス権を持っているOrganizationの下で、GitHub Appを作成し、登録できます。

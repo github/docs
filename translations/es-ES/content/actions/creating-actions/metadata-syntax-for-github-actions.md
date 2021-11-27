@@ -2,46 +2,48 @@
 title: Sintaxis de metadatos para acciones de GitHub
 shortTitle: Sintaxis de metadatos
 intro: Puedes crear acciones para realizar tareas en tu repositorio. Las acciones requieren un archivo de metadatos que use la sintaxis YAML.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
   - /actions/building-actions/metadata-syntax-for-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-type: 'reference'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### Acerca de la nueva sintaxis YAML para {% data variables.product.prodname_actions %}
+## Acerca de la nueva sintaxis YAML para {% data variables.product.prodname_actions %}
 
 Las acciones Docker y JavaScript requieren un archivo de metadatos. El nombre del archivo de metadatos debe ser `action.yml` o `action.yaml`. Los datos del archivo de metadatos definen las entradas, las salidas y el punto de entrada principal para tu acción.
 
-Los archivos de metadatos de acción usan la sintaxis YAML. Si eres nuevo en YAML, puedes leer "[Aprender YAML en cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+Los archivos de metadatos de acción usan la sintaxis YAML. Si eres nuevo en YAML, puedes leer "[Aprender YAML en cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
-### `name`
+## `name (nombre)`
 
 **Requerido** El nombre de tu acción. {% data variables.product.prodname_dotcom %} muestra el `name` (nombre) en la pestaña **Actions** (Acciones) para ayudarte a identificar visualmente las acciones en cada trabajo.
 
-### `author`
+## `autor`
 
 **Opcional** El nombre del autor de las acciones.
 
-### `description`
+## `descripción`
 
 **Requerido** Una descripción breve de la acción.
 
-### `inputs`
+## `inputs (entrada)`
 
 **Opcional** Los parámetros de entrada te permiten especificar datos que la acción espera para usar durante el tiempo de ejecución. {% data variables.product.prodname_dotcom %} almacena parámetros de entrada como variables de entorno. Las Id de entrada con letras mayúsculas se convierten a minúsculas durante el tiempo de ejecución. Recomendamos usar Id de entrada en minúsculas.
 
-#### Ejemplo
+### Ejemplo
 
-Este ejemplo configura dos entradas: numOctocats y octocatEyeColor. La entrada numOctocats no se requiere y se predeterminará a un valor de '1'. Se requiere la entrada octocatEyeColor y no tiene un valor predeterminado. Los archivos de flujo de trabajo que usan esta acción deben usar la palabra clave `with` (con) para establecer un valor de entrada para octocatEyeColor. Para obtener información sobre la sintaxis `with`, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)".
+Este ejemplo configura dos entradas: numOctocats y octocatEyeColor. La entrada numOctocats no se requiere y se predeterminará a un valor de '1'. Se requiere la entrada octocatEyeColor y no tiene un valor predeterminado. Los archivos de flujo de trabajo que usan esta acción deben usar la palabra clave `with` (con) para establecer un valor de entrada para octocatEyeColor. Para obtener información sobre la sintaxis `with` (con), consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)".
 
 ```yaml
 inputs:
@@ -54,33 +56,41 @@ inputs:
     required: true
 ```
 
-Cuando especificas una entrada para una acción en un archivo de flujo de trabajo o usas un valor de entrada predeterminado, {% data variables.product.prodname_dotcom %} crea una variable de entorno para la entrada con el nombre `INPUT_<VARIABLE_NAME>`. La variable de entorno creada convierte los nombre de entrada en letras mayúscula y reemplaza los espacios con los caracteres `_`.
+Cuando especificas una entrada en un archivo de flujo de trabajo o usas un valor de entrada predeterminado, {% data variables.product.prodname_dotcom %} crea una variable de entorno para la entrada con el nombre `INPUT_<VARIABLE_NAME>`. La variable de entorno creada convierte los nombre de entrada en letras mayúscula y reemplaza los espacios con los caracteres `_`.
 
-Por ejemplo, si un flujo de trabajo definió las entradas numOctocats y octocatEyeColor, el código de acción podría leer los valores de las entradas usando las variables de entorno `INPUT_NUMOCTOCATS` y `INPUT_OCTOCATEYECOLOR`.
+Si la acción se escribió utilizando pasos de ejecución [compuestos](/actions/creating-actions/creating-a-composite-action), entonces no obtendrá automáticamente una `INPUT_<VARIABLE_NAME>`. Si la conversión no ocurre, puedes cambiar estas entradas manualmente.
 
-#### `inputs.<input_id>`
+Para acceder a la variable de ambiente en una acción de contenedor de Docker, debes pasar la entrada utilizando la palabra clave `args` en el archivo de metadatos de la acción. Para obtener más información sobre el archivo de metadatos de la acción para las acciones de contenedor de Docker, consulta la sección "[Crear una acción de contenedor de Docker](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)".
+
+Por ejemplo, si un flujo de trabajo definió las entradas de `numOctocats` y `octocatEyeColor`, el código de acción pudo leer los valores de las entradas utilizando las variables de ambiente `INPUT_NUMOCTOCATS` y `INPUT_OCTOCATEYECOLOR`.
+
+### `inputs.<input_id>`
 
 **Requerido** Un identificador `string` (cadena) para asociar con la entrada. El valor de `<input_id>` es un mapa con los metadatos de la entrada. `<input_id>` debe ser un identificador único dentro del objeto `inputs` (entradas). El `<input_id>`> debe comenzar con una letra o `_` y debe contener solo caracteres alfanuméricos, `-`, o `_`.
 
-#### `inputs.<input_id>.description`
+### `inputs.<input_id>.description`
 
 **Requerido** Una descripción de `string` del parámetro de entrada.
 
-#### `inputs.<input_id>.required`
+### `inputs.<input_id>.required`
 
 **Requerido** Un `boolean` (booleano) para indicar si la acción requiere el parámetro de entrada. Establecer en `true` cuando se requiera el parámetro.
 
-#### `inputs.<input_id>.default`
+### `inputs.<input_id>.default`
 
 **Opcional** Una `string` que representa el valor predeterminado. El valor predeterminado se usa cuando un parámetro de entrada no se especifica en un archivo de flujo de trabajo.
 
-### `outputs (salidas)`
+### `inputs.<input_id>.deprecationMessage`
 
-**Opcional** Los parámetros de salida te permiten declarar datos que una acción establece. Las acciones que se ejecutan más tarde en un flujo de trabajo pueden usar el conjunto de datos de salida en acciones de ejecución anterior.  Por ejemplo, si se realizó una acción además de las dos entradas (x + y = z), la acción podría dar como resultado la suma (z) para que otras acciones la usen como entrada.
+**Opcional** Si se utiliza el parámetro de entrada, esta `string` se registrará como un mensaje de advertencia. Puedes utilizar esta advertencia para notificar a los usuarios que la entrada es obsoleta y mencionar cualquier alternativa.
+
+## `outputs (salidas)`
+
+**Opcional** Los parámetros de salida te permiten declarar datos que una acción establece. Las acciones que se ejecutan más tarde en un flujo de trabajo pueden usar el conjunto de datos de salida en acciones de ejecución anterior.  Por ejemplo, si tuviste una acción que realizó la adición de dos entradas (x + y = z), la acción podría dar como resultado la suma (z) para que otras acciones la usen como entrada.
 
 Si no declaras una salida en tu archivo de metadatos de acción, todavía puedes configurar las salidas y utilizarlas en un flujo de trabajo. Para obtener más información acerca de la configuración de salidas en una acción, consulta "[Comandos de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)".
 
-#### Ejemplo
+### Ejemplo
 
 ```yaml
 outputs:
@@ -88,19 +98,19 @@ outputs:
     description: 'The sum of the inputs'
 ```
 
-#### `outputs.<output_id>`
+### `outputs.<output_id>`
 
 **Requerido** Un identificador `string` para asociar con la salida. El valor de `<output_id>` es un mapa con los metadatos de la salida. `<output_id>` debe ser un identificador único dentro del objeto `outputs` (salidas). El `<output_id>`> debe comenzar con una letra o `_` y debe contener solo caracteres alfanuméricos, `-`, o `_`.
 
-#### `outputs.<output_id>.description`
+### `outputs.<output_id>.description`
 
 **Requerido** Una descripción de `string` del parámetro de salida.
 
-### `outputs` para con de pasos de ejecución compuestos
+## `outputs` para las acciones compuestas
 
 Los `outputs` **Opcionales** utilizan los mismos parámetros que los `outputs.<output_id>` and los `outputs.<output_id>.description` (consulta la sección "[`outputs` para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), pero también incluyen el token de `value`.
 
-#### Ejemplo
+### Ejemplo
 
 {% raw %}
 ```yaml
@@ -117,17 +127,17 @@ runs:
 ```
 {% endraw %}
 
-#### `outputs.<output_id>.value`
+### `outputs.<output_id>.value`
 
 **Requerido** El valor al cual se mapeará el parámetro de salida. Puedes configurarlo a una `string` o a una expresión con contexto. Por ejemplo, puedes utilizar el contexto `steps` para configurar el `value` de una salida al valor de salida de un paso.
 
-Para obtener más información sobre cómo utilizar la sintaxis de contexto y de expresión, consulta la sección "[Sintaxis de contexto y de expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Para obtener más información sobre cómo utilizar la sintaxis de contexto, consulta la sección de "[Contextos](/actions/learn-github-actions/contexts)"
 
-### `runs` para acciones de JavaScript
+## `runs` para acciones de JavaScript
 
 **Requerido** Configura la ruta al código de la acción y a la aplicación que se utiliza para ejecutar dicho código.
 
-#### Ejemplo usando Node.js
+### Ejemplo usando Node.js
 
 ```yaml
 runs:
@@ -135,17 +145,17 @@ runs:
   main: 'main.js'
 ```
 
-#### `runs.using`
+### `runs.using`
 
 **Requerido** La aplicación utilizada para el código especificado en [`main`](#runsmain).
 
-#### `runs.main`
+### `runs.main`
 
 **Requerido** El archivo que contiene tu código de acción. La aplicación especificada en [`using`](#runsusing) ejecuta este archivo.
 
-#### `pre`
+### `pre`
 
-**Opcional** Te permite ejecutar un script al inicio de un job, antes de que la acción `main:` comience. Por ejemplo, puedes utilizar `pre:` para ejecutar un script de configuración de pre-requisitos. La aplicación especificada con la sintaxis [using</code>](#runsusing) (mediante) ejecutará este archivo. La acción `pre:` siempre se ejecuta predeterminadamente pero puedes invalidarla utilizando [`pre-if`](#pre-if).
+**Opcional** Te permite ejecutar un script al inicio de un job, antes de que la acción `main:` comience. Por ejemplo, puedes utilizar `pre:` para ejecutar un script de configuración de pre-requisitos. La aplicación que se especifica con la sintaxis [`using`](#runsusing) ejecutará este archivo. La acción `pre:` siempre se ejecuta predeterminadamente pero puedes invalidarla utilizando [`pre-if`](#pre-if).
 
 En este ejemplo, la acción `pre:` ejecuta un script llamado `setup.js`:
 
@@ -157,7 +167,7 @@ runs:
   post: 'cleanup.js'
 ```
 
-#### `pre-if`
+### `pre-if`
 
 **Opcional** Te permite definir las condiciones para la ejecución de la acción `pre:`. La acción `pre:` únicamente se ejecutará si se cumplen las condiciones en `pre-if`. Si no se configura, `pre-if` se configurará predefinidamente como `always()`. Nota que el contexto `step` no está disponible, ya que no se ha ejecutado ningún paso todavía.
 
@@ -165,12 +175,12 @@ En este ejemplo, `cleanup.js` se ejecuta únicamente en los ejecutores basados e
 
 ```yaml
   pre: 'cleanup.js'
-  pre-if: 'runner.os == linux'
+  pre-if: runner.os == 'linux'
 ```
 
-#### `post`
+### `publicación`
 
-**Opcional** Te permite ejecutar un script al final de un job, una vez que se haya completado la acción `main:`. Por ejemplo, puedes utilizar `post:` para finalizar algunos procesos o eliminar los archivos innecesarios. La aplicación especificada con la sintaxis [using</code>](#runsusing) (mediante) ejecutará este archivo.
+**Opcional** Te permite ejecutar un script al final de un job, una vez que se haya completado la acción `main:`. Por ejemplo, puedes utilizar `post:` para finalizar algunos procesos o eliminar los archivos innecesarios. La aplicación que se especifica con la sintaxis [`using`](#runsusing) ejecutará este archivo.
 
 En este ejemplo, la acción `post:` ejecuta un script llamado `cleanup.js`:
 
@@ -183,7 +193,7 @@ runs:
 
 La acción `post:` siempre se ejecuta predeterminadamente, pero la puedes invalidar utilizando `post-if`.
 
-#### `post-if`
+### `post-if`
 
 **Opcional** Te permite definir condiciones para la ejecución de la acción `post:`. La acción `post` únicamente se ejecutará si se cumplen las condiciones en `post-if`. Si no se configura, `pre-if` se configurará predeterminadamente como `always()`.
 
@@ -191,24 +201,32 @@ Por ejemplo, este `cleanup.js` únicamente se ejecutará en ejecutores basados e
 
 ```yaml
   post: 'cleanup.js'
-  post-if: 'runner.os == linux'
+  post-if: runner.os == 'linux'
 ```
 
-### `runs` para acciones con pasos de ejecución compuestos
+## `runs` para las acciones compuestas
 
 **Requerido** Configura la ruta a la acción compuesta, y la aplicación que se utiliza para ejecutar el código.
 
-#### `runs.using`
+### `runs.using`
 
-**Requerido** Para utilizar una acción de pasos de ejecución compuestos, configúrala como `"composite"`.
+**Requerido** Para utilizar una acción compuesta, configúralo como `"composite"`.
 
-#### `runs.steps`
+### `runs.steps`
 
-**Requerido** Los pasos de ejecución que planeas ejecutar en esta acción.
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+**Requerido** Los pasos que planeas ejecutar en esta acción. Estos pueden ser ya sea pasos de `run` o de `uses`.
+{% else %}
+**Requerido** Los pasos que planeas ejecutar en esta acción.
+{% endif %}
 
-##### `runs.steps[*].run`
+#### `runs.steps[*].run`
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+**Opcional** El comando que quieres ejecutar. Este puede estar dentro de la línea o ser un script en tu repositorio de la acción:
+{% else %}
 **Requerido** El comando que quieres ejecutar. Este puede estar dentro de la línea o ser un script en tu repositorio de la acción:
+{% endif %}
 
 {% raw %}
 ```yaml
@@ -232,31 +250,86 @@ runs:
 
 Para obtener más información, consulta la sección "[``](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-##### `runs.steps[*].shell`
+#### `runs.steps[*].shell`
 
-**Requerido** El shell en donde quieres ejecutar el comando. Puedes utilizar cualquiera de los shells listados [aquí](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell).
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+**Opcional** El shell en donde quieres ejecutar el comando. Puedes utilizar cualquiera de los shells listados [aquí](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Requerido si se configuró `run`.
+{% else %}
+**Requerido** El shell en donde quieres ejecutar el comando. Puedes utilizar cualquiera de los shells listados [aquí](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Requerido si se configuró `run`.
+{% endif %}
 
-##### `runs.steps[*].name`
+#### `runs.steps[*].name`
 
-**Opcional** El nombre del paso de ejecución compuesto.
+**Opcional** El nombre del paso compuesto.
 
-##### `runs.steps[*].id`
+#### `runs.steps[*].id`
 
-**Opcional** Un identificador único para el paso. Puede usar el `id` para hacer referencia al paso en contextos. Para obtener más información, consulta "[Sintaxis de contexto y expresión para las {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+**Opcional** Un identificador único para el paso. Puede usar el `id` para hacer referencia al paso en contextos. Para obtener más información, consulta "[Contextos](/actions/learn-github-actions/contexts)".
 
-##### `runs.steps[*].env`
+#### `runs.steps[*].env`
 
-**Opcional**  Configura un `map` de variables de ambiente únicamente para este paso. Si quieres modificar las variables de ambiente que se almacenan en el flujo de trabajo, utiliza {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} en un paso de ejecución compuesto.
+**Opcional**  Configura un `map` de variables de ambiente únicamente para este paso. If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
 
-##### `runs.steps[*].working-directory`
+#### `runs.steps[*].working-directory`
 
 **Opcional**  Especifica el directorio de trabajo en donde se ejecuta un comando.
 
-### `runs` para acciones de Docker
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+#### `runs.steps[*].uses`
+
+**Opcional**  Selecciona una acción a ejecutar como parte de un paso en tu job. Una acción es una unidad de código reutilizable. Puedes usar una acción definida en el mismo repositorio que el flujo de trabajo, un repositorio público o en una [imagen del contenedor Docker publicada](https://hub.docker.com/).
+
+Te recomendamos encarecidamente que incluyas la versión de la acción que estás utilizando y especifiques un número de etiqueta de Git ref, SHA o Docker. Si no especificas una versión, podrías interrumpir tus flujos de trabajo o provocar un comportamiento inesperado cuando el propietario de la acción publique una actualización.
+- El uso del SHA de confirmación de una versión de acción lanzada es lo más seguro para la estabilidad y la seguridad.
+- Usar la versión de acción principal específica te permite recibir correcciones críticas y parches de seguridad y al mismo tiempo mantener la compatibilidad. También asegura que tu flujo de trabajo aún debería funcionar.
+- Puede ser conveniente utilizar la rama predeterminada de una acciòn, pero si alguien lanza una versiòn principal nueva con un cambio importante, tu flujo de trabajo podrìa fallar.
+
+Algunas acciones requieren entradas que se deben establecer usando la palabra clave [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith). Revisa el archivo README de la acción para determinar las entradas requeridas.
+
+```yaml
+runs:
+  using: "composite"
+  steps:
+    # Reference a specific commit
+    - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+    # Reference the major version of a release
+    - uses: actions/checkout@v2
+    # Reference a specific version
+    - uses: actions/checkout@v2.2.0
+    # Reference a branch
+    - uses: actions/checkout@main
+    # References a subdirectory in a public GitHub repository at a specific branch, ref, or SHA
+    - uses: actions/aws/ec2@main
+    # References a local action
+    - uses: ./.github/actions/my-action
+    # References a docker public registry action
+    - uses: docker://gcr.io/cloud-builders/gradle
+    # Reference a docker image published on docker hub
+    - uses: docker://alpine:3.8
+```
+
+#### `runs.steps[*].with`
+
+**Opcional**  un `map` de los parámetros de entrada que define la acción. Cada parámetro de entrada es un par clave/valor.  Los parámetros de entrada se establecen como variables del entorno. La variable utiliza el prefijo INPUT_ y se convierte en mayúsculas.
+
+```yaml
+runs:
+  using: "composite"
+  steps:
+    - name: My first step
+      uses: actions/hello_world@main
+      with:
+        first_name: Mona
+        middle_name: The
+        last_name: Octocat  
+```
+{% endif %}
+
+## `runs` para acciones de Docker
 
 **Requerido** Configura la imagen utilizada para la acción de Docker.
 
-#### Ejemplo utilizando un Dockerfile en tu repositorio
+### Ejemplo utilizando un Dockerfile en tu repositorio
 
 ```yaml
 runs:
@@ -264,7 +337,7 @@ runs:
   image: 'Dockerfile'
 ```
 
-#### Ejemplo usando un contenedor de registro Docker público
+### Ejemplo usando un contenedor de registro Docker público
 
 ```yaml
 runs:
@@ -272,15 +345,15 @@ runs:
   image: 'docker://debian:stretch-slim'
 ```
 
-#### `runs.using`
+### `runs.using`
 
 **Requerido** Debes configurar este valor como `'docker'`.
 
-#### `pre-entrypoint`
+### `pre-entrypoint`
 
 **Opcional** Te permite ejecutar un script antes de que comience la acción `entrypoint`. Por ejemplo, puedes utilizar `pre-entrypoint` para ejecutar un script de configuración de pre-requisitos. {% data variables.product.prodname_actions %} utiliza `docker run` para lanzar esta acción, y ejecuta el script dentro de un contenedor nuevo que utiliza la misma imagen base. Esto significa que el estado del tiempo de ejecución difiere de el contenedor principal `entrypoint`, y se deberá acceder a cualquier estado que requieras ya sea en el espacio de trabajo, `HOME`, o como una variable `STATE_`. La acción `pre-entrypoint:` siempre se ejecuta predeterminadamente pero la puedes invalidar utilizando [`pre-if`](#pre-if).
 
-La aplicación especificada con la sintaxis [using</code>](#runsusing) (mediante) ejecutará este archivo.
+La aplicación que se especifica con la sintaxis [`using`](#runsusing) ejecutará este archivo.
 
 En este ejemplo, la acción `pre.entrypoint:` ejecuta un script llamado `setup.sh`:
 
@@ -289,26 +362,26 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   pre-entrypoint: 'setup.sh'
   entrypoint: 'main.sh'
 ```
 
-#### `runs.image`
+### `runs.image`
 
-**Requerido** La imagen de Docker a utilizar como el contenedor para ejecutar la acción. El valor puede ser el nombre de la imagen base de Docker, un `Dockerfile` local en tu repositorio, o una imagen pública en Docker Hub u otro registro. Para referenciar un `Dockerfile` local a tu repositorio, utiliza una ruta relativa a tu archivo de metadatos de la acción. La aplicación `docker` ejecutará este archivo.
+**Requerido** La imagen de Docker a utilizar como el contenedor para ejecutar la acción. El valor puede ser el nombre de la imagen base de Docker, un `Dockerfile` local en tu repositorio, o una imagen pública en Docker Hub u otro registro. Para referenciar un `Dockerfile` local de tu repositorio, el archivo debe nombrarse como `Dockerfile` y debes utilizar una ruta relativa a tu archivo de metadatos de acción. La aplicación `docker` ejecutará este archivo.
 
-#### `runs.env`
+### `runs.env`
 
 **Opcional** Especifica mapa clave/de valores de las variables del ambiente para configurar en el ambiente del contenedor.
 
-#### `runs.entrypoint`
+### `runs.entrypoint`
 
 **Opcional** Invalida el `ENTRYPOINT` de Docker en el `Dockerfile`, o lo configura si no se había especificado anteriormente. Utiliza `entrypoint` cuando el `Dockerfile` no especifique un `ENTRYPOINT` o cuando quieras invalidar la instrucción de `ENTRYPOINT`. Si omites el `entrypoint`, se ejecutarán los comandos que especifiques en la instrucción `ENTRYPOINT` de Docker. La instrucción `ENTRYPOINT` de Docker tiene una forma de _shell_ y una de _exec_. La documentación de `ENTRYPOINT` de Docker recomienda utilizar la forma de _exec_ de la instrucción `ENTRYPOINT`.
 
 Para obtener más información acerca de cómo se ejecuta el `entrypoint`, consulta la sección "[Soporte de Dockerfile para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)".
 
-#### `post-entrypoint`
+### `post-entrypoint`
 
 **Opcional** Te permite ejecutar un script de limpieza una vez que se haya completado la acción de `runs.entrypoint`. {% data variables.product.prodname_actions %} utiliza `docker run` para lanzar esta acción. Ya que {% data variables.product.prodname_actions %} ejecuta el script dentro de un contenedor nuevo utilizando la misma imagen base, el estado de tiempo de ejecución es diferente del contenedor principal de `entrypoint`. Puedes acceder a cualquier estado que necesites, ya sea en el espacio de trabajo, `HOME`, o como una variable `STATE_`. La acción `post-entrypoint:` siempre se ejecuta predeterminadamente, pero puedes invalidarla utilizando [`post-if`](#post-if).
 
@@ -317,12 +390,12 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   entrypoint: 'main.sh'
   post-entrypoint: 'cleanup.sh'
 ```
 
-#### `runs.args`
+### `runs.args`
 
 **Opcional** Una matriz de secuencias que defina las entradas para un contenedor de Docker. Las entradas pueden incluir cadenas codificadas de forma rígida. {% data variables.product.prodname_dotcom %} comunica los `args` en el `ENTRYPOINT` del contenedor cuando se inicia el contenedor.
 
@@ -334,7 +407,7 @@ Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta eje
 
 Para obtener más información sobre el uso de la instrucción `CMD` con {% data variables.product.prodname_actions %}, consulta la sección "[Soporte de Dockerfile para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)".
 
-##### Ejemplo
+#### Ejemplo
 
 {% raw %}
 ```yaml
@@ -348,11 +421,11 @@ runs:
 ```
 {% endraw %}
 
-### `branding (marca)`
+## `branding (marca)`
 
 Puedes usar un color y un icono de [Pluma](https://feathericons.com/) para crear una insignia que personalice y diferencie tu acción. Los distintivos se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
-#### Ejemplo
+### Ejemplo
 
 ```yaml
 branding:
@@ -360,402 +433,401 @@ branding:
   color: 'green'
 ```
 
-#### `branding.color`
+### `branding.color`
 
 El color de fondo de la insignia. Puede ser: `blanco`, `amarillow`, `azul`, `verde`, `anaranjado`, `rojo`, `púrpura` o `gris oscuro`.
 
-#### `branding.icon`
+### `branding.icon`
 
 El nombre del icono de [Pluma](https://feathericons.com/) que se debe usar.
 
 <table>
 <tr>
-<td>actividad</td>
-<td>radiodifusión</td>
-<td>alerta-círculo</td>
-<td>alerta-octágono</td>
+<td>activity</td>
+<td>airplay</td>
+<td>alert-circle</td>
+<td>alert-octagon</td>
 </tr>
 <tr>
-<td>alerta-triángulo</td>
-<td>alinear-centro</td>
-<td>alinear-justificar</td>
-<td>alinear-izquierda</td>
+<td>alert-triangle</td>
+<td>align-center</td>
+<td>align-justify</td>
+<td>align-left</td>
 </tr>
 <tr>
-<td>alinear-derecha</td>
-<td>ancla</td>
-<td>apertura</td>
-<td>archivo</td>
+<td>align-right</td>
+<td>anchor</td>
+<td>aperture</td>
+<td>archive</td>
 </tr>
 <tr>
-<td>flecha-abajo-círculo</td>
-<td>flecha-abajo-izquierda</td>
-<td>flecha-abajo-derecha</td>
-<td>flecha-abajo</td>
+<td>arrow-down-circle</td>
+<td>arrow-down-left</td>
+<td>arrow-down-right</td>
+<td>arrow-down</td>
 </tr>
 <tr>
-<td>flecha-izquierda-círculo</td>
-<td>flecha-izquierda</td>
-<td>flecha-derecha-círculo</td>
-<td>flecha-derecha</td>
+<td>arrow-down</td>
+<td>arrow-left</td>
+<td>arrow-left</td>
+<td>arrow-right</td>
 </tr>
 <tr>
-<td>flecha-arriba-círculo</td>
-<td>flecha-arriba-izquierda</td>
-<td>flecha-arriba-derecha</td>
-<td>flecha-arriba</td>
+<td>arrow-up-circle</td>
+<td>arrow-up-left</td>
+<td>arrow-up-right</td>
+<td>arrow-up</td>
 </tr>
 <tr>
-<td>en-cartel</td>
-<td>premio</td>
-<td>barra-cuadro-2</td>
-<td>barra-cuadro</td>
+<td>at-sign</td>
+<td>award</td>
+<td>bar-chart-2</td>
+<td>bar-chart</td>
 </tr>
 <tr>
-<td>batería-carga</td>
-<td>batería</td>
-<td>campana-apagado</td>
-<td>campana</td>
+<td>battery-charging</td>
+<td>battery</td>
+<td>bell-off</td>
+<td>bell</td>
 </tr>
 <tr>
 <td>bluetooth</td>
-<td>negrita</td>
-<td>libro-abierto</td>
-<td>libro</td>
+<td>bold</td>
+<td>book-open</td>
+<td>book</td>
 </tr>
 <tr>
-<td>marcador</td>
-<td>caja</td>
-<td>maletín</td>
-<td>calendario</td>
+<td>bookmark</td>
+<td>box</td>
+<td>briefcase</td>
+<td>calendar</td>
 </tr>
 <tr>
-<td>cámara-apagado</td>
-<td>cámara</td>
-<td>molde</td>
-<td>verificar-círculo</td>
+<td>camera-off</td>
+<td>camera</td>
+<td>cast</td>
+<td>check-circle</td>
 </tr>
 <tr>
-<td>verificar-cuadrado</td>
-<td>verificar</td>
-<td>comilla angular-abajo</td>
-<td>comilla angular-izquierda</td>
+<td>check-square</td>
+<td>check</td>
+<td>chevron-down</td>
+<td>chevron-left</td>
 </tr>
 <tr>
-<td>comillas angulares-derehca</td>
-<td>comilla angular- arriba</td>
-<td>comillas angulares-abajo</td>
-<td>comillas angulares-izquierda</td>
+<td>chevron-right</td>
+<td>chevron-up</td>
+<td>chevrons-down</td>
+<td>chevrons-left</td>
 </tr>
 <tr>
-<td>comillas angulares-derecha</td>
-<td>comillas angulares- arriba</td>
-<td>círculo</td>
-<td>portapapeles</td>
+<td>chevrons-right</td>
+<td>chevrons-up</td>
+<td>circle</td>
+<td>clipboard</td>
 </tr>
 <tr>
-<td>reloj</td>
-<td>nube-llovizna</td>
-<td>nube-rayo</td>
-<td>nube-apagado</td>
+<td>clock</td>
+<td>cloud-drizzle</td>
+<td>cloud-lightning</td>
+<td>cloud-off</td>
 </tr>
 <tr>
-<td>nube-lluvia</td>
-<td>nube-nieve</td>
-<td>nube</td>
-<td>código</td>
+<td>cloud-rain</td>
+<td>cloud-snow</td>
+<td>cloud</td>
+<td>code</td>
 </tr>
 <tr>
-<td>comando</td>
-<td>brújula</td>
-<td>copiar</td>
-<td>ángulo-abajo-izquierdo</td>
+<td>command</td>
+<td>compass</td>
+<td>copy</td>
+<td>corner-down-left</td>
 </tr>
 <tr>
-<td>ángulo-abajo-derecho</td>
-<td>ángulo-izquierdo-abajo</td>
-<td>ángulo-arriba-izquierdo</td>
-<td>ángulo-derecho-abajo</td>
+<td>corner-down-right</td>
+<td>corner-left-down</td>
+<td>corner-left-up</td>
+<td>corner-right-down</td>
 </tr>
 <tr>
-<td>ángulo-derecho-arriba</td>
-<td>ángulo-arriba-izquierdo</td>
-<td>ángulo-arriba-derecha</td>
+<td>corner-right-up</td>
+<td>corner-up-left</td>
+<td>corner-up-right</td>
 <td>cpu</td>
 </tr>
 <tr>
-<td>tarjeta-de-crédito</td>
-<td>cortar</td>
-<td>punto de mira</td>
-<td>base de datos</td>
+<td>credit-card</td>
+<td>crop</td>
+<td>crosshair</td>
+<td>database</td>
 </tr>
 <tr>
-<td>eliminar</td>
-<td>disco</td>
-<td>dólar-signo</td>
-<td>descargar-nube</td>
+<td>delete</td>
+<td>disc</td>
+<td>dollar-sign</td>
+<td>download-cloud</td>
 </tr>
 <tr>
-<td>descargar</td>
-<td>gota</td>
-<td>editar-2</td>
-<td>editar-3</td>
+<td>download</td>
+<td>droplet</td>
+<td>edit-2</td>
+<td>edit-3</td>
 </tr>
 <tr>
-<td>editar</td>
-<td>externo-enlace</td>
-<td>desviar la mirada</td>
-<td>ojo</td>
+<td>edit</td>
+<td>external-link</td>
+<td>eye-off</td>
+<td>eye</td>
 </tr>
 <tr>
 <td>facebook</td>
-<td>avance-rápido</td>
-<td>pluma</td>
-<td>archivo-menos</td>
+<td>fast-forward</td>
+<td>feather</td>
+<td>file-minus</td>
 </tr>
 <tr>
-<td>archivo-más</td>
-<td>archivo-texto</td>
-<td>archivo</td>
-<td>película</td>
+<td>file-plus</td>
+<td>file-text</td>
+<td>file</td>
+<td>film</td>
 </tr>
 <tr>
-<td>filtro</td>
-<td>bandera</td>
-<td>carpeta-menos</td>
-<td>carpeta-más</td>
+<td>filter</td>
+<td>flag</td>
+<td>folder-minus</td>
+<td>folder-plus</td>
 </tr>
 <tr>
-<td>carpeta</td>
-<td>obsequio</td>
-<td>git-rama</td>
-<td>git-confirmar</td>
+<td>folder</td>
+<td>gift</td>
+<td>git-branch</td>
+<td>git-commit</td>
 </tr>
 <tr>
-<td>git-fusionar</td>
-<td>git-solicitud-extracción</td>
-<td>globo</td>
-<td>cuadrícula</td>
+<td>git-merge</td>
+<td>git-pull-request</td>
+<td>globe</td>
+<td>grid</td>
 </tr>
 <tr>
-<td>disco-duro</td>
+<td>hard-drive</td>
 <td>hash</td>
-<td>auriculares</td>
-<td>corazón</td>
+<td>headphones</td>
+<td>heart</td>
 </tr>
 <tr>
-<td>ayuda-círculo</td>
-<td>hogar</td>
-<td>imagen</td>
-<td>bandeja de entrada</td>
+<td>help-circle</td>
+<td>home</td>
+<td>image</td>
+<td>inbox</td>
 </tr>
 <tr>
 <td>info</td>
-<td>cursiva</td>
-<td>capas</td>
-<td>diseño</td>
+<td>italic</td>
+<td>layers</td>
+<td>layout</td>
 </tr>
 <tr>
-<td>vida-boya</td>
-<td>enlace-2</td>
-<td>enlace</td>
-<td>lista</td>
+<td>life-buoy</td>
+<td>link-2</td>
+<td>link</td>
+<td>list</td>
 </tr>
 <tr>
-<td>cargador</td>
-<td>bloquear</td>
-<td>iniciar-sesión</td>
-<td>cerrar-sesión</td>
+<td>loader</td>
+<td>lock</td>
+<td>log-in</td>
+<td>log-out</td>
 </tr>
 <tr>
-<td>correo</td>
-<td>asignar-pin</td>
-<td>asignar</td>
-<td>maximizar-2</td>
+<td>mail</td>
+<td>map-pin</td>
+<td>map</td>
+<td>maximize-2</td>
 </tr>
 <tr>
-<td>maximizar
-</td>
-<td>menú</td>
-<td>mensaje-círculo</td>
-<td>mensaje-cuadrado</td>
+<td>maximize</td>
+<td>menu</td>
+<td>message-circle</td>
+<td>message-square</td>
 </tr>
 <tr>
-<td>mic-apagado</td>
+<td>mic-off</td>
 <td>mic</td>
-<td>minimizar-2</td>
-<td>minimizar</td>
+<td>minimize-2</td>
+<td>minimize</td>
 </tr>
 <tr>
-<td>menos-círculo</td>
-<td>menos-cuadrado</td>
-<td>menos</td>
+<td>minus-circle</td>
+<td>minus-square</td>
+<td>minus</td>
 <td>monitor</td>
 </tr>
 <tr>
-<td>luna</td>
-<td>más-horizontal</td>
-<td>más-vertical</td>
-<td>mover</td>
+<td>moon</td>
+<td>more-horizontal</td>
+<td>more-vertical</td>
+<td>move</td>
 </tr>
 <tr>
-<td>música</td>
-<td>navegación-2</td>
-<td>navegación</td>
-<td>octágono</td>
+<td>music</td>
+<td>navigation-2</td>
+<td>navigation</td>
+<td>octagon</td>
 </tr>
 <tr>
-<td>paquete</td>
-<td>sujetapapeles</td>
-<td>pausa-círculo</td>
-<td>pausar</td>
+<td>package</td>
+<td>paperclip</td>
+<td>pause-circle</td>
+<td>pause</td>
 </tr>
 <tr>
-<td>porcentaje</td>
-<td>llamada-telefónica</td>
-<td>teléfono-transferencia</td>
-<td>teléfono-entrante</td>
+<td>percent</td>
+<td>phone-call</td>
+<td>phone-forwarded</td>
+<td>phone-incoming</td>
 </tr>
 <tr>
-<td>teléfono-perdido</td>
-<td>teléfono-apagado</td>
-<td>teléfono-salida</td>
-<td>teléfono</td>
+<td>phone-missed</td>
+<td>phone-off</td>
+<td>phone-outgoing</td>
+<td>phone</td>
 </tr>
 <tr>
-<td>gráfico-circular</td>
-<td>reproducir-círculo</td>
-<td>reproducir</td>
-<td>más-círculo</td>
+<td>pie-chart</td>
+<td>play-circle</td>
+<td>play</td>
+<td>plus-circle</td>
 </tr>
 <tr>
-<td>más-cuadrado</td>
-<td>más</td>
-<td>bolsillo</td>
-<td>potencia</td>
+<td>plus-square</td>
+<td>plus</td>
+<td>pocket</td>
+<td>power</td>
 </tr>
 <tr>
-<td>impresora</td>
+<td>printer</td>
 <td>radio</td>
-<td>actualizar-ccw</td>
-<td>actualizar-cw</td>
+<td>refresh-ccw</td>
+<td>refresh-cw</td>
 </tr>
 <tr>
-<td>repetir</td>
-<td>rebobinar</td>
-<td>rotar-ccw</td>
-<td>rotar-cw</td>
+<td>repeat</td>
+<td>rewind</td>
+<td>rotate-ccw</td>
+<td>rotate-cw</td>
 </tr>
 <tr>
 <td>rss</td>
-<td>guardar</td>
-<td>tijeras</td>
-<td>buscar</td>
+<td>save</td>
+<td>scissors</td>
+<td>search</td>
 </tr>
 <tr>
-<td>enviar</td>
-<td>servidor</td>
-<td>parámetros</td>
-<td>compartir-2</td>
+<td>send</td>
+<td>server</td>
+<td>settings</td>
+<td>share-2</td>
 </tr>
 <tr>
-<td>compartir</td>
-<td>escudo-apagar</td>
-<td>escudo</td>
-<td>bolsa-de-compras</td>
+<td>share</td>
+<td>shield-off</td>
+<td>shield</td>
+<td>shopping-bag</td>
 </tr>
 <tr>
-<td>carro-de-compras</td>
-<td>aleatorio</td>
-<td>barra lateral</td>
-<td>omitir-atrás</td>
+<td>shopping-cart</td>
+<td>shuffle</td>
+<td>sidebar</td>
+<td>skip-back</td>
 </tr>
 <tr>
-<td>omitir-adelante</td>
-<td>barra</td>
-<td>deslizadores</td>
+<td>skip-forward</td>
+<td>slash</td>
+<td>sliders</td>
 <td>smartphone</td>
 </tr>
 <tr>
-<td>parlante</td>
-<td>cuadrado</td>
-<td>estrella</td>
-<td>detener-círculo</td>
+<td>speaker</td>
+<td>square</td>
+<td>star</td>
+<td>stop-circle</td>
 </tr>
 <tr>
-<td>sol</td>
-<td>amanecer</td>
-<td>atardecer</td>
+<td>sun</td>
+<td>sunrise</td>
+<td>sunset</td>
 <td>tablet</td>
 </tr>
 <tr>
-<td>etiqueta</td>
-<td>destino</td>
+<td>tag</td>
+<td>target</td>
 <td>terminal</td>
-<td>termómetro</td>
+<td>thermometer</td>
 </tr>
 <tr>
-<td>pulgares-abajo</td>
-<td>pulgares-arriba</td>
-<td>alternar-izquierda</td>
-<td>alternar-derecha</td>
+<td>thumbs-down</td>
+<td>thumbs-up</td>
+<td>toggle-left</td>
+<td>toggle-right</td>
 </tr>
 <tr>
-<td>papelera-2</td>
-<td>papelera</td>
-<td>tendencia-abajo</td>
-<td>tendencia-arriba</td>
+<td>trash-2</td>
+<td>trash</td>
+<td>trending-down</td>
+<td>trending-up</td>
 </tr>
 <tr>
-<td>triángulo</td>
-<td>camión</td>
-<td>TV</td>
+<td>triangle</td>
+<td>truck</td>
+<td>tv</td>
 <td>type</td>
 </tr>
 <tr>
-<td>paraguas</td>
-<td>subrayar</td>
-<td>desbloquear</td>
-<td>cargar-nube</td>
+<td>umbrella</td>
+<td>underline</td>
+<td>unlock</td>
+<td>upload-cloud</td>
 </tr>
 <tr>
-<td>cargar</td>
-<td>usuario-comprobar</td>
-<td>usuario-menos</td>
-<td>usuario-más</td>
+<td>upload</td>
+<td>user-check</td>
+<td>user-minus</td>
+<td>user-plus</td>
 </tr>
 <tr>
-<td>usuario-x</td>
-<td>usuario</td>
+<td>user-x</td>
+<td>user</td>
 <td>users</td>
-<td>video-apagar</td>
+<td>video-off</td>
 </tr>
 <tr>
 <td>video</td>
-<td>correo de voz</td>
-<td>volumen-1</td>
-<td>volumen-2</td>
+<td>voicemail</td>
+<td>volume-1</td>
+<td>volume-2</td>
 </tr>
 <tr>
-<td>volumen-x</td>
-<td>volumen</td>
-<td>observar</td>
-<td>wifi-apagar</td>
+<td>volume-x</td>
+<td>volume</td>
+<td>watch</td>
+<td>wifi-off</td>
 </tr>
 <tr>
 <td>wifi</td>
-<td>viento</td>
-<td>x-círculo</td>
-<td>x-cuadrado</td>
+<td>wind</td>
+<td>x-circle</td>
+<td>x-square</td>
 </tr>
 <tr>
 <td>x</td>
-<td>destruir-apagado</td>
-<td>destruir</td>
-<td>acercarse</td>
+<td>zap-off</td>
+<td>zap</td>
+<td>zoom-in</td>
 </tr>
 <tr>
-<td>alejarse</td>
+<td>zoom-out</td>
 <td></td>
 <td></td>
 <td></td>

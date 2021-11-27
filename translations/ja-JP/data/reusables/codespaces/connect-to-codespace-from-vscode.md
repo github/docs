@@ -1,1 +1,1 @@
-{% data variables.product.prodname_vscode %}から直接codespaceに接続できます。 For more information, see "[Using Codespaces in {% data variables.product.prodname_vscode %}](/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code)."
+{% data variables.product.prodname_vscode %}から直接codespaceに接続できます。 詳しい情報については「[{% data variables.product.prodname_vscode %}でのCodespacesの利用](/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code)」を参照してください。

@@ -1,6 +1,6 @@
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
-1. Click **New discussion**. !["New discussion" button within the "Discussions" tab for a repository](/assets/images/help/discussions/new-discussion-button.png)
-1. Select the **Select Category** drop-down menu, and click a category for your discussion. !["Select Category" drop-down menu and list of available categories in a repository](/assets/images/help/discussions/new-discussion-select-category-dropdown-menu.png)
-1. Type a title and body for your discussion. ![Text fields for new discussion's title and body](/assets/images/help/discussions/new-discussion-title-and-body-fields.png)
-1. Click **Start discussion**. !["Start discussion" button](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
+1. Clique em **Nova discussão**. ![Botão "Nova discussão" dentro da aba "Discussões" para um repositório](/assets/images/help/discussions/new-discussion-button.png)
+1. Menu suspenso **Selecionar categoria** e clique em uma categoria para a sua discussão. ![Menu suspenso "Selecionar categoria" e lista de categorias disponíveis em repositório](/assets/images/help/discussions/new-discussion-select-category-dropdown-menu.png)
+1. Digite um título e texto para sua discussão. ![Campos de texto para o título e texto da nova discussão](/assets/images/help/discussions/new-discussion-title-and-body-fields.png)
+1. Clique em **Iniciar discussão**. ![Botão "Iniciar discussão"](/assets/images/help/discussions/new-discussion-start-discussion-button.png)

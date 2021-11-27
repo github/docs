@@ -1,0 +1,1 @@
+1. Debajo de "GitHub Advanced Security", selecciona el menú desplegable y haz clic en una política para las organizaciones que pertenecen a tu empresa. ![Menú desplegable para seleccionar una política de Seguridad Avanzada para las organizaciones en la cuenta empresarial](/assets/images/help/enterprises/select-advanced-security-organization-policy.png)

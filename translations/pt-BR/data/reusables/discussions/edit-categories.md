@@ -1,1 +1,1 @@
-1. To the right of "Categories", click {% octicon "pencil" aria-label="The pencil icon" %}. ![Pencil icon for editing categories](/assets/images/help/discussions/click-edit-categories.png)
+1. À direita das "Categorias", clique em {% octicon "pencil" aria-label="The pencil icon" %}. ![Ícone de lápis para edição de categorias](/assets/images/help/discussions/click-edit-categories.png)

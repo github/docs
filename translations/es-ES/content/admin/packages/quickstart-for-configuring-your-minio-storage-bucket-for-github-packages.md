@@ -1,8 +1,14 @@
 ---
-title: Quickstart for configuring your MinIO storage bucket for GitHub Packages
-intro: 'Configure your custom MinIO storage bucket for use with {% data variables.product.prodname_registry %}.'
+title: Guía de inicio rápido para configurar tu bucket de almacenamiento de MinIO para GitHub Packages
+intro: 'Configura tu bucket de almacenamiento de MinIO personalizado para utilizarlo con {% data variables.product.prodname_registry %}.'
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
+type: quick_start
+topics:
+  - Packages
+  - Enterprise
+  - Storage
+shortTitle: Inicio rápido para MinIO
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -13,7 +19,7 @@ MinIO ofrece almacenamiento de objetos con soporte para la API de S3 y para {% d
 
 Esta guía de inicio rápido te muestra cómo configurar MinIO utilizando Docker para usarlo con el {% data variables.product.prodname_registry %}, peto tienes otras opciones para administrar MinIO aparte de Docker. Para obtener más información acerca de MinIO, consulta los [documentos oficiales de MinIO](https://docs.min.io/).
 
-### 1. Elige un modo de MinIO de acuerdo con tus necesidades
+## 1. Elige un modo de MinIO de acuerdo con tus necesidades
 
 | Modo de MinIO                                            | Optimizado para                                                 | Infraestructura de almacenamiento requerida                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -23,7 +29,7 @@ Esta guía de inicio rápido te muestra cómo configurar MinIO utilizando Docker
 
 Para obtener más información acerca las opciones que tienes, consulta los [documentos oficiales de MinIO](https://docs.min.io/).
 
-### 2. Instala, ejecuta e inicia sesión en MinIO
+## 2. Instala, ejecuta e inicia sesión en MinIO
 
 1. Configura tus variables de ambiente preferidas para MinIO.
 
@@ -95,7 +101,7 @@ Para obtener más información acerca las opciones que tienes, consulta los [doc
 
    * Ejecuta MinIO utilizando Docker como un agrupamiento. Este despliegue de MinIO utiliza diversos hosts y el código de borrado de MinIO para tener la mayor protección de los datos. Para ejecutar MinIO en modo de agrupamiento, consulta la "[Guía Rápida para MinIO Distribuído](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).
 
-### 3. Crea tu bucket de MinIO para {% data variables.product.prodname_registry %}
+## 3. Crea tu bucket de MinIO para {% data variables.product.prodname_registry %}
 
 1. Instala el cliente de MinIO.
 
@@ -121,7 +127,7 @@ Para obtener más información acerca las opciones que tienes, consulta los [doc
      $ docker run minio/mc mb packages
      ```
 
-### Pasos siguientes
+## Pasos siguientes
 
 Para terminar de configurar el almacenamiento para el {% data variables.product.prodname_registry %}, necesitarás copiar la URL de almacenamiento de MinIO:
 
@@ -129,4 +135,4 @@ Para terminar de configurar el almacenamiento para el {% data variables.product.
   echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
   ```
 
-For the next steps, see "[Enabling {% data variables.product.prodname_registry %} with  MinIO](/admin/packages/enabling-github-packages-with-minio)."
+Para los pasos siguientes, consulta la sección "[Habilitar el {% data variables.product.prodname_registry %} con MinIO](/admin/packages/enabling-github-packages-with-minio)".

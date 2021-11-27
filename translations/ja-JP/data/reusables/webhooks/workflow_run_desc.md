@@ -1,4 +1,5 @@
+このイベントは、ワークフローの実行がリクエストされたか完了した場合に生じ、他のワークフローの終了した結果に基づいてワークフローを実行できるようにしてくれます。 ワークフローの実行は、以前のワークフローの結果にかかわらずトリガーされます。
 
-This event occurs when a workflow run is requested or completed, and allows you to execute a workflow based on the finished result of another workflow. For example, if your `pull_request` workflow generates build artifacts, you can create a new workflow that uses `workflow_run` to analyze the results and add a comment to the original pull request.
+たとえば、`pull_request`ワークフローがビルドの成果物を生成するなら、`workflow_run`を使って結果を分析し、オリジナルのPull Requestにコメントする新しいワークフローを作成できます。
 
-The workflow started by the `workflow_run` event is able to access the secrets and write tokens used by the original workflow.
+`workflow_run`イベントによってStarされたワークフローは、以前のワークフローができなくても、シークレットや書き込みトークンにアクセスできます。 これは、以前のワークフローが意図的に権限を与えられていない場合に役立ちますが、権限を与えられたアクションは後のワークフローで行わなければなりません。

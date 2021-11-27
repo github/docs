@@ -1,0 +1,30 @@
+.extended-markdown {
+  .note,
+  .tip,
+  .warning,
+  .danger {
+    // remove extra space under lists inside of notes
+    ul,
+    ol {
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  p:not(:first-child) {
+    margin-top: 1rem;
+  }
+
+  &.note pre code {
+    color: var(--color-fg-default);
+  }
+
+  &.note pre {
+    background: none;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    margin-bottom: 0;
+  }
+}

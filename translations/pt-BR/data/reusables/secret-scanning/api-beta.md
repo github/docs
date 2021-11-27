@@ -1,5 +1,9 @@
+{% ifversion ghes > 3.0 or ghae-next %}
+
 {% note %}
 
-**Note:** The {% data variables.product.prodname_secret_scanning %} API is currently in beta and subject to change.
+**Observação:** A API de {% data variables.product.prodname_secret_scanning %} está atualmente em fase beta e sujeita a alterações.
 
 {% endnote %}
+
+{% endif %}

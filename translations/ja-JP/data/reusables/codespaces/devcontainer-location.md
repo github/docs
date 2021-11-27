@@ -1,1 +1,1 @@
-This file can be located in the root of the repository or in a folder called `.devcontainer`. If the file is located in the root of the repository, the filename must begin with a period: `.devcontainer.json`.
+このファイルは、リポジトリのルートもしくは`.devcontainer`というフォルダに置くことができます。 このファイルがリポジトリのルートに置かれた場合、ファイル名は`.devcontainer.json`というようにピリオドで始まらなければなりません。

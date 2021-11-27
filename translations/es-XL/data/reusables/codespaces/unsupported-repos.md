@@ -1,1 +1,0 @@
-Durante el beta, no serán compatibles los repositorios privados que pertenezcan a las organizaciones o cualquier repositorio perteneciente a una organización que requiera el inicio de sesión único de SAML.

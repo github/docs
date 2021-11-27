@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Sponsoring on behalf of an organization is currently in beta and subject to change.
+**Observação:** O Patrocínio em nome de uma organização está atualmente na versão beta e sujeito a alterações.
 
 {% endnote %}

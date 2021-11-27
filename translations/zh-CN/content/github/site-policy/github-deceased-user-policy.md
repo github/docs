@@ -1,7 +1,10 @@
 ---
 title: GitHub 已故用户政策
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 如果 GitHub 用户亡故，我们可以与授权的个人合作确定帐户内容的情况。

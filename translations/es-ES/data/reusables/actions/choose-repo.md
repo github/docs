@@ -1,0 +1,1 @@
+Elige un repoisitorio en donde quieras aplicar este fluljo de trabajo de administración de proyectos. Puedes utilizar un repositorio existente al cual tengas acceso de escritura o puedes crear un repositorio nuevo. Para obtener más información sobre la creación de repositorios, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)."

@@ -1,11 +1,15 @@
 ---
 title: Sobre o suporte Premium do GitHub para o GitHub Enterprise Cloud
-intro: 'O {% data variables.contact.premium_support %} é uma oferta de suporte complementar paga para clientes do {% data variables.product.prodname_ghe_cloud %} e {% data variables.product.prodname_ghe_one %}.'
+intro: 'O {% data variables.contact.premium_support %} é uma oferta de suporte complementar paga para clientes do {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - Jobs
+shortTitle: Suporte do GitHub Premium
 ---
 
 {% note %}
@@ -16,11 +20,11 @@ versions:
 
 - {% data reusables.support.data-protection-and-privacy %}
 
-- Este artigo contém os termos do {% data variables.contact.premium_support %} para os clientes do {% data variables.product.prodname_ghe_cloud %}. Os termos podem ser diferentes para clientes do {% data variables.product.prodname_ghe_server %} ou do {% data variables.product.prodname_enterprise %} que compram o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %} juntos. Para obter mais informações, consulte "[Sobre o {% data variables.contact.premium_support %} para o {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)" e "[Sobre o {% data variables.contact.premium_support %} para o {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)".
+- Este artigo contém os termos do {% data variables.contact.premium_support %} para os clientes do {% data variables.product.prodname_ghe_cloud %}. Os termos podem ser diferentes para clientes do {% data variables.product.prodname_ghe_server %} ou do {% data variables.product.prodname_enterprise %} que compram o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %} juntos. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)" and "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_enterprise %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)."
 
 {% endnote %}
 
-### Sobre o {% data variables.contact.premium_support %}
+## Sobre o {% data variables.contact.premium_support %}
 
 O {% data variables.contact.premium_support %} oferece:
   - Suporte gravado, em inglês, por meio do nosso portal de suporte 24 horas por dia, 7 dais por semana
@@ -38,13 +42,13 @@ O {% data variables.contact.premium_support %} oferece:
 
 {% data reusables.support.contacting-premium-support %}
 
-### Horas de operação
+## Horas de operação
 
 O {% data variables.contact.premium_support %} está disponível 24 horas por dia, 7 dias por semana.
 
 {% data reusables.support.service-level-agreement-response-times %}
 
-### Atribuindo uma prioridade a um tíquete de suporte
+## Atribuindo uma prioridade a um tíquete de suporte
 
 Ao entrar em contato com {% data variables.contact.premium_support %}, você pode escolher uma das quatro prioridades para o tíquete: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}.
 
@@ -52,7 +56,7 @@ Ao entrar em contato com {% data variables.contact.premium_support %}, você pod
 
 {% data reusables.support.ghec-premium-priorities %}
 
-### Resolução e fechamento de tíquete de suporte
+## Resolução e fechamento de tíquete de suporte
 
 O {% data variables.contact.premium_support %} pode considerar um tíquete resolvido após fornecer uma explicação, recomendação, instruções de uso ou instruções de solução alternativa.
 
@@ -64,6 +68,6 @@ O {% data variables.contact.premium_support %} poderá encerrar tíquetes se est
 
 {% data reusables.support.accessing-premium-content %}
 
-### Leia mais
+## Leia mais
 
 - "[Enviar um tíquete](/articles/submitting-a-ticket)"

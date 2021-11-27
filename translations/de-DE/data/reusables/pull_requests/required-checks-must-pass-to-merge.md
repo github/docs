@@ -1,1 +1,0 @@
-Wenn Statusprüfungen für ein Repository erforderlich sind, müssen die erforderlichen Statusprüfungen bestanden werden, bevor Du Deinen Branch mit der geschützten Branch zusammenführen kannst. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging).“

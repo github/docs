@@ -1,34 +1,34 @@
-##### 1つのイベントを使用する例
+## 単一のイベントを使用する例
 
 ```yaml
-# Triggered when code is pushed to any branch in a repository
+# リポジトリ内の任意のブランチにコードがプッシュされたときにトリガーされる
 on: push
 ```
 
-##### イベントのリストを使用する例
+## イベントのリストを使用する例
 
 ```yaml
-# Triggers the workflow on push or pull request events
+# プッシュもしくはPull Requestイベントでワークフローをトリガーする
 on: [push, pull_request]
 ```
 
-##### アクティビティの種類もしくは設定を伴う複数のイベントを使用する例
+## アクティビティの種類もしくは設定を伴う複数のイベントを使用する例
 
 イベントに対してアクティビティの種類もしくは設定を指定する必要がある場合、それぞれのイベントを個別に設定しなければなりません。 設定を持たないイベントも含め、すべてのイベントにはコロン (`:`)を追加しなければなりません。
 
 ```yaml
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
+  # プッシュもしくはPull Requestでワークフローをトリガーする
+  # ただしメインブランチの場合のみ
   push:
     branches:
       - main
   pull_request:
     branches:
       - main
-  # Also trigger on page_build, as well as release created events
+  # page_buildとリリース作成イベントでもトリガーする
   page_build:
   release:
-    types: # This configuration does not affect the page_build event above
+    types: # この設定は上記のpage_buildイベントには影響しない
       - created
 ```

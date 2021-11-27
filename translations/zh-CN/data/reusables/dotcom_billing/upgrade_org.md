@@ -1,1 +1,1 @@
-1. 如果您要从 {% data variables.product.prodname_free_team %} 升级，请单击 **Upgrade options（升级选项）**。 如果您要从 {% data variables.product.prodname_team %} 升级，请使用 **Edit（编辑）**下拉菜单，然后单击 **Upgrade（升级）**。 ![升级选项按钮](/assets/images/help/billing/choose-monthly-or-yearly-billing.png)
+1. 单击“ Current plan（当前计划）”旁边的 **Upgrade（升级）**。

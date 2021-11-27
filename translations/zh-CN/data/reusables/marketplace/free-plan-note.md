@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** If you're listing an app on {% data variables.product.prodname_marketplace %}, you can't list your app with a free pricing plan if you offer a paid service outside of {% data variables.product.prodname_marketplace %}.
+**注意：** 如果您在 {% data variables.product.prodname_marketplace %} 上列出了应用，则在 {% data variables.product.prodname_marketplace %} 之外提供付费服务时无法列出免费定价计划的应用。
 
 {% endnote %}

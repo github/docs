@@ -1,1 +1,1 @@
-You can delete GitHub Apps when you no longer use them.
+もう使わなくなったGitHub Appは削除できます。

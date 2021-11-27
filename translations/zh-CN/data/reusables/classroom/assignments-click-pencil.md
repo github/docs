@@ -1,1 +1,1 @@
-1. To the right of the assignment you want to edit, click {% octicon "pencil" aria-label="The pencil icon" %}. ![Pencil icon for editing assignment in list of assignments](/assets/images/help/classroom/assignments-click-pencil.png)
+1. 在要编辑的作业的右侧，单击 {% octicon "pencil" aria-label="The pencil icon" %}。 ![用于在作业列表中编辑作业的铅笔图标](/assets/images/help/classroom/assignments-click-pencil.png)

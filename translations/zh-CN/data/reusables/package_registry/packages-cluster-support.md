@@ -1,7 +1,7 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_registry %} on {% data variables.product.product_name %} does not currently support clustering.
+**注意：** {% data variables.product.product_name %} 上的 {% data variables.product.prodname_registry %} 目前不支持集群。
 
 {% endnote %}
 {% endif %}

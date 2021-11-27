@@ -1,1 +1,1 @@
-1. Visita https://enterprise.github.com/support/bundles/new y carga tu paquete de soporte.
+1. Visita https://support.github.com/uploads y carga tu paquete de soporte.

@@ -50,7 +50,9 @@
             "description": "foo",
             "monthly_price_in_cents": 500,
             "monthly_price_in_dollars": 5,
-            "name": "$5 a month"
+            "name": "$5 a month",
+            "is_one_time": false,
+            "is_custom_amount": false
         }
     },
     "changes": {

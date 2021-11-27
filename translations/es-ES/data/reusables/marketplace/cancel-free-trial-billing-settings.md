@@ -1,1 +1,1 @@
-1. Debajo de "Suscripciones", a un costado de la prueba gratuita que quieres cancelar, utiliza el menú desplegable de Editar y da clic en **Cancelar Plan**.
+1. Junto a la prueba gratuita que quieres cancelar, utiliza el menú desplegable de **Editar** y haz clic en **Cancelar plan**.

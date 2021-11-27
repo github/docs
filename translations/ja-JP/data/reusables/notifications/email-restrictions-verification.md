@@ -1,0 +1,1 @@
+{% ifversion fpt or ghec %}To continue receiving email notifications after you enable restrictions, members must verify any email addresses within domains that you verify or approve. 詳しい情報については、「[メールアドレスの検証](/github/getting-started-with-github/verifying-your-email-address)」を参照してください。{% endif %}

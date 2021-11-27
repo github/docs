@@ -1,18 +1,25 @@
 ---
 title: SCIM
+intro: 'You can control and manage your {% data variables.product.product_name %} organization members access using SCIM API.'
 redirect_from:
   - /v3/scim
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### SCIM Provisioning for Organizations
 
-The SCIM API is used by SCIM-enabled Identity Providers (IdPs) to automate provisioning of {% data variables.product.product_name %} organization membership. The {% data variables.product.product_name %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). The {% data variables.product.product_name %} SCIM endpoint that an IdP should use is: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
+The SCIM API is used by SCIM-enabled Identity Providers (IdPs) to automate provisioning of {% data variables.product.product_name %} organization membership. The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). The {% data variables.product.product_name %} SCIM endpoint that an IdP should use is: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
 
 {% note %}
 
-**Note:** The SCIM API is available only to organizations on [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)."
+**Notes:** 
+  - The SCIM API is available only to organizations on [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. {% data reusables.scim.enterprise-account-scim %} For more information about SCIM, see "[About SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
+  - The SCIM API cannot be used with {% data variables.product.prodname_emus %}.
 
 {% endnote %}
 

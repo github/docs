@@ -1,1 +1,1 @@
-A deployment is created. {% data reusables.webhooks.action_type_desc %} For more information, see the "[deployment statuses](/rest/reference/repos#list-deployment-statuses)" REST API.
+デプロイメントが作成されました。 {% data reusables.webhooks.action_type_desc %} 詳しい情報については「[デプロイメントステータス](/rest/reference/repos#list-deployment-statuses)」 REST APIを参照してください。

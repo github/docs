@@ -6,7 +6,11 @@ redirect_from:
   - /articles/github-enterprise-cloud-support
 intro: '{% data variables.product.prodname_ghe_cloud %} 在您当地时区的周一至周五为优先支持请求提供八小时响应服务。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - Jobs
+shortTitle: GitHub Enterprise Cloud
 ---
 
 {% note %}
@@ -14,6 +18,8 @@ versions:
 **注：**{% data variables.product.prodname_ghe_cloud %} 客户可以注册 {% data variables.contact.premium_support %}。 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.contact.premium_support %}](/articles/about-github-premium-support-for-github-enterprise-cloud)”。
 
 {% endnote %}
+
+{% data reusables.support.zendesk-old-tickets %}
 
 如果您购买了 {% data variables.product.prodname_ghe_cloud %}，或者您是当前订阅了 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.product.prodname_dotcom %} 组织的成员、外部协作者或帐单管理员，则可以提交优先问题。
 
@@ -24,7 +30,7 @@ versions:
 - 只包含与当前使用 {% data variables.product.prodname_ghe_cloud %} 的组织相关的问题
 
 要获得优先响应，您必须：
-- 通过与目前使用 {% data variables.product.prodname_ghe_cloud %} 的组织关联的经验证电子邮件地址提交问题到 [{% data variables.contact.enterprise_support %}](https://enterprise.githubsupport.com/hc/en-us/requests/new?github_product=cloud)
+- 通过与目前使用 {% data variables.product.prodname_ghe_cloud %} 的组织关联的经验证电子邮件地址提交问题到 [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic)
 - 为每个优先情况提交新的支持事件单
 - 在您当地时区的周一至周五提交问题
 - 知道将通过电子邮件接收优先问题的响应

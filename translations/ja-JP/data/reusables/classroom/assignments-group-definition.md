@@ -1,1 +1,1 @@
-A group assignment is collaborative coursework for groups of students on {% data variables.product.prodname_classroom %}.
+グループ課題は、{% data variables.product.prodname_classroom %}上の学生のグループのための共同のコースワークです。

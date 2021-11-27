@@ -1,145 +1,93 @@
 ---
-title: Guía de inicio rápido para GitHub Actions
-intro: 'Agrega un flujo de trabajo de {% data variables.product.prodname_actions %} a un repositorio existente en 5 minutos o menos.'
-allowTitleToDifferFromFilename: verdadero
+title: Quickstart for GitHub Actions
+intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: quick_start
+topics:
+  - Fundamentals
+shortTitle: Quickstart
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### Introducción
+## Introduction
 
-Solo necesitas tener un repositorio de {% data variables.product.prodname_dotcom %} para crear y ejecutar un flujo de trabajo de {% data variables.product.prodname_actions %}. En esta guía, agregarás un flujo de trabajo que limpia varios lenguajes de programación utilizando la [Acción de Super-Linter de {% data variables.product.prodname_dotcom %}](https://github.com/github/super-linter). El flujo de trabajo utiliza Super-Linter para validar tu código fuente cada que se sube una confirmación a tu repositorio.
+You only need a {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}. 
 
-### Crear tu primer flujo de trabajo
+The following example shows you how {% data variables.product.prodname_actions %} jobs can be automatically triggered, where they run, and how they can interact with the code in your repository.
 
-1. Desde tu repositorio en {% data variables.product.prodname_dotcom %}, crea un archivo nuevo en el directorio `.github/workflows` que se llame `superlinter.yml`. Para obtener más información, consulta "[Crear nuevos archivos](/github/managing-files-in-a-repository/creating-new-files)."
-2. Copia el siguiente contenido de YAML en el arcvhivo `superlinter.yml`. **Nota:** Si tu rama predeterminada no es `main`, actualiza el valor de `DEFAULT_BRANCH` para que refleje el nombre de la rama predeterminada de tu repositorio.
+## Creating your first workflow
+
+1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist.
+2. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+3. Copy the following YAML contents into the `github-actions-demo.yml` file:
     {% raw %}
     ```yaml{:copy}
-    name: Super-Linter
-
-    # Run this workflow every time a new commit pushed to your repository
-    on: push
-
+    name: GitHub Actions Demo
+    on: [push]
     jobs:
-      # Set the job key. The key is displayed as the job name
-      # when a job name is not provided
-      super-lint:
-        # Name the Job
-        name: Lint code base
-        # Set the type of machine to run on
+      Explore-GitHub-Actions:
         runs-on: ubuntu-latest
-
         steps:
-          # Checks out a copy of your repository on the ubuntu-latest machine
-          - name: Checkout code
+          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+          - name: Check out repository code
             uses: actions/checkout@v2
+          - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+          - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+          - name: List files in the repository
+            run: |
+              ls ${{ github.workspace }}
+          - run: echo "🍏 This job's status is ${{ job.status }}."
 
-          # Runs the Super-Linter action
-          - name: Run Super-Linter
-            uses: github/super-linter@v3
-            env:
-              DEFAULT_BRANCH: main
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
     {% endraw %}
-3. Para ejecutar tu flujo de trabajo, desplázate al final de la página y selecciona **Crear una rama nueva para esta confirmación e iniciar una solicitud de cambios**. Después, para crear una solicitud de cambios, da clic en **Proponer un archivo nuevo**. ![Archivo de flujo de trabajo de la confirmación](/assets/images/commit-workflow-file.png)
+3. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
+    ![Commit workflow file](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
 
-El confirmar el flujo de trabajo en tu repositorio activará el evento de `push` y ejecutará tu flujo de trabajo.
+Committing the workflow file to a branch in your repository triggers the `push` event and runs your workflow.
 
-### Ver los resultados de tu flujo de trabajo
+## Viewing your workflow results
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-1. Debajo de **Jobs** o en la gráfica de visualización, da clic en el job de **Limpiar base de código**. ![Limpiar el job de código base](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
-{% else %}
-1. En la barra lateral, da clic en el job de **Lint code base**. ![Limpiar el job de código base](/assets/images/help/repository/superlinter-lint-code-base-job.png)
-{% endif %}
-{% data reusables.repositories.view-failed-job-results-superlinter %}
+1. In the left sidebar, click the workflow you want to see.
 
-### Más plantillas de flujo de trabajo
+   ![Workflow list in left sidebar](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
+1. From the list of workflow runs, click the name of the run you want to see.
 
-{% data reusables.actions.workflow-template-overview %}
+   ![Name of workflow run](/assets/images/help/repository/actions-quickstart-run-name.png)
+1. Under **Jobs** , click the **Explore-GitHub-Actions** job.
 
-### Pasos siguientes
+   ![Locate job](/assets/images/help/repository/actions-quickstart-job.png)
+1. The log shows you how each of the steps was processed. Expand any of the steps to view its details.
 
-El flujo de trabajo de super-linter que acabas de agregar se ejecuta en cualquier momento en que se suba cópdigo a tu repositorio para ayudarte a detectar los errores y las coincidencias del mismo. Pero esto es solo el inicio de lo que puedes hacer con {% data variables.product.prodname_actions %}. Tu repositorio puede contener varios flujos de trabajo que activen jobs diferentes basándose en eventos diferentes. {% data variables.product.prodname_actions %} puede ayudarte a automatizar casi cualquier aspecto de tu s procesos de desarrollo de aplicaciones. ¿Listo para comenzar? Aquí tienes algunos recursos útiles para que tomes tus siguientes pasos con {% data variables.product.prodname_actions %}:
-
-- "[Aprende más sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" con este tutorial detallado
-- "[Guías](/actions/guides)" para casos de uso específico y ejemplos
-- [github/super-linter](https://github.com/github/super-linter) para obtener más detalles sobre la configuración de la acción de Super-Linter
-
-<div id="quickstart-treatment" hidden>
-
-### Introducción
-
-Imprimir "Hello, World!" es una forma excelente de explorar la configuración y sintaxis básicas para un lenguaje de programación nuevo. Ene sta guía, utilizarás GitHub Actions para imprimir "Hello, World!" dentro de las bitácoras de flujo de trabajo de tu repositorio de {% data variables.product.prodname_dotcom %}. Lo único que necesitas para comenzar es un repositorio de {% data variables.product.prodname_dotcom %} en donde te sientas cómodo para crear y ejecutar un flujo de trabajo de {% data variables.product.prodname_actions %} de muestra. Ten la confianza de crear un repositorio nuevo para esta guía rápida, puedes utilizarlo para probar este y otros flujos de trabajo de {% data variables.product.prodname_actions %} posteriores.
-
-### Crear tu primer flujo de trabajo
-
-1. Desde tu repositorio en {% data variables.product.prodname_dotcom %}, crea un archivo nuevo en el directorio `.github/workflows` que se llame `hello-world.yml`. Para obtener más información, consulta la sección "[Crear archivos nuevos](/github/managing-files-in-a-repository/creating-new-files)."
-2. Copia el siguiente contenido de YAML en el archivo `hello-world.yml`.
-    {% raw %}
-    ```yaml{:copy}
-    name: Say hello!
-
-    # GitHub Actions Workflows are automatically triggered by GitHub events
-    on:
-      # For this workflow, we're using the workflow_dispatch event which is triggered when the user clicks Run workflow in the GitHub Actions UI
-      workflow_dispatch:
-        # The workflow_dispatch event accepts optional inputs so you can customize the behavior of the workflow
-        inputs:
-          name:
-            description: 'Person to greet'
-            required: true
-            default: 'World'
-    # When the event is triggered, GitHub Actions will run the jobs indicated
-    jobs:
-      say_hello:
-        # Uses a ubuntu-latest runner to complete the requested steps
-        runs-on: ubuntu-latest
-        steps:
-        - run: |
-            echo "Hello ${{ github.event.inputs.name }}!"
-    ```
-    {% endraw %}
-3. Desplázate al final de la página y selecciona **Crear una rama nueva para esta confirmación e iniciar una solicitud de extracción**. Después, para crear una solicitud de extracción, da clic en **Proponer archivo nuevo**.
-    ![Commit workflow file](/assets/images/help/repository/commit-hello-world-file.png)
-4. Una vez que la solicitud de extracción se haya fusionado, estarás listo para pasar a "Activar tu flujo de trabajo".
-
-### Activar tu flujo de trabajo
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-1. En la barra lateral izquierda, da clic ene l flujo de trabajo que quieras ejecutar.
-   ![Selecciona el job de "say hello"](/assets/images/help/repository/say-hello-job.png)
-1. A la derecha, da clic en el menú desplegable de *Ejecutar flujo de trabajo** y da clic en **Ejecutar flujo de trabajo**. Opcionalmente, puedes ingresar un mensaje personalizado en la entrada "Persona a saludar" antes de ejecutar el flujo de trabajo.
-   ![Activar el flujo de trabajo manual](/assets/images/help/repository/manual-workflow-trigger.png)
-1. El flujo de trabajo aparecerá en la parte superior de la lista de las ejecuciones de flujo de trabajo para "Say hello!". Da clic en "Say Hello!" para ver el resultado de la ejecución del flujo de trabajo.
-   ![Listado de resultado para el flujo de trabajo](/assets/images/help/repository/workflow-run-listing.png)
-1. En la barra lateral izquierda, da clic en el job "say_hello".
-   ![Listado del job del flujo de trabajo](/assets/images/help/repository/workflow-job-listing.png)
-1. En las bitácoras del flujo de trabajo, expande la sección de 'Run echo "Hello World!"'.
-   ![Workflow detail](/assets/images/help/repository/workflow-log-listing.png)
-
-### More workflow templates
+   ![Example workflow results](/assets/images/help/repository/actions-quickstart-logs.png)
+   
+   For example, you can see the list of files in your repository:
+   ![Example action detail](/assets/images/help/repository/actions-quickstart-log-detail.png)
+   
+## More workflow templates
 
 {% data reusables.actions.workflow-template-overview %}
 
-### Next steps
+## Next steps
 
-The hello-world workflow you just added is a simple example of a manually triggered workflow. Esto es solo el inicio de lo que puedes hacer con {% data variables.product.prodname_actions %}. Tu repositorio puede contener varios flujos de trabajo que activen jobs diferentes basándose en eventos diferentes. {% data variables.product.prodname_actions %} puede ayudarte a automatizar casi cualquier aspecto de tu s procesos de desarrollo de aplicaciones. ¿Listo para comenzar? Aquí puedes encontrar algunos recursos de gran ayuda para tomar los siguientes pasos con {% data variables.product.prodname_actions %}:
+The example workflow you just added runs each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. But this is only the beginning of what you can do with {% data variables.product.prodname_actions %}:
 
-- "[Aprende a usar las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" para un tutorial a fondo
-- "[Guides](/actions/guides)" para casos de uso y ejemplos específicos
+- Your repository can contain multiple workflows that trigger different jobs based on different events. 
+- You can use a workflow to install software testing apps and have them automatically test your code on {% data variables.product.prodname_dotcom %}'s runners. 
 
-</div>
+{% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
+
+- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial.
