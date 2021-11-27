@@ -1,11 +1,13 @@
 ---
-title: Configuring Codespaces for your project
+title: Introduction to dev containers
 intro: 'You can use a `devcontainer.json` file to define a {% data variables.product.prodname_codespaces %} environment for your repository.'
+allowTitleToDifferFromFilename: true
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
   - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
   - /github/developing-online-with-codespaces/configuring-codespaces-for-your-project
+  - /codespaces/customizing-your-codespace/configuring-codespaces-for-your-project
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,7 +17,6 @@ topics:
   - Set up
   - Fundamentals
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: Configure your project
 ---
 
  
