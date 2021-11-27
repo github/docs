@@ -53,9 +53,9 @@ sections:
       heading: 'Git Credential Manager (GCM) secure credential storage and multi-factor authentication support'
       notes:
         - |
-          Git Credential Manager (GCM) Core versions 2.0.452 and later now provide security-hardened credential storage and multi-factor authentication support for {% data variables.product.product_name %}.
+          Git Credential Manager (GCM) versions 2.0.452 and later now provide security-hardened credential storage and multi-factor authentication support for {% data variables.product.product_name %}.
 
-          GCM Core with support for {% data variables.product.product_name %} is included with [Git for Windows](https://gitforwindows.org) versions 2.32 and later. GCM Core is not included with Git for macOS or Linux, but can be installed separately. For more information, see the [latest release](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) and [installation instructions](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) in the `microsoft/Git-Credential-Manager-Core` repository.
+          GCM with support for {% data variables.product.product_name %} is included with [Git for Windows](https://gitforwindows.org) versions 2.32 and later. GCM is not included with Git for macOS or Linux, but can be installed separately. For more information, see the [latest release](https://github.com/GitCredentialManager/git-credential-manager/releases/) and [installation instructions](https://github.com/GitCredentialManager/git-credential-manager/releases/) in the `GitCredentialManager/git-credential-manager` repository.
   changes:
     - 
       heading: Alterações na administração
