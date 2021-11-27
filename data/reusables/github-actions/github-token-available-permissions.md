@@ -6,7 +6,11 @@ permissions:
   checks: read|write|none
   contents: read|write|none
   deployments: read|write|none
+------- revert-12390-repo-sync
   id-token: read|write|none
+=======
+  discussions: read|write|none
+------- add-discussions-permission.md
   issues: read|write|none
   discussions: read|write|none
   packages: read|write|none
