@@ -37,13 +37,13 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 
 ## 仓库
 
-| 键盘快捷键                     | 描述                                                                                                                                                                                                                                          |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>g</kbd> <kbd>c</kbd> | 转到 **Code（代码）**选项卡                                                                                                                                                                                                                          |
-| <kbd>g</kbd> <kbd>i</kbd> | 转到 **Issues（议题）**选项卡。 更多信息请参阅“[关于议题](/articles/about-issues)”。                                                                                                                                                                              |
-| <kbd>g</kbd> <kbd>p</kbd> | 转到 **Pull requests（拉取请求）**选项卡。 For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
+| 键盘快捷键                     | 描述                                                                                                                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| <kbd>g</kbd> <kbd>c</kbd> | 转到 **Code（代码）**选项卡                                                                                                                         |
+| <kbd>g</kbd> <kbd>i</kbd> | 转到 **Issues（议题）**选项卡。 更多信息请参阅“[关于议题](/articles/about-issues)”。                                                                             |
+| <kbd>g</kbd> <kbd>p</kbd> | 转到 **Pull requests（拉取请求）**选项卡。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”。{% ifversion fpt or ghes or ghec %}
 | <kbd>g</kbd> <kbd>a</kbd> | 转到 **Actions（操作）**选项卡。 更多信息请参阅“[关于 Actions](/actions/getting-started-with-github-actions/about-github-actions)”。{% endif %}
-| <kbd>g</kbd> <kbd>b</kbd> | 转到 **Projects（项目）**选项卡。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。                                                                                                                                                                   |
+| <kbd>g</kbd> <kbd>b</kbd> | 转到 **Projects（项目）**选项卡。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。                                                                  |
 | <kbd>g</kbd> <kbd>w</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。{% ifversion fpt or ghec %}
 | <kbd>g</kbd> <kbd>g</kbd> | 转到 **Discussions（讨论）**选项卡。 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。{% endif %}
 
@@ -86,21 +86,21 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 
 ## 评论
 
-| 键盘快捷键                                                    | 描述                                                                                                                                                                           |
-| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>control b</kbd> 或 <kbd>command b</kbd>              | 插入 Markdown 格式用于粗体文本                                                                                                                                                         |
+| 键盘快捷键                                                    | 描述                                                                                                                                    |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>control b</kbd> 或 <kbd>command b</kbd>              | 插入 Markdown 格式用于粗体文本                                                                                                                  |
 | <kbd>control i</kbd> 或 <kbd>command i</kbd>              | 插入斜体文本的 Markdown 格式{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 | <kbd>control e</kbd> 或 <kbd>command e</kbd>              | 在行内插入代码或命令的 Markdown 格式{% endif %}
-| <kbd>control k</kbd> 或 <kbd>command k</kbd>              | 插入 Markdown 格式用于创建链接                                                                                                                                                         |
+| <kbd>control k</kbd> 或 <kbd>command k</kbd>              | 插入 Markdown 格式用于创建链接                                                                                                                  |
 | <kbd>control shift p</kbd> 或 <kbd>command shift p</kbd>  | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
-| <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd> | Inserts Markdown formatting for an ordered list                                                                                                                              |
+| <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd> | Inserts Markdown formatting for an ordered list                                                                                       |
 | <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd> | Inserts Markdown formatting for an unordered list{% endif %}
-| <kbd>control enter</kbd>                                 | 提交评论                                                                                                                                                                         |
+| <kbd>control enter</kbd>                                 | 提交评论                                                                                                                                  |
 | <kbd>control .</kbd>，然后 <kbd>control [已保存回复编号]</kbd>     | 打开已保存回复菜单，然后使用已保存回复自动填写评论字段。 更多信息请参阅“[关于已保存回复](/articles/about-saved-replies)”。{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
 | <kbd>control shift .</kbd> or <kbd>command shift.</kbd>  | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
-| <kbd>control g</kbd> 或 <kbd>command g</kbd>              | 插入建议。 更多信息请参阅“[审查拉取请求中提议的更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。 
+| <kbd>control g</kbd> 或 <kbd>command g</kbd>              | 插入建议。 更多信息请参阅“[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)”。 
 {% endif %}
-| <kbd>r</kbd>                                             | 在您的回复中引用所选的文本。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax#quoting-text)”。                                                                             |
+| <kbd>r</kbd>                                             | 在您的回复中引用所选的文本。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax#quoting-text)”。                                      |
 
 ## 议题和拉取请求列表
 

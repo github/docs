@@ -37,7 +37,7 @@ shortTitle: 脆弱性のある依存関係
 ## {% data variables.product.prodname_dependabot_alerts %}
 リポジトリ内の脆弱性のある依存関係を検出すると、{% data variables.product.product_name %} は {% data variables.product.prodname_dependabot_alerts %} を作成できます。 アラートは、リポジトリの [Security] タブに表示されます。 アラートには、プロジェクト内で影響を受けるファイルへのリンクと、修正バージョンに関する情報が含まれています。 {% data variables.product.product_name %} は、通知設定に従って、リポジトリのメンテナにも通知します。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_dependabot_security_updates %}
 {% data variables.product.product_name %} がリポジトリ内の脆弱性のある依存関係に対して {% data variables.product.prodname_dependabot %} アラートが発生すると、{% data variables.product.prodname_dependabot %} は自動的にそれを修正しようとします。 {% data variables.product.prodname_dependabot_security_updates %} は、脆弱性のある依存関係を修正バージョンに更新するプルリクエストを自動的に生成します。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
 

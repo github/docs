@@ -2,16 +2,16 @@
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} ヘルプドキュメント'
 featuredLinks:
   gettingStarted:
-    - /get-started/quickstart/set-up-git
+    - /github/getting-started-with-github/set-up-git
     - /github/authenticating-to-github/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
     - /github/writing-on-github/basic-writing-and-formatting-syntax
   popular:
-    - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
-    - /authentication
+    - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
+    - /github/authenticating-to-github
     - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
-    - /get-started/getting-started-with-git/managing-remote-repositories
-    - /pages
+    - /github/getting-started-with-github/managing-remote-repositories
+    - /github/working-with-github-pages
 versions: '*'
 children:
   - get-started
@@ -23,7 +23,6 @@ children:
   - billing
   - organizations
   - code-security
-  - pull-requests
   - issues
   - actions
   - codespaces
@@ -53,7 +52,6 @@ childGroups:
     children:
       - codespaces
       - repositories
-      - pull-requests
       - discussions
   - name: CI/CD and DevOps
     octicon: GearIcon

@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { useState, useEffect, SyntheticEvent } from 'react'
 import { ChevronDownIcon } from '@primer/octicons-react'
-import { ActionList } from '@primer/components'
 
 import { Link } from 'components/Link'
 import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
@@ -115,37 +114,28 @@ const CollapsibleSection = (props: SectionProps) => {
     const title = page.renderedShortTitle || page.renderedFullTitle
 
     const isCurrent = routePath === page.href
-    return {
-      text: title,
-      renderItem: () => (
-        <ActionList.Item
-          data-testid="sidebar-article"
-          data-is-current-page={isCurrent}
-          as="li"
+    return (
+      <li
+        data-testid="sidebar-article"
+        data-is-current-page={isCurrent}
+        key={page.href}
+        className={cx(
+          'position-relative',
+          styles.sidebarArticle,
+          isCurrent && ['text-bold', styles.sidebarArticleActive]
+        )}
+      >
+        <Link
+          href={page.href}
           className={cx(
-            'position-relative',
-            styles.sidebarArticle,
-            isCurrent && ['text-bold', styles.sidebarArticleActive]
+            'd-block pl-6 pr-5 py-1 no-underline',
+            isCurrent ? 'color-fg-accent' : 'color-fg-default'
           )}
-          sx={{
-            padding: '2px 0',
-            ':hover': {
-              borderRadius: 0,
-            },
-          }}
         >
-          <Link
-            href={page.href}
-            className={cx(
-              'd-block pl-6 pr-5 py-1 no-underline width-full',
-              isCurrent ? 'color-fg-accent' : 'color-fg-default'
-            )}
-          >
-            {title}
-          </Link>
-        </ActionList.Item>
-      ),
-    }
+          {title}
+        </Link>
+      </li>
+    )
   }
 
   return (
@@ -182,23 +172,19 @@ const CollapsibleSection = (props: SectionProps) => {
                       <summary>
                         <div className={cx('pl-4 pr-5 py-2 no-underline')}>{childTitle}</div>
                       </summary>
-                      <div data-testid="sidebar-article-group" className="pb-0">
-                        <ActionList
-                          {...{ as: 'ul' }}
-                          items={childPage.childPages.map((cp) => {
-                            return renderTerminalPageLink(cp)
-                          })}
-                        ></ActionList>
-                      </div>
+                      <ul data-testid="sidebar-article-group" className="my-2 pb-2">
+                        {childPage.childPages.map(renderTerminalPageLink)}
+                      </ul>
                     </details>
                   </li>
                 )
               })}
             </ul>
           ) : page.childPages[0]?.page.documentType === 'article' ? (
-            <div data-testid="sidebar-article-group" className="pb-0">
-              <ActionList {...{ as: 'ul' }} items={page.childPages.map(renderTerminalPageLink)} />
-            </div>
+            <ul data-testid="sidebar-article-group" className="list-style-none pb-2">
+              {/* <!-- some categories have no maptopics, only articles --> */}
+              {page.childPages.map(renderTerminalPageLink)}
+            </ul>
           ) : null}
         </>
       }

@@ -55,7 +55,6 @@ Mailchimp | Mailchimp API Key
 Mailchimp | Mandrill API Key
 Mailgun | Mailgun API Key
 MessageBird | MessageBird API Key
-Meta | Facebook Access Token
 npm | npm Access Token
 NuGet | NuGet API Key
 OpenAI | OpenAI API Key
@@ -75,8 +74,6 @@ RubyGems | RubyGems API Key
 Samsara | Samsara API Token
 Samsara | Samsara OAuth Access Token
 SendGrid | SendGrid API Key
-Sendinblue | Sendinblue API Key
-Sendinblue | Sendinblue SMTP Key
 Shopify | Shopify App Shared Secret
 Shopify | Shopify Access Token
 Shopify | Shopify Custom App Access Token
@@ -93,5 +90,4 @@ Stripe | Stripe Test API Restricted Key
 Tencent Cloud | Tencent Cloud Secret ID
 Twilio | Twilio Account String Identifier
 Twilio | Twilio API Key
-Typeform | Typeform Personal Access Token
 Valour | Valour Access Token

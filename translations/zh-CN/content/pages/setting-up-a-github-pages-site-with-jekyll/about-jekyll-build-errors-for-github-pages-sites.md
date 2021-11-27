@@ -40,7 +40,7 @@ shortTitle: Pages 的 Jekyll 构建错误
 
 我们建议在本地测试您的站点，这样您可以在命令行上看到构建错误消息，并在更改推送到 {% data variables.product.product_name %} 之前解决任何构建失败。 更多信息请参阅“[使用 Jekyll 在本地测试 {% data variables.product.prodname_pages %} 站点](/articles/testing-your-github-pages-site-locally-with-jekyll)”。
 
-创建拉取请求以更新您在 {% data variables.product.product_name %} 上的发布源时，您可以在拉取请求的 **Checks（检查）**选项卡上看到构建错误消息。 更多信息请参阅“[关于状态检查](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)”。
+创建拉取请求以更新您在 {% data variables.product.product_name %} 上的发布源时，您可以在拉取请求的 **Checks（检查）**选项卡上看到构建错误消息。 更多信息请参阅“[关于状态检查](/articles/about-status-checks)”。
 
 将更改推送到您在 {% data variables.product.product_name %} 上的发布源时，{% data variables.product.prodname_pages %} 将尝试构建您的站点。 如果构建失败，您将在您的主要电子邮件地址收到一封电子邮件。 您还将收到关于构建警告的电子邮件。 {% data reusables.pages.build-failure-email-server %}
 

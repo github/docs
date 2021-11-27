@@ -95,13 +95,3 @@ If the codespace is currently running, a message is displayed asking if you woul
 ## Deleting a codespace in {% data variables.product.prodname_vscode %}
 
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
-
-## Switching to the Insiders build of {% data variables.product.prodname_vscode %}
-
-You can use the [Insiders Build of Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) within {% data variables.product.prodname_codespaces %}.
-
-1. In bottom left of your {% data variables.product.prodname_codespaces %} window, select **{% octicon "gear" aria-label="The settings icon" %} Settings**.
-2. From the list, select "Switch to Insiders Version".
-
-   ![Clicking on "Insiders Build" in {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
-3. Once selected, {% data variables.product.prodname_codespaces %} will continue to open in Insiders Version.

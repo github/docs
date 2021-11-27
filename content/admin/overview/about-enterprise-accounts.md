@@ -38,8 +38,6 @@ Organizations are shared accounts where enterprise members can collaborate acros
 
 Enterprise owners can create organizations and link the organizations to the enterprise. Alternatively, you can invite an existing organization to join your enterprise account. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. Specific enforcement options vary by setting; generally, you can choose to enforce a single policy for every organization in your enterprise account or allow owners to set policy on the organization level. For more information, see "[Setting policies for your enterprise](/admin/policies)."
 
-{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
-
 {% elsif ghes or ghae %}
 
 For more information about the management of policies for your enterprise account, see "[Setting policies for your enterprise](/admin/policies)."

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
-import { ActionList, Heading } from '@primer/components'
+import { Heading } from '@primer/components'
 
 import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
@@ -14,7 +14,7 @@ import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
-import { PlatformPicker } from 'components/article/PlatformPicker'
+import { VersionPicker } from 'components/VersionPicker'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -24,22 +24,6 @@ const interactiveAlternatives: Record<string, { href: string }> = {
   '/actions/automating-builds-and-tests/building-and-testing-python': {
     href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=python',
   },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=nodejs',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=dotnet',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=java',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=py',
-    },
 }
 
 export const ArticlePage = () => {
@@ -52,6 +36,7 @@ export const ArticlePage = () => {
     contributor,
     permissions,
     includesPlatformSpecificContent,
+    defaultPlatform,
     product,
     miniTocItems,
     currentLearningTrack,
@@ -61,19 +46,12 @@ export const ArticlePage = () => {
 
   const renderTocItem = (item: MiniTocItem) => {
     return (
-      <ActionList.Item
-        as="li"
-        key={item.contents}
-        className={item.platform}
-        sx={{ listStyle: 'none', padding: '2px' }}
-      >
-        <div className={cx('lh-condensed')}>
-          <div dangerouslySetInnerHTML={{ __html: item.contents }} />
-          {item.items && item.items.length > 0 ? (
-            <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
-          ) : null}
-        </div>
-      </ActionList.Item>
+      <li key={item.contents} className={cx(item.platform, 'mb-2 lh-condensed')}>
+        <div className="mb-2 lh-condensed" dangerouslySetInnerHTML={{ __html: item.contents }} />
+        {item.items && item.items.length > 0 ? (
+          <ul className="list-style-none pl-0 f5 mb-0 ml-3">{item.items.map(renderTocItem)}</ul>
+        ) : null}
+      </li>
     )
   }
 
@@ -82,6 +60,7 @@ export const ArticlePage = () => {
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
           topper={<ArticleTitle>{title}</ArticleTitle>}
+          topperSidebar={<VersionPicker />}
           intro={
             <>
               {contributor && (
@@ -95,11 +74,7 @@ export const ArticlePage = () => {
                 </Callout>
               )}
 
-              {intro && (
-                <Lead data-testid="lead" data-search="lead">
-                  {intro}
-                </Lead>
-              )}
+              {intro && <Lead data-testid="lead">{intro}</Lead>}
 
               {permissions && (
                 <div className="permissions-statement d-table">
@@ -110,7 +85,35 @@ export const ArticlePage = () => {
                 </div>
               )}
 
-              {includesPlatformSpecificContent && <PlatformPicker variant="underlinenav" />}
+              {includesPlatformSpecificContent && (
+                <nav
+                  className="UnderlineNav my-3"
+                  data-default-platform={defaultPlatform || undefined}
+                >
+                  <div className="UnderlineNav-body">
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                    <a href="#" className="UnderlineNav-item platform-switcher" data-platform="mac">
+                      Mac
+                    </a>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                    <a
+                      href="#"
+                      className="UnderlineNav-item platform-switcher"
+                      data-platform="windows"
+                    >
+                      Windows
+                    </a>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                    <a
+                      href="#"
+                      className="UnderlineNav-item platform-switcher"
+                      data-platform="linux"
+                    >
+                      Linux
+                    </a>
+                  </div>
+                </nav>
+              )}
 
               {product && (
                 <Callout
@@ -134,19 +137,13 @@ export const ArticlePage = () => {
               {miniTocItems.length > 1 && (
                 <>
                   <Heading as="h2" fontSize={1} id="in-this-article" className="mb-1">
-                    <Link href="#in-this-article">{t('miniToc')}</Link>
+                    <a className="Link--primary" href="#in-this-article">
+                      {t('miniToc')}
+                    </a>
                   </Heading>
-
-                  <ActionList
-                    key={title}
-                    items={miniTocItems.map((items, i) => {
-                      return {
-                        key: title + i,
-                        text: title,
-                        renderItem: () => <ul>{renderTocItem(items)}</ul>,
-                      }
-                    })}
-                  />
+                  <ul className="list-style-none pl-0 f5 mb-0">
+                    {miniTocItems.map(renderTocItem)}
+                  </ul>
                 </>
               )}
             </>

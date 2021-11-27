@@ -54,10 +54,7 @@ shortTitle: セキュリティと分析の管理
    {% ifversion fpt or ghec %}
    ![[Configure security and analysis] 機能の [Enable all] または [Disable all] ボタン](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-dotcom.png)
    {% endif %}
-   {% ifversion ghes > 3.2 %}
-   ![[Configure security and analysis] 機能の [Enable all] または [Disable all] ボタン](/assets/images/enterprise/3.3/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
-   {% endif %}
-   {% ifversion ghes = 3.1 or ghes = 3.2 %}
+   {% ifversion ghes > 3.0 %}
    ![[Configure security and analysis] 機能の [Enable all] または [Disable all] ボタン](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
    {% endif %}
    {% ifversion ghes = 3.0 %}
@@ -97,10 +94,7 @@ shortTitle: セキュリティと分析の管理
    {% ifversion fpt or ghec %}
    ![新規のリポジトリに対して機能を有効または無効にするチェックボックス](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-dotcom.png)
    {% endif %}
-   {% ifversion ghes > 3.2 %}
-   ![新規のリポジトリに対して機能を有効または無効にするチェックボックス](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
-   {% endif %}
-   {% ifversion ghes = 3.1 or ghes = 3.2 %}
+   {% ifversion ghes > 3.0 %}
    ![新規のリポジトリに対して機能を有効または無効にするチェックボックス](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
    {% endif %}
    {% ifversion ghes = 3.0 %}
@@ -110,7 +104,7 @@ shortTitle: セキュリティと分析の管理
    ![新規のリポジトリに対して機能を有効または無効にするチェックボックス](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
    {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec %}
 
 ## {% data variables.product.prodname_dependabot %} のプライベート依存関係へのアクセスを許可する
 

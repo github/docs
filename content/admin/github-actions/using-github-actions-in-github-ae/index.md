@@ -4,6 +4,7 @@ intro: 'Learn how to configure {% data variables.product.prodname_actions %} on 
 versions:
   ghae: '*'
 children:
+  - /getting-started-with-github-actions-for-github-ae
   - /using-actions-in-github-ae
 shortTitle: Use Actions in GitHub AE
 ---

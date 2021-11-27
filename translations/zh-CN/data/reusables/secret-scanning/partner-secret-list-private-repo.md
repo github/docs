@@ -50,6 +50,8 @@ EasyPost | EasyPost Production API Key | easypost_production_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 EasyPost | EasyPost Test API Key | easypost_test_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
+Facebook | Facebook Access Token | facebook_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Fastly | Fastly API Token | fastly_api_token{% endif %} Finicity | Finicity App Key | finicity_app_key
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Flutterwave | Flutterwave Live API Secret Key | flutterwave_live_api_secret_key{% endif %}
@@ -97,12 +99,8 @@ Linear | Linear OAuth Access Token | linear_oauth_access_token{% endif %}
 Lob | Lob Live API Key | lob_live_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Lob | Lob Test API Key | lob_test_api_key{% endif %} Mailchimp | Mailchimp API Key | mailchimp_api_key Mailgun | Mailgun API Key | mailgun_api_key
-{%- ifversion fpt or ghec or ghes > 3.3 %}
-Mapbox | Mapbox Secret Access Token | mapbox_secret_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 MessageBird | MessageBird API Key | messagebird_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
-Meta | Facebook Access Token | facebook_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 New Relic | New Relic Personal API Key | new_relic_personal_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -157,11 +155,3 @@ Tableau | Tableau Personal Access Token | tableau_personal_access_token{% endif 
 Telegram | Telegram Bot Token | telegram_bot_token{% endif %} Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Twilio | Twilio Access Token | twilio_access_token{% endif %} Twilio | Twilio Account String Identifier | twilio_account_sid Twilio | Twilio API Key | twilio_api_key
-{%- ifversion fpt or ghec or ghes > 3.3 %}
-Typeform | Typeform Personal Access Token | typeform_personal_access_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 %}
-Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 %}
-Yandex | Yandex.Cloud IAM Cookie | yandex_cloud_iam_cookie{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 %}
-Yandex | Yandex.Cloud IAM Token | yandex_cloud_iam_token{% endif %}

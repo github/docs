@@ -1,49 +1,49 @@
 ---
-title: Best practices for community conversations on GitHub
-shortTitle: Best practices for community conversations
-intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to an issue when you are ready to scope out the work.'
+title: Mejores prácticas para las conversaciones comunitarias en GitHub
+shortTitle: Mejores prácticas para las conversaciones comunitarias
+intro: 'Puedes utilizar los debates para hacer una lluvia de ideas con tu equipo y, en algún momento, migrar la conversación a una propuesta cuando estés listo para delimitar el trabajo.'
 versions:
   fpt: '*'
   ghec: '*'
 ---
 
 
-## Community conversations in {% data variables.product.prodname_discussions %}
+## Conversaciones comunitarias en {% data variables.product.prodname_discussions %}
 
-Since {% data variables.product.prodname_discussions %} is an open forum, there is an opportunity to bring non-code collaboration into a project's repository and gather diverse feedback and ideas more quickly. You can help drive a productive conversation by:
+Ya que {% data variables.product.prodname_discussions %} constituye un foro abierto, existe la oportunidad de incorporar colaboraciones diferentes a aquellas de código en el repositorio de un proyecto y recabar retroalimentación e ideas distintas más rápidamente. Puedes ayudar llevar una conversación productiva si:
 
-- Asking pointed questions and follow-up questions to garner specific feedback
-- Capture a diverse experience and distill it down to main points
-- Open an issue to take action based on the conversation, where applicable
+- Haces preguntas puntuales y preguntas de seguimiento para recabar comentarios específicos
+- Capturas experiencias distintas y las simplificas en puntos principales
+- Abres una propuesta para que se tome una acción con base en la conversación, si es que aplica
 
-For more information about opening an issue and cross-referencing a discussion, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
+Para obtener más información acerca de abrir propuestas y hacer referencias cruzadas en un debate, consulta la sección [Abrir una propuesta desde un comentario](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
 
-## Learning about conversations on GitHub
+## Aprender más sobre las conversaciones en GitHub
 
-You can create and participate in discussions, issues, and pull requests, depending on the type of conversation you'd like to have.
+Puedes crear y participar en los debates, propuestas y solicitudes de cambio dependiendo del tipo de conversación que desees tener.
 
-You can use {% data variables.product.prodname_discussions %} to discuss big picture ideas, brainstorm, and spike out a project's specific details before committing it to an issue, which can then be scoped. {% data variables.product.prodname_discussions %} is useful for teams if:
-- You are in the discovery phase of a project and are still learning which director your team wants to go in
-- You want to collect feedback from a wider community about a project
-- You want to keep bug fixes, feature requests, and general conversations separate
+Puedes utilizar lps {% data variables.product.prodname_discussions %} para debatir las ideas más amplias, hacer lluvias de ideas y resaltar los detalles específicos de un proyecto antes de hacer cualquier confirmación en una propuesta, la cual puede aumetar su alcance posteriormente. Los {% data variables.product.prodname_discussions %} son útiles para los equipos si:
+- Estás en la fase de descubrimiento de un proyecto y aún estás aprendiendo en qué dirección quiere ir tu equipo.
+- Quieres recolectar los comentarios de una comunidad más amplia sobre un proyecto
+- Quieres mantener la separación entre las correcciones de errores y las conversaciones generales
 
-Issues are useful for discussing specific details of a project such as bug reports and planned improvements. For more information, see "[About issues](/articles/about-issues)." Pull requests allow you to comment directly on proposed changes. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)" and "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)."
+Las propuestas son útiles para debatir detalles específicos de un proyecto como registros de errores y mejoras planificadas. Para obtener más información, consulta "[Acerca de las propuestas](/articles/about-issues)". Las solicitudes de extracción te permiten comentar directamente en los cambios propuestos. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)" y "[Comentar en una solicitud de extracción](/articles/commenting-on-a-pull-request)".
 
-{% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+{% data reusables.organizations.team-discussions-purpose %} Para obtener más información, consulta "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions)".
 
-## Following contributing guidelines
+## Seguir los lineamientos de contribución
 
-Before you open a discussion, check to see if the repository has contributing guidelines. The CONTRIBUTING file includes information about how the repository maintainer would like you to contribute ideas to the project.
+Antes de que abras un debate, verifica si el repositorio tiene lineamientos de contribución. El archivo de CONTRIBUCIÓN incluye información sobre cómo el gustaría al mantenedor del repositorio que colabores con ideas para el proyecto.
 
-For more information, see "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
+Para encontrar más información, visita la sección "[ Configurar tu proyecto para tener contribuciones saludables](/communities/setting-up-your-project-for-healthy-contributions)."
 
-## Next steps
+## Pasos siguientes
 
-To continue learning about {% data variables.product.prodname_discussions %} and quickly create a discussion for your community, see "[Quickstart for {% data variables.product.prodname_discussions %}](/discussions/quickstart)."
+Para seguir aprendiendo sobre los {% data variables.product.prodname_discussions %} y crear uno rápidamente para tu comunidad, consulta la sección "[Guía de inicio rápido para los {% data variables.product.prodname_discussions %}](/discussions/quickstart)".
 
-## Further reading
+## Leer más
 
-- "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"
-- "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)"
-- "[Writing on {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"
+- "[Configurar tu proyecto para contribuciones positivas](/communities/setting-up-your-project-for-healthy-contributions)"
+- [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[Moderar comentarios y conversaciones](/communities/moderating-comments-and-conversations)"
+- "[Escribir en {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

@@ -82,7 +82,7 @@ topics:
 
 この例では、srcディレクトリにコードを`builds`して、`tests`ディレクトリでテストを実行するNode.jsプロジェクトのワークフローを作成しています。 実行中の`npm test`が、`code-coverage.html`という名前で、`output/test/`ディレクトリに保存されるコードカバレッジレポートを生成すると想定できます。
 
-このワークフローは `dist` ディレクトリにプロダクションの成果物をアップロードしますが、Markdownファイルはその対象外です。 It also uploads the `code-coverage.html` report as another artifact.
+このワークフローは `dist` ディレクトリにプロダクションの成果物をアップロードしますが、Markdownファイルはその対象外です。 また、 `code-coverage.html`レポートは別の成果物としてアップロードされます。
 
 ```yaml{:copy}
 name: Node CI
@@ -161,7 +161,7 @@ During a workflow run, you can use the [`download-artifact`](https://github.com/
   uses: actions/download-artifact@v2
 ```
 
-If you download all workflow run's artifacts, a directory for each artifact is created using its name.
+ワークフロー実行のすべての成果物をダウンロードすると、各成果物のディレクトリーがその名前を使用して作成されます。
 
 構文の詳細については、{% data variables.product.product_location %} 上の {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/download-artifact) アクション{% else %} `actions/upload-artifact` アクション{% endif %}を参照してください。
 

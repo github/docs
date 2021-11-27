@@ -1,6 +1,6 @@
 ---
-title: Types of GitHub accounts
-intro: 'Your user account is your identity on {% data variables.product.product_location %}. Your user account can be a member of any number of organizations.{% ifversion fpt or ghec %} Organizations can belong to enterprise accounts.{% endif %}'
+title: Tipos de contas do GitHub
+intro: 'Sua conta de usuário é o que identifica você no {% data variables.product.product_location %}. Your user account can be a member of any number of organizations.{% ifversion fpt or ghec %} Organizations can belong to enterprise accounts.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -21,25 +21,26 @@ topics:
   - Desktop
   - Security
 ---
+
 {% ifversion fpt or ghec %}
-For a full list of features for each {% data variables.product.product_name %} product, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)."
+Para uma lista completa de recursos para cada {% data variables.product.product_name %} produto, consulte produtos do "[{% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
-## Personal user accounts
+## Contas de usuário pessoais
 
-Every person who uses {% data variables.product.product_location %} has their own user account, which includes:
+Cada pessoa que utiliza {% data variables.product.product_location %} tem sua própria conta de usuário, que inclui:
 
 {% ifversion fpt or ghec %}
 
-- Unlimited public and private repositories with {% data variables.product.prodname_free_user %}
-- Unlimited collaborators with {% data variables.product.prodname_free_user %}
-- Additional features for private repositories with {% data variables.product.prodname_pro %}
-- Ability to [invite repository collaborators](/articles/inviting-collaborators-to-a-personal-repository)
+- Repositórios públicos e privados ilimitados com o {% data variables.product.prodname_free_user %}
+- Colaboradores ilimitados com {% data variables.product.prodname_free_user %}
+- Recursos adicionais para repositórios privados com o {% data variables.product.prodname_pro %}
+- Capacidade de [convidar colaboradores do repositório](/articles/inviting-collaborators-to-a-personal-repository)
 
 {% else %}
 
-- Unlimited repositories and [collaborators](/articles/permission-levels-for-a-user-account-repository)
-- Ability to [add unlimited repository collaborators](/articles/inviting-collaborators-to-a-personal-repository)
+- [Colaboradores](/articles/permission-levels-for-a-user-account-repository) e repositórios ilimitados
+- Capacidade de [adicionar colaboradores do repositório ilimitados](/articles/inviting-collaborators-to-a-personal-repository)
 
 {% endif %}
 
@@ -47,10 +48,10 @@ Every person who uses {% data variables.product.product_location %} has their ow
 
 {% tip %}
 
-**Tips**:
+**Dicas**:
 
-- You can use one account for multiple purposes, such as for personal use and business use. We do not recommend creating more than one account. For more information, see "[Merging multiple user accounts](/articles/merging-multiple-user-accounts)."
-- User accounts are intended for humans, but you can give one to a robot, such as a continuous integration bot, if necessary.
+- Você pode usar uma conta para várias finalidades, como uso pessoal e uso profissional. Não é recomendável criar mais de uma conta. Para obter mais informações, consulte "[Fazer merge de várias contas de usuário](/articles/merging-multiple-user-accounts)".
+- Embora as contas de usuário sejam destinadas a seres humanos, você pode conceder uma a um robô, como um bot de integração contínua, se necessário.
 
 {% endtip %}
 
@@ -58,7 +59,7 @@ Every person who uses {% data variables.product.product_location %} has their ow
 
 {% tip %}
 
-**Tip**: User accounts are intended for humans, but you can give one to a robot, such as a continuous integration bot, if necessary.
+**Dica**: embora as contas de usuário sejam destinadas a seres humanos, você pode conceder uma a um robô, como um bot de integração contínua, se necessário.
 
 {% endtip %}
 
@@ -67,27 +68,27 @@ Every person who uses {% data variables.product.product_location %} has their ow
 {% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_emus %}
 
-With {% data variables.product.prodname_emus %}, instead of using your personal account, members of an {% data variables.product.prodname_emu_enterprise %} are provisioned accounts using the enterprise's identity provider (IdP). {% data variables.product.prodname_managed_users_caps %} authenticate using their IdP instead of a {% data variables.product.prodname_dotcom_the_website %} username and password.
+Com {% data variables.product.prodname_emus %}, em vez de usar sua conta pessoal, os integrantes de um {% data variables.product.prodname_emu_enterprise %} são contas fornecidas que usam o provedor de identidade da empresa (IdP). {% data variables.product.prodname_managed_users_caps %} efetua a autenticação usando seu IdP ao invés de um usuário e senha de {% data variables.product.prodname_dotcom_the_website %}.
 
-{% data variables.product.prodname_managed_users_caps %} can only interact with users, repositories, and organizations that are part of their enterprise. {% data variables.product.prodname_managed_users_caps %} have read-only access to the rest of {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% data variables.product.prodname_managed_users_caps %} só pode interagir com usuários, repositórios e organizações que fazem parte das suas empresas. {% data variables.product.prodname_managed_users_caps %} tem acesso somente leitura ao restante de {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 {% endif %}
 
-## Organization accounts
+## Contas da organização
 
-Organizations are shared accounts where groups of people can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features.
+As organizações são contas compartilhadas, onde grupos de pessoas podem colaborar em vários projetos de uma vez. Os proprietários e administradores podem gerenciar o acesso de integrantes aos dados e projetos da organização com recursos avançados administrativos e de segurança.
 
 {% data reusables.organizations.organizations_include %}
 
 {% ifversion fpt or ghec %}
 
-## Enterprise accounts
+## Contas corporativas
 
-With enterprise accounts, you can centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations. {% data reusables.gated-features.enterprise-accounts %}
+Com contas corporativas, é possível gerenciar centralmente a política e a cobrança referentes a várias organizações do {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
-## Further reading
+## Leia mais
 
 {% ifversion fpt or ghec %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
-- "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)"{% endif %}
-- "[Creating a new organization account](/articles/creating-a-new-organization-account)"
+- "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/githubs-products)"{% endif %}
+- "[Criar uma conta de organização](/articles/creating-a-new-organization-account)"

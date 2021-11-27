@@ -1,0 +1,1 @@
+É possível aplicar as configurações de branch protegido automaticamente para alguns ou todos os branches no repositório. Para obter mais informações, consulte "[Configurar branches protegidos](/github/administering-a-repository/configuring-protected-branches)".

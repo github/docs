@@ -24,7 +24,6 @@ shortTitle: Merge multiple user accounts
 1. 削除するアカウントから、残しておくアカウントに[リポジトリを委譲](/articles/how-to-transfer-a-repository)します。 Issue、プルリクエスト、ウィキも移譲されます。 リポジトリが、残しておくアカウントに存在することを確認します。
 2. 移動したリポジトリにクローンがある場合は、その[リモート URL を更新](/github/getting-started-with-github/managing-remote-repositories) します。
 3. 使わなくなる[アカウントを削除](/articles/deleting-your-user-account)します。
-4. To attribute past commits to the new account, add the email address you used to author the commits to the account you're keeping. 詳細は「[コントリビューションがプロフィールに表示されないのはなぜですか？](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)」を参照してください。
 
 ## 参考リンク
 

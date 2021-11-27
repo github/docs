@@ -169,7 +169,7 @@ gh repo fork <em>repository</em> --clone=true
   > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
 
-これで、いくつかの Git コマンドでフォークと上流リポジトリの同期を維持できます。 詳細は「[フォークを同期する](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)」を参照してください。
+これで、いくつかの Git コマンドでフォークと上流リポジトリの同期を維持できます。 詳細は「[フォークを同期する](/articles/syncing-a-fork)」を参照してください。
 
 {% endwebui %}
 
@@ -196,7 +196,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 フォークには、次のような変更を加えることができます。
 
 - **ブランチを作成する:** [*ブランチ*](/articles/creating-and-deleting-branches-within-your-repository/)によって、メインプロジェクトをリスクにさらすことなく新機能を構築したりアイデアを試したりできます。
-- **プルリクエストをオープンする:** オリジナルのリポジトリにコントリビュートしたい場合は、[プルリクエスト](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)を送信して、オリジナルの作者に自分のフォークをリポジトリへプルするようリクエストを送信できます。
+- **プルリクエストをオープンする:** オリジナルのリポジトリにコントリビュートしたい場合は、[プルリクエスト](/articles/about-pull-requests)を送信して、オリジナルの作者に自分のフォークをリポジトリへプルするようリクエストを送信できます。
 
 ## フォークする他のリポジトリを見つける
 リポジトリをフォークしてプロジェクトへのコントリビューションを開始しましょう。 {% data reusables.repositories.you-can-fork %}

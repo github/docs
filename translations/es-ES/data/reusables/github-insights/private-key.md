@@ -1,0 +1,1 @@
+1. Debajo de "Llave Privada", teclea la llave privada de tu {% data variables.product.prodname_github_app %}, la cual se contiene en el archivo PEM que descargaste mientras creabas la app. ![Campo de llave privada](/assets/images/help/insights/private-key.png)

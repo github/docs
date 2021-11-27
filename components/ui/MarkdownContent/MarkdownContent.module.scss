@@ -14,8 +14,8 @@
     h5,
     h6 {
       display: inline-block;
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
+      margin-top: 10px;
+      margin-bottom: 10px;
 
       p {
         margin: 0;
@@ -36,8 +36,8 @@
       }
     }
     & > a[class~="doctocat-link"] {
-      padding: 0.5rem;
-      margin-left: -2rem;
+      padding: 8px;
+      margin-left: -32px;
       color: var(--color-fg-muted);
       &:active,
       &:focus {

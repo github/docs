@@ -15,7 +15,7 @@
   }
 
   p:not(:first-child) {
-    margin-top: 1rem;
+    margin-top: 15px;
   }
 
   &.note pre code {
@@ -24,7 +24,7 @@
 
   &.note pre {
     background: none;
-    padding: 0.5rem 0.5rem 0.5rem 0;
+    padding: 10px 10px 10px 0;
     margin-bottom: 0;
   }
 }

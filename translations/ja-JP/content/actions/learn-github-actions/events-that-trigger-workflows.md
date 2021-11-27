@@ -808,15 +808,7 @@ on:
 
 {% data reusables.webhooks.workflow_run_desc %}
 
-{% note %}
-
-**ノート:**
-
-* This event will only trigger a workflow run if the workflow file is on the default branch.
-
-* You can't use `workflow_run` to chain together more than three levels of workflows. For example, if you attempt to trigger five workflows (named `B` to `F`) to run sequentially after an initial workflow `A` has run (that is: `A` → `B` → `C` → `D` → `E` → `F`), workflows `E` and `F` will not be run.
-
-{% endnote %}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                                       | アクティビティタイプ                            | `GITHUB_SHA`      | `GITHUB_REF` |
 | -------------------------------------------------------- | ------------------------------------- | ----------------- | ------------ |

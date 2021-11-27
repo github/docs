@@ -1,6 +1,6 @@
 ---
-title: Organizing members into teams
-intro: You can group organization members into teams that reflect your company or group's structure with cascading access permissions and mentions.
+title: Organizar miembros en un equipo
+intro: Puedes agrupar miembros de la organización en equipos que reflejen la estructura de tu empresa o grupo con menciones y permisos de acceso en cascada.
 redirect_from:
   - /articles/setting-up-teams-improved-organization-permissions/
   - /articles/setting-up-teams-for-accessing-organization-repositories/
@@ -26,7 +26,7 @@ children:
   - /adding-organization-members-to-a-team
   - /assigning-the-team-maintainer-role-to-a-team-member
   - /setting-your-teams-profile-picture
-  - /managing-code-review-settings-for-your-team
+  - /managing-code-review-assignment-for-your-team
   - /renaming-a-team
   - /changing-team-visibility
   - /synchronizing-a-team-with-an-identity-provider-group
@@ -37,6 +37,6 @@ children:
   - /disabling-team-discussions-for-your-organization
   - /managing-scheduled-reminders-for-your-team
   - /deleting-a-team
-shortTitle: Organize members into teams
+shortTitle: Organizar a los miembros en equipos
 ---
 

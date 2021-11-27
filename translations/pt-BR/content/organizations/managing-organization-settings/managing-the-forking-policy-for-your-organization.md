@@ -31,5 +31,5 @@ Se você permitir a bifurcação de repositórios privados{% ifversion fpt or gh
 
 ## Leia mais
 
-- "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[Sobre bifurcações](/articles/about-forks)"
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

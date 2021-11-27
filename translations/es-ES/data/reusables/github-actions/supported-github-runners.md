@@ -9,7 +9,7 @@
 <tbody>
 <tr>
 <td>
-Windows Server 2022
+Windows Server 2022<sup>[beta]</sup>
 </td>
 <td>
 <code>windows-2022</code>

@@ -1,6 +1,6 @@
 ---
 title: Enterprise にわたるユーザの監査
-intro: 'The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the current month and previous six months. The audit log includes details such as who performed the action, what the action was, and when the action was performed.'
+intro: Audit log ダッシュボードには、サイト管理者に、過去 90 日間に企業全体のすべてのユーザと Organization によって実行されたアクションが表示されます。これには、アクションを実行したユーザ、アクションの内容、アクションの実行時期などの詳細が含まれます。
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -47,7 +47,7 @@ Audit log には、Enterprise 内で行われたアクションに関する次�
 **ノート:**
 
 - Audit logのエントリはテキストを使った検索はできませんが、様々なフィルタを使って検索クエリを構築できます。 {% data variables.product.product_name %} は、{% data variables.product.product_name %} 全体を検索するための多くの演算子をサポートしています。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/github/searching-for-information-on-github/about-searching-on-github)」を参照してください。
-- Audit records are available for the current month and every day of the previous six months.
+- 90日よりも古いイベントの検索には、`created`修飾子を使ってください。
 
 {% endwarning %}
 

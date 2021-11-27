@@ -3,29 +3,29 @@
     counter-reset: li;
     list-style: none;
     position: relative;
-    padding-bottom: 0.5rem;
+    padding-bottom: 10px;
     padding-left: 0;
 
     > li {
-      padding: 0.5rem 0 0.5rem 2.5rem;
+      padding: 8px 0 8px 40px;
       border: 0;
       position: relative;
-      margin-bottom: 0.25rem;
+      margin-bottom: 5px;
 
       &:before {
-        width: calc(1.5rem - 2px);
-        height: calc(1.5rem - 2px);
-        font-size: calc(1rem - 2px);
-        margin: 1px 0 0 0.5rem;
+        top: 2px;
+        font-size: 16px;
+        width: 24px;
         content: counter(li);
         counter-increment: li;
         position: absolute;
         left: 0;
-        color: var(--color-canvas-default);
-        font-weight: 500;
-        text-align: center;
-        border-radius: 50%;
-        background-color: var(--color-fg-default);
+        height: 100%;
+        padding: 0 10px 0 0;
+        color: var(--color-fg-subtle);
+        font-weight: bold;
+        line-height: 35px;
+        text-align: right;
       }
 
       &:after {
@@ -46,11 +46,11 @@
       }
 
       p:not(:first-child) {
-        margin-top: 1rem;
+        margin-top: 15px;
       }
 
       [class~="extended-markdown"] {
-        margin-top: 1rem;
+        margin-top: 15px;
       }
     }
 
@@ -63,8 +63,8 @@
   ul ol,
   ol ol,
   ol ul {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 }
 

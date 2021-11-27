@@ -1,0 +1,19 @@
+---
+title: Organization のデータへのアクセスを制限する
+intro: '{% data variables.product.prodname_oauth_app %} のアクセス制限により、Organization のオーナーは、信頼できないアプリが Organization のデータにアクセスすることを制限できます。 これにより、Organization のメンバーは、Organization のデータを安全に保ちながら、個人のユーザー アカウントに対して {% data variables.product.prodname_oauth_app %} を使用できます。'
+redirect_from:
+  - /articles/restricting-access-to-your-organization-s-data
+  - /articles/restricting-access-to-your-organizations-data
+versions:
+  free-pro-team: '*'
+topics:
+  - organizations
+  - teams
+children:
+  - /about-oauth-app-access-restrictions
+  - /enabling-oauth-app-access-restrictions-for-your-organization
+  - /disabling-oauth-app-access-restrictions-for-your-organization
+  - /approving-oauth-apps-for-your-organization
+  - /denying-access-to-a-previously-approved-oauth-app-for-your-organization
+---
+

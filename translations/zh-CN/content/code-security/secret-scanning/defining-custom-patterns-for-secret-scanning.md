@@ -26,7 +26,7 @@ topics:
 
 {% data variables.product.company_short %} 在 {% ifversion fpt or ghec %}公共和私有{% endif %} 仓库中执行performs {% data variables.product.prodname_secret_scanning %}，以用于 {% data variables.product.company_short %} 和 {% data variables.product.company_short %} 模式提供的密钥模式。 有关 {% data variables.product.prodname_secret_scanning %} 合作伙伴计划的更多信息，请参阅“<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">密码扫描合作伙伴计划</a>”。
 
-但是，在某些情况下，您需要扫描 {% ifversion fpt or ghec %}私有{% endif %} 仓库中的其他密钥模式。 例如，您可能有一个属于您组织内部的密钥模式。 For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in your enterprise, organization, or {% ifversion fpt or ghec %}private{% endif %} repository on {% data variables.product.product_name %}. You can define up to 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per {% ifversion fpt or ghec %}private{% endif %} repository.
+但是，在某些情况下，您需要扫描 {% ifversion fpt or ghec %}私有{% endif %} 仓库中的其他密钥模式。 例如，您可能有一个属于您组织内部的密钥模式。 For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in your enterprise, organization, or {% ifversion fpt or ghec %}private{% endif %} repository on {% data variables.product.product_name %}. You can define up to 100 custom patterns for each organization or enterprise account, and up to 20 custom patterns per {% ifversion fpt or ghec %}private{% endif %} repository.
 
 {% ifversion ghes < 3.3 or ghae %}
 {% note %}
@@ -78,11 +78,7 @@ topics:
 
 ## Defining a custom pattern for an enterprise account
 
-{% ifversion fpt or ghec or ghes %}
-
 Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
-
-{% endif %}
 
 {% note %}
 

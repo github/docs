@@ -57,7 +57,7 @@ topics:
 
   {% endtip %}
 
-4. 打开 Git Bash。
+4. 打开 Git Bash。 如果您使用 {% data variables.product.prodname_desktop %} 中随附的 Git Shell，请打开 Git Shell 并跳至步骤 6。
 
 5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 

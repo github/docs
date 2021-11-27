@@ -16,7 +16,7 @@ topics:
 
 Você pode pesquisar commits globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização ou um repositório específico. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)".
 
-Quando você pesquisa commits, somente o [branch padrão](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) de um repositório é pesquisado.
+Quando você pesquisa commits, somente o [branch padrão](/articles/about-branches) de um repositório é pesquisado.
 
 {% data reusables.search.syntax_tips %}
 

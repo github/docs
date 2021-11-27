@@ -14,7 +14,6 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-shortTitle: Develop in a codespace
 ---
 
  

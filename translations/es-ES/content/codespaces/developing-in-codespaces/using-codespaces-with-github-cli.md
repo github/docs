@@ -1,6 +1,6 @@
 ---
 title: Using Codespaces with GitHub CLI
-shortTitle: GitHub CLI
+shortTitle: CLI de GitHub
 intro: 'You can work with {% data variables.product.prodname_github_codespaces %} directly from your command line by using `gh`, the {% data variables.product.product_name %} command line interface.'
 product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
@@ -13,9 +13,9 @@ topics:
   - Developer
 ---
 
-## About {% data variables.product.prodname_cli %} 
+## Acerca de {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
 
 You can work with {% data variables.product.prodname_codespaces %} in the  {% data variables.product.prodname_cli %} to:
 - [List your codespaces](#list-all-of-your-codespaces)
@@ -24,30 +24,26 @@ You can work with {% data variables.product.prodname_codespaces %} in the  {% da
 - [Delete a codespace](#delete-a-codespace)
 - [SSH into a codespace](#ssh-into-a-codespace)
 - [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in-visual-studio-code)
-- [Copying a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
+- [Copying a file to/from a codespace](#copying-a-file-tofrom-a-codespace)
 - [Modify ports in a codespace](#modify-ports-in-a-codespace)
 - [Access codespace logs](#access-codespace-logs)
 
-## Installing {% data variables.product.prodname_cli %}
+## Instalar {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.cli-installation %}
- 
-## Using {% data variables.product.prodname_cli %}
 
-If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account. 
+## Uso de {% data variables.product.prodname_cli %}
+
+If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account.
 
 To use `gh` to work with {% data variables.product.prodname_codespaces %}, type `gh codespace <COMMAND>` or its alias `gh cs <COMMAND>`.
 
-As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could: 
+As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could:
 
-* List your current codespaces, to check whether you have a codespace for a particular repository:<br>
-  `gh codespace list`
-* Create a new codespace for the required repository branch:<br>
-  `gh codespace create -r github/docs -b main`
-* SSH into the new codespace:<br>
-  `gh codespace ssh -c mona-github-docs-v4qxrv7rfwv9w`
-* Forward a port to your local machine:<br>
-  `gh codespace ports forward 8000:8000 -c mona-github-docs-v4qxrv7rfwv9w`
+* List your current codespaces, to check whether you have a codespace for a particular repository:<br> `gh codespace list`
+* Create a new codespace for the required repository branch:<br> `gh codespace create -r github/docs -b main`
+* SSH into the new codespace:<br> `gh codespace ssh -c mona-github-docs-v4qxrv7rfwv9w`
+* Forward a port to your local machine:<br> `gh codespace ports forward 8000:8000 -c mona-github-docs-v4qxrv7rfwv9w`
 
 ## `gh` commands for {% data variables.product.prodname_github_codespaces %}
 
@@ -75,7 +71,7 @@ The list includes the unique name of each codespace, which you can use in other 
 gh codespace create -r <em>owner/repository</em> [-b <em>branch</em>]
 ```
 
-For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace)".
 
 ### Stop a codespace
 
@@ -91,7 +87,7 @@ For more information, see "[Deep dive into Codespaces](/codespaces/getting-start
 gh codespace delete -c <em>codespace-name</em>
 ```
 
-For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+Para obtener más información, consulta la sección "[Borrar un codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
 
 ### SSH into a codespace
 
@@ -123,7 +119,7 @@ Use the prefix `remote:` on a file or directory name to indicate that it's on th
 
 The location of files and directories on the codespace is relative to the home directory of the remote user.
 
-#### Examples
+#### Ejemplos
 
 * Copy a file from the local machine to the `$HOME` directory of a codespace:
 
@@ -171,13 +167,13 @@ You can set the visibility of a forwarded port. {% data reusables.codespaces.por
 gh codespace ports visibility <em>codespace-port</em>:<em>private|org|public</em> -c <em>codespace-name</em>
 ```
 
-You can set the visibility for multiple ports with one command. For example:
+You can set the visibility for multiple ports with one command. Por ejemplo:
 
 ```shell
 gh codespace ports visibility 80:private 3000:public 3306:org -c <em>codespace-name</em>
 ```
 
-For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+Para obtener más información, consulta la sección "[Reenviar puertos en tu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
 
 ### Access codespace logs
 

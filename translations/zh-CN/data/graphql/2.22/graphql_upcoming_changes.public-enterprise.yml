@@ -1,0 +1,128 @@
+---
+upcoming_changes:
+  - 
+    location: Migration.uploadUrlTemplate
+    description: "`uploadUrlTemplate` 将被删除。使用 `uploadUrl` 代替。"
+    reason: "`uploadUrlTemplate` 正在被删除，因为它不是标准的 URL，并且增加了一个额外的用户步骤。"
+    date: '2019-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: tambling
+  - 
+    location: AssignedEvent.user
+    description: "`user` 将被删除。使用 `assignee` 字段代替。"
+    reason: 受理人现在可以作为人体模型。
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 重大
+    owner: tambling
+  - 
+    location: EnterpriseBillingInfo.availableSeats
+    description: "`availableSeats` 将被删除。使用 EnterpriseBillingInfo.totalAvailableLicenses 代替。"
+    reason: "`availableSeats` 将被替换为 `totalAvailableLicenses`，以便更明确地表示要返回的值"
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 重大
+    owner: BlakeWilliams
+  - 
+    location: EnterpriseBillingInfo.seats
+    description: "`seats` 将被删除。使用 EnterpriseBillingInfo.totalLicenses 代替。"
+    reason: "`seats` 将被替换为 `totalLicenses`，以便更明确地表示要返回的值"
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 重大
+    owner: BlakeWilliams
+  - 
+    location: UnassignedEvent.user
+    description: "`user` 将被删除。使用 `assignee` 字段代替。"
+    reason: 受理人现在可以作为人体模型。
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 重大
+    owner: tambling
+  - 
+    location: Sponsorship.maintainer
+    description: "`maintainer` 将被删除。使用 `Sponsorship.sponsorable` 代替。"
+    reason: "`Sponsorship.maintainer` 将被删除。"
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: antn
+  - 
+    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
+    description: "`isUnlicensed` 将被删除。"
+    reason: 所有挂起的成员都会使用许可证
+    date: '2020-07-01T00:00:00+00:00'
+    criticality: 重大
+    owner: BrentWheeldon
+  - 
+    location: EnterpriseOwnerInfo.pendingCollaborators
+    description: "`pendingCollaborators` 将被删除。改用 `pendingCollaboratorInvitations` 字段。"
+    reason: 仓库邀请此时可与电子邮件关联，而不仅仅是被邀请者。
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: jdennes
+  - 
+    location: Issue.timeline
+    description: "`timeline` 将被删除。使用 Issue.timelineItems 代替。"
+    reason: "`timeline` 将被删除"
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: mikesea
+  - 
+    location: PullRequest.timeline
+    description: "`timeline` 将被删除。使用 PullRequest.timelineItems 代替。"
+    reason: "`timeline` 将被删除"
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: mikesea
+  - 
+    location: RepositoryCollaboratorEdge.permission
+    description: '`permission` 的类型将从 `RepositoryPermission!` 更改为 `String`。'
+    reason: 此字段可能会返回其他值
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: oneill38
+  - 
+    location: RepositoryInvitation.permission
+    description: '`permission` 的类型将从 `RepositoryPermission!` 更改为 `String`。'
+    reason: 此字段可能会返回其他值
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: oneill38
+  - 
+    location: RepositoryInvitationOrderField.INVITEE_LOGIN
+    description: "`INVITEE_LOGIN` 将被删除。"
+    reason: "`INVITEE_LOGIN` 不再是有效字段值。仓库邀请此时可与电子邮件关联，而不仅仅是被邀请者。"
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: jdennes
+  - 
+    location: Sponsorship.sponsor
+    description: "`sponsor` 将被删除。改用 `Sponsorship.sponsorEntity`。"
+    reason: "`Sponsorship.sponsor` 将被删除。"
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: nholden
+  - 
+    location: TeamRepositoryEdge.permission
+    description: '`permission` 的类型将从 `RepositoryPermission!` 更改为 `String`。'
+    reason: 此字段可能会返回其他值
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: oneill38
+  - 
+    location: EnterpriseMemberEdge.isUnlicensed
+    description: "`isUnlicensed` 将被删除。"
+    reason: 所有成员都会使用许可证
+    date: '2021-01-01T00:00:00+00:00'
+    criticality: 重大
+    owner: BrentWheeldon
+  - 
+    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
+    description: "`isUnlicensed` 将被删除。"
+    reason: 所有外部协作者使用许可证
+    date: '2021-01-01T00:00:00+00:00'
+    criticality: 重大
+    owner: BrentWheeldon
+  - 
+    location: EnterprisePendingCollaboratorEdge.isUnlicensed
+    description: "`isUnlicensed` 将被删除。"
+    reason: 所有挂起的协作者使用许可证
+    date: '2021-01-01T00:00:00+00:00'
+    criticality: 重大
+    owner: BrentWheeldon

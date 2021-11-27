@@ -36,24 +36,6 @@ topics:
 
 Para produzir a saída de log mais detalhada, você pode habilitar o log de depuração da etapa. Para obter mais informações, consulte "[Habilitar o registro de depuração](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)".
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
-
-## Criando artefatos de depuração de {% data variables.product.prodname_codeql %}
-
-Você pode obter artefatos para ajudar você a depurar {% data variables.product.prodname_codeql %}, definindo um sinalizador da configuração de depuração. Modifique a etapa `init` do seu arquivo de fluxo de trabalho {% data variables.product.prodname_codeql %} e defina `debug: true`.
-
-```
-- name: Initialize CodeQL
-  uses: github/codeql-action/init@v1
-  with:
-    debug: true
-```
-Os artefatos de depuração serão carregados para a execução do fluxo de trabalho como um artefato denominado `debug-artifacts`. Os dados contém os registros de {% data variables.product.prodname_codeql %}, banco(s) de dados de {% data variables.product.prodname_codeql %}, e todo(s) o(s) outro(s) arquivo(s) SARIF produzido(s) pelo fluxo de trabalho.
-
-Estes artefatos ajudarão você a depurar problemas com digitalização de código de {% data variables.product.prodname_codeql %}. Se você entrar em contato com o suporte do GitHub, eles poderão pedir estes dados.
-
-{% endif %}
-
 ## Ocorreu uma falha durante a criação automática para uma linguagem compilada
 
 Se ocorrer uma falha na uma criação automática de código para uma linguagem compilada dentro de seu projeto, tente as seguintes etapas para a solução de problemas.
@@ -95,7 +77,7 @@ Se seu fluxo de trabalho falhar com um erro `Nenhum código fonte foi visto dura
     fail-fast: false
     matrix:
       # Override automatic language detection by changing the list below.
-      # As opções compatíveis estão listadas em um comentário no fluxo de trabalho padrão.
+      # Supported options are listed in a comment in the default workflow.
       language: ['go', 'javascript']
 `</pre>
 
@@ -202,7 +184,7 @@ Se a execução de um fluxo de trabalho para {% data variables.product.prodname_
 
 ## Erro: "Fora do disco" ou "Sem memória"
 
-Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar sem disco ou memória no executor.
+On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
 {% ifversion fpt or ghec %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
 {% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
 

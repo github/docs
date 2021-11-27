@@ -17,13 +17,13 @@ shortTitle: Encaminhar portas
 
 ## Sobre as portas encaminhadas
 
-O redirecionamento de porta dá acesso a portas TCP que estão em execução no seu codespace. Por exemplo, se você estiver executando um aplicativo web em uma determinada porta no seu codespace, você pode encaminhar essa porta. Isso permite que você acesse o aplicativo do navegador na sua máquina local para testes e depuração.
+O redirecionamento de porta dá acesso a portas TCP que estão em execução no seu codespace. For example, if you're running a web application on a particular port in your codespace, you can forward that port. This allows you to access the application from the browser on your local machine for testing and debugging.
 
-Quando uma aplicação em execução dentro de um codespace imprime a saída para o terminal que contém uma URL do host local como `http://localhost:PORT` ou `http://127.0.0.1:PORT`, a porta é encaminhada automaticamente. Se você estiver usando {% data variables.product.prodname_codespaces %} no navegador ou em {% data variables.product.prodname_vscode %}, a string do URL no terminal é convertida em um link que você pode clicar para ver a página na sua máquina local. Por padrão, {% data variables.product.prodname_codespaces %} encaminha portas usando HTTP.
+When an application running inside a codespace prints output to the terminal that contains a localhost URL, such as `http://localhost:PORT` or `http://127.0.0.1:PORT`, the port is automatically forwarded. If you're using {% data variables.product.prodname_github_codespaces %} in the browser or in {% data variable.product.prodname_vscode %}, the URL string in the terminal is converted into a link that you can click to view the web page on your local machine. By default, {% data variables.product.prodname_codespaces %} forwards ports using HTTP.
 
 ![Encaminhamento de porta automático](/assets/images/help/codespaces/automatic-port-forwarding.png)
 
-Você também pode encaminhar uma porta manualmente, etiquetar portas encaminhadas, compartilhar portas encaminhadas com integrantes da sua organização, compartilhar as portas encaminhadas publicamente e adicione as portas encaminhadas à configuração do codespace.
+You can also forward a port manually, label forwarded ports, share forwarded ports with members of your organization, share forwarded ports publicly, and add forwarded ports to the codespace configuration.
 
 ## Encaminhar uma porta
 
@@ -42,13 +42,13 @@ Você pode encaminhar manualmente uma porta que não foi encaminhada automaticam
 
    ![Caixa de texto para o botão digitar porta](/assets/images/help/codespaces/port-number-text-box.png)
 
-## Usando encaminhamento de HTTPS
+## Using HTTPS forwarding
 
-Por padrão, {% data variables.product.prodname_codespaces %} encaminha portas usando HTTP, mas você pode atualizar qualquer porta para usar HTTPS, conforme necessário.
+By default, {% data variables.product.prodname_codespaces %} forwards ports using HTTP but you can update any port to use HTTPS, as needed.
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Clique com o botão direito na porta que você deseja atualizar e, em seguida, passe o mouse sobre **Alterar o Protocolo de Porta**. ![Opção para mudar o protocolo de porta](/assets/images/help/codespaces/update-port-protocol.png)
-1. Selecione o protocolo necessário para esta porta. O protocolo que você selecionar será lembrado por esta porta durante o ciclo de vida do codespace.
+1. Right click the port you want to update, then hover over **Change Port Protocol**. ![Option to change port protocol](/assets/images/help/codespaces/update-port-protocol.png)
+1. Select the protocol needed for this port. The protocol that you select will be remembered for this port for the lifetime of the codespace.
 
 {% endwebui %}
 
@@ -70,15 +70,15 @@ Por padrão, {% data variables.product.prodname_codespaces %} encaminha portas u
 
 {% data reusables.cli.cli-learn-more %}
 
-Para encaminhar uma porta use o subcomando `gh codespace ports forward`. Substitua `codespace-port:local-port` pelas portas remotas e locais que você deseja conectar. Depois de entrar no comando, escolha entre a lista de codespaces exibidos.
+To forward a port use the `gh codespace ports forward` subcommand. Replace `codespace-port:local-port` with the remote and local ports that you want to connect. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
 gh codespace ports forward <em>codespace-port</em>:<em>local-port</em> 
 ```
 
-Para obter mais informações sobre esse comando, consulte [o manual de{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_ports_forward).
+For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_ports_forward).
 
-Para ver os detalhes das portas encaminhadas, digite `gh codespace ports` e, em seguida, escolha um codespace.
+To see details of forwarded ports enter `gh codespace ports` and then choose a codespace.
 
 {% endcli %}
 
@@ -86,18 +86,18 @@ Para ver os detalhes das portas encaminhadas, digite `gh codespace ports` e, em 
 
 {% note %}
 
-**Observação:** Você só pode tornar uma porta privada para uma organização se a sua organização usar {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. Este recurso não está disponível atualmente na versão beta do {% data variables.product.prodname_codespaces %}.
+**Note:** You can only make a port private to an organization if your organization uses {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}. This feature is not currently available in the beta version of {% data variables.product.prodname_codespaces %}.
 
 {% endnote %}
 
-Se você quiser compartilhar uma porta encaminhada com outras pessoas, você pode tornar a porta privada da sua organização ou tornar a porta pública. Após tornar uma porta privada para a sua organização, qualquer pessoa na organização com a URL da porta poderá ver o aplicativo em execução. Após você tornar uma porta pública, qualquer pessoa que conheça a URL e o número da porta poderá ver o aplicativo em execução sem precisar efetuar a autenticação.
+If you want to share a forwarded port with others, you can either make the port private to your organization or make the port public. After you make a port private to your organization, anyone in the organization with the port's URL can view the running application. After you make a port public, anyone who knows the URL and port number can view the running application without needing to authenticate.
 
 {% include tool-switcher %}
 
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Clique com o botão direito na porta que você deseja compartilhar, selecione o menu "Visibilidade da Porta" e, em seguida, clique em **Privado para a Organização** ou **Público**. ![Opção para selecionar a visibilidade da porta no menu do botão direito](/assets/images/help/codespaces/make-public-option.png)
+1. Right click the port that you want to share, select the "Port Visibility" menu, then click **Private to Organization** or **Public**. ![Option to select port visibility in right-click menu](/assets/images/help/codespaces/make-public-option.png)
 1. À direita do endereço local para a porta, clique no ícone copiar. ![Copiar ícone para o URL de porta](/assets/images/help/codespaces/copy-icon-port-url.png)
 1. Envie a URL copiada para a pessoa com quem você deseja compartilhar a porta.
 
@@ -114,21 +114,21 @@ Se você quiser compartilhar uma porta encaminhada com outras pessoas, você pod
 
 {% cli %}
 
-Para alterar a visibilidade de uma porta encaminhada, use a visibilidade do subcomando `gh codespace ports visibility`. {% data reusables.codespaces.port-visibility-settings %}
+To change the visibility of a forwarded port, use the `gh codespace ports visibility` subcommand. {% data reusables.codespaces.port-visibility-settings %}
 
-Substitua `codespace-port` pelo número da porta encaminhada. Substitua `configuração` por `privado`, `org` ou `público`. Depois de entrar no comando, escolha entre a lista de codespaces exibidos.
+Replace `codespace-port` with the forwarded port number. Replace `setting` with `private`, `org`, or `public`. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
 gh codespace ports visibility <em>codespace-port</em>:<em>setting</em> 
 ```
 
-Você pode definir a visibilidade de várias portas com um comando. Por exemplo:
+You can set the visibility for multiple ports with one command. Por exemplo:
 
 ```shell
 gh codespace ports visibility 80:private 3000:public 3306:org
 ```
 
-Para obter mais informações sobre esse comando, consulte [o manual de{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_ports_visibility).
+For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_ports_visibility).
 
 {% endcli %}
 

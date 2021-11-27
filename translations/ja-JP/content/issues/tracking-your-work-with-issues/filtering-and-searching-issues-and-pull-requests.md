@@ -100,13 +100,13 @@ Once you've [applied labels to an issue or pull request](/articles/applying-labe
 フィルタを使用して、レビューステータスでプルリクエストをフィルタリングしたり、自分でレビューしたプルリクエストや他のユーザにレビューするよう依頼されたプルリクエストを検索したりできます。
 
 プルリクエストのリポジトリのリストをフィルタリングして、次の検索を行えます:
-- まだ[レビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)されていないプルリクエスト
+- まだ[レビュー](/articles/about-pull-request-reviews)されていないプルリクエスト
 - マージの前に[レビューが必要](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)なプルリクエスト
 - レビュー担当者が承認したプルリクエスト
 - レビュー担当者が変更を求めているプルリクエスト
 - Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - Pull requests that someone has asked you directly to review{% endif %}
-- [自分、または自分のチームに誰かがレビューを依頼](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)したプルリクエスト
+- [自分、または自分のチームに誰かがレビューを依頼](/articles/requesting-a-pull-request-review)したプルリクエスト
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
@@ -183,12 +183,12 @@ Issueについては、以下も検索に利用できます。
 
 プルリクエストについては、検索を利用して以下の操作もできます。
 - [ドラフト](/articles/about-pull-requests#draft-pull-requests)プルリクエストのフィルタリング: `is:draft`
-- まだ[レビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)されていないプルリクエストのフィルタリング: `state:open type:pr review:none`
+- まだ[レビュー](/articles/about-pull-request-reviews)されていないプルリクエストのフィルタリング: `state:open type:pr review:none`
 - マージされる前に[レビューを必要とする](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)プルリクエストのフィルタリング: `state:open type:pr review:required`
 - レビュー担当者が承認したプルリクエストのフィルタリング: `state:open type:pr review:approved`
 - レビュー担当者が変更を要求したプルリクエストのフィルタリング: `state:open type:pr review:changes_requested`
 - [レビュー担当者](/articles/about-pull-request-reviews/)によるプルリクエストのフィルタリング: `state:open type:pr reviewed-by:octocat`
-- Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+- Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
 - レビューを要求されたチームによるプルリクエストのフィルタリング: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
 - プルリクエストでクローズできるIssueにリンクされているプルリクエストのフィルタリング: `linked:issue`{% endif %}

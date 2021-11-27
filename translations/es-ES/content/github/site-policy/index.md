@@ -1,5 +1,5 @@
 ---
-title: Site policy
+title: Política del sitio
 redirect_from:
   - /categories/61/articles/
   - /categories/site-policy
@@ -27,7 +27,7 @@ children:
   - /github-private-information-removal-policy
   - /github-subprocessors-and-cookies
   - /github-bug-bounty-program-legal-safe-harbor
-  - /coordinated-disclosure-of-security-vulnerabilities
+  - /responsible-disclosure-of-security-vulnerabilities
   - /guidelines-for-legal-requests-of-user-data
   - /github-government-takedown-policy
   - /github-acceptable-use-policies

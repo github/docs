@@ -31,7 +31,7 @@ Em cada novo push para o `principal` no seu repositório de {% data variables.pr
 
 {% note %}
 
-**Observação**: {% data reusables.actions.about-oidc-short-overview %} e ["Configurando o OpenID Connect no Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
+**Note**: {% data reusables.actions.about-oidc-short-overview %} and ["Configuring OpenID Connect in Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
 
 {% endnote %}
 

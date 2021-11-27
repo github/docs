@@ -1,0 +1,569 @@
+---
+upcoming_changes:
+  - 
+    location: Migration.uploadUrlTemplate
+    description: "`uploadUrlTemplate` será removido. Use `uploadUrl` em vez disso."
+    reason: "'uploadUrlTemplate' está sendo removido porque não é uma URL padrão e adiciona um passo extra do usuário."
+    date: '2019-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - 
+    location: ContributionOrder.field
+    description: "'field' será removido. Apenas um campo de pedido é suportado."
+    reason: "`field` será removido."
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Organization.pinnedRepositories
+    description: "`pinnedRepositories` será removido. Use ProfileOwner.pinnedItems em vez disso."
+    reason: pinnedRepositories será removido
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137
+  - 
+    location: RepositoryOwner.pinnedRepositories
+    description: "`pinnedRepositories` será removido. Use ProfileOwner.pinnedItems em vez disso."
+    reason: pinnedRepositories será removido
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137
+  - 
+    location: User.pinnedRepositories
+    description: "`pinnedRepositories` será removido. Use ProfileOwner.pinnedItems em vez disso."
+    reason: pinnedRepositories será removido
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137
+  - 
+    location: AssignedEvent.user
+    description: "`user` será removido. Use o campo `assignee`."
+    reason: Os responsáveis podem agora ser mannequines.
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - 
+    location: EnterpriseBillingInfo.availableSeats
+    description: "`availableSeats` será removido. Use EnterpriseBillingInfo.totalAvailableLicenses em vez disso."
+    reason: "`availableSeats` serão substituídos por 'totalAvailableLicenses' para fornecer mais clareza sobre o valor que está sendo devolvido"
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: BlakeWilliams
+  - 
+    location: EnterpriseBillingInfo.seats
+    description: "`seats` serão removidos. Use EnterpriseBillingInfo.totalLicenses em vez disso."
+    reason: "`seats` serão substituídos por 'totalLicenses' para fornecer mais clareza sobre o valor que está sendo devolvido"
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: BlakeWilliams
+  - 
+    location: UnassignedEvent.user
+    description: "`user` será removido. Use o campo `assignee`."
+    reason: Os responsáveis podem agora ser mannequines.
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - 
+    location: Organization.registryPackages
+    description: "`registryPackages` será removido. Use o objeto `PackageOwner` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Organization.registryPackagesForQuery
+    description: "`registryPackagesForQuery` será removido. Use o objeto `PackageSearch` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.color
+    description: "`color` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.latestVersion
+    description: "`latestVersion` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.name
+    description: "`name` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.nameWithOwner
+    description: "`nameWithOwner` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.packageFileByGuid
+    description: "`packageFileByGuid` será removido. Use o objeto `Package`."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.packageFileBySha256
+    description: "`packageFileBySha256` será removido. Use o objeto `Package`."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.packageType
+    description: "`packageType` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.preReleaseVersions
+    description: "`preReleaseVersions` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.registryPackageType
+    description: "`registryPackageType` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.repository
+    description: "`repository` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.statistics
+    description: "`statistics` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.tags
+    description: "`tags` serão removidas. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.topics
+    description: "`topics` serão removidos. Use o objeto `Package`."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.version
+    description: "`version` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versionByPlatform
+    description: "`versionByPlatform` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versionBySha256
+    description: "`versionBySha256` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versions
+    description: "`versions` serão removidas. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versionsByMetadatum
+    description: "`versionsByMetadatum` será removido. Use o objeto `Package` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageDependency.dependencyType
+    description: "`dependencyType` será removido. Use o objeto `PackageDependency` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageDependency.name
+    description: "`name` será removido. Use o objeto `PackageDependency` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageDependency.version
+    description: "`version` será removido. Use o objeto `PackageDependency` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.guid
+    description: "'guid' será removido. Use o objeto 'PackageFile' em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.md5
+    description: "`md5` será removido. Use o objeto `PackageFile` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.metadataUrl
+    description: "`metadataUrl` será removido. Use o objeto `PackageFile` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.name
+    description: "`name` será removido. Use o objeto `PackageFile` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.packageVersion
+    description: "`packageVersion` será removido. Use o objeto `PackageFile` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.sha1
+    description: "`sha1` será removido. Use o objeto `PackageFile` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.sha256
+    description: "`sha256` será removido. Use o objeto `PackageFile` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.size
+    description: "`size` será removido. Use o objeto `PackageFile` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.url
+    description: "`url` será removido. Use o objeto `PackageFile` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageOwner.registryPackages
+    description: "`registryPackages` será removido. Use o objeto `PackageOwner` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageSearch.registryPackagesForQuery
+    description: "`registryPackagesForQuery` será removido. Use o objeto `PackageSearch` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsThisMonth
+    description: "`downloadsThisMonth` serão removidos. Use o objeto `PackageStatistics` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsThisWeek
+    description: "`downloadsThisWeek` será removido. Use o objeto `PackageStatistics` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsThisYear
+    description: "`downloadsThisYear` será removido. Use o objeto `PackageStatistics` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsToday
+    description: "`downloadsToday` serão removidos. Use o objeto `PackageStatistics` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsTotalCount
+    description: "`downloadsTotalCount` será removido. Use o objeto `PackageStatistics` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageTag.name
+    description: "`name` será removido. Use o objeto `PackageTag` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageTag.version
+    description: "`version` será removido. Use o objeto `PackageTag` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.deleted
+    description: "`deleted` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.dependencies
+    description: "`dependencies` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.fileByName
+    description: "`fileByName` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.files
+    description: "`files` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.installationCommand
+    description: "`installationCommand` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.manifest
+    description: "`manifest` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.platform
+    description: "`platform` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.preRelease
+    description: "`preRelease` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.readme
+    description: "`readme` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.readmeHtml
+    description: "`readmeHtml` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.registryPackage
+    description: "`registryPackage` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.release
+    description: "`release` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.sha256
+    description: "`sha256` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.size
+    description: "`size` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.statistics
+    description: "`statistics` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.summary
+    description: "`summary` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.updatedAt
+    description: "`updatedAt` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.version
+    description: "`version` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.viewerCanEdit
+    description: "`viewerCanEdit` será removido. Use o objeto `PackageVersion` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsThisMonth
+    description: "`downloadsThisMonth` serão removidos. Use o objeto `PackageVersionStatistics` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsThisWeek
+    description: "`downloadsThisWeek` será removido. Use o objeto `PackageVersionStatistics` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsThisYear
+    description: "`downloadsThisYear` será removido. Use o objeto `PackageVersionStatistics` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsToday
+    description: "`downloadsToday` será removido. Use o objeto `PackageVersionStatistics` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsTotalCount
+    description: "`downloadsTotalCount` será removido. Use o objeto `PackageVersionStatistics` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Repository.registryPackages
+    description: "`registryPackages` será removido. Use o objeto `PackageOwner` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Repository.registryPackagesForQuery
+    description: "`registryPackagesForQuery` será removido. Use o objeto `PackageSearch` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Sponsorship.maintainer
+    description: "`maintainer` será removido. Use `Sponsorship.sponsorable` em vez disso."
+    reason: "`Sponsorship.maintainer` será removido."
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: antn
+  - 
+    location: User.registryPackages
+    description: "`registryPackages` será removido. Use o objeto `PackageOwner` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: User.registryPackagesForQuery
+    description: "`registryPackagesForQuery` será removido. Use o objeto `PackageSearch` em vez disso."
+    reason: Renomeando campos e objetos de pacotes GitHub.
+    date: 'RegistryPackageDependency.dependencyType'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Issue.timeline
+    description: "`timeline` será removido. Use Issue.timelineItems em vez disso."
+    reason: "`timeline` será removido"
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea
+  - 
+    location: PullRequest.timeline
+    description: "`timeline` será removido. Use PullRequest.timelineItems em vez disso."
+    reason: "`timeline` será removido"
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea

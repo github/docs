@@ -47,8 +47,6 @@ shortTitle: IssueへのPRのリンク
 * resolves
 * resolved
 
-If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request will also close the referenced pull request.
-
 クローズするキーワードの構文は、Issueがプルリクエストと同じリポジトリにあるかどうかによって異なります。
 
 | リンクするIssue       | 構文                                            | サンプル                                                           |

@@ -1,6 +1,6 @@
 ---
 title: Managing billing for Codespaces in your organization
-shortTitle: Manage billing
+shortTitle: Managing billing for Codespaces
 intro: 'You can check your {% data variables.product.prodname_codespaces %} usage and set usage limits.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'

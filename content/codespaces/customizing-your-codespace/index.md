@@ -10,10 +10,8 @@ redirect_from:
 topics:
   - Codespaces
 children:
+  - /configuring-codespaces-for-your-project
   - /personalizing-codespaces-for-your-account
-  - /changing-the-machine-type-for-your-codespace
-  - /setting-your-default-editor-for-codespaces
-  - /setting-your-default-region-for-codespaces
   - /prebuilding-codespaces-for-your-project
 ---
  

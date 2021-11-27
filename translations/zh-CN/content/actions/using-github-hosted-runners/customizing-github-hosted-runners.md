@@ -3,6 +3,7 @@ title: 自定义 GitHub 托管的运行器
 intro: 您可以在 GitHub 托管的运行器上安装其他软件作为工作流程的一部分。
 versions:
   fpt: '*'
+  ghes: '*'
   ghec: '*'
 type: tutorial
 topics:

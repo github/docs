@@ -1,47 +1,67 @@
-/* TODO remove mark styling if https://github.com/primer/css/pull/1756 ships */
 .resultsContainer mark {
   background: none;
   color: inherit;
 }
 
+.searchResultTitle mark {
+  color: var(--color-accent-fg);
+}
+
+.searchResultIntro mark {
+  border-bottom: 1px solid currentColor;
+}
+
 .searchResultContent mark {
-  color: var(--color-fg-default);
-  background-color: var(--color-attention-subtle);
-}
-/* end TODO */
-
-.searchResultContent {
-  max-height: 4rem;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
 }
 
-.resultsContainerHeader {
+.searchResultTitle em {
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.resultsContainerOverlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 0;
-  border-radius: 0 0 0 4px; // primer rounded-1
+  border-radius: 3px;
+  background: var(--color-canvas-default);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
   transition: width 0.3s ease-in-out;
+  padding-top: 64px;
 }
 
-.resultsContainerOpen.resultsContainerHeader {
+.resultsContainerOpen {
+  display: block;
+}
+.resultsContainerOpen.resultsContainerOverlay {
   width: 60vw;
-  max-width: 48rem;
+  max-width: 760px;
 }
 
 .searchInput {
   transition: width 0.3s ease-in-out;
 }
-
-.searchInputHeader {
-  width: 16rem;
+.searchInputOverlay {
+  max-width: 690px;
+  width: 256px;
 }
-
-.headerSearchOpen {
-  background: var(--color-primer-canvas-backdrop);
-}
-
 .searchInputExpanded {
-  width: 54vw;
-  max-width: 43rem;
+  width: 55vw;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
-.headerSearchResults {
-  max-height: 80vh;
+.searchOverlayOpen {
+  background: var(--color-primer-canvas-backdrop);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
 }

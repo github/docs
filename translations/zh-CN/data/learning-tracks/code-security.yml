@@ -42,7 +42,7 @@ dependency_version_updates:
   description: '使用 Dependabot 检查新版本并创建拉取请求来更新您的依赖关系。'
   guides:
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-version-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot

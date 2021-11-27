@@ -45,7 +45,7 @@ Before you delete your user account, make a copy of all repositories, private fo
    ![Account deletion button](/assets/images/help/settings/settings-account-delete.png)
 4. In the "Make sure you want to do this" dialog box, complete the steps to confirm you understand what happens when your account is deleted:
   ![Delete account confirmation dialog](/assets/images/help/settings/settings-account-deleteconfirm.png)
-  {% ifversion fpt or ghec %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and {% data variables.product.prodname_pages %} sites owned by your account will be deleted and your billing will end immediately, and your username will be available to anyone for use on {% data variables.product.product_name %} after 90 days.
+  {% ifversion fpt or ghec %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, your billing will end, and your username will be available to anyone for use on {% data variables.product.product_name %}.
   {% else %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, and your username will be available for use on {% data variables.product.product_name %}.
   {% endif %}- In the first field, type your {% data variables.product.product_name %} username or email.
     - In the second field, type the phrase from the prompt.

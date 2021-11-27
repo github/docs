@@ -29,8 +29,7 @@ Use a configuração de alta disponibilidade para proteção contra:
 
 A configuração de alta disponibilidade não é uma boa solução para:
 
-  - **Dimensionamento**. Mesmo que você possa distribuir o tráfego geograficamente usando a replicação geográfica, o desempenho das gravações fica limitado à velocidade e à disponibilidade do appliance primário. Para obter mais informações, consulte "[Sobre a georreplicação](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)".{% ifversion ghes > 3.2 %}
-  - **Carga de CI/CD**. Se você tiver um grande número de clientes de CI que estão geograficamente distantes da sua instância principal, você pode beneficiar-se de configurar um cache de repositório. Para obter mais informações, consulte "[Sobre o cache do repositório](/admin/enterprise-management/caching-repositories/about-repository-caching)".{% endif %}
+  - **Dimensionamento**. Mesmo que você possa distribuir o tráfego geograficamente usando a replicação geográfica, o desempenho das gravações fica limitado à velocidade e à disponibilidade do appliance primário. Para obter mais informações, consulte "[Sobre a replicação geográfica](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)".
   - **Backup do appliance primário**. Uma réplica de alta disponibilidade não substitui os backups externos do seu plano de recuperação de desastres. Algumas formas de violação ou perda de dados podem ser replicadas de imediato do appliance primário para o de réplica. Para garantir a reversão segura a um estado anterior estável, você deve fazer backups regulares com instantâneos de histórico.
   - **Atualizações sem tempo de inatividade**. Para evitar a perda de dados e situações de split-brain em cenários de promoção controlados, deixe o appliance primário em modo de manutenção e aguarde a conclusão de todas as gravações antes de promover o de réplica.
 

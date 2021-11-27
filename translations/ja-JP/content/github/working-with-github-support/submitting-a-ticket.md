@@ -19,11 +19,9 @@ Enterprise アカウントをお持ちでない場合は、{% data variables.con
 
 ## {% data variables.contact.support_portal %} を使ってチケットをサブミットする
 
-{% data reusables.support.zendesk-old-tickets %}
-
 1. {% data variables.contact.contact_support_portal %} に移動します。
-2. Select the **Account or organization** drop-down menu and click the name of the account, organization, or enterprise your ticket is regarding. ![Account field](/assets/images/help/support/account-field.png)
-2. Select the **From** drop-down menu and click the email address you'd like {% data variables.contact.github_support %} to contact. ![メールフィールド](/assets/images/help/support/from-field.png)
+2. [Name] に名前を入力します。 ![名前フィールド](/assets/images/help/support/name-field.png)
+3. [Email] ドロップダウンメニューを使って、{% data variables.contact.github_support %} の連絡先にしたいメールアドレスを選択します。 ![メールフィールド](/assets/images/help/support/email-field.png)
 4. [Subject] には、サブミットしようとしている問題がわかりやすい題名を入力してください。 ![Subject field (題名)](/assets/images/help/support/subject-field.png)
 5. [How can we help] には、Support チームが問題のトラブルシューティングをするうえで役立つと考えられる追加情報をすべて入力してください。 有益な情報の例としては、以下のようなものがあります: ![[How can we help] フィールド](/assets/images/help/support/how-can-we-help-field.png)
     - 問題を再現する手順
@@ -31,6 +29,15 @@ Enterprise アカウントをお持ちでない場合は、{% data variables.con
     - 正確なエラーメッセージ
 6. 必要に応じて、クリップボードからドラッグ、ドロップ、アップロードやペーストでファイルを添付します。
 7. [**Send request**] をクリックします。 ![[Send request] ボタン](/assets/images/help/support/send-request-button.png)
+
+## {% data variables.contact.enterprise_portal %} を使ってチケットをサブミットする
+
+{% data reusables.support.zendesk-deprecation %}
+
+1. {% data variables.contact.contact_enterprise_portal %} に移動します。
+5. [**Submit a Ticket**] をクリックします。 ![Enterprise Support チームにチケットをサブミットする](/assets/images/enterprise/support/submit-ticket-button.png)
+{% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
+{% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
 ## 参考リンク
 - "[{% data variables.product.prodname_dotcom %}の製品](/github/getting-started-with-github/githubs-products)"

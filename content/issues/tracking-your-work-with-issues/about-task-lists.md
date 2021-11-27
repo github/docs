@@ -55,10 +55,7 @@ If you add a task list to the body of an issue, the list has added functionality
 
 You can reorder the items in a task list by clicking to the left of a task's checkbox, dragging the task to a new location, and dropping the task. You can reorder tasks across different lists in the same comment, but you can not reorder tasks across different comments.
 
-{% ifversion fpt %} ![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
-{% else %} ![Reordered task list](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
-
-{% ifversion fpt %}
+![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
 
 ## Navigating tracked issues
 
@@ -66,9 +63,6 @@ Any issues that are referenced in a task list specify that they are tracked by t
 
 ![Tracked in example](/assets/images/help/writing/task_list_tracked.png)
 
-{% endif %}
-
 ## Further reading
 
-* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
-* "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}
+* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"

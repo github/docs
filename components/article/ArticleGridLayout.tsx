@@ -4,15 +4,24 @@ import { Box, themeGet } from '@primer/components'
 
 type Props = {
   intro?: React.ReactNode
+  topperSidebar?: React.ReactNode
   topper?: React.ReactNode
   toc?: React.ReactNode
   children?: React.ReactNode
   className?: string
 }
-export const ArticleGridLayout = ({ intro, topper, toc, children, className }: Props) => {
+export const ArticleGridLayout = ({
+  intro,
+  topperSidebar,
+  topper,
+  toc,
+  children,
+  className,
+}: Props) => {
   return (
     <Container className={className}>
       {topper && <Box gridArea="topper">{topper}</Box>}
+      {topperSidebar && <Box gridArea="topper-sidebar">{topperSidebar}</Box>}
       {toc && (
         <SidebarContent
           gridArea="sidebar"
@@ -38,6 +47,7 @@ const Container = styled(Box)`
   grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
     'topper'
+    'topper-sidebar'
     'intro'
     'sidebar'
     'content';
@@ -50,7 +60,7 @@ const Container = styled(Box)`
     grid-template-rows: auto 1fr;
     grid-template-columns: minmax(500px, 720px) minmax(220px, 1fr);
     grid-template-areas:
-      'topper sidebar'
+      'topper topper-sidebar'
       'intro sidebar'
       'content sidebar';
     column-gap: ${themeGet('space.9')};

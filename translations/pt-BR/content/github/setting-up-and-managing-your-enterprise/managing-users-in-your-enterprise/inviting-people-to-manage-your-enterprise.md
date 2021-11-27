@@ -1,0 +1,73 @@
+---
+title: Convidar pessoas para gerenciar sua empresa
+intro: 'Você pode {% ifversion fpt %}convidar pessoas para se tornarem proprietários corporativos ou gerentes de cobrança para{% elsif ghes %}adicionar proprietários corporativos à conta corporativa{% endif %}. Você também pode remover proprietários corporativos {% ifversion fpt %}ou gerentes de cobrança {% endif %}que não precisam mais de acesso à conta corporativa.'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
+permissions: 'Enterprise owners can {% ifversion fpt %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
+redirect_from:
+  - /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
+  - /articles/inviting-people-to-collaborate-in-your-business-account/
+  - /articles/inviting-people-to-manage-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
+versions:
+  fpt: '*'
+  ghes: '*'
+topics:
+  - Administrator
+  - Enterprise
+  - User account
+shortTitle: Convidar pessoas para gerenciar
+---
+
+## Sobre os usuários que podem gerenciar a sua conta corporativa
+
+{% data reusables.enterprise-accounts.enterprise-administrators %} Para obter mais informações, consulte "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)."
+
+{% ifversion ghes %}
+
+Se você deseja gerenciar os proprietários e gerentes de cobrança para uma conta corporativa em {% data variables.product.prodname_dotcom_the_website %}, consulte "[Convidando pessoas para gerenciar sua empresa](/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)" na documentação do {% data variables.product.prodname_dotcom_the_website %}.
+
+{% endif %}
+
+{% ifversion fpt %}
+
+Se sua empresa usa {% data variables.product.prodname_emus %}, os proprietários da empresa só poderão ser adicionados ou removidos por meio do seu provedor de identidade. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+{% endif %}
+
+{% tip %}
+
+**Dica:** para obter mais informações sobre como gerenciar usuários em uma organização de sua conta corporativa, consulte "[Gerenciar integrantes em sua organização](/articles/managing-membership-in-your-organization)" e "[Gerenciar acessos de pessoas à sua organização com funções](/articles/managing-peoples-access-to-your-organization-with-roles)".
+
+{% endtip %}
+
+## {% ifversion fpt %}Convidando{% elsif ghes %}adicionando{% endif %} um administrador corporativo à sua conta corporativa
+
+{% ifversion fpt %}Depois de convidar alguém para juntar-se à conta corporativa, a pessoa deverá aceitar o convite por e-mail antes que possa acessar a conta corporativa.{% endif %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. Na barra lateral esquerda, clique em **Administrators** (Administradores). ![Aba Administrators (Administradores) na barra lateral esquerda](/assets/images/help/business-accounts/administrators-tab.png)
+1. Acima da lista de administradores, clique em {% ifversion fpt %}**Convidar administrador**{% elsif ghes %}**Add proprietário**{% endif %}.
+  {% ifversion fpt %}
+  ![Botão "Convidar administrador" acima da lista de proprietários corporativos](/assets/images/help/business-accounts/invite-admin-button.png)
+  {% elsif ghes %}
+  ![Botão "Adicionar o proprietário" acima da lista de proprietários corporativos](/assets/images/help/business-accounts/add-owner-button.png)
+  {% endif %}
+1. Digite o nome de usuário, nome completo ou endereço de e-mail da pessoa que você quer convidar para ser um administrador corporativo e depois selecione a pessoa adequada a partir dos resultados. ![Modal box with field to type a person's username, full name, or email address, and Invite button](/assets/images/help/business-accounts/invite-admins-modal-button.png){% ifversion fpt %}
+1. Selecione **Owner** (Proprietário) ou **Billing Manager** (Gerente de cobrança). ![Caixa de diálogo modal com opções de funções](/assets/images/help/business-accounts/invite-admins-roles.png)
+1. Clique em **Send Invitation** (Enviar convite). ![Send invitation button](/assets/images/help/business-accounts/invite-admins-send-invitation.png){% endif %}{% ifversion ghes %}
+1. Clique em **Salvar**. !["Add" button](/assets/images/help/business-accounts/add-administrator-add-button.png){% endif %}
+
+## Remover um administrador de sua conta corporativa
+
+Somente proprietários corporativos podem remover outros administradores corporativos da conta corporativa.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. Ao lado do nome de usuário da pessoa que você deseja remover, clique em {% octicon "gear" aria-label="The Settings gear" %} e, em seguida, clique em **Remover proprietário**{% ifversion fpt %} ou **Remover gerente de cobrança**{% endif %}.
+  {% ifversion fpt %}
+  ![Ajuste de configurações com menu option (opções) para remover um administrador corporativo](/assets/images/help/business-accounts/remove-admin.png)
+  {% elsif ghes %}
+  ![Ajuste de configurações com menu option (opções) para remover um administrador corporativo](/assets/images/help/business-accounts/ghes-remove-owner.png)
+  {% endif %}
+1. Leia a confirmação, clique **Remover proprietário**{% ifversion fpt %} ou **Remover gerente de cobrança**{% endif %}.

@@ -15,7 +15,7 @@ shortTitle: 从桌面克隆和复刻
 
 您可以通过克隆仓库创建 {% data variables.product.product_name %} 上您可以访问的任何仓库的本地副本。 如果您拥有一个仓库或拥有写入权限，您可以在本地和远程位置之间进行同步。 更多信息请参阅“[同步分支](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)”。
 
-当您克隆仓库时，您推送到 {% data variables.product.product_name %} 的任何更改都将影响原始仓库。 要在不影响原始项目的情况下进行更改，您可以通过复刻仓库来创建单独的副本。 您可以创建拉取请求来提议维护员将您的复刻中的更改加入原始上游仓库。 更多信息请参阅“[关于分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)。”
+当您克隆仓库时，您推送到 {% data variables.product.product_name %} 的任何更改都将影响原始仓库。 要在不影响原始项目的情况下进行更改，您可以通过复刻仓库来创建单独的副本。 您可以创建拉取请求来提议维护员将您的复刻中的更改加入原始上游仓库。 更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-forks)。”
 
 当您尝试使用 {% data variables.product.prodname_desktop %} 克隆您没有写入权限的仓库时，{% data variables.product.prodname_desktop %} 会自动提示您创建复刻。 您可以选择使用复刻参加原始上游仓库，或者在您自己的项目上独立工作。 任何现有复刻都默认对其上游仓库进行更改。 您可以随时修改此选项。 更多信息请参阅“[管理复刻行为](#managing-fork-behavior)”。
 

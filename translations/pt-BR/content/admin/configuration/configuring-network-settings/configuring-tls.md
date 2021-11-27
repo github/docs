@@ -44,11 +44,11 @@ Você pode gerar uma solicitação de assinatura de certificado (CSR, Certificat
 {% data reusables.enterprise_management_console.select-tls-only %}
 4. Em "TLS Protocol support" (Suporte ao protocolo TLS), selecione os protocolos que deseja permitir. ![Botões com opções de protocolos TLS](/assets/images/enterprise/management-console/tls-protocol-support.png)
 5. Em "Certificate" (Certificado), clique em **Choose File** (Escolher arquivo) para escolher um certificado TLS ou uma cadeia de certificados (no formato PEM) para instalação. Em geral, esse arquivo tem extensão *.pem*, *.crt* ou *.cer*. ![Botão para localizar arquivo de certificado TLS](/assets/images/enterprise/management-console/install-tls-certificate.png)
-6. Under "Unencrypted key", click **Choose File** to choose an RSA key (in PEM format) to install. Em geral, esse arquivo tem extensão *.key*. ![Botão para localizar arquivo de chave TLS](/assets/images/enterprise/management-console/install-tls-key.png)
+6. Em "Unencrypted key" (Chave não criptografada), clique em **Choose File** (Escolher arquivo) para escolher a chave TLS (em formato PEM) para instalação. Em geral, esse arquivo tem extensão *.key*. ![Botão para localizar arquivo de chave TLS](/assets/images/enterprise/management-console/install-tls-key.png)
 
   {% warning %}
 
-  **Warning**: Your key must be an RSA key and must not have a passphrase. Para obter mais informações, consulte "[Remover a frase secreta de um arquivo de chave](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
+  **Aviso**: a chave TLS não deve ter frase secreta. Para obter mais informações, consulte "[Remover a frase secreta de um arquivo de chave](/enterprise/{{ currentVersion }}/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
 
   {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}

@@ -50,7 +50,7 @@ As ações do JavaScript são repositórios do Node.js com metadados. No entanto
 Para apoiar o processo de desenvolvedor na próxima seção, adicione dois fluxos de trabalho de {% data variables.product.prodname_actions %} ao seu repositório:
 
 1. Adicione um fluxo de trabalho que é acionado quando um commit é enviado por push para um branch de recurso ou para o `principal` ou quando um pull request é criado. Configure o fluxo de trabalho para executar seus testes de unidade e integração. Por exemplo, consulte [este fluxo de trabalho](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/test.yml).
-2. Adicione um fluxo de trabalho que é acionado quando uma versão é publicada ou editada. Configure o fluxo de trabalho para garantir que as tags semânticas estejam prontas. Você pode usar uma ação como [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) para compilar e empacotar o arquivo de metadados e o JavaScript e fazer push forçado semântico maior, menor e tags de patch. Por exemplo, consulte [este fluxo de trabalho](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml). Para obter mais informações sobre tags semânticas, consulte "[Sobre versão semântica](https://docs.npmjs.com/about-semantic-versioning)".
+2. Adicione um fluxo de trabalho que é acionado quando uma versão é publicada ou editada. Configure o fluxo de trabalho para garantir que as tags semânticas estejam prontas. You can use an action like [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) to compile and bundle the JavaScript and metadata file and force push semantic major, minor, and patch tags. Por exemplo, consulte [este fluxo de trabalho](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml). Para obter mais informações sobre tags semânticas, consulte "[Sobre versão semântica](https://docs.npmjs.com/about-semantic-versioning)".
 
 ### Exemplo do processo de desenvolvedor
 
@@ -69,15 +69,15 @@ Aqui está um exemplo de processo que você pode seguir para executar os testes 
 
    * Quando uma versão é publicada ou editada, seu fluxo de trabalho de versão cuidará automaticamente da compilação e ajuste das tags.
 
-   * Recomendamos criar versões usando tags com versão semântica – por exemplo, `v1.1.3` – e mantendo tags maiores (`v1`) e menores (`v1.`) atuais para o último commit apropriado. Para obter mais informações, consulte "[Sobre ações personalizadas](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" e "[Sobre a versão semântica](https://docs.npmjs.com/about-semantic-versioning).
+   * We recommend creating releases using semantically versioned tags – for example, `v1.1.3` – and keeping major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" and "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
 
 ### Resultados
 
-Diferentemente de outras estratégias automatizadas de gerenciamento de versão, este processo não faz, de modo intencional, commit de dependências para o branch `principal`, apenas para os commits de versão com tag. Ao fazer isso, você incentiva os usuários da sua ação a fazerem referência a tags nomeadas ou `sha`s, além de ajudar a garantir a segurança de pull requests de terceiros, fazendo a compilação você mesmo durante uma versão.
+Unlike some other automated release management strategies, this process intentionally does not commit dependencies to the `main` branch, only to the tagged release commits. By doing so, you encourage users of your action to reference named tags or `sha`s, and you help ensure the security of third party pull requests by doing the build yourself during a release.
 
-Usar versões semânticas significa que os usuários das suas ações podem fixar os seus fluxos de trabalho a uma versão e saber que podem continuar recebendo a última estabilidade recursos não relevantes, dependendo de seu nível de conforto:
+Using semantic releases means that the users of your actions can pin their workflows to a version and know that they might continue to receive the latest stable, non-breaking features, depending on their comfort level:
 
-## Trabalhando com a comunidade
+## Working with the community
 
 {% data variables.product.product_name %} fornece ferramentas e guias para ajudar você a trabalhar com a comunidade de código aberto. Aqui estão algumas ferramentas que recomendamos a criação de uma comunicação bidirecional saudável. Ao fornecer os seguintes sinais à comunidade, você incentiva outras pessoas a usar, modificar e contribuir para sua ação:
 

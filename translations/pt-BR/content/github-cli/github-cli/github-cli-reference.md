@@ -11,16 +11,10 @@ topics:
 type: reference
 ---
 
-To view all top-level {% data variables.product.prodname_cli %} commands, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh) or call `gh` without arguments.
+Para ver todos os comandos de {% data variables.product.prodname_cli %}, consulte o manual [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_help_reference) ou use o comando `referência`.
 
 ```shell
-gh
-```
-
-To list all commands under a specific group, use the top-level command without arguments. For example, to list [commands for managing repositories](https://cli.github.com/manual/gh_repo):
-
-```shell
-gh repo
+gh reference
 ```
 
 Para ver as variáveis de ambiente que podem ser usadas com {% data variables.product.prodname_cli %}, consulte o [manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_help_environment) ou use o comando `ambiente`.

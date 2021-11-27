@@ -119,7 +119,6 @@ You can help keep your organization secure by requiring two-factor authenticatio
 
 #### 3. Reviewing your organization's audit log and integrations
 {% data reusables.getting-started.reviewing-org-audit-log-and-integrations %}
-
 #### 4. Enabling and enforcing SAML single sign-on for your organization
 If you manage your applications and the identities of your organization members with an identity provider (IdP), you can configure SAML single-sign-on (SSO) to control and secure access to organization resources like repositories, issues and pull requests. When members of your organization access organization resources that use SAML SSO, {% data variables.product.prodname_dotcom %} will redirect them to your IdP to authenticate. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
 
