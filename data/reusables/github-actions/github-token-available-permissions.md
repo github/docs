@@ -6,7 +6,11 @@ permissions:
   checks: read|write|none
   contents: read|write|none
   deployments: read|write|none
-  id-token: read|write|none
+ circleci-project-setup
+  id-token: read|write|
+======= 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
+  discussions: read|write|
+ add-discussions-permission
   issues: read|write|none
   discussions: read|write|none
   packages: read|write|none
