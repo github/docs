@@ -11,6 +11,16 @@ on:
       - reopened
       - synchronize
 
+  # This is necessary so that the cached things can be reused between
+  # pull requests.
+  # If we don't let the workflow run on `main` the caching will only
+  # help between multiple runs of the same workflow. By letting
+  # it build on pushes to main too, the cache will be reusable
+  # in other people's PRs too.
+  push:
+    branches:
+      - main
+
 permissions:
   contents: read
 
@@ -24,9 +34,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump full context for debugging
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
+        run: |
+          cat << EOF
+          ${{ toJSON(github) }}
+          EOF
 
   build-pr:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
@@ -77,7 +88,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       # Required for `npm pkg ...` command support
@@ -86,6 +97,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Cache nextjs build
+        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}-${{ hashFiles('.github/workflows/staging-build-pr.yml') }}
 
       - name: Build
         run: npm run build
@@ -101,14 +118,13 @@ jobs:
 
       - name: Delete heavy things we won't need deployed
         run: |
-          # Not needed to run after having been built.
-          rm -fr .next/cache
-
           # The dereferenced file is not used in runtime once the
           # decorated file has been created from it.
           rm -fr lib/rest/static/dereferenced
 
       - name: Create an archive
+        # Only bother if this is actually a pull request
+        if: ${{ github.event.pull_request.number }}
         run: |
           tar -c --file=app.tar \
             node_modules/ \
@@ -128,10 +144,18 @@ jobs:
             app.json \
             Procfile
 
+          # We can't delete the .next/cache directory from the workflow
+          # because it's needed for caching, but we can at least delete it
+          # from within the tarball. Then it can be cached but not
+          # weigh down the tarball we intend to deploy.
+          tar --delete --file=app.tar .next/cache
+
       # Upload only the files needed to run this application.
       # We are not willing to trust the rest (e.g. script/) for the remainder
       # of the deployment process.
       - name: Upload build artifact
+        # Only bother if this is actually a pull request
+        if: ${{ github.event.pull_request.number }}
         uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074
         with:
           name: pr_build

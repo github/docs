@@ -1,10 +1,10 @@
 ---
-title: Security hardening your deployments
-shortTitle: Security hardening your deployments
-intro: 'Use OpenID Connect within your workflows to authenticate with your cloud provider.'
+title: Segurança que enrijece as suas implentações
+shortTitle: Segurança que enrijece as suas implentações
+intro: Use o OpenID Connect dentro de seus fluxos de trabalho para efetuar a autenticação com seu provedor de nuvem.
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
 children:
   - /about-security-hardening-with-openid-connect
@@ -13,5 +13,6 @@ children:
   - /configuring-openid-connect-in-google-cloud-platform
   - /configuring-openid-connect-in-hashicorp-vault
   - /configuring-openid-connect-in-cloud-providers
+  - /using-openid-connect-with-reusable-workflows
 ---
 

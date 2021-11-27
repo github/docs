@@ -68,7 +68,9 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Billing for reusable workflows
 
-If you reuse a workflow, billing is always associated with the caller workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners{% endif %}{% ifversion ghae %}{% data variables.actions.hosted_runner %}s{% endif %} is always evaluated using only the caller's context. The caller cannot use {% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners{% endif %}{% ifversion ghae %}{% data variables.actions.hosted_runner %}s{% endif %} from the called repository. 
+
+For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
 ## Artifact and log retention policy

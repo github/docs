@@ -1,0 +1,1 @@
+If users in your enterprise need access to other actions from {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_marketplace %}, there are a few configuration options.

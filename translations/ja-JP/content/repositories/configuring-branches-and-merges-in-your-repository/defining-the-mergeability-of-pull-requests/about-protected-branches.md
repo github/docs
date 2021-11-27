@@ -74,9 +74,9 @@ remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Changes have been requested.
 ```
 
-必要に応じて、コミットがプッシュされた際に古いプルリクエストを却下できます。 コードを承認されたプルリクエストに変更するコミットがプッシュされた場合、その承認は却下され、プルリクエストはマージできません。 これは、ベースブランチをプルリクエストのブランチにマージするなど、コードを変更しないコミットをコラボレータがプッシュする場合には適用されません。 ベースブランチに関する詳しい情報については「[プルリクエストについて](/articles/about-pull-requests)」を参照してください。
+必要に応じて、コミットがプッシュされた際に古いプルリクエストを却下できます。 コードを承認されたプルリクエストに変更するコミットがプッシュされた場合、その承認は却下され、プルリクエストはマージできません。 これは、ベースブランチをプルリクエストのブランチにマージするなど、コードを変更しないコミットをコラボレータがプッシュする場合には適用されません。 ベースブランチに関する詳しい情報については「[プルリクエストについて](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)」を参照してください。
 
-必要に応じて、プルリクエストレビューを却下する権限を、特定の人物またはチームに限定できます。 詳しい情報については[プルリクエストレビューの却下](/articles/dismissing-a-pull-request-review)を参照してください。
+必要に応じて、プルリクエストレビューを却下する権限を、特定の人物またはチームに限定できます。 詳しい情報については[プルリクエストレビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)を参照してください。
 
 必要に応じて、コードオーナー'からのレビューを必須にすることもできます。 この場合、コードオーナーのコードに影響するプルリクエストは、保護されたブランチにプルリクエストをマージする前に、そのコードオーナーから承認される必要があります。
 
@@ -128,7 +128,7 @@ Requires all comments on the pull request to be resolved before it can be merged
 
 {% endnote %}
 
-コミットが署名および検証されている場合は、いつでもローカルコミットをブランチにプッシュできます。 {% ifversion fpt or ghec %}{% data variables.product.product_name %}のプルリクエストを使用して、署名および検証されているコミットをブランチにマージすることもできます。 ただし、プルリクエストの作者でない限り、プルリクエストを squash して{% data variables.product.product_name %}のブランチにマージすることはできません。{% else %}ただし、プルリクエストを{% data variables.product.product_name %}のブランチにマージすることはできません。{% endif %}プルリクエストをローカルで{% ifversion fpt or ghec %} squash および{% endif %}マージできます。 詳しい情報については、「[プルリクエストをローカルでチェック アウトする](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)」を参照してください。
+コミットが署名および検証されている場合は、いつでもローカルコミットをブランチにプッシュできます。 {% ifversion fpt or ghec %}{% data variables.product.product_name %}のプルリクエストを使用して、署名および検証されているコミットをブランチにマージすることもできます。 ただし、プルリクエストの作者でない限り、プルリクエストを squash して{% data variables.product.product_name %}のブランチにマージすることはできません。{% else %}ただし、プルリクエストを{% data variables.product.product_name %}のブランチにマージすることはできません。{% endif %}プルリクエストをローカルで{% ifversion fpt or ghec %} squash および{% endif %}マージできます。 詳しい情報については、「[プルリクエストをローカルでチェック アウトする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)」を参照してください。
 
 {% ifversion fpt or ghec %}マージ方法の詳しい情報については、「[{% data variables.product.prodname_dotcom %}上のマージ方法について](/github/administering-a-repository/about-merge-methods-on-github)」を参照してください。{% endif %}
 

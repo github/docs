@@ -20,7 +20,7 @@ Qualquer pessoa pode restaurar repositórios excluídos que pertenciam à própr
 
 ## Sobre a restauração do repositório
 
-Um repositório excluído pode ser restaurado em até 90 dias, a menos que ele fizesse parte de uma rede de bifurcação que atualmente não está vazia. Uma rede de bifurcação consiste em um repositório principal, nas bifurcações do repositório e nas bifurcações das bifurcações do repositório. Se o repositório fazia parte de uma rede de bifurcação, ele não poderá ser restaurado, a menos que todos os outros repositórios na rede sejam excluídos ou tenham sido desanexados da rede. Para obter mais informações sobre bifurcações, consulte "[Sobre bifurcações](/articles/about-forks)".
+Um repositório excluído pode ser restaurado em até 90 dias, a menos que ele fizesse parte de uma rede de bifurcação que atualmente não está vazia. Uma rede de bifurcação consiste em um repositório principal, nas bifurcações do repositório e nas bifurcações das bifurcações do repositório. Se o repositório fazia parte de uma rede de bifurcação, ele não poderá ser restaurado, a menos que todos os outros repositórios na rede sejam excluídos ou tenham sido desanexados da rede. Para obter mais informações sobre bifurcações, consulte "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)".
 
 Se desejar restaurar um repositório que fazia parte de uma rede de bifurcação que atualmente não está vazia, contate o {% data variables.contact.contact_support %}.
 

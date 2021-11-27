@@ -27,7 +27,7 @@ versions:
 - 您希望从更广泛的社区收集有关项目的反馈
 - 您希望将漏洞修复、功能请求和常规对话分开
 
-议题适用于讨论项目的具体细节，如漏洞修复和计划的改进。 更多信息请参阅“[关于议题](/articles/about-issues)”。 拉取请求允许您直接评论提议的更改。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”和“[评论拉取请求](/articles/commenting-on-a-pull-request)”。
+议题适用于讨论项目的具体细节，如漏洞修复和计划的改进。 更多信息请参阅“[关于议题](/articles/about-issues)”。 拉取请求允许您直接评论提议的更改。 更多信息请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”和“[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”。
 
 {% data reusables.organizations.team-discussions-purpose %} 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
 

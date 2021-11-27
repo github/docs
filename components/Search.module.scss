@@ -1,67 +1,47 @@
+/* TODO remove mark styling if https://github.com/primer/css/pull/1756 ships */
 .resultsContainer mark {
   background: none;
   color: inherit;
 }
 
-.searchResultTitle mark {
-  color: var(--color-accent-fg);
-}
-
-.searchResultIntro mark {
-  border-bottom: 1px solid currentColor;
-}
-
 .searchResultContent mark {
-  text-decoration: none;
-  border-bottom: 1px dotted currentColor;
+  color: var(--color-fg-default);
+  background-color: var(--color-attention-subtle);
+}
+/* end TODO */
+
+.searchResultContent {
+  max-height: 4rem;
 }
 
-.searchResultTitle em {
-  font-style: normal;
-  text-decoration: underline;
-}
-
-.resultsContainerOverlay {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
+.resultsContainerHeader {
   width: 0;
-  border-radius: 3px;
-  background: var(--color-canvas-default);
-  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 0 4px; // primer rounded-1
   transition: width 0.3s ease-in-out;
-  padding-top: 64px;
 }
 
-.resultsContainerOpen {
-  display: block;
-}
-.resultsContainerOpen.resultsContainerOverlay {
+.resultsContainerOpen.resultsContainerHeader {
   width: 60vw;
-  max-width: 760px;
+  max-width: 48rem;
 }
 
 .searchInput {
   transition: width 0.3s ease-in-out;
 }
-.searchInputOverlay {
-  max-width: 690px;
-  width: 256px;
-}
-.searchInputExpanded {
-  width: 55vw;
-  position: absolute;
-  right: 0;
-  top: 0;
+
+.searchInputHeader {
+  width: 16rem;
 }
 
-.searchOverlayOpen {
+.headerSearchOpen {
   background: var(--color-primer-canvas-backdrop);
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
+}
+
+.searchInputExpanded {
+  width: 54vw;
+  max-width: 43rem;
+}
+
+.headerSearchResults {
+  max-height: 80vh;
 }
