@@ -88,13 +88,13 @@ Se você deseja espelhar um repositório em outro local e ainda obter atualizaç
   $ cd <em>repository-to-mirror</em>
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
-Assim como um clone bare, um clone espelhado inclui todos os branches remotes e tags, mas todas as referências locais serão substituídas todas as vezes que você fizer fetch, assim ele sempre será o mesmo do repositório original. O push no espelho é simplificado pela configuração da URL para pushes.
 
-4. Para atualizar o espelho, obtenha atualizações e faça push.
-  ```shell
-  $ git fetch -p origin
-  $ git push --mirror
-  ```
+Assim como um clone bare, um clone espelhado inclui todos os branches remotes e tags, mas todas as referências locais serão substituídas todas as vezes que você fizer fetch, assim ele sempre será o mesmo do repositório original. O push no espelho é simplificado pela configuração da URL para pushes. Para atualizar o espelho, obtenha atualizações e faça push.
+
+```shell
+$ git fetch -p origin
+$ git push --mirror
+```
 {% ifversion fpt or ghec %}
 ## Leia mais
 

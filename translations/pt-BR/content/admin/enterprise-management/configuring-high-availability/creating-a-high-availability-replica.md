@@ -21,19 +21,28 @@ shortTitle: Criar réplica HA
 
 1. Configure um novo appliance do {% data variables.product.prodname_ghe_server %} na plataforma desejada. O appliance réplica deve refletir as configurações de CPU, RAM e armazenamento do appliance primário. É recomendável instalar o appliance réplica em um ambiente independente. Hardware, software e componentes de rede subjacentes devem ser isolados dos do appliance primário. Se estiver em um provedor de nuvem, use uma região ou zona separada. Para obter mais informações, consulte [Configurar uma instância do {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
 2. Em um navegador, vá até o novo endereço IP do appliance réplica e faça o upload da sua licença do {% data variables.product.prodname_enterprise %}.
-{% data reusables.enterprise_installation.replica-steps %}
+3. Defina uma senha de administrador correspondente à senha no appliance primário e continue.
+4. Clique em **Configure as Replica** (Configurar como réplica). ![Opções de instalação com link para configurar a nova instância como réplica](/assets/images/enterprise/management-console/configure-as-replica.png)
+5. Em "Add new SSH key" (Adicionar nova chave SSH), digite a chave SSH. ![Adicionar chave SSH](/assets/images/enterprise/management-console/add-ssh-key.png)
+6. Clique em **Add key** (Adicionar chave) e em **Continue** (Continuar).
 6. Conecte-se ao endereço IP do appliance réplica usando SSH.
   ```shell
   $ ssh -p 122 admin@<em>REPLICA IP</em>
   ```
-{% data reusables.enterprise_installation.generate-replication-key-pair %}
+7. Para gerar um par de chaves para replicação, use o comando `ghe-repl-setup` com o endereço IP do appliance primário e copie a chave pública que ele retorna.
+  ```shell
+  $ ghe-repl-setup <em>PRIMARY IP</em>
+  ```
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 9. Para verificar a conexão com o primário e habilitar o modo de réplica para a nova réplica, execute `ghe-repl-setup` novamente.
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
 {% data reusables.enterprise_installation.replication-command %}
-{% data reusables.enterprise_installation.verify-replication-channel %}
+11. Para verificar o status do canal de replicação de cada armazenamento de dados, use o comando `ghe-repl-status`.
+  ```shell
+  $ ghe-repl-status
+  ```
 
 ## Criar réplicas com replicação geográfica
 

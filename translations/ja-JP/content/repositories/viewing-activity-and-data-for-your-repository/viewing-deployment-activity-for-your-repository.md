@@ -31,4 +31,4 @@ shortTitle: View deployment activity
 2. To the right of the list of files, click **Environments**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png)
 
 ## 参考リンク
- - [プルリクエストについて](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
+ - [プルリクエストについて](/articles/about-pull-requests)

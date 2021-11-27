@@ -1,0 +1,20 @@
+date: '2020-02-27'
+sections:
+  security_fixes:
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/19116, https://github.com/github/enterprise2/pull/19110, https://github.com/github/enterprise2/pull/19154, https://github.com/github/enterprise2/pull/19142 {% endcomment %}'
+  bugs:
+    - 'A restauração a partir de backups geraria uma falha com um erro de "Invalid RDB version number". {% comment %} https://github.com/github/enterprise2/pull/19117, https://github.com/github/enterprise2/pull/19109 {% endcomment %}'
+    - 'Atualizar uma réplica de HA atrasou indefinidamente a espera para o MySQL iniciar. {% comment %} https://github.com/github/enterprise2/pull/19168, https://github.com/github/enterprise2/pull/19101 {% endcomment %}'
+    - 'Os comentários de revisão de PR com valores inesperados para "position" ou "original_position" geraram falha nas importações. {% comment %} https://github.com/github/github/pull/135439, https://github.com/github/github/pull/135374 {% endcomment %}'
+    - 'As entradas duplicadas de webhook no banco de dados podem gerar falha de atualizações de versões anteriores. {% comment %} https://github.com/github/hookshot/pull/1541, https://github.com/github/hookshot/pull/1426, https://github.com/github/hookshot/pull/1540 {% endcomment %}'
+  known_issues:
+    - 'Em uma nova configuração do GitHub Enterprise Server sem qualquer usuário, um invasor pode criar o primeiro usuário administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Ao fazer push em um gist, pode-se adicionar uma exceção durante o hook de post-receive. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'As atualizações e as definições de atualização irão falhar se as configurações em segundo plano do trabalhador forem personalizadas. {% comment %} https://github.com/github/enterprise2/issues/19119 {% endcomment %}'
+    - 'Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Ao atualizar de versões anteriores, os trabalhadores dos trabalho em segundo plano podem não ser gerados, evitando recursos essenciais como fazer merge de pull requests. (atualizado 2020-04-07) {% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - 'Os alertas de segurança não são relatados ao fazer push em um repositório na linha de comando. (atualizado 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'O gráfico de dependências não é a detecção de dependências quando implantadas em uma configuração de cluster com vários nós de Redis. (atualizado 2020-06-30) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'

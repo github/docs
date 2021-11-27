@@ -602,10 +602,6 @@
   description: >-
     リポジトリは GitHub の最も基本的な要素です。プロジェクトのフォルダとして最も想像しやすいものです。リポジトリ 1 つに（ドキュメントを含む）すべてのプロジェクトファイルが含まれ、各ファイルのリビジョン履歴が格納されます。リポジトリはコラボレータを複数持つことができ、またパブリックとプライベートのいずれの場合もあります。
 - 
-  term: repository cache
-  description: >-
-    A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
-- 
   term: リポジトリグラフ
   description: リポジトリのデータの視覚的表現。
 - 

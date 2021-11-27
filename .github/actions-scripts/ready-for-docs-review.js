@@ -60,7 +60,7 @@ async function run() {
   const featureID = findFieldID('Feature', data)
   const contributorTypeID = findFieldID('Contributor type', data)
   const sizeTypeID = findFieldID('Size', data)
-  const authorID = findFieldID('Contributor', data)
+  const authorID = findFieldID('Author', data)
 
   // Get the ID of the single select values that we want to set
   const readyForReviewID = findSingleSelectID('Ready for review', 'Status', data)

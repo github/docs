@@ -25,7 +25,6 @@ export type ArticleContextT = {
   defaultPlatform?: string
   product?: string
   currentLearningTrack?: LearningTrack
-  detectedPlatforms: Array<string>
 }
 
 export const ArticleContext = createContext<ArticleContextT | null>(null)
@@ -63,6 +62,5 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
     defaultPlatform: page.defaultPlatform || '',
     product: page.product || '',
     currentLearningTrack: req.context.currentLearningTrack,
-    detectedPlatforms: page.detectedPlatforms || [],
   }
 }

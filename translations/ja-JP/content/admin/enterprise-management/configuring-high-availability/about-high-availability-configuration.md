@@ -29,8 +29,7 @@ High Availability設定をする際には、プライマリからレプリカア
 
 High Availability設定は、以下に対するソリューションとしては適切ではありません。
 
-  - **スケーリング外**。 Geo-replicationを使えば地理的にトラフィックを分散させることができるものの、書き込みのパフォーマンスはプライマリアプライアンスの速度と可用性によって制限されます。 For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."{% ifversion ghes > 3.2 %}
-  - **CI/CD load**. If you have a large number of CI clients that are geographically distant from your primary instance, you may benefit from configuring a repository cache. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."{% endif %}
+  - **スケーリング外**。 Geo-replicationを使えば地理的にトラフィックを分散させることができるものの、書き込みのパフォーマンスはプライマリアプライアンスの速度と可用性によって制限されます。 詳細は「[Geo-replication について](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)」を参照してください。
   - **プライマリアプライアンスのバックアップ**。 High Availabilityレプリカは、システム災害復旧計画のオフサイトバックアップを置き換えるものではありません。 データ破壊や損失の中には、プライマリからレプリカへ即座にレプリケーションされてしまうものもあります。 安定した過去の状態への安全なロールバックを保証するには、履歴スナップショットでの定期的なバックアップを行う必要があります。
   - **ダウンタイムゼロのアップグレード**。 コントロールされた昇格のシナリオにおけるデータ損失やスプリットブレインの状況を避けるには、プライマリアプライアンスをメンテナンスモードにして、すべての書き込みが完了するのを待ってからレプリカを昇格させてください。
 

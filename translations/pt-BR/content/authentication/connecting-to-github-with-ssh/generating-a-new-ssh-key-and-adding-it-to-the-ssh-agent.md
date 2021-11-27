@@ -154,8 +154,6 @@ Antes de adicionar uma nova chave SSH ao agente para gerenciar suas chaves, voc�
 
   Caso não tenha a versão standard da Apple instalada, você poderá receber uma mensagem de erro. Para obter mais informações sobre como resolver esse erro, consulte "[Erro: ssh-add: opção ilícita -- K](/articles/error-ssh-add-illegal-option-k)".
 
-  No MacOS Monterey (12.0), os sinalizadores `-K` e `-A` tornaram-se obsoletos e foram substituídos pelos sinalizadores `--apple-use-keychain` e `--apple-load-keychain`, respectivamente.
-
   {% endnote %}
 
 4. Adicione a chave SSH à sua conta em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Adicionar uma nova chave SSH à sua conta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".

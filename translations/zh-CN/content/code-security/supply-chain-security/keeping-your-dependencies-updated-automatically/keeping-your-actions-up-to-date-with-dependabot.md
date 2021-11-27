@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
 type: how_to
 topics:
   - Repositories
@@ -17,10 +16,6 @@ topics:
   - Actions
 shortTitle: 自动更新操作
 ---
-
-{% data reusables.dependabot.beta-security-and-version-updates %}
-
-{% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## 关于操作的 {% data variables.product.prodname_dependabot_version_updates %}
 
@@ -36,7 +31,7 @@ shortTitle: 自动更新操作
 1. 设置 `schedule.interval` 指定检查新版本的频率。
 {% data reusables.dependabot.check-in-dependabot-yml %} 如果已编辑现有文件，请保存所做的更改。
 
-您也可以在复刻上启用 {% data variables.product.prodname_dependabot_version_updates %}。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-version-updates-on-forks)."
+您也可以在复刻上启用 {% data variables.product.prodname_dependabot_version_updates %}。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates#enabling-version-updates-on-forks)。”
 
 ### 例如用于 {% data variables.product.prodname_actions %} 的 *dependabot.yml* 文件
 

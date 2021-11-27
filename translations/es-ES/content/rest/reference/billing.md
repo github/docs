@@ -1,6 +1,5 @@
 ---
-title: Billing
-intro: 'With the Billing API, you can monitor the charges and usage {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} for a user or organization.'
+title: Facturación
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,7 +8,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-You can get billing information for an enterprise. For more information, see the "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin#billing)" REST API.
+Puedes monitorear tus cargos y uso de {% data variables.product.prodname_actions %} y de {% data variables.product.prodname_registry %} para un usuario y organización a través de la API de Facturación.
+
+Puedes obtener información de facturación para una empresa. Para obtener más información, consulta la API de REST para la "[ Administración de {% data variables.product.prodname_dotcom %} Enterprise](/rest/reference/enterprise-admin#billing)".
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

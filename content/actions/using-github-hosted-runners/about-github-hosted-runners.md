@@ -29,8 +29,6 @@ When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machi
 
 You can specify the runner type for each job in a workflow. Each job in a workflow executes in a fresh instance of the virtual machine. All steps in the job execute in the same instance of the virtual machine, allowing the actions in that job to share information using the filesystem.
 
-{% ifversion not ghes %}
-
 {% data reusables.github-actions.runner-app-open-source %}
 
 ### Cloud hosts for {% data variables.product.prodname_dotcom %}-hosted runners
@@ -142,7 +140,5 @@ Actions that run in Docker containers have static directories under the `/github
 
 ## Further reading
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
-
-{% endif %}
 
 {% endif %}

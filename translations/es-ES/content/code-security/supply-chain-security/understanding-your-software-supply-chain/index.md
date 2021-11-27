@@ -1,5 +1,5 @@
 ---
-title: Understanding your software supply chain
+title: Entender tu cadena de suministro de software
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,6 @@ children:
   - /about-the-dependency-graph
   - /exploring-the-dependencies-of-a-repository
   - /about-dependency-review
-shortTitle: Understand your supply chain
+shortTitle: Entender la cadena de suministro
 ---
 

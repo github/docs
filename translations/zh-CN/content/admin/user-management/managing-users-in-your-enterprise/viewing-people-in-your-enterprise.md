@@ -38,10 +38,6 @@ shortTitle: 查看企业中的人员
 {% ifversion ghec %}1. （可选）要查看待处理邀请列表，请单击 **_NUMBER_ pending（待处理）**。
   ![搜索和过滤选项右侧的 "NUMBER 待处理" 按钮](/assets/images/help/enterprises/members-pending.png){% endif %}
 
-## 查看休眠用户
-
-You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} 更多信息请参阅“[管理休眠用户](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)”。
-
 ## 延伸阅读
 
 - "[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"

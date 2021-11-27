@@ -9,12 +9,12 @@
 
 import dotenv from 'dotenv'
 import Github from '../helpers/github.js'
-import { execSync } from 'child_process'
-import uniq from 'lodash/uniq.js'
-import { existsSync } from 'fs'
+import { promisify } from 'util'
+import ChildProcess from 'child_process'
 
 dotenv.config()
 const github = Github()
+const exec = promisify(ChildProcess.exec)
 
 // Check for required PAT
 if (!process.env.GITHUB_TOKEN) {
@@ -37,28 +37,26 @@ async function main() {
   // Get the list of broken files from the body text.
   const brokenFiles = body.replace(/^[\s\S]*?## List of Broken Translations/m, '').trim()
 
-  // De-duplicate the list of broken files and filter out any that don't exist in the repo.
-  const brokenFilesArray = uniq(
-    brokenFiles
-      .split('\n')
-      .filter((line) => !line.toLowerCase().startsWith('- [x]'))
-      .map((line) => line.replace('- [ ] ', '').trim())
-      .filter((line) => existsSync(line))
-  )
+  // Turn it into a simple array of files.
+  const brokenFilesArray = brokenFiles
+    .split('\n')
+    .filter((line) => !line.toLowerCase().startsWith('- [x]'))
+    .map((line) => line.replace('- [ ] ', '').trim())
 
-  // Revert each of the broken files.
-  // This is done sequentially to ensure only one Git operation is running at any given time.
-  brokenFilesArray.forEach((file) => {
-    console.log(`Resetting ${file}`)
-    execSync(`node script/i18n/reset-translated-file.js ${file}`)
-  })
+  // Run the script to revert them.
+  await Promise.all(
+    brokenFilesArray.map(async (file) => {
+      console.log(`resetting ${file}`)
+      await exec(`script/i18n/reset-translated-file.js --prefer-main ${file}`)
+    })
+  )
 
   // Print a message with next steps.
   console.log(`
 Success!
-
-Verify changes with git status and then run:
-
+  
+Verify changes with git status and then run: 
+  
 git commit --no-verify -m "Reset broken translated files to English"
 `)
 }

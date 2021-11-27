@@ -107,7 +107,7 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - To disable {% data variables.product.prodname_dependabot_alerts %}, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
+    - To disable {% data variables.product.prodname_dependabot %}, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
     {% ifversion ghes > 3.1 %}```shell
     ghe-config app.dependency-graph.enabled false
     ```

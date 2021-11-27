@@ -1,0 +1,1 @@
+上記のワークフローは、{% data variables.product.prodname_dotcom %} リポジトリをチェックアウトし、`login-action` を使用してレジストリにログインし、続いて`build-push-action` アクションを使用して、Dockerイメージをビルドしてプッシュします。 これは、ビルドされた Docker イメージにワークフローイベントの Git リファレンスをタグ付けします。 このワークフローは、{% data variables.product.prodname_dotcom %} リリースの公開で動作するので、参照されるのはそのリリースのGitタグになります。

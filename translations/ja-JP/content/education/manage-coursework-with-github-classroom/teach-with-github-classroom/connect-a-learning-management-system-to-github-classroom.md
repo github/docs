@@ -99,7 +99,7 @@ LTIは、情報の安全性と機密性を保つために役立ちます。 LTI�
 
 Moodleのバージョンは3.0以上である必要があります。
 
-1. [Moodle](https://moodle.org/login/)にサインインします。
+1. [Moodle](https://moodle.org/login/index.php)にサインインします。
 1. {% data variables.product.prodname_classroom %}と連携するMoodleのコースを選択します。
 1. [**Turn editing on**] をクリックします。
 1. Moodleで{% data variables.product.prodname_classroom %}を使用するところで、[**Add an activity or resource**] をクリックします。

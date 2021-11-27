@@ -102,10 +102,6 @@ For {% data variables.product.product_location %} to detect vulnerable dependenc
 
    {% endtip %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
-When you enable {% data variables.product.prodname_dependabot_alerts %}, you should consider also setting up {% data variables.product.prodname_actions %} for {% data variables.product.prodname_dependabot_security_updates %}. This feature allows developers to fix vulnerabilities in their dependencies. For more information, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
-{% endif %}
-
 ## 查看 {% data variables.product.product_location %} 上易受攻击的依赖项
 
 您可以查看 {% data variables.product.product_location %} 中的所有漏洞，然后手动同步 {% data variables.product.prodname_dotcom_the_website %} 中的漏洞数据，以更新列表。

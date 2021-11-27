@@ -9,7 +9,6 @@ import {
 } from 'components/ui/MarkdownContent/MarkdownContent'
 import { ScrollButton, ScrollButtonPropsT } from 'components/ui/ScrollButton/ScrollButton'
 import { TruncateLines, TruncateLinesPropsT } from 'components/ui/TruncateLines/TruncateLines'
-import { Picker, PickerPropsT } from 'components/ui/Picker/Picker'
 
 const markdownExample = (
   <>
@@ -133,29 +132,6 @@ const stories = [
     variants: [{ children: markdownExample } as MarkdownContentPropsT],
   },
   {
-    name: 'Picker',
-    component: Picker,
-    variants: [
-      {
-        defaultText: 'Choose color',
-        options: [
-          { text: 'Red', item: <span>Red</span> },
-          { text: 'Green', item: <span>Green</span> },
-          { text: 'Blue', item: <span>Blue</span> },
-        ],
-      } as PickerPropsT,
-      {
-        defaultText: 'Choose color',
-        variant: 'inline',
-        options: [
-          { text: 'Red', item: <span>Red</span> },
-          { text: 'Green', item: <span>Green</span> },
-          { text: 'Blue', item: <span>Blue</span> },
-        ],
-      } as PickerPropsT,
-    ],
-  },
-  {
     name: 'ScrollButton',
     component: ScrollButton,
     variants: [{ className: '', ariaLabel: 'Scroll to top' } as ScrollButtonPropsT],
@@ -179,7 +155,7 @@ function displayProps(props: Object) {
   const xprops = Object.fromEntries(
     Object.entries(props).map(([key, value]) => [
       key,
-      React.isValidElement(value) ? ReactDomServer.renderToString(value) : value,
+      key === 'children' ? ReactDomServer.renderToString(value) : value,
     ])
   )
   return JSON.stringify(xprops, null, 2)
@@ -193,7 +169,7 @@ export default function Storybook() {
       <div className="my-4 d-lg-flex flex-items-start">
         <nav className="menu col-12 col-lg-3 mr-4 color-bg-subtle position-lg-sticky top-0">
           {stories.map(({ name }) => (
-            <a key={name} className="menu-item" href={`#${name}`}>
+            <a className="menu-item" href={`#${name}`}>
               {name}
             </a>
           ))}

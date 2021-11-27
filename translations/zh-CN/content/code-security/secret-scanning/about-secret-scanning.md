@@ -2,7 +2,6 @@
 title: 关于密码扫描
 intro: '{% data variables.product.product_name %} 扫描仓库查找已知的密码类型，以防止欺诈性使用意外提交的密码。'
 product: '{% data reusables.gated-features.secret-scanning %}'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning
@@ -36,8 +35,6 @@ topics:
 {% data variables.product.prodname_secret_scanning_caps %} 自动对公共仓库启用。 当您推送到公共仓库时，{% data variables.product.product_name %} 会扫描提交的内容中是否有密码。 如果将私有仓库切换到公共仓库，{% data variables.product.product_name %} 会扫描整个仓库中的密码。
 
 当 {% data variables.product.prodname_secret_scanning %} 检测一组凭据时，我们会通知发布密码的服务提供商。 服务提供商会验证该凭据，然后决定是否应撤销密钥、颁发新密钥或直接与您联系，具体取决于与您或服务提供商相关的风险。 有关如何使用令牌颁发合作伙伴的概述，请参阅“[密码扫描合作伙伴计划](/developers/overview/secret-scanning-partner-program)”。
-
-### List of supported secrets for public repositories
 
 {% data variables.product.product_name %} 当前会扫描公共仓库，查找以下服务提供商发布的密码。
 
@@ -73,11 +70,6 @@ When {% data variables.product.prodname_secret_scanning %} detects a secret in a
 
 {% ifversion fpt or ghes > 3.0 or ghec %}
 要监控来自私有仓库或组织中的 {% data variables.product.prodname_secret_scanning %} 的结果，可以使用 {% data variables.product.prodname_secret_scanning %} API。 有关 API 端点的更多信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)”。{% endif %}
-
-{% ifversion ghes or ghae %}
-## List of supported secrets{% else %}
-### List of supported secrets for private repositories
-{% endif %}
 
 {% data variables.product.prodname_dotcom %}  currently scans{% ifversion fpt or ghec %} private{% endif %} repositories for secrets issued by the following service providers.
 

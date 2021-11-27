@@ -21,7 +21,6 @@ search:
   placeholder: トピックや製品などの検索
   loading: ロード中
   no_results: 結果が見つかりませんでした
-  no_content: No content
 homepage:
   explore_by_product: 製品で調べる
   version_picker: バージョン

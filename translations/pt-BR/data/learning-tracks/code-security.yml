@@ -42,7 +42,7 @@ dependency_version_updates:
   description: 'Use o Dependabot para verificar novas versões e criar pull requests para atualizar suas dependências.'
   guides:
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-version-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot

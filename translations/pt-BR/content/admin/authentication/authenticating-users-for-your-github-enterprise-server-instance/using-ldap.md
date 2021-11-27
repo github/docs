@@ -139,7 +139,7 @@ Depois que você habilitar a sincronização LDAP, um trabalho de sincronizaçã
 Um trabalho de sincronização também será executado no período especificado para fazer as seguintes operações em cada equipe mapeada para um grupo LDAP:
 
 - Se um grupo LDAP correspondente de uma equipe tiver sido removido, remova todos os integrantes da equipe.
-- Se as entradas do integrante LDAP tiverem sido removidas do grupo LDAP, remova os usuários correspondentes da equipe. Se o usuário não for mais integrante de qualquer equipe na organização, remova o usuário da organização. Se o usuário perder o acesso a qualquer repositórios, exclua todas as bifurcações privadas que ele possa ter nesses repositórios.
+- Se as entradas do integrante LDAP tiverem sido removidas do grupo LDAP, remova os usuários correspondentes da equipe. Se o usuário perder o acesso a qualquer repositórios, exclua todas as bifurcações privadas que ele possa ter nesses repositórios.
 - Se as entradas do integrante LDAP tiverem sido adicionadas ao grupo LDAP, adicione os usuários correspondentes à equipe. Se o usuário recuperar o acesso a quaisquer repositórios, restaure todas as bifurcações privadas dos repositórios que foram excluídos porque o usuário perdeu o acesso nos últimos 90 dias.
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}

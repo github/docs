@@ -66,7 +66,7 @@ For information about access requirements for actions related to {% data variabl
 
 When {% data variables.product.product_name %} identifies a vulnerable dependency, we generate a {% data variables.product.prodname_dependabot %} alert and display it {% ifversion fpt or ghec or ghes > 3.0 %} on the Security tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes > 3.0 %}a link to the affected file in the project, and {% endif %}information about a fixed version. {% data variables.product.product_name %} may also notify the maintainers of affected repositories about the new alert according to their notification preferences. 詳しい情報については、「[脆弱性のある依存関係に対する通知を設定する](/code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies)」を参照してください。
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec %}
 {% data variables.product.prodname_dependabot_security_updates %} が有効になっているリポジトリの場合、アラートには、マニフェストまたはロックファイルを脆弱性を解決する最小バージョンに更新するためのPull Requestへのリンクも含まれる場合があります。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
 {% endif %}
 
@@ -88,9 +88,9 @@ When {% data variables.product.product_name %} identifies a vulnerable dependenc
 
 {% data variables.product.prodname_advisory_database %}内の特定の脆弱性に対応するすべての{% data variables.product.prodname_dependabot_alerts %}を見ることもできます。 {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec %}
 ## 参考リンク
 
 - 「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」
-- [リポジトリ内の脆弱な依存関係を表示・更新する](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository){% endif %}
-{% ifversion fpt or ghec %}- "[Understanding how {% data variables.product.prodname_dotcom %} uses and protects your data](/categories/understanding-how-github-uses-and-protects-your-data)"{% endif %}
+- [リポジトリ内の脆弱な依存関係を表示・更新する](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)
+- [{% data variables.product.prodname_dotcom %} によるデータの利用方法と保護方法を理解する](/categories/understanding-how-github-uses-and-protects-your-data){% endif %}

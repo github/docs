@@ -16,7 +16,7 @@ topics:
 
 您可以在所有 {% data variables.product.product_name %} 内全局搜索提交，也可以在特定仓库或组织内搜索提交。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
 
-当您搜索提交时，仅搜索仓库的[默认分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)。
+当您搜索提交时，仅搜索仓库的[默认分支](/articles/about-branches)。
 
 {% data reusables.search.syntax_tips %}
 

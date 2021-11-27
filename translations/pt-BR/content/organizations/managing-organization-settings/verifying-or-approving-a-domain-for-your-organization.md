@@ -31,8 +31,6 @@ Após a verificação da propriedade dos domínios da sua organização, é exib
 
 {% ifversion fpt or ghec %}Em {% data variables.product.prodname_ghe_cloud %}, depois de verificar a propriedade do domínio da sua organização, você pode restringir notificações de e-mail para a organização para esse domínio. Para obter mais informações, consulte "[Restringir notificações de e-mail para sua organização](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)". {% ifversion fpt %}{% data reusables.enterprise.link-to-ghec-trial %}{% endif %}{% endif %}
 
-{% ifversion fpt or ghec %}You can also verify custom domains used for {% data variables.product.prodname_pages %} to prevent domain takeovers when a custom domain remains configured but your {% data variables.product.prodname_pages %} site is either disabled or no longer uses the domain. For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."{% endif %}
-
 ## Sobre a aprovação de domínio
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}

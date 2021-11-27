@@ -1,0 +1,1 @@
+1. Outra opção é selecionar **Include administrators** (Incluir administradores). Isto impõe todas as restrições de configuração para os administradores do repositório. ![Caixa de seleção Include administrators (Incluir administradores)](/assets/images/help/repository/include-admins-protected-branches.png)

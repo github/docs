@@ -19,9 +19,7 @@ shortTitle: 使用 MinIO 启用包
 - 请确保配置将来要使用的存储桶。 在开始使用 {% data variables.product.prodname_registry %} 后，我们不建议更改存储系统。
 
 {% endwarning %}
-
 ## 基本要求
-
 在 {% data variables.product.product_location_enterprise %} 上启用和配置 {% data variables.product.prodname_registry %} 之前，您必须准备 MinIO 存储桶。 为了帮助您快速设置 MinIO 桶并导航 MinIO 的自定义选项，请参阅“[为 {% data variables.product.prodname_registry %} 配置 MinIO 存储桶快速入门](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages)”。
 
 确保您的 MinIO 外部存储访问密钥 ID 和密码具有以下权限：

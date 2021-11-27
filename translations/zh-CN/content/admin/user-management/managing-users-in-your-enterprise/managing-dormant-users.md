@@ -6,9 +6,8 @@ redirect_from:
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
   - /admin/user-management/managing-dormant-users
-intro: '{% data reusables.enterprise-accounts.dormant-user-activity-threshold %}'
+intro: '如果用户帐户至少在一个月内未激活，则被视为休眠状态。{% ifversion ghes %} 您可以选择暂停休眠用户以释放用户许可。{% endif %}'
 versions:
-  ghec: '*'
   ghes: '*'
   ghae: '*'
 type: how_to
@@ -18,12 +17,16 @@ topics:
   - Licensing
 ---
 
-{% data reusables.enterprise-accounts.dormant-user-activity %}
+“活动”包括但不限于：
+- 登录 {% data variables.product.product_name %}。
+- 评论问题和拉取请求。
+- 创建、删除、关注仓库和加星标。
+- 推送提交。{% ifversion ghes or ghae %}
+- 使用个人访问令牌或 SSH 密钥访问资源。{% endif %}
 
-{% ifversion ghes or ghae%}
 ## 查看休眠用户
 
-{% data reusables.enterprise-accounts.viewing-dormant-users %}
+您可以查看未被挂起和不属于站点管理员的所有休眠用户的列表。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 3. 在左侧边栏中，单击 **Dormant users**。 ![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% ifversion ghes %}
@@ -41,27 +44,10 @@ topics:
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
+{% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
+{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. 在“Dormancy threshold”，使用下拉菜单，然后单击所需的休眠阈值。 ![Dormancy threshold 下拉菜单](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
-
-{% endif %}
-
-{% ifversion ghec %}
-
-{% data reusables.enterprise-accounts.dormant-user-release-phase %}
-
-{% warning %}
-
-**Note:** During the private beta, ongoing improvements to the report download feature may limit its availability.
-
-{% endwarning %}
-
-## Downloading the dormant users report from your enterprise account
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
-1. To download your Dormant Users (beta) report as a CSV file, under "Other", click {% octicon "download" aria-label="The Download icon" %} **Download**. ![Download button under "Other" on the Compliance page](/assets/images/help/business-accounts/dormant-users-download-button.png)
-
-{% endif %}

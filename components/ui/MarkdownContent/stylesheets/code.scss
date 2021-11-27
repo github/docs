@@ -1,16 +1,16 @@
 .markdownBody {
   [class~="highlight"] pre,
   pre {
-    margin-top: 0.5rem;
+    margin-top: 10px;
   }
 
   [class~="height-constrained-code-block"] pre {
-    max-height: 32rem;
+    max-height: 500px;
     overflow: auto;
   }
 
   [class~="code-extra"] {
-    margin-top: 1.5rem;
+    margin-top: 24px;
 
     pre {
       margin-top: 0 !important;
@@ -22,24 +22,24 @@
     }
   }
 
-  // on graphql/overview/resource-limitations
-  pre [class~="redbox"],
-  pre [class~="greenbox"],
-  pre [class~="bluebox"] {
-    color: var(--color-fg-on-emphasis);
-    padding: 0 0.25rem;
-    border-radius: 4px; // primer rounded-1
-  }
-
   pre [class~="redbox"] {
-    background-color: var(--color-danger-emphasis);
+    border: 2px solid var(--color-danger-emphasis);
+    padding: 2px;
+    border-radius: 2px;
+    margin-right: 2px;
   }
 
   pre [class~="greenbox"] {
-    background-color: var(--color-success-emphasis);
+    border: 2px solid var(--color-success-emphasis);
+    padding: 2px;
+    border-radius: 2px;
+    margin-right: 2px;
   }
 
   pre [class~="bluebox"] {
-    background-color: var(--color-accent-emphasis);
+    border: 2px solid var(--color-accent-emphasis);
+    padding: 2px;
+    border-radius: 2px;
+    margin-right: 2px;
   }
 }

@@ -52,7 +52,7 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
-   {%- ifversion ghes > 3.0 %}
+   {%- ifversion ghes %}
    ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
    ![Add actions to allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)

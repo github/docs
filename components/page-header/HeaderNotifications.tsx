@@ -87,7 +87,6 @@ export const HeaderNotifications = () => {
             data-testid="header-notification"
             data-type={type}
             className={cx(
-              'flash flash-banner',
               styles.container,
               'text-center f5 color-fg-default py-4 px-6',
               type === NotificationType.TRANSLATION && 'color-bg-accent',

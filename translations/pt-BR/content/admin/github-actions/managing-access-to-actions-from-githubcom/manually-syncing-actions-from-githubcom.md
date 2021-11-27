@@ -34,14 +34,6 @@ Se sua máquina tiver acesso aos dois sistemas ao mesmo tempo, você poderá faz
 
 A ferramenta `actions-sync` só pode fazer download de ações de {% data variables.product.prodname_dotcom_the_website %} armazenadas em repositórios públicos.
 
-{% ifversion ghes > 3.2 or ghae-issue-4815 %}
-{% note %}
-
-**Observação:** A ferramenta `actions-sync` destina-se a ser usada em sistemas em que {% data variables.product.prodname_github_connect %} não está habilitado. Se você executar a ferramenta em um sistema com {% data variables.product.prodname_github_connect %} habilitado, você poderá ver o erro `O repositório <repo_name> foi desativado e não pode ser reutilizado`. Isso indica que um fluxo de trabalho usou essa ação diretamente em {% data variables.product.prodname_dotcom_the_website %} e o namespace está desativado em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Desativação automática de namespaces para ações acessadas em {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)".
-
-{% endnote %}
-{% endif %}
-
 ## Pré-requisitos
 
 * Antes de usar a ferramenta `actions-sync`, você deve garantir que todas as organizações de destino existem na sua empresa. O exemplo a seguir demonstra como sincronizar ações com uma organização com o nome de `synced-actions`. Para obter mais informações, consulte "[Criar uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".

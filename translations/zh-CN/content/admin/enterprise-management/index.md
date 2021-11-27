@@ -12,7 +12,6 @@ children:
   - /updating-the-virtual-machine-and-physical-resources
   - /configuring-clustering
   - /configuring-high-availability
-  - /caching-repositories
 shortTitle: 监控、管理和更新
 ---
 

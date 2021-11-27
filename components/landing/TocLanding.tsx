@@ -1,6 +1,7 @@
 import { DefaultLayout } from 'components/DefaultLayout'
 import { TableOfContents } from 'components/landing/TableOfContents'
 import { useTocLandingContext } from 'components/context/TocLandingContext'
+import { VersionPicker } from 'components/VersionPicker'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { ArticleList } from 'components/landing/ArticleList'
@@ -26,10 +27,10 @@ export const TocLanding = () => {
   return (
     <DefaultLayout>
       <div className="container-xl px-3 px-md-6 my-4">
-        <ArticleGridLayout>
+        <ArticleGridLayout topperSidebar={<VersionPicker />}>
           <ArticleTitle>{title}</ArticleTitle>
 
-          {introPlainText && <Lead data-search="lead">{introPlainText}</Lead>}
+          {introPlainText && <Lead>{introPlainText}</Lead>}
 
           {productCallout && (
             <Callout variant="success" dangerouslySetInnerHTML={{ __html: productCallout }} />

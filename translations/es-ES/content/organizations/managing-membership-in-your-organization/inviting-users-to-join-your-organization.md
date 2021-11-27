@@ -1,6 +1,6 @@
 ---
-title: Inviting users to join your organization
-intro: 'You can invite anyone to become a member of your organization using their {% data variables.product.product_name %} username or email address.'
+title: Invitar a usuarios para que se unan a tu organización
+intro: 'Puedes invitar a cualquier persona a que se convierta en miembro de tu organización usando su nombre de usuario o dirección de correo electrónico {% data variables.product.product_name %}.'
 permissions: Organization owners can invite users to join an organization.
 redirect_from:
   - /articles/adding-or-inviting-members-to-a-team-in-an-organization/
@@ -12,18 +12,16 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Invite users to join
+shortTitle: Invitar a los usuarios para que se unan
 ---
 
-## About organization invitations
+{% tip %}
 
-If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." 
+**Tips**:
+- Si tu organización tiene una suscripción de pago por usuario, debe de existir una licencia sin utilizarse antes de que puedas invitar a un nuevo miembro para que se una a la organización o antes de reinstaurar a algún miembro previo de la misma. Para obtener más información, consulta "[About per-user pricing](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-scim %}
+- Si tu organización requiere que los miembros utilicen autenticación bifactorial, los usuarios que invites deben habilitarla antes de aceptar la invitación. Para obtener más información, consulta las secciones "[Requerir autenticación bifactorial en tu organización](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)" y "[Asegurar tu cuenta con la autenticación bifactorial (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)".
 
-{% data reusables.organizations.org-invite-scim %}
-
-If your organization requires members to use two-factor authentication, users that you invite must enable two-factor authentication before accepting the invitation. For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)" and "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
-
-## Inviting a user to join your organization
+{% endtip %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -36,5 +34,5 @@ If your organization requires members to use two-factor authentication, users th
 {% data reusables.organizations.send-invitation %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 
-## Further reading
-- "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"
+## Leer más
+- "[Agregar miembros de la organización a un equipo](/articles/adding-organization-members-to-a-team)"

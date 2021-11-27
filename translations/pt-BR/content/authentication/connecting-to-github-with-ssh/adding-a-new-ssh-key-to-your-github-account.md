@@ -125,8 +125,6 @@ Depois de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% da
 
 {% data reusables.cli.cli-learn-more %}
 
-Antes de poder usar o {% data variables.product.prodname_cli %} para adicionar uma chave SSH à sua conta, você deve efetuar a autenticação no {% data variables.product.prodname_cli %}. Para obter mais informações, consulte [`login login gh`](https://cli.github.com/manual/gh_auth_login) na documentação do {% data variables.product.prodname_cli %}.
-
 Para adicionar uma chave SSH à sua conta do GitHub, use o subcomando `ssh-key add`, especificando a sua chave pública.
 
 ```shell
@@ -137,12 +135,6 @@ Para incluir um título para a nova chave, use o sinalizador `-t` ou `--title`.
 
 ```shell
 gh ssh-key add <em>key-file</em> --title "personal laptop"
-```
-
-Se você gerou a sua chave SSH seguindo as instruções em "[Gerando uma nova chave SSH](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)", você pode adicionar a chave à sua conta usando este comando.
-
-```shell
-gh ssh-key add ~/.ssh/id_ed25519.pub
 ```
 
 {% endcli %}

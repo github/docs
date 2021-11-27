@@ -55,7 +55,6 @@
 | Mailchimp                 | Mandrill API Key                                    |
 | Mailgun                   | Mailgun API Key                                     |
 | MessageBird               | MessageBird API Key                                 |
-| メタ情報                      | Facebook Access Token                               |
 | npm                       | npm Access Token                                    |
 | NuGet                     | NuGet API Key                                       |
 | OpenAI                    | OpenAI API Key                                      |

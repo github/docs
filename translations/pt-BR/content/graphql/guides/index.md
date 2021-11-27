@@ -1,6 +1,6 @@
 ---
-title: Guides
-intro: 'Learn about getting started with GraphQL, migrating from REST to GraphQL, and how to use the GitHub GraphQL API for a variety of tasks.'
+title: Guias
+intro: 'Saiba mais sobre como começar com o GraphQL, migrando da REST para o GraphQL e como usar a API do GraphQL do GitHub para uma variedade de tarefas.'
 redirect_from:
   - /v4/guides
 versions:
@@ -18,6 +18,5 @@ children:
   - /using-the-explorer
   - /managing-enterprise-accounts
   - /using-the-graphql-api-for-discussions
-  - /migrating-graphql-global-node-ids
 ---
 

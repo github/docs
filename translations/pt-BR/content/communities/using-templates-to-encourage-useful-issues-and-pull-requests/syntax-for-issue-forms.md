@@ -1,6 +1,7 @@
 ---
 title: Sintaxe para formulários de problema
 intro: 'Você pode definir diferentes tipos de entrada, validações, responsáveis padrão e etiquetas padrão para seus formulários de problemas.'
+product: 'Os formulários de problemas estão disponíveis em beta para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}'
 versions:
   fpt: '*'
   ghec: '*'

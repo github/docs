@@ -3,6 +3,7 @@ title: Customizing GitHub-hosted runners
 intro: You can install additional software on GitHub-hosted runners as a part of your workflow.
 versions:
   fpt: '*'
+  ghes: '*'
   ghec: '*'
 type: tutorial
 topics:

@@ -10,7 +10,7 @@ topics:
   - Set up
   - Fundamentals
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: Prebuild Codespaces
+shortTitle: Prebuilding Codespaces
 ---
 
 {% note %}

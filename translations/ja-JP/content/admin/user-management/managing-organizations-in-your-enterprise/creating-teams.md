@@ -37,8 +37,6 @@ Teamの良く考えられた組み合わせは、リポジトリへのアクセ�
 
 ユーザ認証にLDAPを使っているインスタンスでは、Teamのメンバー管理にLDAP Syncが使えます。 **LDAP group** フィールド内のグループの **Distinguished Name** (DN) を設定すれば、Team を LDAP サーバ上の LDAP グループにマッピングできます。 Teamのメンバー管理にLDAP Syncを使う場合、{% data variables.product.product_location %}内でTeamを管理することはできません。 LADP Syncを有効化すると、マッピングされたTeamはそのメンバーをバックグラウンドで定期的に設定された間隔で同期します。 詳しい情報については[LDAP Syncの有効化](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)を参照してください。
 
-You must be a site admin and an organization owner to create a team with LDAP sync enabled.
-
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 {% warning %}

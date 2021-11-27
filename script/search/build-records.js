@@ -61,13 +61,19 @@ export default async function buildRecords(
   const waiter = domwaiter(permalinks, { maxConcurrent: MAX_CONCURRENT, minTime: MIN_TIME })
     .on('page', (page) => {
       process.stdout.write(pageMarker)
-      const newRecord = parsePageSectionsIntoRecords(page)
+      const newRecords = parsePageSectionsIntoRecords(page.href, page.$)
       const hrefWithoutLocale = page.href.split('/').slice(2).join('/')
 
       const popularity = (hasPopularPages && popularPages[hrefWithoutLocale]) || 0.0
-      newRecord.popularity = popularity
-      process.stdout.write(recordMarker)
-      records.push(newRecord)
+
+      for (const newRecord of newRecords) {
+        newRecord.popularity = popularity
+      }
+      if (!newRecords.length) {
+        console.log(chalk.red(`\nno records found: ${page.href}`))
+      }
+      process.stdout.write(recordMarker.repeat(newRecords.length))
+      records.push(...newRecords)
     })
     .on('error', (err) => {
       console.error(err)

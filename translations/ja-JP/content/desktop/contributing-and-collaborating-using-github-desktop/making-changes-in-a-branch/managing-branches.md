@@ -17,7 +17,7 @@ versions:
 
 You can also create a branch starting from a previous commit in a branch's history. This can be helpful if you need to return to an earlier view of the repository to investigate a bug, or to create a hot fix on top of your latest release.
 
-作業が完了したら、プルリクエストを作成して、現在のブランチの変更を別のブランチにマージできます。 For more information, see "[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" and "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+作業が完了したら、プルリクエストを作成して、現在のブランチの変更を別のブランチにマージできます。 詳しい情報については、「[Issue またはプルリクエストを作成する](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)」および「[プルリクエストについて](/articles/about-pull-requests)」を参照してください。
 
 リポジトリへの読み取りアクセスがある場合は、常に {% data variables.product.prodname_desktop %} でブランチを作成できますが、リポジトリへの書き込みアクセスがある場合のみ、ブランチを {% data variables.product.prodname_dotcom %} にプッシュできます。
 
@@ -115,6 +115,6 @@ You can also create a branch starting from a previous commit in a branch's histo
 
 - 「[{% data variables.product.prodname_desktop %}からのリポジトリのクローン方法](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)」
 - {% data variables.product.prodname_dotcom %} 用語集中の[ブランチ](/articles/github-glossary/#branch)
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- [ブランチについて](/articles/about-branches)
 - Gitのドキュメンテーション中の[ブランチの要約](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
 - "[Stashing changes](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)"

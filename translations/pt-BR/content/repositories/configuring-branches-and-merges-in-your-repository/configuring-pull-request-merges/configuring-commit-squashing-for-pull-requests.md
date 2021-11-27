@@ -26,5 +26,5 @@ shortTitle: Configurar combinação por squash de commit
 
 ## Leia mais
 
-- "[Sobre merges de pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
-- "[Fazer merge de uma pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
+- "[Sobre merges de pull request](/articles/about-pull-request-merges)"
+- "[Fazer merge de uma pull request](/articles/merging-a-pull-request)"

@@ -1,0 +1,1 @@
+1. Em "Private Key" (Chave Privada), digite a chave privada do seu {% data variables.product.prodname_github_app %}, que está contido no arquivo PEM que você baixou ao criar o aplicativo. ![Campo chave privada](/assets/images/help/insights/private-key.png)

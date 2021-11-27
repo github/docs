@@ -139,7 +139,7 @@ topics:
 某个同步作业也将以指定的时间间隔运行，在已经映射到 LDAP 组的每个团队上执行以下操作：
 
 - 如果已移除团队的相应 LDAP 组，请移除团队中的所有成员。
-- 如果已从 LDAP 组中移除 LDAP 成员条目，请从团队中移除相应的用户。 If the user is no longer a member of any team in the organization, remove the user from the organization. 如果用户因此失去了任何仓库的访问权限，请删除用户在这些仓库中的任何私有分叉。
+- 如果已从 LDAP 组中移除 LDAP 成员条目，请从团队中移除相应的用户。 如果用户因此失去了任何仓库的访问权限，请删除用户在这些仓库中的任何私有分叉。
 - 如果已向 LDAP 组中添加 LDAP 成员条目，请将相应的用户添加到团队中。 如果用户因此重新获得了任何仓库的访问权限，请恢复过去 90 天内因为用户失去访问权限而被删除的仓库中的任何私有分叉。
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}

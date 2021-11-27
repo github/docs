@@ -48,18 +48,12 @@ export default class LunrIndex {
         this.use(lunr[language])
       }
 
-      // By default Lunr considers the `-` character to be a word boundary.
-      // This allows hyphens to be included in the search index.
-      // If you change this, remember to make it match the indexing separator
-      // in lib/search/lunr-search.js so the query is tokenized
-      // identically to the way it was indexed.
-      this.tokenizer.separator = /[\s]+/
-
       this.ref('objectID')
       this.field('url')
+      this.field('slug')
       this.field('breadcrumbs')
-      this.field('headings', { boost: 3 })
-      this.field('title', { boost: 5 })
+      this.field('heading')
+      this.field('title')
       this.field('content')
       this.field('topics')
       this.field('customRanking')

@@ -28,7 +28,7 @@ Esses registros contêm informações detalhadas sobre o codespace, container, s
 {% webui %}
 
 1. Se estiver usando {% data variables.product.prodname_codespaces %} no navegador, certifique-se de que esteja conectado ao codespace que deseja depurar.
-1. Abra a paleta de comando de {% data variables.product.prodname_vscode %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) e digite **Exportar registros**. Selecione **Codespaces: Exportar registros** na lista para fazer o download dos registros.
+1. Open the {% data variables.product.prodname_vscode %} Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Export logs**. Selecione **Codespaces: Exportar registros** na lista para fazer o download dos registros.
 1. Defina o local onde salvar o arquivo zip dos registros e, em seguida, clique em **Salvar** (desktop) ou clique em **OK** (web).
 1. Se estiver usando {% data variables.product.prodname_codespaces %} no navegador, clique com o botão direito do mouse no arquivo zip dos registros na exibição do Explorer e selecione **Download…** para fazer o download para a sua máquina local.
 
@@ -36,14 +36,14 @@ Esses registros contêm informações detalhadas sobre o codespace, container, s
 
 {% vscode %}
 
-1. Abra a paleta de comando de {% data variables.product.prodname_vscode %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) e digite **Exportar registros**. Selecione **Codespaces: Exportar registros** na lista para fazer o download dos registros.
+1. Open the {% data variables.product.prodname_vscode %} Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Export logs**. Selecione **Codespaces: Exportar registros** na lista para fazer o download dos registros.
 1. Defina o local onde salvar o arquivo zip dos registros e, em seguida, clique em **Salvar** (desktop) ou clique em **OK** (web).
 
 {% endvscode %}
 
 {% cli %}
 
-Atualmente você não pode usar {% data variables.product.prodname_cli %} para acessar esses registros. Para acessá-los, abra seu codespace em {% data variables.product.prodname_vscode %} ou em um navegador.
+Currently you can't use {% data variables.product.prodname_cli %} to access these logs. To access them, open your codespace in {% data variables.product.prodname_vscode %} or in a browser.
 
 {% endcli %}
 
@@ -56,7 +56,7 @@ Estes registros contêm informações sobre o contêiner, contêiner de desenvol
 {% webui %}
 
 1. Conecte-se ao codespace que você deseja depurar.
-2. Abra o {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) e digite **Registros de criação**. Selecione **codespaces: Visualizar registro de criação** na lista para abrir o arquivo `creation.log`.
+2. Open the {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Creation logs**. Selecione **codespaces: Visualizar registro de criação** na lista para abrir o arquivo `creation.log`.
 
 Se você quiser compartilhar o registro com suporte, você poderá copiar o texto do registro de criação em um editor de texto e salvar o arquivo localmente.
 
@@ -74,15 +74,15 @@ Se você quiser compartilhar o registro com suporte, você poderá copiar o text
 
 {% data reusables.cli.cli-learn-more %}
 
-Para ver o registro de criação, use os subcomandos `gh codespace logs`. Depois de entrar no comando, escolha entre a lista de codespaces exibidos.
+To see the creation log use the `gh codespace logs` subcommand. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
 gh codespace logs 
 ```
 
-Para obter mais informações sobre esse comando, consulte [o manual de{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_logs).
+For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_logs).
 
-Se você quiser compartilhar o registro com suporte, você poderá salvar a saída em um arquivo:
+If you want to share the log with support, you can save the output to a file:
 
 ```shell
 gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt

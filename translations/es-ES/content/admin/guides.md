@@ -1,7 +1,7 @@
 ---
-title: GitHub Enterprise guides
-shortTitle: Guides
-intro: 'Learn how to increase developer productivity and code quality with {% data variables.product.product_name %}.'
+title: Guías de Github Enterprise
+shortTitle: Guías
+intro: 'Aprende cómo incrementar la productividad de desarrollador y calidad de código con {% data variables.product.product_name %}.'
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
@@ -9,15 +9,14 @@ versions:
   ghes: '*'
   ghae: '*'
 learningTracks:
-  - '{% ifversion ghec %}get_started_with_your_enterprise_account{% endif %}'
   - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
   - '{% ifversion ghes %}deploy_an_instance{% endif %}'
   - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
-  -  adopting_github_actions_for_your_enterprise
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_advanced_security{% endif %}'
+  - '{% ifversion ghec %}get_started_with_your_enterprise_account{% endif %}'
 includeGuides:
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/changing-authentication-methods
@@ -135,6 +134,5 @@ includeGuides:
   - /admin/user-management/removing-users-from-teams-and-organizations
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/suspending-and-unsuspending-users
-  - /admin/overview/creating-an-enterprise-account
 ---
 

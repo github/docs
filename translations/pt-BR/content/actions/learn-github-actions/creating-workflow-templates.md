@@ -28,7 +28,7 @@ topics:
 Os modelos do fluxo de trabalh podem ser criados por usuários com acesso de gravação ao repositório `.github` da organização. Em seguida, os modelos podem ser usados por integrantes da organização com permissão para criar fluxos de trabalho.
 
 {% ifversion fpt %}
-Os seus modelos de fluxo de trabalho podem ser usados para criar fluxos de trabalho somente em repositórios públicos. As organizações que usam {% data variables.product.prodname_ghe_cloud %} também podem usar modelos de fluxo de trabalho para criar fluxos de trabalho em repositórios privados. Para obter mais informações, consulte a [documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/learn-github-actions/creating-workflow-templates).
+Your workflow templates can be used to create workflows in public repositories only. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use workflow templates to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-workflow-templates).
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}

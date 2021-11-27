@@ -120,7 +120,7 @@ Você pode configurar {% data variables.product.prodname_classroom %} como uma a
 
 Você deve usar a versão 3.0 ou superior do Moodle.
 
-1. Efetue o login no [Moodle](https://moodle.org/login/).
+1. Efetue o login no [Moodle](https://moodle.org/login/index.php).
 1. Selecione o curso do Moodle a ser integrado com {% data variables.product.prodname_classroom %}.
 1. Clique em **Ativar a edição**.
 1. Sempre que você queira que {% data variables.product.prodname_classroom %} esteja disponível no Moodle, clique em **Adicionar uma atividade ou recurso**.

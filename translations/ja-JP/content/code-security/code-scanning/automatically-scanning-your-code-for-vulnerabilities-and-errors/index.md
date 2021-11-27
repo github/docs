@@ -19,7 +19,6 @@ children:
   - /triaging-code-scanning-alerts-in-pull-requests
   - /setting-up-code-scanning-for-a-repository
   - /managing-code-scanning-alerts-for-your-repository
-  - /tracking-code-scanning-alerts-in-issues-using-task-lists
   - /configuring-code-scanning
   - /about-code-scanning-with-codeql
   - /configuring-the-codeql-workflow-for-compiled-languages

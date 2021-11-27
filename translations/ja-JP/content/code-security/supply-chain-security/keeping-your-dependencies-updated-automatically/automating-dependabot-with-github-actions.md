@@ -6,7 +6,6 @@ miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
 type: how_to
 topics:
   - Actions
@@ -18,9 +17,6 @@ topics:
   - Pull requests
 shortTitle: Use Dependabot with actions
 ---
-
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## {% data variables.product.prodname_dependabot %}及び{% data variables.product.prodname_actions %}について
 
@@ -36,16 +32,6 @@ shortTitle: Use Dependabot with actions
 - シークレットにはアクセスできません。
 
 詳しい情報については[GitHub Actionsとワークフローをセキュアに保つ: pwnリクエストの防止](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)を参照してください。
-
-{% ifversion ghes > 3.2 %}
-{% note %}
-
-**Note:** Your site administrator can override these restrictions for {% data variables.product.product_location %}. For more information, see "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#troubleshooting-failures-when-dependabot-triggers-existing-workflows)."
-
-If the restrictions are removed, when a workflow is triggered by {% data variables.product.prodname_dependabot %} it will have access to any secrets that are normally available. In addition, workflows triggered by {% data variables.product.prodname_dependabot %} can use the `permissions` term to increase the default scope of the `GITHUB_TOKEN` from read-only access.
-
-{% endnote %}
-{% endif %}
 
 ### `pull_request`イベントの処理
 
@@ -129,16 +115,16 @@ jobs:
 
 {% raw %}
 ```yaml
-### This workflow has access to secrets and a read-write token
+### このワークフローはシークレットにアクセスでき、読み書きのトークンを持つ
 name: Dependabot Trusted Workflow
 on:
   workflow_run:
     workflows: ["Dependabot Untrusted Workflow"]
-    types:
+    types: 
       - completed
 
 permissions:
-  # Downscope as necessary, since you now have a read-write token
+  # 今度は読み書きできるトークンを持っているので、必要に応じてスコープを下げる
 
 jobs:
   dependabot:
@@ -258,7 +244,7 @@ jobs:
 
 ### Pull Requestの自動マージを有効化する
 
-Pull Requestを自動マージしたいなら、{% data variables.product.prodname_dotcom %}の自動マージ機能を利用できます。 これは、すべての必須テストと承認が正常に満たされた場合に、Pull Requestがマージされるようにしてくれます。 For more information on auto-merge, see "[Automatically merging a pull request"](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+Pull Requestを自動マージしたいなら、{% data variables.product.prodname_dotcom %}の自動マージ機能を利用できます。 これは、すべての必須テストと承認が正常に満たされた場合に、Pull Requestがマージされるようにしてくれます。 自動マージに関する詳しい情報については「[Pull Requestの自動的なマージ](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)」を参照してください。
 
 以下は、`my-dependency`に対するすべてのパッチアップデートの自動マージを有効化する例です。
 

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_insights %} destaca métricas chave porque essas métricas são diretamente acionáveis para aumentar a velocidade e a qualidade. As métricas chave são úteis para todos na organização, desde colaboradores individuais e seus gerentes até executivos olhando o quadro maior.

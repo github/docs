@@ -82,7 +82,7 @@ topics:
 
 本例向您展示如何创建 Node.js 项目的工作流程，该项目在 src 目录中 `builds` 代码，并在 `tests` 目录中运行测试。 您可以假设运行 `npm test` 会产生名为 `code-coverage.html`、存储在 `output/test/` 目录中的代码覆盖报告。
 
-工作流程上传 `dist` 目录中的生产构件，但不包括任何 markdown 文件。 It also uploads the `code-coverage.html` report as another artifact.
+工作流程上传 `dist` 目录中的生产构件，但不包括任何 markdown 文件。 它还会上传 `code-coverage.html` 报告作为另一个构件。
 
 ```yaml{:copy}
 name: Node CI
@@ -161,7 +161,7 @@ jobs:
   uses: actions/download-artifact@v2
 ```
 
-If you download all workflow run's artifacts, a directory for each artifact is created using its name.
+如果下载所有工作流程运行的构件，则每个构件使用其名称目创建目录。
 
 有关语法的更多信息，请参阅 {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) 操作{% else %} {% data variables.product.product_location %} 上的 `actions/download-artifact` 操作{% endif %}。
 

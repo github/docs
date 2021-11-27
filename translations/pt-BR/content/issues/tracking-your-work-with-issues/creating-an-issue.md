@@ -143,15 +143,6 @@ Se você criar uma URL inválida usando parâmetros de consulta, ou se você nã
 | `projetos`            | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` cria um problema com o título "Correção de erro" e o adiciona ao quadro de projeto 1 da organização.                                                                                                                                                                                                                                                                                                       |
 | `modelo`              | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` cria um problema com um modelo no texto do problema. O parâmetro de consulta `template` funciona com modelos armazenados em um subdiretório `ISSUE_TEMPLATE` dentro da raiz, `docs/` ou diretório do `.github/` em um repositório. Para obter mais informações, consulte "[Usar modelos para incentivar problemas úteis e pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)". |
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
-## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
-
-{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
-If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
-{% data reusables.code-scanning.alert-tracking-link %}
-
-{% endif %}
-
 ## Leia mais
 
 - "[Escrevendo no GitHub](/github/writing-on-github)"
