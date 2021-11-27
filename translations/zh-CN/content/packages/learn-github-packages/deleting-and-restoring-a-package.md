@@ -20,14 +20,14 @@ shortTitle: 删除和恢复包
 
 在 {% data variables.product.prodname_dotcom %} 上，如果您有必要的访问权限，您可以删除：
 - 整个私有包
-- 整个公共包（如果任何包版本不超过 25 次下载）
+- 整个公共包（如果任何包版本不超过 5000 次下载）
 - 私有包的特定版本
-- 公共包的特定版本（如果包版本不超过 25 次下载）
+- 公共包的特定版本（如果包版本不超过 5000 次下载）
 
 {% note %}
 
 **注:**
-- 如果任何版本的包下载量超过 25 次，则无法删除公共包。 在这种情况下，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-packages) 获取更多帮助。
+- 如果任何版本的包下载量超过 5000 次，则无法删除公共包。 在这种情况下，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-packages) 获取更多帮助。
 - 删除公共包时，请注意，您可能会破坏依赖于包的项目。
 
 {% endnote %}

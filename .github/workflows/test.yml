@@ -26,7 +26,17 @@ jobs:
       fail-fast: false
       matrix:
         # The same array lives in test-windows.yml, so make any updates there too.
-        test-group: [content, graphql, meta, rendering, routing, unit, linting]
+        test-group:
+          [
+            content,
+            graphql,
+            meta,
+            rendering,
+            routing,
+            unit,
+            linting,
+            translations,
+          ]
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
@@ -36,10 +46,22 @@ jobs:
           # Enables cloning the Early Access repo later with the relevant PAT
           persist-credentials: 'false'
 
+      - name: Gather files changed
+        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
+        id: get_diff_files
+        with:
+          # So that `steps.get_diff_files.outputs.files` becomes
+          # a string like `foo.js path/bar.md`
+          output: ' '
+
+      - name: Insight into changed files
+        run: |
+          echo ${{ steps.get_diff_files.outputs.files }}
+
       - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       - name: Install dependencies
@@ -57,4 +79,6 @@ jobs:
         run: npm run build
 
       - name: Run tests
+        env:
+          DIFF_FILES: ${{ steps.get_diff_files.outputs.files }}
         run: npm run test tests/${{ matrix.test-group }}/

@@ -29,7 +29,7 @@ The ability to run commands directly from your keyboard, without navigating thro
 ## Opening the {% data variables.product.prodname_command_palette %}
 
 Open the command palette using one of the following keyboard shortcuts:
-- Windows and Linux: <kbd>Ctl</kbd><kbd>k</kbd> or <kbd>Ctl</kbd><kbd>alt</kbd><kbd>k</kbd> 
+- Windows and Linux: <kbd>Ctrl</kbd><kbd>k</kbd> or <kbd>Ctrl</kbd><kbd>alt</kbd><kbd>k</kbd> 
 - Mac: <kbd>⌘</kbd><kbd>k</kbd> or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd>
 
 When you open the command palette, it shows your location at the top left and uses it as the scope for suggestions (for example, the `mashed-avocado` organization). 
@@ -39,7 +39,7 @@ When you open the command palette, it shows your location at the top left and us
 {% note %}
 
 **Notes:**
-- If you are editing Markdown text, open the command palette with <kbd>Ctl</kbd><kbd>alt</kbd><kbd>k</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd> (Mac).
+- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd><kbd>alt</kbd><kbd>k</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd> (Mac).
 - If you are working on a project (beta), a project-specific command palette is displayed instead. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."
 
 {% endnote %}
@@ -60,7 +60,7 @@ You can use the command palette to navigate to any page that you have access to 
 
 4. Finish entering the path, or use the arrow keys to highlight the path you want from the list of suggestions.
 
-5. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctl</kbd><kbd>Enter</kbd> (Windows and Linx) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+5. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd><kbd>Enter</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 
 ## Searching with the {% data variables.product.prodname_command_palette %}
 
@@ -87,7 +87,7 @@ You can use the command palette to search for anything on {% data variables.prod
 
    {% endtip %}
 
-5. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctl</kbd><kbd>Enter</kbd> (Windows and Linx) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+5. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd><kbd>Enter</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 
 ## Running commands from the {% data variables.product.prodname_command_palette %}
 
@@ -96,7 +96,7 @@ You can use the {% data variables.product.prodname_command_palette %} to run com
 - Pull request and issue commands always run on the underlying page.
 - Higher-level commands, for example, repository commands, run in the scope shown in the command palette. 
 
-For a full list of supported commands, see "[{% data variables.product.prodname_command_palette %} reference](##github-command-palette-reference)."
+For a full list of supported commands, see "[{% data variables.product.prodname_command_palette %} reference](#github-command-palette-reference)."
 
 1. Use <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>k</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Shift</kbd><kbd>k</kbd> (Mac) to open the command palette in command mode. If you already have the command palette open, press <kbd>></kbd> to switch to command mode. {% data variables.product.prodname_dotcom %} suggests commands based on your location.
 

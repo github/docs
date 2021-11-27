@@ -13,6 +13,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Delete a codespace
 ---
 
  
@@ -59,3 +60,6 @@ If you have unsaved changes, you'll be prompted to confirm deletion. You can use
 For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_delete).
 
 {% endcli %}
+
+## Further reading
+- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
