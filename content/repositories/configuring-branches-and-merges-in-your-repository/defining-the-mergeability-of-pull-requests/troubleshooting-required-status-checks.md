@@ -55,22 +55,17 @@ Suppose you have a workflow which is required to pass as given below :
 
 ```yaml
 name: ci
-
 on:
   pull_request:
     paths:
       - 'scripts/**'
       - 'middleware/**'
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x, 14.x, 16.x]
-
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
