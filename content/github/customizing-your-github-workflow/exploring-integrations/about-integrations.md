@@ -1,4 +1,4 @@
----
+about-integretion.md---
 title: About integrations
 intro: 'Integrations are tools and services that connect with {% data variables.product.product_name %} to complement and extend your workflow.'
 redirect_from:
