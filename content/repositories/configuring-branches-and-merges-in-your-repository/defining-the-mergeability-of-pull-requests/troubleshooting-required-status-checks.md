@@ -47,11 +47,13 @@ Sometimes, the results of the status checks for the test merge commit and head c
 
 ## Handling skipped but required checks
 
-It may happen that the status check is skipped on some Pull Requests due to path filtering but it is required. For example you may skip a Node.JS test on a Pull Request which fixes a typo in your README File (and doesn't touch the JS & TS Files in the `scripts` folder at all !).
+Sometimes a required status check is skipped on pull requests due to path filtering. For example, a Node.JS test will be skipped on a pull request that just fixes a typo in your README file and makes no changes to the JavaScript and TypeScript files in the `scripts` directory.
 
-Now if that check is required and it gets skipped probably because it's not needed, then the check's status would be shown as pending (because it's required) and you won't be able to merge the Pull Request.
+If this check is required and it gets skipped, then the check's status is shown as pending, because it's required. In this situation you won't be able to merge the pull request.
 
-Suppose you have a workflow which is required to pass as given below : 
+### Example
+
+In this example you have a workflow that's required to pass. 
 
 ```yaml
 name: ci
@@ -78,11 +80,11 @@ jobs:
     - run: npm test
 ```
 
-Now if suppose someone sends in a Pull Request which changes a markdown file in the root of the repository, then the above workflow won't run at all. This will create a problem as you won't be able to merge the Pull Request. You would see the following status :
+If someone submits a pull request that changes a markdown file in the root of the repository, then the workflow above won't run at all because of the path filtering. As a result you won't be able to merge the pull request. You would see the following status on the pull request:
 
-![Required Check Skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.jpeg)
+![Required check skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.png)
 
-You can fix this by creating a generic workflow which will return true in any case similar to the workflow below :
+You can fix this by creating a generic workflow, with the same name, that will return true in any case similar to the workflow below :
 
 ```yaml
 name: ci
@@ -99,7 +101,7 @@ jobs:
 ```
 Now the checks will always pass whenever someone sends a pull request which doesn't change the files listed under the `paths` key of the actual workflow.
 
-![Check skipped but passes due to Generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.jpeg)
+![Check skipped but passes due to generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
 
 {% note %}
 
