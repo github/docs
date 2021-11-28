@@ -1,4 +1,4 @@
----
+conecting-arepostory-to-a-packages.md---
 title: Connecting a repository to a package
 intro: 'You can connect a repository to a container image on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.packages %}'
