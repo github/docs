@@ -1,4 +1,4 @@
----
+-creadit--
 title: GitHub Privacy Statement
 redirect_from:
   - /privacy/
