@@ -64,7 +64,9 @@ GitHub | GitHub OAuth Access Token | github_oauth_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 GitHub | GitHub Refresh Token | github_refresh_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
-GitHub | GitHub App Installation Access Token | github_app_installation_access_token{% endif %} GitHub | GitHub SSH Private Key | github_ssh_private_key GoCardless | GoCardless Live Access Token | gocardless_live_access_token GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
+GitHub | GitHub App Installation Access Token | github_app_installation_access_token{% endif %} GitHub | GitHub SSH Private Key | github_ssh_private_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+GitLab | GitLab Access Token | gitlab_access_token{% endif %} GoCardless | GoCardless Live Access Token | gocardless_live_access_token GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 Google | Firebase Cloud Messaging Server Key | firebase_cloud_messaging_server_key{% endif %} Google | Google API Key | google_api_key Google | Google Cloud Private Key ID | google_cloud_private_key_id
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -156,7 +158,8 @@ Stripe | Stripe Test API Restricted Key | stripe_test_restricted_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Stripe | Stripe Webhook Signing Secret | stripe_webhook_signing_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
-Tableau | Tableau Personal Access Token | tableau_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Supabase | Supabase Service Key | supabase_service_key{% endif %} Tableau | Tableau Personal Access Token | tableau_personal_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Telegram | Telegram Bot Token | telegram_bot_token{% endif %} Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 {%- ifversion fpt or ghec or ghes > 3.3 %}
