@@ -328,7 +328,7 @@ describe('server', () => {
     test('renders mini TOC in articles with more than one heading', async () => {
       const $ = await getDOM('/en/github/getting-started-with-github/githubs-products')
       expect($('h2#in-this-article').length).toBe(1)
-      expect($('h2#in-this-article + ul li a').length).toBeGreaterThan(1)
+      expect($('h2#in-this-article + div div ul').length).toBeGreaterThan(1)
     })
 
     test('renders mini TOC in articles that includes h3s when specified by frontmatter', async () => {
@@ -336,8 +336,8 @@ describe('server', () => {
         '/en/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise'
       )
       expect($('h2#in-this-article').length).toBe(1)
-      expect($('h2#in-this-article + ul li').length).toBeGreaterThan(0) // non-indented items
-      expect($('h2#in-this-article + ul li ul.ml-3').length).toBeGreaterThan(0) // indented items
+      expect($('h2#in-this-article + div div ul').length).toBeGreaterThan(0) // non-indented items
+      expect($('h2#in-this-article + div div ul li div div div ul.ml-3').length).toBeGreaterThan(0) // indented items
     })
 
     test('does not render mini TOC in articles with only one heading', async () => {
@@ -361,14 +361,14 @@ describe('server', () => {
       const $ = await getDOM(
         '/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates'
       )
-      expect($('h2#in-this-article + ul li a[href="#package-ecosystem"]').length).toBe(1)
+      expect($('h2#in-this-article + div div ul a[href="#package-ecosystem"]').length).toBe(1)
     })
 
     test('renders mini TOC with correct links when headings contain markup in localized content', async () => {
       const $ = await getDOM(
         '/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates'
       )
-      expect($('h2#in-this-article + ul li a[href="#package-ecosystem"]').length).toBe(1)
+      expect($('h2#in-this-article + div div ul a[href="#package-ecosystem"]').length).toBe(1)
     })
   })
 
@@ -543,13 +543,12 @@ describe('server', () => {
       )
       expect(
         $(
-          `[data-testid=article-version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
+          `[data-testid="mobile-header"] [data-testid=version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
         ).length
       ).toBe(1)
       // 2.13 predates this feature, so it should be excluded:
       expect(
-        $(`[data-testid=article-version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`)
-          .length
+        $(`[data-testid=version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`).length
       ).toBe(0)
     })
 
@@ -879,9 +878,13 @@ describe('extended Markdown', () => {
   test('renders expected mini TOC headings in platform-specific content', async () => {
     const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
     expect($('h2#in-this-article').length).toBe(1)
-    expect($('h2#in-this-article + ul li.extended-markdown.mac').length).toBeGreaterThan(1)
-    expect($('h2#in-this-article + ul li.extended-markdown.windows').length).toBeGreaterThan(1)
-    expect($('h2#in-this-article + ul li.extended-markdown.linux').length).toBeGreaterThan(1)
+    expect($('h2#in-this-article + div div ul li.extended-markdown.mac').length).toBeGreaterThan(1)
+    expect(
+      $('h2#in-this-article + div div ul li.extended-markdown.windows').length
+    ).toBeGreaterThan(1)
+    expect($('h2#in-this-article + div div ul li.extended-markdown.linux').length).toBeGreaterThan(
+      1
+    )
   })
 })
 

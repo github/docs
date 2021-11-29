@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 import assert from 'assert'
 import { isArray, isString, inRange } from 'lodash-es'
-import isURL from 'is-url'
 import countArrayValues from 'count-array-values'
-import { maxRecordLength } from '../../lib/search/config.js'
 
 export default function validateRecords(name, records) {
   assert(isString(name) && name.length, '`name` is required')
@@ -28,19 +26,8 @@ export default function validateRecords(name, records) {
     )
 
     assert(
-      isURL(record.url),
-      `url must be a fully qualified URL. received: ${record.url}, ${JSON.stringify(record)}`
-    )
-
-    assert(
       inRange(record.customRanking, 0, 4),
       `customRanking must be an in-range number. received: ${record.customRanking}, (record: ${record.url})`
-    )
-
-    const recordLength = JSON.stringify(record).length
-    assert(
-      recordLength <= maxRecordLength,
-      `record ${record.url} is too long! ${recordLength} (max: ${maxRecordLength})`
     )
   })
 

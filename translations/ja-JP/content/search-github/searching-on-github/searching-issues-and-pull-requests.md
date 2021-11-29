@@ -244,7 +244,7 @@ shortTitle: Search issues & PRs
 
 ## プルリクエストレビューのステータスおよびレビュー担当者で検索
 
-レビュー担当者およびレビューリクエストを受けた人で、[レビューステータス](/articles/about-pull-request-reviews) (_none_、_required_、_approved_、または _changes requested_) でプルリクエストをフィルタリングできます。
+You can filter pull requests based on their [review status](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) (_none_, _required_, _approved_, or _changes requested_), by reviewer, and by requested reviewer.
 
 | 修飾子                        | サンプル                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

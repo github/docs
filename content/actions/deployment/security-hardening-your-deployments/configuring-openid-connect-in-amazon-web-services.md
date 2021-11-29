@@ -40,7 +40,7 @@ To configure the role and trust in IAM, see the AWS documentation for ["Assuming
 
 Edit the trust relationship to add the `sub` field to the validation conditions. For example:
 
-```yaml{:copy}
+```json{:copy}
 "Condition": {
   "StringEquals": {
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
@@ -71,7 +71,7 @@ The `aws-actions/configure-aws-credentials` action receives a JWT from the {% da
 
 - `<example-bucket-name>`: Add the name of your S3 bucket here.
 - `<role-to-assume>`: Replace the example with your AWS role.
-- `<example-aws-region>`: Add the name of your AWs region here.
+- `<example-aws-region>`: Add the name of your AWS region here.
 
 ```yaml{:copy}
 # Sample workflow to access AWS resources when workflow is tied to branch
@@ -97,9 +97,9 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: {% raw %}${{ env.AWS_REGION }}{% endraw %}
       # Upload a file to AWS s3
       - name:  Copy index.html to s3
         run: |
-          aws s3 cp ./index.html s3://${{ env.BUCKET_NAME }}/
+          aws s3 cp ./index.html s3://{% raw %}${{ env.BUCKET_NAME }}{% endraw %}/
 ```

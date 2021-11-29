@@ -35,7 +35,7 @@ shortTitle: 学习资源
 
 ### 分支、复刻和拉取请求
 
-使用交互式工具了解 [Git 分支](http://learngitbranching.js.org/)。 阅读有关[复刻](/articles/about-forks)和[拉取请求](/articles/using-pull-requests)的相关信息并了解[如何在 {% data variables.product.prodname_dotcom %} 上使用拉取请求](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)。 从[命令行](https://cli.github.com/)访问有关使用 {% data variables.product.prodname_dotcom %} 的参考。
+使用交互式工具了解 [Git 分支](http://learngitbranching.js.org/)。 阅读有关[复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)和[拉取请求](/articles/using-pull-requests)的相关信息并了解[如何在 {% data variables.product.prodname_dotcom %} 上使用拉取请求](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)。 从[命令行](https://cli.github.com/)访问有关使用 {% data variables.product.prodname_dotcom %} 的参考。
 
 ### 收看视频
 

@@ -1,5 +1,6 @@
 ---
 title: Aplicativos
+intro: The GitHub Apps API enables you to retrieve the information about the installation as well as specific information about GitHub Apps.
 redirect_from:
   - /v3/apps
 versions:
@@ -11,8 +12,6 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
-
-A API dos aplicativos GitHub permite que você obtenha informações de alto nível sobre um aplicativo GitHub, bem como informações específicas sobre as instalações do aplicativo. Para saber mais sobre aplicativos GitHub, consulte "[Efetuar a autenticação como um aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)".
 
 {% data reusables.apps.general-apps-restrictions %}
 

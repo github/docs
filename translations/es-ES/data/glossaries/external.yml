@@ -602,6 +602,10 @@
   description: >-
     Un repositorio es el elemento más básico de GitHub. Son más fáciles de imaginar como la carpeta de un proyecto. Un repositorio contiene todos los archivos del proyecto (incluida la documentación) y almacena el historial de revisión de cada archivo. Los repositorios pueden tener varios colaboradores y pueden ser públicos o privados.
 - 
+  term: repository cache
+  description: >-
+    A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
+- 
   term: gráfico del repositorio
   description: Una representación visual de los datos de tu repositorio.
 - 

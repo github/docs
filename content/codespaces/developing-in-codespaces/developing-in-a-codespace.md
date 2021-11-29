@@ -14,6 +14,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Develop in a codespace
 ---
 
  
@@ -21,6 +22,8 @@ topics:
 ## About development with {% data variables.product.prodname_codespaces %}
 
 {% data variables.product.prodname_codespaces %} provides you with the full development experience of {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
+
+{% data reusables.codespaces.links-to-get-started %}
 
 ![Codespace overview with annotations](/assets/images/help/codespaces/codespace-overview-annotated.png)
 
