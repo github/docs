@@ -99,20 +99,15 @@ jobs:
     steps:
       - run: 'echo "No build required" '
 ```
-Now the checks will always pass whenever someone sends a pull request which doesn't change the files listed under the `paths` key of the actual workflow.
+Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
 
 ![Check skipped but passes due to generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
 
 {% note %}
 
-**Note**: Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[Workflow Syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions)".
-
-{% endnote %}
-
-
-{% note %}
-
-**Note**: The example above uses {% data product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data product.company_short %}.
+**Notes:** 
+* Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)".
+* The example above uses {% data variables.product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data variables.product.company_short %}.
 
 {% endnote %}
 =======
