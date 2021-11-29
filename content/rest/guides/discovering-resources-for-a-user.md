@@ -26,7 +26,7 @@ If you haven't already, you should read the ["Basics of Authentication"][basics-
 
 ## Discover the repositories that your app can access for a user
 
-In addition to having their own personal repositories, a user may be a collaborator on repositories owned by other users and organizations. Collectively, these are the repositories where the user has privileged access: either it's a private repository where the user has read or write access, or it's a{% ifversion ghae %}n{% endif %} {% ifversion not ghae %}public{% endif %}{% ifversion ghec %} or {% endif %}{% ifversion ghae or ghec %}internal{% endif %} repository where the user has write access.
+In addition to having their own personal repositories, a user may be a collaborator on repositories owned by other users and organizations. Collectively, these are the repositories where the user has privileged access: either it's a private repository where the user has read or write access, or it's {% ifversion fpt %}a public{% elsif ghec or ghes %}a public or internal{% elsif ghae %}an internal{% endif %} repository where the user has write access.
 
 [OAuth scopes][scopes] and [organization application policies][oap] determine which of those repositories your app can access for a user. Use the workflow below to discover those repositories.
 
