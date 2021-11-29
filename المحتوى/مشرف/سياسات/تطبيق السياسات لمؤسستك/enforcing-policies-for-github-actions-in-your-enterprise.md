@@ -1,4 +1,4 @@
----
+---https://business.google.com/photos/l/12769424101021887899
 title: Enforcing policies for GitHub Actions in your enterprise
 intro: 'You can enforce policies for {% data variables.product.prodname_actions %} within your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_actions %} in an enterprise.'
