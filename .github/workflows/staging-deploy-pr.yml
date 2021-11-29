@@ -499,6 +499,7 @@ jobs:
           ACTIONS_RUN_LOG: ${{ env.ACTIONS_RUN_LOG }}
           HEAD_SHA: ${{ needs.pr-metadata.outputs.head_sha }}
           ALLOWED_POLLING_FAILURES_PER_PHASE: '15'
+          RUN_ID: ${{ github.run_id }}
         run: .github/actions-scripts/staging-deploy.js
 
       - name: Mark the deployment as inactive if timed out
