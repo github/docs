@@ -1,3 +1,4 @@
+![20211106_165907](https://user-images.githubusercontent.com/94776091/143932276-3a360da2-7664-4361-8afd-24947e9a6ffa.jpg)
 ---
 title: About alerts for vulnerable dependencies
 intro: '{% data variables.product.product_name %} sends {% data variables.product.prodname_dependabot_alerts %} when we detect vulnerabilities affecting your repository.'
