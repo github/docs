@@ -52,13 +52,14 @@ This API is only available to authenticated members of the team's organization. 
   {% if operation.subcategory == 'members' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion ghec %}
+{% ifversion ghec or ghae %}
 ## External groups
 
 The external groups API allows you to view the external identity provider groups that are available to your organization and manage the connection between external groups and teams in your organization.
 
 To use this API, the authenticated user must be a team maintainer or an owner of the organization associated with the team.
 
+{% ifversion ghec %}
 {% note %}
 
 **Notes:** 
@@ -67,6 +68,7 @@ To use this API, the authenticated user must be a team maintainer or an owner of
 - If your organization uses team synchronization, you can use the Team Synchronization API. For more information, see "[Team synchronization API](#team-synchronization)."
 
 {% endnote %}
+{% endif %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'external-groups' %}{% include rest_operation %}{% endif %}
