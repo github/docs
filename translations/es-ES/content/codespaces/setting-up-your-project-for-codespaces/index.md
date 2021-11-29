@@ -1,6 +1,7 @@
 ---
-title: 'Configurar tu proyecto para {% data variables.product.prodname_codespaces %}'
-intro: 'Aprende cómo iniciar con los {% data variables.product.prodname_codespaces %}, incluyendo cómo configurar y hacer ajustes para lenguajes específicos.'
+title: 'Setting up your repository for {% data variables.product.prodname_codespaces %}'
+allowTitleToDifferFromFilename: true
+intro: 'Learn how to get started with {% data variables.product.prodname_codespaces %}, including set up and configuration for specific languages.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -8,6 +9,8 @@ versions:
 redirect_from:
   - /codespaces/getting-started-with-codespaces
 children:
+  - /configuring-codespaces-for-your-project
+  - /setting-up-your-project-for-codespaces
   - /setting-up-your-nodejs-project-for-codespaces
   - /setting-up-your-dotnet-project-for-codespaces
   - /setting-up-your-java-project-for-codespaces

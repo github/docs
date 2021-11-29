@@ -1,11 +1,13 @@
 ---
 title: Changing the machine type for your codespace
-shortTitle: Changing the machine type
+shortTitle: Change the machine type
 intro: 'You can change the type of machine that''s running your codespace, so that you''re using resources appropriate for work you''re doing.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace
 topics:
   - Codespaces
 ---
@@ -20,11 +22,12 @@ topics:
 
 {% data reusables.codespaces.codespaces-machine-types %}
 
-You can choose a machine type either when you create a codespace or you can change the machine type at any time after you've created a codespace.
+You can choose a machine type either when you create a codespace or you can change the machine type at any time after you've created a codespace. 
 
-For information on choosing a machine type when you create a codespace, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)." For information on changing the machine type within {% data variables.product.prodname_vscode %}, see "[Using {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#changing-the-machine-type-in-visual-studio-code)."
+For information on choosing a machine type when you create a codespace, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)." 
+For information on changing the machine type within {% data variables.product.prodname_vscode %}, see "[Using {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#changing-the-machine-type-in-visual-studio-code)."
 
-## 在 {% data variables.product.prodname_dotcom %} 中更改机器类型
+## Changing the machine type in {% data variables.product.prodname_dotcom %}
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 
@@ -39,7 +42,7 @@ For information on choosing a machine type when you create a codespace, see "[Cr
 
 1. Choose the required machine type.
 
-2. Click **Update codespace**.
+2. Click **Update codespace**. 
 
    The change will take effect the next time your codespace restarts.
 
@@ -47,7 +50,7 @@ For information on choosing a machine type when you create a codespace, see "[Cr
 
 If you change the machine type of a codespace you are currently using, and you want to apply the changes immediately, you can force the codespace to restart.
 
-1. At the bottom left of your codespace window, click **{% data variables.product.prodname_codespaces %}**.
+1. At the bottom left of your codespace window, click **{% data variables.product.prodname_codespaces %}**. 
 
    ![Click '{% data variables.product.prodname_codespaces %}'](/assets/images/help/codespaces/codespaces-button.png)
 
