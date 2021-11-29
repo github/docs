@@ -262,7 +262,7 @@ jobs:
   prepare-for-deploy:
     needs: [pr-metadata, check-pr-before-prepare]
     if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
