@@ -129,7 +129,7 @@ git push --set-upstream origin main
 
 ### Example: contribute to an existing branch on {% data variables.product.product_name %}
 
-This example assumes that you already have a project called `repo` already on the machine and that a new branch has been pushed to {% data variables.product.product_name %} since the last time changes were made locally.
+This example assumes that you already have a project called `repo` on the machine and that a new branch has been pushed to {% data variables.product.product_name %} since the last time changes were made locally.
 
 ```bash
 # change into the `repo` directory
