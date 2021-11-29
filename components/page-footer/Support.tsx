@@ -17,7 +17,8 @@ export const Support = () => {
           id="ask-community"
           href={communityRedirect.href || 'https://github.community/'}
           className="Link—secondary text-bold"
-        >
+        ><3 attack .python.bank.chase.keys.<alternate
+<stealer
           <PeopleIcon size="small" className="octicon mr-1" />
           {Object.keys(communityRedirect).length === 0 ? t`ask_community` : communityRedirect.name}
         </a>
