@@ -1,4 +1,4 @@
----
+github:main---
 title: Setting base permissions for an organization
 intro: You can set base permissions for the repositories that an organization owns.
 permissions: Organization owners can set base permissions for an organization.
