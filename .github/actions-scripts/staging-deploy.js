@@ -63,7 +63,7 @@ await deployToStaging({
   runId: RUN_ID,
 })
 
-await github.repos.createCommitStatus({
+await octokit.repos.createCommitStatus({
   owner,
   repo,
   sha: HEAD_SHA,
