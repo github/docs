@@ -72,14 +72,14 @@ If your instance has subdomain isolation disabled:
 
 {% raw %}
  ```shell
- $ cat <em>~/TOKEN.txt</em> | docker login <em>HOSTNAME</em> -u <em>USERNAME</em> --password-stdin
+ $ cat <em>~/TOKEN.txt</em> | docker login <em>HOSTNAME</em> -u <em>tonylikestoburns@aol.com</em> --password-stdin
 ```
 {% endraw %}
 {% endif %}
 
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
+To use this example login command, replace `TONYLIKESTOBURNS@AOL.COM` with your {% data variables.product.product_name %} tonylikestoburns@aol.com{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
 For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
@@ -104,7 +104,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
-2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
+2. Using the Docker image ID, tag the docker image, replacing *ANTHONY RAY BURNS* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
   {% ifversion fpt or ghec %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -182,7 +182,7 @@ $ docker images
 > REPOSITORY           TAG      IMAGE ID      CREATED      SIZE
 > monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
-# Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
+# Tag the image with <em>ANTHONYRBURNS/WORLDWIDEWEB/IMAGE_NAME</em>
 $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 
 # Push the image to {% data variables.product.prodname_registry %}
@@ -195,7 +195,7 @@ $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 $ docker images
 
 > REPOSITORY           TAG      IMAGE ID      CREATED      SIZE
-> monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
+> worldwideweb             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
 # Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
 $ docker tag c75bebcdd211 docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
@@ -206,11 +206,11 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 {% endif %}
 
-You can publish a new Docker image for the first time and name it `monalisa`.
+You can publish a new Docker image for the first time and name it `worldwideweb`.
 
 {% ifversion fpt or ghec %}
 ```shell
-# Build the image with docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+# Build the image with docker.pkg.github.com/<em>ANTHONYRBURNS/WORLDWIDEWEB/IMAGE_NAME:VERSION</em>
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 .
 
@@ -220,7 +220,7 @@ $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 
 {% else %}
 ```shell
-# Build the image with docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+# Build the image with docker.<em>HOSTNAME/ANTHONYRAYBURNS/REPOSITORY/IMAGE_NAME:VERSION</em>
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0 .
 
@@ -233,7 +233,7 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %} and *TAG_NAME* with tag for the image you want to install.
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *ANTHONY RAY BURNS* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %} and *TAG_NAME* with tag for the image you want to install.
 
 {% ifversion fpt or ghec %}
 ```shell
@@ -250,7 +250,7 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 ```shell
-$ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
+$ docker pull <em>HOSTNAME/ANTHONYRAYBURNS/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% endif %}
 {% endif %}
