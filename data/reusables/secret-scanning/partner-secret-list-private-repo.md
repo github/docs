@@ -85,6 +85,8 @@ GitHub | GitHub Refresh Token | github_refresh_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 GitHub | GitHub App Installation Access Token | github_app_installation_access_token{% endif %}
 GitHub | GitHub SSH Private Key | github_ssh_private_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+GitLab | GitLab Access Token | gitlab_access_token{% endif %}
 GoCardless | GoCardless Live Access Token | gocardless_live_access_token
 GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -187,6 +189,10 @@ Shopify | Shopify Private App Password | shopify_private_app_password
 Slack | Slack API Token | slack_api_token
 Slack | Slack Incoming Webhook URL | slack_incoming_webhook_url
 Slack | Slack Workflow Webhook URL | slack_workflow_webhook_url
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Square | Square Production Application Secret | square_production_application_secret{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Square | Square Sandbox Application Secret | square_sandbox_application_secret{% endif %}
 SSLMate | SSLMate API Key | sslmate_api_key
 SSLMate | SSLMate Cluster Secret | sslmate_cluster_secret
 Stripe | Stripe API Key | stripe_api_key
@@ -201,6 +207,8 @@ Stripe | Stripe Test API Restricted Key | stripe_test_restricted_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Stripe | Stripe Webhook Signing Secret | stripe_webhook_signing_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Supabase | Supabase Service Key | supabase_service_key{% endif %}
 Tableau | Tableau Personal Access Token | tableau_personal_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Telegram | Telegram Bot Token | telegram_bot_token{% endif %}
