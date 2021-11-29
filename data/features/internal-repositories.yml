@@ -1,5 +1,0 @@
-# Documentation for internal repositories.
-versions:
-  ghec: '*'
-  ghae: '*'
-  ghes: '>=3.0'
