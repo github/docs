@@ -80,7 +80,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Loose or strict required status checkbox](/assets/images/help/repository/protecting-branch-loose-status.png)
    - Search for status checks, selecting the checks you want to require.
      ![Search interface for available status checks, with list of required checks](/assets/images/help/repository/required-statuses-list.png)
-{%- ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
 1. Optionally, select **Require conversation resolution before merging**.
   ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
 {%- endif %}
