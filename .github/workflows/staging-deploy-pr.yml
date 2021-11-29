@@ -67,6 +67,10 @@ jobs:
           BUILD_ACTIONS_RUN_ID: ${{ env.BUILD_ACTIONS_RUN_ID }}
         with:
           script: |
+
+            // Curious about what version of node you get
+            console.log('Node version:', process.version)
+
             // In order to find out the PR info for a forked repo, we must query
             // the API for more info based on the originating workflow run
             const { BUILD_ACTIONS_RUN_ID } = process.env
