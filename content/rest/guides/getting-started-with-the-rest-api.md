@@ -248,9 +248,10 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 The information returned from these calls will depend on which scopes our token has when we authenticate:
 
-{% ifversion not ghae %}
-* A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on github.com.{% endif %}
-* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion not ghae %}public{% endif %}{% ifversion ghec or ghes %}, {% endif %}{% ifversion ghes or ghec or ghae %}internal{% endif %} and private repositories we have access to see on {% data variables.product.product_location %}.
+{%- ifversion fpt or ghec or ghes %}
+* A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on {% data variables.product.product_location %}.
+{%- endif %}
+* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories we have access to see on {% data variables.product.product_location %}.
 
 As the [docs][repos-api] indicate, these methods take a `type` parameter that
 can filter the repositories returned based on what type of access the user has

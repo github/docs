@@ -56,13 +56,18 @@ When you create a repository owned by your user account, the repository is alway
 
 {% endif %}
 
-{% ifversion ghes %}
-If {% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.product.product_location %}, including outside collaborators. Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. {% ifversion ghes %} Internal repositories are accessible to enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."{% endif %}
-{% elsif ghae %}
-Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
-{% else %}
-Public repositories are accessible to everyone on the internet. Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. Internal repositories are accessible to enterprise members. For more information, see "[About internal repositories](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
-{% endif %}
+{%- ifversion fpt or ghec %}
+- Public repositories are accessible to everyone on the internet.
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
+{%- elsif ghes %}
+- If {% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.product.product_location %}, including outside collaborators.
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. Internal repositories are accessible to all enterprise members.
+{%- elsif ghae %}
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
+{%- endif %}
+{%- ifversion ghec or ghes or ghae %}
+- Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
+{%- endif %}
 
 Organization owners always have access to every repository created in an organization. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
