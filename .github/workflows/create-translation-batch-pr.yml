@@ -89,7 +89,7 @@ jobs:
 
       - name: Commit crowdin sync
         run: |
-          git add .
+          git add translations/${{ matrix.language }}
           git commit -m "Add crowdin translations" || echo "Nothing to commit"
 
       - name: 'Setup node'
@@ -102,13 +102,13 @@ jobs:
       - name: Reset files with broken liquid tags
         run: |
           node script/i18n/reset-files-with-broken-liquid-tags.js --language=${{ matrix.language_code }}
-          git add . && git commit -m "run script/i18n/reset-files-with-broken-liquid-tags.js --language=${{ matrix.language_code }}" || echo "Nothing to commit"
+          git add translations/${{ matrix.language }} && git commit -m "run script/i18n/reset-files-with-broken-liquid-tags.js --language=${{ matrix.language_code }}" || echo "Nothing to commit"
 
       # step 5 in docs-engineering/crowdin.md using script from docs-internal#22709
       - name: Reset known broken files
         run: |
           node script/i18n/reset-known-broken-translation-files.js
-          git add . && git commit -m "run script/i18n/reset-known-broken-translation-files.js" || echo "Nothing to commit"
+          git add translations/${{ matrix.language }} && git commit -m "run script/i18n/reset-known-broken-translation-files.js" || echo "Nothing to commit"
         env:
           GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
 
@@ -116,25 +116,25 @@ jobs:
       - name: Homogenize frontmatter
         run: |
           node script/i18n/homogenize-frontmatter.js
-          git add . && git commit -m "Run script/i18n/homogenize-frontmatter.js" || echo "Nothing to commit"
+          git add translations/${{ matrix.language }} && git commit -m "Run script/i18n/homogenize-frontmatter.js" || echo "Nothing to commit"
 
       # step 7 in docs-engineering/crowdin.md
       - name: Fix translation errors
         run: |
           node script/i18n/fix-translation-errors.js
-          git add . && git commit -m "Run script/i18n/fix-translation-errors.js" || echo "Nothing to commit"
+          git add translations/${{ matrix.language }} && git commit -m "Run script/i18n/fix-translation-errors.js" || echo "Nothing to commit"
 
       # step 8a in docs-engineering/crowdin.md
       - name: Check parsing
         run: |
           node script/i18n/lint-translation-files.js --check parsing
-          git add . && git commit -m "Run script/i18n/lint-translation-files.js --check parsing" || echo "Nothing to commit"
+          git add translations/${{ matrix.language }} && git commit -m "Run script/i18n/lint-translation-files.js --check parsing" || echo "Nothing to commit"
 
       # step 8b in docs-engineering/crowdin.md
       - name: Check rendering
         run: |
           node script/i18n/lint-translation-files.js --check rendering
-          git add . && git commit -m "Run script/i18n/lint-translation-files.js --check rendering" || echo "Nothing to commit"
+          git add translations/${{ matrix.language }} && git commit -m "Run script/i18n/lint-translation-files.js --check rendering" || echo "Nothing to commit"
 
       - name: Create Pull Request
         env:
