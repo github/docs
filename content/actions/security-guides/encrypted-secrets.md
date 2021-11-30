@@ -81,7 +81,7 @@ When generating credentials, we recommend that you grant the minimum permissions
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
 
 {% include tool-switcher %}
-
+  .
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
