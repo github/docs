@@ -298,6 +298,7 @@ When using the `workflow_dispatch` event, you can optionally specify inputs that
 The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
 
 ### Example
+{% raw %}
 ```yaml
 on: 
   workflow_dispatch:
