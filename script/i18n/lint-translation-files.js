@@ -79,7 +79,9 @@ function lintAndResetFiles(checkType) {
   // We are not passing --prefer-main because we want to remove the file so we
   // reset it directly to the English source
   filesToReset.forEach((file) => {
-    execSync(`script/i18n/reset-translated-file.js ${file}`)
+    execSync(`script/i18n/reset-translated-file.js ${file} --reason="${checkType} error"`, {
+      stdio: 'inherit',
+    })
   })
 
   // Print a message with next steps
