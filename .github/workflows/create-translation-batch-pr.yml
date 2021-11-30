@@ -31,8 +31,8 @@ jobs:
           #   language_code: cn
           # - language: ja-JP
           #   language_code: ja
-          # - language: es-ES
-          #   language_code: es
+          - language: es-ES
+            language_code: es
     steps:
       - name: Set branch name
         id: set-branch
