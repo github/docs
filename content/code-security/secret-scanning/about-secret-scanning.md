@@ -72,7 +72,7 @@ For more information about viewing and resolving {% data variables.product.prodn
 Repository administrators and organization owners can grant users and teams access to {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 
 {% ifversion fpt or ghes > 3.0 or ghec %}
-To monitor results from {% data variables.product.prodname_secret_scanning %} across your repositories{% ifversion ghes > 3.1 %} or your organization{% endif %}, you can use the {% data variables.product.prodname_secret_scanning %} API. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."{% endif %}
+To monitor results from {% data variables.product.prodname_secret_scanning %} across your {% ifversion fpt or ghec %}private {% endif %}repositories{% ifversion ghes > 3.1 %} or your organization{% endif %}, you can use the {% data variables.product.prodname_secret_scanning %} API. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."{% endif %}
 
 {% ifversion ghes or ghae %}
 ## List of supported secrets{% else %}
