@@ -16,6 +16,16 @@ const archivedFrontmatterFallbacks = readJsonFile(
   './lib/redirects/static/archived-frontmatter-fallbacks.json'
 )
 
+async function getRemoteJSON(url) {
+  if (_getRemoteJSONCache.has(url)) {
+    return _getRemoteJSONCache.get(url)
+  }
+  const body = await got(url).json()
+  _getRemoteJSONCache.set(url, body)
+  return body
+}
+const _getRemoteJSONCache = new Map()
+
 // This module handles requests for deprecated GitHub Enterprise versions
 // by routing them to static content in help-docs-archived-enterprise-versions
 
@@ -49,8 +59,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
 
   if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`)) {
     try {
-      const r = await got(getProxyPath('redirects.json', requestedVersion))
-      const redirectJson = JSON.parse(r.body)
+      const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion))
 
       // make redirects found via redirects.json redirect with a 301
       if (redirectJson[req.path]) {

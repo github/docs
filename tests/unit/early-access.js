@@ -5,7 +5,7 @@ import { testViaActionsOnly } from '../helpers/conditional-runs.js'
 import { getDOM } from '../helpers/supertest.js'
 import got from 'got'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('cloning early-access', () => {
   testViaActionsOnly('the content directory exists', async () => {
