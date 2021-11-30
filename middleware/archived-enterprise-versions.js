@@ -9,12 +9,15 @@ import versionSatisfiesRange from '../lib/version-satisfies-range.js'
 import isArchivedVersion from '../lib/is-archived-version.js'
 import got from 'got'
 import readJsonFile from '../lib/read-json-file.js'
+import { cacheControlFactory } from './cache-control.js'
 const archivedRedirects = readJsonFile(
   './lib/redirects/static/archived-redirects-from-213-to-217.json'
 )
 const archivedFrontmatterFallbacks = readJsonFile(
   './lib/redirects/static/archived-frontmatter-fallbacks.json'
 )
+
+const cacheControl = cacheControlFactory(60 * 60 * 24 * 365)
 
 async function getRemoteJSON(url) {
   if (_getRemoteJSONCache.has(url)) {
@@ -42,6 +45,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     req.path.startsWith('/en/') &&
     versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)
   ) {
+    cacheControl(res)
     return res.redirect(301, req.baseUrl + req.path.replace(/^\/en/, ''))
   }
 
@@ -53,6 +57,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
   ) {
     const redirect = archivedRedirects[req.path]
     if (redirect && redirect !== req.path) {
+      cacheControl(res)
       return res.redirect(301, redirect)
     }
   }
@@ -64,6 +69,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       // make redirects found via redirects.json redirect with a 301
       if (redirectJson[req.path]) {
         res.set('x-robots-tag', 'noindex')
+        cacheControl(res)
         return res.redirect(301, redirectJson[req.path])
       }
     } catch (err) {
@@ -78,6 +84,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     // make stubbed redirect files (which exist in versions <2.13) redirect with a 301
     const staticRedirect = r.body.match(patterns.staticRedirect)
     if (staticRedirect) {
+      cacheControl(res)
       return res.redirect(301, staticRedirect[1])
     }
 
@@ -87,6 +94,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     for (const fallbackRedirect of getFallbackRedirects(req, requestedVersion) || []) {
       try {
         await got(getProxyPath(fallbackRedirect, requestedVersion))
+        cacheControl(res)
         return res.redirect(301, fallbackRedirect)
       } catch (err) {
         // noop
