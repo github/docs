@@ -15,8 +15,6 @@ topics:
 shortTitle: Synchronize with an IdP
 ---
 
-{% data reusables.gated-features.okta-team-sync %}
-
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
 ## About team synchronization
