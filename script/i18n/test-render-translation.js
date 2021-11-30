@@ -94,7 +94,9 @@ async function loadAndPatchSiteData(filesWithKnownIssues = {}) {
 
         // Reset the file
         console.warn(`resetting file "${relPath}" due to loadSiteData error: ${error.toString()}`)
-        await exec(`script/i18n/reset-translated-file.js --prefer-main ${relPath}`)
+        await exec(
+          `script/i18n/reset-translated-file.js --prefer-main ${relPath} --reason="loadSiteData error"`
+        )
 
         // Try to load the site data again
         return loadAndPatchSiteData(filesWithKnownIssues)
