@@ -79,6 +79,7 @@ const IGNORE_PATHS = [
   '.vscode', // Not part of the repo but could be for a developer locally
   'node_modules',
   'translations',
+  '.linkinator',
   '**/*.png', // Do not check images or font files.
   '**/*.jpg', // We could just put all of assets/* here, but that would prevent any
   '**/*.gif', // READMEs or other text-based files from being checked.
