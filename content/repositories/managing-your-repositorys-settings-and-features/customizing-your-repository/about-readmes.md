@@ -48,13 +48,6 @@ For the rendered view of any Markdown file in a repository, including README fil
 
 ![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
 
-The auto-generated table of contents is enabled by default for all Markdown files in a repository, but you can disable this feature for your repository.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Under "Features", deselect **Table of contents**.
-![Automatic TOC setting for repositories](/assets/images/help/repository/readme-automatic-toc-setting.png)
-
 {% endif %}
 
 ## Section links in README files and blob pages
