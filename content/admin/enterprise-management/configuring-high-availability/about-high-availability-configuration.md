@@ -186,3 +186,4 @@ The `ghe-repl-teardown` command disables replication mode completely, removing t
 ## Further reading
 
 - "[Creating a high availability replica](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)"
+- "[Network ports](/admin/configuration/configuring-network-settings/network-ports)"
