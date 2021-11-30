@@ -1,14 +1,11 @@
-/* TODO remove mark styling if https://github.com/primer/css/pull/1756 ships */
 .resultsContainer mark {
   background: none;
   color: inherit;
 }
 
 .searchResultContent mark {
-  color: var(--color-fg-default);
-  background-color: var(--color-attention-subtle);
+  font-weight: bolder;
 }
-/* end TODO */
 
 .searchResultContent {
   max-height: 4rem;
