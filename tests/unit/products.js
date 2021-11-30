@@ -5,7 +5,7 @@ import schema from '../helpers/schemas/products-schema.js'
 import { getDOM, getJSON } from '../helpers/supertest.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('products module', () => {
   test('is an object with product ids as keys', () => {

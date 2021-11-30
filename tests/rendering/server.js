@@ -12,7 +12,7 @@ const activeProducts = Object.values(productMap).filter(
   (product) => !product.wip && !product.hidden
 )
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
