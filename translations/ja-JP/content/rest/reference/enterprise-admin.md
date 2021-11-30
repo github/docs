@@ -61,7 +61,7 @@ Enterprise の現在のバージョンは、すべての API のレスポンス�
 
 {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 
 ## Audit log
 

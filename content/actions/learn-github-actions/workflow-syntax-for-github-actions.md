@@ -187,7 +187,7 @@ For more information, see "[About comparing branches in pull requests](/pull-req
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call.inputs`
 
-When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. Inputs for reusable workflows are specified with the same format as action inputs. For more information about inputs, see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)." For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
+When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
 
 In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
 
@@ -225,6 +225,31 @@ For more information, see "[Reusing workflows](/actions/learn-github-actions/reu
 ## `on.workflow_call.inputs.<input_id>.type`
 
 Required if input is defined for the `on.workflow_call` keyword. The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `number`, or `string`.
+
+## `on.workflow_call.outputs`
+
+A map of outputs for a called workflow. Called workflow outputs are available to all downstream jobs in the caller workflow. Each output has an identifier, an optional `description,` and a `value.` The `value` must be set to the value of an output from a job within the called workflow.
+
+In the example below, two outputs are defined for this reusable workflow: `workflow_output1` and `workflow_output2`. These are mapped to outputs called `job_output1` and `job_output2`, both from a job called `my_job`.
+
+### Example
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    # Map the workflow outputs to job outputs
+    outputs:
+      workflow_output1:
+        description: "The first job output"
+        value: ${{ jobs.my_job.outputs.job_output1 }}
+      workflow_output2:
+        description: "The second job output"
+        value: ${{ jobs.my_job.outputs.job_output2 }}  
+```
+{% endraw %}
+
+For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 
 ## `on.workflow_call.secrets`
 
@@ -268,7 +293,7 @@ A boolean specifying whether the secret must be supplied.
 
 ## `on.workflow_dispatch.inputs`
 
-When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. Workflow dispatch inputs are specified with the same format as action inputs. For more information about the format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
+When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
 
 ```yaml
 on: 
@@ -277,10 +302,20 @@ on:
       logLevel:
         description: 'Log level'     
         required: true
-        default: 'warning'
+        default: 'warning' {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        type: choice
+        options:
+        - info
+        - warning
+        - debug {% endif %}
       tags:
         description: 'Test scenario tags'
-        required: false
+        required: false {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true {% endif %}
 ```
 
 The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."

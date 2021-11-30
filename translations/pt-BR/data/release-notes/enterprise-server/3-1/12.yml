@@ -1,0 +1,24 @@
+---
+date: '2021-11-23'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Running `ghe-repl-start` or `ghe-repl-status` would sometimes return errors connecting to the database when GitHub Actions was enabled.
+    - Pre-receive hooks would fail due to undefined `PATH`.
+    - 'Running `ghe-repl-setup` would return an error: `cannot create directory /data/user/elasticsearch: File exists` if the instance had previously been configured as a replica.'
+    - 'After setting up a high availability replica, `ghe-repl-status` included an error in the output: `unexpected unclosed action in command`.'
+    - In large cluster environments, the authentication backend could be unavailable on a subset of frontend nodes.
+    - Some critical services may not have been available on backend nodes in GHES Cluster.
+  changes:
+    - An additional outer layer of `gzip` compression when creating a cluster support bundle with `ghe-cluster-suport-bundle` is now turned off by default. This outer compression can optionally be applied with the `ghe-cluster-suport-bundle -c` command line option.
+    - We have added extra text to the admin console to remind users about the mobile apps' data collection for experience improvement purposes.
+  known_issues:
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Se o {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

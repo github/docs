@@ -602,6 +602,10 @@
   description: >-
     仓库是 GitHub 最基本的元素，最容易被想象成项目的文件夹。一个仓库包含所有项目文件（包括文档），并且存储每个文件的修订历史记录。仓库可有多个协作者，也可以是公共仓库或私有仓库。
 - 
+  term: repository cache
+  description: >-
+    A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
+- 
   term: 仓库图
   description: 仓库数据的可视表现形式。
 - 

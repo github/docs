@@ -1,5 +1,6 @@
 ---
 title: アプリ
+intro: The GitHub Apps API enables you to retrieve the information about the installation as well as specific information about GitHub Apps.
 redirect_from:
   - /v3/apps
 versions:
@@ -11,8 +12,6 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
-
-GitHub Apps API を使用すると、GitHub App に関する大まかな情報と、アプリケーションのインストールに関する具体的な情報を取得できます。 GitHub App の詳細については、「[GitHub App として認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)」を参照してださい。
 
 {% data reusables.apps.general-apps-restrictions %}
 

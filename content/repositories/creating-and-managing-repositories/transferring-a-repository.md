@@ -30,7 +30,8 @@ Prerequisites for repository transfers:
 - When you transfer a repository that you own to another user account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. If the new owner doesn't accept the transfer within one day, the invitation will expire.{% endif %}
 - To transfer a repository that you own to an organization, you must have permission to create a repository in the target organization.
 - The target account must not have a repository with the same name, or a fork in the same network.
-- The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.
+- The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.{% ifversion ghec or ghes or ghae %}
+- Internal repositories can't be transferred.{% endif %}
 - Private forks can't be transferred.
 
 {% ifversion fpt or ghec %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}

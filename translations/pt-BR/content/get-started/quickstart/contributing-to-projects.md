@@ -1,5 +1,5 @@
 ---
-title: Contribuir para projetos
+title: Contributing to projects
 intro: Learn how to contribute to a project through forking.
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
@@ -18,14 +18,15 @@ topics:
 
 After using GitHub by yourself for a while, you may find yourself wanting to contribute to someone else’s project. Or maybe you’d like to use someone’s project as the starting point for your own. This process is known as forking.
 
-Creating a "fork" is producing a personal copy of someone else's project. Forks act as a sort of bridge between the original repository and your personal copy. You can submit pull requests to help make other people's projects better by offering your changes up to the original project. Forking is at the core of social coding at GitHub. Para obter mais informações, consulte "[Bifurcar um repositório](/get-started/quickstart/fork-a-repo)".
+Creating a "fork" is producing a personal copy of someone else's project. Forks act as a sort of bridge between the original repository and your personal copy. You can submit pull requests to help make other people's projects better by offering your changes up to the original project. Forking is at the core of social coding at GitHub. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
 
-## Bifurcar um repositório
+## Forking a repository
 
 This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
 
 1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
-2. Click **Fork**. ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.jpg)
+2. Click **Fork**.
+   ![Fork button](/assets/images/help/repository/fork_button.jpg)
 1. {% data variables.product.product_name %} will take you to your copy (your fork) of the Spoon-Knife repository.
 
 ## Cloning a fork
@@ -37,21 +38,21 @@ You can clone your fork with the command line, {% data variables.product.prodnam
 {% include tool-switcher %}
 {% webui %}
 
-1. Em {% data variables.product.product_name %}, vá até **your fork** (sua bifurcação) no repositório Spoon-Knife.
+1. On {% data variables.product.product_name %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
-4. Digite `git clone` (clonar git) e cole a URL que você copiou anteriormente. Ficará assim, com seu {% data variables.product.product_name %} nome de usuário no lugar de `YOUR-USERNAME`:
+4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
   ```
 
-5. Pressione **Enter**. Seu clone local estará criado.
+5. Press **Enter**. Your local clone will be created.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
-  > Clonando para `Spoon-Knife`...
-  > remote: Contando objetos: 10, concluído.
-  > remote: Compactando objetos: 100% (8/8), concluído.
+  > Cloning into `Spoon-Knife`...
+  > remote: Counting objects: 10, done.
+  > remote: Compressing objects: 100% (8/8), done.
   > remove: Total 10 (delta 1), reused 10 (delta 1)
   > Unpacking objects: 100% (10/10), done.
   ```
@@ -62,7 +63,7 @@ You can clone your fork with the command line, {% data variables.product.prodnam
 
 {% data reusables.cli.cli-learn-more %}
 
-Para criar um clone da sua *bifurcação*, use o sinalizador `--clone`.
+To create a clone of your fork, use the `--clone` flag.
 
 ```shell
 gh repo fork <em>repository</em> --clone=true
@@ -144,7 +145,7 @@ At last, you're ready to propose changes into the main project! This is the fina
 
 To do so, head on over to the repository on {% data variables.product.product_name %} where your project lives. For this example, it would be at `https://www.github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
 
-{% data variables.product.product_name %} will bring you to a page that shows the differences between your fork and the `octocat/Spoon-Knife` repository. Clique em **Create pull request** (Criar pull request).
+{% data variables.product.product_name %} will bring you to a page that shows the differences between your fork and the `octocat/Spoon-Knife` repository. Click **Create pull request**.
 
 {% data variables.product.product_name %} will bring you to a page where you can enter a title and a description of your changes. It's important to provide as much useful information and a rationale for why you're making this pull request in the first place. The project owner needs to be able to determine whether your change is as useful to everyone as you think it is. Finally, click **Create pull request**.
 
@@ -154,4 +155,5 @@ Pull Requests are an area for discussion. In this case, the Octocat is very busy
 
 ## Finding projects
 
-You've successfully forked and contributed back to a repository. Go forth, and contribute some more!{% ifversion fpt %} For more information, see "[Finding ways to contribute to open source on GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+You've successfully forked and contributed back to a repository. Go forth, and
+contribute some more!{% ifversion fpt %} For more information, see "[Finding ways to contribute to open source on GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}

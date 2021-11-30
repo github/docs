@@ -56,9 +56,9 @@ Um domínio apex é configurado com um registro `A`, `ALIAS` ou `ANAME` por meio
 
 {% data reusables.pages.www-and-apex-domain-recommendation %} Para obter mais informações, consulte "[Gerenciar um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)".
 
-## Atualizar domínios personalizados quando seu site do {% data variables.product.prodname_pages %} é desabilitado
+## Securing the custom domain for your {% data variables.product.prodname_pages %} site
 
-Se seu site do {% data variables.product.prodname_pages %} estiver desabilitado, mas tiver um domínio personalizado configurado, você deverá atualizar ou remover imediatamente seus registros DNS com o provedor DNS a fim de evitar o risco de tomada de controle do domínio. Ter um domínio personalizado configurado com o provedor DNS enquanto o site está desabilitado pode fazer com que outra pessoa acabe hospedando um site em um de seus subdomínios. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)" and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
 Há alguns motivos para que seu site possa ser desabilitado automaticamente.
 

@@ -26,7 +26,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
       - name: npm ci
         run: npm ci
@@ -58,7 +58,7 @@ jobs:
           project: Core docs work for the current week
           project-column: Should do
           branch: remove-unused-assets
-      - if: ${{ failure() }}
+      - if: ${{ failure() && env.FREEZE != 'true' }}
         name: Delete remote branch (if previous steps failed)
         uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
         with:

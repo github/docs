@@ -35,7 +35,7 @@ Você pode configurar seu fluxo de trabalho do CD para ser executado quando ocor
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
-## Using OpenID Connect to access cloud resources
+## Usando o OpenID Connect para acessar os recursos da nuvem
 
 {% data reusables.actions.about-oidc-short-overview %}
 

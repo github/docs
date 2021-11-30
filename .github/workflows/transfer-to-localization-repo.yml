@@ -60,7 +60,7 @@ jobs:
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Comment on the old issue
-        run: gh issue comment $OLD_ISSUE --body "Thank you for opening this issue! Updates to translated content must be made internally. I have copied your issue to an internal issue, so I will close this issue."
+        run: gh issue comment $OLD_ISSUE --body "Thanks for opening this issue! Unfortunately, we are not able to accept issues for translated content. Our translation process involves an integration with an external service at crowdin.com, where all translation activity happens. We hope to eventually open up the translation process to the open-source community, but we're not there yet.See https://github.com/github/docs/blob/main/contributing/types-of-contributions.md#earth_asia-translations for more information."
         env:
           GITHUB_TOKEN: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
           OLD_ISSUE: ${{ github.event.issue.html_url }}

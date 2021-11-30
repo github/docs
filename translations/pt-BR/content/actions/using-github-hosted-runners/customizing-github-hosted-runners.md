@@ -3,7 +3,6 @@ title: Personalizando executores hospedados no GitHub
 intro: Você pode instalar software adicional em executores hospedados no GitHub como parte do seu fluxo de trabalho.
 versions:
   fpt: '*'
-  ghes: '*'
   ghec: '*'
 type: tutorial
 topics:
