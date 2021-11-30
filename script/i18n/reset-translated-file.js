@@ -57,10 +57,13 @@ const resetToEnglishSource = (translationFilePath) => {
   }
 
   if (!dryRun) {
-    // replace file with English source
+    // it is important to replace the file with English source instead of
+    // removing it, and relying on the fallback, because redired_from frontmatter
+    // won't work in fallbacks
     const englishContent = fs.readFileSync(englishFile, 'utf8')
     fs.writeFileSync(translationFilePath, englishContent)
   }
+
   console.log(
     '-> reverted to English: %s %s',
     path.relative(process.cwd(), translationFilePath),
