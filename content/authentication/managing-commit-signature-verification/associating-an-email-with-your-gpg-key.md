@@ -54,9 +54,9 @@ If you're using a GPG key that matches your committer identity and your verified
 
 ## Further reading
 
-- "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-- "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-- "[Using a verified email address in your GPG key](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adding a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)"
-- "[Signing commits](/articles/signing-commits)"
-- "[Signing tags](/articles/signing-tags)"
+- [Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)
+- [Generating a new GPG key](/articles/generating-a-new-gpg-key)
+- [Using a verified email address in your GPG key](/articles/using-a-verified-email-address-in-your-gpg-key)
+- [Adding a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)
+- [Signing commits](/articles/signing-commits)
+- [Signing tags](/articles/signing-tags)
