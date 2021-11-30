@@ -30,7 +30,13 @@ program
     '-m, --prefer-main',
     'Reset file to the translated file, try using the file from `main` branch first, if not found (usually due to renaming), fall back to English source.'
   )
+  .option('-d, --dry-run', 'Just pretend to reset files')
+  .option('-r, --reason <reason>', 'A reason why the file is getting reset')
   .parse(process.argv)
+
+const dryRun = program.opts().dryRun
+const reason = program.opts().reason
+const reasonMessage = reason ? `Reason: ${reason}` : ''
 
 const resetToEnglishSource = (translationFilePath) => {
   assert(
@@ -45,15 +51,24 @@ const resetToEnglishSource = (translationFilePath) => {
   const relativePath = translationFilePath.split(path.sep).slice(2).join(path.sep)
   const englishFile = path.join(process.cwd(), relativePath)
 
-  if (!fs.existsSync(englishFile)) {
+  if (!dryRun && !fs.existsSync(englishFile)) {
     fs.unlinkSync(translationFilePath)
     return
   }
 
-  // replace file with English source
-  const englishContent = fs.readFileSync(englishFile, 'utf8')
-  fs.writeFileSync(translationFilePath, englishContent)
-  console.log('-> reverted to English: %s', path.relative(process.cwd(), translationFilePath))
+  if (!dryRun) {
+    // it is important to replace the file with English source instead of
+    // removing it, and relying on the fallback, because redired_from frontmatter
+    // won't work in fallbacks
+    const englishContent = fs.readFileSync(englishFile, 'utf8')
+    fs.writeFileSync(translationFilePath, englishContent)
+  }
+
+  console.log(
+    '-> reverted to English: %s %s',
+    path.relative(process.cwd(), translationFilePath),
+    reasonMessage
+  )
 }
 
 const [pathArg] = program.args
@@ -64,8 +79,10 @@ const relativePath = fs.existsSync(pathArg) ? path.relative(process.cwd(), pathA
 
 if (program.opts().preferMain) {
   try {
-    execSync(`git checkout main -- ${relativePath}`, { stdio: 'pipe' })
-    console.log('-> reverted to file from main branch: %s', relativePath)
+    if (!dryRun) {
+      execSync(`git checkout main -- ${relativePath}`, { stdio: 'pipe' })
+    }
+    console.log('-> reverted to file from main branch: %s %s', relativePath, reasonMessage)
   } catch (e) {
     if (e.message.includes('pathspec')) {
       console.warn(

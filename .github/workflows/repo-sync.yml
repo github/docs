@@ -126,8 +126,11 @@ jobs:
           destination_branch: main
           pr_title: 'repo sync'
           pr_body: "This is an automated pull request to sync changes between the public and private repos.\n\n:robot: This pull request should be merged (not squashed) to preserve continuity across repos, so please let a bot do the merging!"
-          pr_label: autoupdate,automated-reposync-pr
+          pr_label: automated-reposync-pr
           github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          # This will exit 0 if there's no difference between `repo-sync`
+          # and `main`. And if so, no PR will be created.
+          pr_allow_empty: false
 
       - name: Find pull request
         uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
@@ -217,6 +220,7 @@ jobs:
       - name: Enable GitHub auto-merge
         if: ${{ steps.find-pull-request.outputs.number }}
         env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           AUTOMERGE_PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
         run: node .github/actions-scripts/enable-automerge.js
 

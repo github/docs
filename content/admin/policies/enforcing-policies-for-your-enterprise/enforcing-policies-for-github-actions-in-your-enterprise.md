@@ -54,7 +54,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
-   {%- ifversion ghes or ghae-issue-5094 %}
+   {%- ifversion ghes > 3.0 or ghae-issue-5094 %}
    ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
    ![Add actions to allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
@@ -69,8 +69,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}

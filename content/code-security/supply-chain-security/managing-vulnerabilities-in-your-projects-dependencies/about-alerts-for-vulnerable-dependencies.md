@@ -20,7 +20,6 @@ topics:
   - Dependencies
 shortTitle: Dependabot alerts
 ---
-<!--For this article in earlier GHES versions, see /content/github/managing-security-vulnerabilities-->
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About alerts for vulnerable dependencies ".-->
 
 ## About vulnerable dependencies
@@ -50,7 +49,7 @@ For a list of the ecosystems that {% data variables.product.product_name %} can 
 
 {% endnote %}
 
-## {% data variables.product.prodname_dependabot %} alerts for vulnerable dependencies
+##  {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies
 
 {% data reusables.repositories.enable-security-alerts %}
 
@@ -75,7 +74,7 @@ For repositories where {% data variables.product.prodname_dependabot_security_up
 
 {% endwarning %}
 
-## Access to {% data variables.product.prodname_dependabot %} alerts
+## Access to  {% data variables.product.prodname_dependabot_alerts %}
 
 You can see all of the alerts that affect a particular project{% ifversion fpt or ghec %} on the repository's Security tab or{% endif %} in the repository's dependency graph. For more information, see "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
 
