@@ -4,7 +4,7 @@ import { jest } from '@jest/globals'
 
 const topOldDeveloperSitePaths = readJsonFile('tests/fixtures/top-old-developer-site-paths.json')
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('developer.github.com redirects', () => {
   jest.setTimeout(30 * 60 * 1000)
