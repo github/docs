@@ -129,7 +129,7 @@ Project views allow you to quickly view specific aspects of your project. Each v
 
 For example, you can have:
 - A view that shows all items not yet started (filter on "Status").
-- A view that shows the workload for each team member (group by "Assignee" and filter on "Status").
+- A view that shows the workload for each team (group by a custom "Team" field).
 - A view that shows the items with the earliest target ship date (sort by a date field).
 
 To add a new view:
