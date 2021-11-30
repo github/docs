@@ -80,11 +80,15 @@ export const ToolPicker = ({ variant = 'subnav' }: Props) => {
     }
   }, [])
 
+  // Whenever the currentTool is changed, update the article content
+  useEffect(() => {
+    preserveAnchorNodePosition(document, () => {
+      showToolSpecificContent(currentTool)
+    })
+  }, [currentTool])
+
   function onClickTool(tool: string) {
     setCurrentTool(tool)
-    preserveAnchorNodePosition(document, () => {
-      showToolSpecificContent(tool)
-    })
     sendEvent({
       type: EventType.preference,
       preference_name: 'application',
