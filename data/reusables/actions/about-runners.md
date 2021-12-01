@@ -1,1 +1,1 @@
-A runner is a server that has the [{% data variables.product.prodname_actions %} runner application](https://github.com/actions/runner) installed. You can use a runner hosted by {% data variables.product.prodname_dotcom %}, or you can host your own. 
+A runner is a server that runs your workflows when they're triggered.
