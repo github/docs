@@ -9,7 +9,7 @@
     ".next/cache"
   ],
   "dependencies": {
-    "@github/failbot": "0.7.0",
+    "@github/failbot": "0.8.0",
     "@hapi/accept": "^5.0.2",
     "@primer/components": "^31.1.0",
     "@primer/css": "^18.2.0",
