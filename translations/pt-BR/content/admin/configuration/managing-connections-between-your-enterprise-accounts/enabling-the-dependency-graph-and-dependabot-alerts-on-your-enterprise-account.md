@@ -102,6 +102,10 @@ Antes de habilitar {% data variables.product.prodname_dependabot_alerts %} para 
 
    {% endtip %}
 
+{% ifversion fpt or ghec or ghes > 3.2 %}
+Ao habilitar {% data variables.product.prodname_dependabot_alerts %}, você também deve considerar configurar {% data variables.product.prodname_actions %} para {% data variables.product.prodname_dependabot_security_updates %}. Este recurso permite aos desenvolvedores corrigir a vulnerabilidades nas suas dependências. Para obter mais informações, consulte "[Configurando a segurança de {% data variables.product.prodname_dependabot %} e as atualizações de versão na sua empresa](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)".
+{% endif %}
+
 ## Exibir dependências vulneráveis no {% data variables.product.product_location %}
 
 Você pode exibir todas as vulnerabilidades na {% data variables.product.product_location %} e sincronizar manualmente os dados de vulnerabilidade do {% data variables.product.prodname_dotcom_the_website %} para atualizar a lista.

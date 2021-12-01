@@ -50,7 +50,7 @@ shortTitle: Commit signature verification
 {% data reusables.identity-and-permissions.verification-status-check %}
 
 {% ifversion fpt or ghec %}
-{% data variables.product.product_name %} は GPG を自動的に使用して、{% data variables.product.product_name %} Web インターフェースを使用して行ったコミットに署名します。ただし、作者ではないプルリクエストを squash してマージする場合は除きます。 {% data variables.product.product_name %}によって署名されたコミットは、{% data variables.product.product_name %}で認証済みのステータスになります。 署名は、https://github.com/web-flow.gpgから利用できる公開鍵を使ってローカルに検証できます。 The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. オプションとして、{% data variables.product.prodname_codespaces %} で行ったコミットを {% data variables.product.product_name %} で署名させることもできます。 Codespaces の GPG 検証を有効にする方法については、「[{% data variables.product.prodname_codespaces %} の GPG 検証の管理](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)」を参照してください。
+{% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface. {% data variables.product.product_name %}によって署名されたコミットは、{% data variables.product.product_name %}で認証済みのステータスになります。 署名は、https://github.com/web-flow.gpgから利用できる公開鍵を使ってローカルに検証できます。 The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. オプションとして、{% data variables.product.prodname_codespaces %} で行ったコミットを {% data variables.product.product_name %} で署名させることもできます。 Codespaces の GPG 検証を有効にする方法については、「[{% data variables.product.prodname_codespaces %} の GPG 検証の管理](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)」を参照してください。
 {% endif %}
 
 ## GPG コミット署名の検証

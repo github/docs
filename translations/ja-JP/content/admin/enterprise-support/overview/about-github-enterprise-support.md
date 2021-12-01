@@ -48,7 +48,7 @@ You can contact {% data variables.contact.enterprise_support %} through {% data 
 ## {% data variables.contact.enterprise_support %} への連絡
 
 {% ifversion ghes %}
-{% data reusables.support.zendesk-deprecation %}
+{% data reusables.support.zendesk-old-tickets %}
 {% endif %}
 
 

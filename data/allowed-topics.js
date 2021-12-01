@@ -109,7 +109,7 @@ export default [
   'Permissions',
   'Policies',
   'Policy',
-  'Powershell',
+  'PowerShell',
   'Pre-receive hooks',
   'Privacy',
   'Profile',

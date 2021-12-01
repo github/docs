@@ -23,6 +23,8 @@ Your enterprise account can own organizations. Members of your enterprise can co
 
 Enterprise owners can create new organizations within an enterprise account's settings or invite existing organizations to join an enterprise. To add an organization to your enterprise, you must create the organization from within the enterprise account settings.
 
+You can only add organizations this way to an existing enterprise account. {% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
+
 ## 在企业帐户中创建组织
 
 在企业帐户设置中创建的新组织包含在企业帐户的 {% data variables.product.prodname_ghe_cloud %} 订阅中。

@@ -81,7 +81,7 @@ git commit
 
 ## リンク
 
-リンクのテキストをブラケット `[ ]` で囲み、URL をカッコ `( )` で囲めば、インラインのリンクを作成できます。 {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}
+リンクのテキストをブラケット `[ ]` で囲み、URL をカッコ `( )` で囲めば、インラインのリンクを作成できます。 {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
 `このサイトは [GitHub Pages](https://pages.github.com/) を使って構築されています。`
 
@@ -263,7 +263,7 @@ Some {% data variables.product.prodname_github_apps %} provide information in {%
 
 テキスト行の間に空白行を残すことで、新しいパラグラフを作成できます。
 
-{% ifversion fpt or ghae-next or ghes > 3.3 or ghec %}
+{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:

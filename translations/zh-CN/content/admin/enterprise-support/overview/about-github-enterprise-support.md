@@ -48,7 +48,7 @@ shortTitle: GitHub Enterprise 支持
 ## 联系 {% data variables.contact.enterprise_support %}
 
 {% ifversion ghes %}
-{% data reusables.support.zendesk-deprecation %}
+{% data reusables.support.zendesk-old-tickets %}
 {% endif %}
 
 

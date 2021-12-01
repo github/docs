@@ -35,7 +35,7 @@ Usaremos seus comentários para aplicar correções de erros e quaisquer outras 
 
 {% ifversion ghes %}
 
-Patch releases, which consist of hot patches and bug fixes only, happen more frequently. Patch releases are generally available when first released, with no release candidates. Upgrading to a patch release typically requires less than five minutes of downtime.
+Versões de Patch, que consistem apenas de patches e correções de erros acontecem com mais frequência. De modo geral, as versões de patch ficam disponíveis quando são lançadas pela primeira vez, sem candidatos de versões. Atualizar para uma versão de patch normalmente requer menos de cinco minutos de tempo de inatividade.
 
 Para atualizar a sua empresa para uma nova versão, consulte "[Liberar notas](/enterprise-server/admin/release-notes)" e "[Atualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server).
 

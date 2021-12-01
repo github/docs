@@ -43,20 +43,23 @@ You can create new releases with release notes, @mentions of contributors, and l
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. [**Draft a new release**] をクリックします。
+
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}![Releases draft button](/assets/images/help/releases/draft-release-button-with-search.png){% else %}![Releases draft button](/assets/images/help/releases/draft_release_button.png){% endif %}
-4. {% ifversion fpt or ghec %}Click **Choose a tag**, type{% else %}Type{% endif %} a version number for your release{% ifversion fpt or ghec %}, and press **Enter**{% endif %}. Alternatively, select an existing tag.
-   {% ifversion fpt or ghec %}
-   ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-5. If you are creating a new tag, click **Create new tag**. ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
+4. {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}Click **Choose a tag**, type{% else %}Type{% endif %} a version number for your release{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}, and press **Enter**{% endif %}. Alternatively, select an existing tag.
+
+   {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
+5. If you are creating a new tag, click **Create new tag**.
+
+   ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
    {% else %}
    ![タグ付きバージョンのリリース](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
 5. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
-   {% ifversion fpt or ghec %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
-   {% else %}![タグ付きブランチのリリース](/assets/images/enterprise/releases/releases-tag-branch.png)
-   {% endif %}
+
+   {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
+   {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
 6. リリースのタイトルと説明を入力します。
-   {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4972 %}
+   {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %}
    If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
    {% ifversion fpt or ghec %} Alternatively, you can automatically generate your release notes by clicking **Auto-generate release notes**.
@@ -96,7 +99,7 @@ You can create new releases with release notes, @mentions of contributors, and l
    ```shell
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
    ```
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4972 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4972 or ghec %}
 If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.product.prodname_dotcom_the_website %} will include a **Contributors** section with an avatar list of all the mentioned users.
 {% endif %}
 
@@ -115,7 +118,7 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 {% else %}
 3. ページの右側で、編集するリリースの横にある [**Edit release**] をクリックします。 ![リリースの編集](/assets/images/help/releases/edit-release.png)
 {% endif %}
-4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4972 %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %} ![リリースの更新](/assets/images/help/releases/update-release.png)
+4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %} ![リリースの更新](/assets/images/help/releases/update-release.png)
 
 {% endwebui %}
 

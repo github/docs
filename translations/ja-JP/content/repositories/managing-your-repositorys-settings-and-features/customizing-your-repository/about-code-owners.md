@@ -26,8 +26,6 @@ topics:
 
 管理者あるいはオーナー権限を持つ誰かがレビュー必須を有効化した場合、作者がリポジトリ中でプルリクエストをマージできるための条件としてコードオーナーからの承認を必須とすることもできます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)を参照してください。
 
-{% ifversion fpt or ghae or ghes or ghec %}Team がコードレビューの割り当てを有効にしている場合、個々の承認は、保護されたブランチでのコードオーナーの承認要件を満たしません。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
-
 ファイルにコードオーナーがいる場合、プルリクエストをオープンする前にコードオーナーを確認できます。 リポジトリで、ファイルを参照して {% octicon "shield-lock" aria-label="The edit icon" %} にカーソルを合わせることができます。
 
 ![リポジトリ内のファイルのコードオーナー](/assets/images/help/repository/code-owner-for-a-file.png)
@@ -43,7 +41,7 @@ CODEOWNERS ファイルを使うためには、コードオーナーを追加し
 {% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## CODEOWNERS file size
 
-CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information not to be shown and the appropriate code owners will not be requested to review changes in a pull request.
+CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
 
 To reduce the size of your CODEOWNERS file, consider using wildcard patterns to consolidate multiple entries into a single entry.
 {% endif %}
@@ -141,4 +139,4 @@ Repository owners can add branch protection rules to ensure that changed code is
 - [個人リポジトリへのコラボレータの招待](/articles/inviting-collaborators-to-a-personal-repository)
 - [Organizationのリポジトリへの個人のアクセスの管理](/articles/managing-an-individual-s-access-to-an-organization-repository)
 - [OrganizationのリポジトリへのTeamのアクセスの管理](/articles/managing-team-access-to-an-organization-repository)
-- [プルリクエストレビューの表示](/articles/viewing-a-pull-request-review)
+- [プルリクエストレビューの表示](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)

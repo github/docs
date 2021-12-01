@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Repositories
@@ -16,6 +17,10 @@ topics:
   - Actions
 shortTitle: アクションの自動更新
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+
+{% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## {% data variables.product.prodname_dependabot_version_updates %} のアクションについて
 
@@ -31,7 +36,7 @@ shortTitle: アクションの自動更新
 1. `schedule.interval` を設定して、新しいバージョンをチェックする頻度を指定します。
 {% data reusables.dependabot.check-in-dependabot-yml %} 既存のファイルを編集した場合は、変更を保存します。
 
-フォークで {% data variables.product.prodname_dependabot_version_updates %} を有効化することもできます。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates#enabling-version-updates-on-forks)」を参照してください。
+フォークで {% data variables.product.prodname_dependabot_version_updates %} を有効化することもできます。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-version-updates-on-forks)."
 
 ### {% data variables.product.prodname_actions %} の *dependabot.yml* ファイルの例
 

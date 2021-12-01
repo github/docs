@@ -37,7 +37,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       - name: Install Node.js dependencies
@@ -64,11 +64,17 @@ jobs:
             "Hello! The GitHub Enterprise Server release dates have changed.\n\n
             If CI passes, this PR will be auto-merged. :green_heart:\n\n
             If CI does not pass or other problems arise, contact #docs-engineering on slack.\n\nThis PR was 🤖-crafted by `.github/workflows/enterprise-dates.yml`. 🧶"
-          labels: automerge,autoupdate
           branch: enterprise-server-dates-update
           delete-branch: true
 
-      - if: ${{ failure() }}
+      - name: Enable GitHub auto-merge
+        if: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        run: node .github/actions-scripts/enable-automerge.js
+
+      - if: ${{ failure() && env.FREEZE != 'true' }}
         name: Delete remote branch (if previous steps failed)
         uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
         with:
@@ -84,7 +90,7 @@ jobs:
 
       - name: Send Slack notification if workflow fails
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
-        if: failure()
+        if: ${{ failure() && env.FREEZE != 'true' }}
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

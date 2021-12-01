@@ -55,6 +55,7 @@
 | Mailchimp                 | Mandril API 密钥                      |
 | Mailgun                   | Mailgun API 密钥                      |
 | MessageBird               | MessageBird API 密钥                  |
+| 元数据                       | Facebook Access Token               |
 | npm                       | npm 访问令牌                            |
 | NuGet                     | NuGet API 密钥                        |
 | OpenAI                    | OpenAI API 密钥                       |

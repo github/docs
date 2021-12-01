@@ -111,7 +111,7 @@ topics:
   - **Terminal.integrated.shell.linux** - 虽然 bash 是此处的默认设置，但您可以通过修改它来使用其他终端 shell。
 - **Extensions** - 它们是默认包含的扩展名。
   - **Vscjava.vscode-java-pack** - Java 扩展包为 Java 开发提供了流行的扩展，以帮助您入门。
-- **forwardPorts** - 此处列出的任何端口都将自动转发。
+- **forwardPorts** - 此处列出的任何端口都将自动转发。 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 - **postCreateCommand** - 如果您要在进入 Dockerfile 中未定义的代码空间后执行任何操作，您可以在此处执行。
 - **remoteUser** - 默认情况下，您以 `vscode` 用户身份运行，但您可以选择将其设置为 `root`。
 

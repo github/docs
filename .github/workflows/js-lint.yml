@@ -10,6 +10,15 @@ on:
     branches:
       - main
   pull_request:
+    paths:
+      - '**.js'
+      - '**.mjs'
+      - '**.ts'
+      - '**.tsx'
+      # In case something like eslint or tsc or prettier upgrades
+      - 'package-lock.json'
+      # Ultimately, for debugging this workflow itself
+      - .github/workflows/js-lint.yml
 
 jobs:
   lint:
@@ -21,7 +30,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       - name: Install dependencies
@@ -29,3 +38,6 @@ jobs:
 
       - name: Run linter
         run: npm run lint
+
+      - name: Run TypeScript
+        run: npm run tsc

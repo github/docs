@@ -1,4 +1,5 @@
 import { ArticleGuide } from 'components/context/ProductSubLandingContext'
+import { Label } from '@primer/components'
 
 type Props = {
   card: ArticleGuide
@@ -18,13 +19,14 @@ export const ArticleCard = ({ card, typeLabel }: Props) => {
           <div>
             {card.topics.map((topic) => {
               return (
-                <span
-                  data-testid="article-card-topic"
+                <Label
                   key={topic}
-                  className="IssueLabel color-bg-accent-emphasis color-fg-on-emphasis mr-1"
+                  data-testid="article-card-topic"
+                  variant="small"
+                  sx={{ bg: 'accent.emphasis', mr: 1 }}
                 >
                   {topic}
-                </span>
+                </Label>
               )
             })}
           </div>

@@ -38,6 +38,6 @@ Escolha quais ecossistemas de pacote você gostaria de habilitar, desabilitar ou
 
 ## Etapa 3: Certifique-se de ter um certificado TLS para a URL do seu pacote de hospedagem, se necessário
 
-If subdomain isolation is enabled for {% data variables.product.product_location %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `npm.HOSTNAME`. Certifique-se de que o host de cada pacote contém `https://`.
+Se o isolamento de subdomínio estiver habilitado para {% data variables.product.product_location %}, você deverá criar e fazer upload de um certificado TLS que permite a URL de host do pacote para cada ecossistema que você deseja usar, como `npm.HOSTNAME`. Certifique-se de que o host de cada pacote contém `https://`.
 
   Você pode criar o certificado manualmente ou pode usar _Let's Encrypt_. Se você já usa _Let's Encrypt_, você deverá solicitar um novo certificado TLS depois de habilitar {% data variables.product.prodname_registry %}. Para obter mais informações sobre as URLs de host do pacote, consulte "[Habilitar o isolamento de subdomínio](/enterprise/admin/configuration/enabling-subdomain-isolation)". Para obter mais informações sobre o upload de certificados TLS para {% data variables.product.product_name %}, consulte "[Configurar TLS](/enterprise/admin/configuration/configuring-tls)".

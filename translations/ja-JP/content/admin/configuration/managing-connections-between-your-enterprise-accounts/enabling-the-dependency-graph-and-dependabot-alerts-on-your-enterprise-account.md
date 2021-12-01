@@ -102,6 +102,10 @@ Before enabling {% data variables.product.prodname_dependabot_alerts %} for your
 
    {% endtip %}
 
+{% ifversion fpt or ghec or ghes > 3.2 %}
+When you enable {% data variables.product.prodname_dependabot_alerts %}, you should consider also setting up {% data variables.product.prodname_actions %} for {% data variables.product.prodname_dependabot_security_updates %}. This feature allows developers to fix vulnerabilities in their dependencies. For more information, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+{% endif %}
+
 ## {% data variables.product.product_location %}で脆弱性のある依存関係を表示する
 
 {% data variables.product.product_location %}ですべての脆弱性を表示し、{% data variables.product.prodname_dotcom_the_website %}から脆弱性データを手動で同期して、リストを更新することができます。

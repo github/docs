@@ -38,7 +38,7 @@ shortTitle: 高级安全支持
 
 ## 联系 {% data variables.contact.enterprise_support %}
 
-{% data reusables.support.zendesk-deprecation %}
+{% data reusables.support.zendesk-old-tickets %}
 
 您可以通过 {% data variables.contact.enterprise_support %} 联系 {% data variables.contact.contact_enterprise_portal %} 来寻求以下帮助：
 - 安装和使用 {% data variables.product.prodname_advanced_security %}

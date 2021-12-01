@@ -6,8 +6,8 @@
 // This test runs example queries and expects a specific page to land in the top
 // 3 results.
 //
-// The data source used by this script is a JSON file `script/search/search-qa-data.json`, 
-// which is populated from spreadsheet data here: 
+// The data source used by this script is a JSON file `script/search/search-qa-data.json`,
+// which is populated from spreadsheet data here:
 // https://docs.google.com/spreadsheets/d/1Dt5JRVcmyAGWKBwGjwmXxi7Ww_vdfYLfZ-EFpu2S2CQ/edit?usp=sharing
 //
 // [end-readme]

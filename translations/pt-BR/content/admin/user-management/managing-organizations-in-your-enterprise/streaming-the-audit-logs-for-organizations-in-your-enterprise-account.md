@@ -45,24 +45,24 @@ Os proprietários das empresas podem configurar, pausar ou excluir uma transmiss
 
 ## Configurando a transmissão do log de auditoria
 
-{% data variables.product.prodname_dotcom %} supports streaming of audit data to Splunk, Azure Event Hubs, and Amazon S3.
+{% data variables.product.prodname_dotcom %} é compatível com a transmissão de dados de auditoria para Splunk, Azure Event Hubs e Amazon S3.
 
-You set up the audit log stream from the Log streaming tab of the Audit log page in your enterprise settings.
+Você configurou o fluxo de log de auditoria a partir da aba de transmissão de log da página de log de auditoria nas configurações da sua empresa.
 
-### Navigating to the Log streaming tab
+### Acesse a aba de log de transmissão
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
 1. Clique na aba **Transmissão de log**.
 
-From the Log streaming tab you can set up an audit log stream by following the steps in one of the sections below.
+Na aba Log de transmissão, você pode configurar uma transmissão de log de auditoria, seguindo as etapas em uma das seções abaixo.
 
 ### Configurando a transmissão para o Splunk
 
 Para transmitir os logs de auditoria para o Coletor de Eventos HTTP (HEC) do Splunk, você deverá garantir que o ponto de extremidade esteja configurado para aceitar conexões HTTPS. Para obter mais informações, consulte o artigo da documentação do Splunk "[Configurar e usar o Coletor de Eventos HTTP na Web do Splunk](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector)".
 
-1. Go to the Log streaming tab in your enterprise settings. For more information, see "[Navigating to the Log streaming tab](#navigating-to-the-log-streaming-tab)."
+1. Acesse a aba Log de transmissão nas configurações da sua empresa. Para obter mais informações, consulte "[Acessando a aba log de transmissão](#navigating-to-the-log-streaming-tab)".
 1. Clique **Configurar transmissão** e selecione **Splunk**. ![Escolha Splunk no menu suspenso](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
 1. Na página de configuração, insira:
    * O domínio para o qual o aplicativo deseja que você transmita está hospedado.
@@ -95,7 +95,7 @@ Você precisa de duas informações sobre seu centro de eventos: o nome da sua i
 1. Clique no botão à direita do campo **Tecla primária da string de conexão** para copiar a string de conexão. ![A string de conexão do centro do evento](/assets/images/help/enterprises/azure-connection-string.png)
 
 **Em {% data variables.product.prodname_dotcom %}**:
-1. Go to the Log streaming tab in your enterprise settings. For more information, see "[Navigating to the Log streaming tab](#navigating-to-the-log-streaming-tab)."
+1. Acesse a aba Log de transmissão nas configurações da sua empresa. Para obter mais informações, consulte "[Acessando a aba log de transmissão](#navigating-to-the-log-streaming-tab)".
 1. Clique **Configurar a transmissão ** e selecione **Centros de Evento do Azure**. ![Escolha Splunk no menu suspenso](/assets/images/help/enterprises/audit-stream-choice-azure.png)
 1. Na página de configuração, insira:
    * O nome da instância do Centro de Eventos do Azure.
@@ -103,24 +103,24 @@ Você precisa de duas informações sobre seu centro de eventos: o nome da sua i
 1. Clique **Verificar ponto de extremidade** para verificar se {% data variables.product.prodname_dotcom %} pode conectar-se ao ponto de extremidade do Azure. ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check.png)
 1. Depois de verificar com sucesso o ponto de extremidade, clique em **Salvar**.
 
-### Setting up streaming to Amazon S3
+### Configurando a transmissão para o Amazon S3
 
-To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see the AWS documentation "[Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html)." Make sure to block public access to the bucket to protect your audit log information.
+Para transmitir os logs de auditoria para o ponto de extremidade do Amazon S3, você deve ter um bucket e chaves de acesso. Para obter mais informações, consulte a documentação do AWS "[Criando, configurando e trabalhando com buckets do Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html)". Certifique-se de bloquear o acesso público ao bucket para proteger as suas informações de log de auditoria.
 
-To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
-* The name of your Amazon S3 bucket
-* Your AWS access key ID
-* Your AWS secret key
+Para configurar a tarnsmissão do de log de auditoria de {% data variables.product.prodname_dotcom %} você vai precisar:
+* O nome do seu bucket do Amazon S3
+* Seu ID de acesso ao AWS
+* Sua chave de segredo para o AWS
 
-For information on creating or accessing your access key ID and secret key, see the AWS documentation "[Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)."
+Para informações sobre como criar ou acessar sua chave de acesso e chave de segredo, consulte a documentação do AWS "[Entendendo e obtendo suas credenciais do AWS](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)."
 
-1. Go to the Log streaming tab in your enterprise settings. For more information, see "[Navigating to the Log streaming tab](#navigating-to-the-log-streaming-tab)."
-1. Click **Configure stream** and select **Amazon S3**. ![Choose Amazon S3 from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-s3.png)
+1. Acesse a aba Log de transmissão nas configurações da sua empresa. Para obter mais informações, consulte "[Acessando a aba log de transmissão](#navigating-to-the-log-streaming-tab)".
+1. Clique **Configurar transmissão** e selecione **Amazon S3**. ![Escolha o Amazon S3 no menu suspenso](/assets/images/help/enterprises/audit-stream-choice-s3.png)
 1. Na página de configuração, insira:
-   * The name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   * Your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
-   * Your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`. ![Insira as configurações da transmissão](/assets/images/help/enterprises/audit-stream-add-s3.png)
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect to the Amazon S3 endpoint. ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check.png)
+   * O nome do bucket para o qual você deseja transmitir. Por exemplo, `auditlog-streaming-test`.
+   * Seu ID da chave de acesso. Por exemplo, `ABCAIOSFODNN7EXAMPLE1`.
+   * Sua chave do segredo. Por exemplo, `aBJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`. ![Insira as configurações da transmissão](/assets/images/help/enterprises/audit-stream-add-s3.png)
+1. Clique **Verificar ponto de extremidade** para verificar se {% data variables.product.prodname_dotcom %} pode conectar-se ao ponto de extremidade do Amazon S3. ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check.png)
 1. Depois de verificar com sucesso o ponto de extremidade, clique em **Salvar**.
 
 ## Pausando a transmissão do log de auditoria

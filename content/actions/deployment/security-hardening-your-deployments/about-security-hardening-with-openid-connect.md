@@ -65,6 +65,7 @@ The following example OIDC token uses a subject (`sub`) that references a job en
 {
   "jti": "example-id",
   "sub": "repo:octo-org/octo-repo:environment:prod",
+  "environment": "prod",
   "aud": "https://github.com/octo-org",
   "ref": "refs/heads/main",
   "sha": "example-sha",

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -16,6 +17,8 @@ topics:
   - Dependencies
 shortTitle: 管理加密密钥
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
 
 ## 关于 {% data variables.product.prodname_dependabot %} 的加密密码
 
@@ -80,7 +83,7 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
    密码名称列在 Dependabot 密码页面上。 您可以单击 **Update（更新）**来更改机密值或其访问策略。 您可以单击**Remove（删除）**来删除密码。
 
-   ![更新或删除组织机密](/assets/images/help/dependabot/update-remove-repo-secret.png)
+   ![更新或删除组织机密](/assets/images/help/dependabot/update-remove-org-secret.png)
 
 ## 将 {% data variables.product.prodname_dependabot %} 添加到您的注册表 IP 允许列表
 

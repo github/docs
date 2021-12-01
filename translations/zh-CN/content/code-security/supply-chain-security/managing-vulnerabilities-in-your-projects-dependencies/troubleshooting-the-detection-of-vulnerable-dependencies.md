@@ -25,6 +25,8 @@ topics:
   - Repositories
 ---
 
+{% data reusables.dependabot.beta-security-and-version-updates %}
+
 {% data variables.product.product_name %} 报告的依赖项检测结果可能不同于其他工具返回的结果。 这是有原因的，它有助于了解 {% data variables.product.prodname_dotcom %} 如何确定项目的依赖项。
 
 ## 为什么似乎缺少某些依赖项？
@@ -34,7 +36,7 @@ topics:
 *   {% data variables.product.prodname_advisory_database %} 是 {% data variables.product.prodname_dotcom %} 用来识别漏洞依赖项的数据源之一。 它是一款免费的、具有整理功能的数据库，用于检测 {% data variables.product.prodname_dotcom %} 上常见软件包生态系统的漏洞信息。 它包括从 {% data variables.product.prodname_security_advisories %} 直接报告给 {% data variables.product.prodname_dotcom %} 的数据，以及官方馈送和社区来源。 这些数据由 {% data variables.product.prodname_dotcom %} 审查和整理，以确保不会与开发社区分享虚假或不可行的信息。 {% data reusables.security-advisory.link-browsing-advisory-db %}
 *   依赖项图解析用户仓库中所有已知的包清单文件。 例如，对于 npm，它将解析 _package-lock.json_ 文件。 它构造所有仓库依赖项和公共依赖项的图表。 当启用依赖关系图时，当任何人推送到默认分支时，都会发生这种情况，其中包括对支持的清单格式进行更改的提交。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 *   {% data variables.product.prodname_dependabot %} 扫描对包含清单文件的默认分支的任何推送。 添加新的漏洞记录时，它会扫描所有现有仓库，并为每个存在漏洞的仓库生成警报。 {% data variables.product.prodname_dependabot_alerts %} 在仓库级别汇总，而不是针对每个漏洞创建一个警报。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
-*   {% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot_security_updates %} 在您收到关于仓库中漏洞依赖项的警报时触发。 在可能的情况下，{% data variables.product.prodname_dependabot %} 会在您的仓库中创建拉取请求，以将易受攻击的依赖项升级到避免漏洞所需的最低安全版本。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”和“[排除 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)”。
+*   {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot_security_updates %} 在您收到关于仓库中漏洞依赖项的警报时触发。 在可能的情况下，{% data variables.product.prodname_dependabot %} 会在您的仓库中创建拉取请求，以将易受攻击的依赖项升级到避免漏洞所需的最低安全版本。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”和“[排除 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)”。
 
     {% endif %}{% data variables.product.prodname_dependabot %} 不会按计划扫描仓库中的漏洞依赖项，而是在发生某些变更时扫描。 例如，新增依赖项（{% data variables.product.prodname_dotcom %} 在每次推送时都会进行此项检查）时，或者当新的漏洞添加到通告数据库 {% ifversion ghes or ghae-issue-4864 %} 以及同步到 {% data variables.product.product_location %}{% endif %}时，就会触发扫描。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)”。
 
@@ -50,7 +52,7 @@ topics:
 
 依赖项图包含在环境中明确声明的依赖项的信息。 也就是说，在清单或锁定文件中指定的依赖项。 依赖项图通常还包括过渡依赖项，即使它们没有在锁定文件中指定，也可以通过查看清单文件中的依赖项来实现。
 
-{% data variables.product.prodname_dependabot_alerts %} 提醒您应更新的依赖项，包括可从清单或锁定文件确定版本的过渡依赖项。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot_security_updates %} 仅在 {% data variables.product.prodname_dependabot %} 可直接“修复”依赖项时才建议更改，即以下情况：
+{% data variables.product.prodname_dependabot_alerts %} 提醒您应更新的依赖项，包括可从清单或锁定文件确定版本的过渡依赖项。 {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot_security_updates %} 仅在 {% data variables.product.prodname_dependabot %} 可直接“修复”依赖项时才建议更改，即以下情况：
 * 在清单或锁定文件中明确声明的直接依赖项
 * 在锁定文件中声明的过渡依赖项{% endif %}
 
@@ -118,5 +120,5 @@ topics:
 
 - “[关于有易受攻击依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”
 - "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
-- "[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"|{% ifversion fpt or ghec %}
+- "[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"|{% ifversion fpt or ghec or ghes > 3.2 %}
 - [排除 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}

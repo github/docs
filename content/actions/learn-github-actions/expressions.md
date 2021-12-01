@@ -306,7 +306,7 @@ if: {% raw %}${{ cancelled() }}{% endraw %}
 
 ### failure
 
-Returns `true` when any previous step of a job fails.
+Returns `true` when any previous step of a job fails. If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
 
 #### Example
 
