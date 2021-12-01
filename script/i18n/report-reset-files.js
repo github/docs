@@ -71,7 +71,7 @@ function pullRequestBodyReport() {
       body.push(checkBoxes)
     })
 
-  return body.join('\n')
+  return body.flat().join('\n')
 }
 
 function csvReport() {

@@ -1,3 +1,4 @@
+import fs from 'fs'
 import path from 'path'
 import slash from 'slash'
 import {
@@ -10,10 +11,24 @@ import isArchivedVersion from '../lib/is-archived-version.js'
 import got from 'got'
 import readJsonFile from '../lib/read-json-file.js'
 import { cacheControlFactory } from './cache-control.js'
-const archivedRedirects = readJsonFile(
+
+function readJsonFileLazily(xpath) {
+  const cache = new Map()
+  // This will throw if the file isn't accessible at all, e.g. ENOENT
+  fs.accessSync(xpath)
+  return () => {
+    if (!cache.has(xpath)) cache.set(xpath, readJsonFile(xpath))
+    return cache.get(xpath)
+  }
+}
+
+// These files are huge so lazy-load them. But note that the
+// `readJsonFileLazily()` function will, at import-time, check that
+// the path does exist.
+const archivedRedirects = readJsonFileLazily(
   './lib/redirects/static/archived-redirects-from-213-to-217.json'
 )
-const archivedFrontmatterFallbacks = readJsonFile(
+const archivedFrontmatterFallbacks = readJsonFileLazily(
   './lib/redirects/static/archived-frontmatter-fallbacks.json'
 )
 
@@ -55,7 +70,9 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`) &&
     versionSatisfiesRange(requestedVersion, `<=${lastVersionWithoutArchivedRedirectsFile}`)
   ) {
-    const redirect = archivedRedirects[req.path]
+    // `archivedRedirects` is a callable because it's a lazy function
+    // and memoized so calling it is cheap.
+    const redirect = archivedRedirects()[req.path]
     if (redirect && redirect !== req.path) {
       cacheControl(res)
       return res.redirect(301, redirect)
@@ -122,7 +139,9 @@ function getFallbackRedirects(req, requestedVersion) {
   if (versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)) return
   if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`)) return
 
-  return archivedFrontmatterFallbacks.find((arrayOfFallbacks) =>
+  // `archivedFrontmatterFallbacks` is a callable because it's a lazy function
+  // and memoized so calling it is cheap.
+  return archivedFrontmatterFallbacks().find((arrayOfFallbacks) =>
     arrayOfFallbacks.includes(req.path)
   )
 }
