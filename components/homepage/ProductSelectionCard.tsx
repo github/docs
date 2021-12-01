@@ -53,7 +53,7 @@ export const ProductSelectionCard = ({ name, group }: ProductSelectionCardProps)
   }
 
   return (
-    <div className="d-flex flex-column col-12 col-sm-6 col-lg-4 pb-4" key={name}>
+    <div className="d-flex flex-column col-12 col-sm-6 col-lg-4 pb-4">
       <div className="flex-auto ws-normal">
         <div className="d-flex flex-items-center">
           {icon(group)}
