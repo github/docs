@@ -34,7 +34,17 @@ export const ArticleList = ({ title, viewAllHref, articles }: ArticleListPropsT)
         items={articles.map((link) => {
           return {
             renderItem: () => (
-              <ActionList.Item as="li" key={link.href} className={cx('border-top')}>
+              <ActionList.Item
+                as="li"
+                key={link.href}
+                className={cx('border-top')}
+                sx={{
+                  borderRadius: 0,
+                  ':hover': {
+                    borderRadius: 0,
+                  },
+                }}
+              >
                 <BumpLink
                   as={Link}
                   href={link.href}
