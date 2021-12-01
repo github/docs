@@ -121,7 +121,7 @@
     "async": "^3.2.2",
     "await-sleep": "0.0.1",
     "babel-loader": "^8.2.3",
-    "babel-plugin-styled-components": "^1.13.3",
+    "babel-plugin-styled-components": "^2.0.2",
     "babel-preset-env": "^1.7.0",
     "chalk": "^4.1.2",
     "commander": "^8.2.0",
