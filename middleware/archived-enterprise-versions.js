@@ -9,15 +9,34 @@ import patterns from '../lib/patterns.js'
 import versionSatisfiesRange from '../lib/version-satisfies-range.js'
 import isArchivedVersion from '../lib/is-archived-version.js'
 import got from 'got'
-import readJsonFile from '../lib/read-json-file.js'
+import { readCompressedJsonFileFallback } from '../lib/read-json-file.js'
 import { cacheControlFactory } from './cache-control.js'
 
 function readJsonFileLazily(xpath) {
   const cache = new Map()
   // This will throw if the file isn't accessible at all, e.g. ENOENT
-  fs.accessSync(xpath)
+  // But, the file might have been replaced by one called `SAMENAME.json.br`
+  // because in staging, we ship these files compressed to make the
+  // deployment faster. So, in our file-presence check, we need to
+  // account for that.
+  try {
+    fs.accessSync(xpath)
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      try {
+        fs.accessSync(xpath + '.br')
+      } catch (err) {
+        if (err.code === 'ENOENT') {
+          throw new Error(`Neither ${xpath} nor ${xpath}.br is accessible`)
+        }
+        throw err
+      }
+    } else {
+      throw err
+    }
+  }
   return () => {
-    if (!cache.has(xpath)) cache.set(xpath, readJsonFile(xpath))
+    if (!cache.has(xpath)) cache.set(xpath, readCompressedJsonFileFallback(xpath))
     return cache.get(xpath)
   }
 }
