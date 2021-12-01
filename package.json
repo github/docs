@@ -167,7 +167,7 @@
     "replace": "^1.2.1",
     "rimraf": "^3.0.2",
     "robots-parser": "^2.3.0",
-    "sass": "^1.43.4",
+    "sass": "^1.44.0",
     "start-server-and-test": "^1.14.0",
     "strip-ansi": "^7.0.1",
     "supertest": "^6.1.6",
