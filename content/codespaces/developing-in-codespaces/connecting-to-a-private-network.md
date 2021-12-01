@@ -19,13 +19,7 @@ By default, your codespaces have access to all resources on the public internet,
 
 ### Connecting to network-private resources
 
-There are several ways to access resources on a private network, including IP allowlisting and VPNs.
-
-#### Allowlisting private resources for codespaces
-
-While GitHub publishes IP ranges for several products on its Meta API, codespaces IPs are dynamically assigned, meaning your codespace is not guaranteed to have the same IP address day to day. We highly discourage users from allowlisting an entire IP range, as this would give overly broad access to all codespaces (including users not affiliated with your codespaces).
-
-For more information about the Meta API, see ["Meta"](/rest/reference/meta).
+The currently supported method of accessing resources on a private network is to use a VPN. It is currently not recommended to allowlist codespaces IPs as this would allow all codespaces (both yours and those of other customers) access to the network protected resources.
 
 #### Using a VPN to access resources behind a private network
 
@@ -38,6 +32,12 @@ There are also a number of third party solutions that, while not explicitly endo
 A list of these is provided below:
 
 - [Tailscale](https://tailscale.com/kb/1160/github-codespaces/)
+
+#### Allowlisting private resources for codespaces
+
+While GitHub publishes IP ranges for several products on its Meta API, codespaces IPs are dynamically assigned, meaning your codespace is not guaranteed to have the same IP address day to day. We highly discourage users from allowlisting an entire IP range, as this would give overly broad access to all codespaces (including users not affiliated with your codespaces).
+
+For more information about the Meta API, see ["Meta"](/rest/reference/meta).
 
 ### Restricting access to the public internet
 
