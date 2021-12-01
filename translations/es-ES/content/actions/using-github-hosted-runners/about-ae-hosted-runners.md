@@ -1,6 +1,6 @@
 ---
-title: Acerca de los ejecutores hospedados en AE
-intro: '{% data variables.product.prodname_ghe_managed %} ofrece máquinas virtuales hospedadas, personalizables y con seguridad robustecida, para ejecutar los flujos de trabajo de {% data variables.product.prodname_actions %}. Puedes seleccionar el hardware, traer tu propia imagen de máquina, y habilitar una dirección IP para trabajar en red con tu {% data variables.actions.hosted_runner %}.'
+title: About AE hosted runners
+intro: '{% data variables.product.prodname_ghe_managed %} offers customizable and security hardened hosted virtual machines to run {% data variables.product.prodname_actions %} workflows. You can select the hardware, bring your own machine image, and enable an IP address for networking with your {% data variables.actions.hosted_runner %}.'
 versions:
   ghae: '*'
 ---
@@ -8,98 +8,98 @@ versions:
 {% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.ae-beta %}
 
-## Acerca de las {% data variables.actions.hosted_runner %}
+## About {% data variables.actions.hosted_runner %}s
 
-Un {% data variables.actions.hosted_runner %} es una máquina virtual que administra {% data variables.product.prodname_dotcom %} y que tiene instalado el servicio de ejecutor de {% data variables.product.prodname_actions %}. Los {% data variables.actions.hosted_runner %} de tu empresa son dedicados y puedes elegir de una amplia gama de opciones de hardware y software. Predeterminadamente, {% data variables.product.company_short %} administra y autoescala a los {% data variables.actions.hosted_runner %} integralmente para maximizar el rendimiento mientras que minimiza los costos.{% ifversion ghae-next %} Opcionalmente, puedes configurar los parámetros de este auto-escalamiento para reducir tus costos aún más.{% endif %}
+An {% data variables.actions.hosted_runner %} is a virtual machine managed by {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_actions %} runner service installed. {% data variables.actions.hosted_runner %}s are dedicated to your enterprise, and you can choose from a range of hardware and software options. By default, {% data variables.actions.hosted_runner %}s are fully managed and auto-scaled by {% data variables.product.company_short %} to maximize performance while minimizing costs.{% ifversion ghae-next %} You can optionally configure the parameters of this auto-scaling to reduce your cost even more.{% endif %}
 
-{% data variables.product.prodname_ghe_managed %} te permite crear y personalizar {% data variables.actions.hosted_runner %}s utilizando imágenes de Ubuntu o de Windows; puedes seleccionar el tamaño de máquina que quieras y, opcionalmente, configurar un rango de IP públicas para tus {% data variables.actions.hosted_runner %}s.
+{% data variables.product.prodname_ghe_managed %} lets you create and customize {% data variables.actions.hosted_runner %}s using Ubuntu or Windows images; you can select the size of machine you want and optionally configure a fixed public IP range for your {% data variables.actions.hosted_runner %}s.
 
-Cada job del flujo de trabajo se ejecuta en una instancia nueva del {% data variables.actions.hosted_runner %} y puedes ejecutar flujos de trabajo directamente en la máquina virtual o en un contenedor de Docker. Todos los pasos del job se ejecutan en la misma instancia, permitiendo que las acciones en este job compartan información utilizando el sistema de archivos del {% data variables.actions.hosted_runner %}.
+Each workflow job is executed in a fresh instance of the {% data variables.actions.hosted_runner %}, and you can run workflows directly on the virtual machine or in a Docker container. All steps in the job execute in the same instance, allowing the actions in that job to share information using the {% data variables.actions.hosted_runner %}'s filesystem.
 
-Para agregar {% data variables.actions.hosted_runner %} a tu organización o empresa, consulta la sección ["Agregar {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/adding-ae-hosted-runners)".
+To add {% data variables.actions.hosted_runner %}s to your organization or enterprise, see ["Adding {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/adding-ae-hosted-runners)."
 
-## Asignaciones de agrupaciones para los {% data variables.actions.hosted_runner %}
+## Pool assignments for {% data variables.actions.hosted_runner %}s
 
-Tus {% data variables.actions.hosted_runner %} se distribuyen en la misma agrupación que tu instancia de {% data variables.product.prodname_ghe_managed %}. Ningún otro cliente tiene acceso a dicha agrupación y, como resultado, los {% data variables.actions.hosted_runner %} no se comparten con ningún otro cliente.
+Your {% data variables.actions.hosted_runner %}s are allocated to the same pool as your {% data variables.product.prodname_ghe_managed %} instance. No other customers have access to this pool, and as a result, {% data variables.actions.hosted_runner %}s are not shared with any other customers.
 
-## Administrar tus {% data variables.actions.hosted_runner %}
+## Managing your {% data variables.actions.hosted_runner %}s
 
-Durante el beta de los {% data variables.actions.hosted_runner %}, puedes administrar tus {% data variables.actions.hosted_runner %} si contactas al soporte de {% data variables.product.prodname_dotcom %}. Por ejemplo, el soporte de {% data variables.product.prodname_dotcom %} puede ayudarte para agregar un {% data variables.actions.hosted_runner %} nuevo, asignar etiquetas, o mover un {% data variables.actions.hosted_runner %} a un grupo diferente.
+During the {% data variables.actions.hosted_runner %} beta, you can manage your {% data variables.actions.hosted_runner %}s by contacting {% data variables.product.prodname_dotcom %} support. For example, {% data variables.product.prodname_dotcom %} support can assist you with adding a new {% data variables.actions.hosted_runner %}, assigning labels, or moving a {% data variables.actions.hosted_runner %} to a different group.
 
-## Facturación
+## Billing
 
-Una vez que termine el beta, el uso facturable incluirá el tiempo total de actividad para las instancias activas en tus conjuntos de ejecutores hospedados en AE. Esto incluye:
-- Hora del job - minutos que se utilizaron ejecutando el job de las acciones.
-- Administración - minutos gastados volviendo a hacer la imagen de las máquinas{% ifversion ghae-next %} y cualquier tiempo de inactividad que se cree como resultado del comportamiento de autoescalamiento deseado{% endif %}.
+Once the beta ends, billed usage will include the full uptime of active instances in your AE hosted runner sets. This includes:
+- Job time - minutes spent running Actions job.
+- Management - minutes spent re-imaging machines{% ifversion ghae-next %} and any idle time created as a result of desired auto-scale behavior{% endif %}.
 
-Los precios aumentarán linearmente con los núcleos. Por ejemplo, 4 núcleos costarán lo doble que 2 núcleos. Las MV de Windows tendrán un precio más alto que las de Linux.
+Pricing will scale linearly with cores. For example, 4 cores will be twice the price of 2 cores. Windows VMs will be priced higher than Linux VMs.
 
-## Especificaciones del Hardware
+## Hardware specifications
 
-Los {% data variables.actions.hosted_runner %} se encuentran disponibles en diversas máquinas virtuales hospedadas en Microsoft Azure. Dependiendo de la disponibilidad regional, puedes elegir entre `Standard_Das_v4`, `Standard_DS_v2`, `Standard_Fs_v2 series`. Algunas regiones también incluyen ejecutores de GPU basados en `Standard_NCs_v3`.
+{% data variables.actions.hosted_runner %}s are available on a range of virtual machines hosted in Microsoft Azure. Depending on regional availability, you can choose from `Standard_Das_v4`, `Standard_DS_v2`, `Standard_Fs_v2 series`. Certain regions also include GPU runners based on `Standard_NCs_v3`.
 
-Para obtener más información acercfa de los recursos de máquina de Azure, consulta la sección "[Tamaños de las máquinas virtuales en Azure](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes)" en la documentación de Microsoft Azure.
+For more information about these Azure machine resources, see "[Sizes for virtual machines in Azure](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes)" in the Microsoft Azure documentation.
 
-Para determinar quém ejecutor ejecutó un job, puedes revisar las bitácoras de flujo de trabajo. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+To determine which runner executed a job, you can review the workflow logs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-## Especificaciones de software
+## Software specifications
 
-Puedes utilizar los {% data variables.actions.hosted_runner %} con imágenes de sistema operativo estándar, o puedes agregar imágenes que hayas creado.
+You can use {% data variables.actions.hosted_runner %}s with standard operating system images, or you can add images that you've created.
 
-### Imágenes predeterminadas de sistema operativo
+### Default operating system images
 
-Estas imágenes solo incluyen las herramientas estándar del sistema operativo:
+These images only include the standard operating system tools:
 
 - Ubuntu 18.04 LTS (Canonical)
 - Ubuntu 16.04 LTS (Canonical)
 - Windows Server 2019 (Microsoft)
 - Windows Server 2016 (Microsoft)
 
-### Imágenes personalizadas de sistema operativo
+### Custom operating system images
 
-Puedes crear tus propias imágenes de SO en Azure y agregarlas a {% data variables.product.prodname_ghe_managed %} en forma de {% data variables.actions.hosted_runner %}. Para obtener más información, consulta la sección "[Agregar un {% data variables.actions.hosted_runner %} con una imagen personalizada"](/actions/using-github-hosted-runners/adding-ae-hosted-runners#adding-an-ae-hosted-runner-with-a-custom-image).
+You can create your own OS images in Azure and have them added to {% data variables.product.prodname_ghe_managed %} as {% data variables.actions.hosted_runner %}s. For more information, see "[Adding an {% data variables.actions.hosted_runner %} with a custom image"](/actions/using-github-hosted-runners/adding-ae-hosted-runners#adding-an-ae-hosted-runner-with-a-custom-image).
 
-## Especificaciones de red
+## Network specifications
 
-Opcionalmente, puedes habilitar una dirección IP estática pública para tu {% data variables.actions.hosted_runner %}. Si se habilitan, todos los {% data variables.actions.hosted_runner %} en tu instancia compartirán un rango de 2 a 4 direcciones IP y se comunicarán utilizando los puertos de esas direcciones.
+You can optionally enable a fixed static public IP address for your {% data variables.actions.hosted_runner %}s. If enabled, all {% data variables.actions.hosted_runner %}s in your instance will share a range of 2 to 4 IP addresses, and will communicate using ports on those addresses.
 
-Si no habilitas las direcciones IP estáticas públicas, entonces tus {% data variables.actions.hosted_runner %} tendrán los mismos rangos de direcciones IP que los centros de datos de Azure subsecuentemente. Los paquetes entrantes de ICMP se bloquearán, por lo tanto, no se espera que funcionen los comandos de `ping` o `traceroute`.
+If you don't enable static public IP addresses, then your {% data variables.actions.hosted_runner %}s will subsequently have the same IP address ranges as the Azure datacenters. Inbound ICMP packets are blocked, so `ping` or `traceroute` commands are not expected to work.
 
-Para obtener una lista de rangos de direcciones IP que utilizan las {% data variables.product.prodname_actions %} para los {% data variables.actions.hosted_runner %}, puedes utilizar la API de REST de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la clave `actions` en la respuesta de la terminal de [Obtener información meta de GitHub](/rest/reference/meta#get-github-meta-information)". Puedes utilizar esta lista de direcciones IP si requieres prevenir acceso no autorizados a tus recursos internos mediante una lista de direcciones IP permitidas.
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.actions.hosted_runner %}s, you can use the {% data variables.product.prodname_dotcom %} REST API . For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint. You can use this list of IP addresses if you require an allow-list to prevent unauthorized access to your internal resources.
 
-La lista de direcciones IP permitidas de {% data variables.product.prodname_actions %} que devuelve la API se actualiza una vez por semana.
+The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
 {% ifversion ghae-next %}
 
-## Autoescalamiento
+## Autoscaling 
 
-{% data variables.product.company_short %} administra cada agrupamiento de {% data variables.actions.hosted_runner %}s integralmente para maximizar el rendimiento mientras que minimiza los costos. Opcionalmente, puedes configurar los parámetros de auto-escalamiento para tu empresa si contactas a {% data variables.contact.github_support %}. Puedes definir la cantidad mínima de ejecutores inactivos y qué tanto deberían estar inactivos antes de eliminarlos de la agrupación. Cada agrupación puede contener hasta 600 ejecutores.
+Each pool of {% data variables.actions.hosted_runner %}s is fully managed by {% data variables.product.company_short %} to maximize performance while minimizing costs. Optionally, you can configure the autoscaling parameters for your enterprise by contacting {% data variables.contact.github_support %}. You can define the minimum number of idle runners and how long a runner should remain idle before being removed from the pool. Each pool can contain up to 600 runners.
 
 {% endif %}
 
-## Privilegios adminsitrativos para los {% data variables.actions.hosted_runner %}
+## Administrative privileges for {% data variables.actions.hosted_runner %}s
 
-Las máquinas virtuales Linux se ejecutan utilizando un `sudo` sin contraseña. Cuando necesitas ejecutar comandos o instalar herramientas que requieren más privilegios que el usuario actual, puedes usar `sudo` sin la necesidad de brindar una contraseña. Para obtener más información, consulta "[Manual de sudo](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
+The Linux virtual machines run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
 
-Las máquinas virtuales de Windows están configuradas para ejecutarse como administradores con el control de cuentas de usuario (UAC) inhabilitado. Para obtener más información, consulta "[Cómo funciona el control de cuentas de usuario](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" en la documentación de Windows.
+Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
 
-## Sistemas de archivos
+## File systems
 
-{% data variables.product.prodname_dotcom %} ejecuta acciones y comandos de shell en directorios específicos en la máquina virtual. Las rutas de archivo en las máquinas virtuales no son estáticas. Usa las variables de entorno que proporciona {% data variables.product.prodname_dotcom %} para construir rutas de archivo para los directorios `home`, `workspace` y `workflow`.
+{% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the virtual machine. The file paths on virtual machines are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.
 
-| Directorio            | Variable de entorno | Descripción                                                                                                                                                                                                               |
-| --------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `home`                | `HOME`              | Contiene datos relacionados con el usuario. Por ejemplo, este directorio podría contener las credenciales de un intento de inicio de sesión.                                                                              |
-| `workspace`           | `GITHUB_WORKSPACE`  | Las acciones y los comandos del shell se ejecutan en este directorio. Una acción puede modificar los contenidos de este directorio, al que pueden tener acceso acciones posteriores.                                      |
-| `workflow/event.json` | `GITHUB_EVENT_PATH` | La carga `POST` del evento de webhook que activó el flujo de trabajo. {% data variables.product.prodname_dotcom %} reescribe esto cada vez que se ejecuta una acción para aislar el contenido del archivo entre acciones. |
+| Directory | Environment variable | Description |
+|-----------|----------------------|-------------|
+| `home` | `HOME` | Contains user-related data. For example, this directory could contain credentials from a login attempt. |
+| `workspace` | `GITHUB_WORKSPACE` | Actions and shell commands execute in this directory. An action can modify the contents of this directory, which subsequent actions can access. |
+| `workflow/event.json` | `GITHUB_EVENT_PATH` | The `POST` payload of the webhook event that triggered the workflow. {% data variables.product.prodname_dotcom %} rewrites this each time an action executes to isolate file content between actions.
 
-Para obtener una lista de las variables de entorno que crea {% data variables.product.prodname_dotcom %} para cada flujo de trabajo, consulta "[Usar variables de entorno](/github/automating-your-workflow-with-github-actions/using-environment-variables)".
+For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see "[Using environment variables](/github/automating-your-workflow-with-github-actions/using-environment-variables)."
 
-### Sistema de archivos del contenedor de Docker
+### Docker container filesystem
 
-Las acciones que se ejecutan en contenedores Docker tienen directorios estáticos en la ruta `/github`. Sin embargo, te recomendamos encarecidamente que uses las variables de entorno predeterminadas para construir rutas de archivos en contenedores de Docker.
+Actions that run in Docker containers have static directories under the `/github` path. However, we strongly recommend using the default environment variables to construct file paths in Docker containers.
 
-{% data variables.product.prodname_dotcom %} se reserva el prefijo de ruta `/github` y crea tres directorios para las acciones.
+{% data variables.product.prodname_dotcom %} reserves the `/github` path prefix and creates three directories for actions.
 
 - `/github/home`
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
