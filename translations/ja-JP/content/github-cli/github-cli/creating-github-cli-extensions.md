@@ -46,7 +46,7 @@ You can use the `gh extension create` command to create a project for your exten
 
   {% endnote %}
 
-1. Write your script in the executable file. 例:
+1. Write your script in the executable file. For example:
 
   ```bash
   #!/usr/bin/env bash
@@ -70,8 +70,8 @@ You can use the `gh extension create` command to create a project for your exten
 
    ```shell
    git init -b main
-   gh repo create gh-<em>EXTENSION-NAME</em> --confirm
-   git add . && git commit -m "initial commit" && git push --set-upstream origin main
+   git add . && git commit -m "initial commit" 
+   gh repo create gh-<em>EXTENSION-NAME</em> --source=. --public --push 
    ```
 
 1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)."
@@ -120,7 +120,7 @@ fi
 
 ### Calling core commands in non-interactive mode
 
-Some {% data variables.product.prodname_cli %} core commands will prompt the user for input. When scripting with those commands, a prompt is often undesirable. To avoid prompting, supply the necessary information explicitly via arguments.
+Some {% data variables.product.prodname_cli %} core commands will prompt the user for input. When scripting with those commands, a prompt is often undesirable. To avoid prompting, supply the necessary information explicitly via arguments. 
 
 For example, to create an issue programmatically, specify the title and body:
 
@@ -148,6 +148,6 @@ gh api user --jq '.name'
 
 For more information, see [`gh help formatting`](https://cli.github.com/manual/gh_help_formatting).
 
-## 次のステップ
+## Next steps
 
 To see more examples of {% data variables.product.prodname_cli %} extensions, look at [repositories with the `gh-extension` topic](https://github.com/topics/gh-extension).
