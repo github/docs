@@ -57,14 +57,14 @@ describe('x-codeSamples for curl', () => {
     expect(source).toEqual(expected)
   })
 
-  test('operations with required preview headers', () => {
+  test('operations with required preview headers match Shell examples', () => {
     const operationsWithRequiredPreviewHeaders = nonEnterpriseDefaultVersionSchema.filter(
       (operation) => {
         const previews = get(operation, 'x-github.previews', [])
         return previews.some((preview) => preview.required)
       }
     )
-    expect(operationsWithRequiredPreviewHeaders.length).toBeGreaterThan(0)
+
     const operationsWithHeadersInCodeSample = operationsWithRequiredPreviewHeaders.filter(
       (operation) => {
         const { source: codeSample } = operation['x-codeSamples'].find(
@@ -126,14 +126,13 @@ describe('x-codeSamples for @octokit/core.js', () => {
     expect(source).toEqual(expected)
   })
 
-  test('operations with required preview headers', () => {
+  test('operations with required preview headers match JavaScript examples', () => {
     const operationsWithRequiredPreviewHeaders = nonEnterpriseDefaultVersionSchema.filter(
       (operation) => {
         const previews = get(operation, 'x-github.previews', [])
         return previews.some((preview) => preview.required)
       }
     )
-    expect(operationsWithRequiredPreviewHeaders.length).toBeGreaterThan(0)
 
     // Find something that looks like the following in each code sample:
     /*
