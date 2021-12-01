@@ -144,7 +144,7 @@ jobs:
 
       - name: Approve pull request
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
+        uses: juliangruber/approve-pull-request-action@bc59ae0ae4d25ee8b8f65f7bf40f9ecccb7633b4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.find-pull-request.outputs.number }}
