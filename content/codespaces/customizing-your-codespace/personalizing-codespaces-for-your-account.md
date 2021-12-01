@@ -41,13 +41,13 @@ For more information, see the [Settings Sync guide](https://code.visualstudio.co
 
 ## Dotfiles
 
-Dotfiles are files and folders on Unix-like systems starting with `.` that control the configuration of applications and shells on your system. You can store and manage your dotfiles in a repository on {% data variables.product.prodname_dotcom %}. For advice and tutorials about what to include in your `dotfiles` repository, see [GitHub does dotfiles](https://dotfiles.github.io/).
+Dotfiles are files and folders on Unix-like systems starting with `.` that control the configuration of applications and shells on your system. You can store and manage your dotfiles in a repository on {% data variables.product.prodname_dotcom %}. For advice and tutorials about what to include in your dotfiles repository, see [GitHub does dotfiles](https://dotfiles.github.io/).
 
-If your user account on {% data variables.product.prodname_dotcom %} owns a public repository named `dotfiles`, {% data variables.product.prodname_dotcom %} can automatically use this repository to personalize your codespace environment, once enabled from your [personal Codespaces settings](https://github.com/settings/codespaces). Private `dotfiles` repositories are not currently supported.
+Your dotfiles repository might include your shell aliases and preferences, any tools you want to install, or any other codespace personalization you want to make.
 
-Your `dotfiles` repository might include your shell aliases and preferences, any tools you want to install, or any other codespace personalization you want to make.
+You can configure {% data variables.product.prodname_codespaces %} to use dotfiles from any repository you own by selecting that repository in your [personal {% data variables.product.prodname_codespaces %} settings](https://github.com/settings/codespaces).
 
-When you create a new codespace, {% data variables.product.prodname_dotcom %} clones your `dotfiles` repository to the codespace environment, and looks for one of the following files to set up the environment.
+When you create a new codespace, {% data variables.product.prodname_dotcom %} clones your selected repository to the codespace environment, and looks for one of the following files to set up the environment.
 
 * _install.sh_
 * _install_
@@ -58,9 +58,9 @@ When you create a new codespace, {% data variables.product.prodname_dotcom %} cl
 * _setup_
 * _script/setup_
 
-If none of these files are found, then any files or folders in `dotfiles` starting with `.` are symlinked to the codespace's `~` or `$HOME` directory.
+If none of these files are found, then any files or folders in your selected dotfiles repository starting with `.` are symlinked to the codespace's `~` or `$HOME` directory.
 
-Any changes to your `dotfiles` repository will apply only to each new codespace, and do not affect any existing codespace.
+Any changes to your selected dotfiles repository will apply only to each new codespace, and do not affect any existing codespace.
 
 {% note %}
 
@@ -70,18 +70,20 @@ Any changes to your `dotfiles` repository will apply only to each new codespace,
 
 ### Enabling your dotfiles repository for {% data variables.product.prodname_codespaces %}
 
-You can use your public `dotfiles` repository to personalize your {% data variables.product.prodname_codespaces %} environment. Once you set up that repository, you can add your scripts, preferences, and configurations to it. You then need to enable your dotfiles from your personal {% data variables.product.prodname_codespaces %} settings page.
+You can use your selected dotfiles repository to personalize your {% data variables.product.prodname_codespaces %} environment. Once you choose your dotfiles repository, you can add your scripts, preferences, and configurations to it. You then need to enable your dotfiles from your personal {% data variables.product.prodname_codespaces %} settings page.
+
+{% warning %}
+
+**Warning:** Dotfiles have the ability to run arbitrary scripts, which may contain unexpected or malicious code. Before installing a dotfiles repo, we recommend checking scripts to ensure they don't perform any unexpected actions.
+
+{% endwarning %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
 1. Under "Dotfiles", select "Automatically install dotfiles" so that {% data variables.product.prodname_codespaces %} automatically installs your dotfiles into every new codespace you create.
-   ![Installing dotfiles](/assets/images/help/codespaces/install-dotfiles.png)
-
-   {% note %}
-
-   **Note:** This option is only available if you've created a public `dotfiles` repository for your user account.
-
-   {% endnote %}
+   ![Installing dotfiles](/assets/images/help/codespaces/install-custom-dotfiles.png)
+2. Once "Automatically install dotfiles" is selected, select the repo you would like to install dotfiles from.
+   ![Selecting a dotfiles repo](/assets/images/help/codespaces/select-dotfiles-repo.png)
 
 You can add further script, preferences, configuration files to your dotfiles repository or edit existing files whenever you want. Changes to settings will only be picked up by new codespaces.
 
