@@ -100,6 +100,8 @@ Google | Google Cloud Storage Service Account Access Key ID | google_cloud_stora
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
+Google | Google OAuth Access Token | google_oauth_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
 Google | Google OAuth Client ID | google_oauth_client_id{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Google | Google OAuth Client Secret | google_oauth_client_secret{% endif %}
