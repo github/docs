@@ -10,6 +10,17 @@ on:
     branches:
       - main
   pull_request:
+    paths:
+      - '**.js'
+      - '**.mjs'
+      - '**.ts'
+      - '**.tsx'
+      - jest.config.js
+      - package.json
+      # In case something like eslint or tsc or prettier upgrades
+      - package-lock.json
+      # Ultimately, for debugging this workflow itself
+      - .github/workflows/browser-test.yml
 
 jobs:
   build:
@@ -31,6 +42,11 @@ jobs:
           cache: npm
 
       - name: Install dependencies
+        env:
+          # This makes it so the puppeteer npm package doesn't bother
+          # to download a copy of chromium because it can use
+          # `$PUPPETEER_EXECUTABLE_PATH` from the ubuntu Action container.
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
         run: npm ci --include=optional
 
       - name: Run browser-test
