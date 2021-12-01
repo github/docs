@@ -93,7 +93,7 @@ registry=https://registry.npmjs.org/
 always-auth=true
 ```
 
-Please note that you need to configure the `registry-url` in `setup-node` to properly configure your crednetials.
+Please note that you need to configure the `registry-url` in `setup-node` to properly configure your credentials.
 
 ## Publishing packages to {% data variables.product.prodname_registry %}
 
