@@ -16,11 +16,3 @@ versions:
   {% data glossaries.external[forloop.index0].description %}
   ---
 {% endfor %}
-
----
-
-## Further reading
-
-- [The Official Git Glossary](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
-- [Git Reference](http://gitref.org/)
-- [Git SCM](https://git-scm.com/doc)
