@@ -1,0 +1,1 @@
+大多数官方 {% data variables.product.prodname_dotcom %} 编写的操作都会自动与 {% data variables.product.product_name %} 捆绑在一起，并且会在某个时间点从 {% data variables.product.prodname_marketplace %} 获取。
