@@ -25,7 +25,7 @@ shortTitle: Node.js packages
 
 ## Introduction
 
-This guide shows you how to create a workflow that publishes Node.js packages to the {% data variables.product.prodname_registry %} and npm registries after continuous integration (CI) tests pass.[]
+This guide shows you how to create a workflow that publishes Node.js packages to the {% data variables.product.prodname_registry %} and npm registries after continuous integration (CI) tests pass.
 
 ## Prerequisites
 
