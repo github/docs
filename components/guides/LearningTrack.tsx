@@ -2,7 +2,7 @@ import cx from 'classnames'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { useState } from 'react'
-import { FeaturedTrack } from 'components/context/ProductSubLandingContext'
+import { FeaturedTrack } from 'components/context/ProductGuidesContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
 import slugger from 'github-slugger'
 import styles from './LearningTrack.module.scss'
@@ -17,7 +17,7 @@ export const LearningTrack = ({ track }: Props) => {
   const showAll = () => {
     setNumVisible(track?.guides?.length || 0)
   }
-  const { t } = useTranslation('product_sublanding')
+  const { t } = useTranslation('product_guides')
   const slug = track?.title ? slugger.slug(track?.title) : ''
 
   return (

@@ -1,8 +1,8 @@
-import { useProductSubLandingContext } from 'components/context/ProductSubLandingContext'
-import { LearningTrack } from 'components/sublanding/LearningTrack'
+import { useProductGuidesContext } from 'components/context/ProductGuidesContext'
+import { LearningTrack } from 'components/guides/LearningTrack'
 
 export const LearningTracks = () => {
-  const { learningTracks } = useProductSubLandingContext()
+  const { learningTracks } = useProductGuidesContext()
 
   return (
     <div className="d-flex flex-wrap flex-items-start my-5 gutter">

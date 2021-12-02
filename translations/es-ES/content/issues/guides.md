@@ -3,7 +3,7 @@ title: Issues guides
 shortTitle: Guías
 intro: 'Aprende cómo puedes utilizar las {% data variables.product.prodname_github_issues %} para planear y rastrear tu trabajo.'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'
@@ -25,4 +25,3 @@ includeGuides:
   - /issues/using-labels-and-milestones-to-track-work/managing-labels
   - /issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests
 ---
-

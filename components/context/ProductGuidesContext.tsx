@@ -17,7 +17,7 @@ export type ArticleGuide = {
   topics: Array<string>
 }
 
-export type ProductSubLandingContextT = {
+export type ProductGuidesContextT = {
   title: string
   intro: string
   featuredTrack?: FeaturedTrack
@@ -26,21 +26,21 @@ export type ProductSubLandingContextT = {
   allTopics?: Array<string>
 }
 
-export const ProductSubLandingContext = createContext<ProductSubLandingContextT | null>(null)
+export const ProductGuidesContext = createContext<ProductGuidesContextT | null>(null)
 
-export const useProductSubLandingContext = (): ProductSubLandingContextT => {
-  const context = useContext(ProductSubLandingContext)
+export const useProductGuidesContext = (): ProductGuidesContextT => {
+  const context = useContext(ProductGuidesContext)
 
   if (!context) {
     throw new Error(
-      '"useProductSubLandingContext" may only be used inside "ProductSubLandingContext.Provider"'
+      '"useProductGuidesContext" may only be used inside "ProductGuidesContext.Provider"'
     )
   }
 
   return context
 }
 
-export const getProductSubLandingContextFromRequest = (req: any): ProductSubLandingContextT => {
+export const getProductGuidesContextFromRequest = (req: any): ProductGuidesContextT => {
   const page = req.context.page
 
   return {

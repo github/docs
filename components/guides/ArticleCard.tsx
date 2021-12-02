@@ -1,4 +1,4 @@
-import { ArticleGuide } from 'components/context/ProductSubLandingContext'
+import { ArticleGuide } from 'components/context/ProductGuidesContext'
 import { Label } from '@primer/components'
 
 type Props = {

@@ -1,19 +1,19 @@
 import { DefaultLayout } from 'components/DefaultLayout'
-import { useProductSubLandingContext } from 'components/context/ProductSubLandingContext'
+import { useProductGuidesContext } from 'components/context/ProductGuidesContext'
 import React from 'react'
 import { LandingSection } from 'components/landing/LandingSection'
-import { SubLandingHero } from 'components/sublanding/SubLandingHero'
-import { LearningTracks } from 'components/sublanding/LearningTracks'
-import { ArticleCards } from 'components/sublanding/ArticleCards'
+import { GuidesHero } from 'components/guides/GuidesHero'
+import { LearningTracks } from 'components/guides/LearningTracks'
+import { ArticleCards } from 'components/guides/ArticleCards'
 import { useTranslation } from 'components/hooks/useTranslation'
 
-export const ProductSubLanding = () => {
-  const { title, learningTracks, includeGuides } = useProductSubLandingContext()
+export const ProductGuides = () => {
+  const { title, learningTracks, includeGuides } = useProductGuidesContext()
   const { t } = useTranslation('sub_landing')
   return (
     <DefaultLayout>
       <LandingSection className="pt-3">
-        <SubLandingHero />
+        <GuidesHero />
       </LandingSection>
 
       {learningTracks && learningTracks.length > 0 && (

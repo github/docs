@@ -1,15 +1,15 @@
 import cx from 'classnames'
-import { useProductSubLandingContext } from 'components/context/ProductSubLandingContext'
+import { useProductGuidesContext } from 'components/context/ProductGuidesContext'
 import { ArrowRightIcon, StarFillIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
 import { TruncateLines } from 'components/ui/TruncateLines'
 import { Lead } from 'components/ui/Lead'
-import styles from './SubLandingHero.module.scss'
+import styles from './GuidesHero.module.scss'
 
-export const SubLandingHero = () => {
-  const { title, intro, featuredTrack } = useProductSubLandingContext()
-  const { t } = useTranslation('product_sublanding')
+export const GuidesHero = () => {
+  const { title, intro, featuredTrack } = useProductGuidesContext()
+  const { t } = useTranslation('product_guides')
   const cardWidth = 280
 
   const guideItems = featuredTrack?.guides?.map((guide) => (
