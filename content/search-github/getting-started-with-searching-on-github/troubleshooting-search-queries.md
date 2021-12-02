@@ -1,4 +1,4 @@
----
+?---search not found or 404 not found---?
 title: Troubleshooting search queries
 intro: 'If you encounter unexpected results while searching on {% data variables.product.product_name %}, you can troubleshoot by reviewing common problems and limitations.'
 redirect_from:
@@ -7,6 +7,7 @@ redirect_from:
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/troubleshooting-search-queries
 versions:
   fpt: '*'
+  hs:  '#,*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
