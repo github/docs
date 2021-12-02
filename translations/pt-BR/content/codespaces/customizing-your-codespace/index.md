@@ -1,6 +1,6 @@
 ---
-title: Personalizando seu codespace
-intro: '{% data variables.product.prodname_codespaces %} é um ambiente dedicado a você. É possível configurar seus repositórios com um contêiner de desenvolvimento para definir seu ambiente padrão de codespace e personalizar sua experiência de desenvolvimento por meio de todos os seus códigos com dotfiles e Settings Sync.'
+title: Customizing your codespace
+intro: '{% data variables.product.prodname_codespaces %} is a dedicated environment for you. You can configure your repositories with a dev container to define their default Codespaces environment, and personalize your development experience across all of your codespaces with dotfiles and Settings Sync.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -10,8 +10,10 @@ redirect_from:
 topics:
   - Codespaces
 children:
-  - /configuring-codespaces-for-your-project
   - /personalizing-codespaces-for-your-account
+  - /changing-the-machine-type-for-your-codespace
+  - /setting-your-default-editor-for-codespaces
+  - /setting-your-default-region-for-codespaces
   - /prebuilding-codespaces-for-your-project
 ---
-
+ 

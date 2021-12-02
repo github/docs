@@ -1,6 +1,6 @@
 ---
-title: Criar e testar Node.js
-intro: É possível criar um fluxo de trabalho de integração contínua (CI) para criar e testar o seu projeto Node.js.
+title: Building and testing Node.js
+intro: You can create a continuous integration (CI) workflow to build and test your Node.js project.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions
   - /actions/language-and-framework-guides/using-nodejs-with-github-actions
@@ -16,7 +16,7 @@ topics:
   - CI
   - Node
   - JavaScript
-shortTitle: Criar & testar Node.js
+shortTitle: Build & test Node.js
 hasExperimentalAlternative: true
 ---
 
@@ -24,24 +24,24 @@ hasExperimentalAlternative: true
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-## Introdução
+## Introduction
 
-Este guia mostra como criar um fluxo de trabalho de integração contínua (CI) que cria e testa o código Node.js. Se o seu teste de CI for aprovado, é possível que você deseje publicar seu código ou um pacote.
+This guide shows you how to create a continuous integration (CI) workflow that builds and tests Node.js code. If your CI tests pass, you may want to deploy your code or publish a package.
 
-## Pré-requisitos
+## Prerequisites
 
-Recomendamos que você tenha um entendimento básico do Node.js, YAML, das opções de configuração do fluxo de trabalho e de como criar um arquivo do fluxo de trabalho. Para obter mais informações, consulte:
+We recommend that you have a basic understanding of Node.js, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
-- "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
-- "[Começar com Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/)"
+- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- "[Getting started with Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/)"
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Introdução com o modelo de workflow do Node.js
+## Starting with the Node.js workflow template
 
-O {% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho do Node.js que funcionará para a maioria dos projetos Node.js. Esse guia inclui exemplos de npm e Yarn que você pode usar para personalizar o modelo. Para obter mais informações, consulte o [modelo do fluxo de trabalho do Node.js](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
+{% data variables.product.prodname_dotcom %} provides a Node.js workflow template that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the template. For more information, see the [Node.js workflow template](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
-Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do repositório. O fluxo de trabalho mostrado abaixo pressupõe que o branch padrão para o seu repositório é `principal`.
+To get started quickly, add the template to the `.github/workflows` directory of your repository. The workflow shown below assumes that the default branch for your repository is `main`.
 
 {% raw %}
 ```yaml{:copy}
@@ -76,15 +76,15 @@ jobs:
 
 {% data reusables.github-actions.example-github-runner %}
 
-## Especificar a versão do Node.js
+## Specifying the Node.js version
 
-A maneira mais fácil de especificar uma versão do Node.js é usar a ação `setup-node` fornecida pelo {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte [`setup-node`](https://github.com/actions/setup-node/).
+The easiest way to specify a Node.js version is by using the `setup-node` action provided by {% data variables.product.prodname_dotcom %}. For more information see, [`setup-node`](https://github.com/actions/setup-node/).
 
-A ação `setup-node` considera uma versão do Node.js como uma entrada e configura essa versão no executor. A ação `setup-node` localiza uma versão específica do Node.js da cache das ferramentas em casa executor e adiciona os binários necessários ao `PATH`, que persiste no resto do trabalho. Usar a ação `setup-node` é a forma recomendada de usar o Node.js com {% data variables.product.prodname_actions %}, pois garante um comportamento consistente nos diferentes executores e nas diferentes versões do Node.js. Se você estiver usando um executor auto-hospedado, você deverá instalar o Node.js e adicioná-lo ao `PATH`.
+The `setup-node` action takes a Node.js version as an input and configures that version on the runner. The `setup-node` action finds a specific version of Node.js from the tools cache on each runner and adds the necessary binaries to `PATH`, which persists for the rest of the job. Using the `setup-node` action is the recommended way of using Node.js with {% data variables.product.prodname_actions %} because it ensures consistent behavior across different runners and different versions of Node.js. If you are using a self-hosted runner, you must install Node.js and add it to `PATH`.
 
-O modelo inclui uma estratégia matriz que cria e testa seu código com quatro versões de Node.js: 10.x, 12.x, 14.x e 15.x. O "x" é um caractere curinga que corresponde à última versão menor e à versão do patch disponível para uma versão. Cada versão do Node.js especificada na matriz `node-version` cria uma tarefa que executa as mesmas etapas.
+The template includes a matrix strategy that builds and tests your code with four Node.js versions: 10.x, 12.x, 14.x, and 15.x. The 'x' is a wildcard character that matches the latest minor and patch release available for a version. Each version of Node.js specified in the `node-version` array creates a job that runs the same steps.
 
-Cada trabalho pode acessar o valor definido na matriz `node-version` usando o contexto `matriz`. A ação `setup-node` usa o contexto como entrada de `node-version`. A ação `setup-node` configura cada tarefa com uma versão diferente de Node.js antes de criar e testar o código. Para obter mais informações sobre estratégias e contextos de matriz, consulte "[Sintaxe do Fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" e "[Contextos](/actions/learn-github-actions/contexts)".
+Each job can access the value defined in the matrix `node-version` array using the `matrix` context. The `setup-node` action uses the context as the `node-version` input. The `setup-node` action configures each job with a different Node.js version before building and testing code. For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[Contexts](/actions/learn-github-actions/contexts)."
 
 {% raw %}
 ```yaml{:copy}
@@ -101,15 +101,15 @@ steps:
 ```
 {% endraw %}
 
-Como alternativa, você pode criar e fazes testes com versões exatas do Node.js.
+Alternatively, you can build and test with exact Node.js versions.
 
 ```yaml{:copy}
-estratégia:
-  matriz:
+strategy:
+  matrix:
     node-version: [8.16.2, 10.17.0]
 ```
 
-Você também pode criar e testar usando uma versão única do Node.js.
+Or, you can build and test using a single version of Node.js too.
 
 {% raw %}
 ```yaml{:copy}
@@ -134,20 +134,20 @@ jobs:
 ```
 {% endraw %}
 
-Se você não especificar uma versão do Node.js, o {% data variables.product.prodname_dotcom %} usará a versão-padrão do Node.js do ambiente.
-{% ifversion ghae %} Para obter instruções sobre como ter certeza de que o {% data variables.actions.hosted_runner %} possui o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
-{% else %} Para obter mais informações, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+If you don't specify a Node.js version, {% data variables.product.prodname_dotcom %} uses the environment's default Node.js version.
+{% ifversion ghae %} For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% else %} For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-## Instalar dependências
+## Installing dependencies
 
-Executores hospedados em {% data variables.product.prodname_dotcom %} têm gerenciadores de dependências npm e Yarn instalados. Você pode usar o npm e o Yarn para instalar dependências no seu fluxo de trabalho antes de criar e testar seu código. Os executores do Windows e Linux hospedados em {% data variables.product.prodname_dotcom %} também têm o Grunt, Gulp, e Bower instalado.
+{% data variables.product.prodname_dotcom %}-hosted runners have npm and Yarn dependency managers installed. You can use npm and Yarn to install dependencies in your workflow before building and testing your code. The Windows and Linux {% data variables.product.prodname_dotcom %}-hosted runners also have Grunt, Gulp, and Bower installed.
 
-Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você também poderá armazenar em cache dependências para acelerar seu fluxo de trabalho. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
-### Exemplo de uso do npm
+### Example using npm
 
-Este exemplo instala as dependências definidas no arquivo *package.json*. Para obter mais informações, consulte [`instalação do npm`](https://docs.npmjs.com/cli/install).
+This example installs the dependencies defined in the *package.json* file. For more information, see [`npm install`](https://docs.npmjs.com/cli/install).
 
 ```yaml{:copy}
 steps:
@@ -160,7 +160,7 @@ steps:
   run: npm install
 ```
 
-O uso do `npm ci` instala as versões no arquivo *package-lock.json* ou *npm-shrinkwrap.json* e impede as atualizações do arquivo de bloqueio. Usar `npm ci` geralmente é mais rápido que executar a `instalação do npm`. Para obter mais informações, consulte [`npm ci`](https://docs.npmjs.com/cli/ci.html) e "[Introduzindo `npm` para criações mais rápidas e confiáveis](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)".
+Using `npm ci` installs the versions in the *package-lock.json* or *npm-shrinkwrap.json* file and prevents updates to the lock file. Using `npm ci` is generally faster than running `npm install`. For more information, see [`npm ci`](https://docs.npmjs.com/cli/ci.html) and "[Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)."
 
 {% raw %}
 ```yaml{:copy}
@@ -175,9 +175,9 @@ steps:
 ```
 {% endraw %}
 
-### Exemplo de uso do Yarn
+### Example using Yarn
 
-Este exemplo instala as dependências definidas no arquivo *package.json*. Para obter mais informações, consulte [`instalação do yarn`](https://yarnpkg.com/en/docs/cli/install).
+This example installs the dependencies defined in the *package.json* file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
 
 ```yaml{:copy}
 steps:
@@ -190,7 +190,7 @@ steps:
   run: yarn
 ```
 
-Como alternativa, você pode aprovar o `--frozen-lockfile` para instalar as versões no arquivo *yarn.lock* e impedir atualizações no arquivo *yarn.lock*.
+Alternatively, you can pass `--frozen-lockfile` to install the versions in the *yarn.lock* file and prevent updates to the *yarn.lock* file.
 
 ```yaml{:copy}
 steps:
@@ -203,15 +203,15 @@ steps:
   run: yarn --frozen-lockfile
 ```
 
-### Exemplo do uso de um registro privado e de criação o arquivo .npmrc
+### Example using a private registry and creating the .npmrc file
 
 {% data reusables.github-actions.setup-node-intro %}
 
-Para efetuar a autenticação com seu registro privado, você precisará armazenar seu token de autenticação npm como um segredo. Por exemplo, crie um repositório secreto denominado `NPM_TOKEN`. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+To authenticate to your private registry, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-No exemplo abaixo, o segredo `NPM_TOKEN` armazena o token de autenticação npm. A ação `setup-node` configura o arquivo *.npmrc* para ler o token de autenticação npm a partir da variável de ambiente `NODE_AUTH_TOKEN`. Ao usar a ação `setup-node` para criar um arquivo *.npmrc*, você deverá definir a variável de ambiente `NODE_AUTH_TOKEN` com o segredo que contém seu token de autenticação npm.
+In the example below, the secret `NPM_TOKEN` stores the npm authentication token. The `setup-node` action configures the *.npmrc* file to read the npm authentication token from the `NODE_AUTH_TOKEN` environment variable. When using the `setup-node` action to create an *.npmrc* file, you must set the `NODE_AUTH_TOKEN` environment variable with the secret that contains your npm authentication token.
 
-Antes de instalar as dependências, use a ação `setup-node` para criar o arquivo *.npmrc* file. A ação tem dois parâmetros de entrada. O parâmetro `node-version` define a versão do Node.js e o parâmetro `registry-url` define o registro-padrão. Se o registro do seu pacote usar escopos, você deverá usar o parâmetro `escopo`. Para obter mais informações, consulte [`npm-scope`](https://docs.npmjs.com/misc/scope).
+Before installing dependencies, use the `setup-node` action to create the *.npmrc* file. The action has two input parameters. The `node-version` parameter sets the Node.js version, and the `registry-url` parameter sets the default registry. If your package registry uses scopes, you must use the `scope` parameter. For more information, see [`npm-scope`](https://docs.npmjs.com/misc/scope).
 
 {% raw %}
 ```yaml{:copy}
@@ -231,7 +231,7 @@ steps:
 ```
 {% endraw %}
 
-O exemplo acima cria um arquivo *.npmrc* com o conteúdo a seguir:
+The example above creates an *.npmrc* file with the following contents:
 
 ```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
@@ -239,11 +239,11 @@ O exemplo acima cria um arquivo *.npmrc* com o conteúdo a seguir:
 always-auth=true
 ```
 
-### Exemplo de memorização de dependências
+### Example caching dependencies
 
-Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você pode armazenar em cache e restaurar as dependências usando a ação [`setup-node`](https://github.com/actions/setup-node).
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache and restore the dependencies using the [`setup-node` action](https://github.com/actions/setup-node).
 
-O exemplo a seguir armazena dependências do npm.
+The following example caches dependencies for npm.
 ```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
@@ -255,7 +255,7 @@ steps:
 - run: npm test
 ```
 
-O exemplo a seguir armazena dependências para o Yarn.
+The following example caches dependencies for Yarn.
 
 ```yaml{:copy}
 steps:
@@ -268,7 +268,7 @@ steps:
 - run: yarn test
 ```
 
-O exemplo a seguir armazena dependências para pnpm (v6.10+).
+The following example caches dependencies for pnpm (v6.10+).
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -288,11 +288,11 @@ steps:
 - run: pnpm test
 ```
 
-Para armazenar dependências de cache, você deve ter um `pacote-lock.json`, `yarn.lock` ou um arquivo `pnpm-lock.yaml` na raiz do repositório. Se você precisar de uma personalização mais flexível, você poderá usar a ação [`cache`](https://github.com/marketplace/actions/cache). Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Dependências de cache para acelerar fluxos de trabalho</a>".
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>".
 
-## Criar e testar seu código
+## Building and testing your code
 
-Você pode usar os mesmos comandos usados localmente para criar e testar seu código. Por exemplo, se você executar `criação da execução do npm` para executar os passos de compilação definidos no seu arquivo *package.json* e o `teste do npm` para executar seu conjunto de testes, você adicionaria esses comandos no seu arquivo de fluxo de trabalho.
+You can use the same commands that you use locally to build and test your code. For example, if you run `npm run build` to run build steps defined in your *package.json* file and `npm test` to run your test suite, you would add those commands in your workflow file.
 
 ```yaml{:copy}
 steps:
@@ -306,10 +306,10 @@ steps:
 - run: npm test
 ```
 
-## Empacotar dados do fluxo de trabalho como artefatos
+## Packaging workflow data as artifacts
 
-Você pode salvar artefatos das suas etapas de criação e teste para serem visualizados após a conclusão de um trabalho. Por exemplo, é possível que você precise salvar os arquivos de registro, os despejos de núcleo, os resultados de teste ou capturas de tela. Para obter mais informações, consulte "[Dados recorrentes do fluxo de trabalho que usam artefatos](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
+You can save artifacts from your build and test steps to view after a job completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-## Publicar nos registros do pacote
+## Publishing to package registries
 
-Você pode configurar o seu fluxo de trabalho para publicar o seu pacote Node.js em um pacote de registro após os seus testes de CI serem aprovados. Para obter mais informações sobre a publicação no npm e em {% data variables.product.prodname_registry %}, consulte "[Publicando pacotes do Node.js](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)".
+You can configure your workflow to publish your Node.js package to a package registry after your CI tests pass. For more information about publishing to npm and {% data variables.product.prodname_registry %}, see "[Publishing Node.js packages](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)."

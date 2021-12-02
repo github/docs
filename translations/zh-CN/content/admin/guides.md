@@ -1,7 +1,7 @@
 ---
-title: GitHub Enterprise 指南
-shortTitle: 指南
-intro: '学习如何通过 {% data variables.product.product_name %} 提高开发人员的工作效率和代码质量。'
+title: GitHub Enterprise guides
+shortTitle: Guides
+intro: 'Learn how to increase developer productivity and code quality with {% data variables.product.product_name %}.'
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
@@ -9,14 +9,15 @@ versions:
   ghes: '*'
   ghae: '*'
 learningTracks:
+  - '{% ifversion ghec %}get_started_with_your_enterprise_account{% endif %}'
   - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
   - '{% ifversion ghes %}deploy_an_instance{% endif %}'
   - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
+  -  adopting_github_actions_for_your_enterprise
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_advanced_security{% endif %}'
-  - '{% ifversion ghec %}get_started_with_your_enterprise_account{% endif %}'
 includeGuides:
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/changing-authentication-methods

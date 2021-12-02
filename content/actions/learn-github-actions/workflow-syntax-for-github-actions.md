@@ -226,6 +226,31 @@ For more information, see "[Reusing workflows](/actions/learn-github-actions/reu
 
 Required if input is defined for the `on.workflow_call` keyword. The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `number`, or `string`.
 
+## `on.workflow_call.outputs`
+
+A map of outputs for a called workflow. Called workflow outputs are available to all downstream jobs in the caller workflow. Each output has an identifier, an optional `description,` and a `value.` The `value` must be set to the value of an output from a job within the called workflow.
+
+In the example below, two outputs are defined for this reusable workflow: `workflow_output1` and `workflow_output2`. These are mapped to outputs called `job_output1` and `job_output2`, both from a job called `my_job`.
+
+### Example
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    # Map the workflow outputs to job outputs
+    outputs:
+      workflow_output1:
+        description: "The first job output"
+        value: ${{ jobs.my_job.outputs.job_output1 }}
+      workflow_output2:
+        description: "The second job output"
+        value: ${{ jobs.my_job.outputs.job_output2 }}  
+```
+{% endraw %}
+
+For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+
 ## `on.workflow_call.secrets`
 
 A map of the secrets that can be used in the called workflow.
