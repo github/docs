@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
 
       - name: Setup Node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: 16.13.x
           cache: npm
