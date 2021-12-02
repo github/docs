@@ -53,10 +53,12 @@ jobs:
           # So that `steps.get_diff_files.outputs.files` becomes
           # a string like `foo.js path/bar.md`
           output: ' '
+          fileOutput: 'json'
 
       - name: Insight into changed files
         run: |
-          echo ${{ steps.get_diff_files.outputs.files }}
+          # echo ${{ steps.get_diff_files.outputs.files }} > get_diff_files.txt
+          ls -ltr
 
       - name: Setup node
         uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
@@ -83,6 +85,7 @@ jobs:
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           script: |
+
             const asString = "${{ steps.get_diff_files.outputs.files }}"
             const countFiles = (asString.split(/\s+/g) || []).length
             core.setOutput('files', `There are ${countFiles} files`)
