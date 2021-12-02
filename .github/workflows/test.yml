@@ -79,6 +79,5 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        env:
-          DIFF_FILES: ${{ steps.get_diff_files.outputs.files }}
-        run: npm run test tests/${{ matrix.test-group }}/
+        run: |
+          DIFF_FILES="${{ steps.get_diff_files.outputs.files }}" npm run test tests/${{ matrix.test-group }}/
