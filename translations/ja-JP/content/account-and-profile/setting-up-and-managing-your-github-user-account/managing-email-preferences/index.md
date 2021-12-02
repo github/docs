@@ -1,6 +1,6 @@
 ---
 title: メール プリファレンスの管理
-intro: '{% data variables.product.product_name %} アカウントに関連付けられているメール アドレスを追加または変更できます。 {% data variables.product.product_name %} から受信するメールを管理することもできます。'
+intro: 'You can add or change the email addresses associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. {% data variables.product.product_name %} から受信するメールを管理することもできます。'
 redirect_from:
   - /categories/managing-email-preferences/
   - /articles/managing-email-preferences
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications

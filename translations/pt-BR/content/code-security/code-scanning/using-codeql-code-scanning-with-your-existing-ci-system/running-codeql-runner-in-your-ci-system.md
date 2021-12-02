@@ -11,8 +11,9 @@ redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -36,7 +37,7 @@ topics:
 
 O {% data variables.product.prodname_codeql_runner %} é uma ferramenta que você pode usar para executar {% data variables.product.prodname_code_scanning %} no código que você está processando em um sistema de integração contínua de terceiros (CI). {% data reusables.code-scanning.about-code-scanning %} Para obter informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %} com {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 Em muitos casos, é mais fácil configurar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} usando {% data variables.product.prodname_codeql_cli %} diretamente no seu sistema de CI.
 {% endif %}
 
@@ -47,7 +48,7 @@ O {% data variables.product.prodname_codeql_runner %} é uma ferramenta de linha
 {% note %}
 
 **Observação:**
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * O {% data variables.product.prodname_codeql_runner %} usa o CLI de {% data variables.product.prodname_codeql %} para analisar o código e, portanto, tem as mesmas condições da licença. É grátis usar em repositórios públicos que são mantidos no {% data variables.product.prodname_dotcom_the_website %}, e disponíveis para uso em repositórios privados que são propriedade de clientes com uma licença do {% data variables.product.prodname_advanced_security %}. Para obter informações, consulte "[{% data variables.product.product_name %} Termos e Condições](https://securitylab.github.com/tools/codeql/license) de do CLI de {% data variables.product.prodname_codeql %} " e "[{% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
 {% else %}
 * O {% data variables.product.prodname_codeql_runner %} está disponível para os clientes com uma licença de {% data variables.product.prodname_advanced_security %}.
@@ -59,7 +60,7 @@ O {% data variables.product.prodname_codeql_runner %} é uma ferramenta de linha
 
 ## Fazer o download do {% data variables.product.prodname_codeql_runner %}
 
-Você pode fazer o download de {% data variables.product.prodname_codeql_runner %} de https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases. Em alguns sistemas operacionais, talvez você precise alterar as permissões para o arquivo baixado antes de executá-lo.
+Você pode fazer o download de {% data variables.product.prodname_codeql_runner %} de https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases. Em alguns sistemas operacionais, talvez você precise alterar as permissões para o arquivo baixado antes de executá-lo.
 
 No Linux:
 
@@ -81,7 +82,7 @@ No Windows, o arquivo `codeql-runner-win.exe` normalmente não exige alteração
 Após fazer o download de {% data variables.product.prodname_codeql_runner %} e verificar se pode ser executado, você deverá disponibilizar o executor para cada servidor de CI que você pretende usar para {% data variables.product.prodname_code_scanning %}. Por exemplo, você pode configurar cada servidor para que copie o executor de um local central interno. Como alternativa, você poderia usar a API REST para obter o executor diretamente do {% data variables.product.prodname_dotcom %}, por exemplo:
 
 ```shell
-wget https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-runner-linux
+wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-runner-linux
 chmod +x codeql-runner-linux
 ```
 
@@ -92,7 +93,7 @@ Além disso, cada servidor de CI também precisa:
 
 As opções para fornecer acesso ao pacote de{% data variables.product.prodname_codeql %} são:
 
-1. Permita o acesso dos servidores de CI a https://{% ifversion fpt %}github. om{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action para que {% data variables.product.prodname_codeql_runner %} possa fazer o download do pacote automaticamente.
+1. Permita o acesso dos servidores de CI a https://{% ifversion fpt or ghec %}github. om{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action para que {% data variables.product.prodname_codeql_runner %} possa fazer o download do pacote automaticamente.
 1. Faça o download/extraia o pacote manualmente, armazene-o com outros recursos centrais e use <nobr>`--codeql-path`</nobr> o sinalizador para especificar o local do pacote nas chamadas para inicializar o {% data variables.product.prodname_codeql_runner %}.
 
 ## Chamar {% data variables.product.prodname_codeql_runner %}

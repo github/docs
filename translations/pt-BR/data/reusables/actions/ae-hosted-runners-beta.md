@@ -1,7 +1,7 @@
 {% ifversion ghae %}
 {% note %}
 
-**Note:** {% data variables.actions.hosted_runner %}s are currently in beta and subject to change.
+**Observação:** {% data variables.actions.hosted_runner %} estão atualmente na versão beta e sujeitos a alterações.
 
 {% endnote %}
 {% endif %}

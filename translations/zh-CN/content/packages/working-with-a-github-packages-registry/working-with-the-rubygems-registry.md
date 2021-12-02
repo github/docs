@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: RubyGems 注册表
 ---
 
@@ -61,7 +62,7 @@ shortTitle: RubyGems 注册表
 gem.metadata = { "github_repo" => "ssh://github.com/OWNER/REPOSITORY" }
 ```
 
-要安装 gem，您需要通过编辑项目的 *~/.gemrc* 文件以包含 `https://USERNAME:TOKEN@{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`，向 {% data variables.product.prodname_registry %} 验证。 必须：
+要安装 gem，您需要通过编辑项目的 *~/.gemrc* 文件以包含 `https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`，向 {% data variables.product.prodname_registry %} 验证。 必须：
   - 将 `USERNAME` 替换为您的 {% data variables.product.prodname_dotcom %} 用户名。
   - 将 `TOKEN` 替换为您的个人访问令牌。
   - 将 `OWNER` 替换为拥有项目所在仓库的用户或组织帐户的名称。{% ifversion ghes %}
@@ -78,7 +79,7 @@ gem.metadata = { "github_repo" => "ssh://github.com/OWNER/REPOSITORY" }
 :bulk_threshold: 1000
 :sources:
 - https://rubygems.org/
-- https://USERNAME:TOKEN@{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/
+- https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/
 :update_sources: true
 :verbose: true  
 
@@ -87,7 +88,7 @@ gem.metadata = { "github_repo" => "ssh://github.com/OWNER/REPOSITORY" }
 要使用 Bundler 进行身份验证，请配置 Bundler 使用您的个人访问令牌，将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌，将 *OWNER* 替换为拥有项目所在仓库的用户或组织帐户的名称。{% ifversion ghes %}将 `REGISTRY-URL` 替换为实例 Rubygems 注册表的 URL。 如果您的实例启用了子域隔离，请使用 `rubygems.HOSTNAME`。 如果您的实例禁用了子域隔离，请使用 `HOSTNAME/_registry/rubygems`。 在任一情况下，将 *HOSTNAME* 替换为您的 {% data variables.product.prodname_ghe_server %} 实例的主机名。{% elsif ghae %}将 `REGISTRY-URL` 替换为实例的 Rubygems 注册表 URL `rubygems.HOSTNAME`。 将 *HOSTNAME* 替换为 {% data variables.product.product_location %} 的主机名。{% endif %}
 
 ```shell
-$ bundle config https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
+$ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
 ```
 
 ## 发布包
@@ -105,7 +106,7 @@ $ bundle config https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGI
 
   ```shell
   $ gem push --key github \
-  --host https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER</em> \
+  --host https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER</em> \
   <em>OCTO-GEM-0.0.1</em>.gem
   ```
 
@@ -114,7 +115,7 @@ $ bundle config https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGI
 要将多个 gem 发布到同一个仓库，您可以在 `gem.metadata` 的 `github_repo` 字段中包含 {% data variables.product.prodname_dotcom %} 仓库的 URL。 如果您包含此字段，则 {% data variables.product.prodname_dotcom %} 根据此值匹配仓库，而不使用 gem 名称。{% ifversion ghes or ghae %} 将 *HOSTNAME* 替换为 {% data variables.product.product_location %} 的主机名称。{% endif %}
 
 ```ruby
-gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
+gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
 ```
 
 ## 安装包
@@ -129,7 +130,7 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}
 
   gem "rails"
 
-  source "https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER" do
+  source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER" do
     gem "GEM NAME"
   end
   ```
@@ -137,7 +138,7 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}
 3. 对于 1.7.0 之前的 Bundler 版本，您需要增加新的全局 `source`。 有关使用 Bundler 的更多信息，请参阅 [bundler.io 文档](http://bundler.io/v1.5/gemfile.html)。
 
   ```ruby
-  source "https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER"
+  source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER"
   source "https://rubygems.org"
 
   gem "rails"
@@ -151,4 +152,4 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}
 
 ## 延伸阅读
 
-- "{% ifversion fpt or ghes > 3.0 %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"

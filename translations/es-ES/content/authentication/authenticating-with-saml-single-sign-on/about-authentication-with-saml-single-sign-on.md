@@ -1,6 +1,6 @@
 ---
 title: Acerca de la autenticación con el inicio de sesión único de SAML
-intro: 'Puedes acceder a {% ifversion ghae %}{% data variables.product.product_location %}{% elsif fpt %}una organización que utilice el inicio de sesión único (SSO) de SAML{% endif %}s si te autenticas {% ifversion ghae %} con el inicio de sesión único (SSO) de SAML {% endif %}a través de un proveedor de identidad (IdP).{% ifversion fpt %} Después de que te autentiques exitosamente con el IdP desde {% data variables.product.product_name %}, debes autorizar cualquier token de acceso personal, llave SSH o {% data variables.product.prodname_oauth_app %} a la que quieras acceder en los recursos de la organización.{% endif %}'
+intro: 'You can access {% ifversion ghae %}{% data variables.product.product_location %}{% elsif fpt %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating {% ifversion ghae %}with SAML single sign-on (SSO) {% endif %}through an identity provider (IdP).{% ifversion fpt or ghec %} After you authenticate with the IdP successfully from {% data variables.product.product_name %}, you must authorize any personal access token, SSH key, or {% data variables.product.prodname_oauth_app %} you would like to access the organization''s resources.{% endif %}'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSO
 shortTitle: Inicio de sesión único de SAML
@@ -26,7 +27,7 @@ Si nopuedes acceder a {% data variables.product.product_name %}, contacta al pro
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.saml.dotcom-saml-explanation %} Los propietarios de la organización pueden invitar a tu cuenta de usuario en {% data variables.product.prodname_dotcom %} para unirse a la organización que utiliza SAML SSO, lo cual te permite contribuir con ella y mantener tu identidad actual y las contribuciones con {% data variables.product.prodname_dotcom %}.
 
@@ -57,5 +58,5 @@ Después de que un propietario de empresa u organización habilite o requiera el
 
 ## Leer más
 
-{% ifversion fpt %}- "[Acerca de la administración de identidad y acceso con el inicio de sesión único de SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
+{% ifversion fpt or ghec %}- "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
 {% ifversion ghae %}- "[Acerca de la identidad y administración de accesos para tu empresa](/admin/authentication/about-identity-and-access-management-for-your-enterprise)"{% endif %}

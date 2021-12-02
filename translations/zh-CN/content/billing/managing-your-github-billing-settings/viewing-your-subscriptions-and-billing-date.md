@@ -11,6 +11,7 @@ redirect_from:
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Accounts
@@ -34,4 +35,4 @@ shortTitle: 订阅和计费日期
 
 ## 延伸阅读
 
-- "[关于 {% data variables.product.product_name %} 帐户的计费](/articles/about-billing-for-github-accounts)"
+- "[关于 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/about-billing-for-github-accounts)"

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -35,6 +36,8 @@ topics:
 ## 团队可见性
 
 {% data reusables.organizations.types-of-team-visibility %}
+
+您可以在个人仪表板上查看您所属的所有团队。 更多信息请参阅“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)”。
 
 ## 团队页面
 

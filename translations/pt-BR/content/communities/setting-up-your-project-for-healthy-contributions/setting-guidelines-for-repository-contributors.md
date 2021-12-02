@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /articles/how-do-i-set-up-guidelines-for-contributors/
   - /articles/setting-guidelines-for-repository-contributors
@@ -25,9 +26,9 @@ Para contribuidores, as diretrizes ajudam a verificar se eles estão enviando pu
 
 Para proprietários e contribuidores, as diretrizes de contribuição economizam tempo e evitam aborrecimentos causados por pull requests ou problemas incorretos que precisam ser rejeitados e enviados novamente.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-Você pode criar diretrizes de contribuição padrão para sua organização{% ifversion fpt or ghes %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar diretrizes de contribuição padrão para sua organização{% ifversion fpt or ghes or ghec %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -62,6 +63,6 @@ Caso tenha dúvidas, estes são alguns bons exemplos de diretrizes de contribui�
 - [Diretrizes de contribuição](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md) do Open Government.
 
 ## Leia mais
-- Seção "[Iniciar um projeto de código aberto](https://opensource.guide/starting-a-project/)" de Guias de código aberto{% ifversion fpt %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes %}
+- Seção "[Iniciar um projeto de código aberto](https://opensource.guide/starting-a-project/)" de Guias de código aberto{% ifversion fpt or ghec %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes or ghec %}
 - "[Adicionar uma licença a um repositório](/articles/adding-a-license-to-a-repository)"{% endif %}

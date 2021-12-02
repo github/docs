@@ -1,6 +1,6 @@
 ---
 title: GitHub でオープンソースにコントリビュートする方法を見つける
-intro: '自分に関連する {% data variables.product.product_name %} のオープンソースプロジェクトにコントリビュートする方法を見つけることができます。'
+intro: '自分に関連する {% data variables.product.product_location %} のオープンソースプロジェクトにコントリビュートする方法を見つけることができます。'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on/
@@ -13,6 +13,7 @@ redirect_from:
   - /github/getting-started-with-github/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Open Source
 shortTitle: Contribute to open source
@@ -22,7 +23,7 @@ shortTitle: Contribute to open source
 
 興味のある特定の Topics がある場合は、`github.com/topics/<topic>` にアクセスしてください。 たとえば、機械学習に興味がある場合は、https://github.com/topics/machine-learning にアクセスして、関連するプロジェクトと good first issue を見つけることができます。 [[Topics](https://github.com/topics)] にアクセスすると、人気のある Topics を閲覧できます。 興味のある Topics に一致するリポジトリを検索することもできます。 詳しい情報については[リポジトリの検索](/search-github/searching-on-github/searching-for-repositories#search-by-topic)を参照してください。
 
-{% data variables.product.product_name %} で積極的に活動している場合は、[Explore](https://github.com/explore) での過去のコントリビューション、Star、およびその他のアクティビティに基づいて、プロジェクトについての個別の推奨事項と good first issue を見つけることができます。 Explore ニュースレターにサインアップして、あなたの興味に基づいて {% data variables.product.product_name %} にコントリビュートする機会について記載されたメールを受け取ることもできます。 サインアップするには、「[Explore メールニュースレター](https://github.com/explore/subscribe)」を参照してください。
+{% data variables.product.product_location %} で積極的に活動している場合は、[Explore](https://github.com/explore) での過去のコントリビューション、Star、およびその他のアクティビティに基づいて、プロジェクトについての個別の推奨事項と good first issue を見つけることができます。 Explore ニュースレターにサインアップして、あなたの興味に基づいて {% data variables.product.product_name %} にコントリビュートする機会について記載されたメールを受け取ることもできます。 サインアップするには、「[Explore メールニュースレター](https://github.com/explore/subscribe)」を参照してください。
 
 パーソナルダッシュボードの [All activity] セクションで、Watch しているリポジトリやフォローしているユーザについての最新情報を入手できます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
 

@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Autenticación
@@ -38,14 +39,14 @@ Para generar una llave privada:
 {% endnote %}
 
 ## Verificar las llaves privadas
-{% data variables.product.product_name %} genera una huella digital para cada par de llaves pública y privada utilizando la función de hash {% ifversion ghes < 3.0 %}SHA-1{% else %}SHA-256{% endif %}. Puedes verificar que tu llave privada empate con la llave pública almacenada en {% data variables.product.product_name %} generando la huella digital de tu llave privada y comparándola con la huella digital que se muestra en {% data variables.product.product_name %}.
+{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. Puedes verificar que tu llave privada empate con la llave pública almacenada en {% data variables.product.product_name %} generando la huella digital de tu llave privada y comparándola con la huella digital que se muestra en {% data variables.product.product_name %}.
 
 Para verificar una llave privada:
 
 1. Encuentra la huella digital del par de llaves pública y privada que quieras verificar en la sección "Llaves privadas" de tu página de configuración de desarrollador de {% data variables.product.prodname_github_app %}. Para obtener más información, consulta la sección [Generar una llave privada](#generating-a-private-key). ![Huella digital de llave privada](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
 2. Genera la huella digital de tu llave privada (PEM) localmente utilizando el siguiente comando:
     ```shell
-    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl {% ifversion ghes < 3.0 %}sha1 -c{% else %}sha256 -binary | openssl base64{% endif %}
+    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl sha256 -binary | openssl base64
     ```
 3. Compara los resultados de la huella digital generada localmente con aquella que ves en {% data variables.product.product_name %}.
 

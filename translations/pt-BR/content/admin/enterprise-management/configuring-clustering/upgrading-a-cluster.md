@@ -79,7 +79,7 @@ Atualize para a versão mais recente do cluster do {% data variables.product.pro
   > gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
   > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
   ```
-5. Assim que for concluído, o processo de atualização reinicializará o nó primário MySQL. Verifique se você pode fazer `ping` de cada nó depois que ele for reiniciado.{% ifversion ghes > 2.22 %}
+5. Assim que for concluído, o processo de atualização reinicializará o nó primário MySQL. Verifique se você pode fazer `ping` de cada nó depois que ele for reiniciado.{% ifversion ghes %}
 6. Conecte-se ao shell administrativo do nó do MySQL primário e execute o comando `ghe-cluster-config-apply`.
 7. Quando `ghe-cluster-config-apply` for concluído, verifique se os serviços estão em estado saudável executando `ghe-cluster-status`.{% endif %}
 8. Saia do modo de manutenção do shell administrativo de qualquer nó executando o código `ghe-cluster-maintenance -u`.

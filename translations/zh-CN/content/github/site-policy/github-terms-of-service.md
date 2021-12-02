@@ -78,7 +78,7 @@ topics:
 在使用我们的服务时，您负责维护您的帐户安全。 我们提供双重身份验证等工具，帮助您维护帐户的安全性，但您的帐户内容及其安全性取决于您。
 - 您对在您的帐户下发布的所有内容和活动负责（即使是拥有帐户的其他人在您的帐户下发布的内容）。
 - 您负责维护您的帐户和密码的安全。 GitHub 不能也不会对您未能遵守此安全保护义务而造成的任何损失或损害承担责任。
-- You will promptly [notify GitHub](https://support.github.com/contact?tags=docs-policy) if you become aware of any unauthorized use of, or access to, our Service through your Account, including any unauthorized use of your password or Account.
+- 如果您获悉通过您的帐户发生任何未授权的服务使用或访问，包括对您的密码或帐户的任何未授权使用，请立即[通知 GitHub](https://support.github.com/contact?tags=docs-policy)。
 
 ### 5. 附加条款
 在某些情况下，第三方的条款可能适用于您对 GitHub 的使用。 例如，您可能是 GitHub 上本身具有条款或许可协议的组织的成员；您可能下载与 GitHub 相集成的应用程序；或者，您可能使用 GitHub 来验证另一项服务。 请注意，虽然这些条款是我们与完全协商一致的，但其他方的条款则制约着他们与你的关系。
@@ -224,7 +224,7 @@ GitHub 可为需要高通量访问或者会导致 GitHub 服务转售的访问�
 同意这些条款即表示您许可我们从您备案的信用卡、PayPal 帐户或您授权给 GitHub 的其他已批准付款方式扣费。
 
 ### 5. 付款责任
-您负责与您使用服务相关的所有费用，包括税款。 使用服务即表示您同意向 GitHub 支付与您使用服务有关的任何费用。  If you dispute the matter, contact [GitHub Support](https://support.github.com/contact?tags=docs-policy). 您负责向我们提供付费帐户的有效付款方式。 免费帐户无需提供付款信息。
+您负责与您使用服务相关的所有费用，包括税款。 使用服务即表示您同意向 GitHub 支付与您使用服务有关的任何费用。  如有争议，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-policy)。 您负责向我们提供付费帐户的有效付款方式。 免费帐户无需提供付款信息。
 
 ## L. 取消和终止
 **短版本：** *您可随时关闭您的帐户。 如果您关闭帐户，我们将负责任地处理您的信息。*
@@ -312,4 +312,4 @@ GitHub 可随时将这些服务条款和/或 [GitHub 隐私声明](https://githu
 本协议只能通过 GitHub 授权代表签署的书面修订加以修改，或 GitHub 根据 [Q. 这些条款的变更](#q-changes-to-these-terms)发布的修订版予以修改。 这些服务条款以及 GitHub 隐私声明，构成了您与我们之间的完整、专有协议声明。 本协议取代任何口头或书面的提议或事先协议，以及您与 GitHub 之间关于这些条款所述主题的任何其他通信，包括任何保密或非披露协议。
 
 ### 6. 问题
-对服务条款有疑问吗？ [Contact us](https://support.github.com/contact?tags=docs-policy).
+对服务条款有疑问吗？ [联系我们](https://support.github.com/contact?tags=docs-policy)。

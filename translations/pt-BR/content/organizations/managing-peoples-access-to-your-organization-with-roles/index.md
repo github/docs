@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o acesso de pessoas à organização com funções
-intro: 'A função de uma pessoa na organização define o nível de acesso dela à sua organização, às configurações da organização e aos seus dados. Você pode tornar as pessoas proprietárias, integrantes ou gerentes de cobrança da organização, ou dar a elas permissões de mantenedores de equipes.'
+intro: 'You can control access to your organizations''s settings and repositories by giving people organization, repository, and team roles.'
 redirect_from:
   - /articles/managing-people-s-access-to-your-organization-with-roles
   - /articles/managing-peoples-access-to-your-organization-with-roles
@@ -9,15 +9,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 children:
-  - /permission-levels-for-an-organization
+  - /roles-in-an-organization
   - /maintaining-ownership-continuity-for-your-organization
-  - /giving-team-maintainer-permissions-to-an-organization-member
+  - /managing-custom-repository-roles-for-an-organization
   - /adding-a-billing-manager-to-your-organization
   - /removing-a-billing-manager-from-your-organization
+  - /managing-security-managers-in-your-organization
 shortTitle: Gerenciar acesso com funções
 ---
 

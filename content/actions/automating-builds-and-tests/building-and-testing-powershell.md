@@ -13,7 +13,7 @@ authors:
 type: tutorial
 topics:
   - CI
-  - Powershell
+  - PowerShell
 shortTitle: Build & test PowerShell
 ---
 

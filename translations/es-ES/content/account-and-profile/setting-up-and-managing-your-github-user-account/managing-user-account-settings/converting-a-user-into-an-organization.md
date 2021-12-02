@@ -10,6 +10,7 @@ intro: Puedes convertir tu cuenta de usuario en una organización. Esto permite 
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Un usuario en una organización
@@ -41,7 +42,7 @@ Si deseas que tu organización tenga el mismo nombre que estás usando actualmen
 Puedes convertir tu cuenta de usuario personal directamente en una organización. Convertir tu cuenta:
  - Preserva los repositorios ya que no tienen la necesidad de ser transferidos a otra cuenta manualmente
  - Invita automáticamente a que los colaboradores se unan a los equipos con permisos equivalentes a los que tenían antes
- {% ifversion fpt %}- Para las cuentas de usuario en {% data variables.product.prodname_pro %}, automáticamente traslada la facturación [al {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) pago sin la necesidad de volver a ingresar la información de pago, ajustar tu ciclo de facturación o duplicar el pago en ningún momento{% endif %}
+ {% ifversion fpt or ghec %}- Para las cuentas de usuario en {% data variables.product.prodname_pro %}, automáticamente traslada la facturación [al {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) pago sin la necesidad de volver a ingresar la información de pago, ajustar tu ciclo de facturación o duplicar el pago en ningún momento{% endif %}
 
 1. Crea una nueva cuenta personal, que usarás para iniciar sesión en GitHub y acceder a la organización y a tus repositorios después de la conversión.
 2.  [Sal de todas las organizaciones](/articles/removing-yourself-from-an-organization) a las que se ha unido la cuenta de usuario que estás convirtiendo.
@@ -56,11 +57,11 @@ Puedes convertir tu cuenta de usuario personal directamente en una organización
 
 {% tip %}
 
-**Sugerencia**: Cuando conviertas una cuenta de usuario en una organización, agregaremos los colaboradores a los repositorios que le pertenecen a la cuenta de la nueva organización como *colaboradores externos*. Luego puedes invitar a los *colaboradores externos* para que se conviertan en miembros de la organización nueva, si así lo deseas. Para obtener más información, consulta "[Niveles de permiso para una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)."
+**Sugerencia**: Cuando conviertas una cuenta de usuario en una organización, agregaremos los colaboradores a los repositorios que le pertenecen a la cuenta de la nueva organización como *colaboradores externos*. Luego puedes invitar a los *colaboradores externos* para que se conviertan en miembros de la organización nueva, si así lo deseas. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
 
 {% endtip %}
 
 ## Leer más
 - "[Configurar equipos](/articles/setting-up-teams)"
-{% ifversion fpt %}- "[Invitar usuarios a unirse a tu organización](/articles/inviting-users-to-join-your-organization)"{% endif %}
+{% ifversion fpt or ghec %}- "[Invitar usuarios a unirse a tu organización](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - "[Acceder a una organización](/articles/accessing-an-organization)"

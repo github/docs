@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -70,4 +71,4 @@ GitHub Servicesをwebhookで置き換えるには、以下のようにします�
 高レベルの概要としては、移行のプロセスは通常以下を含みます。
   - 製品がどこでどのようにGitHub Servicesを使っているかの特定。
   - 通常のwebhookに移行するために設定する必要がある、対応するwebhookイベントの特定。
-  - Implementing the design using either [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/) or [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) are preferred. To learn more about why {% data variables.product.prodname_github_apps %} are preferred, see "[Reasons for switching to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)."
+  - [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/)または[{% data variables.product.prodname_github_apps %}のいずれかを利用して設計を実装。 {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/)の方が望ましいです。 {% data variables.product.prodname_github_apps %}が望ましい理由の詳細を学ぶには、「[{% data variables.product.prodname_github_apps %}に切り替える理由](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)」を参照してください。

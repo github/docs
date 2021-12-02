@@ -366,7 +366,9 @@ The top of every page has an intro that provides context and sets expectations, 
 
 ### Product callout
 
-Use the product callout when a feature is available in specific products only. All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
+Use the product callout when a feature is available in specific products only and that availability cannot be conveyed by versioning alone. For example, if a feature is available for GHEC, GHES, and GHAE, you can version content about the feature for GHEC, GHES, and GHAE only. If a feature is available for Pro, Team, GHEC, GHES, and GHAE (but not Free), use a product callout to convey that availability.
+
+All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
 
 #### How to write a product callout
 - Product callouts follow a strict format, clearly identifying the feature and which products it’s available in. 

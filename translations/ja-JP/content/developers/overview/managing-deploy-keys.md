@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -93,60 +94,60 @@ SSHキーを使いたくないなら、[OAuthトークンでHTTPS][git-automatio
 サーバーのSSH設定ファイル(通常は`~/.ssh/config`)に、それぞれのリポジトリに対してエイリアスエントリを追加してください。 例:
 
 ```bash
-Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
-        Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}
+Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
+        Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-0_deploy_key
 
-Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
-        Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}
+Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
+        Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
-* `Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - リポジトリのエイリアス。
-* `Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}` - エイリアスで使うホスト名の設定。
+* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - リポジトリのエイリアス。
+* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - エイリアスで使用するホスト名を設定する。
 * `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - このエイリアスに秘密鍵を割り当てる。
 
 こうすれば、ホスト名のエイリアスを使ってSSHでリポジトリとやりとりできます。この場合、このエイリアスに割り当てられたユニークなデプロイキーが使われます。 例:
 
 ```bash
-$ git clone git@{% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+$ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
-## Server-to-server tokens
+## サーバー間トークン
 
-サーバーが組織をまたいでリポジトリにアクセスする必要がある場合、GitHub Appで必要なアクセスを定義して、そのGitHub Appから_スコープを厳格に設定した_、_サーバー対サーバー_のトークンを生成します。 サーバー対サーバーのトークンは単一または複数のリポジトリをスコープとすることができ、権限を細かく設定できます。 たとえば、リポジトリのコンテンツへの読み取り専用アクセス権を持つトークンを生成できます。
+サーバーがOrganizationをまたいでリポジトリにアクセスする必要がある場合、GitHub Appで必要なアクセスを定義して、そのGitHub Appから_スコープを厳格に設定した_、_サーバー対サーバー_のトークンを生成します。 サーバー対サーバーのトークンは単一または複数のリポジトリをスコープとすることができ、権限を細かく設定できます。 たとえば、リポジトリのコンテンツへの読み取り専用アクセス権を持つトークンを生成できます。
 
-Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for Github Apps](/developers/apps/rate-limits-for-github-apps).
+GitHub Appは{% data variables.product.product_name %}でも主役級の存在なので、サーバー間トークンはあらゆるGitHubユーザから分離され、「サービストークン」に相当します。 さらに、サーバー間トークンには独自のレート制限があり、その制限は実行されるOrganizationの規模に応じて拡大されます。 詳しい情報については、「[Github Appsのレート制限](/developers/apps/rate-limits-for-github-apps)」を参照してください。
 
 #### 長所
 
-- Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API).
-- Dedicated rate limits that grow with your organization.
-- Decoupled from GitHub user identities, so they do not consume any licensed seats.
-- Never granted a password, so cannot be directly signed in to.
+- 権限設定と有効期限 (1時間、またはAPIで手動で取り消された場合にはそれ以下) が明確に定義された、スコープが厳格なトークン。
+- Organizationの規模に従って拡大する、独自のレート制限。
+- GitHubユーザIDと分離されているため、ライセンスのシート数を消費しない。
+- パスワードが付与されないので、直接サインインされない。
 
 #### 短所
 
-- Additional setup is needed to create the GitHub App.
-- Server-to-server tokens expire after 1 hour, and so need to be re-generated, typically on-demand using code.
+- GitHub Appを作成するには追加設定が必要。
+- サーバー間トークンは1時間後に期限切れとなるので、再生成する必要がある (通常はコードを使用して、オンデマンドで行なう)。
 
 #### セットアップ
 
-1. Determine if your GitHub App should be public or private. If your GitHub App will only act on repositories within your organization, you likely want it private.
-1. Determine the permissions your GitHub App requires, such as read-only access to repository contents.
-1. Create your GitHub App via your organization's settings page. For more information, see [Creating a GitHub App](/developers/apps/creating-a-github-app).
-1. Note your GitHub App `id`.
-1. Generate and download your GitHub App's private key, and store this safely. 詳しい情報については、[秘密鍵を生成する](/developers/apps/authenticating-with-github-apps#generating-a-private-key)を参照してください。
-1. Install your GitHub App on the repositories it needs to act upon, optionally you may install the GitHub App on all repositories in your organization.
-1. Identify the `installation_id` that represents the connection between your GitHub App and the organization repositories it can access.  Each GitHub App and organization pair have at most a single `installation_id`. You can identify this `installation_id` via [Get an organization installation for the authenticated app](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app).
-1. Generate a server-to-server token using the corresponding REST API endpoint, [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app), and [Authenticating as an installation](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation).
-1. Use this server-to-server token to interact with your repositories, either via the REST or GraphQL APIs, or via a Git client.
+1. GitHub Appをパブリックにするかプライベートにするか決定します。 GitHub AppがOrganization内のリポジトリのみで動作する場合は、プライベートに設定した方がいいでしょう。
+1. リポジトリのコンテンツへの読み取り専用アクセスなど、GitHub Appが必要とする権限を決定します。
+1. Organizationの設定ページからGitHub Appを作成します。 詳しい情報については、「[GitHub Appを作成する](/developers/apps/creating-a-github-app)」を参照してください。
+1. GitHub App `id`をメモします。
+1. GitHub Appの秘密鍵を生成してダウンロードし、安全な方法で保存します。 詳しい情報については、[秘密鍵を生成する](/developers/apps/authenticating-with-github-apps#generating-a-private-key)を参照してください。
+1. 動作させたいリポジトリにGitHubをインストールします。Organizationの全リポジトリにGitHub Appをインストールしても構いません。
+1. GitHub AppとOrganizationリポジトリとの接続を表わす`installation_id`を特定します。  GitHub AppとOrganizationの各ペアには、最大1つの`installation_id`があります。 [認証されたアプリケーションのOrganizationインストール情報を取得する](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app)ことで、`installation_id`を識別できます。 このためには、JWTを使用して、GitHub Appとして認証する必要があります。詳細については、「[GitHub Appとして認証する](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app)」を参照してください。
+1. 対応するREST APIエンドポイントを使用して、サーバー間トークンを生成します。「[アプリケーションに対するインストールアクセストークンの作成](/rest/reference/apps#create-an-installation-access-token-for-an-app)」を参照してください。 このためには、JWTを使用してGitHub Appとして認証する必要があります。詳しい情報については、「[GitHub App として認証する](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app)」および「[インストールとして認証を行う](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)」を参照してください。
+1. このサーバー間トークンを使用して、REST、GraphQL API、またはGitクライアント経由でリポジトリとやり取りします。
 
 ## マシンユーザ
 
-サーバーが複数のリポジトリにアクセスしなければならないのであれば、自動化専用に使われる新しい{% data variables.product.product_name %}アカウントを作成し、SSHキーを添付できます。 この{% data variables.product.product_name %}アカウントは人によって使われることはないので、_マシンユーザ_と呼ばれます。 マシンユーザは、個人リポジトリには[コラボレータ][collaborator]として（読み書きのアクセスを許可）、Organizationのリポジトリには[外部のコラボレータ][outside-collaborator]として（読み書き及び管理アクセスを許可）、あるいは自動化する必要があるリポジトリへのアクセスを持つ[Team][team]に（そのTeamの権限を許可）追加できます。
+サーバーが複数のリポジトリにアクセスする必要がある場合、新しいアカウントを{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}で作成し、自動化専用に使われるSSHキーを添付できます。 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}のこのアカウントは人間によって使用されるものではないため、_マシンユーザ_と呼ばれます。 マシンユーザは、個人リポジトリには[コラボレータ][collaborator]として（読み書きのアクセスを許可）、Organizationのリポジトリには[外部のコラボレータ][outside-collaborator]として（読み書き及び管理アクセスを許可）、あるいは自動化する必要があるリポジトリへのアクセスを持つ[Team][team]に（そのTeamの権限を許可）追加できます。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -178,7 +179,7 @@ Since GitHub Apps are a first class actor on  {% data variables.product.product_
 
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
-[tos]: /articles/github-terms-of-service/
+[tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
 [git-automation]: /articles/git-automation-with-oauth-tokens
 [git-automation]: /articles/git-automation-with-oauth-tokens
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository

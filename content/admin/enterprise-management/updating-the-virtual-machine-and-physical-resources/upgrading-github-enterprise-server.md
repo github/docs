@@ -59,8 +59,8 @@ There are two types of snapshots:
 | Azure | VM | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>
 | Hyper-V | VM | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>
 | Google Compute Engine | Disk | <https://cloud.google.com/compute/docs/disks/create-snapshots>
-| VMware | VM | <https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html>
-| XenServer | VM | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>
+| VMware | VM | <https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html>{% ifversion ghes < 3.3 %}
+| XenServer | VM | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>{% endif %}
 
 ## Upgrading with a hotpatch
 
@@ -212,11 +212,8 @@ Appliances configured for high-availability and geo-replication use replica inst
 
    {% endnote %}
 
-   If `ghe-repl-status` didn't return `OK`, follow the steps below to manually start the replication.
-
-   1. On the replica instance, run `ghe-repl-setup <primary-instance-ip>` again.
-   {% data reusables.enterprise_installation.start-replication %}
-   {% data reusables.enterprise_installation.replication-status %}
+   If `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+   
 6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
 ## Restoring from a failed upgrade

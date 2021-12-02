@@ -13,6 +13,10 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Projects
+  - Project management
+type: how_to
 ---
 {% data reusables.projects.project_boards_old %}
 

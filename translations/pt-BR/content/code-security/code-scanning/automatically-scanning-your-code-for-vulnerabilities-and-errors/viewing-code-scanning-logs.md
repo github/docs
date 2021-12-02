@@ -8,8 +8,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Security
 shortTitle: Visualizar os registros de digitalização de código
@@ -22,7 +23,7 @@ shortTitle: Visualizar os registros de digitalização de código
 
 Você pode usar uma série de ferramentas para configurar {% data variables.product.prodname_code_scanning %} no seu repositório. Para obter mais informações, consulte "[Configuração do {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)".
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 A informação de registro e diagnóstico disponível para você depende do método que você usa para {% data variables.product.prodname_code_scanning %} no repositório. Você pode verificar o tipo de {% data variables.product.prodname_code_scanning %} que você está usando na aba **Segurança** do seu repositório, usando o menu suspenso **Ferramenta** na lista de alerta. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
 
 ## Sobre análise e informações de diagnóstico
@@ -72,7 +73,7 @@ Depois de configurar o {% data variables.product.prodname_code_scanning %} para 
 
 **Observação:** Se você criou um pull request para adicionar o fluxo de trabalho de {% data variables.product.prodname_code_scanning %} ao repositório, os alertas desse pull request não serão exibidos diretamente na página de {% data variables.product.prodname_code_scanning_capc %} até que o pull request seja mesclado. Se algum alerta for encontrado, você poderá visualizá-los, antes do merge do pull request, clicando no link dos **_n_ alertas encontrados** no banner na página de {% data variables.product.prodname_code_scanning_capc %}.
 
-{% ifversion fpt or ghes > 3.1 or ghae %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
   ![Clique no link "n alertas encontrados"](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 {% else %}
   ![Clique no link "n alertas encontrados"](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)

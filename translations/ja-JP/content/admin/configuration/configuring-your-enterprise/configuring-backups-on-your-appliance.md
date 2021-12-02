@@ -95,7 +95,7 @@ topics:
 
 万が一、プライマリサイトで長時間の停止または壊滅的なイベントが発生した場合は、別の {% data variables.product.prodname_enterprise %} アプライアンスをプロビジョニングしてバックアップホストから復元を実行することで、{% data variables.product.product_location %} を復元できます。 アプライアンスを復元する前に、バックアップホストの SSH キーをターゲットの {% data variables.product.prodname_enterprise %} アプライアンスに認証済み SSH キーとして追加する必要があります。
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 {% note %}
 
 **注釈:** {% data variables.product.product_location %} で {% data variables.product.prodname_actions %} が有効になっている場合は、`ghe-restore` コマンドを実行する前に、まず交換用アプライアンスで {% data variables.product.prodname_actions %} 外部ストレージプロバイダを設定する必要があります。 詳しい情報については、「[{% data variables.product.prodname_actions %} を有効にして {% data variables.product.prodname_ghe_server %} をバックアップおよび復元する](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)」を参照してください。

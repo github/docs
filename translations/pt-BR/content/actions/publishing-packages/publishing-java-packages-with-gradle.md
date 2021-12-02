@@ -1,7 +1,6 @@
 ---
 title: Publicar pacotes Java com Gradle
 intro: Você pode usar o Gradle para publicar pacotes Java para um registro como parte do seu fluxo de trabalho de integração contínua (CI).
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-gradle
   - /actions/guides/publishing-java-packages-with-gradle
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Packaging
@@ -20,6 +20,7 @@ shortTitle: Pacotes do Java com Gradle
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -152,7 +153,7 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -171,7 +172,7 @@ jobs:
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. Executa o comando `publicação do gradle` para publicar no {% data variables.product.prodname_registry %}. A variável de ambiente `GITHUB_TOKEN` será definida com o conteúdo do segredo `GITHUB_TOKEN`. {% ifversion fpt or ghes > 3.1 or ghae-next %}A chave de `permissões` especifica o acesso que o segredo `GITHUB_TOKEN` permitirá.{% endif %}
+1. Executa o comando `publicação do gradle` para publicar no {% data variables.product.prodname_registry %}. A variável de ambiente `GITHUB_TOKEN` será definida com o conteúdo do segredo `GITHUB_TOKEN`. {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}A chave de `permissões` especifica o acesso que o segredo `GITHUB_TOKEN` permitirá.{% endif %}
 
    Para obter mais informações sobre o uso de segredos no seu fluxo de trabalho, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
@@ -228,7 +229,7 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -250,6 +251,6 @@ jobs:
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. Executa o comando `publicação do gradle` para publicar no repositório do Maven `OSSRH` e em {% data variables.product.prodname_registry %}. A variável de ambiente `MAVEN_USERNAME` será definida com o conteúdo do seu segredo `OSSRH_USERNAME`, e a variável de ambiente `MAVEN_PASSWORD` será definida com o conteúdo do seu segredo `OSSRH_TOKEN`. A variável de ambiente `GITHUB_TOKEN` será definida com o conteúdo do segredo `GITHUB_TOKEN`. {% ifversion fpt or ghes > 3.1 or ghae-next %}A chave de `permissões` especifica o acesso que o segredo `GITHUB_TOKEN` permitirá.{% endif %}
+1. Executa o comando `publicação do gradle` para publicar no repositório do Maven `OSSRH` e em {% data variables.product.prodname_registry %}. A variável de ambiente `MAVEN_USERNAME` será definida com o conteúdo do seu segredo `OSSRH_USERNAME`, e a variável de ambiente `MAVEN_PASSWORD` será definida com o conteúdo do seu segredo `OSSRH_TOKEN`. A variável de ambiente `GITHUB_TOKEN` será definida com o conteúdo do segredo `GITHUB_TOKEN`. {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}A chave de `permissões` especifica o acesso que o segredo `GITHUB_TOKEN` permitirá.{% endif %}
 
    Para obter mais informações sobre o uso de segredos no seu fluxo de trabalho, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".

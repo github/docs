@@ -8,9 +8,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Migrate from OAuth Apps
+shortTitle: 从 OAuth 应用程序迁移
 ---
 
 本文为考虑从 OAuth 应用程序迁移到 GitHub 应用程序的现有集成者提供指南。
@@ -31,7 +32,7 @@ shortTitle: Migrate from OAuth Apps
 
 ## 将 OAuth 应用程序转换为 GitHub 应用程序
 
-这些指南假定您拥有一个注册的 OAuth 应用程序{% ifversion fpt %}，它可能在 GitHub Marketplace 中上架，也可能没上架{% endif %}。 在较高级别，您需要执行以下步骤：
+这些指南假定您拥有一个注册的 OAuth 应用程序{% ifversion fpt or ghec %}，它可能在 GitHub Marketplace 中上架，也可能没上架{% endif %}。 在较高级别，您需要执行以下步骤：
 
 1. [查看 GitHub 应用程序可用的 API 端点](#review-the-available-api-endpoints-for-github-apps)
 1. [设计保持在 API 速率限制内](#design-to-stay-within-api-rate-limits)
@@ -41,18 +42,18 @@ shortTitle: Migrate from OAuth Apps
 1. [了解不同的身份验证方法](#understand-the-different-methods-of-authentication)
 1. [指导用户在仓库中安装您的 GitHub 应用程序](#direct-users-to-install-your-github-app-on-repositories)
 1. [删除任何不必要的仓库挂钩](#remove-any-unnecessary-repository-hooks)
-1. [Encourage users to revoke access to your OAuth App](#encourage-users-to-revoke-access-to-your-oauth-app)
-1. [Delete the OAuth App](#delete-the-oauth-app)
+1. [鼓励用户撤销 OAuth 应用程序的访问权限](#encourage-users-to-revoke-access-to-your-oauth-app)
+1. [删除 OAuth 应用程序](#delete-the-oauth-app)
 
 ### 查看 GitHub 应用程序可用的 API 端点
 
-尽管目前大多数 [REST API](/rest) 端点和 [GraphQL](/graphql) 查询都可用于 GitHub 应用程序，但我们仍在不断启用更多端点。 查看[可用的 REST 端点](/rest/overview/endpoints-available-for-github-apps)，确保您需要的端点与 GitHub 应用程序兼容。 请注意，为 GitHub 应用程序启用的某些 API 端点允许应用程序代表用户执行操作。 有关允许 GitHub 应用程序验证为用户的端点列表，请参阅“[用户到服务器请求](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)”。
+尽管目前大多数 [REST API](/rest) 端点和 [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) 查询都可用于 GitHub 应用程序，但我们仍在不断启用更多端点。 查看[可用的 REST 端点](/rest/overview/endpoints-available-for-github-apps)，确保您需要的端点与 GitHub 应用程序兼容。 请注意，为 GitHub 应用程序启用的某些 API 端点允许应用程序代表用户执行操作。 有关允许 GitHub 应用程序验证为用户的端点列表，请参阅“[用户到服务器请求](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)”。
 
-我们建议您尽早查看所需的 API 端点列表。 Please let Support know if there is an endpoint you require that is not yet enabled for {% data variables.product.prodname_github_apps %}.
+我们建议您尽早查看所需的 API 端点列表。 如果尚未为 {% data variables.product.prodname_github_apps %} 启用您需要的端点，请告知支持人员。
 
 ### 设计保持在 API 速率限制内
 
-GitHub 应用程序使用[滑动速率限制规则](/apps/building-github-apps/understanding-rate-limits-for-github-apps/)，可根据组织中仓库和用户的数量而增加速率上限。 GitHub 应用程序还可以通过使用 [GraphQL API V4](/graphql) 来利用[条件请求](/rest/overview/resources-in-the-rest-api#conditional-requests)或合并请求。
+GitHub 应用程序使用[滑动速率限制规则](/apps/building-github-apps/understanding-rate-limits-for-github-apps/)，可根据组织中仓库和用户的数量而增加速率上限。 GitHub 应用程序还可以通过使用 [GraphQL API V4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) 来利用[条件请求](/rest/overview/resources-in-the-rest-api#conditional-requests)或合并请求。
 
 ### 注册新的 GitHub 应用程序
 
@@ -102,8 +103,8 @@ https://github.com/apps/YOUR_APP_NAME/installations/new/permissions?suggested_ta
 
 ### 鼓励用户撤销 OAuth 应用程序的访问权限
 
-As your GitHub App installation base grows, consider encouraging your users to revoke access to the legacy OAuth integration. 更多信息请参阅“[授权 OAuth 应用程序](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)”。
+随着 GitHub 应用程序安装基础的增长，请考虑鼓励用户撤销原有 OAuth 集成的访问权限。 更多信息请参阅“[授权 OAuth 应用程序](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)”。
 
-### Delete the OAuth App
+### 删除 OAuth 应用程序
 
-To avoid abuse of the OAuth App's credentials, consider deleting the OAuth App. This action will also revoke all of the OAuth App's remaining authorizations. For more information, see "[Deleting an OAuth App](/developers/apps/managing-oauth-apps/deleting-an-oauth-app)."
+为了避免滥用 OAuth 应用程序的凭据，请考虑删除 OAuth 应用程序。 此操作还将撤销 OAuth 应用程序的所有剩余授权。 更多信息请参阅“[删除 OAuth 应用程序](/developers/apps/managing-oauth-apps/deleting-an-oauth-app)”。

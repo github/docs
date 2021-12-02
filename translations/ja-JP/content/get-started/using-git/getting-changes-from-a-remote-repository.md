@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Get changes from a remote
 ---
 
@@ -73,9 +74,9 @@ $ git pull <em>remotename</em> <em>branchname</em>
 # オンライン更新をローカル作業にマージ
 ```
 
-`pull` は、取得された変更のマージを実行するため、`pull` コマンドの実行前にローカルの作業がコミットされていることを確認する必要があります。 解決できない[マージコンフリクト](/articles/resolving-a-merge-conflict-using-the-command-line)が発生した場合、あるいはマージを中止したい場合は、`git merge --abort` を使用して、プルを行う前の状態にブランチを戻すことができます。
+`pull` は、取得された変更のマージを実行するため、`pull` コマンドの実行前にローカルの作業がコミットされていることを確認する必要があります。 If you run into \[a merge conflict\](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line you cannot resolve, or if you decide to quit the merge, you can use `git merge --abort` to take the branch back to where it was in before you pulled.
 
 ## 参考リンク
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt %}
+- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
 - 「[接続の問題のトラブルシューティング](/articles/troubleshooting-connectivity-problems)」{% endif %}

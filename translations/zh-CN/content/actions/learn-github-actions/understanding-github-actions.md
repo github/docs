@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 概览
 
@@ -35,7 +37,7 @@ topics:
 
 ### 工作流程
 
-工作流程是您添加到仓库的自动化过程。 工作流程由一项或多项作业组成，可以计划或由事件触发。 工作流程可用于在 {% data variables.product.prodname_dotcom %} 上构建、测试、打包、发布或部署项目。 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
+工作流程是您添加到仓库的自动化过程。 工作流程由一项或多项作业组成，可以计划或由事件触发。 工作流程可用于在 {% data variables.product.prodname_dotcom %} 上构建、测试、打包、发布或部署项目。 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
 
 ### 事件
 
@@ -211,21 +213,20 @@ _操作_ 是独立命令，它们组合到_步骤_以创建_作业_。 操作是
 
 ![工作流程概述](/assets/images/help/images/overview-actions-event.png)
 
-
 ## 查看作业的活动
 
-作业开始运行后，您可以 {% ifversion fpt or ghes > 3.0 or ghae %}查看运行进度的可视化图{% endif %}以及查看 {% data variables.product.prodname_dotcom %} 上每个步骤的活动。
+作业开始运行后，您可以 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}查看运行进度的可视化图{% endif %}以及查看 {% data variables.product.prodname_dotcom %} 上每个步骤的活动。
 
 {% data reusables.repositories.navigate-to-repo %}
 1. 在仓库名称下，单击 **Actions（操作）**。 ![导航到仓库](/assets/images/help/images/learn-github-actions-repository.png)
 1. 在左侧边栏中，单击您想要查看的工作流程。 ![工作流程结果的屏幕截图](/assets/images/help/images/learn-github-actions-workflow.png)
 1. 在“Workflow runs（工作流程运行）”下，单击您想要查看的运行的名称。 ![工作流程运行的屏幕截图](/assets/images/help/images/learn-github-actions-run.png)
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. 在 **Jobs（作业）**下或可视化图中，单击您要查看的作业。 ![选择作业](/assets/images/help/images/overview-actions-result-navigate.png)
 {% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. 查看每个步骤的结果。 ![工作流程运行详细信息的屏幕截图](/assets/images/help/images/overview-actions-result-updated-2.png)
-{% elsif ghes > 2.22 %}
+{% elsif ghes %}
 1. 单击作业名称以查看每个步骤的结果。 ![工作流程运行详细信息的屏幕截图](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}
 1. 单击作业名称以查看每个步骤的结果。 ![工作流程运行详细信息的屏幕截图](/assets/images/help/images/overview-actions-result.png)

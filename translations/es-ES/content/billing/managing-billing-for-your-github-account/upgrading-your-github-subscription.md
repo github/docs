@@ -1,6 +1,6 @@
 ---
 title: Subir de categoría tu suscripción de GitHub
-intro: 'Puedes subir de categoría la suscripción para cualquier tipo de {% data variables.product.product_name %} cuenta en cualquier momento.'
+intro: 'You can upgrade the subscription for any type of account on {% data variables.product.product_location %} at any time.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
   - /articles/upgrading-your-personal-account-s-billing-plan/
@@ -21,6 +21,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -63,7 +64,7 @@ Puedes mejorar a tu organización desde {% data variables.product.prodname_free_
 
 Si mejoras a tu organización a {% data variables.product.prodname_ghe_cloud %}, puedes configurar la administración de accesos e identidad para la misma. Para obtener más información, consulta "[Administrar el inicio de sesión único de SAML para tu organización](/organizations/managing-saml-single-sign-on-for-your-organization)".
 
-Si quisieras utilizar una cuenta empresarial con {% data variables.product.prodname_ghe_cloud %}, contacta a {% data variables.contact.contact_enterprise_sales %}. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/articles/about-enterprise-accounts)".
+Si quisieras utilizar una cuenta empresarial con {% data variables.product.prodname_ghe_cloud %}, contacta a {% data variables.contact.contact_enterprise_sales %}. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 ## Agregar asientos a tu organización
 

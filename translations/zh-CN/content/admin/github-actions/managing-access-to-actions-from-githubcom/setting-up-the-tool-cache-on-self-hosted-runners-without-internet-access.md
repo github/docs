@@ -7,13 +7,18 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: next
+type: tutorial
 topics:
+  - Actions
   - Enterprise
+  - Networking
+  - Storage
 shortTitle: 离线运行器的工具缓存
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 关于包含的设置操作和运行器工具缓存
 

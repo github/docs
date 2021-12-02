@@ -5,7 +5,7 @@ Organizationには以下が含まれます。
 - Organizationのオーナーがメンバーの[２要素認証（2FA）のステータス](/articles/about-two-factor-authentication)を見る機能。
 - [Organizationの全メンバーが２要素認証を使うことを要求する](/articles/requiring-two-factor-authentication-in-your-organization)オプション。{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 You can use organizations for free, with
 {% data variables.product.prodname_free_team %}, which includes unlimited collaborators on unlimited public repositories with full features, and unlimited private repositories with limited features.
 
@@ -13,5 +13,7 @@ For additional features, including sophisticated user authentication and managem
 
 If you use {% data variables.product.prodname_ghe_cloud %}, you have the option to purchase a license for {% data variables.product.prodname_GH_advanced_security %} and use the features on private repositories. {% data reusables.advanced-security.more-info-ghas %}
 
+{% ifversion fpt %}
 {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
 {% endif %}

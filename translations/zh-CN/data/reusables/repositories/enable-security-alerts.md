@@ -1,4 +1,4 @@
-{% ifversion ghes %}
-您的站点管理员必须启用
-{% data variables.product.prodname_dependabot %} alerts for vulnerable dependencies for {% data variables.product.product_location %} before you can use this feature. 更多信息请参阅“[为 {% data variables.product.prodname_ghe_server %} 上易受攻击的依赖项启用安全警报](/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)”。
+{% ifversion ghes or ghae-issue-4864 %}
+Enterprise owners must enable
+{% data variables.product.product_location %} 警示 {% data variables.product.prodname_dependabot %} 的漏洞依赖项，您才能使用这些功能。 更多信息请参阅“[在企业帐户上启用依赖关系图和 {% data variables.product.prodname_dependabot_alerts %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)”。
 {% endif %}

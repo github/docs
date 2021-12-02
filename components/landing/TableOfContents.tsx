@@ -48,13 +48,10 @@ export const TableOfContents = (props: Props) => {
             )}
           </li>
         ) : (
-          <li key={href} className={cx('mb-3 border-bottom pb-2', isActive && 'color-auto-gray-4')}>
+          <li key={href} className={cx('mb-3 border-bottom pb-2', isActive && 'color-fg-muted')}>
             <BumpLink as={Link} href={href} title={<h2 className="h4">{title}</h2>}>
               {intro && (
-                <p
-                  className="f4 color-text-secondary"
-                  dangerouslySetInnerHTML={{ __html: intro }}
-                />
+                <p className="f4 color-fg-muted" dangerouslySetInnerHTML={{ __html: intro }} />
               )}
             </BumpLink>
           </li>

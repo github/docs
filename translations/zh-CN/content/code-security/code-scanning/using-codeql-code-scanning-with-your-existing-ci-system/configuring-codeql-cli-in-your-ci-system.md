@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: next
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -30,7 +31,7 @@ topics:
 
 您使用三个不同的命令生成结果并将它们上传到 {% data variables.product.product_name %}：
 
-{% ifversion fpt or ghes > 3.1 or ghae %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 <!--Option to analyze multiple languages with one call-->
 1. `database create` 以创建 {% data variables.product.prodname_codeql %} 数据库，以代表仓库中每种支持的编程语言的层次结构。
 2. `database analyze` 以运行查询，以分析每个 {% data variables.product.prodname_codeql %} 数据库，并在 SARIF 文件中概括结果。
@@ -54,12 +55,12 @@ topics:
 2. 设置代码库的环境，确保任何依赖项都可用。 更多信息请参阅 {% data variables.product.prodname_codeql_cli %} 文档中的[为非编译语言创建数据库](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-non-compiled-languages)和[为编译语言创建数据库](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-compiled-languages)。
 3. 查找代码库的生成命令（如果有）。 这通常在 CI 系统的配置文件中可用。
 4. 从仓库的检出根目录运行 `codeql database create` 并构建代码库。
-  {% ifversion fpt or ghes > 3.1 or ghae %}
+  {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
   ```shell
   # Single supported language - create one CodeQL databsae
   codeql database create &lt;database&gt; --command&lt;build&gt; --language=&lt;language-identifier&gt; 
 
-  # Multiple supported languages - create one CodeQL database per langauge
+  # Multiple supported languages - create one CodeQL database per language
   codeql database create &lt;database&gt; --command&lt;build&gt; \
         --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt; 
   ```
@@ -119,7 +120,7 @@ topics:
   
   <tr>
     <td>
-      {% ifversion fpt or ghes > 3.1 or ghae %}当使用 <nobr>`--db-cluster`</nobr>时，该选项接受逗号分隔的列表，或者可以指定多次。{% endif %}
+      {% ifversion fpt or ghes > 3.1 or ghae or ghec %}当使用 <nobr>`--db-cluster`</nobr>时，该选项接受逗号分隔的列表，或者可以指定多次。{% endif %}
     </td>
     
     <td align="center">
@@ -144,7 +145,7 @@ topics:
   
   <tr>
     <td>
-      {% ifversion fpt or ghes > 3.1 or ghae %}
+      {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     </td>
     
     <td align="center">
@@ -208,7 +209,7 @@ topics:
 
 更多信息请参阅 {% data variables.product.prodname_codeql_cli %} 文档中的[创建 {% data variables.product.prodname_codeql %} 数据库](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/)。
 
-### {% ifversion fpt or ghes > 3.1 or ghae %}单一语言示例{% else %}基本示例{% endif %}
+### {% ifversion fpt or ghes > 3.1 or ghae or ghec %}单一语言示例{% else %}基本示例{% endif %}
 
 此示例在 `/checkouts/example-repo` 为检出的仓库创建 {% data variables.product.prodname_codeql %} 数据库。 它使用 JavaScript 提取器在仓库中创建 JavaScript 和 TypeScript 代码的分层表示。 生成的数据库存储在 `/codeql-dbs/example-repo` 中。
 
@@ -226,7 +227,7 @@ $ codeql database create /codeql-dbs/example-repo --language=javascript \
 > Successfully created database at /codeql-dbs/example-repo.
 ```
 
-{% ifversion fpt or ghes > 3.1 or ghae %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### 多语言示例
 
 此示例在 `/checkouts/example-repo` 为检出的仓库创建两个 {% data variables.product.prodname_codeql %} 数据库。 它使用：
@@ -273,7 +274,7 @@ Successfully created databases at /codeql-dbs/example-repo-multi.
       --output=&lt;output&gt;  {% if codeql-packs %}&lt;packs,queries&gt;{% else %} &lt;queries&gt;{% endif %} 
   ```
 
-{% ifversion fpt or ghes > 3.1 or ghae %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% note %}
 
 **注意：** 如果您分析了一个以上的 {% data variables.product.prodname_codeql %} 数据库的单项提交，您必须为此命令生成的每组结果指定 SARIF 类别。 当您上传结果到 {% data variables.product.product_name %} 时，{% data variables.product.prodname_code_scanning %} 使用此类别来分别存储每种语言的结果。 如果你忘记了这样做，每次上传都会覆盖以前的结果。
@@ -338,7 +339,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      指定命令生成的结果文件的格式。 要上传到 {% data variables.product.company_short %}，这应该是：{% ifversion fpt or ghae %}<code>sarif-latest</code>{% else %}<code>sarifv2.1.0</code>{% endif %}。 更多信息请参阅“<a href="/code-security/secure-coding/sarif-support-for-code-scanning">{% data variables.product.prodname_code_scanning %} 的 SARIF 支持</a>”。
+      指定命令生成的结果文件的格式。 要上传到 {% data variables.product.company_short %}，这应该是：{% ifversion fpt or ghae or ghec %}<code>sarif-latest</code>{% else %}<code>sarifv2.1.0</code>{% endif %}。 更多信息请参阅“<a href="/code-security/secure-coding/sarif-support-for-code-scanning">{% data variables.product.prodname_code_scanning %} 的 SARIF 支持</a>”。
     </td>
   </tr>
   
@@ -352,7 +353,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      指定保存 SARIF 结果文件的位置。{% ifversion fpt or ghes > 3.1 or ghae %}
+      指定保存 SARIF 结果文件的位置。{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     </td>
   </tr>
   
@@ -405,7 +406,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      可选. 用于从数据库创建过程获取有关分析过程的更详细的信息{% ifversion fpt or ghes > 3.1 or ghae %} 和诊断数据{% endif %}。
+      可选. 用于从数据库创建过程获取有关分析过程的更详细的信息{% ifversion fpt or ghes > 3.1 or ghae or ghec %} 和诊断数据{% endif %}。
     </td>
   </tr>
 </table>
@@ -414,12 +415,12 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
 
 ### 基本示例
 
-此示例分析存储在 `/codeql-dbs/example-repo` 的 {% data variables.product.prodname_codeql %} 数据库并将结果保存为 SARIF 文件： `/temple/example-repo-js.sarif`。 {% ifversion fpt or ghes > 3.1 or ghae %}它使用 `--sarif-category` 在 SARIF 文件中包括额外的信息，以将结果标识为 JavaScript。 当您有多个 {% data variables.product.prodname_codeql %} 数据库来分析仓库中的单个提交时，这一点至关重要。{% endif %}
+此示例分析存储在 `/codeql-dbs/example-repo` 的 {% data variables.product.prodname_codeql %} 数据库并将结果保存为 SARIF 文件： `/temple/example-repo-js.sarif`。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}它使用 `--sarif-category` 在 SARIF 文件中包括额外的信息，以将结果标识为 JavaScript。 当您有多个 {% data variables.product.prodname_codeql %} 数据库来分析仓库中的单个提交时，这一点至关重要。{% endif %}
 
 ```
 $ codeql database analyze /codeql-dbs/example-repo  \
-    javascript-code-scanning.qls {% ifversion fpt or ghes > 3.1 or ghae %}--sarif-category=javascript{% endif %}
-    --format={% ifversion fpt or ghae %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
+    javascript-code-scanning.qls {% ifversion fpt or ghes > 3.1 or ghae or ghec %}--sarif-category=javascript{% endif %}
+    --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
 
 > Running queries.
 > Compiling query plan for /codeql-home/codeql/qlpacks/
@@ -471,7 +472,7 @@ $ codeql database analyze /codeql-dbs/example-repo  \
     </td>
     
     <td>
-      指定要上传数据到其中的仓库的 <em x-id="3">OWNER/NAME</em>。 所有者必须是拥有 {% data variables.product.prodname_GH_advanced_security %} 许可证的企业内的组织，而 {% data variables.product.prodname_GH_advanced_security %} 必须为仓库启用{% ifversion fpt %}， 除非仓库是公共的{% endif %}。 更多信息请参阅“<a href="/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository">管理仓库的安全和分析设置</a>”。
+      指定要上传数据到其中的仓库的 <em x-id="3">OWNER/NAME</em>。 所有者必须是拥有 {% data variables.product.prodname_GH_advanced_security %} 许可证的企业内的组织，而 {% data variables.product.prodname_GH_advanced_security %} 必须为仓库启用{% ifversion fpt or ghec %}， 除非仓库是公共的{% endif %}。 更多信息请参阅“<a href="/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository">管理仓库的安全和分析设置</a>”。
     </td>
   </tr>
   
@@ -639,7 +640,7 @@ $ codeql database analyze /codeql-dbs/example-repo  octo-org/security-queries \
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 
 ## 用于 {% data variables.product.prodname_codeql %} 分析的示例 CI 配置
 
@@ -693,7 +694,7 @@ echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-re
 
 ### 如果您的 CI 系统无法触发 {% data variables.product.prodname_codeql_cli %}，则提供替代方案
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
 
 If your CI system cannot trigger the {% data variables.product.prodname_codeql_cli %} autobuild and you cannot specify a command line for the build, you can use indirect build tracing to create {% data variables.product.prodname_codeql %} databases for compiled languages. For more information, see [Using indirect build tracing](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#using-indirect-build-tracing) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 

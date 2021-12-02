@@ -1,6 +1,6 @@
 ---
 title: 激活应用程序的可选功能
-intro: 'You can test new optional features for your {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.'
+intro: '您可以测试 {% data variables.product.prodname_github_apps %} 和 {% data variables.product.prodname_oauth_apps %} 的新可选功能。'
 redirect_from:
   - /developers/apps/activating-beta-features-for-apps
   - /developers/apps/activating-optional-features-for-apps
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghae: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: 激活可选功能

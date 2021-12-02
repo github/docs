@@ -43,6 +43,13 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
 
   pr-metadata:
+    # This is needed because the workflow we depend on
+    # (see on.workflow_run.workflows) might be running from pushes on
+    # main. That's because it needs to do that to popular the cache.
+    if: >
+      ${{ github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' }}
+
     runs-on: ubuntu-latest
     outputs:
       number: ${{ steps.pr.outputs.number }}
@@ -60,6 +67,10 @@ jobs:
           BUILD_ACTIONS_RUN_ID: ${{ env.BUILD_ACTIONS_RUN_ID }}
         with:
           script: |
+
+            // Curious about what version of node you get
+            console.log('Node version:', process.version)
+
             // In order to find out the PR info for a forked repo, we must query
             // the API for more info based on the originating workflow run
             const { BUILD_ACTIONS_RUN_ID } = process.env
@@ -251,7 +262,7 @@ jobs:
   prepare-for-deploy:
     needs: [pr-metadata, check-pr-before-prepare]
     if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 5
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
@@ -291,11 +302,10 @@ jobs:
       - name: Check out LFS objects
         run: git lfs checkout
 
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Setup node to clone early access
+      - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       # Install any dependencies that are needed for the early access script
@@ -323,14 +333,17 @@ jobs:
           name: pr_build
           path: ${{ runner.temp }}
 
-      - name: Extract user-changes to temp directory
+      # For security reasons, only extract the tar from docs-internal
+      # This allows us to add search indexes and early access content to the build
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Extract user-changes to temp directory
         run: |
-          zstd -d -q $RUNNER_TEMP/app.tar.zst -o $RUNNER_TEMP/app.tar
           mkdir $RUNNER_TEMP/app
           tar -x --file=$RUNNER_TEMP/app.tar -C "$RUNNER_TEMP/app/"
 
       # Move the LFS content into the temp directory in chunks (destructively)
-      - name: Move the LFS objects
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Move the LFS objects
         run: |
           git lfs ls-files --name-only | xargs -n 1 -I {} sh -c 'mkdir -p "$RUNNER_TEMP/app/$(dirname {})"; mv {} "$RUNNER_TEMP/app/$(dirname {})/"'
 
@@ -342,8 +355,14 @@ jobs:
           mv content/early-access "$RUNNER_TEMP/app/content/"
           mv data/early-access "$RUNNER_TEMP/app/data/"
 
-      - name: Create a gzipped archive
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Create a gzipped archive (docs-internal)
         run: tar -cz --file app.tar.gz "$RUNNER_TEMP/app/"
+
+      # gzip the app.tar from github/docs so we're working with the same format
+      - if: ${{ github.repository == 'github/docs' }}
+        name: Create a gzipped archive (docs)
+        run: gzip -9 < "$RUNNER_TEMP/app.tar" > app.tar.gz
 
       - name: Create a Heroku build source
         id: build-source
@@ -447,7 +466,7 @@ jobs:
   deploy:
     needs: [pr-metadata, prepare-for-deploy, check-pr-before-deploy]
     if: ${{ needs.check-pr-before-deploy.outputs.pull_request_state == 'open' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 10
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
@@ -461,18 +480,14 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Install one-off development-only dependencies
-        run: npm install --no-save --include=optional esm
-
       - name: Deploy
         id: deploy
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
@@ -484,69 +499,8 @@ jobs:
           ACTIONS_RUN_LOG: ${{ env.ACTIONS_RUN_LOG }}
           HEAD_SHA: ${{ needs.pr-metadata.outputs.head_sha }}
           ALLOWED_POLLING_FAILURES_PER_PHASE: '15'
-        with:
-          script: |
-            const { GITHUB_TOKEN, HEROKU_API_TOKEN } = process.env
-
-            // Exit if GitHub Actions PAT is not found
-            if (!GITHUB_TOKEN) {
-              throw new Error('You must supply a GITHUB_TOKEN environment variable!')
-            }
-
-            // Exit if Heroku API token is not found
-            if (!HEROKU_API_TOKEN) {
-              throw new Error('You must supply a HEROKU_API_TOKEN environment variable!')
-            }
-
-            // Workaround to allow us to load ESM files with `require(...)`
-            const esm = require('esm')
-            require = esm({})
-
-            const { default: parsePrUrl } = require('./script/deployment/parse-pr-url')
-            const { default: getOctokit } = require('./script/helpers/github')
-            const { default: deployToStaging } = require('./script/deployment/deploy-to-staging')
-
-            // This helper uses the `GITHUB_TOKEN` implicitly!
-            // We're using our usual version of Octokit vs. the provided `github`
-            // instance to avoid versioning discrepancies.
-            const octokit = getOctokit()
-
-            try {
-              const { PR_URL, SOURCE_BLOB_URL, CONTEXT_NAME, ACTIONS_RUN_LOG, HEAD_SHA } = process.env
-              const { owner, repo, pullNumber } = parsePrUrl(PR_URL)
-              if (!owner || !repo || !pullNumber) {
-                throw new Error(`'pullRequestUrl' input must match URL format 'https://github.com/github/(docs|docs-internal)/pull/123' but was '${PR_URL}'`)
-              }
-
-              const { data: pullRequest } = await octokit.pulls.get({
-                owner,
-                repo,
-                pull_number: pullNumber
-              })
-
-              await deployToStaging({
-                octokit,
-                pullRequest,
-                forceRebuild: false,
-                // These parameters will ONLY be set by Actions
-                sourceBlobUrl: SOURCE_BLOB_URL,
-                runId: context.runId
-              })
-
-              await github.repos.createCommitStatus({
-                owner,
-                repo,
-                sha: HEAD_SHA,
-                context: CONTEXT_NAME,
-                state: 'success',
-                description: 'Successfully deployed! See logs.',
-                target_url: ACTIONS_RUN_LOG
-              })
-            } catch (error) {
-              console.error(`Failed to deploy to staging: ${error.message}`)
-              console.error(error)
-              throw error
-            }
+          RUN_ID: ${{ github.run_id }}
+        run: .github/actions-scripts/staging-deploy.js
 
       - name: Mark the deployment as inactive if timed out
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d

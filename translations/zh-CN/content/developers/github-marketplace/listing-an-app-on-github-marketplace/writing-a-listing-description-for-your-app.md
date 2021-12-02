@@ -13,6 +13,7 @@ redirect_from:
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: 写入列表说明
@@ -24,7 +25,7 @@ shortTitle: 写入列表说明
 
 ### 上架产品名称
 
-列表的名称将显示在 [{% data variables.product.prodname_marketplace %} 主页](https://github.com/marketplace)上。 名称仅限于 255 个字符，可能与应用名称不同。 您的列表不能与现有 {% data variables.product.product_name %} 帐户同名，除非该名称是您自己的用户或组织名称。
+列表的名称将显示在 [{% data variables.product.prodname_marketplace %} 主页](https://github.com/marketplace)上。 名称仅限于 255 个字符，可能与应用名称不同。 您的列表不能与 {% data variables.product.product_location %} 上现有的帐户同名，除非该名称是您自己的用户或组织名称。
 
 ### 简短说明
 

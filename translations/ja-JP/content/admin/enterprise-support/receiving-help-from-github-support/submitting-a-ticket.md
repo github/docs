@@ -28,20 +28,14 @@ You can submit a ticket for support with {% data variables.product.prodname_ghe_
 
 ## {% data variables.contact.enterprise_portal %} を使ってチケットをサブミットする
 
-1. {% data variables.contact.contact_enterprise_portal %} に移動します。
-5. [**Submit a Ticket**] をクリックします。 ![Enterprise Support チームにチケットをサブミットする](/assets/images/enterprise/support/submit-ticket-button.png)
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
+{% data reusables.support.zendesk-old-tickets %}
 
-## Enterprise アカウントを使用してチケットをサブミットする
+To submit a ticket about {% data variables.product.product_location_enterprise %}, you must be an owner, billing manager, or member with support entitlement. 詳しい情報については「[Enterpriseのサポート資格の管理](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)」を参照してください。
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-3. 左のサイドバーで、** Enterprise licensing（Enterpriseライセンス）**をクリックしてください。 ![[Enterprise account settings] サイトバーの "Enterprise licensing"](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. [{% data variables.product.prodname_enterprise %} Help] の下で、[**{% data variables.contact.enterprise_support %} Portal**] をクリックします。 ![Enterprise Support サイトに移動するリンク](/assets/images/enterprise/support/enterprise-support-link.png)
-5. [**Submit a Ticket**] をクリックします。 ![Enterprise Support チームにチケットをサブミットする](/assets/images/enterprise/support/submit-ticket-button.png)
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
+If you cannot sign in to your account on {% data variables.product.prodname_dotcom_the_website %} or do not have support entitlement, you can still submit a ticket by providing your license or a diagnostics file from your server.
+
+1. {% data variables.contact.contact_support_portal %} に移動します。
+{% data reusables.support.submit-a-ticket %}
 
 ## {% data variables.product.product_name %} {% data variables.enterprise.management_console %} を使ってチケットをサブミットする
 
@@ -50,12 +44,8 @@ You can submit a ticket for support with {% data variables.product.prodname_ghe_
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.support-link %}
 5. サポートチケットにDiagnosticを含めたい場合には、"Diagnostics"の下の**Download diagnostic info（Diagnostic情報のダウンロード）**をクリックし、ファイルをローカルに保存してください。 このファイルは、後でサポートチケットに添付します。 ![Diagnostics 情報をダウンロードするボタン](/assets/images/enterprise/support/download-diagnostics-info-button.png)
-6. "Open Support Request（サポートリクエストのオープン）"の下で**New support request（新規サポートリクエスト）**をクリックします。 ![サポートリクエストをオープンするボタン](/assets/images/enterprise/management-console/open-support-request.png)
-5. [**Submit a Ticket**] をクリックします。 ![Enterprise Support チームにチケットをサブミットする](/assets/images/enterprise/support/submit-ticket-button.png)
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
-14. サポートチケットにDiagnosticsを含めるには、**Add file（ファイルの追加）**をクリックし、ダウンロードしたDiagnosticsファイルを添付します。 ![[Add file] ボタン](/assets/images/enterprise/support/support-ticket-add-file.png)
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
-7. **Submit（サブミット）**をクリックしてください。
+6. To complete your ticket and display the {% data variables.contact.enterprise_portal %}, under "Open Support Request", click **New support request**. ![サポートリクエストをオープンするボタン](/assets/images/enterprise/management-console/open-support-request.png)
+{% data reusables.support.submit-a-ticket %}
 
 {% endif %}
 

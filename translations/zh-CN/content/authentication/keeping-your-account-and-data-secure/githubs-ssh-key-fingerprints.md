@@ -9,6 +9,7 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -19,11 +20,11 @@ shortTitle: SSH 密钥指纹
 
 - `SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8` (RSA)
 
-These keys will be supported beginning September 14, 2021:
+这些密钥将从 2021 年 9 月 14 日开始提供支持：
 
 - `SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM` (ECDSA)
 - `SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU` (Ed25519)
 
-This key will be sunset on November 16, 2021:
+此密钥将于 2021 年 11 月 16 日到期：
 
 - `SHA256:br9IjFspm1vxR3iA35FWE+4VTyz1hYVLIE2t1/CeyWQ` (DSA)

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: REST APIでアプリケーションをビルドする
@@ -25,7 +26,7 @@ shortTitle: REST APIでアプリケーションをビルドする
 
 {% data reusables.apps.app-ruby-guides %}
 
-以下のステップを行っていけば、GitHub APIの完全な一式を使って他の種類のインテグレーションを開発する準備が整います。 {% ifversion fpt %} アプリケーションの成功例は、[GitHub Marketplace](https://github.com/marketplace)や[Works with GitHub](https://github.com/works-with)で調べることができます。{% endif %}
+以下のステップを行っていけば、GitHub APIの完全な一式を使って他の種類のインテグレーションを開発する準備が整います。 {% ifversion fpt or ghec %} アプリケーションの成功例は、[GitHub Marketplace](https://github.com/marketplace)や[Works with GitHub](https://github.com/works-with)で調べることができます。{% endif %}
 
 ## 必要な環境
 
@@ -234,5 +235,5 @@ end
 * ボットがラベルを追加できたら、ターミナルにメッセージを表示する。 （ヒント: `needs-response`ラベルのIDをペイロード中のラベルのIDと比較してメッセージの条件とし、他のラベルではなく関連するラベルが追加されたときにのみメッセージを表示してください）
 * アプリケーションにランディングページを追加し、[Sinatraのルート](https://github.com/sinatra/sinatra#routes)をそこに接続する。
 * コードをホストされたサーバー（Herokuのような）に移す。 新しいドメインでアプリケーションの設定を更新するのを忘れないようにしてください。
-* {% data variables.product.prodname_support_forum_with_url %}でプロジェクトを共有したりアドバイスをもらったりする。{% ifversion fpt %}
+* {% data variables.product.prodname_support_forum_with_url %}でプロジェクトを共有したりアドバイスをもらったりする。{% ifversion fpt or ghec %}
 * 他の人の役に立つかもと思うような、新しい輝くアプリケーションを構築しましたか？ [GitHub Marketplaceに追加してください](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

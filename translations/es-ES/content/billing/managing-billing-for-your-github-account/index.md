@@ -1,7 +1,7 @@
 ---
 title: Administrar la facturación para tu cuenta de GitHub
 shortTitle: Tu cuenta de GitHub
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} ofrece productos gratuitos y de pago para todas las cuentas. Puedes mejorar, bajar de nivel y ver los cambios pendientes a la suscripción de tu cuenta en cualquier momento.{% elsif ghes or ghae %}Puedes administrar la configuración de {% data variables.product.product_name %}{% ifversion ghae %}.{% elsif ghes %} desde tu cuenta empresarial en {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% endif %}'
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} ofrece productos gratuitos y de pago para todas las cuentas. Puedes mejorar, bajar de nivel y ver los cambios pendientes a la suscripción de tu cuenta en cualquier momento.{% elsif ghec or ghes or ghae %}Puedes administrar la configuración de {% data variables.product.product_name %}{% ifversion ghae %}.{% elsif ghec or ghes %} desde tu cuenta empresarial en {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account
   - /categories/97/articles/
@@ -15,6 +15,7 @@ redirect_from:
   - /articles/managing-billing-for-your-github-account
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 children:
@@ -26,6 +27,7 @@ children:
   - /viewing-and-managing-pending-changes-to-your-subscription
   - /downgrading-your-github-subscription
   - /managing-invoices-for-your-enterprise
+  - /connecting-an-azure-subscription-to-your-enterprise
   - /how-does-upgrading-or-downgrading-affect-the-billing-process
   - /discounted-subscriptions-for-github-accounts
 ---

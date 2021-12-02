@@ -23,6 +23,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: GitHub Pages & Jekyll
@@ -61,7 +62,7 @@ Por padrão, o Jekyll não cria arquivos nem pastas que:
 - terminam com `~`
 - são excluídos pela configuração `exclude` em seu arquivo de configuração
 
-If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
+Se quiser que o Jekyll processe algum desses arquivos, você poderá usar a configuração `includes` no seu arquivo de configuração.
 
 ## Material inicial
 
@@ -73,10 +74,10 @@ Você pode adicionar `site.github` a uma publicação ou página para incluir me
 
 {% data reusables.pages.add-jekyll-theme %} Para obter mais informações, consulte "[Temas](https://jekyllrb.com/docs/themes/)" na documentação do Jekyll.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 É possível adicionar um tema compatível ao seu site no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %} e "[Adicionar um tema ao seu site do {% data variables.product.prodname_pages %} com o seletor de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)".
 
-Para usar qualquer tema de código aberto do Jekyll hospedado em {% data variables.product.prodname_dotcom %}, você pode adicionar o tema manualmente.{% else %} Você pode adicionar um tema ao seu site manualmente.{% endif %} Para obter mais informações, consulte {% ifversion fpt %} [temas hospedados em {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) e{% else %} "[Temas compatíveisthemes](https://pages.github.com/themes/)" no site de {% data variables.product.prodname_pages %} e {% endif %} "[Adicionar um tema ao seu site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt or ghec %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
 
 Você pode substituir qualquer um dos padrões do seu tema editando os arquivos do tema. Para obter mais informações, consulte a documentação do seu tema e "[Substituir padrões do tema](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" na documentação do Jekyll.
 

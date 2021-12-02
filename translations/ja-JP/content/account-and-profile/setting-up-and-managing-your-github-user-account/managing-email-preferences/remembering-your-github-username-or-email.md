@@ -10,6 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications
@@ -68,7 +69,7 @@ origin  https://{% data variables.command_line.codeblock %}/<em>ご使用のユ�
 
 ご使用のユーザ名は `https://{% data variables.command_line.backticks %}/` の直後にあるものです。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 参考リンク
 
 - "[メールアドレスを検証する](/articles/verifying-your-email-address)"

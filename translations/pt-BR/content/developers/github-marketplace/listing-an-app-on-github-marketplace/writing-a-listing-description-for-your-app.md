@@ -13,6 +13,7 @@ redirect_from:
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Escrever descrições de anúncio
@@ -24,7 +25,7 @@ Aqui estão as diretrizes sobre os campos que você precisará preencher na seç
 
 ### Nome da listagem
 
-O nome do seu anúncio irá aparecer na [página inicial de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). O nome é limitado a 255 caracteres e pode ser diferente do nome do seu aplicativo. O seu anúncio não pode ter o mesmo nome de uma conta existente {% data variables.product.product_name %}, a menos que o nome seja seu próprio nome de usuário ou organização.
+O nome do seu anúncio irá aparecer na [página inicial de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). O nome é limitado a 255 caracteres e pode ser diferente do nome do seu aplicativo. Your listing cannot have the same name as an existing account on {% data variables.product.product_location %}, unless the name is your own user or organization name.
 
 ### Descrição muito curta
 

@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSO
 children:

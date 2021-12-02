@@ -3,6 +3,7 @@ title: Buscar debates
 intro: 'Puedes buscar debates en {% data variables.product.product_name %} y reducir los resultados utilizando calificadores.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - GitHub search
 redirect_from:
@@ -40,7 +41,7 @@ Para buscar los debates en todos los repositorios que pertenezcan a algún usuar
 
 Puedes filtrar los resultados por la visibilidad del repositorio que contenga los debates que utilicen el calificador `is`. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-| Calificador| Ejemplo | :- | :- |{% ifversion fpt or ghes %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) coincide con los debates en los repositorios públicos.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) coincide con los debates en los repositorios internos. | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) coincide con los debates que contiene la palabra "tiramisu" en los repositorios privados a los que puedes acceder.
+| Calificador| Ejemplo | :- | :- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) coincide con los debates en los repositorios públicos.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) coincide con los debates en los repositorios internos. | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) coincide con los debates que contiene la palabra "tiramisu" en los repositorios privados a los que puedes acceder.
 
 ## Buscar por autor
 

@@ -2,7 +2,7 @@
 title: ステージング環境を使用する
 intro: '{% data variables.product.prodname_actions %} を {% data variables.product.prodname_ghe_server %} ステージング環境で使用する方法について説明します。'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Actions

@@ -4,6 +4,7 @@ intro: '您可以将 IP 允许列表添加到您的 {% data variables.product.pr
 versions:
   fpt: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: 管理允许的 IP 地址
@@ -11,7 +12,7 @@ shortTitle: 管理允许的 IP 地址
 
 ## 关于 {% data variables.product.prodname_github_apps %} 的 IP 地址允许列表
 
-企业和组织所有者可以通过配置 IP 地址允许列表来限制对资产的访问。 此列表指定允许连接的 IP 地址。 更多信息 查看“[管理组织的允许 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses)”和 {% ifversion ghae %}“[限制企业的网络流量](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)”。 {% else %}“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)”。 {% endif %}
+企业和组织所有者可以通过配置 IP 地址允许列表来限制对资产的访问。 此列表指定允许连接的 IP 地址。 For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
 
 当组织拥有允许列表时，通过 {% data variables.product.prodname_github_app %} 连接的第三方应用程序将被拒绝访问，除非以下两个条件成立：
 

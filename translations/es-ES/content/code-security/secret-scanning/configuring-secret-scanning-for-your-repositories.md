@@ -9,8 +9,9 @@ redirect_from:
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Secret scanning
@@ -22,7 +23,7 @@ shortTitle: Configurar escaneos de secretos
 {% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Nota:** El {% data variables.product.prodname_secret_scanning_caps %} se habilita predeterminadamente en los repositorios públicos y no puede apagarse. Puedes configurar el {% data variables.product.prodname_secret_scanning %} solo para tus repositorios privados.
@@ -30,18 +31,18 @@ shortTitle: Configurar escaneos de secretos
 {% endnote %}
 {% endif %}
 
-## Habilitar el {% data variables.product.prodname_secret_scanning %} para los repositorios {% ifversion fpt %}privados {% endif %}
+## Habilitar el {% data variables.product.prodname_secret_scanning %} para los repositorios {% ifversion fpt or ghec %}privados {% endif %}
 
-{% ifversion ghes > 2.22 or ghae-next %}
+{% ifversion ghes or ghae-next %}
 Puedes habilitar el {% data variables.product.prodname_secret_scanning %} para cualquier repositorio que pertenezca a una organización.
 {% endif %} Una vez habilitado, {% data reusables.secret-scanning.secret-scanning-process %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 4. Si aún no se ha habilitado la {% data variables.product.prodname_advanced_security %} para el repositorio, haz clic en **Habilitar** a la derecha de "{% data variables.product.prodname_GH_advanced_security %}".
-   {% ifversion fpt %}![Habilitar la {% data variables.product.prodname_GH_advanced_security %} para tu repositorio](/assets/images/help/repository/enable-ghas-dotcom.png)
+   {% ifversion fpt or ghec %}![Habilitar la {% data variables.product.prodname_GH_advanced_security %} para tu repositorio](/assets/images/help/repository/enable-ghas-dotcom.png)
    {% elsif ghes > 3.0 or ghae-next %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
 5. Revisa el impacto de habilitar la {% data variables.product.prodname_advanced_security %} y luego haz clic en **Habilitar la {% data variables.product.prodname_GH_advanced_security %} para este repositorio**.
 6. Cuando habilitas la {% data variables.product.prodname_advanced_security %}, puede que el {% data variables.product.prodname_secret_scanning %} se habilite en el repositorio debido a la configuración de la organización. Si se muestra "{% data variables.product.prodname_secret_scanning_caps %}" con un botón de **Habilitar**, aún necesitarás habilitar el {% data variables.product.prodname_secret_scanning %} si das clic en **Habilitar**. Si ves un botón de **Inhabilitar**, entonces el {% data variables.product.prodname_secret_scanning %} ya se encuentra habilitado. ![Habilitar el {% data variables.product.prodname_secret_scanning %} para tu repositorio](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
@@ -54,7 +55,7 @@ Puedes habilitar el {% data variables.product.prodname_secret_scanning %} para c
 3. A la derecha de "{% data variables.product.prodname_secret_scanning_caps %}", da clic en **Habilitar**. ![Habilitar el {% data variables.product.prodname_secret_scanning %} para tu repositorio](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 {% endif %}
 
-## Excluir alertas del {% data variables.product.prodname_secret_scanning %} en los repositorios {% ifversion fpt %}privados {% endif %}
+## Excluir alertas del {% data variables.product.prodname_secret_scanning %} en los repositorios {% ifversion fpt or ghec %}privados {% endif %}
 
 Puedes utilizar un archivo *secret_scanning.yml* para excluir los directorios de {% data variables.product.prodname_secret_scanning %}. Por ejemplo, puedes excluir directorios que contengan pruebas o contenido generado aleatoriamente.
 
@@ -82,4 +83,4 @@ También puedes ignorar alertas individuales de {% data variables.product.prodna
 ## Leer más
 
 - "[Administrar la seguridad y la configuración de análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
-{% ifversion fpt or ghes > 3.1 or ghae-next %}- "[Definir patrones personalizados para el {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"{% endif %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}- "[Definir patrones personalizados para el {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"{% endif %}

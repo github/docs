@@ -8,6 +8,7 @@ redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 ---
@@ -130,7 +131,7 @@ topics:
   - **Terminal.integrated.shell.linux** - 虽然 bash 是此处的默认设置，但您可以通过修改它来使用其他终端 shell。
 - **Extensions** - 它们是默认包含的扩展名。
   - **ms-dotnettools.csharp** - Microsoft C# 扩展为使用 C# 的开发提供丰富的支持，包括 IntelliSense、linting、调试、代码导航、代码格式化、重构、变量资源管理器、测试资源管理器等功能。
-- **forwardPorts** - 此处列出的任何端口都将自动转发。
+- **forwardPorts** - 此处列出的任何端口都将自动转发。 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 - **postCreateCommand** - 如果您要在进入 Dockerfile 中未定义的代码空间（例如 `dotnet restore`）后执行任何操作，您可以在此处执行。
 - **remoteUser** - 默认情况下，您以 vscode 用户身份运行，但您可以选择将其设置为 root。
 

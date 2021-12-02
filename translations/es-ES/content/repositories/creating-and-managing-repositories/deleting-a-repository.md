@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -24,13 +25,11 @@ topics:
 **Advertencias**:
 
 - El borrar un repositorio borrará los adjuntos del lanzamiento y los permisos de equpo **permanentemente**. Esta acción **no** se puede deshacer.
-- El borrar un repositorio privado {% ifversion ghes or fpt or ghae %}o interno {% endif %} borrará todas las bifurcaciones del mismo.
+- Deleting a private or internal repository will delete all forks of the repository.
 
 {% endwarning %}
 
-{% ifversion fpt %}
-Puede restaurar algunos de los repositorios eliminados en un plazo de 90 días. Para obtener más información, consulta "[Restaurar un repositorio eliminado](/articles/restoring-a-deleted-repository)".
-{% endif %}
+Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. Para obtener más información, consulta "[Restaurar un repositorio eliminado](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

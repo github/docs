@@ -1,6 +1,6 @@
 ---
 title: Exibir contribuições no perfil
-intro: 'O seu perfil {% data variables.product.product_name %} mostra {% ifversion fpt or ghes %}os seus repositórios fixos, bem como{% endif %} um gráfico das contribuições do repositório ao longo do último ano.'
+intro: 'O seu perfil {% data variables.product.product_name %} mostra {% ifversion fpt or ghes or ghec %}os seus repositórios fixos, bem como{% endif %} um gráfico das contribuições do repositório ao longo do último ano.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: Ver contribuições
 ---
 
-{% ifversion fpt or ghes %}Seu gráfico de contribuição mostra a atividade de repositórios públicos. {% endif %}Você pode optar por mostrar a atividade em {% ifversion fpt or ghes %}tanto em repositórios públicos quanto {% endif %}privados, com detalhes específicos da sua atividade em repositórios privados anonimizados. Para obter mais informações, consulte "[Mostrar ou ocultar contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)".
+{% ifversion fpt or ghes or ghec %}Seu gráfico de contribuição mostra a atividade de repositórios públicos. {% endif %}Você pode optar por mostrar a atividade em {% ifversion fpt or ghes or ghec %}tanto em repositórios públicos quanto {% endif %}privados, com detalhes específicos da sua atividade em repositórios privados anonimizados. Para obter mais informações, consulte "[Mostrar ou ocultar contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)".
 
 {% note %}
 
@@ -40,11 +41,11 @@ Na sua página de perfil, determinadas ações contam como contribuições:
 
 ## Repositórios populares
 
-Esta seção exibe os repositórios com a maioria dos inspetores. {% ifversion fpt or ghes %}Uma vez que você [fixou repositórios no seu perfil](/articles/pinning-repositories-to-your-profile), esta seção mudará para "Repositórios fixoss".{% endif %}
+Esta seção exibe os repositórios com a maioria dos inspetores. {% ifversion fpt or ghes or ghec %}Uma vez que você [fixou repositórios no seu perfil](/articles/pinning-repositories-to-your-profile), esta seção mudará para "Repositórios fixoss".{% endif %}
 
 ![Repositórios populares](/assets/images/help/profile/profile_popular_repositories.png)
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Repositórios fixos
 
@@ -83,7 +84,7 @@ Os registros de data e hora são calculados de forma diferente para commits e pu
 
 ![Seção Visão geral de atividade no perfil](/assets/images/help/profile/activity-overview-section.png)
 
-As organizações retratadas na visão geral da atividade são priorizadas de acordo com a forma como você está ativo na organização. Se você for integrante de uma organização e @mencioná-la na bio do perfil, essa organização será priorizada na visão geral da atividade. Para obter mais informações, consulte "[Mencionando pessoas e equipes](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” or "[Adicionando uma biografia ao seu perfil](/articles/adding-a-bio-to-your-profile/)."
+As organizações retratadas na visão geral da atividade são priorizadas de acordo com a forma como você está ativo na organização. Se você for integrante de uma organização e @mencioná-la na bio do perfil, essa organização será priorizada na visão geral da atividade. Para obter mais informações, consulte "[Mencionando pessoas e equipes](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” ou "[Adicionando uma biografia ao seu perfil](/articles/adding-a-bio-to-your-profile/)."
 
 ## Atividade de contribuição
 
@@ -91,11 +92,11 @@ A seção de atividade de contribuição contém uma linha do tempo detalhada do
 
 ![Filtro de hora de atividade de contribuição](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% ifversion fpt or ghes or ghae-next %}
+{% ifversion fpt or ghes or ghae-next or ghec %}
 
 ## Exibir contribuições da {% data variables.product.prodname_enterprise %} no {% data variables.product.prodname_dotcom_the_website %}
 
-Se você usar {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} ou {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} e proprietário da sua empresa permiteir {% data variables.product.prodname_unified_contributions %}, você poderá enviar contribuições corporativas a partir do seu perfil de {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviando contribuições corporativas para seu perfil de {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
+Se você usar {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} ou {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} e proprietário da sua empresa permiteir {% data variables.product.prodname_unified_contributions %}, você poderá enviar contribuições corporativas a partir do seu perfil de {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviando contribuições corporativas para seu perfil de {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
 
 {% endif %}
 

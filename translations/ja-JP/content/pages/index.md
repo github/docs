@@ -1,7 +1,7 @@
 ---
 title: GitHub Pagesのドキュメンテーション
 shortTitle: GitHub Pages
-intro: '{% data variables.product.product_name %} リポジトリから、ウェブサイトを直接作成できます。'
+intro: 'You can create a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
   - /categories/20/articles/
   - /categories/95/articles/
@@ -16,9 +16,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 children:
+  - /quickstart
   - /getting-started-with-github-pages
   - /setting-up-a-github-pages-site-with-jekyll
   - /configuring-a-custom-domain-for-your-github-pages-site

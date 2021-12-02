@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Label runners
 ---
@@ -12,13 +13,14 @@ shortTitle: Label runners
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 特定の種類のセルフホストランナーにジョブをまわすためのラベルの利用方法に関する情報については、「[ワークフロー内でのセルフホストランナーの利用](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)」を参照してください。
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 ## カスタムラベルの作成
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
  {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
  1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
@@ -34,7 +36,7 @@ shortTitle: Label runners
 カスタムラベルが作成され、セルフホストランナーに割り当てられます。 カスタムラベルをセルフホストランナーから取り除くことはできますが、現在はラベルを手動で削除することはできません。 {% data reusables.github-actions.actions-unused-labels %}
 {% endif %}
 ## セルフホストランナーへのラベルの割り当て
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}
@@ -48,7 +50,7 @@ shortTitle: Label runners
 1. ラベルをクリックして、セルフホストランナーに割り当ててください。
 {% endif %}
 ## カスタムラベルのセルフホストランナーからの削除
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}

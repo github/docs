@@ -9,6 +9,7 @@ redirect_from:
 shortTitle: Práticas recomendadas de segurança
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---

@@ -30,7 +30,7 @@ If the enterprise owner disables the functionality or developers opt out of the 
 
 {% data variables.product.product_name %} **solo** envía el recuento de contribución y la fuente de ({% data variables.product.product_name %}) para los usuarios conectados. No envía ningún tipo de información sobre la contribución o cómo se realizó.
 
-Antes de habilitar {% data variables.product.prodname_unified_contributions %} en {% data variables.product.product_location %}, debes conectar {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+Antes de habilitar {% data variables.product.prodname_unified_contributions %} en {% data variables.product.product_location %}, debes conectar {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Conectar tu cuenta empresarial a {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)".
 
 {% ifversion ghes %}
 {% data reusables.github-connect.access-dotcom-and-enterprise %}

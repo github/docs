@@ -8,6 +8,7 @@ redirect_from:
   - /developers/github-marketplace/testing-your-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---

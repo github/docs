@@ -14,7 +14,7 @@ versions:
 
 {% note %}
 
-**注：**作为讲师，无法为学生创建 {% data variables.product.prodname_dotcom %} 帐户。 学生必须创建自己的 {% data variables.product.prodname_dotcom %} 帐户。
+**注：**作为讲师，无法在 {% data variables.product.product_location %} 上为学生创建帐户。 学生必须在 {% data variables.product.product_location %} 上创建自己的帐户。
 
 {% endnote %}
 

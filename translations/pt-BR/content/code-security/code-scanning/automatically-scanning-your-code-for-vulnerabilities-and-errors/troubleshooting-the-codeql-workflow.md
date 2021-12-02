@@ -10,8 +10,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -35,6 +36,24 @@ topics:
 
 Para produzir a saída de log mais detalhada, você pode habilitar o log de depuração da etapa. Para obter mais informações, consulte "[Habilitar o registro de depuração](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)".
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
+
+## Criando artefatos de depuração de {% data variables.product.prodname_codeql %}
+
+Você pode obter artefatos para ajudar você a depurar {% data variables.product.prodname_codeql %}, definindo um sinalizador da configuração de depuração. Modifique a etapa `init` do seu arquivo de fluxo de trabalho {% data variables.product.prodname_codeql %} e defina `debug: true`.
+
+```
+- name: Initialize CodeQL
+  uses: github/codeql-action/init@v1
+  with:
+    debug: true
+```
+Os artefatos de depuração serão carregados para a execução do fluxo de trabalho como um artefato denominado `debug-artifacts`. Os dados contém os registros de {% data variables.product.prodname_codeql %}, banco(s) de dados de {% data variables.product.prodname_codeql %}, e todo(s) o(s) outro(s) arquivo(s) SARIF produzido(s) pelo fluxo de trabalho.
+
+Estes artefatos ajudarão você a depurar problemas com digitalização de código de {% data variables.product.prodname_codeql %}. Se você entrar em contato com o suporte do GitHub, eles poderão pedir estes dados.
+
+{% endif %}
+
 ## Ocorreu uma falha durante a criação automática para uma linguagem compilada
 
 Se ocorrer uma falha na uma criação automática de código para uma linguagem compilada dentro de seu projeto, tente as seguintes etapas para a solução de problemas.
@@ -47,7 +66,7 @@ Se ocorrer uma falha na uma criação automática de código para uma linguagem 
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
       permissions:
         security-events: write
         actions: read{% endif %}
@@ -75,12 +94,12 @@ Se seu fluxo de trabalho falhar com um erro `Nenhum código fonte foi visto dura
 <pre><code class="yaml">  strategy:
     fail-fast: false
     matrix:
-      # Override automatic language detection by changing the list below
-      # Supported options are:
-      # ['csharp', 'cpp', 'go', 'java', 'javascript', 'python']
+      # Override automatic language detection by changing the list below.
+      # As opções compatíveis estão listadas em um comentário no fluxo de trabalho padrão.
       language: ['go', 'javascript']
 `</pre>
-Para obter mais informações, consulte a extração de fluxo de trabalho em "[Criação automática para falhas de linguagem compilada](#automatic-build-for-a-compiled-language-fails)" acima.
+
+   Para obter mais informações, consulte a extração de fluxo de trabalho em "[Criação automática para falhas de linguagem compilada](#automatic-build-for-a-compiled-language-fails)" acima.
 1. O seu fluxo de trabalho de {% data variables.product.prodname_code_scanning %} está analisando uma linguagem compilada (C, C++, C#, ou Java), mas o código não foi compilado. Por padrão, o fluxo de trabalho da análise do {% data variables.product.prodname_codeql %} contém uma etapa `autobuild`. No entanto, esta etapa representa um melhor processo de esforço, e pode não ter sucesso na criação do seu código, dependendo do seu ambiente de criação específico. Também pode ocorrer uma falha na criação se você removeu a etapa de `autobuild` e não incluiu as etapas de criação manualmente.  Para obter mais informações sobre a especificação de etapas de criação, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 1. O seu fluxo de trabalho está analisando uma linguagem compilada (C, C++, C#, ou Java), mas partes de sua compilação são armazenadas em cache para melhorar o desempenho (é mais provável que ocorra com sistemas de criação como o Gradle ou Bazel). Uma vez que o {% data variables.product.prodname_codeql %} observa a atividade do compilador para entender os fluxos de dados em um repositório, {% data variables.product.prodname_codeql %} exige uma compilação completa para realizar a análise.
 1. O seu fluxo de trabalho está analisando uma linguagem compilada (C, C++, C#, ou Java), mas a compilação não ocorre entre as etapas `init` e `analisar` no fluxo de trabalho. O {% data variables.product.prodname_codeql %} exige que a sua compilação aconteça entre essas duas etapas para observar a atividade do compilador e realizar a análise.
@@ -103,7 +122,7 @@ Para obter mais informações, consulte a extração de fluxo de trabalho em "[C
 
 Para obter mais informações sobre a especificação de etapas de criação, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-{% ifversion fpt or ghes > 3.1  or ghae-next %}
+{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %}
 ## As inhas de código digitalizadas são menores do que o esperado
 
 Para linguagens compiladas como, por exemplo, C/C++, C#, Go e Java, {% data variables.product.prodname_codeql %} só faz a digitalização de arquivos criados durante a análise. Portanto, o número de linhas de código digitalizadas será menor do que o esperado se parte do código-fonte não for compilado corretamente. Isso pode acontecer por várias razões:
@@ -168,7 +187,7 @@ Se você dividir sua análise em vários fluxos de trabalho, conforme descrito a
 
 <p spaces-before="0">Se sua análise ainda é muito lenta para ser executada durante eventos <code>push` ou `pull_request`, você poderá acionar apenas a análise no evento `agendamento`. Para obter mais informações, consulte "[Eventos](/actions/learn-github-actions/introduction-to-github-actions#events)".</p>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Os resultados diferem entre as plataformas de análise
 
 Se você estiver analisando o código escrito no Python, você poderá ver resultados diferentes dependendo se você executa o {% data variables.product.prodname_codeql_workflow %} no Linux, macOS ou Windows.
@@ -183,11 +202,11 @@ Se a execução de um fluxo de trabalho para {% data variables.product.prodname_
 
 ## Erro: "Fora do disco" ou "Sem memória"
 
-Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar ficar sem disco ou sem memória no executor do {% data variables.product.prodname_actions %} hospedado.
-{% ifversion fpt %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
+Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar sem disco ou memória no executor.
+{% ifversion fpt or ghec %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
 {% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Erro: 403 "Resource not accessible by integration" ao usar {% data variables.product.prodname_dependabot %}
 
 {% data variables.product.prodname_dependabot %} é considerado não confiável quando aciona uma execução de fluxo de trabalho, e o fluxo de trabalho será executado com escopos somente leitura. Fazer o upload dos resultados de {% data variables.product.prodname_code_scanning %} para um branch, geralmente exige o escopo `security_events: write`. No entanto, {% data variables.product.prodname_code_scanning %} sempre permite o upload de resultados quando o evento `pull_request` aciona a ação executar. Esse é o motivo pelo qual, para branches de {% data variables.product.prodname_dependabot %}, recomendamos que você use o evento `pull_request` em vez do evento `push`.

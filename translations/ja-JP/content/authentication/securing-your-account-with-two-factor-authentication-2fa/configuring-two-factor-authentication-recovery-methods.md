@@ -13,6 +13,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Configure 2FA recovery
@@ -51,7 +52,7 @@ shortTitle: Configure 2FA recovery
 
 2 要素認証の二次的な方法としてセキュリティキーを設定し、そのセキュリティキーを使ってアカウントへのアクセスを回復することができます。 詳しい情報については、「[2 要素認証を設定する](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## フォールバック認証番号を設定する
 

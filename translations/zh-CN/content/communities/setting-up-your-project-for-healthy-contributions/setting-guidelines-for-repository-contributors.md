@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /articles/how-do-i-set-up-guidelines-for-contributors/
   - /articles/setting-guidelines-for-repository-contributors
@@ -25,9 +26,9 @@ shortTitle: 参与指南
 
 对于所有者和参与者来说，参与指南节省了由于不正确创建必须拒绝和重新提交的拉取请求或议题而导致的时间和麻烦。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-您可以为组织{% ifversion fpt or ghes %}或用户帐户{% endif %}创建默认的参与指南。 更多信息请参阅“[创建默认社区健康文件](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
+您可以为组织{% ifversion fpt or ghes or ghec %}或用户帐户{% endif %}创建默认的参与指南。 更多信息请参阅“[创建默认社区健康文件](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
 
 {% endif %}
 
@@ -41,7 +42,7 @@ shortTitle: 参与指南
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. 决定是在仓库的根目录 `docs` 还是 `.github` 目录中存储您的参与指南。 然后，在文件名字段中，输入文件的名称和扩展名。 参与指南文件名不区分大小写。 如果文件扩展名为支持的格式，文件会以富文本格式呈现。 For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)." ![新文件名](/assets/images/help/repository/new-file-name.png)
+3. 决定是在仓库的根目录 `docs` 还是 `.github` 目录中存储您的参与指南。 然后，在文件名字段中，输入文件的名称和扩展名。 参与指南文件名不区分大小写。 如果文件扩展名为支持的格式，文件会以富文本格式呈现。 更多信息请参阅“[使用非代码文件](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)”。 ![新文件名](/assets/images/help/repository/new-file-name.png)
     - 要使您的参与指南在仓库的根目录中显示，请输入 *CONTRIBUTING*。
     - 要使您的参与指南在仓库的 `docs` 目录中显示，请输入 *docs/* 以创建新目录，然后再输入 *CONTRIBUTING*。
     - 如果仓库包含多个 *CONTRIBUTING* 文件，则按以下顺序从位置中选择链接中显示的文件：`.github` 目录，然后是仓库的根目录，最后是 `docs` 目录。
@@ -62,6 +63,6 @@ shortTitle: 参与指南
 - Open Government [参与指南](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md)。
 
 ## 延伸阅读
-- 开源指南的“[启动开源项目](https://opensource.guide/starting-a-project/)”部分{% ifversion fpt %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes %}
+- 开源指南的“[启动开源项目](https://opensource.guide/starting-a-project/)”部分{% ifversion fpt or ghec %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes or ghec %}
 - "[添加许可到仓库](/articles/adding-a-license-to-a-repository)"{% endif %}

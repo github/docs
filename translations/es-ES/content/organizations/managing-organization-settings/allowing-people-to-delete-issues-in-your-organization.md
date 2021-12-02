@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -16,7 +17,7 @@ shortTitle: Permitir el borrado de propuestas
 
 Por defecto, las propuestas no pueden eliminarse en los repositorios de una organización. El propietario de la organización debe habilitar esta característica para todos los repositorios de la organización en primer lugar.
 
-Una vez habilitados, los propietarios de la organización y las personas con permisos de administración en un repositorio que es propiedad de la empresa pueden eliminar propuestas. Entre las personas con permisos de administración en un repositorio se incluyen los miembros de la organización y los colaboradores externos con privilegios de administración. Para obtener más información, consulta "[Niveles de permiso del repositorio para una organización](/articles/repository-permission-levels-for-an-organization/)" y "[Eliminar una propuesta"](/articles/deleting-an-issue)".
+Once enabled, organization owners and people with admin access in an organization-owned repository can delete issues. People with admin access in a repository include organization members and outside collaborators who were given admin access. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" and "[Deleting an issue](/articles/deleting-an-issue)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

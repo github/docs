@@ -28,6 +28,7 @@ topics:
   - Issues
   - Project management
 shortTitle: Create an issue
+type: how_to
 ---
 
 Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."
@@ -151,6 +152,15 @@ Query parameter | Example
 `assignees` | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` creates an issue and assigns it to @octocat.
 `projects` | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` creates an issue with the title "Bug fix" and adds it to the organization's project board 1.
 `template` | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` creates an issue with a template in the issue body. The `template` query parameter works with templates stored in an `ISSUE_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository. For more information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
+
+{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
+If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
+{% data reusables.code-scanning.alert-tracking-link %}
+
+{% endif %}
 
 ## Further reading
 

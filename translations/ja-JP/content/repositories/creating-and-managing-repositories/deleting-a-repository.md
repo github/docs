@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -24,13 +25,11 @@ topics:
 **警告**:
 
 - リポジトリを削除すると、リリースの添付ファイルと Team の権限が**完全に**削除されます。 このアクションは取り消すことが**できません**。
-- Deleting a private {% ifversion ghes or fpt or ghae %}or internal {% endif %}repository will delete all forks of the repository.
+- Deleting a private or internal repository will delete all forks of the repository.
 
 {% endwarning %}
 
-{% ifversion fpt %}
-削除したリポジトリは、90 日以内であれば復元できます。 詳しい情報については、「[削除されたリポジトリを復元する](/articles/restoring-a-deleted-repository)」を参照してください。
-{% endif %}
+Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. 詳しい情報については、「[削除されたリポジトリを復元する](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)」を参照してください。 {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

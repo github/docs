@@ -35,7 +35,7 @@ shortTitle: 访问管理控制台
 
 ## 以站点管理员身份访问 {% data variables.enterprise.management_console %}
 
-第一次以网站管理员身份访问 {% data variables.enterprise.management_console %} 时，必须上传您的 {% data variables.product.prodname_enterprise %} 许可文件以向应用程序验证。 For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
+第一次以网站管理员身份访问 {% data variables.enterprise.management_console %} 时，必须上传您的 {% data variables.product.prodname_enterprise %} 许可文件以向应用程序验证。 更多信息请参阅“[管理 {% data variables.product.prodname_enterprise %} 的许可](/billing/managing-your-license-for-github-enterprise)”。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

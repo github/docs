@@ -10,8 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Projects
+  - Project management
+type: how_to
 ---
 
 {% data reusables.projects.project_boards_old %}
@@ -87,7 +92,7 @@ Também é possível configurar automações de fluxo de trabalho para manter se
 ## Leia mais
 
 - "[Sobre quadros de projetos](/articles/about-project-boards)"
-- "[Editar um quadro de projeto](/articles/editing-a-project-board)"{% ifversion fpt %}
+- "[Editar um quadro de projeto](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copiar um quadro de projeto](/articles/copying-a-project-board)"{% endif %}
 - "[Fechar um quadro de projeto](/articles/closing-a-project-board)"
 - "[Sobre a automação para quadros de projeto](/articles/about-automation-for-project-boards)"

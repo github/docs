@@ -19,10 +19,6 @@ shortTitle: Configurar los ecosistemas de paquetes
 
 Para prevenir que los paquetes nuevos se carguen, puedes configurar un ecosistema que hayas habilitado previamente como **Solo lectura**, mientras aún permites que los paquetes existentes se descarguen.
 
-{% ifversion ghes = 2.22 %}
-Para utilizar
-el {% data variables.product.prodname_registry %} con Docker, debes tener habilitado el aislamiento de subdominios para tu instancia. Para obtener más información, consulta la sección "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)".
-{% endif %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

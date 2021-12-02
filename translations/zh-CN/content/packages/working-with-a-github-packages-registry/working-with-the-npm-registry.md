@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: npm 注册表
 ---
 
@@ -20,16 +21,13 @@ shortTitle: npm 注册表
 
 **注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## 已发布 npm 版本的限制
 
 如果您发布超过 1,000npm 软件包版本到 {% data variables.product.prodname_registry %}，在使用过程中可能会出现性能问题和超时。
 
 将来，为了提高服务的性能，您将无法在 {% data variables.product.prodname_dotcom %} 上发布超过 1，000 个版本的包。 在达到此限制之前发布的任何版本仍将是可读的。
 
-如果达到此限制，请考虑删除包版本或联系支持人员寻求帮助。 实施此限制后，我们的文档将就此限制进行更新。 更多信息请参阅“{% ifversion fpt or ghes > 3.0 %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}”或“[联系支持](/packages/learn-github-packages/about-github-packages#contacting-support)”。
-
-{% endif %}
+如果达到此限制，请考虑删除包版本或联系支持人员寻求帮助。 实施此限制后，我们的文档将就此限制进行更新。 更多信息请参阅“{% ifversion fpt or ghes > 3.0 or ghec %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}”或“[联系支持](/packages/learn-github-packages/about-github-packages#contacting-support)”。
 
 ## 向 {% data variables.product.prodname_registry %} 验证
 
@@ -50,7 +48,7 @@ shortTitle: npm 注册表
 {% endif %}
 
 ```shell
-//{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
+//{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
 ```
 
 {% ifversion ghes %}
@@ -73,7 +71,7 @@ $ npm login --registry=https://npm.pkg.github.com
 {% endif %}
 
 ```shell
-$ npm login --scope=@<em>OWNER</em> --registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+$ npm login --scope=@<em>OWNER</em> --registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
 
 > Username: <em>USERNAME</em>
 > Password: <em>TOKEN</em>
@@ -128,7 +126,7 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
   {% endif %}
   ```shell
   "publishConfig": {
-    "registry":"https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
+    "registry":"https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
   },
   ```
   {% ifversion ghes %}
@@ -151,7 +149,7 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 {% data variables.product.prodname_registry %} 将根据该 URL 匹配仓库，而不是根据包名称。
 
 ```shell
-"repository":"https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
+"repository":"https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
 ```
 
 ## 安装包
@@ -160,10 +158,10 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 
 默认情况下，您可以从一个组织添加包。 更多信息请参阅“[从其他组织安装包](#installing-packages-from-other-organizations)”。
 
-You also need to add the *.npmrc* file to your project so that all requests to install packages will {% ifversion ghae %}be routed to{% else %}go through{% endif %} {% data variables.product.prodname_registry %}. {% ifversion fpt or ghes > 2.21 %}When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from *npmjs.org*. For more information, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation.{% endif %}
+还需要将 *.npmrc* 文件添加到项目，使所有安装包的请求都会{% ifversion ghae %}传送到{% else %}通过{% endif %}{% data variables.product.prodname_registry %}。 {% ifversion fpt or ghes or ghec %}通过 {% data variables.product.prodname_registry %} 路由所有包请求时，您可以使用 *npmjs.org* 作用域内和作用域外的包。 更多信息请参阅 npm 文档中的“[npm 作用域](https://docs.npmjs.com/misc/scope)”。{% endif %}
 
 {% ifversion ghae %}
-By default, you can only use npm packages hosted on your enterprise, and you will not be able to use unscoped packages. For more information on package scoping, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation. If required, {% data variables.product.prodname_dotcom %} support can enable an upstream proxy to npmjs.org. Once an upstream proxy is enabled, if a requested package isn't found on your enterprise, {% data variables.product.prodname_registry %} makes a proxy request to npmjs.org.
+默认情况下，您只能使用企业托管的 npm 软件包，您将无法使用未涵盖范围的软件包。 有关包作用域的更多信息，请参阅 npm 文档中的“[npm 作用域](https://docs.npmjs.com/misc/scope)”。 如果需要，{% data variables.product.prodname_dotcom %} 支持可以启用 npmjs.org 的上游代理。 启用上游代理后，如果在企业中找不到请求的包，{% data variables.product.prodname_registry %} 会向 npmjs.org 提出代理请求。
 {% endif %}
 
 {% data reusables.package_registry.authenticate-step %}
@@ -199,8 +197,8 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 {% endif %}
 
 ```shell
-@<em>OWNER</em>:registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
-@<em>OWNER</em>:registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
 ```
 
 {% ifversion ghes %}
@@ -212,7 +210,7 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 ```
 {% endif %}
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ## 使用官方 NPM 注册表
 
 {% data variables.product.prodname_registry %} 允许您访问 `registry.npmjs.com` 上的官方 NPM 注册表，前提是您的 {% data variables.product.prodname_ghe_server %} 管理员已启用此功能。 更多信息请参阅[连接到官方 NPM 注册表](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry)。
@@ -220,4 +218,4 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 
 ## 延伸阅读
 
-- "{% ifversion fpt or ghes > 3.0 %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"

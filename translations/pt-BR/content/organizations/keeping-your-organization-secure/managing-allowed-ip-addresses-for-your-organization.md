@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,7 +26,7 @@ Você pode restringir o acesso a ativos da organização configurando uma lista 
 
 Se você configurar uma lista de permissões, você também poderá optar por adicionar automaticamente à sua lista de permissões todos os endereços IP configurados em {% data variables.product.prodname_github_apps %} que você instalar na sua organização. O criador de um {% data variables.product.prodname_github_app %} pode configurar uma lista de permissões para o seu aplicativo, especificando os endereços IP em que o aplicativo é executado. Ao herdar a lista de permissões deles para a sua lista, você evita as solicitações de conexão do aplicativo que está sendo recusado. Para obter mais informações, consulte "[Permitir acesso por {% data variables.product.prodname_github_apps %}](#allowing-access-by-github-apps)".
 
-Você também pode configurar endereços IP permitidos para as organizações em uma conta corporativa. Para obter mais informações, consulte {% ifversion ghae %}"[Restringir o tráfego de rede para a sua empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)". {% else %}"[Aplicar configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."{% endif %}
+Você também pode configurar endereços IP permitidos para as organizações em uma conta corporativa. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
 
 ## Adicionar endereços IP permitidos
 

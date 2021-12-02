@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Criar site com o Jekyll
@@ -86,7 +87,7 @@ Antes de poder usar o Jekyll para criar um site do {% data variables.product.pro
 
    A versão correta do Jekyll será instalada como uma dependência do gem de `github-pages`.
 1. Salve e feche o Gemfile.
-1. From the command line, run `bundle install`.
+1. Da linha de comando, execute `bundle install`.
 1. Opcionalmente, faça todas as edições necessárias no arquivo `_config.yml`. Isto é necessário para caminhos relativos quando o repositório é hospedado em um subdiretório.  Para obter mais informações, consulte "[Dividindo uma subpasta em um novo repositório](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)."
    ```yml
    domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
@@ -99,9 +100,9 @@ Antes de poder usar o Jekyll para criar um site do {% data variables.product.pro
 git add .
 git commit -m 'Initial GitHub pages site with Jekyll'
 ```
-1. Adicione seu repositório {% data variables.product.product_name %} como um remoto, substituindo {% ifversion ghes or ghae %}_HOSTNAME_ pelo nome de host da sua empresa,{% endif %} _USUÁRIO_ pela conta proprietária do repositório{% ifversion ghes or ghae %},{% endif %} e _REPOSITÓRIO_ pelo nome do repositório.
+1. Add your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} as a remote, replacing {% ifversion ghes or ghae %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and _REPOSITORY_ with the name of the repository.
 ```shell
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
 {% else %}
 $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</em>.git
@@ -115,7 +116,7 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 

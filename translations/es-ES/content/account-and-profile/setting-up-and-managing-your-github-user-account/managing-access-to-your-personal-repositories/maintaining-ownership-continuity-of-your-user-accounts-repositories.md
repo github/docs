@@ -3,6 +3,7 @@ title: Mantener la continuidad de la propiedad para los repositorios de tu cuent
 intro: Puedes invitar a alguien para administrar los repositorios que pertenezcan a tu usuario si no puedes hacerlo tú mismo.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
@@ -22,7 +23,7 @@ Te recomendamos invitar a otro usuario de {% data variables.product.company_shor
 
 Los sucesores no pueden iniciar sesión en tu cuenta.
 
-Un sucesor designado puede administrar tus repositorios públicos después de presentar un certificado de defunción y esperar por 7 días o presentar un obituario y esperar por 21 días. Para obtener más información, consulta la sección "[Política de Usuario Finado de {% data variables.product.company_short %}](/github/site-policy/github-deceased-user-policy)".
+Un sucesor designado puede administrar tus repositorios públicos después de presentar un certificado de defunción y esperar por 7 días o presentar un obituario y esperar por 21 días. For more information, see "[{% data variables.product.company_short %} Deceased User Policy](/free-pro-team@latest/github/site-policy/github-deceased-user-policy)."
 
 Para solicitar acceso para administrar los repositorios como sucesor, contacta a[Soporte de GitHub](https://support.github.com/contact?tags=docs-accounts).
 

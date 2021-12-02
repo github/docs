@@ -1,6 +1,8 @@
 ---
 title: Enterprise でリポジトリ管理ポリシーを適用する
-intro: Enterprise のオーナーは、自分の Enterprise のアカウントが所有するすべての Organization に対して特定のリポジトリの管理ポリシーを強制したり、Organization ごとのポリシーの設定を許可したりすることができます。
+intro: 'You can enforce policies for repository management within your enterprise''s organizations, or allow policies to be set in each organization.'
+permissions: Enterprise owners can enforce policies for repository management in an enterprise.
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
   - /enterprise/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility
@@ -26,20 +28,34 @@ redirect_from:
   - /enterprise/admin/developer-workflow/blocking-force-pushes
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-repository-management-policies-in-your-enterprise
+  - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
+  - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
+  - Repositories
   - Security
 shortTitle: Repository management policies
 ---
 
-## Enterprise 内の新しいリポジトリのデフォルトの可視性を設定する
+## About policies for repository management in your enterprise
 
-ユーザが Enterprise に新しいリポジトリを作成するたびに、そのユーザはリポジトリの可視性を選択する必要があります。 その Enterprise のデフォルトの可視性の設定をする際には、デフォルトで選択される可視性を選択します。 For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage repositories. You can also allow organization owners to manage policies for repository management. For more information, see "[Creating and managing repositories](/repositories/creating-and-managing-repositories) and "[Organizations and teams](/organizations)."
+
+{% ifversion ghes or ghae %}
+
+## Configuring the default visibility of new repositories
+
+Each time someone creates a new repository within your enterprise, that person must choose a visibility for the repository. その Enterprise のデフォルトの可視性の設定をする際には、デフォルトで選択される可視性を選択します。 For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 Enterprise オーナーがメンバーによる特定のタイプのリポジトリの作成を禁止している場合、可視性設定がデフォルトでそのタイプに設定されていても、メンバーはそのタイプのリポジトリを作成できません。 詳しい情報については、「[リポジトリ作成のためのポリシーを設定する](#setting-a-policy-for-repository-creation)」を参照してください。
 
@@ -54,20 +70,26 @@ Enterprise オーナーがメンバーによる特定のタイプのリポジト
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-## リポジトリの可視性を変更するためのポリシーを設定する
+{% endif %}
 
-メンバーがリポジトリの可視性を変更できないようにした場合、Enterprise のオーナーのみがリポジトリの可視性を変更できます。
+## Enforcing a policy for {% ifversion ghec or ghes > 3.1 or ghae-next %}base{% else %}default{% endif %} repository permissions
 
-Enterprise のオーナーがリポジトリの作成を Organization のオーナーのみに制限している場合、メンバーはリポジトリの可視性を変更できません。 Enterprise のオーナーがメンバーリポジトリの作成をプライベートリポジトリのみに制限している場合、メンバーはリポジトリの可視性をプライベートにのみ変更できます。 詳しい情報については、「[リポジトリ作成のためのポリシーを設定する](#setting-a-policy-for-repository-creation)」を参照してください。
+Across all organizations owned by your enterprise, you can set a {% ifversion ghec or ghes > 3.1 or ghae-next %}base{% else %}default{% endif %} repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. [Repository visibility change] で、設定変更についての情報を確認します。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. Under "{% ifversion ghec or ghes > 3.1 or ghae-next %}Base{% else %}Default{% endif %} permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "{% ifversion ghec or ghes > 3.1 or ghae-next %}Base{% else %}Default{% endif %} permissions", use the drop-down menu and choose a policy.
+  {% ifversion ghec or ghes > 3.1 or ghae-next %}
+  ![リポジトリ権限ポリシーオプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
+  {% else %}
+  ![リポジトリ権限ポリシーオプションのドロップダウンメニュー](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)
+  {% endif %}
 
-{% data reusables.enterprise-accounts.repository-visibility-policy %}
+## Enforcing a policy for repository creation
 
-## リポジトリ作成のためのポリシーを設定する
+Across all organizations owned by your enterprise, you can allow members to create repositories, restrict repository creation to organization owners, or allow owners to administer the setting on the organization level. メンバーにリポジトリの作成を許可する場合は、パブリック、プライベート、内部の各リポジトリをどう組み合わせて作成するかを任意に選択できます。 {% data reusables.repositories.internal-repo-default %} 詳しい情報については「[内部リポジトリを作成する](/articles/creating-an-internal-repository)」を参照してください。
 
 {% data reusables.organizations.repo-creation-constants %}
 
@@ -82,16 +104,61 @@ Enterprise のオーナーがリポジトリの作成を Organization のオー�
 6. [Repository creation（リポジトリの作成）] で、ドロップダウンメニューを使用してポリシーを選択します。 ![リポジトリ作成ポリシーのドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
 {% endif %}
 
-## プライベートまたは内部リポジトリのフォークに関するポリシーを施行する
+## Enforcing a policy for forking private or internal repositories
 
 Enterprise が所有しているすべての Organization 全体で、ユーザーにリポジトリのフォーク用にプライベートまたは内部リポジトリへのアクセスを許可したり、プライベートまたは内部リポジトリのフォークを一切禁止したり、オーナーが Organization レベルで設定を管理できるようにしたりすることができます。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-3. [**Repository policies**] タブの [Repository forking] で、設定変更についての情報を読みます。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+3. Under "Repository forking", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. [Repository forking] で、ドロップダウンメニューを使用してポリシーを選択します。 ![リポジトリ フォーク ポリシー オプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
 
-## リポジトリの削除と移譲のためのポリシーを設定する
+## Enforcing a policy for inviting{% ifversion ghec %} outside{% endif %} collaborators to repositories
+
+Across all organizations owned by your enterprise, you can allow members to invite{% ifversion ghec %} outside{% endif %} collaborators to repositories, restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to organization owners, or allow owners to administer the setting on the organization level.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+3. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", use the drop-down menu and choose a policy.
+  {% ifversion ghec %}
+  ![外部コラボレーター招待ポリシーオプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
+  {% elsif ghes or ghae %}
+  ![Drop-down menu with invitation policy options](/assets/images/enterprise/business-accounts/repository-invitation-policy-drop-down.png)
+  {% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+
+## Enforcing a policy for the default branch name
+
+Across all organizations owned by your enterprise, you can set the default branch name for any new repositories that members create. すべての Organization 全体でそのデフォルトブランチ名を施行することも、Organization ごとに異なる名前を設定することもできます。
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+3. [**Repository policies**] タブの [Default branch name] で、新しいリポジトリに使用するデフォルトブランチ名を入力します。 ![デフォルトブランチ名を入力するテキストフィールド](/assets/images/help/business-accounts/default-branch-name-text.png)
+4. オプションで、Enterprise のすべての Organization に対してデフォルトブランチ名を施行する場合は [**Enforce across this enterprise**] を選択します。 ![[Enforcement] チェックボックス](/assets/images/help/business-accounts/default-branch-name-enforce.png)
+5. [**Update**] をクリックします。 ![[Update] ボタン](/assets/images/help/business-accounts/default-branch-name-update.png)
+
+{% endif %}
+
+## Enforcing a policy for changes to repository visibility
+
+Across all organizations owned by your enterprise, you can allow members with admin access to change a repository's visibility, restrict repository visibility changes to organization owners, or allow owners to administer the setting on the organization level. メンバーがリポジトリの可視性を変更できないようにした場合、Enterprise のオーナーのみがリポジトリの可視性を変更できます。
+
+Enterprise のオーナーがリポジトリの作成を Organization のオーナーのみに制限している場合、メンバーはリポジトリの可視性を変更できません。 Enterprise のオーナーがメンバーリポジトリの作成をプライベートリポジトリのみに制限している場合、メンバーはリポジトリの可視性をプライベートにのみ変更できます。 詳しい情報については、「[リポジトリ作成のためのポリシーを設定する](#setting-a-policy-for-repository-creation)」を参照してください。
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+5. [Repository visibility change] で、設定変更についての情報を確認します。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+
+{% data reusables.enterprise-accounts.repository-visibility-policy %}
+
+## Enforcing a policy for repository deletion and transfer
+
+Across all organizations owned by your enterprise, you can allow members with admin permissions to delete or transfer a repository, restrict repository deletion and transfers to organization owners, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -100,25 +167,28 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
-{% ifversion fpt or ghes %}
+## Enforcing a policy for deleting issues
 
-## Git プッシュ制限のためのポリシーを設定する
+Across all organizations owned by your enterprise, you can allow members with admin access to delete issues in a repository, restrict issue deletion to organization owners, or allow owners to administer the setting on the organization level.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+3. [**Repository policies**] タブの [Repository issue deletion] で、設定変更についての情報を確認します。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. [Repository issue deletion] で、ドロップダウンメニューを使用してポリシーを選択します。 ![Issue 削除ポリシーオプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
+
+{% ifversion ghes or ghae %}
+
+## Enforcing a policy for Git push limits
 
 リポジトリのサイズを管理しやすくして、パフォーマンスの問題を防ぐために、Enterprise 内のリポジトリのファイルサイズ制限を設定できます。
 
 デフォルトでは、リポジトリのアップロード制限を適用すると、100MB以上のファイルの追加やアップロードができなくなります。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. [Repository upload limit] で、ドロップダウンメニューを使用して最大オブジェクトサイズをクリックします。 ![最大オブジェクトサイズのオプションを備えたドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
 5. 必要に応じて、すべてのリポジトリにアップロードの最大制限を適用するには [**Enforce on all repositories**] を選択します。 ![すべてのリポジトリにオブジェクトの最大サイズを適用するオプション](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
-
-{% endif %}
 
 ## リポジトリ間のプルリクエストのためのマージコンフリクトエディタを設定する
 
@@ -135,16 +205,12 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 
 ## フォースプッシュを設定する
 
-それぞれのリポジトリは、所属するユーザアカウントもしくはOraganizationの設定から、デフォルトのフォースプッシュの設定を引き継ぎます。 同様に、それぞれの Organization およびユーザアカウントは、デフォルトのフォースプッシュの設定をアプライアンス全体のフォースプッシュの設定から引き継ぎます。 Enterprise のフォースプッシュの設定を変更すると、すべてのユーザあるいは Organization が所有するすべてのリポジトリが変更されます。
+Each repository inherits a default force push setting from the settings of the user account or organization that owns the repository. Each organization and user account inherits a default force push setting from the force push setting for the enterprise. If you change the force push setting for the enterprise, the policy applies to all repositories owned by any user or organization.
 
-### アプライアンス上でのすべてのフォースプッシュをブロックする
+### Blocking force pushes to all repositories
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. [Force pushes] の下のドロップダウンメニューから、[**Allow**]、[**Block**]、[**Block to the default branch**] のいずれかをクリックしてください。 ![フォースプッシュのドロップダウン](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
 5. [**Enforce on all repositories（すべてのリポジトリに強制）**] を選択して、フォースプッシュに関する Organization およびリポジトリレベルの設定をオーバーライドすることもできます。
@@ -177,6 +243,8 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
     - [**Block（ブロック）**] ですべてのブランチへのフォースプッシュがブロックされます。
     - [**Block to the default branch（デフォルトブランチへのブロック）**] でデフォルトブランチへのフォースプッシュのみがブロックされます。 ![フォースプッシュのブロック](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
 6. **Enforce on all repositories（すべてのリポジトリに対して強制）**を選択して、リポジトリ固有の設定を上書きすることもできます。 これは、Enterprise 全体のポリシーを**上書きしません**のでご注意ください。 ![フォースプッシュのブロック](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
+
+{% endif %}
 
 {% ifversion ghes %}
 
@@ -217,14 +285,4 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 7. 変更を確認します。 確定するには、[**Yes, enable anonymous Git read access**] をクリックします。 ![ポップアップウィンドウの [Confirm anonymous Git read access] 設定](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
 8. このリポジトリの設定をリポジトリ管理者が変更するのを避けるために、[**Prevent repository admins from changing anonymous Git read access（リポジトリ管理者による匿名Git読み取りアクセスの変更の回避）**] を選択することもできます。 ![このリポジトリへの匿名Git読み取りアクセス設定をリポジトリ管理者が変更するのを避けるための選択チェックボックス](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
 
-{% endif %}
-
-{% ifversion ghes > 2.22 or ghae %}
-## デフォルトブランチ名に関するポリシーを試行する
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-3. [**Repository policies**] タブの [Default branch name] で、新しいリポジトリに使用するデフォルトブランチ名を入力します。 ![デフォルトブランチ名を入力するテキストフィールド](/assets/images/help/business-accounts/default-branch-name-text.png)
-4. オプションで、Enterprise のすべての Organization に対してデフォルトブランチ名を施行する場合は [**Enforce across this enterprise**] を選択します。 ![[Enforcement] チェックボックス](/assets/images/help/business-accounts/default-branch-name-enforce.png)
-5. [**Update**] をクリックします。 ![[Update] ボタン](/assets/images/help/business-accounts/default-branch-name-update.png)
 {% endif %}

@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -25,16 +26,16 @@ topics:
 
 您可以通过选择仓库的可见性来限制谁可以访问仓库。 更多信息请参阅“[关于仓库可见性](#about-repository-visibility)”。
 
-对于用户拥有的仓库，您可以向其他人授予协作者访问权限，以便他们可以协作处理您的项目。 如果仓库归组织所有，您可以向组织成员授予访问权限，以便协作处理您的仓库。 更多信息请参阅“[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository/)”和“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization/)”。
+对于用户拥有的仓库，您可以向其他人授予协作者访问权限，以便他们可以协作处理您的项目。 如果仓库归组织所有，您可以向组织成员授予访问权限，以便协作处理您的仓库。 For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 通过用户帐户和组织的 {% data variables.product.prodname_free_team %}，可与无限的协作者合作处理设置了完全功能的无限公共仓库，或者是设置了有限功能的无限私有仓库， 要获取对私有仓库的高级处理，您可以升级到 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %}。 {% data reusables.gated-features.more-info %}
 {% else %}
 每个人和组织都可拥有无限的仓库，并且可以邀请无限的协作者参与所有仓库。
 {% endif %}
 
 您可以使用仓库管理您的工作并与他人合作。
-- 您可以使用议题来收集用户反馈，报告软件缺陷，并组织您想要完成的任务。 更多信息请参阅“[关于议题](/github/managing-your-work-on-github/about-issues)”。{% ifversion fpt %}
+- 您可以使用议题来收集用户反馈，报告软件缺陷，并组织您想要完成的任务。 更多信息请参阅“[关于议题](/github/managing-your-work-on-github/about-issues)”。{% ifversion fpt or ghec %}
 - {% data reusables.discussions.you-can-use-discussions %}{% endif %}
 - 您可以使用拉取请求来建议对仓库的更改。 更多信息请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”。
 - 您可以使用项目板来组织议题和拉取请求并排定优先级。 更多信息请参阅“[关于项目板](/github/managing-your-work-on-github/about-project-boards)”。
@@ -43,9 +44,9 @@ topics:
 
 ## 关于仓库可见性
 
-您可以通过选择仓库的可见性来限制谁有权访问仓库：{% ifversion fpt or ghes %}公共、内部或私有{% elsif ghae %}私有或内部{% else %} 公共或私有{% endif %}。
+您可以通过选择仓库的可见性来限制谁有权访问仓库：{% ifversion fpt or ghes or ghec %}公共、内部或私有{% elsif ghae %}私有或内部{% else %} 公共或私有{% endif %}。
 
-{% ifversion ghae %}当您创建由您的用户帐户拥有的仓库时，仓库始终是私有的。 创建组织拥有的仓库时，可以选择将仓库设为私有或内部。{% else %}创建仓库时，可以选择使仓库成为公共或私有。{% ifversion fpt or ghes %} 如果要在组织中创建{% ifversion fpt %} 由企业帐户拥有的仓库{% endif %}，也可以选择将仓库设为内部。{% endif %}{% endif %}
+{% ifversion ghae %}当您创建由您的用户帐户拥有的仓库时，仓库始终是私有的。 创建组织拥有的仓库时，可以选择将仓库设为私有或内部。{% else %}创建仓库时，可以选择使仓库成为公共或私有。{% ifversion fpt or ghes or ghec %} 如果要在组织中创建{% ifversion fpt or ghec %} 由企业帐户拥有的仓库{% endif %}，也可以选择将仓库设为内部。{% endif %}{% endif %}
 
 {% ifversion ghes %}
 如果 {% data variables.product.product_location %} 不是私人模式或在防火墙后面，所有人都可以在互联网上访问公共仓库。 或者，使用 {% data variables.product.product_location %} 的每个人都可以使用公共仓库，包括外部协作者。 私有仓库仅可供您、您明确与其共享访问权限的人访问，而对于组织仓库，只有某些组织成员可以访问。 {% ifversion ghes %} 企业成员可以访问内部仓库。 更多信息请参阅“[关于内部仓库](#about-internal-repositories)”。{% endif %}
@@ -55,11 +56,11 @@ topics:
 互联网上的所有人都可以访问公共仓库。 私有仓库仅可供您、您明确与其共享访问权限的人访问，而对于组织仓库，只有某些组织成员可以访问。 企业成员可以访问内部仓库。 更多信息请参阅“[关于内部仓库](#about-internal-repositories)”。
 {% endif %}
 
-组织所有者始终有权访问其组织中创建的每个仓库。 更多信息请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)”。
+组织所有者始终有权访问其组织中创建的每个仓库。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 拥有仓库管理员权限的人可更改现有仓库的可见性。 更多信息请参阅“[设置仓库可见性](/github/administering-a-repository/setting-repository-visibility)”。
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 ## 关于内部仓库
 
 {% note %}
@@ -70,7 +71,15 @@ topics:
 
 {% data reusables.repositories.about-internal-repos %} 有关内部资源的更多信息，请参阅 {% data variables.product.prodname_dotcom %} 的白皮书“[内部资源简介](https://resources.github.com/whitepapers/introduction-to-innersource/)”。
 
-所有企业成员对内部仓库具有读取权限，但内部仓库对{% ifversion fpt %}企业外部{% else %}非组织成员{% endif %}的人员不可见，包括组织仓库的外部协作者。 更多信息请参阅 {% ifversion fpt or ghae %}“[企业中的角色](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)”和{% endif %}“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)”。
+All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+
+{% ifversion ghes %}
+{% note %}
+
+**Note:** A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.product.product_location %} is not a member of any organization, that user will not have access to internal repositories.
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.repositories.internal-repo-default %}
 

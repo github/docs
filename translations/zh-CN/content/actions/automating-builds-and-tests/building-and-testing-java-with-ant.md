@@ -1,7 +1,6 @@
 ---
 title: 使用 Ant 构建和测试 Java
 intro: 您可以在 GitHub Actions 中创建持续集成 (CI) 工作流程，以使用 Ant 构建和测试 Java 项目。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-ant
   - /actions/guides/building-and-testing-java-with-ant
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -19,6 +19,7 @@ shortTitle: 构建和测试 Java & Ant
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 

@@ -1,6 +1,6 @@
 ---
 title: Acerca de las notificaciones
-intro: 'Las notificaciones proporcionan actualizaciones sobre las actividades de {% data variables.product.product_name %} a las que te hayas suscrito. Puedes utilizar la bandeja de notificaciones para personalizar, clasificar y administrar tus actualizaciones.'
+intro: 'Las notificaciones proporcionan actualizaciones sobre las actividades de {% data variables.product.product_location %} a las que te hayas suscrito. Puedes utilizar la bandeja de notificaciones para personalizar, clasificar y administrar tus actualizaciones.'
 redirect_from:
   - /articles/notifications/
   - /articles/about-notifications
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 ---
@@ -21,14 +22,14 @@ topics:
 
 ## Notificaciones y suscripciones
 
-Puedes elegir recibir actualizaciones continuas sobre actividades específicas en {% data variables.product.product_name %} mediante una suscripción. Las notificaciones son actualizaciones que recibes por alguna actividad específica a la que te hayas suscrito.
+Puedes elegir recibir actualizaciones continuas sobre actividades específicas en {% data variables.product.product_location %} mediante una suscripción. Las notificaciones son actualizaciones que recibes por alguna actividad específica a la que te hayas suscrito.
 
 ### Opciones de suscripción
 
 Puedes elegir suscribirte a las notificaciones de:
 - Una conversación sobre un informe de problemas, solicitud de extracción o gist específico.
 - Todas las actividades en un repositorio o en un debate de equipo.
-- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae-next %}
+- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 - Repositorio {% data reusables.notifications-v2.custom-notification-types %} (si se habilitó).{% else %}
 - Lanzamientos en un repositorio.{% endif %}
 
@@ -50,19 +51,19 @@ Generalmente, estarás suscrito automática y predeterminadamente a las conversa
 
 También está predeterminado que sigas automáticamente a todos los repositorios que has creado y sean propiedad de tu cuenta de usuario.
 
-Para darte de baja de las conversaciones a las cuales estás suscrito automáticamente, puedes cambiar tu configuración de notificaciones o darte de baja directamente o dejar de seguir la actividad de {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
+Para darte de baja de las conversaciones a las cuales estás suscrito automáticamente, puedes cambiar tu configuración de notificaciones o darte de baja directamente o dejar de seguir la actividad de {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
 
 ## Personalizar notificaciones y suscripciones
 
-Puedes elegir ver tus notificaciones a través de la bandeja de entrada de notificaciones en [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes > 2.22 %} y en la app de {% data variables.product.prodname_mobile %}{% endif %}, a través de tu correo electrónico, o en alguna combinación de estas opciones.
+Puedes elegir ver tus notificaciones a través de la bandeja de entrada de notificaciones en [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes or ghec %} y en la app de {% data variables.product.prodname_mobile %}{% endif %}, a través de tu correo electrónico, o en alguna combinación de estas opciones.
 
-Para personalizar los tipos de actualizaciones que deseas recibir y el lugar a donde quieras que se envíen, modifica tu configuración de notificaciones. Para obtener más información, consulta la sección "[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)".
+Para personalizar los tipos de actualizaciones que deseas recibir y el lugar a donde quieras que se envíen, modifica tu configuración de notificaciones. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)".
 
 Para poder seguir administrando tus suscripciones, revisa los repositorios que sigues y las suscripciones que tienes y date de baja de aquellos que ya no quieras seguir. Para obtener más información, consulta la sección "[Administrar suscripciones de actividad en GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".
 
-Para personalizar la manera en la que deseas recibir actualizaciones para solicitudes de extracción o informes de problemas específicos, puedes configurar tus preferencias dentro de las mismas. Para obtener más información, consulta la sección "[Categorizar una notificación](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
+Para personalizar la manera en la que deseas recibir actualizaciones para solicitudes de extracción o informes de problemas específicos, puedes configurar tus preferencias dentro de las mismas. Para obtener más información, consulta la sección "[Clasificar una sola notificación](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 Puedes personalizar y programar notificaciones de subida en la app de {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)".
 {% endif %}
 
@@ -92,7 +93,7 @@ También puedes clasificar varias notificaciones al mismo tiempo desde tu bandej
 
 ## Personalizar tu bandeja de entrada de notificaciones
 
-Para enfocarte en un grupo de notificaciones en tu bandeja de entrada en {% data variables.product.product_name %}{% ifversion fpt or ghes > 2.22 %} o en {% data variables.product.prodname_mobile %}{% endif %}, puedes crear filtros personalizados. Por ejemplo, puedes crear un filtro personalizado para un proyecto de código abierto en el que contribuyes y únicamente ver notificaciones para el repositorio en el que se te mencione. Para obtener más información, consulta la sección "[Administrar notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)". Para ver más ejemplos de cómo personalizar tu flujo de trabajo de clasificaciones, consulta la sección "[Personalizar un flujo de trabajo para clasificar tus notificaciones](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)".
+Para enfocarte en un grupo de notificaciones en tu bandeja de entrada en {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} o en {% data variables.product.prodname_mobile %}{% endif %}, puedes crear filtros personalizados. Por ejemplo, puedes crear un filtro personalizado para un proyecto de código abierto en el que contribuyes y únicamente ver notificaciones para el repositorio en el que se te mencione. Para obtener más información, consulta la sección "[Administrar notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)". Para ver más ejemplos de cómo personalizar tu flujo de trabajo de clasificaciones, consulta la sección "[Personalizar un flujo de trabajo para clasificar tus notificaciones](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)".
 
 ## Política de retención de notificaciones
 

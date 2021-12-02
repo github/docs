@@ -7,16 +7,23 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/can-i-create-accounts-for-people-in-my-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 人のアカウントの作成
 ---
 
-Organization にアクセスするには個人アカウントでログインする必要があるため、各 Team メンバーは個人アカウントが必要です。 Organization に追加したい人のユーザ名があれば、その人を Team に追加できます。
+## About user accounts
+
+Because you access an organization by logging in to a user account, each of your team members needs to create their own user account. After you have usernames for each person you'd like to add to your organization, you can add the users to teams.
+
+{% ifversion fpt or ghec %}
+If you need greater control over the user accounts of your organization members, consider {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
+{% endif %}
 
 ## Organization へのユーザの追加
 
-1. [個人アカウントを作成する](/articles/signing-up-for-a-new-github-account)よう各自に指示してください。
+1. Provide each person instructions to [create a user account](/articles/signing-up-for-a-new-github-account).
 2. Organization のメンバーシップを与えたい人に、ユーザー名を尋ねます。
 3. Organization に、作成された[新しい個人アカウントを招待](/articles/inviting-users-to-join-your-organization)してください。 各アカウントのアクセスを制限するには、[Organization ロール](/articles/permission-levels-for-an-organization)および[リポジトリの権限](/articles/repository-permission-levels-for-an-organization)を使用します。

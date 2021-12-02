@@ -9,6 +9,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +18,7 @@ shortTitle: 管理 SAML 访问
 
 ## 关于对组织的 SAML 访问
 
-对组织启用 SAML 单点登录时，每个组织成员都可以将其在身份提供程序 (IdP) 上的外部身份链接到其现有的 {% data variables.product.product_name %} 帐户。 要在 {% data variables.product.product_name %} 上访问组织的资源，成员必须在其浏览器中启动 SAML 会话。 要使用 API 或 Git 访问组织的资源，成员必须使用被授权用于组织的个人访问令牌或 SSH 密钥。
+对组织启用 SAML 单点登录时，每个组织成员都可以将其在身份提供程序 (IdP) 上的外部身份链接到其在 {% data variables.product.product_location %} 上的现有帐户。 要在 {% data variables.product.product_name %} 上访问组织的资源，成员必须在其浏览器中启动 SAML 会话。 要使用 API 或 Git 访问组织的资源，成员必须使用被授权用于组织的个人访问令牌或 SSH 密钥。
 
 您可以在同一页面上查看和撤销每个成员的链接身份、活动会话和授权凭据。
 
@@ -32,7 +33,7 @@ shortTitle: 管理 SAML 访问
 **警告：**对于使用 SCIM 的组织：
 - 撤销 {% data variables.product.product_name %} 上链接的用户身份也会删除 SAML 和 SCIM 元数据。 因此，身份提供商无法同步或解除预配已链接的用户身份。
 - 管理员必须通过身份提供商撤销链接的身份。
-- 要撤销链接的身份并通过身份提供商链接其他帐户，管理员可以删除用户并重新分配给 {% data variables.product.product_name %} 应用程序。 For more information, see your identity provider's documentation.
+- 要撤销链接的身份并通过身份提供商链接其他帐户，管理员可以删除用户并重新分配给 {% data variables.product.product_name %} 应用程序。 更多信息请参阅身份提供商的文档。
 
 {% endwarning %}
 
@@ -73,5 +74,5 @@ shortTitle: 管理 SAML 访问
 
 ## 延伸阅读
 
-- "[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[查看和管理用户对企业帐户的 SAML 访问](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)"
+- "[- "](/articles/about-identity-and-access-management-with-saml-single-sign-on)关于使用 SAML 单点登录管理身份和访问{% ifversion ghec %}
+- "[查看和管理用户对企业帐户的 SAML 访问](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)"{% endif %}

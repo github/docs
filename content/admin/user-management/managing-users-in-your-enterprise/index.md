@@ -26,6 +26,7 @@ children:
   - /viewing-people-in-your-enterprise
   - /viewing-and-managing-a-users-saml-access-to-your-enterprise
   - /auditing-users-across-your-enterprise
+  - /impersonating-a-user
   - /managing-dormant-users
   - /suspending-and-unsuspending-users
   - /placing-a-legal-hold-on-a-user-or-organization
@@ -34,4 +35,3 @@ children:
   - /rebuilding-contributions-data
 shortTitle: Manage users
 ---
-

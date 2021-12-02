@@ -66,8 +66,6 @@ EasyPost | EasyPost Production API Key | easypost_production_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 EasyPost | EasyPost Test API Key | easypost_test_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
-Facebook | Facebook Access Token | facebook_access_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Fastly | Fastly API Token | fastly_api_token{% endif %}
 Finicity | Finicity App Key | finicity_app_key
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
@@ -87,6 +85,8 @@ GitHub | GitHub Refresh Token | github_refresh_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 GitHub | GitHub App Installation Access Token | github_app_installation_access_token{% endif %}
 GitHub | GitHub SSH Private Key | github_ssh_private_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+GitLab | GitLab Access Token | gitlab_access_token{% endif %}
 GoCardless | GoCardless Live Access Token | gocardless_live_access_token
 GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -99,6 +99,8 @@ Google | Google Cloud Storage Access Key Secret | google_cloud_storage_access_ke
 Google | Google Cloud Storage Service Account Access Key ID | google_cloud_storage_service_account_access_key_id{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Google | Google OAuth Access Token | google_oauth_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Google | Google OAuth Client ID | google_oauth_client_id{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
@@ -127,8 +129,12 @@ Lob | Lob Live API Key | lob_live_api_key{% endif %}
 Lob | Lob Test API Key | lob_test_api_key{% endif %}
 Mailchimp | Mailchimp API Key | mailchimp_api_key
 Mailgun | Mailgun API Key | mailgun_api_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Mapbox | Mapbox Secret Access Token | mapbox_secret_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 MessageBird | MessageBird API Key | messagebird_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
+Meta | Facebook Access Token | facebook_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 New Relic | New Relic Personal API Key | new_relic_personal_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -185,6 +191,10 @@ Shopify | Shopify Private App Password | shopify_private_app_password
 Slack | Slack API Token | slack_api_token
 Slack | Slack Incoming Webhook URL | slack_incoming_webhook_url
 Slack | Slack Workflow Webhook URL | slack_workflow_webhook_url
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Square | Square Production Application Secret | square_production_application_secret{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Square | Square Sandbox Application Secret | square_sandbox_application_secret{% endif %}
 SSLMate | SSLMate API Key | sslmate_api_key
 SSLMate | SSLMate Cluster Secret | sslmate_cluster_secret
 Stripe | Stripe API Key | stripe_api_key
@@ -199,6 +209,8 @@ Stripe | Stripe Test API Restricted Key | stripe_test_restricted_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Stripe | Stripe Webhook Signing Secret | stripe_webhook_signing_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Supabase | Supabase Service Key | supabase_service_key{% endif %}
 Tableau | Tableau Personal Access Token | tableau_personal_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Telegram | Telegram Bot Token | telegram_bot_token{% endif %}
@@ -207,3 +219,11 @@ Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 Twilio | Twilio Access Token | twilio_access_token{% endif %}
 Twilio | Twilio Account String Identifier | twilio_account_sid
 Twilio | Twilio API Key | twilio_api_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Typeform | Typeform Personal Access Token | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Cloud IAM Cookie | yandex_cloud_iam_cookie{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Cloud IAM Token | yandex_cloud_iam_token{% endif %}

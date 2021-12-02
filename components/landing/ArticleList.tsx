@@ -46,7 +46,7 @@ export const ArticleList = ({ title, viewAllHref, articles }: ArticleListPropsT)
                 }
               >
                 {!link.hideIntro && link.intro && (
-                  <TruncateLines as="p" maxLines={2} className="color-text-secondary mb-0 mt-1">
+                  <TruncateLines as="p" maxLines={2} className="color-fg-muted mb-0 mt-1">
                     <span
                       data-testid="link-with-intro-intro"
                       dangerouslySetInnerHTML={{ __html: link.intro }}
@@ -55,7 +55,7 @@ export const ArticleList = ({ title, viewAllHref, articles }: ArticleListPropsT)
                 )}
                 {link.date && (
                   <time
-                    className="tooltipped tooltipped-n color-text-tertiary text-mono mt-1"
+                    className="tooltipped tooltipped-n color-fg-muted text-mono mt-1"
                     aria-label={dayjs(link.date).format('LLL')}
                   >
                     {dayjs(link.date).format('MMMM DD')}

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: next
+  ghec: '*'
 type: how_to
 topics:
   - Security policies
@@ -20,7 +21,7 @@ shortTitle: セキュリティポリシーの追加
 
 ## セキュリティポリシーについて
 
-プロジェクト内のセキュリティ脆弱性を報告する手順を人々に示すには、{% ifversion fpt or ghes > 3.0 %}_SECURITY.md_ファイルをリポジトリのルート、`docs`、`.github`フォルダのいずれかに追加できます。{% else %}_SECURITY.md_ファイルをリポジトリのルートあるいは`docs`フォルダに追加できます。{% endif %}誰かがリポジトリでIssueを作成すると、リポジトリのセキュリティポリシーへのリンクが示されます。
+プロジェクト内のセキュリティ脆弱性を報告する手順を人々に示すには、{% ifversion fpt or ghes > 3.0 or ghec %}_SECURITY.md_ファイルをリポジトリのルート、`docs`、`.github`フォルダのいずれかに追加できます。{% else %}_SECURITY.md_ファイルをリポジトリのルートあるいは`docs`フォルダに追加できます。{% endif %}誰かがリポジトリでIssueを作成すると、リポジトリのセキュリティポリシーへのリンクが示されます。
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
@@ -33,7 +34,7 @@ shortTitle: セキュリティポリシーの追加
 
 {% endtip %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 プロジェクトのセキュリティの脆弱性が報告された後、{% data variables.product.prodname_security_advisories %} を使用して脆弱性に関する情報を開示、修正、公開できます。 {% data variables.product.prodname_dotcom %}における脆弱性の報告と公開のプロセスに関する詳しい情報については、「[セキュリティ脆弱性の調整された公開について](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)」を参照してください。 {% data variables.product.prodname_security_advisories %} の詳細については、「[{% data variables.product.prodname_security_advisories %} について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
 
 {% data reusables.repositories.github-security-lab %}
@@ -58,5 +59,5 @@ shortTitle: セキュリティポリシーの追加
 ## 参考リンク
 
 - 「[リポジトリの保護](/code-security/getting-started/securing-your-repository)」{% ifversion not ghae %}
-- 「[健全な貢献のためのプロジェクトのセットアップ](/communities/setting-up-your-project-for-healthy-contributions)」{% endif %}{% ifversion fpt %}
+- 「[健全な貢献のためのプロジェクトのセットアップ](/communities/setting-up-your-project-for-healthy-contributions)」{% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

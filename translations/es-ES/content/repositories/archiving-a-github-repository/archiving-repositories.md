@@ -12,13 +12,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
 ## Acerca del archivamiento de repositorios
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Nota:** Si tienes un plan de facturación por repositorio heredado, aún así se te cobrará por tu repositorio archivado. Si no quieres que se te cobre por un repositorio archivado, debes actualizar a un producto nuevo. Para obtener más información, consulta "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)".

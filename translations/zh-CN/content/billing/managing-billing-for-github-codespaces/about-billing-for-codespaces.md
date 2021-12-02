@@ -5,6 +5,7 @@ intro: 'View pricing and see how to manage {% data variables.product.prodname_co
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
@@ -18,7 +19,14 @@ topics:
 
 {% data variables.product.prodname_codespaces %} usage is billed according to the units of measure in the following table:
 
- Product              | SKU      | Unit of measure | Price | | ------------------- | -------- | --------------- | ----- | | Codespaces Compute  |  2 core  | 1 hour          | $0.18 | |                     |  4 core  | 1 hour          | $0.36 | |                     |  8 core  | 1 hour          | $0.72 | |                     |  16 core | 1 hour          | $1.44 | |                     |  32 core | 1 hour          | $2.88 | | Codespaces Storage  |  Storage | 1 GB-month      | $0.07 |
+| 产品                 | SKU    | Unit of measure | Price |
+| ------------------ | ------ | --------------- | ----- |
+| Codespaces Compute | 2 个内核  | 1 hour          | $0.18 |
+|                    | 4 个内核  | 1 hour          | $0.36 |
+|                    | 8 个内核  | 1 hour          | $0.72 |
+|                    | 16 个内核 | 1 hour          | $1.44 |
+|                    | 32 个内核 | 1 hour          | $2.88 |
+| Codespaces Storage | 存储器    | 1 GB-month      | $0.07 |
 
 ## 关于 {% data variables.product.prodname_codespaces %} 的计费
 
@@ -26,7 +34,9 @@ topics:
 
 您的 {% data variables.product.prodname_codespaces %} 使用将共用帐户的现有计费日期、付款方式和收据。 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. 更多信息请参阅“[将 Azure 订阅连接到您的企业](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)”。
+{% ifversion ghec %}
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. 更多信息请参阅“[将 Azure 订阅连接到您的企业](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)”。
+{% endif %}
 
 {% data reusables.dotcom_billing.pricing_cal %}
 

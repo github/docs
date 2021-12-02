@@ -15,6 +15,7 @@ redirect_from:
   - /developers/github-marketplace/drafting-a-listing-for-your-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: アプリケーションリストのドラフト
@@ -59,7 +60,7 @@ shortTitle: アプリケーションリストのドラフト
 
 ## アプリケーションのサブミット
 
-{% data variables.product.prodname_marketplace %}リストが完成したら、**Overview（概要）**ページからレビューのためにリストをサブミットできます。 「[{% data variables.product.prodname_marketplace %}の開発者契約](/articles/github-marketplace-developer-agreement/)」を読んで同意しなければなりません。続いて**Submit for review（レビューのためにサブミット）**をクリックできます。 レビューのためにアプリケーションをサブミットした後、のオンボーディングの専門家から、オンボーディングのプロセスに関する追加情報と併せて連絡が来ます。
+{% data variables.product.prodname_marketplace %}リストが完成したら、**Overview（概要）**ページからレビューのためにリストをサブミットできます。 「[{% data variables.product.prodname_marketplace %}の開発者契約](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)」を読んで同意しなければなりません。続いて**Submit for review（レビューのためにサブミット）**をクリックできます。 レビューのためにアプリケーションをサブミットした後、のオンボーディングの専門家から、オンボーディングのプロセスに関する追加情報と併せて連絡が来ます。
 
 ## {% data variables.product.prodname_marketplace %}リストの削除
 

@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - CLI
@@ -77,7 +78,7 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
   - ドラフトプルリクエスト
   - Teamのプルリクエストレビュー担当者
   - スケジュールされたリマインダー
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - The option to enable {% data variables.product.prodname_github_codespaces %}
   - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
 {% endif %}
@@ -93,8 +94,8 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 - 追加のセキュリティ、コンプライアンス、およびデプロイメントコントロール
 - SAML シングルサインオンでの認証
 - SAML または SCIM でのアクセスのプロビジョニング
-- {% data variables.product.prodname_github_connect %}{% ifversion fpt or ghae or ghes > 2.22 %}
-- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. 詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。{% endif %}
+- {% data variables.product.prodname_github_connect %}
+- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. 詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。
 
 {% data variables.product.prodname_ghe_cloud %} には次も含まれます:
 - {% data variables.contact.enterprise_support %}。 詳細は「<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} サポート</a>」および「<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 補遺</a>」を参照してください。
@@ -102,8 +103,8 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 - 50GBの{% data variables.product.prodname_registry %}ストレージ
 - {% data variables.product.prodname_pages %} サイトのアクセス制御。 詳しい情報については、「<a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">{% data variables.product.prodname_pages %} サイトの可視性を変更する</a>」を参照してください。
 - 99.9% の月次稼働時間を保証するサービスレベルアグリーメント
-- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "<a href="/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users" class="dotcom-only">About {% data variables.product.prodname_emus %}</a>."
-- エンタープライズアカウントで複数の {% data variables.product.prodname_dotcom_the_website %} Organization に対してポリシーと請求を一元管理するためのオプション。 詳細は「<a href="/articles/about-enterprise-accounts" class="dotcom-only">Enterprise アカウントについて</a>」を参照してください。
+- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+- エンタープライズアカウントで複数の {% data variables.product.prodname_dotcom_the_website %} Organization に対してポリシーと請求を一元管理するためのオプション。 詳細は「[Enterprise アカウントについて](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)」を参照してください。
 
 {% data variables.product.prodname_ghe_cloud %} を評価するためのトライアルを設定できます。 詳しい情報については、「<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} のトライアルを設定する</a>」を参照してください。
 

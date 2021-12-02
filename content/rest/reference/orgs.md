@@ -41,6 +41,14 @@ The token used to authenticate the call must have the `admin:org` scope in order
   {% if operation.subcategory == 'outside-collaborators' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghes > 3.4  %}
+## Custom repository roles
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'custom_roles' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
+
 ## Webhooks
 
 Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. {% data reusables.webhooks.webhooks-rest-api-links %}

@@ -5,6 +5,7 @@ redirect_from:
   - /v4/public_schema
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -15,7 +16,7 @@ topics:
 
 或者，您也可以在此处下载公共架构的最新版本：
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 [{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs.graphql`](/public/schema.docs.graphql)
 

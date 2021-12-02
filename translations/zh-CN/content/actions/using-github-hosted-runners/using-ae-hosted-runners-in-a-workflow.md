@@ -7,6 +7,7 @@ shortTitle: 使用 AE 托管的运行器
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
+{% data reusables.actions.ae-beta %}
 
 ## 在工作流程中使用 {% data variables.actions.hosted_runner %}
 

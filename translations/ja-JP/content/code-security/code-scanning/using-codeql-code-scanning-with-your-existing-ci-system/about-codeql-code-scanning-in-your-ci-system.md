@@ -5,8 +5,9 @@ intro: '{% data variables.product.prodname_codeql %}を使い、サードパー�
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -30,12 +31,12 @@ redirect_from:
 
 {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
 
-{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}を{% data variables.product.product_name %}内で、{% data variables.product.prodname_actions %}を使って実行できます。 あるいは、サードーパーティの継続的インテグレーションあるいは継続的デリバリ/デプロイメント（CI/CD）システムを使っているなら、{% data variables.product.prodname_codeql %}の分析を既存のシステム上で実行し、その結果を{% data variables.product.product_location %}にアップロードできます。
+{% data reusables.code-scanning.codeql-context-for-actions-and-third-party-tools %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 <!--Content for GitHub.com, GHAE next, and GHES 3.2 and onward. CodeQL CLI is the preferred method, and CodeQL runner is deprecated. -->
 
-{% data variables.product.prodname_codeql_cli %}をサードパーティのシステムに追加して、コードを分析するツールを呼び、SARIFの結果を{% data variables.product.product_name %}にアップロードしてください。 結果の{% data variables.product.prodname_code_scanning %}アラートは、{% data variables.product.product_name %}内で生成されたアラートとともに表示されます。
+{% data reusables.code-scanning.codeql-cli-context-for-third-party-tools %}
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 

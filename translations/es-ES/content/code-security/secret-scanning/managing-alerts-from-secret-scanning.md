@@ -7,8 +7,9 @@ redirect_from:
   - /code-security/secret-security/managing-alerts-from-secret-scanning
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Secret scanning
@@ -25,27 +26,27 @@ shortTitle: Administrar las alertas de los secretos
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 3. En la barra lateral izquierda, haz clic en **Alertas del escaneo de secretos**.
-   {% ifversion fpt or ghes > 2.22 %}
+   {% ifversion fpt or ghes or ghec %}
    ![Pestaña de "Alertas del escaneo de secretos"](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
    ![Pestaña de "Alertas del escaneo de secretos"](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
    {% endif %}
 4. Debajo de "Escaneo de secretos" da clic en la alerta que quieras ver.
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![Lista de alertas del escaneo de secretos](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
-   {% ifversion ghes > 2.22 %}
+   {% ifversion ghes %}
    ![Lista de alertas del escaneo de secretos](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
    {% endif %}
    {% ifversion ghae %}
    ![Lista de alertas del escaneo de secretos](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
 5. Opcionalmente, utiliza el menú desplegable de "Marcar como" y da clic en la razón para resolver una alerta.
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![Menú desplegable para resolver una alerta del escaneo de secretos](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}
-   {% ifversion ghes > 2.22 or ghae %}
+   {% ifversion ghes or ghae %}
    ![Menú desplegable para resolver una alerta del escaneo de secretos](/assets/images/help/repository/secret-scanning-resolve-alert-ghe.png)
    {% endif %}
 
@@ -56,7 +57,7 @@ Cuando un secreto se haya confirmado en un repositorio, deberás considerarlo en
 - Para un token de acceso personal de {% data variables.product.prodname_dotcom %} comprometido, elimina el token comprometido, crea un nuevo token y actualiza todo servicio que use el token antiguo. Para obtener más información, consulta la sección "[Crear un token de acceso personal para la línea de comandos](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)".
 - Para todos los demás secretos, verifica primero que aquellos que se hayan confirmado en {% data variables.product.product_name %} sean válidos. De ser así, crea un secreto nuevo, actualiza cualquier servicio que utilice el secreto anterior, y luego bórralo.
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## Configurar las notificaciones para las alertas del {% data variables.product.prodname_secret_scanning %}
 
 Cuando se detecta un secreto nuevo, {% data variables.product.product_name %} notifica a todos los usuarios con acceso a las alertas de seguridad del repositorio de acuerdo con sus preferencias de notificación. Recibirás alertas si estás observando el repositorio, si habilitaste las notificaciones para las alertas de seguridad o para toda la actividad del repositorio, si eres el autor de la confirmación que contiene el secreto y si no estás ignorando el repositorio.

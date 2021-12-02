@@ -1,7 +1,6 @@
 ---
 title: 加密机密
-intro: '加密密码可让您将敏感信息存储在您的组织{% ifversion fpt or ghes > 3.0 %}、仓库或者仓库环境{% else %} 或仓库{% endif %} 中。'
-product: '{% data reusables.gated-features.actions %}'
+intro: '加密密码可让您将敏感信息存储在您的组织{% ifversion fpt or ghes > 3.0 or ghec %}、仓库或者仓库环境{% else %} 或仓库{% endif %} 中。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -12,28 +11,40 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 关于加密密码
 
-机密是您在组织{% ifversion fpt or ghes > 3.0 or ghae %}、仓库或者仓库环境{% else %} 或仓库{% endif %} 中创建的加密环境变量。 您创建的机密可用于 {% data variables.product.prodname_actions %} 工作流程。 在机密到达 {% data variables.product.prodname_dotcom %} 之前，{% data variables.product.prodname_dotcom %} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对机密加密，并且在您于工作流程中使用它们之前一直保持加密状态。
+机密是您在组织{% ifversion fpt or ghes > 3.0 or ghae or ghec %}、仓库或者仓库环境{% else %} 或仓库{% endif %} 中创建的加密环境变量。 您创建的机密可用于 {% data variables.product.prodname_actions %} 工作流程。 在机密到达 {% data variables.product.prodname_dotcom %} 之前，{% data variables.product.prodname_dotcom %} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对机密加密，并且在您于工作流程中使用它们之前一直保持加密状态。
 
 {% data reusables.github-actions.secrets-org-level-overview %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 对于存储在环境级别的机密，您可以启用所需的审查者来控制对机密的访问。 在必要的审查者授予批准之前，工作流程作业无法访问环境机密。
+{% endif %}
+
+{% ifversion fpt or ghec or ghae-issue-4856 %}
+
+{% note %}
+
+**注**：{% data reusables.actions.about-oidc-short-overview %}
+
+{% endnote %}
+
 {% endif %}
 
 ### 命名您的密码
 
 {% data reusables.codespaces.secrets-naming %}
 
-  例如，{% ifversion fpt or ghes > 3.0 or ghae %}在环境级别创建的机密必须在环境中具有唯一的名称，{% endif %}在仓库级别创建的机密必须在该仓库中具有唯一的名称，而在组织级别创建的机密必须在该级别具有独特的名称。
+  例如，{% ifversion fpt or ghes > 3.0 or ghae or ghec %}在环境级别创建的机密必须在环境中具有唯一的名称，{% endif %}在仓库级别创建的机密必须在该仓库中具有唯一的名称，而在组织级别创建的机密必须在该级别具有独特的名称。
 
-  {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae %}同样，如果组织、仓库和环境都具有同名的密钥，则环境级密钥优先。{% endif %}
+  {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae or ghec %}同样，如果组织、仓库和环境都具有同名的密钥，则环境级密钥优先。{% endif %}
 
 为帮助确保 {% data variables.product.prodname_dotcom %} 在日志中编写密码，请勿将结构化数据用作密码的值。 例如，避免创建包含 JSON 或编码 Git blob 的密码。
 
@@ -49,7 +60,7 @@ versions:
 
 {% endwarning %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 当工作流程运行排队时读取组织和仓库机密，在引用环境的作业开始时读取环境机密。
 {% endif %}
 
@@ -61,7 +72,7 @@ versions:
 
 {% note %}
 
-**Note:** You can use the REST API to manage secrets. 更多信息请参阅“[{% data variables.product.prodname_actions %} 密码 API](/rest/reference/actions#secrets)”。
+**注意：** 您可以使用 REST API 来管理机密。 更多信息请参阅“[{% data variables.product.prodname_actions %} 密码 API](/rest/reference/actions#secrets)”。
 
 {% endnote %}
 
@@ -81,7 +92,7 @@ versions:
 1. 输入密码的值。
 1. 单击 **Add secret（添加密码）**。
 
-如果您的仓库 {% ifversion fpt or ghes > 3.0 or ghae %}拥有环境机密或 {% endif %}可以访问父组织中的机密，则这些机密也会列入本页。
+如果您的仓库 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}拥有环境机密或 {% endif %}可以访问父组织中的机密，则这些机密也会列入本页。
 
 {% endwebui %}
 
@@ -89,23 +100,23 @@ versions:
 
 {% data reusables.cli.cli-learn-more %}
 
-To add a repository secret, use the `gh secret set` subcommand. Replace `secret-name` with the name of your secret.
+要添加仓库机密，请使用 `gh secret set` 子命令。 将 `secret-name` 替换为机密的名称。
 
 ```shell
 gh secret set <em>secret-name</em>
 ```
 
-The CLI will prompt you to enter a secret value. Alternatively, you can read the value of the secret from a file.
+CLI 将提示您输入一个机密值。 或者，您可以从文件中读取机密的值。
 
 ```shell
 gh secret set <em>secret-name</em> < secret.txt
 ```
 
-To list all secrets for the repository, use the `gh secret list` subcommand.
+要列出仓库的所有机密，请使用 `gh secret list` 子命令。
 
 {% endcli %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
 ## 为环境创建加密密码
 
@@ -128,13 +139,13 @@ To list all secrets for the repository, use the `gh secret list` subcommand.
 
 {% cli %}
 
-To add a secret for an environment, use the `gh secret set` subcommand with the `--env` or `-e` flag followed by the environment name.
+要为环境添加机密，请使用 `gh secret set` 子命令与 `- env` 或 `- e` 标志，后接环境名称。
 
 ```shell
 gh secret set --env <em>environment-name</em> <em>secret-name</em>
 ```
 
-To list all secrets for an environment, use the `gh secret list` subcommand with the `--env` or `-e` flag followed by the environment name.
+要列出环境的所有机密，请使用 `gh secret list` 子命令与 `- env` 或 `- e` 标志，后接环境名称。
 
 ```shell
 gh secret list --env <em>environment-name</em>
@@ -169,7 +180,7 @@ gh secret list --env <em>environment-name</em>
 
 {% note %}
 
-**Note:** By default, {% data variables.product.prodname_cli %} authenticates with the `repo` and `read:org` scopes. To manage organization secrets, you must additionally authorize the `admin:org` scope.
+**注意：** 默认情况下， {% data variables.product.prodname_cli %} 使用 `repo` 和 `read:org` 范围进行身份验证。 要管理组织机密，您还必须授权 `admin:org` 范围。
 
 ```
 gh auth login --scopes "admin:org"
@@ -177,25 +188,25 @@ gh auth login --scopes "admin:org"
 
 {% endnote %}
 
-To add a secret for an organization, use the `gh secret set` subcommand with the `--org` or `-o` flag followed by the organization name.
+要为组织添加机密，请使用 `gh secret set` 子命令与 `--org` 或 `-o` 标志，后接组织名称。
 
 ```shell
 gh secret set --org <em>organization-name</em> <em>secret-name</em>
 ```
 
-By default, the secret is only available to private repositories. To specify that the secret should be available to all repositories within the organization, use the `--visibility` or `-v` flag.
+默认情况下，机密仅对私有仓库可用。 要指定该机密应该提供给组织内的所有仓库，请使用 `--visible` 或 `-v` 标志。
 
 ```shell
 gh secret set --org <em>organization-name</em> <em>secret-name</em> --visibility all
 ```
 
-To specify that the secret should be available to selected repositories within the organization, use the `--repos` or `-r` flag.
+要指定该秘密应提供给组织内选定的仓库，请使用 `--repos` 或 `-r` 标志。
 
 ```shell
 gh secret set --org <em>organization-name</em> <em>secret-name</em> --repos <em>repo-name-1</em>,<em>repo-name-2</em>"
 ```
 
-To list all secrets for an organization, use the `gh secret list` subcommand with the `--org` or `-o` flag followed by the organization name.
+要列出组织的所有机密，请使用 `gh secret list` 子命令与 `--org` 或 `-o` 标志，后接组织名称。
 
 ```shell
 gh secret list --org <em>organization-name</em>
@@ -279,13 +290,13 @@ steps:
 
 ## 密码的限制
 
-您可以存储最多 1,000 个组织密钥{% ifversion fpt or ghes > 3.0 or ghae %}、100 个仓库密钥和 100 个环境密钥{% else %} 以及 100 个仓库密钥{% endif %}。
+您可以存储最多 1,000 个组织密钥{% ifversion fpt or ghes > 3.0 or ghae or ghec %}、100 个仓库密钥和 100 个环境密钥{% else %} 以及 100 个仓库密钥{% endif %}。
 
 在仓库中创建的工作流程可以访问以下数量的密钥：
 
 * 所有100个仓库密钥。
 * 如果分配仓库访问超过 100 个组织密钥，则工作流程只能使用前 100 个组织密钥（按密钥名称字母顺序排序）。
-{% ifversion fpt or ghes > 3.0 or ghae %}* 所有 100 个环境密钥。{% endif %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}* 所有 100 个环境密钥。{% endif %}
 
 密码大小限于 64 KB。 要使用大于 64 KB 的密码，可以将加密的密码存储在仓库中，并将解密短语在 {% data variables.product.prodname_dotcom %} 上存储为密码。 例如，在将文件检入您在 {% data variables.product.prodname_dotcom %} 上的仓库之前，可以使用 `gpg` 在本地对您的凭据加密。 更多信息请参阅“[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)”。
 

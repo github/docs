@@ -710,6 +710,15 @@
         "description": "<p>Lookup a given repository by the owner and repository name.</p>",
         "args": [
           {
+            "name": "followRenames",
+            "defaultValue": true,
+            "type": "Boolean",
+            "id": "boolean",
+            "kind": "scalars",
+            "href": "/graphql/reference/scalars#boolean",
+            "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>"
+          },
+          {
             "name": "name",
             "type": "String!",
             "id": "string",
@@ -3464,6 +3473,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequestreview",
           "description": "<p>The dismissed pull request review.</p>"
+        }
+      ]
+    },
+    {
+      "name": "dismissRepositoryVulnerabilityAlert",
+      "kind": "mutations",
+      "id": "dismissrepositoryvulnerabilityalert",
+      "href": "/graphql/reference/mutations#dismissrepositoryvulnerabilityalert",
+      "description": "<p>Dismisses the Dependabot alert.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DismissRepositoryVulnerabilityAlertInput!",
+          "id": "dismissrepositoryvulnerabilityalertinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#dismissrepositoryvulnerabilityalertinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repositoryVulnerabilityAlert",
+          "type": "RepositoryVulnerabilityAlert",
+          "id": "repositoryvulnerabilityalert",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryvulnerabilityalert",
+          "description": "<p>The Dependabot alert that was dismissed.</p>"
         }
       ]
     },
@@ -6560,6 +6603,40 @@
       ]
     },
     {
+      "name": "updatePullRequestBranch",
+      "kind": "mutations",
+      "id": "updatepullrequestbranch",
+      "href": "/graphql/reference/mutations#updatepullrequestbranch",
+      "description": "<p>Merge HEAD from upstream branch into pull request branch.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdatePullRequestBranchInput!",
+          "id": "updatepullrequestbranchinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updatepullrequestbranchinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The updated pull request.</p>"
+        }
+      ]
+    },
+    {
       "name": "updatePullRequestReview",
       "kind": "mutations",
       "id": "updatepullrequestreview",
@@ -8469,6 +8546,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>List of required status checks that must pass for commits to be accepted to matching branches.</p>",
+          "type": "[RequiredStatusCheckDescription!]",
+          "id": "requiredstatuscheckdescription",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#requiredstatuscheckdescription"
         },
         {
           "name": "requiresApprovingReviews",
@@ -33889,6 +33974,17 @@
           "href": "/graphql/reference/objects#repository",
           "arguments": [
             {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",
               "type": {
@@ -37733,7 +37829,7 @@
       "kind": "objects",
       "id": "projectnext",
       "href": "/graphql/reference/objects#projectnext",
-      "description": "<p>New projects that manage issues, pull requests and drafts with tables and.</p>",
+      "description": "<p>New projects that manage issues, pull requests and drafts using tables and boards.</p>",
       "implements": [
         {
           "name": "Closable",
@@ -38152,7 +38248,7 @@
       "kind": "objects",
       "id": "projectnextitem",
       "href": "/graphql/reference/objects#projectnextitem",
-      "description": "<p>An item in a Memex project.</p>",
+      "description": "<p>An item within a new Project.</p>",
       "implements": [
         {
           "name": "Node",
@@ -38340,7 +38436,7 @@
       "kind": "objects",
       "id": "projectnextitemfieldvalue",
       "href": "/graphql/reference/objects#projectnextitemfieldvalue",
-      "description": "<p>An value of a field in an item of Memex project.</p>",
+      "description": "<p>An value of a field in an item of a new Project.</p>",
       "implements": [
         {
           "name": "Node",
@@ -52006,6 +52102,31 @@
       ]
     },
     {
+      "name": "RequiredStatusCheckDescription",
+      "kind": "objects",
+      "id": "requiredstatuscheckdescription",
+      "href": "/graphql/reference/objects#requiredstatuscheckdescription",
+      "description": "<p>Represents a required status check for a protected branch, but not any specific run of that check.</p>",
+      "fields": [
+        {
+          "name": "app",
+          "description": "<p>The App that must provide this status in order for it to be accepted.</p>",
+          "type": "App",
+          "id": "app",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#app"
+        },
+        {
+          "name": "context",
+          "description": "<p>The name of this status.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "RestrictedContribution",
       "kind": "objects",
       "id": "restrictedcontribution",
@@ -61018,6 +61139,17 @@
           "href": "/graphql/reference/objects#repository",
           "arguments": [
             {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",
               "type": {
@@ -65097,6 +65229,17 @@
           "href": "/graphql/reference/objects#repository",
           "arguments": [
             {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",
               "type": {
@@ -66395,6 +66538,35 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>Order discussions by most recent modification time.</p>"
+        }
+      ]
+    },
+    {
+      "name": "DismissReason",
+      "kind": "enums",
+      "id": "dismissreason",
+      "href": "/graphql/reference/enums#dismissreason",
+      "description": "<p>The possible reasons that a Dependabot alert was dismissed.</p>",
+      "values": [
+        {
+          "name": "FIX_STARTED",
+          "description": "<p>A fix has already been started.</p>"
+        },
+        {
+          "name": "INACCURATE",
+          "description": "<p>This alert is inaccurate or incorrect.</p>"
+        },
+        {
+          "name": "NOT_USED",
+          "description": "<p>Vulnerable code is not actually used.</p>"
+        },
+        {
+          "name": "NO_BANDWIDTH",
+          "description": "<p>No bandwidth to fix this.</p>"
+        },
+        {
+          "name": "TOLERABLE_RISK",
+          "description": "<p>Risk is tolerable to this project.</p>"
         }
       ]
     },
@@ -73086,6 +73258,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requiredStatusChecks",
+          "description": "<p>The list of required status checks.</p>",
+          "type": "[RequiredStatusCheckInput!]",
+          "id": "requiredstatuscheckinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requiredstatuscheckinput"
+        },
+        {
           "name": "requiresApprovingReviews",
           "description": "<p>Are approving reviews required to update matching branches.</p>",
           "type": "Boolean",
@@ -75063,6 +75243,40 @@
         {
           "name": "pullRequestReviewId",
           "description": "<p>The Node ID of the pull request review to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "DismissRepositoryVulnerabilityAlertInput",
+      "kind": "inputObjects",
+      "id": "dismissrepositoryvulnerabilityalertinput",
+      "href": "/graphql/reference/input-objects#dismissrepositoryvulnerabilityalertinput",
+      "description": "<p>Autogenerated input type of DismissRepositoryVulnerabilityAlert.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "dismissReason",
+          "description": "<p>The reason the Dependabot alert is being dismissed.</p>",
+          "type": "DismissReason!",
+          "id": "dismissreason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#dismissreason"
+        },
+        {
+          "name": "repositoryVulnerabilityAlertId",
+          "description": "<p>The Dependabot alert ID to dismiss.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -77144,6 +77358,31 @@
       ]
     },
     {
+      "name": "RequiredStatusCheckInput",
+      "kind": "inputObjects",
+      "id": "requiredstatuscheckinput",
+      "href": "/graphql/reference/input-objects#requiredstatuscheckinput",
+      "description": "<p>Specifies the attributes for a new or updated required status check.</p>",
+      "inputFields": [
+        {
+          "name": "appId",
+          "description": "<p>The ID of the App that must set the status in order for it to be accepted.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "context",
+          "description": "<p>Status check context that must pass for commits to be accepted to the matching branch.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "RerequestCheckSuiteInput",
       "kind": "inputObjects",
       "id": "rerequestchecksuiteinput",
@@ -78255,6 +78494,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>The list of required status checks.</p>",
+          "type": "[RequiredStatusCheckInput!]",
+          "id": "requiredstatuscheckinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requiredstatuscheckinput"
         },
         {
           "name": "requiresApprovingReviews",
@@ -79734,6 +79981,40 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "UpdatePullRequestBranchInput",
+      "kind": "inputObjects",
+      "id": "updatepullrequestbranchinput",
+      "href": "/graphql/reference/input-objects#updatepullrequestbranchinput",
+      "description": "<p>Autogenerated input type of UpdatePullRequestBranch.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "expectedHeadOid",
+          "description": "<p>The head ref oid for the upstream branch.</p>",
+          "type": "GitObjectID",
+          "id": "gitobjectid",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#gitobjectid"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>The Node ID of the pull request.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },

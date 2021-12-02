@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Seu painel pessoal
@@ -44,10 +45,10 @@ Na seção "All activity" (Todas as atividades) do feed de notícias, você pode
 
 Atualizações serão exibidas no feed de notícias quando um usuário que você segue:
 - Marcar um repositório com estrelas.
-- Segue outro usuário.{% ifversion fpt or ghes %}
+- Segue outro usuário.{% ifversion fpt or ghes or ghec %}
 - Cria um repositório público.{% endif %}
 - Abrir um problema ou uma pull request com a etiqueta "help wanted" ou "good first issue" em um repositório que você está inspecionando.
-- Faz push de commits para um repositório que você inspeciona.{% ifversion fpt or ghes %}
+- Faz push de commits para um repositório que você inspeciona.{% ifversion fpt or ghes or ghec %}
 - Bifurca um repositório público.{% endif %}
 - Publica uma nova versão.
 
@@ -55,7 +56,7 @@ Para obter mais informações sobre como atribuir estrelas a repositórios e seg
 
 ## Explorar repositórios recomendados
 
-Na seção "Explorar repositórios" no lado direito do painel, é possível explorar repositórios recomendados nas suas comunidades. As recomendações são baseadas em repositórios que você favoritou ou visitou, as pessoas que você segue e a atividade nos repositórios aos quais você tem acesso.{% ifversion fpt %} Para obter mais informações, consulte "[Encontrar formas de contribuir com código aberto no {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+Na seção "Explorar repositórios" no lado direito do painel, é possível explorar repositórios recomendados nas suas comunidades. As recomendações são baseadas em repositórios que você favoritou ou visitou, as pessoas que você segue e a atividade nos repositórios aos quais você tem acesso.{% ifversion fpt or ghec %} Para obter mais informações, consulte "[Encontrar formas de contribuir com código aberto no {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
 ## Leia mais
 

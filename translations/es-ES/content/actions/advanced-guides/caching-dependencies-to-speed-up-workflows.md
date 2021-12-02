@@ -2,7 +2,6 @@
 title: Almacenar en caché las dependencias para agilizar los flujos de trabajo
 shortTitle: Almacenar dependencias en caché
 intro: 'Para hacer que tus flujos de trabajo sean más rápidos y eficientes, puedes crear y usar cachés para las dependencias y otros archivos comúnmente reutilizados.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -10,6 +9,7 @@ redirect_from:
   - /actions/guides/caching-dependencies-to-speed-up-workflows
 versions:
   fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows

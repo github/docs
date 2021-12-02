@@ -2,7 +2,6 @@
 title: GitHub Actionsのメタデータ構文
 shortTitle: メタデータ構文
 intro: リポジトリでタスクを実行するアクションを作成できます。 アクションには、YAML構文を使うメタデータファイルが必要です。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -12,11 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## {% data variables.product.prodname_actions %}のYAML構文について
 
@@ -213,7 +214,7 @@ runs:
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
 {% else %}
 **Required** The steps that you plan to run in this action.
@@ -221,7 +222,7 @@ runs:
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Optional** The command you want to run. これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
 {% else %}
 **必須** 実行するコマンド。 これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
@@ -251,7 +252,7 @@ runs:
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Optional** The shell where you want to run the command. [こちら](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
 {% else %}
 **必須** コマンドを実行するシェル。 [こちら](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
@@ -267,13 +268,13 @@ runs:
 
 #### `runs.steps[*].env`
 
-**オプション**  そのステップのみの環境変数の `map` を設定します。 If you want to modify the environment variable stored in the workflow, use {% ifversion fpt or ghes > 2.22 or ghae %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite step.
+**オプション**  そのステップのみの環境変数の `map` を設定します。 If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
 
 #### `runs.steps[*].working-directory`
 
 **オプション**  コマンドを実行する作業ディレクトリを指定します。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 #### `runs.steps[*].uses`
 
 **Optional**  Selects an action to run as part of a step in your job. アクションとは、再利用可能なコードの単位です。 ワークフロー、パブリックリポジトリ、または[公開されているDockerコンテナイメージ](https://hub.docker.com/)と同じリポジトリで定義されているアクションを使用できます。

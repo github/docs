@@ -1,10 +1,11 @@
 ---
 title: Enterprise 向けの SAML シングルサインオンを設定する
-shortTitle: SAML SSO の設定
-intro: 'Enterprise の SAML シングルサインオン (SSO) を設定できます。これにより、アイデンティティプロバイダ (IdP) を使用して {% data variables.product.product_location %} の認証を一元的に制御できます。'
+shortTitle: Configure SAML SSO
+intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghae %}your enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghae %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
 product: '{% data reusables.gated-features.saml-sso %}'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
+  ghec: '*'
   ghae: '*'
 type: how_to
 topics:
@@ -15,11 +16,26 @@ topics:
   - SSO
 redirect_from:
   - /admin/authentication/configuring-saml-single-sign-on-for-your-enterprise
+  - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account
 ---
 
-## SAML SSO について
+{% data reusables.enterprise-accounts.emu-saml-note %}
 
-{% ifversion ghae %}
+## About SAML SSO for enterprise accounts
+
+{% ifversion ghec %}
+
+{% data reusables.saml.dotcom-saml-explanation %} 詳細は「[SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)」を参照してください。
+
+{% data reusables.saml.about-saml-enterprise-accounts %}
+
+{% data reusables.saml.about-saml-access-enterprise-account %}詳細は「[Enterprise アカウントへのユーザの SAML アクセスの表示および管理](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)」を参照してください。
+
+{% data reusables.scim.enterprise-account-scim %}
+
+{% elsif ghae %}
 
 SAML SSO を使用すると、SAML IdP から {% data variables.product.product_location %} へのアクセスを一元的に制御しアクセスをセキュアにできます。 認証されていないユーザがブラウザで {% data variables.product.product_location %} にアクセスすると、{% data variables.product.product_name %} はユーザを認証するために SAML IdP にリダイレクトします。 ユーザが IdP のアカウントで正常に認証されると、IdP はユーザを {% data variables.product.product_location %} にリダイレクトします。 {% data variables.product.product_name %} は、IdP からのレスポンスを検証してから、ユーザにアクセスを許可します。
 
@@ -33,13 +49,36 @@ SAML SSO を使用すると、SAML IdP から {% data variables.product.product_
 
 ## サポートされているアイデンティティプロバイダ
 
-{% data variables.product.product_name %} は、SAML2.0 標準を実装し IdP を使用した SAML SSO をサポートします。 詳しい情報については、OASIS Web サイトの [SAML Wiki](https://wiki.oasis-open.org/security) を参照してください。
+{% data reusables.saml.saml-supported-idps %}
 
-{% data variables.product.company_short %} は、次の IdP を使用して {% data variables.product.product_name %} の SAML SSO をテストしました。
+{% ifversion ghec %}
 
-{% ifversion ghae %}
-- Azure AD
-{% endif %}
+## Enforcing SAML single-sign on for organizations in your enterprise account
+
+{% note %}
+
+**ノート:**
+
+- When you enforce SAML SSO for your enterprise, the enterprise configuration will override any existing organization-level SAML configurations. {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+- When you enforce SAML SSO for an organization, {% data variables.product.company_short %} removes any members of the organization that have not authenticated successfully with your SAML IdP. When you require SAML SSO for your enterprise, {% data variables.product.company_short %} does not remove members of the enterprise that have not authenticated successfully with your SAML IdP. The next time a member accesses the enterprise's resources, the member must authenticate with your SAML IdP.
+
+{% endnote %}
+
+For more detailed information about how to enable SAML using Okta, see "[Configuring SAML single sign-on for your enterprise account using Okta](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)."
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "SAML single sign-on", select **Require SAML authentication**. ![SAML SSO を有効化するためのチェックボックス](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
+6. **Sign on URL**フィールドに、使用する IdP のシングルサインオンのリクエストのための HTTPS エンドポイントを入力してください。 この値は Idp の設定で使用できます。 ![メンバーがサインインする際にリダイレクトされる URL のフィールド](/assets/images/help/saml/saml_sign_on_url_business.png)
+7. 必要に応じて、[**Issuer**] フィールドに SAML 発行者の URL を入力して、送信されたメッセージの信頼性を確認します。 ![SAMl 発行者の名前のフィールド](/assets/images/help/saml/saml_issuer.png)
+8. [**Public Certificate**] で、証明書を貼り付けて SAML の応答を認証します。 ![アイデンティティプロバイダからの公開の証明書のフィールド](/assets/images/help/saml/saml_public_certificate.png)
+9. SAML 発行者からのリクエストの完全性を確認するには、{% octicon "pencil" aria-label="The edit icon" %} をクリックします。 次に、[Signature Method] および [Digest Method] ドロップダウンで、SAML 発行者が使用するハッシュアルゴリズムを選択します。 ![SAML 発行者が使用する署名方式とダイジェスト方式のハッシュアルゴリズム用のドロップダウン](/assets/images/help/saml/saml_hashing_method.png)
+10. Enterprise で SAML SSO を有効化する前に、[**Test SAML configuration**] をクリックして、入力した情報が正しいか確認します。 ![強制化の前に SAML の構成をテストするためのボタン](/assets/images/help/saml/saml_test.png)
+11. [**Save**] をクリックします。
+
+{% elsif ghae %}
 
 ## SAML SSO を有効化する
 
@@ -109,5 +148,7 @@ IdP の詳細が変更された場合は、{% data variables.product.product_loc
 {% data reusables.enterprise-accounts.security-tab %}
 1. [SAML single sign-on] の下で [**Enable SAML authentication**] を選択解除します。 ![[Enable SAML authentication] チェックボックス](/assets/images/help/saml/ae-saml-disabled.png)
 1. SAML SSO を無効にし、初期化中に作成した組み込みユーザアカウントでサインインする必要がある場合は、[**Save**] をクリックします。 ![SAML SSO 設定の [Save] ボタン](/assets/images/help/saml/ae-saml-disabled-save.png)
+
+{% endif %}
 
 {% endif %}

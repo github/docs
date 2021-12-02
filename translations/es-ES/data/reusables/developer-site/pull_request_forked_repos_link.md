@@ -1,4 +1,4 @@
-### Eventos de solicitud de extracción para repositorios bifurcados
+#### Eventos de solicitud de extracción para repositorios bifurcados
 
 {% note %}
 
@@ -10,7 +10,7 @@ Cuando creas una solicitud de extracción desde un repositorio bifurcado al repo
 
 Los flujos de trabajo no se ejecutan en repositorios bifurcados por defecto. Debes habilitar las Acciones de GitHub en la pestaña **Actions (Acciones)** del repositorio bifurcado.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Cuando un contribuyente primerizo emite una solicitud de cambios a un repositorio público, podría necesitarse que un mantenedor con acceso de escritura apruebe los flujos de trabajo que se están ejecutando en la solicitud de cambios. Para obtener más información, consulta la sección "[Aprobar flujos de trabajo desde bifurcaciones públicas](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)".
 {% endif %}
 

@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 children:
@@ -16,6 +17,7 @@ children:
   - /checks
   - /codes-of-conduct
   - /code-scanning
+  - /codespaces
   - /emojis
   - /enterprise-admin
   - /gists

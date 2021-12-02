@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: 开始 - 检查 API
@@ -40,7 +41,7 @@ GitHub 应用程序可以报告丰富的状态信息、提供详细的代码行�
 
 ![检查运行工作流程](/assets/images/check_runs.png)
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 如果检查运行处于未完成状态超过 14 天，则检查运行的 `conclusion` 将变成 `stale`，并且通过
 {% octicon "issue-reopened" aria-label="The issue-reopened icon" %} 在 {% data variables.product.prodname_dotcom %} 上显示为 stale（过时）。 只有 {% data variables.product.prodname_dotcom %} 可以将检查运行标记为 `stale`。 有关检查运行之可能结论的更多信息，请参阅 [`conclusion` 参数](/rest/reference/checks#create-a-check-run--parameters)。
 {% endif %}

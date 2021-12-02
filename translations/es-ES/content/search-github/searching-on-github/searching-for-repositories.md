@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 shortTitle: Buscar repositorios
@@ -131,7 +132,7 @@ Puedes buscar repositorios por la cantidad de temas que se les hayan aplicado ut
 | <code>topics:<em>n</em></code> | [**topics:5**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A5&type=Repositories&ref=searchresults) encuentra repositorios que tienen cinco temas.                |
 |                            | [**topics:>3**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A%3E3&type=Repositories&ref=searchresults) coincidirá con repositorios que tengan más de tres temas. |
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Buscar por licencia
 
@@ -147,9 +148,9 @@ Puedes buscar repositorios con por su tipo de licencia. Debes utilizar una palab
 
 Puedes filtrar tu búsqueda con base en la visibilidad de los repositorios. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-| Calificador | Ejemplo | ------------- | ------------- |{% ifversion fpt or ghes %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) empata con los repositorios públicos que pertenezcan a {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) empata con los repositorios internos a los que puedes acceder y que contengan la palabra "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) coincide con los repositorios privados a los cuales puedes acceder y que contengan la palabra "pages".
+| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) coincide con los repositorios privados a los cuales puedes acceder y que contengan la palabra "pages".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Buscar en base a si un repositorio es un espejo
 
@@ -171,7 +172,7 @@ Puedes buscar los repositorios con base en si se archivaron o no. Para obtener m
 | `archived:true`  | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=) coincide con los repositorios que se archivan y que contienen la palabra "GNOME".           |
 | `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) coincide con los repositorios que no están archivados y que contienen la palabra "GNOME". |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Buscar en base a la cantidad de propuestas con las etiquetas `good first issue` o `help wanted`
 

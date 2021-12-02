@@ -7,6 +7,7 @@ redirect_from:
   - /developers/github-marketplace/about-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---
@@ -49,7 +50,7 @@ Ao terminar de criar seu aplicativo, você poderá compartilhá-lo com outros us
 
 1. Adicionar um plano de preços. Para obter mais informações, consulte "[Configurar planos de preços para sua listagem](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
 
-1. Leia e aceite os termos do "[Contrato do Desenvolvedor de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-developer-agreement/)".
+1. Read and accept the terms of the "\[{% data variables.product.prodname_marketplace %} Developer Agreement\](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement."
 
 1. Envie seu anúncio para publicação em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Enviar sua listagem para publicação](/developers/github-marketplace/submitting-your-listing-for-publication)".
 

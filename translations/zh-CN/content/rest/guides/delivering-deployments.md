@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -138,11 +139,11 @@ end
 
 ## 结论
 
-在 GitHub，我们多年来一直使用 [Heaven][heaven] 版本来管理部署。 A common flow is essentially the same as the server we've built above:
+在 GitHub，我们多年来一直使用 [Heaven][heaven] 版本来管理部署。 共同流程本质上与我们上面构建的服务器基本相同：
 
-* Wait for a response on the state of the CI checks (success or failure)
-* If the required checks succeed, merge the pull request
-* Heaven takes the merged code, and deploys it to staging and production servers
+* 等待 CI 检查状态的响应（成功或失败）
+* 如果所需的检查成功，则合并拉取请求
+* Heaven 提取合并的代码，并将其部署到暂存和生产服务器上
 * 同时。Heaven 还通过坐在我们聊天室中的 [Hubot][hubot] 通知所有人有关构建的信息
 
 搞定！ 使用此示例并不需要构建自己的部署设置。 您始终可以依赖 [GitHub 集成][integrations]。

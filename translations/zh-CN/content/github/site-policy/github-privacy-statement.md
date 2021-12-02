@@ -216,9 +216,9 @@ GitHub 的许多服务和功能都是面向公众的。 如果您的内容是面
 
 ## 您如何访问和控制我们收集的信息
 
-If you're already a GitHub user, you may access, update, alter, or delete your basic user profile information by [editing your user profile](https://github.com/settings/profile) or contacting [GitHub Support](https://support.github.com/contact?tags=docs-policy). You can control the information we collect about you by limiting what information is in your profile, by keeping your information current, or by contacting [GitHub Support](https://support.github.com/contact?tags=docs-policy).
+如果您已经是 GitHub 用户，则可以通过[编辑用户个人资料](https://github.com/settings/profile)或联系 [GitHub 支持](https://support.github.com/contact?tags=docs-policy)，访问、更新、更改或删除您的基本用户个人资料信息。 您可以在个人资料中限制信息、保持更新个人信息或者联系 [GitHub 支持](https://support.github.com/contact?tags=docs-policy)，以控制我们收集的信息。
 
-If GitHub processes information about you, such as information [GitHub receives from third parties](#information-we-collect-from-third-parties), and you do not have an account, then you may, subject to applicable law, access, update, alter, delete, or object to the processing of your personal information by contacting [GitHub Support](https://support.github.com/contact?tags=docs-policy).
+如果 GitHub 处理您的信息，例如 [GitHub 从第三方](#information-we-collect-from-third-parties)获取的信息，但您没有帐户，则您可以通过联系 [GitHub 支持](https://support.github.com/contact?tags=docs-policy)，根据适用法律，访问、更新、更改、删除或反对处理您的个人信息。
 
 ### 数据可移植性
 
@@ -228,7 +228,7 @@ If GitHub processes information about you, such as information [GitHub receives 
 
 一般来说，只要您的帐户处于活动状态或需要为您提供服务，GitHub 就会保留您的用户个人信息。
 
-如果您想取消帐户或删除用户个人信息，可以在[用户个人资料](https://github.com/settings/admin)中进行。 我们将根据需要保留并使用您的信息，以履行我们的法律义务、解决争端和执行我们的协议，但是除非法律要求，否则我们将在您请求后 90 天内（在合理时间内）删除您的完整个人资料。 You may contact [GitHub Support](https://support.github.com/contact?tags=docs-policy) to request the erasure of the data we process on the basis of consent within 30 days.
+如果您想取消帐户或删除用户个人信息，可以在[用户个人资料](https://github.com/settings/admin)中进行。 我们将根据需要保留并使用您的信息，以履行我们的法律义务、解决争端和执行我们的协议，但是除非法律要求，否则我们将在您请求后 90 天内（在合理时间内）删除您的完整个人资料。 您可以联系[GitHub 支持](https://support.github.com/contact?tags=docs-policy)，请求在 30 天内删除您的数据，但需要征得我们的同意。
 
 删除帐户后，某些数据，例如对其他用户仓库的贡献和对其他议题的评论，仍然保留。 但是，我们通过将其与[空用户](https://github.com/ghost)相关联，从议题、拉取请求和评论的作者字段中删除或去识别化您的用户个人信息，包括您的用户名和电子邮件地址。
 

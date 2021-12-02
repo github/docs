@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/enforcing-saml-single-sign-on-for-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,7 +26,7 @@ Puedes restaurar los miembros de la organización una vez que realizas el inicio
 
 Los bots y cuentas de servicio que no tengan identidades externas configuradas en el IdP de tu organización también se eliminarán cuando requieras el SSO de SAML. Para obtener más información acerca de los bots y las cuentas de servicio, consulta la sección "[Administrar los bots y las cuentas de servicio con el inicio de sesión único de SAML](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)".
 
-Si tu organización le pertenece a una cuenta empresarial, el requerir SAML para dicha cuenta anulará la configuración de SAML a nivel de organización y requerirá el SSO de SAML para todas las organizaciones que pertenezcan a la empresa. Para obtener más información, consulta la sección "[Requerir el inicio de sesión único de SAML para las organizaciones de tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
+Si tu organización le pertenece a una cuenta empresarial, el requerir SAML para dicha cuenta anulará la configuración de SAML a nivel de organización y requerirá el SSO de SAML para todas las organizaciones que pertenezcan a la empresa. Para obtener más información, consulta la sección "[Configurar el inicio de sesión único de SAML para tu empresa](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
 {% tip %}
 

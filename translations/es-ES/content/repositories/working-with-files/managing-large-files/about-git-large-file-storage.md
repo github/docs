@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Almacenamiento de archivos de gran tamaño Git
 ---
 
@@ -17,7 +18,7 @@ shortTitle: Almacenamiento de archivos de gran tamaño Git
 
 {% data variables.large_files.product_name_short %} maneja archivos grandes almacenando referencias del archivo en el repositorio, pero no el archivo real. Para trabajar en la arquitectura de Git, {% data variables.large_files.product_name_short %} crea un archivo puntero que actúa como una referencia del archivo real (que se almacena en otro lugar). {% data variables.product.product_name %} administra este archivo puntero en tu repositorio. Cuando clonas el repositorio, {% data variables.product.product_name %} usa el archivo puntero como un mapa para ir y buscar el archivo grande por ti.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Con {% data variables.large_files.product_name_short %} puedes subier archivos de hasta:
 
 | Producto                                          | Tamaño máximo de archivo |

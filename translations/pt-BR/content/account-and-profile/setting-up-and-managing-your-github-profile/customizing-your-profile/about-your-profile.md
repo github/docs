@@ -11,13 +11,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 ---
 
 Você pode adicionar informações pessoais sobre si mesmo na bio, como locais em que trabalhou anteriormente, os projetos com os quais contribuiu ou interesses que você tem que outras pessoas talvez gostem de saber. Para obter mais informações, consulte "[Adicionar uma bio ao seu perfil](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)".
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.profile.profile-readme %}
 
@@ -29,9 +30,9 @@ As pessoas que visitam seu perfil veem uma linha do tempo da sua atividade de co
 
 As pessoas que visitam seu perfil também podem ver as informações a seguir.
 
-- Repositórios e gists que você possui ou com os quais contribui. {% ifversion fpt or ghes %}Você pode exibir seu melhor trabalho fixando repositórios e gists no seu perfil. Para obter mais informações, consulte "[Fixar itens no seu perfil](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)".{% endif %}
+- Repositórios e gists que você possui ou com os quais contribui. {% ifversion fpt or ghes or ghec %}Você pode exibir seu melhor trabalho fixando repositórios e gists no seu perfil. Para obter mais informações, consulte "[Fixar itens no seu perfil](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)".{% endif %}
 - Repositórios que você salvou com estrela. Para obter mais informações, consulte "[Salvar repositórios com estrelas](/articles/saving-repositories-with-stars/)."
-- Uma visão geral da sua atividade em organizações, repositórios e equipes nos quais você está mais ativo. Para obter mais informações, consulte "[Exibir visão geral da sua atividade no seu perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)."{% ifversion fpt %}
+- Uma visão geral da sua atividade em organizações, repositórios e equipes nos quais você está mais ativo. Para obter mais informações, consulte "[Exibir visão geral da sua atividade no seu perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)."{% ifversion fpt or ghec %}
 - Selos que serão exibidos se você usar {% data variables.product.prodname_pro %} ou participar de programas como {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %} ou do programa de desenvolvedor de {% data variables.product.company_short %}. Para obter mais informações, consulte "[Personalizar seu perfil](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)".{% endif %}
 
 Você também pode definir um status no seu perfil para fornecer informações sobre a sua disponibilidade. Para obter mais informações, consulte "[Configurar um status](/articles/personalizing-your-profile/#setting-a-status)".

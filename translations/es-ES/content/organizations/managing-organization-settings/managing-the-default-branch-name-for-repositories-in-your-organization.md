@@ -6,8 +6,9 @@ redirect_from:
 permissions: Organization owners can manage the default branch name for new repositories in the organization.
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,7 +21,7 @@ Cuadno un miembro de tu organización crea un repositorio nuevo en la misma, és
 
 {% data reusables.branches.change-default-branch %}
 
-Si un propietario de la empresa requirió una política para el nombre de la rama predeterminada de tu empresa, no puedes configurar dicho nombre en tu organización. En su lugar, puedes cambiar la rama predeterminada para los repositorios individuales. Para obtener más información, consulta la sección{% ifversion fpt %}"[Hacer cumplir las políticas de administración de repositorio en tu empresa](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-the-default-branch-name)"{% else %}"[Hacer cumplir las políticas de admnistración de repositorios en tu empresa"](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name){% endif %} y la sección "[Cambiar la rama predeterminada](/github/administering-a-repository/changing-the-default-branch)".
+Si un propietario de la empresa requirió una política para el nombre de la rama predeterminada de tu empresa, no puedes configurar dicho nombre en tu organización. En su lugar, puedes cambiar la rama predeterminada para los repositorios individuales. For more information, see {% ifversion fpt %}"[Enforcing repository management policies in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% else %}"[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% endif %} and "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
 ## Configurar el nombre de la rama predeterminada
 

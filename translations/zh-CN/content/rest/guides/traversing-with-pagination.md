@@ -8,12 +8,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: 使用分页遍历
 ---
 
-{% data variables.product.product_name %} API 为开发人员提供大量的可用信息。 在很多时候，您甚至会发现自己请求的信息_太多_，为了满足我们的服务器，API 会自动[对请求的项目进行分页][pagination]。
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 为开发人员提供了丰富的信息供他们使用。 在很多时候，您甚至会发现自己请求的信息_太多_，为了满足我们的服务器，API 会自动[对请求的项目进行分页][pagination]。
 
 在本指南中，我们将对 搜索 API 进行一些调用，并使用分页遍历结果。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
 

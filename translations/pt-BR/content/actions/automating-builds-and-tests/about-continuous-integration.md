@@ -1,7 +1,6 @@
 ---
 title: Sobre integração contínua
 intro: 'Você pode criar fluxos de trabalho de integração contínua (CI) personalizados diretamente no repositório do {% data variables.product.prodname_dotcom %} com o {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-continuous-integration
   - /github/automating-your-workflow-with-github-actions/about-continuous-integration
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - CI
@@ -20,6 +20,7 @@ shortTitle: Integração contínua
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Sobre integração contínua
 
@@ -35,7 +36,7 @@ Para compilar e testar seu código, é necessário usar um servidor. Você pode 
 {% else %} CI que usa {% data variables.product.prodname_actions %} oferece fluxos de trabalho que podem criar o código no seu repositório e executar seus testes. Fluxos de trabalho podem ser executados em máquinas virtuais hospedadas em {% data variables.product.prodname_dotcom %} ou em máquinas que você mesmo hospeda. Para obter mais informações, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" e "[Sobre executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
 {% endif %}
 
-Você pode configurar seu fluxo de trabalho de CI para ser executado quando ocorre um evento de {% data variables.product.product_name %} (por exemplo, quando um novo código é enviado para o repositório), em uma programação definida, ou quando um evento externo ocorre usando o webhook de envio do repositório.
+Você pode configurar a execução do seu fluxo de trabalho de CI para ocorrer diante de um evento do {% data variables.product.prodname_dotcom %} (por exemplo, quando houver push de um novo código para o seu repositório), com base em uma programação definida ou quando houver um evento externo usando o webhook de despacho do repositório.
 
 {% data variables.product.product_name %} executa seus testes de CI e fornece os resultados de cada teste no pull request para que você possa ver se a mudança no seu branch introduz um erro. Quando todos os testes de CI em um fluxo de trabalho forem aprovados, as alterações que passaram por push estarão prontas para a revisão de um integrante da equipe ou para o merge. Se algum teste falhar, uma de suas alterações pode ter causado a falha.
 
@@ -51,10 +52,10 @@ Para obter uma definição de termos comuns, consulte "[Conceitos básicos de {%
 
 {% data variables.product.product_name %} oferece modelos de fluxo de trabalho de CI para uma variedade de linguagens e estruturas.
 
-Pesquise a lista completa dos modelos de fluxo de trabalho de CI oferecidos por {% data variables.product.product_name %} no repositório {% ifversion fpt %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) {% else %} e no repositório `actions/starter-workflows` em {% data variables.product.product_location %}{% endif %}.
+Pesquise a lista completa dos modelos de fluxo de trabalho de CI oferecidos por {% data variables.product.company_short %} no repositório {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) {% else %} e no repositório `actions/starter-workflows` em {% data variables.product.product_location %}{% endif %}.
 
 ## Leia mais
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

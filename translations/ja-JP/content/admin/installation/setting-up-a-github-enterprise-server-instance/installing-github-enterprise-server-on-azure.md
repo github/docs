@@ -7,8 +7,12 @@ redirect_from:
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Install on Azure
 ---
 
@@ -101,5 +105,5 @@ Azure で{% data variables.product.product_location %} を起動する前に、O
 
 ## 参考リンク
 
-- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes > 2.22 %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes %}
 - 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

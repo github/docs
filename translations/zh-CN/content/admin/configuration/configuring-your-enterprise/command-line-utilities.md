@@ -44,14 +44,14 @@ $ ghe-announce -u
 
 此实用程序会显示关于后台作业（活动作业和队列中的作业）的信息， 它提供的作业计数与每个页面顶部管理员统计信息栏中的计数相同。
 
-This utility can help identify whether the Aqueduct server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Aqueduct:
+此实用程序可以帮助确定 Aqueduct 服务器在处理后台作业时是否会出现问题。 下列任一场景均可能指示 Aqueduct 存在问题：
 
 * 后台作业数增加，而活动作业数保持不变。
 * 事件源未更新。
 * Web 挂钩未触发。
 * Web 界面在 Git 推送后未更新。
 
-If you suspect Aqueduct is failing, contact {% data variables.contact.contact_ent_support %} for help.
+如果怀疑 Aqueduct 出现故障，请联系 {% data variables.contact.contact_ent_support %} 获取帮助。
 
 使用此命令，您还可以暂停或恢复队列中的作业。
 
@@ -494,7 +494,7 @@ ghe-webhook-logs
 ```
 
 要显示过去一天所有失败的挂钩交付：
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
 ```
@@ -507,7 +507,7 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 要显示交付的完整挂钩有效负载、结果以及任何异常：
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em>
 ```
@@ -623,6 +623,31 @@ ghe-storage evacuate storage-server-<em>UUID</em>
 
 ```shell
 ghe-btop [ <port number> | --help | --usage ]
+```
+
+#### ghe-governor
+
+此工具有助于分析 Git 流量。 它查询位于 `/data/user/gitmon` 下的 _Governor_ 数据文件。 {% data variables.product.company_short %} 为每个文件保存一小时的数据，保留两周。 更多信息请参阅 {% data variables.product.prodname_gcf %} 中的[使用 Governor 分析 Git 流量](https://github.community/t/analyzing-git-traffic-using-governor/13516)。
+
+```bash
+ghe-governor <subcommand> <column> [options]
+```
+
+```
+ghe-governor -h
+Usage: ghe-governor [-h] <subcommand> args
+
+OPTIONS:
+  -h | --help        Show this message.
+
+Valid subcommands are:
+  aggregate              Find the top (n) groups of queries for a grouping function and metric
+  health                 Summarize all recent activity on one or more servers
+  top                    Find the top (n) queries for a given metric
+  dump                   Dump individual operations
+  test-quotas            Check quota information
+
+Try ghe-governor <subcommand> --help for more information on the arguments each subcommand takes.
 ```
 
 ### ghe-repo
@@ -796,7 +821,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 
 ### ghe-license-usage
 
-此实用程序可按 JSON 格式导出安装用户列表。 如果您的实例连接至 {% data variables.product.prodname_ghe_cloud %}，{% data variables.product.prodname_ghe_server %} 将使用此信息向 {% data variables.product.prodname_ghe_cloud %} 报告许可信息。 For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+此实用程序可按 JSON 格式导出安装用户列表。 如果您的实例连接至 {% data variables.product.prodname_ghe_cloud %}，{% data variables.product.prodname_ghe_server %} 将使用此信息向 {% data variables.product.prodname_ghe_cloud %} 报告许可信息。 更多信息请参阅“[将企业帐户连接到 {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)”。
 
 默认情况下，生成的 JSON 文件中的用户列表为加密格式。 使用 `-h` 标志可获取更多选项。
 

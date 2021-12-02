@@ -23,6 +23,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: GitHub pages & Jekyll
@@ -73,10 +74,10 @@ Puedes añadir `site.github` a una publicación o página para añadir cualquier
 
 {% data reusables.pages.add-jekyll-theme %} Para obtenerr más información, consulta "[Temas](https://jekyllrb.com/docs/themes/)" en la documentación de Jekyll.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Puedes agregar un tema soportado a tu sitio en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Temas soportados](https://pages.github.com/themes/)" en el sitio {% data variables.product.prodname_pages %} y "[Agregar un tema a tu sitio de {% data variables.product.prodname_pages %} con el selector de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)."
 
-Para utilizar cualquier otro tema de código abierto de Jekyll que se hospede en {% data variables.product.prodname_dotcom %}, puedes agregar el tema manualmente.{% else %} Puedes agregar el tema a tu sitio manualmente.{% endif %} Para obtener más información, consulta los{% ifversion fpt %} [temas hospedados en {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) y la sección {% else %} "[Temas compatibles](https://pages.github.com/themes/)" en el sitio de {% data variables.product.prodname_pages %} y {% endif %}"[Agregar un tema a tu sitio de {% data variables.product.prodname_pages %} utilizando Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
+To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt or ghec %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
 
 Puedes sobrescribir cualquiera de los valores por defecto de tu tema editando los archivos del tema. Para obtener más información, consulta la documentación de tu tema y "[Sobrescribir los valores predeterminados del tema](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" en la documentación de Jekyll.
 

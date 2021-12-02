@@ -1,1 +1,1 @@
-This message will create an annotation, which can associate the message with a particular file in your repository. Optionally, your message can specify a position within the file.
+Esta mensagem criará uma anotação, que pode associar a mensagem a um arquivo em particular no repositório. Opcionalmente, sua mensagem pode especificar uma posição dentro do arquivo.

@@ -1,6 +1,6 @@
 ---
 title: 关于应用程序
-intro: '您可以构建与 {% data variables.product.prodname_dotcom %} API 的集成来增加灵活性并减少自己工作流程中的摩擦。{% ifversion fpt %} 您也可以与 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 上的其他API 集成。{% endif %}'
+intro: '您可以构建与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 的集成来增加灵活性并减少自己工作流程中的摩擦。{% ifversion fpt or ghec %} 您也可以与 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 上的其他API 集成。{% endif %}'
 redirect_from:
   - /apps/building-integrations/setting-up-a-new-integration/
   - /apps/building-integrations/
@@ -11,13 +11,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
 
-{% data variables.product.prodname_dotcom %} 上的应用程序允许您自动化并改进工作流程。 您可以构建应用程序来改进工作流程。{% ifversion fpt %} 您也可以在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 中分享或销售应用程序。 要了解如何在 {% data variables.product.prodname_marketplace %} 上列出应用程序，请参阅“[GitHub Marketplace 使用入门](/marketplace/getting-started/)”。{% endif %}
+{% data variables.product.prodname_dotcom %} 上的应用程序允许您自动化并改进工作流程。 您可以构建应用程序来改进工作流程。{% ifversion fpt or ghec %} 您也可以在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 中分享或销售应用程序。 要了解如何在 {% data variables.product.prodname_marketplace %} 上列出应用程序，请参阅“[GitHub Marketplace 使用入门](/marketplace/getting-started/)”。{% endif %}
 
-{% data reusables.marketplace.github_apps_preferred %}, but GitHub supports both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}. 有关选择应用程序类型的信息，请参阅“[GitHub 应用程序和 OAuth 应用程序之间的差异](/developers/apps/differences-between-github-apps-and-oauth-apps)”。
+{% data reusables.marketplace.github_apps_preferred %}，但 GitHub 支持 {% data variables.product.prodname_oauth_apps %} 和 {% data variables.product.prodname_github_apps %}。 有关选择应用程序类型的信息，请参阅“[GitHub 应用程序和 OAuth 应用程序之间的差异](/developers/apps/differences-between-github-apps-and-oauth-apps)”。
 
 {% data reusables.apps.general-apps-restrictions %}
 
@@ -37,7 +38,7 @@ topics:
 
 创建 {% data variables.product.prodname_github_apps %} 时，请记住以下方法：
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * {% data reusables.apps.maximum-github-apps-allowed %} {% endif %}
 * {% data variables.product.prodname_github_app %} 的操作应独立于用户（除非此应用程序使用[用户至服务器](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests)令牌）。 {% data reusables.apps.expiring_user_authorization_tokens %}
 
@@ -45,12 +46,12 @@ topics:
 * {% data variables.product.prodname_github_app %} 应该连接到个人帐户或组织。
 * 不要指望 {% data variables.product.prodname_github_app %} 知道并尽其所能。
 * 如果您只需要“使用GitHub登录”服务，请不要使用 {% data variables.product.prodname_github_app %}。 但是，{% data variables.product.prodname_github_app %} 可以使用[用户识别流程](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)登录用户账户_和_执行其他操作。
-* 如果您_只_想作为 GitHub 用户并做用户可以执行的所有操作，请不要构建 {% data variables.product.prodname_github_app %}。{% ifversion fpt %}
+* 如果您_只_想作为 GitHub 用户并做用户可以执行的所有操作，请不要构建 {% data variables.product.prodname_github_app %}。{% ifversion fpt or ghec %}
 * {% data reusables.apps.general-apps-restrictions %}{% endif %}
 
-要开始开发 {% data variables.product.prodname_github_apps %}，请先“[创建 {% data variables.product.prodname_github_app %}](/apps/building-github-apps/creating-a-github-app/)”。{% ifversion fpt %} 要了解如何使用 {% data variables.product.prodname_github_app %} 清单创建预配置的 {% data variables.product.prodname_github_apps %}，请参阅“[从清单创建 {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/creating-github-apps-from-a-manifest/)”。{% endif %}
+要开始开发 {% data variables.product.prodname_github_apps %}，请先“[创建 {% data variables.product.prodname_github_app %}](/apps/building-github-apps/creating-a-github-app/)”。{% ifversion fpt or ghec %} 要了解如何使用 {% data variables.product.prodname_github_app %} 清单创建预配置的 {% data variables.product.prodname_github_apps %}，请参阅“[从清单创建 {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/creating-github-apps-from-a-manifest/)”。{% endif %}
 
-## About {% data variables.product.prodname_oauth_apps %}
+## 关于 {% data variables.product.prodname_oauth_apps %}
 
 OAuth2 是一种协议，它允许外部应用程序请求授权在不使用密码的情况下访问用户 {% data variables.product.prodname_dotcom %} 帐户中的私有信息。 此协议优先于基本验证，因为令牌可能仅限于特定类型的数据，用户可以随时撤销。
 
@@ -58,19 +59,19 @@ OAuth2 是一种协议，它允许外部应用程序请求授权在不使用密�
 
 {% data variables.product.prodname_oauth_app %} 使用 {% data variables.product.prodname_dotcom %} 作为身份提供程序以验证为授予应用程序访问权限的用户。 这意味着，当用户授予 {% data variables.product.prodname_oauth_app %} 访问权限时，将授权访问其帐户有权访问的_所有_仓库，以及他们所属的、未阻止第三方访问的任何组织。
 
-如果要创建比简单脚本的处理范围更复杂的流程，构建 {% data variables.product.prodname_oauth_app %} 是一个很好的选择。 Note that {% data variables.product.prodname_oauth_apps %} are applications that need to be hosted somewhere.
+如果要创建比简单脚本的处理范围更复杂的流程，构建 {% data variables.product.prodname_oauth_app %} 是一个很好的选择。 请注意，{% data variables.product.prodname_oauth_apps %} 是需要托管在某处的应用程序。
 
-Keep these ideas in mind when creating {% data variables.product.prodname_oauth_apps %}:
+创建 {% data variables.product.prodname_oauth_apps %} 时，请记住以下方法：
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * {% data reusables.apps.maximum-oauth-apps-allowed %} {% endif %}
 * {% data variables.product.prodname_oauth_app %} 在所有 {% data variables.product.prodname_dotcom %} 中（例如，在提供用户通知时）应始终代表经身份验证的 {% data variables.product.prodname_dotcom %} 用户。
 * 通过为经身份验证的用户启用“使用 {% data variables.product.prodname_dotcom %} 进行登录”，{% data variables.product.prodname_oauth_app %} 可用作身份提供程序。
-* 如果您希望应用程序作用于单个仓库，请不要构建 {% data variables.product.prodname_oauth_app %}。 With the `repo` OAuth scope, {% data variables.product.prodname_oauth_apps %} can act on _all_ of the authenticated user's repositories.
-* 不要构建 {% data variables.product.prodname_oauth_app %} 作为团队或公司的应用程序。 {% data variables.product.prodname_oauth_apps %} authenticate as a single user, so if one person creates an {% data variables.product.prodname_oauth_app %} for a company to use, and then they leave the company, no one else will have access to it.{% ifversion fpt %}
+* 如果您希望应用程序作用于单个仓库，请不要构建 {% data variables.product.prodname_oauth_app %}。 使用 `repo` OAuth 作用域，{% data variables.product.prodname_oauth_apps %} 可以作用于经验证用户的_所有_仓库。
+* 不要构建 {% data variables.product.prodname_oauth_app %} 作为团队或公司的应用程序。 {% data variables.product.prodname_oauth_apps %} 将验证为单个用户，因此，如果有人创建了 {% data variables.product.prodname_oauth_app %} 供公司使用，那么一旦他们离开公司，其他人将无法访问它。{% ifversion fpt or ghec %}
 * {% data reusables.apps.oauth-apps-restrictions %}{% endif %}
 
-For more on {% data variables.product.prodname_oauth_apps %}, see "[Creating an {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" and "[Registering your app](/rest/guides/basics-of-authentication#registering-your-app)."
+有关 {% data variables.product.prodname_oauth_apps %} 的更多信息，请参阅“[创建 {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)”和“[注册应用程序](/rest/guides/basics-of-authentication#registering-your-app)”。
 
 ## 个人访问令牌
 
@@ -84,12 +85,12 @@ For more on {% data variables.product.prodname_oauth_apps %}, see "[Creating an 
 * 您可以执行一次性 cURL 请求。
 * 您可以运行个人脚本。
 * 不要为整个团队或公司设置脚本。
-* Don't set up a shared user account to act as a bot user.{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 %}
-* Do set an expiration for your personal access tokens, to help keep your information secure.{% endif %}
+* 不要设置共享用户帐户来充当机器人用户。{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 or ghec %}
+* 请为您的个人访问令牌设置期限，以帮助保护您的信息安全。{% endif %}
 
 ## 确定要构建的集成
 
-开始创建集成之前，需要确定访问、验证和与 {% data variables.product.prodname_dotcom %} API 交互的最佳方式。 The following image offers some questions to ask yourself when deciding whether to use personal access tokens, {% data variables.product.prodname_github_apps %}, or {% data variables.product.prodname_oauth_apps %} for your integration.
+在开始创建集成之前，您需要确定使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 访问、验证和交互的最佳方式。 下图提供了一些问题，您在决定是否对集成使用个人访问令牌、{% data variables.product.prodname_github_apps %} 或 {% data variables.product.prodname_oauth_apps %} 时可以考虑这些问题。
 
 ![应用程序问题流程简介](/assets/images/intro-to-apps-flow.png)
 

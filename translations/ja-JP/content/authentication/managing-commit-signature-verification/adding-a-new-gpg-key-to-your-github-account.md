@@ -1,6 +1,6 @@
 ---
 title: GitHub アカウントへの新しい GPG キーの追加
-intro: '{% data variables.product.product_name %} アカウントが新しい (あるいは既存の) GPG キーを使うように設定するには、そのキーを {% data variables.product.product_name %} アカウントに追加する必要もあります。'
+intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to use your new (or existing) GPG key, you''ll also need the key to your account.'
 redirect_from:
   - /articles/adding-a-new-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
 shortTitle: Add a new GPG key
 ---
 
-新しい GPG キーを {% data variables.product.product_name %} アカウントに追加する前に、以下のことを済ませておかなければなりません:
+Before adding a new GPG key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you should have:
 - [既存の GPG キーの確認](/articles/checking-for-existing-gpg-keys)
 - [新しい GPG キーの生成とコピー](/articles/generating-a-new-gpg-key)
 

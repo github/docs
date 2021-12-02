@@ -13,12 +13,12 @@ export const Contribution = () => {
   return (
     <div className="f5 contribution">
       <h2 className="f4 mb-3">{t`title`}</h2>
-      <p className="max-w-xs color-text-secondary mb-3">{t`body`}</p>
+      <p className="max-w-xs color-fg-muted mb-3">{t`body`}</p>
       <a className="btn" href={contributionHref}>
         <GitPullRequestIcon size="small" className="octicon mr-1" />
         {t`button`}
       </a>
-      <p className="color-text-secondary f6 mt-2">
+      <p className="color-fg-muted f6 mt-2">
         {t`or`}{' '}
         <a
           href="https://github.com/github/docs/blob/main/CONTRIBUTING.md"

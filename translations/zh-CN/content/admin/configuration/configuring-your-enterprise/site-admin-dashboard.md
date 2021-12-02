@@ -165,19 +165,19 @@ GitHub 的[代码搜索][]功能由 [ElasticSearch][] 提供支持。 站点管�
 - 开始新的索引修复作业
 - 重置所有索引修复状态
 {% endif %}
-## Reserved logins
+## 保留的登录名
 
-Certain words are reserved for internal use in {% data variables.product.product_location %}, which means that these words cannot be used as usernames.
+某些词是保留给内部使用的 {% data variables.product.product_location %}，这意味着这些词不能用作用户名。
 
-For example, the following words are reserved, among others:
+例如，保留以下词语，包括：
 
 - `管理员`
 - `企业`
 - `login`
-- `staff`
+- `员工`
 - `支持`
 
-For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
+对于完整列表或保留词，导航到站点管理面板中的“保留的登录名”。
 
 {% ifversion ghes or ghae %}
 
@@ -197,7 +197,7 @@ For the full list or reserved words, navigate to "Reserved logins" in the site a
 
 ## 所有用户
 
-Here you can see all of the users on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+您可以在此查看 {% data variables.product.product_location %} 上的所有用户，并[发起 SSH 密钥审核](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)。
 
 ## 站点管理员
 
@@ -208,7 +208,7 @@ Here you can see all of the users on {% data variables.product.product_location 
 您可以在此查看并[挂起](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) {% data variables.product.product_location %} 上的所有非活动用户。 以下情况下，会认定用户帐户处于非活动状态（“休眠”）：
 {% endif %}
 {% ifversion ghae %}
-Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. 以下情况下，会认定用户帐户处于非活动状态（“休眠”）：
+在这里，你可以看到并暂停 {% data variables.product.product_location %} 上所有不活跃的用户。 以下情况下，会认定用户帐户处于非活动状态（“休眠”）：
 {% endif %}
 
 - 存在时间长于为 {% data variables.product.product_location %} 设置的休眠阈值。

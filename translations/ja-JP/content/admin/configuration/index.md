@@ -5,6 +5,7 @@ intro: Organization のニーズに合わせて Enterprise を設定できます
 redirect_from:
   - /enterprise/admin/configuration
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

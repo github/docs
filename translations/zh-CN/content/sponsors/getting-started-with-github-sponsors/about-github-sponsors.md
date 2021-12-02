@@ -6,6 +6,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Open Source
@@ -22,7 +23,7 @@ topics:
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} 更多信息请参阅“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”。
 
-当您成为受赞助的开发者或组织时，{% data variables.product.prodname_sponsors %} 的附加条款适用。 更多信息请参阅“[GitHub Sponsors 附加条款](/github/site-policy/github-sponsors-additional-terms)”。
+当您成为受赞助的开发者或组织时，{% data variables.product.prodname_sponsors %} 的附加条款适用。 更多信息请参阅“[GitHub Sponsors 附加条款](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)”。
 
 ## 关于 {% data variables.product.prodname_matching_fund %}
 
@@ -32,7 +33,7 @@ topics:
 
 {% endnote %}
 
-{% data variables.product.prodname_matching_fund %} 旨在使 {% data variables.product.prodname_dotcom %} 社区开发开源软件的成员获益，宣传 [{% data variables.product.prodname_dotcom %} 社区指导方针](/github/site-policy/github-community-guidelines)。 对被赞助组织的付款和来自组织的付款均不符合 {% data variables.product.prodname_matching_fund %} 资格。
+{% data variables.product.prodname_matching_fund %} 旨在使 {% data variables.product.prodname_dotcom %} 社区开发开源软件的成员获益，宣传 [{% data variables.product.prodname_dotcom %} 社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines)。 对被赞助组织的付款和来自组织的付款均不符合 {% data variables.product.prodname_matching_fund %} 资格。
 
 若要符合 {% data variables.product.prodname_matching_fund %} 的资格，您必须创建吸引社区长期维持您发展的个人资料。 有关创建有吸引力的个人资料的更多信息，请参阅“[编辑 {% data variables.product.prodname_sponsors %} 的个人资料详细信息](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)”。
 
@@ -47,6 +48,6 @@ topics:
 ## 延伸阅读
 - "[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors)"
 - "[通过 {% data variables.product.prodname_sponsors %} 接受赞助](/sponsors/receiving-sponsorships-through-github-sponsors)"
-- "[Searching users and organizations based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
-- "[Searching repositories based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
+- "[基于赞助者的能力搜索用户和组织](/github/searching-for-information-on-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
+- "[基于赞助者的能力搜索仓库](/github/searching-for-information-on-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
 - {% data variables.product.prodname_blog %} 上的“[{% data variables.product.prodname_sponsors %} 团队常见问题](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)”

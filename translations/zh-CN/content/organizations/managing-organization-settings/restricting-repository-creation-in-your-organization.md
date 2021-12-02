@@ -8,17 +8,18 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 限制仓库创建
 ---
 
-您可以选择成员是否可以在组织中创建仓库。 If you allow members to create repositories, you can choose which types of repositories members can create.{% ifversion fpt %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+您可以选择成员是否可以在组织中创建仓库。 如果允许成员创建仓库，您可以选择允许创建哪些类型的仓库。{% ifversion fpt or ghec %} 若只允许成员创建私有仓库，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。{% endif %}更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
 组织所有者始终可以创建任何类型的仓库。
 
-{% ifversion fpt %}企业所有者{% else %}网站管理员{% endif %} 可以限制用于组织仓库创建策略的选项。 更多信息请参阅{% ifversion fpt %}“[在企业帐户中实施仓库管理策略](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account)”。{% else %}“[限制企业中的仓库创建](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。{% endif %}
+{% ifversion fpt or ghec %}企业所有者{% else %}网站管理员{% endif %} 可以限制用于组织仓库创建策略的选项。 更多信息请参阅“[限制在企业中创建仓库](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)。”
 
 {% warning %}
 

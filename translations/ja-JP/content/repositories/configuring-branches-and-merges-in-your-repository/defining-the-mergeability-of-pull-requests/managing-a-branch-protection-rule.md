@@ -22,6 +22,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 permissions: People with admin permissions to a repository can manage branch protection rules.
 topics:
   - Repositories
@@ -50,12 +51,18 @@ shortTitle: Branch protection rule
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
+{% ifversion fpt or ghec %}
+1. Optionally, enable required pull requests.
+   - Under "Protect matching branches", select **Require a pull request before merging**. ![プルリクエストレビューの制限チェックボックス](/assets/images/help/repository/PR-reviews-required-updated.png)
+   - Optionally, to require approvals before a pull request can be merged, select **Require approvals**, click the **Required number of approvals before merging** drop-down menu, then select the number of approving reviews you would like to require on the branch. ![必須とするレビュー承認の数を選択するドロップダウンメニュー](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
+{% else %}
 1. 必要に応じて、Pull Requestレビュー必須を有効化します。
    - [Protect matching branches] で、[**Require pull request reviews before merging**] を選択します。 ![プルリクエストレビューの制限チェックボックス](/assets/images/help/repository/PR-reviews-required.png)
-   - [**Required approving reviews**] ドロップダウンメニューをクリックし、ブランチで必須にする承認レビューの数を選択します。 ![必須とするレビュー承認の数を選択するドロップダウンメニュー](/assets/images/help/repository/number-of-required-review-approvals.png)
+   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you would like to require on the branch. ![必須とするレビュー承認の数を選択するドロップダウンメニュー](/assets/images/help/repository/number-of-required-review-approvals.png)
+{% endif %}
    - コードを変更するコミットがブランチにプッシュされたときにプルリクエストの承認レビューを却下する場合は、[**Dismiss stale pull request approvals when new commits are pushed**] を選択します。 ![新たなコミットがチェックボックスにプッシュされた際に古いプルリクエストの承認を却下するチェックボックス](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - 指定されたオーナーのコードにプルリクエストが影響する場合に、コードオーナーからのレビューを必須にする場合は、[**Require review from Code Owners**] を選択します。 詳細は「[コードオーナーについて](/github/creating-cloning-and-archiving-repositories/about-code-owners)」を参照してください。 ![コードオーナーのレビューを必要とする](/assets/images/help/repository/PR-review-required-code-owner.png)
-   - リポジトリが Organization の一部である場合、[**Restrict who can dismiss pull request reviews**] を選択します。 そして、Pull Requestレビューを却下できるユーザまたは Team を検索して選択します。 詳しい情報については[プルリクエストレビューの却下](/github/collaborating-with-issues-and-pull-requests/dismissing-a-pull-request-review)を参照してください。 ![[Restrict who can dismiss pull request reviews] チェックボックス](/assets/images/help/repository/PR-review-required-dismissals.png)
+   - リポジトリが Organization の一部である場合、[**Restrict who can dismiss pull request reviews**] を選択します。 そして、Pull Requestレビューを却下できるユーザまたは Team を検索して選択します。 詳しい情報については[プルリクエストレビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)を参照してください。 ![[Restrict who can dismiss pull request reviews] チェックボックス](/assets/images/help/repository/PR-review-required-dismissals.png)
 1. 必要に応じて、ステータスチェック必須を有効化します。
    - [**Require status checks to pass before merging**] を選択します。 ![必須ステータスチェックのオプション](/assets/images/help/repository/required-status-checks.png)
    - プルリクエストを保護されたブランチの最新コードで確実にテストしたい場合は、[**Require branches to be up to date before merging**] を選択します。 ![必須ステータスのチェックボックス、ゆるい、または厳格な](/assets/images/help/repository/protecting-branch-loose-status.png)
@@ -65,8 +72,16 @@ shortTitle: Branch protection rule
 {%- endif %}
 1. 必要に応じて、[**Require signed commits**] を選択します。 ![[Require signed commits] オプション](/assets/images/help/repository/require-signed-commits.png)
 1. 必要に応じて、[**Require linear history**] を選択します。 ![必須の直線状の履歴オプション](/assets/images/help/repository/required-linear-history.png)
+{%- ifversion fpt or ghec %}
+1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %} ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
+  {% tip %}
+
+  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+
+  {% endtip %}
+{%- endif %}
 1. オプションとして、[**Include administrators**] を選択します。 ![[Include administrators] チェックボックス](/assets/images/help/repository/include-admins-protected-branches.png)
-1. 必要に応じて、{% ifversion fpt %}{% data variables.product.prodname_team %} または {% data variables.product.prodname_ghe_cloud %} を使用する Organization がリポジトリを所有している場合には、{% endif %}ブランチ制限を有効化します。
+1. 必要に応じて、{% ifversion fpt or ghec %}{% data variables.product.prodname_team %} または {% data variables.product.prodname_ghe_cloud %} を使用する Organization がリポジトリを所有している場合には、{% endif %}ブランチ制限を有効化します。
    - [**Restrict who can push to matching branches**] を選択します。 ![ブランチ制限のチェックボックス](/assets/images/help/repository/restrict-branch.png)
    - 保護されたブランチにプッシュできる権限を持つユーザ、Team、またはアプリを検索し、選択します。 ![ブランチ制限の検索](/assets/images/help/repository/restrict-branch-search.png)
 1. 必要に応じて、[Rules applied to everyone including administrators] で [**Allow force pushes**] を選択します。 ![フォースプッシュオプションを許可する](/assets/images/help/repository/allow-force-pushes.png)

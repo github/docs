@@ -1,18 +1,19 @@
 ---
 title: Criar e testar .NET
 intro: Você pode criar um fluxo de trabalho de integração contínua (CI) para criar e testar o seu projeto .NET.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-net
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Criar & test .NET
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -128,7 +129,7 @@ steps:
 ```
 {% endraw %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### Memorizar dependências
 
@@ -238,7 +239,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

@@ -8,11 +8,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
 
-Webhooks allow you to build or set up integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) or [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), which subscribe to certain events on GitHub.com. 当触发其中某个事件时，我们将向 web 挂钩的配置 URL 发送 HTTP POST 有效负载。 Web 挂钩可用于更新外部议题跟踪器、触发 CI 构建、更新备份镜像，甚至部署到生产服务器。 您只受想象力的限制。
+Web 挂钩允许您构建或设置集成，例如 [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) 或 [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/)，以订阅 GitHub.com 上的某些事件。 当触发其中某个事件时，我们将向 web 挂钩的配置 URL 发送 HTTP POST 有效负载。 Web 挂钩可用于更新外部议题跟踪器、触发 CI 构建、更新备份镜像，甚至部署到生产服务器。 您只受想象力的限制。
 
 Web 挂钩可以安装在{% ifversion ghes or ghae %} [{% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#global-webhooks/)、{% endif %}[组织][org-hooks]、特定[仓库][repo-hooks]或 {% data variables.product.prodname_github_app %} 上。 安装后，每当发生一个或多个订阅事件时，都会发送 web 挂钩。
 
@@ -33,4 +34,4 @@ Web 挂钩可以安装在{% ifversion ghes or ghae %} [{% data variables.product
 有关 `ping` 事件 web 挂钩有效负载的更多信息，请参阅 [`ping`](/webhooks/event-payloads/#ping) 事件。
 
 [org-hooks]: /rest/reference/orgs#webhooks/
-[repo-hooks]: /rest/reference/repos#hooks
+[repo-hooks]: /rest/reference/repos#webhooks

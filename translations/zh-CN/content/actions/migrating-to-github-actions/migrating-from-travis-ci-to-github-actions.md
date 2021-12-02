@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Travis CI
@@ -19,6 +20,7 @@ shortTitle: 从 Travis CI 迁移
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -187,7 +189,7 @@ Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义�
 
 ### 存储密码
 
-{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 {% ifversion fpt or ghes > 3.0 or ghae %}环境保护规则可能需要手动批准工作流程才能访问环境秘密。 {% endif %}更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
+{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}环境保护规则可能需要手动批准工作流程才能访问环境秘密。 {% endif %}更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
 
 ### 在作业和工作流程之间共享文件
 
@@ -204,7 +206,7 @@ Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义�
 ### 在 {% data variables.product.prodname_actions %} 中使用不同的语言
 
 在 {% data variables.product.prodname_actions %} 中使用不同语言时，您可以在作业中创建步骤来设置语言依赖项。 有关使用特定语言的信息，请参阅特定指南：
-  - [Building and testing Node.js or Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [构建并测试 Node.js 或 Python](/actions/guides/building-and-testing-nodejs-or-python)
   - [构建和测试 PowerShell](/actions/guides/building-and-testing-powershell)
   - [使用 Maven 构建和测试 Java](/actions/guides/building-and-testing-java-with-maven)
   - [使用 Gradle 构建和测试 Java](/actions/guides/building-and-testing-java-with-gradle)
@@ -333,7 +335,7 @@ cache: npm
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom %} 托管的运行器。  更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 ## 常见任务示例
 

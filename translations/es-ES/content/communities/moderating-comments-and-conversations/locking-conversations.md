@@ -8,11 +8,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
 
-Corresponde bloquear una conversación cuando en su conjunto no es constructiva o viola el código de conducta de tu comunidad {% ifversion fpt %} o las [Pautas de la comunidad](/articles/github-community-guidelines){% endif %} de GitHub. Cuando bloqueas una conversación, también puedes especificar el motivo, que queda públicamente visible.
+Es adecuado fijar una conversación cuando toda ella carece de comentarios constructivos o cuando viola el código de conducta de tu comunidad{% ifversion fpt or ghec %} o los [Lineamientos comunitarios](/free-pro-team@latest/github/site-policy/github-community-guidelines) de GitHub{% endif %}. Cuando bloqueas una conversación, también puedes especificar el motivo, que queda públicamente visible.
 
 Bloquear una conversación genera un evento de cronología que queda visible para cualquiera que tenga acceso de lectura al repositorio. Sin embargo, el nombre de usuario de la persona que bloqueó la conversación solo lo pueden ver las personas con acceso de escritura al repositorio. Para cualquiera que no tenga acceso de escritura, el evento de cronología es anónimo.
 
@@ -32,7 +33,7 @@ Para buscar conversaciones bloqueadas en un repositorio que no está archivado, 
 
 - "[Configurar tu proyecto para contribuciones positivas](/communities/setting-up-your-project-for-healthy-contributions)"
 - [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- [Administrar los comentarios ofensivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
+- [Administrar los comentarios ofensivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
 - "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
 - "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Limitar interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"

@@ -1,12 +1,13 @@
 ---
 title: REST API のリソース
-intro: '{% data variables.product.prodname_dotcom %} API で提供されるリソースをナビゲートする方法を学びます。'
+intro: 'Learn how to navigate the resources provided by the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
 redirect_from:
   - /rest/initialize-the-repo/
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -20,15 +21,15 @@ topics:
 
     Accept: application/vnd.github.v3+json
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-GitHub の GraphQL API についての情報は、[v4 ドキュメント](/graphql)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
+For information about GitHub's GraphQL API, see the [v4 documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). For information about migrating to GraphQL, see "[Migrating from REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)."
 
 {% endif %}
 
 ## スキーマ
 
-{% ifversion fpt %}すべての API アクセスは HTTPS 経由で行われ、{% else %}API は{% endif %} `{% data variables.product.api_url_code %}` からアクセスされます。  すべてのデータは
+{% ifversion fpt or ghec %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  すべてのデータは
 JSON として送受信されます。
 
 ```shell
@@ -52,7 +53,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 空白のフィールドは、省略されるのではなく `null` として含まれます。
 
-すべてのタイムスタンプは ISO 8601 形式で返されます。
+All timestamps return in UTC time, ISO 8601 format:
 
     YYYY-MM-DDTHH:MM:SSZ
 
@@ -100,7 +101,7 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.
 
 [OAuth2 の詳細](/apps/building-oauth-apps/)をお読みください。  OAuth2 トークンは、本番アプリケーションの [Web アプリケーションフロー](/developers/apps/authorizing-oauth-apps#web-application-flow)で取得できることに注意してください。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ### OAuth2 キー/シークレット
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
@@ -111,10 +112,12 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 `client_id` と `client_secret` を使用してもユーザとして認証_されず_、OAuth アプリケーションを識別してレート制限を増やすだけです。 アクセス許可はユーザにのみ付与され、アプリケーションには付与されません。また、認証されていないユーザに表示されるデータのみが返されます。 このため、サーバー間のシナリオでのみ OAuth2 キー/シークレットを使用する必要があります。 OAuth アプリケーションのクライアントシークレットをユーザーに漏らさないようにしてください。
 
-プライベートモードでは、OAuth2 キーとシークレットを使用して認証することはできません。認証しようとすると `401 Unauthorized` が返されます。 詳しい情報については、 「[プライベートモードを有効化する](/enterprise/admin/installation/enabling-private-mode)」を参照してください。
+{% ifversion ghes %}
+プライベートモードでは、OAuth2 キーとシークレットを使用して認証することはできません。認証しようとすると `401 Unauthorized` が返されます。 For more information, see "[Enabling private mode](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
+{% endif %}
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 [認証されていないレート制限の詳細](#increasing-the-unauthenticated-rate-limit-for-oauth-applications)をお読みください。
 
@@ -137,7 +140,7 @@ $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
 API は、無効な認証情報を含むリクエストを短期間に複数回検出すると、`403 Forbidden` で、そのユーザに対するすべての認証試行（有効な認証情報を含む）を一時的に拒否します。
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae %}
+$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
 -u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% ifversion ghes %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/2 403
 > {
@@ -167,13 +170,13 @@ $ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.prod
 ルートエンドポイントに `GET` リクエストを発行して、REST API がサポートするすべてのエンドポイントカテゴリを取得できます。
 
 ```shell
-$ curl {% ifversion fpt or ghae %}
+$ curl {% ifversion fpt or ghae or ghec %}
 -u <em>username</em>:<em>token</em> {% endif %}{% ifversion ghes %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
 ## GraphQL グローバルノード ID
 
-REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する](/graphql/guides/using-global-node-ids)」のガイドを参照してください。
+See the guide on "[Using Global Node IDs]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
 ## クライアントエラー
 
@@ -309,7 +312,7 @@ This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) 
 
 Basic 認証または OAuth を使用する API リクエストの場合、1 時間あたり最大 5,000 件のリクエストを作成できます。 認証されたリクエストは、[Basic 認証](#basic-authentication)または [OAuth トークン](#oauth2-token-sent-in-a-header)のどちらが使用されたかに関係なく、認証されたユーザに関連付けられます。 つまり、ユーザが認証したすべての OAuth アプリケーションは、同じユーザが所有する異なるトークンで認証する場合、1 時間あたり 5,000 リクエストという同じ割り当てを共有します。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data variables.product.prodname_ghe_cloud %} アカウントに属するユーザの場合、同じ {% data variables.product.prodname_ghe_cloud %} アカウントが所有するリソースに OAuth トークンを使用して行うリクエストについては、1 時間当たりのリクエスト制限が 15,000 件まで増加します。
 
@@ -406,7 +409,7 @@ Secondary rate limits are not intended to interfere with legitimate use of the A
 > }
 ```
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## User agent の必要性
 
@@ -437,7 +440,7 @@ $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 
 ほとんどのレスポンスでは `ETag` ヘッダが返されます。 多くのレスポンスでは `Last-Modified` ヘッダも返されます。 これらのヘッダーの値を使用して、それぞれ `If-None-Match` ヘッダと `If-Modified-Since` ヘッダを使い、それらのリソースに対して後続のリクエストを行うことができます。 リソースが変更されていない場合、サーバーは `304 Not Modified` を返します。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -580,12 +583,14 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 
 ## タイムゾーン
 
-新しいコミットの作成など、新しいデータを作成する一部のリクエストでは、タイムスタンプを指定または生成するときにタイムゾーン情報を提供できます。 API 呼び出しのタイムゾーン情報を決定する際に、優先順位に従って次のルールを適用します。
+新しいコミットの作成など、新しいデータを作成する一部のリクエストでは、タイムスタンプを指定または生成するときにタイムゾーン情報を提供できます。 We apply the following rules, in order of priority, to determine timezone information for such API calls.
 
 * [ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
 * [`Time-Zone` ヘッダを使用する](#using-the-time-zone-header)
 * [ユーザが最後に認識されたタイムゾーンを使用する](#using-the-last-known-timezone-for-the-user)
 * [他のタイムゾーン情報を含まない UTC をデフォルトにする](#defaulting-to-utc-without-other-timezone-information)
+
+Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
 
 ### ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する
 

@@ -1,1 +1,0 @@
-1. Wähle **Enable API integration** (API-Integration aktivieren). ![Kontrollkästchen "Enable API integration" (API-Integration aktivieren) der Okta-Anwendung](/assets/images/help/saml/okta-enable-api-integration.png)

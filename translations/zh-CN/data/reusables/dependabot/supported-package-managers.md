@@ -26,7 +26,7 @@
 | Terraform      | `terraform`      | >= 0.13, <= 1.0        | **✓** | **✓** |       |
 | yarn           | `npm`            | v1                     | **✓** | **✓** |       |
 
-[1] {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files: `build.gradle`, `build.gradle.kts` (for Kotlin projects), and files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
+[1] {% data variables.product.prodname_dependabot %} 不运行 Gradle，但支持更新以下文件：`build.gradle`、`build.gradle.kts`（用于 Kotlin 项目），以及通过文件名中包含 `dependencies` 的 `apply` 声明加入的文件。 Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
 [2] {% data variables.product.prodname_dependabot %} 不运行 Maven ，但支持更新 `pom.xml` 文件。
 

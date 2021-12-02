@@ -17,7 +17,7 @@ topics:
 shortTitle: 配置出站代理
 ---
 
-## About proxies with {% data variables.product.product_name %}
+## 关于 {% data variables.product.product_name %} 的代理
 
 为 {% data variables.product.product_location %} 启用代理服务器后，除非已将目标主机添加为 HTTP 代理排除项，否则会先通过代理服务器发送由 {% data variables.product.prodname_ghe_server %} 发送的出站消息。 出站消息类型包括传出 web 挂钩、上传包和提取旧头像。 代理服务器的 URL 为协议、域或 IP 地址外加端口号，例如 `http://127.0.0.1:8123`。
 
@@ -27,7 +27,7 @@ shortTitle: 配置出站代理
 
 {% endnote %}
 
-{% data reusables.actions.proxy-considerations %} For more information about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+{% data reusables.actions.proxy-considerations %} 有关使用 {% data variables.product.prodname_actions %} 与 {% data variables.product.prodname_ghe_server %} 的更多信息，请参阅“[开始对 {% data variables.product.prodname_ghe_server %} 使用 {% data variables.product.prodname_actions %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)”。
 
 ## 配置出站 Web 代理服务器
 

@@ -7,6 +7,7 @@ redirect_from:
   - /github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
 topics:
   - Accounts

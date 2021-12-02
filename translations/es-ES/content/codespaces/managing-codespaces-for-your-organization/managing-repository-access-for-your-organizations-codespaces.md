@@ -6,6 +6,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access and security for Codespaces for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -29,4 +30,4 @@ Para administrar qué usuarios de tu organización pueden utilizar {% data varia
 
 ## Leer más
 
-- "[Managing repository access for your codespaces](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)"
+- "[Administrar el acceso a los repositorios para tus codespaces](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)"

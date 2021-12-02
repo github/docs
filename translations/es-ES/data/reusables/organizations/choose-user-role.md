@@ -1,1 +1,1 @@
-1. Si la persona que estás invitando jamás ha sido un miembro de alguna organización o si le quitaste sus privilegios, escoge un rol para el usuario. ![Opciones para convertir a un usuario en miembro o propietario](/assets/images/help/organizations/choose-new-member-role.png)
+1. If the person you're inviting has never been a member of the organization or if you cleared their privileges, choose an organization role for the user. ![Opciones para convertir a un usuario en miembro o propietario](/assets/images/help/organizations/choose-new-member-role.png)

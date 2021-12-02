@@ -1,6 +1,6 @@
 ---
 title: Acerca de las apps
-intro: 'Puedes crear integraciones con las API de {% data variables.product.prodname_dotcom %} para agregar flexibilidad y reducir la fricción en tu propio flujo de trabajo.{% ifversion fpt %} También puedes compartir las integraciones con otros en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).{% endif %}'
+intro: 'You can build integrations with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs to add flexibility and reduce friction in your own workflow.{% ifversion fpt or ghec %} You can also share integrations with others on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).{% endif %}'
 redirect_from:
   - /apps/building-integrations/setting-up-a-new-integration/
   - /apps/building-integrations/
@@ -11,11 +11,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
 
-Las apps en {% data variables.product.prodname_dotcom %} te permiten automatizar y mejorar tu flujo de trabajo. Puedes crear apps para mejorar tu flujo de trabajo. {% ifversion fpt %} También puedes compartir o vender apps en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). Para aprender sobre cómo listar una app en {% data variables.product.prodname_marketplace %}, consulta la sección "[Comenzar con GitHub Marketplace](/marketplace/getting-started/)".{% endif %}
+Las apps en {% data variables.product.prodname_dotcom %} te permiten automatizar y mejorar tu flujo de trabajo. Puedes crear apps para mejorar tu flujo de trabajo. {% ifversion fpt or ghec %} También puedes compartir o vender apps en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). Para aprender sobre cómo listar una app en {% data variables.product.prodname_marketplace %}, consulta la sección "[Comenzar con GitHub Marketplace](/marketplace/getting-started/)".{% endif %}
 
 {% data reusables.marketplace.github_apps_preferred %}, Pero GitHub es compatible tanto con las {% data variables.product.prodname_oauth_apps %} y con las {% data variables.product.prodname_github_apps %}. Para obtener más información sobre cómo elegir un tipo de app, consulta la sección "[Diferencias entre las GitHub Apps y las Apps de OAuth](/developers/apps/differences-between-github-apps-and-oauth-apps)".
 
@@ -37,7 +38,7 @@ Para mejorar tu flujo de trabajo, puedes crear una {% data variables.product.pro
 
 Toma estas ideas en consideración cuando crees {% data variables.product.prodname_github_apps %}:
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * {% data reusables.apps.maximum-github-apps-allowed %} {% endif %}
 * Una {% data variables.product.prodname_github_app %} debe tomar acciones independientemente del usuario (a menos de que dicha app utilice un token de [usuario a servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests)). {% data reusables.apps.expiring_user_authorization_tokens %}
 
@@ -45,10 +46,10 @@ Toma estas ideas en consideración cuando crees {% data variables.product.prodna
 * La {% data variables.product.prodname_github_app %} deberá conectarse a una cuenta personal o a una organización.
 * No esperes que la {% data variables.product.prodname_github_app %} sepa y haga todo lo que puede hacer un usuario.
 * No utilices a la {% data variables.product.prodname_github_app %} si solo necesitas el servicio de "Iniciar sesión en GitHub". Sin embargo, una {% data variables.product.prodname_github_app %} puede utilizar un [flujo de identificación de usuario](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/) para registrar a los usuarios _y_ para hacer otras cosas.
-* No crees una {% data variables.product.prodname_github_app %} si _únicamente_ quieres fungir como un usuario de GitHub y hacer todo lo que puede hacer un usuario. {% ifversion fpt %}
+* No crees una {% data variables.product.prodname_github_app %} si _únicamente_ quieres fungir como un usuario de GitHub y hacer todo lo que puede hacer un usuario. {% ifversion fpt or ghec %}
 * {% data reusables.apps.general-apps-restrictions %}{% endif %}
 
-Para comenzar a desarrollar {% data variables.product.prodname_github_apps %}, comienza con "[Crear una {% data variables.product.prodname_github_app %}](/apps/building-github-apps/creating-a-github-app/)".{% ifversion fpt %} Para aprender cómo utilizar un manifiesto de las {% data variables.product.prodname_github_app %}, el cual permite a la gente crear {% data variables.product.prodname_github_apps %} preconfiguradas, consulta la sección "[Crear {% data variables.product.prodname_github_apps %} desde un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)".{% endif %}
+To begin developing {% data variables.product.prodname_github_apps %}, start with "[Creating a {% data variables.product.prodname_github_app %}](/apps/building-github-apps/creating-a-github-app/)."{% ifversion fpt or ghec %} To learn how to use {% data variables.product.prodname_github_app %} Manifests, which allow people to create preconfigured {% data variables.product.prodname_github_apps %}, see "[Creating {% data variables.product.prodname_github_apps %} from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}
 
 ## Acerca de las {% data variables.product.prodname_oauth_apps %}
 
@@ -62,12 +63,12 @@ Crear una {% data variables.product.prodname_oauth_app %} es una buena opción s
 
 Toma estas ideas en consideración cuando crees {% data variables.product.prodname_oauth_apps %}:
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * {% data reusables.apps.maximum-oauth-apps-allowed %} {% endif %}
 * Una {% data variables.product.prodname_oauth_app %} siempre debe actuar como el usuario autenticado de {% data variables.product.prodname_dotcom %} a través de todo {% data variables.product.prodname_dotcom %} (por ejemplo, cuando proporciona notificaciones de usuario).
 * Una {% data variables.product.prodname_oauth_app %} puede utilizarse como un proveedor de identidad si el usuario autenticado habilita la opción de "Ingresar con {% data variables.product.prodname_dotcom %}".
 * No crees una {% data variables.product.prodname_oauth_app %} si quieres que tu aplicación actúe en un solo repositorio. Con el alcance de `repo` de OAuth, Las {% data variables.product.prodname_oauth_apps %} podrán actuar en _todos_ los repositorios del usuario autenticado.
-* No crees una {% data variables.product.prodname_oauth_app %} para que actúe como una aplicación para tu equipo o compañía. Las {% data variables.product.prodname_oauth_apps %} se autentican como un solo usuario, así que, si una persona crea una {% data variables.product.prodname_oauth_app %} para el uso de una compañía, y luego salen de dicha compañía, nadie más tendrá acceso a ella.{% ifversion fpt %}
+* No crees una {% data variables.product.prodname_oauth_app %} para que actúe como una aplicación para tu equipo o compañía. {% data variables.product.prodname_oauth_apps %} authenticate as a single user, so if one person creates an {% data variables.product.prodname_oauth_app %} for a company to use, and then they leave the company, no one else will have access to it.{% ifversion fpt or ghec %}
 * {% data reusables.apps.oauth-apps-restrictions %}{% endif %}
 
 Para obtener más información sobre las {% data variables.product.prodname_oauth_apps %}, consulta las secciones "[Crear una {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" y "[Registrar tu app](/rest/guides/basics-of-authentication#registering-your-app)".
@@ -84,12 +85,12 @@ Considera estas ideas cuando utilices tokens de acceso personal:
 * Puedes realizar solicitudes cURL de una sola ocasión.
 * Puedes ejecutar scripts personales.
 * No configures un script para que lo utilice todo tu equipo o compañía.
-* No configures una cuenta de usuario compartida para que actúe como un usuario bot.{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 %}
+* Don't set up a shared user account to act as a bot user.{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 or ghec %}
 * Sí debes establecer un vencimiento para tus tokens de acceso personal para que te ayuden a mantener tu información segura.{% endif %}
 
 ## Determinar qué integración debes crear
 
-Antes de que comiences a crear integraciones, necesitas determinar la mejor forma de acceder, autenticar, e interactuar con las API de {% data variables.product.prodname_dotcom %}. La siguiente imagen te proporciona algunas preguntas que deberías hacerte a ti mismo cuando decidas si vas a utilizar tokens de acceso personal, {% data variables.product.prodname_github_apps %} o {% data variables.product.prodname_oauth_apps %} para tu integración.
+Before you get started creating integrations, you need to determine the best way to access, authenticate, and interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs. La siguiente imagen te proporciona algunas preguntas que deberías hacerte a ti mismo cuando decidas si vas a utilizar tokens de acceso personal, {% data variables.product.prodname_github_apps %} o {% data variables.product.prodname_oauth_apps %} para tu integración.
 
 ![Introducción al flujo de preguntas de apps](/assets/images/intro-to-apps-flow.png)
 

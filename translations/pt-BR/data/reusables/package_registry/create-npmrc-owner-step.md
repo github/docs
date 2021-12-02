@@ -1,6 +1,6 @@
 2. No mesmo diretório que o arquivo `package.json`, crie ou edite um arquivo `.npmrc` para incluir uma linha especificando a URL {% data variables.product.prodname_registry %} e o proprietário da conta. Substitua `OWNER` pelo nome do usuário ou da organização que possui o repositório que contém seu projeto.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
   ```shell
   @<em>OWNER</em>:registry=https://npm.pkg.github.com
   ```

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: 为用户发现资源
@@ -15,9 +16,9 @@ shortTitle: 为用户发现资源
 
  
 
-向 {% data variables.product.product_name %} API 发出经过身份验证的请求时，应用程序通常需要获取当前用户的仓库和组织。 在本指南中，我们将介绍如何可靠地发现这些资源。
+向 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 发出经过身份验证的请求时，应用程序通常需要获取当前用户的仓库和组织。 在本指南中，我们将介绍如何可靠地发现这些资源。
 
-为了与 {% data variables.product.product_name %} API 进行交互，我们将使用 [Octokit.rb][octokit.rb]。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
+由于我们在与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行交互，因此我们将使用 [Octokit.rb][octokit.rb]。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
 
 ## 入门指南
 

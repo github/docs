@@ -19,21 +19,22 @@ Embora a nossa equipe de suporte faça o melhor para responder às solicitaçõe
 
 ## Entrar em contato com o {% data variables.contact.enterprise_support %}
 
-Os clientes de {% data variables.contact.enterprise_support %} podem abrir um tíquete de suporte usando o {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} ou o {% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} o {% data variables.contact.contact_ae_portal %}{% endif %}. Marque a prioridade do tíquete como {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}. Para obter mais informações, consulte "[Atribuir uma prioridade a um tíquete de suporte](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket)" e "[Enviar um tíquete](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)".
+{% data reusables.support.zendesk-old-tickets %}
 
-## Entrar em contato com o {% data variables.contact.enterprise_support %}
+Os clientes de {% data variables.contact.enterprise_support %} podem abrir um tíquete de suporte usando o {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} ou o {% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} o {% data variables.contact.contact_ae_portal %}{% endif %}. Para obter mais informações, consulte "[Enviar um tíquete](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)".
 
 {% ifversion ghes %}
+
+## Entrar em contato com o {% data variables.contact.premium_support %}
+
+Os clientes do {% data variables.contact.enterprise_support %} podem abrir um tíquete de suporte usando o {% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} ou o {% data variables.contact.contact_enterprise_portal %}. Marque sua prioridade como {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}. Para obter mais informações, consulte "[Atribuir uma prioridade a um tíquete de suporte](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server#assigning-a-priority-to-a-support-ticket)" e "[Enviar um tíquete](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)".
+
 ### Exibir tíquetes de suporte antigos
 
 É possível usar o {% data variables.contact.enterprise_portal %} para exibir tíquetes de suporte antigos.
 
 1. Navegue até o {% data variables.contact.contact_enterprise_portal %}.
-2. Clique em **Meus tíquetes**. ![Ver tíquetes enviados anteriormente](/assets/images/enterprise/support/view-past-tickets.png)
-
-## Entrar em contato com o {% data variables.contact.premium_support %}
-
-Os clientes do {% data variables.contact.enterprise_support %} podem abrir um tíquete de suporte usando o {% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} ou o {% data variables.contact.contact_enterprise_portal %}. Marque sua prioridade como {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}. Para obter mais informações, consulte "[Atribuir uma prioridade a um tíquete de suporte](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server#assigning-a-priority-to-a-support-ticket)" e "[Enviar um tíquete](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)".
+2. Clique em **Meus tíquetes**.
 
 {% endif %}
 ## Entrar em contato com o departamento de vendas

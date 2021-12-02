@@ -1,6 +1,6 @@
 ---
 title: Bajar de categoría tu suscripción de GitHub
-intro: 'Puedes bajar tu suscripción de nivel para cualquier tipo de cuenta de {% data variables.product.product_name %} en cualquier momento.'
+intro: 'You can downgrade the subscription for any type of account on {% data variables.product.product_location %} at any time.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
   - /articles/downgrading-your-personal-account-s-billing-plan/
@@ -19,6 +19,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Downgrades

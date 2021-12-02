@@ -9,14 +9,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
 ---
 
-Cuando una {% data variables.product.prodname_oauth_app %} quiere identificarte a través de tu cuenta de {% data variables.product.product_name %}, verás una página con la información de contacto del desarrollador de la app y una lista de los datos específicos que se han solicitado.
+When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -73,7 +74,7 @@ Las {% data variables.product.prodname_oauth_apps %} pueden solicitar diferentes
 
 Cuando las {% data variables.product.prodname_oauth_apps %} solicitan permisos de acceso nuevos, te notificarán sobre las diferencias entre los permisos actuales y los permisos nuevos.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## {% data variables.product.prodname_oauth_apps %} y organizaciones
 

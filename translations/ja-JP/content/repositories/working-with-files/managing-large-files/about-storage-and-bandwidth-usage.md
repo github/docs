@@ -9,6 +9,7 @@ redirect_from:
   - /github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Storage & bandwidth
 ---
 
@@ -23,7 +24,7 @@ shortTitle: Storage & bandwidth
 - LFS で追跡されている 500 MB のファイルをダウンロードした場合、リポジトリのオーナーに割り当てられている帯域を 500 MB 消費します。 コラボレータがそのファイルに変更をプッシュし、あなたが新しいバージョンをローカルのリポジトリにプルしたなら、あなたは 500 MB の帯域を新たに消費するため、この 2 つのダウンロードでの合計の使用帯域は 1 GB になります。
 - If {% data variables.product.prodname_actions %} downloads a 500 MB file that is tracked with LFS, it will use 500 MB of the repository owner's allotted bandwidth.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトがリポジトリのソースコードアーカイブに含まれている場合、それらのアーカイブをダウンロードすると、リポジトリの帯域幅の使用量にカウントされます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 {% endif %}
 

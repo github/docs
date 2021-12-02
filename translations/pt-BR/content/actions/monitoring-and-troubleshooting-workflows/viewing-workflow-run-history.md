@@ -1,18 +1,19 @@
 ---
 title: Visualizar o histórico de execução do fluxo de trabalho
 intro: Você pode visualizar registros para cada execução de um fluxo de trabalho. Os registros incluem a situação de cada trabalho e a etapa de um fluxo de trabalho.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/viewing-workflow-run-history
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Visualizar o histórico de execução do fluxo de trabalho
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-read %}
 

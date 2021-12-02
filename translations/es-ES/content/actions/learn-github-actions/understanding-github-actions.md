@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Resumen
 
@@ -35,7 +37,7 @@ A continuación, encontrarás una lista de los diferentes componentes de las {% 
 
 ### Flujos de trabajo
 
-El flujo de trabajo es un procedimiento automatizado que agregas a tu repositorio. Los flujos de trabajo se componen de uno o más jobs y pueden programarse o activarse a través de un evento. El flujo de trabajo se puede utilizar para crear, probar, empacar, lanzar o desplegar un proyecto en {% data variables.product.prodname_dotcom %}. {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}Puedes referenciar un flujo de trabajo dentro de otro flujo de trabajo, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".{% endif %}
+El flujo de trabajo es un procedimiento automatizado que agregas a tu repositorio. Los flujos de trabajo se componen de uno o más jobs y pueden programarse o activarse a través de un evento. El flujo de trabajo se puede utilizar para crear, probar, empacar, lanzar o desplegar un proyecto en {% data variables.product.prodname_dotcom %}. {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Puedes referenciar un flujo de trabajo dentro de otro flujo de trabajo, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".{% endif %}
 
 ### Eventos
 
@@ -211,21 +213,20 @@ En este diagrama, puedes ver el archivo de flujo de trabajo que acabas de crear,
 
 ![Resumen del flujo de trabajo](/assets/images/help/images/overview-actions-event.png)
 
-
 ## Visualizar la actividad de un job
 
-Una vez que tu job comience a ejecutarse, podrás{% ifversion fpt or ghes > 3.0 or ghae %}ver una gráfica de visualización del progreso de dicha ejecución y {% endif %}ver la actividad de cada paso en {% data variables.product.prodname_dotcom %}.
+Una vez que tu job comience a ejecutarse, podrás{% ifversion fpt or ghes > 3.0 or ghae or ghec %}ver una gráfica de visualización del progreso de dicha ejecución y {% endif %}ver la actividad de cada paso en {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Debajo del nombre de tu repositorio, da clic en **Acciones**. ![Navegar al repositorio](/assets/images/help/images/learn-github-actions-repository.png)
 1. En la barra lateral izquierda, da clic en el flujo de trabajo que quieras ver. ![Impresión de pantalla de los resultados del flujo de trabajo](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Debajo de "Ejecuciones de flujo de trabajo", da clic en el nombre de la ejecución que quieres ver. ![Captura de pantalla de las ejecuciones del flujo de trabajo](/assets/images/help/images/learn-github-actions-run.png)
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. Debajo de **Jobs** o en la gráfica de visualización, da clic en el job que quieras ver. ![Seleccionar job](/assets/images/help/images/overview-actions-result-navigate.png)
 {% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. Ve los resultados de cada paso. ![Impresión de pantalla de los detalles de la ejecución del flujo de trabajo](/assets/images/help/images/overview-actions-result-updated-2.png)
-{% elsif ghes > 2.22 %}
+{% elsif ghes %}
 1. Da clic en el nombre del job para ver los resultados de cada paso. ![Impresión de pantalla de los detalles de la ejecución del flujo de trabajo](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}
 1. Da clic en el nombre del job para ver los resultados de cada paso. ![Impresión de pantalla de los detalles de la ejecución del flujo de trabajo](/assets/images/help/images/overview-actions-result.png)

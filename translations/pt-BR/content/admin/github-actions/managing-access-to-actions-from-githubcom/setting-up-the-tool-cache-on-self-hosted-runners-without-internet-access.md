@@ -7,13 +7,18 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: next
+type: tutorial
 topics:
+  - Actions
   - Enterprise
+  - Networking
+  - Storage
 shortTitle: Cache de ferramentas para executores off-line
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Sobre as ações de configuração incluídas e o cache da ferramenta do executor
 

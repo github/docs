@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
@@ -28,25 +29,19 @@ Puedes elegir la rama predeterminada para un repositorio. Èsta es la rama base 
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 
 También puedes renombrar la rama predeterminada. Para obtener más información, consulta la sección "[Renombrar una rama](/github/administering-a-repository/renaming-a-branch)".
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae-next %}
-
 {% data reusables.branches.set-default-branch %}
-
-{% endif %}
 
 ## Prerrequisitos
 
 Para cambiar la rama predeterminada, tu repositorio debe tener màs de una rama. Para obtener más información, consulta "[Crear y eliminar ramas dentro de tu repositorio](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)".
 
 ## Cambiar la rama predeterminada
-
-{% ifversion fpt or ghes > 2.22 or ghae %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -56,12 +51,3 @@ Para cambiar la rama predeterminada, tu repositorio debe tener màs de una rama.
 1. Da clic en **Actualizar**. ![Botòn de "Update" despuès de elegir una rama predeterminada nueva](/assets/images/help/repository/repository-options-defaultbranch-update.png)
 1. Lee la advertencia y luego da clic en **Entiendo, actualizar la rama predeterminada.** ![Botón de "Entiendo, actualizar la rama predeterminada." para realizar la actualización](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
 
-{% else %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-1. En el menú desplegable de la rama predeterminada, elige la rama predeterminada nueva. ![Selector desplegable de la rama por defecto](/assets/images/help/repository/repository-options-defaultbranch.png)
-1. Da clic en **Actualizar**.
-
-{% endif %}

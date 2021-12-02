@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -16,7 +17,7 @@ topics:
 
 Para qualquer pull request, {% data variables.product.product_name %} fornece três tipos de visualizações de comentários: [comentários no Pull Request][PR comment] como um todo, [comentários em uma linha específica][PR line comment] dentro do Pull Request, e [comentários em um commit específico][commit comment] dentro do Pull Request.
 
-Cada um desses tipos de comentários passa por uma parte diferente da API de {% data variables.product.product_name %}. Neste guia, vamos explorar como você pode acessar e manipular cada um. Para cada exemplo, usaremos [esta amostra de Pull Request feita][sample PR] no repositório de "octocat". Como sempre, as amostras podem ser encontradas no [nosso repositório platform-samples][platform-samples].
+Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. Neste guia, vamos explorar como você pode acessar e manipular cada um. Para cada exemplo, usaremos [esta amostra de Pull Request feita][sample PR] no repositório de "octocat". Como sempre, as amostras podem ser encontradas no [nosso repositório platform-samples][platform-samples].
 
 ## Comentários do Pull Request
 

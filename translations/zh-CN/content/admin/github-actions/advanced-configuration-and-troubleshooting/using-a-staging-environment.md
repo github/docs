@@ -2,7 +2,7 @@
 title: 使用暂存环境
 intro: '了解在 {% data variables.product.prodname_ghe_server %} 暂存环境中使用 {% data variables.product.prodname_actions %}。'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Actions

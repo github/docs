@@ -1,18 +1,19 @@
 ---
 title: 注册新 GitHub 帐户
 shortTitle: 注册新 GitHub 帐户
-intro: '{% data variables.product.product_name %} 为一起工作的人员团队提供个人和组织的用户帐户。'
+intro: '{% data variables.product.company_short %} 为一起工作的人员团队提供个人和组织的用户帐户。'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
   - /github/getting-started-with-github/signing-up-for-a-new-github-account
   - /github/getting-started-with-github/signing-up-for-github/signing-up-for-a-new-github-account
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 ---
 
-有关帐户类型和产品的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/articles/types-of-github-accounts)”和“[{% data variables.product.product_name %} 的产品](/articles/github-s-products)”。
+有关帐户类型和产品的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/articles/types-of-github-accounts)”和“[{% data variables.product.company_short %} 的产品](/articles/github-s-products)”。
 
 {% data reusables.accounts.create-account %}
 1. 按照提示操作，创建您的个人帐户或组织。

@@ -23,6 +23,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: GitHub PagesとJekyll
@@ -73,10 +74,10 @@ If you want Jekyll to process any of these files, you can use the `include` sett
 
 {% data reusables.pages.add-jekyll-theme %}詳しい情報については、Jekyllドキュメンテーションの「[Themes](https://jekyllrb.com/docs/themes/)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.prodname_dotcom %} のサイトに、サポートされているテーマを追加できます。 詳しい情報については、{% data variables.product.prodname_pages %} サイトの「[サポートされているテーマ](https://pages.github.com/themes/)」および「[テーマ選択画面を使用して{% data variables.product.prodname_pages %}サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)」を参照してください。
 
-{% data variables.product.prodname_dotcom %}にホストされている他のオープンソースJekyllテーマを使用する場合は、テーマを手動で追加できます。{% else %}テーマを手動でサイトに追加できます。{% endif %}詳細については、{% ifversion fpt %}[ {% data variables.product.prodname_dotcom %}にホストされているテーマ](https://github.com/topics/jekyll-theme)と、{% else %}{% data variables.product.prodname_pages %}サイトの「[サポートされているテーマ](https://pages.github.com/themes/)」、および{% endif %}「[Jekyllを使用して{% data variables.product.prodname_pages %}サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)」を参照してください。
+To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt or ghec %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
 
 テーマのファイルを編集することで、テーマのデフォルトを上書きできます。 詳しい情報については、テーマのドキュメンテーションおよびJekyllドキュメンテーションの「[Overriding your theme's defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)」を参照してください。
 

@@ -3,8 +3,12 @@ title: AWS で GitHub Packages を有効にする
 intro: 'AWS を外部ストレージとして {% data variables.product.prodname_registry %} を設定します。'
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Packages
+  - Packages
 shortTitle: Enable Packages with AWS
 ---
 
@@ -36,14 +40,8 @@ AWS アクセスキー ID とシークレットに次の権限があることを
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
-{% ifversion ghes = 2.22 %}
-1. [AWS Service URL] で、バケットのリージョンの S3 エンドポイント URL を入力します。 ![[AWS Service URL] フィールド](/assets/images/enterprise/site-admin-settings/storage-service-url.png)
-1. [AWS S3 Bucket] で、パッケージアーティファクトの保存に使用する S3 バケットの名前を入力します。 ![[AWS S3 Bucket] フィールド](/assets/images/enterprise/site-admin-settings/aws-s3-bucket.png)
-1. [AWS S3 Access Key] で、S3 のアクセスキーを入力します。 ![[AWS S3 Access Key] フィールド](/assets/images/enterprise/site-admin-settings/aws-s3-access-key.png)
-1. [AWS S3 Secret Key] で、S3 の秘密鍵を入力します。 ![[AWS S3 Secret Key] フィールド](/assets/images/enterprise/site-admin-settings/aws-s3-secret-key.png)
-1. [AWS S3 Region] で、S3 のリージョンを入力します。 ![[AWS S3 Region] フィールド](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
-{% endif %}
-{% ifversion ghes > 2.22 %}
+
+{% ifversion ghes %}
 1. [Packages Storage] で、[**Amazon S3**] を選択し、ストレージバケットの詳細を入力します。
     - **AWS Service URL: **バケットのサービス URL。 たとえば、S3 バケットが `us-west-2` リージョンで作成された場合、この値は `https://s3.us-west-2.amazonaws.com` である必要があります。
 

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Introducción - API de REST
@@ -22,7 +23,7 @@ Vamos a explicar los conceptos centrales de la API mientras incluímos algunos c
 
 La mayoría de las aplicaciones utilizan una [biblioteca de seguridad][wrappers] en el lenguaje de programación que escojas, pero es importante que te familiarices con los métodos HTTP básicos de la API primero.
 
-No hay una forma más fácil de hacerlo que a través de [cURL][curl].{% ifversion fpt %} Si estás utilizando un cliente alternativo, nota que necesitas enviar un [encabezado de Agente de Usuario](/rest/overview/resources-in-the-rest-api#user-agent-required) válido en tu solicitud.{% endif %}
+There's no easier way to kick the tires than through [cURL][curl].{% ifversion fpt or ghec %} If you are using an alternative client, note that you are required to send a valid [User Agent header](/rest/overview/resources-in-the-rest-api#user-agent-required) in your request.{% endif %}
 
 ### Hola Mundo
 
@@ -107,11 +108,11 @@ Cualquier encabezado que comience como `X` se refiere a un encabezado personaliz
 
 ## Autenticación
 
-Los clientes sin autenticar pueden hacer hasta 60 solicitudes por hora. Para obtener más solicitudes por hora, necesitaremos _autenticarnos_. De hecho, necesitaremos la [autenticación][authentication] para hacer cualquier cosa interesante con la API de {% data variables.product.product_name %}.
+Los clientes sin autenticar pueden hacer hasta 60 solicitudes por hora. Para obtener más solicitudes por hora, necesitaremos _autenticarnos_. In fact, doing anything interesting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API requires [authentication][authentication].
 
 ### Utilizar tokens de acceso personal
 
-La mejor y más fácil forma de autenticarse con la API de {% data variables.product.product_name %} es utilizando la Autenticación Básica [a través de los tokens de OAuth](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). Éstos incluyen [tokens de acceso personal][personal token].
+The easiest and best way to authenticate with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is by using Basic Authentication [via OAuth tokens](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). Éstos incluyen [tokens de acceso personal][personal token].
 
 Utiliza el marcador `-u` para configurar tu nombre de usuario:
 
@@ -133,7 +134,7 @@ Cuando te autentiques, debes ver como tu límite de tasa sube hasta 5,000 solici
 
 Puedes [crear un**token de acceso personal**][personal token] fácilmente utilizando tu [página de configuración para tokens de acceso personal][tokens settings]:
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
 {% warning %}
 
 Para mantener tu información segura, te recomendamos ampliamente que configures un vencimiento para tus tokens de acceso personal.
@@ -141,7 +142,7 @@ Para mantener tu información segura, te recomendamos ampliamente que configures
 {% endwarning %}
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ![Selección de token personal](/assets/images/personal_token.png)
 {% endif %}
 
@@ -149,13 +150,13 @@ Para mantener tu información segura, te recomendamos ampliamente que configures
 ![Selección de token personal](/assets/images/help/personal_token_ghae.png)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
 Las solicitudes de la API que utilicen un token de acceso personal con vencimiento devolverán la fecha de vencimiento de dicho token a través del encabezado de `GitHub-Authentication-Token-Expiration`. Puedes utilizar el encabezado en tus scripts para proporcionar un mensaje de advertencia cuando el token esté próximo a vencer.
 {% endif %}
 
 ### Obtén tu propio perfil de usuario
 
-Cuando te autenticas adecuadamente, puedes sacar provecho de los permisos asociados con tu cuenta de {% data variables.product.product_name %}. Por ejemplo, intenta obtener
+When properly authenticated, you can take advantage of the permissions associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Por ejemplo, intenta obtener
 
 ```shell
 $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.product.api_url_pre %}/user
@@ -193,7 +194,7 @@ Ahora que ya entendimos cómo hacer llamadas autenticadas, vamos a pasar a la [A
 
 ## Repositorios
 
-Casi cualquier uso significativo de la API de {% data variables.product.product_name %} involucra algún nivel de información de un repositorio. Podemos hacer [`GET` para los detalles de un repositorio][get repo] de la misma forma que recuperamos los detalles del usuario anteriormente:
+Almost any meaningful use of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API will involve some level of Repository information. Podemos hacer [`GET` para los detalles de un repositorio][get repo] de la misma forma que recuperamos los detalles del usuario anteriormente:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
@@ -202,7 +203,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 De la misma forma, podemos [ver los repositorios del usuario autenticado][user repos api]:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
@@ -235,11 +236,11 @@ En este ejemplo, tomamos únicamente los repositorios que pertenecen a octocat, 
 ### Crear un repositorio
 
 Un caso de común de uso es retribuir información para repositorios existentes, pero la
-API de {% data variables.product.product_name %} es compatible con la creación de repositorios nuevos también. Para [crear un repositorio][create repo],
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API supports creating new repositories as well. Para [crear un repositorio][create repo],
 necesitamos hacer `POST` en algunos JSON que contengan los detalles y las opciones de configuración.
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     -d '{ \
         "name": "blog", \
         "auto_init": true, \
@@ -265,7 +266,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 > }
 ```
 
-¡Oh no! ¿A dónde se fue? Ya que creamos el repositorio como _privado_, necesitamos autenticarnos para poder verlo. Si eres un usuario experimentado en HTTP, tal vez esperes recibir un código `403` en vez de ésto. Ya que no queremos filtrar información acerca de los repositorios privados, la API de {% data variables.product.product_name %} devuelve un código `404` en este caso, como diciendo "no podemos confirmar ni negar la existencia de este repositorio".
+¡Oh no! ¿A dónde se fue? Ya que creamos el repositorio como _privado_, necesitamos autenticarnos para poder verlo. Si eres un usuario experimentado en HTTP, tal vez esperes recibir un código `403` en vez de ésto. Since we don't want to leak information about private repositories, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API returns a `404` in this case, as if to say "we can neither confirm nor deny the existence of this repository."
 
 ## Problemas
 
@@ -274,7 +275,7 @@ La IU de informe de problemas en {% data variables.product.product_name %} prete
 Tal como en github.com, la API proporciona algunos cuantos métodos para ver los informes de problemas para el usuario autenticado. Para [ver todas tus propuestas][get issues api], llama a `GET /issues`:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
@@ -282,7 +283,7 @@ Para obtener únicamente las [propuestas bajo alguna de tus organizaciones de {%
 /orgs/<org>/issues`:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -315,7 +316,7 @@ Ahora que hemos visto cómo paginar las listas de propuestas, vamos a [crear una
 Para crear un informe de problemas, necesitamos estar autenticados, así que pasaremos un token de OAuth en el encabezado. También, pasaremos el título, cuerpo, y etiquetas en el cuerpo de JSON a la ruta `/issues` debajo del repositorio en el cual queremos crear el informe de problemas:
 
 ```shell
-$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
+$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \
@@ -388,7 +389,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 
 El estado `304` indica que el recurso no ha cambiado desde la última vez que lo solicitamos y que la respuesta no contendrá ningún cuerpo. Como bonificación, las respuestas `304` no contarán para tu [límite de tasa][rate-limiting].
 
-¡Qué! ¡Ahora sabes los fundamentos de la API de {% data variables.product.product_name %}!
+¡Qué! Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
 
 * Autenticación básica & de OAuth
 * Obtener y crear repositorios e informes de problemas

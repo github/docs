@@ -11,6 +11,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: 使用 2FA 访问 GitHub
@@ -20,7 +21,7 @@ shortTitle: 使用 2FA 访问 GitHub
 
 ## 登录网站时提供 2FA 码
 
-在使用密码登录 {% data variables.product.product_name %} 后，系统会提示您提供{% ifversion fpt %}短信或{% endif %} TOTP 应用程序中的验证码。
+在使用密码登录 {% data variables.product.product_name %} 后，系统会提示您提供{% ifversion fpt or ghec %}短信或{% endif %} TOTP 应用程序中的验证码。
 
 {% data variables.product.product_name %} 仅在您注销后、使用新设备或会话过期时才会要求您再次提供 2FA 验证码。
 
@@ -30,7 +31,7 @@ shortTitle: 使用 2FA 访问 GitHub
 
 如果在配置双重身份验证后删除移动应用程序，则需要提供恢复代码才可访问您的帐户。 更多信息请参阅“[丢失双重身份验证凭据时恢复帐户](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)”
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### 接收短信
 

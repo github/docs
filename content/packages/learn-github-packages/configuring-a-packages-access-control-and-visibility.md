@@ -97,6 +97,34 @@ To further customize access to your container image, see "[Configuring access to
 
 To further customize access to your container image, see "[Configuring access to container images for an organization](#configuring-access-to-container-images-for-an-organization)."
 
+## Ensuring {% data variables.product.prodname_codespaces %} access to your package
+
+By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_dotcom %} Container Registry, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)."
+
+Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
+
+The specified repository does not need to be the repository where the source code for the package is kept. You can give codespaces in multiple repositories access to a package.
+
+Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
+
+1. In the right sidebar, click **Package settings**.
+
+   !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
+   
+2. Under "Manage Codespaces access", click **Add repository**.
+
+   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
+
+3. Search for the repository you want to add.
+
+   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-search.png)
+   
+4. Repeat for any additional repositories you would like to allow access.
+
+5. If the codespaces for a repository no longer need access to an image, you can remove access.
+
+   !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
+
 ## Configuring visibility of container images for your personal account
 
 When you first publish a package, the default visibility is private and only you can see the package. You can modify a private or public container image's access by changing the access settings.

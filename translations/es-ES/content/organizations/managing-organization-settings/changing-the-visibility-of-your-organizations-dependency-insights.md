@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -15,7 +16,7 @@ shortTitle: Cambiar la visbilidad de las perspectivas
 
 Los propietarios de la organización pueden establecer limitaciones para ver la información de dependencias de la organización. De manera predeterminada, todos los miembros de una organización pueden ver información de la dependencia de la organización.
 
-Los propietarios de la empresa pueden establecer limitaciones para ver la información de las dependencias de la organización en todas las organizaciones de tu cuenta de empresa. Para obtener más información, consulta "[Hacer cumplir una política sobre las percepciones de la dependencia en tu cuenta de empresa](/articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"
+Los propietarios de la empresa pueden establecer limitaciones para ver la información de las dependencias de la organización en todas las organizaciones de tu cuenta de empresa. For more information, see "[Enforcing policies for dependency insights in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -7,6 +7,7 @@ shortTitle: Etiquetar los ejecutores hospedados en AE
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
+{% data reusables.actions.ae-beta %}
 
 Para obtener más información sobre cómo utilizar las etiquetas para enrutar jobs a tipos específicos de {% data variables.actions.hosted_runner %}, consulta la sección "[Utilizar {% data variables.actions.hosted_runner %} en un flujo de trabajo](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)".
 

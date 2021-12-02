@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -21,9 +22,9 @@ shortTitle: IAM con el SSO de SAML
 
 {% data reusables.saml.saml-accounts %}
 
-Los propietarios de las organizaciones pueden requerir el SSO de SAML para una organización individual o para todas las organizaciones en una cuenta empresarial. Para obtener más información, consulta la sección "[Requerir el inicio de sesión único de SAML para las organizaciones de tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
+Los propietarios de las organizaciones pueden requerir el SSO de SAML para una organización individual o para todas las organizaciones en una cuenta empresarial. Para obtener más información, consulta la sección "[Configurar el inicio de sesión único de SAML para tu empresa](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
-{% data reusables.saml.saml-requires-ghec %} {% data reusables.enterprise.link-to-ghec-trial %}
+{% data reusables.saml.saml-requires-ghec %}{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -35,7 +36,7 @@ Los miembros deben autenticarse regularmente con tu IdP y obtener acceso a los r
 
 Para acceder a los recursos protegidos de tu organización tulizando la API y Git en la línea de comando, los miembros deberán autorizar y autentificarse con un token de acceso personal o llave SSH. Para obtener más información, consulta la sección "[Autorizar un token de acceso personal para su uso con el inicio de sesión único de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)".
 
-La primera vez que un miembro utilice el SSO de SAML para acceder a tu organización, {% data variables.product.prodname_dotcom %} creará automáticamente un registro que vinculará a tu organización, la cuenta de {% data variables.product.prodname_dotcom %} del miembro y la cuenta del miembro en tu IdP. Puedes ver y retirar la identidad de SAML que se ha vinculado, activar sesiones, y autorizar las credenciales para los miembros de tu organización o cuenta empresarial. Para obtener más información, consulta la sección "[Visualizar y administrar un acceso de SAML de un miembro a tu organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)" y [Visualizar y administrar un acceso de SAML de un usuario a tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)".
+The first time a member uses SAML SSO to access your organization, {% data variables.product.prodname_dotcom %} automatically creates a record that links your organization, the member's account on {% data variables.product.product_location %}, and the member's account on your IdP. Puedes ver y retirar la identidad de SAML que se ha vinculado, activar sesiones, y autorizar las credenciales para los miembros de tu organización o cuenta empresarial. Para obtener más información, consulta la sección "[Visualizar y administrar un acceso de SAML de un miembro a tu organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)" y [Visualizar y administrar un acceso de SAML de un usuario a tu cuenta empresarial](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)".
 
 Si los miembros ingresan con una sesión de SSO de SAML cuando crean un nuevo repositorio, la visibilidad predeterminada de dicho repositorio será privada. De lo contrario, la visibilidad predeterminada es pública. Para obtener más información sobre la visibilidad de los repositorios, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 

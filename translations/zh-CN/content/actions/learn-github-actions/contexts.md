@@ -2,7 +2,6 @@
 title: 上下文
 shortTitle: 上下文
 intro: You can access context information in workflows and actions.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/contexts-and-expression-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
@@ -13,11 +12,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## About contexts
 
@@ -40,6 +41,7 @@ miniTocMaxHeadingLevel: 3
 | `strategy` | `对象` | 用于访问配置的策略参数及当前作业的相关信息。 策略参数包括 `fail-fast`、`job-index`、`job-total` 和 `max-parallel`。                                                 |
 | `matrix`   | `对象` | 用于访问为当前作业配置的矩阵参数。 例如，如果使用 `os` 和 `node` 版本配置矩阵构建，`matrix` 上下文对象将包含当前作业的 `os` 和 `node` 版本。                                           |
 | `needs`    | `对象` | 允许访问定义为当前作业依赖项的所有作业的输出。 更多信息请参阅 [`needs` 上下文](#needs-context)。                                                                      |
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}| `inputs` | `object` | Enables access to the inputs of reusable workflow. For more information, see [`inputs` context](#inputs-context). |{% endif %}
 
 作为表达式的一部分，您可以使用以下两种语法之一访问上下文信息。
 - 索引语法：`github['sha']`
@@ -60,29 +62,23 @@ miniTocMaxHeadingLevel: 3
 {% data reusables.github-actions.github-context-warning %}
 {% data reusables.github-actions.context-injection-warning %}
 
-| 属性名称                      | 类型    | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `github`                  | `对象`  | 工作流程中任何作业或步骤期间可用的顶层上下文。                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `github.action`           | `字符串` | 正在运行的操作的名称。 {% data variables.product.prodname_dotcom %} removes special characters or uses the name `__run` when the current step runs a script.  If you use the same action more than once in the same job, the name will include a suffix with the sequence number with underscore before it.  For example, the first script you run will have the name `__run`, and the second script will be named `__run_2`. 同样，`actions/checkout` 第二次调用时将变成 `actionscheckout2`。 |
-| `github.action_path`      | `字符串` | 您的操作所在的路径。 您可以使用此路径轻松访问与操作位于同一仓库中的文件。 此属性仅在复合操作中才受支持。                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `github.actor`            | `字符串` | 发起工作流程运行的用户的登录名。                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `github.base_ref`         | `字符串` | 工作流程运行中拉取请求的 `base_ref` 或目标分支。 此属性仅在触发工作流程运行的事件为 `pull_request` 或 `pull_request_target` 时才可用。                                                                                                                                                                                                                                                                                                                                                                          |
-| `github.event`            | `对象`  | 完整事件 web 挂钩有效负载。 更多信息请参阅“[触发工作流程的事件](/articles/events-that-trigger-workflows/)”。 您可以使用上下文访问事件的个别属性。                                                                                                                                                                                                                                                                                                                                                                    |
-| `github.event_name`       | `字符串` | 触发工作流程运行的事件的名称。                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `github.event_path`       | `字符串` | 运行器上完整事件 web 挂钩有效负载的路径。                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `github.head_ref`         | `字符串` | 工作流程运行中拉取请求的 `head_ref` 或来源分支。 此属性仅在触发工作流程运行的事件为 `pull_request` 或 `pull_request_target` 时才可用。                                                                                                                                                                                                                                                                                                                                                                          |
-| `github.job`              | `字符串` | 当前作业的 [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                                                                                                                                                                                                                    |
-| `github.ref`              | `字符串` | 触发工作流程的分支或标记参考。 对于分支，格式为 `refs/heads/<branch_name>`，对于标记是 `refs/tags/<tag_name>`。                                                                                                                                                                                                                                                                                                                                                                          |
-| `github.repository`       | `字符串` | 所有者和仓库名称。 例如 `Codertocat/Hello-World`。                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `github.repository_owner` | `字符串` | 仓库所有者的名称。 例如 `Codertocat`。                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `github.run_id`           | `字符串` | {% data reusables.github-actions.run_id_description %}
-| `github.run_number`       | `字符串` | {% data reusables.github-actions.run_number_description %}
-| `github.run_attempt`      | `字符串` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run.                                                                                                                                                                                                                                                                                          |
-| `github.server_url`       | `字符串` | Returns the URL of the GitHub server. 例如：`https://github.com`。                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `github.sha`              | `字符串` | 触发工作流程的提交 SHA。                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `github.token`            | `字符串` | 代表仓库上安装的 GitHub 应用程序进行身份验证的令牌。 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)”。                                                                                                                                                                                                                                                                                |
-| `github.workflow`         | `字符串` | 工作流程的名称。 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `github.workspace`        | `字符串` | 使用 [`checkout`](https://github.com/actions/checkout) 操作时步骤的默认工作目录和仓库的默认位置。                                                                                                                                                                                                                                                                                                                                                                                             |
+| 属性名称                 | 类型    | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| -------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `github`             | `对象`  | 工作流程中任何作业或步骤期间可用的顶层上下文。                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `github.action`      | `字符串` | 正在运行的操作的名称。 {% data variables.product.prodname_dotcom %} removes special characters or uses the name `__run` when the current step runs a script.  If you use the same action more than once in the same job, the name will include a suffix with the sequence number with underscore before it.  For example, the first script you run will have the name `__run`, and the second script will be named `__run_2`. 同样，`actions/checkout` 第二次调用时将变成 `actionscheckout2`。 |
+| `github.action_path` | `字符串` | 您的操作所在的路径。 您可以使用此路径轻松访问与操作位于同一仓库中的文件。 此属性仅在复合操作中才受支持。                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `github.actor`       | `字符串` | 发起工作流程运行的用户的登录名。                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `github.base_ref`    | `字符串` | 工作流程运行中拉取请求的 `base_ref` 或目标分支。 此属性仅在触发工作流程运行的事件为 `pull_request` 或 `pull_request_target` 时才可用。                                                                                                                                                                                                                                                                                                                                                                          |
+| `github.event`       | `对象`  | 完整事件 web 挂钩有效负载。 更多信息请参阅“[触发工作流程的事件](/articles/events-that-trigger-workflows/)”。 您可以使用上下文访问事件的个别属性。                                                                                                                                                                                                                                                                                                                                                                    |
+| `github.event_name`  | `字符串` | 触发工作流程运行的事件的名称。                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `github.event_path`  | `字符串` | 运行器上完整事件 web 挂钩有效负载的路径。                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `github.head_ref`    | `字符串` | 工作流程运行中拉取请求的 `head_ref` 或来源分支。 此属性仅在触发工作流程运行的事件为 `pull_request` 或 `pull_request_target` 时才可用。                                                                                                                                                                                                                                                                                                                                                                          |
+| `github.job`         | `字符串` | 当前作业的 [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                                                                                                                                                                                                                    |
+| `github.ref`         | `字符串` | 触发工作流程的分支或标记参考。 对于分支，格式为 `refs/heads/<branch_name>`，对于标记是 `refs/tags/<tag_name>`。                                                                                                                                                                                                                                                                                                                                                                          |
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
+| `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} | | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} | | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %}
+{%- endif %}
+| `github.repository` | `string` | The owner and repository name. 例如 `Codertocat/Hello-World`。 | | `github.repository_owner` | `string` | The repository owner's name. 例如 `Codertocat`。 | | `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} | | `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %} | | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. | | `github.server_url` | `string` | Returns the URL of the GitHub server. 例如：`https://github.com`。 | | `github.sha` | `string` | The commit SHA that triggered the workflow run. | | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)”。 | | `github.workflow` | `string` | The name of the workflow. 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。 | | `github.workspace` | `string` | The default working directory for steps and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
 
 ### `env` 上下文
 
@@ -147,6 +143,19 @@ miniTocMaxHeadingLevel: 3
 | `needs.<job id>.outputs.<output name>` | `字符串` | 当前作业依赖的作业的特定输出值。                                                  |
 | `needs.<job id>.result`                      | `字符串` | 当前作业依赖的作业的结果。 可能的值包括 `success`、`failure`、`cancelled` 或 `skipped`。 |
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
+### `inputs` context
+
+The `inputs` context contains information about the inputs of reusable workflow. The inputs are defined in [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events). These inputs are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow.
+
+For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)".
+
+| 属性名称                  | 类型                                | 描述                                                                                                                |
+| --------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `inputs`              | `对象`                              | This context is only available when it is [a reusable workflow](/actions/learn-github-actions/reusing-workflows). |
+| `inputs.<name>` | `string` or `number` or `boolean` | Each input value passed from an external workflow.                                                                |
+{% endif %}
+
 #### 打印上下文信息到日志文件的示例
 
 要检查每个上下文中可访问的信息，您可以使用此工作流程文件示例。
@@ -195,28 +204,62 @@ jobs:
 
 此外，某些功能只能在某些地方使用。 例如， `hashFiles` 函数无法随处可用。
 
-下表列出了工作流程中每一个上下文和特殊函数可以使用的地方。 除非下面列出，否则可以在任何地方使用函数。
-
+下表列出了工作流程中每一个上下文和特殊函数可以使用的地方。 除非下面列出，否则可以在任何地方使用函数。 |{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 | 路径                         | 上下文                        | 特殊函数                       |
 | -------------------------- | -------------------------- | -------------------------- |
 | <code>concurrency</code>  | <code>github</code>  |                            |
-| <code>env</code>  | <code>github, secrets</code>  |                            |
-| <code>jobs.&lt;job_id&gt;.concurrency</code>  | <code>github, needs, strategy, matrix</code>  |                            |
-| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, needs, strategy, matrix</code>  |                            |
-| <code>jobs.&lt;job_id&gt;.container.credentials</code>  | <code>github, needs, strategy, matrix, env, secrets</code>  |                            |
-| <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets</code> |                            |
-| <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix</code> |                            |
-| <code>jobs.&lt;job_id&gt;.defaults.run</code> | <code>github, needs, strategy, matrix, env</code> |                            |
-| <code>jobs.&lt;job_id&gt;.env</code> | <code>github, needs, strategy, matrix, secrets</code> |                            |
-| <code>jobs.&lt;job_id&gt;.environment</code> | <code>github, needs, strategy, matrix</code> |                            |
-| <code>jobs.&lt;job_id&gt;.environment.url</code> | <code>github, needs, strategy, matrix, job, runner, env, steps</code> |                            |
-| <code>jobs.&lt;job_id&gt;.if</code> | <code>github, needs</code> | <code>always, cancelled, success, failure</code> |
-| <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix</code> |                            |
-| <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> |                            |
-| <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix</code> |                            |
-| <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix</code> |                            |
-| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, secrets</code> |                            |
-| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets</code> |                            |
+| <code>env</code>  | <code>github, secrets, inputs</code>  |                            |
+| <code>jobs.&lt;job_id&gt;.concurrency</code>  | <code>github, needs, strategy, matrix, inputs</code>  |                            |
+| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, needs, strategy, matrix, inputs</code>  |                            |
+| <code>jobs.&lt;job_id&gt;.container.credentials</code>  | <code>github, needs, strategy, matrix, env, secrets, inputs</code>  |                            |
+| <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.defaults.run</code> | <code>github, needs, strategy, matrix, env, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.env</code> | <code>github, needs, strategy, matrix, secrets, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.environment</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.environment.url</code> | <code>github, needs, strategy, matrix, job, runner, env, steps, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.if</code> | <code>github, needs, inputs</code> | <code>always, cancelled, success, failure</code> |
+| <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs, secrets</code> |                            |
+| <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> | <code>hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.steps.env</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.steps.if</code> | <code>github, needs, strategy, matrix, job, runner, env, steps, inputs</code> | <code>always, cancelled, success, failure, hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.steps.name</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.steps.run</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> | <code>hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.steps.with</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
+| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs</code> |                            |
+| <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github</code> |                            |
+| <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, inputs</code> |                            |
+{% else %}
+| 路径                          | 上下文                         | 特殊函数                        |
+| --------------------------- | --------------------------- | --------------------------- |
+| <code>concurrency</code>  | <code>github</code>  |                             |
+| <code>env</code>  | <code>github, secrets</code>  |                             |
+| <code>jobs.&lt;job_id&gt;.concurrency</code>  | <code>github, needs, strategy, matrix</code>  |                             |
+| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, needs, strategy, matrix</code>  |                             |
+| <code>jobs.&lt;job_id&gt;.container.credentials</code>  | <code>github, needs, strategy, matrix, env, secrets</code>  |                             |
+| <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code>  | <code>github, needs, strategy, matrix, job, runner, env, secrets</code>  |                             |
+| <code>jobs.&lt;job_id&gt;.continue-on-error</code>  | <code>github, needs, strategy, matrix</code>  |                             |
+| <code>jobs.&lt;job_id&gt;.defaults.run</code>  | <code>github, needs, strategy, matrix, env</code>  |                             |
+| <code>jobs.&lt;job_id&gt;.env</code>  | <code>github, needs, strategy, matrix, secrets</code>  |                             |
+| <code>jobs.&lt;job_id&gt;.environment</code>  | <code>github, needs, strategy, matrix</code>  |                             |
+| <code>jobs.&lt;job_id&gt;.environment.url</code>  | <code>github, needs, strategy, matrix, job, runner, env, steps</code>  |                             |
+| <code>jobs.&lt;job_id&gt;.if</code>  | <code>github, needs</code>  | <code>always, cancelled, success, failure</code>  |
+| <code>jobs.&lt;job_id&gt;.name</code>  | <code>github, needs, strategy, matrix</code>  |                             |
+| <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> |                             |
+| <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix</code> |                             |
+| <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix</code> |                             |
+| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, secrets</code> |                             |
+| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets</code> |                             |
 | <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.env</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.if</code> | <code>github, needs, strategy, matrix, job, runner, env, steps</code> | <code>always, cancelled, success, failure, hashFiles</code> |
@@ -225,5 +268,6 @@ jobs:
 | <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.with</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs</code> |                            |
-| <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix</code> |                            |
+| <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs</code> |                             |
+| <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix</code> |                             |
+{% endif %}

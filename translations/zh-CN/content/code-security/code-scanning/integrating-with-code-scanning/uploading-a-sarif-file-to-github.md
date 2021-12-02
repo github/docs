@@ -11,8 +11,9 @@ redirect_from:
   - /code-security/secure-coding/integrating-with-code-scanning/uploading-a-sarif-file-to-github
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -36,10 +37,10 @@ topics:
 
 您可以使用许多静态分析安全测试工具来生成 SARIF 文件，包括 {% data variables.product.prodname_codeql %}。 结果必须使用 SARIF 版本 2.1.0。 更多信息请参阅“[{% data variables.product.prodname_code_scanning %} 的 SARIF 支持](/code-security/secure-coding/sarif-support-for-code-scanning)”。
 
-您可以使用 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_code_scanning %} API、{% ifversion fpt or ghes > 3.0 or ghae-next %}{% data variables.product.prodname_codeql_cli %}、{% endif %}或 {% data variables.product.prodname_codeql_runner %} 上传结果。 最佳上传方法将取决于您如何生成 SARIF 文件，例如，如果您使用：
+您可以使用 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_code_scanning %} API、{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}{% data variables.product.prodname_codeql_cli %}、{% endif %}或 {% data variables.product.prodname_codeql_runner %} 上传结果。 最佳上传方法将取决于您如何生成 SARIF 文件，例如，如果您使用：
 
 - {% data variables.product.prodname_actions %} 来运行 {% data variables.product.prodname_codeql %} 操作，则无需进一步操作。 {% data variables.product.prodname_codeql %} 操作在完成分析后自动上传 SARIF 文件。
-- "[管理工作流程运行](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-your-workflow-history)" {% ifversion fpt or ghes > 3.0 or ghae-next %}
+- "[管理工作流程运行](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-your-workflow-history)" {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
  - {% data variables.product.prodname_codeql_cli %} 在 CI 系统中运行 {% data variables.product.prodname_code_scanning %}，您可以使用 CLI 将结果上传到 {% data variables.product.prodname_dotcom %}（更多信息请参阅“[在 CI 系统中安装 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)”）。{% endif %}
 - {% data variables.product.prodname_dotcom %} 将在仓库中显示来自上传的 SARIF 文件的 {% data variables.product.prodname_code_scanning %} 警报。 如果您阻止自动上传，在准备上传结果时可以使用 `upload` 命令（更多信息请参阅“[在 CI 系统中运行 {% data variables.product.prodname_codeql_runner %}](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)”）。
 - 作为仓库外部构件生成结果的工具，您可以使用 {% data variables.product.prodname_code_scanning %} API 上传文件（更多信息请参阅“[将分析作为 SARIF 数据上传](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)”）。
@@ -80,7 +81,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       security-events: write{% endif %}
     steps:
@@ -114,7 +115,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       security-events: write{% endif %}
     steps:

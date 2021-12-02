@@ -20,6 +20,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 shortTitle: Ver Suscripciones
@@ -38,7 +39,7 @@ Cuando tu bandeja de entrada tiene demasiadas notificaciones como para administr
 Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)".
 
 Para ver un resumen de tus suscripciones a repositorios, consulta la sección "[Revisar los repositorios que estás observando](#reviewing-repositories-that-youre-watching)".
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 {% tip %}
 
 **Tip:** Puedes seleccionar los tipos de evento para los cuales quieres recibir notificaciones si utilizas la opción **Personalizar** de la lista desplegable **Observar/Dejar de observar** en tu [página de observados](https://github.com/watching) o en cualquier página de repositorio en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
@@ -70,7 +71,7 @@ Muchas personas se olvidan de los repositorios que han marcado para observar. De
 
 1. En la barra lateral izquierda, bajo la lista de repositorios, utiliza el menú desplegable "Administrar notificaciones" y da clic en **Repositorios que sigues**. ![Opciones del menú desplegable de administrar notificaciones](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Evalúa si los repositorios que estás siguiendo de cerca tienen actualizaciones que aún sean útiles y relevantes. Cuando sigues de cerca un repositorio, se te notificará de todas las conversaciones en el mismo.
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
   ![Página de notificaciones que sigues](/assets/images/help/notifications-v2/watched-notifications-custom.png)
 {% else %}
   ![Página de notificaciones que sigues](/assets/images/help/notifications-v2/watched-notifications.png)
@@ -78,7 +79,7 @@ Muchas personas se olvidan de los repositorios que han marcado para observar. De
 
   {% tip %}
 
-  **Tip:** En vez de observar un repositorio, considera recibir notificaciones únicamente {% ifversion fpt or ghes > 3.0 or ghae-next %}cuando haya actualizaciones {% data reusables.notifications-v2.custom-notification-types %} (si es que se habilitaron para el repositorio), o en cualquier combinación de estas opciones,,{% else %}para lanzamientos en un repositorio,{% endif %} o dejar de observar un repositorio por completo.
+  **Tip:** En vez de observar un repositorio, considera recibir notificaciones únicamente {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}cuando haya actualizaciones {% data reusables.notifications-v2.custom-notification-types %} (si es que se habilitaron para el repositorio), o en cualquier combinación de estas opciones,,{% else %}para lanzamientos en un repositorio,{% endif %} o dejar de observar un repositorio por completo.
 
   Cuando dejas de seguir un repositorio, aún se te puede notificar cuando te @mencionan o cuando participas en un hilo. Cuando configuras el recibir notificaciones para ciertos tipos de evento, solo se te notificará cuando existan actualizaciones en éstos dentro del repositorio, si estás participando en un hilo, o si tú o un equipo al que perteneces tiene alguna @mención.
 

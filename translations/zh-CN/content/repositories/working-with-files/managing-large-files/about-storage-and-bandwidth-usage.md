@@ -9,6 +9,7 @@ redirect_from:
   - /github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 存储和带宽
 ---
 
@@ -23,7 +24,7 @@ shortTitle: 存储和带宽
 - 如果下载一个使用 LFS 跟踪的 500 MB 文件，您将使用仓库所有者分配的 500 MB 带宽。 如果协作者推送文件更改并将新版本拉取到本地仓库，您将使用另外 500 MB 的带宽，所以两次下载的总使用量是 1 GB 带宽。
 - If {% data variables.product.prodname_actions %} downloads a 500 MB file that is tracked with LFS, it will use 500 MB of the repository owner's allotted bandwidth.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 如果 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 对象包含在仓库的源代码存档中，则下载这些存档将会计入仓库的带宽使用量。 更多信息请参阅“[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)”。
 {% endif %}
 

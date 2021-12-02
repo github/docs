@@ -1,6 +1,6 @@
 ---
 title: Organization の所有権を移譲する
-intro: '他の誰かを Organization アカウントのオーナーにするには、新しいオーナーを追加し、{% ifversion fpt %}請求情報が更新されることを確認し、{% endif %}アカウントから自分を削除します。'
+intro: '他の誰かを Organization アカウントのオーナーにするには、新しいオーナーを追加し、{% ifversion fpt or ghec %}請求情報が更新されることを確認し、{% endif %}アカウントから自分を削除します。'
 redirect_from:
   - /articles/needs-polish-how-do-i-give-ownership-to-an-organization-to-someone-else/
   - /articles/transferring-organization-ownership
@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 所有権の移譲
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **注釈:** {% data reusables.enterprise-accounts.invite-organization %}
@@ -24,7 +25,7 @@ shortTitle: 所有権の移譲
 
 1. もしあなたが *owner* の権限を持つ唯一のメンバーである場合、他の Organization メンバーにオーナーロールを付与します。 詳細は「[Organizationのオーナーの指名](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)」を参照してください。
 2. 新しいオーナーに連絡し、そのオーナーが [Organization の設定にアクセス](/articles/accessing-your-organization-s-settings)できることを確認します。
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 3. Organization で GitHub への支払いを現在担当している場合、新しいオーナーまたは[支払いマネージャー](/articles/adding-a-billing-manager-to-your-organization/)に Organization の支払い情報を更新してもらう必要があります。 詳細は「[支払い方法を追加または編集する](/articles/adding-or-editing-a-payment-method)」を参照してください。
 
   {% warning %}

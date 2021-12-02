@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - CLI
@@ -77,7 +78,7 @@ topics:
   - 草稿拉取请求
   - 团队拉取请求审查
   - 预定提醒
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - The option to enable {% data variables.product.prodname_github_codespaces %}
   - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
 {% endif %}
@@ -93,8 +94,8 @@ topics:
 - 更多安全、合规和部署控件
 - SAML 单点登录进行身份验证
 - 使用 SAML 或 SCIM 进行配置
-- {% data variables.product.prodname_github_connect %}{% ifversion fpt or ghae or ghes > 2.22 %}
-- 购买 {% data variables.product.prodname_GH_advanced_security %} 的选项。 更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)“。{% endif %}
+- {% data variables.product.prodname_github_connect %}
+- 购买 {% data variables.product.prodname_GH_advanced_security %} 的选项。 更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)”。
 
 {% data variables.product.prodname_ghe_cloud %} 还包括：
 - {% data variables.contact.enterprise_support %}. 更多信息请参阅“<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 支持</a>”和“<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 附录</a>”。
@@ -102,8 +103,8 @@ topics:
 - 50GB {% data variables.product.prodname_registry %} 存储空间
 - {% data variables.product.prodname_pages %} 站点的访问控制。 更多信息请参阅“<a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">更改 {% data variables.product.prodname_pages %} 站点的可见性</a>”
 - 99.9% 月持续运行时间的服务等级协议
-- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "<a href="/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users" class="dotcom-only">About {% data variables.product.prodname_emus %}</a>."
-- 通过企业帐户集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单的选项。 更多信息请参阅“<a href="/articles/about-enterprise-accounts" class="dotcom-only">关于企业帐户</a>”。
+- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
+- 通过企业帐户集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单的选项。 更多信息请参阅“[关于企业帐户](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)”。
 
 您可以设置试用版来评估 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">设置 {% data variables.product.prodname_ghe_cloud %} 的试用</a>”。
 

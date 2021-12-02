@@ -10,11 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 使用 Actions 发布和安装
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.actions.ae-beta %}
 
 ## 关于 {% data variables.product.prodname_registry %} 与 {% data variables.product.prodname_actions %}
 
@@ -22,7 +24,7 @@ shortTitle: 使用 Actions 发布和安装
 
 您可以通过在工作流程中发布或安装包来扩展仓库的 CI 和 CD 功能。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### 向 {% data variables.product.prodname_container_registry %} 验证
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
@@ -31,7 +33,7 @@ shortTitle: 使用 Actions 发布和安装
 
 ### 向 {% data variables.product.prodname_dotcom %} 上的软件包注册表验证
 
-{% ifversion fpt %}如果您希望工作流程向 {% data variables.product.prodname_registry %} 验证以访问 {% data variables.product.product_name %} 上 {% data variables.product.prodname_container_registry %} 以外的软件包注册表，则{% else %}要向 {% data variables.product.product_name %} 上的软件包注册表验证，{% endif %}我们建议使用 {% data variables.product.product_name %} 在您启用 {% data variables.product.prodname_actions %} 时自动为您的仓库创建的 `GITHUB_TOKEN` 来验证，而不是使用个人访问令牌来验证。 {% ifversion fpt or ghes > 3.1 or ghae-next %}您应该在工作流程文件中设置此访问令牌的权限，以授予 `contents` 范围的读取访问权限，并授予 `packages` 范围的写入访问权限。 {% else %}它对工作流程运行的仓库中的包具有读取和写入权限。 {% endif %}对于复刻，`GITHUB_TOKEN` 被授予对父仓库的读取访问权限。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
+{% ifversion fpt or ghec %}如果您希望工作流程向 {% data variables.product.prodname_registry %} 验证以访问 {% data variables.product.product_location %} 上 {% data variables.product.prodname_container_registry %} 以外的软件包注册表，则{% else %}要向 {% data variables.product.product_name %} 上的软件包注册表验证，{% endif %}我们建议使用 {% data variables.product.product_name %} 在您启用 {% data variables.product.prodname_actions %} 时自动为您的仓库创建的 `GITHUB_TOKEN` 来验证，而不是使用个人访问令牌来验证。 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}您应该在工作流程文件中设置此访问令牌的权限，以授予 `contents` 范围的读取访问权限，并授予 `packages` 范围的写入访问权限。 {% else %}它对工作流程运行的仓库中的包具有读取和写入权限。 {% endif %}对于复刻，`GITHUB_TOKEN` 被授予对父仓库的读取访问权限。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
 
 您还可以使用 {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} 上下文在工作流程文件中引用 `GITHUB_TOKEN`。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)”。
 
@@ -39,7 +41,7 @@ shortTitle: 使用 Actions 发布和安装
 
 {% note %}
 
-**注意：**仓库拥有的软件包包括 RubyGems、npm、Apache Maven、Nuget、{% ifversion fpt %} 和 Gradle。 {% else %}使用软件包命名空间 `docker.pkg.github.com` 的 Gradle 和 Docker 软件包。{% endif %}
+**注意：**仓库拥有的软件包包括 RubyGems、npm、Apache Maven、Nuget、{% ifversion fpt or ghec %} 和 Gradle。 {% else %}使用软件包命名空间 `docker.pkg.github.com` 的 Gradle 和 Docker 软件包。{% endif %}
 
 {% endnote %}
 
@@ -47,7 +49,7 @@ shortTitle: 使用 Actions 发布和安装
 
 {% data variables.product.prodname_registry %} 允许您通过可用于 {% data variables.product.prodname_actions %} 工作流程的 `GITHUB_TOKEN` 推送和拉取包。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 关于 {% data variables.product.prodname_container_registry %} 的权限和包访问权限
 
 {% data variables.product.prodname_container_registry %} (`ghcr.io`) 允许用户创建和管理容器，作为组织一级的独立资源。 容器可以归组织或个人用户帐户所有，您可以自定义与存储库权限分开的每个容器访问权限。
@@ -80,11 +82,11 @@ shortTitle: 使用 Actions 发布和安装
 
 {% data reusables.package_registry.actions-configuration %}
 
-下面的示例演示如何使用 {% data variables.product.prodname_actions %} 构建{% ifversion not fpt %}和测试{% endif %}应用程序，然后自动创建 Docker 映像并将其发布到 {% data variables.product.prodname_registry %}：
+下面的示例演示如何使用 {% data variables.product.prodname_actions %} 构建{% ifversion not fpt or ghec %}和测试{% endif %}应用程序，然后自动创建 Docker 映像并将其发布到 {% data variables.product.prodname_registry %}：
 
 在仓库中创建新的工作流程文件（例如 `.github/workflows/deploy-image.yml`），并添加以下 YAML：
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.package_registry.publish-docker-image %}
 
 {% else %}
@@ -177,7 +179,7 @@ on:
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 <tr>
 <td>
@@ -287,7 +289,7 @@ build-and-push-image:
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -304,7 +306,7 @@ permissions:
 </tr> 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -399,7 +401,7 @@ with:
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -427,7 +429,7 @@ push: true
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -478,11 +480,11 @@ docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.sha }}
 
 您可以使用 {% data variables.product.prodname_actions %} 将安装包作为 CI 流程的一部分。 例如，您可以配置一个工作流程：每当开发者向拉取请求推送代码时，该工作流程就会通过下载并安装 {% data variables.product.prodname_registry %} 托管的包来解析依赖项。 然后，该工作流程就可以运行需要这些依赖项的 CI 测试。
 
-使用 `GITHUB_TOKEN` 时，通过 {% data variables.product.prodname_actions %} 安装 {% data variables.product.prodname_registry %} 托管的包只需极少的配置或额外身份验证。{% ifversion fpt %} 使用操作安装包时，数据传输也是免费的。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %} 的计费](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”。{% endif %}
+使用 `GITHUB_TOKEN` 时，通过 {% data variables.product.prodname_actions %} 安装 {% data variables.product.prodname_registry %} 托管的包只需极少的配置或额外身份验证。{% ifversion fpt or ghec %} 使用操作安装包时，数据传输也是免费的。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %} 的计费](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”。{% endif %}
 
 {% data reusables.package_registry.actions-configuration %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 升级访问 `ghcr.io`的工作流程
 
 {% data variables.product.prodname_container_registry %} 支持 `GITHUB_TOKEN` 在您的工作流程中进行简单和安全的身份验证。 如果您的工作流程使用个人访问令牌 (PAT) 向 `ghcr.io` 验证，我们强烈建议您更新工作流程以使用 `GITHUB_TOKEN`。
@@ -528,7 +530,7 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Frases de acceso de llave SSH
@@ -23,7 +24,7 @@ Con las claves SSH, si alguien obtiene acceso a tu computadora, también tiene a
 Puedes cambiar la contraseña por una llave privada existente sin volver a generar el par de claves al escribir el siguiente comando:
 
 ```shell
-$ ssh-keygen -p -f ~/.ssh/id_ed25519
+$ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
 > Enter old passphrase: <em>[Type old passphrase]</em>
 > Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>

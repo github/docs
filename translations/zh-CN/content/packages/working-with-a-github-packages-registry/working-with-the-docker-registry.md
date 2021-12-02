@@ -1,6 +1,6 @@
 ---
 title: 使用 Docker 注册表
-intro: '{% ifversion fpt %}Docker 注册表现已被 {% data variables.product.prodname_container_registry %} 取代。{% else %}您可以使用 {% data variables.product.prodname_registry %} Docker 注册表推送和拉取您的 Docker 映像，该注册表使用软件包命名空间 `https://docker.pkg.github.com`。{% endif %}'
+intro: '{% ifversion fpt or ghec %}Docker 注册表现已被 {% data variables.product.prodname_container_registry %} 取代。{% else %}您可以使用 {% data variables.product.prodname_registry %} Docker 注册表推送和拉取您的 Docker 映像，该注册表使用软件包命名空间 `https://docker.pkg.github.com`。{% endif %}'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
@@ -13,11 +13,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Docker 注册表
 ---
 
 <!-- Main versioning block. Short page for dotcom -->
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data variables.product.prodname_dotcom %} 的 Docker 注册表（使用命名空间 `docker.pkg.github.com`）已被 {% data variables.product.prodname_container_registry %} 取代（使用命名空间 `https://ghcr.io`）。 {% data variables.product.prodname_container_registry %} 为 Docker 映像提供粒度权限和存储优化等优点。
 
@@ -35,12 +36,6 @@ shortTitle: Docker 注册表
 
 安装或发布 Docker 映像时，Docker 注册表目前不支持外部层，例如 Windows 映像。
 
-{% ifversion ghes = 2.22 %}
-
-必须在 {% data variables.product.product_location %} 的网站管理员为您的实例启用 Docker 支持和子域隔离后，您才可在 {% data variables.product.prodname_registry %} 上使用 Docker 注册表。 更多信息请参阅“[为企业管理 GitHub Packages](/enterprise/admin/packages)”。
-
-{% endif %}
-
 ## 向 {% data variables.product.prodname_registry %} 验证
 
 {% data reusables.package_registry.authenticate-packages %}
@@ -55,7 +50,7 @@ shortTitle: Docker 注册表
 
 为确保凭据安全，我们建议您将个人访问令牌保存在您计算机上的本地文件中，然后使用 Docker 的 `--password-stdin` 标志从本地文件读取您的令牌。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% raw %}
   ```shell
   $ cat <em>~/TOKEN.txt</em> | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
@@ -64,7 +59,7 @@ shortTitle: Docker 注册表
 {% endif %}
 
 {% ifversion ghes or ghae %}
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 {% endif %}
 {% raw %}
@@ -72,7 +67,7 @@ shortTitle: Docker 注册表
  $ cat <em>~/TOKEN.txt</em> | docker login docker.HOSTNAME -u <em>USERNAME</em> --password-stdin
 ```
 {% endraw %}
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
 {% raw %}
@@ -84,7 +79,7 @@ shortTitle: Docker 注册表
 
 {% endif %}
 
-要使用此示例登录命令，请将 `USERNAME` 替换为您的 {% data variables.product.product_name %} 用户名{% ifversion ghes or ghae %}，将 `HOSTNAME` 替换为 {% data variables.product.product_location %},{% endif %} 的 URL，并将 `~/TOKEN.txt` 替换为您用于 {% data variables.product.product_name %} 的个人访问令牌的文件路径。
+To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
 更多信息请参阅“[Docker 登录](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)”。
 
@@ -110,18 +105,18 @@ shortTitle: Docker 注册表
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
 2. 使用 Docker 映像 ID、标记和 Docker 映像，将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称，将 *REPOSITORY* 替换为包含项目的仓库的名称，将 *IMAGE_NAME* 替换为包或映像的名称，{% ifversion ghes or ghae %}将 *HOSTNAME* 替换为 {% data variables.product.product_location %} 的主机名，{% endif %}并将 *VERSION* 替换为构建时的包版本。
-  {% ifversion fpt %}
+  {% ifversion fpt or ghec %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
   {% endif %}
   ```shell
   如果尚未为包构建 docker 映像，请构建映像，将 <em x-id="3">OWNER</em> 替换为拥有仓库的用户或组织帐户的名称，将 <em x-id="3">REPOSITORY</em> 替换为包含项目的仓库的名称，将 <em x-id="3">IMAGE_NAME</em> 替换为包或映像的名称，将 <em x-id="3">VERSION</em> 替换为构建时的包版本，将 <em x-id="3">PATH</em> 替换为映像路径（如果映像未在当前工作目录中）。
   ```
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
   ```shell
   $ docker tag <em>IMAGE_ID</em> <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -129,18 +124,18 @@ shortTitle: Docker 注册表
   {% endif %}
   {% endif %}
 3. 如果尚未为包构建 docker 映像，请构建映像，将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称，将 *REPOSITORY* 替换为包含项目的仓库的名称，将 *IMAGE_NAME* 替换为包或映像的名称，将 *VERSION* 替换为构建时的包版本，{% ifversion ghes or ghae %}将 *HOSTNAME* 替换为 {% data variables.product.product_location %} 的主机名，{% endif %}将 *PATH* 替换为映像路径（如果映像未在当前工作目录中）。
-  {% ifversion fpt %}
+  {% ifversion fpt or ghec %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% else %}
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
   {% endif %}
   ```shell
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
   ```shell
   $ docker build -t <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
@@ -148,18 +143,18 @@ shortTitle: Docker 注册表
   {% endif %}
   {% endif %}
 4. 将映像发布到 {% data variables.product.prodname_registry %}。
-  {% ifversion fpt %}
+  {% ifversion fpt or ghec %}
   ```shell
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
   {% endif %}
   ```shell
   $ docker push docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
   ```shell
   $ docker push <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -174,13 +169,13 @@ shortTitle: Docker 注册表
 
 ### 发布 Docker 映像的示例
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 这些示例假设您的实例已启用子域隔离。
 {% endif %}
 
 您可以使用映像 ID 将 `monalisa` 映像的 1.0 版本发布到 `octocat/octo-app` 仓库。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ```shell
 $ docker images
 
@@ -213,7 +208,7 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 您可能首次发布新的 Docker 映像并将其命名为 `monalisa`。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ```shell
 # Build the image with docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
 # Assumes Dockerfile resides in the current working directory (.)
@@ -240,19 +235,19 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 您可以使用 `docker pull` 命令从 {% data variables.product.prodname_registry %} 安装 Docker 映像，将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称，将 *REPOSITORY* 替换为包含项目的仓库的名称，将 *IMAGE_NAME* 替换为包或映像的名称，{% ifversion ghes or ghae %}将*HOSTNAME* 替换为 {% data variables.product.product_location %} 的名称，{% endif %}将 *TAG_NAME* 替换为要安装的映像的标记。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ```shell
 $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% else %}
 <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 {% endif %}
 ```shell
 $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 ```shell
 $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
@@ -268,6 +263,6 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 ## 延伸阅读
 
-- "{% ifversion fpt or ghes > 3.0 %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"
 
 {% endif %}  <!-- End of main versioning block -->

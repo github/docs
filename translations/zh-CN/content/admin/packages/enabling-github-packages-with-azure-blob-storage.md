@@ -2,9 +2,12 @@
 title: 使用 Azure Blob 存储启用 GitHub Packages
 intro: '以 Azure Blob 存储作为外部存储设置 {% data variables.product.prodname_registry %} 。'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
+type: tutorial
 topics:
   - Enterprise
+  - Packages
+  - Storage
 shortTitle: 使用 Azure 启用包
 ---
 

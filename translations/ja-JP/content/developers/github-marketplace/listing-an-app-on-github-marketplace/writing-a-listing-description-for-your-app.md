@@ -13,6 +13,7 @@ redirect_from:
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: リストの説明を書く
@@ -24,7 +25,7 @@ shortTitle: リストの説明を書く
 
 ### リスト名
 
-リストの名前は、 [{% data variables.product.prodname_marketplace %}ホームページ](https://github.com/marketplace)に表示されます。 名前は255文字を上限とし、アプリケーションの名前と異なっていても構いません。 リストの名前は、既存の{% data variables.product.product_name %}アカウントと同じ名前にできません。ただし、その名前があなた自身のユーザ名やOrganization名である場合は例外です。
+リストの名前は、 [{% data variables.product.prodname_marketplace %}ホームページ](https://github.com/marketplace)に表示されます。 名前は255文字を上限とし、アプリケーションの名前と異なっていても構いません。 リストの名前は、{% data variables.product.product_location %}上の既存アカウントと同じ名前にできません。ただし、その名前があなた自身のユーザ名やOrganization名である場合は例外です。
 
 ### ごく簡単な説明
 

@@ -19,10 +19,6 @@ shortTitle: Configurar os ecossistemas dos pacotes
 
 Para evitar que novos pacotes sejam carregados, você pode definir um ecossistema que você previamente habilitou como **Read-Only**, ao mesmo tempo que permite que pacotes existentes sejam baixados.
 
-{% ifversion ghes = 2.22 %}
-Para usar
-{% data variables.product.prodname_registry %} com o Docker, você precisa ter o isolamento de subdomínio habilitado para sua instância. Para obter mais informações, consulte "[Habilitar o isolamento de subdomínio](/enterprise/admin/configuration/enabling-subdomain-isolation)".
-{% endif %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Inhabilitar los tableros de proyecto
@@ -18,7 +19,7 @@ Una vez que inhabilites tableros de proyecto que se usan en toda la organizació
 
 Una vez que inhabilites tableros de proyecto de repositorios en una organización, ya no se podrán crear nuevos tableros de proyecto en ningún repositorio de la organización, y ya no se podrá acceder a ningún tablero de proyecto de los repositorios existentes en la organización en sus URL anteriores. Los tableros de proyecto a nivel de la organización no se ven afectados.
 
-Cuando inhabilitas tableros de proyecto, ya no ves su información de manera cronológica o de acuerdo con los [registros de auditoría](/articles/reviewing-your-security-log/).
+Cuando inhabilitas los tableros de proyecto, ya no ves la información de los tableros de proyecto de manera cronológica o de acuerdo con los [registros de auditoría](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization).
 
 
 {% data reusables.profile.access_org %}

@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/managing-marketing-emails-from-github
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications

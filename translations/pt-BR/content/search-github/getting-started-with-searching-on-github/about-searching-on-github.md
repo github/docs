@@ -14,6 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -27,7 +28,7 @@ topics:
 
 **Notas:**
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
 - Os sites do {% data variables.product.prodname_pages %} não são pesquisáveis no {% data variables.product.product_name %}. No entanto, você pode pesquisar o conteúdo da fonte, se ele existir no branch padrão de um repositório, usando a pesquisa de código. Para obter mais informações, consulte "[Pesquisar código](/search-github/searching-on-github/searching-code)". Para obter mais informações sobre o {% data variables.product.prodname_pages %}, consulte "[O que é o GitHub Pages?](/articles/what-is-github-pages/)"
 - Atualmente, a nossa pesquisa não é compatível com correspondência exata.
@@ -45,7 +46,7 @@ Você pode pesquisar as seguintes informações em todos os repositórios que vo
 
 - [Repositórios](/search-github/searching-on-github/searching-for-repositories)
 - [Tópicos](/search-github/searching-on-github/searching-topics)
-- [Problemas e pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt %}
+- [Problemas e pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
 - [Discussões](/search-github/searching-on-github/searching-discussions){% endif %}
 - [Código](/search-github/searching-on-github/searching-code)
 - [Commits](/search-github/searching-on-github/searching-commits)
@@ -55,30 +56,30 @@ Você pode pesquisar as seguintes informações em todos os repositórios que vo
 
 ## Pesquisar usando uma interface visual
 
-Como alternativa, é possível pesquisar o {% data variables.product.product_name %} usando a {% data variables.search.search_page_url %} ou a {% data variables.search.advanced_url %}.
+You can search {% data variables.product.product_name %} using the {% data variables.search.search_page_url %} or {% data variables.search.advanced_url %}. {% if command-palette %}Alternatively, you can use the interactive search in the {% data variables.product.prodname_command_palette %} to search your current location in the UI, a specific user, repository or organization, and globally across all of {% data variables.product.product_name %}, without leaving the keyboard. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 A {% data variables.search.advanced_url %} fornece uma interface visual para construção de consultas de pesquisa. Você pode filtrar as pesquisas por diversos fatores, como o número de estrelas ou o número de bifurcações que um repositório tem. À medida que você preenche os campos de pesquisa avançada, sua consulta é automaticamente construída na barra de pesquisa superior.
 
 ![Pesquisa avançada](/assets/images/help/search/advanced_search_demo.gif)
 
-{% ifversion fpt or ghes or ghae-next %}
+{% ifversion fpt or ghes or ghae-next or ghec %}
 
-## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
+## Pesquisando repositórios em {% data variables.product.prodname_dotcom_the_website %} a partir do seu ambiente corporativo privado
 
-If you use {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag --> or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and you're a member of a {% data variables.product.prodname_dotcom_the_website %} organization using {% data variables.product.prodname_ghe_cloud %}, an enterprise owner for your {% data variables.product.prodname_enterprise %} environment can enable {% data variables.product.prodname_github_connect %} so that you can search across both environments at the same time{% ifversion ghes or ghae %} from {% data variables.product.product_name %}{% endif %}. For more information, see the following.
+If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag --> or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and you're a member of a {% data variables.product.prodname_dotcom_the_website %} organization using {% data variables.product.prodname_ghe_cloud %}, an enterprise owner for your {% data variables.product.prodname_enterprise %} environment can enable {% data variables.product.prodname_github_connect %} so that you can search across both environments at the same time{% ifversion ghes or ghae %} from {% data variables.product.product_name %}{% endif %}. Para obter mais informações, consulte o seguinte.
 
-{% ifversion fpt or ghes %}
-- "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/{% ifversion ghes %}{{ currentVersion }}{% else %}github-enterprise@latest{% endif %}/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag -->
-- "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/github-ae@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_managed %} documentation
+{% ifversion fpt or ghes or ghec %}
+- "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/{% ifversion ghes %}{{ currentVersion }}{% else %}enterprise-server@latest{% endif %}/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag -->
+- "[Habilitando {% data variables.product.prodname_unified_search %} entre a conta corporativa e {% data variables.product.prodname_dotcom_the_website %}](/github-ae@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" na documentação de {% data variables.product.prodname_ghe_managed %}
 {% endif %}
 
 {% ifversion ghes or ghae-next %}
 
 Para definir o escopo da pesquisa por ambiente, você pode usar uma opção de filtro na {% data variables.search.advanced_url %} ou pode usar o prefixo de pesquisa `environment:`. Para pesquisar apenas por conteúdo no {% data variables.product.product_name %}, use a sintaxe de pesquisa `environment:local`. Para pesquisar apenas por conteúdo no {% data variables.product.prodname_dotcom_the_website %}, use `environment:github`.
 
-Your enterprise owner on {% data variables.product.product_name %} can enable {% data variables.product.prodname_unified_search %} for all public repositories, all private repositories, or only certain private repositories in the connected {% data variables.product.prodname_ghe_cloud %} organization.
+O proprietário da sua empresa em {% data variables.product.product_name %} pode habilitar {% data variables.product.prodname_unified_search %} para todos os repositórios públicos, todos os repositórios privados ou apenas alguns repositórios privados na organização de {% data variables.product.prodname_ghe_cloud %} conectada.
 
-When you search from {% data variables.product.product_name %}, you can only search in the private repositories that you have access to in the connected {% data variables.product.prodname_dotcom_the_website %} organization. Enterprise owners for {% data variables.product.product_name %} and organization owners on {% data variables.product.prodname_dotcom_the_website %} cannot search private repositories owned by your account on {% data variables.product.prodname_dotcom_the_website %}. To search the applicable private repositories, you must enable private repository search for your personal accounts on {% data variables.product.product_name %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from your private enterprise environment](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
+Ao pesquisar a partir de {% data variables.product.product_name %}, você só pode pesquisar em repositórios privados aos quais tem acesso na organização de {% data variables.product.prodname_dotcom_the_website %} conectada. Os proprietários da empresa para {% data variables.product.product_name %} e proprietários da organização no {% data variables.product.prodname_dotcom_the_website %} não podem pesquisar repositórios privados pertencentes à sua conta em {% data variables.product.prodname_dotcom_the_website %}. Para pesquisar os repositórios privados aplicáveis, você deve habilitar a pesquisa privada no repositório para as suas contas pessoais em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Habilitando a pesquisa no repositório {% data variables.product.prodname_dotcom_the_website %} no ambiente privado da empresa](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
 
 {% endif %}
 

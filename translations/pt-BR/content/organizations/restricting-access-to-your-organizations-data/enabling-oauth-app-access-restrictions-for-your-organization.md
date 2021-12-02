@@ -1,12 +1,13 @@
 ---
 title: Habilitar restrições de acesso do aplicativo OAuth da sua organização
-intro: 'Organization owners can enable {% data variables.product.prodname_oauth_app %} access restrictions to prevent untrusted apps from accessing the organization''s resources while allowing organization members to use {% data variables.product.prodname_oauth_apps %} for their personal accounts.'
+intro: 'Os proprietários da organização podem habilitar restrições de acesso do {% data variables.product.prodname_oauth_app %} para impedir que aplicativos não confiáveis acessem recursos da organização ao permitir que integrantes da organização usem {% data variables.product.prodname_oauth_apps %} para suas contas pessoais.'
 redirect_from:
   - /articles/enabling-third-party-application-restrictions-for-your-organization/
   - /articles/enabling-oauth-app-access-restrictions-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-oauth-app-access-restrictions-for-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -18,7 +19,7 @@ shortTitle: Ativar aplicativo OAuth
 {% warning %}
 
 **Avisos**:
-- Enabling {% data variables.product.prodname_oauth_app %} access restrictions will revoke organization access for all previously authorized {% data variables.product.prodname_oauth_apps %} and SSH keys. Para obter mais informações, consulte "[Sobre restrições de acesso do {% data variables.product.prodname_oauth_app %}](/articles/about-oauth-app-access-restrictions)".
+- A habilitação de restrições de acesso do {% data variables.product.prodname_oauth_app %} revogará o acesso da organização para todos os {% data variables.product.prodname_oauth_apps %} e chaves SSH previamente autorizados. Para obter mais informações, consulte "[Sobre restrições de acesso do {% data variables.product.prodname_oauth_app %}](/articles/about-oauth-app-access-restrictions)".
 - Depois de configurar as restrições de acesso do {% data variables.product.prodname_oauth_app %}, lembre-se de tornar a autorizar qualquer {% data variables.product.prodname_oauth_app %} que requeira acesso aos dados privados da organização continuamente. Todos os integrantes da organização precisarão criar chaves SSH, e a organização precisará criar chaves de implantação conforme necessário.
 - Quando as restrições de acesso do {% data variables.product.prodname_oauth_app %} estiverem habilitadas, os aplicativos poderão usar um token OAuth para acessar informações sobre transações do {% data variables.product.prodname_marketplace %}.
 

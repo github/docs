@@ -5,6 +5,7 @@ redirect_from:
   - /v3/scim
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -12,7 +13,7 @@ miniTocMaxHeadingLevel: 3
 
 ### Aprovisionamiento de SCIM para las Organizaciones
 
-Los proveedores de identidad (IdP) habilitados para SCIM utilizan la API de SCIM para automatizar el aprovisionamiento de la membrecía de las organizaciones de {% data variables.product.product_name %}. La API de {% data variables.product.product_name %} se basa en la versión 2.0 del [estándar de SCIM](http://www.simplecloud.info/). La terminal de SCIM de {% data variables.product.product_name %} que deben utilizar los IdP es: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
+Los proveedores de identidad (IdP) habilitados para SCIM utilizan la API de SCIM para automatizar el aprovisionamiento de la membrecía de las organizaciones de {% data variables.product.product_name %}. The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). La terminal de SCIM de {% data variables.product.product_name %} que deben utilizar los IdP es: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
 
 {% note %}
 

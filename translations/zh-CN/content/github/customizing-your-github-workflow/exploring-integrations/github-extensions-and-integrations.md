@@ -7,6 +7,7 @@ redirect_from:
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 扩展和集成
 ---
 
@@ -32,7 +33,7 @@ shortTitle: 扩展和集成
 
 ## 项目管理工具
 
-您可以将 {% data variables.product.product_name %} 个人帐户或组织与 Jira 等第三方项目管理工具集成。
+您可以将 {% data variables.product.product_location %} 上的个人或组织帐户与第三方项目管理工具（如 Jira）集成。
 
 ### Jira Cloud 与 {% data variables.product.product_name %}.com 集成
 
@@ -40,12 +41,12 @@ shortTitle: 扩展和集成
 
 ## 团队通信工具
 
-您可以将 {% data variables.product.product_name %} 个人帐户或组织与 Slack 或 Microsoft Teams 等第三方团队通信工具集成。
+您可以将 {% data variables.product.product_location %} 上的个人或组织帐户与第三方团队通信工具（如 Slack 或 Microsoft Teams）集成。
 
 ### Slack 与 {% data variables.product.product_name %} 集成
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, releases, deployment reviews and deployment statuses. You can also perform activities like close or open issues, and provide rich references to issues and pull requests without leaving Slack. 更多信息请访问 Marketplace 中的 [Slack 集成应用程序](https://github.com/marketplace/slack-github)。
+您可以订阅仓库或组织，并获得有关议题、拉取请求、提交、发布、部署审查和部署状态的实时更新。 您还可以执行关闭或打开议题等活动，并在不离开 Slack 的情况下提供丰富的议题和拉取请求参考。 更多信息请访问 Marketplace 中的 [Slack 集成应用程序](https://github.com/marketplace/slack-github)。
 
 ### Microsoft Teams 与 {% data variables.product.product_name %} 集成
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, deployment reviews and deployment statuses. You can also perform activities like close or open issues, comment on your issues and pull requests, and provide rich references to issues and pull requests without leaving Microsoft Teams. 更多信息请访问 Microsoft AppSource 中的 [Microsoft Teams 集成应用程序](https://appsource.microsoft.com/en-us/product/office/WA200002077)。
+您可以订阅仓库或组织，并获得有关议题、拉取请求、提交、部署审查和部署状态的实时更新。 您也可以执行一些活动，如关闭或打开议题、评论您的议题和拉取请求，以及提供丰富的议题和拉取请求引用而不离开 Microsoft Teams。 更多信息请访问 Microsoft AppSource 中的 [Microsoft Teams 集成应用程序](https://appsource.microsoft.com/en-us/product/office/WA200002077)。

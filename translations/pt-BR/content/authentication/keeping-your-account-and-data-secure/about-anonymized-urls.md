@@ -9,6 +9,7 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/about-anonymized-urls
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -28,7 +29,7 @@ As imagens que são processadas por meio do Camo raramente não aparecem no {% d
 
 {% tip %}
 
-Os usuários do Windows precisam usar o Git Powershell (que é instalado com o [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) ou baixar um [curl para Windows](http://curl.haxx.se/download.html).
+Os usuários do Windows precisam usar o Git PowerShell (que é instalado com o [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) ou fazer o download de um [curl para Windows](http://curl.haxx.se/download.html).
 
 {% endtip %}
 

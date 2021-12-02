@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-xenserver
   - /admin/installation/installing-github-enterprise-server-on-xenserver
 versions:
-  ghes: '*'
+  ghes: '<=3.2'
 type: tutorial
 topics:
   - Administrator

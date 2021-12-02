@@ -11,6 +11,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.2'
+  ghec: '*'
 type: how_to
 topics:
   - Enterprise
@@ -22,17 +23,15 @@ shortTitle: 限制电子邮件通知
 
 ## 关于电子邮件限制
 
-当在组织中启用受限制的电子邮件通知时，成员只能使用与已验证或批准的域关联的电子邮件地址接收有关组织活动的电子邮件通知。
+当在组织中启用受限制的电子邮件通知时，成员只能使用与已验证或批准的域关联的电子邮件地址接收有关组织活动的电子邮件通知。 更多信息请参阅“[验证或批准组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”。
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
-更多信息请参阅“[验证或批准组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”。
-
 {% data reusables.notifications.email-restrictions-verification %}
 
-外部协作者不受限于已验证或批准域的电子邮件通知。 有关外部协作者的更多信息，请参阅“[组织的权限级别](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)”。
+外部协作者不受限于已验证或批准域的电子邮件通知。 For more information about outside collaborators, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
 
-如果您的组织由企业帐户拥有，则组织成员除了能够接收来自组织的任何已验证或批准域的通知之外，还能够接收来自企业帐户的任何已验证或批准域的通知。 {% ifversion fpt %}For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+如果您的组织由企业帐户拥有，则组织成员除了能够接收来自组织的任何已验证或批准域的通知之外，还能够接收来自企业帐户的任何已验证或批准域的通知。 更多信息请参阅“[验证或批准企业的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”。
 
 ## 限制电子邮件通知
 

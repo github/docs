@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: PR テンプレートの作成
@@ -17,9 +18,9 @@ shortTitle: PR テンプレートの作成
 
 サポートしているどのフォルダにでも *PULL_REQUEST_TEMPLATE/* サブディレクトリを作成し、プルリクエストテンプレートを複数含めることができます。また、`template` クエリパラメータでプルリクエストの本文に使用するテンプレートを指定できます。 詳細は「[クエリパラメータによる Issue およびプルリクエストの自動化について](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)」を参照してください。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-Organization {% ifversion fpt or ghes %}またはユーザアカウント{% endif %}のデフォルトのプルリクエストテンプレートを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
+Organization {% ifversion fpt or ghes or ghec %}またはユーザアカウント{% endif %}のデフォルトのプルリクエストテンプレートを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 {% endif %}
 

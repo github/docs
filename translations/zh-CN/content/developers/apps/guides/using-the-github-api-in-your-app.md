@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: 使用 REST API 构建应用程序
@@ -25,7 +26,7 @@ shortTitle: 使用 REST API 构建应用程序
 
 {% data reusables.apps.app-ruby-guides %}
 
-一旦完成了这些步骤，您就可以使用整套 GitHub API 开发其他类型的集成。 {% ifversion fpt %}您可以在 [GitHub Marketplace](https://github.com/marketplace) 和[使用 GitHub](https://github.com/works-with) 中查看成功的应用程序示例。{% endif %}
+一旦完成了这些步骤，您就可以使用整套 GitHub API 开发其他类型的集成。 {% ifversion fpt or ghec %}您可以在 [GitHub Marketplace](https://github.com/marketplace) 和[使用 GitHub](https://github.com/works-with) 中查看成功的应用程序示例。{% endif %}
 
 ## 基本要求
 
@@ -234,5 +235,5 @@ end
 * 当机器人成功添加标签时，在终端中显示消息。 （提示：将 `needs-response` 标签 ID 与有效负载中的标签 ID 进行比较，以作为显示消息的条件，这样只有在添加相关标签时才显示消息。）
 * 向应用程序添加登录页面并为它连接 [Sinatra 路由](https://github.com/sinatra/sinatra#routes)。
 * 将代码移动到托管服务器（如 Heroku）。 不要忘记使用新域更新应用程序设置。
-* 在 {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt %} 中分享项目或寻求建议
+* 在 {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt or ghec %} 中分享项目或寻求建议
 * 您是否构建了一款让人眼前一亮的新应用程序？您认为它可能对其他人有帮助？ [将其添加到 GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)！{% endif %}

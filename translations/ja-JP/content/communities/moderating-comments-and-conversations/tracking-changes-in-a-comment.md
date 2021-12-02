@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: コメントの変更の履歴
@@ -33,5 +34,5 @@ shortTitle: コメントの変更の履歴
 
 ## 参考リンク
 
-{% ifversion fpt %}- 「[乱用やスパムをレポートする](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)」{% endif %}
+{% ifversion fpt or ghec %}- 「[乱用やスパムをレポートする](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)」{% endif %}
 - 「[コメントを編集する](/articles/editing-a-comment)」

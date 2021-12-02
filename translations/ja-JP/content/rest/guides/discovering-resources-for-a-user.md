@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: ユーザのリソースを見つける
@@ -15,9 +16,9 @@ shortTitle: ユーザのリソースを見つける
 
  
 
-{% data variables.product.product_name %} APIに対して認証済みのリクエストを行う際には、カレントユーザのリポジトリやOrganizationをフェッチする必要がある場合もあります。 このガイドでは、これらのリソースを確実に調べる方法について説明します。
+When making authenticated requests to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, applications often need to fetch the current user's repositories and organizations. このガイドでは、これらのリソースを確実に調べる方法について説明します。
 
-{% data variables.product.product_name %} APIとやり取りを行うため、ここでは[Octokit.rb][octokit.rb]を使用します。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
+To interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using [Octokit.rb][octokit.rb]. このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
 
 ## はじめましょう
 

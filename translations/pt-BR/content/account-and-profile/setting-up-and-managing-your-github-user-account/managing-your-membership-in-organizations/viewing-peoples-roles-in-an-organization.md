@@ -1,6 +1,6 @@
 ---
 title: Exibir as funções das pessoas em uma organização
-intro: 'Você pode exibir uma lista das pessoas na sua organização e filtrar pela função delas. Para obter mais informações sobre funções na organização, consulte "[Níveis de permissão da organização](/articles/permission-levels-for-an-organization)".'
+intro: 'Você pode exibir uma lista das pessoas na sua organização e filtrar pela função delas. Para obter mais informações sobre as funções da organização, consulte "[Funções em uma organização](/organizations/managing-peopleles-access-to-your-organization-with-roles/roles-in-an-organization)".'
 redirect_from:
   - /articles/viewing-people-s-roles-in-an-organization
   - /articles/viewing-peoples-roles-in-an-organization
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Visualizar pessoas em uma organização

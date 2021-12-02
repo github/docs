@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: next
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -53,7 +54,7 @@ https://github.com/github/codeql-action/releases から{% data variables.product
 CodeQL {% data variables.product.prodname_code_scanning %}分析を実行したいすべてのCIサーバーで、{% data variables.product.prodname_codeql_cli %}バンドルの完全な内容が利用できるようにしなければなりません。 たとえば、内部的な中央の場所からバンドルをコピーして展開するよう、各サーバーを設定することになるでしょう。 あるいはREST APIを使ってバンドルを{% data variables.product.prodname_dotcom %}から直接取得し、クエリに対する最新の改善を活用できるようにすることもできます。 {% data variables.product.prodname_codeql_cli %}のアップデートは、2-3週ごとにリリースされます。 例:
 
 ```shell
-$ wget https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
+$ wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
 $ tar -xvzf ../codeql-bundle-linux64.tar.gz
 ```
 

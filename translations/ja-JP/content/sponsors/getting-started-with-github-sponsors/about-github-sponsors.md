@@ -6,6 +6,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Open Source
@@ -22,7 +23,7 @@ topics:
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %}詳しい情報については、「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照してください。
 
-スポンサード開発者またはスポンサード Organization になると、{% data variables.product.prodname_sponsors %}に対する追加条項が適用されます。 詳細は、「[GitHub Sponsors に関する追加条項](/github/site-policy/github-sponsors-additional-terms)」を参照してください。
+スポンサード開発者またはスポンサード Organization になると、{% data variables.product.prodname_sponsors %}に対する追加条項が適用されます。 For more information, see "[GitHub Sponsors Additional Terms](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)."
 
 ## {% data variables.product.prodname_matching_fund %} について
 
@@ -32,7 +33,7 @@ topics:
 
 {% endnote %}
 
-{% data variables.product.prodname_matching_fund %} は、{% data variables.product.prodname_dotcom %} コミュニティのメンバーが[{% data variables.product.prodname_dotcom %} コミュニティガイドライン](/github/site-policy/github-community-guidelines)を推進するオープンソースソフトウェアを開発するのを支援することを目的としています。 スポンサード Organization に対する支払いと Organization からの支払は {% data variables.product.prodname_matching_fund %} を利用できません。
+The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.prodname_dotcom %} community who develop open source software that promotes the [{% data variables.product.prodname_dotcom %} Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). スポンサード Organization に対する支払いと Organization からの支払は {% data variables.product.prodname_matching_fund %} を利用できません。
 
 {% data variables.product.prodname_matching_fund %} の資格を得るには、長期にわたって支えてくれるコミュニティを引き付けるようなプロフィールを作成する必要があります。 強力なプロフィールの作成については、「[{% data variables.product.prodname_sponsors %} のプロフィール詳細を編集する](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)」を参照してください。
 

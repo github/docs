@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/about-scim
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -18,7 +19,7 @@ topics:
 
 SCIM を実装せずに SAML SSO を使った場合、自動のプロビジョニング解除は行われません。 Organization のメンバーのアクセスが ldP から削除された後、セッションの有効期限が切れても、そのメンバーは Organization から自動的には削除されません。 認証済みのトークンにより、セッションが期限切れになった後も Organization へのアクセスが許可されます。 アクセスを削除するには、Organization の管理者は手動で認証済みのトークンを Organization から削除するか、その削除を SCIM で自動化します。
 
-Organization の {% data variables.product.product_name %} の SCIM API と連携できるアイデンティティプロバイダとして、以下のものがあります。 詳しい情報については{% data variables.product.product_name %}API ドキュメンテーション中の[SCIM](/rest/reference/scim) を参照してください。
+Organization の {% data variables.product.product_name %} の SCIM API と連携できるアイデンティティプロバイダとして、以下のものがあります。 For more information, see [SCIM](/rest/reference/scim) in the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API documentation.
 - Azure AD
 - Okta
 - OneLogin

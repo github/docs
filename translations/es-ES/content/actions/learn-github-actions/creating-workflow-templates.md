@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -16,6 +17,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Resumen
 
@@ -23,9 +25,13 @@ topics:
 
 ## Crear una plantilla de flujo de trabajo
 
-Los usuarios con acceso de escritura en el repositorio `.github` de la organización pueden crear plantillas de flujo de trabajo. Los miembros de la organización que tengan permisos para crear flujos de trabajo podrán entonces utilizar estas plantillas. You can share workflow templates if your organization's repository is public or if the repository is private and on an Enterprise plan.
+Los usuarios con acceso de escritura en el repositorio `.github` de la organización pueden crear plantillas de flujo de trabajo. Los miembros de la organización que tengan permisos para crear flujos de trabajo podrán entonces utilizar estas plantillas.
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt %}
+Your workflow templates can be used to create workflows in public repositories only. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use workflow templates to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-workflow-templates).
+{% endif %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 {% note %}
 
 **Nota:** Para evitar la duplicación en los flujos de trabajo que se crean a partir de una plantilla, puedes llamar a los flujos reutilizables desde una plantilla de flujo de trabajo. Esto puede ayudar a que tus flujos de trabajo se mantengan más fácilmente. Para obtener más información, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".

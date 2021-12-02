@@ -7,6 +7,7 @@ redirect_from:
   - /github/managing-files-in-a-repository/managing-files-on-github/navigating-code-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -26,12 +27,6 @@ A navegação por código usa a biblioteca de código aberto [`tree-sitter`](htt
 - Ruby
 - TypeScript
 
-{% note %}
-
-**Observação**: A navegação do código funciona para ramos ativos. Se o recurso estiver habilitado, mas você não conseguir ver os links para as definições de funções e métodos, faça push para o branch e tente novamente.
-
-{% endnote %}
-
 ## Pular para a definição de uma função ou método
 
 Você pode pular para uma definição de uma função ou método dentro do mesmo repositório, clicando na chamada dessa função ou método em um arquivo.
@@ -43,6 +38,12 @@ Você pode pular para uma definição de uma função ou método dentro do mesmo
 Você pode encontrar todas as referências para uma função ou método dentro do mesmo repositório clicando na chamada da função ou método e, em seguida, clicando na aba **Referências**.
 
 ![Aba Find all references (Localizar todas as referências)](/assets/images/help/repository/find-all-references-tab.png)
+
+## Troubleshooting code navigation
+
+If code navigation is enabled for you but you don't see links to the definitions of functions and methods:
+- Code navigation only works for active branches. Push to the branch and try again.
+- Code navigation only works for repositories with less than 100,000 files.
 
 ## Leia mais
 - "[Pesquisar código](/github/searching-for-information-on-github/searching-code)"

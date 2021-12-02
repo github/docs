@@ -1,10 +1,11 @@
 ---
 title: 为企业配置 SAML 单点登录
 shortTitle: 配置 SAML SSO
-intro: '您可以为企业配置 SAML 单点登录 (SSO)，这允许您使用身份提供程序 (IdP) 集中控制 {% data variables.product.product_location %} 的身份验证。'
+intro: '您可以通过{% ifversion ghec %}执行{% elsif ghae %}配置{% endif %}通过身份提供商 (IdP) 的 SAML 单点登录 (SSO)，控制和保护对 {% ifversion ghec %} 资源（如企业组织中的仓库、议题和拉取请求）{% elsif ghae %}您在 {% data variables.product.prodname_ghe_managed %} 上的企业{% endif %}的访问。'
 product: '{% data reusables.gated-features.saml-sso %}'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
+  ghec: '*'
   ghae: '*'
 type: how_to
 topics:
@@ -15,11 +16,26 @@ topics:
   - SSO
 redirect_from:
   - /admin/authentication/configuring-saml-single-sign-on-for-your-enterprise
+  - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account
 ---
 
-## 关于 SAML SSO
+{% data reusables.enterprise-accounts.emu-saml-note %}
 
-{% ifversion ghae %}
+## 关于企业帐户的 SAML SSO
+
+{% ifversion ghec %}
+
+{% data reusables.saml.dotcom-saml-explanation %}更多信息请参阅“[关于使用 SAML 单点登录管理身份和访问](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)”。
+
+{% data reusables.saml.about-saml-enterprise-accounts %}
+
+{% data reusables.saml.about-saml-access-enterprise-account %} 更多信息请参阅“[查看和管理用户对企业帐户的 SAML 访问](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)”。
+
+{% data reusables.scim.enterprise-account-scim %}
+
+{% elsif ghae %}
 
 SAML SSO 允许您从 SAML IDP 集中控制和安全访问 {% data variables.product.product_location %}。 当未经身份验证的用户在浏览器中访问 {% data variables.product.product_location %} 时，{% data variables.product.product_name %} 会将用户重定向到您的 SAML IDP 进行身份验证。 在用户使用 IdP 上的帐户成功进行身份验证后，IdP 会将用户重定向回 {% data variables.product.product_location %}。 {% data variables.product.product_name %} 将验证 IdP 的响应，然后授予用户访问权限。
 
@@ -33,13 +49,36 @@ SAML SSO 允许您从 SAML IDP 集中控制和安全访问 {% data variables.pro
 
 ## 支持的身份提供程序
 
-{% data variables.product.product_name %} 支持 SAML SSO 与采用 SAML 2.0 标准的 IdP 一起使用。 更多信息请参阅 OASIS 网站上的 [SAML Wiki](https://wiki.oasis-open.org/security)。
+{% data reusables.saml.saml-supported-idps %}
 
-{% data variables.product.company_short %} 已使用以下 IdP 测试 {% data variables.product.product_name %} 的 SAML SSO。
+{% ifversion ghec %}
 
-{% ifversion ghae %}
-- Azure AD
-{% endif %}
+## Enforcing SAML single-sign on for organizations in your enterprise account
+
+{% note %}
+
+**注意：**
+
+- 为您的企业实施 SAML SSO 时，企业配置将覆盖任何现有的组织级 SAML 配置。 {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+- When you enforce SAML SSO for an organization, {% data variables.product.company_short %} removes any members of the organization that have not authenticated successfully with your SAML IdP. When you require SAML SSO for your enterprise, {% data variables.product.company_short %} does not remove members of the enterprise that have not authenticated successfully with your SAML IdP. The next time a member accesses the enterprise's resources, the member must authenticate with your SAML IdP.
+
+{% endnote %}
+
+有关如何使用 Okta 启用 SAML 的更多详细信息，请参阅“[使用 Okta 为企业帐户配置 SAML 单点登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)”。
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "SAML single sign-on", select **Require SAML authentication**. ![用于启用 SAML SSO 的复选框](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
+6. 在 **Sign on URL（登录 URL）**字段中，为单点登录请求输入您的 IdP 的 HTTPS 端点。 此值可在 IdP 配置中找到。 ![登录时将成员转发到的 URL 字段](/assets/images/help/saml/saml_sign_on_url_business.png)
+7. （可选）在 **Issuer（签发者）**字段中，输入 SAML 签发者 URL 以验证已发送消息的真实性。 ![SAML 签发者姓名字段](/assets/images/help/saml/saml_issuer.png)
+8. 在 **Public Certificate（公共证书）**下，粘贴证书以验证 SAML 响应。 ![身份提供程序的公共证书字段](/assets/images/help/saml/saml_public_certificate.png)
+9. 要验证来自 SAML 签发者的请求的完整性，请单击 {% octicon "pencil" aria-label="The edit icon" %}。 然后，在“Signature Method（签名方法）”和“Digest Method（摘要方法）”下拉菜单中，选择 SAML 签发者使用的哈希算法。 ![SAML 签发者使用的签名方法和摘要方法哈希算法下拉列表](/assets/images/help/saml/saml_hashing_method.png)
+10. 在为企业启用 SAML SSO 之前，单击 **Test SAML configuration（测试 SMAL 配置）** ，以确保已输入的信息正确。 ![实施前测试 SAML 配置的按钮](/assets/images/help/saml/saml_test.png)
+11. 单击 **Save（保存）**。
+
+{% elsif ghae %}
 
 ## 启用 SAML SSO
 
@@ -109,5 +148,7 @@ SAML SSO 允许您从 SAML IDP 集中控制和安全访问 {% data variables.pro
 {% data reusables.enterprise-accounts.security-tab %}
 1. 在“SAML single sign-on”（SAML 单点登录）下，取消选择 **Enable SAML authentication（启用 SAML 身份验证）**。 !["Enable SAML authentication（启用 SAML 身份验证）"的复选框](/assets/images/help/saml/ae-saml-disabled.png)
 1. 要禁用 SAML SSO 并要求使用在初始化期间创建的内置用户帐户登录，请单击“**Save（保存）**”。 ![用于 SAML SSO 配置的"Save（保存）"按钮](/assets/images/help/saml/ae-saml-disabled-save.png)
+
+{% endif %}
 
 {% endif %}

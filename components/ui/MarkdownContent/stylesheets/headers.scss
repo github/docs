@@ -4,23 +4,11 @@
   h3,
   h4,
   h5 {
-    padding-top: 16px;
-  }
-  h2 {
-    font-size: 1.25em;
+    padding-top: 1rem;
   }
 
   // all h2 headers that are links should be blue-500
   h2 a {
-    color: var(--color-auto-blue-5);
-  }
-  h3 {
-    font-size: 1em;
-  }
-  h4 {
-    font-size: 0.875em;
-  }
-  h5 {
-    font-size: 0.85em;
+    color: var(--color-accent-fg);
   }
 }

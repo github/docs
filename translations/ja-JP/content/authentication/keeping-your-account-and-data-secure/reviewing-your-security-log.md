@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -21,7 +22,7 @@ shortTitle: セキュリティ ログ
 The security log lists all actions performed within the last 90 days.
 
 {% data reusables.user_settings.access_settings %}
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 2. ユーザ設定サイドバーで [**Security log**] をクリックします。 ![セキュリティログのタブ](/assets/images/help/settings/audit-log-tab.png)
 {% else %}
 {% data reusables.user_settings.security %}
@@ -29,7 +30,7 @@ The security log lists all actions performed within the last 90 days.
 4. エントリをクリックして、イベントに関する詳細情報を表示します。 ![セキュリティ ログ](/assets/images/help/settings/user_security_history_action.png)
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 ## セキュリティログを検索する
 
 {% data reusables.audit_log.audit-log-search %}
@@ -42,24 +43,24 @@ The security log lists all actions performed within the last 90 days.
 セキュリティログにリストされているイベントは、アクションによってトリガーされます。 アクションは次のカテゴリに分類されます。
 
 | カテゴリ名                                                                                  | 説明                                                                                                                                                                                                                                                                                                                                       |
-| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt %}
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
 | [`account_recovery_token`](#account_recovery_token-category-actions)                   | | カテゴリ名 | 説明 [リカバリトークンの追加](/articles/configuring-two-factor-authentication-recovery-methods)に関連するすべての活動が対象です。                                                                                                                                                                                                                            |
 | [`支払い`](#billing-category-actions)                                                     | 自分の支払い情報に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                |
 | [`codespaces`](#codespaces-category-actions)                                           | {% data variables.product.prodname_codespaces %} に関連するすべての活動が対象です。 詳しい情報については、「[{% data variables.product.prodname_codespaces %} について](/github/developing-online-with-codespaces/about-codespaces)」を参照してください。                                                                                                                            |
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | {% data variables.product.prodname_marketplace %} Developer Agreement の署名に関連するすべての活動が対象です。                                                                                                                                                                                                                                               |
 | [`marketplace_listing`](#marketplace_listing-category-actions)                         | {% data variables.product.prodname_marketplace %} に一覧表示しているアプリに関連するすべての活動が対象です。{% endif %}
-| [`oauth_access`](#oauth_access-category-actions)                                       | Contains all activities related to [{% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps) you've connected with.{% ifversion fpt %}
+| [`oauth_access`](#oauth_access-category-actions)                                       | Contains all activities related to [{% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps) you've connected with.{% ifversion fpt or ghec %}
 | [`payment_method`](#payment_method-category-actions)                                   | {% data variables.product.prodname_dotcom %} プランに対する支払いに関連するすべての活動が対象です。{% endif %}
 | [`profile_picture`](#profile_picture-category-actions)                                 | 自分のプロファイル写真に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                             |
 | [`project`](#project-category-actions)                                                 | プロジェクト ボードに関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                              |
 | [`public_key`](#public_key-category-actions)                                           | [公開 SSH キー](/articles/adding-a-new-ssh-key-to-your-github-account)に関連するすべての活動が対象です。                                                                                                                                                                                                                                                      |
-| [`repo`](#repo-category-actions)                                                       | 自分が所有するリポジトリに関連するすべての活動が対象です。{% ifversion fpt %}
+| [`repo`](#repo-category-actions)                                                       | 自分が所有するリポジトリに関連するすべての活動が対象です。{% ifversion fpt or ghec %}
 | [`sponsors`](#sponsors-category-actions)                                               | {% data variables.product.prodname_sponsors %} およびスポンサーボタンに関連するすべてのイベントが対象です (「[{% data variables.product.prodname_sponsors %} について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)」と「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照){% endif %}{% ifversion ghes or ghae %}
 | [`Team`](#team-category-actions)                                                       | 所属する Team に関連するすべてのアクティビティが対象です。{% endif %}{% ifversion not ghae %}
 | [`two_factor_authentication`](#two_factor_authentication-category-actions)             | [2 要素認証](/articles/securing-your-account-with-two-factor-authentication-2fa)に関連するすべてのアクティビティが対象です。{% endif %}
 | [`ユーザ`](#user-category-actions)                                                        | アカウントに関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                   |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## セキュリティログをエクスポートする
 
@@ -72,7 +73,7 @@ The security log lists all actions performed within the last 90 days.
 
 セキュリティログにイベントとして記録される最も一般的なアクションの概要です。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### `account_recovery_token` カテゴリアクション
 
@@ -119,12 +120,12 @@ The security log lists all actions performed within the last 90 days.
 
 ### `oauth_authorization` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                                                                                                                                                                                            |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create`  | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                      |
-| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
+| アクション     | 説明                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create`  | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                              |
+| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### `payment_method` カテゴリアクション
 
@@ -157,35 +158,35 @@ The security log lists all actions performed within the last 90 days.
 
 ### `public_key` カテゴリアクション
 
-| アクション    | 説明                                                                                                                                         |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `create` | [新たな公開 SSH キーを自分の {% data variables.product.product_name %} アカウントに追加する](/articles/adding-a-new-ssh-key-to-your-github-account)ときにトリガーされます。 |
-| `delete` | [公開 SSH キーを自分の {% data variables.product.product_name %} アカウントから削除する](/articles/reviewing-your-ssh-keys)ときにトリガーされます。                       |
+| アクション    | 説明                                                                                                                                                                                                                                                         |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create` | Triggered when you [add a new public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/adding-a-new-ssh-key-to-your-github-account). |
+| `delete` | Triggered when you [remove a public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/reviewing-your-ssh-keys).                      |
 
 ### `repo` カテゴリアクション
 
-| アクション                                 | 説明                                                                                                                                                                                                                                                                    |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `access`                              | 自分が所有するリポジトリが["プライベート" から "パブリック" に切り替えられる](/articles/making-a-private-repository-public) (またはその逆) ときにトリガーされます。                                                                                                                                                       |
-| `add_member`                          | {% data variables.product.product_name %} ユーザがリポジトリへの {% ifversion fpt %}[共同アクセス権を保有するように招待される](/articles/inviting-collaborators-to-a-personal-repository){% else %}[共同アクセス権を付与される](/articles/inviting-collaborators-to-a-personal-repository){% endif %}ときにトリガーされます。 |
-| `add_topic`                           | リポジトリのオーナーがリポジトリに[トピックを追加する](/articles/classifying-your-repository-with-topics)ときにトリガーされます。                                                                                                                                                                           |
+| アクション                                 | 説明                                                                                                                                                                                                                                                                            |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `access`                              | 自分が所有するリポジトリが["プライベート" から "パブリック" に切り替えられる](/articles/making-a-private-repository-public) (またはその逆) ときにトリガーされます。                                                                                                                                                               |
+| `add_member`                          | {% data variables.product.product_name %} ユーザがリポジトリへの {% ifversion fpt or ghec %}[共同アクセス権を保有するように招待される](/articles/inviting-collaborators-to-a-personal-repository){% else %}[共同アクセス権を付与される](/articles/inviting-collaborators-to-a-personal-repository){% endif %}ときにトリガーされます。 |
+| `add_topic`                           | リポジトリのオーナーがリポジトリに[トピックを追加する](/articles/classifying-your-repository-with-topics)ときにトリガーされます。                                                                                                                                                                                   |
 | `archived`                            | リポジトリのオーナーが[リポジトリをアーカイブする](/articles/about-archiving-repositories)ときにトリガーされます。{% ifversion ghes %}
-| `config.disable_anonymous_git_access` | 公開リポジトリで[匿名の Git 読み取りアクセスが無効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                      |
-| `config.enable_anonymous_git_access`  | 公開リポジトリで[匿名の Git 読み取りアクセスが有効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                      |
-| `config.lock_anonymous_git_access`    | リポジトリの[匿名の Git 読み取りアクセス設定がロックされる](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。                                                                                                 |
+| `config.disable_anonymous_git_access` | 公開リポジトリで[匿名の Git 読み取りアクセスが無効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                              |
+| `config.enable_anonymous_git_access`  | 公開リポジトリで[匿名の Git 読み取りアクセスが有効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                              |
+| `config.lock_anonymous_git_access`    | リポジトリの[匿名の Git 読み取りアクセス設定がロックされる](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。                                                                                                         |
 | `config.unlock_anonymous_git_access`  | リポジトリの[匿名の Git 読み取りアクセス設定がロック解除される](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。{% endif %}
-| `create`                              | [新たなリポジトリが作成される](/articles/creating-a-new-repository)ときにトリガーされます。                                                                                                                                                                                                     |
-| `destroy`                             | [リポジトリが削除される](/articles/deleting-a-repository)ときにトリガーされます。{% ifversion fpt %}
-| `disable`                             | リポジトリが無効になるときにトリガーされます ([残高不足](/articles/unlocking-a-locked-account)などの場合)。{% endif %}{% ifversion fpt %}
+| `create`                              | [新たなリポジトリが作成される](/articles/creating-a-new-repository)ときにトリガーされます。                                                                                                                                                                                                             |
+| `destroy`                             | [リポジトリが削除される](/articles/deleting-a-repository)ときにトリガーされます。{% ifversion fpt or ghec %}
+| `disable`                             | リポジトリが無効になるときにトリガーされます ([残高不足](/articles/unlocking-a-locked-account)などの場合)。{% endif %}{% ifversion fpt or ghec %}
 | `enable`                              | リポジトリが再び有効になるときにトリガーされます。{% endif %}
-| `remove_member`                       | {% data variables.product.product_name %}ユーザが[リポジトリのコラボレーターではなくなる](/articles/removing-a-collaborator-from-a-personal-repository)ときにトリガーされます。                                                                                                                          |
-| `remove_topic`                        | リポジトリのオーナーがリポジトリからトピックを削除するときにトリガーされます。                                                                                                                                                                                                                               |
-| `rename`                              | [リポジトリの名前が変更される](/articles/renaming-a-repository)ときにトリガーされます。                                                                                                                                                                                                         |
-| `移譲`                                  | [リポジトリが移譲される](/articles/how-to-transfer-a-repository)ときにトリガーされます。                                                                                                                                                                                                     |
-| `transfer_start`                      | リポジトリの移譲が行われようとしているときにトリガーされます。                                                                                                                                                                                                                                       |
-| `unarchived`                          | リポジトリのオーナーがリポジトリをアーカイブ解除するときにトリガーされます。                                                                                                                                                                                                                                |
+| `remove_member`                       | {% data variables.product.product_name %}ユーザが[リポジトリのコラボレーターではなくなる](/articles/removing-a-collaborator-from-a-personal-repository)ときにトリガーされます。                                                                                                                                  |
+| `remove_topic`                        | リポジトリのオーナーがリポジトリからトピックを削除するときにトリガーされます。                                                                                                                                                                                                                                       |
+| `rename`                              | [リポジトリの名前が変更される](/articles/renaming-a-repository)ときにトリガーされます。                                                                                                                                                                                                                 |
+| `移譲`                                  | [リポジトリが移譲される](/articles/how-to-transfer-a-repository)ときにトリガーされます。                                                                                                                                                                                                             |
+| `transfer_start`                      | リポジトリの移譲が行われようとしているときにトリガーされます。                                                                                                                                                                                                                                               |
+| `unarchived`                          | リポジトリのオーナーがリポジトリをアーカイブ解除するときにトリガーされます。                                                                                                                                                                                                                                        |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### `sponsors` カテゴリアクション
 
 | アクション                                         | 説明                                                                                                                                                                                                                                                                  |
@@ -209,7 +210,7 @@ The security log lists all actions performed within the last 90 days.
 | `waitlist_join`                               | スポンサード開発者になるために待ちリストに参加するとトリガーされます (「[ユーザアカウントに {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照)                                               |
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### `successor_invitation` カテゴリアクション
 
 | アクション     | 説明                                                                                                                                                                                       |
@@ -247,20 +248,20 @@ The security log lists all actions performed within the last 90 days.
 
 ### `user` カテゴリアクション
 
-| アクション                                                                                                                                            | 説明                                                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `add_email`                                                                                                                                      | トリガーされる条件                                                                                                                                                        |
-| {% ifversion not ghae %}[新しいメールアドレスを追加する](/articles/changing-your-primary-email-address){% else %}新しいメールアドレスを追加する{% endif %}。{% ifversion fpt %} |                                                                                                                                                                  |
-| `codespaces_trusted_repo_access_granted`                                                                                                         | リポジトリに作成する Codespaces で、自分のユーザーアカウントが所有している他のリポジトリにアクセスするのを許可するとトリガーされます (/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces. |
-| `codespaces_trusted_repo_access_revoked`                                                                                                         | リポジトリに作成する Codespaces で、自分のユーザーアカウントが所有している他のリポジトリにアクセスするのを禁止するとトリガーされます (/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces. |{% endif %}
-| `create`                                                                                                                                         | 新しいユーザアカウントを作成するとトリガーされます。{% ifversion not ghae %}
-| `change_password`                                                                                                                                | 自分のパスワードを変更するときにトリガーされます。                                                                                                                                        |
-| `forgot_password`                                                                                                                                | [パスワード のリセット](/articles/how-can-i-reset-my-password)を要求したときにトリガーされます。{% endif %}
-| `hide_private_contributions_count`                                                                                                               | [自分のプロファイルでプライベート コントリビューションを非表示にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)ときにトリガーされます。                                     |
-| `login`                                                                                                                                          | {% data variables.product.product_location %} にログインするとトリガーされます。{% ifversion ghes > 2.22 or ghae %}
+| アクション                                                                                                                                                    | 説明                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `add_email`                                                                                                                                              | トリガーされる条件                                                                                                                                                        |
+| {% ifversion not ghae %}[新しいメールアドレスを追加する](/articles/changing-your-primary-email-address){% else %}新しいメールアドレスを追加する{% endif %}。{% ifversion fpt or ghec %} |                                                                                                                                                                  |
+| `codespaces_trusted_repo_access_granted`                                                                                                                 | リポジトリに作成する Codespaces で、自分のユーザーアカウントが所有している他のリポジトリにアクセスするのを許可するとトリガーされます (/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces. |
+| `codespaces_trusted_repo_access_revoked`                                                                                                                 | リポジトリに作成する Codespaces で、自分のユーザーアカウントが所有している他のリポジトリにアクセスするのを禁止するとトリガーされます (/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces. |{% endif %}
+| `create`                                                                                                                                                 | 新しいユーザアカウントを作成するとトリガーされます。{% ifversion not ghae %}
+| `change_password`                                                                                                                                        | 自分のパスワードを変更するときにトリガーされます。                                                                                                                                        |
+| `forgot_password`                                                                                                                                        | [パスワード のリセット](/articles/how-can-i-reset-my-password)を要求したときにトリガーされます。{% endif %}
+| `hide_private_contributions_count`                                                                                                                       | [自分のプロファイルでプライベート コントリビューションを非表示にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)ときにトリガーされます。                                     |
+| `login`                                                                                                                                                  | Triggered when you log in to {% data variables.product.product_location %}.{% ifversion ghes or ghae %}
 
 
-`mandatory_message_viewed`   | 必須メッセージを表示するとトリガーされます (詳細は「[ユーザーメッセージのカスタマイズ](/admin/user-management/customizing-user-messages-for-your-enterprise)」を参照してください) | |{% endif %}| | `failed_login` | 正常にログインできなかったときにトリガーされます。 | `remove_email` | メール アドレスを削除するとトリガーされます。 | `rename` | Triggered when you rename your account.{% ifversion fpt %} | `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %} | `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% ifversion not ghae %} | `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
+`mandatory_message_viewed`   | 必須メッセージを表示するとトリガーされます (詳細は「[ユーザーメッセージのカスタマイズ](/admin/user-management/customizing-user-messages-for-your-enterprise)」を参照してください) | |{% endif %}| | `failed_login` | 正常にログインできなかったときにトリガーされます。 | `remove_email` | メール アドレスを削除するとトリガーされます。 | `rename` | Triggered when you rename your account.{% ifversion fpt or ghec %} | `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %} | `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% ifversion not ghae %} | `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
 
 ### `user_status` カテゴリアクション
 

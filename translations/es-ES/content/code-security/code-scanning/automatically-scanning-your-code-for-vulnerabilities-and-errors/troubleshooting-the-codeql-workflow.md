@@ -10,8 +10,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -47,7 +48,7 @@ Si una compilación automática de código para un lenguaje compilado dentro de 
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
       permissions:
         security-events: write
         actions: read{% endif %}
@@ -77,12 +78,12 @@ Si tu flujo de trabajo falla con un error de `No source code was seen during the
   strategy:
     fail-fast: false
     matrix:
-      # Override automatic language detection by changing the list below
-      # Supported options are:
-      # ['csharp', 'cpp', 'go', 'java', 'javascript', 'python']
+      # Override automatic language detection by changing the list below.
+      # Supported options are listed in a comment in the default workflow.
       language: ['go', 'javascript']
   ```
-Para obtener más información, consulta el extracto de flujo de trabajo en la sección "[Compilación automática para los fallos de un lenguaje compilado](#automatic-build-for-a-compiled-language-fails)" que se trata anteriormente.
+
+   Para obtener más información, consulta el extracto de flujo de trabajo en la sección "[Compilación automática para los fallos de un lenguaje compilado](#automatic-build-for-a-compiled-language-fails)" que se trata anteriormente.
 1. Tu flujo de trabajo de {% data variables.product.prodname_code_scanning %} está analizando un lenguaje compilado (C, C++, C#, o Java), pero el código no se compiló. Predeterminadamente, el flujo de trabajo de análisis de {% data variables.product.prodname_codeql %} contiene un paso de `autobuild`, sin embargo, este paso representa un proceso de mejor esfuerzo y podría no tener éxito en compilar tu código, dependiendo de tu ambiente de compilación específico. También podría fallar la compilación si eliminaste el paso de `autobuild` y no incluiste manualmente los pasos de compilación.  Para obtener más información acerca de especificar los pasos de compilación, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 1. Tu flujo de trabajo está analizando un lenguaje compilado (C, C++, C#, or Java), pero algunas porciones de tu compilación se almacenan en caché para mejorar el rendimiento (esto muy probablemente ocurra con los sistemas de compilación como Gradle o Bazel). Ya que {% data variables.product.prodname_codeql %} observa la actividad del compilador para entender los flujos de datos en un repositorio, {% data variables.product.prodname_codeql %} requiere que suceda una compilación completa para poder llevar a cabo este análisis.
 1. Tu flujo de trabajo está analizando un lenguaje compilado (C, C++, C#, or Java), pero no ocurre ninguna compilación entre los pasos de `init` y `analyze` en el flujo de trabajo. {% data variables.product.prodname_codeql %} requiere que tu compilación tome lugar entre estos dos pasos para poder observar la actividad del compilador y llevar a cabo el análisis.
@@ -105,7 +106,7 @@ Para obtener más información, consulta el extracto de flujo de trabajo en la s
 
 Para obtener más información acerca de especificar los pasos de compilación, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-{% ifversion fpt or ghes > 3.1  or ghae-next %}
+{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %}
 ## Las líneas de código escaneado son menores de lo esperado
 
 Para los lenguajes compilados como C/C++, C#, Go y Java, {% data variables.product.prodname_codeql %} solo escanea los archivos que se compilen durante el análisis. Por lo tanto, la cantidad de líneas de código escaneado será menor de lo esperado si parte del código fuente no se compila correctamente. Esto puede suceder por varias razones:
@@ -170,7 +171,7 @@ Si divides tu análisis en varios flujos de trabajo como se describió anteriorm
 
 Si tu análisis aún es muy lento como para ejecutarse durante eventos de `push` o de `pull_request`, entonces tal vez quieras activar el análisis únicamente en el evento de `schedule`. Para obtener más información, consulta la sección "[Eventos](/actions/learn-github-actions/introduction-to-github-actions#events)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Los resultados difieren de acuerdo con la plataforma de análisis
 
 Si estás analizando código escrito en Python, podrías ver resultados diferentes dependiendo de si ejecutas el {% data variables.product.prodname_codeql_workflow %} en Linux, macOS o Windows.
@@ -185,11 +186,11 @@ Si la ejecución de un flujo de trabajo para {% data variables.product.prodname_
 
 ## Error: "Out of disk" o "Out of memory"
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the hosted {% data variables.product.prodname_actions %} runner.
-{% ifversion fpt %}Si te encuentras con este problema en un ejecutor de {% data variables.product.prodname_actions %}, contacta a {% data variables.contact.contact_support %} para que podamos investigar el problema.
+On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
+{% ifversion fpt or ghec %}Si te encuentras con este problema en un ejecutor de {% data variables.product.prodname_actions %}, contacta a {% data variables.contact.contact_support %} para que podamos investigar el problema.
 {% else %}Si llegas a tener este problema, intenta incrementar la memoria en el ejecutor.{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Error:403 "No se puede acceder al recurso por integración" al utilizar {% data variables.product.prodname_dependabot %}
 
 El {% data variables.product.prodname_dependabot %} se considera no confiable cuando activa una ejecución de flujo de trabajo y este se ejecutará con un alcance de solo lectura. El cargar resultados del {% data variables.product.prodname_code_scanning %} en una rama a menudo requiere del alcance `security_events: write`. Sin embargo, el {% data variables.product.prodname_code_scanning %} siempre permite que se carguen los resultados cuando el evento `pull_request` activa la ejecución de la acción. Es por esto que, para las ramas del {% data variables.product.prodname_dependabot %}, te recomendamos utilizar el evento `pull_request` en vez del evento `push`.

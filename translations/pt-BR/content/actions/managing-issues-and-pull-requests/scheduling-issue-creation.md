@@ -1,13 +1,13 @@
 ---
 title: Agendar a criação de problemas
 intro: 'Você pode usar {% data variables.product.prodname_actions %} para criar um problema regularmente para coisas como reuniões diárias ou revisões trimestrais.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/scheduling-issue-creation
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -16,6 +16,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -40,7 +41,7 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
         permissions:
           issues: write{% endif %}
         steps:

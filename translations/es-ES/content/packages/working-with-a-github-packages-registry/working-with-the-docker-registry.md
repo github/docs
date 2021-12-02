@@ -1,6 +1,6 @@
 ---
 title: Trabajar con el registro de Docker
-intro: '{% ifversion fpt %}El registro de Docker ahora se reemplazó con el {% data variables.product.prodname_container_registry %}.{% else %}Puedes subir y extraer tus imágenes de Docker utilizando el registro de Docker del {% data variables.product.prodname_registry %}, el cual utiliza el designador de nombre `https://docker.pkg.github.com`.{% endif %}'
+intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.{% endif %}'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
@@ -13,11 +13,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Registro de Docker
 ---
 
 <!-- Main versioning block. Short page for dotcom -->
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 El registro de Docker de {% data variables.product.prodname_dotcom %} (el cual utilizó el designador de nombre `docker.pkg.github.com`) se reemplazó con el {% data variables.product.prodname_container_registry %} (el cual utiliza el designador de nombre `https://ghcr.io`). El {% data variables.product.prodname_container_registry %} ofrece beneficios tales como permisos granulares y optimización de almacenamiento para las imágenes de Docker.
 
@@ -35,12 +36,6 @@ Las imágenes de Docker que se almacenaron previamente en el registro de Docker 
 
 Cuando instalas o publicas una imagen de Docker, el registro de Docker no es compatible actualmente con capas ajenas, tales como imágenes de Windows.
 
-{% ifversion ghes = 2.22 %}
-
-Antes de que puedas utilizar el registro de Docker en el {% data variables.product.prodname_registry %}, el administrador de sitio de {% data variables.product.product_location %} debe habilitar la compatibilidad de Docker y el aislamiento de subdominios para tu instancia. Para obtener más informacón, consulta la sección "[Administrar GitHub Packages para tu empresa](/enterprise/admin/packages)".
-
-{% endif %}
-
 ## Autenticarte en {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
@@ -55,7 +50,7 @@ Puedes autenticar a {% data variables.product.prodname_registry %} con Docker us
 
 Para mantener tus credenciales seguras, te recomendamos que guardes tu token de acceso personal en un archivo local de tu computadora y utilices el marcador `--password-stdin` de Docker, el cual lee tu token desde un archivo local.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% raw %}
   ```shell
   $ cat <em>~/TOKEN.txt</em> | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
@@ -64,7 +59,7 @@ Para mantener tus credenciales seguras, te recomendamos que guardes tu token de 
 {% endif %}
 
 {% ifversion ghes or ghae %}
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 {% endif %}
 {% raw %}
@@ -81,7 +76,7 @@ $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 {% endraw %}
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
 
 {% raw %}
@@ -93,7 +88,7 @@ Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo r
 
 {% endif %}
 
-Para utilizar este ejemplo de comando de ingreso, reemplaza `USERNAME` con tu nombre de usuario de {% data variables.product.product_name %}{% ifversion ghes or ghae %}, `HOSTNAME` con la URL de {% data variables.product.product_location %},{% endif %} y `~/TOKEN.txt` con la ruta de archivo de tu token de acceso personal para {% data variables.product.product_name %}.
+To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
 Para obtener más información, consulta la sección "[Inicio de sesión de Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
@@ -119,12 +114,12 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
 2. Utilizando la ID de la imagen de Docker, etiqueta a la imagen de docker, reemplazando *OWNER* con el nombre de la cuenta de usuario u organización a la que pertenece el repositorio, *REPOSITORY* con el nombre del repositorio que contiene tu proyecto, *IMAGE_NAME* con el nombre del paquete o imagen, {% ifversion ghes or ghae %} *HOSTNAME* con el nombre de host de {% data variables.product.product_location %}{% endif %} y *VERSION* con la versión del paquete y hora de compilción.
-  {% ifversion fpt %}
+  {% ifversion fpt or ghec %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
   {% endif %}
   ```shell
@@ -132,7 +127,7 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
   ```
 .
 </code>
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
   ```shell
   $ docker tag <em>IMAGE_ID</em> <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -140,18 +135,18 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
   {% endif %}
   {% endif %}
 3. Si aún no creas una imagen de docker para el paquete, crea la imagen, reemplazando *OWNER* con el nombre de la cuenta de organización o usuario a la que pertenece el repositorio, *REPOSITORY* con el nombre del repositorio que contiene tu proyecto, *IMAGE_NAME* con el nombre del paquete o imagen, *VERSION* con la versión de paquete al momento de la compilación,{% ifversion ghes or ghae %}*HOSTNAME* con el nombre de host de {% data variables.product.product_location %},{% endif %} y *PATH* a la imagen en caso de que no esté en el directorio de trabajo actual.
-  {% ifversion fpt %}
+  {% ifversion fpt or ghec %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% else %}
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
   {% endif %}
   ```shell
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
   ```shell
   $ docker build -t <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
@@ -159,18 +154,18 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
   {% endif %}
   {% endif %}
 4. Publicar la imagen para {% data variables.product.prodname_registry %}.
-  {% ifversion fpt %}
+  {% ifversion fpt or ghec %}
   ```shell
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
   {% endif %}
   ```shell
   $ docker push docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
   ```shell
   $ docker push <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -185,13 +180,13 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
 
 ### Ejemplo de publicación de una imagen Docker
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 Estos ejemplos asumen que tu instancia tiene habilitado el aislamiento de subdominios.
 {% endif %}
 
 Puedes publicar la versión 1.0 de la imagen `monalisa` en el repositorio `octocat/octo-app` usando una ID de imagen.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ```shell
 $ docker images
 
@@ -224,7 +219,7 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 Puedes publicar una nueva imagen de Docker por primera vez y nombrarla `monalisa`.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ```shell
 # Construye la imagen con docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
 # Asume que Dockerfile reside en el directorio de trabajo actual (.)
@@ -252,19 +247,19 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 Puedes utilizar el comando `docker pull` para instalar una imagen de docker desde el {% data variables.product.prodname_registry %}, reemplazando *OWNER* con el nombre de la cuenta de usuario u organización a la que pertenece el repositorio, *REPOSITORY* con el nombre de repositorio que contiene tu proyecto, *IMAGE_NAME* con el nombre del paquete o imagen,{% ifversion ghes or ghae %} *HOSTNAME* con el nombre del host de {% data variables.product.product_location %}, {% endif %} y *TAG_NAME* con la etiqueta de la imagen que quieres instalar.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ```shell
 $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% else %}
 <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 {% endif %}
 ```shell
 $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
 ```shell
 $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
@@ -280,6 +275,6 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 ## Leer más
 
-- "{% ifversion fpt or ghes > 3.0 %}[Borrar y restaurar un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
 
 {% endif %}  <!-- End of main versioning block -->

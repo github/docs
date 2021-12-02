@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 拆分子文件夹
 ---
 
@@ -48,7 +49,7 @@ shortTitle: 拆分子文件夹
   The repository should now only contain the files that were in your subfolder(s).
 
 6. 在 {% data variables.product.product_name %} 上[创建新仓库](/articles/creating-a-new-repository/)。
-7. 在新 {% data variables.product.product_name %} 仓库 Quick Setup（快速设置）页面的顶部，单击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 可复制远程仓库 URL。 ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
   {% tip %}
 

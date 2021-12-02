@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -20,7 +21,7 @@ Os quadros de projeto são compostos por problemas, pull requests e observaçõe
 
 Os cartões do quadro de projeto contêm metadados relevantes para problemas e pull requests, como etiquetas, responsáveis, o status e quem os abriu. {% data reusables.project-management.edit-in-project %}
 
-Você pode criar observações dentro de colunas para servirem de lembretes de tarefa, fazer referência a problemas e pull requests de qualquer repositório no {% data variables.product.product_name %} ou adicionar informações relacionadas ao quadro de projeto. É possível criar um cartão de referência para outro quadro de projeto adicionando um link a uma observação. Se a observação não for suficiente para suas necessidades, você poderá convertê-la em um problema. Para obter mais informações sobre como converter observações de quadro de projeto em problemas, consulte "[Adicionar observações a um quadro de projeto](/articles/adding-notes-to-a-project-board)".
+Você pode criar observações dentro de colunas para servirem de lembretes de tarefa, fazer referência a problemas e pull requests de qualquer repositório no {% data variables.product.product_location %} ou adicionar informações relacionadas ao quadro de projeto. É possível criar um cartão de referência para outro quadro de projeto adicionando um link a uma observação. Se a observação não for suficiente para suas necessidades, você poderá convertê-la em um problema. Para obter mais informações sobre como converter observações de quadro de projeto em problemas, consulte "[Adicionar observações a um quadro de projeto](/articles/adding-notes-to-a-project-board)".
 
 Tipos de quadros de projeto:
 
@@ -66,7 +67,7 @@ Para obter mais informações sobre automação para quadros de projeto, consult
 ## Leia mais
 
 - "[Criar um quadro de projeto](/articles/creating-a-project-board)"
-- "[Editar um quadro de projeto](/articles/editing-a-project-board)"{% ifversion fpt %}
+- "[Editar um quadro de projeto](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copiar um quadro de projeto](/articles/copying-a-project-board)"{% endif %}
 - "[Adicionar problemas e pull requests a um quadro de projeto](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)"

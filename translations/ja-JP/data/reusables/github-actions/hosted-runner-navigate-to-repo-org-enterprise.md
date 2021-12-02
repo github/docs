@@ -12,4 +12,4 @@
    * **Enterpriseレベルのランナーを使っている場合**: "{% octicon "law" aria-label="The law icon" %} Policies（{% octicon "law" aria-label="The law icon" %}ポリシー）"の下で、**Actions**をクリックしてください。
 
      ![アクションの設定](/assets/images/help/settings/actions-enterprise-policies.png)
-  
+

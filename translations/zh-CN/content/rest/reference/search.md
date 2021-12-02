@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -50,7 +51,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-有关可用限定符及其格式的完整列表和使用示例，请参阅“[在 GitHub 上搜索](/articles/searching-on-github/)”。 For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
+有关可用限定符及其格式的完整列表和使用示例，请参阅“[在 GitHub 上搜索](/articles/searching-on-github/)”。 有关如何使用运算符匹配特定数量、日期或排除结果，请参阅“[了解搜索语法](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)”。
 
 ### 查询长度限制
 

@@ -1,9 +1,10 @@
 ---
 title: 包
-intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
+intro: '通过 {% data variables.product.prodname_registry %} API，您可以管理 {% data variables.product.prodname_dotcom %} 仓库和组织的软件包。'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

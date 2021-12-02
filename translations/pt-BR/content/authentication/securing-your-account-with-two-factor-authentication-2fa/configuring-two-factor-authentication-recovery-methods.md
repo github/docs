@@ -13,6 +13,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Configurar recuperação de 2FA
@@ -51,7 +52,7 @@ Depois que você usa um código de recuperação para voltar a ter acesso à sua
 
 Você pode configurar uma chave de segurança como um método secundário da autenticação de dois fatores e usá-la para voltar a ter acesso à sua conta. Para obter mais informações, consulte "[Configurar autenticação de dois fatores](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Configurar um número de autenticação de fallback
 

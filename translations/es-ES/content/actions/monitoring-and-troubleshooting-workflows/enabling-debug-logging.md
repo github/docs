@@ -1,22 +1,23 @@
 ---
 title: Habilitar registro de depuración
 intro: 'Si los registros de flujo de trabajo no proporcionan suficiente detalle para diagnosticar por qué un flujo de trabajo o paso no funciona como se espera, puedes habilitar más registros de depuración.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/enabling-debug-logging
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Estas bitácoras extra se habilitan configurando los secretos en el repositorio que contiene el flujo de trabajo, así que aplicarán los mismos requisitos de los permisos:
 
 - {% data reusables.github-actions.permissions-statement-secrets-repository %}
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - {% data reusables.github-actions.permissions-statement-secrets-environment %}
 {% endif %}
 - {% data reusables.github-actions.permissions-statement-secrets-organization %}

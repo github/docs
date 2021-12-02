@@ -7,6 +7,7 @@ redirect_from:
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories

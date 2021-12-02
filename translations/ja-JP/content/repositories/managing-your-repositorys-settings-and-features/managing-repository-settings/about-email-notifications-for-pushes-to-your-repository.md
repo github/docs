@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Email notifications for pushes
@@ -30,7 +31,7 @@ shortTitle: Email notifications for pushes
 - コミットの一部として変更されたファイル群
 - コミットメッセージ
 
-リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 詳細は、{% ifversion fpt or ghae or ghes %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」を参照してください。 プッシュのメール通知を無効にすることもできます。 詳しい情報については、「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}」を参照してください。
+リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 詳細は、{% ifversion fpt or ghae or ghes or ghec %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」を参照してください。 プッシュのメール通知を無効にすることもできます。 詳しい情報については、「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}」を参照してください。
 
 ## リポジトリへのプッシュに対するメール通知の有効化
 
@@ -42,7 +43,7 @@ shortTitle: Email notifications for pushes
 7. [**Setup notifications**] をクリックします。 ![設定通知ボタン](/assets/images/help/settings/setup_notifications_settings.png)
 
 ## 参考リンク
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 - 「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」
 {% else %}
 - 「[通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)」

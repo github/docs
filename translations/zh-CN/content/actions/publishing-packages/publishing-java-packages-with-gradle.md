@@ -1,7 +1,6 @@
 ---
 title: 使用 Gradle 发布 Java 包
 intro: 您可以使用 Gradle 将 Java 包发布到注册表，作为持续集成 (CI) 工作流程的一部分。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-gradle
   - /actions/guides/publishing-java-packages-with-gradle
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Packaging
@@ -20,6 +20,7 @@ shortTitle: 带有 Gradle 的 Java 包
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -141,7 +142,7 @@ publishing {
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by running the `gradle publish` command.
+使用此配置可创建一个工作流程，以通过运行 `gradle publish` 命令将包发布到 {% data variables.product.prodname_registry %}。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -152,7 +153,7 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -171,7 +172,7 @@ jobs:
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. 运行 `gradle published` 命令以发布到 {% data variables.product.prodname_registry %}。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae-next %} `permissions` 键指定 `GITHUB_TOKEN` 密钥允许的访问权限。{% endif %}
+1. 运行 `gradle published` 命令以发布到 {% data variables.product.prodname_registry %}。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
@@ -183,7 +184,7 @@ jobs:
 
 例如，如果您通过 OSSRH 托管项目部署到 Maven 中心仓库，您可能想要在分发管理仓库中指定它，并将 `name` 设置为 `OSSRH`。 如果您部署到 {% data variables.product.prodname_registry %}，您可能想要在分发管理仓库中指定它，并将 `name` 设置为 `GitHubPackages`。
 
-If your organization is named "octocat" and your repository is named "hello-world", then the configuration in _build.gradle_ would look similar to the below example.
+如果组织名为“octocat”且仓库名为“hello-world”，则 _build.gradle_ 中的配置看起来类似于以下示例。
 
 {% raw %}
 ```groovy{:copy}
@@ -228,7 +229,7 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -250,6 +251,6 @@ jobs:
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. 运行 `gradle published` 命令以发布到 `OSSRH` Maven 仓库和 {% data variables.product.prodname_registry %}。 `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae-next %} `permissions` 键指定 `GITHUB_TOKEN` 密钥允许的访问权限。{% endif %}
+1. 运行 `gradle published` 命令以发布到 `OSSRH` Maven 仓库和 {% data variables.product.prodname_registry %}。 `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。

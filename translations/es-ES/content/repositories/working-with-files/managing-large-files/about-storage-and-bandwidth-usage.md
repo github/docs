@@ -9,6 +9,7 @@ redirect_from:
   - /github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Almacenamiento & ancho de banda
 ---
 
@@ -23,7 +24,7 @@ Por ejemplo:
 - Si descargas un archivo de 500 MB que es seguido con LFS, usarás 500 MB del ancho de banda asignado del propietario del repositorio. Si un colaborador sube un cambio al archivo y extraes la versión nueva a tu repositorio local, usarás otros 500 MB de ancho de banda, llevando el uso total por esas dos descargas a 1 GB de ancho de banda.
 - Si {% data variables.product.prodname_actions %} descarga un archivo de 500 MB que se rastree con LFS, este utilizará 500 MB del ancho de banda asignado al repositorio del propietario.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Si los objetos de {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) se incluyen en los archivos de código fuente para tu repositorio, las descargas de estos archivos contarán en el uso de ancho de banda para el repositorio. Para obtener más información, consulta la sección "[Administrar los objetos de {% data variables.large_files.product_name_short %} en los archivos de tu repositorio](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)".
 {% endif %}
 

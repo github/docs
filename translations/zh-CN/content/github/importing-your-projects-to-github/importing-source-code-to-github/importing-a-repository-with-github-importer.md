@@ -7,6 +7,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 使用 GitHub 导入工具
 ---
 
@@ -17,8 +18,6 @@ shortTitle: 使用 GitHub 导入工具
 {% endtip %}
 
 如果在导入时要将仓库中的提交匹配到作者的 GitHub 用户帐户，请确保在开始导入之前，仓库的每个贡献者都有 GitHub 帐户。
-
-{% data reusables.repositories.migrating-from-codeplex %}
 
 {% data reusables.repositories.repo-size-limit %}
 

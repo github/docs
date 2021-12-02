@@ -10,11 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Publicar & instalar com ações
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.actions.ae-beta %}
 
 ## Sobre {% data variables.product.prodname_registry %} com {% data variables.product.prodname_actions %}
 
@@ -22,7 +24,7 @@ shortTitle: Publicar & instalar com ações
 
 Você pode estender os recursos de CI e CD do seu repositório publicando ou instalando pacotes como parte do seu fluxo de trabalho.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Efetuar a autenticação no {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
@@ -31,7 +33,7 @@ Você pode estender os recursos de CI e CD do seu repositório publicando ou ins
 
 ### Efetuar a autenticação nos registros do pacote em {% data variables.product.prodname_dotcom %}
 
-{% ifversion fpt %}Se você quiser que o seu fluxo de trabalho seja autenticado em {% data variables.product.prodname_registry %} para acessar o registro de um pacote diferente de {% data variables.product.prodname_container_registry %} em {% data variables.product.product_name %}, {% else %}Para efetuar a autenticação em registros de pacote em {% data variables.product.product_name %},{% endif %}, recomendamos o uso de `GITHUB_TOKEN` que {% data variables.product.product_name %} cria automaticamente para o seu repositório quando você habilita {% data variables.product.prodname_actions %} em vez de um token de acesso pessoal para autenticação. {% ifversion fpt or ghes > 3.1 or ghae-next %}Você deverá definir as permissões para este token de acesso no arquivo do fluxo de trabalho para conceder acesso de leitura para o `conteúdo` escopo e acesso de gravação para o escopo `pacotes`. {% else %}tem permissões de leitura e gravação para pacotes no repositório em que o fluxo de trabalho é executado. {% endif %}Para bifurcações, o `GITHUB_TOKEN` recebe acesso de leitura para o repositório principal. Para obter mais informações, consulte "[Autenticação com o GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
+{% ifversion fpt or ghec %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_location %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. {% else %}tem permissões de leitura e gravação para pacotes no repositório em que o fluxo de trabalho é executado. {% endif %}Para bifurcações, o `GITHUB_TOKEN` recebe acesso de leitura para o repositório principal. Para obter mais informações, consulte "[Autenticação com o GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
 Você pode fazer referência ao `GITHUB_TOKEN` no seu arquivo de fluxo de trabalho usando o contexto {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %}. Para obter mais informações, consulte "[Permissões para o GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)".
 
@@ -39,7 +41,7 @@ Você pode fazer referência ao `GITHUB_TOKEN` no seu arquivo de fluxo de trabal
 
 {% note %}
 
-**Observação:** Os pacotes que possuem repositórios incluem RubyGems, npm, Apache Maven, NuGet, {% ifversion fpt %}e Gradle. {% else %}Os pacotes do Gradle e Docker que usam o pacote namespace `docker.pkg.github.com`.{% endif %}
+**Note:** Repository-owned packages include RubyGems, npm, Apache Maven, NuGet, {% ifversion fpt or ghec %}and Gradle. {% else %}Os pacotes do Gradle e Docker que usam o pacote namespace `docker.pkg.github.com`.{% endif %}
 
 {% endnote %}
 
@@ -47,7 +49,7 @@ Quando você habilita o GitHub Actions, o GitHub instala um aplicativo GitHub no
 
 {% data variables.product.prodname_registry %} permite que você faça push e pull de pacotes por meio do `GITHUB_TOKEN` disponível para um fluxo de trabalho de {% data variables.product.prodname_actions %}.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Sobre permissões e acesso de pacote para {% data variables.product.prodname_container_registry %}
 
 O {% data variables.product.prodname_container_registry %} (`ghcr.io`) permite aos usuários criar e administrar contêineres como recursos independentes no nível da organização. Os contêineres podem pertencer a uma conta de usuário ou organização e você pode personalizar o acesso a cada um dos seus contêineres separadamente das permissões de repositório.
@@ -80,11 +82,11 @@ Você pode usar {% data variables.product.prodname_actions %} para publicar auto
 
 {% data reusables.package_registry.actions-configuration %}
 
-O exemplo a seguir demonstra como você pode usar {% data variables.product.prodname_actions %} para criar {% ifversion not fpt %}e testar {% endif %} seu aplicativo e, em seguida, criar automaticamente uma imagem Docker e publicá-la em {% data variables.product.prodname_registry %}.
+The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build {% ifversion not fpt or ghec %}and test{% endif %} your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}.
 
 Crie um novo arquivo de fluxo de trabalho no repositório (como `.github/workflows/deploy-image.yml`) e adicione o YAML a seguir:
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.package_registry.publish-docker-image %}
 
 {% else %}
@@ -177,7 +179,7 @@ on:
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 <tr>
 <td>
@@ -287,7 +289,7 @@ build-and-push-image:
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -304,7 +306,7 @@ permissions:
 </tr> 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -399,7 +401,7 @@ with:
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -427,7 +429,7 @@ push: true
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -478,11 +480,11 @@ Alguns minutos após a conclusão do fluxo de trabalho, o novo pacote ficará vi
 
 Você pode instalar pacotes como parte de seu fluxo de CI usando o {% data variables.product.prodname_actions %}. Por exemplo, você poderia configurar um fluxo de trabalho para que sempre que um desenvolvedor fizesse push do código para um pull request, o fluxo de trabalho resolveria as dependências, fazendo o download e instalando pacotes hospedados pelo {% data variables.product.prodname_registry %}. Em seguida, o fluxo de trabalho pode executar testes de CI que exigem as dependências.
 
-A instalação de pacotes hospedados pelo {% data variables.product.prodname_registry %} através {% data variables.product.prodname_actions %} exige uma configuração mínima ou uma autenticação adicional quando você usa o `GITHUB_TOKEN`.{% ifversion fpt %} A transferência de dados também é gratuita quando uma ação instala um pacote. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)".{% endif %}
+Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% ifversion fpt or ghec %} Data transfer is also free when an action installs a package. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)".{% endif %}
 
 {% data reusables.package_registry.actions-configuration %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Atualizando um fluxo de trabalho que acessa `ghcr.io`
 
 O {% data variables.product.prodname_container_registry %} é compatível com `GITHUB_TOKEN` para autenticação fácil e segura nos seus fluxos de trabalho. Se seu fluxo de trabalho estiver usando um token de acesso pessoal (PAT) para efetuar a autenticação com `ghcr.io`, é altamente recomendável atualizar o seu fluxo de trabalho para usar o `GITHUB_TOKEN`.
@@ -528,7 +530,7 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

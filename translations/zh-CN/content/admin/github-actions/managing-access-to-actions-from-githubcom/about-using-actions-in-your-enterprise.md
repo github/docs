@@ -18,6 +18,7 @@ shortTitle: 在企业中添加操作
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data variables.product.prodname_actions %} 工作流程可使用_操作_，它们是一些单独的任务，您可以组合这些操作以创建作业并自定义工作流程。 您可以创建自己的操作，或者使用和自定义 {% data variables.product.prodname_dotcom %} 社区分享的操作。
 

@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - GitLab
@@ -18,6 +19,7 @@ shortTitle: 从 GitLab CI/CD 迁移
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -132,7 +134,7 @@ linux_job:
 
 ## Docker 映像
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都支持在 Docker 映像中运行作业。 In GitLab CI/CD, Docker images are defined with an `image` key, while in {% data variables.product.prodname_actions %} it is done with the `container` key.
+GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都支持在 Docker 映像中运行作业。 在 GitLab CI/CD 中，Docker 映像使用 `image` 键定义，而在 {% data variables.product.prodname_actions %} 中，它使用 `container` 键定义。
 
 下面是每个系统的语法示例：
 
@@ -358,7 +360,7 @@ jobs:
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom %} 托管的运行器。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 ## 构件
 

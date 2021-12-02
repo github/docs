@@ -7,8 +7,12 @@ redirect_from:
   - /admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Instalar en GCP
 ---
 
@@ -94,5 +98,5 @@ Para crear la instancia {% data variables.product.prodname_ghe_server %}, deberÃ
 
 ## Leer mÃ¡s
 
-- "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

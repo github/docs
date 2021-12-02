@@ -7,6 +7,7 @@ product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -76,7 +77,7 @@ Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponív
 
 ## Leia mais
 
-- "[Configurar o logon único SAML para a sua conta corporativa usando o Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta)"
+- "[Configurar o logon único SAML para a sua conta corporativa usando o Okta](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)"
 - "[Gerenciar a sincronização de equipe para sua organização](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - [Compreender o SAML](https://developer.okta.com/docs/concepts/saml/) na documentação do Okta
 - [Entender o SCIM](https://developer.okta.com/docs/concepts/scim/) na documentação do Okta

@@ -1,25 +1,26 @@
 ---
 title: 添加工作流程状态徽章
 intro: 您可以在您的仓库中显示状态徽章，以指示您的工作流程状态。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/adding-a-workflow-status-badge
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 添加状态徽章
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
 您使用工作流程文件的名称来引用工作流程。
 
 ```markdown
-![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
+![example workflow]({% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
 ```
 ## 使用工作流程文件名称
 

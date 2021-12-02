@@ -11,15 +11,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
 ## READMEについて
 
-README ファイルをリポジトリに追加して、プロジェクトに関する重要な情報を伝えることができます。 A README, along with a repository license{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 %}, citation file{% endif %}{% ifversion fpt %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+README ファイルをリポジトリに追加して、プロジェクトに関する重要な情報を伝えることができます。 A README, along with a repository license{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 or ghec %}, citation file{% endif %}{% ifversion fpt or ghec %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
 
-プロジェクトのガイドラインの提供方法の詳細については、{% ifversion fpt %}「[プロジェクトに行動規範を追加する](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)」および {% endif %}「[健全なコントリビューションのためのプロジェクトの設定](/communities/setting-up-your-project-for-healthy-contributions)」を参照してください。
+プロジェクトのガイドラインの提供方法の詳細については、{% ifversion fpt or ghec %}「[プロジェクトに行動規範を追加する](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)」および {% endif %}「[健全なコントリビューションのためのプロジェクトの設定](/communities/setting-up-your-project-for-healthy-contributions)」を参照してください。
 
 多くの場合、READMEはリポジトリへの訪問者が最初に目にするアイテムです。 通常、README ファイルには以下の情報が含まれています:
 - このプロジェクトが行うこと
@@ -32,7 +33,7 @@ README ファイルをリポジトリのルート、`docs`、または隠れデ�
 
 ![github/scientistリポジトリのメインページとそのREADMEファイル](/assets/images/help/repository/repo-with-readme.png)
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.profile.profile-readme %}
 
@@ -40,7 +41,7 @@ README ファイルをリポジトリのルート、`docs`、または隠れデ�
 
 ![ユーザ名/ユーザ名リポジトリの README ファイル](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae-next or ghes > 3.1 %}
+{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 
 ## Auto-generated table of contents for README files
 
@@ -63,6 +64,10 @@ The auto-generated table of contents is enabled by default for all Markdown file
 ## READMEファイル中の相対リンクと画像パス
 
 {% data reusables.repositories.relative-links %}
+
+## Wiki
+
+A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. 詳細は「[ウィキについて](/communities/documenting-your-project-with-wikis/about-wikis)」を参照してください。
 
 ## 参考リンク
 

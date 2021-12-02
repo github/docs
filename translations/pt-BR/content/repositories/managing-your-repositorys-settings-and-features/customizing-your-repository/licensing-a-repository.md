@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -20,7 +21,7 @@ Você não tem qualquer obrigação de escolher uma licença. Entretanto, sem um
 
 {% note %}
 
-**Observação:** Se você publicar seu código-fonte em um repositório público em {% data variables.product.product_name %}, {% ifversion fpt %}de acordo com os [Termos de Serviço](/articles/github-terms-of-service), {% endif %}outros usuários de {% data variables.product.product_location %} terão o direito de visualizar e bifurcar o seu repositório. Se você já criou um repositório e não quer mais que os usuários tenham acesso a ele, você pode torná-lo privado. Ao alterar a visibilidade de um repositório para privado, as bifurcações existentes ou cópias locais criadas por outros usuários continuarão existindo. Para obter mais informações, consulte "[Configurar visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)".
+**Observação:** Se você publicar seu código-fonte em um repositório público em {% data variables.product.product_name %}, {% ifversion fpt or ghec %}de acordo com os [Termos de Serviço](/free-pro-team@latest/github/site-policy/github-terms-of-service), {% endif %}outros usuários de {% data variables.product.product_location %} terão o direito de visualizar e bifurcar o seu repositório. Se você já criou um repositório e não quer mais que os usuários tenham acesso a ele, você pode torná-lo privado. Ao alterar a visibilidade de um repositório para privado, as bifurcações existentes ou cópias locais criadas por outros usuários continuarão existindo. Para obter mais informações, consulte "[Configurar visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)".
 
 {% endnote %}
 
@@ -89,9 +90,9 @@ O selecionador de licenças somente está disponível quando você cria um novo 
 
 ## Isenção de responsabilidade
 
-O objetivo das iniciativas de licenciamento de código aberto do GitHub é oferecer um ponto de partida para ajudar você a tomar uma decisão fundamentada. O GitHub apresenta informações sobre licenças para ajudar os usuários a conseguir informações sobre licenças de código aberto e sobre os projetos que as usam. Esperamos que seja útil, mas esteja ciente de que não somos advogados e que cometemos erros como qualquer pessoa. Por esse motivo, o GitHub fornece as informações com base "na condição em que se encontram" e não oferece nenhuma garantia com relação a qualquer informação ou licenças fornecidas nele ou por intermédio dele, e não se responsabiliza por danos decorrentes do uso das informações de licenças. Se você tiver quaisquer dúvidas com relação à licença ideal para seu código ou quaisquer outras questões legais relacionadas a ele, sempre é melhor consultar um profissional.
+O objetivo das iniciativas de licenciamento de código aberto do GitHub é oferecer um ponto de partida para ajudar você a tomar uma decisão fundamentada. O GitHub apresenta informações sobre licenças para ajudar os usuários a conseguir informações sobre licenças de código aberto e sobre os projetos que as usam. Esperamos que seja útil, mas esteja ciente de que não somos advogados e que cometemos erros como qualquer pessoa. For that reason, GitHub provides the information on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the license information. Se você tiver quaisquer dúvidas com relação à licença ideal para seu código ou quaisquer outras questões legais relacionadas a ele, sempre é melhor consultar um profissional.
 
 ## Leia mais
 
-- Seção do Open Source Guide (Guia de código aberto) "[O aspecto legal do código aberto](https://opensource.guide/legal/)"{% ifversion fpt %}
+- Seção do Open Source Guide (Guia de código aberto) "[O aspecto legal do código aberto](https://opensource.guide/legal/)"{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

@@ -1,7 +1,6 @@
 ---
 title: 継続的インテグレーションについて
 intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-continuous-integration
   - /github/automating-your-workflow-with-github-actions/about-continuous-integration
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - CI
@@ -20,6 +20,7 @@ shortTitle: 継続的インテグレーション
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 継続的インテグレーションについて
 
@@ -35,7 +36,7 @@ shortTitle: 継続的インテグレーション
 {% else %}{% data variables.product.prodname_actions %} を利用した CI では、リポジトリ中のコードをビルドしてテストを実行できるワークフローが利用できます。 ワークフローは、{% data variables.product.prodname_dotcom %} でホストされている仮想マシン、または自分がホストしているマシンで実行できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」および「[セルフホストランナーについて](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)」を参照してください。
 {% endif %}
 
-CI ワークフローは、{% data variables.product.product_name %} イベントが発生したとき（たとえば、新しいコードがリポジトリにプッシュされたとき）や、設定されたスケジュール、またはリポジトリディスパッチ webhook を使用して外部イベントが発生したときに実行するように設定できます。
+CIワークフローは、{% data variables.product.prodname_dotcom %}イベントが発生する (たとえば、新しいコードがリポジトリにプッシュされ) とき、または設定したスケジュールに応じて、あるいはリポジトリディスパッチwebhookを使用して外部イベントが発生するときに実行されるように設定することができます。
 
 {% data variables.product.product_name %} は CI テストを実行して、プルリクエストで各テストの結果を提供するため、ブランチの変更によってエラーが発生したかどうかを確認できます。 ワークフローのテストがすべて成功すると、プッシュした変更をチームメンバーがレビューできるように、またはマージできるようになります。 テストが失敗した場合は、いずれかの変更がその原因になっている可能性があります。
 
@@ -51,10 +52,10 @@ CI ワークフローは、{% data variables.product.product_name %} イベン�
 
 {% data variables.product.product_name %} では、各種言語およびフレームワークに応じて CI ワークフローテンプレートが提供されます。
 
-{% data variables.product.product_location %} 上の {% ifversion fpt %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) リポジトリ{% else %} `actions/starter-workflows` リポジトリで {% data variables.product.product_name %} が提供する CI ワークフローテンプレートの完全なリストを参照します。{% endif %}
+{% data variables.product.product_location %} 上の {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) リポジトリ{% else %} `actions/starter-workflows` リポジトリで {% data variables.product.company_short %} が提供する CI ワークフローテンプレートの完全なリストを参照します。{% endif %}
 
 ## 参考リンク
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - 「[{% data variables.product.prodname_actions %} の支払いを管理する](/billing/managing-billing-for-github-actions)」
 {% endif %}

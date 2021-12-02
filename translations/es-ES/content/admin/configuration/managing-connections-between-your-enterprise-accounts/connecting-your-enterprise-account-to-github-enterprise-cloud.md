@@ -1,6 +1,6 @@
 ---
-title: Connecting your enterprise account to GitHub Enterprise Cloud
-shortTitle: Connect enterprise accounts
+title: Conectar tu cuenta empresarial con GitHub Enterprise Cloud
+shortTitle: Conectar cuentas empresariales
 intro: 'Después de que habilites {% data variables.product.prodname_github_connect %}, puedes compartir características y flujos de trabajo específicos entre {% data variables.product.product_location %} y {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-to-github-com/
@@ -32,14 +32,14 @@ Para habilitar {% data variables.product.prodname_github_connect %}, debes confi
 Para configurar una conexión, tu configuración proxy debe permitir la conectividad a `github.com` y `api.github.com`. Para obtener más información, consulta "[Configuring an outbound web proxy server](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-an-outbound-web-proxy-server)."
 {% endif %}
 
-Después de habilitar {% data variables.product.prodname_github_connect %}, podrás habilitar características, como búsqueda unificada y contribuciones unificadas. For more information about all of the features available, see "[Managing connections between your enterprise accounts](/admin/configuration/managing-connections-between-your-enterprise-accounts)."
+Después de habilitar {% data variables.product.prodname_github_connect %}, podrás habilitar características, como búsqueda unificada y contribuciones unificadas. Para obtener más información sobre todas las características disponibles, consulta la sección "[Administrar las conexiones entre tus cuentas empresariales](/admin/configuration/managing-connections-between-your-enterprise-accounts)".
 
 Cuando conectas {% data variables.product.product_location %} a {% data variables.product.prodname_ghe_cloud %}, un registro en {% data variables.product.prodname_dotcom_the_website %} almacena información sobre la conexión:
 {% ifversion ghes %}
 - La parte pública de la clave de tu licencia {% data variables.product.prodname_ghe_server %}
 - Un hash de tu licencia {% data variables.product.prodname_ghe_server %}
 - El nombre personalizado de tu licencia {% data variables.product.prodname_ghe_server %}
-- The version of {% data variables.product.product_location_enterprise %}{% endif %}
+- La versión de {% data variables.product.product_location_enterprise %}{% endif %}
 - The hostname of your {% data variables.product.product_name %} instance
 - La cuenta de empresa u organización en {% data variables.product.prodname_dotcom_the_website %} está conectada a {% data variables.product.product_location %}
 - El token de autenticación que usa {% data variables.product.product_location %} para hacerle solicitudes a {% data variables.product.prodname_dotcom_the_website %}

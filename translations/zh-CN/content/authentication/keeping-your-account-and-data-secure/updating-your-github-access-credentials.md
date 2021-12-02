@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,17 +21,17 @@ shortTitle: 更新访问凭据
 {% ifversion not ghae %}
 ## 请求新密码
 
-1. 要请求新密码，请访问 {% ifversion fpt %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}。
-2. 输入与您的个人 {% data variables.product.product_name %} 帐户关联的电子邮件地址，然后单击 **Send password reset email（发送密码重置电子邮件）**。如果您已配置，该电子邮件将发送到备用电子邮件地址。 ![密码重置电子邮件请求对话框](/assets/images/help/settings/password-recovery-email-request.png)
+1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
+2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured. ![密码重置电子邮件请求对话框](/assets/images/help/settings/password-recovery-email-request.png)
 3. 我们将向您发送一封电子邮件，其中含有可让您重置密码的链接。 您必须在收到电子邮件后的 3 小时内单击此链接。 如果您没有收到来自我们的电子邮件，请确保检查垃圾邮件文件夹。
 4. 如果您启用了双重身份验证，将提示您获得 2FA 凭据。 键入您的 2FA 凭据或 2FA 恢复代码之一，然后单击 **Verify（验证）**。 ![双重身份验证提示](/assets/images/help/2fa/2fa-password-reset.png)
 5. 键入新密码，确认新密码，然后单击 **Change password（更改密码）**。 有关创建强密码的帮助，请参阅“[创建强密码](/articles/creating-a-strong-password)”
-  {% ifversion fpt %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
+  {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
   ![密码恢复框](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}
 
-To avoid losing your password in the future, we suggest using a secure password manager, like [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+为避免将来丢失您的密码，我们建议使用安全密码管理器，如 [LastPass](https://lastpass.com/) 或 [1Password](https://1password.com/)。
 
 {% endtip %}
 

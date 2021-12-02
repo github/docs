@@ -2,18 +2,19 @@
 title: 设置操作的退出代码
 shortTitle: 设置退出代码
 intro: '您可以使用退出代码来设置操作的状态。 {% data variables.product.prodname_dotcom %} 显示状态以指示操作通过还是失败。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 关于退出代码
 

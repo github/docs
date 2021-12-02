@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data variables.product.prodname_dotcom %} フローの手法を使うと、Team の機能と {% data variables.product.prodname_dotcom %} でのコラボレーションを標準化することができます。 For more information, see "[{% data variables.product.prodname_dotcom %} flow](/github/getting-started-with-github/github-flow)."

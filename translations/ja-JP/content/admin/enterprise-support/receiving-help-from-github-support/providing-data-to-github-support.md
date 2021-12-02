@@ -65,9 +65,6 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 - `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %} 設定ログ
 - `collectd/logs/collectd.log`：Collectdのログ
 - `mail-logs/mail.log`：SMTPのメール配送ログ
-{% ifversion ghes < 3.0 %}
-- `hookshot-logs/exceptions.log`：webhookのデリバリエラー
-{% endif %}
 
 詳細は「[監査ログ](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)」を参照してください。
 

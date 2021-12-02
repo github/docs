@@ -16,7 +16,7 @@ topics:
 children:
   - /roles-in-an-organization
   - /maintaining-ownership-continuity-for-your-organization
-  - /giving-team-maintainer-permissions-to-an-organization-member
+  - /managing-custom-repository-roles-for-an-organization
   - /adding-a-billing-manager-to-your-organization
   - /removing-a-billing-manager-from-your-organization
   - /managing-security-managers-in-your-organization

@@ -2,7 +2,6 @@
 title: 依存関係をキャッシュしてワークフローのスピードを上げる
 shortTitle: 依存関係のキャッシング
 intro: ワークフローを高速化して効率を上げるために、依存関係や広く再利用されるファイルに対するキャッシュを作成して利用できます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -10,6 +9,7 @@ redirect_from:
   - /actions/guides/caching-dependencies-to-speed-up-workflows
 versions:
   fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows

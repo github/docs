@@ -6,26 +6,27 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Acerca de los permisos
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Los permisos de los paquetes pueden ser con alcance de repositorio o de usuario/organización.
 {% endif %}
 
 ## Permisos para los paquetes con alcance de repositorio
 
-Un paquete con alcance de repositorio hereda los permisos y la visibilidad del repositorio al que pertenece el paquete. Puedes encontrar un paquete con alcance de un repositorio específico si vas a la página principal de este y haces clic en el enlace de **Paquetes** a la derecha de la página. {% ifversion fpt %}Para obtener más información, consulta la sección "[Conectar un repositorio con un paquete](/packages/learn-github-packages/connecting-a-repository-to-a-package)".{% endif %}
+Un paquete con alcance de repositorio hereda los permisos y la visibilidad del repositorio al que pertenece el paquete. Puedes encontrar un paquete con alcance de un repositorio específico si vas a la página principal de este y haces clic en el enlace de **Paquetes** a la derecha de la página. {% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Conectar un repositorio con un paquete](/packages/learn-github-packages/connecting-a-repository-to-a-package)".{% endif %}
 
 Los registros del {% data variables.product.prodname_registry %} que se mencionan a continuación utilizan permisos con alcance de repositorio:
 
-  {% ifversion not fpt %}- Docker registry (`docker.pkg.github.com`){% endif %}
+  {% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
   - Registro de npm
   - Registro de RubyGems
   - Registro de Apache maven
   - Registro de NuGet
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Permisos granulares para paquetes con alcance de organización/usuario
 
 Los paquetes con permisos granulares tienen un alcance de una cuenta personal o de organización. Puedes cambiar el control de accesos y la visibilidad del paquete de forma separada desde un repositorio que esté conectado (o enlazado) a un paquete.
@@ -46,20 +47,20 @@ Para utilizar o administrar un paquete que hospede un registro de paquete, debes
 
 Por ejemplo:
 -  Para descargar e instalar los paquetes desde un repositorio, tu token debe tener el alcance de `read:packages` y tu cuenta de usuario debe tener permisos de lectura.
-- {% ifversion fpt or ghes > 3.0 %}Para borrar un paquete en {% data variables.product.product_name %}, tu token deberá tener por lo menos los alcances de `delete:packages` y `read:packages`. El alcance de `repo` también se requiere para los paquetes con dicho alcance.{% elsif ghes < 3.1 %}Para borrar una versión específica de un paquete privado en {% data variables.product.product_name %}, tu token debe tener el alcance `delete:packages` y `repo`. Los paquetes públicos no se pueden borrar. {% elsif ghae %}Para borrar una versión específica de un paquete en {% data variables.product.product_name %}, tu token debe tener los alcances `delete:packages` y `repo`.{% endif %} Para obtener más información, consulta la sección "{% ifversion fpt or ghes > 3.0 %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}".
+- {% ifversion fpt or ghes > 3.0 or ghec %}Para borrar un paquete en {% data variables.product.product_name %}, tu token deberá tener por lo menos los alcances de `delete:packages` y `read:packages`. El alcance de `repo` también se requiere para los paquetes con dicho alcance.{% elsif ghes < 3.1 %}Para borrar una versión específica de un paquete privado en {% data variables.product.product_name %}, tu token debe tener el alcance `delete:packages` y `repo`. Public packages cannot be deleted.{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope.{% endif %} For more information, see "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."
 
-| Ámbito                                                                                                                                                                                                                                                                                                                                                        | Descripción                                                                          | Permiso requerido |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------------- |
-| `read:packages`                                                                                                                                                                                                                                                                                                                                               | Descarga e instala paquetes de {% data variables.product.prodname_registry %}        | lectura           |
-| `write:packages`                                                                                                                                                                                                                                                                                                                                              | Carga y publica paquetes en {% data variables.product.prodname_registry %}           | escritura         |
-| `delete:packages`                                                                                                                                                                                                                                                                                                                                             |                                                                                      |                   |
-| {% ifversion fpt or ghes > 3.0 %} Borrar paquetes de {% data variables.product.prodname_registry %} {% elsif ghes < 3.1 %} Borrar versiones específicas de paquetes privados en el {% data variables.product.prodname_registry %}{% elsif ghae %} Borrar versiones específicas de paquetes en el {% data variables.product.prodname_registry %} {% endif %} |                                                                                      |                   |
-| admin                                                                                                                                                                                                                                                                                                                                                         |                                                                                      |                   |
-| `repo`                                                                                                                                                                                                                                                                                                                                                        | Carga y borra los paquetes (junto con los `write:packages`, o los `delete:packages`) | escritura o admin |
+| Ámbito                                                                                                                                                                                                                                                                                                                                                         | Descripción                                                                          | Permiso requerido |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------------- |
+| `read:packages`                                                                                                                                                                                                                                                                                                                                                | Descarga e instala paquetes de {% data variables.product.prodname_registry %}        | lectura           |
+| `write:packages`                                                                                                                                                                                                                                                                                                                                               | Carga y publica paquetes en {% data variables.product.prodname_registry %}           | escritura         |
+| `delete:packages`                                                                                                                                                                                                                                                                                                                                              |                                                                                      |                   |
+| {% ifversion fpt or ghes > 3.0 or ghec %} Delete packages from {% data variables.product.prodname_registry %} {% elsif ghes < 3.1 %} Delete specified versions of private packages from {% data variables.product.prodname_registry %}{% elsif ghae %} Delete specified versions of packages from {% data variables.product.prodname_registry %} {% endif %} |                                                                                      |                   |
+| admin                                                                                                                                                                                                                                                                                                                                                          |                                                                                      |                   |
+| `repo`                                                                                                                                                                                                                                                                                                                                                         | Carga y borra los paquetes (junto con los `write:packages`, o los `delete:packages`) | escritura o admin |
 
 Cuando creas un flujo de trabajo de {% data variables.product.prodname_actions %}, puedes usar el `GITHUB_TOKEN` para publicar e instalar paquetes en {% data variables.product.prodname_registry %} sin la necesidad de almacenar y administrar un token de acceso personal.
 
-Para obtener más información, consulta:{% ifversion fpt %}
+For more information, see:{% ifversion fpt or ghec %}
 - "[Configurar el control de accesos y la visibilidad de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
 - "[Publicar e instalar un paquete con {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)"
 - "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token/)"
@@ -78,7 +79,7 @@ Para ver un antecedente más conceptual en {% data variables.product.prodname_ac
 
 Para obtener más información sobre el `GITHUB_TOKEN` que se utiliza en los flujos de trabajo de {% data variables.product.prodname_actions %}, consulta la sección "[Autenticarse en un flujo de trabajo](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Acceso a las {% data variables.product.prodname_actions %} para las imágenes de contenedor
 
 Para garantizar que tus flujos de trabajo tienen acceso a tu imagen de contenedor, debes habilitar el acceso a las {% data variables.product.prodname_actions %} para los repositorios en donde se ejecuta tu flujo de trabajo. Puedes encontrar este ajuste en la página de configuración de tu paquete. Para obtener más información, consulta la sección "[Garantizar el acceso de los flujos de trabajo a tu paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)".

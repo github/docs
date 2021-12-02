@@ -20,12 +20,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Archivos grandes
 ---
 
 ## Acerca de los límites de tamaño en {% data variables.product.product_name %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.product_name %} intenta proporcionar almacenamiento abundante para todos los repositorios de Git, aunque existen límites físicos para los tamaños de los archivos y repositorios. Para garantizar el rendimiento y la legibilidad para nuestros usuarios, monitoreamos activamente las señales de la salud general de los repositorios. La salud de los repositorios es una función de varios factores de interacción, incluyendo el tamaño, frecuencia de confirmaciones y estructura.
 
 ### Límites de tamaño de archivos
@@ -47,7 +48,7 @@ Si necesitas distribuir archivos grandes dentro de tu repositorio, puedes crear 
 
 Git no se diseñó para manejar archivos grandes de SQL. Para compartir bases de datos grandes con otros desarrolladores, te recomendamos utilizar [Dropbox](https://www.dropbox.com/).
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Límites de tamaño de repositorio
 
 Te recomendamos que los repositorios sean siempre pequeños, idealmente, de menos de 1 GB, y se recomienda ampliamente que sean de menos de 5GB. Los repositorios más pequeños se clonan más rápido y se puede mantenerlos mejor y trabajar en ellos más fácilmente. Si tu repositorio impacta excesivamente nuestra infraestructura, puede que recibas un mensaje de correo electrónico de {% data variables.contact.github_support %}, el cual te solicitará que tomes acciones correctivas. Intentamos ser flexibles, especialmente con proyectos grandes que tienen muchos colaboradores, y trabajaremos junto contigo para encontrar una resolución cada que sea posible. Puedes prevenir que tu repositorio impacte nuestra infraestructura si administras el tamaño de tu repositorio y su salud general con eficacia. Puedes encontrar consejos y una herramienta para análisis de repositorios en el repositorio [`github/git-sizer`](https://github.com/github/git-sizer).
@@ -97,7 +98,7 @@ Si añadiste un archivo en una confirmación previa, necesitas eliminarlo del hi
 
 Si necesitas distribuir archivos grandes dentro de tu repositorio, puedes crear lanzamientos en {% data variables.product.product_location %}. Los lanzamientos te permiten empaquetar el software, notas de lanzamiento y enlaces a los archivos binarios para que otras personas puedan utilizarlos. Para obtener más información, consulta la sección "[Acerca de los lanzamientos](/github/administering-a-repository/about-releases)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 No limitamos el tamaño total de los archivos binarios en los lanzamientos o anchos de banda que se utilizan para entregarlos. Sin embargo, cada archivo individual debe ser menor a {% data variables.large_files.max_lfs_size %}.
 

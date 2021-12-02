@@ -5,12 +5,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+type: overview
+topics:
+  - Project management
+  - Projects
 ---
 
 ## Introdução
 Você pode usar {% data variables.product.prodname_dotcom %} repositórios, problemas, quadros de projeto e outras ferramentas para planejar e acompanhar seu trabalho, caso esteja trabalhando em um projeto individual ou em uma equipe multifuncional.
 
-Neste guia, você aprenderá a criar e configurar um repositório para colaborar com um grupo de pessoas, criar modelos de problema{% ifversion fpt %} e formulários{% endif %}, problemas abertos e usar listas de tarefas para dividir o trabalho e estabelecer um quadro de projetos para organizar e rastrear problemas.
+Neste guia, você aprenderá a criar e configurar um repositório para colaborar com um grupo de pessoas, criar modelos de problema{% ifversion fpt or ghec %} e formulários{% endif %}, problemas abertos e usar listas de tarefas para dividir o trabalho e estabelecer um quadro de projetos para organizar e rastrear problemas.
 
 ## Criar um repositório
 Ao iniciar um novo projeto, iniciativa, ou recurso, o primeiro passo é criar um repositório. Os repositórios contêm todos os arquivos do seu projeto e fornece a você um lugar para colaborar com outros e gerenciar seu trabalho. Para obter mais informações, consulte "[Criar um novo repositório](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)."
@@ -42,7 +47,7 @@ Você pode usar problemas para acompanhar os diferentes tipos de trabalho que su
 - Solicitações de recursos: Sua equipe ou usuários podem criar problemas para solicitar uma melhoria para o seu produto ou projeto.
 - Erros: Sua equipe ou usuários podem criar problemas para relatar um erro.
 
-Dependendo do tipo de repositório e projeto em que você está trabalhando, você pode priorizar certos tipos de problemas em detrimento de outros. Após identificar os tipos de problemas mais comuns da sua equipe, você poderá criar modelos de problema {% ifversion fpt %}e formulários{% endif %} para o seu repositório. Os modelos {% ifversion fpt %}e formulários{% endif %} permitem que você crie uma lista padronizada de modelos que um contribuidor pode escolher ao abrirem um problema no seu repositório. Para obter mais informações, consulte "[Configurando modelos de problema para seu repositório](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
+Dependendo do tipo de repositório e projeto em que você está trabalhando, você pode priorizar certos tipos de problemas em detrimento de outros. Após identificar os tipos de problemas mais comuns da sua equipe, você poderá criar modelos de problema {% ifversion fpt or ghec %}e formulários{% endif %} para o seu repositório. Os modelos {% ifversion fpt or ghec %}e formulários{% endif %} permitem que você crie uma lista padronizada de modelos que um contribuidor pode escolher ao abrirem um problema no seu repositório. Para obter mais informações, consulte "[Configurando modelos de problema para seu repositório](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
 
 ### Exemplo de modelo de problema
 Abaixo, estamos criando um modelo de problema para relatar um erro no projeto Octocat.
@@ -61,7 +66,7 @@ Aqui está um exemplo de uma questão criada para uma grande iniciativa, um trab
 ![Criando um exemplo problema de grande iniciativa](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
 ### Exemplo da lista de tarefas
 
-Você pode usar a lista de tarefas para dividir problemas maiores em tarefas menores e acompanhar problemas como parte de um objetivo maior. {% ifversion fpt %} A lista de tarefas tem funcionalidade adicional quando adicionada ao texto de um problema. Você pode ver o número de tarefas concluídas na parte superior do problema e se alguém fechar um problema vinculado na lista de tarefas, a caixa de seleção será automaticamente marcada como concluída.{% endif %} Para obter mais informações, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
+Você pode usar a lista de tarefas para dividir problemas maiores em tarefas menores e acompanhar problemas como parte de um objetivo maior. {% ifversion fpt or ghec %} A lista de tarefas tem funcionalidade adicional quando adicionada ao texto de um problema. Você pode ver o número de tarefas concluídas na parte superior do problema e se alguém fechar um problema vinculado na lista de tarefas, a caixa de seleção será automaticamente marcada como concluída.{% endif %} Para obter mais informações, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
 
 Abaixo nós adicionamos uma lista de tarefas ao problema do projeto Octocat do nosso projeto, dividindo-a em problemas menores.
 
@@ -80,25 +85,25 @@ Você pode criar etiquetas para um repositório para categorizar problemas, pull
 
 Para obter mais informações, consulte "[Criar uma etiqueta](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label)".
 
-Depois de criar uma etiqueta em um repositório, é possível aplicá-lo em qualquer problema, pull request ou discussão no repositório. Em seguida, você pode filtrar problemas e pull requests por etiqueta para encontrar todo o trabalho associado. Por exemplo, encontre todos os erros front-end em seu projeto, filtrando por problemas com as etiquetas de `front-end` e `erro`. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."
+Depois de criar uma etiqueta em um repositório, é possível aplicá-lo em qualquer problema, pull request ou discussão no repositório. Em seguida, você pode filtrar problemas e pull requests por etiqueta para encontrar todo o trabalho associado. Por exemplo, encontre todos os erros front-end em seu projeto, filtrando por problemas com as etiquetas de `front-end` e `erro`. Para obter mais informações, consulte "[Filtrando e pesquisando problemas e pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)".
 ### Exemplo de etiqueta
 Abaixo está um exemplo de uma etiqueta `front-end` que criamos e adicionamos ao problema.
 
 ![Adicionando uma etiqueta a um exemplo do problema](/assets/images/help/issues/quickstart-add-label-to-issue.png)
 ## Adicionando problemas a um quadro de projeto
-{% ifversion fpt %}Você pode usar projetos em {% data variables.product.prodname_dotcom %}, atualmente em beta público limitado, para planejar e acompanhar o trabalho da sua equipe. Um projeto é uma planilha personalizável integradas aos seus problemas e pull requests em {% data variables.product.prodname_dotcom %}, mantendo-se atualizada automaticamente com as informações em {% data variables.product.prodname_dotcom %}. Você pode personalizar o layout filtrando, organizando e agrupando seus problemas e PRs. Para começar com projetos, consulte "[Inicialização rápida para projetos (beta)](/issues/trying-out-the-new-projects-experience/quickstart). ".
+{% ifversion fpt or ghec %}Você pode usar projetos em {% data variables.product.prodname_dotcom %}, atualmente em beta público limitado, para planejar e acompanhar o trabalho da sua equipe. Um projeto é uma planilha personalizável integradas aos seus problemas e pull requests em {% data variables.product.prodname_dotcom %}, mantendo-se atualizada automaticamente com as informações em {% data variables.product.prodname_dotcom %}. Você pode personalizar o layout filtrando, organizando e agrupando seus problemas e PRs. Para começar com projetos, consulte "[Inicialização rápida para projetos (beta)](/issues/trying-out-the-new-projects-experience/quickstart). ".
 ### Exemplo de projeto (beta)
-Aqui está a visão da tabela de um projeto de exemplo, preenchido com os problemas do projeto Octocat que criamos.
+Here is the table layout of an example project, populated with the Project Octocat issues we have created.
 
-![Exemplo de exibição de tabela de projetos (beta)](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Projects (beta) table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 Podemos também visualizar o mesmo projeto como um quadro.
 
-![Exemplo de visualização do quadro (beta) dos projetos](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Projects (beta) board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 
-Você também pode {% ifversion fpt %} usar os quadros de projeto existentes{% else %} usar{% endif %} no {% data variables.product.prodname_dotcom %} para planejar e acompanhar o trabalho da sua equipe. Os quadros de projeto são compostos por problemas, pull requests e observações que são categorizados como cartões em colunas de sua escolha. Você pode criar quadros de projetos para trabalho de funcionalidades, itinerários de alto nível ou até mesmo aprovar checklists. Para obter mais informações, consulte "[Sobre quadros de projeto](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)".
+Você também pode {% ifversion fpt or ghec %} usar os quadros de projeto existentes{% else %} usar{% endif %} no {% data variables.product.prodname_dotcom %} para planejar e acompanhar o trabalho da sua equipe. Os quadros de projeto são compostos por problemas, pull requests e observações que são categorizados como cartões em colunas de sua escolha. Você pode criar quadros de projetos para trabalho de funcionalidades, itinerários de alto nível ou até mesmo aprovar checklists. Para obter mais informações, consulte "[Sobre quadros de projeto](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)".
 ### Exemplo de quadro de projeto
 Abaixo, está um painel de projeto para o nosso exemplo de projeto Octocat com o problema que criamos, e os problemas menores nos quais separamos, foram adicionados.
 
@@ -112,6 +117,6 @@ Agora você aprendeu sobre as ferramentas que {% data variables.product.prodname
 - "[Sobre problemas e modelos de pull request](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)para aprender mais sobre modelos de problemas
 - "[Gerenciando etiquetas](/issues/using-labels-and-milestones-to-track-work/managing-labels)" para aprender a criar, editar e excluir etiquetas
 - "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)" para aprender mais sobre listas de tarefas
-{% ifversion fpt %} - "[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" para aprender mais sobre a experiência dos novos projetos, atualmente em beta público limitado
+{% ifversion fpt or ghec %} - "[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" para aprender mais sobre a experiência dos novos projetos, atualmente em beta público limitado
 - "[Personalizando as visualizações do seu projeto (beta)](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)" para aprender como personalizar visualizações para projetos, atualmente em beta público limitado{% endif %}
 - "[Sobre os quadros de projetos](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" para aprender como gerenciar os quadros de projetos

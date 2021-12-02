@@ -1,6 +1,6 @@
 ---
 title: Encontrando maneiras de contribuir com o código aberto no GitHub
-intro: 'Você pode encontrar maneiras de contribuir para projetos de código aberto em {% data variables.product.product_name %} que são relevantes para você.'
+intro: 'Você pode encontrar maneiras de contribuir para projetos de código aberto em {% data variables.product.product_location %} que são relevantes para você.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on/
@@ -13,6 +13,7 @@ redirect_from:
   - /github/getting-started-with-github/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Open Source
 shortTitle: Contribuir para o código aberto
@@ -22,7 +23,7 @@ shortTitle: Contribuir para o código aberto
 
 Se houver um tópico específico que lhe interessa, visite `github.com/topics/<topic>`. Por exemplo, se você estiver interessado em aprendizado de máquina, poderá encontrar projetos relevantes e bons problemas visitando https://github.com/topics/machine-learning. Você pode navegar por tópicos populares visitando [Tópicos](https://github.com/topics). Você também pode procurar repositórios que correspondam a um tópico do seu interesse. Para obter mais informações, consulte "[Pesquisar repositórios](/search-github/searching-on-github/searching-for-repositories#search-by-topic)".
 
-Se você esteve ativo em {% data variables.product.product_name %}, você pode encontrar recomendações personalizadas para projetos e bons problemas iniciais com base em suas contribuições anteriores, estrelas e outras atividades em [Explorar](https://github.com/explore). Você também pode se inscrever no boletim informativo Explorar para receber e-mails sobre oportunidades de contribuir para {% data variables.product.product_name %} com base em seus interesses. Para se inscrever, consulte [Explorar newsletter de e-mail](https://github.com/explore/subscribe).
+Se você esteve ativo em {% data variables.product.product_location %}, você pode encontrar recomendações personalizadas para projetos e bons problemas iniciais com base em suas contribuições anteriores, estrelas e outras atividades em [Explorar](https://github.com/explore). Você também pode se inscrever no boletim informativo Explorar para receber e-mails sobre oportunidades de contribuir para {% data variables.product.product_name %} com base em seus interesses. Para se inscrever, consulte [Explorar newsletter de e-mail](https://github.com/explore/subscribe).
 
 Acompanhe atividades recentes em repositórios que você inspeciona e de pessoas que segue na seção "All activity" (Todas as atividades) de seu painel pessoal. Para obter mais informações, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
 

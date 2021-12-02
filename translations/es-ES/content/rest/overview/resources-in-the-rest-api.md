@@ -1,12 +1,13 @@
 ---
 title: Recursos en la API de REST
-intro: 'Aprende como navegar en los recursos que proporciona la API de {% data variables.product.prodname_dotcom %}.'
+intro: 'Learn how to navigate the resources provided by the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
 redirect_from:
   - /rest/initialize-the-repo/
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -20,15 +21,15 @@ Predeterminadamente, todas las solicitudes a `{% data variables.product.api_url_
 
     Accept: application/vnd.github.v3+json
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-Para obtener información acerca de la API de GraphQL de GitHub, consulta la [documentación de la V4](/graphql). Para obtener más información acerca de migrarse a GraphQL, consulta la sección "[Migrarse desde REST](/graphql/guides/migrating-from-rest-to-graphql)".
+For information about GitHub's GraphQL API, see the [v4 documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). For information about migrating to GraphQL, see "[Migrating from REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)."
 
 {% endif %}
 
 ## Modelo
 
-{% ifversion fpt %}Todos los accesos de las API son através de HTTPS y se accede a{% else %}La API{% endif %} desde `{% data variables.product.api_url_code %}`.  Todos los datos se
+{% ifversion fpt or ghec %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  Todos los datos se
 envían y reciben como JSON.
 
 ```shell
@@ -52,7 +53,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 Los campos en blanco se incluyen como `null` en vez de omitirse.
 
-Todas las marcas de tiempo se regresan en formato ISO 8601:
+All timestamps return in UTC time, ISO 8601 format:
 
     AAAA-MM-DDTHH:MM:SSZ
 
@@ -100,7 +101,7 @@ Nota: GitHub recomienda enviar los tokens de OAuth utilizando el encabezado de a
 
 Lee [más acerca de OAuth2](/apps/building-oauth-apps/).  Nota que los tokens de OAuth2 pueden adquirirse utilizando el [flujo de aplicaciones web](/developers/apps/authorizing-oauth-apps#web-application-flow) para las aplicaciones productivas.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ### Llave/secreto de OAuth2
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
@@ -111,10 +112,12 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 El utilizar tu `client_id` y `client_secret` _no_ te autentica como un usuario, únicamente identifica tu aplicación de OAuth para incrementar tu límite de tasa. Los permisos se otorgan únicamente a usuarios, no a aplicaciones, y úicamente obtendrás datos que un usuario no autenticado vería. Es por esto que deberías utilizar únicamente la llave/secreto de OAuth2 en escenarios de servidor a servidor. No compartas el secreto de cliente de tu aplicación de OAuth con tus usuarios.
 
-No podrás autenticarte utilizndo tu llave y secreto de OAuth2 si estás en modo privado, y el intentarlo regresará el mensaje `401 Unauthorized`. Para obtener más información, consulta la sección "[Habilitar el modo privado](/enterprise/admin/installation/enabling-private-mode)".
+{% ifversion ghes %}
+No podrás autenticarte utilizndo tu llave y secreto de OAuth2 si estás en modo privado, y el intentarlo regresará el mensaje `401 Unauthorized`. For more information, see "[Enabling private mode](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
+{% endif %}
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Lee [más acerca de limitar la tasa de no autenticación](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
 
@@ -137,7 +140,7 @@ $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
 Después de detectar varias solicitudes con credenciales inválidas dentro de un periodo de tiempo corto, la API rechazará temporalmente todos los intentos de autenticación para el usuario en cuestión (incluyendo aquellos con credenciales válidas) con el mensaje `403 Forbidden`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae %}
+$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
 -u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% ifversion ghes %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/2 403
 > {
@@ -167,13 +170,13 @@ $ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.prod
 Puedes emitir una solicitud de tipo `GET` a la terminal raíz para obtener todas las categorías de la terminal que son compatibles con la API de REST:
 
 ```shell
-$ curl {% ifversion fpt or ghae %}
+$ curl {% ifversion fpt or ghae or ghec %}
 -u <em>username</em>:<em>token</em> {% endif %}{% ifversion ghes %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
 ## IDs de nodo globales de GraphQL
 
-Consulta la guía sobre cómo "[Utilizar las ID de Nodo Global](/graphql/guides/using-global-node-ids)" para obtener información detallada sobre cómo encontrar las `node_id` a través de la API de REST y utilizarlas en las operaciones de GraphQL.
+See the guide on "[Using Global Node IDs]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
 ## Errores de cliente
 
@@ -310,7 +313,7 @@ Los valores de `rel` posibles son:
 
 Para las solicitudes de la API que utilizan Autenticación Básica u OAuth, puedes hacer hasta 5,000 solicitudes por hora. Las solicitudes autenticadas se asocian con el usuario autenticado, sin importar si se utilizó [Autenticación Básica](#basic-authentication) o [un token OAuth](#oauth2-token-sent-in-a-header). Esto significa que todas las aplicaciones de OAuth que autorice un usuario compartirán la misma cuota de 5,000 solicitudes por hora cuando se autentiquen con tokens diferentes que pertenezcan al mismo usuario.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Para los usuarios que pertenezcan a una cuenta de {% data variables.product.prodname_ghe_cloud %}, las solicitudes que se hacen utilizando un token de OAuth para los recursos que pertenecen a la misma cuenta de {% data variables.product.prodname_ghe_cloud %} tienen un límite incrementado de 15,000 solicitudes por hora.
 
@@ -407,7 +410,7 @@ Si tu aplicación activa este límite de tasa, recibirás una respuesta informat
 > }
 ```
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Se requiere un agente de usuario
 
@@ -438,7 +441,7 @@ $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 
 La mayoría de las respuestas regresan un encabezado de `ETag`. Muchas de las respuestas también regresan un encabezado de `Last-Modified`. Puedes utilizar los valores de estos encabezados para hacer solicitudes subsecuentes a estos recursos utilizando los encabezados `If-None-Match` y `If-Modified-Since`, respectivamente. Si el recurso no ha cambiado, el servidor regresará un `304 Not Modified`.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -581,12 +584,14 @@ Un enlace que se ve así:
 
 ## Zonas horarias
 
-Algunas solicitudes que crean datos nuevos, tales como aquellas para crear una confirmación nueva, te permiten proporcionar información sobre la zona horaria cuando especificas o generas marcas de tiempo. Aplicamos las siguientes reglas, en orden de prioridad, para determinar la información de la zona horaria para los llamados a la API.
+Algunas solicitudes que crean datos nuevos, tales como aquellas para crear una confirmación nueva, te permiten proporcionar información sobre la zona horaria cuando especificas o generas marcas de tiempo. We apply the following rules, in order of priority, to determine timezone information for such API calls.
 
 * [Proporcionar explícitamente una marca de tiempo de tipo ISO 8601 con información de la zona horaria](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
 * [Utilizar el encabezado de `Time-Zone`](#using-the-time-zone-header)
 * [Utilizar la última zona horaria conocida del usuario](#using-the-last-known-timezone-for-the-user)
 * [Poner como defecto UTC en ausencia de otra información de zona horaria](#defaulting-to-utc-without-other-timezone-information)
+
+Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
 
 ### Proporcionar explícitamente una marca de tiempo de tipo ISO 8601 con información de la zona horaria
 

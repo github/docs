@@ -10,13 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
 
-{% ifversion fpt %} 要了解如何使用 GitHub 应用程序清单允许用户创建预配置 GitHub 应用程序，请参阅“[从清单创建 GitHub 应用程序](/apps/building-github-apps/creating-github-apps-from-a-manifest/)。”{% endif %}
+{% ifversion fpt or ghec %} 要了解如何使用 GitHub 应用程序清单允许用户创建预配置 GitHub 应用程序，请参阅“[从清单创建 GitHub 应用程序](/apps/building-github-apps/creating-github-apps-from-a-manifest/)。”{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **注意：** {% data reusables.apps.maximum-github-apps-allowed %}
@@ -34,7 +35,7 @@ topics:
 
 1. （可选）在“Description（说明）”中，输入用户将看到的应用程序说明。 ![GitHub 应用程序说明字段](/assets/images/github-apps/github_apps_description.png)
 1. 在“Homepage URL（主页 URL）”中，输入应用程序网站的完整 URL。 ![GitHub 应用程序主页 URL 字段](/assets/images/github-apps/github_apps_homepage_url.png)
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 1. 在“Callback URL（回调 URL）”中，键入用户授权安装后要重定向到的完整 URL。 如果应用程序需要识别和授权用户到服务器的请求，则使用此 URL。
 
   您可以使用 **Add callback URL（添加回调 URL）**来提供额外的回调 URL，最多不超过 10 个。

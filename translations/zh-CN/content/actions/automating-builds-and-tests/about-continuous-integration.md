@@ -1,7 +1,6 @@
 ---
 title: 关于持续集成
 intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-continuous-integration
   - /github/automating-your-workflow-with-github-actions/about-continuous-integration
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - CI
@@ -20,6 +20,7 @@ shortTitle: 持续集成
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 关于持续集成
 
@@ -35,7 +36,7 @@ shortTitle: 持续集成
 {% else %}使用 {% data variables.product.prodname_actions %} 的 CI 提供可以在仓库中构建代码并运行测试的工作流程。 工作流程可在 {% data variables.product.prodname_dotcom %} 托管的虚拟机或您自行托管的机器上运行。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的虚拟环境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)”和“[关于自托管运行器](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)”。
 {% endif %}
 
-您可以配置 CI 工作流程在 {% data variables.product.product_name %} 事件发生时运行（例如，当新代码推送到您的仓库时）、按设定的时间表运行，或者在使用仓库分发 web 挂钩的外部事件发生时运行。
+您可以配置 CI 工作流程在 {% data variables.product.prodname_dotcom %} 事件发生时运行（例如，当新代码推送到您的仓库时）、按设定的时间表运行，或者在使用仓库分发 web 挂钩的外部事件发生时运行。
 
 {% data variables.product.product_name %} 运行 CI 测试并在拉取请求中提供每次测试的结果，因此您可以查看分支中的更改是否引入错误。 如果工作流程中的所有 CI 测试通过，您推送的更改可供团队成员审查或合并 如果测试失败，则是其中某项更改导致了失败。
 
@@ -51,10 +52,10 @@ shortTitle: 持续集成
 
 {% data variables.product.product_name %} 提供各种不同语言和框架的 CI 工作流程模板。
 
-在 {% ifversion fpt %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) 仓库{% else %}{% data variables.product.product_location %} 上的 `actions/starter-workflows` 仓库{% endif %}中浏览 {% data variables.product.product_name %} 提供的 CI 工作流程模板的完整列表。
+在 {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) 仓库{% else %}{% data variables.product.product_location %} 上的 `actions/starter-workflows` 仓库{% endif %}中浏览 {% data variables.product.company_short %} 提供的 CI 工作流程模板的完整列表。
 
 ## 延伸阅读
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"
 {% endif %}

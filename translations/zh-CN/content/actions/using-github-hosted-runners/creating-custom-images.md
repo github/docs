@@ -6,6 +6,7 @@ versions:
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
+{% data reusables.actions.ae-beta %}
 
 ## 使用自定义映像创建 {% data variables.actions.hosted_runner %}
 

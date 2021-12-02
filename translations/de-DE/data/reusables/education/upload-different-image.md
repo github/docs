@@ -1,1 +1,0 @@
-Wenn Du Dich erneut bewirbst, lade ein anderes Bild hoch als das, das Du in Deiner ersten Bewerbung verwendet hast. Stelle sicher, dass mindestens ein Datum deutlich sichtbar ist, das Deinen aktuellen akademischen Status nachweist.

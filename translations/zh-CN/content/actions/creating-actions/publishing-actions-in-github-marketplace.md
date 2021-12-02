@@ -1,13 +1,13 @@
 ---
 title: 在 GitHub Marketplace 中发布操作
 intro: '您可以在 {% data variables.product.prodname_marketplace %} 中发布操作，以及与 {% data variables.product.prodname_dotcom %} 社区共享您创建的操作。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 shortTitle: 在 GitHub Marketplace 中发布
 ---

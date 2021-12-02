@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Clasificar con temas
@@ -17,15 +18,15 @@ shortTitle: Clasificar con temas
 
 ## Acerca de los temas
 
-En el caso de los temas, puedes explorar repositorios en un área temática particular, buscar proyectos a los cuales contribuir y descubrir nuevas soluciones para un problema específico. Los temas aparecen en la página principal de un repositorio. Puedes hacer clic en el nombre de un tema para {% ifversion fpt %}ver los temas relacionados y una lista de otros repositorios clasificados con ese tema{% else %}buscar otros repositorios con ese tema{% endif %}.
+En el caso de los temas, puedes explorar repositorios en un área temática particular, buscar proyectos a los cuales contribuir y descubrir nuevas soluciones para un problema específico. Los temas aparecen en la página principal de un repositorio. Puedes hacer clic en el nombre de un tema para {% ifversion fpt or ghec %}ver los temas relacionados y una lista de otros repositorios clasificados con ese tema{% else %}buscar otros repositorios con ese tema{% endif %}.
 
 ![Página principal del repositorio de prueba que muestra temas](/assets/images/help/repository/os-repo-with-topics.png)
 
 Para explorar los temas más usados, visita https://github.com/topics/.
 
-{% ifversion fpt %}También puedes contribuir al conjunto de temas presentados de {% data variables.product.product_name %} en el repositorio [github/explore](https://github.com/github/explore). {% endif %}
+{% ifversion fpt or ghec %}También puedes contribuir al conjunto de temas presentados de {% data variables.product.product_name %} en el repositorio [github/explore](https://github.com/github/explore). {% endif %}
 
-Los administradores del repositorio pueden agregar los temas que deseen a un repositorio. Entre los temas útiles para clasificar un repositorio se incluyen fines previstos, áreas temáticas, comunidad o idioma.{% ifversion fpt %}Además, {% data variables.product.product_name %} analiza el contenido de repositorios públicos y genera temas sugeridos que los administradores de los repositorios pueden aceptar o rechazar. El contenido del repositorio privado no se analiza y no recibe sugerencias de tema.{% endif %}
+Los administradores del repositorio pueden agregar los temas que deseen a un repositorio. Entre los temas útiles para clasificar un repositorio se incluyen fines previstos, áreas temáticas, comunidad o idioma.{% ifversion fpt or ghec %}Además, {% data variables.product.product_name %} analiza el contenido de repositorios públicos y genera temas sugeridos que los administradores de los repositorios pueden aceptar o rechazar. El contenido del repositorio privado no se analiza y no recibe sugerencias de tema.{% endif %}
 
 {% ifversion ghae %}Los repositorios internos {% else %}Públicos, internos, {% endif %}y privados pueden tener temas, aunque solo verás los repositorios privados a los cuales tengas acceso en los resultados de búsqueda por tema.
 

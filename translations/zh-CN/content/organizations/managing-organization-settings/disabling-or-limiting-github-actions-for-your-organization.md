@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -24,20 +25,6 @@ shortTitle: 禁用或限制操作
 
 此外，您可以对组织中的所有仓库启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作。 {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% ifversion ghes < 3.0 %}
-
-## 管理组织的 {% data variables.product.prodname_actions %} 权限
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. 在 **Local and third-party Actions（本地和第三方操作）**下，选择一个选项。 ![启用、禁用或限制此组织的操作](/assets/images/help/repository/enable-org-actions.png)
-1. 单击 **Save（保存）**。
-
-{% endif %}
-
-{% ifversion fpt or ghes > 2.22 or ghae-next %}
-
 ## 管理组织的 {% data variables.product.prodname_actions %} 权限
 
 您可以禁用组织的所有工作流程，或者设置策略来配置哪些操作可用于组织中。
@@ -46,7 +33,7 @@ shortTitle: 禁用或限制操作
 
 {% note %}
 
-**注：**如果您的组织由具有覆盖策略的企业管理，您可能无法管理这些设置。 更多信息请参阅{% ifversion fpt %}“[在企业帐户中实施 {% data variables.product.prodname_actions %} 策略](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)”。{% else %}“[实施企业的 {% data variables.product.prodname_actions %} 策略](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)”。{% endif %}
+**注：**如果您的组织由具有覆盖策略的企业管理，您可能无法管理这些设置。 更多信息请参阅“[在企业中执行 {% data variables.product.prodname_actions %} 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)”。
 
 {% endnote %}
 
@@ -71,14 +58,12 @@ shortTitle: 禁用或限制操作
    {%- endif %}
 1. 单击 **Save（保存）**。
 
-{% endif %}
-
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 配置公共复刻工作流程所需的批准
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
-You can configure this behavior for an organization using the procedure below. 修改此设置会覆盖企业级别的配置集。
+您可以使用以下程序为组织配置此行为。 修改此设置会覆盖企业级别的配置集。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -88,7 +73,7 @@ You can configure this behavior for an organization using the procedure below. �
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 ## 为私有仓库复刻启用工作流程
 
 {% data reusables.github-actions.private-repository-forks-overview %}
@@ -101,7 +86,7 @@ You can configure this behavior for an organization using the procedure below. �
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## 为您的组织设置 `GITHUB_TOKENN` 的权限
 
 {% data reusables.github-actions.workflow-permissions-intro %}

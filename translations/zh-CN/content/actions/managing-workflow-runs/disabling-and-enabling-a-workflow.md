@@ -1,16 +1,17 @@
 ---
 title: 禁用和启用工作流程
 intro: '您可以使用 {% data variables.product.prodname_dotcom %} UI、REST API 或 {% data variables.product.prodname_cli %} 禁用并重新启用工作流程。'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 禁用和启用工作流程
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 禁用工作流程允许您停止触发工作流程，而不必从仓库中删除文件。 您可以轻松地在 {% data variables.product.prodname_dotcom %} 上重新启用工作流程。
 

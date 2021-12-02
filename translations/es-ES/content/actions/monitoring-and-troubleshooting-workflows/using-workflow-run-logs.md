@@ -1,17 +1,18 @@
 ---
 title: Utilizar bitácoras de ejecución de flujo de trabajo
 intro: 'Puedes ver, buscar y descargar las bitácoras de cada job en una ejecución de flujo de trabajo.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Puedes ver si una ejecución de flujo de trabajo está en curso o completa desde la página de ejecución del flujo de trabajo. Debes haber iniciado sesión en una cuenta de {% data variables.product.prodname_dotcom %} para ver la información de ejecución del flujo de trabajo, incluyendo los casos de repositorios públicos. Para obtener más información, consulta "[Permisos de acceso en GitHub](/articles/access-permissions-on-github)".
 
@@ -46,16 +47,11 @@ Puedes buscar en los registros de construcción un paso en particular. Cuando bu
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 1. En el cuadro de búsqueda **Buscar registros** en la esquina superior derecha de la salida del registro, escribe una consulta de búsqueda.
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Cuadro de búsqueda para buscar registros](/assets/images/help/repository/search-log-box-updated-2.png)
 {% else %}
   ![Cuadro de búsqueda para buscar registros](/assets/images/help/repository/search-log-box-updated.png)
-{% endif %}
-{% else %}
-1. Para expandir cada paso que deseas incluir en tu búsqueda, haz clic en el paso. ![Nombre del paso](/assets/images/help/repository/failed-check-step.png)
-1. En el cuadro de búsqueda **Buscar registros** en la esquina superior derecha de la salida del registro, escribe una consulta de búsqueda. ![Cuadro de búsqueda para buscar registros](/assets/images/help/repository/search-log-box.png)
 {% endif %}
 
 ## Descargar bitácoras
@@ -67,16 +63,12 @@ Puedes descargar los archivos de bitácora desde tu ejecución de flujo de traba
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
-1. En la esquina superior derecha, haz clic en {% ifversion fpt or ghes > 3.0 or ghae %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} y selecciona **Descargar archivo de bitácora**.
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+1. En la esquina superior derecha, haz clic en {% ifversion fpt or ghes > 3.0 or ghae or ghec %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} y selecciona **Descargar archivo de bitácora**.
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Menú desplegable para descargar registros](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
   {% else %}
   ![Menú desplegable para descargar registros](/assets/images/help/repository/download-logs-drop-down-updated.png)
   {% endif %}
-{% else %}
-1. En la esquina superior derecha, da clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y selecciona **Descargar archivo de bitácora**. ![Menú desplegable para descargar registros](/assets/images/help/repository/download-logs-drop-down.png)
-{% endif %}
 
 ## Borrar bitácoras
 
@@ -86,24 +78,19 @@ Puedes borrar los archivos de bitácora de tu ejecución de flujo de trabajo. {%
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 1. En la esquina superior derecha, haz clic en el {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     ![Icono de Kebab horizontal](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
     {% else %}
     ![Icono de Kebab horizontal](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
     {% endif %}
 2. Para borrar los archivos de bitácora, da clic en el botón **Borrar todas las bitácoras** y revisa el aviso de confirmación.
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Borrar todas las bitácoras](/assets/images/help/repository/delete-all-logs-updated-2.png)
   {% else %}
   ![Borrar todas las bitácoras](/assets/images/help/repository/delete-all-logs-updated.png)
   {% endif %}
 Después de borrar las bitácoras, el botón de **Borrar todas las bitácoras** se elimina para indicar que ya no quedan archivos en la ejecución de flujo de trabajo.
-{% else %}
-1. En la esquina superior derecha, da clic en el {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Icono de Kebab horizontal](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
-2. Para borrar los archivos de bitácora, da clic en el botón **Borrar todas las bitácoras** y revisa el aviso de confirmación. ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) Después de que se hayan borrado las bitácoras, el botón de **Borrar todas las bitácoras** se elimina para indicar que no queda ningún archivo de bitácora en la ejecución del flujo de trabajo.
-{% endif %}
 
 ## Visualizar las bitácoras con {% data variables.product.prodname_cli %}
 

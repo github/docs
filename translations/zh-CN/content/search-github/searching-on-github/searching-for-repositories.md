@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 shortTitle: 搜索仓库
@@ -131,7 +132,7 @@ shortTitle: 搜索仓库
 | <code>topics:<em>n</em></code> | [**topics:5**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A5&type=Repositories&ref=searchresults) 匹配具有五个主题的仓库。     |
 |                            | [**topics:>3**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A%3E3&type=Repositories&ref=searchresults) 匹配超过三个主题的仓库。 |
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## 按许可搜索
 
@@ -147,9 +148,9 @@ shortTitle: 搜索仓库
 
 您可以根据仓库的可见性过滤搜索。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
-| 限定符  | 示例 | ------------- | ------------- |{% ifversion fpt or ghes %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) 匹配 {% data variables.product.company_short %} 拥有的公共仓库。{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) 匹配您可以访问且包含文字 "test" 的内部仓库。 | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) 匹配您可以访问并且包含单词 "pages" 的私有仓库。
+| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) 匹配您可以访问并且包含单词 "pages" 的私有仓库。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 基于仓库是否为镜像搜索
 
@@ -164,14 +165,14 @@ shortTitle: 搜索仓库
 
 ## 基于仓库是否已存档搜索
 
-您可以基于仓库是否已存档来搜索仓库。 For more information, see "[Archiving repositories](/repositories/archiving-a-github-repository/archiving-repositories)."
+您可以基于仓库是否已存档来搜索仓库。 更多信息请参阅“[存档仓库](/repositories/archiving-a-github-repository/archiving-repositories)”。
 
 | 限定符              | 示例                                                                                                                          |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `archived:true`  | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=) 匹配已存档且包含 "GNOME" 字样的仓库。   |
 | `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) 匹配未存档且包含 "GNOME" 字样的仓库。 |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 基于具有 `good first issue` 或 `help wanted` 标签的议题数量搜索
 
@@ -182,16 +183,16 @@ shortTitle: 搜索仓库
 | `good-first-issues:>n`  | [**good-first-issues:&gt;2 javascript**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) 匹配具有超过两个标签为 `good-first-issue` 的议题且包含 "javascript" 字样的仓库。 |
 | `help-wanted-issues:>n` | [**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) 匹配具有超过四个标签为 `help-wanted` 的议题且包含 "React" 字样的仓库。                   |
 
-## Search based on ability to sponsor
+## 基于赞助能力的搜索
 
-You can search for repositories whose owners can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。
+您可以使用 `is:sponsorable` 限定符在 {% data variables.product.prodname_sponsors %} 上搜索其所有者可以赞助的仓库。 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。
 
-You can search for repositories that have a funding file using the `has:funding-file` qualifier. For more information, see "[About FUNDING files](/github/administering-a-repository/managing-repository-settings/displaying-a-sponsor-button-in-your-repository#about-funding-files)."
+您可以使用 `has:funding-file` 限定符搜索具有融资文件的仓库。 更多信息请参阅“[关于融资文件](/github/administering-a-repository/managing-repository-settings/displaying-a-sponsor-button-in-your-repository#about-funding-files)”。
 
-| 限定符                | 示例                                                                                                                                                                                    |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:sponsorable`   | [**is:sponsorable**](https://github.com/search?q=is%3Asponsorable&type=Repositories) matches repositories whose owners have a {% data variables.product.prodname_sponsors %} profile. |
-| `has:funding-file` | [**has:funding-file**](https://github.com/search?q=has%3Afunding-file&type=Repositories) matches repositories that have a FUNDING.yml file.                                           |
+| 限定符                | 示例                                                                                                                                                    |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `is:sponsorable`   | [**is:sponsorable**](https://github.com/search?q=is%3Asponsorable&type=Repositories) 匹配其所有者具有 {% data variables.product.prodname_sponsors %} 配置文件的仓库。 |
+| `has:funding-file` | [**has:funding-file**](https://github.com/search?q=has%3Afunding-file&type=Repositories) 匹配具有 FUNDING.yml 文件的仓库。                                      |
 
 {% endif %}
 

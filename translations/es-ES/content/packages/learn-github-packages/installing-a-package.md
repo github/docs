@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -18,13 +19,13 @@ versions:
 
 ## Acerca de la instalación del paquete
 
-Puedes buscar {% data variables.product.product_name %} para encontrar los paquetes en {% data variables.product.prodname_registry %} que puedes instalar en tu propio proyecto. Para obtener más información, consulta "[Buscar {% data variables.product.prodname_registry %} para paquetes](/search-github/searching-on-github/searching-for-packages)".
+You can search on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. Para obtener más información, consulta "[Buscar {% data variables.product.prodname_registry %} para paquetes](/search-github/searching-on-github/searching-for-packages)".
 
 Una vez que encuentres un paquete, puedes leer las instrucciones de la descripción y la instalación y el uso del paquete en la página del paquete.
 
 ## Instalar un paquete
 
-Puedes instalar un paquete del {% data variables.product.prodname_registry %} si utilizas cualquier {% ifversion fpt or ghae %}cliente de paquetes compatible{% else %}tipo de paquete habilitado en tu instancia{% endif %} siguiendo los mismos lineamientos generales.
+Puedes instalar un paquete del {% data variables.product.prodname_registry %} si utilizas cualquier {% ifversion fpt or ghae or ghec %}cliente de paquetes compatible{% else %}tipo de paquete habilitado en tu instancia{% endif %} siguiendo los mismos lineamientos generales.
 
 1. Autenticar para {% data variables.product.prodname_registry %} usando las instrucciones para tu cliente de paquete. Para obtener más información, consulta la sección "[Autenticarse en los Paquetes de GitHub](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)".
 2. Instala el paquete usando las instrucciones para tu cliente de paquete.

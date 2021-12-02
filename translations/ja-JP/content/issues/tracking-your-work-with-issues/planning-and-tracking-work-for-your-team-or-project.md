@@ -5,12 +5,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+type: overview
+topics:
+  - Project management
+  - Projects
 ---
 
 ## はじめに
 個別のプロジェクトで作業しているにしても、機能横断的なチームで作業しているにしても、{% data variables.product.prodname_dotcom %}のリポジトリ、Issue、プロジェクトボードやその他のツールを使って作業の計画と追跡ができます。
 
-このガイドでは、人々のグループとコラボレーションするためのリポジトリの作成とセットアップ、Issueテンプレート{% ifversion fpt %}及びフォーム{% endif %}の作成、Issueのオープンと作業をブレークダウンするためのタスクリストの利用、Issueを整理して追跡するためのプロジェクトボードの設置の方法を学びます。
+このガイドでは、人々のグループとコラボレーションするためのリポジトリの作成とセットアップ、Issueテンプレート{% ifversion fpt or ghec %}及びフォーム{% endif %}の作成、Issueのオープンと作業をブレークダウンするためのタスクリストの利用、Issueを整理して追跡するためのプロジェクトボードの設置の方法を学びます。
 
 ## リポジトリを作成する
 新しいプロジェクト、イニシアティブ、機能を開始するとき、最初のステップはリポジトリの作成です。 リポジトリにはプロジェクトのすべてのファイルが含まれ、他者とコラボレーションしたり、作業を管理したりする場所を提供します。 詳しい情報については「[新しいリポジトリの作成](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)」を参照してください。
@@ -42,7 +47,7 @@ Issueを使って、機能横断的なチームやプロジェクトがカバー
 - 機能リクエスト: チームやユーザは、Issueを作成して製品やプロジェクトに改善をリクエストできます。
 - バグ: チームやユーザは、Issueを作成してバグを報告できます。
 
-作業をしているリポジトリやプロジェクトの種類によっては、特定の種類のIssueを他よりも優先することになるかもしれません。 チームで最も一般的なIssueの種類を特定できたら、リポジトリにIssueテンプレート{% ifversion fpt %}やフォーム{% endif %}を作成できます。 Issueテンプレート{% ifversion fpt %}とフォーム{% endif %}を使うと、リポジトリでIssueをオープンするときにコントリビューターが選択できる標準化されたテンプレートのリストを作成できます。 詳しい情報については、「[リポジトリ用に Issue テンプレートを設定する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)」を参照してください。
+作業をしているリポジトリやプロジェクトの種類によっては、特定の種類のIssueを他よりも優先することになるかもしれません。 チームで最も一般的なIssueの種類を特定できたら、リポジトリにIssueテンプレート{% ifversion fpt or ghec %}やフォーム{% endif %}を作成できます。 Issueテンプレート{% ifversion fpt or ghec %}とフォーム{% endif %}を使うと、リポジトリでIssueをオープンするときにコントリビューターが選択できる標準化されたテンプレートのリストを作成できます。 詳しい情報については、「[リポジトリ用に Issue テンプレートを設定する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)」を参照してください。
 
 ### Issueテンプレートの例
 以下、Project OctocatでバグレポートのためのIssueテンプレートを作成しています。
@@ -61,7 +66,7 @@ Issueを作成することで、作業を整理し、追跡できます。 詳�
 ![大規模なイニシアティブのissueの例の作成](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
 ### タスクリストの例
 
-タスクリストを使って、大きなIssueを小さなタスクに分割し、大きなゴールの一部としてIssueを追跡できます。 {% ifversion fpt %}Issueの本体に追加されたタスクリストには、追加の機能があります。 Issueの上部では全体の中で完了したタスク数を見ることができ、誰かがタスクリストにリンクされたIssueをクローズすると、そのチェックボックスは自動的に完了としてマークされます。{% endif %}詳しい情報については「[タスクリストについて](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)」を参照してください。
+タスクリストを使って、大きなIssueを小さなタスクに分割し、大きなゴールの一部としてIssueを追跡できます。 {% ifversion fpt or ghec %}Issueの本体に追加されたタスクリストには、追加の機能があります。 Issueの上部では全体の中で完了したタスク数を見ることができ、誰かがタスクリストにリンクされたIssueをクローズすると、そのチェックボックスは自動的に完了としてマークされます。{% endif %}詳しい情報については「[タスクリストについて](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)」を参照してください。
 
 以下では、Project OctocatのIssueにタスクリストを追加し、小さなIssueに分割しました。
 
@@ -86,19 +91,19 @@ Issue、Pull Request、ディスカッションを分類するために、リポ
 
 ![Issueの例へのラベルの追加](/assets/images/help/issues/quickstart-add-label-to-issue.png)
 ## プロジェクトボードへのIssueの追加
-{% ifversion fpt %}プロジェクトは、現在限定ベータとして{% data variables.product.prodname_dotcom %}上でチームの作業の計画と追跡に利用できます。 プロジェクトはカスタマイズ可能なスプレッドシートで、{% data variables.product.prodname_dotcom %}上のIssueやPull Requestと統合されており、自動的に{% data variables.product.prodname_dotcom %}上の情報を最新の状態に保ちます。 IssueやPull Requestのフィルタリング、ソート、グループ化によってレイアウトをカスタマイズできます。 プロジェクトを使い始めるには、「[プロジェクト（ベータ）のクイックスタート](/issues/trying-out-the-new-projects-experience/quickstart)」を参照してください。
+{% ifversion fpt or ghec %}プロジェクトは、現在限定ベータとして{% data variables.product.prodname_dotcom %}上でチームの作業の計画と追跡に利用できます。 プロジェクトはカスタマイズ可能なスプレッドシートで、{% data variables.product.prodname_dotcom %}上のIssueやPull Requestと統合されており、自動的に{% data variables.product.prodname_dotcom %}上の情報を最新の状態に保ちます。 IssueやPull Requestのフィルタリング、ソート、グループ化によってレイアウトをカスタマイズできます。 プロジェクトを使い始めるには、「[プロジェクト（ベータ）のクイックスタート](/issues/trying-out-the-new-projects-experience/quickstart)」を参照してください。
 ### プロジェクト（ベータ）の例
-以下は、作成したProject OctocatのIssueが展開されたサンプルプロジェクトの表形式のビューです。
+Here is the table layout of an example project, populated with the Project Octocat issues we have created.
 
-![プロジェクト（ベータ）のテーブルビューの例](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Projects (beta) table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 同じプロジェクトをボードとして見ることもできます。
 
-![プロジェクト（ベータ）のボードビューの例](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Projects (beta) board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 
-チームの作業を計画し、追跡するために{% data variables.product.prodname_dotcom %}上で{% ifversion fpt %}既存のプロジェクトボードを使うことも{% else %}プロジェクトボードを使うことが{% endif %}できます。 プロジェクトボードは、Issue、Pull Request、選択した列内でカードとして分類されるノートから構成されます。 機能の作業、高レベルのロードマップ、さらにはリリースチェックリストのためにプロジェクトボードを作成できます。 詳細は「[プロジェクトボードについて](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)」を参照してください。
+チームの作業を計画し、追跡するために{% data variables.product.prodname_dotcom %}上で{% ifversion fpt or ghec %}既存のプロジェクトボードを使うことも{% else %}プロジェクトボードを使うことが{% endif %}できます。 プロジェクトボードは、Issue、Pull Request、選択した列内でカードとして分類されるノートから構成されます。 機能の作業、高レベルのロードマップ、さらにはリリースチェックリストのためにプロジェクトボードを作成できます。 詳細は「[プロジェクトボードについて](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)」を参照してください。
 ### プロジェクトボードの例
 以下は、サンプルのProject Octocatのプロジェクトボードで、作成したIssueと、そのIssueをブレークダウンした小さなIssueが追加されています。
 
@@ -112,6 +117,6 @@ Issue、Pull Request、ディスカッションを分類するために、リポ
 - Issueテンプレートについてさらに学ぶための「[IssueとPull Requestテンプレートについて](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)」
 - ラベルの作成、編集、削除の方法を学ぶための「[ラベルの管理](/issues/using-labels-and-milestones-to-track-work/managing-labels)」
 - タスクリストについてさらに学ぶための「[タスクリストについて](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)」
-{% ifversion fpt %} - 現在限定パブリックベータの新しいプロジェクト体験についてさらに学ぶための「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」
+{% ifversion fpt or ghec %} - 現在限定パブリックベータの新しいプロジェクト体験についてさらに学ぶための「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」
 - 現在限定パブリックベータであるプロジェクトのビューのカスタマイズについて学ぶための「[プロジェクト（ベータ）ビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)」{% endif %}
 - プロジェクトボードの管理方法を学ぶための「[プロジェクトボードについて](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)」

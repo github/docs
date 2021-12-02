@@ -4,6 +4,7 @@ intro: 'Después de hacer cambios en un archivo de tu codespace, puedes confirma
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

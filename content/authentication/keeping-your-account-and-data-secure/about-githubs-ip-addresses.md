@@ -27,6 +27,8 @@ You can retrieve a list of {% data variables.product.prodname_dotcom %}'s IP add
 
 {% endnote %}
 
+These IP addresses are used by {% data variables.product.prodname_dotcom %} to serve our content, deliver webhooks, and perform hosted {% data variables.product.prodname_actions %} builds.
+
 These ranges are in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You can use an online conversion tool such as this  [CIDR / VLSM Supernet Calculator](http://www.subnet-calculator.com/cidr.php) to convert from CIDR notation to IP address ranges.
 
 We make changes to our IP addresses from time to time. We do not recommend allowing by IP address, however if you use these IP ranges we strongly encourage regular monitoring of our API.

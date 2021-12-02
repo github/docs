@@ -2,7 +2,6 @@
 title: 缓存依赖项以加快工作流程
 shortTitle: 缓存依赖项
 intro: 为了使工作流程更快、更高效，可以为依赖项及其他经常重复使用的文件创建和使用缓存。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -10,6 +9,7 @@ redirect_from:
   - /actions/guides/caching-dependencies-to-speed-up-workflows
 versions:
   fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -25,9 +25,9 @@ topics:
 
 如果您缓存 Ruby Gems，则考虑使用 Ruby 维护的操作，可在启动时缓存捆绑安装。 更多信息请参阅 [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)。
 
-To cache and restore dependencies for npm, Yarn, or pnpm, you can use the [`actions/setup-node` action](https://github.com/actions/setup-node).
+要缓存并恢复 npm、Yarn 或 pnpm 的依赖项，您可以使用 [`actions/setup-node` 操作](https://github.com/actions/setup-node)。
 
-Gradle and Maven caching is available with [`actions/setup-java` action](https://github.com/actions/setup-java).
+Gradle 和 Maven 缓存可用于 [`actions/setup-java` 操作](https://github.com/actions/setup-java)。
 
 {% warning %}
 
@@ -48,9 +48,9 @@ Gradle and Maven caching is available with [`actions/setup-java` action](https:/
 
 工作流程可以访问和还原当前分支、基础分支（包括复刻的仓库的基本分支）或默认分支（通常是 `main`）中创建的缓存 例如，在默认分支上创建的缓存可从任何拉取请求访问。 另外，如果分支 `feature-b` 具有基础分支 `feature-a`，则触发于 `feature-b` 的工作流程可以访问默认分支 (`main`)、`feature-a` 和 `feature-b` 中创建的缓存。
 
-Access restrictions provide cache isolation and security by creating a logical boundary between different branches. 例如， 为分支 `feature-a`（具有基础分支 `main`）创建的缓存将无法访问分支 `feature-b`（具有基础分支 `main`）的拉取请求。
+访问限制通过在不同分支之间创建逻辑边界来提供缓存隔离和安全。 例如， 为分支 `feature-a`（具有基础分支 `main`）创建的缓存将无法访问分支 `feature-b`（具有基础分支 `main`）的拉取请求。
 
-Multiple workflows within a repository share cache entries. A cache created for a branch within a workflow can be accessed and restored from another workflow for the same repository and branch.
+仓库中的多个工作流程共享缓存条目。 可以从同一仓库和分支的另一个工作流程访问和恢复为工作流程中的分支创建的缓存。
 
 ## 使用 `cache` 操作
 

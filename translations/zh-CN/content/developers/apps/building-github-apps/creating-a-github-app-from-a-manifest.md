@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: 应用程序创建清单流程
@@ -60,7 +61,7 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
  | `name`                | `字符串`   | GitHub 应用程序的名称。                                                                                                           |
  | `url`                 | `字符串`   | **必填。**GitHub 应用程序的主页。                                                                                                    |
  | `hook_attributes`     | `对象`    | GitHub 应用程序 web 挂钩的配置                                                                                                     |
- | `redirect_url`        | `字符串`   | 在用户从清单创建 GitHub 应用程序后重定向到的完整 URL。{% ifversion fpt or ghae-next or ghes > 3.0 %}
+ | `redirect_url`        | `字符串`   | 在用户从清单创建 GitHub 应用程序后重定向到的完整 URL。{% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}
  | `callback_urls`       | `字符串数组` | 在用户授权安装后重定向到的完整 URL。 您可以提供最多 10 个回叫 URL。{% else %}
  | `callback_url`        | `字符串`   | 在用户授权安装后重定向到的完整 URL。{% endif %}
  | `说明`                  | `字符串`   | GitHub 应用程序的说明。                                                                                                           |
@@ -100,7 +101,7 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% ifversion fpt or ghae-next or ghes > 3.0 %}"callback_urls": [
+   {% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}"callback_urls": [
      "https://example.com/callback"
    ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
@@ -135,7 +136,7 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% ifversion fpt or ghae-next or ghes > 3.0 %}"callback_urls": [
+   {% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}"callback_urls": [
      "https://example.com/callback"
    ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,

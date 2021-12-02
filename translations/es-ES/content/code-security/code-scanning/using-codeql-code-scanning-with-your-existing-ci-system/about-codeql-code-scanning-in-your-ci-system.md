@@ -5,8 +5,9 @@ intro: 'Puedes analizar tu código con {% data variables.product.prodname_codeql
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -30,12 +31,12 @@ redirect_from:
 
 {% data reusables.code-scanning.about-code-scanning %} Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %} con {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)".
 
-Puedes ejecutar el {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_codeql %} dentro de {% data variables.product.product_name %} utilizando {% data variables.product.prodname_actions %}. Como alternativa, si utilizas un sistema de integración o despliegue/entrega contínua (IC/ID) de terceros, puedes ejecutar un análisis de {% data variables.product.prodname_codeql %} en tu sistema existente y cargar los resultados a {% data variables.product.product_location %}.
+{% data reusables.code-scanning.codeql-context-for-actions-and-third-party-tools %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 <!--Content for GitHub.com, GHAE next, and GHES 3.2 and onward. CodeQL CLI is the preferred method, and CodeQL runner is deprecated. -->
 
-Puedes agregar el {% data variables.product.prodname_codeql_cli %} a tu sistema de terceros y luego llamar a la herramienta para analizar código y cargar los resultados de SARIF a {% data variables.product.product_name %}. Las alertas del {% data variables.product.prodname_code_scanning %} resultantes se muestran junto con cualquier alerta que se genere dentro de {% data variables.product.product_name %}.
+{% data reusables.code-scanning.codeql-cli-context-for-third-party-tools %}
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 

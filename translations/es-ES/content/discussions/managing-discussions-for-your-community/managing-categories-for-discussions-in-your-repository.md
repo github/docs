@@ -4,6 +4,7 @@ intro: 'Puedes categorizar los debates en tu repositorio para organizar las conv
 permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Administrar las categorías
 ---
 

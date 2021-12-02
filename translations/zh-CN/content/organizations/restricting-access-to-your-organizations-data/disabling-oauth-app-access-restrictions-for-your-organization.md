@@ -1,12 +1,13 @@
 ---
 title: 禁用 OAuth 应用程序对您的组织的访问权限限制
-intro: 'Organization owners can disable restrictions on the {% data variables.product.prodname_oauth_apps %} that have access to the organization''s resources.'
+intro: '组织所有者可禁用对拥有组织资源访问权限的 {% data variables.product.prodname_oauth_apps %} 的限制。'
 redirect_from:
   - /articles/disabling-third-party-application-restrictions-for-your-organization/
   - /articles/disabling-oauth-app-access-restrictions-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/disabling-oauth-app-access-restrictions-for-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams

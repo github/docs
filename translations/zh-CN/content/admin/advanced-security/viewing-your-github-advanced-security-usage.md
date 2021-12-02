@@ -5,12 +5,15 @@ permissions: 'Enterprise owners can view usage for {% data variables.product.pro
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   ghes: '>=3.1'
+type: how_to
 topics:
+  - Advanced Security
   - Enterprise
+  - Licensing
 shortTitle: 查看高级安全用法
 ---
 
-## About licenses for {% data variables.product.prodname_GH_advanced_security %}
+## 关于 {% data variables.product.prodname_GH_advanced_security %} 的许可
 
 {% data reusables.advanced-security.about-ghas-license-seats %} 更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的计费](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)”。
 

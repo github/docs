@@ -7,8 +7,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Advanced Security
@@ -26,7 +27,7 @@ topics:
 Existem duas maneiras principais de usar {% data variables.product.prodname_codeql %} análise para {% data variables.product.prodname_code_scanning %}:
 
 - Adicione o fluxo de trabalho de {% data variables.product.prodname_codeql %} ao seu repositório. Isto usa o [github/codeql-action](https://github.com/github/codeql-action/) para executar o {% data variables.product.prodname_codeql_cli %}. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)".
-- Execute {% data variables.product.prodname_codeql %} {% ifversion fpt or ghes > 3.1 or ghae-next %}CLI diretamente {% elsif ghes = 3.0 %}CLI ou executor {% else %}corredor {% endif %} em um sistema de CI externo e faça o upload dos resultados para {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre a digitalização de código {% data variables.product.prodname_codeql %} no seu sistema de CI ](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
+- Execute {% data variables.product.prodname_codeql %} {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}CLI diretamente {% elsif ghes = 3.0 %}CLI ou executor {% else %}corredor {% endif %} em um sistema de CI externo e faça o upload dos resultados para {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre a digitalização de código {% data variables.product.prodname_codeql %} no seu sistema de CI ](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
 
 ## Sobre o {% data variables.product.prodname_codeql %}
 

@@ -7,6 +7,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Use Importador do GitHub
 ---
 
@@ -17,8 +18,6 @@ shortTitle: Use Importador do GitHub
 {% endtip %}
 
 Se você quiser combinar os commits de seu repositório com as contas de usuário GitHub do autor durante a importação, garanta que cada contribuidor de seu repositório tem uma conta GitHub antes de você começar a importação.
-
-{% data reusables.repositories.migrating-from-codeplex %}
 
 {% data reusables.repositories.repo-size-limit %}
 

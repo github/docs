@@ -5,12 +5,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+type: overview
+topics:
+  - Project management
+  - Projects
 ---
 
 ## Introducción
 Puedes utilizar los repositorios de {% data variables.product.prodname_dotcom %}, las propuestas, los tableros de proyecto y otras herramientas para rastrear y planear tu trabajo, ya sea que trabajes en un proyecto individual o en un equipo inter-funcional.
 
-En esta guía, aprenderás cómo crear y configurar un repositorio para colaborar con un grupo de personas, crear plantillas de propuestas{% ifversion fpt %} y formatos {% endif %}, abrir propuestas y utilizar las listas de tareas para dividir el trabajo y establecer un tablero de proyecto para organizar y rastrear las propuestas.
+En esta guía, aprenderás cómo crear y configurar un repositorio para colaborar con un grupo de personas, crear plantillas de propuestas{% ifversion fpt or ghec %} y formatos {% endif %}, abrir propuestas y utilizar las listas de tareas para dividir el trabajo y establecer un tablero de proyecto para organizar y rastrear las propuestas.
 
 ## Crear un repositorio
 Cuando comienzas un proyecto, inciativa o característica nuevos, el primer paso es crear un repositorio. Los repositorios contienen todos los archivos de tu proyecto y te proporcionan un lugar para colaborar con otros y administrar tu trabajo. Para obtener más información, consulta la sección "[Crear un nuevo repositorio](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)."
@@ -42,7 +47,7 @@ Puedes utilizar las propuestas para rastrear los tipos de trabajo diferentes que
 - Solicitudes de características: Tu equipo o usuarios pueden crear propuestas para solicitar una mejora en tu producto o proyecto.
 - Errores: Tu equipo o usuarios pueden crear propuestas para reportar un error.
 
-Dependiendo del tipo de repositorio y proyecto en el que estés trabajando, podrías priorizar ciertos tipos de propuestas osbre otras. Una vez que hayas identificado los tipos de propuesta más comunes para tu equipo, puedes crear plantillas de propuestas {% ifversion fpt %} y formatos{% endif %} para tu repositorio. Las plantillas de propuestas {% ifversion fpt %}y formatos{% endif %} te permiten crear una lista estandarizada de plantillas de las cuales puede elegir un contribuyente para abrir una propuesta en tu repositorio. Para obtener más información, consulta "[Configurar plantillas de propuestas para tu repositorio](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)".
+Dependiendo del tipo de repositorio y proyecto en el que estés trabajando, podrías priorizar ciertos tipos de propuestas osbre otras. Una vez que hayas identificado los tipos de propuesta más comunes para tu equipo, puedes crear plantillas de propuestas {% ifversion fpt or ghec %} y formatos{% endif %} para tu repositorio. Las plantillas de propuestas {% ifversion fpt or ghec %}y formatos{% endif %} te permiten crear una lista estandarizada de plantillas de las cuales puede elegir un contribuyente para abrir una propuesta en tu repositorio. Para obtener más información, consulta "[Configurar plantillas de propuestas para tu repositorio](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)".
 
 ### Ejemplo de plantilla de propuesta
 A continuación, creamos una plantilla de propuesta para reportar un error en el Proyecto Octocat.
@@ -61,7 +66,7 @@ Aquí tienes un ejemplo de una propuesta que se creó para un trabajo de cara al
 ![Ejemplo de creación de propuesta para una iniciativa grande](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
 ### Ejemplo de lista de tareas
 
-Puedes utilizar listas de tareas para dividir propuestas más grandes en otras más pequeñas y para rastrear propuestas como parte de una meta más grande. {% ifversion fpt %} Las listas de tareas tienen una funcionalidad adicional cuando se agregan al cuerpo de una propuesta. Puedes ver la cantidad de tareas que se completaron en comparación con las tareas totales en la parte superior de la propuesta y, si alguien cierra una propuesta que esté enlazada en la lista de tareas, la casilla de verificación se marcará automáticamente como completa.{% endif %} Para obtener más información, consulta la sección "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
+Puedes utilizar listas de tareas para dividir propuestas más grandes en otras más pequeñas y para rastrear propuestas como parte de una meta más grande. {% ifversion fpt or ghec %} Las listas de tareas tienen una funcionalidad adicional cuando se agregan al cuerpo de una propuesta. Puedes ver la cantidad de tareas que se completaron en comparación con las tareas totales en la parte superior de la propuesta y, si alguien cierra una propuesta que esté enlazada en la lista de tareas, la casilla de verificación se marcará automáticamente como completa.{% endif %} Para obtener más información, consulta la sección "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
 
 Debajo, agregamos una lista de tareas a nuestra propuesta del Proyecto Octocat, dividiéndola en propuestas más pequeñas.
 
@@ -86,19 +91,19 @@ A continuación se encuentra un ejemplo de una etiqueta de `front-end` que cream
 
 ![Agregar una etiqueta a un ejemplo de propuesta](/assets/images/help/issues/quickstart-add-label-to-issue.png)
 ## Agregar propuestas a un tablero de proyecto
-{% ifversion fpt %}Puedes utilizar proyectos en {% data variables.product.prodname_dotcom %}, actualmente en el beta público limitado, para planear y rastrear el trabajo de tu equipo. Un proyecto es una hoja de cálculo personalizada que se integra con tus propuestas y solicitudes de cambvios en {% data variables.product.prodname_dotcom %} y que se actualiza automáticamente con la información de {% data variables.product.prodname_dotcom %}. Puedes personalziar el diseño si filtras, clasificas y agrupas tus propuestas y solicitudes de cambios. Para inciar con los proyectos, consulta la [Guía de inicio rápido para los proyectos (beta)](/issues/trying-out-the-new-projects-experience/quickstart)".
+{% ifversion fpt or ghec %}Puedes utilizar proyectos en {% data variables.product.prodname_dotcom %}, actualmente en el beta público limitado, para planear y rastrear el trabajo de tu equipo. Un proyecto es una hoja de cálculo personalizada que se integra con tus propuestas y solicitudes de cambvios en {% data variables.product.prodname_dotcom %} y que se actualiza automáticamente con la información de {% data variables.product.prodname_dotcom %}. Puedes personalziar el diseño si filtras, clasificas y agrupas tus propuestas y solicitudes de cambios. Para inciar con los proyectos, consulta la [Guía de inicio rápido para los proyectos (beta)](/issues/trying-out-the-new-projects-experience/quickstart)".
 ### Ejemplo de proyecto (beta)
-Aquí está la vista de tablero de un proyecto de ejemplo, la cual se llenó con propuestas del Proyecto Octocat que hemos creado.
+Here is the table layout of an example project, populated with the Project Octocat issues we have created.
 
-![Ejemplo de vista de tabla de los proyectos (beta)](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Projects (beta) table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 También podemos ver el mismo proyecto como un tablero.
 
-![Ejemplo de vista de tablero de los proyectos (beta)](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Projects (beta) board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 
-También puedes {% ifversion fpt %} utilizar los tableros de proyecto existentes{% else %} utilizar{% endif %}los tableros de proyecto en {% data variables.product.prodname_dotcom %} para planear y rastrear tu trabajo o el de tu equipo. Los tableros de proyecto están compuestos por propuestas, solicitudes de extracción y notas que se categorizan como tarjetas en columnas a tu elección. Puedes crear tableros de proyecto para presentar trabajo, planes de alto nivel o incluso listas de verificación. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+También puedes {% ifversion fpt or ghec %} utilizar los tableros de proyecto existentes{% else %} utilizar{% endif %}los tableros de proyecto en {% data variables.product.prodname_dotcom %} para planear y rastrear tu trabajo o el de tu equipo. Los tableros de proyecto están compuestos por propuestas, solicitudes de extracción y notas que se categorizan como tarjetas en columnas a tu elección. Puedes crear tableros de proyecto para presentar trabajo, planes de alto nivel o incluso listas de verificación. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
 ### Ejemplo del trablero de proyecto
 A continuación, se presenta un tablero de proyecto para nuestro ejemplo del Proyecto Octocat, con la propuesta que creamos y las propuestas más pequeñas en las que lo dividimos agregadas a este.
 
@@ -112,6 +117,6 @@ Ya aprendiste sobre las herramientas que ofrece {% data variables.product.prodna
 - "[Acerca de las propuestas y solicitudes de cambios](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" para aprender más sobre las plantillas de propuestas
 - "[Administrar etiquetas](/issues/using-labels-and-milestones-to-track-work/managing-labels)" para aprender cómo crear, editar y borrar etiquetas
 - "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)" para aprender más sobre las tareas
-{% ifversion fpt %} - "[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" para aprender más sobre la experiencia de los proyectos nuevos, actualmente en beta público limitado
+{% ifversion fpt or ghec %} - "[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" para aprender más sobre la experiencia de los proyectos nuevos, actualmente en beta público limitado
 - "[Personalizar tus vistas de proyecto (beta)](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)" para aprender cómo personalizar las vistas de los proyectos, actualmente en beta público limitado{% endif %}
 - "[Acerca de los tableros de proyecto](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" para aprender cómo administrar los tableros de proyecto

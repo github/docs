@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Fundamentals
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 概要
 
@@ -27,11 +29,11 @@ topics:
 - ワークフローファイルがアクションを参照するのと同じリポジトリ
 - Docker Hubで公開された Docker コンテナイメージ
 
-{% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community.{% ifversion fpt %} [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category. {% endif %}
+{% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community.{% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category. {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## ワークフローエディタで Marketplace アクションを参照する
 
@@ -77,7 +79,7 @@ steps:
 
 ### SHA の使用
 
-より信頼性の高いバージョン管理が必要な場合は、アクションのバージョンに関連付けられた SHA 値を使用する必要があります。 SHA は不変であるため、タグやブランチよりも信頼性が高くなります。 ただし、このアプローチでは、重要なバグ修正やセキュリティアップデートなど、アクションの更新を自動的に受信しません。 {% ifversion fpt or ghes > 3.0 or ghae %}短縮された値ではなく、コミットの完全なSHA値を使わなければなりません。 {% endif %}この例ではアクションのSHAを対象としています。
+より信頼性の高いバージョン管理が必要な場合は、アクションのバージョンに関連付けられた SHA 値を使用する必要があります。 SHA は不変であるため、タグやブランチよりも信頼性が高くなります。 ただし、このアプローチでは、重要なバグ修正やセキュリティアップデートなど、アクションの更新を自動的に受信しません。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}You must use a commit's full SHA value, and not an abbreviated value. {% endif %}この例ではアクションのSHAを対象としています。
 
 ```yaml
 steps:

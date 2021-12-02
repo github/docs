@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -60,7 +61,7 @@ As revisões de pull request são grupos de comentários de revisão de pull req
 
 ## Comentários de revisão
 
-Os comentários de revisão de pull request são comentários em uma parte do diff unificado feitos durante uma revisão de pull request. Comentários de commit e comentários de problemas são são diferentes dos comentários de revisão de pull request. Você aplica comentários de submissão diretamente para um commit e aplica comentários de problema sem fazer referência a uma parte do diff unificado. Para obter mais informações, consulte "[Criar um comentário de commit](/rest/reference/git#create-a-commit)" e "[Criar um comentário de problema](/rest/reference/issues#create-an-issue-comment)".
+Os comentários de revisão de pull request são comentários em uma parte do diff unificado feitos durante uma revisão de pull request. Comentários de commit e comentários de problemas são são diferentes dos comentários de revisão de pull request. Você aplica comentários de submissão diretamente para um commit e aplica comentários de problema sem fazer referência a uma parte do diff unificado. Para obter mais informações, consulte "[Criar um comentário de commit](/rest/reference/repos#create-a-commit-comment)" e "[Criar um comentário de problema](/rest/reference/issues#create-an-issue-comment)".
 
 ### Tipos de mídia personalizados para comentários de revisão de pull request
 

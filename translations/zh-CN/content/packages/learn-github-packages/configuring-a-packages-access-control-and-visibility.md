@@ -7,6 +7,7 @@ redirect_from:
   - /packages/guides/configuring-access-control-and-visibility-for-container-images
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 访问控制和可见性
 ---
 
@@ -84,6 +85,34 @@ shortTitle: 访问控制和可见性
 3. 使用“role（角色）”下拉菜单，选择您希望仓库成员访问您的容器映像所必须拥有的默认访问权限。 外部协作者将不包括在内。 ![授予仓库的权限访问级别](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
 要进一步自定义对容器映像的访问，请参阅“[配置对组织的容器映像的访问](#configuring-access-to-container-images-for-an-organization)”。
+
+## Ensuring {% data variables.product.prodname_codespaces %} access to your package
+
+By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_dotcom %} Container Registry, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)."
+
+Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
+
+指定的仓库不需要是保存包源代码的仓库。 You can give codespaces in multiple repositories access to a package.
+
+Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
+
+1. In the right sidebar, click **Package settings**.
+
+   !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
+
+2. Under "Manage Codespaces access", click **Add repository**.
+
+   !["添加仓库"按钮](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
+
+3. Search for the repository you want to add.
+
+   !["添加仓库"按钮](/assets/images/help/package-registry/manage-codespaces-access-search.png)
+
+4. Repeat for any additional repositories you would like to allow access.
+
+5. If the codespaces for a repository no longer need access to an image, you can remove access.
+
+   !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
 ## 为个人帐户配置容器映像的可见性
 

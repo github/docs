@@ -17,6 +17,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Analyze changes
@@ -44,7 +45,7 @@ shortTitle: Analyze changes
 
 代码频率图显示仓库历史记录中每周的内容添加和删除。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![代码频率图](/assets/images/help/graphs/repo_code_frequency_graph_dotcom.png)
 

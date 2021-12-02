@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Crie um aplicativo com a API REST
@@ -25,7 +26,7 @@ Este projeto orientará você no seguinte:
 
 {% data reusables.apps.app-ruby-guides %}
 
-Uma concluídas as etapas, você estará pronto para desenvolver outros tipos de integrações usando o conjunto completo das APIS do GitHub. {% ifversion fpt %}Você pode conferir exemplos bem-sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Trabalhos com GitHub](https://github.com/works-with).{% endif %}
+Uma concluídas as etapas, você estará pronto para desenvolver outros tipos de integrações usando o conjunto completo das APIS do GitHub. {% ifversion fpt or ghec %}Você pode conferir exemplos bem-sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Trabalhos com GitHub](https://github.com/works-with).{% endif %}
 
 ## Pré-requisitos
 
@@ -234,5 +235,5 @@ Aqui estão algumas ideias do que você pode fazer a seguir:
 * Quando o bot adiciona a etiqueta com sucesso, é exibida uma mensagem no Terminal. (Dica: compare o ID da etiqueta `needs-response` com o ID da etiqueta na carga como uma condição para sua mensagem para que a mensagem seja exibida somente quando a etiqueta relevante for adicionada e não qualquer outra etiqueta.)
 * Adicione uma página inicial ao seu aplicativo e conecte um [encaminhamento do Sinatra](https://github.com/sinatra/sinatra#routes) para isso.
 * Mova o seu código para um servidor hospedado (como o Heroku). Não se esqueça de atualizar as configurações do seu aplicativo com o novo domínio.
-* Compartilhe seu projeto ou receba orientações no {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt %}
+* Compartilhe seu projeto ou receba orientações no {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt or ghec %}
 * Você construiu um aplicativo novo brilhante que você considera que outras pessoas podem achar útil? [Adicione-o ao GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

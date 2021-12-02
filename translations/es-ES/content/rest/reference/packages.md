@@ -4,6 +4,7 @@ intro: 'Con la API del {% data variables.product.prodname_registry %}, puedes ad
 product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

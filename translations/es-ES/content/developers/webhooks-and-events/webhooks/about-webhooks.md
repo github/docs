@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -33,4 +34,4 @@ Para encontrar una lista completa de eventos de webhook disponibles y sus cargas
 Para obtener más información acerca de la carga útil del webhook del evento `ping`, consulta el evento [`ping`](/webhooks/event-payloads/#ping).
 
 [org-hooks]: /rest/reference/orgs#webhooks/
-[repo-hooks]: /rest/reference/repos#hooks
+[repo-hooks]: /rest/reference/repos#webhooks

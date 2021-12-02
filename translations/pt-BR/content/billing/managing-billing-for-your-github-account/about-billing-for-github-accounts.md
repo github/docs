@@ -1,6 +1,6 @@
 ---
 title: Sobre a cobrança de contas do GitHub
-intro: 'O {% data variables.product.product_name %} oferece produtos gratuitos e pagos para cada desenvolvedor ou equipe.'
+intro: 'O {% data variables.product.company_short %} oferece produtos gratuitos e pagos para cada desenvolvedor ou equipe.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
   - /articles/what-is-the-total-cost-of-using-an-organization-account/
@@ -14,6 +14,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-billing-for-github-accounts
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Accounts
@@ -23,7 +24,7 @@ topics:
 shortTitle: Sobre a cobrança
 ---
 
-Para obter mais informações sobre os produtos disponíveis para sua conta, consulte "[Produtos do {% data variables.product.product_name %}](/articles/github-s-products)". Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. O {% data variables.product.product_name %} não oferece assinaturas nem produtos personalizados.
+Para obter mais informações sobre os produtos disponíveis para sua conta, consulte "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)". Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. O {% data variables.product.product_name %} não oferece assinaturas nem produtos personalizados.
 
 Você pode optar pela cobrança mensal ou anual, além de poder atualizar ou fazer downgrade da assinatura a qualquer momento. Para obter mais informações, consulte "[Gerenciar cobrança para sua conta do {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)."
 

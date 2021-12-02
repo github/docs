@@ -1,28 +1,29 @@
 ---
 title: 邀请协作者参加个人仓库
-intro: '您可以{% ifversion fpt %}邀请用户成为{% else %}添加用户成为{% endif %}个人仓库的协作者。'
+intro: '您可以{% ifversion fpt or ghec %}邀请用户成为{% else %}添加用户成为{% endif %}个人仓库的协作者。'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
   - /articles/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
-product: '{% data reusables.gated-features.user-repo-collaborators %}'
+product: '{% ifversion fpt %}{% data reusables.gated-features.user-repo-collaborators %}{% endif %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
 shortTitle: 邀请协作者
 ---
 
-组织拥有的仓库可授予更细致的访问权限。 更多信息请参阅“[{% data variables.product.product_name %} 上的访问权限](/articles/access-permissions-on-github)”。
+组织拥有的仓库可授予更细致的访问权限。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/articles/access-permissions-on-github)”。
 
 {% data reusables.organizations.org-invite-expiration %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you can only invite other members of your enterprise to collaborate with you. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
@@ -34,10 +35,10 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 {% endif %}
 
-1. 您邀请成为协作者的人员需提供用户名。{% ifversion fpt %} 如果他们还没有用户名，他们可以注册 {% data variables.product.prodname_dotcom %} 更多信息请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)”。{% endif %}
+1. 您邀请成为协作者的人员需提供用户名。{% ifversion fpt or ghec %} 如果他们还没有用户名，他们可以注册 {% data variables.product.prodname_dotcom %} 更多信息请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)”。{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
 1. 单击 **Invite a collaborator（邀请协作者）**。 !["邀请协作者" 按钮](/assets/images/help/repository/invite-a-collaborator-button.png)
 2. 在搜索字段中，开始键入您想邀请的人员的姓名，然后单击匹配列表中的姓名。 ![搜索字段以键入要邀请加入仓库的人员姓名](/assets/images/help/repository/manage-access-invite-search-field-user.png)
@@ -48,7 +49,7 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 7. 从下拉菜单中选择协作者的用户名。 ![协作者列表下拉菜单](/assets/images/help/repository/repo-settings-collab-autofill.png)
 8. 单击 **Add collaborator（添加协作者）**。 !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 9. 用户将会收到一封邀请他们参加仓库的电子邮件。 在接受邀请后，他们便对仓库具有协作者访问权限。
 {% endif %}
 

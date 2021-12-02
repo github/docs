@@ -7,6 +7,7 @@ redirect_from:
   - /github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/about-archiving-content-and-data-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Archivar contenido & datos
@@ -16,8 +17,8 @@ shortTitle: Archivar contenido & datos
 
 {% data variables.product.product_name %} intenta mantener disponibles tus repositorios públicos, a menos que los elimines. En algunos casos, hacemos que el contenido público no esté disponible, por ejemplo si:
 
-- Recibimos un [aviso de retiro de DMCA](/articles/dmca-takedown-policy) para el contenido en un repositorio.
-- Determinamos que el contenido de un repositorio viola nuestras [Pautas de la comunidad](/articles/github-community-guidelines) o nuestros [Términos de servicio](/articles/github-terms-of-service/).
+- Recibimos un [aviso de retiro de DMCA](/free-pro-team@latest/github/site-policy/dmca-takedown-policy) para el contenido en un repositorio.
+- Determinamos que el contenido de un repositorio viola nuestras [Pautas de la comunidad](/free-pro-team@latest/github/site-policy/github-community-guidelines) o nuestros [Términos de servicio](/free-pro-team@latest/github/site-policy/github-terms-of-service).
 
 Académicos e investigadores pueden hacer referencia a esta información en los planes de administración de datos.
 
@@ -27,7 +28,7 @@ Académicos e investigadores pueden hacer referencia a esta información en los 
 
 El {% data variables.product.prodname_archive %} permite que los socios terceros archiven repositorios públicos utilizando la API pública. Estos socios archivan diferentes tipos de datos en frecuencias variables y hacen que éstos estén disponibles al público. El {% data variables.product.prodname_archive %} también protege los datos constantemente al almacenar varias copias de ellos en formatos de datos y ubicaciones diversas. Por ejemplo, {% data variables.product.company_short %} almacena repositorios en el {% data variables.product.prodname_arctic_vault %}, un archivo de muy largoplazo que pretende durar por lo menos 1,000 años. Para obtener más información, consulta [{% data variables.product.prodname_archive %}](https://archiveprogram.github.com/).
 
-El uso responsable de los archivos incluye respetar la privacidad de los usuarios. Para obtener más información, consulta "[Información pública sobre GitHub](/articles/github-privacy-statement/#public-information-on-github)".
+El uso responsable de los archivos incluye respetar la privacidad de los usuarios. Para obtener más información, consulta "[Información pública sobre GitHub](/free-pro-team@latest/github/site-policy/github-privacy-statement#public-information-on-github)".
 
 Puedes optar por que tu repositorio salga del {% data variables.product.prodname_archive %}. Para obtener más información, consulta la sección "[Optar por que tu repositorio público entre o salga del {% data variables.product.prodname_archive %}](/github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)".
 

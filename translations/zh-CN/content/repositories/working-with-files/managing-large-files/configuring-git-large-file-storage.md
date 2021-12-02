@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 配置 Git LFS
 ---
 
@@ -62,5 +63,5 @@ shortTitle: 配置 Git LFS
 
 ## 延伸阅读
 
-- "[使用 {% data variables.large_files.product_name_long %} 进行协作](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt %}
+- "[使用 {% data variables.large_files.product_name_long %} 进行协作](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt or ghec %}
 - "[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

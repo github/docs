@@ -3,6 +3,7 @@ title: Mejorar la versión de Dependabot.com al Dependabot nativo de GitHub
 intro: Puedes mejorar a un Dependabot nativo de GitHub si fusionas una solicitud de cambios que permitirá a tus dependencias seguir actualizándose.
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Repositories

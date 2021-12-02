@@ -4,6 +4,7 @@ shortTitle: Pagar por factura
 intro: 'Si tu compañía paga por {% data variables.product.company_short %} por factura, puedes unirte al servicio de Patrocinadores para Compañías.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Sponsors

@@ -1,13 +1,13 @@
 ---
 title: Creating a composite action
 intro: 'In this guide, you''ll learn how to build a composite action.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/creating-actions/creating-a-composite-run-steps-action
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -16,6 +16,7 @@ shortTitle: Composite action
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -27,7 +28,7 @@ Once you complete this project, you should understand how to build your own comp
 
 ## 基本要求
 
-在开始之前，您将要创建 {% data variables.product.product_name %} 仓库。
+Before you begin, you'll create a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 1. 在 {% data variables.product.product_location %} 上创建公共仓库 You can choose any repository name, or use the following `hello-world-composite-action` example. 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
 

@@ -7,6 +7,7 @@ shortTitle: Label AE hosted runners
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
+{% data reusables.actions.ae-beta %}
 
 For information on how to use labels to route jobs to specific types of {% data variables.actions.hosted_runner %}s, see "[Using {% data variables.actions.hosted_runner %}s in a workflow](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)."
 

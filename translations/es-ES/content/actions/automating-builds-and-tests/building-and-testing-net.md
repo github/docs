@@ -1,18 +1,19 @@
 ---
 title: Compilar y probar desarrollos en .NET
 intro: Puedes crear un flujo de trabajo de integración continua (IC) para compilar y probar tu proyecto de .NET.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-net
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Crear & probar .NET
+  ghec: '*'
+shortTitle: Crear & probar en .NET
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -128,7 +129,7 @@ steps:
 ```
 {% endraw %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### Almacenar dependencias en caché
 
@@ -238,7 +239,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

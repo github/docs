@@ -54,14 +54,14 @@ shortTitle: 升级 GHES
 
   {% endnote %}
 
-| 平台                    | 快照方法 | 快照文档 URL                                                                                                                                                                                               |
-| --------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Amazon AWS            | 磁盘   | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM   | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
-| Hyper-V               | VM   | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
-| Google Compute Engine | 磁盘   | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
-| VMware                | VM   | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
-| XenServer             | VM   | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
+| 平台                    | 快照方法 | 快照文档 URL                                                                                                                                                                                                                         |
+| --------------------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon AWS            | 磁盘   | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                                                 |
+| Azure                 | VM   | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                                                        |
+| Hyper-V               | VM   | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                                               |
+| Google Compute Engine | 磁盘   | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                                                   |
+| VMware                | VM   | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html){% ifversion ghes < 3.3 %}
+| XenServer             | VM   | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>{% endif %}
 
 ## 使用热补丁升级
 
@@ -69,9 +69,9 @@ shortTitle: 升级 GHES
 
 {% note %}
 
-**{% ifversion ghes > 2.22 %}注释{% else %}注释{% endif %}**：
+**{% ifversion ghes %}注释{% else %}注释{% endif %}**：
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 - 如果 {% data variables.product.product_location %} 正在运行发布候选版本，则无法使用热补丁升级。
 
 - {% endif %}无法在集群环境中使用 {% data variables.enterprise.management_console %} 安装热补丁。 要在集群环境中安装热补丁，请参阅“[升级集群](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)”。
@@ -211,11 +211,8 @@ shortTitle: 升级 GHES
 
    {% endnote %}
 
-   如果 `ghe-repl-status` 未返回 `OK`，请执行以下步骤手动启动复制。
+   If `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. 更多信息请参阅“[从 {% data variables.contact.github_support %} 获取帮助](/admin/enterprise-support/receiving-help-from-github-support)”。
 
-   1. 在副本实例上，再次运行 `ghe-repl-setup <primary-instance-ip>`。
-   {% data reusables.enterprise_installation.start-replication %}
-   {% data reusables.enterprise_installation.replication-status %}
 6. 最后一个副本升级完毕且重新同步完成后，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
 ## 从失败的升级中恢复
@@ -232,7 +229,7 @@ shortTitle: 升级 GHES
 
 要从功能版本回滚，请从 VM 快照恢复，以确保根分区和数据分区处于一致的状态。 更多信息请参阅“[生成快照](#taking-a-snapshot)”。
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ## 延伸阅读
 
 - "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"

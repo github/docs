@@ -4,7 +4,7 @@ import { get, getDOM } from '../helpers/supertest.js'
 import supertest from 'supertest'
 import { jest } from '@jest/globals'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 const app = createApp()
 

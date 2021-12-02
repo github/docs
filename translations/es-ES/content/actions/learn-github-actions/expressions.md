@@ -2,16 +2,17 @@
 title: Expresiones
 shortTitle: Expresiones
 intro: Puedes evaluar las expresiones en los flujos de trabajo y acciones.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Acerca de las expresiones
 

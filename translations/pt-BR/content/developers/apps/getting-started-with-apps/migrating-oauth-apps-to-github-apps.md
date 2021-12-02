@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Fazer a migração dos aplicativos OAuth
@@ -31,7 +32,7 @@ Este artigo fornece orientações para integradores existentes que estão consid
 
 ## Converter um aplicativo OAuth em um aplicativo GitHub
 
-Essas diretrizes assumem que você tem um aplicativo OAuth registrado{% ifversion fpt %} que pode ou não estar listado no GitHub Marketplace{% endif %}. De modo geral, você deverá seguir estas etapas:
+Essas diretrizes assumem que você tem um aplicativo OAuth registrado{% ifversion fpt or ghec %} que pode ou não estar listado no GitHub Marketplace{% endif %}. De modo geral, você deverá seguir estas etapas:
 
 1. [Revise os pontos finais da API disponíveis para os aplicativos do GitHub](#review-the-available-api-endpoints-for-github-apps)
 1. [Projete para permanecer dentro dos limites de taxa da API](#design-to-stay-within-api-rate-limits)
@@ -46,13 +47,13 @@ Essas diretrizes assumem que você tem um aplicativo OAuth registrado{% ifversio
 
 ### Revise os pontos finais da API disponíveis para os aplicativos do GitHub
 
-Embora a maioria dos pontos finais da [API REST](/rest) e as consultas do [GraphQL](/graphql) estejam disponíveis para os aplicativos GitHub atualmente, ainda estamos em vias de habilitar alguns pontos finais. Revise os [pontos finais da REST disponíveis](/rest/overview/endpoints-available-for-github-apps) para garantir que os pontos finais de que você precisa sejam compatíveis com o aplicativo GitHub. Observe que alguns dos pontos finais da API ativados para os aplicativos GitHub permitem que o aplicativo aja em nome do usuário. Consulte "[Solicitações de usuário para servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para obter uma lista de pontos finais que permitem que um aplicativo GitHub seja autenticado como usuário.
+Embora a maioria dos pontos finais da [API REST](/rest) e as consultas do [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) estejam disponíveis para os aplicativos GitHub atualmente, ainda estamos em vias de habilitar alguns pontos finais. Revise os [pontos finais da REST disponíveis](/rest/overview/endpoints-available-for-github-apps) para garantir que os pontos finais de que você precisa sejam compatíveis com o aplicativo GitHub. Observe que alguns dos pontos finais da API ativados para os aplicativos GitHub permitem que o aplicativo aja em nome do usuário. Consulte "[Solicitações de usuário para servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para obter uma lista de pontos finais que permitem que um aplicativo GitHub seja autenticado como usuário.
 
 Recomendamos que você reveja a lista de pontos finais de API de que você precisa assim que possível. Informe ao suporte se há um ponto de extremidade necessário que ainda não esteja habilitado para {% data variables.product.prodname_github_apps %}.
 
 ### Projete para permanecer dentro dos limites de taxa da API
 
-Os aplicativos GitHub usam [regras móveis para limites de taxa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), que podem aumentar com base no número de repositórios e usuários da organização. Um aplicativo do GitHub também pode usar [solicitações condicionais](/rest/overview/resources-in-the-rest-api#conditional-requests) ou consolidar solicitações usando [GraphQL API V4](/graphql).
+Os aplicativos GitHub usam [regras móveis para limites de taxa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), que podem aumentar com base no número de repositórios e usuários da organização. Um aplicativo do GitHub também pode usar [solicitações condicionais](/rest/overview/resources-in-the-rest-api#conditional-requests) ou consolidar solicitações usando [GraphQL API V4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql).
 
 ### Cadastre um novo aplicativo GitHub
 

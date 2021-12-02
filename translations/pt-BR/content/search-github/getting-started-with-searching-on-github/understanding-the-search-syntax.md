@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 shortTitle: Entender a sintaxe de pesquisa
@@ -72,10 +73,9 @@ Usando a sintaxe `NOT`, é possível excluir resultados contendo uma determinada
 
 Outra maneira de restringir os resultados da pesquisa é excluir determinados subconjuntos. Adicione um prefixo a qualquer qualificador de pesquisa com um `-` para excluir todos os resultados correspondentes a esse qualificador.
 
-| Consulta                   | Exemplo                                                                                                                                                                                                                                        |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>-<em>QUALIFIER</em></code> | **[cats stars:>10 -language:javascript](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** corresponde a repositórios com a palavra "cats" com mais de 10 estrelas mas não estão escritos em JavaScript. |
-|                            | **[mentions:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** corresponde a problemas mencionando @defunkt que não estão em repositórios na organização do GitHub.               |
+| Consulta                   | Exemplo                                                                                                                                                                                                                 |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>-<em>QUALIFIER</em></code> | **[mentions:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization. |
 
 ## Usar aspas para consultas com espaço em branco
 
@@ -86,7 +86,7 @@ Se a consulta de pesquisa contém espaço em branco, é preciso colocá-lo entre
 
 Alguns símbolos não alfanuméricos, como espaços, são descartados de consultas de pesquisa de código entre aspas, por isso os resultados podem ser inesperados.
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Consultas com nomes de usuário
 
 Se sua consulta de pesquisa contiver um qualificador que exige um nome de usuário, como, por exemplo, `usuário`, `ator` ou `responsável`, você poderá usar qualquer nome de usuário de {% data variables.product.product_name %}, para especificar uma pessoa específica ou `@me` para especificar o usuário atual.

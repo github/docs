@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,11 +26,11 @@ Luego de convertir a un miembro de la organización en un colaborador externo, s
 - @mencionar cualquier equipo visible
 - Ser un mantenedor del equipo
 
-Para obtener más información, consulta ´la sección "[Niveles de permisos para una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)".
+For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 Recomendamos revisar el acceso del miembro de la organización a los repositorios para garantizar que su acceso sea el que esperas. Para obtener más información, consulta la sección "[Administrar el acceso de un individuo a un repositorio de la organización](/articles/managing-an-individual-s-access-to-an-organization-repository)".
 
-Cuando conviertes a un miembro de la organización en un colaborador externo, sus privilegios como miembro de la organización se guardan durante tres meses para que puedas restaurar sus privilegios de membresía si lo{% ifversion fpt %}invitas a unirse nuevamente{% else %} lo vuelves a agregar{% endif %} a tu organización dentro de ese período. Para obtener más información, consulta "[Reinstalar un miembro antiguo de tu organización](/enterprise/{{ page.version }}/user/articles/reinstating-a-former-member-of-your-organization)".
+Cuando conviertes a un miembro de la organización en un colaborador externo, sus privilegios como miembro de la organización se guardan durante tres meses para que puedas restaurar sus privilegios de membresía si lo{% ifversion fpt or ghec %}invitas a unirse nuevamente{% else %} lo vuelves a agregar{% endif %} a tu organización dentro de ese período. Para obtener más información, consulta "[Reinstalar un miembro antiguo de tu organización](/enterprise/{{ page.version }}/user/articles/reinstating-a-former-member-of-your-organization)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

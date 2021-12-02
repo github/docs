@@ -10,19 +10,28 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Gerenciar acesso individual
+permissions: People with admin access to a repository can manage access to the repository.
 ---
 
-Pessoas com permissões de administrador podem gerenciar o acesso de integrantes da organização e colaboradores externos a um repositório da organização.
-
-## Remover acesso a repositórios
+## About access to organization repositories
 
 Ao remover um colaborador de um repositório de sua organização, o colaborador perde os acessos de leitura e gravação no repositório. Caso o repositório seja privado e o colaborador o tenha bifurcado, a bifurcação também é excluída, mas o colaborador ainda manterá quaisquer clones locais de seu repositório.
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
+
+## Giving a person access to a repository
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.organizations.invite-teams-or-people %}
+5. In the search field, start typing the name of the person to invite, then click a name in the list of matches. ![Campo de pesquisa para digitar o nome de uma equipe ou pessoa para convidar ao repositório](/assets/images/help/repository/manage-access-invite-search-field.png)
+6. Under "Choose a role", select the repository role to assign the person, then click **Add NAME to REPOSITORY**. ![Selecionando permissões para a equipe ou pessoa](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
 ## Gerenciar o acesso de um indivíduo a um repositório da organização
 
@@ -36,5 +45,5 @@ Ao remover um colaborador de um repositório de sua organização, o colaborador
 
 ## Leia mais
 
-{% ifversion fpt %}- "[Restringir interações no repositório](/articles/limiting-interactions-with-your-repository)"{% endif %}
-- "[Níveis de permissão do repositório para uma organização](/articles/repository-permission-levels-for-an-organization)"
+{% ifversion fpt or ghec %}- "[Restringir interações no repositório](/articles/limiting-interactions-with-your-repository)"{% endif %}
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

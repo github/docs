@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -138,11 +139,11 @@ Após a conclusão da implantação, definimos o status para `sucesso`.
 
 ## Conclusão
 
-No GitHub, usamos uma versão do [Heavan][heaven] para gerenciar nossas implantações por anos. A common flow is essentially the same as the server we've built above:
+No GitHub, usamos uma versão do [Heavan][heaven] para gerenciar nossas implantações por anos. Um fluxo comum é essencialmente o mesmo que o servidor que construímos acima:
 
-* Wait for a response on the state of the CI checks (success or failure)
-* If the required checks succeed, merge the pull request
-* Heaven takes the merged code, and deploys it to staging and production servers
+* Aguarde uma resposta sobre o estado das verificações de CI (sucesso ou falha)
+* Se as verificações forem bem-sucedidas, faça o merge do pull request
+* Heaven toma o código mesclado e o implementa nos servidores de teste e produção
 * Enquanto isso, o Heaven também notifica todos sobre a criação por meio do [Hubot][hubot] que aguarda nas nossas salas de bate-papo
 
 Pronto! Você não precisa criar sua própria configuração de implantação para usar este exemplo. Você sempre pode confiar nas [Integrações do GitHub][integrations].

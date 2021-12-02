@@ -13,7 +13,7 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Authentication outside IdP
+shortTitle: IdP 以外的身份验证
 ---
 
 ## 关于对您的身份提供程序覆盖范围外的用户进行内置身份验证

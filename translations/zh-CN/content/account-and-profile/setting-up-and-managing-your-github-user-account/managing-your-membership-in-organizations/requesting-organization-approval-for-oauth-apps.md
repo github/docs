@@ -9,6 +9,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: 请求 OAuth 应用程序批准

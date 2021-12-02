@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: 创建议题模板
@@ -37,13 +38,13 @@ assignees: octocat
 
 {% endnote %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 

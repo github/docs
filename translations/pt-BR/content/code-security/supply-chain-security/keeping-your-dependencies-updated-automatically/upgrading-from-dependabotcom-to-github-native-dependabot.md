@@ -3,6 +3,7 @@ title: Atualizando de Dependabot.com para Dependabot nativo do GitHub
 intro: 'Você pode atualizar para o Dependabt nativo do GitHub, fazendo um merge de um pull request que permitirá que as suas dependências continuem sendo atualizadas.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Repositories

@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Etiquetar ejecutores
 ---
@@ -12,13 +13,14 @@ shortTitle: Etiquetar ejecutores
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Para obtener información sobre cómo utilizar las etiquetas para rutear jobs a tipos específicos de ejecutores auto-hospedados, consulta la sección "[Utilizar ejecutores auto-hospedados en un flujo de trabajo](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)".
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 ## Crear una etiqueta personalizada
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
  {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
  1. En la sección de "Etiquetas", haz clic en {% octicon "gear" aria-label="The Gear icon" %}.
@@ -34,7 +36,7 @@ Para obtener información sobre cómo utilizar las etiquetas para rutear jobs a 
 La etiqueta personalizada se creará y asignará al ejecutor auto-hospedado. Las etiquetas personalizadas pueden eliminarse de los ejecutores auto-hospedados, pero actualmente no pueden eliminarse manualmente. {% data reusables.github-actions.actions-unused-labels %}
 {% endif %}
 ## Asignar una etiqueta a un ejecutor auto-hospedado
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}
@@ -48,7 +50,7 @@ La etiqueta personalizada se creará y asignará al ejecutor auto-hospedado. Las
 1. Da clic en la etiqueta para asignarla a tu ejecutor auto-hospedado.
 {% endif %}
 ## Eliminar una etiqueta personalizada de un ejecutor auto-hospedado
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}

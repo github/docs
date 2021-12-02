@@ -20,6 +20,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 shortTitle: View subscriptions
@@ -38,7 +39,7 @@ shortTitle: View subscriptions
 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)」を参照してください。
 
 リポジトリのサブスクリプションの概要を確認するには、「[Watch しているリポジトリを確認する](#reviewing-repositories-that-youre-watching)」を参照してください。
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 {% tip %}
 
 **参考:** [Watch ページ](https://github.com/watching)または {% data variables.product.product_name %} の任意のリポジトリページにある [**Watch/Unwatch**] ドロップダウンリストの [**Custom**] オプションを使用して、通知するイベントの種類を選択できます。 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)」を参照してください。
@@ -70,7 +71,7 @@ shortTitle: View subscriptions
 
 1. 左側のサイドバーの、リポジトリリストの下にある [Manage notifications] ドロップダウンメニューを使用して、[**Watched repositories**] をクリックします。 ![[Manage notifications] ドロップダウンメニューオプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Watch しているリポジトリを評価し、それらの更新がまだ関連していて有用であるかどうかを判断します。 リポジトリを Watch すると、そのリポジトリのすべての会話が通知されます。
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
   ![Watch対象の通知ページ](/assets/images/help/notifications-v2/watched-notifications-custom.png)
 {% else %}
   ![Watch対象の通知ページ](/assets/images/help/notifications-v2/watched-notifications.png)
@@ -78,7 +79,7 @@ shortTitle: View subscriptions
 
   {% tip %}
 
-  **Tip:** Instead of watching a repository, consider only receiving notifications {% ifversion fpt or ghes > 3.0 or ghae-next %}when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
+  **Tip:** Instead of watching a repository, consider only receiving notifications {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
 
   リポジトリを Watch 解除しても、@メンションされたときやスレッドに参加しているときには通知を受信することができます。 特定のイベントタイプの通知を受信するように設定すると、リポジトリにこれらのイベントタイプが更新された場合、スレッドに参加している場合、または参加している自分または Team が @メンションされた場合にのみ通知されます。
 

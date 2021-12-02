@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Descubrir recursos para un usuario
@@ -15,9 +16,9 @@ shortTitle: Descubrir recursos para un usuario
 
  
 
-Cuando se hacen solicitudes autenticadas a la API de {% data variables.product.product_name %}, las aplicaciones a menudo tienen que obtener los repositorios y organizaciones del usuario. En esta guía, te explicaremos cómo descubrir estos recursos de forma confiable.
+When making authenticated requests to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, applications often need to fetch the current user's repositories and organizations. En esta guía, te explicaremos cómo descubrir estos recursos de forma confiable.
 
-Para interactuar con la API de {% data variables.product.product_name %}, estaremos utilizando [Octokit.rb][octokit.rb]. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
+To interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using [Octokit.rb][octokit.rb]. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
 
 ## Empezar
 

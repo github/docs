@@ -3,11 +3,16 @@ title: Using actions in GitHub AE
 intro: '{% data variables.product.prodname_ghe_managed %} includes most of the {% data variables.product.prodname_dotcom %}-authored actions.'
 versions:
   ghae: '*'
+type: how_to
+topics:
+  - Actions
+  - Enterprise
 redirect_from:
   - /admin/github-actions/using-actions-in-github-ae
 shortTitle: Use actions
 ---
 
+{% data reusables.actions.ae-beta %}
 
 {% data variables.product.prodname_actions %} ワークフローは_アクション_を使用できます。アクションは、ジョブを作成してワークフローをカスタマイズするために組み合わせることができる個々のタスクです。 独自のアクションの作成、または {% data variables.product.prodname_dotcom %} コミュニティによって共有されるアクションの使用やカスタマイズができます。
 

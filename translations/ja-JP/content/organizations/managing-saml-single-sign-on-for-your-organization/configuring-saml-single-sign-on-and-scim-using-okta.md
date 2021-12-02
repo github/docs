@@ -7,6 +7,7 @@ product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -76,7 +77,7 @@ SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_clo
 
 ## 参考リンク
 
-- 「[Okta を使用して Enterprise アカウントの SAML シングルサインオンを設定する](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta)」
+- 「[Okta を使用して Enterprise アカウントの SAML シングルサインオンを設定する](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)」
 - [Organization の Team 同期を管理する](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)
 - Okta ドキュメントの「[Understanding SAML](https://developer.okta.com/docs/concepts/saml/)」
 - Okta ドキュメントの「[Understanding SCIM](https://developer.okta.com/docs/concepts/scim/)」

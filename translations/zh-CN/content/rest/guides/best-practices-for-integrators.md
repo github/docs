@@ -1,6 +1,6 @@
 ---
 title: 集成者最佳实践
-intro: '构建能够与 {% data variables.product.prodname_dotcom %} API 进行可靠交互并为用户提供最佳体验的应用程序。'
+intro: '构建一个能够可靠地与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行交互并为您的用户提供最佳体验。'
 redirect_from:
   - /guides/best-practices-for-integrators/
   - /v3/guides/best-practices-for-integrators
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: 综合最佳实践
@@ -22,17 +23,17 @@ shortTitle: 综合最佳实践
 
 您可以采取以下几个步骤来确保安全接收由 GitHub 交付的工作负载：
 
-1. 确保您的接收服务器在 HTTPS 连接上。 默认情况下，GitHub 在交付有效负载时会验证 SSL 证书。{% ifversion fpt %}
+1. 确保您的接收服务器在 HTTPS 连接上。 默认情况下，GitHub 在交付有效负载时会验证 SSL 证书。{% ifversion fpt or ghec %}
 1. 您可以将[我们在交付挂钩时使用的 IP 地址](/github/authenticating-to-github/about-githubs-ip-addresses)添加到服务器的允许列表中。 为确保始终检查 IP 地址是否正确，您可以[使用 `/meta` 端点](/rest/reference/meta#meta)查找我们使用的地址。{% endif %}
 1. 提供[密钥令牌](/webhooks/securing/)以确保有效负载肯定来自 GitHub。 通过实施密钥令牌，您可以确保服务器接收的任何数据绝对来自 GitHub。 理想情况下，您应该为您服务的*每个用户*都提供一个不同的密钥令牌。 这样，即使某个令牌被泄露，也不至于影响其他用户。
 
 ## 支持异步工作而非同步工作
 
-GitHub 要求在收到 web 挂钩有效负载后 {% ifversion fpt %}10{% else %}30{% endif %} 秒内做出集成响应。 如果您的服务需要更长的时间才能完成，则 GitHub 将终止连接，并且有效负载将丢失。
+GitHub 要求在收到 web 挂钩有效负载后 {% ifversion fpt or ghec %}10{% else %}30{% endif %} 秒内做出集成响应。 如果您的服务需要更长的时间才能完成，则 GitHub 将终止连接，并且有效负载将丢失。
 
 由于无法预测您的服务完成速度，因此您应该在后台作业中执行所有“实际工作”。 [Resque](https://github.com/resque/resque/)（用于 Ruby）、[RQ](http://python-rq.org/)（用于 Python）或 [RabbitMQ](http://www.rabbitmq.com/)（用于 Java）是可以排队和处理后台作业的典型库。
 
-请注意，即使在后台作业中执行工作，GitHub 仍要求您的服务器能够在{% ifversion fpt %}十{% else %}三十{% endif %}秒内做出响应。 您的服务器需要通过发送某种响应来确认它收到了有效负载。 您的服务必须尽快对有效负载执行任何验证，以便您能够准确地报告您的服务器是否会继续处理请求。
+请注意，即使在后台作业中执行工作，GitHub 仍要求您的服务器能够在{% ifversion fpt or ghec %}十{% else %}三十{% endif %}秒内做出响应。 您的服务器需要通过发送某种响应来确认它收到了有效负载。 您的服务必须尽快对有效负载执行任何验证，以便您能够准确地报告您的服务器是否会继续处理请求。
 
 ## 响应 GitHub 时使用适当的 HTTP 状态代码
 
@@ -130,7 +131,7 @@ end
 
 在此示例中，在调用 `process_closed` 方法之前会先检查 `closed` 操作。 任何未识别的操作都会被记录以供将来参考。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 处理速率限制
 
@@ -140,11 +141,11 @@ GitHub API [速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting
 
 您可以随时[检查您的速率限制状态](/rest/reference/rate-limit)。 检查您的速率限制状态对您的速率限制不会产生任何影响。
 
-## Dealing with secondary rate limits
+## 处理二级费率限制
 
-[Secondary rate limits](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) are another way we ensure the API's availability. 为了避免达到此限制，应确保您的应用程序遵循以下准则。
+[二级费率限制](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)是我们确保 API 可用性的另一种方式。 为了避免达到此限制，应确保您的应用程序遵循以下准则。
 
-* 发出经过身份验证的请求，或使用应用程序的客户端 ID 和密钥。 Unauthenticated requests are subject to more aggressive secondary rate limiting.
+* 发出经过身份验证的请求，或使用应用程序的客户端 ID 和密钥。 未经身份验证的请求会受到更严格的二级费率限制。
 * 依次为单个用户或客户端 ID 发出请求。 不要同时为单个用户或客户端 ID 发出多个请求。
 * 如果您要为单个用户或客户端 ID 发出大量的 `POST`、`PATCH`、`PUT` 或 `DELETE` 请求，则每两个请求之间至少应间隔一秒钟。
 * 当您受到限制时，请使用 `Retry-After` 响应标头来降低速率。 `Retry-After` 标头的值始终为整数，表示您在再次发出请求之前应等待的秒数。 例如，`Retry-After: 30` 表示您在发出更多请求之前应等待 30 秒。

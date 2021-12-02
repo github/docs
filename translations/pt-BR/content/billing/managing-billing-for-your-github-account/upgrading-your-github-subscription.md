@@ -1,6 +1,6 @@
 ---
 title: Atualizar sua assinatura do GitHub
-intro: 'É possível atualizar a assinatura de qualquer tipo de conta do {% data variables.product.product_name %} a qualquer momento.'
+intro: 'Você pode atualizar a assinatura para qualquer tipo de conta em {% data variables.product.product_location %} a qualquer momento.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
   - /articles/upgrading-your-personal-account-s-billing-plan/
@@ -21,6 +21,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -63,7 +64,7 @@ Você pode atualizar sua organização de {% data variables.product.prodname_fre
 
 Se você tiver atualizado sua organização para o {% data variables.product.prodname_ghe_cloud %}, você poderá configurar a identidade e a gestão de acesso para a sua organização. For more information, see "[Gerenciar logon único de SAML para sua organização](/organizations/managing-saml-single-sign-on-for-your-organization)".
 
-Caso queira usar uma conta corporativa com o {% data variables.product.prodname_ghe_cloud %}, entre em contato com {% data variables.contact.contact_enterprise_sales %}. Para obter mais informações, consulte "[Sobre contas corporativas](/articles/about-enterprise-accounts)".
+Caso queira usar uma conta corporativa com o {% data variables.product.prodname_ghe_cloud %}, entre em contato com {% data variables.contact.contact_enterprise_sales %}. Para obter mais informações, consulte "[Sobre contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}
 
 ## Adicionar estações à organização
 

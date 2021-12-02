@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: 在工作流程中使用运行器
 ---
@@ -15,6 +16,7 @@ shortTitle: 在工作流程中使用运行器
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 有关创建自定义和默认标签的信息，请参阅“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)。”
 
@@ -69,14 +71,14 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 将作业路由到自托管运行器时，{% data variables.product.prodname_dotcom %} 将查找与作业的 `runs-on` 标签匹配的运行器：
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
-- {% data variables.product.prodname_dotcom %} first searches for an online and idle runner at the repository level, then at the organization level, {% ifversion fpt %} and if the organization is part of an enterprise,{% endif %} then at the enterprise level.
-- If {% data variables.product.prodname_dotcom %} finds an online and idle runner at a certain level that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
-  - If the runner doesn't pick up the assigned job within 60 seconds, the job is queued at all levels and waits for a matching runner from any level to come online and pick up the job.
-- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner at any level, the job is queued to all levels and waits for a matching runner from any level to come online and pick up the job.
+{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+- {% data variables.product.prodname_dotcom %} 先在仓库级别搜索在线和空闲的运行器，然后在组织级别搜索运行器{% ifversion fpt or ghec %}并且如果组织是企业的一部分，{% endif %}然后在企业级别搜索运行器。
+- 如果 {% data variables.product.prodname_dotcom %} 在某个级别找到一个在线的空闲运行器与作业的 `runs-on` 标签匹配，则作业被分配并发送到运行器。
+  - 如果运行器在 60 秒内未收到分配的作业，该作业将在所有级别排队，等待任何级别的匹配运行器上线和接收作业。
+- 如果 {% data variables.product.prodname_dotcom %} 在任何级别都找不到在线和空闲的运行器，则作业将在所有级别排队，等待任何级别的匹配运行器上线并接收作业。
 - 如果作业排队的时间超过 24 小时，则作业将失败。
 {% else %}
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
+1. {% data variables.product.prodname_dotcom %} 先在仓库级别搜索运行器，然后在组织级别搜索运行器，然后在企业级别搜索运行器。
 2. 然后，将作业发送到第一个联机且空闲的匹配运行器。
    - 如果所有匹配的联机运行器都处于忙碌状态，则作业将在匹配联机运行器数量最多的级别排队。
    - 如果所有匹配的运行器都处于脱机状态，则作业将在匹配脱机运行器数量最多的级别排队。

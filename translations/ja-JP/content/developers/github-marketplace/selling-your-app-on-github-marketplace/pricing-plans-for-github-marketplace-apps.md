@@ -7,6 +7,7 @@ redirect_from:
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: アプリケーションの価格プラン
@@ -14,7 +15,7 @@ shortTitle: アプリケーションの価格プラン
 
 {% data variables.product.prodname_marketplace %}の価格プランは、無料、定額料金、ユニット単位にできます。 価格は米ドルで設定、表示、処理されます。 有料プランは、検証済みパブリッシャーが公開するアプリケーションに限られます。 検証済みパブリッシャーになる方法の詳細については、「[Organizationのパブリッシャー検証プロセスを申請する](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)」を参照してください。
 
-顧客は{% data variables.product.prodname_dotcom_the_website %}を離れることなく、{% data variables.product.product_name %}アカウントに添付された支払い方法を使ってアプリケーションを購入します。 支払いトランザクションを実行するためにコードを書く必要はありませんが、{% data variables.product.prodname_marketplace %} APIからのイベントは処理しなければなりません。 詳しい情報については「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
+顧客は{% data variables.product.prodname_dotcom_the_website %}を離れることなく、{% data variables.product.product_location %}上のアカウントに添付された支払い方法を使ってアプリケーションを購入します。 支払いトランザクションを実行するためにコードを書く必要はありませんが、{% data variables.product.prodname_marketplace %} APIからのイベントは処理しなければなりません。 詳しい情報については「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 
 {% data variables.product.prodname_marketplace %}上でリストしているアプリケーションが複数のプランのオプションを持っているなら、対応する価格プランをセットアップできます。 たとえばアプリケーションが2つのプランの選択肢としてオープンソースプランとプロプランを持っているなら、オープンソースプランに対して無料価格プランを、そしてプロプランに対して定額料金プランをセットアップできます。 それぞれの{% data variables.product.prodname_marketplace %}リストには、リストされたすべてのプランに対して年間及び月間の価格がなければなりません。
 

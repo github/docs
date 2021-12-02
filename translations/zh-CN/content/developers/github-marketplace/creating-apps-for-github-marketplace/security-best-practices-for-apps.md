@@ -9,6 +9,7 @@ redirect_from:
 shortTitle: 安全最佳实践
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---

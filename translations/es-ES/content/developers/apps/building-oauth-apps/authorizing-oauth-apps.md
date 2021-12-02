@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 ---
@@ -23,7 +24,7 @@ Si quieres saltar el proceso de autorización de tu app en el modo estándar, ta
 
 Para autorizar tu app de OAuth, considera qué flujo de autorizaciones queda mejor con ella.
 
-- [flujo web de aplicaciones](#web-application-flow): Se utiliza para autorizar a los usuarios para las aplicaciones de OAuth que se ejecutan en el buscador. (El [tipo de otorgamiento implícito](https://tools.ietf.org/html/rfc6749#section-4.2) no es compatible.){% ifversion fpt or ghae or ghes > 3.0 %}
+- [flujo web de aplicaciones](#web-application-flow): Se utiliza para autorizar a los usuarios para las aplicaciones de OAuth que se ejecutan en el buscador. (El [tipo de otorgamiento implícito](https://tools.ietf.org/html/rfc6749#section-4.2) no es compatible.){% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 - [flujo de dispositivos](#device-flow):  Se utiliza para las aplicaciones sin encabezado, tales como las herramientas de CLI.{% endif %}
 
 ## Flujo de aplicaciones Web
@@ -50,7 +51,7 @@ Cuando tu GitHub App especifica un parámetro de `login`, solicita a los usuario
 
 | Nombre         | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `secuencia` | **Requerido**. La ID de cliente que recibiste de GitHub cuando te {% ifversion fpt %}[registraste](https://github.com/settings/applications/new){% else %}registraste{% endif %}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `client_id`    | `secuencia` | **Requerido**. La ID de cliente que recibiste de GitHub cuando te {% ifversion fpt or ghec %}[registraste](https://github.com/settings/applications/new){% else %}registraste{% endif %}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `redirect_uri` | `secuencia` | La URL en tu aplicación a donde se enviará a los usuarios después de la autorización. Consulta los siguientes detalles sobre [urls de redireccionamiento](#redirect-urls).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `login`        | `secuencia` | Sugiere una cuenta específica para utilizar para registrarse y autorizar la app.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `alcance`      | `secuencia` | Una lista de [alcances](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) delimitada en espacio. De no proporcionarse, el `scope` será, predeterminadamente, una lista vacía para los usuarios que no han autorizado ningún alcance para la aplicación. Para los usuarios que han autorizado alcances para la aplicación, el usuario no se mostrará en la página de autorización de OAuth con la lista de alcances. En vez de esto, este paso del flujo se completara automáticamente con el conjunto de alcances que el usuario haya autorizado para la aplicación. Por ejemplo, si un usuario ya realizó el flujo web dos veces y autorizó un token con alcance de `user` y otro con alcance de `repo`, un tercer flujo web que no proporcione un `scope` recibirá un token con los alcances `user` y `repo`. |
@@ -79,7 +80,7 @@ Intercambia este `code` por un token de acceso:
 Predeterminadamente, la respuesta toma la siguiente forma:
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&scope=repo%2Cgist&token_type=bearer
+access_token={% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&scope=repo%2Cgist&token_type=bearer
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -87,7 +88,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E
 ```json
 Accept: application/json
 {
-  "access_token":"{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token":"{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "scope":"repo,gist",
   "token_type":"bearer"
 }
@@ -98,7 +99,7 @@ Accept: application/xml
 <OAuth>
   <token_type>bearer</token_type>
   <scope>repo,gist</scope>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
 </OAuth>
 ```
 
@@ -115,7 +116,7 @@ Por ejemplo, en curl, puedes configurar el encabezado de autorización de la sig
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ## Flujo de dispositivos
 
@@ -217,7 +218,7 @@ Ya que el usuario lo haya autorizado, la app recibirá un token de acceso que se
 Predeterminadamente, la respuesta toma la siguiente forma:
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer&scope=repo%2Cgist
+access_token={% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer&scope=repo%2Cgist
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -225,7 +226,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E
 ```json
 Accept: application/json
 {
- "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+ "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "token_type": "bearer",
   "scope": "repo,gist"
 }
@@ -234,7 +235,7 @@ Accept: application/json
 ```xml
 Accept: application/xml
 <OAuth>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
   <token_type>bearer</token_type>
   <scope>gist,repo</scope>
 </OAuth>
@@ -266,7 +267,7 @@ Para obtener más información, consulta la sección "[Otorgamiento de Autorizac
 
 La autenticación no web está disponible para situaciones limitadas, como las pruebas. Si lo necesitas, puedes utilizar la [Autenticación Básica](/rest/overview/other-authentication-methods#basic-authentication) para crear un token de acceso personal utilizando tu [página de configuración de los tokens de acceso personal](/articles/creating-an-access-token-for-command-line-use). Esta técnica le permite al usuario revocar el acceso en cualquier momento.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 {% note %}
 
 **Nota:** CUando utilices el flujo de aplicaciones no web para crear un token OAuth2, asegúrate de entender cómo [trabajar con autenticaciones de dos factores](/rest/overview/other-authentication-methods#working-with-two-factor-authentication) si tú o tus usuarios han habilitado dicho tipo de autenticación.
@@ -328,7 +329,7 @@ Para crear este vínculo, necesitarás el `client_id` de tus Apps de Oauth, el c
 
 * "[Solución de problemas para errores de solicitud de autorización](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[Solución de problemas para errores de solicitud de tokens de acceso para Apps de OAuth](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% ifversion fpt or ghae or ghes > 3.0 %}* "[Errores de flujo de dispositivo](#error-codes-for-the-device-flow)"{% endif %}{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}* "[Errores de flujo de dispositivo](#error-codes-for-the-device-flow)"{% endif %}{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 * "[Vencimiento y revocación de token](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
 
 ## Leer más

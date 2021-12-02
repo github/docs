@@ -7,6 +7,7 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 topics:
   - Community
@@ -36,4 +37,4 @@ shortTitle: リポジトリ内でのインタラクションの制限
 - [悪用あるいはスパムのレポート](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
 - [Organizationのリポジトリへの個人のアクセスの管理](/articles/managing-an-individual-s-access-to-an-organization-repository)
 - [ユーザアカウントのリポジトリ権限レベル](/articles/permission-levels-for-a-user-account-repository)
-- [Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

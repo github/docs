@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 ---
@@ -17,15 +18,15 @@ Ao configurar o SSH, você precisará gerar uma nova chave SSH e adicioná-la ao
 
 Você pode proteger ainda mais sua chave SSH usando uma chave de segurança de hardware, o que exige que a chave de segurança física do hardware seja conectada ao seu computador quando o par de chaves é usado para efetuar a autenticação com SSH. Você também pode proteger sua chave SSH, adicionando sua chave ao agente do ssh-agent e usando uma frase secreta. Para obter mais informações, consulte "[Trabalhar com frases secretas da chave SSH](/github/authenticating-to-github/working-with-ssh-key-passphrases)".
 
-{% ifversion fpt %}Para usar a chave SSH com um repositório pertencente a uma organização que usa o logon único SAML, você deverá autorizar a chave. Para obter mais informações, consulte "[Autorizar uma chave SSH para uso com logon único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".{% endif %}
+{% ifversion fpt or ghec %}Para usar a chave SSH com um repositório pertencente a uma organização que usa o logon único SAML, você deverá autorizar a chave. Para obter mais informações, consulte "[Autorizar uma chave SSH para uso com logon único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".{% endif %}
 
 Para manter a segurança da conta, você pode revisar regularmente sua lista de chaves SSH e revogar quaisquer chaves que sejam inválidas ou que tenham sido comprometidas. Para obter mais informações, consulte "[Revisar as chaves SSH](/github/authenticating-to-github/reviewing-your-ssh-keys)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Se você ficou sem usar a chave SSH por um ano, o {% data variables.product.prodname_dotcom %} excluirá automaticamente essa chave SSH inativa como uma medida de segurança. Para obter mais informações, consulte "[Chaves SSH excluídas ou ausentes](/articles/deleted-or-missing-ssh-keys)".
 {% endif %}
 
-Se for integrante de uma organização que fornece certificados SSH, você poderá usar seu certificado para acessar os repositórios dessa organização, sem adicionar o certificado à sua conta {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre autoridades certificadas SSH](/articles/about-ssh-certificate-authorities)".
+Se você for integrante de uma organização que fornece certificados SSH, você poderá usar seu certificado para acessar os repositórios da organização sem adicionar o certificado à sua conta em {% data variables.product.product_name %}. Você não pode usar seu certificado para acessar bifurcações dos repositórios da organização pertencentes à sua conta de usuário. Para obter mais informações, consulte "[Sobre autoridades certificadas SSH](/articles/about-ssh-certificate-authorities)".
 
 ## Leia mais
 

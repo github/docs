@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: 身份验证
@@ -38,14 +39,14 @@ shortTitle: 身份验证
 {% endnote %}
 
 ## 验证私钥
-{% data variables.product.product_name %} 使用 {% ifversion ghes < 3.0 %}SHA-1{% else %}SHA-256{% endif %} 哈希函数为每对私钥和公钥生成指纹。 您可以生成私钥指纹，然后与 {% data variables.product.product_name %} 显示的指纹相比较，以验证私钥是否与 {% data variables.product.product_name %} 上存储的公钥匹配。
+{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. 您可以生成私钥指纹，然后与 {% data variables.product.product_name %} 显示的指纹相比较，以验证私钥是否与 {% data variables.product.product_name %} 上存储的公钥匹配。
 
 要验证私钥：
 
 1. 在 {% data variables.product.prodname_github_app %} 开发者设置页面的“私钥”部分，查找要验证的私钥和公钥对的指纹。 更多信息请参阅[生成私钥](#generating-a-private-key)。 ![私钥指纹](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
 2. 使用以下命令在本地生成私钥指纹 (PEM)：
     ```shell
-    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl {% ifversion ghes < 3.0 %}sha1 -c{% else %}sha256 -binary | openssl base64{% endif %}
+    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl sha256 -binary | openssl base64
     ```
 3. 比较本地生成的指纹结果与 {% data variables.product.product_name %} 中显示的指纹。
 
@@ -87,7 +88,7 @@ jwt = JWT.encode(payload, private_key, "RS256")
 puts jwt
 ```
 
-`YOUR_PATH_TO_PEM` 和 `YOUR_APP_ID` 是必须替换的值。 Make sure to enclose the values in double quotes.
+`YOUR_PATH_TO_PEM` 和 `YOUR_APP_ID` 是必须替换的值。 请确保以双引号括住值。
 
 使用 {% data variables.product.prodname_github_app %} 的标识符 (`YOUR_APP_ID`) 作为 JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1)（签发者）申请的值。 您可以在[创建应用程序](/apps/building-github-apps/creating-a-github-app/)后通过初始 web 挂钩，或随时从 GitHub.com UI 的应用程序设置页面获取 {% data variables.product.prodname_github_app %} 标识符。
 
@@ -116,7 +117,7 @@ $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github
 
 ## 验证为安装
 
-通过验证为安装，您可以在 API 中为此安装执行操作。 验证为安装之前，必须创建安装访问令牌。 确保您已将 GitHub 应用安装到至少一个仓库；如果没有单个安装，就无法创建安装令牌。 These installation access tokens are used by {% data variables.product.prodname_github_apps %} to authenticate. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
+通过验证为安装，您可以在 API 中为此安装执行操作。 验证为安装之前，必须创建安装访问令牌。 确保您已将 GitHub 应用安装到至少一个仓库；如果没有单个安装，就无法创建安装令牌。 这些安装访问令牌由 {% data variables.product.prodname_github_apps %} 用于进行身份验证。 更多信息请参阅“[安装 GitHub 应用程序](/developers/apps/managing-github-apps/installing-github-apps)”。
 
 默认情况下，安装访问令牌的作用域为安装可访问的所有仓库。 您可以使用 `repository_ids` 参数将安装访问令牌的作用域限定于特定仓库。 请参阅[创建应用程序的安装访问令牌](/rest/reference/apps#create-an-installation-access-token-for-an-app)端点了解更多详细信息。 安装访问令牌具有由 {% data variables.product.prodname_github_app %} 配置的权限，一个小时后到期。
 
@@ -155,7 +156,7 @@ $ curl -i \
 
 ## 作为安装访问 API 端点
 
-For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_apps %} using an installation access token, see "[Available Endpoints](/rest/overview/endpoints-available-for-github-apps)."
+有关适用于使用安装访问令牌的 {% data variables.product.prodname_github_apps %} 的 REST API 端点列表，请参阅“[可用端点](/rest/overview/endpoints-available-for-github-apps)。”
 
 有关与安装相关的端点的列表，请参阅“[安装](/rest/reference/apps#installations)。”
 

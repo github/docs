@@ -36,7 +36,7 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
       <button
         onClick={onClick}
         className={cx(
-          'tooltipped tooltipped-n tooltipped-no-delay color-bg-info-inverse color-text-inverse circle border-0'
+          'tooltipped tooltipped-n tooltipped-no-delay color-bg-accent-emphasis color-fg-on-emphasis circle border-0'
         )}
         style={{ width: 40, height: 40 }}
         aria-label={ariaLabel}

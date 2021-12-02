@@ -1,7 +1,6 @@
 ---
 title: AntでのJavaのビルドとテスト
 intro: GitHub Actions中で継続的インテグレーション（CI）ワークフローを作成し、AntでJavaのプロジェクトのビルドとテストを行うことができます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-ant
   - /actions/guides/building-and-testing-java-with-ant
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -19,6 +19,7 @@ shortTitle: Build & test Java & Ant
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## はじめに
 

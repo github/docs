@@ -10,11 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Actionsでの公開とインストール
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.actions.ae-beta %}
 
 ## {% data variables.product.prodname_actions %}との{% data variables.product.prodname_registry %}について
 
@@ -22,7 +24,7 @@ shortTitle: Actionsでの公開とインストール
 
 ワークフローの一部としてパッケージの公開やインストールを行うことで、リポジトリのCI及びCDの機能を拡張できます。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_container_registry %}での認証
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
@@ -31,7 +33,7 @@ shortTitle: Actionsでの公開とインストール
 
 ### {% data variables.product.prodname_dotcom %} 上のパッケージレジストリを認証する
 
-{% ifversion fpt %}{% data variables.product.product_name %} 上の {% data variables.product.prodname_container_registry %} 以外のパッケージレジストリにアクセスするためワークフローを {% data variables.product.prodname_registry %} に対して認証する場合、{% else %}{% data variables.product.product_name %} 上のパッケージレジストリに対して認証するには、{% endif %}認証のための個人アクセストークンではなく、{% data variables.product.prodname_actions %} を有効化した際に {% data variables.product.product_name %} がリポジトリに対して自動的に作成する `GITHUB_TOKEN` を使用することをお勧めします。 {% ifversion fpt or ghes > 3.1 or ghae-next %}`contents`スコープに対する読み取りアクセス権と、`packages`スコープに対する書き込み権を付与するために、ワークフローファイル中でこのアクセストークンに権限を設定しなければなりません。 {% else %}これは、ワークフローが実行されるリポジトリ内のパッケージに対する読み取り及び書き込み権限を持っています。 {% endif %}フォークでは、 `GITHUB_TOKEN` には親リポジトリの読み取りアクセス権が付与されます。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
+{% ifversion fpt or ghec %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_location %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. {% else %}これは、ワークフローが実行されるリポジトリ内のパッケージに対する読み取り及び書き込み権限を持っています。 {% endif %}フォークでは、 `GITHUB_TOKEN` には親リポジトリの読み取りアクセス権が付与されます。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
 
 {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %}コンテキストを使って、ワークフロー中でこの`GITHUB_TOKEN`を参照できます。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)」を参照してください。
 
@@ -39,7 +41,7 @@ shortTitle: Actionsでの公開とインストール
 
 {% note %}
 
-**ノート:** リポジトリが所有するパッケージには、RubyGems、npm、Apache Maven、NuGet、{% ifversion fpt %}Gradle {% else %}Gradle、そして`docker.pkg.github.com`というパッケージの名前空間を使うDockerパッケージ{% endif %}が含まれます。
+**Note:** Repository-owned packages include RubyGems, npm, Apache Maven, NuGet, {% ifversion fpt or ghec %}and Gradle. {% else %}Gradle、そして`docker.pkg.github.com`というパッケージの名前空間を使うDockerパッケージ{% endif %}が含まれます。
 
 {% endnote %}
 
@@ -47,7 +49,7 @@ GitHub Actionsを有効化すると、GitHubはリポジトリにGitHub Appを�
 
 {% data variables.product.prodname_registry %}を使用すると、{% data variables.product.prodname_actions %}ワークフローで利用できる`GITHUB_TOKEN`を通じてパッケージをプッシュしたりプルしたいできます。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_container_registry %}の権限とパッケージアクセスについて
 
 {% data variables.product.prodname_container_registry %}(`ghcr.io`)を使うと、ユーザはOrganizationレベルの自立リソースとしてコンテナを作成し、管理できます。 Organizationもしくは個人ユーザアカウントがコンテナを所有でき、それぞれのコンテナへのアクセスはリポジトリ権限とは独立してカスタマイズできます。
@@ -80,11 +82,11 @@ GitHub Actionsを有効化すると、GitHubはリポジトリにGitHub Appを�
 
 {% data reusables.package_registry.actions-configuration %}
 
-以下の例では、{% data variables.product.prodname_actions %}を使用してアプリケーションのビルド{% ifversion not fpt %}とテスト{% endif %}を行い、それから自動的にDockerイメージを作成して{% data variables.product.prodname_registry %}に公開する方法を示しています。
+The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build {% ifversion not fpt or ghec %}and test{% endif %} your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}.
 
 リポジトリに新しいワークフローファイル (`.github/workflows/deploy-image.yml` など) を作成し、以下のYAMLを追加します。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.package_registry.publish-docker-image %}
 
 {% else %}
@@ -177,7 +179,7 @@ on:
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 <tr>
 <td>
@@ -287,7 +289,7 @@ build-and-push-image:
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -304,7 +306,7 @@ permissions:
 </tr> 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -399,7 +401,7 @@ with:
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -427,7 +429,7 @@ push: true
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -478,11 +480,11 @@ docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.sha }}
 
 {% data variables.product.prodname_actions %}を使い、CIフローの一部としてパッケージをインストールできます。 たとえば、開発者がコードをプルリクエストにプッシュすると、いつでもワークフローが{% data variables.product.prodname_registry %}によってホストされているパッケージをダウンロードしてインストールすることで、依存関係を解決するようにワークフローを設定できます。 そして、ワークフローはその依存関係を必要とするCIテストを実行できます。
 
-{% data variables.product.prodname_actions %}を通じて{% data variables.product.prodname_registry %}がホストするパッケージをインストールするには、`GITHUB_TOKEN`を使う際に最小限の設定もしくは追加の認証が必要です。{% ifversion fpt %}アクションがパッケージをインストールする場合、データ転送も無料です。 詳しい情報については、「[{% data variables.product.prodname_registry %}の支払いについて](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)」を参照してください。{% endif %}
+Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% ifversion fpt or ghec %} Data transfer is also free when an action installs a package. 詳しい情報については、「[{% data variables.product.prodname_registry %}の支払いについて](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)」を参照してください。{% endif %}
 
 {% data reusables.package_registry.actions-configuration %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## `ghcr.io`にアクセスするワークフローのアップグレード
 
 {% data variables.product.prodname_container_registry %}は、ワークフロー内での容易でセキュアな認証のために`GITHUB_TOKEN`をサポートします。 ワークフローが`ghcr.io`での認証のために個人アクセストークン（PAT）を使っているなら、`GITHUB_TOKEN`を使うようにワークフローを更新することを強くおすすめします。
@@ -526,9 +528,9 @@ env:
 
 jobs:
   # GitHub Packagesにイメージをプッシュ。
-  # https://docs.docker.com/docker-hub/builds/ も参照
+  # See also https://docs.docker.com/docker-hub/builds/
   push:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

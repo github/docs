@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: next
+  ghec: '*'
 topics:
   - Repositories
 redirect_from:
@@ -15,7 +16,7 @@ redirect_from:
 
 ## Sobre a renomeação de branches
 
-Você pode renomear um branch em um repositório em {% data variables.product.product_location %}. Para obter mais informações sobre os branches, consulte "[Sobre os branches](/github/collaborating-with-issues-and-pull-requests/about-branches)".
+Você pode renomear um branch em um repositório em {% data variables.product.product_location %}. For more information about branches, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches))."
 
 Ao renomear um branch em {% data variables.product.product_location %}, todas as URLs que contiverem o nome do branch antigo serão automaticamente redirecionadas para a URL equivalente para o branch renomeado. Atualizam-se também as políticas de proteção de branch também, bem como o branch base para pull requests abertos (incluindo aqueles para bifurcações) e rascunhos de versões. Depois que a renomeação for concluída, {% data variables.product.prodname_dotcom %} fornecerá instruções na página inicial do repositório direcionando os colaboradores para atualizar seus ambientes do Git locais.
 

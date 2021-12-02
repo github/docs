@@ -7,6 +7,7 @@ redirect_from:
   - /developers/github-marketplace/about-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---
@@ -31,11 +32,11 @@ Freeプランのアプリケーションを公開するために必要なこと�
 
 ### アプリケーションは初めてですか?
 
-If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" or "[Building {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps)."
+{% data variables.product.prodname_marketplace %}のアプリケーション作成に関心があり、{% data variables.product.prodname_github_apps %}や{% data variables.product.prodname_oauth_apps %}に慣れていない場合は、「[{% data variables.product.prodname_github_apps %}を構築する](/developers/apps/building-github-apps)」や「[{% data variables.product.prodname_oauth_apps %}を構築する](/developers/apps/building-oauth-apps)」を参照してください。
 
 ### {% data variables.product.prodname_github_apps %} vs. {% data variables.product.prodname_oauth_apps %}
 
-{% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_apps %} in {% data variables.product.prodname_marketplace %}. For more information, see "[Differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}](/apps/differences-between-apps/)" and "[Migrating {% data variables.product.prodname_oauth_apps %} to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)."
+{% data reusables.marketplace.github_apps_preferred %}、{% data variables.product.prodname_marketplace %}ではOAuthと{% data variables.product.prodname_github_apps %}をどちらもリストできます。 詳しい情報については、「[{% data variables.product.prodname_github_apps %}と{% data variables.product.prodname_oauth_apps %}の違い](/apps/differences-between-apps/)」および「[{% data variables.product.prodname_oauth_apps %}を{% data variables.product.prodname_github_apps %}に移行する](/apps/migrating-oauth-apps-to-github-apps/)」を参照してください。
 
 ## {% data variables.product.prodname_marketplace %} にアプリケーションを公開する手順の要約
 
@@ -49,7 +50,7 @@ If you're interested in creating an app for {% data variables.product.prodname_m
 
 1. 価格プランを追加します。 詳しい情報については、「[リストに対する価格プランの設定](/developers/github-marketplace/setting-pricing-plans-for-your-listing)」を参照してください。
 
-1. 「[{% data variables.product.prodname_marketplace %}開発者同意書](/articles/github-marketplace-developer-agreement/)」の条項を読み、同意します。
+1. 「{% data variables.product.prodname_marketplace %}開発者同意書」(/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement) の条項を読み、同意します。
 
 1. {% data variables.product.prodname_marketplace %} に公開するリストをサブミットします。 詳しい情報については、「[公開するリストをサブミットする](/developers/github-marketplace/submitting-your-listing-for-publication)」を参照してください。
 

@@ -27,7 +27,7 @@ Due to the complexity of searching code, there are some restrictions on how sear
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- Code in [forks](/articles/about-forks) is only searchable if the fork has more stars than the parent repository. Forks with fewer stars than the parent repository are **not** indexed for code search. To include forks with more stars than their parent in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/search-github/searching-on-github/searching-in-forks)."
+- Code in [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) is only searchable if the fork has more stars than the parent repository. Forks with fewer stars than the parent repository are **not** indexed for code search. To include forks with more stars than their parent in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/search-github/searching-on-github/searching-in-forks)."
 - Only the _default branch_ is indexed for code search.{% ifversion fpt or ghec %}
 - Only files smaller than 384 KB are searchable.{% else %}* Only files smaller than 5 MB are searchable.
 - Only the first 500 KB of each file is searchable.{% endif %}

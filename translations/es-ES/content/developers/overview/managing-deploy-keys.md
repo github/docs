@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -93,23 +94,23 @@ Si utilizas repositorios múltiples en un servidor, necesitarás generar un par 
 En el archivo de configuración SSH del servidor (habitualmente `~/.ssh/config`), agrega una entrada de alias para cada repositorio. Por ejemplo:
 
 ```bash
-Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
-        Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}
+Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
+        Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-0_deploy_key
 
-Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
-        Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}
+Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
+        Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
-* `Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - El alias del repositorio.
-* `Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configura el nombre de host para utilizarlo con el alias.
+* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
+* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
 * `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Asigna una llave privada al alias.
 
 Entonces podrás utilizar el alias del nombre de host para que interactúe con el repositorio utilizando SSH, lo cual utilizará la llave de despliegue única que se asignó a dicho alias. Por ejemplo:
 
 ```bash
-$ git clone git@{% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+$ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
 ## Tokens de servidor a servidor
@@ -144,13 +145,13 @@ Ya que las GitHub Apps son un actor de primera clase en {% data variables.produc
 
 ## Usuarios máquina
 
-Si tu servidor necesita acceder a repositorios múltiples, puedes crear una nueva cuenta de {% data variables.product.product_name %} y adjuntar una llave SSH que se utilizará exclusivamente para fines de automatización. Ya que ninguna persona utilizará esta cuenta de {% data variables.product.product_name %}, se le llama _usuario máquina_. Puedes agregar el usuario máquina como [colaborador][collaborator] en un repositorio personal (otorgándole acceso de lectura y escritura), como un [colaborador externo][outside-collaborator] en el repositorio de una organización (otorgándole acceso de lectura, escritura y administrador), o a un [equipo][team] con acceso a los repositorios que necesite para la automatización (otorgándole los permisos del equipo).
+If your server needs to access multiple repositories, you can create a new account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and attach an SSH key that will be used exclusively for automation. Since this account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} won't be used by a human, it's called a _machine user_. Puedes agregar el usuario máquina como [colaborador][collaborator] en un repositorio personal (otorgándole acceso de lectura y escritura), como un [colaborador externo][outside-collaborator] en el repositorio de una organización (otorgándole acceso de lectura, escritura y administrador), o a un [equipo][team] con acceso a los repositorios que necesite para la automatización (otorgándole los permisos del equipo).
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** En nuestras [condiciones de servicio][tos] se declara que:
+**Tip:** Our [terms of service][tos] state:
 
 > *No se permiten las cuentas que registren ni los "bots", ni otros métodos automatizados.*
 
@@ -178,7 +179,7 @@ Esto significa que no puedes automatizar la creación de las cuentas. Pero si qu
 
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
-[tos]: /articles/github-terms-of-service/
+[tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
 [git-automation]: /articles/git-automation-with-oauth-tokens
 [git-automation]: /articles/git-automation-with-oauth-tokens
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository

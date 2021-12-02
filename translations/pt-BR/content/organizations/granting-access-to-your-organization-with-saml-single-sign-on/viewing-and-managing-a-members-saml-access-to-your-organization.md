@@ -9,6 +9,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +18,7 @@ shortTitle: Gerenciar acesso SAML
 
 ## Sobre o acesso SAML à sua organização
 
-Ao ativar o logon único SAML para sua organização, cada integrante da organização poderá vincular sua identidade externa ao seu provedor de identidade (IdP) à sua conta {% data variables.product.product_name %} existente. Para acessar os recursos da sua organização no {% data variables.product.product_name %}, o integrante deverá ter uma sessão SAML ativa em seu navegador. Para acessar os recursos da sua organização usando a API ou o Git, o integrante deve usar um token de acesso pessoal ou chave SSH que o integrante autorizou a usar com a sua organização.
+When you enable SAML single sign-on for your organization, each organization member can link their external identity on your identity provider (IdP) to their existing account on {% data variables.product.product_location %}. Para acessar os recursos da sua organização no {% data variables.product.product_name %}, o integrante deverá ter uma sessão SAML ativa em seu navegador. Para acessar os recursos da sua organização usando a API ou o Git, o integrante deve usar um token de acesso pessoal ou chave SSH que o integrante autorizou a usar com a sua organização.
 
 Você pode visualizar e revogar a identidade vinculada de cada integrante, as sessões ativas e as credenciais autorizadas na mesma página.
 
@@ -32,7 +33,7 @@ Quando disponível, a entrada incluirá dados de SCIM. Para obter mais informaç
 **Aviso:** Para organizações que usam SCIM:
 - A revogação de uma identidade de usuário vinculada em {% data variables.product.product_name %} também removerá os metadados SAML e SCIM. Como resultado, o provedor de identidade não poderá sincronizar ou desprovisionar a identidade do usuário vinculada.
 - Um administrador deverá revogar uma identidade vinculada por meio do provedor de identidade.
-- Para revogar uma identidade vinculada e vincular uma conta diferente por meio do provedor de identidade, um administrador pode remover e reatribuir o usuário ao aplicativo de {% data variables.product.product_name %}. For more information, see your identity provider's documentation.
+- Para revogar uma identidade vinculada e vincular uma conta diferente por meio do provedor de identidade, um administrador pode remover e reatribuir o usuário ao aplicativo de {% data variables.product.product_name %}. Para obter mais informações, consulte a documentação do seu provedor de identidade.
 
 {% endwarning %}
 
@@ -73,5 +74,5 @@ Quando disponível, a entrada incluirá dados de SCIM. Para obter mais informaç
 
 ## Leia mais
 
-- "[Sobre gerenciamento de identidade e acesso com o SAML de logon único](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[Visualizar e gerenciar acesso SAML de um usuário à conta corporativa](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)"
+- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"{% ifversion ghec %}
+- "[Viewing and managing a user's SAML access to your enterprise account](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)"{% endif %}

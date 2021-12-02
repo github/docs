@@ -1,16 +1,17 @@
 ---
 title: Executando manualmente um fluxo de trabalho
 intro: 'Quando um fluxo de trabalho é configurado para ser executado no evento `workflow_dispatch`, você pode executar o fluxo de trabalho usando a aba de Ações em {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_cli %} ou a API REST.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Executar um fluxo de trabalho manualmente
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Configurar um fluxo de trabalho para ser executado manualmente
 

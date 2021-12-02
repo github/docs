@@ -57,4 +57,4 @@ gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}own
 
 - "[About issues](/articles/about-issues)"
 - "[Reviewing your security log](/articles/reviewing-your-security-log)"
-- "[Reviewing the audit log for your organization](/articles/reviewing-the-audit-log-for-your-organization)"
+- "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)"

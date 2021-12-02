@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Automatizar con tokens de OAuth
 ---
 
@@ -18,7 +19,7 @@ Crea un token de acceso personal en tu página de configuración de la aplicaci�
 
 {% tip %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **Tips:**
 - Debes verificar tu dirección de correo electrónico antes de que puedas crer un token de acceso personal. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
@@ -28,7 +29,7 @@ Crea un token de acceso personal en tu página de configuración de la aplicaci�
 
 {% endtip %}
 
-{% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ## Paso 2: Clonar un repositorio
 

@@ -3,7 +3,8 @@ title: GitHub for mobile
 intro: '{% data variables.product.product_name %} での作業をモバイルデバイスからトリアージ、コラボレーション、および管理します。'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Mobile
 redirect_from:
@@ -43,7 +44,7 @@ VPN で Enterprise にアクセスする必要がある場合、{% data variable
 
 {% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_mobile %} を使用するには、デバイスに {% data variables.product.prodname_mobile %} 1.4 以降をインストールする必要があります。
 
-{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_mobile %} を使用するには、{% data variables.product.product_location %} がバージョン 3.0 以降であり、Enterprise オーナーが Enterprise に対してモバイルサポートを有効にしている必要があります。 For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/managing-github-for-mobile-for-your-enterprise)."
+{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_mobile %} を使用するには、{% data variables.product.product_location %} がバージョン 3.0 以降であり、Enterprise オーナーが Enterprise に対してモバイルサポートを有効にしている必要があります。 For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/managing-github-for-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
 
 {% data variables.product.prodname_ghe_server %} を使用した {% data variables.product.prodname_mobile %} のベータでは、{% data variables.product.prodname_dotcom_the_website %} のユーザアカウントでサインインする必要があります。
 

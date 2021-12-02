@@ -2,7 +2,6 @@
 title: GitHub Actions 的安全强化
 shortTitle: 安全强化
 intro: '使用 {% data variables.product.prodname_actions %} 功能的良好安全实践。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/getting-started-with-github-actions/security-hardening-for-github-actions
   - /actions/learn-github-actions/security-hardening-for-github-actions
@@ -10,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Security
@@ -18,6 +18,7 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 概览
 
@@ -25,7 +26,7 @@ miniTocMaxHeadingLevel: 3
 
 ## 使用密码
 
-敏感值绝不能以明文存储在工作流程文件中，而应存储为密码。 [密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)可在组织{% ifversion fpt or ghes > 3.0 or ghae %}、仓库或环境{% else %}或仓库{% endif %}级配置，可用于在 {% data variables.product.product_name %} 中存储敏感信息。
+敏感值绝不能以明文存储在工作流程文件中，而应存储为密码。 [密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)可在组织{% ifversion fpt or ghes > 3.0 or ghae or ghec %}、仓库或环境{% else %}或仓库{% endif %}级配置，可用于在 {% data variables.product.product_name %} 中存储敏感信息。
 
 密码使用 [Libsodium 密封箱](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)，以使它们在到达 {% data variables.product.product_name %} 前被加密处理。 [使用 UI](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) 或通过 [REST API](/rest/reference/actions#secrets) 提交密码时就会发生这种情况。 此客户端加密有助于最大程度地减少与 {% data variables.product.product_name %}基础架构中的意外日志记录相关的风险（例如，异常日志和请求日志等）。 密钥在上传后，{% data variables.product.product_name %} 可对其进行解密，以便它能够被注入工作流程运行时。
 
@@ -40,12 +41,12 @@ miniTocMaxHeadingLevel: 3
     - 审核密码的使用方式，以帮助确保按预期方式处理密码。 您可以通过检查执行工作流程的仓库的源代码并检查工作流程中使用的任何操作来进行审核。 例如，确认它们未发送到非预期主机，或明确打印到日志输出。
     - 在测试有效/无效输入后查看工作流程的运行日志，并确认密码已正确编校或未显示。 您调用的命令或工具如何向 `STDOUT` 和 `STDERR` 发送错误并不总是很明显，密码随后可能会在错误日志中生成错误。 因此，在测试有效和无效的输入后，最好是手动查看工作流程日志。
 - **使用最小范围的凭据**
-    - 确保工作流程中使用的凭据具有所需的最小权限，并请注意，任何对仓库具有写入权限的用户都可访问仓库中配置的所有密码。 {% ifversion fpt or ghes > 3.1 or ghae-next %}
+    - 确保工作流程中使用的凭据具有所需的最小权限，并请注意，任何对仓库具有写入权限的用户都可访问仓库中配置的所有密码。 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     - Actions 可以使用 `GITHUB_TOKEN` 从 `github.token` 上下文访问它。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#github-context)”。 因此，您应该确保 `GITHUB_TOKEN` 获得所需的最低权限。 将 `GITHUB_TOKENN` 的默认权限设置为只读取仓库内容是良好的安全做法。 然后可以根据需要增加工作流程文件中个别任务的权限。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)。 {% endif %}
 - **审核并轮换注册密码**
     - 定期查查已注册的密码，以确认它们仍是必需的。 删除不再需要的密码。
     - 定期轮换密码，以减小泄露的密码有效的时间窗。
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - **考虑要求对访问密码进行审查**
     - 您可以使用所需的审查者来保护环境机密。 在审查者批准之前，工作流程作业无法访问环境机密。 For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 {% endif %}
@@ -58,7 +59,7 @@ miniTocMaxHeadingLevel: 3
 
 ## 了解脚本注入的风险
 
-When creating workflows, [custom actions](/actions/creating-actions/about-actions), and [composite actions](/actions/creating-actions/creating-a-composite-action) actions, you should always consider whether your code might execute untrusted input from attackers. 当攻击者将恶意命令和脚本添加到上下文时可能发生这种情况。 当您的工作流程运行时，这些字符串可能会被解释为代码，然后在运行器上执行。
+在创建工作流程 [custom actions](/actions/creating-actions/about-actions) 和 [composite actions](/actions/creating-actions/creating-a-composite-action) 操作时，您应该始终考虑您的代码是否会执行来自攻击者的不信任输入。 当攻击者将恶意命令和脚本添加到上下文时可能发生这种情况。 当您的工作流程运行时，这些字符串可能会被解释为代码，然后在运行器上执行。
 
  攻击者可以将他们自己的恶意内容添加到 [`github` 上下文](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)中，应会该被视为潜在的不可信输入。 这些上下文通常以 `body`、`default_branch`、`email`、`head_ref`、`label`、`message`、`name`、`page_name`、`ref` 和 `title` 结束。  例如：`github.event.issue.title` 或 `github.event.pull_request.body`。
 
@@ -154,6 +155,14 @@ with:
 
 为了帮助降低暴露令牌的风险，请考虑限制分配的权限。 更多信息请参阅“[修改 GITHUB_TOKEN 的权限](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)”。
 
+{% ifversion fpt or ghec or ghae-issue-4856 %}
+
+## Using OpenID Connect to access cloud resources
+
+{% data reusables.actions.about-oidc-short-overview %}
+
+{% endif %}
+
 ## 使用第三方操作
 
 工作流程中的个别作业可以与其他作业相互作用（和妥协）。 例如，查询以后作业使用的环境变量，将文件写入以后作业处理的共享目录，或者更直接地与 Docker 套接字接交互，以及检查其他正在运行的容器并执行其中的命令。
@@ -182,7 +191,7 @@ with:
 
   尽管固定到提交 SHA 是最安全的选项，但指定标记更方便，而且被广泛使用。 如果要指定标记，请确保信任该操作的创建者。 {% data variables.product.prodname_marketplace %} 上的“已验证创建者”徽章是一个有用的信号，因为它表示该操作是由其身份已被 {% data variables.product.prodname_dotcom %} 验证的团队编写的。 请注意，即使您信任作者，这种方法也存在风险，因为如果恶意执行者获得对存储操作的仓库的访问权限，便可移动或删除标记。
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Reusing third-party workflows
 
 The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
@@ -220,18 +229,18 @@ The same principles described above for using third-party actions also apply to 
 
 ### 修改仓库的内容
 
-如果 `GITHUB_TOKEN` [的指定权限不受限制](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)，攻击者服务器可以使用 {% data variables.product.prodname_dotcom %} API 来 [修改仓库内容](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)，包括版本。
+The attacker server can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API to [modify repository content](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token), including releases, if the assigned permissions of `GITHUB_TOKEN` [are not restricted](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token).
 
 ## 考虑跨仓库访问
 
-{% data variables.product.prodname_actions %} 的范围有意设为每次一个仓库。 `GITHUB_TOKEN` 授予与写入用户相同的访问权限，因为任何写入用户都可以通过创建或修改工作流程文件{% ifversion fpt or ghes > 3.1 or ghae-next %} 来访问此令牌，在必要时提升 `GITHUB_TOKEN` 的权限{% endif %}。 用户对每个仓库都有特定权限，因此，如果不谨慎实施，一个仓库的 `GITHUB_TOKEN` 库授予对另一个仓库的访问权限将会影响 {% data variables.product.prodname_dotcom %} 权限模型。 同样，在向工作流程添加 {% data variables.product.prodname_dotcom %} 授权令牌时也必须谨慎，因为这也会因无意中向协作者授予一般权限而影响 {% data variables.product.prodname_dotcom %} 权限模型。
+{% data variables.product.prodname_actions %} 的范围有意设为每次一个仓库。 The `GITHUB_TOKEN` grants the same level of access as a write-access user, because any write-access user can access this token by creating or modifying a workflow file{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}, elevating the permissions of the `GITHUB_TOKEN` if necessary{% endif %}. 用户对每个仓库都有特定权限，因此，如果不谨慎实施，一个仓库的 `GITHUB_TOKEN` 库授予对另一个仓库的访问权限将会影响 {% data variables.product.prodname_dotcom %} 权限模型。 同样，在向工作流程添加 {% data variables.product.prodname_dotcom %} 授权令牌时也必须谨慎，因为这也会因无意中向协作者授予一般权限而影响 {% data variables.product.prodname_dotcom %} 权限模型。
 
 我们已经[制定 {% data variables.product.prodname_dotcom %} 路线图](https://github.com/github/roadmap/issues/74)，以支持允许在 {% data variables.product.product_name %} 内跨仓库访问的流程，但这还不是一项受支持的功能。 目前，执行特权跨仓库交互的唯一方法就是将 {% data variables.product.prodname_dotcom %} 身份验证令牌或 SSH 密钥作为工作流程中的密码。 由于许多身份验证令牌类型不允许对特定资源进行细致的访问，因此使用错误的令牌类型存在很大风险，因为它可以授予比预期范围更广泛的访问。
 
 此列表描述建议用于在工作流程中访问仓库数据的方法，按优先顺序降序排列：
 
 1. **`GITHUB_TOKEN`**
-    -  此令牌被故意扩展到单个调用工作流程的仓库，并且{% ifversion fpt or ghes > 3.1 or ghae-next %}可以有 {% else %}具有 {% endif %}与仓库的写入用户相同的访问权限。 令牌在每个作业开始之前创建，在作业完成时过期。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
+    -  此令牌被故意扩展到单个调用工作流程的仓库，并且{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}可以有 {% else %}具有 {% endif %}与仓库的写入用户相同的访问权限。 令牌在每个作业开始之前创建，在作业完成时过期。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
     - 应尽可能使用 `GITHUB_TOKEN`。
 2. **仓库部署密钥**
     - 部署密钥是唯一授予对单个存储库的读取或写入访问权限的凭据类型之一，可用于与工作流程中的另一个仓库进行交互。 更多信息请参阅“[管理部署密钥](/developers/overview/managing-deploy-keys#deploy-keys)”。
@@ -250,7 +259,7 @@ The same principles described above for using third-party actions also apply to 
 
 {% data variables.product.product_name %} 上**自托管**的运行器不能保证在临时干净的虚拟机中运行，并且可能会持续受到工作流程中不受信任的代码的损害。
 
-因此，自托管的运行器几乎[永远不能用于 {% data variables.product.product_name %} 上的公共仓库](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)，因为任何用户都可以打开针对仓库的拉取请求并破坏环境。 同样，在私有仓库上使用自托管运行器时要小心，因为任何能够复刻仓库并打开拉取请求的任何人（通常是能够读取仓库的人）都能破坏自托管的运行器环境，包括访问密钥和 `GITHUB_TOKEN`，{% ifversion fpt or ghes > 3.1 or ghae-next %} 根据其设置可以授予 {% else %} 授予 {% endif %}仓库的写入权限。 尽管工作流程可以通过使用环境和必需的审查来控制对环境密钥的访问，但是这些工作流程不是在隔离的环境中运行，在自托管运行程器上运行时仍然容易遭受相同的风险。
+因此，自托管的运行器几乎[永远不能用于 {% data variables.product.product_name %} 上的公共仓库](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)，因为任何用户都可以打开针对仓库的拉取请求并破坏环境。 Similarly, be cautious when using self-hosted runners on private repositories, as anyone who can fork the repository and open a pull request (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write-access permissions on the repository. 尽管工作流程可以通过使用环境和必需的审查来控制对环境密钥的访问，但是这些工作流程不是在隔离的环境中运行，在自托管运行程器上运行时仍然容易遭受相同的风险。
 
 在组织或企业级别定义自托管运行器时， {% data variables.product.product_name %} 可将多个仓库中的工作流程安排到同一个运行器中。 因此，这些环境的安全危害可能会导致广泛的影响。 为了帮助缩小损害范围，可以通过将自托管运行器组织到单独的组中来创建边界。 更多信息请参阅“[使用组管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
 
@@ -260,6 +269,25 @@ The same principles described above for using third-party actions also apply to 
 
 某些客户可能会尝试通过实施在每次作业执行后自动销毁自托管运行器的系统来部分降低这些风险。 但是，此方法可能不如预期有效，因为无法保证自托管运行器只运行一个作业。 有些任务将使用密钥作为命令行参数，可以在同一运行器上的另一个任务中看到，例如 `ps x -w`。 这可能导致秘密泄露。
 
+### Planning your management strategy for self-hosted runners
+
+A self-hosted runner can be added to various levels in your {% data variables.product.prodname_dotcom %} hierarchy: the enterprise, organization, or repository level. This placement determines who will be able to manage the runner:
+
+**Centralised management:**
+  - If you plan to have a centralized team own the self-hosted runners, then the recommendation is to add your runners at the highest mutual organization or enterprise level. This gives your team a single location to view and manage your runners.
+  - If you only have a single organization, then adding your runners at the organization level is effectively the same approach, but you might encounter difficulties if you add another organization in the future.
+
+**De-centralised management:**
+  - If each team will manage their own self-hosted runners, then its recommended that you add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
+  - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
+
+{% ifversion fpt or ghec or ghae-issue-4856 %}
+### Authenticating to your cloud provider
+
+If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then its recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
+
+{% endif %}
+
 ## 审核 {% data variables.product.prodname_actions %} 事件
 
 您可以使用审核日志来监控组织中的管理任务。 审核日志记录操作类型、操作的运行时间以及执行操作的用户帐户。
@@ -268,7 +296,7 @@ The same principles described above for using third-party actions also apply to 
 
 以下表格描述了您可以在审核日志中找到的 {% data variables.product.prodname_actions %} 事件。 有关使用审核日志的更多信息，请参阅“[查看组织的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### 环境事件
 
 | 操作                                  | 描述                                                                                   |
@@ -279,7 +307,7 @@ The same principles described above for using third-party actions also apply to 
 | `environment.update_actions_secret` | 当环境中的机密更新时触发。 更多信息请参阅“[环境机密](/actions/reference/environments#environment-secrets)”。  |
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ### 配置更改事件
 | 操作                     | 描述                                                                                                                                              |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -297,44 +325,40 @@ The same principles described above for using third-party actions also apply to 
 | `repo.update_actions_secret` | 在 {% data variables.product.prodname_actions %} 密码更新时触发。                                                                                                              |
 
 ### 自托管运行器的事件
-| 操作                                        | 描述                                                                                                                                                                                                                                                                                                                                                         |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enterprise.register_self_hosted_runner`  | 在注册新的自托管运行器时触发。 更多信息请参阅“[将自托管运行器添加到企业](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise)”。                                                                                                                                                                                                        |
-| `enterprise.remove_self_hosted_runner`    | 当自托管运行器被移除时触发。                                                                                                                                                                                                                                                                                                                                             |
-| `enterprise.runner_group_runners_updated` | Triggered when a runner group's member list is updated. 更多信息请参阅“[为组织设置组中的自托管运行器](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”。{% ifversion fpt or ghes > 3.1  or ghae-issue-1157 %}
-| `enterprise.self_hosted_runner_online`    | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."            |
-| `enterprise.self_hosted_runner_offline`   | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% endif %}
-| `enterprise.self_hosted_runner_updated`   | 当运行器应用程序更新时触发。 可以使用 REST API 和 UI 查看。 当您将审核日志导出为 JSON 数据或 CSV 文件时，此事件不包括在内。 更多信息请参阅“[关于自托管的运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”和“[审查组织的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)”。                              |
-| `org.register_self_hosted_runner`         | 在注册新的自托管运行器时触发。 更多信息请参阅“[将自托管运行器添加到组织](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)”。                                                                                                                                                                                                      |
-| `org.remove_self_hosted_runner`           | 当自托管运行器被移除时触发。 更多信息请参阅“[从组织移除运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)”。                                                                                                                                                                                                                 |
-| `org.runner_group_runners_updated`        | 当运行器组成员列表更新时触发。 更多信息请参阅“[为组织设置组中的自托管运行器](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”。                                                                                                                                                                                                                                 |
-| `org.runner_group_updated`                | 当自托管运行器组的配置改变时触发。 For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."{% ifversion fpt or ghes > 3.1 or ghae-issue-1157 %}
-| `org.self_hosted_runner_online`           | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."            |
-| `org.self_hosted_runner_offline`          | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% endif %}
-| `org.self_hosted_runner_updated`          | 当运行器应用程序更新时触发。 可以使用 REST API 和 UI 查看；在 JSON /CSV 导出中不可见。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”。                                                                                                                                                                                       |
-| `repo.register_self_hosted_runner`        | 在注册新的自托管运行器时触发。 更多信息请参阅“[将自托管运行器添加到仓库](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)”。                                                                                                                                                                                                         |
-| `repo.remove_self_hosted_runner`          | 当自托管运行器被移除时触发。 For more information, see "[Removing a runner from a repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)."{% ifversion fpt or ghes > 3.1 or ghae-issue-1157 %}
-| `repo.self_hosted_runner_online`          | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."            |
-| `repo.self_hosted_runner_offline`         | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% endif %}
-| `repo.self_hosted_runner_updated`         | 当运行器应用程序更新时触发。 可以使用 REST API 和 UI 查看；在 JSON /CSV 导出中不可见。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”。                                                                                                                                                                                       |
+| 操作                                        | 描述                                                                                                                                                                                                                                                                                                                            |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enterprise.register_self_hosted_runner`  | 在注册新的自托管运行器时触发。 更多信息请参阅“[将自托管运行器添加到企业](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise)”。                                                                                                                                                                           |
+| `enterprise.remove_self_hosted_runner`    | 当自托管运行器被移除时触发。                                                                                                                                                                                                                                                                                                                |
+| `enterprise.runner_group_runners_updated` | 当运行器组成员列表更新时触发。 更多信息请参阅“[为组织设置组中的自托管运行器](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”。{% ifversion fpt or ghes > 3.1  or ghae-issue-1157 or ghec %}
+| `enterprise.self_hosted_runner_online`    | 当运行器应用程序启动时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。                                                                                                             |
+| `enterprise.self_hosted_runner_offline`   | 当运行器应用程序停止时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。{% endif %}
+| `enterprise.self_hosted_runner_updated`   | 当运行器应用程序更新时触发。 可以使用 REST API 和 UI 查看。 当您将审核日志导出为 JSON 数据或 CSV 文件时，此事件不包括在内。 更多信息请参阅“[关于自托管的运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”和“[审查组织的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)”。 |
+| `org.register_self_hosted_runner`         | 在注册新的自托管运行器时触发。 更多信息请参阅“[将自托管运行器添加到组织](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)”。                                                                                                                                                                         |
+| `org.remove_self_hosted_runner`           | 当自托管运行器被移除时触发。 更多信息请参阅“[从组织移除运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)”。                                                                                                                                                                                    |
+| `org.runner_group_runners_updated`        | 当运行器组成员列表更新时触发。 更多信息请参阅“[为组织设置组中的自托管运行器](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”。                                                                                                                                                                                                    |
+| `org.runner_group_updated`                | 当自托管运行器组的配置改变时触发。 更多信息请参阅“[更改自托管运行器组的访问策略](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”。{% ifversion fpt or ghes > 3.1 or ghae-issue-1157 or ghec %}
+| `org.self_hosted_runner_online`           | 当运行器应用程序启动时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。                                                                                                             |
+| `org.self_hosted_runner_offline`          | 当运行器应用程序停止时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。{% endif %}
+| `org.self_hosted_runner_updated`          | 当运行器应用程序更新时触发。 可以使用 REST API 和 UI 查看；在 JSON /CSV 导出中不可见。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”。                                                                                                                                                          |
+| `repo.register_self_hosted_runner`        | 在注册新的自托管运行器时触发。 更多信息请参阅“[将自托管运行器添加到仓库](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)”。                                                                                                                                                                            |
+| `repo.remove_self_hosted_runner`          | 当自托管运行器被移除时触发。 更多信息请参阅“[从仓库删除运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)”。{% ifversion fpt or ghes > 3.1 or ghae-issue-1157 or ghec %}
+| `repo.self_hosted_runner_online`          | 当运行器应用程序启动时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。                                                                                                             |
+| `repo.self_hosted_runner_offline`         | 当运行器应用程序停止时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。{% endif %}
+| `repo.self_hosted_runner_updated`         | 当运行器应用程序更新时触发。 可以使用 REST API 和 UI 查看；在 JSON /CSV 导出中不可见。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”。                                                                                                                                                          |
 
 ### 自托管运行器组的事件
-| 操作                                          | 描述                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enterprise.runner_group_created`           | 在创建自托管运行器组时触发。 更多信息请参阅“[为企业创建自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-enterprise)”。                                                                                                            |
-| `enterprise.runner_group_removed`           | 当自托管运行器组被移除时触发。 更多信息请参阅“[移除自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)”。                                                                                                                                |
-| `enterprise.runner_group_runner_removed`    | 当 REST API 用于从组中删除自托管运行器时触发。                                                                                                                                                                                                                                                                    |
-| `enterprise.runner_group_runners_added`     | 当自托管运行器添加到组时触发。 For more information, see "[Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."{% ifversion fpt or ghes > 2.22 or ghae %}
-| `enterprise.runner_group_updated`           | 当自托管运行器组的配置改变时触发。 For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."{% endif %}{% ifversion ghes = 2.22 %}
-| `enterprise.runner_group_renamed`           | Triggered when the self-hosted runner group is renamed.                                                                                                                                                                                                                                         |
-| `enterprise.runner_group_visiblity_updated` | Triggered when the visibility settings of the self-hosted runner group are changed.{% endif %}
-| `org.runner_group_created`                  | 在创建自托管运行器组时触发。 更多信息请参阅“[为组织创建自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)”。                                                                                                          |
-| `org.runner_group_removed`                  | 当自托管运行器组被移除时触发。 For more information, see "[Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."{% ifversion fpt or ghes > 2.22 or ghae %}
-| `org.runner_group_updated`                  | 当自托管运行器组的配置改变时触发。 For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."{% endif %}
-| `org.runner_group_runners_added`            | 当自托管运行器添加到组时触发。 更多信息请参阅“[将自托管运行器移动到组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)”。                                                                                                                           |
-| `org.runner_group_runner_removed`           | 当 REST API 用于从组中删除自托管运行器时触发。 For more information, see "[Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."{% ifversion ghes = 2.22 %}
-| `org.runner_group_renamed`                  | Triggered when the self-hosted runner group is renamed.                                                                                                                                                                                                                                         |
-| `org.runner_group_visiblity_updated`        | Triggered when the visibility settings of the self-hosted runner group are changed.{% endif %}
+| 操作                                       | 描述                                                                                                                                                                                           |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enterprise.runner_group_created`        | 在创建自托管运行器组时触发。 更多信息请参阅“[为企业创建自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-enterprise)”。         |
+| `enterprise.runner_group_removed`        | 当自托管运行器组被移除时触发。 更多信息请参阅“[移除自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)”。                             |
+| `enterprise.runner_group_runner_removed` | 当 REST API 用于从组中删除自托管运行器时触发。                                                                                                                                                                 |
+| `enterprise.runner_group_runners_added`  | 当自托管运行器添加到组时触发。 更多信息请参阅“[将自托管运行器移动到组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)”。                        |
+| `enterprise.runner_group_updated`        | 当自托管运行器组的配置改变时触发。 更多信息请参阅“[更改自托管运行器组的访问策略](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”。 |
+| `org.runner_group_created`               | 在创建自托管运行器组时触发。 更多信息请参阅“[为组织创建自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)”。       |
+| `org.runner_group_removed`               | 当自托管运行器组被移除时触发。 更多信息请参阅“[移除自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)”。                             |
+| `org.runner_group_updated`               | 当自托管运行器组的配置改变时触发。 更多信息请参阅“[更改自托管运行器组的访问策略](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”。 |
+| `org.runner_group_runners_added`         | 当自托管运行器添加到组时触发。 更多信息请参阅“[将自托管运行器移动到组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)”。                        |
+| `org.runner_group_runner_removed`        | 当 REST API 用于从组中删除自托管运行器时触发。 更多信息请参阅“[为组织从组中删除自托管运行器](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)”。                                                |
 
 ### 工作流程活动事件
 

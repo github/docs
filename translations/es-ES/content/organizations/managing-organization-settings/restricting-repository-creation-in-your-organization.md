@@ -8,17 +8,18 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Restringir la creación de repositorios
 ---
 
-Puedes elegir si los miembros pueden crear repositorios en tu organización o no. Si permites que los miembros creen repositorios, puedes elegir qué tipos de repositorios pueden crear.{% ifversion fpt %} Para permitir que los miembros creen únicamente repositorios privados, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}.{% endif %} Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
+Puedes elegir si los miembros pueden crear repositorios en tu organización o no. Si permites que los miembros creen repositorios, puedes elegir qué tipos de repositorios pueden crear.{% ifversion fpt or ghec %} Para permitir que los miembros creen únicamente repositorios privados, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}.{% endif %} Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
 Los propietarios de la organización siempre pueden crear cualquier tipo de repositorio.
 
-{% ifversion fpt %}Los propietarios de empresas{% else %}administradores de sitio{% endif %} pueden restringir las opciones que tienes disponibles para la política de creación de repositorios de tu organización. Para obtener más información, consulta la sección {% ifversion fpt %}"[Requerir políticas de administración de repositorios en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account)".{% else %}"[restringir la creación de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)".{% endif %}
+{% ifversion fpt or ghec %}Los propietarios de empresas{% else %}administradores de sitio{% endif %} pueden restringir las opciones que tienes disponibles para la política de creación de repositorios de tu organización. For more information, see "[Restricting repository creation in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."
 
 {% warning %}
 

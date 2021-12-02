@@ -1,7 +1,7 @@
 ---
 title: GitHub Pages 文档
 shortTitle: GitHub Pages
-intro: '您可以直接从 {% data variables.product.product_name %} 仓库创建网站。'
+intro: '您可以直接从 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 的仓库创建网站。'
 redirect_from:
   - /categories/20/articles/
   - /categories/95/articles/
@@ -16,9 +16,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 children:
+  - /quickstart
   - /getting-started-with-github-pages
   - /setting-up-a-github-pages-site-with-jekyll
   - /configuring-a-custom-domain-for-your-github-pages-site

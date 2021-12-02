@@ -8,12 +8,15 @@ redirect_from:
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - SSO
 shortTitle: PAT with SAML
 ---
 
 既存の個人アクセストークンを認可することも、[新しい個人アクセストークンを作成](/github/authenticating-to-github/creating-a-personal-access-token)して認可することもできます。
+
+{% data reusables.saml.authorized-creds-info %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}

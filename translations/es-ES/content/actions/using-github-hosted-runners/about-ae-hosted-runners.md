@@ -1,12 +1,12 @@
 ---
 title: Acerca de los ejecutores hospedados en AE
 intro: '{% data variables.product.prodname_ghe_managed %} ofrece máquinas virtuales hospedadas, personalizables y con seguridad robustecida, para ejecutar los flujos de trabajo de {% data variables.product.prodname_actions %}. Puedes seleccionar el hardware, traer tu propia imagen de máquina, y habilitar una dirección IP para trabajar en red con tu {% data variables.actions.hosted_runner %}.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   ghae: '*'
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
+{% data reusables.actions.ae-beta %}
 
 ## Acerca de las {% data variables.actions.hosted_runner %}
 

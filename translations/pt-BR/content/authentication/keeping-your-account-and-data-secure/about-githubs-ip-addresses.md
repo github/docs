@@ -12,6 +12,7 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/about-githubs-ip-addresses
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -25,6 +26,8 @@ Você pode recuperar uma lista de endereços IP do {% data variables.product.pro
 **Observação:** A lista de endereços de IP de {% data variables.product.prodname_dotcom %} retornados pela Meta API não pretende ser uma lista taxativa. Por exemplo, endereços IP para alguns serviços de {% data variables.product.prodname_dotcom %} não podem ser listados, como LFS ou {% data variables.product.prodname_registry %}.
 
 {% endnote %}
+
+Esses endereços IP são usados por {% data variables.product.prodname_dotcom %} para fornecer nosso conteúdo, webhooks e executar compilações de {% data variables.product.prodname_actions %} hospedadas.
 
 Esses intervalos estão na [notação CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). É possível usar uma ferramenta de conversão online, como essa [Calculadora Supernet CIDR/VLSM](http://www.subnet-calculator.com/cidr.php), para fazer a conversão de notação CIDR em intervalos de endereços IP.
 

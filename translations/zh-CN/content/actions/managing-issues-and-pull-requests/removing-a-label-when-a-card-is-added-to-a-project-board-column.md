@@ -1,13 +1,13 @@
 ---
 title: 将卡片添加到项目板列时删除标签
 intro: '您可以使用 {% data variables.product.prodname_actions %} 在议题或拉取请求添加到项目板上的特定列时自动删除标签。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,6 +17,7 @@ shortTitle: 添加卡片时删除标签
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -42,7 +43,7 @@ shortTitle: 添加卡片时删除标签
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
         permissions:
           issues: write
           pull-requests: write{% endif %}

@@ -4,6 +4,7 @@ intro: 'Habilita los {% data variables.product.prodname_discussions %} en un rep
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Inicio Rápido
 ---
 

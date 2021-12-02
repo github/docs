@@ -5,6 +5,7 @@ intro: 'Puedes administrar los repositorios a los cuales pueden acceder los {% d
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Security

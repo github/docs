@@ -1,7 +1,6 @@
 ---
 title: About custom actions
 intro: 'アクションは個々のタスクで、組み合わせてジョブを作成したりワークフローをカスタマイズしたりできます。 独自のアクションの作成、または {% data variables.product.prodname_dotcom %} コミュニティによって共有されるアクションの使用やカスタマイズができます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-actions
   - /github/automating-your-workflow-with-github-actions/about-actions
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Action development
@@ -20,12 +20,13 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## About custom actions
 
 {% data variables.product.prodname_dotcom %}の API やパブリックに利用可能なサードパーティAPIとのインテグレーションなど、好きな方法でリポジトリを操作するカスタムコードを書いて、アクションを作成することができます。 たとえば、アクションでnpmモジュールを公開する、緊急のIssueが発生したときにSMSアラートを送信する、本番対応のコードをデプロイすることなどが可能です。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ワークフローで使用する独自のアクションを作成したり、ビルドしたアクションを{% data variables.product.prodname_dotcom %}コミュニティと共有したりできます。 ビルドしたアクションをシェアするには、リポジトリをパブリックにする必要があります。
 {% endif %}
 
@@ -65,15 +66,15 @@ A _composite_ action allows you to combine multiple workflow steps within one ac
 
 他のユーザーが使うアクションを開発する場合には、他のアプリケーションコードにバンドルするのではなく、アクションをそれ自体のリポジトリに保持しておくことをお勧めします。 こうすると、他のソフトウェアと同様にアクションのバージョニング、追跡、リリースが可能になるからです。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 アクションをそれ自体のリポジトリに保存すると、{% data variables.product.prodname_dotcom %}コミュニティがアクションを見つけやすくなります。また、開発者がアクションの問題を解決したり機能を拡張したりするとき、コードベースのスコープが限定され、アクションのバージョニングが他のアプリケーションコードのバージョニングから切り離されます。
 {% endif %}
 
-{% ifversion fpt %} ビルドしているアクションをパブリックに公開する予定がない場合、{% else %}{% endif %}アクションのファイルはリポジトリのどの場所に保存してもかまいません。 アクション、ワークフロー、アプリケーションコードを 1 つのリポジトリで組み合わせる予定の場合、アクションは `.github` ディレクトリに保存することをお勧めします。 たとえば、`.github/actions/action-a`や`.github/actions/action-b`に保存します。
+{% ifversion fpt or ghec %} ビルドしているアクションをパブリックに公開する予定がない場合、{% else %}{% endif %}アクションのファイルはリポジトリのどの場所に保存してもかまいません。 アクション、ワークフロー、アプリケーションコードを 1 つのリポジトリで組み合わせる予定の場合、アクションは `.github` ディレクトリに保存することをお勧めします。 たとえば、`.github/actions/action-a`や`.github/actions/action-b`に保存します。
 
 ## {% data variables.product.prodname_ghe_server %} との互換性
 
-アクションが {% data variables.product.prodname_ghe_server %} と互換性があることを確認するには、{% data variables.product.prodname_dotcom %} API URL へのハードコードされた参照を使用しないようにする必要があります。 代わりに、環境変数を使用して {% data variables.product.prodname_dotcom %} APIを参照する必要があります。
+To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URLs. You should instead use environment variables to refer to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API:
 
 - REST API の場合は、 `GITHUB_API_URL` 環境変数を使用します。
 - GraphQL の場合は、 `GITHUB_GRAPHQL_URL` 環境変数を使用します。
@@ -127,7 +128,7 @@ steps:
 
 ### コミットの SHA を使用したリリース管理
 
-各 Git コミットは、計算された SHA 値を受け取ります。これは一意で不変のものです。 アクションのユーザは、コミットの SHA 値に依存することを好む場合があります。削除や移動ができるタグを指定するよりこの方法のほうが信頼できるためです。 ただし、これは、ユーザがアクションに対して行われた更新をそれ以上受け取らないことを意味しています。 {% ifversion fpt or ghes > 3.0 or ghae %}コミットのSHA値は、短縮値ではなく完全な値を使わなければなりません。{% else %}コミットのSHA値として短縮値でなく完全な値を使うことで、同じ短縮値を使う悪意あるコミットを使ってしまうことを回避しやすくなります、{% endif %}
+各 Git コミットは、計算された SHA 値を受け取ります。これは一意で不変のものです。 アクションのユーザは、コミットの SHA 値に依存することを好む場合があります。削除や移動ができるタグを指定するよりこの方法のほうが信頼できるためです。 ただし、これは、ユーザがアクションに対して行われた更新をそれ以上受け取らないことを意味しています。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}コミットのSHA値は、短縮値ではなく完全な値を使わなければなりません。{% else %}コミットのSHA値として短縮値でなく完全な値を使うことで、同じ短縮値を使う悪意あるコミットを使ってしまうことを回避しやすくなります、{% endif %}
 
 ```yaml
 steps:

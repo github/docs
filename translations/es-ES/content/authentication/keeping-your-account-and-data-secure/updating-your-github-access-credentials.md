@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,12 +21,12 @@ shortTitle: Actualizar las credenciales de acceso
 {% ifversion not ghae %}
 ## Solicitar una contraseña nueva
 
-1. Para solicitar una contraseña nueva, visita {% ifversion fpt %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
-2. Ingresa la dirección de correo electrónico asociada a tu cuenta personal {% data variables.product.product_name %}, luego haz clic en **Send password reset email** (Enviar correo electrónico de restablecimiento de contraseña). El correo electrónico se enviará a la dirección de correo electrónico de respaldo si tienes configurada una. ![Diálogo de solicitud de correo electrónico de restablecimiento de contraseña](/assets/images/help/settings/password-recovery-email-request.png)
+1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
+2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured. ![Diálogo de solicitud de correo electrónico de restablecimiento de contraseña](/assets/images/help/settings/password-recovery-email-request.png)
 3. Te enviaremos por correo electrónico un enlace que te permitirá restablecer la contraseña. Debes hacer clic en este enlace dentro de las 3 horas posteriores a haber recibido el correo electrónico. Si no recibiste un correo electrónico de nuestra parte, asegúrate de revisar la carpeta de spam.
 4. Si habilitaste la autenticación bifactorial, se te pedirán tus credenciales de 2FA. Teclea tus credenciales bifactoriales o uno de tus códigos de recuperación de 2FA y haz clic en **Verificar**. ![Mensaje de autenticación bifactorial](/assets/images/help/2fa/2fa-password-reset.png)
 5. Teclea una contraseña nueva, confírmala y haz clic en **Cambiar contraseña**. Para recibir ayuda para crear una contraseña segura, consulta "[Crear una contraseña segura](/articles/creating-a-strong-password)."
-  {% ifversion fpt %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
+  {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
   ![Casilla de recuperación de contraseña](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}

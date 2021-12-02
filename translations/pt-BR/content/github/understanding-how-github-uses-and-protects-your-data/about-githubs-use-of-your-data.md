@@ -6,6 +6,7 @@ redirect_from:
 intro: 'O {% data variables.product.product_name %} usa os dados do seu repositório para conectar você a ferramentas, pessoas, projetos e informações relevantes.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Policy
   - Legal
@@ -20,7 +21,7 @@ O {% data variables.product.product_name %} agrega metadados e analisa padrões 
 
 {% data reusables.user_settings.export-data %} Para obter mais informações, consulte "[Solicitar um arquivamento dos dados da sua conta pessoal](/articles/requesting-an-archive-of-your-personal-account-s-data)".
 
-Se você aceitar o uso de dados para um repositório privado, continuaremos tratando seus dados privados, código-fonte ou segredos comerciais como confidenciais e privados em conformidade com nossos [Termos de Serviço](/articles/github-terms-of-service/). As informações apreendidas são provenientes apenas de dados agregados. Para obter mais informações, consulte "[Gerenciando configurações do uso de dados de seu repositório privado](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)".
+Se você aceitar o uso de dados para um repositório privado, continuaremos tratando seus dados privados, código-fonte ou segredos comerciais como confidenciais e privados em conformidade com nossos [Termos de Serviço](/free-pro-team@latest/github/site-policy/github-terms-of-service). As informações apreendidas são provenientes apenas de dados agregados. Para obter mais informações, consulte "[Gerenciando configurações do uso de dados de seu repositório privado](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)".
 
 Anunciaremos novos recursos importantes que usam metadados ou dados agregados no [blog do {% data variables.product.prodname_dotcom %}](https://github.com/blog).
 
@@ -34,6 +35,6 @@ O {% data variables.product.product_name %} também aprende com as alterações 
 
 ## Compartilhamento de dados e privacidade
 
-Os dados do repositório privada são verificados por máquina e nunca lidos pela equipe do {% data variables.product.product_name %}. Os olhos humanos nunca verão o conteúdo dos repositórios privados, exceto conforme descrito em nossos [Termos de serviço](/articles/github-terms-of-service/#3-access).
+Os dados do repositório privada são verificados por máquina e nunca lidos pela equipe do {% data variables.product.product_name %}. Os olhos humanos nunca verão o conteúdo dos repositórios privados, exceto conforme descrito em nossos [Termos de serviço](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).
 
 Os dados pessoais e individuais ou do seu repositório não serão compartilhados com terceiros. Podemos compartilhar dados agregados apreendidos por nossa análise com nossos parceiros.

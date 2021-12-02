@@ -1,1 +1,1 @@
-メールの制限を有効化すると、メンバーは検証済みあるいは承認済みのドメイン内の検証済みメールアドレスでメール通知を受信できるようになります。 {% ifversion fpt %}For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."{% endif %}
+{% ifversion fpt or ghec %}To continue receiving email notifications after you enable restrictions, members must verify any email addresses within domains that you verify or approve. 詳しい情報については、「[メールアドレスの検証](/github/getting-started-with-github/verifying-your-email-address)」を参照してください。{% endif %}

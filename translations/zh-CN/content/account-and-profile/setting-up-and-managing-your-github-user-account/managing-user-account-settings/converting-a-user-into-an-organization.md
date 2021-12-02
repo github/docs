@@ -10,6 +10,7 @@ intro: 您可以将用户帐户转换为组织。 这样可以对属于组织的
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: 用户到组织
@@ -41,7 +42,7 @@ shortTitle: 用户到组织
 也可以将个人用户帐户直接转换为组织。 转换帐户：
  - 按原样保留仓库，无需手动将其转让给另一个帐户
  - 自动邀请协作者加入与他们以前的权限相当的团队
- {% ifversion fpt %}-对 {% data variables.product.prodname_pro %} 上的用户帐户，自动将帐单转移到[付费 {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts)，任何时候都无需重新输入付款信息、调整结算周期或双重付费{% endif %}
+ {% ifversion fpt or ghec %}-对 {% data variables.product.prodname_pro %} 上的用户帐户，自动将帐单转移到[付费 {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts)，任何时候都无需重新输入付款信息、调整结算周期或双重付费{% endif %}
 
 1. 创建新的个人帐户，转换后您将用它来登录 GitHub 以及访问组织和仓库。
 2.  [离开](/articles/removing-yourself-from-an-organization)要转换的用户帐户此前加入的任何组织。
@@ -56,11 +57,11 @@ shortTitle: 用户到组织
 
 {% tip %}
 
-**提示**：将用户帐户转换为组织时，我们会将属于该帐户的仓库中的协作者作为*外部协作者*添加到新组织。 然后，您可以根据需要邀请*外部协作者*成为新组织的成员。 更多信息请参阅“[组织的权限级别](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)”。
+**提示**：将用户帐户转换为组织时，我们会将属于该帐户的仓库中的协作者作为*外部协作者*添加到新组织。 然后，您可以根据需要邀请*外部协作者*成为新组织的成员。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
 
 {% endtip %}
 
 ## 延伸阅读
 - "[设置团队](/articles/setting-up-teams)"
-{% ifversion fpt %}- "[邀请用户加入您的组织](/articles/inviting-users-to-join-your-organization)"{% endif %}
+{% ifversion fpt or ghec %}- "[邀请用户加入您的组织](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - “[访问组织](/articles/accessing-an-organization)”

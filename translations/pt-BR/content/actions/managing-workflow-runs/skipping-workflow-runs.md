@@ -1,16 +1,17 @@
 ---
 title: Ignorar execuções de fluxo de trabalho
 intro: Você pode ignorar as execuções de fluxo de trabalho acionadas pelos eventos `push` e `pull_request` incluindo um comando na sua mensagem de commit.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: ghae-next
+  ghec: '*'
 shortTitle: Ignorar execução de fluxo de trabalho
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Os fluxos de trabalho que seriam acionados usando `on: push` ou `on: pull_request` não serão acionado se você adicionar qualquer uma das strings a seguir para a mensagem de commit em um push ou o commit HEAD de um pull request:
 

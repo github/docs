@@ -1,6 +1,6 @@
 ---
 title: Sobre a autenticação com SAML SSO
-intro: 'Você pode acessar {% ifversion ghae %}{% data variables.product.product_location %}{% elsif fpt %}uma organização que usa o logon único SAML (SSO){% endif %} efetuando a autenticação {% ifversion ghae %}com o logon único SAML (SSO) {% endif %}por meio de um provedor de identidade (IdP).{% ifversion fpt %} Depois de efetuar a autenticação com o IdP com sucesso a partir de {% data variables.product.product_name %}, você deverá autorizar qualquer token de acesso pessoal, chave SSH ou {% data variables.product.prodname_oauth_app %} que você gostaria de acessar os recursos da organização.{% endif %}'
+intro: 'Você pode acessar {% ifversion ghae %}{% data variables.product.product_location %}{% elsif fpt %}uma organização que usa o logon único SAML (SSO){% endif %} efetuando a autenticação {% ifversion ghae %}com o logon único SAML (SSO) {% endif %}por meio de um provedor de identidade (IdP).{% ifversion fpt or ghec %} Depois de efetuar a autenticação com o IdP com sucesso a partir de {% data variables.product.product_name %}, você deverá autorizar qualquer token de acesso pessoal, chave SSH ou {% data variables.product.prodname_oauth_app %} que você gostaria de acessar os recursos da organização.{% endif %}'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSO
 shortTitle: logon único SAML
@@ -26,7 +27,7 @@ Se você não puder acessar {% data variables.product.product_name %}, entre em 
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.saml.dotcom-saml-explanation %} Os proprietários da organização podem convidar sua conta de usuário em {% data variables.product.prodname_dotcom %} para participar da organização que usa o SSO SAML, o que permite que você contribua com a organização e mantenha sua identidade e contribuições existentes em {% data variables.product.prodname_dotcom %}.
 
@@ -57,5 +58,5 @@ Após o proprietário de uma empresa ou organização habilitar ou aplicar o SSO
 
 ## Leia mais
 
-{% ifversion fpt %}- "[Sobre identidade e gerenciamento de acesso com logon único SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
+{% ifversion fpt or ghec %}- "[Sobre identidade e gerenciamento de acesso com logon único SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
 {% ifversion ghae %}- "[Sobre identidade e gerenciamento de acesso para a sua empresa](/admin/authentication/about-identity-and-access-management-for-your-enterprise)"{% endif %}

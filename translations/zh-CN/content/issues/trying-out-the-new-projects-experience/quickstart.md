@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Projects
@@ -18,15 +19,21 @@ topics:
 
 ## 基本要求
 
-要创建项目，您需要作为项目一部分的 {% data variables.product.prodname_dotcom %} 组织。 有关创建组织的更多信息，请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。 有关测试版的更多信息，请参阅“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”。
+You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. 有关创建组织的更多信息，请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
 
-在本指南中，您将把组织中现有的议题添加到新项目。 有关创建议题的更多信息，请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-an-issue)”。
+In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. 有关创建议题的更多信息，请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-an-issue)”。
 
 ## 创建项目
 
-首先，从组织的项目页面创建项目。
+First, create an organization project or a user project.
+
+### Creating an organization project
 
 {% data reusables.projects.create-project %}
+
+### Creating a user project
+
+{% data reusables.projects.create-user-project %}
 
 ## 为您的项目添加议题
 
@@ -89,11 +96,11 @@ topics:
 
 保存视图后，打开项目的任何人都将看到保存的视图。 在这里按优先级分组，但您还可以添加其他修饰符，如排序、筛选或布局。 接下来，您将创建一个修改了布局的新视图。
 
-## 添加板视图
+## Adding a board layout
 
 要查看项目议题的进度，您可以切换到板布局。
 
-板视图基于状态字段，因此会指定项目中每个议题的状态。
+The board layout is based on the status field, so specify a status for each issue in your project.
 
 ![示例状态](/assets/images/help/projects/status_example.png)
 
@@ -118,6 +125,16 @@ topics:
 2. 用新名称 `Progress` 替换现有文本。
 
 ![示例优先级](/assets/images/help/projects/project-view-switch.gif)
+
+## Configure built-in automation
+
+Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
+
+1. In your project, click {% octicon "workflow" aria-label="the workflow icon" %}.
+2. Under **Default workflows**, click **Item added to project**.
+3. Next to **When**, ensure that both `issues` and `pull requests` are selected.
+4. Next to **Set**, select **Status:Todo**.
+5. Click the **Disabled** toggle to enable the workflow.
 
 ## 后续步骤
 

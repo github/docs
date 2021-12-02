@@ -62,7 +62,7 @@ Request, grouped together with a state and optional body comment.
 
 ## Review comments
 
-Pull request review comments are comments on a portion of the unified diff made during a pull request review. Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/git#create-a-commit)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
+Pull request review comments are comments on a portion of the unified diff made during a pull request review. Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/repos#create-a-commit-comment)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
 
 ### Custom media types for pull request review comments
 

@@ -6,6 +6,7 @@ redirect_from:
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 shortTitle: Suporte do GitHub Premium
@@ -19,7 +20,7 @@ shortTitle: Suporte do GitHub Premium
 
 - {% data reusables.support.data-protection-and-privacy %}
 
-- Este artigo contém os termos do {% data variables.contact.premium_support %} para os clientes do {% data variables.product.prodname_ghe_cloud %}. Os termos podem ser diferentes para clientes do {% data variables.product.prodname_ghe_server %} ou do {% data variables.product.prodname_enterprise %} que compram o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %} juntos. Para obter mais informações, consulte "[Sobre o {% data variables.contact.premium_support %} para o {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)" e "[Sobre o {% data variables.contact.premium_support %} para o {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)".
+- Este artigo contém os termos do {% data variables.contact.premium_support %} para os clientes do {% data variables.product.prodname_ghe_cloud %}. Os termos podem ser diferentes para clientes do {% data variables.product.prodname_ghe_server %} ou do {% data variables.product.prodname_enterprise %} que compram o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %} juntos. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)" and "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_enterprise %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)."
 
 {% endnote %}
 

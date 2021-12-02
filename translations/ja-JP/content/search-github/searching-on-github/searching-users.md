@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -89,7 +90,7 @@ topics:
 | <code>followers:<em>n</em></code> | [**followers:>=1000**](https://github.com/search?q=followers%3A%3E%3D1000&type=Users) は、1,000 以上のフォロワーがいるユーザにマッチします。                                   |
 |                           | [**sparkle followers:1..10**](https://github.com/search?q=sparkle+followers%3A1..10&type=Users) は、「sparkle」という単語がある名前のフォロワーが 1 名から 10 名までいるユーザにマッチします。 |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Search based on ability to sponsor
 

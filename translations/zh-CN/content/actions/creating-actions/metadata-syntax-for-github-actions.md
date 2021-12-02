@@ -2,7 +2,6 @@
 title: GitHub Actions 的元数据语法
 shortTitle: 元数据语法
 intro: 您可以创建操作来执行仓库中的任务。 操作需要使用 YAML 语法的元数据文件。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -12,11 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 关于 {% data variables.product.prodname_actions %} 的 YAML 语法
 
@@ -260,7 +261,7 @@ runs:
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 
 
 **必要** 您计划在此操作中的步骤。 这些步骤可以是 `run` 步骤或 `uses` 步骤。 
@@ -275,7 +276,7 @@ runs:
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 
 
 **可选** 您想要运行的命令。 这可以是内联的，也可以是操作仓库中的脚本： 
@@ -319,7 +320,7 @@ runs:
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 
 
 **可选** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)列出的任何 shell。 如果设置了 `run`，则必填。 
@@ -346,7 +347,7 @@ runs:
 
 #### `runs.steps[*].env`
 
-**可选** 设置环境变量的 `map` 仅用于该步骤。 如果要修改工作流程中存储的环境变量，请在复合步骤中使用 {% ifversion fpt or ghes > 2.22 or ghae %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %}。
+**可选** 设置环境变量的 `map` 仅用于该步骤。 If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
 
 
 
@@ -354,7 +355,7 @@ runs:
 
 **可选**  指定命令在其中运行的工作目录。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 
 
 #### `runs.steps[*].uses`

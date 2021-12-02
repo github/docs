@@ -1,13 +1,13 @@
 ---
 title: プロジェクトボードで割り当てられた Issue を移動する
 intro: '{% data variables.product.prodname_actions %} を使用して、Issue が割り当てられたときに、プロジェクトボードの特定の列に Issue を自動的に移動できます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,6 +17,7 @@ shortTitle: Move assigned issues
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## はじめに
 

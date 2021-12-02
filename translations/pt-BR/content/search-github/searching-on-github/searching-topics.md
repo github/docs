@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -20,7 +21,7 @@ Você pode pesquisar tópicos no {% data variables.product.product_name %}, expl
 1. Navegue até https://github.com/search.
 2. Insira uma palavra-chave de tópico. ![campo de pesquisa](/assets/images/help/search/search-field.png)
 3. Na barra lateral esquerda, para limitar a pesquisa aos tópicos, clique em **Topics** (Tópicos).
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
   ![Página de resultados da pequisa do repositório Jekyll com opção de tópico do menu lateral em destaque](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% else %}
 ![Jekyll repository search results page on dotcom with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation.png){% endif %}
 

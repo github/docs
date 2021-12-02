@@ -1,7 +1,6 @@
 ---
 title: Acerca de los contenedores de servicios
 intro: 'Puedes usar los contenedores de servicios para conectar las bases de datos, los servicios Web, las memorias caché y otras herramientas a tu flujo de trabajo.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
   - /actions/configuring-and-managing-workflows/about-service-containers
@@ -10,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Containers
@@ -18,6 +18,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Acerca de los contenedores de servicios
 

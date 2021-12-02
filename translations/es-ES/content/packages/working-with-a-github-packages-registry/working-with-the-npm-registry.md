@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Registro de npm
 ---
 
@@ -20,16 +21,13 @@ shortTitle: Registro de npm
 
 **Nota:** Cuando instalas o publicas una imagen de docker, {% data variables.product.prodname_registry %} no es compatible con capas externas, tales como imágenes de Windows.
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Límites para las versiónes de npm publicadas
 
 Si estableces más de 1,000 versiones de paquetes de npm en el {% data variables.product.prodname_registry %}, podrías notar que ocurren problemas de rendimiento y de tiempos excedidos durante el uso.
 
 En el futuro, para mejorar el rendimiento del servicio, no podrás publicar más de 1,000 versiones de un paquete en {% data variables.product.prodname_dotcom %}. Cualquier versión que se publique antes de llegar a este límite aún será legible.
 
-Si llegas a este límite, considera borrar las versiones del paquete o contacta a soporte para recibir ayuda. Cuando se aplique este límite, actualizaremos nuestra documentación con una forma de dar soluciones para él. Para obtener más información, consulta la sección "{% ifversion fpt or ghes > 3.0 %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}" o [Contactar a Soporte](/packages/learn-github-packages/about-github-packages#contacting-support)".
-
-{% endif %}
+Si llegas a este límite, considera borrar las versiones del paquete o contacta a soporte para recibir ayuda. Cuando se aplique este límite, actualizaremos nuestra documentación con una forma de dar soluciones para él. Para obtener más información, consulta la sección "{% ifversion fpt or ghes > 3.0 or ghec %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}" o [Contactar a Soporte](/packages/learn-github-packages/about-github-packages#contacting-support)".
 
 ## Autenticarte en {% data variables.product.prodname_registry %}
 
@@ -50,7 +48,7 @@ Para obtener más información acerca de cómo crear un paquete, consulta la [do
 {% endif %}
 
 ```shell
-//{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
+//{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
 ```
 
 {% ifversion ghes %}
@@ -73,7 +71,7 @@ Para obtener más información acerca de cómo crear un paquete, consulta la [do
 {% endif %}
 
 ```shell
-$ npm login --scope=@<em>OWNER</em> --registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+$ npm login --scope=@<em>OWNER</em> --registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
 
 > Username: <em>USERNAME</em>
 > Password: <em>TOKEN</em>
@@ -128,7 +126,7 @@ Puedes usar el elemento `publishConfig` en el archivo *package.json* para especi
   {% endif %}
   ```shell
   "publishConfig": {
-    "registry":"https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
+    "registry":"https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
   },
   ```
   {% ifversion ghes %}
@@ -151,7 +149,7 @@ Para asegurarte de que la URL del repositorio sea correcta, reemplaza REPOSITORY
 {% data variables.product.prodname_registry %} coincidirá con el repositorio en base a la URL, en lugar de basarse en el nombre del paquete.
 
 ```shell
-"repository":"https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
+"repository":"https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
 ```
 
 ## Instalar un paquete
@@ -160,7 +158,7 @@ Puedes instalar paquetes desde {% data variables.product.prodname_registry %} al
 
 Por defecto, puedes agregar paquetes de una organización. Para obtener más información, consulta la sección "[Instalar paquetes de otras organizaciones](#installing-packages-from-other-organizations)".
 
-También necesitas agregar el archivo *.npmrc* a tu proyecto para que todas las solicitudes para instalar paquetes se {% ifversion ghae %}enruten a{% else %}pasen por{% endif %} el {% data variables.product.prodname_registry %}. {% ifversion fpt or ghes > 2.21 %}Cuando enrutas todas las solicitudes de paquetes a través del {% data variables.product.prodname_registry %}, puedes utilizar tanto los paquetes dentro como fuera del alcance de *npmjs.org*. Para obtener más información, consulta la sección de "[npm-scope](https://docs.npmjs.com/misc/scope)" en la documentación de npm.{% endif %}
+También necesitas agregar el archivo *.npmrc* a tu proyecto para que todas las solicitudes para instalar paquetes se {% ifversion ghae %}enruten a{% else %}pasen por{% endif %} el {% data variables.product.prodname_registry %}. {% ifversion fpt or ghes or ghec %}Cuando enrutas todas las solicitudes de paquetes a través del {% data variables.product.prodname_registry %}, puedes utilizar tanto los paquetes dentro como fuera del alcance de *npmjs.org*. Para obtener más información, consulta la sección de "[npm-scope](https://docs.npmjs.com/misc/scope)" en la documentación de npm.{% endif %}
 
 {% ifversion ghae %}
 Predeterminadamente, solo puedes utilizar paquetes de npm hospedados en tu empresa y no podrás utilizar paquetes fuera del alcance. Para obtener más información sobre el alcance de los paquetes, consulta la sección de "[npm-scope](https://docs.npmjs.com/misc/scope)" en la documentación de npm. En caso de que se requiera, se puede habilitar el {% data variables.product.prodname_dotcom %} en un proxy de nivel superior como npmjs.org. Una vez que se habilite un proxy de nivel superior, si un paquete que se haya solicitado no se encuentra en tu empresa, el {% data variables.product.prodname_registry %} hará una solicitud de proxy a npmjs.org.
@@ -199,8 +197,8 @@ Para obtener más información acerca de cómo crear un paquete, consulta la [do
 {% endif %}
 
 ```shell
-@<em>OWNER</em>:registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
-@<em>OWNER</em>:registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
 ```
 
 {% ifversion ghes %}
@@ -212,7 +210,7 @@ Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo r
 ```
 {% endif %}
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ## Utilizar el registro oficial de NPM
 
 El {% data variables.product.prodname_registry %} te permite acceder al registro oficial de NPM en `registry.npmjs.com`, si tu administrador de {% data variables.product.prodname_ghe_server %} habilitó esta característica. Para obtener más información, consulta la sección [Conectarse al registro oficial de NPM](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
@@ -220,4 +218,4 @@ El {% data variables.product.prodname_registry %} te permite acceder al registro
 
 ## Leer más
 
-- "{% ifversion fpt or ghes > 3.0 %}[Borrar y restaurar un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

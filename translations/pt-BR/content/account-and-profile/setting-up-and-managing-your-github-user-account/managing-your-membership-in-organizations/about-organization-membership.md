@@ -9,12 +9,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Associação à organização
 ---
 
-Um proprietário da organização pode convidar você para ingressar na organização dele como um integrante, gerente de cobrança ou proprietário. Um proprietário da organização ou integrante com privilégios administrativos para um repositório pode convidar você para colaborar em um ou mais repositórios como um colaborador externo. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".
+Um proprietário da organização pode convidar você para ingressar na organização dele como um integrante, gerente de cobrança ou proprietário. Um proprietário da organização ou integrante com privilégios administrativos para um repositório pode convidar você para colaborar em um ou mais repositórios como um colaborador externo. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 É possível acessar organizações das quais você é integrante em sua página de perfil. Para obter mais informações, consulte "[Acessar uma organização](/articles/accessing-an-organization)".
 
@@ -38,9 +39,9 @@ Para obter mais informações, consulte "<a href="/articles/github-privacy-state
 
 Por padrão, a visibilidade de sua associação à organização é definida como privada. Você pode optar por divulgar associações individuais à organização no seu perfil. Para obter mais informações, consulte "[Divulgar ou ocultar associação à organização](/articles/publicizing-or-hiding-organization-membership)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-Se sua organização pertence a uma conta corporativa, você automaticamente é um integrante da conta corporativa e está visível aos proprietários da conta corporativa. Para obter mais informações, consulte "[Sobre contas corporativas](/articles/about-enterprise-accounts)".
+Se sua organização pertence a uma conta corporativa, você automaticamente é um integrante da conta corporativa e está visível aos proprietários da conta corporativa. Para obter mais informações, consulte "[Sobre contas corporativas](/admin/overview/about-enterprise-accounts)".
 
 {% endif %}
 

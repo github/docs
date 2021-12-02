@@ -9,6 +9,7 @@ redirect_from:
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: 查看列表指标

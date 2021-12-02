@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/granting-access-to-your-organization-with-saml-single-sign-on
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams

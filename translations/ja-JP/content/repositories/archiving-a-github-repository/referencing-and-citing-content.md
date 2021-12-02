@@ -7,6 +7,7 @@ redirect_from:
   - /github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/referencing-and-citing-content
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Reference & cite content
@@ -14,7 +15,7 @@ shortTitle: Reference & cite content
 
 ## Zenodo によってリポジトリの永続的識別子を発行する
 
-学術文献でリポジトリを参照しやすくするため、永続的識別子 (デジタルオブジェクト識別子 (DOI) とも呼ばれます) を作成できます。 データアーカイブツール [Zenodo](https://zenodo.org/about) を使用して {% data variables.product.product_name %} リポジトリをアーカイブ化すれば、そのアーカイブの DOI を発行することができます。
+学術文献でリポジトリを参照しやすくするため、永続的識別子 (デジタルオブジェクト識別子 (DOI) とも呼ばれます) を作成できます。 You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and issue a DOI for the archive.
 
 {% tip %}
 

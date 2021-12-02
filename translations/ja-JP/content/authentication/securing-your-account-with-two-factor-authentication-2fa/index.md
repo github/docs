@@ -1,6 +1,6 @@
 ---
 title: 2 要素認証でアカウントを保護する
-intro: 'サインイン時にパスワードに加えて認証コードを要求するには、{% data variables.product.product_name %} アカウントで設定します。'
+intro: 'You can set up your account on {% data variables.product.product_location %} to require an authentication code in addition to your password when you sign in.'
 redirect_from:
   - /categories/84/articles/
   - /categories/two-factor-authentication-2fa/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 children:

@@ -6,6 +6,10 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+type: overview
+topics:
+  - Project management
+  - Projects
 ---
 ## Introduction
 You can use {% data variables.product.prodname_dotcom %} repositories, issues, project boards, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
@@ -88,13 +92,13 @@ Below is an example of a `front-end` label that we created and added to the issu
 ## Adding issues to a project board
 {% ifversion fpt or ghec %}You can use projects on {% data variables.product.prodname_dotcom %}, currently in limited public beta, to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. To get started with projects, see "[Quickstart for projects (beta)](/issues/trying-out-the-new-projects-experience/quickstart)."
 ### Project (beta) example
-Here is the table view of an example project, populated with the Project Octocat issues we have created.
+Here is the table layout of an example project, populated with the Project Octocat issues we have created.
 
-![Projects (beta) table view example](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Projects (beta) table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 We can also view the same project as a board.
 
-![Projects (beta) board view example](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Projects (beta) board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 

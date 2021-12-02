@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Fundamentals
@@ -24,14 +25,14 @@ miniTocMaxHeadingLevel: 3
 
 ## 基本要求
 
-要遵循 {% data variables.product.prodname_dotcom %} 流程，您将需要 {% data variables.product.prodname_dotcom %} 帐户和仓库。 有关如何创建帐户的信息，请参阅“[注册 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)”。 有关如何创建仓库的信息，请参阅“[创建仓库](/github/getting-started-with-github/create-a-repo)”。{% ifversion fpt %} 有关如何查找要参与的现有仓库的信息，请参阅“[查找参与 {% data variables.product.prodname_dotcom %} 上开源项目的方式](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}
+要遵循 {% data variables.product.prodname_dotcom %} 流程，您将需要 {% data variables.product.prodname_dotcom %} 帐户和仓库。 有关如何创建帐户的信息，请参阅“[注册 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)”。 有关如何创建仓库的信息，请参阅“[创建仓库](/github/getting-started-with-github/create-a-repo)”。{% ifversion fpt or ghec %} 有关如何查找要参与的现有仓库的信息，请参阅“[查找参与 {% data variables.product.prodname_dotcom %} 上开源项目的方式](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}
 
 ## 遵循 {% data variables.product.prodname_dotcom %} 流程
 
 {% tip %}
 
-{% ifversion fpt %}
-**提示：** 您可以通过 {% data variables.product.prodname_dotcom %} web 界面、命令行和 [{% data variables.product.prodname_cli %}](https://cli.github.com) 或 [{% data variables.product.prodname_desktop %}](/desktop) 完成 {% data variables.product.prodname_dotcom %} 流程。
+{% ifversion fpt or ghec %}
+**提示：** 您可以通过 {% data variables.product.prodname_dotcom %} web 界面、命令行和 [{% data variables.product.prodname_cli %}](https://cli.github.com) 或 [{% data variables.product.prodname_desktop %}](/free-pro-team@latest/desktop) 完成 {% data variables.product.prodname_dotcom %} 流程。
 {% else %}
 **提示：** 您可以通过 {% data variables.product.prodname_dotcom %} web 界面或者命令行和 [{% data variables.product.prodname_cli %}](https://cli.github.com) 完成 {% data variables.product.prodname_dotcom %} 流程。
 {% endif %}
@@ -88,7 +89,7 @@ miniTocMaxHeadingLevel: 3
 
 ### 合并拉取请求
 
-拉取请求获得批准后，合并您的拉取请求。 这将自动合并您的分支，以便您的更改显示在默认分支上。 {% data variables.product.prodname_dotcom %} 会保留拉取请求中的评论和提交历史记录，以帮助未来的贡献者了解您的更改。 更多信息请参阅“[合并拉取请求](/articles/merging-a-pull-request)”。
+拉取请求获得批准后，合并您的拉取请求。 这将自动合并您的分支，以便您的更改显示在默认分支上。 {% data variables.product.prodname_dotcom %} 会保留拉取请求中的评论和提交历史记录，以帮助未来的贡献者了解您的更改。 更多信息请参阅“[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。
 
 {% data variables.product.prodname_dotcom %} 会告知您的拉取请求是否有必须在合并前解决的冲突。 更多信息请参阅“[解决合并冲突](/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts)”。
 

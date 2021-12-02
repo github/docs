@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 删除文件
 ---
 
@@ -39,9 +40,9 @@ shortTitle: 删除文件
 
 ## 仓库中的 {% data variables.large_files.product_name_short %} 对象
 
-从 {% data variables.large_files.product_name_short %} 中删除文件后，{% data variables.large_files.product_name_short %} 对象仍存在于远程存储中{% ifversion fpt %} 并将继续计入您的 {% data variables.large_files.product_name_short %} 存储配额{% endif %}。
+从 {% data variables.large_files.product_name_short %} 中删除文件后，{% data variables.large_files.product_name_short %} 对象仍存在于远程存储中{% ifversion fpt or ghec %} 并将继续计入您的 {% data variables.large_files.product_name_short %} 存储配额{% endif %}。
 
-要从仓库中删除 {% data variables.large_files.product_name_short %} 对象，请{% ifversion fpt %}删除并重新创建仓库。 删除仓库时，所有关联的议题、星标和复刻也会被删除。 更多信息请参阅“[删除仓库](/github/administering-a-repository/deleting-a-repository)”。 如果您需要清除已删除的对象，并且无法删除仓库，请 [联系支持](/github/working-with-github-support)以寻求帮助。{% else %}联系 {% data variables.product.prodname_enterprise %} 管理员以存档对象。 存档的对象将在三个月后清除。{% endif %}
+要从仓库中删除 {% data variables.large_files.product_name_short %} 对象，请{% ifversion fpt or ghec %}删除并重新创建仓库。 删除仓库时，所有关联的议题、星标和复刻也会被删除。 更多信息请参阅“[删除仓库](/github/administering-a-repository/deleting-a-repository)”。 如果您需要清除已删除的对象，并且无法删除仓库，请 [联系支持](/github/working-with-github-support)以寻求帮助。{% else %}联系 {% data variables.product.prodname_enterprise %} 管理员以存档对象。 存档的对象将在三个月后清除。{% endif %}
 
 {% note %}
 

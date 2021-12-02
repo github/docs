@@ -7,6 +7,7 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 topics:
   - Community
@@ -36,4 +37,4 @@ shortTitle: 限制仓库中的交互
 - “[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”
 - "[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository)"
-- "[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

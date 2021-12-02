@@ -11,13 +11,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 ---
 
 以前の職場、コントリビュートしたプロジェクト、あなたが興味を持っていることなど、他者が知りたいあなたに関する個人情報を略歴に追加できます。 詳細は「[プロフィールに略歴を追加する](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)」を参照してください。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.profile.profile-readme %}
 
@@ -29,9 +30,9 @@ topics:
 
 あなたのプロフィールにアクセスしたユーザは、次の情報も見ることができます。
 
-- あなたが所有している、もしくはコントリビューションしたリポジトリと Gist。 {% ifversion fpt or ghes %}You can showcase your best work by pinning repositories and gists to your profile. 詳細は「[プロフィールにアイテムをピン止めする](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)」を参照してください。{% endif %}
+- あなたが所有している、もしくはコントリビューションしたリポジトリと Gist。 {% ifversion fpt or ghes or ghec %}You can showcase your best work by pinning repositories and gists to your profile. 詳細は「[プロフィールにアイテムをピン止めする](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)」を参照してください。{% endif %}
 - Star を付けたリポジトリ。 詳しい情報については、「[Star を付けてリポジトリを保存する](/articles/saving-repositories-with-stars/)」を参照してください。
-- あなたが最もアクティブな Organization、リポジトリ、Team でのあなたのアクティビティの概要。 For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."{% ifversion fpt %}
+- あなたが最もアクティブな Organization、リポジトリ、Team でのあなたのアクティビティの概要。 詳しい情報については、「[プロフィール上にアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。{% ifversion fpt or ghec %}
 - {% data variables.product.prodname_pro %} の使用や、{% data variables.product.prodname_arctic_vault %}、{% data variables.product.prodname_sponsors %}、{% data variables.product.company_short %} 開発者プログラムなどのプログラムへの参加を示すバッジ。 詳細は「[プロフィールをパーソナライズする](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)」を参照してください。{% endif %}
 
 プロフィールにステータスを設定して、可用性に関する情報を提供することもできます。 詳細は「[ステータスを設定する](/articles/personalizing-your-profile/#setting-a-status)」を参照してください。

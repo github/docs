@@ -29,6 +29,8 @@ When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machi
 
 You can specify the runner type for each job in a workflow. Each job in a workflow executes in a fresh instance of the virtual machine. All steps in the job execute in the same instance of the virtual machine, allowing the actions in that job to share information using the filesystem.
 
+{% ifversion not ghes %}
+
 {% data reusables.github-actions.runner-app-open-source %}
 
 ### Cloud hosts for {% data variables.product.prodname_dotcom %}-hosted runners
@@ -106,9 +108,11 @@ You can install additional software on {% data variables.product.prodname_dotcom
 
 {% endnote %}
 
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint.
+
 Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
 
-To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API . For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint. You can use this list of IP addresses if you require an allow-list to prevent unauthorized access to your internal resources.
+Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allow-lists for your internal resources.
 
 The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week. 
 
@@ -138,5 +142,7 @@ Actions that run in Docker containers have static directories under the `/github
 
 ## Further reading
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+
+{% endif %}
 
 {% endif %}

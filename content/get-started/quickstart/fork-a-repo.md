@@ -169,7 +169,7 @@ When you fork a project in order to propose changes to the original repository, 
   > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
 
-Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[Syncing a fork](/articles/syncing-a-fork)."
+Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."
 
 {% endwebui %}
 
@@ -196,7 +196,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 You can make any changes to a fork, including:
 
 - **Creating branches:** [*Branches*](/articles/creating-and-deleting-branches-within-your-repository/) allow you to build new features or test out ideas without putting your main project at risk.
-- **Opening pull requests:** If you are hoping to contribute back to the original repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/articles/about-pull-requests).
+- **Opening pull requests:** If you are hoping to contribute back to the original repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ## Find another repository to fork
 Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %}

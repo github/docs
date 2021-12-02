@@ -27,6 +27,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /understanding-github-actions
   - /finding-and-customizing-actions
@@ -45,3 +46,4 @@ children:
   - /usage-limits-billing-and-administration
 ---
 
+{% data reusables.actions.ae-beta %}

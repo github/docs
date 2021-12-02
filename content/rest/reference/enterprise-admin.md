@@ -64,7 +64,7 @@ You can also read the current version by calling the [meta endpoint](/rest/refer
 
 {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 
 ## Audit log
 

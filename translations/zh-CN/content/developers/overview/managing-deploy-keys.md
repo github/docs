@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -93,23 +94,23 @@ topics:
 在服务器的 SSH 配置文件（通常为 `~/.ssh/config`）中，为每个仓库添加一个别名条目。 例如：
 
 ```bash
-Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
-        Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}
+Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
+        Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-0_deploy_key
 
-Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
-        Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}
+Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
+        Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
-* `Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
-* `Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
+* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
+* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
 * `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
 
 然后可以使用主机名的别名通过 SSH 与仓库进行交互，SSH 将使用分配给该别名的唯一部署密钥。 例如：
 
 ```bash
-$ git clone git@{% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+$ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
 ## 服务器到服务器令牌
@@ -144,9 +145,9 @@ $ git clone git@{% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% end
 
 ## 机器用户
 
-如果您的服务器需要访问多个仓库，您可以创建一个新的 {% data variables.product.product_name %} 帐户并附加一个专用于自动化的 SSH 密钥。 由于此 {% data variables.product.product_name %} 帐户不会被人类使用，因此称为_机器用户_。 您可以将机器用户添加为个人仓库上的[协作者][collaborator]（授予读取和写入权限）、添加为组织仓库上的[外部协作者][outside-collaborator]（授予读取、写入或管理员权限）或添加到对需要自动化的仓库具有访问权限的[团队][team]（授予团队权限）。
+如果您的服务器需要访问多个仓库，您可以创建一个新的 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 帐户并附加一个专用于自动化的 SSH 密钥。 由于此帐户在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上不会被人使用，它被称为_机器用户_。 您可以将机器用户添加为个人仓库上的[协作者][collaborator]（授予读取和写入权限）、添加为组织仓库上的[外部协作者][outside-collaborator]（授予读取、写入或管理员权限）或添加到对需要自动化的仓库具有访问权限的[团队][team]（授予团队权限）。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -178,7 +179,7 @@ $ git clone git@{% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% end
 
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
-[tos]: /articles/github-terms-of-service/
+[tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
 [git-automation]: /articles/git-automation-with-oauth-tokens
 [git-automation]: /articles/git-automation-with-oauth-tokens
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository

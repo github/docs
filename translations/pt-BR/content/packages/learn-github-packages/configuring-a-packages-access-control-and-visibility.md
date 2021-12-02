@@ -7,6 +7,7 @@ redirect_from:
   - /packages/guides/configuring-access-control-and-visibility-for-container-images
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Controle de acesso & visibilidade
 ---
 
@@ -84,6 +85,34 @@ Para personalizar ainda mais o acesso à imagem do seu contêiner, consulte "[Co
 3. Usando o menu suspenso "função", selecione o nível de acesso padrão que você gostaria que os integrantes do repositório tivessem na sua imagem contêiner. Os colaboradores externos não serão incluídos. ![Níveis de acesso permitidos para repositórios](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
 Para personalizar ainda mais o acesso à sua imagem de contêiner, consulte "[Configurar acesso a imagens de contêiner para uma organização](#configuring-access-to-container-images-for-an-organization)".
+
+## Ensuring {% data variables.product.prodname_codespaces %} access to your package
+
+By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_dotcom %} Container Registry, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)."
+
+Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
+
+O repositório especificado não precisa ser o repositório onde o código-fonte do pacote é mantido. You can give codespaces in multiple repositories access to a package.
+
+Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
+
+1. In the right sidebar, click **Package settings**.
+
+   !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
+
+2. Under "Manage Codespaces access", click **Add repository**.
+
+   ![Botão "Adicionar repositório"](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
+
+3. Search for the repository you want to add.
+
+   ![Botão "Adicionar repositório"](/assets/images/help/package-registry/manage-codespaces-access-search.png)
+
+4. Repeat for any additional repositories you would like to allow access.
+
+5. If the codespaces for a repository no longer need access to an image, you can remove access.
+
+   !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
 ## Configurar a visibilidade de imagens de contêiner para sua conta pessoal
 

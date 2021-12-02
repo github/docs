@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Gistについて
@@ -37,7 +38,7 @@ Gist は、{% ifversion ghae %}内部{% else %}パブリック{% endif %}また�
 - 誰かがあなたを Gist 中でメンションした場合。
 - いずれかの Gist の上部で [** Subscribe**] をクリックして、Gist をサブスクライブした場合。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 Gist をプロフィールにピン止めして、他のユーザが簡単に見ることができるようにすることができます。 詳しい情報については、「[プロフィールにアイテムをピン止めする](/articles/pinning-items-to-your-profile)」を参照してください。
 
@@ -49,7 +50,7 @@ Gist は Git リポジトリであるため、完全なコミット履歴を dif
 
 Gist の ZIP ファイルは、Gist の上部にある [**Download ZIP**] ボタンをクリックすればダウンロードできます。 Gist は blog ポストなど、JavaScript をサポートしているどのテキストフィールドにも埋め込むことができます。 埋め込みのコードを得るには、Gist の **Embed** URL の隣にあるクリップボードアイコンをクリックします。 特定の Gist ファイルを埋め込むには、**Embed** URL に`?file=FILENAME` を追加します。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Gist は GeoJSON ファイルのマッピングをサポートしています。 このようなマップは、簡単に共有しマップを埋め込むことができるよう、埋め込み Gist 内に表示されます。 For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
 
@@ -59,7 +60,7 @@ Gist は GeoJSON ファイルのマッピングをサポートしています。
 
 以下のステップに従って、Gist を作成します。
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 {% note %}
 
 {% data variables.product.prodname_cli %} を使用して Gist を作成することもできます。 詳しい情報については、{% data variables.product.prodname_cli %} ドキュメントの「[`gh gist create`](https://cli.github.com/manual/gh_gist_create)」を参照してください。

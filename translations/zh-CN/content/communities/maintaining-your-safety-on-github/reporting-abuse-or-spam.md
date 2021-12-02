@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/reporting-abuse-or-spam
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -57,7 +58,7 @@ topics:
 
 - "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"
 - "[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
+- "[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
 - “[在 {% data variables.product.prodname_dotcom %} 上维护您的安全](/communities/maintaining-your-safety-on-github)”
 - "[限制仓库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"{% endif %}
 - “[跟踪评论中的更改](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)”

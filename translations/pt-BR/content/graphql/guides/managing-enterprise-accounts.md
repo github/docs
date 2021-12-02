@@ -4,7 +4,7 @@ intro: Você pode gerenciar sua conta corporativa e as organizações detêm com
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
-  fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -58,12 +58,12 @@ Para alguns exemplos de consulta, veja "[Exemplo de consulta usando a API de Con
     - `admin:enterprise`
 
   Os escopos específicos da conta corporativa são:
-    - `admin:enterprise`: Gives full control of enterprises (includes {% ifversion ghes > 3.2 or fpt or ghae %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` and `read:enterprise`)
-    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes > 3.2 or fpt or ghae  %}
-    - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
+    - `admin:enterprise`: Fornece controle total de empresas (inclui {% ifversion ghes > 3.2 or ghae or ghec %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` e `read:enterprise`)
+    - `manage_billing:enterprise`: Lê e escreve os dados de cobrança da empresa.{% ifversion ghes > 3.2 or ghae  %}
+    - `manage_runners:enterprise`: Acesso para gerenciar executores corporativos e grupos de executores do GitHub Actions{% endif %}
     - `read:enterprise`: Lê dados do perfil empresarial.
 
-4. Copie seu token de acesso pessoal e guarde-o em um lugar seguro até adicioná-lo ao seu cliente do GraphQL.
+3. Copie seu token de acesso pessoal e guarde-o em um lugar seguro até adicioná-lo ao seu cliente do GraphQL.
 
 ### 2. Escolha um cliente do GraphQL
 

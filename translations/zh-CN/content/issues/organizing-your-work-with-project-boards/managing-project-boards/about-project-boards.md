@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -20,7 +21,7 @@ topics:
 
 项目板卡片包含议题和拉取请求的相关数据，如标签、受理人、状态和打开者。 {% data reusables.project-management.edit-in-project %}
 
-您可以在列中创建注释以用作任务提醒，引用 {% data variables.product.product_name %} 上任何仓库中的议题和拉取请求，或者添加与项目板相关的信息。 您可以在注释中添加链接，创建另一个项目的参考卡。 如果注释不足以满足您的需求，您可以将其转换为议题。 有关将项目板注释转换为议题的更多信息，请参阅“[添加注释到项目板](/articles/adding-notes-to-a-project-board)”。
+您可以在列中创建注释以用作任务提醒，引用 {% data variables.product.product_location %} 上任何仓库中的议题和拉取请求，或者添加与项目板相关的信息。 您可以在注释中添加链接，创建另一个项目的参考卡。 如果注释不足以满足您的需求，您可以将其转换为议题。 有关将项目板注释转换为议题的更多信息，请参阅“[添加注释到项目板](/articles/adding-notes-to-a-project-board)”。
 
 项目板的类型：
 
@@ -66,7 +67,7 @@ topics:
 ## 延伸阅读
 
 - "[创建项目板](/articles/creating-a-project-board)"
-- "[编辑项目板](/articles/editing-a-project-board)"{% ifversion fpt %}
+- "[编辑项目板](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[复制项目板](/articles/copying-a-project-board)"{% endif %}
 - "[添加议题和拉取请求到项目板](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - "[组织的项目板权限](/articles/project-board-permissions-for-an-organization)"

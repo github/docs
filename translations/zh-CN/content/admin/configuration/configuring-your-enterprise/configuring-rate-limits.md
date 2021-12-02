@@ -30,18 +30,18 @@ topics:
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**. ![用于启用 API 速率限制的复选框](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
+2. 在“Rate Limiting（费率限制）”下，选择 **Enable HTTP API Rate Limiting（启用 HTTP API 费率限制）**。 ![用于启用 API 速率限制的复选框](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
 3. 输入对每个 API 的已验证和未验证请求的限制，或者接受预先填入的默认限制。
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Enabling secondary rate limits
+## 启用二级费率限制
 
-Setting secondary rate limits protects the overall level of service on {% data variables.product.product_location %}.
+设置二级费限制可保护 {% data variables.product.product_location %} 上的整体服务等级。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% ifversion ghes > 3.1 %}
-2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**. ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
+2. 在“Rate Limiting（费率限制）”下，选择 **Enable Secondary Rate Limiting（启用二级费率限制）**。 ![用于启用二级费率限制的复选框](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
 {% else %}
 2. 在“Rate Limiting”下，选择 **Enable Abuse Rate Limiting**。 ![用于启用滥用率限制的复选框](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
 {% endif %}

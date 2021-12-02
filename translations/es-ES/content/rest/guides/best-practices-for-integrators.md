@@ -1,6 +1,6 @@
 ---
 title: Mejores prácticas para los integradores
-intro: 'Crea una app que interactúe confiablemente con la API de {% data variables.product.prodname_dotcom %} y proporcione la mejor experiencia para tus usuarios.'
+intro: 'Build an app that reliably interacts with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API and provides the best experience for your users.'
 redirect_from:
   - /guides/best-practices-for-integrators/
   - /v3/guides/best-practices-for-integrators
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Mejores prácticas del integrador
@@ -22,17 +23,17 @@ Es muy importante que asegures [las cargas útiles que se envíen desde GitHub][
 
 Hya varios pasos que puedes tomar para asegurar la recepción de las cárgas útiles que GitHub entregue:
 
-1. Asegúrate de que tu servidor receptor tenga una conexión HTTPS. Predeterminadamente, GitHub verificará los certificados SSl cuando entregue las cargas útiles.{% ifversion fpt %}
+1. Asegúrate de que tu servidor receptor tenga una conexión HTTPS. Predeterminadamente, GitHub verificará los certificados SSl cuando entregue las cargas útiles.{% ifversion fpt or ghec %}
 1. Puedes agregar [La dirección IP que utilizamos cuando entregamos ganchos](/github/authenticating-to-github/about-githubs-ip-addresses) a tu lista de conexiones permitidas de tu servidor. Para garantizar que siempre estés verificando la dirección IP correcta, puedes [utilizar la terminal de `/meta`](/rest/reference/meta#meta) para encontrar la dirección que utilizamos.{% endif %}
 1. Proporciona [un token secreto](/webhooks/securing/) para garantizar que las cargas útiles vengan de GitHub definitivamente. Al requerir un token secreto, te estás asegurando de que ninguno de los datos que recibe tu servidor viene de GitHub en lo absoluto. Idealmente, deberías proporcionar un token secreto diferente *por cada usuario* de tu servicio. Así, si un token se pone en riesgo, nadie más se vería afectado.
 
 ## Favorece el trabajo asincrónico sobre el sincronizado
 
-GitHub espera que las integraciones respondan dentro de los primeros {% ifversion fpt %}10{% else %}30{% endif %} segundos de que se reciba la carga útil del webhook. Si tu servicio demora más que eso para completarse, entonces GitHub finaliza la conexión y se pierde la carga útil.
+GitHub espera que las integraciones respondan dentro de los primeros {% ifversion fpt or ghec %}10{% else %}30{% endif %} segundos de que se reciba la carga útil del webhook. Si tu servicio demora más que eso para completarse, entonces GitHub finaliza la conexión y se pierde la carga útil.
 
 Ya que es imposible predecir qué tan rápido completará esto tu servidor, deberías hacer todo "el trabajo real" en un job que actúe en segundo plano. [Resque](https://github.com/resque/resque/) (para Ruby), [RQ](http://python-rq.org/) (para Python), o [RabbitMQ](http://www.rabbitmq.com/) (para JAVA) son algunos ejemplos de bibliotecas que pueden manejar jobs de segundo plano para procesamiento y formación en cola.
 
-Nota que, aún si tienes un job ejecutándose en segundo plano, GitHub sigue esperando que tu servidor responda dentro de {% ifversion fpt %}diez{% else %}veinte{% endif %} segundos. Tu servidor necesita reconocer que recibió la carga útil mediante el envío de algún tipo de respuesta. Es crítico que tu servicio realice cualquier validación de una carga útil tan pronto sea posible, para que puedas reportar con exactitud si tu servidor continuará con la solicitud o no.
+Nota que, aún si tienes un job ejecutándose en segundo plano, GitHub sigue esperando que tu servidor responda dentro de {% ifversion fpt or ghec %}diez{% else %}veinte{% endif %} segundos. Tu servidor necesita reconocer que recibió la carga útil mediante el envío de algún tipo de respuesta. Es crítico que tu servicio realice cualquier validación de una carga útil tan pronto sea posible, para que puedas reportar con exactitud si tu servidor continuará con la solicitud o no.
 
 ## Utiliza códigos de estado de HTTP adecuados cuando respondas a GitHub
 
@@ -130,7 +131,7 @@ end
 
 En este ejemplo, la acción `closed` se verifica primero antes de llamar al método `process_closed`. Cualquier acción sin identificar se registra para referencias futuras.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Lidiar con los límites de tasa
 

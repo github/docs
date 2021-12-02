@@ -9,6 +9,7 @@ redirect_from:
   - /github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Armazenamento & banda
 ---
 
@@ -21,9 +22,9 @@ Quando você faz commit e push de uma alteração em um arquivo rastreado com o 
 Por exemplo:
 - Se você fizer push de um arquivo de 500 MB no {% data variables.large_files.product_name_short %}, serão usados 500 MB do armazenamento alocado e nada da largura de banda. Se você fizer uma alteração de 1 byte e fizer push do arquivo novamente, serão usados outros 500 MB do armazenamento e nada a largura de banda, totalizando 1 GB de uso total do armazenamento e zero de largura de banda para esses dois pushes.
 - Se você baixar um arquivo de 500 MB que é rastreado com o LFS, serão usados 500 MB da largura de banda alocada do proprietário do repositório. Se um colaborador fizer push de uma alteração no arquivo e você fizer pull da nova versão no repositório local, serão usados outros 500 MB de largura de banda, totalizando 1 GB de uso total da largura de banda para esses dois downloads.
-- If {% data variables.product.prodname_actions %} downloads a 500 MB file that is tracked with LFS, it will use 500 MB of the repository owner's allotted bandwidth.
+- Se {% data variables.product.prodname_actions %} fizer o download de um arquivo de 500 MB rastreado com LFS, ele usará 500 MB da largura de banda atribuída pelo proprietário do repositório.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Se {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) os objetos forem incluídos nos arquivos de código-fonte para o seu repositório, os downloads desses arquivos contarão para o uso de largura de banda para o repositório. Para obter mais informações, consulte "
 [Gerenciando {% data variables.large_files.product_name_short %} objetos nos arquivos de seu repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)". </p> 
 

@@ -1,28 +1,29 @@
 ---
 title: コラボレーターを個人リポジトリに招待する
-intro: '個人リポジトリにコラボレーターとして{% ifversion fpt %}ユーザを招待{% else %}ユーザを追加{% endif %}することができます。'
+intro: '個人リポジトリにコラボレーターとして{% ifversion fpt or ghec %}ユーザを招待{% else %}ユーザを追加{% endif %}することができます。'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
   - /articles/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
-product: '{% data reusables.gated-features.user-repo-collaborators %}'
+product: '{% ifversion fpt %}{% data reusables.gated-features.user-repo-collaborators %}{% endif %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
 shortTitle: Invite collaborators
 ---
 
-Organization が所有するリポジトリは、細やかなアクセスを許可できます。 詳しい情報については、「[{% data variables.product.product_name %}上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
+Organization が所有するリポジトリは、細やかなアクセスを許可できます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
 
 {% data reusables.organizations.org-invite-expiration %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you can only invite other members of your enterprise to collaborate with you. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
@@ -34,10 +35,10 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 {% endif %}
 
-1. コラボレーターとして招待する人のユーザ名を確認してください。{% ifversion fpt %}まだユーザ名がない場合は、{% data variables.product.prodname_dotcom %}にサインアップできます。詳細は「[新しい {% data variables.product.prodname_dotcom %}アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)」を参照してください。{% endif %}
+1. コラボレーターとして招待する人のユーザ名を確認してください。{% ifversion fpt or ghec %}まだユーザ名がない場合は、{% data variables.product.prodname_dotcom %}にサインアップできます。詳細は「[新しい {% data variables.product.prodname_dotcom %}アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)」を参照してください。{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
 1. [**Invite a collaborator**] をクリックします。 ![[Invite a collaborator] ボタン](/assets/images/help/repository/invite-a-collaborator-button.png)
 2. 検索フィールドで、招待する人の名前を入力し、一致するリストの名前をクリックします。 ![リポジトリに招待する人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field-user.png)
@@ -48,7 +49,7 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 7. ドロップダウンメニューからコラボレーターのユーザ名を選択します。 ![コラボレーター リストのドロップダウン メニュー](/assets/images/help/repository/repo-settings-collab-autofill.png)
 8. [**Add collaborator**] をクリックします。 !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 9. リポジトリへの招待メールがユーザに届きます。 ユーザが招待を受諾すると、そのユーザはコラボレーターとしてリポジトリにアクセスできるようになります。
 {% endif %}
 

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -16,7 +17,7 @@ topics:
 
 Para cualquier solicitud de extracción, {% data variables.product.product_name %} proporciona tres tipos de visualizaciones de comentario: [comentarios en la solicitud de extracción][PR comment] integrales, [comentarios en una línea específica][PR line comment] dentro de la solicitud de extracción, y [comentarios sobre una confirmación específica][commit comment] dentro de la solicitud de extracción.
 
-Cada uno de estos tipos de comentario pasa por una porción diferente de la API de {% data variables.product.product_name %}. En esta guía exploraremos cómo puedes acceder y manipular cada uno de ellos. En cada ejemplo utilizaremos [esta muestra de Solicitud de Extracción que se hizo][sample PR] en el repositorio de "octocat". Como siempre, puedes encontrar las muestras en [nuestro repositorio de platform-samples][platform-samples].
+Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. En esta guía exploraremos cómo puedes acceder y manipular cada uno de ellos. En cada ejemplo utilizaremos [esta muestra de Solicitud de Extracción que se hizo][sample PR] en el repositorio de "octocat". Como siempre, puedes encontrar las muestras en [nuestro repositorio de platform-samples][platform-samples].
 
 ## Comentarios de las Solicitudes de Extracción
 

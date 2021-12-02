@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: 查看部署活动
@@ -30,4 +31,4 @@ shortTitle: 查看部署活动
 2. To the right of the list of files, click **Environments**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png)
 
 ## 延伸阅读
- - "[关于拉取请求](/articles/about-pull-requests)"
+ - "[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"

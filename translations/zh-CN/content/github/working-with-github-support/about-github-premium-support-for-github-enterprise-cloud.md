@@ -6,6 +6,7 @@ redirect_from:
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 shortTitle: GitHub 高级支持
@@ -19,7 +20,7 @@ shortTitle: GitHub 高级支持
 
 - {% data reusables.support.data-protection-and-privacy %}
 
-- 本文包含 {% data variables.contact.premium_support %} 对于 {% data variables.product.prodname_ghe_cloud %} 客户的条款。 对于于 {% data variables.product.prodname_ghe_server %} 客户或一起购买 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.product.prodname_enterprise %} 客户，这些条款可能不同。 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_server %} 的 {% data variables.contact.premium_support %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)”和“[关于 {% data variables.product.prodname_enterprise %} 的 {% data variables.contact.premium_support %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)”。
+- 本文包含 {% data variables.contact.premium_support %} 对于 {% data variables.product.prodname_ghe_cloud %} 客户的条款。 对于于 {% data variables.product.prodname_ghe_server %} 客户或一起购买 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.product.prodname_enterprise %} 客户，这些条款可能不同。 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_server %} 的 {% data variables.contact.premium_support %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)”和“[关于 {% data variables.product.prodname_enterprise %} 的 {% data variables.contact.premium_support %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)”。
 
 {% endnote %}
 

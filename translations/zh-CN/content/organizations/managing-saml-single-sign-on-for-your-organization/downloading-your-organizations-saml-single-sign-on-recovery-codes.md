@@ -8,13 +8,14 @@ redirect_from:
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 下载 SAML 恢复代码
 ---
 
-恢复代码不应共享或分发。 We recommend saving them with a password manager such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+恢复代码不应共享或分发。 建议使用一个密码管理器保存它们，例如 [LastPass](https://lastpass.com/) 或 [1Password](https://1password.com/)。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

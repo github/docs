@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Fundamentals
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 概览
 
@@ -27,11 +29,11 @@ topics:
 - 工作流程文件引用操作的同一仓库
 - Docker Hub 上发布的 Docker 容器图像
 
-{% data variables.product.prodname_marketplace %} 是您查找 {% data variables.product.prodname_dotcom %} 社区创建的操作的中心位置。{% ifversion fpt %} [{% data variables.product.prodname_marketplace %} 页面](https://github.com/marketplace/actions/)可用于按类别筛选操作。 {% endif %}
+{% data variables.product.prodname_marketplace %} 是您查找 {% data variables.product.prodname_dotcom %} 社区创建的操作的中心位置。{% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %} 页面](https://github.com/marketplace/actions/)可用于按类别筛选操作。 {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 在工作流程编辑器中浏览 Marketplace 操作
 
@@ -77,7 +79,7 @@ steps:
 
 ### 使用 SHA
 
-如果需要更可靠的版本控制，应使用与操作版本关联的 SHA 值。 SHA 是不可变的，因此比标记或分支更可靠。 但是，此方法意味着您不会自动接收操作的更新，包括重要的 Bug 修复和安全更新。 {% ifversion fpt or ghes > 3.0 or ghae %}您必须使用提交的完整 SHA 值，而不是缩写值。 {% endif %}此示例针对操作的 SHA：
+如果需要更可靠的版本控制，应使用与操作版本关联的 SHA 值。 SHA 是不可变的，因此比标记或分支更可靠。 但是，此方法意味着您不会自动接收操作的更新，包括重要的 Bug 修复和安全更新。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}您必须使用提交的完整 SHA 值，而不是缩写值。 {% endif %}此示例针对操作的 SHA：
 
 ```yaml
 steps:

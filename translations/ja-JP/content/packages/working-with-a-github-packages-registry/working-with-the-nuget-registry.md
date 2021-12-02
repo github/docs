@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: NuGetレジストリ
 ---
 
@@ -30,7 +31,7 @@ shortTitle: NuGetレジストリ
 リポジトリ内のnuget.configファイル内のハードコードされたトークンの代わりに`GITHUB_TOKEN`を使って{% data variables.product.prodname_actions %}ワークフロー内で{% data variables.product.prodname_registry %}の認証を受けるには、以下のコマンドを使ってください。
 
 ```shell
-dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
+dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
 ```
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
@@ -55,7 +56,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 <configuration>
     <packageSources>
         <clear />
-        <add key="github" value="https://{% ifversion fpt %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json" />
+        <add key="github" value="https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json" />
     </packageSources>
     <packageSourceCredentials>
         <github>
@@ -89,12 +90,11 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 ## パッケージを公開する
 
-*nuget.config*ファイルで認証を受ける{% ifversion fpt or ghes > 2.22 or ghae %}か、コマンドラインオプションの`--api-key`を{% data variables.product.prodname_dotcom %}個人アクセストークン（PAT）を使う{% endif %}ことで、パッケージを{% data variables.product.prodname_registry %}に公開できます。
+You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} personal access token (PAT).
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ### GitHub PATをAPIキーとして使用してパッケージを公開する
 
-{% data variables.product.prodname_dotcom %}アカウントで使用するPATをまだ持っていない場合は、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+If you don't already have a PAT to use for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 1. 新しいプロジェクトを作成してください。
   ```shell
@@ -112,7 +112,6 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 {% data reusables.package_registry.viewing-packages %}
 
-{% endif %}
 
 ### *nuget.config*ファイルを使用してパッケージを公開する
 
@@ -139,7 +138,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
       <Authors>Octocat</Authors>
       <Company>GitHub</Company>
       <PackageDescription>This package adds an Octocat!</PackageDescription>
-      <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
+      <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
     </PropertyGroup>
 
   </Project>
@@ -173,7 +172,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
     <Authors>Octodog</Authors>
     <Company>GitHub</Company>
     <PackageDescription>This package adds an Octodog!</PackageDescription>
-    <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
+    <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
@@ -190,7 +189,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
     <Authors>Octocat</Authors>
     <Company>GitHub</Company>
     <PackageDescription>This package adds an Octocat!</PackageDescription>
-    <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
+    <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
@@ -214,7 +213,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
       <Authors>Octocat</Authors>
       <Company>GitHub</Company>
       <PackageDescription>This package adds an Octocat!</PackageDescription>
-      <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
+      <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
@@ -235,4 +234,4 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 ## 参考リンク
 
-- 「{% ifversion fpt or ghes > 3.0 %}[パッケージの削除と復元](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[パッケージの削除](/packages/learn-github-packages/deleting-a-package){% endif %}」
+- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

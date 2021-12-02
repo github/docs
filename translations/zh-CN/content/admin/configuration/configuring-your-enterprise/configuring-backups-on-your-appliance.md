@@ -68,7 +68,7 @@ topics:
 
   {% note %}
 
-  **Note:** If your {% data variables.product.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.product.product_location %}.
+  **注意:** 如果您的 {% data variables.product.product_location %} 部署为集群或使用负载均衡器的高可用性配置， `GHE_HOSTNAME` 可以是负载均衡器主机名，只要它允许 SSH (端口122) 访问 {% data variables.product.product_location %} 即可。
 
   {% endnote %}
 
@@ -95,7 +95,7 @@ topics:
 
 如果主要站点发生的故障或灾难性事件的时间较长，要还原 {% data variables.product.product_location %}，请提供另一个 {% data variables.product.prodname_enterprise %} 设备并从备份主机执行还原。 在还原设备之前，您必须将备份主机的 SSH 密钥作为已授权 SSH 密钥添加到目标 {% data variables.product.prodname_enterprise %} 设备。
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 {% note %}
 
 **注：**如果 {% data variables.product.product_location %} 已启用 {% data variables.product.prodname_actions %}，则必须先在替换设备上配置 {% data variables.product.prodname_actions %} 外部存储提供程序，然后再运行 `ghe-restore` 命令。 更多信息请参阅“[在启用 {% data variables.product.prodname_actions %} 的情况下备份和恢复 {% data variables.product.prodname_ghe_server %}](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)”。
@@ -105,9 +105,9 @@ topics:
 
 {% note %}
 
-**Note:** When performing backup restores to {% data variables.product.product_location %}, the same version supportability rules apply. You can only restore data from at most two feature releases behind.
+**注意：** 当执行备份恢复到 {% data variables.product.product_location %} 时，适用相同的版本支持性规则。 您最多只能从后面两个功能版本恢复数据。
 
-For example, if you take a backup from GHES 3.0.x, you can restore it into a GHES 3.2.x instance. But, you cannot restore data from a backup of GHES 2.22.x onto 3.2.x, because that would be three jumps between versions (2.22 > 3.0 > 3.1 > 3.2). You would first need to restore onto a 3.1.x instance, and then upgrade to 3.2.x.
+例如，如果您从 GHES 3.0.x 备份，您可以恢复到 GHES 3.2.x 实例。 但您不能将从 GHES 2.22.x 的备份数据还原到 3.2。, 因为这会有三个版本 (2.22 > 3.0 > 3.1 > 3.2) 之间的跳转。 您需要先恢复到 3.1.x 实例，然后升级到 3.2.x。
 
 {% endnote %}
 

@@ -10,9 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Project management
 shortTitle: マイルストーンの作成と編集
+type: how_to
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

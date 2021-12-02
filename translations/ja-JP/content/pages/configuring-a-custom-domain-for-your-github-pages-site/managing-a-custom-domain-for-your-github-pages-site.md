@@ -14,6 +14,7 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: カスタムドメインの管理
@@ -132,6 +133,10 @@ Apexドメインを設定したら、DNSプロバイダでCNAMEレコードを�
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 4. "Custom domain（カスタムドメイン）"の下で、**Remove（削除）**をクリックしてください。 ![カスタムドメインの保存ボタン](/assets/images/help/pages/remove-custom-domain.png)
+
+## Securing your custom domain
+
+{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
 
 ## 参考リンク
 

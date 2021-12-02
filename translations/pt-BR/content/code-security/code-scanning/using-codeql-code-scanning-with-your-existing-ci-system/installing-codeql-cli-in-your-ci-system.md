@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: next
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -53,7 +54,7 @@ Você sempre deve usar o pacote de {% data variables.product.prodname_codeql %},
 Você precisa disponibilizar todo o conteúdo do pacote {% data variables.product.prodname_codeql_cli %} para cada servidor de CI no qual você deseja executar a análise de CodeQL de {% data variables.product.prodname_code_scanning %}. Por exemplo, você pode configurar cada servidor para que copie o pacote de um local interno central, interno e extraí-lo. Como alternativa, você pode usar a API REST para obter o pacote diretamente do {% data variables.product.prodname_dotcom %}, garantindo que você irá beneficiar-se das últimas melhorias das consultas. Atualizações no {% data variables.product.prodname_codeql_cli %} são lançadas a cada 2 a 3 semanas. Por exemplo:
 
 ```shell
-$ wget https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
+$ wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
 $ tar -xvzf ../codeql-bundle-linux64.tar.gz
 ```
 

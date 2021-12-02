@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: 按主题分类
@@ -17,15 +18,15 @@ shortTitle: 按主题分类
 
 ## 关于主题
 
-使用主题可以探索特定主题领域的仓库，查找要参与的项目，以及发现特定问题的新解决方案。 主题显示在仓库的主页面上。 您可以单击主题名称以{% ifversion fpt %}查看相关主题及其他以该主题分类的仓库列表{% else %}搜索使用该主题的其他仓库{% endif %}。
+使用主题可以探索特定主题领域的仓库，查找要参与的项目，以及发现特定问题的新解决方案。 主题显示在仓库的主页面上。 您可以单击主题名称以{% ifversion fpt or ghec %}查看相关主题及其他以该主题分类的仓库列表{% else %}搜索使用该主题的其他仓库{% endif %}。
 
 ![显示主题的测试仓库主页面](/assets/images/help/repository/os-repo-with-topics.png)
 
 要浏览最常用的主题，请访问 https://github.com/topics/
 
-{% ifversion fpt %}您可以在 [github/explore](https://github.com/github/explore) 仓库中参与 {% data variables.product.product_name %} 的专有主题集。 {% endif %}
+{% ifversion fpt or ghec %}您可以在 [github/explore](https://github.com/github/explore) 仓库中参与 {% data variables.product.product_name %} 的专有主题集。 {% endif %}
 
-仓库管理员可以添加他们喜欢的任何主题到仓库。 适用于对仓库分类的主题包括仓库的预期目的、主题领域、社区或语言。{% ifversion fpt %} 此外，{% data variables.product.product_name %} 也会分析公共仓库内容，生成建议的主题，仓库管理员可以接受或拒绝。 私有仓库内容不可分析，也不会收到主题建议。{% endif %}
+仓库管理员可以添加他们喜欢的任何主题到仓库。 适用于对仓库分类的主题包括仓库的预期目的、主题领域、社区或语言。{% ifversion fpt or ghec %} 此外，{% data variables.product.product_name %} 也会分析公共仓库内容，生成建议的主题，仓库管理员可以接受或拒绝。 私有仓库内容不可分析，也不会收到主题建议。{% endif %}
 
 {% ifversion ghae %}Internal {% else %}公共、内部{% endif %}和私有仓库可拥有主题，虽然您在主题搜索结果中只会看到您有权访问的私有仓库。
 

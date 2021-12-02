@@ -1,6 +1,6 @@
 ---
 title: 混乱を生むコメントを管理する
-intro: 'Issue、プルリクエスト、 およびコミットに対するコメントを{% ifversion fpt %}非表示、編集{% else %}編集{% endif %}、削除できます。'
+intro: 'Issue、プルリクエスト、 およびコミットに対するコメントを{% ifversion fpt or ghec %}非表示、編集{% else %}編集{% endif %}、削除できます。'
 redirect_from:
   - /articles/editing-a-comment/
   - /articles/deleting-a-comment/
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: コメントの管理
@@ -26,7 +27,7 @@ shortTitle: コメントの管理
 1. 非表示にするコメントに移動します。
 2. コメントの右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックしてから、[**Hide**] をクリックします。 ![編集、非表示、削除のオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)
 3. [Choose a reason] ドロップダウン メニューで、コメントを非表示にする理由をクリックします。 次に、[**Hide comment**] をクリックします。
-  {% ifversion fpt %}
+  {% ifversion fpt or ghec %}
   ![[Choose reason for hiding comment] ドロップダウンメニュー](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
   {% else %}
   ![[Choose reason for hiding comment] ドロップダウンメニュー](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
@@ -44,7 +45,7 @@ shortTitle: コメントの管理
 
 リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、およびコミットに対するコメントを編集することができます。
 
-会話に関係がない、コミュニティの行動規範{% ifversion fpt %}または GitHub の[コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %}に違反している場合は、コメントを編集して内容を削除するのが妥当です。
+会話に関係がない、コミュニティの行動規範{% ifversion fpt or ghec %}または GitHub の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}に違反している場合は、コメントを編集して内容を削除するのが妥当です。
 
 コメントを編集する際には、削除した内容があった元の場所がわかるように記録し、オプションで削除の理由を示します。
 
@@ -64,7 +65,7 @@ shortTitle: コメントの管理
 
 リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを削除することができます。 Organization オーナー、チームメンテナ、コメント作成者は、チームのページのコメントを削除することもできます。
 
-コメントの削除は、モデレーターとしての最終手段です。 コメント全体が会話にとって建設的な内容ではない場合や、コミュニティの行動規範{% ifversion fpt %}または GitHub の[コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %}に違反している場合は、コメントを削除するのが妥当です。
+コメントの削除は、モデレーターとしての最終手段です。 コメント全体が会話にとって建設的な内容ではない場合や、コミュニティの行動規範{% ifversion fpt or ghec %}または GitHub の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}に違反している場合は、コメントを削除するのが妥当です。
 
 コメントを削除すると、リポジトリに対する読み取りアクセスを持つユーザなら誰でも見ることのできるタイムラインイベントが作成されます。 ただし、コメントを削除したユーザの名前は、リポジトリへの書き込みアクセスを持つユーザにしか見えません。 書き込みアクセスを持たないユーザから見ると、タイムラインイベントは匿名化されています。
 

@@ -1,17 +1,18 @@
 ---
 title: Usar registros de execução do fluxo de trabalho
 intro: 'Você pode visualizar, pesquisar e fazer download dos logs para cada trabalho em uma execução de fluxo de trabalho.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Na página de execução de fluxo de trabalho, você pode verificar se a execução está em andamento ou foi concluída. Você deve estar conectado a uma conta {% data variables.product.prodname_dotcom %} para visualizar as informações da execução do seu fluxo de trabalho, incluindo os repositórios públicos. Para obter mais informações, consulte "[Permissões de acesso no GitHub](/articles/access-permissions-on-github)".
 
@@ -46,16 +47,11 @@ Para trabalhos executados em executores hospedados no {% data variables.product.
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 1. No canto superior direito da saída do log, na caixa **Search logs** (Pesquisar logs), digite um termo de consulta.
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated-2.png)
 {% else %}
   ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated.png)
-{% endif %}
-{% else %}
-1. Para expandir cada etapa que você pretende incluir na pesquisa, clique na etapa.![Nome da etapa](/assets/images/help/repository/failed-check-step.png)
-1. No canto superior direito da saída do log, na caixa **Search logs** (Pesquisar logs), digite um termo de consulta. ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box.png)
 {% endif %}
 
 ## Fazer download dos registros
@@ -67,16 +63,12 @@ Você pode fazer o download dos arquivos de registro da execução do seu fluxo 
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
-1. No canto superior direito, clique em {% ifversion fpt or ghes > 3.0 or ghae %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} e selecione **Fazer download do arquivo de registro**.
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+1. No canto superior direito, clique em {% ifversion fpt or ghes > 3.0 or ghae or ghec %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} e selecione **Fazer download do arquivo de registro**.
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
   {% else %}
   ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated.png)
   {% endif %}
-{% else %}
-1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e selecione **Fazer o download do arquivo de registro**. ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down.png)
-{% endif %}
 
 ## Excluir registros
 
@@ -86,24 +78,19 @@ Você pode excluir arquivos de registro da execução do seu fluxo de trabalho. 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
     {% else %}
     ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
     {% endif %}
 2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação.
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Excluir todos os registros](/assets/images/help/repository/delete-all-logs-updated-2.png)
   {% else %}
   ![Excluir todos os registros](/assets/images/help/repository/delete-all-logs-updated.png)
   {% endif %}
 Após excluir os registros, o botão **Excluir todos os registros** será removido para indicar que nenhum arquivo de registro permaneça na execução do fluxo de trabalho.
-{% else %}
-1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
-2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação. ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) Depois que os registros forem excluídos, o botão **Excluir todos os registros** é removido para indicar que nenhum arquivo de registro permanece na execução do fluxo de trabalho.
-{% endif %}
 
 ## Visualizar registros com {% data variables.product.prodname_cli %}
 

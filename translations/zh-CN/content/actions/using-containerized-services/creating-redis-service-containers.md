@@ -2,7 +2,6 @@
 title: 创建 Redis 服务容器
 shortTitle: Redis 服务容器
 intro: 您可以使用服务容器在工作流程中创建 Redis 客户端。 本指南举例说明如何为容器中运行或直接在运行器机器上运行的作业创建 Redis 服务。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-redis-service-containers
   - /actions/configuring-and-managing-workflows/creating-redis-service-containers
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Containers
@@ -19,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 

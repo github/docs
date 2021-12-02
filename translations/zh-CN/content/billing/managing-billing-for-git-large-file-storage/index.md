@@ -10,6 +10,7 @@ redirect_from:
   - /articles/managing-billing-for-git-large-file-storage
 versions:
   fpt: '*'
+  ghec: '*'
 children:
   - /about-billing-for-git-large-file-storage
   - /viewing-your-git-large-file-storage-usage

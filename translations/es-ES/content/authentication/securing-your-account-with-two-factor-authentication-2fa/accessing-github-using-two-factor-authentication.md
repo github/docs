@@ -11,6 +11,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Acceso a GitHub con 2FA
@@ -20,7 +21,7 @@ Al tener la autenticación de dos factores habilitada, necesitarás proporcionar
 
 ## Proporcionar un código 2FA al iniciar sesión en el sitio web
 
-Después de iniciar sesión en {% data variables.product.product_name %} con tu contraseña, se te pedirá que brindes un código de autenticación desde un mensaje de texto de {% ifversion fpt %} o {% endif %} tu app TOTP.
+Después de iniciar sesión en {% data variables.product.product_name %} con tu contraseña, se te pedirá que brindes un código de autenticación desde un mensaje de texto de {% ifversion fpt or ghec %} o {% endif %} tu app TOTP.
 
 {% data variables.product.product_name %} solo te pedirá que brindes tu código de autenticación 2FA nuevamente si has cerrado sesión, estás usando un dispositivo nuevo o si caduca tu sesión.
 
@@ -30,7 +31,7 @@ Si decides configurar una autenticación de dos factores mediante una aplicació
 
 Si eliminas las aplicaciones móviles después de configurar la autenticación de dos factores, deberás proporcionar tu código de recuperación para obtener acceso a tu cuenta. Para obtener más información, consulta "[Recuperar tu cuenta si perdiste las credenciales de autenticación de dos factores](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### Recibir un mensaje de texto
 

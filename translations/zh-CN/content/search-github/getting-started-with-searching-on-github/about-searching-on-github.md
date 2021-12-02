@@ -14,6 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -27,7 +28,7 @@ topics:
 
 **注意：**
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
 - {% data variables.product.prodname_pages %} 网站在 {% data variables.product.product_name %} 上不可搜索。 但如果源代码内容存在于仓库的默认分支中，您可以使用代码搜索来搜索。 更多信息请参阅“[搜索代码](/search-github/searching-on-github/searching-code)”。 有关 {% data variables.product.prodname_pages %} 的更多信息，请参阅“[什么是 GitHub Pages？ ](/articles/what-is-github-pages/)”
 - 目前我们的搜索不支持精确匹配。
@@ -45,7 +46,7 @@ topics:
 
 - [仓库](/search-github/searching-on-github/searching-for-repositories)
 - [主题](/search-github/searching-on-github/searching-topics)
-- [议题和拉取请求](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt %}
+- [议题和拉取请求](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
 - [讨论](/search-github/searching-on-github/searching-discussions){% endif %}
 - [代码](/search-github/searching-on-github/searching-code)
 - [提交](/search-github/searching-on-github/searching-commits)
@@ -55,20 +56,20 @@ topics:
 
 ## 使用可视界面搜索
 
-或者，您也可以使用 {% data variables.search.search_page_url %} 或 {% data variables.search.advanced_url %} 搜索 {% data variables.product.product_name %}。
+You can search {% data variables.product.product_name %} using the {% data variables.search.search_page_url %} or {% data variables.search.advanced_url %}. {% if command-palette %}Alternatively, you can use the interactive search in the {% data variables.product.prodname_command_palette %} to search your current location in the UI, a specific user, repository or organization, and globally across all of {% data variables.product.product_name %}, without leaving the keyboard. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 {% data variables.search.advanced_url %} 提供用于构建搜索查询的可视界面。 您可以按各种因素过滤搜索，例如仓库具有的星标数或复刻数。 在填写高级搜索字段时，您的查询将在顶部搜索栏中自动构建。
 
 ![高级搜索](/assets/images/help/search/advanced_search_demo.gif)
 
-{% ifversion fpt or ghes or ghae-next %}
+{% ifversion fpt or ghes or ghae-next or ghec %}
 
 ## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
 
-If you use {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag --> or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and you're a member of a {% data variables.product.prodname_dotcom_the_website %} organization using {% data variables.product.prodname_ghe_cloud %}, an enterprise owner for your {% data variables.product.prodname_enterprise %} environment can enable {% data variables.product.prodname_github_connect %} so that you can search across both environments at the same time{% ifversion ghes or ghae %} from {% data variables.product.product_name %}{% endif %}. For more information, see the following.
+If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag --> or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and you're a member of a {% data variables.product.prodname_dotcom_the_website %} organization using {% data variables.product.prodname_ghe_cloud %}, an enterprise owner for your {% data variables.product.prodname_enterprise %} environment can enable {% data variables.product.prodname_github_connect %} so that you can search across both environments at the same time{% ifversion ghes or ghae %} from {% data variables.product.product_name %}{% endif %}. 更多信息请参阅以下文章。
 
-{% ifversion fpt or ghes %}
-- "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/{% ifversion ghes %}{{ currentVersion }}{% else %}github-enterprise@latest{% endif %}/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag -->
+{% ifversion fpt or ghes or ghec %}
+- "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/{% ifversion ghes %}{{ currentVersion }}{% else %}enterprise-server@latest{% endif %}/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag -->
 - "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/github-ae@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_managed %} documentation
 {% endif %}
 

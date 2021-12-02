@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -51,4 +52,4 @@ shortTitle: Teamのアクセスの管理
 
 ## 参考リンク
 
-- [Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

@@ -1,13 +1,13 @@
 ---
 title: Criar uma ação composta
 intro: 'Neste guia, você aprenderá a criar uma ação composta.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/creating-actions/creating-a-composite-run-steps-action
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -16,6 +16,7 @@ shortTitle: Ação composta
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -27,7 +28,7 @@ Ao concluir este projeto, você entenderá como criar a sua própria ação comp
 
 ## Pré-requisitos
 
-Antes de começar, você criará um repositório {% data variables.product.product_name %}.
+Antes de começar, você criará um repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 1. Crie um repositório público novo no {% data variables.product.product_location %}. Você pode escolher qualquer nome de repositório ou usar o exemplo `hello-world-composite-action`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Criar um repositório novo](/articles/creating-a-new-repository)".
 

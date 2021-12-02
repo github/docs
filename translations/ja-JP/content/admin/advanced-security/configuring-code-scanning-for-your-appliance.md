@@ -45,7 +45,7 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 ### Provisioning the actions for {% data variables.product.prodname_code_scanning %}
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 If you want to use actions to run {% data variables.product.prodname_code_scanning %} on {% data variables.product.prodname_ghe_server %}, the actions must be available on your appliance.
 
 {% data variables.product.prodname_codeql %} アクションは {% data variables.product.prodname_ghe_server %} のインストールに含まれています。 {% data variables.product.prodname_ghe_server %} がインターネットにアクセス可能な場合、アクションは分析の実行に必要な {% data variables.product.prodname_codeql %} バンドルを自動的にダウンロードします。 または、同期ツールを使用して、{% data variables.product.prodname_codeql %} 分析バンドルをローカルで使用できるようにすることもできます。 詳しい情報については、以下の「[インターネットにアクセスできないサーバーで {% data variables.product.prodname_codeql %} 分析を設定する](#configuring-codeql-analysis-on-a-server-without-internet-access)」を参照してください。
@@ -59,13 +59,6 @@ If you want to use actions to run {% data variables.product.prodname_code_scanni
 
 {% endif %}
 
-{% ifversion ghes = 2.22 %}
-{% data variables.product.prodname_actions %} を使用して {% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_code_scanning %} を実行するには、適切なアクションがローカルで使用可能である必要があります。 アクションは 3 つの方法で利用可能にすることができます。
-
-- **推奨**: [{% data variables.product.prodname_github_connect %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud) を使用して、{% data variables.product.prodname_dotcom_the_website %} からアクションを自動的にダウンロードできます。 インスタンスをホストするマシンは、{% data variables.product.prodname_dotcom_the_website %} にアクセス可能である必要があります。 この方法で、最新のソフトウェアを自動的に入手できます。 詳しい情報については、「[{% data variables.product.prodname_actions %} を同期するために {% data variables.product.prodname_github_connect %} を設定する](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)」を参照してください。
-- {% data variables.product.prodname_codeql_workflow %} を使用する場合は、[https://github.com/github/codeql-action-sync-tool](https://github.com/github/codeql-action-sync-tool/) にある {% data variables.product.prodname_codeql %} Action 同期ツールを使用して、リポジトリを {% data variables.product.prodname_dotcom_the_website %} から {% data variables.product.prodname_ghe_server %} に同期できます。 コンピューターで {% data variables.product.product_location %} と {% data variables.product.prodname_dotcom_the_website %} の両方に同時にアクセスできる限り、{% data variables.product.product_location %} または {% data variables.product.prodname_actions %} ランナーがインターネットにアクセスできるかどうかに関係なく、このツールを使用できます。
-- アクションを含む {% data variables.product.prodname_dotcom_the_website %} リポジトリのクローンを作成することにより、サーバー上にアクションのリポジトリのローカルコピーを作成できます。 たとえば、{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} のアクションを使用する場合は、インスタンスに `github/codeql-action` というリポジトリを作成し、{% data variables.product.prodname_dotcom_the_website %} から[リポジトリ](https://github.com/github/codeql-action)のクローンを作成して、そのリポジトリをインスタンスの `github/codeql-action` リポジトリにプッシュできます。 また、{% data variables.product.prodname_dotcom_the_website %} のリポジトリからリリースをダウンロードし、リリースとしてインスタンスの `github/codeql-action` リポジトリにアップロードする必要があります。
-{% endif %}
 
 ### {% data variables.product.prodname_actions %} を同期するために {% data variables.product.prodname_github_connect %} を設定する
 1. {% data variables.product.prodname_dotcom_the_website %} からオンデマンドでアクションワークフローをダウンロードする場合は、{% data variables.product.prodname_github_connect %} を有効にする必要があります。 詳しい情報については、「[{% data variables.product.prodname_github_connect %} を有効化する](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud#enabling-github-connect)」を参照してください。

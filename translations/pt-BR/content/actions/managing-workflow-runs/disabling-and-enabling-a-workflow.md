@@ -1,16 +1,17 @@
 ---
 title: Desabilitar e habilitar um fluxo de trabalho
 intro: 'Você pode desabilitar e habilitar novamente um fluxo de trabalho usando a interface do usuário de {% data variables.product.prodname_dotcom %}, a API REST, ou {% data variables.product.prodname_cli %}.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Desabilitar & habilitar um fluxo de trabalho
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Desabilitar um fluxo de trabalho permite que você impeça que um fluxo de trabalho seja acionado sem ter de excluir o arquivo do repositório. Você pode facilmente reabilitar o fluxo de trabalho novamente em {% data variables.product.prodname_dotcom %}.
 

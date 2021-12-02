@@ -4,6 +4,7 @@ intro: 在对代码空间中的文件进行更改后，您可以快速提交更�
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -46,7 +47,7 @@ shortTitle: 源控制
 1. 在侧边栏的顶部，单击省略号 (**...**)。 ![查看和更多操作的省略号按钮](/assets/images/help/codespaces/source-control-ellipsis-button.png)
 1. 在下拉菜单中，单击 **Pull（拉取）**。
 
-If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. 更多信息请参阅“[为项目配置代码空间](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)”。
+如果自创建代码空间以来开发容器配置已更改，则可以通过为代码空间重建容器来应用更改。 更多信息请参阅“[为项目配置代码空间](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)”。
 
 ## 设置代码空间以自动获取新更改
 
