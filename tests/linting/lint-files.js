@@ -374,13 +374,13 @@ const diffFiles = []
 // Alternatively, you can put all the files change changed into a
 // text file and do `export DIFF_FILE=files-that-changed.txt`
 if (process.env.DIFF_FILES) {
-  diffFiles.concat(process.env.DIFF_FILES.trim().split(/\s+/g))
+  diffFiles.push(...process.env.DIFF_FILES.trim().split(/\s+/g))
 } else if (process.env.DIFF_FILE) {
-  diffFiles.concat(fs.readFileSync(process.env.DIFF_FILE, 'utf-8').trim().split(/\s+/g))
+  diffFiles.push(...fs.readFileSync(process.env.DIFF_FILE, 'utf-8').trim().split(/\s+/g))
 }
 
 console.log("DIFF_FILES:")
-console.log(diffFiles);
+console.log(diffFiles)
 
 if (diffFiles.length > 0)
   // Parse and turn that environment variable string into a set.
