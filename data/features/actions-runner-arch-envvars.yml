@@ -1,4 +1,4 @@
-# Reference: https://github.com/github/docs/pull/12374
+# Reference: https://github.com/github/docs-content/issues/5727
 # Documentation for new runner 'arch' environment variables set by the `runner` app.
 versions:
   fpt: '*'
