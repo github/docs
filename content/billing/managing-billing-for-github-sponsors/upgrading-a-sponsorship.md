@@ -6,7 +6,7 @@ redirect_from:
   - /articles/upgrading-a-sponsorship
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors/upgrading-a-sponsorship
 versions:
-  fpt: '*'
+  fpt: '*'i
   ghec: '*'
 type: how_to
 topics:
