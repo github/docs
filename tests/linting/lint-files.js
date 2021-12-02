@@ -24,6 +24,9 @@ import { getLiquidConditionals } from '../../script/helpers/get-liquid-condition
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 import semver from 'semver'
 import { getDiffFiles } from '../utils.js'
+import { jest } from '@jest/globals'
+
+jest.useFakeTimers('legacy')
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
