@@ -1,7 +1,7 @@
 ---
 title: Create an assignment from a template repository
 intro: 'You can create an assignment from a template repository to provide starter code, documentation, and other resources to your students.'
-permissions: Organization owners who are admins for a classroom can create an assignment from a template repository that is public or owned by the organization. For more information on classroom admins, see "[About management of classrooms](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#about-management-of-classrooms)."
+permissions: Organization owners who are admins for a classroom can create an assignment from a template repository that is public or owned by the organization. {% data reusables.classroom.classroom-admins-link %}
 versions:
   fpt: '*'
 redirect_from:
