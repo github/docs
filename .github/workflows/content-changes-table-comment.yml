@@ -11,6 +11,7 @@ on:
 
 jobs:
   PR-Preview-Links:
+    if: github.event.pull_request.user.login != 'Octomerger'
     name: Add staging/live links to PR
     runs-on: ubuntu-latest
     outputs:
