@@ -1,4 +1,4 @@
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 要允许您的
 {% data variables.actions.hosted_runner %} 与 {% data variables.product.prodname_dotcom %} 通信，请将 {% data variables.actions.hosted_runner %} 的 IP 地址或 IP 地址范围添加到 IP 允许列表。 更多信息请参阅“[添加允许的 IP 地址](#adding-an-allowed-ip-address)”。
 {% else %}

@@ -13,17 +13,6 @@ topics:
   - Packages
 ---
 
-{% ifversion ghes = 2.22 %}
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-
-{% note %}
-
-**Note:** After you've been invited to join the beta, follow the instructions from your account representative to enable {% data variables.product.prodname_registry %} for {% data variables.product.product_location %}.
-
-{% endnote %}
-
-{% endif %}
 
 {% data reusables.package_registry.packages-cluster-support %}
 
@@ -34,12 +23,12 @@ topics:
 After enabling {% data variables.product.prodname_registry %} for {% data variables.product.product_location %}, you'll need to prepare your third-party storage bucket. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}, and the setup guidelines can vary by storage provider.
 
 Supported external storage providers
-- Amazon Web Services (AWS) S3 {% ifversion ghes > 2.22 %}
+- Amazon Web Services (AWS) S3 {% ifversion ghes %}
 - Azure Blob Storage {% endif %}
 - MinIO
 
 To enable {% data variables.product.prodname_registry %} and configure third-party storage, see:
-  - "[Enabling GitHub Packages with AWS](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes > 2.22 %}
+  - "[Enabling GitHub Packages with AWS](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
   - "[Enabling GitHub Packages with Azure Blob Storage](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
   - "[Enabling GitHub Packages with MinIO](/admin/packages/enabling-github-packages-with-minio)"
 
@@ -49,6 +38,6 @@ Choose which package ecosystems you'd like to enable, disable, or set to read-on
 
 ## Step 3: Ensure you have a TLS certificate for your package host URL, if needed
 
-If subdomain isolation is enabled for {% data variables.product.product_location %}{% ifversion ghes = 2.22 %}, which is required to use {% data variables.product.prodname_registry %} with Docker{% endif %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `npm.HOSTNAME`. Make sure each package host URL includes `https://`.
+If subdomain isolation is enabled for {% data variables.product.product_location %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `npm.HOSTNAME`. Make sure each package host URL includes `https://`.
 
   You can create the certificate manually, or you can use _Let's Encrypt_. If you already use _Let's Encrypt_, you must request a new TLS certificate after enabling {% data variables.product.prodname_registry %}. For more information about package host URLs, see "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)." For more information about uploading TLS certificates to {% data variables.product.product_name %}, see "[Configuring TLS](/enterprise/admin/configuration/configuring-tls)."

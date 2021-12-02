@@ -7,12 +7,13 @@ redirect_from:
   - /admin/authentication/disabling-unauthenticated-sign-ups
 intro: ビルトイン認証を使っている場合、認証されていない人がアカウントを作成するのをブロックできます。
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
+shortTitle: Block account creation
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

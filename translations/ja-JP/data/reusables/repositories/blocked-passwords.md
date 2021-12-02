@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 サインイン、アカウントの作成、パスワードの変更時にパスワードを入力すると、
 {% data variables.product.product_name %}は入力されたパスワードが弱いかどうかを、HaveIBeenPwnedのようなデータセットに基づいてチェックします。 以前にまったく使ったことがないパスワードでも、弱いと判定されることがあります。
 

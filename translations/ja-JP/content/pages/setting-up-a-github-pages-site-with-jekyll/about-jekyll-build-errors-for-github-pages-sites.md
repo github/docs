@@ -8,16 +8,18 @@ redirect_from:
   - /github/working-with-github-pages/about-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: PagesのJekyllビルドエラー
 ---
 
-### Jekyllのビルドエラーについて
+## Jekyllのビルドエラーについて
 
-サイトの公開元に変更をプッシュした後、{% data variables.product.prodname_pages %} がサイトのビルドを試行しない場合があります。{% if currentVersion == "free-pro-team@latest" %}
+サイトの公開元に変更をプッシュした後で、{% data variables.product.prodname_pages %}がサイトのビルドを試行しない場合があります。{% ifversion fpt or ghec %}
 - 変更をプッシュしたユーザーがメールアドレスを検証していない。 詳しい情報については、「[メールアドレスの検証](/articles/verifying-your-email-address)」を参照してください。{% endif %}
 - デプロイキーでプッシュしている。 サイトのリポジトリへのプッシュを自動化する場合は、かわりにマシンユーザーを設定できます。 詳しい情報については、「[デプロイキーを管理する](/developers/overview/managing-deploy-keys#machine-users)」を参照してください。
 - 公開元をビルドするようにCIサービスを設定していない。 たとえば、Travis CI は `gh-pages` ブランチを、セーフリストに追加しない限りビルドしません。 詳細は、Travis CIまたはCIサービスのドキュメンテーションで、「[ビルドのカスタマイズ](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)」を参照してください。
@@ -34,11 +36,11 @@ Jekyllがサイトのビルドを試行せず、エラーが発生した場合�
 
 ビルドエラーのトラブルシューティングに関する詳しい情報については、「[{% data variables.product.prodname_pages %} サイトの Jekyll ビルドエラーのトラブルシューティング](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)」を参照してください。
 
-### Jekyll ビルドエラーメッセージを表示する
+## Jekyll ビルドエラーメッセージを表示する
 
 サイトのテストをローカルで行なうことをお勧めします。それにより、ビルドエラーメッセージをコマンドラインで表示でき、変更を {% data variables.product.product_name %} にプッシュする前に、あらゆるビルドエラーに対処できます。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
 
-{% data variables.product.product_name %} サイトの公開元を更新するためプルリクエストを作成すると、そのプルリクエストの [**Checks**] タブでビルドエラーメッセージが表示されます。 詳しい情報については[ステータスチェックについて](/articles/about-status-checks)を参照してください。
+{% data variables.product.product_name %} サイトの公開元を更新するためプルリクエストを作成すると、そのプルリクエストの [**Checks**] タブでビルドエラーメッセージが表示されます。 詳しい情報については[ステータスチェックについて](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)を参照してください。
 
 {% data variables.product.product_name %} の公開元に変更をプッシュする際、{% data variables.product.prodname_pages %} はサイトのビルドを試みます。 ビルドが失敗すると、プライマリメールアドレスにメールが送信されます。 また、ビルドの警告についてのメールも送信されます。 {% data reusables.pages.build-failure-email-server %}
 

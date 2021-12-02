@@ -1,78 +1,85 @@
 ---
-title: Desabilitar ou limitar o GitHub Actions para sua organização
-intro: 'Os proprietários da organização podem desabilitar, habilitar e limitar o GitHub Actions para uma organização.'
+title: Disabling or limiting GitHub Actions for your organization
+intro: 'Organization owners can disable, enable, and limit GitHub Actions for an organization.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Disable or limit actions
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Sobre as permissões de {% data variables.product.prodname_actions %} para a sua organização
+## About {% data variables.product.prodname_actions %} permissions for your organization
 
-{% data reusables.github-actions.disabling-github-actions %} Para mais informações sobre {% data variables.product.prodname_actions %}, consulte "[Sobre {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
+{% data reusables.github-actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
 
-Você pode habilitar o {% data variables.product.prodname_actions %} para todos os repositórios da sua organização. {% data reusables.github-actions.enabled-actions-description %} Você pode desabilitar {% data variables.product.prodname_actions %} para todos os repositórios da sua organização. {% data reusables.github-actions.disabled-actions-description %}
+You can enable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.github-actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.github-actions.disabled-actions-description %}
 
-Como alternativa, você pode habilitar o {% data variables.product.prodname_actions %} para todos os repositórios na sua organização e limitar as ações que um fluxo de trabalho pode executar. {% data reusables.github-actions.enabled-local-github-actions %}
+Alternatively, you can enable {% data variables.product.prodname_actions %} for all repositories in your organization but limit the actions a workflow can run. {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
+## Managing {% data variables.product.prodname_actions %} permissions for your organization
 
-### Gerenciar as permissões de {% data variables.product.prodname_actions %} para a sua organização
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. Em **Ações locais e de terceiros**, selecione uma opção. ![Habilitar, desabilitar ou limitar ações para esta organização](/assets/images/help/repository/enable-org-actions.png)
-1. Clique em **Salvar**.
-
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-
-### Gerenciar as permissões de {% data variables.product.prodname_actions %} para a sua organização
-
-Você pode desabilitar todos os fluxos de trabalho para uma organização ou definir uma política que configura quais ações podem ser usadas em uma organização.
+You can disable all workflows for an organization or set a policy that configures which actions can be used in an organization.
 
 {% data reusables.actions.actions-use-policy-settings %}
 
 {% note %}
 
-**Observação:** Talvez você não consiga gerenciar essas configurações se a sua organização for gerenciada por uma empresa que tem uma política de substituição. Para obter mais informações, {% if currentVersion == "free-pro-team@latest" %}"[Aplicar políticas de {% data variables.product.prodname_actions %} na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account).{% else %}"[Aplicar políticas de {% data variables.product.prodname_actions %} para a sua empresa](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise).{% endif %}
+**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
 
 {% endnote %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Em **Políticas**, selecione uma opção. ![Definir política de ações para esta organização](/assets/images/help/organizations/actions-policy.png)
-1. Clique em **Salvar**.
+1. Under **Policies**, select an option.
+  ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
+1. Click **Save**.
 
-### Permitir a execução de ações específicas
+## Allowing specific actions to run
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista. ![Adicionar ações para permitir lista](/assets/images/help/organizations/actions-policy-allow-list.png)
-1. Clique em **Salvar**.
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
+   {%- ifversion ghes > 3.0 %}
+   ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
+   {%- else %}
+   ![Add actions to allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
+   {%- endif %}
+1. Click **Save**.
 
+{% ifversion fpt or ghec %}
+## Configuring required approval for workflows from public forks
+
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+You can configure this behavior for an organization using the procedure below. Modifying this setting overrides the configuration set at the enterprise level.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.github-actions.workflows-from-public-fork-setting %}
+
+{% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### Habilitar fluxos de trabalho para bifurcações privadas do repositório
+{% ifversion fpt or ghes or ghec %}
+## Enabling workflows for private repository forks
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-#### Configurar a política de bifurcação privada para uma organização
+### Configuring the private fork policy for an organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -80,25 +87,22 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-### Definindo as permissões do `GITHUB_TOKEN` para a sua organização
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+## Setting the permissions of the `GITHUB_TOKEN` for your organization
 
 {% data reusables.github-actions.workflow-permissions-intro %}
 
-Você pode definir as permissões padrão para o `GITHUB_TOKEN` nas configurações para a sua organização ou repositórios. Se você escolher a opção restrita como padrão nas configurações da sua organização, a mesma opção será selecionada automaticamente nas configurações dos repositórios na organização, e a opção permissiva ficará desabilitada. Se sua organização pertence a uma conta {% data variables.product.prodname_enterprise %} e o padrão mais restrito foi selecionado nas configurações corporativas, você não poderá de escolher o padrão mais permissivo nas configurações da organização.
+You can set the default permissions for the `GITHUB_TOKEN` in the settings for your organization or your repositories. If you choose the restricted option as the default in your organization settings, the same option is auto-selected in the settings for repositories within your organization, and the permissive option is disabled. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and the more restricted default has been selected in the enterprise settings, you won't be able to choose the more permissive default in your organization settings.
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
-#### Configurar as permissões padrão do `GITHUB_TOKEN`
+### Configuring the default `GITHUB_TOKEN` permissions
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Em **permissões do fluxo de trabalho**, escolha se você quer que o `GITHUB_TOKEN` tenha acesso de leitura e gravação para todos os escopos, ou apenas acesso de leitura para o escopo do </code>conteúdo.
-<img src="/assets/images/help/settings/actions-workflow-permissions-organization.png" alt="Definir permissões do GITHUB_TOKEN para esta organização" /></p></li>
-<li><p spaces-before="0">Clique em <strong x-id="1">Salvar</strong> para aplicar as configurações.
-</p>
-
-<p spaces-before="0">{% endif %}</p></li>
-</ol>
+1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+  ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
+1. Click **Save** to apply the settings.
+{% endif %}

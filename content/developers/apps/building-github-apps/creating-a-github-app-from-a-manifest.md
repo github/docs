@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: App creation manifest flow
@@ -59,7 +60,7 @@ The person creating the app will be redirected to a GitHub page with an input fi
 `name` | `string` | The name of the GitHub App.
 `url` | `string` | **Required.** The homepage of your GitHub App.
 `hook_attributes` | `object` | The configuration of the GitHub App's webhook.
-`redirect_url` | `string` | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.{% ifversion fpt or ghae-next or ghes > 3.0 %}
+`redirect_url` | `string` | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.{% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}
 `callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs.{% else %}
 `callback_url` | `string` |  A full URL to redirect to after someone authorizes an installation.{% endif %}
 `description` | `string` | A description of the GitHub App.
@@ -99,7 +100,7 @@ This example uses a form on a web page with a button that triggers the `POST` re
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% ifversion fpt or ghae-next or ghes > 3.0 %}"callback_urls": [
+   {% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}"callback_urls": [
      "https://example.com/callback"
    ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
@@ -134,7 +135,7 @@ This example uses a form on a web page with a button that triggers the `POST` re
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% ifversion fpt or ghae-next or ghes > 3.0 %}"callback_urls": [
+   {% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}"callback_urls": [
      "https://example.com/callback"
    ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,

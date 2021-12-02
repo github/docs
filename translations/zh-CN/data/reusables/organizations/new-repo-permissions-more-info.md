@@ -1,1 +1,1 @@
-更多信息请参阅“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)”。
+For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."

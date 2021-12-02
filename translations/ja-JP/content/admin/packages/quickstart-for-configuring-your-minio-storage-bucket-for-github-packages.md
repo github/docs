@@ -2,12 +2,13 @@
 title: GitHub Packages の MinIO ストレージバケットを設定するためのクイックスタート
 intro: '{% data variables.product.prodname_registry %} で使用するためにカスタム MinIO ストレージバケットを設定します。'
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 type: quick_start
 topics:
   - Packages
   - Enterprise
   - Storage
+shortTitle: Quickstart for MinIO
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -18,7 +19,7 @@ MinIO は、Enterprise で S3 API と {% data variables.product.prodname_registr
 
 このクイックスタートでは、Docker を使用して {% data variables.product.prodname_registry %} で使用するように MinIO をセットアップする方法を説明していますが、Docker 以外に MinIO を管理するオプションがあります。 MinIO の詳細については、公式の [MinIO](https://docs.min.io/) ドキュメントを参照してください。
 
-### 1. ニーズに合わせて MinIO モードを選択する
+## 1. ニーズに合わせて MinIO モードを選択する
 
 | MinIO モード               | 最適化対象               | 必要なストレージインフラストラクチャ  |
 | ----------------------- | ------------------- | ------------------- |
@@ -28,7 +29,7 @@ MinIO は、Enterprise で S3 API と {% data variables.product.prodname_registr
 
 オプションの詳細については、公式の [MinIO](https://docs.min.io/) ドキュメントを参照してください。
 
-### 2. MinIO をインストール、実行、サインインする
+## 2. MinIO をインストール、実行、サインインする
 
 1. MinIO のお好みの環境変数を設定します。
 
@@ -100,7 +101,7 @@ MinIO は、Enterprise で S3 API と {% data variables.product.prodname_registr
 
    * Docker をクラスタとして使用して MinIO を実行します。 この MinIO デプロイメントでは、複数のホストと MinIO のイレイジャーコーディングを使用して、最強のデータ保護を実現します。 MinIO をクラスタモードで実行するには、「[分散型 MinIO クイックスタートガイド](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)」を参照してください。
 
-### 3. {% data variables.product.prodname_registry %} の MinIO バケットを作成する
+## 3. {% data variables.product.prodname_registry %} の MinIO バケットを作成する
 
 1. MinIO クライアントをインストールします。
 
@@ -126,7 +127,7 @@ MinIO は、Enterprise で S3 API と {% data variables.product.prodname_registr
      $ docker run minio/mc mb packages
      ```
 
-### 次のステップ
+## 次のステップ
 
 {% data variables.product.prodname_registry %} のストレージの設定を完了するには、MinIO ストレージ URL をコピーする必要があります。
 

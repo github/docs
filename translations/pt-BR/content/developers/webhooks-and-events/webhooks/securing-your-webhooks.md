@@ -1,52 +1,53 @@
 ---
-title: Protegendo seus webhooks
-intro: 'Certifique-se de que seu servidor só esteja recebendo as solicitações esperadas do {% data variables.product.prodname_dotcom %} por motivos de segurança.'
+title: Securing your webhooks
+intro: 'Ensure your server is only receiving the expected {% data variables.product.prodname_dotcom %} requests for security reasons.'
 redirect_from:
   - /webhooks/securing
   - /developers/webhooks-and-events/securing-your-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
-
-Assim que seu servidor estiver configurado para receber cargas, ele ouvirá qualquer carga enviada para o ponto de extremidade que você configurou. Por motivos de segurança, você provavelmente vai querer limitar os pedidos para aqueles provenientes do GitHub. Existem algumas maneiras de fazer isso. Você poderia, por exemplo, optar por permitir solicitações do endereço IP do GitHub. No entanto, um método muito mais fácil é configurar um token secreto e validar a informação.
+Once your server is configured to receive payloads, it'll listen for any payload sent to the endpoint you configured. For security reasons, you probably want to limit requests to those coming from GitHub. There are a few ways to go about this--for example, you could opt to allow requests from GitHub's IP address--but a far easier method is to set up a secret token and validate the information.
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### Definir seu token secreto
+## Setting your secret token
 
-Você precisará configurar seu token secreto em dois lugares: no GitHub e no seu servidor.
+You'll need to set up your secret token in two places: GitHub and your server.
 
-Para definir seu token no GitHub:
+To set your token on GitHub:
 
-1. Navegue até o repositório onde você está configurando seu webhook.
-2. Preencha a caixa de texto do segredo. Use uma string aleatória com alta entropia (por exemplo, pegando a saída de `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` no terminal). ![Campo de webhook e token secreto](/assets/images/webhook_secret_token.png)
-3. Clique em **Atualizar o webhook**.
+1. Navigate to the repository where you're setting up your webhook.
+2. Fill out the Secret textbox. Use a random string with high entropy (e.g., by taking the output of `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` at the terminal).
+![Webhook secret token field](/assets/images/webhook_secret_token.png)
+3. Click **Update Webhook**.
 
-Em seguida, configure uma variável de ambiente em seu servidor que armazene este token. Normalmente, isso é tão simples quanto executar:
+Next, set up an environment variable on your server that stores this token. Typically, this is as simple as running:
 
 ```shell
 $ export SECRET_TOKEN=<em>your_token</em>
 ```
 
-**Nunca** pré-programe o token no seu aplicativo!
+**Never** hardcode the token into your app!
 
-### Validar cargas do GitHub
+## Validating payloads from GitHub
 
-Quando seu token secreto está definido, {% data variables.product.product_name %} o utiliza para criar uma assinatura de hash com cada carga. Esta assinatura hash está incluída com os cabeçalhos de cada solicitação como {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" ou currentVersion == "github-ae@latest" %}`X-Hub-Signature-256`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature`{% endif %}.
+When your secret token is set, {% data variables.product.product_name %} uses it to create a hash signature with each payload. This hash signature is included with the headers of each request as `X-Hub-Signature-256`.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**Observação:** Para compatibilidade com versões anteriores, também incluímos o cabeçalho `X-Hub-Signature` gerado usando a função de hash SHA-1. Se possível, recomendamos que você use o cabeçalho `X-Hub-Signature-256` para melhorar a segurança. O exemplo abaixo demonstra o uso do cabeçalho `X-Hub-Signature-256`.
+**Note:** For backward-compatibility, we also include the `X-Hub-Signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `X-Hub-Signature-256` header for improved security. The example below demonstrates using the `X-Hub-Signature-256` header.
 
 {% endnote %}
 {% endif %}
 
-Por exemplo, se você tem um servidor básico que ouve webhooks, ele poderá ser configurado de forma semelhante a isso:
+For example, if you have a basic server that listens for webhooks, it might be configured similar to this:
 
 ``` ruby
 require 'sinatra'
@@ -59,7 +60,7 @@ post '/payload' do
 end
 ```
 
-O objetivo é calcular um hash usando seu `SECRET_TOKEN` e garantir que o resultado corresponda ao hash de {% data variables.product.product_name %}. {% data variables.product.product_name %} usa um resumo hexadecimal HMAC para calcular o hash. Portanto, você pode reconfigurar o seu servidor para que se pareça mais ou menos assim:
+The intention is to calculate a hash using your `SECRET_TOKEN`, and ensure that the result matches the hash from {% data variables.product.product_name %}. {% data variables.product.product_name %} uses an HMAC hex digest to compute the hash, so you could reconfigure your server to look a little like this:
 
 ``` ruby
 post '/payload' do
@@ -70,27 +71,22 @@ post '/payload' do
   "I got some JSON: #{push.inspect}"
 end
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 def verify_signature(payload_body)
   signature = 'sha256=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), ENV['SECRET_TOKEN'], payload_body)
   return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
-end{% elsif currentVersion ver_lt "enterprise-server@2.23" %}
-def verify_signature(payload_body)
-  signature = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['SECRET_TOKEN'], payload_body)
-  return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE'])
-end{% endif %}
+end
 ```
 
 {% note %}
 
-**Observação:** As cargas de webhook podem conter caracteres de unicode. Se o seu idioma e a implementação de servidor especificarem uma codificação de caracteres, certifique-se de que você manipula a carga como UTF-8.
+**Note:** Webhook payloads can contain unicode characters. If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8.
 
 {% endnote %}
 
-A sua linguagem e implementações do servidor podem ser diferentes deste código de exemplo. No entanto, há uma série de aspectos muito importantes a destacar:
+Your language and server implementations may differ from this example code. However, there are a number of very important things to point out:
 
-* Não importa qual implementação você usar, a assinatura hash começa com {% if currentVersion == "free-pro-team@latest" ou currentVersion ver_gt "enterprise-server@2. 2" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2. 3" %}`sha1=`{% endif %}, usando a chave do seu token secreto e o seu texto de carga.
+* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
 
-* Não **se recomenda** usar um operador simples de`==`. Um método como [`secure_compare`][secure_compare] executa uma comparação de strings "tempo constante", o que ajuda a mitigar certos ataques de tempo contra operadores de igualdade regular.
+* Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 
 [secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare

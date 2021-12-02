@@ -8,6 +8,7 @@ redirect_from:
   - /developers/overview/secret-scanning
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Secret scanning

@@ -2,7 +2,7 @@
 title: High availability for GitHub Actions
 intro: 'There are some special considerations for administering {% data variables.product.prodname_actions %} in a high availability configuration.'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: reference
 topics:
   - Actions

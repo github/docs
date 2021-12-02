@@ -4,6 +4,7 @@ intro: 'You can manage and review how users in your organization can use  {% dat
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 children:

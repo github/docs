@@ -1,1 +1,1 @@
-学生がオンラインiDEを使う課題を受け入れると、課題のリポジトリには先頭に特別なボタンを持つ_README.md_ファイルが含まれます。 このボタンは、学生を直接オンラインIDEのワークスペースにリンクさせます。
+When a student accepts an assignment with an IDE, the assignment repository will include a _README.md_ file with a special button at the top of the file. The button links the student directly to the workspace in the IDE.

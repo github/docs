@@ -14,6 +14,7 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Manage a custom domain
@@ -135,6 +136,10 @@ After you configure the apex domain, you must configure a CNAME record with your
 {% data reusables.pages.sidebar-pages %}
 4. Under "Custom domain," click **Remove**.
   ![Save custom domain button](/assets/images/help/pages/remove-custom-domain.png)
+
+## Securing your custom domain
+
+{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."  
 
 ## Further reading
 

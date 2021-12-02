@@ -5,7 +5,7 @@ intro: 'Usa GitHub Desktop para administrar tus proyectos, crear confirmaciones 
 redirect_from:
   - /desktop/contributing-to-projects
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /adding-and-cloning-repositories
   - /making-changes-in-a-branch
@@ -13,3 +13,4 @@ children:
   - /working-with-your-remote-repository-on-github-or-github-enterprise
   - /keeping-your-local-repository-in-sync-with-github
 ---
+

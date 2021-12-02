@@ -1,12 +1,13 @@
 ---
 title: Setting up GitHub Sponsors for your user account
-intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication on your {% data variables.product.prodname_dotcom %} account.'
+intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication for your account on {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - User account
@@ -76,7 +77,7 @@ If you live in a supported region, you can follow these instructions to submit y
 
 ## Enabling two-factor authentication (2FA) on your {% data variables.product.prodname_dotcom %} account
 
-Before you can become a sponsored developer, you must enable 2FA on your {% data variables.product.product_name %} account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
+Before you can become a sponsored developer, you must enable 2FA for your account on {% data variables.product.product_location %}. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
 
 ## Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 

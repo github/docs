@@ -1,6 +1,6 @@
 ---
-title: Encaminhamento de logs
-intro: '{% data variables.product.product_name %} usa `syslog-ng` para encaminhar {% if enterpriseServerVersions contains currentVersion %}sistema{% elsif currentVersion == "github-ae@latest" %}Git{% endif %} e logs de aplicativo para o servidor que você especificou.'
+title: Log forwarding
+intro: '{% data variables.product.product_name %} uses `syslog-ng` to forward {% ifversion ghes %}system{% elsif ghae %}Git{% endif %} and application logs to the server you specify.'
 redirect_from:
   - /enterprise/admin/articles/log-forwarding/
   - /enterprise/admin/installation/log-forwarding
@@ -8,8 +8,8 @@ redirect_from:
   - /admin/enterprise-management/log-forwarding
   - /admin/user-management/log-forwarding
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -18,31 +18,42 @@ topics:
   - Security
 ---
 
-Qualquer sistema de coleta de logs com suporte a fluxos de logs do estilo syslog é compatível (por exemplo, [Logstash](http://logstash.net/) e [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
+## About log forwarding
 
-### Habilitar o encaminhamento de logs
+Any log collection system that supports syslog-style log streams is supported (e.g., [Logstash](http://logstash.net/) and [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
 
-{% if enterpriseServerVersions contains currentVersion %}
-1. Na página de configurações do {% data variables.enterprise.management_console %}, na barra lateral esquerda, clique em **Monitoring** (Monitoramento).
-1. Selecione **Enable log forwarding** (Habilitar encaminhamento de logs).
-1. No campo **Server address** (Endereço do servidor), digite o endereço do servidor para o qual você pretende encaminhar os logs. É possível especificar vários endereços em uma lista separada por vírgulas.
-1. No menu suspenso Protocol (Protocolo), selecione o protocolo a ser usado para comunicação com o servidor de logs. O protocolo será aplicado a todos os destinos de log especificados.
-1. Selecione **Enable TLS** (Habilitar TLS).
-1. Clique em **Choose File** (Escolher arquivo) e escolha um certificado CA para criptografar a comunicação entre os pontos de extremidade do syslog. Toda a cadeia de certificados será validada e deverá terminar em um certificado raiz. Para obter mais informações, consulte [as opções de TLS na documentação syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599).
-{% elsif currentVersion == "github-ae@latest" %}
+When you enable log forwarding, you must upload a CA certificate to encrypt communications between syslog endpoints. Your appliance and the remote syslog server will perform two-way SSL, each providing a certificate to the other and validating the certificate which is received.
+
+## Enabling log forwarding
+
+{% ifversion ghes %}
+1. On the {% data variables.enterprise.management_console %} settings page, in the left sidebar, click **Monitoring**.
+1. Select **Enable log forwarding**.
+1. In the **Server address** field, type the address of the server to which you want to forward logs. You can specify multiple addresses in a comma-separated list.
+1. In the Protocol drop-down menu, select the protocol to use to communicate with the log server. The protocol will apply to all specified log destinations.
+1. Optionally, select **Enable TLS**. We recommend enabling TLS according to your local security policies, especially if there are untrusted networks between the appliance and any remote log servers. 
+1. To encrypt communication between syslog endpoints, click **Choose File** and choose a CA certificate for the remote syslog server. You should upload a CA bundle containing a concatenation of the certificates of the CAs involved in signing the certificate of the remote log server. The entire certificate chain will be validated, and must terminate in a root certificate. For more information, see [TLS options in the syslog-ng documentation](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599).
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Em {% octicon "gear" aria-label="The Settings gear" %} **Configurações**, clique em **Encaminhamento de registro**. ![Aba de encaminhamento de log](/assets/images/enterprise/business-accounts/log-forwarding-tab.png)
-1. Em "Encaminhamento de registro", selecione **Habilitar o encaminhamento de registro**. ![Caixa de seleção para habilitar o encaminhamento de registro](/assets/images/enterprise/business-accounts/enable-log-forwarding-checkbox.png)
-1. Em "Endereço do servidor, digite o endereço do servidor para o qual você deseja encaminhar o registro. ![Campo endereço do servidor](/assets/images/enterprise/business-accounts/server-address-field.png)
-1. Use o menu suspenso "Protocolo" e selecione um protocolo. ![Menu suspenso de protocolo](/assets/images/enterprise/business-accounts/protocol-drop-down-menu.png)
-1. Opcionalmente, para habilitar comunicação encriptada TLS entre os pontos de extremidade do syslog, selecione **Habilitar TLS**. ![Caixa de seleção para habilitar TLS](/assets/images/enterprise/business-accounts/enable-tls-checkbox.png)
-1. Em "Certificado público", cole o seu certificado x509. ![Caixa de texto para certificado público](/assets/images/enterprise/business-accounts/public-certificate-text-box.png)
-1. Clique em **Salvar**. ![Botão Salvar para encaminhamento de registro](/assets/images/enterprise/business-accounts/save-button-log-forwarding.png)
+1. Under {% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **Log forwarding**.
+  ![Log forwarding tab](/assets/images/enterprise/business-accounts/log-forwarding-tab.png)
+1. Under "Log forwarding", select **Enable log forwarding**.
+  ![Checkbox to enable log forwarding](/assets/images/enterprise/business-accounts/enable-log-forwarding-checkbox.png)
+1. Under "Server address", enter the address of the server you want to forward logs to.
+  ![Server address field](/assets/images/enterprise/business-accounts/server-address-field.png)
+1. Use the "Protocol" drop-down menu, and select a protocol.
+  ![Protocol drop-down menu](/assets/images/enterprise/business-accounts/protocol-drop-down-menu.png)
+1. Optionally, to enable TLS encrypted communication between syslog endpoints, select **Enable TLS**.
+  ![Checkbox to enable TLS](/assets/images/enterprise/business-accounts/enable-tls-checkbox.png)
+1. Under "Public certificate", paste your x509 certificate.
+  ![Text box for public certificate](/assets/images/enterprise/business-accounts/public-certificate-text-box.png)
+1. Click **Save**.
+  ![Save button for log forwarding](/assets/images/enterprise/business-accounts/save-button-log-forwarding.png)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-### Solução de Problemas
+{% ifversion ghes %}
+## Troubleshooting
 
-Em caso de problemas com o encaminhamento de logs, entre em contato com o {% data variables.contact.contact_ent_support %} e anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.
+If you run into issues with log forwarding, contact {% data variables.contact.contact_ent_support %} and attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email.
 {% endif %}

@@ -9,7 +9,7 @@
 <tbody>
 <tr>
 <td>
-Windows Server 2022<sup>[beta]</sup>
+Windows Server 2022
 </td>
 <td>
 <code>windows-2022</code>
@@ -30,12 +30,13 @@ Windows Server 2019
 </tr>
 <tr>
 <td>
-Windows Server 2016
+Windows Server 2016<sup>[deprecated]</sup>
 </td>
 <td>
 <code>windows-2016</code>
 </td>
 <td>
+Migrate to Windows 2019 or Windows 2022. For more information, see  <A href="https://github.blog/changelog/2021-10-19-github-actions-the-windows-2016-runner-image-will-be-removed-from-github-hosted-runners-on-march-15-2022/">the blog post</A>.
 </td>
 </tr>
 <tr>
@@ -56,17 +57,6 @@ Ubuntu 18.04
 <code>ubuntu-18.04</code>
 </td>
 <td>
-</td>
-</tr>
-<tr>
-<td>
-Ubuntu 16.04<sup>[deprecated]</sup>
-</td>
-<td>
-<code>ubuntu-16.04</code>
-</td>
-<td>
-Deprecated and limited to existing customers only. Migrate to Ubuntu 20.04. For more information, see  <A href="https://github.blog/changelog/2021-04-29-github-actions-ubuntu-16-04-lts-virtual-environment-will-be-removed-on-september-20-2021">the blog post</A>.
 </td>
 </tr>
 <tr>
@@ -95,6 +85,6 @@ macOS Catalina 10.15
 
 {% warning %}
 
-<b>Note:</b> Beta Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support. 
+<b>Note:</b> Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support. 
 
 {% endwarning %}

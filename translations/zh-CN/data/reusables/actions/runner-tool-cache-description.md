@@ -1,0 +1,1 @@
+包含 {% data variables.product.prodname_dotcom %} 托管运行器预安装工具的目录路径。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。

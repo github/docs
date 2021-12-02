@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -13,7 +14,7 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation
 ---
 
-When a token {% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}has expired or {% endif %} has been revoked, it can no longer be used to authenticate Git and API requests. It is not possible to restore an expired or revoked token, you or the application will need to create a new token.
+When a token {% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}has expired or {% endif %} has been revoked, it can no longer be used to authenticate Git and API requests. It is not possible to restore an expired or revoked token, you or the application will need to create a new token.
 
 This article explains the possible reasons your {% data variables.product.product_name %} token might be revoked or expire.
 
@@ -23,13 +24,13 @@ This article explains the possible reasons your {% data variables.product.produc
 
 {% endnote %}
 
-{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}
+{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 ## Token revoked after reaching its expiration date
 
 When you create a personal access token, we recommend that you set an expiration for your token. Upon reaching your token's expiration date, the token is automatically revoked. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Token revoked when pushed to a public repository or public gist
 
 If a valid OAuth token, {% data variables.product.prodname_github_app %} token, or personal access token is pushed to a public repository or public gist, the token will be automatically revoked. 
@@ -37,7 +38,7 @@ If a valid OAuth token, {% data variables.product.prodname_github_app %} token, 
 OAuth tokens and personal access tokens pushed to public repositories and public gists will only be revoked if the token has scopes.
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Token expired due to lack of use
 
 {% data variables.product.product_name %} will automatically revoke an OAuth token or personal access token when the token hasn't been used in one year.
@@ -47,7 +48,7 @@ OAuth tokens and personal access tokens pushed to public repositories and public
 
 You can revoke your authorization of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} from your account settings which will revoke any tokens associated with the app. For more information, see "[Reviewing your authorized integrations](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)" and "[Reviewing your authorized applications (OAuth)](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)."
 
-Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To re-authorize an application, follow the instructions from the third-party application or website to connect your {% data variables.product.product_name %} account again.
+Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To re-authorize an application, follow the instructions from the third-party application or website to connect your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} again.
 
 ## Token revoked by the {% data variables.product.prodname_oauth_app %}
 

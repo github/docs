@@ -4,6 +4,7 @@ intro: 'You can manage whether {% data variables.product.prodname_dotcom %} incl
 permissions: 'People with admin permissions to a public repository can opt into or out of the {% data variables.product.prodname_archive %}.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Policy
   - Legal

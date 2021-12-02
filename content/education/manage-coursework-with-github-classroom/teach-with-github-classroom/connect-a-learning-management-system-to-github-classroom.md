@@ -100,7 +100,7 @@ You can configure {% data variables.product.prodname_classroom %} as an activity
 
 You must be using Moodle version 3.0 or greater.
 
-1. Sign into [Moodle](https://moodle.org/login/index.php).
+1. Sign into [Moodle](https://moodle.org/login/).
 1. Select the Moodle course to integrate with {% data variables.product.prodname_classroom %}.
 1. Click **Turn editing on**.
 1. Wherever you'd like {% data variables.product.prodname_classroom %} to be available in Moodle, click **Add an activity or resource**.

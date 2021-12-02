@@ -1,4 +1,4 @@
-##### Mapeos de puertos de protocolo TCP para usar sin soporte de PROXY
+### Mapeos de puertos de protocolo TCP para usar sin soporte de PROXY
 
 | Puerto fuente | Puerto de destino |  Descripción del servicio   |
 |:-------------:|:-----------------:|:---------------------------:|

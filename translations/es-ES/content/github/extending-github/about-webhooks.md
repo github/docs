@@ -7,9 +7,10 @@ redirect_from:
   - /articles/about-webhooks
 intro: Los webhooks ofrecen una manera de enviar las notificaciones a un servidor web externo siempre que ciertas acciones ocurran en un repositorio o una organización.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% tip %}
@@ -25,6 +26,6 @@ Los webhooks se pueden disparar siempre que se realicen una variedad de acciones
 * Se cree un sitio {% data variables.product.prodname_pages %}.
 * Se agregue un nuevo miembro a un equipo.
 
-Al usar la API de {% data variables.product.product_name %}, puedes hacer que estos webhooks actualicen un seguimiento de la propuesta, disparen compilaciones de CI, actualicen un espejo de copia de seguridad o incluso se implementen en tu servidor de producción.
+Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you can make these webhooks update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server.
 
 Para configurar un webhook nuevo, necesitarás acceso a un servidor externo y estar familiarizado con los procedimientos técnicos involucrados. Para obtener ayuda para crear un webhook, lo cual incluye un listado completo de las acciones con las que lo puedes asociar, consulta la secicón "[Webhooks](/webhooks)".

@@ -11,6 +11,7 @@ redirect_from:
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Accounts
@@ -33,4 +34,4 @@ shortTitle: Subscriptions & billing date
 
 ## Further reading
 
-- "[About billing for {% data variables.product.product_name %} accounts](/articles/about-billing-for-github-accounts)"
+- "[About billing for {% data variables.product.prodname_dotcom %} accounts](/articles/about-billing-for-github-accounts)"

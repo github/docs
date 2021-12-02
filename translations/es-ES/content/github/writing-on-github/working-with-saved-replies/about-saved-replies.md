@@ -5,9 +5,10 @@ redirect_from:
   - /articles/about-saved-replies
   - /github/writing-on-github/about-saved-replies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 ![Respuestas guardadas](/assets/images/help/settings/saved-replies.png)
@@ -20,7 +21,7 @@ Puedes crear un máximo de 100 respuestas guardadas. Si has alcanzado el límite
 
 También puedes usar la respuesta guardada "Duplicar propuesta" proporcionada por {% data variables.product.product_name %} para marcar una propuesta como un duplicado y hacerle un seguimiento con una propuesta similar.
 
-### Leer más
+## Leer más
 
 - "[Crear una respuesta guardada](/articles/creating-a-saved-reply)"
 - "[Usar respuestas guardadas](/articles/using-saved-replies)"

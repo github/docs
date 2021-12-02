@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -110,7 +111,7 @@ setting (and updating) CI statuses. Note that at any time you update your server
 you can click **Redeliver** to send the same payload. There's no need to make a
 new pull request every time you make a change!
 
-Since we're interacting with the {% data variables.product.product_name %} API, we'll use [Octokit.rb][octokit.rb]
+Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb]
 to manage our interactions. We'll configure that client with
 [a personal access token][access token]:
 

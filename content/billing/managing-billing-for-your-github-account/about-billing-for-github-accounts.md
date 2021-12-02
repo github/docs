@@ -1,6 +1,6 @@
 ---
 title: About billing for GitHub accounts
-intro: '{% data variables.product.product_name %} offers free and paid products for every developer or team.'
+intro: '{% data variables.product.company_short %} offers free and paid products for every developer or team.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
   - /articles/what-is-the-total-cost-of-using-an-organization-account/
@@ -14,6 +14,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-billing-for-github-accounts
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Accounts
@@ -22,7 +23,7 @@ topics:
   - Upgrades
 shortTitle: About billing
 ---
-For more information on the products available for your account, see "[{% data variables.product.product_name %}'s products](/articles/github-s-products)." You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data variables.product.product_name %} does not offer custom products or subscriptions.  
+For more information on the products available for your account, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)." You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data variables.product.product_name %} does not offer custom products or subscriptions.  
 
 You can choose monthly or yearly billing, and you can upgrade or downgrade your subscription at any time. For more information, see "[Managing billing for your {% data variables.product.prodname_dotcom %} account](/articles/managing-billing-for-your-github-account)."
 

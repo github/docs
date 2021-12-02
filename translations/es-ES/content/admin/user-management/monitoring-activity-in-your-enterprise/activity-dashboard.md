@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 ---
@@ -26,11 +26,7 @@ El Tablero de actividades te proporciona gráficos semanales, mensuales y anuale
 
 ![Tablero de actividades](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
-Para más análisis basados en los datos de {% data variables.product.product_name %}, puede comprar {% data variables.product.prodname_insights %}. Para obtener más información, consulta "[Acerca de {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)."
-{% endif %}
-
-### Acceder al Tablero de actividades
+## Acceder al Tablero de actividades
 
 1. En la parte superior de cualquier página, haz clic en **Explore** (Explorar). ![Explorar la etiqueta](/assets/images/enterprise/settings/ent-new-explore.png)
 2. En el margen izquierdo superior, haz clic en **Activity** (Actividad). ![Botón de actividades](/assets/images/enterprise/activity/activity-button.png)

@@ -2,11 +2,11 @@
 title: Expressions
 shortTitle: Expressions
 intro: You can evaluate expressions in workflows and actions.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 ---
 
@@ -306,7 +306,7 @@ if: {% raw %}${{ cancelled() }}{% endraw %}
 
 ### failure
 
-Returns `true` when any previous step of a job fails.
+Returns `true` when any previous step of a job fails. If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
 
 #### Example
 

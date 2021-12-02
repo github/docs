@@ -1,10 +1,9 @@
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
 import copyCode from 'components/lib/copy-code'
-import displayPlatformSpecificContent from 'components/lib/display-platform-specific-content'
-import displayToolSpecificContent from 'components/lib/display-tool-specific-content'
 import localization from 'components/lib/localization'
 import wrapCodeTerms from 'components/lib/wrap-code-terms'
 
@@ -38,6 +37,12 @@ import {
 } from 'components/context/TocLandingContext'
 import { useEffect } from 'react'
 
+function initiateArticleScripts() {
+  copyCode()
+  localization()
+  wrapCodeTerms()
+}
+
 type Props = {
   mainContext: MainContextT
   productLandingContext: ProductLandingContextT
@@ -53,14 +58,16 @@ const GlobalPage = ({
   articleContext,
 }: Props) => {
   const { currentLayoutName, relativePath } = mainContext
+  const router = useRouter()
 
   useEffect(() => {
-    copyCode()
-    displayPlatformSpecificContent()
-    displayToolSpecificContent()
-    localization()
-    wrapCodeTerms()
-  }, [])
+    // https://stackoverflow.com/a/67063998
+    initiateArticleScripts() // on initiate page
+    router.events.on('routeChangeComplete', initiateArticleScripts) // on client side route
+    return () => {
+      router.events.off('routeChangeComplete', initiateArticleScripts)
+    }
+  }, [router.events])
 
   let content
   if (currentLayoutName === 'product-landing') {

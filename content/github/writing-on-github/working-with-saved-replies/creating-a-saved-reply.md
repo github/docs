@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.saved_replies %}

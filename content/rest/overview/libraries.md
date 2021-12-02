@@ -1,6 +1,6 @@
 ---
 title: Libraries
-intro: 'You can use the official Octokit library and other third-party libraries to extend and simplify how you use the {% data variables.product.prodname_dotcom %} API.'
+intro: 'You can use the official Octokit library and other third-party libraries to extend and simplify how you use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
 redirect_from:
   - /libraries/
   - /v3/libraries
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---

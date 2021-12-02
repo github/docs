@@ -11,20 +11,46 @@ on:
       - reopened
       - synchronize
 
+  # This is necessary so that the cached things can be reused between
+  # pull requests.
+  # If we don't let the workflow run on `main` the caching will only
+  # help between multiple runs of the same workflow. By letting
+  # it build on pushes to main too, the cache will be reusable
+  # in other people's PRs too.
+  push:
+    branches:
+      - main
+
 permissions:
   contents: read
 
+# This allows one Build workflow run to interrupt another
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label }}'
+  cancel-in-progress: true
+
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump full context for debugging
+        run: |
+          cat << EOF
+          ${{ toJSON(github) }}
+          EOF
+
   build-pr:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 5
+    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
+    # progress for this PR branch.
     concurrency:
-      group: staging_${{ github.head_ref }}
+      group: 'PR Staging @ ${{ github.event.pull_request.head.label }}'
       cancel-in-progress: true
     steps:
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
 
       # Make sure only approved files are changed if it's in github/docs
       - name: Check changed files
@@ -44,10 +70,13 @@ jobs:
             notAllowed:
               - '*.js'
               - '*.mjs'
+              - '*.cjs'
               - '*.ts'
               - '*.tsx'
               - '*.json'
               - '.npmrc'
+              - '.babelrc*'
+              - '.env*'
               - 'script/**'
               - 'Procfile'
 
@@ -57,9 +86,9 @@ jobs:
         run: exit 1
 
       - name: Setup node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       # Required for `npm pkg ...` command support
@@ -68,6 +97,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Cache nextjs build
+        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}-${{ hashFiles('.github/workflows/staging-build-pr.yml') }}
 
       - name: Build
         run: npm run build
@@ -81,7 +116,15 @@ jobs:
       - name: Set npm script for Heroku build to noop
         run: npm set-script heroku-postbuild "echo 'Application was pre-built!'"
 
+      - name: Delete heavy things we won't need deployed
+        run: |
+          # The dereferenced file is not used in runtime once the
+          # decorated file has been created from it.
+          rm -fr lib/rest/static/dereferenced
+
       - name: Create an archive
+        # Only bother if this is actually a pull request
+        if: ${{ github.event.pull_request.number }}
         run: |
           tar -c --file=app.tar \
             node_modules/ \
@@ -101,10 +144,18 @@ jobs:
             app.json \
             Procfile
 
+          # We can't delete the .next/cache directory from the workflow
+          # because it's needed for caching, but we can at least delete it
+          # from within the tarball. Then it can be cached but not
+          # weigh down the tarball we intend to deploy.
+          tar --delete --file=app.tar .next/cache
+
       # Upload only the files needed to run this application.
       # We are not willing to trust the rest (e.g. script/) for the remainder
       # of the deployment process.
       - name: Upload build artifact
+        # Only bother if this is actually a pull request
+        if: ${{ github.event.pull_request.number }}
         uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074
         with:
           name: pr_build

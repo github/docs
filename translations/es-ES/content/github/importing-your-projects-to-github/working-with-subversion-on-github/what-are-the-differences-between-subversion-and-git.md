@@ -6,11 +6,13 @@ redirect_from:
   - /articles/what-are-the-differences-between-subversion-and-git
   - /github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+shortTitle: Diferencias entre Subversion & Git
 ---
 
-### Estructura del directorio
+## Estructura del directorio
 
 Cada *referencia*, o instantánea etiquetada de una confirmación, en un proyecto se organiza dentro de subdirectorios específicos, como `tronco`, `ramas` y `etiquetas`. Por ejemplo, un proyecto SVN con dos características bajo desarrollo debería parecerse a esto:
 
@@ -42,15 +44,15 @@ Un flujo de trabajo Git se parece a esto:
 
 A diferencia de SVN, con Git la estructura del directorio permanece igual, pero los contenidos de los archivos cambia en base a tu rama.
 
-### Incluir los subproyectos
+## Incluir los subproyectos
 
 Un *subproyecto* es un proyecto que se ha desarrollado y administrado en algún lugar fuera del proyecto principal. Normalmente importas un subproyecto para agregar alguna funcionalidad a tu proyecto sin necesidad de mantener el código. Cada vez que el proyecto se actualiza, puedes sincronizarlo con tu proyecto para garantizar que todo esté actualizado.
 
 En SVN, un subproyecto se llama un *SVN externo*. En Git, se llama un *submódulo Git*. A pesar de que conceptualmente son similares, los submódulos Git no se mantienen actualizados de forma automática; debes solicitar explícitamente que se traiga una nueva versión a tu proyecto.
 
-Para obtener más información, consulta la sección "[Submódulos de las Git Tools](https://git-scm.com/book/en/Git-Tools-Submodules)" en la documentación de Git.
+For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
 
-### Mantener el historial
+## Mantener el historial
 
 SVN está configurado para suponer que el historial de un proyecto nunca cambia. Git te permite modificar cambios y confirmaciones previas utilizando herramientas como [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
@@ -60,7 +62,7 @@ SVN está configurado para suponer que el historial de un proyecto nunca cambia.
 
 {% endtip %}
 
-### Leer más
+## Leer más
 
 - "[Propiedades de Subversion admitidas por GitHub](/articles/subversion-properties-supported-by-github)"
 - ["Branching and Merging" del libro _Git SCM_](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)

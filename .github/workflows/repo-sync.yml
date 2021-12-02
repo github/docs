@@ -18,7 +18,7 @@ name: Repo Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: '10,25,40,55 * * * *' # every 15 minutes
+    - cron: '10,40 * * * *' # every 30 minutes
 
 jobs:
   close-invalid-repo-sync:
@@ -94,13 +94,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
 
       # Set up npm and run npm ci to run husky to get githooks for LFS
       - name: Setup node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
       - name: Install dependencies
         run: npm ci
@@ -118,7 +118,7 @@ jobs:
 
       - name: Create pull request
         id: create-pull
-        uses: repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d
+        uses: repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
         with:
@@ -126,8 +126,11 @@ jobs:
           destination_branch: main
           pr_title: 'repo sync'
           pr_body: "This is an automated pull request to sync changes between the public and private repos.\n\n:robot: This pull request should be merged (not squashed) to preserve continuity across repos, so please let a bot do the merging!"
-          pr_label: autoupdate,automated-reposync-pr
+          pr_label: automated-reposync-pr
           github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          # This will exit 0 if there's no difference between `repo-sync`
+          # and `main`. And if so, no PR will be created.
+          pr_allow_empty: false
 
       - name: Find pull request
         uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
@@ -201,12 +204,12 @@ jobs:
                     })
                     console.log(updateBranch.data.message)
                   } catch (error) {
-                    // Only retry once. We'll rely on the update branch workflow to update 
+                    // Only retry once. We'll rely on the update branch workflow to update
                     // this PR in the case of a second failure.
                     console.log(`Retried updating the branch, but an error occurred: ${error}`)
                   }
                 } else {
-                  // A failed branch update shouldn't fail this worklow. 
+                  // A failed branch update shouldn't fail this worklow.
                   console.log(`An error occurred when updating the branch: ${error}`)
                 }
               }
@@ -216,41 +219,13 @@ jobs:
 
       - name: Enable GitHub auto-merge
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
-        with:
-          github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          script: |
-            const pull = await github.pulls.get({
-              ...context.repo,
-              pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
-            })
-
-            const pullNodeId = pull.data.node_id
-            console.log(`Pull request GraphQL Node ID: ${pullNodeId}`)
-
-            const mutation = `mutation ($id: ID!) {
-              enablePullRequestAutoMerge(input: {
-                pullRequestId: $id,
-                mergeMethod: MERGE
-              }) {
-                clientMutationId
-              }
-            }`
-            const variables = {
-              id: pullNodeId
-            }
-
-            const graph = await github.graphql(mutation, variables)
-            console.log('GraphQL mutation result:\n' + JSON.stringify(graph))
-
-            if (graph.errors && graph.errors.length > 0) {
-              console.error('ERROR! Failed to enable auto-merge:\n - ' + graph.errors.map(error => error.message).join('\n - '))
-            } else {
-              console.log('Auto-merge enabled!')
-            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          AUTOMERGE_PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
+        run: node .github/actions-scripts/enable-automerge.js
 
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
         if: failure()
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

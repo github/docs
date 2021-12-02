@@ -4,7 +4,7 @@ import { get, getDOM } from '../helpers/supertest.js'
 import supertest from 'supertest'
 import { jest } from '@jest/globals'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 const app = createApp()
 
@@ -130,7 +130,7 @@ describe('does not render survey prompt or contribution button', () => {
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
       expect($('.contribution').length).toBe(0)
     } else {
-      expect($('.js-survey').length).toBeGreaterThan(0)
+      expect($('[data-testid=survey-form]').length).toBeGreaterThan(0)
     }
   })
 })

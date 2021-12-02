@@ -26,7 +26,12 @@ on:
 
 jobs:
   triage:
-    if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger'
+    if: >-
+      ${{
+        github.repository == 'github/docs' &&
+        github.event.pull_request.user.login != 'Octomerger' &&
+        github.event.pull_request.user.login != 'dependabot[bot]'
+      }}
     runs-on: ubuntu-latest
     steps:
       - name: Get files changed
@@ -70,7 +75,7 @@ jobs:
         if: ${{ steps.filter.outputs.notAllowed }}
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const badFilesArr = [
               '.github/actions-scripts/**',

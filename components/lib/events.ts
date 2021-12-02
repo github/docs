@@ -14,6 +14,12 @@ let maxScrollY = 0
 let pauseScrolling = false
 let sentExit = false
 
+function resetPageParams() {
+  maxScrollY = 0
+  pauseScrolling = false
+  sentExit = false
+}
+
 export function getUserEventsId() {
   if (cookieValue) return cookieValue
   cookieValue = Cookies.get(COOKIE_NAME)
@@ -32,6 +38,7 @@ export enum EventType {
   exit = 'exit',
   link = 'link',
   search = 'search',
+  searchResult = 'searchResult',
   navigate = 'navigate',
   survey = 'survey',
   experiment = 'experiment',
@@ -52,6 +59,11 @@ type SendEventProps = {
   link_url?: string
   search_query?: string
   search_context?: string
+  search_result_query?: string
+  search_result_index?: number
+  search_result_total?: number
+  search_result_rank?: number
+  search_result_url?: string
   navigate_label?: string
   survey_token?: string // Honeypot, doesn't exist in schema
   survey_vote?: boolean
@@ -206,13 +218,17 @@ function initPageAndExitEvent() {
   // Client-side routing
   const pushState = history.pushState
   history.pushState = function (state, title, url) {
+    // Don't trigger page events on query string or hash changes
     const newPath = url?.toString().replace(location.origin, '').split('?')[0]
-    if (newPath === location.pathname) return
-    sendExit()
+    const shouldSendEvents = newPath !== location.pathname
+    if (shouldSendEvents) {
+      sendExit()
+    }
     const result = pushState.call(history, state, title, url)
-    sendPage()
-    sentExit = false
-    maxScrollY = 0
+    if (shouldSendEvents) {
+      sendPage()
+      resetPageParams()
+    }
     return result
   }
 }
@@ -250,7 +266,7 @@ export default function initializeEvents() {
   initPrintEvent()
   // survey event in ./survey.js
   // experiment event in ./experiment.js
-  // search event in ./search.js
+  // search and search_result event in ./search.js
   // redirect event in middleware/record-redirect.js
   // preference event in ./display-tool-specific-content.js
 }

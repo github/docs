@@ -38,7 +38,6 @@ export const useTocLandingContext = (): TocLandingContextT => {
 }
 
 export const getTocLandingContextFromRequest = (req: any): TocLandingContextT => {
-  const isEarlyAccess = req.context.page?.documentType === 'early-access'
   return {
     title: req.context.page.titlePlainText,
     productCallout: req.context.page.product || '',
@@ -49,7 +48,7 @@ export const getTocLandingContextFromRequest = (req: any): TocLandingContextT =>
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
 
     featuredLinks: getFeaturedLinksFromReq(req),
-    renderedPage: isEarlyAccess ? req.context.renderedPage : '',
+    renderedPage: req.context.renderedPage,
     currentLearningTrack: req.context.currentLearningTrack,
   }
 }

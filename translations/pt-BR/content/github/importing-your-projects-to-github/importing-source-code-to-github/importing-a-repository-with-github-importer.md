@@ -6,7 +6,9 @@ redirect_from:
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Use Importador do GitHub
 ---
 
 {% tip %}
@@ -16,8 +18,6 @@ versions:
 {% endtip %}
 
 Se você quiser combinar os commits de seu repositório com as contas de usuário GitHub do autor durante a importação, garanta que cada contribuidor de seu repositório tem uma conta GitHub antes de você começar a importação.
-
-{% data reusables.repositories.migrating-from-codeplex %}
 
 {% data reusables.repositories.repo-size-limit %}
 
@@ -32,6 +32,6 @@ Se você quiser combinar os commits de seu repositório com as contas de usuári
 
 Você receberá um e-mail quando o repositório for totalmente importado.
 
-### Leia mais
+## Leia mais
 
 - "[Atualizar a atribuição do autor do commit com o Importador do GitHub](/articles/updating-commit-author-attribution-with-github-importer)"

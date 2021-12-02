@@ -4,6 +4,7 @@ intro: Vulnerability disclosure is a coordinated effort between security reporte
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Security advisories

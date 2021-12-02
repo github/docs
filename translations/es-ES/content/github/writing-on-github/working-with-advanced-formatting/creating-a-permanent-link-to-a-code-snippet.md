@@ -6,12 +6,16 @@ redirect_from:
   - /articles/creating-a-permanent-link-to-a-code-snippet
   - /github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Enlaces permanentes al código
 ---
+
+## Vincular al código
 
 Este tipo de enlace permanente se presentará como un fragmento de código únicamente en el repositorio en el que se originó. En los demás repositorios, el fragmento de código de enlace permanente se presentará como una URL.
 
@@ -32,7 +36,13 @@ Este tipo de enlace permanente se presentará como un fragmento de código únic
 5. Dirígete a la conversación en la que deseas enlazar el fragmento de código.
 6. Pega tu enlace permanente en un comentario y haz clic en **Comentar**. ![Enlace permanente pegado en un comentario en el mismo repositorio](/assets/images/help/repository/code-snippet-permalink-in-comment.png)
 
-### Leer más
+## Vincular al lenguaje de marcado
+
+Puedes vincular a líneas específicas en los archivos de lenguaje de marcado si cargas el archivo de lenguaje de marcado sin la interpretación de lenguaje de marcado. Para cargar un archivo de lenguaje de marcado sin interpretar, puedes utilizar el parámetro `?plain=1` al final de la url del archivo. Por ejemplo, `github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1`.
+
+Puedes vincular a una línea específica en el archivo de lenguaje de marcado de la misma forma en la que lo haces en el código. Anexa `#L` con el número o números de línea al final de la url. Por ejemplo, `github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1#L14` resaltará la línea 14 en el archivo README.md simple.
+
+## Leer más
 
 - [Crear una propuesta](/articles/creating-an-issue/)"
 - "[Abrir una propuesta desde el código](/articles/opening-an-issue-from-code/)"

@@ -1,27 +1,20 @@
 ---
 title: About AE hosted runners
 intro: '{% data variables.product.prodname_ghe_managed %} offers customizable and security hardened hosted virtual machines to run {% data variables.product.prodname_actions %} workflows. You can select the hardware, bring your own machine image, and enable an IP address for networking with your {% data variables.actions.hosted_runner %}.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   ghae: '*'
 ---
 
-
-
-
+{% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.ae-beta %}
 
 ## About {% data variables.actions.hosted_runner %}s
 
-An {% data variables.actions.hosted_runner %} is a virtual machine hosted by {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_actions %} runner service installed. 
+An {% data variables.actions.hosted_runner %} is a virtual machine managed by {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_actions %} runner service installed. {% data variables.actions.hosted_runner %}s are dedicated to your enterprise, and you can choose from a range of hardware and software options. By default, {% data variables.actions.hosted_runner %}s are fully managed and auto-scaled by {% data variables.product.company_short %} to maximize performance while minimizing costs.{% ifversion ghae-next %} You can optionally configure the parameters of this auto-scaling to reduce your cost even more.{% endif %}
 
-{% data variables.product.prodname_ghe_managed %} lets you create and customize {% data variables.actions.hosted_runner %}s using Ubuntu or Windows images; you can select the size of machine you want and configure security hardened networking for them. {% data variables.actions.hosted_runner %}s are fully managed and auto-scaled by {% data variables.product.prodname_dotcom %}.
+{% data variables.product.prodname_ghe_managed %} lets you create and customize {% data variables.actions.hosted_runner %}s using Ubuntu or Windows images; you can select the size of machine you want and optionally configure a fixed public IP range for your {% data variables.actions.hosted_runner %}s.
 
 Each workflow job is executed in a fresh instance of the {% data variables.actions.hosted_runner %}, and you can run workflows directly on the virtual machine or in a Docker container. All steps in the job execute in the same instance, allowing the actions in that job to share information using the {% data variables.actions.hosted_runner %}'s filesystem.
-
-{% note %}
-{% data variables.actions.hosted_runner %}s are the only runners available for {% data variables.product.prodname_ghe_managed %}, and self-hosted runners are not available.
-{% endnote %}
 
 To add {% data variables.actions.hosted_runner %}s to your organization or enterprise, see ["Adding {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/adding-ae-hosted-runners)."
 
@@ -35,11 +28,9 @@ During the {% data variables.actions.hosted_runner %} beta, you can manage your 
 
 ## Billing
 
-{% data variables.product.prodname_actions %} is currently in beta for {% data variables.product.prodname_ghe_managed %}. During this beta period, {% data variables.actions.hosted_runner %}s are not billed, and can be used for free.
-
 Once the beta ends, billed usage will include the full uptime of active instances in your AE hosted runner sets. This includes:
 - Job time - minutes spent running Actions job.
-- Management - minutes spent re-imaging machines and any idle time created as a result of desired auto-scale behavior.
+- Management - minutes spent re-imaging machines{% ifversion ghae-next %} and any idle time created as a result of desired auto-scale behavior{% endif %}.
 
 Pricing will scale linearly with cores. For example, 4 cores will be twice the price of 2 cores. Windows VMs will be priced higher than Linux VMs.
 
@@ -77,6 +68,14 @@ If you don't enable static public IP addresses, then your {% data variables.acti
 To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.actions.hosted_runner %}s, you can use the {% data variables.product.prodname_dotcom %} REST API . For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint. You can use this list of IP addresses if you require an allow-list to prevent unauthorized access to your internal resources.
 
 The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
+
+{% ifversion ghae-next %}
+
+## Autoscaling 
+
+Each pool of {% data variables.actions.hosted_runner %}s is fully managed by {% data variables.product.company_short %} to maximize performance while minimizing costs. Optionally, you can configure the autoscaling parameters for your enterprise by contacting {% data variables.contact.github_support %}. You can define the minimum number of idle runners and how long a runner should remain idle before being removed from the pool. Each pool can contain up to 600 runners.
+
+{% endif %}
 
 ## Administrative privileges for {% data variables.actions.hosted_runner %}s
 

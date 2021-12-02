@@ -9,6 +9,7 @@
     access token.
 - term: account recovery token
   description: >-
+    **Deprecated and will be disabled December 1st, 2021.**
     The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
 - term: API preview
   description: >-
@@ -597,6 +598,7 @@
     the HEAD of that branch to the result.
 - term: Recover Accounts Elsewhere
   description: >-
+    **Deprecated and will be disabled December 1st, 2021.**
     Allows users to add an extra security factor to their GitHub account in case they
     lose access to their two-factor authentication method or recovery codes.
     Users can associate their GitHub account with their Facebook account by
@@ -630,6 +632,10 @@
     (including documentation), and stores each file's revision history.
     Repositories can have multiple collaborators and can be either public or
     private.
+- term: repository cache
+  description: >-
+    A read-only mirror of repositories for your GitHub Enterprise server instance, located near
+    distributed teams and CI clients.
 - term: repository graph
   description: A visual representation of your repository's data.
 - term: repository maintainer

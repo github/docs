@@ -7,12 +7,13 @@ redirect_from:
   - /admin/github-actions/about-using-actions-on-github-enterprise-server
   - /admin/github-actions/about-using-actions-in-your-enterprise
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '*'
+  ghae: next
 type: overview
 topics:
   - Actions
   - Enterprise
+shortTitle: Agregar acciones en tu empresa
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -23,7 +24,7 @@ Los flujos de trabajo de {% data variables.product.prodname_actions %} pueden ut
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-### Acciones oficiales que se incluyen en tu instancia empresarial
+## Acciones oficiales que se incluyen en tu instancia empresarial
 
 La mayoría de las acciones oficiales de autoría de {% data variables.product.prodname_dotcom %} se agrupan automáticamente con {% data variables.product.product_name %} y se capturan en un punto en el tiempo desde {% data variables.product.prodname_marketplace %}.
 
@@ -37,7 +38,7 @@ Cada acción es un repositorio en la organización `actions` y cada repositorio 
 
 {% endnote %}
 
-### Configurar el acceso a las acciones en {% data variables.product.prodname_dotcom_the_website %}
+## Configurar el acceso a las acciones en {% data variables.product.prodname_dotcom_the_website %}
 
 Si los usuarios de tu empresa necesitan acceso a otras acciones desde {% data variables.product.prodname_dotcom_the_website %} o {% data variables.product.prodname_marketplace %}, hay algunas cuantas opciones de configuración.
 

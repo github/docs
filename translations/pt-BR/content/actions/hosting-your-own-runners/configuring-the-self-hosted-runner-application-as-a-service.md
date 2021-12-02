@@ -4,11 +4,13 @@ intro: Você pode configurar o aplicativo do executor auto-hospedado como um ser
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: tutorial
 defaultPlatform: linux
+shortTitle: Executar o executor ao iniciar
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
@@ -56,7 +58,7 @@ Você pode gerenciar o serviço do executor no aplicativo **Serviços** do Windo
 
 {% linux %}
 
-### Instalando o serviço
+## Instalando o serviço
 
 {{ service_first_step }}
 1. Instale o serviço com o comando a seguir:
@@ -68,7 +70,7 @@ Você pode gerenciar o serviço do executor no aplicativo **Serviços** do Windo
 {% endlinux %}
 {% mac %}
 
-### Instalando o serviço
+## Instalando o serviço
 
 {{ service_first_step }}
 1. Instale o serviço com o comando a seguir:
@@ -78,7 +80,7 @@ Você pode gerenciar o serviço do executor no aplicativo **Serviços** do Windo
    ```
 {% endmac %}
 
-### Iniciar o serviço
+## Iniciar o serviço
 
 Inicie o serviço com o seguinte comando:
 
@@ -98,7 +100,7 @@ Start-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-### Verificando o status do serviço
+## Verificando o status do serviço
 
 Verifique o status do serviço com o comando a seguir:
 
@@ -120,7 +122,7 @@ Get-Service "{{ service_win_name }}"
 
  Para obter mais informações sobre a visualização do status de seu executor auto-hospedado, consulte "[Monitoramento e resolução de problemas dos executores auto-hospedados](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)".
 
-### Interromper o serviço
+## Interromper o serviço
 
 Interrompa o serviço com o comando a seguir:
 
@@ -140,7 +142,7 @@ Stop-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-### Desinstalando o serviço
+## Desinstalando o serviço
 
 1. Interrompa o serviço se estiver em execução.
 1. Desinstale o serviço com o comando a seguir:
@@ -164,7 +166,7 @@ Stop-Service "{{ service_win_name }}"
 
 {% linux %}
 
-### Personalizar o serviço do executor auto-hospedado
+## Personalizar o serviço do executor auto-hospedado
 
 Se você não desejar usar a configuração-padrão doserviço do `systemd` acima, você poderá criar um serviço personalizado ou usar o mecanismo de serviço que preferir. Considere usar o template `serviced` em `actions-runner/bin/actions.runner.service.template` como referência. Se você usa um serviço personalizado, o serviço do executor auto-hospedado deve sempre ser acessado usando o ponto de entrada `runsvc.sh`.
 
@@ -172,7 +174,7 @@ Se você não desejar usar a configuração-padrão doserviço do `systemd` acim
 
 {% mac %}
 
-### Personalizar o serviço do executor auto-hospedado
+## Personalizar o serviço do executor auto-hospedado
 
 Se você não desejar usar a configuração-padrão do serviço do launchd acima, você poderá criar um serviço personalizado ou usar o mecanismo de serviço que preferir. Considere usar o modelo `plist` em `actions-runner/bin/actions.runner.plist.template` como referência. Se você usa um serviço personalizado, o serviço do executor auto-hospedado deve sempre ser acessado usando o ponto de entrada `runsvc.sh`.
 

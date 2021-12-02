@@ -1,14 +1,15 @@
 ---
 title: Gerenciar categorias para discussões no seu repositório
 intro: Você pode categorizar as discussões no seu repositório para organizar conversas para integrantes da sua comunidade e você pode escolher um formato para cada categoria.
-permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
+permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Gerenciar categorias
 ---
 
-{% data reusables.discussions.beta %}
 
-### Sobre categorias para discussões
+## Sobre categorias para discussões
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
@@ -16,7 +17,7 @@ versions:
 
 Cada categoria deve ter um nome e um pareamento de emojis únicos e pode ser acompanhada de uma descrição detalhada que informa o seu propósito. As categorias ajudam os mantenedores a organizar como as conversas são arquivadas e são personalizáveis para ajudar a distinguir categorias que são Q&A (perguntas e respostas) ou conversas mais abertas. {% data reusables.discussions.repository-category-limit %} Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)".
 
-### Categorias-padrão
+## Categorias-padrão
 
 | Categoria          | Finalidade                                                                 | Formato             |
 |:------------------ |:-------------------------------------------------------------------------- |:------------------- |
@@ -26,7 +27,7 @@ Cada categoria deve ter um nome e um pareamento de emojis únicos e pode ser aco
 | 🙏 Q&A              | Perguntas para a comunidade responder, com um formato de pergunta/resposta | Pergunta e resposta |
 | 🙌 Mostrar e contar | Criações, experimentos ou testes relevantes para o projeto                 | Discussão aberta    |
 
-### Criar categoria
+## Criar categoria
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
@@ -35,7 +36,7 @@ Cada categoria deve ter um nome e um pareamento de emojis únicos e pode ser aco
 1. Edite o emoji, título, descrição e formato de discussão para a categoria. Para obter mais informações sobre formatos de discussão, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)". ![Emoji, título, descrição e formato de discussão para a nova categoria](/assets/images/help/discussions/edit-category-details.png)
 1. Clique em **Criar**. ![Botão "Criar" para uma nova categoria](/assets/images/help/discussions/new-category-click-create-button.png)
 
-### Editar uma categoria
+## Editar uma categoria
 
 Você pode editar uma categoria para alterar o emoji, título, descrição e formato da discussão.
 
@@ -45,7 +46,7 @@ Você pode editar uma categoria para alterar o emoji, título, descrição e for
 1. {% data reusables.discussions.edit-category-details %}![Editar emoji, título, descrição e formato de discussão para uma categoria existente](/assets/images/help/discussions/edit-existing-category-details.png)
 1. Clique em **Save changes** (Salvar alterações). ![Botão "Salvar as alterações" para a categoria existente](/assets/images/help/discussions/existing-category-click-save-changes-button.png)
 
-### Excluir uma categoria
+## Excluir uma categoria
 
 Ao você excluir uma categoria, {% data variables.product.product_name %} moverá todas as discussões da categoria excluída para uma categoria existente que você escolher.
 

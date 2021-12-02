@@ -6,6 +6,7 @@ redirect_from:
   - /github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-data-use-for-your-private-repository
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Policy
   - Legal

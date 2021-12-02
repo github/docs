@@ -7,16 +7,17 @@ redirect_from:
   - /articles/file-attachments-on-issues-and-pull-requests
   - /github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
 
 {% warning %}
 
-**警告：**如果您将图像{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}或视频{% endif %}添加到拉取请求或议题评论中，则任何人都可以在未经身份验证的情况下查看匿名 URL，即使该拉取请求在私有仓库中{% if enterpriseServerVersions contains currentVersion %}或启用了私有模式{% endif %}。 要对敏感媒体文件保密，请从需要身份验证的私有网络或服务器提供它们。 {% if currentVersion == "free-pro-team@latest" %}有关匿名 URL 的更多信息，请参阅“[关于匿名 URL](/github/authenticating-to-github/about-anonymized-urls)”。{% endif %}
+**Warning:** If you add an image{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %} or video{% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. 要对敏感媒体文件保密，请从需要身份验证的私有网络或服务器提供它们。 {% ifversion fpt or ghec %}有关匿名 URL 的更多信息，请参阅“[关于匿名 URL](/github/authenticating-to-github/about-anonymized-urls)”。{% endif %}
 
 {% endwarning %}
 
@@ -31,9 +32,10 @@ topics:
 {% endtip %}
 
 最大文件大小为：
-- 10MB，对于图像和 gif{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+- 10MB for images and gifs{% ifversion fpt or ghec %}
 - 10MB，对于上传到使用免费 GitHub 计划的用户或组织所拥有仓库的视频
-- 100MB，对于上传到使用付费 GitHub 计划的用户或组织所拥有仓库的视频{% endif %}
+- 100MB，对于上传到使用付费 GitHub 计划的用户或组织所拥有仓库的视频{% elsif fpt or ghes > 3.1 or ghae-next %}
+- 100MB for videos{% endif %}
 - 25MB，对于所有其他文件
 
 我们支持这些文件：
@@ -45,7 +47,14 @@ topics:
 * Microsoft Word (*.docx*)、Powerpoint (*.pptx*) 和 Excel (*.xlsx*) 文档
 * 文本文件 (*.txt*)
 * PDF (*.pdf*)
-* ZIP（*.zip*、*.gz*）{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-* 视频（*.mp4*、*.mov*）{% endif %}
+* ZIP（*.zip*、*.gz*）{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+* 视频（*.mp4*、*.mov*）
+
+{% note %}
+
+**注意：** 视频编解码器兼容性是浏览器特定的，上传到一个浏览器的视频可能无法在另一个浏览器上查看。 目前，我们建议使用 h.264 实现最大兼容性。
+
+{% endnote %}
+{% endif %}
 
 ![附件动画 GIF](/assets/images/help/pull_requests/dragging_images.gif)

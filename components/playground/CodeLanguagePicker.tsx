@@ -31,17 +31,16 @@ export const CodeLanguagePicker = ({ variant }: Props) => {
   }
 
   return (
-    <SelectMenu css className="position-relative">
-      <Button as="summary" css>
+    <SelectMenu className="position-relative">
+      <Button as="summary">
         {currentLanguage.label} <Dropdown.Caret />
       </Button>
-      <SelectMenu.Modal css style={{ minWidth: 300 }} align="right">
-        <SelectMenu.Header css>Programming Language</SelectMenu.Header>
+      <SelectMenu.Modal style={{ minWidth: 300 }} align="right">
+        <SelectMenu.Header>Programming Language</SelectMenu.Header>
         <SelectMenu.List>
           {codeLanguages.map((language) => (
             <SelectMenu.Item
               key={language.id}
-              css
               as="a"
               href={`${routePath}?langId=${language.id}`}
               selected={language.id === currentLanguage.id}

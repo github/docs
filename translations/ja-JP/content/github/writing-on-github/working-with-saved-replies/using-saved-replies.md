@@ -5,9 +5,10 @@ redirect_from:
   - /articles/using-saved-replies
   - /github/writing-on-github/using-saved-replies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -24,7 +25,7 @@ versions:
 
 {% endtip %}
 
-### 参考リンク
+## 参考リンク
 
 - [返信テンプレートの作成](/articles/creating-a-saved-reply)
 - 「[返信テンプレートを編集する](/articles/editing-a-saved-reply)」

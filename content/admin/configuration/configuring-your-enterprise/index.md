@@ -9,6 +9,7 @@ redirect_from:
   - /enterprise/admin/installation/configuring-the-github-enterprise-server-appliance
   - /enterprise/admin/configuration/configuring-your-enterprise
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -33,6 +34,7 @@ children:
   - /restricting-network-traffic-to-your-enterprise
   - /configuring-github-pages-for-your-enterprise
   - /configuring-the-referrer-policy-for-your-enterprise
+  - /configuring-custom-footers
 shortTitle: Configure your enterprise
 ---
 

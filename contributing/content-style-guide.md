@@ -4,7 +4,7 @@ Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
 These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [GitHub Brand Guide](https://brand.github.com/content/) first, then the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md).
 
-Use table of contents icon <img src="../assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of the this document to get to a specific section of this guide quickly.
+Use table of contents icon <img src="../assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
 
 ## The GitHub Docs approach to style
 
@@ -48,6 +48,19 @@ Keep lines in code samples to about 60 characters, to avoid requiring readers to
 Within code blocks:
 - Do not use markup before the command output.
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
+- If your code example includes `{` or `}` that should render, wrap that section in `{% raw %}` `{% endraw %}` to disable Liquid processing for that section.
+  - **Use**:
+
+    ```
+    GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+    ```
+
+  - **Avoid**:
+ 
+    ```
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    ```
+
 
 ### Commands
 
@@ -125,9 +138,7 @@ Be descriptive when naming image files: include the name, action, and UI element
 
 ### Screenshots
 
-When you take a screenshot, avoid overly wide images. If you're trying to bring attention to a button, don't take a shot of the entire page. Focus on the area around the button instead and crop near the focal point of the image. Leave enough of a margin around the focal point so that some other elements of the page are visible, helping the viewer find the area of the screenshot when looking at the user interface.
-
-Do not include your username or avatar in any images. If a screenshot must include a username or avatar, use the Inspect function in your browser to add the [Octocat](https://github.com/octocat)'s username or avatar instead.
+To learn about creating and versioning images, see "[Creating and updating screenshots](./images-and-versioning.md)."
 
 ## Inclusive language
 
@@ -174,6 +185,30 @@ For accessibility and readability, avoid inline or midsentence links.
 - **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.     
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
+
+### Links between versions
+
+Sometimes, you need to link from one version of GitHub Docs to another. For example, the Free, Pro, & Team version of "[Managing the publication of GitHub Pages sites for your organization](https://docs.github.com/en/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the Enterprise Cloud version of the same article like this:
+
+>You can choose to allow or disallow the publication of GitHub Pages sites.
+>
+>Organizations that use GitHub Enterprise Cloud can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
+
+To link to a different article in a different version, use this format:
+
+> For more information, see "[ARTICLE TITLE]()" in the VERSION documentation.
+
+To link to the same article in a different version, use this format:
+
+> For more information, see [the VERSION documentation]().
+
+To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/admin/overview/about-enterprise-accounts`).
+
+### Links to learning paths
+
+Use this format to link to a learning path.
+
+> For more information, follow the "[LEARNING PATH TITLE]()" learning path.
 
 ### Links to external resources
 
@@ -468,6 +503,35 @@ Where the first reference concerns `cents` or a non-dollar amount, capitalize th
 ### Inclusive language
 
 See the “Inclusive language” section of this guide.
+
+### Permissions
+
+A **permission** is the ability to perform a specific action. For example, the ability to delete an issue is a permission. 
+
+A **role** is a set of permissions that can be assigned to a user. Roles exist at different levels.
+
+- Accounts (e.g., organization owner, billing manager for an enterprise account)
+- Resources (e.g., "Write" for a repository, "Admin" for a security advisory)
+- Teams (e.g., "team maintainer")
+
+A person's **access** refers generally to all the abilities the person has in a particular context, regardless of which roles or individual permissions those abilities come from.
+
+Only use **permission** or **role** when the distinction between the two is important. Otherwise, use **access**.
+
+- **Use:** `To create a custom repository role, you choose an inherited role and then add individual permissions.`
+- **Use:** `Managing a team's access to your organization's repository`
+- **Use:** `If your team membership gives you a different level of access than your role as organization owner...`
+- **Use:** `People with write access can...`
+- **Avoid:** `People with the write role can...`
+- **Avoid:** `People with write permissions can...`
+- **Avoid:** `People with write privileges can...`
+
+When specifying the access required to take an action, refer only to the role at the same level as the action. For example, you need admin access to a repository, which is a repository-level role, to configure protected branches. You can get admin access to a repository by being an organization owner, an organization-level role, but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned.
+
+- **Use:** `People with write access to a repository can do X to the repository.`
+- **Avoid:** `Organization owners and people with write access can do X to the repository.`
+
+For more information about word choice for permissions statments, see "[Permissions statements](/contributing/content-model.md#permissions-statements)" in the content model.
 
 ### Prepositions
 

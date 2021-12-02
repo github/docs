@@ -10,10 +10,10 @@ const developerRedirectFixtures = readJsonFile('./tests/fixtures/developer-redir
 
 const MAX_CONCURRENT_REQUESTS = 50
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('developer redirects', () => {
-  jest.setTimeout(3 * 60 * 1000)
+  jest.setTimeout(4 * 60 * 1000)
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in
