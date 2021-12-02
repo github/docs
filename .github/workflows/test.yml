@@ -56,7 +56,10 @@ jobs:
 
       - name: Insight into changed files
         run: |
-          echo ${{ steps.get_diff_files.outputs.files }}
+
+          # Must to do this because the list of files can be HUGE. Especially
+          # in a repo-sync when there are lots of translation files involved.
+          echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
 
       - name: Setup node
         uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
@@ -80,5 +83,5 @@ jobs:
 
       - name: Run tests
         env:
-          DIFF_FILES: ${{ steps.get_diff_files.outputs.files }}
+          DIFF_FILE: get_diff_files.txt
         run: npm run test tests/${{ matrix.test-group }}/
