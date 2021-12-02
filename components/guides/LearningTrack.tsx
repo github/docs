@@ -1,6 +1,7 @@
 import cx from 'classnames'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArrowRightIcon } from '@primer/octicons-react'
+import { ActionList } from '@primer/components'
 import { useState } from 'react'
 import { FeaturedTrack } from 'components/context/ProductGuidesContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
@@ -48,30 +49,57 @@ export const LearningTrack = ({ track }: Props) => {
           </a>
         </div>
 
-        {track?.guides?.slice(0, numVisible).map((guide) => (
-          <div key={guide.href + track?.trackName}>
-            <a
-              className="Box-row d-flex flex-items-center color-fg-default no-underline"
-              href={`${guide.href}?learn=${track?.trackName}&learnProduct=${track?.trackProduct}`}
-            >
-              <div
-                className="color-bg-subtle d-inline-flex mr-4 circle flex-items-center flex-justify-center"
-                style={{ width: 32, height: 32 }}
-              >
-                {track?.guides && (
-                  <span className="m-2 f3 lh-condensed-ultra text-center text-bold step-circle-text">
-                    {track.guides?.indexOf(guide) + 1}
-                  </span>
-                )}
-              </div>
-              <h5 className="flex-auto pr-2" dangerouslySetInnerHTML={{ __html: guide.title }} />
-              <div className="color-fg-muted h6 text-uppercase flex-shrink-0">
-                {t('guide_types')[guide.page?.type || '']}
-              </div>
-            </a>
-          </div>
-        ))}
-
+        {track && track.guides && (
+          <ActionList
+            {...{ as: 'ul' }}
+            items={track?.guides?.slice(0, numVisible).map((guide) => {
+              return {
+                renderItem: () => (
+                  <ActionList.Item
+                    as="li"
+                    key={guide.href + track?.trackName}
+                    sx={{
+                      borderRadius: 0,
+                      padding: 0,
+                      ':hover': {
+                        borderRadius: 0,
+                      },
+                      ':last-of-type': {
+                        marginBottom: '-8px',
+                      },
+                      ':first-of-type': {
+                        marginTop: '-8px',
+                      },
+                    }}
+                  >
+                    <a
+                      className="rounded-0 width-full d-block Box-row d-flex flex-items-center color-fg-default no-underline"
+                      href={`${guide.href}?learn=${track?.trackName}&learnProduct=${track?.trackProduct}`}
+                    >
+                      <div
+                        className="color-bg-subtle d-inline-flex mr-4 circle flex-items-center flex-justify-center"
+                        style={{ width: 32, height: 32 }}
+                      >
+                        {track?.guides && (
+                          <span className="m-2 f3 lh-condensed-ultra text-center text-bold step-circle-text">
+                            {track.guides?.indexOf(guide) + 1}
+                          </span>
+                        )}
+                      </div>
+                      <h5
+                        className="flex-auto pr-2"
+                        dangerouslySetInnerHTML={{ __html: guide.title }}
+                      />
+                      <div className="color-fg-muted h6 text-uppercase flex-shrink-0">
+                        {t('guide_types')[guide.page?.type || '']}
+                      </div>
+                    </a>
+                  </ActionList.Item>
+                ),
+              }
+            })}
+          ></ActionList>
+        )}
         {(track?.guides?.length || 0) > numVisible ? (
           <button
             className="Box-footer btn-link border-top-0 position-relative text-center text-bold color-fg-accent pt-1 pb-3 col-12"
