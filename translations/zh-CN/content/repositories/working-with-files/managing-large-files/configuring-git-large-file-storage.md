@@ -1,6 +1,6 @@
 ---
 title: 配置 Git Large File Storage
-intro: '安装 [{% data variables.large_files.product_name_short %}] 后 (/articles/installing-git-large-file-storage/)，需要将其与仓库中的大文件相关联。'
+intro: '安装 [{% data variables.large_files.product_name_short %}](/articles/installing-git-large-file-storage/) 后 ，需要将其与仓库中的大文件相关联。'
 redirect_from:
   - /articles/configuring-large-file-storage/
   - /articles/configuring-git-large-file-storage
