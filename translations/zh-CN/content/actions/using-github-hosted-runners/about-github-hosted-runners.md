@@ -29,6 +29,8 @@ shortTitle: GitHub 托管的运行器
 
 可以为工作流程中的每项作业指定运行器类型。 工作流程中的每项作业都在全新的虚拟机实例中执行。 作业中的所有步骤在同一虚拟机实例中执行，让该作业中的操作使用文件系统共享信息。
 
+{% ifversion not ghes %}
+
 {% data reusables.github-actions.runner-app-open-source %}
 
 ### {% data variables.product.prodname_dotcom %} 托管的运行器的云主机
@@ -104,9 +106,11 @@ MacOS 虚拟机的硬件规格：
 
 {% endnote %}
 
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. 更多信息请参阅“[获取 GitHub 元信息](/rest/reference/meta#get-github-meta-information)”端点响应中的 `actions` 键。
+
 Windows 和 Ubuntu 运行程序托管在 Azure 中，随后具有与 Azure 数据中心相同的 IP 地址范围。 macOS 运行器托管在 {% data variables.product.prodname_dotcom %} 自己的 macOS 云中。
 
-要获取 {% data variables.product.prodname_actions %} 用于 {% data variables.product.prodname_dotcom %} 托管运行器的 IP 地址范围列表，您可以使用 {% data variables.product.prodname_dotcom %} REST API。 更多信息请参阅“[获取 GitHub 元信息](/rest/reference/meta#get-github-meta-information)”端点响应中的 `actions` 键。 如果需要一个允许列表来阻止未经授权访问您的内部资源，您可以使用此 IP 地址列表。
+Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allow-lists for your internal resources.
 
 API 返回的 {% data variables.product.prodname_actions %} IP 地址列表每周更新一次。
 
@@ -136,5 +140,7 @@ API 返回的 {% data variables.product.prodname_actions %} IP 地址列表每�
 
 ## 延伸阅读
 - "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"
+
+{% endif %}
 
 {% endif %}

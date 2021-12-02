@@ -28,7 +28,7 @@ topics:
 
 {% for change in date[1] %}
 <ul>
-<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}color-border-danger color-bg-danger{% else %}color-border-info color-bg-info{% endif %}">{% if change.criticality == 'breaking' %}Breaking{% else %}Dangerous{% endif %}</span> 将对 <code>{{ change.location }}</code> 进行变更。.
+<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}color-border-danger color-bg-danger{% else %}color-border-accent-emphasis color-bg-accent{% endif %}">{% if change.criticality == 'breaking' %}Breaking{% else %}Dangerous{% endif %}</span> 将对 <code>{{ change.location }}</code> 进行变更。.
 
 <p><b>描述：</b> {{ change.description }}</p>
 

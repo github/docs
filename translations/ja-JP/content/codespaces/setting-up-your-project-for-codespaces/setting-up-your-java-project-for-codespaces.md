@@ -111,7 +111,7 @@ Java 開発コンテナテンプレートを追加すると、次のファイル
   - **Terminal.integrated.shell.linux** - ここでは bash がデフォルトですが、これを変更することで他のターミナルシェルを使用できます。
 - **機能拡張** - これらはデフォルト設定で含まれている機能拡張です。
   - **Vscjava.vscode-java-pack** - Java Extension Pack は、Java 開発を始めるための一般的な機能拡張を提供します。
-- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。
+- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 - **postCreateCommand** - Dockerfileで定義されていない codespace への到達後に何らかの操作を実行する場合は、ここで実行できます。
 - **remoteUser** - デフォルト設定では、`vscode` ユーザとして実行していますが、オプションでこれを `root` に設定できます。
 

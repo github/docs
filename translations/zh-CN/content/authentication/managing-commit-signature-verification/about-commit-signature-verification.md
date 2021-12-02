@@ -50,7 +50,7 @@ shortTitle: 提交签名验证
 {% data reusables.identity-and-permissions.verification-status-check %}
 
 {% ifversion fpt or ghec %}
-{% data variables.product.product_name %} 将自动使用 GPG 通过 {% data variables.product.product_name %} web 界面对您创建的提交进行签名，当您压缩且合并您不是其作者的拉取请求时除外。 由 {% data variables.product.product_name %} 签名的提交在 {% data variables.product.product_name %} 上将具有已验证的状态。 您可以使用 https://github.com/web-flow.gpg 上的公钥本地验证签名。 钥匙的完整指纹是 `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`。 您可以选择在 {% data variables.product.prodname_codespaces %} 中使用 {% data variables.product.product_name %} 对您的提交进行签名。 有关对您的代码空间启用 GPG 验证的更多信息，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的 GPG 验证](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)”。
+{% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface. 由 {% data variables.product.product_name %} 签名的提交在 {% data variables.product.product_name %} 上将具有已验证的状态。 您可以使用 https://github.com/web-flow.gpg 上的公钥本地验证签名。 钥匙的完整指纹是 `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`。 您可以选择在 {% data variables.product.prodname_codespaces %} 中使用 {% data variables.product.product_name %} 对您的提交进行签名。 有关对您的代码空间启用 GPG 验证的更多信息，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的 GPG 验证](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)”。
 {% endif %}
 
 ## GPG 提交签名验证

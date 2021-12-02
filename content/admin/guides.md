@@ -9,14 +9,15 @@ versions:
   ghes: '*'
   ghae: '*'
 learningTracks:
+  - '{% ifversion ghec %}get_started_with_your_enterprise_account{% endif %}'
   - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
   - '{% ifversion ghes %}deploy_an_instance{% endif %}'
   - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
+  -  adopting_github_actions_for_your_enterprise
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_advanced_security{% endif %}'
-  - '{% ifversion ghec %}get_started_with_your_enterprise_account{% endif %}'
 includeGuides:
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/changing-authentication-methods

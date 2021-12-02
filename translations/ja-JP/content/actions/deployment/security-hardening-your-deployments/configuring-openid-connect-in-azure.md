@@ -33,8 +33,8 @@ This guide gives an overview of how to configure Azure to trust {% data variable
 
 To configure the OIDC identity provider in Azure, you will need to perform the following configuration. For instructions on making these changes, refer to [the Azure documentation](https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure).
 
-1. Create an Active Directory application and a service principal.
-2. Add federated credentials for the Active Directory application.
+1. Create an Azure Active Directory application and a service principal.
+2. Add federated credentials for the Azure Active Directory application.
 3. Create {% data variables.product.prodname_dotcom %} secrets for storing Azure configuration.
 
 Additional guidance for configuring the identity provider:

@@ -51,7 +51,7 @@ export default class LunrIndex {
       // By default Lunr considers the `-` character to be a word boundary.
       // This allows hyphens to be included in the search index.
       // If you change this, remember to make it match the indexing separator
-      // in lib/search/lunr-search.js so the query is tokenized 
+      // in lib/search/lunr-search.js so the query is tokenized
       // identically to the way it was indexed.
       this.tokenizer.separator = /[\s]+/
 

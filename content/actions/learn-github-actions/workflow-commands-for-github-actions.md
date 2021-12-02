@@ -68,7 +68,7 @@ The following table shows which toolkit functions are available within a workflo
 | ----------------- |  ------------- |
 | `core.addPath`    | Accessible using environment file `GITHUB_PATH` |
 | `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
-| `core.notice`    | `notice` |{% endif %}
+| `core.notice`     | `notice` |{% endif %}
 | `core.error`      | `error` |
 | `core.endGroup`   | `endgroup` |
 | `core.exportVariable` | Accessible using environment file `GITHUB_ENV` |
@@ -76,6 +76,7 @@ The following table shows which toolkit functions are available within a workflo
 | `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
 | `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
 | `core.saveState`  | `save-state` |
+| `core.setCommandEcho` | `echo` |
 | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
 | `core.setOutput`  | `set-output` |
 | `core.setSecret`  | `add-mask` |
@@ -245,6 +246,46 @@ jobs:
 ```
 
 {% endraw %}
+
+## Echoing command outputs
+
+```
+::echo::on
+::echo::off
+```
+
+Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
+
+Command echoing is disabled by default. However, a workflow command is echoed if there are any errors processing the command.
+
+The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
+
+You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
+
+### Example toggling command echoing
+
+```yaml
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: toggle workflow command echoing
+        run: |
+          echo '::set-output name=action_echo::disabled'
+          echo '::echo::on'
+          echo '::set-output name=action_echo::enabled'
+          echo '::echo::off'
+          echo '::set-output name=action_echo::disabled'
+```
+
+The step above prints the following lines to the log:
+
+```
+::set-output name=action_echo::enabled
+::echo::off
+```
+
+Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
 
 ## Sending values to the pre and post actions
 

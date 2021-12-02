@@ -39,8 +39,8 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`billing`](#billing-category-actions) | Contains all activities related to your organization's billing.
 | [`business`](#business-category-actions) | Contains activities related to business settings for an enterprise. |
 | [`codespaces`](#codespaces-category-actions) | Contains all activities related to your organization's codespaces. |{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}
-| [`dependabot_alerts`](#dependabot_alerts-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot %} alerts in existing repositories. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
-| [`dependabot_alerts_new_repos`](#dependabot_alerts_new_repos-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot %} alerts in new repositories created in the organization.
+| [`dependabot_alerts`](#dependabot_alerts-category-actions) | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+| [`dependabot_alerts_new_repos`](#dependabot_alerts_new_repos-category-actions) | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.
 | [`dependabot_security_updates`](#dependabot_security_updates-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 | [`dependabot_security_updates_new_repos`](#dependabot_security_updates_new_repos-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.{% endif %}{% ifversion fpt or ghec %}
 | [`dependency_graph`](#dependency_graph-category-actions) | Contains organization-level configuration activities for dependency graphs for repositories. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
@@ -71,13 +71,14 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`repository_dependency_graph`](#repository_dependency_graph-category-actions) | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."{% endif %}
 | [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions) | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% ifversion fpt or ghec %}
-| [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot %} alerts.{% endif %}{% ifversion ghec %}
+| [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.{% endif %}{% ifversion ghec %}
 | [`role`](#role-category-actions) | Contains all activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).{% endif %}
 | [`secret_scanning`](#secret_scanning-category-actions) | Contains organization-level configuration activities for secret scanning in existing repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 | [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions) | Contains organization-level configuration activities for secret scanning for new repositories created in the organization. {% ifversion fpt or ghec %}
 | [`sponsors`](#sponsors-category-actions) | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}
 | [`team`](#team-category-actions) | Contains all activities related to teams in your organization.
-| [`team_discussions`](#team_discussions-category-actions) | Contains activities related to managing team discussions for an organization.
+| [`team_discussions`](#team_discussions-category-actions) | Contains activities related to managing team discussions for an organization.{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
+| [`workflows`](#workflows-category-actions) | Contains activities related to {% data variables.product.prodname_actions %} workflows.{% endif %}
 
 You can search for specific sets of actions using these terms. For example:
 
@@ -660,8 +661,8 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when {% data variables.product.product_name %} creates a {% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alert for a repository that uses a vulnerable dependency. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
-| `dismiss` | Triggered when an organization owner or person with admin access to the repository dismisses a {% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alert about a vulnerable dependency.
+| `create` | Triggered when {% data variables.product.product_name %} creates a {% data variables.product.prodname_dependabot %} alert for a repository that uses a vulnerable dependency. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+| `dismiss` | Triggered when an organization owner or person with admin access to the repository dismisses a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.
 | `resolve` | Triggered when someone with write access to a repository pushes changes to update and resolve a vulnerability in a project dependency.
 
 {% endif %}{% ifversion fpt or ghec %}
@@ -743,10 +744,11 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `disable` | Triggered when an organization owner disables team discussions for an organization. For more information, see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)."
 | `enable` | Triggered when an organization owner enables team discussions for an organization.
 
+{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 ### `workflows` category actions
 
 {% data reusables.actions.actions-audit-events-workflow %}
-
+{% endif %}
 ## Further reading
 
 - "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5146 %}

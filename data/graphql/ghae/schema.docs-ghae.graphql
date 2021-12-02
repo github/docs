@@ -1628,6 +1628,11 @@ type BranchProtectionRule implements Node {
   requiredStatusCheckContexts: [String]
 
   """
+  List of required status checks that must pass for commits to be accepted to matching branches.
+  """
+  requiredStatusChecks: [RequiredStatusCheckDescription!]
+
+  """
   Are approving reviews required to update matching branches.
   """
   requiresApprovingReviews: Boolean!
@@ -5166,6 +5171,11 @@ input CreateBranchProtectionRuleInput {
   List of required status check contexts that must pass for commits to be accepted to matching branches.
   """
   requiredStatusCheckContexts: [String!]
+
+  """
+  The list of required status checks
+  """
+  requiredStatusChecks: [RequiredStatusCheckInput!]
 
   """
   Are approving reviews required to update matching branches.
@@ -21461,6 +21471,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   """
   repository(
     """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
+    """
     Name of Repository to find.
     """
     name: String!
@@ -26690,6 +26705,11 @@ type Query {
   Lookup a given repository by the owner and repository name.
   """
   repository(
+    """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
     """
     The name of the repository
     """
@@ -32799,6 +32819,11 @@ interface RepositoryOwner {
   """
   repository(
     """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
+    """
     Name of Repository to find.
     """
     name: String!
@@ -33359,6 +33384,36 @@ interface RequirableByPullRequest {
     """
     pullRequestNumber: Int
   ): Boolean!
+}
+
+"""
+Represents a required status check for a protected branch, but not any specific run of that check.
+"""
+type RequiredStatusCheckDescription {
+  """
+  The App that must provide this status in order for it to be accepted.
+  """
+  app: App
+
+  """
+  The name of this status.
+  """
+  context: String!
+}
+
+"""
+Specifies the attributes for a new or updated required status check.
+"""
+input RequiredStatusCheckInput {
+  """
+  The ID of the App that must set the status in order for it to be accepted.
+  """
+  appId: ID
+
+  """
+  Status check context that must pass for commits to be accepted to the matching branch.
+  """
+  context: String!
 }
 
 """
@@ -37965,6 +38020,11 @@ input UpdateBranchProtectionRuleInput {
   requiredStatusCheckContexts: [String!]
 
   """
+  The list of required status checks
+  """
+  requiredStatusChecks: [RequiredStatusCheckInput!]
+
+  """
   Are approving reviews required to update matching branches.
   """
   requiresApprovingReviews: Boolean
@@ -40580,6 +40640,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   Find Repository.
   """
   repository(
+    """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
     """
     Name of Repository to find.
     """

@@ -31,5 +31,5 @@ Organization レベルでプライベート{% ifversion fpt or ghes or ghae or g
 
 ## 参考リンク
 
-- [フォークについて](/articles/about-forks)
+- 「[フォークについて](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)」
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

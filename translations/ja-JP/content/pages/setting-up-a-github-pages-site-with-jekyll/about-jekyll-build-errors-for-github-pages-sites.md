@@ -40,7 +40,7 @@ Jekyllがサイトのビルドを試行せず、エラーが発生した場合�
 
 サイトのテストをローカルで行なうことをお勧めします。それにより、ビルドエラーメッセージをコマンドラインで表示でき、変更を {% data variables.product.product_name %} にプッシュする前に、あらゆるビルドエラーに対処できます。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
 
-{% data variables.product.product_name %} サイトの公開元を更新するためプルリクエストを作成すると、そのプルリクエストの [**Checks**] タブでビルドエラーメッセージが表示されます。 詳しい情報については[ステータスチェックについて](/articles/about-status-checks)を参照してください。
+{% data variables.product.product_name %} サイトの公開元を更新するためプルリクエストを作成すると、そのプルリクエストの [**Checks**] タブでビルドエラーメッセージが表示されます。 詳しい情報については[ステータスチェックについて](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)を参照してください。
 
 {% data variables.product.product_name %} の公開元に変更をプッシュする際、{% data variables.product.prodname_pages %} はサイトのビルドを試みます。 ビルドが失敗すると、プライマリメールアドレスにメールが送信されます。 また、ビルドの警告についてのメールも送信されます。 {% data reusables.pages.build-failure-email-server %}
 

@@ -88,13 +88,13 @@ Pull Requestをスキャンすると、その結果はPull Requestチェック�
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ### Defining the severities causing pull request check failure
 
-By default, only alerts with the severity level of `Error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} or security severity level of `Critical` or `High`{% endif %} will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} and of security severities{% endif %} that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details)."
+By default, only alerts with the severity level of `Error`{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %} or security severity level of `Critical` or `High`{% endif %} will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %} and of security severities{% endif %} that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.
-{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %}
+{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %}
 ![チェック失敗の設定](/assets/images/help/repository/code-scanning-check-failure-setting.png)
 {% else %}
 ![チェック失敗の設定](/assets/images/help/repository/code-scanning-check-failure-setting-ghae.png)
@@ -188,7 +188,7 @@ jobs:
 ```
 {% endraw %}
 
-{% data variables.product.prodname_codeql_workflow %}は、`db-location`で提供されたパスが書き込み可能であり、存在しないか空のディレクトリであることを期待します。 セルフホストランナー上で動作するか、Dockerコンテナを使うジョブでこのパラメータを使う場合、選択されたディレクトリが実行間でクリアされること、あるいは不要になったらデータベースが削除されることを保証するのはユーザの責任です。 これは、実行のたびに新しいインスタンスとクリーンなファイルシステムになる{% data variables.product.prodname_dotcom %}ホストランナー上で動作するジョブには必要ありません。 詳しい情報については「[{% data variables.product.prodname_dotcom %}ホストランナーについて](/actions/using-github-hosted-runners/about-github-hosted-runners)」を参照してください。
+{% data variables.product.prodname_codeql_workflow %}は、`db-location`で提供されたパスが書き込み可能であり、存在しないか空のディレクトリであることを期待します。 セルフホストランナー上で動作するか、Dockerコンテナを使うジョブでこのパラメータを使う場合、選択されたディレクトリが実行間でクリアされること、あるいは不要になったらデータベースが削除されることを保証するのはユーザの責任です。 {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
 
 このパラメータが使われなければ、{% data variables.product.prodname_codeql_workflow %}はデータベースを自分が選択した一時的な場所に作成します。
 {% endif %}

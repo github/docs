@@ -29,6 +29,8 @@ Ao usar um executor hospedada no {% data variables.product.prodname_dotcom %}, a
 
 Você pode especificar o tipo de executor para cada trabalho em um fluxo de trabalho. Cada trabalho em um fluxo de trabalho é executado em uma nova instância da máquina virtual. Todas as etapas de um trabalho são executadas na mesma instância da máquina virtual, o que permite que ações de cada trabalho compartilhem informações usando o sistema de arquivos.
 
+{% ifversion not ghes %}
+
 {% data reusables.github-actions.runner-app-open-source %}
 
 ### Hosts da nuvem para os executores hospedados em {% data variables.product.prodname_dotcom %}
@@ -104,9 +106,11 @@ Você pode instalar um software adicional em executores hospedados em {% data va
 
 {% endnote %}
 
+Para obter uma lista de intervalos de endereços IP que {% data variables.product.prodname_actions %} usa para executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá usar a API REST de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a chave de `ações` na resposta do ponto de extremidade "[Obtenha as metainformações do GitHub](/rest/reference/meta#get-github-meta-information)".
+
 Os executores do Windows e Ubuntu são hospedados no Azure e, consequentemente, têm as mesmas faixas de endereços IP que os centros de dados do Azure. Os executores do macOS estão hospedados na própria nuvem do macOS de {% data variables.product.prodname_dotcom %}.
 
-Para obter uma lista de intervalos de endereços IP que {% data variables.product.prodname_actions %} usa para executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá usar a API REST de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a chave de `ações` na resposta do ponto de extremidade "[Obtenha as metainformações do GitHub](/rest/reference/meta#get-github-meta-information)". Você pode usar essa lista de endereços IP se precisar de uma lista de permissão para evitar acesso não autorizado para os seus recursos internos.
+Uma vez que existem tantos intervalos de endereços IP para executores hospedados em {% data variables.product.prodname_dotcom %}, não recomendamos que você os utilize como listas de permissões para os seus recursos internos.
 
 A lista de endereços IP de {% data variables.product.prodname_actions %} retornados pela API é atualizada uma vez por semana.
 
@@ -136,5 +140,7 @@ O {% data variables.product.prodname_dotcom %} reserva o prefixo de caminho `/gi
 
 ## Leia mais
 - "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+
+{% endif %}
 
 {% endif %}

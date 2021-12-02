@@ -69,51 +69,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install one-off development-only dependencies
-        run: npm install --no-save --include=optional esm
-
       - name: Undeploy
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-        with:
-          script: |
-            const { GITHUB_TOKEN, HEROKU_API_TOKEN } = process.env
-
-            // Exit if GitHub Actions PAT is not found
-            if (!GITHUB_TOKEN) {
-              throw new Error('You must supply a GITHUB_TOKEN environment variable!')
-            }
-
-            // Exit if Heroku API token is not found
-            if (!HEROKU_API_TOKEN) {
-              throw new Error('You must supply a HEROKU_API_TOKEN environment variable!')
-            }
-
-            // Workaround to allow us to load ESM files with `require(...)`
-            const esm = require('esm')
-            require = esm({})
-
-            const { default: getOctokit } = require('./script/helpers/github')
-            const { default: undeployFromStaging } = require('./script/deployment/undeploy-from-staging')
-
-            // This helper uses the `GITHUB_TOKEN` implicitly!
-            // We're using our usual version of Octokit vs. the provided `github`
-            // instance to avoid versioning discrepancies.
-            const octokit = getOctokit()
-
-            try {
-              await undeployFromStaging({
-                octokit,
-                pullRequest: context.payload.pull_request,
-                runId: context.runId
-              })
-            } catch (error) {
-              console.error(`Failed to undeploy from staging: ${error.message}`)
-              console.error(error)
-              throw error
-            }
+          RUN_ID: ${{ github.run_id }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: .github/actions-scripts/staging-undeploy.js
 
       - if: ${{ always() }}
         name: Remove the label from the PR to unblock deployment

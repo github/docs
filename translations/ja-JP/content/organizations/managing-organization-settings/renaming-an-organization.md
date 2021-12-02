@@ -47,4 +47,4 @@ Organization の名前を変更したら、次のようになります:
 
 ## 参考リンク
 
-* 「[コミットが間違ったユーザにリンクされているのはなぜですか？](/articles/why-are-my-commits-linked-to-the-wrong-user)」
+* 「[コミットが間違ったユーザにリンクされているのはなぜですか？](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)」

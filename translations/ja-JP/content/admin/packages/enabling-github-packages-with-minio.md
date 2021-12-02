@@ -19,7 +19,9 @@ shortTitle: Enable Packages with MinIO
 - 今後使用予定のバケットを忘れずに設定するようにしてください。 {% data variables.product.prodname_registry %} の使用開始後にストレージを変更することはお勧めしません。
 
 {% endwarning %}
+
 ## 必要な環境
+
 {% data variables.product.product_location_enterprise %} で {% data variables.product.prodname_registry %} を有効にして設定する前に、MinIO ストレージバケットを準備する必要があります。 MinIO バケットをすばやく設定し、MinIO のカスタマイズオプションをナビゲートするには、「[{% data variables.product.prodname_registry %} の MinIO ストレージバケットを設定するためのクイックスタート](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages)」を参照してください。
 
 MinIO 外部ストレージアクセスキー ID とシークレットに次の権限があることを確認します。

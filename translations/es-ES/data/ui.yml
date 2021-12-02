@@ -21,6 +21,7 @@ search:
   placeholder: Busca temas, productos...
   loading: Cargando
   no_results: No se encontró ningún resultado
+  no_content: No content
 homepage:
   explore_by_product: Explorar por producto
   version_picker: Versión

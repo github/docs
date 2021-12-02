@@ -20,8 +20,7 @@ topics:
   - Dependency graph
   - Dependabot
 ---
-
-## Acerca de las alertas para las dependencias vulnerables en {% data variables.product.product_location %}
+## About alerts for vulnerable dependencies on {% data variables.product.product_location %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
@@ -34,9 +33,9 @@ For more information about these features, see "[About the dependency graph](/gi
 
 ### About synchronization of data from the {% data variables.product.prodname_advisory_database %}
 
-{% data reusables.repositories.tracks-vulnerabilities %}
+{% data reusables.repositories.tracks-vulnerabilities %} 
 
-You can connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_github_connect %}. Once connected, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. También puedes elegir sincronizar manualmente los datos de vulnerabilidad en cualquier momento. No se han cargado códigos o información sobre el código desde {% data variables.product.product_location %} hasta {% data variables.product.prodname_dotcom_the_website %}.
+You can connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_github_connect %}. Once connected, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. You can also choose to manually sync vulnerability data at any time. No code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
 
 ### About generation of {% data variables.product.prodname_dependabot_alerts %}
 
@@ -44,68 +43,76 @@ If you enable vulnerability detection, when {% data variables.product.product_lo
 
 ## Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies on {% data variables.product.product_location %}
 
-### Prerrequisitos
+### Prerequisites
 
 For {% data variables.product.product_location %} to detect vulnerable dependencies and generate {% data variables.product.prodname_dependabot_alerts %}:
-- Debes conectar a {% data variables.product.product_location %} con {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghae %}This also enables the dependency graph service. {% endif %}{% ifversion ghes or ghae-next %}For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."{% endif %}
+- You must connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghae %}This also enables the dependency graph service. {% endif %}{% ifversion ghes or ghae-next %}For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."{% endif %}
 {% ifversion ghes %}- You must enable the dependency graph service.{% endif %}
 - You must enable vulnerability scanning.
 
 {% ifversion ghes %}
 {% ifversion ghes > 3.1 %}
-Puedes habilitar la gráfica de dependencias a través de la {% data variables.enterprise.management_console %} o del shell administrativo. Te recomendamos que sigas la ruta de la {% data variables.enterprise.management_console %} a menos de que {% data variables.product.product_location %} utilice clústering.
+You can enable the dependency graph via the {% data variables.enterprise.management_console %} or the administrative shell. We recommend you follow the {% data variables.enterprise.management_console %} route unless {% data variables.product.product_location %} uses clustering. 
 
-### Habilitar la gráfica de dependencias a través de la {% data variables.enterprise.management_console %}
+### Enabling the dependency graph via the {% data variables.enterprise.management_console %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Debajo de "Seguridad", haz clic en **Gráfica de dependencias**. ![Casilla de verificación para habilitar o inhabilitar la gráfica de dependencias](/assets/images/enterprise/3.2/management-console/enable-dependency-graph-checkbox.png)
+1. Under "Security," click **Dependency graph**.
+![Checkbox to enable or disable the dependency graph](/assets/images/enterprise/3.2/management-console/enable-dependency-graph-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
-1. Da clic en **Visitar tu instancia**.
+1. Click **Visit your instance**.
 
-### Habilitar la gráfica de dependencias a través del shell administrativo
+### Enabling the dependency graph via the administrative shell
 {% endif %}{% ifversion ghes < 3.2 %}
-### Habilitar la gráfica de dependencias
+### Enabling the dependency graph
 {% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-1. En el shell administrativo, habilita la gráfica de dependencias en {% data variables.product.product_location %}:
+1. In the administrative shell, enable the dependency graph on {% data variables.product.product_location %}:
     ``` shell
     $ {% ifversion ghes > 3.1 %}ghe-config app.dependency-graph.enabled true{% else %}ghe-config app.github.dependency-graph-enabled true{% endif %}
     ```
    {% note %}
 
-   **Nota**: Para obtener más información acerca de cómo habilitar el acceso al shell administrativo por SSH, consulta la sección "[Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)".
+   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
-1. Aplica la configuración
+1. Apply the configuration.
     ```shell
     $ ghe-config-apply
     ```
-1. Regresa a {% data variables.product.prodname_ghe_server %}.
+1. Return to {% data variables.product.prodname_ghe_server %}.
 {% endif %}
 
-### Habilitar {% data variables.product.prodname_dependabot_alerts %}
+### Enabling {% data variables.product.prodname_dependabot_alerts %}
 
 {% ifversion ghes %}
-Antes de habilitar {% data variables.product.prodname_dependabot_alerts %} para tu instancia, necesitas habilitar la gráfica de dependencias. Para obtener más información, consulta la sección anterior.
+Before enabling {% data variables.product.prodname_dependabot_alerts %} for your instance, you need to enable the dependency graph. For more information, see above.
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {%- ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
-1. Under "Repositories can be scanned for vulnerabilities", select the drop-down menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**. ![Menú desplegable para habilitar el escaneo de repositorios para buscar vulnerabilidades](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png)
+1. Under "Repositories can be scanned for vulnerabilities", select the drop-down menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**.
+   ![Drop-down menu to enable scanning repositories for vulnerabilities](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png)
 
    {% tip %}
-
-   **Tip**: We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of emails. Después de algunos días, puedes habilitar las notificaciones para recibir las {% data variables.product.prodname_dependabot_alerts %} como de costumbre.
+   
+   **Tip**: We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of emails. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.
 
    {% endtip %}
 
-## Ver las dependencias vulnerables en {% data variables.product.product_location %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
+When you enable {% data variables.product.prodname_dependabot_alerts %}, you should consider also setting up {% data variables.product.prodname_actions %} for {% data variables.product.prodname_dependabot_security_updates %}. This feature allows developers to fix vulnerabilities in their dependencies. For more information, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+{% endif %}
 
-Puedes ver todas las vulnerabilidades en {% data variables.product.product_location %} y sincronizar en forma manual los datos de vulnerabilidad desde {% data variables.product.prodname_dotcom_the_website %} para actualizar la lista.
+## Viewing vulnerable dependencies on {% data variables.product.product_location %}
+
+You can view all vulnerabilities in {% data variables.product.product_location %} and manually sync vulnerability data from {% data variables.product.prodname_dotcom_the_website %} to update the list.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. En la barra lateral izquierda, haz clic en **Vulnerabilities** (Vulnerabilidades). ![Pestaña de vulnerabilidades de la barra lateral del administrador del sitio](/assets/images/enterprise/business-accounts/vulnerabilities-tab.png)
-3. Para sincronizar los datos de vulnerabilidades, haz clic en **Sync Vulnerabilities now** (Sincronizar vulnerabilidades ahora). ![Botón de Sincronizar vulnerabilidades ahora](/assets/images/enterprise/site-admin-settings/sync-vulnerabilities-button.png)
+2. In the left sidebar, click **Vulnerabilities**.
+  ![Vulnerabilities tab in the site admin sidebar](/assets/images/enterprise/business-accounts/vulnerabilities-tab.png)
+3. To sync vulnerability data, click **Sync Vulnerabilities now**.
+  ![Sync vulnerabilities now button](/assets/images/enterprise/site-admin-settings/sync-vulnerabilities-button.png)

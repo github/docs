@@ -34,7 +34,7 @@ When you choose to only notify requested team members, you disable sending notif
 
 When you enable auto assignment, any time your team has been requested to review a pull request, the team is removed as a reviewer and a specified subset of team members are assigned in the team's place. Code review assignments allow you to decide whether the whole team or just a subset of team members are notified when a team is requested for review.
 
-When code owners are automatically requested for review, the team is still removed and replaced with individuals. The individual approvals don't satisfy the requirement for code owner approval in a protected branch. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
+When code owners are automatically requested for review, the team is still removed and replaced with individuals unless a branch protection rule is configured to require review from code owners. If such a branch protection rule is in place, the team request cannot be removed and so the individual request will appear in addition.
 
 {% ifversion fpt %}
 To further enhance your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
@@ -79,7 +79,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 ![Routing algorithm dropdown](/assets/images/help/teams/review-assignment-algorithm.png)
 9. Optionally, to always skip certain members of the team, select **Never assign certain team members**. Then, select one or more team members you'd like to always skip.
 ![Never assign certain team members checkbox and dropdown](/assets/images/help/teams/review-assignment-skip-members.png)
-{% ifversion fpt or ghec or ghae-next or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghae-issue-5108 or ghes > 3.2 %}
 11. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
 12. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
 13. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.

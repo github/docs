@@ -26,11 +26,11 @@ topics:
 
 ## 联系 {% data variables.contact.github_support %}
 
-{% data reusables.support.zendesk-deprecation %}
+{% data reusables.support.zendesk-old-tickets %}
 
 您可以使用 {% data variables.contact.community_support_forum %} 浏览主题、提出问题、分享解决方案以及直接与 {% data variables.contact.community_support %} 交互。
 
-要报告帐户、安全和滥用问题，或获得付费帐户的辅助支持，请访问 {% data variables.contact.contact_support_portal %}。 如果您是 {% data variables.product.prodname_ghe_server %} 的管理员，但在 {% data variables.product.prodname_dotcom_the_website %} 上没有用户帐户，请访问 {% data variables.contact.contact_enterprise_portal %}。 来自 GitHub 支持的电子邮件通信将始终从 `github.com` 或 `githubsupport.com` 地址发送。
+要报告帐户、安全和滥用问题，或获得付费帐户的辅助支持，请访问 {% data variables.contact.contact_support_portal %}。 来自 GitHub 支持的电子邮件通信将始终从 `github.com` 或 `githubsupport.com` 地址发送。
 
 ## 授予 {% data variables.contact.github_support %} 临时访问私有仓库的权限
 
