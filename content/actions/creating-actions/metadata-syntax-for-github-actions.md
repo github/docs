@@ -271,9 +271,8 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 
  ```yaml
 steps:
-  - name: My first step
+  - run: echo This event is a pull request that had an assignee removed.
     if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
-    run: echo This event is a pull request that had an assignee removed.
 ```
 
 **Example: Using status check functions**
