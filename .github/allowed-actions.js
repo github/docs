@@ -5,7 +5,7 @@
 
 export default [
   'actions/cache@c64c572235d810460d0d6876e9c705ad5002b353', // v2.1.6
-  'actions/checkout@1e204e9a9253d643386038d443f96446fa156a97', // v2.3.5
+  'actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579', // v2.4.0
   'actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d', // v4.0.2
   'actions/labeler@5f867a63be70efff62b767459b009290364495eb', // v2.2.0
   'actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458', // v2.5.0
