@@ -379,10 +379,10 @@ if (process.env.DIFF_FILES) {
   diffFiles.push(...fs.readFileSync(process.env.DIFF_FILE, 'utf-8').trim().split(/\s+/g))
 }
 
-console.log("DIFF_FILES:")
+console.log('DIFF_FILES:')
 console.log(diffFiles)
 
-if (diffFiles.length > 0)
+if (diffFiles.length > 0) {
   // Parse and turn that environment variable string into a set.
   // It's faster to do this once and then re-use over and over in the
   // .filter() later on.
