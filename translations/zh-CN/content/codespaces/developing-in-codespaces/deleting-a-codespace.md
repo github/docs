@@ -1,6 +1,6 @@
 ---
-title: 删除代码空间
-intro: 您可以删除不再需要的代码空间。
+title: Deleting a codespace
+intro: You can delete a codespace you no longer need.
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
@@ -13,6 +13,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Delete a codespace
 ---
 
  
@@ -21,28 +22,28 @@ topics:
 
 {% note %}
 
-**注意：**只有创建代码空间的人才能将其删除。 目前，组织所有者无法删除其组织内创建的代码空间。
+**Note:** Only the person who created a codespace can delete it. There is currently no way for organization owners to delete codespaces created within their organization.
 
 {% endnote %}
 
 {% include tool-switcher %}
-
+   
 {% webui %}
 
-1. 导航到 [github.com/codespaces](https://github.com/codespaces) 上的“您的代码空间”页面。
+1. Navigate to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces).
 
-2. 在要删除的代码空间的右侧，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **{% octicon "trash" aria-label="The trash icon" %} Delete（删除）**
+2. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**
 
-   ![删除按钮](/assets/images/help/codespaces/delete-codespace.png)
+   ![Delete button](/assets/images/help/codespaces/delete-codespace.png)
 
 {% endwebui %}
-
+   
 {% vscode %}
 
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
 
 {% endvscode %}
-
+   
 
 {% cli %}
 
@@ -60,5 +61,5 @@ For more information about this command, see [the {% data variables.product.prod
 
 {% endcli %}
 
-## 延伸阅读
+## Further reading
 - [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)

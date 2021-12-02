@@ -1,9 +1,12 @@
 import path from 'path'
-import patterns from '../lib/patterns.js'
-import isArchivedVersion from '../lib/is-archived-version.js'
+
 import got from 'got'
 
-const ONE_DAY = 24 * 60 * 60 // 1 day in seconds
+import patterns from '../lib/patterns.js'
+import isArchivedVersion from '../lib/is-archived-version.js'
+import { cacheControlFactory } from './cache-control.js'
+
+const cacheControl = cacheControlFactory(60 * 60 * 24)
 
 // This module handles requests for the CSS and JS assets for
 // deprecated GitHub Enterprise versions by routing them to static content in
@@ -31,7 +34,7 @@ export default async function archivedEnterpriseVersionsAssets(req, res, next) {
     res.set('x-is-archived', 'true')
     res.set('x-robots-tag', 'noindex')
     // Allow the browser and Fastly to cache these
-    res.set('cache-control', `public, max-age=${ONE_DAY}`)
+    cacheControl(res)
     return res.send(r.body)
   } catch (err) {
     return next(404)

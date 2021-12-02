@@ -1,1 +1,1 @@
-1. To the right of the list of files, click **Releases**. ![Sección de lanzamientos en la barra lateral de lado derecho](/assets/images/help/releases/release-link.png)
+1. A la derecha de la lista de archivos, haz clic en **Lanzamientos**. ![Sección de lanzamientos en la barra lateral de lado derecho](/assets/images/help/releases/release-link.png)

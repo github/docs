@@ -15,6 +15,7 @@ import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
 import { PlatformPicker } from 'components/article/PlatformPicker'
+import { ToolPicker } from 'components/article/ToolPicker'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -52,6 +53,7 @@ export const ArticlePage = () => {
     contributor,
     permissions,
     includesPlatformSpecificContent,
+    includesToolSpecificContent,
     product,
     miniTocItems,
     currentLearningTrack,
@@ -67,7 +69,7 @@ export const ArticlePage = () => {
         className={item.platform}
         sx={{ listStyle: 'none', padding: '2px' }}
       >
-        <div className={cx('lh-condensed')}>
+        <div className={cx('lh-condensed d-block width-full')}>
           <div dangerouslySetInnerHTML={{ __html: item.contents }} />
           {item.items && item.items.length > 0 ? (
             <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
@@ -111,6 +113,7 @@ export const ArticlePage = () => {
               )}
 
               {includesPlatformSpecificContent && <PlatformPicker variant="underlinenav" />}
+              {includesToolSpecificContent && <ToolPicker variant="underlinenav" />}
 
               {product && (
                 <Callout

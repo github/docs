@@ -1,16 +1,16 @@
 ---
-title: Permitir que tu codespace acceda a una imagen de registro privada
-intro: 'Puedes utilizar secretos para permitir que los {% data variables.product.prodname_codespaces %} accedan a un registro de imagen privada'
+title: Allowing your codespace to access a private image registry
+intro: 'You can use secrets to allow {% data variables.product.prodname_codespaces %} to access a private image registry'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Codespaces
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: Registro de imagen privado
+shortTitle: Private image registry
 ---
 
-## Acerca de los registros de imagen y {% data variables.product.prodname_codespaces %} privados
+## About private image registries and {% data variables.product.prodname_codespaces %}
 
 A registry is a secure space for storing, managing, and fetching private container images. You may use one to store one or more devcontainers. There are many examples of registries, such as {% data variables.product.prodname_dotcom %} Container Registry, Azure Container Registry, or DockerHub.
 
@@ -32,7 +32,7 @@ By default, when you publish a container image to {% data variables.product.prod
 
 This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.product.prodname_dotcom %} Container Registry using a Personal Access Token (PAT).
 
-If the **Inherit access from repo** option was not selected when the image was published, you can manually add the repository to the published container image's access controls. Para obtener más información, consulta la sección "[Configurar el control de accesos y la visibilidad de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)".
+If the **Inherit access from repo** option was not selected when the image was published, you can manually add the repository to the published container image's access controls. For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)."
 
 ### Accessing an image published to the organization a codespace will be launched in
 
@@ -52,21 +52,21 @@ We recommend publishing images via {% data variables.product.prodname_actions %}
 
 ## Accessing images stored in other container registries
 
-If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. Si se encuentran estos secretos, {% data variables.product.prodname_codespaces %} hará que el registro esté disponible dentro de tu codespace.
+If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. If these secrets are found, {% data variables.product.prodname_codespaces %} will make the registry available inside your codespace.
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
 - `<*>_CONTAINER_REGISTRY_PASSWORD`
 
-Puedes almacenar los secretos a nivel de repositorio, organización o usuario, lo cual te permite compartirlos de forma segura entre diferentes codespaces. When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. Para obtener más información, consulta las secciones "[Administrar los secretos cifrados para tus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" y "[Administrar los secretos cifrados de tu repositorio y organización para los Codespaces](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)".
+You can store secrets at the user, repository, or organization-level, allowing you to share them securely between different codespaces. When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" and "[Managing encrypted secrets for your repository and organization for Codespaces](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)."
 
-Si estás configurando secretos a nivel de organización o de usuario, asegúrate de asignarlos al repositorio en el que crearás el codespace eligiendo una política de acceso desde la lista desplegable.
+If you are setting the secrets at the user or organization level, make sure to assign those secrets to the repository you'll be creating the codespace in by choosing an access policy from the dropdown list.  
 
-![Ejemplo de secreto de registro de imagen](/assets/images/help/codespaces/secret-repository-access.png)
+![Image registry secret example](/assets/images/help/codespaces/secret-repository-access.png)
 
-### Secretos de ejemplo
+### Example secrets
 
-Para los registros de imagen privados en Azure, podrías crear los siguientes secretos:
+For a private image registry in Azure, you could create the following secrets:
 
 ```
 ACR_CONTAINER_REGISTRY_SERVER = mycompany.azurecr.io
@@ -74,21 +74,21 @@ ACR_CONTAINER_REGISTRY_USER = acr-user-here
 ACR_CONTAINER_REGISTRY_PASSWORD = <PAT>
 ```
 
-Para obtener más información sobre los registros de imagen comunes, consulta la sección "[Servidores de registro de imagen comunes](#common-image-registry-servers)".
+For information on common image registries, see "[Common image registry servers](#common-image-registry-servers)."
 
-![Ejemplo de secreto de registro de imagen](/assets/images/help/settings/codespaces-image-registry-secret-example.png)
+![Image registry secret example](/assets/images/help/settings/codespaces-image-registry-secret-example.png)
 
-Una vez que hayas agregado los secretos, podría ser que necesites parar y luego iniciar el codespace en el que estás para que las variables de ambiente nuevas pasen en el contenedor. Para obtener más información, consulta la sección "[Suspender o detener un codespace](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)".
+Once you've added the secrets, you may need to stop and then start the codespace you are in for the new environment variables to be passed into the container. For more information, see "[Suspending or stopping a codespace](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
 
-### Servidores de registro de imagen comunes
+### Common image registry servers
 
-Algunos de los servidores de registro de imagen comunes se listan a continuación:
+Some of the common image registry servers are listed below:
 
 - [DockerHub](https://docs.docker.com/engine/reference/commandline/info/) - `https://index.docker.io/v1/`
-- [Registro de Contenedores de GitHub](/packages/working-with-a-github-packages-registry/working-with-the-container-registry) - `ghcr.io`
-- [Registro de Contenedores de Azure](https://docs.microsoft.com/azure/container-registry/) - `<registry name>.azurecr.io`
+- [GitHub Container Registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry) - `ghcr.io`
+- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) - `<registry name>.azurecr.io`
 - [AWS Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html) - `<aws_account_id>.dkr.ecr.<region>.amazonaws.com`
-- [Registro de Contenedores de Google Cloud](https://cloud.google.com/container-registry/docs/overview#registries) - `gcr.io` (US), `eu.gcr.io` (EU), `asia.gcr.io` (Asia)
+- [Google Cloud Container Registry](https://cloud.google.com/container-registry/docs/overview#registries) - `gcr.io` (US), `eu.gcr.io` (EU), `asia.gcr.io` (Asia)
 
 #### Accessing AWS Elastic Container Registry
 
