@@ -91,10 +91,10 @@ sections:
   deprecations:
     - heading: 'Obsoletización de GitHub Enterprise Server 2.22'
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 2.22 was discontinued on September 23, 2021**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 2.22 se descontinuó el 23 de septiembre de 2021**. Esto significa que no se harán lanzamientos de parches, incluso para los problemas de seguridad, después de dicha fecha. Para tener un rendimiento mejor, una seguridad mejorada y cualquier característica nueva, [actualiza a la versión más nueva de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) tan pronto te sea posible.'
     - heading: 'Deprecation of GitHub Enterprise Server 3.0'
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 will be discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 se descontinuará el 16 de febrero de 2022**. Esto significa que no se harán lanzamientos de parche, aún para los problemas de seguridad crítucos, después de esta fecha. Para obtener un rendimiento mejor, una seguridad mejorada y características nuevas, [actualiza a la última versión de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) tan pronto te sea posible.'
     - heading: 'Obsoletización del soporte para XenServer Hypervisor'
       notes:
         - 'Starting with {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer is deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.'

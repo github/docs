@@ -1,7 +1,7 @@
 ---
-title: 管理企业的身份和访问权限
-shortTitle: 管理身份和访问权限
-intro: '您可以通过 SAML 单点登录 (SSO) 和跨域身份管理系统 (SCIM) 集中管理{% ifversion ghae %}帐户和{% endif %}对 {% data variables.product.product_name %} 上{% ifversion ghae %}企业{% elsif ghec %}企业帐户{% endif %}的访问。'
+title: Managing identity and access for your enterprise
+shortTitle: Managing identity and access
+intro: 'You can centrally manage {% ifversion ghae %}accounts and {% endif %}access to your {% ifversion ghae %}enterprise{% elsif ghec %}enterprise''s resources{% endif %} on {% data variables.product.product_name %} with SAML single sign-on (SSO) and System for Cross-domain Identity Management (SCIM).'
 versions:
   ghec: '*'
   ghae: '*'

@@ -1,0 +1,896 @@
+file,reason
+translations/es-ES/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,rendering error
+translations/es-ES/content/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox.md,Listed in localization-support#489
+translations/es-ES/content/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile.md,Listed in localization-support#489
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/publicizing-or-hiding-your-private-contributions-on-your-profile.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-user-accounts-repositories.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username.md,Listed in localization-support#489
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account.md,Listed in localization-support#489
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/index.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account.md,Listed in localization-support#489
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-tab-size-rendering-preference.md,Listed in localization-support#489
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-tab-size-rendering-preference.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings.md,Listed in localization-support#489
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts.md,Listed in localization-support#489
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository.md,Listed in localization-support#489
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/about-organization-membership.md,rendering error
+translations/es-ES/content/actions/advanced-guides/caching-dependencies-to-speed-up-workflows.md,rendering error
+translations/es-ES/content/actions/advanced-guides/storing-workflow-data-as-artifacts.md,Listed in localization-support#489
+translations/es-ES/content/actions/advanced-guides/storing-workflow-data-as-artifacts.md,rendering error
+translations/es-ES/content/actions/automating-builds-and-tests/about-continuous-integration.md,rendering error
+translations/es-ES/content/actions/automating-builds-and-tests/building-and-testing-nodejs.md,rendering error
+translations/es-ES/content/actions/automating-builds-and-tests/building-and-testing-powershell.md,Listed in localization-support#489
+translations/es-ES/content/actions/automating-builds-and-tests/building-and-testing-powershell.md,rendering error
+translations/es-ES/content/actions/automating-builds-and-tests/building-and-testing-python.md,Listed in localization-support#489
+translations/es-ES/content/actions/automating-builds-and-tests/building-and-testing-python.md,rendering error
+translations/es-ES/content/actions/creating-actions/creating-a-docker-container-action.md,Listed in localization-support#489
+translations/es-ES/content/actions/creating-actions/creating-a-docker-container-action.md,rendering error
+translations/es-ES/content/actions/creating-actions/creating-a-javascript-action.md,rendering error
+translations/es-ES/content/actions/creating-actions/metadata-syntax-for-github-actions.md,rendering error
+translations/es-ES/content/actions/creating-actions/releasing-and-maintaining-actions.md,rendering error
+translations/es-ES/content/actions/deployment/about-deployments/about-continuous-deployment.md,rendering error
+translations/es-ES/content/actions/deployment/about-deployments/index.md,Listed in localization-support#489
+translations/es-ES/content/actions/deployment/about-deployments/index.md,rendering error
+translations/es-ES/content/actions/deployment/deploying-to-your-cloud-provider/index.md,Listed in localization-support#489
+translations/es-ES/content/actions/deployment/deploying-to-your-cloud-provider/index.md,rendering error
+translations/es-ES/content/actions/deployment/managing-your-deployments/index.md,Listed in localization-support#489
+translations/es-ES/content/actions/deployment/managing-your-deployments/index.md,rendering error
+translations/es-ES/content/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect.md,Listed in localization-support#489
+translations/es-ES/content/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect.md,rendering error
+translations/es-ES/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services.md,Listed in localization-support#489
+translations/es-ES/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services.md,rendering error
+translations/es-ES/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure.md,Listed in localization-support#489
+translations/es-ES/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure.md,rendering error
+translations/es-ES/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform.md,rendering error
+translations/es-ES/content/actions/deployment/security-hardening-your-deployments/index.md,Listed in localization-support#489
+translations/es-ES/content/actions/deployment/security-hardening-your-deployments/index.md,rendering error
+translations/es-ES/content/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows.md,Listed in localization-support#489
+translations/es-ES/content/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows.md,rendering error
+translations/es-ES/content/actions/deployment/targeting-different-environments/using-environments-for-deployment.md,rendering error
+translations/es-ES/content/actions/guides.md,rendering error
+translations/es-ES/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,Listed in localization-support#489
+translations/es-ES/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
+translations/es-ES/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,Listed in localization-support#489
+translations/es-ES/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
+translations/es-ES/content/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners.md,Listed in localization-support#489
+translations/es-ES/content/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners.md,rendering error
+translations/es-ES/content/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups.md,rendering error
+translations/es-ES/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,Listed in localization-support#489
+translations/es-ES/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
+translations/es-ES/content/actions/hosting-your-own-runners/removing-self-hosted-runners.md,rendering error
+translations/es-ES/content/actions/hosting-your-own-runners/using-a-proxy-server-with-self-hosted-runners.md,rendering error
+translations/es-ES/content/actions/index.md,Listed in localization-support#489
+translations/es-ES/content/actions/index.md,rendering error
+translations/es-ES/content/actions/learn-github-actions/contexts.md,Listed in localization-support#489
+translations/es-ES/content/actions/learn-github-actions/contexts.md,rendering error
+translations/es-ES/content/actions/learn-github-actions/environment-variables.md,Listed in localization-support#489
+translations/es-ES/content/actions/learn-github-actions/environment-variables.md,rendering error
+translations/es-ES/content/actions/learn-github-actions/events-that-trigger-workflows.md,Listed in localization-support#489
+translations/es-ES/content/actions/learn-github-actions/events-that-trigger-workflows.md,rendering error
+translations/es-ES/content/actions/learn-github-actions/expressions.md,rendering error
+translations/es-ES/content/actions/learn-github-actions/finding-and-customizing-actions.md,rendering error
+translations/es-ES/content/actions/learn-github-actions/reusing-workflows.md,rendering error
+translations/es-ES/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
+translations/es-ES/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
+translations/es-ES/content/actions/learn-github-actions/workflow-commands-for-github-actions.md,Listed in localization-support#489
+translations/es-ES/content/actions/learn-github-actions/workflow-commands-for-github-actions.md,rendering error
+translations/es-ES/content/actions/learn-github-actions/workflow-syntax-for-github-actions.md,Listed in localization-support#489
+translations/es-ES/content/actions/learn-github-actions/workflow-syntax-for-github-actions.md,rendering error
+translations/es-ES/content/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks.md,rendering error
+translations/es-ES/content/actions/managing-workflow-runs/downloading-workflow-artifacts.md,rendering error
+translations/es-ES/content/actions/managing-workflow-runs/manually-running-a-workflow.md,Listed in localization-support#489
+translations/es-ES/content/actions/managing-workflow-runs/manually-running-a-workflow.md,rendering error
+translations/es-ES/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
+translations/es-ES/content/actions/managing-workflow-runs/skipping-workflow-runs.md,rendering error
+translations/es-ES/content/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge.md,rendering error
+translations/es-ES/content/actions/publishing-packages/publishing-docker-images.md,rendering error
+translations/es-ES/content/actions/publishing-packages/publishing-java-packages-with-gradle.md,rendering error
+translations/es-ES/content/actions/quickstart.md,Listed in localization-support#489
+translations/es-ES/content/actions/quickstart.md,rendering error
+translations/es-ES/content/actions/security-guides/automatic-token-authentication.md,Listed in localization-support#489
+translations/es-ES/content/actions/security-guides/automatic-token-authentication.md,rendering error
+translations/es-ES/content/actions/security-guides/security-hardening-for-github-actions.md,rendering error
+translations/es-ES/content/actions/using-github-hosted-runners/about-ae-hosted-runners.md,rendering error
+translations/es-ES/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,Listed in localization-support#489
+translations/es-ES/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,rendering error
+translations/es-ES/content/actions/using-github-hosted-runners/customizing-github-hosted-runners.md,Listed in localization-support#489
+translations/es-ES/content/actions/using-github-hosted-runners/customizing-github-hosted-runners.md,rendering error
+translations/es-ES/content/admin/advanced-security/configuring-code-scanning-for-your-appliance.md,rendering error
+translations/es-ES/content/admin/advanced-security/configuring-secret-scanning-for-your-appliance.md,rendering error
+translations/es-ES/content/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise.md,Listed in localization-support#489
+translations/es-ES/content/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise.md,rendering error
+translations/es-ES/content/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise.md,Listed in localization-support#489
+translations/es-ES/content/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise.md,rendering error
+translations/es-ES/content/admin/advanced-security/overview-of-github-advanced-security-deployment.md,rendering error
+translations/es-ES/content/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/allowing-built-in-authentication-for-users-outside-your-identity-provider.md,rendering error
+translations/es-ES/content/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-ldap.md,Listed in localization-support#489
+translations/es-ES/content/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-ldap.md,rendering error
+translations/es-ES/content/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-saml.md,rendering error
+translations/es-ES/content/admin/authentication/index.md,rendering error
+translations/es-ES/content/admin/authentication/managing-identity-and-access-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account.md,rendering error
+translations/es-ES/content/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users.md,rendering error
+translations/es-ES/content/admin/configuration/configuring-network-settings/configuring-tls.md,rendering error
+translations/es-ES/content/admin/configuration/configuring-network-settings/network-ports.md,rendering error
+translations/es-ES/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,rendering error
+translations/es-ES/content/admin/configuration/configuring-your-enterprise/configuring-custom-footers.md,rendering error
+translations/es-ES/content/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise.md,rendering error
+translations/es-ES/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,rendering error
+translations/es-ES/content/admin/configuration/configuring-your-enterprise/index.md,rendering error
+translations/es-ES/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,rendering error
+translations/es-ES/content/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise.md,rendering error
+translations/es-ES/content/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud.md,rendering error
+translations/es-ES/content/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account.md,Listed in localization-support#489
+translations/es-ES/content/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account.md,rendering error
+translations/es-ES/content/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-contributions-between-your-enterprise-account-and-githubcom.md,rendering error
+translations/es-ES/content/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom.md,rendering error
+translations/es-ES/content/admin/enterprise-management/caching-repositories/about-repository-caching.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-management/caching-repositories/about-repository-caching.md,rendering error
+translations/es-ES/content/admin/enterprise-management/caching-repositories/configuring-a-repository-cache.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-management/caching-repositories/configuring-a-repository-cache.md,rendering error
+translations/es-ES/content/admin/enterprise-management/caching-repositories/index.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-management/caching-repositories/index.md,rendering error
+translations/es-ES/content/admin/enterprise-management/configuring-clustering/differences-between-clustering-and-high-availability-ha.md,rendering error
+translations/es-ES/content/admin/enterprise-management/configuring-clustering/initializing-the-cluster.md,rendering error
+translations/es-ES/content/admin/enterprise-management/configuring-high-availability/about-geo-replication.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-management/configuring-high-availability/about-geo-replication.md,rendering error
+translations/es-ES/content/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration.md,rendering error
+translations/es-ES/content/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica.md,rendering error
+translations/es-ES/content/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance.md,rendering error
+translations/es-ES/content/admin/enterprise-management/index.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-management/index.md,rendering error
+translations/es-ES/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources.md,rendering error
+translations/es-ES/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements.md,rendering error
+translations/es-ES/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server.md,rendering error
+translations/es-ES/content/admin/enterprise-support/overview/about-github-enterprise-support.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-support/overview/about-github-enterprise-support.md,rendering error
+translations/es-ES/content/admin/enterprise-support/overview/about-support-for-advanced-security.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-support/overview/about-support-for-advanced-security.md,rendering error
+translations/es-ES/content/admin/enterprise-support/receiving-help-from-github-support/reaching-github-support.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-support/receiving-help-from-github-support/reaching-github-support.md,rendering error
+translations/es-ES/content/admin/enterprise-support/receiving-help-from-github-support/submitting-a-ticket.md,Listed in localization-support#489
+translations/es-ES/content/admin/enterprise-support/receiving-help-from-github-support/submitting-a-ticket.md,rendering error
+translations/es-ES/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,Listed in localization-support#489
+translations/es-ES/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,rendering error
+translations/es-ES/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/index.md,Listed in localization-support#489
+translations/es-ES/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/index.md,rendering error
+translations/es-ES/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates.md,Listed in localization-support#489
+translations/es-ES/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates.md,rendering error
+translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae.md,rendering error
+translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud.md,rendering error
+translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server.md,rendering error
+translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/index.md,rendering error
+translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise.md,rendering error
+translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions.md,rendering error
+translations/es-ES/content/admin/github-actions/index.md,rendering error
+translations/es-ES/content/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise.md,rendering error
+translations/es-ES/content/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect.md,Listed in localization-support#489
+translations/es-ES/content/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect.md,rendering error
+translations/es-ES/content/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom.md,Listed in localization-support#489
+translations/es-ES/content/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom.md,rendering error
+translations/es-ES/content/admin/github-actions/managing-access-to-actions-from-githubcom/using-the-latest-version-of-the-official-bundled-actions.md,Listed in localization-support#489
+translations/es-ES/content/admin/github-actions/managing-access-to-actions-from-githubcom/using-the-latest-version-of-the-official-bundled-actions.md,rendering error
+translations/es-ES/content/admin/github-actions/using-github-actions-in-github-ae/index.md,rendering error
+translations/es-ES/content/admin/guides.md,Listed in localization-support#489
+translations/es-ES/content/admin/guides.md,rendering error
+translations/es-ES/content/admin/index.md,rendering error
+translations/es-ES/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-xenserver.md,Listed in localization-support#489
+translations/es-ES/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-xenserver.md,rendering error
+translations/es-ES/content/admin/overview/about-enterprise-accounts.md,Listed in localization-support#489
+translations/es-ES/content/admin/overview/about-enterprise-accounts.md,rendering error
+translations/es-ES/content/admin/overview/about-upgrades-to-new-releases.md,rendering error
+translations/es-ES/content/admin/overview/creating-an-enterprise-account.md,Listed in localization-support#489
+translations/es-ES/content/admin/overview/creating-an-enterprise-account.md,rendering error
+translations/es-ES/content/admin/overview/index.md,Listed in localization-support#489
+translations/es-ES/content/admin/overview/index.md,rendering error
+translations/es-ES/content/admin/overview/system-overview.md,rendering error
+translations/es-ES/content/admin/packages/enabling-github-packages-with-minio.md,Listed in localization-support#489
+translations/es-ES/content/admin/packages/enabling-github-packages-with-minio.md,rendering error
+translations/es-ES/content/admin/packages/getting-started-with-github-packages-for-your-enterprise.md,rendering error
+translations/es-ES/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise.md,rendering error
+translations/es-ES/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise.md,rendering error
+translations/es-ES/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise.md,rendering error
+translations/es-ES/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,rendering error
+translations/es-ES/content/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise.md,rendering error
+translations/es-ES/content/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise.md,Listed in localization-support#489
+translations/es-ES/content/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise.md,rendering error
+translations/es-ES/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,Listed in localization-support#489
+translations/es-ES/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,rendering error
+translations/es-ES/content/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository.md,rendering error
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise.md,Listed in localization-support#489
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise.md,rendering error
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user.md,Listed in localization-support#489
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user.md,rendering error
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/index.md,Listed in localization-support#489
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/index.md,rendering error
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users.md,Listed in localization-support#489
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users.md,rendering error
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator.md,rendering error
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise.md,rendering error
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users.md,rendering error
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise.md,Listed in localization-support#489
+translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise.md,rendering error
+translations/es-ES/content/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom.md,Listed in localization-support#489
+translations/es-ES/content/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom.md,rendering error
+translations/es-ES/content/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions.md,Listed in localization-support#489
+translations/es-ES/content/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions.md,rendering error
+translations/es-ES/content/admin/user-management/monitoring-activity-in-your-enterprise/log-forwarding.md,rendering error
+translations/es-ES/content/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on.md,rendering error
+translations/es-ES/content/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on.md,rendering error
+translations/es-ES/content/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on.md,rendering error
+translations/es-ES/content/authentication/connecting-to-github-with-ssh/about-ssh.md,rendering error
+translations/es-ES/content/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account.md,Listed in localization-support#489
+translations/es-ES/content/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account.md,rendering error
+translations/es-ES/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,Listed in localization-support#489
+translations/es-ES/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,rendering error
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/about-anonymized-urls.md,Listed in localization-support#489
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/about-anonymized-urls.md,rendering error
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/about-authentication-to-github.md,Listed in localization-support#489
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/about-authentication-to-github.md,rendering error
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses.md,Listed in localization-support#489
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses.md,rendering error
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/authorizing-github-apps.md,rendering error
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/connecting-with-third-party-applications.md,rendering error
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md,rendering error
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys.md,rendering error
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log.md,rendering error
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys.md,Listed in localization-support#489
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys.md,rendering error
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials.md,rendering error
+translations/es-ES/content/authentication/managing-commit-signature-verification/about-commit-signature-verification.md,Listed in localization-support#489
+translations/es-ES/content/authentication/managing-commit-signature-verification/about-commit-signature-verification.md,rendering error
+translations/es-ES/content/authentication/managing-commit-signature-verification/signing-commits.md,rendering error
+translations/es-ES/content/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication.md,rendering error
+translations/es-ES/content/authentication/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device.md,rendering error
+translations/es-ES/content/authentication/troubleshooting-ssh/error-ssh-add-illegal-option----k.md,Listed in localization-support#489
+translations/es-ES/content/authentication/troubleshooting-ssh/error-ssh-add-illegal-option----k.md,rendering error
+translations/es-ES/content/billing/index.md,rendering error
+translations/es-ES/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,Listed in localization-support#489
+translations/es-ES/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,rendering error
+translations/es-ES/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,Listed in localization-support#489
+translations/es-ES/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,rendering error
+translations/es-ES/content/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise.md,rendering error
+translations/es-ES/content/billing/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts.md,rendering error
+translations/es-ES/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,rendering error
+translations/es-ES/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise.md,rendering error
+translations/es-ES/content/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise.md,rendering error
+translations/es-ES/content/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise.md,rendering error
+translations/es-ES/content/billing/managing-your-license-for-github-enterprise/index.md,rendering error
+translations/es-ES/content/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud.md,rendering error
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,Listed in localization-support#489
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,rendering error
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,rendering error
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/index.md,Listed in localization-support#489
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/index.md,rendering error
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,Listed in localization-support#489
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,Listed in localization-support#489
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,Listed in localization-support#489
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,rendering error
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests.md,Listed in localization-support#489
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests.md,rendering error
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow.md,rendering error
+translations/es-ES/content/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning.md,rendering error
+translations/es-ES/content/code-security/code-scanning/integrating-with-code-scanning/index.md,rendering error
+translations/es-ES/content/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning.md,rendering error
+translations/es-ES/content/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github.md,rendering error
+translations/es-ES/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system.md,rendering error
+translations/es-ES/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system.md,rendering error
+translations/es-ES/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system.md,rendering error
+translations/es-ES/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system.md,rendering error
+translations/es-ES/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,rendering error
+translations/es-ES/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system.md,rendering error
+translations/es-ES/content/code-security/getting-started/github-security-features.md,Listed in localization-support#489
+translations/es-ES/content/code-security/getting-started/github-security-features.md,rendering error
+translations/es-ES/content/code-security/getting-started/securing-your-organization.md,Listed in localization-support#489
+translations/es-ES/content/code-security/getting-started/securing-your-organization.md,rendering error
+translations/es-ES/content/code-security/getting-started/securing-your-repository.md,Listed in localization-support#489
+translations/es-ES/content/code-security/getting-started/securing-your-repository.md,rendering error
+translations/es-ES/content/code-security/guides.md,Listed in localization-support#489
+translations/es-ES/content/code-security/guides.md,rendering error
+translations/es-ES/content/code-security/index.md,Listed in localization-support#489
+translations/es-ES/content/code-security/index.md,rendering error
+translations/es-ES/content/code-security/secret-scanning/about-secret-scanning.md,Listed in localization-support#489
+translations/es-ES/content/code-security/secret-scanning/about-secret-scanning.md,rendering error
+translations/es-ES/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,Listed in localization-support#489
+translations/es-ES/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,rendering error
+translations/es-ES/content/code-security/security-overview/about-the-security-overview.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/index.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/index.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/upgrading-from-dependabotcom-to-github-native-dependabot.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-managing-vulnerable-dependencies.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-managing-vulnerable-dependencies.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/index.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository.md,rendering error
+translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/index.md,Listed in localization-support#489
+translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/index.md,rendering error
+translations/es-ES/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,rendering error
+translations/es-ES/content/codespaces/codespaces-reference/disaster-recovery-for-codespaces.md,rendering error
+translations/es-ES/content/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace.md,rendering error
+translations/es-ES/content/codespaces/customizing-your-codespace/index.md,rendering error
+translations/es-ES/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,rendering error
+translations/es-ES/content/codespaces/customizing-your-codespace/prebuilding-codespaces-for-your-project.md,rendering error
+translations/es-ES/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces.md,rendering error
+translations/es-ES/content/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces.md,rendering error
+translations/es-ES/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,rendering error
+translations/es-ES/content/codespaces/developing-in-codespaces/creating-a-codespace.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/developing-in-codespaces/creating-a-codespace.md,rendering error
+translations/es-ES/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,rendering error
+translations/es-ES/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,rendering error
+translations/es-ES/content/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace.md,rendering error
+translations/es-ES/content/codespaces/developing-in-codespaces/index.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/developing-in-codespaces/index.md,rendering error
+translations/es-ES/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,rendering error
+translations/es-ES/content/codespaces/developing-in-codespaces/using-codespaces-with-github-cli.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/developing-in-codespaces/using-codespaces-with-github-cli.md,rendering error
+translations/es-ES/content/codespaces/developing-in-codespaces/using-source-control-in-your-codespace.md,rendering error
+translations/es-ES/content/codespaces/getting-started/deep-dive.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/getting-started/deep-dive.md,rendering error
+translations/es-ES/content/codespaces/index.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/index.md,rendering error
+translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization.md,rendering error
+translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization.md,rendering error
+translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces.md,rendering error
+translations/es-ES/content/codespaces/managing-your-codespaces/index.md,rendering error
+translations/es-ES/content/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces.md,rendering error
+translations/es-ES/content/codespaces/overview.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/overview.md,rendering error
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project.md,rendering error
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/index.md,rendering error
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces.md,rendering error
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,rendering error
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,rendering error
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces.md,rendering error
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces.md,rendering error
+translations/es-ES/content/codespaces/troubleshooting/codespaces-logs.md,rendering error
+translations/es-ES/content/codespaces/troubleshooting/exporting-changes-to-a-branch.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/troubleshooting/exporting-changes-to-a-branch.md,rendering error
+translations/es-ES/content/communities/documenting-your-project-with-wikis/about-wikis.md,Listed in localization-support#489
+translations/es-ES/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
+translations/es-ES/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
+translations/es-ES/content/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization.md,rendering error
+translations/es-ES/content/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization.md,rendering error
+translations/es-ES/content/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository.md,rendering error
+translations/es-ES/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository.md,Listed in localization-support#489
+translations/es-ES/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository.md,rendering error
+translations/es-ES/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms.md,Listed in localization-support#489
+translations/es-ES/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms.md,rendering error
+translations/es-ES/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop.md,Listed in localization-support#489
+translations/es-ES/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop.md,rendering error
+translations/es-ES/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches.md,Listed in localization-support#489
+translations/es-ES/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches.md,rendering error
+translations/es-ES/content/developers/apps/building-github-apps/authenticating-with-github-apps.md,rendering error
+translations/es-ES/content/developers/apps/building-github-apps/creating-a-github-app-using-url-parameters.md,rendering error
+translations/es-ES/content/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps.md,rendering error
+translations/es-ES/content/developers/apps/building-github-apps/managing-allowed-ip-addresses-for-a-github-app.md,rendering error
+translations/es-ES/content/developers/apps/building-oauth-apps/scopes-for-oauth-apps.md,rendering error
+translations/es-ES/content/developers/apps/getting-started-with-apps/about-apps.md,rendering error
+translations/es-ES/content/developers/apps/guides/using-content-attachments.md,rendering error
+translations/es-ES/content/developers/github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app.md,rendering error
+translations/es-ES/content/developers/overview/managing-deploy-keys.md,rendering error
+translations/es-ES/content/developers/webhooks-and-events/events/issue-event-types.md,Listed in localization-support#489
+translations/es-ES/content/developers/webhooks-and-events/events/issue-event-types.md,rendering error
+translations/es-ES/content/discussions/collaborating-with-your-community-using-discussions/about-discussions.md,rendering error
+translations/es-ES/content/discussions/guides/best-practices-for-community-conversations-on-github.md,Listed in localization-support#489
+translations/es-ES/content/discussions/guides/best-practices-for-community-conversations-on-github.md,rendering error
+translations/es-ES/content/discussions/index.md,Listed in localization-support#489
+translations/es-ES/content/discussions/index.md,rendering error
+translations/es-ES/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,rendering error
+translations/es-ES/content/education/guides.md,Listed in localization-support#489
+translations/es-ES/content/education/guides.md,rendering error
+translations/es-ES/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,rendering error
+translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom.md,Listed in localization-support#489
+translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom.md,rendering error
+translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment.md,Listed in localization-support#489
+translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment.md,rendering error
+translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment.md,Listed in localization-support#489
+translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment.md,rendering error
+translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests.md,Listed in localization-support#489
+translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests.md,rendering error
+translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms.md,rendering error
+translations/es-ES/content/get-started/getting-started-with-git/caching-your-github-credentials-in-git.md,rendering error
+translations/es-ES/content/get-started/getting-started-with-git/managing-remote-repositories.md,rendering error
+translations/es-ES/content/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain.md,rendering error
+translations/es-ES/content/get-started/learning-about-github/about-github-advanced-security.md,rendering error
+translations/es-ES/content/get-started/learning-about-github/access-permissions-on-github.md,rendering error
+translations/es-ES/content/get-started/learning-about-github/types-of-github-accounts.md,rendering error
+translations/es-ES/content/get-started/onboarding/getting-started-with-github-ae.md,rendering error
+translations/es-ES/content/get-started/onboarding/getting-started-with-github-enterprise-cloud.md,Listed in localization-support#489
+translations/es-ES/content/get-started/onboarding/getting-started-with-github-enterprise-cloud.md,rendering error
+translations/es-ES/content/get-started/onboarding/getting-started-with-github-enterprise-server.md,rendering error
+translations/es-ES/content/get-started/onboarding/getting-started-with-github-team.md,rendering error
+translations/es-ES/content/get-started/onboarding/getting-started-with-your-github-account.md,rendering error
+translations/es-ES/content/get-started/quickstart/be-social.md,Listed in localization-support#489
+translations/es-ES/content/get-started/quickstart/be-social.md,rendering error
+translations/es-ES/content/get-started/quickstart/create-a-repo.md,rendering error
+translations/es-ES/content/get-started/quickstart/fork-a-repo.md,Listed in localization-support#489
+translations/es-ES/content/get-started/quickstart/fork-a-repo.md,rendering error
+translations/es-ES/content/get-started/quickstart/git-and-github-learning-resources.md,Listed in localization-support#489
+translations/es-ES/content/get-started/quickstart/git-and-github-learning-resources.md,rendering error
+translations/es-ES/content/get-started/quickstart/github-flow.md,Listed in localization-support#489
+translations/es-ES/content/get-started/quickstart/github-flow.md,rendering error
+translations/es-ES/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud.md,rendering error
+translations/es-ES/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server.md,rendering error
+translations/es-ES/content/get-started/using-git/about-git-rebase.md,Listed in localization-support#489
+translations/es-ES/content/get-started/using-git/about-git-rebase.md,rendering error
+translations/es-ES/content/get-started/using-git/about-git.md,rendering error
+translations/es-ES/content/get-started/using-git/getting-changes-from-a-remote-repository.md,Listed in localization-support#489
+translations/es-ES/content/get-started/using-git/getting-changes-from-a-remote-repository.md,rendering error
+translations/es-ES/content/get-started/using-git/pushing-commits-to-a-remote-repository.md,Listed in localization-support#489
+translations/es-ES/content/get-started/using-git/pushing-commits-to-a-remote-repository.md,rendering error
+translations/es-ES/content/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase.md,Listed in localization-support#489
+translations/es-ES/content/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase.md,rendering error
+translations/es-ES/content/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository.md,rendering error
+translations/es-ES/content/get-started/using-github/github-command-palette.md,Listed in localization-support#489
+translations/es-ES/content/get-started/using-github/github-command-palette.md,rendering error
+translations/es-ES/content/get-started/using-github/github-for-mobile.md,rendering error
+translations/es-ES/content/get-started/using-github/keyboard-shortcuts.md,Listed in localization-support#489
+translations/es-ES/content/get-started/using-github/keyboard-shortcuts.md,rendering error
+translations/es-ES/content/github-cli/github-cli/creating-github-cli-extensions.md,rendering error
+translations/es-ES/content/github-cli/github-cli/github-cli-reference.md,Listed in localization-support#489
+translations/es-ES/content/github-cli/github-cli/github-cli-reference.md,rendering error
+translations/es-ES/content/github/copilot/github-copilot-telemetry-terms.md,rendering error
+translations/es-ES/content/github/copilot/index.md,Listed in localization-support#489
+translations/es-ES/content/github/copilot/index.md,rendering error
+translations/es-ES/content/github/customizing-your-github-workflow/exploring-integrations/about-github-marketplace.md,rendering error
+translations/es-ES/content/github/extending-github/about-webhooks.md,rendering error
+translations/es-ES/content/github/extending-github/getting-started-with-the-api.md,rendering error
+translations/es-ES/content/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line.md,rendering error
+translations/es-ES/content/github/importing-your-projects-to-github/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git.md,rendering error
+translations/es-ES/content/github/index.md,Listed in localization-support#489
+translations/es-ES/content/github/index.md,rendering error
+translations/es-ES/content/github/site-policy/coordinated-disclosure-of-security-vulnerabilities.md,Listed in localization-support#489
+translations/es-ES/content/github/site-policy/coordinated-disclosure-of-security-vulnerabilities.md,rendering error
+translations/es-ES/content/github/site-policy/github-bug-bounty-program-legal-safe-harbor.md,Listed in localization-support#489
+translations/es-ES/content/github/site-policy/github-bug-bounty-program-legal-safe-harbor.md,rendering error
+translations/es-ES/content/github/site-policy/github-data-protection-agreement.md,rendering error
+translations/es-ES/content/github/site-policy/github-terms-for-additional-products-and-features.md,Listed in localization-support#489
+translations/es-ES/content/github/site-policy/github-terms-for-additional-products-and-features.md,rendering error
+translations/es-ES/content/github/site-policy/index.md,Listed in localization-support#489
+translations/es-ES/content/github/site-policy/index.md,rendering error
+translations/es-ES/content/github/working-with-github-support/about-github-premium-support-for-github-enterprise-cloud.md,rendering error
+translations/es-ES/content/github/working-with-github-support/about-github-support.md,Listed in localization-support#489
+translations/es-ES/content/github/working-with-github-support/about-github-support.md,rendering error
+translations/es-ES/content/github/working-with-github-support/github-enterprise-cloud-support.md,Listed in localization-support#489
+translations/es-ES/content/github/working-with-github-support/github-enterprise-cloud-support.md,rendering error
+translations/es-ES/content/github/working-with-github-support/submitting-a-ticket.md,Listed in localization-support#489
+translations/es-ES/content/github/working-with-github-support/submitting-a-ticket.md,rendering error
+translations/es-ES/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.md,Listed in localization-support#489
+translations/es-ES/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.md,rendering error
+translations/es-ES/content/github/writing-on-github/working-with-advanced-formatting/index.md,rendering error
+translations/es-ES/content/github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections.md,rendering error
+translations/es-ES/content/graphql/guides/index.md,rendering error
+translations/es-ES/content/graphql/guides/migrating-graphql-global-node-ids.md,rendering error
+translations/es-ES/content/graphql/overview/breaking-changes.md,Listed in localization-support#489
+translations/es-ES/content/graphql/overview/breaking-changes.md,rendering error
+translations/es-ES/content/index.md,Listed in localization-support#489
+translations/es-ES/content/index.md,rendering error
+translations/es-ES/content/issues/tracking-your-work-with-issues/about-task-lists.md,Listed in localization-support#489
+translations/es-ES/content/issues/tracking-your-work-with-issues/about-task-lists.md,rendering error
+translations/es-ES/content/issues/tracking-your-work-with-issues/creating-an-issue.md,Listed in localization-support#489
+translations/es-ES/content/issues/tracking-your-work-with-issues/creating-an-issue.md,rendering error
+translations/es-ES/content/issues/tracking-your-work-with-issues/deleting-an-issue.md,rendering error
+translations/es-ES/content/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests.md,Listed in localization-support#489
+translations/es-ES/content/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests.md,rendering error
+translations/es-ES/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,Listed in localization-support#489
+translations/es-ES/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
+translations/es-ES/content/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository.md,rendering error
+translations/es-ES/content/issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests.md,rendering error
+translations/es-ES/content/issues/trying-out-the-new-projects-experience/about-projects.md,rendering error
+translations/es-ES/content/issues/trying-out-the-new-projects-experience/automating-projects.md,rendering error
+translations/es-ES/content/issues/trying-out-the-new-projects-experience/best-practices-for-managing-projects.md,rendering error
+translations/es-ES/content/issues/trying-out-the-new-projects-experience/creating-a-project.md,rendering error
+translations/es-ES/content/issues/trying-out-the-new-projects-experience/customizing-your-project-views.md,rendering error
+translations/es-ES/content/issues/trying-out-the-new-projects-experience/managing-access-to-projects.md,rendering error
+translations/es-ES/content/issues/trying-out-the-new-projects-experience/quickstart.md,rendering error
+translations/es-ES/content/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects.md,rendering error
+translations/es-ES/content/organizations/collaborating-with-groups-in-organizations/about-organizations.md,Listed in localization-support#489
+translations/es-ES/content/organizations/collaborating-with-groups-in-organizations/about-organizations.md,rendering error
+translations/es-ES/content/organizations/collaborating-with-groups-in-organizations/about-your-organizations-news-feed.md,rendering error
+translations/es-ES/content/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization.md,rendering error
+translations/es-ES/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/about-two-factor-authentication-and-saml-single-sign-on.md,rendering error
+translations/es-ES/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization.md,rendering error
+translations/es-ES/content/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization.md,rendering error
+translations/es-ES/content/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization.md,Listed in localization-support#489
+translations/es-ES/content/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization.md,rendering error
+translations/es-ES/content/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization.md,rendering error
+translations/es-ES/content/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization.md,rendering error
+translations/es-ES/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,Listed in localization-support#489
+translations/es-ES/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-access-to-your-organizations-apps/adding-github-app-managers-in-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-access-to-your-organizations-apps/removing-github-app-managers-from-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator.md,rendering error
+translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/converting-an-outside-collaborator-to-an-organization-member.md,rendering error
+translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository.md,rendering error
+translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository.md,rendering error
+translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/reinstating-a-former-outside-collaborators-access-to-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization.md,rendering error
+translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization.md,rendering error
+translations/es-ES/content/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities.md,rendering error
+translations/es-ES/content/organizations/managing-membership-in-your-organization/can-i-create-accounts-for-people-in-my-organization.md,rendering error
+translations/es-ES/content/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-membership-in-your-organization/index.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-membership-in-your-organization/index.md,rendering error
+translations/es-ES/content/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-organization-settings/allowing-people-to-delete-issues-in-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights.md,rendering error
+translations/es-ES/content/organizations/managing-organization-settings/converting-an-organization-into-a-user.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-organization-settings/converting-an-organization-into-a-user.md,rendering error
+translations/es-ES/content/organizations/managing-organization-settings/deleting-an-organization-account.md,rendering error
+translations/es-ES/content/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-organization-settings/renaming-an-organization.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-organization-settings/renaming-an-organization.md,rendering error
+translations/es-ES/content/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-peoples-access-to-your-organization-with-roles/index.md,rendering error
+translations/es-ES/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,rendering error
+translations/es-ES/content/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization.md,rendering error
+translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on.md,rendering error
+translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/about-scim.md,rendering error
+translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/index.md,rendering error
+translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization.md,rendering error
+translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management.md,rendering error
+translations/es-ES/content/organizations/migrating-to-improved-organization-permissions/converting-an-admin-team-to-improved-organization-permissions.md,rendering error
+translations/es-ES/content/organizations/migrating-to-improved-organization-permissions/migrating-admin-teams-to-improved-organization-permissions.md,rendering error
+translations/es-ES/content/organizations/organizing-members-into-teams/about-teams.md,rendering error
+translations/es-ES/content/organizations/organizing-members-into-teams/index.md,Listed in localization-support#489
+translations/es-ES/content/organizations/organizing-members-into-teams/index.md,rendering error
+translations/es-ES/content/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team.md,Listed in localization-support#489
+translations/es-ES/content/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team.md,rendering error
+translations/es-ES/content/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group.md,rendering error
+translations/es-ES/content/packages/learn-github-packages/about-permissions-for-github-packages.md,rendering error
+translations/es-ES/content/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility.md,rendering error
+translations/es-ES/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,Listed in localization-support#489
+translations/es-ES/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,rendering error
+translations/es-ES/content/packages/learn-github-packages/installing-a-package.md,rendering error
+translations/es-ES/content/packages/learn-github-packages/introduction-to-github-packages.md,rendering error
+translations/es-ES/content/packages/learn-github-packages/publishing-a-package.md,rendering error
+translations/es-ES/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,rendering error
+translations/es-ES/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,rendering error
+translations/es-ES/content/packages/working-with-a-github-packages-registry/working-with-the-docker-registry.md,rendering error
+translations/es-ES/content/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry.md,rendering error
+translations/es-ES/content/packages/working-with-a-github-packages-registry/working-with-the-npm-registry.md,rendering error
+translations/es-ES/content/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry.md,rendering error
+translations/es-ES/content/packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry.md,rendering error
+translations/es-ES/content/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages.md,Listed in localization-support#489
+translations/es-ES/content/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages.md,rendering error
+translations/es-ES/content/pages/configuring-a-custom-domain-for-your-github-pages-site/index.md,Listed in localization-support#489
+translations/es-ES/content/pages/configuring-a-custom-domain-for-your-github-pages-site/index.md,rendering error
+translations/es-ES/content/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site.md,Listed in localization-support#489
+translations/es-ES/content/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site.md,rendering error
+translations/es-ES/content/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages.md,Listed in localization-support#489
+translations/es-ES/content/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages.md,rendering error
+translations/es-ES/content/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages.md,Listed in localization-support#489
+translations/es-ES/content/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages.md,rendering error
+translations/es-ES/content/pages/getting-started-with-github-pages/about-github-pages.md,Listed in localization-support#489
+translations/es-ES/content/pages/getting-started-with-github-pages/about-github-pages.md,rendering error
+translations/es-ES/content/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site.md,rendering error
+translations/es-ES/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md,rendering error
+translations/es-ES/content/pages/index.md,rendering error
+translations/es-ES/content/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll.md,rendering error
+translations/es-ES/content/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites.md,Listed in localization-support#489
+translations/es-ES/content/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites.md,rendering error
+translations/es-ES/content/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/index.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/index.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/working-with-pre-receive-hooks.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/working-with-pre-receive-hooks.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/getting-started/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/getting-started/index.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/index.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/index.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/index.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/finding-changed-methods-and-functions-in-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/finding-changed-methods-and-functions-in-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/index.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/index.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork.md,rendering error
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/index.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/index.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/troubleshooting-commits/commit-exists-on-github-but-not-in-my-local-clone.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/troubleshooting-commits/commit-exists-on-github-but-not-in-my-local-clone.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/troubleshooting-commits/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/troubleshooting-commits/index.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/commit-branch-and-tag-labels.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/commit-branch-and-tag-labels.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/differences-between-commit-views.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/differences-between-commit-views.md,rendering error
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/index.md,rendering error
+translations/es-ES/content/pull-requests/index.md,Listed in localization-support#489
+translations/es-ES/content/pull-requests/index.md,rendering error
+translations/es-ES/content/repositories/archiving-a-github-repository/archiving-repositories.md,rendering error
+translations/es-ES/content/repositories/archiving-a-github-repository/backing-up-a-repository.md,rendering error
+translations/es-ES/content/repositories/archiving-a-github-repository/referencing-and-citing-content.md,rendering error
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github.md,rendering error
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests.md,Listed in localization-support#489
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests.md,rendering error
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository.md,Listed in localization-support#489
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository.md,rendering error
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-the-automatic-deletion-of-branches.md,Listed in localization-support#489
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-the-automatic-deletion-of-branches.md,rendering error
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/using-a-merge-queue.md,Listed in localization-support#489
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/using-a-merge-queue.md,rendering error
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches.md,Listed in localization-support#489
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches.md,rendering error
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule.md,Listed in localization-support#489
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule.md,rendering error
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks.md,rendering error
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/index.md,rendering error
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch.md,Listed in localization-support#489
+translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch.md,rendering error
+translations/es-ES/content/repositories/creating-and-managing-repositories/about-repositories.md,rendering error
+translations/es-ES/content/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template.md,Listed in localization-support#489
+translations/es-ES/content/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template.md,rendering error
+translations/es-ES/content/repositories/creating-and-managing-repositories/deleting-a-repository.md,rendering error
+translations/es-ES/content/repositories/creating-and-managing-repositories/duplicating-a-repository.md,Listed in localization-support#489
+translations/es-ES/content/repositories/creating-and-managing-repositories/duplicating-a-repository.md,rendering error
+translations/es-ES/content/repositories/creating-and-managing-repositories/restoring-a-deleted-repository.md,Listed in localization-support#489
+translations/es-ES/content/repositories/creating-and-managing-repositories/restoring-a-deleted-repository.md,rendering error
+translations/es-ES/content/repositories/creating-and-managing-repositories/transferring-a-repository.md,rendering error
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files.md,Listed in localization-support#489
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files.md,rendering error
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,Listed in localization-support#489
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,rendering error
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes.md,rendering error
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics.md,rendering error
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository.md,rendering error
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,rendering error
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository.md,Listed in localization-support#489
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository.md,rendering error
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository.md,rendering error
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository.md,Listed in localization-support#489
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository.md,rendering error
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,Listed in localization-support#489
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,rendering error
+translations/es-ES/content/repositories/releasing-projects-on-github/about-releases.md,Listed in localization-support#489
+translations/es-ES/content/repositories/releasing-projects-on-github/about-releases.md,rendering error
+translations/es-ES/content/repositories/releasing-projects-on-github/automatically-generated-release-notes.md,rendering error
+translations/es-ES/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,Listed in localization-support#489
+translations/es-ES/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
+translations/es-ES/content/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors.md,Listed in localization-support#489
+translations/es-ES/content/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors.md,rendering error
+translations/es-ES/content/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository.md,Listed in localization-support#489
+translations/es-ES/content/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository.md,rendering error
+translations/es-ES/content/repositories/working-with-files/managing-files/creating-new-files.md,Listed in localization-support#489
+translations/es-ES/content/repositories/working-with-files/managing-files/creating-new-files.md,rendering error
+translations/es-ES/content/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location.md,Listed in localization-support#489
+translations/es-ES/content/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location.md,rendering error
+translations/es-ES/content/repositories/working-with-files/managing-files/renaming-a-file.md,Listed in localization-support#489
+translations/es-ES/content/repositories/working-with-files/managing-files/renaming-a-file.md,rendering error
+translations/es-ES/content/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage.md,Listed in localization-support#489
+translations/es-ES/content/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage.md,rendering error
+translations/es-ES/content/repositories/working-with-files/using-files/navigating-code-on-github.md,rendering error
+translations/es-ES/content/rest/guides/basics-of-authentication.md,rendering error
+translations/es-ES/content/rest/guides/best-practices-for-integrators.md,rendering error
+translations/es-ES/content/rest/guides/building-a-ci-server.md,rendering error
+translations/es-ES/content/rest/guides/discovering-resources-for-a-user.md,rendering error
+translations/es-ES/content/rest/guides/getting-started-with-the-rest-api.md,rendering error
+translations/es-ES/content/rest/guides/index.md,rendering error
+translations/es-ES/content/rest/guides/rendering-data-as-graphs.md,rendering error
+translations/es-ES/content/rest/guides/traversing-with-pagination.md,rendering error
+translations/es-ES/content/rest/guides/working-with-comments.md,rendering error
+translations/es-ES/content/rest/overview/api-previews.md,rendering error
+translations/es-ES/content/rest/overview/libraries.md,rendering error
+translations/es-ES/content/rest/overview/other-authentication-methods.md,Listed in localization-support#489
+translations/es-ES/content/rest/overview/other-authentication-methods.md,rendering error
+translations/es-ES/content/rest/overview/resources-in-the-rest-api.md,rendering error
+translations/es-ES/content/rest/reference/actions.md,Listed in localization-support#489
+translations/es-ES/content/rest/reference/actions.md,rendering error
+translations/es-ES/content/rest/reference/activity.md,Listed in localization-support#489
+translations/es-ES/content/rest/reference/activity.md,rendering error
+translations/es-ES/content/rest/reference/apps.md,Listed in localization-support#489
+translations/es-ES/content/rest/reference/apps.md,rendering error
+translations/es-ES/content/rest/reference/billing.md,Listed in localization-support#489
+translations/es-ES/content/rest/reference/billing.md,rendering error
+translations/es-ES/content/rest/reference/checks.md,Listed in localization-support#489
+translations/es-ES/content/rest/reference/checks.md,rendering error
+translations/es-ES/content/rest/reference/enterprise-admin.md,Listed in localization-support#489
+translations/es-ES/content/rest/reference/enterprise-admin.md,rendering error
+translations/es-ES/content/rest/reference/gitignore.md,rendering error
+translations/es-ES/content/rest/reference/licenses.md,rendering error
+translations/es-ES/content/rest/reference/migrations.md,rendering error
+translations/es-ES/content/rest/reference/permissions-required-for-github-apps.md,rendering error
+translations/es-ES/content/rest/reference/pulls.md,Listed in localization-support#489
+translations/es-ES/content/rest/reference/pulls.md,rendering error
+translations/es-ES/content/rest/reference/repos.md,Listed in localization-support#489
+translations/es-ES/content/rest/reference/repos.md,rendering error
+translations/es-ES/content/rest/reference/scim.md,rendering error
+translations/es-ES/content/rest/reference/search.md,rendering error
+translations/es-ES/content/rest/reference/secret-scanning.md,rendering error
+translations/es-ES/content/rest/reference/teams.md,rendering error
+translations/es-ES/content/search-github/getting-started-with-searching-on-github/about-searching-on-github.md,rendering error
+translations/es-ES/content/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax.md,rendering error
+translations/es-ES/content/search-github/searching-on-github/searching-code.md,Listed in localization-support#489
+translations/es-ES/content/search-github/searching-on-github/searching-code.md,rendering error
+translations/es-ES/content/search-github/searching-on-github/searching-commits.md,Listed in localization-support#489
+translations/es-ES/content/search-github/searching-on-github/searching-commits.md,rendering error
+translations/es-ES/content/search-github/searching-on-github/searching-discussions.md,rendering error
+translations/es-ES/content/search-github/searching-on-github/searching-for-repositories.md,rendering error
+translations/es-ES/content/search-github/searching-on-github/searching-in-forks.md,Listed in localization-support#489
+translations/es-ES/content/search-github/searching-on-github/searching-in-forks.md,rendering error
+translations/es-ES/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,Listed in localization-support#489
+translations/es-ES/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,rendering error
+translations/es-ES/content/sponsors/getting-started-with-github-sponsors/about-github-sponsors.md,rendering error
+translations/es-ES/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization.md,rendering error
+translations/es-ES/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account.md,rendering error
+translations/es-ES/content/sponsors/receiving-sponsorships-through-github-sponsors/viewing-your-sponsors-and-sponsorships.md,rendering error
+translations/es-ES/content/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor.md,rendering error
+translations/es-ES/data/reusables/package_registry/authenticate-packages.md,Listed in localization-support#489
