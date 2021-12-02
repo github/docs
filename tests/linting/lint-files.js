@@ -1,4 +1,3 @@
-import fs from 'fs'
 import { fileURLToPath } from 'url'
 import path from 'path'
 import slash from 'slash'
@@ -24,6 +23,7 @@ import { supported, next, nextNext, deprecated } from '../../lib/enterprise-serv
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 import semver from 'semver'
+import { getDiffFiles } from '../utils.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
@@ -358,32 +358,12 @@ function getContent(content) {
   return null
 }
 
-// Filter out entries from an array like this:
-//
-//    [
-//      [relativePath, absolutePath],
-//      ...
-// so it's only the files mentioned in the DIFF_FILES environment
-// variable, but only if it's set and present.
+const diffFiles = getDiffFiles()
 
-const diffFiles = []
-// Setting an environment varible called `DIFF_FILES` is optional.
-// But if and only if it's set, we will respect it.
-// And if it set, turn it into a cleaned up Set so it's made available
-// every time we use it.
-// Alternatively, you can put all the files change changed into a
-// text file and do `export DIFF_FILE=files-that-changed.txt`
-if (process.env.DIFF_FILES) {
-  diffFiles.push(...process.env.DIFF_FILES.trim().split(/\s+/g))
-} else if (process.env.DIFF_FILE) {
-  diffFiles.push(...fs.readFileSync(process.env.DIFF_FILE, 'utf-8').trim().split(/\s+/g))
-}
+console.log(`THERE ARE ${diffFiles.length} DIFF FILES`);
 
-console.log('DIFF_FILES:')
-console.log(diffFiles)
-
+// If present, and not empty, leverage it because in most cases it's empty.
 if (diffFiles.length > 0) {
-  // Parse and turn that environment variable string into a set.
   // It's faster to do this once and then re-use over and over in the
   // .filter() later on.
   const only = new Set(
