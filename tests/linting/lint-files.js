@@ -1,3 +1,4 @@
+import fs from 'fs'
 import { fileURLToPath } from 'url'
 import path from 'path'
 import slash from 'slash'
@@ -365,11 +366,23 @@ function getContent(content) {
 // so it's only the files mentioned in the DIFF_FILES environment
 // variable, but only if it's set and present.
 
+const diffFiles = []
 // Setting an environment varible called `DIFF_FILES` is optional.
 // But if and only if it's set, we will respect it.
 // And if it set, turn it into a cleaned up Set so it's made available
 // every time we use it.
+// Alternatively, you can put all the files change changed into a
+// text file and do `export DIFF_FILE=files-that-changed.txt`
 if (process.env.DIFF_FILES) {
+  diffFiles.concat(process.env.DIFF_FILES.trim().split(/\s+/g))
+} else if (process.env.DIFF_FILE) {
+  diffFiles.concat(fs.readFileSync(process.env.DIFF_FILE, 'utf-8').trim().split(/\s+/g))
+}
+
+console.log("DIFF_FILES:")
+console.log(diffFiles);
+
+if (diffFiles.length > 0)
   // Parse and turn that environment variable string into a set.
   // It's faster to do this once and then re-use over and over in the
   // .filter() later on.
@@ -378,7 +391,7 @@ if (process.env.DIFF_FILES) {
     // with quotation marks, strip them.
     // E.g. Turn `"foo" "bar"` into ['foo', 'bar']
     // Note, this assumes no possible file contains a space.
-    process.env.DIFF_FILES.split(/\s+/g).map((name) => {
+    diffFiles.map((name) => {
       if (/^['"]/.test(name) && /['"]$/.test(name)) {
         return name.slice(1, -1)
       }

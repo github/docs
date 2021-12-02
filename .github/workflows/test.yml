@@ -53,13 +53,13 @@ jobs:
           # So that `steps.get_diff_files.outputs.files` becomes
           # a string like `foo.js path/bar.md`
           output: ' '
-          fileOutput: 'json'
 
       - name: Insight into changed files
         run: |
+
+          # Must to do this because the list of files can be HUGE. Especially
+          # in a repo-sync when there are lots of translation files involved.
           echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
-          ls -ltr
-          ls -ltr | grep files
 
       - name: Setup node
         uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
@@ -81,20 +81,10 @@ jobs:
         name: Run build script
         run: npm run build
 
-      - name: Rewrite get_diff_files if we have to
-        id: rewrite_get_diff_files
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
-        with:
-          script: |
-
-            const asString = "${{ steps.get_diff_files.outputs.files }}"
-            const countFiles = (asString.split(/\s+/g) || []).length
-            core.setOutput('files', `There are ${countFiles} files`)
-
       - name: Echo rewrite
         run: echo ${{ steps.rewrite_get_diff_files.outputs.files }}
 
       - name: Run tests
         env:
-          DIFF_FILES: ${{ steps.get_diff_files.outputs.files }}
+          DIFF_FILE: get_diff_files.txt
         run: npm run test tests/${{ matrix.test-group }}/
