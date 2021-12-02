@@ -148,7 +148,7 @@
     "image-size": "^1.0.0",
     "japanese-characters": "^1.1.0",
     "javascript-stringify": "^2.1.0",
-    "jest": "^27.3.1",
+    "jest": "^27.4.3",
     "jest-github-actions-reporter": "^1.0.3",
     "jest-slow-test-reporter": "^1.0.0",
     "linkinator": "^2.16.2",
