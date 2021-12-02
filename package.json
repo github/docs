@@ -24,7 +24,7 @@
     "compression": "^1.7.4",
     "connect-datadog": "0.0.9",
     "connect-slashes": "^1.4.0",
-    "cookie-parser": "^1.4.5",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
     "dayjs": "^1.10.7",
