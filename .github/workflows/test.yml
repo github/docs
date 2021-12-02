@@ -81,9 +81,6 @@ jobs:
         name: Run build script
         run: npm run build
 
-      - name: Echo rewrite
-        run: echo ${{ steps.rewrite_get_diff_files.outputs.files }}
-
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
