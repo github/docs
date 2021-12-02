@@ -3,6 +3,7 @@ title: Use the Git and GitHub starter assignment
 intro: 'You can use the Git & {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.company_short %} fundamentals.'
 versions:
   fpt: '*'
+permissions: Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. For more information on classroom admins, see "[About management of classrooms](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#about-management-of-classrooms)."
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
 shortTitle: Starter assignment
@@ -41,9 +42,8 @@ The Git & {% data variables.product.company_short %} starter assignment is a pre
 Import the starter course into your organization, name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
 
 - [Importing the assignment](#importing-the-assignment)
-- [Naming an assignment](#naming-an-assignment)
+- [Naming the assignment](#naming-the-assignment)
 - [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-- [Choosing an assignment type](#choosing-an-assignment-type)
 - [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
 
 ### Importing the assignment

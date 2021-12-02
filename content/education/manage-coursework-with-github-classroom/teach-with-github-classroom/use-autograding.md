@@ -4,6 +4,7 @@ intro: You can automatically provide feedback on code submissions from your stud
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+permissions: Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. For more information on classroom admins, see "[About management of classrooms](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#about-management-of-classrooms)."
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers

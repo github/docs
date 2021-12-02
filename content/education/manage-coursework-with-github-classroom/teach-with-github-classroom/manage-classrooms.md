@@ -1,7 +1,7 @@
 ---
 title: Manage classrooms
 intro: 'You can create and manage a classroom for each course that you teach using {% data variables.product.prodname_classroom %}.'
-permissions: Organization owners can manage a classroom for an organization.
+permissions: Organization owners who are admins for a classroom can manage the classroom for an organization. For more information on classroom admins, see "[About management of classrooms](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#about-management-of-classrooms)."
 versions:
   fpt: '*'
 redirect_from:
