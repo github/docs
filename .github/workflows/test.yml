@@ -52,12 +52,12 @@ jobs:
         with:
           # So that `steps.get_diff_files.outputs.files` becomes
           # a string like `foo.js path/bar.md`
-          # output: ' '
+          output: ' '
           fileOutput: 'json'
 
       - name: Insight into changed files
         run: |
-          echo ${{ steps.get_diff_files.outputs.files }} > get_diff_files.txt
+          echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
           ls -ltr
           ls -ltr | grep files
 
