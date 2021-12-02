@@ -10,6 +10,7 @@ translations/pt-BR/content/actions/advanced-guides/storing-workflow-data-as-arti
 translations/pt-BR/content/actions/automating-builds-and-tests/building-and-testing-nodejs.md,rendering error
 translations/pt-BR/content/actions/automating-builds-and-tests/building-and-testing-python.md,rendering error
 translations/pt-BR/content/actions/creating-actions/creating-a-javascript-action.md,rendering error
+translations/pt-BR/content/actions/creating-actions/metadata-syntax-for-github-actions.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform.md,rendering error
@@ -23,6 +24,8 @@ translations/pt-BR/content/actions/hosting-your-own-runners/removing-self-hosted
 translations/pt-BR/content/actions/hosting-your-own-runners/using-a-proxy-server-with-self-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,Listed in localization-support#489
 translations/pt-BR/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,rendering error
+translations/pt-BR/content/actions/learn-github-actions/contexts.md,rendering error
+translations/pt-BR/content/actions/learn-github-actions/environment-variables.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/expressions.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/managing-complex-workflows.md,Listed in localization-support#489
 translations/pt-BR/content/actions/learn-github-actions/managing-complex-workflows.md,rendering error
@@ -67,6 +70,7 @@ translations/pt-BR/content/admin/github-actions/managing-access-to-actions-from-
 translations/pt-BR/content/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect.md,rendering error
 translations/pt-BR/content/admin/github-actions/using-github-actions-in-github-ae/index.md,rendering error
 translations/pt-BR/content/admin/guides.md,rendering error
+translations/pt-BR/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-azure.md,rendering error
 translations/pt-BR/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise.md,rendering error
@@ -106,9 +110,11 @@ translations/pt-BR/content/code-security/supply-chain-security/understanding-you
 translations/pt-BR/content/codespaces/codespaces-reference/disaster-recovery-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/index.md,rendering error
+translations/pt-BR/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/prebuilding-codespaces-for-your-project.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces.md,rendering error
+translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/creating-a-codespace.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,rendering error
@@ -196,7 +202,6 @@ translations/pt-BR/content/issues/trying-out-the-new-projects-experience/customi
 translations/pt-BR/content/issues/trying-out-the-new-projects-experience/managing-access-to-projects.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,Listed in localization-support#489
 translations/pt-BR/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,parsing error
-translations/pt-BR/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,rendering error
@@ -241,7 +246,6 @@ translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-f
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,parsing error
-translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,rendering error
