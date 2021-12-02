@@ -191,6 +191,7 @@ translations/es-ES/content/admin/github-actions/using-github-actions-in-github-a
 translations/es-ES/content/admin/guides.md,Listed in localization-support#489
 translations/es-ES/content/admin/guides.md,rendering error
 translations/es-ES/content/admin/index.md,rendering error
+translations/es-ES/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-azure.md,rendering error
 translations/es-ES/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-xenserver.md,Listed in localization-support#489
 translations/es-ES/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-xenserver.md,rendering error
 translations/es-ES/content/admin/overview/about-enterprise-accounts.md,Listed in localization-support#489
@@ -369,6 +370,7 @@ translations/es-ES/content/codespaces/customizing-your-codespace/personalizing-c
 translations/es-ES/content/codespaces/customizing-your-codespace/prebuilding-codespaces-for-your-project.md,rendering error
 translations/es-ES/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces.md,rendering error
 translations/es-ES/content/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces.md,rendering error
+translations/es-ES/content/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces.md,rendering error
 translations/es-ES/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,rendering error
 translations/es-ES/content/codespaces/developing-in-codespaces/creating-a-codespace.md,Listed in localization-support#489
