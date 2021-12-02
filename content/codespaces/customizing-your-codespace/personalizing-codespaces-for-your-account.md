@@ -23,7 +23,7 @@ shortTitle: Personalize your codespaces
 When using any development environment, customizing the settings and tools to your preferences and workflows is an important step. {% data variables.product.prodname_codespaces %} allows for two main ways of personalizing your codespaces.
 
 - [Settings Sync](#settings-sync) - You can use and share {% data variables.product.prodname_vscode %} settings between {% data variables.product.prodname_codespaces %} and other instances of {% data variables.product.prodname_vscode %}.
-- [Dotfiles](#dotfiles) – You can use a public `dotfiles` repository to specify scripts, shell preferences, and other configurations.
+- [Dotfiles](#dotfiles) – You can use a `dotfiles` repository to specify scripts, shell preferences, and other configurations.
 
 {% data variables.product.prodname_codespaces %} personalization applies to any codespace you create.
 
@@ -33,7 +33,7 @@ Project maintainers can also define a default configuration that applies to ever
 
 Settings Sync allows you to share configurations such as settings, keyboard shortcuts, snippets, extensions, and UI state across machines and instances of {% data variables.product.prodname_vscode %}.
 
-To enable Settings Sync, in the bottom-left corner of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Turn on Settings Sync…**. From the dialog, select which settings you'd like to sync.
+To enable Settings Sync, in the bottom-left corner of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Turn on Settings Sync…**. In the dialog box, select the settings you'd like to sync.
 
 ![Setting Sync option in manage menu](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
 
@@ -80,9 +80,9 @@ You can use your selected dotfiles repository to personalize your {% data variab
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
-1. Under "Dotfiles", select "Automatically install dotfiles" so that {% data variables.product.prodname_codespaces %} automatically installs your dotfiles into every new codespace you create.
+1. Under "Dotfiles", select **Automatically install dotfiles** so that {% data variables.product.prodname_codespaces %} automatically installs your dotfiles into every new codespace you create.
    ![Installing dotfiles](/assets/images/help/codespaces/install-custom-dotfiles.png)
-2. Once "Automatically install dotfiles" is selected, select the repo you would like to install dotfiles from.
+2. Choose the repository you want to install dotfiles from.
    ![Selecting a dotfiles repo](/assets/images/help/codespaces/select-dotfiles-repo.png)
 
 You can add further script, preferences, configuration files to your dotfiles repository or edit existing files whenever you want. Changes to settings will only be picked up by new codespaces.
