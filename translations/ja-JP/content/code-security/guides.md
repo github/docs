@@ -1,6 +1,6 @@
 ---
-title: コードセキュリティのためのガイド
-intro: 'コードのセキュリティの改善を{% data variables.product.product_name %}が支援する様々な方法について学んでください。'
+title: Guides for code security
+intro: 'Learn about the different ways that {% data variables.product.product_name %} can help you improve your code''s security.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:
@@ -78,3 +78,4 @@ includeGuides:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
 ---
+

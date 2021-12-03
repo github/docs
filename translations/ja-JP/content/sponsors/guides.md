@@ -1,7 +1,7 @@
 ---
-title: GitHub Sponsors ガイド
-shortTitle: ガイド
-intro: '{% data variables.product.prodname_sponsors %} を最大限に活用する方法を学びましょう。'
+title: GitHub Sponsors guides
+shortTitle: Guides
+intro: 'Learn how to make the most of {% data variables.product.prodname_sponsors %}.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:
@@ -16,3 +16,4 @@ includeGuides:
   - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization
   - /sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
 ---
+

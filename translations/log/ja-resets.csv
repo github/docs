@@ -20,12 +20,16 @@ translations/ja-JP/content/actions/creating-actions/about-custom-actions.md,rend
 translations/ja-JP/content/actions/creating-actions/creating-a-javascript-action.md,rendering error
 translations/ja-JP/content/actions/creating-actions/metadata-syntax-for-github-actions.md,rendering error
 translations/ja-JP/content/actions/creating-actions/publishing-actions-in-github-marketplace.md,rendering error
+translations/ja-JP/content/actions/creating-actions/releasing-and-maintaining-actions.md,rendering error
 translations/ja-JP/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services.md,rendering error
 translations/ja-JP/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure.md,rendering error
 translations/ja-JP/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform.md,rendering error
 translations/ja-JP/content/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows.md,rendering error
+translations/ja-JP/content/actions/deployment/targeting-different-environments/using-environments-for-deployment.md,rendering error
 translations/ja-JP/content/actions/guides.md,rendering error
 translations/ja-JP/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
+translations/ja-JP/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
+translations/ja-JP/content/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups.md,rendering error
 translations/ja-JP/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,Listed in localization-support#489
 translations/ja-JP/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
 translations/ja-JP/content/actions/hosting-your-own-runners/removing-self-hosted-runners.md,rendering error
@@ -165,10 +169,12 @@ translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scannin
 translations/ja-JP/content/code-security/getting-started/github-security-features.md,rendering error
 translations/ja-JP/content/code-security/getting-started/securing-your-organization.md,rendering error
 translations/ja-JP/content/code-security/getting-started/securing-your-repository.md,rendering error
+translations/ja-JP/content/code-security/guides.md,rendering error
 translations/ja-JP/content/code-security/index.md,rendering error
 translations/ja-JP/content/code-security/secret-scanning/about-secret-scanning.md,rendering error
 translations/ja-JP/content/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories.md,rendering error
 translations/ja-JP/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,rendering error
+translations/ja-JP/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,rendering error
 translations/ja-JP/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/ja-JP/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions.md,rendering error
 translations/ja-JP/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot.md,rendering error
@@ -197,6 +203,7 @@ translations/ja-JP/content/codespaces/developing-in-codespaces/developing-in-a-c
 translations/ja-JP/content/codespaces/developing-in-codespaces/index.md,rendering error
 translations/ja-JP/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,rendering error
 translations/ja-JP/content/codespaces/developing-in-codespaces/using-source-control-in-your-codespace.md,rendering error
+translations/ja-JP/content/codespaces/guides.md,rendering error
 translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization.md,rendering error
 translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization.md,rendering error
 translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces.md,rendering error
@@ -230,6 +237,7 @@ translations/ja-JP/content/developers/apps/building-oauth-apps/scopes-for-oauth-
 translations/ja-JP/content/developers/apps/getting-started-with-apps/about-apps.md,rendering error
 translations/ja-JP/content/developers/apps/getting-started-with-apps/activating-optional-features-for-apps.md,rendering error
 translations/ja-JP/content/developers/apps/getting-started-with-apps/migrating-oauth-apps-to-github-apps.md,rendering error
+translations/ja-JP/content/developers/apps/guides/using-content-attachments.md,rendering error
 translations/ja-JP/content/developers/github-marketplace/github-marketplace-overview/about-github-marketplace.md,rendering error
 translations/ja-JP/content/developers/github-marketplace/github-marketplace-overview/index.md,rendering error
 translations/ja-JP/content/developers/github-marketplace/selling-your-app-on-github-marketplace/pricing-plans-for-github-marketplace-apps.md,rendering error
@@ -237,6 +245,7 @@ translations/ja-JP/content/developers/github-marketplace/using-the-github-market
 translations/ja-JP/content/developers/overview/managing-deploy-keys.md,rendering error
 translations/ja-JP/content/developers/overview/secret-scanning-partner-program.md,rendering error
 translations/ja-JP/content/developers/webhooks-and-events/webhooks/about-webhooks.md,rendering error
+translations/ja-JP/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/ja-JP/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-github-campus-program.md,rendering error
 translations/ja-JP/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/index.md,rendering error
 translations/ja-JP/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,rendering error
@@ -268,6 +277,7 @@ translations/ja-JP/content/github/writing-on-github/working-with-advanced-format
 translations/ja-JP/content/github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections.md,rendering error
 translations/ja-JP/content/graphql/guides/index.md,rendering error
 translations/ja-JP/content/graphql/guides/migrating-graphql-global-node-ids.md,rendering error
+translations/ja-JP/content/issues/guides.md,rendering error
 translations/ja-JP/content/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project.md,rendering error
 translations/ja-JP/content/issues/trying-out-the-new-projects-experience/customizing-your-project-views.md,rendering error
 translations/ja-JP/content/issues/trying-out-the-new-projects-experience/managing-access-to-projects.md,rendering error
@@ -341,6 +351,7 @@ translations/ja-JP/content/search-github/searching-on-github/searching-discussio
 translations/ja-JP/content/search-github/searching-on-github/searching-for-repositories.md,rendering error
 translations/ja-JP/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,rendering error
 translations/ja-JP/content/sponsors/getting-started-with-github-sponsors/about-github-sponsors.md,rendering error
+translations/ja-JP/content/sponsors/guides.md,rendering error
 translations/ja-JP/content/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors.md,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/2-20/15.yml,Listed in localization-support#489
 translations/ja-JP/data/release-notes/enterprise-server/2-21/6.yml,Listed in localization-support#489
