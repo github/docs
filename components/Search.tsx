@@ -436,7 +436,7 @@ function ShowSearchResults({
               onClickOutside={() => closeSearch()}
               aria-labelledby="title"
               sx={
-                isHeaderSearch && {
+                (isHeaderSearch && {
                   background: 'none',
                   boxShadow: 'none',
                   position: 'static',
@@ -445,7 +445,8 @@ function ShowSearchResults({
                   maxWidth: '96%',
                   margin: '1.5em 2em 0 0.5em',
                   scrollbarWidth: 'none',
-                }
+                }) ||
+                {}
               }
             >
               {ActionListResults}
