@@ -26,7 +26,7 @@ describe('developer.github.com redirects', () => {
     .slice(0, pathsToCheck)
 
   test.each(paths)('responds with 200 on %p', async (path) => {
-    const { statusCode } = await get(path, { followRedirects: true })
+    const { statusCode } = await get(path, { followAllRedirects: true })
     expect(statusCode).toEqual(200)
   })
 })
