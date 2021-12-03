@@ -566,15 +566,6 @@ describe('Page class', () => {
     })
   })
 
-  test('fixes translated frontmatter that includes verdadero', async () => {
-    const page = await Page.init({
-      relativePath: 'article-with-mislocalized-frontmatter.md',
-      basePath: path.join(__dirname, '../fixtures'),
-      languageCode: 'ja',
-    })
-    expect(page.mapTopic).toBe(true)
-  })
-
   describe('page.versions frontmatter', () => {
     // Docs Engineering issue: 972
     test.skip('pages that apply to older enterprise versions', async () => {

@@ -1,1 +1,1 @@
-The audit log retains Git events for seven days. This is shorter than other audit log events, which can be retained for up to seven months.
+La bitácora de auditoría retiene eventos de Git por siete días. Esto es más corto que otros eventos de bitácora de auditoría, los cuales se pueden retener por hasta siete meses.

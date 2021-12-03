@@ -2,7 +2,7 @@
 title: コードセキュリティのためのガイド
 intro: 'コードのセキュリティの改善を{% data variables.product.product_name %}が支援する様々な方法について学んでください。'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'
@@ -78,4 +78,3 @@ includeGuides:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
 ---
-

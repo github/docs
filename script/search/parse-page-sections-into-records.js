@@ -9,7 +9,7 @@ const ignoredHeadingSlugs = ['in-this-article', 'further-reading', 'prerequisite
 
 export default function parsePageSectionsIntoRecords(page) {
   const { href, $, languageCode } = page
-  const title = $('h1').text().trim()
+  const title = $('h1').first().text().trim()
   const breadcrumbsArray = $('[data-search=breadcrumbs] nav.breadcrumbs a')
     .map((i, el) => {
       return $(el).text().trim().replace('/', '').replace(/\s+/g, ' ')
