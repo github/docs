@@ -1,4 +1,4 @@
-import { head } from '../helpers/supertest.js'
+import { get } from '../helpers/supertest.js'
 import readJsonFile from '../../lib/read-json-file.js'
 import { jest } from '@jest/globals'
 
