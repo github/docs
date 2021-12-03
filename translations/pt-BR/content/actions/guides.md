@@ -1,6 +1,6 @@
 ---
-title: Guias para o GitHub Actions
-intro: 'Estes guias para {% data variables.product.prodname_actions %} incluem casos de uso específicos e exemplos para ajudar você a configurar fluxos de trabalho.'
+title: Guides for GitHub Actions
+intro: 'These guides for {% data variables.product.prodname_actions %} include specific use cases and examples to help you configure workflows.'
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
@@ -13,6 +13,7 @@ learningTracks:
   - continuous_integration
   - continuous_deployment
   - deploy_to_the_cloud
+  - '{% ifversion ghec or ghes or ghae %}adopting_github_actions_for_your_enterprise{% endif %}'
   - hosting_your_own_runners
   - create_actions
 includeGuides:

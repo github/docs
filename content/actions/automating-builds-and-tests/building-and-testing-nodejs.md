@@ -288,7 +288,7 @@ steps:
 - run: pnpm test
 ```
 
-To cache dependencies, you must have a `package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml` file in the root of the repository. If you need more flexible customization, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>".
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>".
 
 ## Building and testing your code
 

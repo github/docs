@@ -16,7 +16,6 @@ topics:
 {% note %}
 
 **Notes:**
-- To upgrade from {% data variables.product.prodname_enterprise %} 11.10.348 through {% data variables.product.current-340-version %}, you must first migrate to {% data variables.product.prodname_enterprise %} 2.1.23. For more information, see "[Migrating from {% data variables.product.prodname_enterprise %} 11.10.x to 2.1.23](/enterprise/{{ currentVersion }}/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23)."
 - Upgrade packages are available at [enterprise.github.com](https://enterprise.github.com/releases) for supported versions. Verify the availability of the upgrade packages you will need to complete the upgrade. If a package is not available, contact {% data variables.contact.contact_ent_support %} for assistance.
 - If you're using {% data variables.product.prodname_ghe_server %} Clustering, see "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)" in the {% data variables.product.prodname_ghe_server %} Clustering Guide for specific instructions unique to clustering.
 -   The release notes for {% data variables.product.prodname_ghe_server %} provide a comprehensive list of new features for every version of {% data variables.product.prodname_ghe_server %}. For more information, see the [releases page](https://enterprise.github.com/releases).

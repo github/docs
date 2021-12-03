@@ -29,8 +29,8 @@ You can indicate emphasis with bold, italic, or strikethrough text in comment fi
 
 | Style | Syntax | Keyboard shortcut | Example | Output |
 | --- | --- | --- | --- | --- |
-| Bold | `** **` or `__ __` | command/control + b | `**This is bold text**` | **This is bold text** |
-| Italic | `* *` or `_ _` | command/control + i | `*This text is italicized*` | *This text is italicized* |
+| Bold | `** **` or `__ __`| command/control + b | `**This is bold text**` | **This is bold text** |
+| Italic | `* *` or `_ _`     | command/control + i | `*This text is italicized*` | *This text is italicized* |
 | Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
 | Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
 | All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
@@ -134,6 +134,18 @@ Here are some examples for using relative links to display an image.
 
 For more information, see "[Relative Links](#relative-links)."
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
+### Specifying the theme an image is shown to
+
+You can specify the theme an image is displayed to by appending `#gh-dark-mode-only` or `#gh-light-mode-only` to the end of an image URL, in Markdown.
+
+We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
+
+| Context | URL |
+|--------|--------|
+| Dark Theme | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
+| Light Theme | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)` |
+{% endif %}
 
 ## Lists
 

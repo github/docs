@@ -77,7 +77,8 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions) | Contains organization-level configuration activities for secret scanning for new repositories created in the organization. {% ifversion fpt or ghec %}
 | [`sponsors`](#sponsors-category-actions) | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}
 | [`team`](#team-category-actions) | Contains all activities related to teams in your organization.
-| [`team_discussions`](#team_discussions-category-actions) | Contains activities related to managing team discussions for an organization.
+| [`team_discussions`](#team_discussions-category-actions) | Contains activities related to managing team discussions for an organization.{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
+| [`workflows`](#workflows-category-actions) | Contains activities related to {% data variables.product.prodname_actions %} workflows.{% endif %}
 
 You can search for specific sets of actions using these terms. For example:
 
@@ -743,10 +744,11 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `disable` | Triggered when an organization owner disables team discussions for an organization. For more information, see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)."
 | `enable` | Triggered when an organization owner enables team discussions for an organization.
 
+{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 ### `workflows` category actions
 
 {% data reusables.actions.actions-audit-events-workflow %}
-
+{% endif %}
 ## Further reading
 
 - "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5146 %}

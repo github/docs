@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
 import copyCode from 'components/lib/copy-code'
-import displayToolSpecificContent from 'components/lib/display-tool-specific-content'
 import localization from 'components/lib/localization'
 import wrapCodeTerms from 'components/lib/wrap-code-terms'
 
@@ -40,7 +39,6 @@ import { useEffect } from 'react'
 
 function initiateArticleScripts() {
   copyCode()
-  displayToolSpecificContent()
   localization()
   wrapCodeTerms()
 }

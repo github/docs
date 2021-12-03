@@ -174,6 +174,6 @@ function getExampleParamValue(name, schema) {
     case 'array':
       return [getExampleParamValue(name, schema.items)]
   }
-  
+
   throw new Error(`Unknown data type in schema:, ${JSON.stringify(schema, null, 2)}`)
 }

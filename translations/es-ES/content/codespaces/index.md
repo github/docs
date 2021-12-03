@@ -1,7 +1,7 @@
 ---
-title: Documentación de Codespaces de GitHub
-shortTitle: Acerca de GitHub Codespaces
-intro: 'Crea un codespace o comienza a desarrollar en un ambiente de desarrollo seguro, configurable y dedicado que funciona donde y como tu quieras.'
+title: GitHub Codespaces Documentation
+shortTitle: GitHub Codespaces
+intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
 introLinks:
   overview: /codespaces/overview
   quickstart: /codespaces/getting-started/quickstart
@@ -11,7 +11,7 @@ featuredLinks:
     - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
     - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
     - /codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces
-    - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces
+    - /codespaces/developing-in-codespaces/codespaces-lifecycle
   popular:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces

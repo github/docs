@@ -7347,6 +7347,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requiredStatusChecks",
+          "description": "<p>List of required status checks that must pass for commits to be accepted to matching branches.</p>",
+          "type": "[RequiredStatusCheckDescription!]",
+          "id": "requiredstatuscheckdescription",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#requiredstatuscheckdescription"
+        },
+        {
           "name": "requiresApprovingReviews",
           "description": "<p>Are approving reviews required to update matching branches.</p>",
           "type": "Boolean!",
@@ -47034,6 +47042,31 @@
       ]
     },
     {
+      "name": "RequiredStatusCheckDescription",
+      "kind": "objects",
+      "id": "requiredstatuscheckdescription",
+      "href": "/graphql/reference/objects#requiredstatuscheckdescription",
+      "description": "<p>Represents a required status check for a protected branch, but not any specific run of that check.</p>",
+      "fields": [
+        {
+          "name": "app",
+          "description": "<p>The App that must provide this status in order for it to be accepted.</p>",
+          "type": "App",
+          "id": "app",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#app"
+        },
+        {
+          "name": "context",
+          "description": "<p>The name of this status.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "RestrictedContribution",
       "kind": "objects",
       "id": "restrictedcontribution",
@@ -64752,6 +64785,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requiredStatusChecks",
+          "description": "<p>The list of required status checks.</p>",
+          "type": "[RequiredStatusCheckInput!]",
+          "id": "requiredstatuscheckinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requiredstatuscheckinput"
+        },
+        {
           "name": "requiresApprovingReviews",
           "description": "<p>Are approving reviews required to update matching branches.</p>",
           "type": "Boolean",
@@ -68318,6 +68359,31 @@
       ]
     },
     {
+      "name": "RequiredStatusCheckInput",
+      "kind": "inputObjects",
+      "id": "requiredstatuscheckinput",
+      "href": "/graphql/reference/input-objects#requiredstatuscheckinput",
+      "description": "<p>Specifies the attributes for a new or updated required status check.</p>",
+      "inputFields": [
+        {
+          "name": "appId",
+          "description": "<p>The ID of the App that must set the status in order for it to be accepted.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "context",
+          "description": "<p>Status check context that must pass for commits to be accepted to the matching branch.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "RerequestCheckSuiteInput",
       "kind": "inputObjects",
       "id": "rerequestchecksuiteinput",
@@ -69012,6 +69078,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>The list of required status checks.</p>",
+          "type": "[RequiredStatusCheckInput!]",
+          "id": "requiredstatuscheckinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requiredstatuscheckinput"
         },
         {
           "name": "requiresApprovingReviews",
