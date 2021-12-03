@@ -1,6 +1,6 @@
 ---
-title: 关于 AE 托管的运行器
-intro: '{% data variables.product.prodname_ghe_managed %} 提供可定制和安全强化的托管虚拟机，以运行 {% data variables.product.prodname_actions %} 工作流程。 您可以选择硬件，自带机器映像，并启用 IP 地址以与您的 {% data variables.actions.hosted_runner %} 联网。'
+title: About AE hosted runners
+intro: '{% data variables.product.prodname_ghe_managed %} offers customizable and security hardened hosted virtual machines to run {% data variables.product.prodname_actions %} workflows. You can select the hardware, bring your own machine image, and enable an IP address for networking with your {% data variables.actions.hosted_runner %}.'
 versions:
   ghae: '*'
 ---
@@ -8,98 +8,98 @@ versions:
 {% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.ae-beta %}
 
-## 关于 {% data variables.actions.hosted_runner %}
+## About {% data variables.actions.hosted_runner %}s
 
-{% data variables.actions.hosted_runner %} 是由安装了 {% data variables.product.prodname_dotcom %} 运行器服务的 {% data variables.product.prodname_actions %} 管理的虚拟机。 {% data variables.actions.hosted_runner %} 专供您的企业使用，您可以从一系列硬件和软件选项中进行选择。 默认情况下， {% data variables.actions.hosted_runner %} 完全由 {% data variables.product.company_short %} 进行管理和自动缩放，以最大限度地提高性能，同时最大限度地降低成本。{% ifversion ghae-next %} 您可以选择性配置此自动缩放的参数，以进一步降低您的成本。{% endif %}
+An {% data variables.actions.hosted_runner %} is a virtual machine managed by {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_actions %} runner service installed. {% data variables.actions.hosted_runner %}s are dedicated to your enterprise, and you can choose from a range of hardware and software options. By default, {% data variables.actions.hosted_runner %}s are fully managed and auto-scaled by {% data variables.product.company_short %} to maximize performance while minimizing costs.{% ifversion ghae-next %} You can optionally configure the parameters of this auto-scaling to reduce your cost even more.{% endif %}
 
-{% data variables.product.prodname_ghe_managed %} 允许您使用 Ubuntu 或 Windows 映像创建和自定义 {% data variables.actions.hosted_runner %}；您可以选择您想要的机器大小，并选择性为 {% data variables.actions.hosted_runner %} 配置固定的公共 IP 范围。
+{% data variables.product.prodname_ghe_managed %} lets you create and customize {% data variables.actions.hosted_runner %}s using Ubuntu or Windows images; you can select the size of machine you want and optionally configure a fixed public IP range for your {% data variables.actions.hosted_runner %}s.
 
-每个工作流程作业都是在 {% data variables.actions.hosted_runner %} 的新实例中执行，您可以直接在虚拟机上或 Docker 容器中运行工作流程。 作业中的所有步骤都在同一实例中执行，允许该作业中的操作使用 {% data variables.actions.hosted_runner %} 的文件系统共享信息。
+Each workflow job is executed in a fresh instance of the {% data variables.actions.hosted_runner %}, and you can run workflows directly on the virtual machine or in a Docker container. All steps in the job execute in the same instance, allowing the actions in that job to share information using the {% data variables.actions.hosted_runner %}'s filesystem.
 
-要将 {% data variables.actions.hosted_runner %} 添加到您的组织或企业，请参阅[“添加 {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/adding-ae-hosted-runners)”。
+To add {% data variables.actions.hosted_runner %}s to your organization or enterprise, see ["Adding {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/adding-ae-hosted-runners)."
 
-## {% data variables.actions.hosted_runner %} 的资源池分配
+## Pool assignments for {% data variables.actions.hosted_runner %}s
 
-您的 {% data variables.actions.hosted_runner %} 被分配到与您的 {% data variables.product.prodname_ghe_managed %} 实例相同的资源池。 没有其他客户可以访问此资源池，因此 {% data variables.actions.hosted_runner %}s 不与任何其他客户共享。
+Your {% data variables.actions.hosted_runner %}s are allocated to the same pool as your {% data variables.product.prodname_ghe_managed %} instance. No other customers have access to this pool, and as a result, {% data variables.actions.hosted_runner %}s are not shared with any other customers.
 
-## 管理 {% data variables.actions.hosted_runner %}
+## Managing your {% data variables.actions.hosted_runner %}s
 
-在 {% data variables.actions.hosted_runner %} 测试期间，您可以联系 {% data variables.product.prodname_dotcom %} 支持来管理您的 {% data variables.actions.hosted_runner %}。 例如，{% data variables.product.prodname_dotcom %} 支持可以帮助您新增 {% data variables.actions.hosted_runner %}、分配标签，或者将 {% data variables.actions.hosted_runner %} 移动到另一个组。
+During the {% data variables.actions.hosted_runner %} beta, you can manage your {% data variables.actions.hosted_runner %}s by contacting {% data variables.product.prodname_dotcom %} support. For example, {% data variables.product.prodname_dotcom %} support can assist you with adding a new {% data variables.actions.hosted_runner %}, assigning labels, or moving a {% data variables.actions.hosted_runner %} to a different group.
 
-## 计费
+## Billing
 
-测试结束后，计费使用将包括您的 AE 托管运行器集中活动实例的全时运行时间。 这包括：
-- 作业时间 - 运行 Actions 作业所用的分钟数。
-- 管理 - 重新映像机器{% ifversion ghae-next %} 所用的分钟数，以及因所需的自动扩展行为而产生的任何空闲时间。{% endif %}
+Once the beta ends, billed usage will include the full uptime of active instances in your AE hosted runner sets. This includes:
+- Job time - minutes spent running Actions job.
+- Management - minutes spent re-imaging machines{% ifversion ghae-next %} and any idle time created as a result of desired auto-scale behavior{% endif %}.
 
-定价将与核心线性扩展。 例如，4 核价格将是 2 核的两倍。 Windows 虚拟机的定价将高于 Linux 虚拟机。
+Pricing will scale linearly with cores. For example, 4 cores will be twice the price of 2 cores. Windows VMs will be priced higher than Linux VMs.
 
-## 硬件规格
+## Hardware specifications
 
-{% data variables.actions.hosted_runner %} 可用于 Microsoft Azure 中托管的一系列虚拟机。 根据地区供应情况，您可以从 `Standard_Das_v4`、`Standard_DS_v2`、`Standard_Fs_v2 系列`中选择。 某些地区还包含基于 `Standard_NCs_v3` 的 GPU 运行器。
+{% data variables.actions.hosted_runner %}s are available on a range of virtual machines hosted in Microsoft Azure. Depending on regional availability, you can choose from `Standard_Das_v4`, `Standard_DS_v2`, `Standard_Fs_v2 series`. Certain regions also include GPU runners based on `Standard_NCs_v3`.
 
-有关这些 Azure 机器资源的更多信息，请参阅 Microsoft Azure 文档中的“[Azure 中虚拟机的大小](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes)”。
+For more information about these Azure machine resources, see "[Sizes for virtual machines in Azure](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes)" in the Microsoft Azure documentation.
 
-要确定哪个运行器执行了作业，您可以查看工作流程日志。 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
+To determine which runner executed a job, you can review the workflow logs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-## 软件规格
+## Software specifications
 
-您可以将 {% data variables.actions.hosted_runner %} 与标准操作系统映像一起使用，也可以添加您创建的映像。
+You can use {% data variables.actions.hosted_runner %}s with standard operating system images, or you can add images that you've created.
 
-### 默认操作系统映像
+### Default operating system images
 
-这些映像仅包括标准操作系统工具：
+These images only include the standard operating system tools:
 
 - Ubuntu 18.04 LTS (Canonical)
 - Ubuntu 16.04 LTS (Canonical)
 - Windows Server 2019 (Microsoft)
 - Windows Server 2016 (Microsoft)
 
-### 自定义操作系统映像
+### Custom operating system images
 
-您可以在 Azure 中创建自己的操作系统映像，并将它们作为 {% data variables.actions.hosted_runner %} 添加到 {% data variables.product.prodname_ghe_managed %} 中。 更多信息请参阅“[使用自定义映像添加 {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/adding-ae-hosted-runners#adding-an-ae-hosted-runner-with-a-custom-image)”。
+You can create your own OS images in Azure and have them added to {% data variables.product.prodname_ghe_managed %} as {% data variables.actions.hosted_runner %}s. For more information, see "[Adding an {% data variables.actions.hosted_runner %} with a custom image"](/actions/using-github-hosted-runners/adding-ae-hosted-runners#adding-an-ae-hosted-runner-with-a-custom-image).
 
-## 网络规范
+## Network specifications
 
-您可以选择性为您的 {% data variables.actions.hosted_runner %} 启用固定静态公共 IP 地址。 如果启用，实例中的所有 {% data variables.actions.hosted_runner %} 将共享 2 到 4 个 IP 地址的范围，并将使用这些地址上的端口进行通信。
+You can optionally enable a fixed static public IP address for your {% data variables.actions.hosted_runner %}s. If enabled, all {% data variables.actions.hosted_runner %}s in your instance will share a range of 2 to 4 IP addresses, and will communicate using ports on those addresses.
 
-如果您不启用静态公共 IP 地址，则 {% data variables.actions.hosted_runner %} 随后将与 Azure 数据中心拥有相同的 IP 地址范围。 入站 ICMP 数据包被阻止，因此 `ping` 或 `traceroute` 命令无法按预期工作。
+If you don't enable static public IP addresses, then your {% data variables.actions.hosted_runner %}s will subsequently have the same IP address ranges as the Azure datacenters. Inbound ICMP packets are blocked, so `ping` or `traceroute` commands are not expected to work.
 
-要获取 {% data variables.product.prodname_actions %} 用于 {% data variables.actions.hosted_runner %} 的 IP 地址范围列表，您可以使用 {% data variables.product.prodname_dotcom %} REST API。 更多信息请参阅“[获取 GitHub 元信息](/rest/reference/meta#get-github-meta-information)”端点响应中的 `actions` 键。 如果需要一个允许列表来阻止未经授权访问您的内部资源，您可以使用此 IP 地址列表。
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.actions.hosted_runner %}s, you can use the {% data variables.product.prodname_dotcom %} REST API . For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint. You can use this list of IP addresses if you require an allow-list to prevent unauthorized access to your internal resources.
 
-API 返回的 {% data variables.product.prodname_actions %} IP 地址列表每周更新一次。
+The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
 {% ifversion ghae-next %}
 
-## 自动缩放
+## Autoscaling 
 
-每个 {% data variables.actions.hosted_runner %} 池都完全由 {% data variables.product.company_short %} 管理，以最大限度地提高性能，同时最大限度地降低成本。 （可选）您可以联系 {% data variables.contact.github_support %} 来配置企业的自动化参数。 您可以定义空闲运行器的最小数量以及运行器在从池中移除之前保持空闲的时间。 每个池可以包含最多 600 个运行器。
+Each pool of {% data variables.actions.hosted_runner %}s is fully managed by {% data variables.product.company_short %} to maximize performance while minimizing costs. Optionally, you can configure the autoscaling parameters for your enterprise by contacting {% data variables.contact.github_support %}. You can define the minimum number of idle runners and how long a runner should remain idle before being removed from the pool. Each pool can contain up to 600 runners.
 
 {% endif %}
 
-## {% data variables.actions.hosted_runner %} 的管理权限
+## Administrative privileges for {% data variables.actions.hosted_runner %}s
 
-Linux 虚拟机使用无密码的 `sudo` 运行。 在需要比当前用户更多的权限才能执行命令或安装工具时，您可以使用无需提供密码的 `sudo`。 更多信息请参阅“[Sudo 手册](https://www.sudo.ws/man/1.8.27/sudo.man.html)”。
+The Linux virtual machines run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
 
-Windows 虚拟机配置为以禁用了用户帐户控制 (UAC) 的管理员身份运行。 更多信息请参阅 Windows 文档中的“[用户帐户控制工作原理](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)”。
+Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
 
-## 文件系统
+## File systems
 
-{% data variables.product.prodname_dotcom %} 在虚拟机上的特定目录中执行操作和 shell 命令。 虚拟机上的文件路径不是静态的。 使用环境变量 {% data variables.product.prodname_dotcom %} 提供 `home`、`workspace` 和 `workflow` 目录的构建文件路径。
+{% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the virtual machine. The file paths on virtual machines are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.
 
-| 目录                    | 环境变量                | 描述                                                                                                        |
-| --------------------- | ------------------- | --------------------------------------------------------------------------------------------------------- |
-| `home`                | `HOME`              | 包含用户相关的数据。 例如，此目录可能包含登录凭据。                                                                                |
-| `workspace`           | `GITHUB_WORKSPACE`  | 在此目录中执行操作和 shell 命令。 操作可以修改此目录的内容，后续操作可以访问这些修改。                                                           |
-| `workflow/event.json` | `GITHUB_EVENT_PATH` | 触发工作流程的 web 挂钩事件的 `POST` 有效负载。 每当操作执行时，{% data variables.product.prodname_dotcom %} 都会重写此变量，以隔离操作之间的文件内容。 |
+| Directory | Environment variable | Description |
+|-----------|----------------------|-------------|
+| `home` | `HOME` | Contains user-related data. For example, this directory could contain credentials from a login attempt. |
+| `workspace` | `GITHUB_WORKSPACE` | Actions and shell commands execute in this directory. An action can modify the contents of this directory, which subsequent actions can access. |
+| `workflow/event.json` | `GITHUB_EVENT_PATH` | The `POST` payload of the webhook event that triggered the workflow. {% data variables.product.prodname_dotcom %} rewrites this each time an action executes to isolate file content between actions.
 
-有关 {% data variables.product.prodname_dotcom %} 为每个操作创建的环境变量列表，请参阅“[使用环境变量](/github/automating-your-workflow-with-github-actions/using-environment-variables)”。
+For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see "[Using environment variables](/github/automating-your-workflow-with-github-actions/using-environment-variables)."
 
-### Docker 容器文件系统
+### Docker container filesystem
 
-在 Docker 容器中运行的操作在 `/github` 路径下有静态目录。 但强烈建议使用默认环境变量在 Docker 容器中构建文件路径。
+Actions that run in Docker containers have static directories under the `/github` path. However, we strongly recommend using the default environment variables to construct file paths in Docker containers.
 
-{% data variables.product.prodname_dotcom %} 保留 `/github` 路径前缀，并为操作创建三个目录。
+{% data variables.product.prodname_dotcom %} reserves the `/github` path prefix and creates three directories for actions.
 
 - `/github/home`
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}

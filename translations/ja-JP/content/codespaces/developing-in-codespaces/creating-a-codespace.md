@@ -1,6 +1,6 @@
 ---
-title: codespace を作成する
-intro: リポジトリのブランチの codespace を作成して、オンラインで開発できます。
+title: Creating a codespace
+intro: You can create a codespace for a branch in a repository to develop online.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: '{% data reusables.codespaces.availability %}'
 redirect_from:
@@ -14,13 +14,14 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Create a codespace
 ---
 
-## codespace の作成について
+## About codespace creation
 
 You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data reusables.codespaces.codespaces-are-personal %}
 
-Codespaces はリポジトリの特定のブランチに関連付けられており、リポジトリを空にすることはできません。 {% data reusables.codespaces.concurrent-codespace-limit %}詳しい情報については、「[codespace を削除する](/github/developing-online-with-codespaces/deleting-a-codespace)」を参照してください。
+Codespaces are associated with a specific branch of a repository and the repository cannot be empty. {% data reusables.codespaces.concurrent-codespace-limit %} For more information, see "[Deleting a codespace](/github/developing-online-with-codespaces/deleting-a-codespace)."
 
 
 When you create a codespace, a number of steps happen to create and connect you to your development environment:
@@ -62,38 +63,39 @@ Organization owners can allow all members of the organization to create codespac
 
 Before {% data variables.product.prodname_codespaces %} can be used in an organization, an owner or billing manager must have set a spending limit. For more information, see "[About spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)."
 
-If you would like to create a codespace for a repository owned by your personal account or another user, and you have permission to create repositories in an organization that has enabled {% data variables.product.prodname_codespaces %}, you can fork user-owned repositories to that organization and then create a codespace for the fork.
+If you would like to create a codespace for a repository owned by your personal account or another user, and you have permission to create repositories in an organization that has enabled {% data variables.product.prodname_codespaces %}, you can fork user-owned repositories to that organization and then create a codespace for the fork. 
 
-## codespace を作成する
+## Creating a codespace
 
 {% include tool-switcher %}
-
+   
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. リポジトリ名の下で、[Branch] ドロップダウンメニューを使用して、codespace を作成するブランチを選択します。
+2. Under the repository name, use the "Branch" drop-down menu, and select the branch you want to create a codespace for.
 
-   ![[Branch] ドロップダウンメニュー](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Branch drop-down menu](/assets/images/help/codespaces/branch-drop-down.png)
 
 3. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
 
-   ![[New codespace] ボタン](/assets/images/help/codespaces/new-codespace-button.png)
+   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-   If you are a member of an organization and are creating a codespace on a repository owned by that organization, you can select the option of a different machine type. From the dialog, choose a machine type and then click **Create codespace**. ![Machine type choice](/assets/images/help/codespaces/choose-custom-machine-type.png)
+   If you are a member of an organization and are creating a codespace on a repository owned by that organization, you can select the option of a different machine type. From the dialog, choose a machine type and then click **Create codespace**.
+     ![Machine type choice](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
 {% endwebui %}
-
+   
 {% vscode %}
 
 {% data reusables.codespaces.creating-a-codespace-in-vscode %}
 
 {% endvscode %}
-
+   
 {% cli %}
 
 {% data reusables.cli.cli-learn-more %}
 
-To create a new codespace, use the `gh codespace create` subcommand.
+To create a new codespace, use the `gh codespace create` subcommand. 
 
 ```shell
 gh codespace create 

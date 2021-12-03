@@ -23,5 +23,5 @@ jobs:
           only-labels: 'engineering,Triaged,Improve existing docs,Core,Ecosystem'
           stale-issue-label: 'stale'
           stale-pr-label: 'stale'
-          exempt-pr-labels: 'never-stale'
+          exempt-pr-labels: 'never-stale,waiting for review'
           exempt-issue-labels: 'never-stale,help wanted,waiting for review'

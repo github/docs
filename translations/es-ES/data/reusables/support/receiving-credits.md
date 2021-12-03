@@ -6,7 +6,7 @@ Si no recibes una respuesta inicial dentro del tiempo de respuesta garantizado e
 La solicitud de crédito se debe hacer dentro de los 30 días del final del trimestre durante el cual {% data variables.contact.premium_support %} no respondió a tus tickets dentro del tiempo designado de respuesta. Las solicitudes de crédito no serán reconocidas luego del plazo establecido para su presentación. Una vez que este plazo se haya cumplido, habrás renunciado a la posibilidad de reclamar un reembolso por el crédito que te hubiera correspondido.
 
 Para recibir un reembolso, debes enviar una solicitud de crédito completa a <supportcredits@github.com>. Para ser aceptada, la solicitud de crédito debe cumplir con las siguientes condiciones:
-- Be sent from an email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
+- Que se envíe desde una dirección de correo electrónico asociada con tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
 - Ser recibida por {% data variables.product.company_short %} en el plazo de 30 días a partir del cierre del trimestre en el que se produjeron los cuatro créditos calificados
 - Pon "Credit Request" en la línea de asunto
 
