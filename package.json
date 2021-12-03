@@ -54,7 +54,7 @@
     "lodash-es": "^4.17.21",
     "lunr": "^2.3.9",
     "lunr-languages": "^1.9.0",
-    "mdast-util-from-markdown": "^1.0.4",
+    "mdast-util-from-markdown": "^1.2.0",
     "mdast-util-to-string": "^3.1.0",
     "morgan": "^1.10.0",
     "next": "^11.1.2",
