@@ -41,7 +41,7 @@ jobs:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           # Enables cloning the Early Access repo later with the relevant PAT
           persist-credentials: 'false'
@@ -56,10 +56,13 @@ jobs:
 
       - name: Insight into changed files
         run: |
-          echo ${{ steps.get_diff_files.outputs.files }}
+
+          # Must to do this because the list of files can be HUGE. Especially
+          # in a repo-sync when there are lots of translation files involved.
+          echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
 
       - name: Setup node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: 16.13.x
           cache: npm
@@ -80,5 +83,5 @@ jobs:
 
       - name: Run tests
         env:
-          DIFF_FILES: ${{ steps.get_diff_files.outputs.files }}
+          DIFF_FILE: get_diff_files.txt
         run: npm run test tests/${{ matrix.test-group }}/

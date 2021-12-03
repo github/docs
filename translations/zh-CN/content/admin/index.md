@@ -1,7 +1,7 @@
 ---
-title: 企业管理员文档
-shortTitle: 企业管理员
-intro: '适用于{% ifversion ghes %}部署、{% endif %}配置{% ifversion ghes %}、{% endif %}和管理 {% data variables.product.product_name %} 的企业管理员{% ifversion ghes %}、系统管理员{% endif %}和安全专家的文档和指南。'
+title: Enterprise administrator documentation
+shortTitle: Enterprise administrators
+intro: 'Documentation and guides for enterprise administrators{% ifversion ghes %}, system administrators,{% endif %} and security specialists who {% ifversion ghes %}deploy, {% endif %}configure{% ifversion ghes %},{% endif %} and manage {% data variables.product.product_name %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise

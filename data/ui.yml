@@ -160,7 +160,7 @@ product_landing:
   upgrade_from: Upgrade from
   browse_all_docs: Browse all docs
   explore_release_notes: Explore release notes
-product_sublanding:
+product_guides:
   start: Start
   start_path: Start path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'

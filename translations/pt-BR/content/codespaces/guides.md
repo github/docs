@@ -4,7 +4,7 @@ shortTitle: Guias
 product: '{% data reusables.gated-features.codespaces %}'
 intro: Aprenda a aproveitar ao máximo do GitHub
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghec: '*'
@@ -41,4 +41,3 @@ includeGuides:
   - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
   - /codespaces/codespaces-reference/security-in-codespaces
 ---
-

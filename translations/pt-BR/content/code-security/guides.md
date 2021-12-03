@@ -2,7 +2,7 @@
 title: Guias para segurança do código
 intro: 'Saiba mais sobre as diferentes maneiras que {% data variables.product.product_name %} pode ajudar você a melhorar a segurança do seu código.'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'
@@ -78,4 +78,3 @@ includeGuides:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
 ---
-
