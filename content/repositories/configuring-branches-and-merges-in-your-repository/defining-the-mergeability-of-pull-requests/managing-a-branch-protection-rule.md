@@ -97,8 +97,8 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 
   {% endtip %}
 {%- endif %}
-1. Optionally, select **Include administrators**.
-![Include administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
+1. Optionally, select **Apply the rules above to administrators**.
+![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
 1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    - Select **Restrict who can push to matching branches**.
      ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png)
