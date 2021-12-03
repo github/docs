@@ -42,7 +42,11 @@ shortTitle: Manage secret alerts
    {% ifversion ghae %}
    ![List of alerts from secret scanning](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
-5. Optionally, use the "Close as" drop-down menu and click a reason for resolving an alert.
+5. {% ifversion fpt or ghec %}
+   Optionally, use the "Close as" drop-down menu and click a reason for resolving an alert.
+   {%- elsif ghes or ghae %}
+   Optionally, use the "Mark as" drop-down menu and click a reason for resolving an alert.
+   {% endif %}
    {% ifversion fpt or ghec %}
    ![Drop-down menu for resolving an alert from secret scanning](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}
