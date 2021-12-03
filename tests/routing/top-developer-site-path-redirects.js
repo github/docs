@@ -7,7 +7,7 @@ const topOldDeveloperSitePaths = readJsonFile('tests/fixtures/top-old-developer-
 jest.useFakeTimers('legacy')
 
 describe('developer.github.com redirects', () => {
-  jest.setTimeout(30 * 60 * 1000)
+  jest.setTimeout(60 * 1000)
 
   it('responds with 200 for the top historical request paths', async () => {
     // ignore paths that are not (yet?) being redirected from developer.github.com to docs.github.com
