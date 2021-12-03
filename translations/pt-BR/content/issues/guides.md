@@ -1,7 +1,7 @@
 ---
 title: Issues guides
-shortTitle: Guias
-intro: 'Saiba como usar {% data variables.product.prodname_github_issues %} para planejar e acompanhar seu trabalho.'
+shortTitle: Guides
+intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:

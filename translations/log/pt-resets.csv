@@ -11,14 +11,17 @@ translations/pt-BR/content/actions/automating-builds-and-tests/building-and-test
 translations/pt-BR/content/actions/automating-builds-and-tests/building-and-testing-python.md,rendering error
 translations/pt-BR/content/actions/creating-actions/creating-a-javascript-action.md,rendering error
 translations/pt-BR/content/actions/creating-actions/metadata-syntax-for-github-actions.md,rendering error
+translations/pt-BR/content/actions/creating-actions/releasing-and-maintaining-actions.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows.md,rendering error
+translations/pt-BR/content/actions/deployment/targeting-different-environments/using-environments-for-deployment.md,rendering error
 translations/pt-BR/content/actions/guides.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,Listed in localization-support#489
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
+translations/pt-BR/content/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/removing-self-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/using-a-proxy-server-with-self-hosted-runners.md,rendering error
@@ -96,8 +99,10 @@ translations/pt-BR/content/code-security/code-scanning/integrating-with-code-sca
 translations/pt-BR/content/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system.md,rendering error
+translations/pt-BR/content/code-security/guides.md,rendering error
 translations/pt-BR/content/code-security/secret-scanning/about-secret-scanning.md,rendering error
 translations/pt-BR/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,rendering error
+translations/pt-BR/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,rendering error
 translations/pt-BR/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies.md,rendering error
@@ -123,6 +128,7 @@ translations/pt-BR/content/codespaces/developing-in-codespaces/index.md,renderin
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-source-control-in-your-codespace.md,rendering error
 translations/pt-BR/content/codespaces/getting-started/deep-dive.md,rendering error
+translations/pt-BR/content/codespaces/guides.md,rendering error
 translations/pt-BR/content/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization.md,rendering error
 translations/pt-BR/content/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization.md,rendering error
 translations/pt-BR/content/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces.md,rendering error
@@ -198,6 +204,7 @@ translations/pt-BR/content/github/writing-on-github/working-with-advanced-format
 translations/pt-BR/content/github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections.md,rendering error
 translations/pt-BR/content/graphql/guides/index.md,rendering error
 translations/pt-BR/content/graphql/guides/migrating-graphql-global-node-ids.md,rendering error
+translations/pt-BR/content/issues/guides.md,rendering error
 translations/pt-BR/content/issues/trying-out-the-new-projects-experience/customizing-your-project-views.md,rendering error
 translations/pt-BR/content/issues/trying-out-the-new-projects-experience/managing-access-to-projects.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,Listed in localization-support#489
@@ -267,6 +274,7 @@ translations/pt-BR/content/search-github/searching-on-github/searching-commits.m
 translations/pt-BR/content/search-github/searching-on-github/searching-discussions.md,rendering error
 translations/pt-BR/content/search-github/searching-on-github/searching-for-repositories.md,rendering error
 translations/pt-BR/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,rendering error
+translations/pt-BR/content/sponsors/guides.md,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/2-20/15.yml,Listed in localization-support#489
 translations/pt-BR/data/release-notes/enterprise-server/2-21/6.yml,Listed in localization-support#489
 translations/pt-BR/data/reusables/apps/deprecating_auth_with_query_parameters.md,Listed in localization-support#489
