@@ -70,6 +70,7 @@ Called workflows can access self-hosted runners from caller's context. This mean
 * Reusable workflows stored within a private repository can only be used by workflows within the same repository.
 * Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information about the `env` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)."
 * You can't set the concurrency of a called workflow from the caller workflow. For more information about `jobs.<job_id>.concurrency`, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency)."
+* The `strategy` property is not supported in any job that calls a reusable workflow.
 
 ## Creating a reusable workflow
 

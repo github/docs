@@ -2,7 +2,7 @@
 title: Guides for GitHub Actions
 intro: 'These guides for {% data variables.product.prodname_actions %} include specific use cases and examples to help you configure workflows.'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'
@@ -65,4 +65,3 @@ includeGuides:
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
 ---
-

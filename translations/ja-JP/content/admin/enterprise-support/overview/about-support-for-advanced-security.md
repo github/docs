@@ -1,6 +1,6 @@
 ---
-title: Advanced Security のサポートについて
-intro: '{% data variables.contact.enterprise_support %} は、{% data variables.product.prodname_advanced_security %} を使う際に生じた問題のトラブルシューティングを支援します。'
+title: About support for Advanced Security
+intro: '{% data variables.contact.enterprise_support %} can help you troubleshoot issues you run into while using {% data variables.product.prodname_advanced_security %}.'
 redirect_from:
   - /enterprise/admin/enterprise-support/about-support-for-advanced-security
   - /admin/enterprise-support/about-support-for-advanced-security
@@ -12,66 +12,65 @@ topics:
   - Support
 shortTitle: Support for Advanced Security
 ---
-
 {% note %}
 
-**注釈**: {% data reusables.support.data-protection-and-privacy %}
+**Note**: {% data reusables.support.data-protection-and-privacy %}
 
 {% endnote %}
 
-## {% data variables.product.prodname_advanced_security %} のサポートについて
+## About support for {% data variables.product.prodname_advanced_security %}
 
-{% data variables.product.prodname_advanced_security %} には、英語のメールによる {% data variables.contact.enterprise_support %} が含まれています。
+{% data variables.product.prodname_advanced_security %} includes {% data variables.contact.enterprise_support %} in English, by email.
 
-## サポートのスコープ
+## Scope of support
 
-サポートリクエストが弊社のチームが支援できるスコープ外だった場合、{% data variables.contact.enterprise_support %}外で問題を解決するための次のステップをおすすめすることがあります。 サポートリクエストが主に以下の内容に関するものであれば、おそらく{% data variables.contact.enterprise_support %}のスコープ外になります。
-- サードパーティとのインテグレーション
-- ハードウェアのセットアップ
-- 外部システムの設定
-- オープンソースのプロジェクト
-- プロジェクトやリポジトリの構築
-- クラスタ設計の自己確認
-- {% data variables.product.prodname_codeql %}の新しいクエリの作成あるいはデバッグ
+If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.enterprise_support %}. Your support request is possibly out of {% data variables.contact.enterprise_support %}'s scope if it's primarily about:
+- Third party integrations
+- Hardware setup
+- Configuration of external systems
+- Open source projects
+- Building projects or repositories
+- LGTM cluster design
+- Writing or debugging new queries for {% data variables.product.prodname_codeql %}
 
-問題がスコープ外か判断できない場合は、チケットをオープンしてもらえれば先へ進むための最善の方法を定めるための支援をいたします。
+If you're uncertain if the issue is out of scope, open a ticket and we're happy to help you determine the best way to proceed.
 
-## {% data variables.contact.enterprise_support %} への連絡
+## Contacting {% data variables.contact.enterprise_support %}
 
 {% data reusables.support.zendesk-old-tickets %}
 
-以下の質問について、{% data variables.contact.contact_enterprise_portal %} を通じて {% data variables.contact.enterprise_support %} に連絡できます。
-- {% data variables.product.prodname_advanced_security %} のインストールと利用
-- サポート対象となっているエラーの原因の特定および検証
+You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
+- Installing and using {% data variables.product.prodname_advanced_security %}
+- Identifying and verifying the causes of supported errors
 
-## 営業時間
+## Hours of operation
 
-{% data variables.product.prodname_advanced_security %} のサポートは、英語により、週末と米国の休日をのぞく週 5 日 24 時間提供しています。 （アメリカの祝日は除く） 返信までの標準的な時間は 1 営業日です。
+We offer support for {% data variables.product.prodname_advanced_security %} in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays. The standard response time is 1 business day.
 
-## 休日のスケジュール
+## Holiday schedule
 
-{% data variables.contact.enterprise_support %} は、以下の米国の祝日を休日としています。 （アメリカの祝日は除く）
+{% data variables.contact.enterprise_support %} observes these U.S. holidays.
 
 
 {% data reusables.enterprise_enterprise_support.support-holiday-availability %}
 
 
-## {% data variables.product.prodname_advanced_security %} のアップデートのインストール
+## Installing {% data variables.product.prodname_advanced_security %} updates
 
-{% data variables.product.prodname_advanced_security %} インスタンスの安定性を確保するには、最新のリリースが公開された際にそれをインストールして実装する必要があります。 これにより、最新の機能、修正、拡張とともに、機能のアップデート、コードの修正、パッチ、その他 {% data variables.product.prodname_advanced_security %} に対する一般的なアップデートや修正を確実に入手できます。
+To ensure that your {% data variables.product.prodname_advanced_security %} instance is stable, you must install and implement new releases when they are made available. This ensures that you have the latest features, modifications, and enhancements as well as any updates to features, code corrections, patches, or other general updates and fixes to {% data variables.product.prodname_advanced_security %}.
 
-## サポートチケットへの優先度の割り当て
+## Assigning a priority to a support ticket
 
-{% data variables.product.prodname_advanced_security %} のサポートについて {% data variables.contact.enterprise_support %} に問い合わせる場合、チケットの 3 つの優先度（{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %}）のいずれかを選択できます。
+When you contact {% data variables.contact.enterprise_support %} for help with {% data variables.product.prodname_advanced_security %}, you can choose one of three priorities for the ticket: {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
-|                              優先度                              | 説明                                                                                                                          |
-|:-------------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------- |
-|  {% data variables.product.support_ticket_priority_high %}  | {% data variables.product.prodname_advanced_security %} は、機能しない、停止している、またはエンドユーザがソフトウェアの利用を合理的に継続できないほどの影響があり、回避策がないものです。 |
-| {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %}の機能が不安定であり、エンドユーザの利用や生産性に支障があります。                                  |
-|  {% data variables.product.support_ticket_priority_low %}   | {% data variables.product.prodname_advanced_security %}は安定して動作していますが、ドキュメントの更新、見かけ上の欠陥、拡張といったソフトウェア上の軽微な変更をエンドユーザが求めています。 |
+| Priority | Description |
+| :---: | --- |
+| {% data variables.product.support_ticket_priority_high %} | {% data variables.product.prodname_advanced_security %} is not functioning or is stopped or severely impacted such that the end user cannot reasonably continue use of the software and no workaround is available. |
+| {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} is functioning inconsistently, causing impaired end user usage and productivity. |
+| {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_advanced_security %} is functioning consistently, but the end user requests minor changes in the software, such as documentation updates, cosmetic defects, or enhancements.|
 
-## サポートチケットの解決とクローズ
+## Resolving and closing support tickets
 
 {% data reusables.support.enterprise-resolving-and-closing-tickets %}

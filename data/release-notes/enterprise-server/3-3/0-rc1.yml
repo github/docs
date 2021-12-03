@@ -168,6 +168,11 @@ sections:
         # https://github.com/github/releases/issues/1588
         - Performance improvements have been made to {% data variables.product.prodname_actions %}, which may result in higher maximum job concurrency.
 
+    - heading: 'GitHub Packages changes'
+      notes:
+        # https://github.com/github/docs-content/issues/5554
+        - When a repository is deleted, any associated package files are now immediately deleted from your {% data variables.product.prodname_registry %} external storage.
+
     - heading: 'Dependabot and Dependency graph changes'
       notes:
         # https://github.com/github/releases/issues/1141
