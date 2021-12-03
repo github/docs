@@ -1,6 +1,6 @@
 ---
-title: 代码安全指南
-intro: '了解 {% data variables.product.product_name %} 可以帮助您提高代码安全性的不同方式。'
+title: Guides for code security
+intro: 'Learn about the different ways that {% data variables.product.product_name %} can help you improve your code''s security.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:
@@ -78,3 +78,4 @@ includeGuides:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
 ---
+
