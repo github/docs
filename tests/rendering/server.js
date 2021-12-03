@@ -609,6 +609,8 @@ describe('server', () => {
     test('redirects old articles to their English URL', async () => {
       const res = await get('/articles/deleting-a-team')
       expect(res.statusCode).toBe(301)
+      // no cache control because a language prefix had to be injected
+      expect(res.headers['cache-control']).toBeUndefined()
     })
 
     test('redirects old articles to their slugified URL', async () => {
@@ -629,12 +631,21 @@ describe('server', () => {
       const res = await get('/articles/deleting-a-team')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location.startsWith('/en/')).toBe(true)
+      expect(res.headers['cache-control']).toBeUndefined()
+    })
+
+    test('redirects that not only injects /en/ should have cache-control', async () => {
+      const res = await get('/en/articles/deleting-a-team')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
 
     test('redirects Desktop Classic paths to desktop.github.com', async () => {
       const res = await get('/desktop-classic')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('https://desktop.github.com')
+      expect(res.headers['cache-control']).toBeUndefined()
     })
 
     // this oneoff redirect is temporarily disabled because it introduces too much complexity
@@ -646,6 +657,8 @@ describe('server', () => {
       expect(res.headers.location).toBe(
         '/en/github/managing-subscriptions-and-notifications-on-github'
       )
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
   })
 
