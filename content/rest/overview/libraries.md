@@ -104,6 +104,8 @@ topics:
 |**PHP GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api)|
 |**GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api)|
 |**GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)|
+|**GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api)|
+
 
 ### PowerShell
 
