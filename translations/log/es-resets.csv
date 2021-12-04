@@ -314,6 +314,7 @@ translations/es-ES/content/code-security/secret-scanning/about-secret-scanning.m
 translations/es-ES/content/code-security/secret-scanning/about-secret-scanning.md,rendering error
 translations/es-ES/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,Listed in localization-support#489
 translations/es-ES/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,rendering error
+translations/es-ES/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,rendering error
 translations/es-ES/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates.md,Listed in localization-support#489
 translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates.md,rendering error
@@ -390,6 +391,7 @@ translations/es-ES/content/codespaces/developing-in-codespaces/using-codespaces-
 translations/es-ES/content/codespaces/developing-in-codespaces/using-source-control-in-your-codespace.md,rendering error
 translations/es-ES/content/codespaces/getting-started/deep-dive.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/getting-started/deep-dive.md,rendering error
+translations/es-ES/content/codespaces/guides.md,rendering error
 translations/es-ES/content/codespaces/index.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/index.md,rendering error
 translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization.md,rendering error
@@ -438,6 +440,7 @@ translations/es-ES/content/developers/github-marketplace/creating-apps-for-githu
 translations/es-ES/content/developers/overview/managing-deploy-keys.md,rendering error
 translations/es-ES/content/developers/webhooks-and-events/events/issue-event-types.md,Listed in localization-support#489
 translations/es-ES/content/developers/webhooks-and-events/events/issue-event-types.md,rendering error
+translations/es-ES/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/es-ES/content/discussions/collaborating-with-your-community-using-discussions/about-discussions.md,rendering error
 translations/es-ES/content/discussions/guides/best-practices-for-community-conversations-on-github.md,Listed in localization-support#489
 translations/es-ES/content/discussions/guides/best-practices-for-community-conversations-on-github.md,rendering error
@@ -533,6 +536,7 @@ translations/es-ES/content/graphql/overview/breaking-changes.md,Listed in locali
 translations/es-ES/content/graphql/overview/breaking-changes.md,rendering error
 translations/es-ES/content/index.md,Listed in localization-support#489
 translations/es-ES/content/index.md,rendering error
+translations/es-ES/content/issues/guides.md,rendering error
 translations/es-ES/content/issues/tracking-your-work-with-issues/about-task-lists.md,Listed in localization-support#489
 translations/es-ES/content/issues/tracking-your-work-with-issues/about-task-lists.md,rendering error
 translations/es-ES/content/issues/tracking-your-work-with-issues/creating-an-issue.md,Listed in localization-support#489
@@ -891,6 +895,7 @@ translations/es-ES/content/search-github/searching-on-github/searching-in-forks.
 translations/es-ES/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,Listed in localization-support#489
 translations/es-ES/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,rendering error
 translations/es-ES/content/sponsors/getting-started-with-github-sponsors/about-github-sponsors.md,rendering error
+translations/es-ES/content/sponsors/guides.md,rendering error
 translations/es-ES/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization.md,rendering error
 translations/es-ES/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account.md,rendering error
 translations/es-ES/content/sponsors/receiving-sponsorships-through-github-sponsors/viewing-your-sponsors-and-sponsorships.md,rendering error
