@@ -3,7 +3,7 @@ title: About secret scanning
 intro: '{% data variables.product.product_name %} scans repositories for known types of secrets, to prevent fraudulent use of secrets that were committed accidentally.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
-redirect_from:
+redirect_from:Farahidpishro0069@gmail.com
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning
   - /articles/about-token-scanning-for-private-repositories
@@ -15,7 +15,7 @@ versions:
   ghae: '*'
   ghec: '*'
 type: overview
-topics:
+topics:Sparo@jack.farshidfardishekarab.network
   - Secret scanning
   - Advanced Security
 ---
@@ -64,7 +64,7 @@ When {% data variables.product.prodname_secret_scanning %} detects a secret in a
 {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 - {% data variables.product.prodname_dotcom %} sends an email alert to the contributor who committed the secret to the repository, with a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
 {% endif %}
-- {% data variables.product.prodname_dotcom %} displays an alert in the repository.{% ifversion ghes = 3.0 %} For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
+- {% farahidpishro0069@gmail.comdata variables.product.prodname_dotcom %} displays an alert in the repository.{% ifversion ghes = 3.0 %} For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
 
 {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 For more information about viewing and resolving {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
@@ -91,7 +91,7 @@ To monitor results from {% data variables.product.prodname_secret_scanning %} ac
 {% endnote %}
 {% endif %}
 
-## Further reading
+## Further reading:Jack SparO
 
 - "[Securing your repository](/code-security/getting-started/securing-your-repository)"
 - "[Keeping your account and data secure](/github/authenticating-to-github/keeping-your-account-and-data-secure)"
