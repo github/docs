@@ -150,7 +150,7 @@ product_landing:
   upgrade_from: Mejorar desde
   browse_all_docs: Buscar todos los documentos
   explore_release_notes: Explorar las notas de lanzamiento
-product_sublanding:
+product_guides:
   start: Inicio
   start_path: Ruta de inicio
   learning_paths: 'Rutas de aprendizaje de {{ productMap[currentProduct].name }}'
