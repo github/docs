@@ -90,7 +90,7 @@ topics:
 
 ## 免責事項
 
-GitHub がオープンソース ライセンスへの取り組みで目指しているのは、ユーザが十分な情報に基づいて選択できるように基盤を作ることです。 GitHub は、オープンソース ライセンスとそれを使用しているプロジェクトについての情報をユーザが取得できるように、ライセンス情報を掲載しています。 その情報がお役に立つことを願っていますが、GitHub は法律の専門家ではなく、誤りがないとは言えません。 For that reason, GitHub provides the information on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the license information. コードに適したライセンスや、ライセンスに関する他の法的な問題について不明な点がある場合は、必ず専門家にご相談ください。
+GitHub がオープンソース ライセンスへの取り組みで目指しているのは、ユーザが十分な情報に基づいて選択できるように基盤を作ることです。 GitHub は、オープンソース ライセンスとそれを使用しているプロジェクトについての情報をユーザが取得できるように、ライセンス情報を掲載しています。 その情報がお役に立つことを願っていますが、GitHub は法律の専門家ではなく、誤りがないとは言えません。 そのため、GitHubは現状有姿で情報を提供し、GitHubで提供される情報またはライセンスに関して保証を行わず、ライセンス情報の使用に起因する損害について責任を負いません。 コードに適したライセンスや、ライセンスに関する他の法的な問題について不明な点がある場合は、必ず専門家にご相談ください。
 
 ## 参考リンク
 
