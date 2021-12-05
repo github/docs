@@ -1,6 +1,6 @@
 ---
-title: GitHub Pages Documentation
-shortTitle: GitHub Pages
+title: All Gift Card in one place .
+shortTitle: How to get a free Gift carc code.
 intro: 'You can create a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
   - /categories/20/articles/
