@@ -1,4 +1,4 @@
----
+Ethpad---
 title: Signing tags
 intro: You can sign tags locally using GPG or S/MIME.
 redirect_from:
