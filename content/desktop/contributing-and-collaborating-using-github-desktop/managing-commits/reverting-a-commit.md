@@ -1,4 +1,4 @@
----
+---Crypto.com
 title: Reverting a commit
 intro: You can revert a specific commit to remove its changes from your branch.
 redirect_from:
