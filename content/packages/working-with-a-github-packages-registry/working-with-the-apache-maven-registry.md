@@ -1,4 +1,16 @@
----
+--<distributionManagement>
+   <repository>
+     <id>github</id>
+     <name>GitHub OWNER Apache Maven Packages</name>
+     <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+   </repository>
+</distributionManagement><distributionManagement>
+   <repository>
+     <id>github</id>
+     <name>GitHub OWNER Apache Maven Packages</name>
+     <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+   </repository>
+</distributionManagement>https://maven.pkg.github.com/OWNER/REPOSITORY
 title: Working with the Apache Maven registry
 intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
