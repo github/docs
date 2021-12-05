@@ -1,4 +1,4 @@
----
+---486c3798c44160d73c674070362c7dcb1d01f5e2
 title: Adding or editing a payment method
 intro: You can add a payment method to your account or update your account's existing payment method at any time.
 redirect_from:
