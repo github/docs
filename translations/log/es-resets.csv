@@ -78,6 +78,7 @@ translations/es-ES/content/actions/index.md,Listed in localization-support#489
 translations/es-ES/content/actions/index.md,rendering error
 translations/es-ES/content/actions/learn-github-actions/contexts.md,Listed in localization-support#489
 translations/es-ES/content/actions/learn-github-actions/contexts.md,rendering error
+translations/es-ES/content/actions/learn-github-actions/creating-workflow-templates.md,rendering error
 translations/es-ES/content/actions/learn-github-actions/environment-variables.md,Listed in localization-support#489
 translations/es-ES/content/actions/learn-github-actions/environment-variables.md,rendering error
 translations/es-ES/content/actions/learn-github-actions/events-that-trigger-workflows.md,Listed in localization-support#489
@@ -100,6 +101,7 @@ translations/es-ES/content/actions/managing-workflow-runs/skipping-workflow-runs
 translations/es-ES/content/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge.md,rendering error
 translations/es-ES/content/actions/publishing-packages/publishing-docker-images.md,rendering error
 translations/es-ES/content/actions/publishing-packages/publishing-java-packages-with-gradle.md,rendering error
+translations/es-ES/content/actions/publishing-packages/publishing-nodejs-packages.md,rendering error
 translations/es-ES/content/actions/quickstart.md,Listed in localization-support#489
 translations/es-ES/content/actions/quickstart.md,rendering error
 translations/es-ES/content/actions/security-guides/automatic-token-authentication.md,Listed in localization-support#489
@@ -260,6 +262,7 @@ translations/es-ES/content/authentication/managing-commit-signature-verification
 translations/es-ES/content/authentication/managing-commit-signature-verification/signing-commits.md,rendering error
 translations/es-ES/content/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication.md,rendering error
 translations/es-ES/content/authentication/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device.md,rendering error
+translations/es-ES/content/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials.md,rendering error
 translations/es-ES/content/authentication/troubleshooting-ssh/error-ssh-add-illegal-option----k.md,Listed in localization-support#489
 translations/es-ES/content/authentication/troubleshooting-ssh/error-ssh-add-illegal-option----k.md,rendering error
 translations/es-ES/content/billing/index.md,rendering error
