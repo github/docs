@@ -1,6 +1,6 @@
 ---
-title: SAMLシングルサインオンで認証する
-intro: 'SAML シングルサインオン (SSO) {% ifversion fpt %}を使用して {% ifversion fpt %}{% data variables.product.product_name %} Organization{% elsif ghae %}{% data variables.product.product_location %} {% endif %} に対して認証し、アクティブなセッションを表示できます{% endif %}。'
+title: Authenticating with SAML single sign-on
+intro: 'You can authenticate to {% ifversion fpt %}a {% data variables.product.product_name %} organization {% elsif ghae %}{% data variables.product.product_location %} {% endif %}with SAML single sign-on (SSO){% ifversion fpt %} and view your active sessions{% endif %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/authenticating-to-a-github-organization-with-saml-single-sign-on/

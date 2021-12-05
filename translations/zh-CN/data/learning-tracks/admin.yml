@@ -2,6 +2,9 @@
 get_started_with_github_ae:
   title: '开始使用 {% data variables.product.prodname_ghe_managed %}'
   description: '了解 {% data variables.product.prodname_ghe_managed %} 并完成新企业的初始配置。'
+  featured_track: true
+  versions:
+    ghae: '*'
   guides:
     - /admin/overview/about-github-ae
     - /admin/overview/about-data-residency
@@ -12,6 +15,8 @@ deploy_an_instance:
   title: '部署实例'
   description: '在您选择的平台上安装 {% data variables.product.prodname_ghe_server %} 并配置 SAML 身份验证。'
   featured_track: true
+  versions:
+    ghes: '*'
   guides:
     - /admin/overview/system-overview
     - /admin/installation
@@ -22,6 +27,8 @@ deploy_an_instance:
 upgrade_your_instance:
   title: '升级实例'
   description: '分阶段测试升级，通知用户维护，并升级实例以获取最新功能和安全更新。'
+  versions:
+    ghes: '*'
   guides:
     - /admin/enterprise-management/enabling-automatic-update-checks
     - /admin/installation/setting-up-a-staging-instance
@@ -29,9 +36,22 @@ upgrade_your_instance:
     - /admin/user-management/customizing-user-messages-for-your-enterprise
     - /admin/configuration/enabling-and-scheduling-maintenance-mode
     - /admin/enterprise-management/upgrading-github-enterprise-server
+adopting_github_actions_for_your_enterprise:
+  title: 'Adopt GitHub Actions for your enterprise'
+  description: 'Learn how to plan and implement a roll out of {% data variables.product.prodname_actions %} in your enterprise.'
+  guides:
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae
+    - /actions/security-guides/security-hardening-for-github-actions
 increase_fault_tolerance:
   title: '提高实例的容错能力'
   description: "备份开发者代码并配置高可用性 (HA)，以确保环境中 {% data variables.product.prodname_ghe_server %} 的可靠性。"
+  versions:
+    ghes: '*'
   guides:
     - /admin/configuration/accessing-the-administrative-shell-ssh
     - /admin/configuration/configuring-backups-on-your-appliance
@@ -41,6 +61,8 @@ increase_fault_tolerance:
 improve_security_of_your_instance:
   title: '提高实例的安全性'
   description: "查看网络配置和安全功能，并强化运行 {% data variables.product.prodname_ghe_server %} 的实例，以保护您的企业数据。"
+  versions:
+    ghes: '*'
   guides:
     - /admin/configuration/enabling-private-mode
     - /admin/guides/installation/configuring-tls
@@ -54,6 +76,8 @@ improve_security_of_your_instance:
 configure_github_actions:
   title: '配置 {% data variables.product.prodname_actions %}'
   description: '允许开发者使用 {% data variables.product.prodname_actions %} 为 {% data variables.product.product_location %} 创建、自动化、自定义和执行功能强大的软件开发工作流程。'
+  versions:
+    ghes: '*'
   guides:
     - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
     - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
@@ -64,6 +88,8 @@ configure_github_actions:
 configure_github_advanced_security:
   title: '配置 {% data variables.product.prodname_GH_advanced_security %}'
   description: "通过 {% data variables.product.prodname_GH_advanced_security %} 提高开发者代码的质量和安全性。"
+  versions:
+    ghes: '*'
   guides:
     - /admin/advanced-security/about-licensing-for-github-advanced-security
     - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
@@ -73,6 +99,9 @@ configure_github_advanced_security:
 get_started_with_your_enterprise_account:
   title: 'Get started with your enterprise account'
   description: 'Get started with your enterprise account to centrally manage multiple organizations on {% data variables.product.product_name %}.'
+  versions:
+    ghes: '*'
+    ghec: '*'
   guides:
     - /admin/overview/about-enterprise-accounts
     - /billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise

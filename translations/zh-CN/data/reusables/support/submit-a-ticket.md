@@ -7,6 +7,9 @@
     - 选择 **{% data variables.product.support_ticket_priority_high %}** 以报告影响业务运营的问题，包括 {% ifversion fpt or ghec %}从您自己的帐户和组织还原中删除敏感数据（提交、议题、拉取请求、上传的附件）{% else %}系统性能问题{% endif %}，或报告严重漏洞。
     - 选择 **{% data variables.product.support_ticket_priority_normal %}** 以{% ifversion fpt or ghec %}请求帐户恢复或垃圾邮件取消标识、报告用户登录问题{% else %}发出技术请求，如配置更改和第三方集成{% endif %}，以及报告非关键漏洞。
     - 选择 **{% data variables.product.support_ticket_priority_low %}** 以提出一般问题和提交有关新功能、购买、培训或状态检查的请求。
+{%- ifversion ghes or ghec %}
+1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback. Select **Request a callback from GitHub Support**, select the country code drop-down menu to choose your country, and enter your phone number. ![Request callback option](/assets/images/help/support/request-callback.png)
+{%- endif %}
 1. 在“Subject（主题）”下，为您遇到的问题输入描述性标题。 ![主题字段](/assets/images/help/support/subject-field.png)
 5. 在“How can we help（我们如何提供帮助）”下，提供将帮助支持团队对问题进行故障排除的任何其他信息。 有用的信息可能包括： ![我们如何提供帮助字段](/assets/images/help/support/how-can-we-help-field.png)
     - 重现问题的步骤
