@@ -1,4 +1,4 @@
----
+600---
 title: Closing a pull request
 intro: 'You may choose to *close* a pull request without [merging it into the upstream branch](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request). This can be handy if the changes proposed in the branch are no longer needed, or if another solution has been proposed in another branch.'
 redirect_from:
