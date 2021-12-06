@@ -37,6 +37,7 @@ translations/ja-JP/content/actions/hosting-your-own-runners/using-a-proxy-server
 translations/ja-JP/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,Listed in localization-support#489
 translations/ja-JP/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/contexts.md,rendering error
+translations/ja-JP/content/actions/learn-github-actions/creating-workflow-templates.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/environment-variables.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/expressions.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/finding-and-customizing-actions.md,rendering error
@@ -48,6 +49,7 @@ translations/ja-JP/content/actions/learn-github-actions/workflow-commands-for-gi
 translations/ja-JP/content/actions/learn-github-actions/workflow-syntax-for-github-actions.md,rendering error
 translations/ja-JP/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,rendering error
 translations/ja-JP/content/actions/publishing-packages/about-packaging-with-github-actions.md,rendering error
+translations/ja-JP/content/actions/publishing-packages/publishing-nodejs-packages.md,rendering error
 translations/ja-JP/content/actions/quickstart.md,rendering error
 translations/ja-JP/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,rendering error
 translations/ja-JP/content/admin/advanced-security/configuring-code-scanning-for-your-appliance.md,rendering error
@@ -138,10 +140,12 @@ translations/ja-JP/content/authentication/keeping-your-account-and-data-secure/a
 translations/ja-JP/content/authentication/keeping-your-account-and-data-secure/connecting-with-third-party-applications.md,rendering error
 translations/ja-JP/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md,rendering error
 translations/ja-JP/content/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys.md,rendering error
+translations/ja-JP/content/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log.md,rendering error
 translations/ja-JP/content/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials.md,rendering error
 translations/ja-JP/content/authentication/managing-commit-signature-verification/about-commit-signature-verification.md,rendering error
 translations/ja-JP/content/authentication/managing-commit-signature-verification/signing-commits.md,rendering error
 translations/ja-JP/content/authentication/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device.md,rendering error
+translations/ja-JP/content/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials.md,rendering error
 translations/ja-JP/content/authentication/troubleshooting-ssh/error-permission-denied-publickey.md,Listed in localization-support#489
 translations/ja-JP/content/authentication/troubleshooting-ssh/error-permission-denied-publickey.md,rendering error
 translations/ja-JP/content/billing/index.md,rendering error

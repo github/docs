@@ -7,10 +7,6 @@
   description: >-
     Git 操作を HTTPS 経由で実行する際、Git がコマンドラインと API のいずれでも、パスワードの代わりに使用されるトークン。個人アクセストークンともいいます。
 - 
-  term: アカウントリカバリトークン
-  description: >-
-    **Deprecated and will be disabled December 1st, 2021.** The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
-- 
   term: APIプレビュー
   description: >-
     新規の API や既存の API メソッドへの変更が公式 GitHub API の一部になる前に試すための方法。
@@ -177,17 +173,17 @@
 - 
   term: ダッシュボード
   description: >-
-    パーソナルダッシュボードは、GitHub上のアクティビティのメインハブです。パーソナルダッシュボードから、フォローまたは作業をしているIssueやプルリクエストを追跡したり、トップリポジトリやTeamページにアクセスしたり、Watchまたは参加しているリポジトリ内の最近のアクティビティについて学ぶことができます。また、フォローしているユーザーやStarしたリポジトリに基づいて推薦された、新しいリポジトリを発見することもできます。特定のOrganizationのアクティビティだけを見るには、Organizationのダッシュボードにアクセスしてください。詳しい情報については「[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)」もしくは「[Organizationダッシュボードについて](/articles/about-your-organization-dashboard)」を参照してください。
+    パーソナルダッシュボードは、GitHub上のアクティビティのメインハブです。パーソナルダッシュボードから、フォローまたは作業をしているIssueやプルリクエストを追跡したり、トップリポジトリやTeamページにアクセスしたり、Watchまたは参加しているリポジトリ内の最近のアクティビティについて学ぶことができます。また、フォローしているユーザーやStarしたリポジトリに基づいて推薦された、新しいリポジトリを発見することもできます。特定のOrganizationのアクティビティだけを見るには、Organizationのダッシュボードにアクセスしてください。詳しい情報については「[パーソナルダッシュボードについて(/articles/about-your-personal-dashboard)」もしくは「Organizationダッシュボードについて(/articles/about-your-organization-dashboard)」を参照してください。
 - 
   term: デフォルトブランチ
   description: >-
-    リポジトリ内の新しいPull Requestやコードのコミットのためのベースブランチ。それぞれのリポジトリは少なくとも1つのブランチを持ち、これはリポジトリを初期化したときにGitが作成します。最初のブランチは通常{% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}と呼ばれ、多くの場合デフォルトブランチです。
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - 
-  term: 依存グラフ
+  term: dependents graph
   description: >-
     パブリックリポジトリに依存するパッケージ、プロジェクト、リポジトリを表示するリポジトリグラフ。
 - 
-  term: 依存関係グラフ
+  term: dependency graph
   description: >-
     リポジトリが依存するパッケージおよびプロジェクトを表示するリポジトリグラフ。
 - 
@@ -252,7 +248,7 @@
 - 
   term: gist
   description: >-
-    Gistは、GitHub上で編集、クローン、フォークできる共有可能なファイルです。Gistは{% ifversion ghae %}インターナル{% else %}パブリック{% endif %}もしくはシークレットにすることができますが、シークレットのGistはURLから{% ifversion ghae %}Enterpriseのメンバーなら誰でも{% else %}誰でも{% endif %}アクセスできます。
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -263,7 +259,7 @@
     GitHub App は、Organization 全体に対してサービスを提供し、その機能を実行する際は独自の ID を使用します。Organization や ユーザアカウントに直接インストールでき、特定のリポジトリへのアクセス権を付与できます。精細なアクセス権限が付いており、webhook が組み込まれています。
 - 
   term: GitHub Flavored Markdown
-  description: GitHub 特有の Markdown であり、GitHub 全体で文章やコードをフォーマットするのに使用されます。[GitHub Flavored Markdown の仕様](https://github.github.com/gfm/)または [GitHub で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)を参照。
+  description: GitHub 特有の Markdown であり、GitHub 全体で文章やコードをフォーマットするのに使用されます。[GitHub Flavored Markdown の仕様]（https://github.github.com/gfm/）または [GitHub で書き、フォーマットしてみる]（/articles/getting-started-with-writing-and-formatting-on-github）を参照。
 - 
   term: GitHub Importer
   description: >-
@@ -377,7 +373,7 @@
   description: >-
     ユーザがアクセスできない個人アカウント。ユーザが有料アカウントを無料のものにダウングレードした場合、または有料プランの支払いが期限を過ぎた場合、アカウントはロックされます。
 - 
-  term: management Console
+  term: management console
   description: >-
     GitHub Enterprise インターフェース内で、管理機能を含むセクション。
 - 
@@ -385,7 +381,7 @@
   description: >-
     Markdown は非常にシンプルでセマンティックファイル形式であり、.doc、.rtf 、.txtと大差ありません。Markdown はウェブパブリッシングの素養がない人でも簡単に文章（リンク、リスト、箇条書きなど）を書いたりウェブサイトのように表示したりできます。GitHub では Markdown をサポートしており、GitHub Flavored Markdown という特定の形式の Markdown を使用します。[GitHub Flavored Markdown の仕様](https://github.github.com/gfm/)または [GitHub で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)を参照。
 - 
-  term: マークアップ
+  term: markup
   description: ドキュメントのアノテーションおよびフォーマットのためのシステム。
 - 
   term: main
@@ -396,7 +392,7 @@
   description: >-
     多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。{% ifversion fpt or ghes > 3.1 or ghae %}たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。{% endif %}
 - 
-  term: メンバーグラフ
+  term: members graph
   description: リポジトリのすべてのフォークを表示するリポジトリグラフ。
 - 
   term: メンション
@@ -422,7 +418,7 @@
   description: >-
     親チームの子チーム。子（または入れ子）チームは複数持つことができます。
 - 
-  term: ネットワークグラフ
+  term: network graph
   description: >-
     リポジトリネットワーク全体のブランチ履歴を表示するリポジトリグラフ。ルートリポジトリのブランチと、ネットワークに固有のコミットを含むフォークのブランチが含まれます。
 - 
@@ -543,10 +539,10 @@
   description: >-
     プルリクエストについてのコラボレータからのコメントで、変更を受け入れたり、プルリクエストがマージされる前にさらなる変更をリクエストしたりするもの。
 - 
-  term: パルスグラフ
+  term: pulse graph
   description: リポジトリのアクティビティの概要を示すリポジトリグラフ。
 - 
-  term: パンチグラフ
+  term: punch graph
   description: >-
     リポジトリへのアップデートの頻度を曜日または 1 日内の時間に基づいて表示するリポジトリグラフ。
 - 
@@ -571,10 +567,6 @@
   term: リベース
   description: >-
     ブランチからの一連の変更を異なるベースに再適用し、そのブランチのHEADをその結果にリセットすること。
-- 
-  term: Recovery Accounts Elsewhere
-  description: >-
-    **Deprecated and will be disabled December 1st, 2021.** Allows users to add an extra security factor to their GitHub account in case they lose access to their two-factor authentication method or recovery codes. Users can associate their GitHub account with their Facebook account by storing an authentication credential in the form of an account recovery token for their GitHub account with Facebook.
 - 
   term: リカバリコード
   description: GitHub アカウントへのアクセスを再取得できるようにするコード。
