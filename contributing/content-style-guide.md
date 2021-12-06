@@ -448,10 +448,10 @@ Format checkbox names in bold and omit the word “checkbox.” To describe choo
 - **Use:** Select **Enable for all new repositories**.
 - **Avoid:** Check the “Enable for all new repositories” checkbox.
 
-### Drop-down menus
+### Dropdown menus
 
-Format drop-down menus in regular text and format clickable items within a menu in bold. Select drop-down menus (regardless of whether the menu name is a word or an octicon), and click their menu items.
-- **Use:** Select the Backup email addresses drop-down menu and click **Only allow primary email**.
+Format dropdown menus in bold and format clickable items within a menu in bold. Select dropdown menus (regardless of whether the menu name is a word or an octicon), and click their menu items.
+- **Use:** Select the **Backup email addresses** dropdown menu and click **Only allow primary email**.
 
 ### Dynamic text
 
