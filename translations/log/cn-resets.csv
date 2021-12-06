@@ -36,6 +36,7 @@ translations/zh-CN/content/actions/hosting-your-own-runners/monitoring-and-troub
 translations/zh-CN/content/actions/hosting-your-own-runners/removing-self-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/hosting-your-own-runners/using-a-proxy-server-with-self-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/contexts.md,rendering error
+translations/zh-CN/content/actions/learn-github-actions/creating-workflow-templates.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/environment-variables.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/expressions.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/reusing-workflows.md,rendering error
@@ -46,6 +47,7 @@ translations/zh-CN/content/actions/learn-github-actions/workflow-syntax-for-gith
 translations/zh-CN/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,rendering error
 translations/zh-CN/content/actions/managing-workflow-runs/reviewing-deployments.md,Listed in localization-support#489
 translations/zh-CN/content/actions/managing-workflow-runs/reviewing-deployments.md,rendering error
+translations/zh-CN/content/actions/publishing-packages/publishing-nodejs-packages.md,rendering error
 translations/zh-CN/content/actions/using-github-hosted-runners/about-ae-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,rendering error
 translations/zh-CN/content/admin/advanced-security/configuring-code-scanning-for-your-appliance.md,rendering error
@@ -132,9 +134,11 @@ translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/a
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/connecting-with-third-party-applications.md,rendering error
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md,rendering error
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys.md,rendering error
+translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log.md,rendering error
 translations/zh-CN/content/authentication/managing-commit-signature-verification/about-commit-signature-verification.md,rendering error
 translations/zh-CN/content/authentication/managing-commit-signature-verification/signing-commits.md,rendering error
 translations/zh-CN/content/authentication/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device.md,rendering error
+translations/zh-CN/content/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials.md,rendering error
 translations/zh-CN/content/billing/index.md,rendering error
 translations/zh-CN/content/billing/managing-billing-for-github-packages/about-billing-for-github-packages.md,rendering error
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts.md,rendering error
