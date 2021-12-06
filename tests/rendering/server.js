@@ -956,11 +956,26 @@ describe('?json query param for context debugging', () => {
 
 describe('static routes', () => {
   it('serves content from the /assets directory', async () => {
-    expect((await get('/assets/images/site/be-social.gif')).statusCode).toBe(200)
+    const res = await get('/assets/images/site/be-social.gif')
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    // Because static assets shouldn't use CSRF and thus shouldn't
+    // be setting a cookie.
+    expect(res.headers['set-cookie']).toBeUndefined()
+    // The "Surrogate-Key" header is set so we can do smart invalidation
+    // in the Fastly CDN. This needs to be available for static assets too.
+    expect(res.headers['surrogate-key']).toBeTruthy()
   })
 
   it('serves schema files from the /data/graphql directory at /public', async () => {
-    expect((await get('/public/schema.docs.graphql')).statusCode).toBe(200)
+    const res = await get('/public/schema.docs.graphql')
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    // Because static assets shouldn't use CSRF and thus shouldn't
+    // be setting a cookie.
+    expect(res.headers['set-cookie']).toBeUndefined()
     expect(
       (await get(`/public/ghes-${enterpriseServerReleases.latest}/schema.docs-enterprise.graphql`))
         .statusCode
