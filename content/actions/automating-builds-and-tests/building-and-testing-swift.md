@@ -86,7 +86,7 @@ jobs:
         swift: ["5.2", "5.3"]
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:
-      - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+      - uses: fwal/setup-swift@v1
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
       - uses: actions/checkout@
@@ -103,7 +103,7 @@ You can configure your job to use a single specific version of Swift, such as `5
 {% raw %}
 ```yaml{:copy}
 steps:
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: fwal/setup-swift@v1
     with:
       swift-version: "5.3.3"
   - name: Get swift version
@@ -119,7 +119,7 @@ You can use the same commands that you use locally to build and test your code u
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: fwal/setup-swift@v1
     with:
       swift-version: "5.3.3"
   - name: Build
