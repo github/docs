@@ -105,6 +105,8 @@ Google | Google OAuth Access Token | google_oauth_access_token{% endif %}
 Google | Google OAuth Client ID | google_oauth_client_id{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Google | Google OAuth Client Secret | google_oauth_client_secret{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Grafana | Grafana API Key | grafana_api_key{% endif %}
 Hashicorp Terraform | Terraform Cloud / Enterprise API Token | terraform_api_token
