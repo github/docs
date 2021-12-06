@@ -1,5 +1,7 @@
-import { get, getDOM } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
+import nock from 'nock'
+
+import { get, getDOM } from '../helpers/supertest.js'
 
 jest.useFakeTimers('legacy')
 
@@ -11,7 +13,20 @@ describe('release notes', () => {
     // advance to call out that problem specifically rather than misleadingly
     // attributing it to the first test
     await get('/')
+
+    nock('https://github.github.com')
+      .get(
+        '/help-docs-archived-enterprise-versions/2.19/en/enterprise-server@2.19/admin/release-notes'
+      )
+      .reply(404)
+    nock('https://github.github.com')
+      .get('/help-docs-archived-enterprise-versions/2.19/redirects.json')
+      .reply(200, {
+        emp: 'ty',
+      })
   })
+
+  afterAll(() => nock.cleanAll())
 
   it('redirects to the release notes on enterprise.github.com if none are present for this version here', async () => {
     const res = await get('/en/enterprise-server@2.19/admin/release-notes')
