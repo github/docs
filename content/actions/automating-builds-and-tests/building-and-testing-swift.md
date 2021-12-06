@@ -89,7 +89,7 @@ jobs:
       - uses: fwal/setup-swift@v1
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
-      - uses: actions/checkout@
+      - uses: actions/checkout@v2
       - name: Build
         run: swift build
       - name: Run tests
