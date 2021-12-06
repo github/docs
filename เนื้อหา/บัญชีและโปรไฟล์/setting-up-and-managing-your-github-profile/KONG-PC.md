@@ -5,15 +5,15 @@ shortTitle: Profiles
 redirect_from:
   - /categories/setting-up-and-managing-your-github-profile
   - /github/setting-up-and-managing-your-github-profile
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-topics:
+versions
+  fpt:ethereum​
+  ghes:ethereum​
+  ghae:ethereum​ 
+  ghec:ethereum​
+topics
   - Profiles
-children:
+children:ethereum​
   - /customizing-your-profile
   - /managing-contribution-graphs-on-your-profile
----
+
 
