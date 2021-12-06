@@ -19,13 +19,13 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-## 概览
+## Overview
 
 {% data reusables.actions.workflow-organization-templates %}
 
-## 创建工作流程模板
+## Creating a workflow template
 
-对组织的 `.github` 仓库具有写入权限的用户可以创建工作流程模板。 然后，有权限创建工作流程的组织成员便可使用这些模板。
+Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows.
 
 {% ifversion fpt %}
 Your workflow templates can be used to create workflows in public repositories only. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use workflow templates to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-workflow-templates).
@@ -39,15 +39,15 @@ Your workflow templates can be used to create workflows in public repositories o
 {% endnote %}
 {% endif %}
 
-此过程展示如何创建工作流程模板和元数据文件。 元数据文件描述在用户新建工作流程时如何向其显示模板。
+This procedure demonstrates how to create a workflow template and metadata file. The metadata file describes how the template is presented to users when they are creating a new workflow.
 
-1. 如果组织中没有名为 `.github` 的公共仓库，请新建一个。
-2. 创建一个名为 `workflow-templates` 的目录。
-3. 在 `workflow-templates` 目录中创建新的工作流程文件。
+1. If it doesn't already exist, create a new public repository named `.github` in your organization.
+2. Create a directory named `workflow-templates`.
+3. Create your new workflow file inside the `workflow-templates` directory.
 
-   如果需要引用仓库的默认分支，可以使用 `$default-branch` 占位符。 使用模板创建工作流程时，占位符将自动替换为仓库默认分支的名称。
+   If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created using your template, the placeholder will be automatically replaced with the name of the repository's default branch.
 
-   例如，下面这个名为 `octo-organization-ci.yml` 的文件展示了一个基本的工作流程。
+   For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
 
    ```yaml
    name: Octo Organization CI
@@ -68,7 +68,7 @@ Your workflow templates can be used to create workflows in public repositories o
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-4. 在 `workflow-templates` 目录中创建元数据文件。 元数据文件必须与工作流程文件同名，但扩展名不是 `.yml`，而必须附加 `.properties.json`。 例如，下面这个名为 `octo-organization-ci.properties.json` 的文件包含名为 `octo-organization-ci.yml` 的工作流程文件的元数据：
+4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
    ```yaml
    {
        "name": "Octo Organization Workflow",
@@ -84,16 +84,16 @@ Your workflow templates can be used to create workflows in public repositories o
        ]
    }
    ```
-   * `name` - **必要。**工作流程模板的名称。 这会显示在可用模板列表中。
-   * `description` - **必要。**工作流程模板的描述。 这会显示在可用模板列表中。
-   * `iconName` - **必要。**定义模板列表中工作流程项目的图标。 `iconName` 必须是同名的 SVG 图标，且必须存储在 `workflow-templates` 目录中。 例如，名为 `example-icon.svg` 的 SVG 文件被引用为 `example-icon`。
-   * `categories` - **可选。**定义工作流程的语言类别。 当用户查看可用模板时，匹配相同语言的模板将更加突出。 有关可用语言类别的信息，请参阅https://github.com/github/linguist/blob/master/lib/linguist/languages.yml。
-   * `filePatterns` - **可选。**如果用户仓库在其根目录中有符合定义的正则表达式的文件，则允许使用模板。
+   * `name` - **Required.** The name of the workflow template. This is displayed in the list of available templates.
+   * `description` - **Required.** The description of the workflow template. This is displayed in the list of available templates.
+   * `iconName` - **Optional.** Defines an icon for the workflow's entry in the template list. The `iconName` must be an SVG icon of the same name, and must be stored in the `workflow-templates` directory. For example, a SVG file named `example-icon.svg` is referenced as `example-icon`.
+   * `categories` - **Optional.** Defines the language category of the workflow. When a user views the available templates, those templates that match the same language will feature more prominently. For information on the available language categories, see https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
+   * `filePatterns` - **Optional.** Allows the template to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
-要添加另一个工作流模板，请将您的文件添加到同一 `workflow-templates` 目录中。 例如：
+To add another workflow template, add your files to the same `workflow-templates` directory. For example:
 
-![工作流程模板文件](/assets/images/help/images/workflow-template-files.png)
+![Workflow template files](/assets/images/help/images/workflow-template-files.png)
 
-## 后续步骤
+## Next steps
 
 To continue learning about {% data variables.product.prodname_actions %}, see "[Using workflow templates](/actions/learn-github-actions/using-workflow-templates)."
