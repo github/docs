@@ -170,6 +170,60 @@ More resources for learning about inclusive and accessible language and style:
 - [Readability Guidelines](https://readabilityguidelines.co.uk/)
 - [Conscious Style Guide](https://consciousstyleguide.com/)
 
+## Keyboard shortcuts
+
+For presenting keyboard shortcuts, follow the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/keys-keyboard-shortcuts), **except for the following differences**:
+
+- Use the HTML `<kbd>` tag for each individual key.
+
+  - **Use:** `<kbd>Command</kbd>+<kbd>B</kbd>`
+  - **Avoid:** `Command+B`
+- Use full words instead of symbols for Apple modifier keys.
+
+  - **Use:** `Command`
+  - **Avoid:** `⌘`
+- Use symbols for keys of special character, not full words.
+
+  - **Use:** `.`, `,`, and `→`.
+  - **Avoid:** `Period`, `Comma`, and `Right arrow`.
+
+### Usage highlights
+
+Below are some usage highlights for how we present keyboard shortcuts in our documentation:
+
+- The basic syntax is to show keys with `+` between key combinations, without any spaces.
+
+  - **Use:** `<kbd>Command</kbd>+<kbd>B</kbd>`, which is rendered as <kbd>Command</kbd>+<kbd>B</kbd>.
+  - **Avoid:** `<kbd>Command</kbd> + <kbd>B</kbd>` or `<kbd>Command + B</kbd>` which are  rendered as <kbd>Command</kbd> + <kbd>B</kbd> or <kbd>Command + B</kbd>.
+- Always capitalize letter keys for general references and keyboard shortcuts.
+
+  - **Use:** <kbd>Command</kbd>+<kbd>B</kbd>
+  - **Avoid:** <kbd>Command</kbd>+<kbd>b</kbd>.
+- Use the correct modifier keys for the each operating system.
+
+  **Note:** Windows and Linux have <kbd>Ctrl</kbd> abbreviated, whereas on Mac it is spelled in full: <kbd>Control</kbd>.
+
+  - For Windows and Linux:
+  
+    - **Use:** <kbd>Ctrl</kbd>, <kbd>Alt</kbd>.
+    - **Avoid:** <kbd>Control</kbd>
+  - For Mac:
+  
+    - **Use:** <kbd>Command</kbd>, <kbd>Option</kbd>, <kbd>Control</kbd>.
+    - **Avoid:** <kbd>Cmd</kbd>, <kbd>⌘</kbd>, <kbd>Opt</kbd>, <kbd>⌥</kbd>, <kbd>Ctrl</kbd>, <kbd>⌃</kbd>
+- Don't confuse key combinations with keys in a sequence.
+
+  - <kbd>Command</kbd>+<kbd>B</kbd> indicates that the user should hold down the <kbd>Command</kbd> key and press the <kbd>B</kbd> key.
+  - <kbd>G</kbd> <kbd>I</kbd> indicates that the user should press the <kbd>G</kbd> key, then press the <kbd>I</kbd> key.
+- When describing a keyboard shortcut for multiple operating systems, append the operating system in brackets after the shortcut. Describe the Mac shortcut first, then Windows/Linux.
+
+  - **Use:** `<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)`, presented as:
+  
+     <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows / Linux)
+  - **Avoid:** `<kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>`, presented as:
+
+    <kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>
+
 ## Linebreaks
 
 For plain text, use linebreaks to separate paragraphs in the source (two consecutive linebreaks), rather than to create visual space in the source. Avoid unneeded linebreaks, especially in lists.
