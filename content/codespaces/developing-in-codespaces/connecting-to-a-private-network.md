@@ -26,7 +26,7 @@ The easiest way to access resources behind a private network is to VPN into that
 
 We recommend VPN tools like [OpenVPN](https://openvpn.net/) to access resources on a private network. For more information, see "[Using the OpenVPN client from GitHub Codespaces](https://github.com/codespaces-contrib/codespaces-openvpn)."
 
-There are also a number of third party solutions that, while not explicitly endorsed by GitHub, have provided examples of how to integrate with {% data variables.product.prodname_codespaces %}.
+There are also a number of third party solutions that, while not explicitly endorsed by {% data variables.product.prodname_dotcom %}, have provided examples of how to integrate with {% data variables.product.prodname_codespaces %}.
 
 A list of these is provided below:
 
