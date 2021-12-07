@@ -342,6 +342,34 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
+### Example: Using secrets
+
+Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job.
+
+The example assumes there is a secret named `SECRET_IS_SET`.
+
+{% raw %}
+```yaml
+name: Run a step if a secret has been set
+on: push
+jobs:
+  my-jobname:
+    runs-on: ubuntu-latest
+    env:
+      SECRET_IS_SET: ${{ secrets.SECRET_IS_SET }}
+      SECRET_IS_NOT_SET: ${{ secrets.SECRET_IS_NOT_SET }}
+    steps:
+      - if: ${{ env.SECRET_IS_SET }}
+        run: echo 'This secret has a value set.'
+      - if: ${{ env.SECRET_IS_NOT_SET }}
+        run: echo 'This step should be skipped.'
+```
+{% endraw %}
+
+If a secret has not been set, the return value of an expression referencing the secret (such as `${{ secrets.SECRET_IS_NOT_SET }}` in the example) will be an empty string.
+
+For more information, see "[Context availability](/actions/learn-github-actions/contexts#context-availability)" and "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+
 ### `jobs.<job_id>.steps[*].name`
 
 A name for your step to display on {% data variables.product.prodname_dotcom %}.
