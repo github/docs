@@ -25,7 +25,7 @@ shortTitle: Removing organizations
 {% data reusables.enterprise-accounts.access-enterprise %}
 2. Under "Organizations", in the search bar, begin typing the organization's name until the organization appears in the search results.
 ![organization search](/assets/images/help/enterprises/organization-search.png)
-3. Next to the organization, use the drop-down and click **Remove organization**.
+3. To the right of the organization's name, select the {% octicon "gear" aria-label="The gear icon" %} drop-down menu and click **Remove organization**.
 ![remove organization](/assets/images/help/enterprises/remove-organization.png)
 4. In the Approve removal of organization dialog box, review and confirm the removal. Note that the information in this box is the same as the warning at the top of this article.
 ![approve organization approval dialogue box](/assets/images/help/enterprises/remove-organization-warning.png)
