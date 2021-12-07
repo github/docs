@@ -1,7 +1,6 @@
 ---
 title: Connecting to a private network
 intro: 'You can connect {% data variables.product.prodname_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.'
-shortTitle: Connecting Codespaces to resources on a private network.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
