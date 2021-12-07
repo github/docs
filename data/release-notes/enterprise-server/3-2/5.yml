@@ -4,7 +4,7 @@ sections:
     - Support bundles could include sensitive files if they met a specific set of conditions. 
   bugs:
     - In some cases when Actions was not enabled, `ghe-support-bundle` reported an unexpected message `Unable to find MS SQL container.` 
-    - `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`. 
+    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`. 
     - A misconfiguration in the Management Console caused scheduling errors. 
     - Docker would hold log files open after a log rotation. 
     - Migrations could get stuck due to incorrect handling of `blob_path` values that are not UTF-8 compatible. 
