@@ -40,6 +40,6 @@ For more information about the Meta API, see "[Meta](/rest/reference/meta)."
 
 ### Restricting access to the public internet
 
-At present, there is no way to restrict codespaces from accessing the public internet, or for appropriately authenticated users from accessing a forwarded port.
+At present, there is no way to restrict codespaces from accessing the public internet, or to restrict appropriately authenticated users from accessing a forwarded port.
 
 For more information on how to secure your codespaces, see ["Security in Codespaces"](/codespaces/codespaces-reference/security-in-codespaces).
