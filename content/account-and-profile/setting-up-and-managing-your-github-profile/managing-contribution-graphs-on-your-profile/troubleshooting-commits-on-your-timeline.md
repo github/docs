@@ -14,7 +14,7 @@ topics:
   - Profiles
 shortTitle: Troubleshoot commits
 ---
-## Expected behavior to view commit details
+## Expected behavior to view commit details in github
 
 On your profile page's timeline, you can click the number of commits next to a specific repository to see more details about your commits from that time period, including a diff of specific changes made in a repository.
 
