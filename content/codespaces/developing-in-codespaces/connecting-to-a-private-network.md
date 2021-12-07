@@ -14,7 +14,7 @@ topics:
 
 ## About codespace networking
 
-By default, your codespaces have access to all resources on the public internet, including: package managers, license servers, databases, and cloud platform APIs; and no access to resources on private networks.
+By default, your codespaces have access to all resources on the public internet, including package managers, license servers, databases, and cloud platform APIs, but they have no access to resources on private networks.
 
 ### Connecting to network-private resources
 
