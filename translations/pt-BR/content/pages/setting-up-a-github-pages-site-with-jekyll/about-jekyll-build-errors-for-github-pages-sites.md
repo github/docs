@@ -40,7 +40,7 @@ Para obter informações sobre como solucionar problemas de erros de criação, 
 
 É recomendável testar o site no local, o que permite ver mensagens de erro de criação na linha de comando e solucionar qualquer falha de criação antes de fazer push das alterações no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Testar seu site do {% data variables.product.prodname_pages %} localmente com o Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)".
 
-Quando você cria uma pull request para atualizar a fonte de publicação no {% data variables.product.product_name %}, é possível ver mensagens de erro de criação na guia **Checks** (Verificações) da pull request. Para obter mais informações, consulte "[Sobre verificações de status](/articles/about-status-checks)".
+Quando você cria uma pull request para atualizar a fonte de publicação no {% data variables.product.product_name %}, é possível ver mensagens de erro de criação na guia **Checks** (Verificações) da pull request. Para obter mais informações, consulte "[Sobre verificações de status](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)".
 
 Quando você fizer push das alterações na fonte de publicação no {% data variables.product.product_name %}, o {% data variables.product.prodname_pages %} tentará criar seu site. Se a criação falhar, você receberá um e-mail no seu endereço de e-mail principal. Você também receberá e-mails para avisos de criação. {% data reusables.pages.build-failure-email-server %}
 

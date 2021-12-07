@@ -36,7 +36,7 @@ shortTitle: 从模板创建
 - 对复刻的提交不会显示在您的贡献图中，而对从模板创建的仓库的提交会显示在您的贡献图中。
 - 复刻可能是向现有项目贡献代码的临时方式，而从模板创建的仓库可以快速启动新项目。
 
-有关复刻的更多信息，请参阅“[关于复刻](/articles/about-forks)”。
+有关复刻的更多信息，请参阅“[关于复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)”。
 
 ## 从模板创建仓库
 

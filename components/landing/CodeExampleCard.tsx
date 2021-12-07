@@ -1,6 +1,7 @@
 import { RepoIcon } from '@primer/octicons-react'
 import { CodeExample } from 'components/context/ProductLandingContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
+import { Label } from '@primer/components'
 
 type Props = {
   example: CodeExample
@@ -21,12 +22,9 @@ export const CodeExampleCard = ({ example }: Props) => {
         <div className="d-flex flex-wrap">
           {example.tags.map((tag) => {
             return (
-              <span
-                key={tag}
-                className="IssueLabel color-fg-on-emphasis color-bg-accent-emphasis mr-2 mb-1"
-              >
+              <Label key={tag} variant="small" sx={{ bg: 'accent.emphasis', mb: 1, mr: 2 }}>
                 {tag}
-              </span>
+              </Label>
             )
           })}
         </div>

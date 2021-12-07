@@ -54,14 +54,14 @@ shortTitle: Upgrading GHES
 
   {% endnote %}
 
-| プラットフォーム              | スナップショットの取得方法 | スナップショットドキュメンテーションのURL                                                                                                                                                                                 |
-| --------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Amazon AWS            | ディスク          | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM            | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
-| Hyper-V               | VM            | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
-| Google Compute Engine | ディスク          | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
-| VMware                | VM            | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
-| XenServer             | VM            | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
+| プラットフォーム              | スナップショットの取得方法 | スナップショットドキュメンテーションのURL                                                                                                                                                                                                           |
+| --------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon AWS            | ディスク          | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                                                 |
+| Azure                 | VM            | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                                                        |
+| Hyper-V               | VM            | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                                               |
+| Google Compute Engine | ディスク          | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                                                   |
+| VMware                | VM            | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html){% ifversion ghes < 3.3 %}
+| XenServer             | VM            | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>{% endif %}
 
 ## ホットパッチでのアップグレード
 
@@ -211,11 +211,8 @@ High Availability と Geo-replication が設定されたアプライアンスは
 
    {% endnote %}
 
-   `ghe-repl-status` が `OK` を返さない場合は、以下の手順に従って手動でレプリケーションを開始してください。
+   If `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. 詳しい情報については、「[{% data variables.contact.github_support %} からの支援を受ける](/admin/enterprise-support/receiving-help-from-github-support)」を参照してください。
 
-   1. レプリカインスタンスで再度 `ghe-repl-setup <primary-instance-ip>` を実行してください。
-   {% data reusables.enterprise_installation.start-replication %}
-   {% data reusables.enterprise_installation.replication-status %}
 6. 最後のレプリカのアップグレードが完了し、resync も完了したなら、ユーザが {% data variables.product.product_location %} を使えるようにメンテナンスモードを無効化してください。
 
 ## 失敗したアップグレードからのリストア

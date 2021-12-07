@@ -1,6 +1,6 @@
 ---
 title: Adicionando organizações à sua empresa
-intro: You can create new organizations or invite existing organizations to manage within your enterprise.
+intro: É possível criar novas organizações ou convidar organizações existentes para gerenciar dentro da sua empresa.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
@@ -21,7 +21,9 @@ shortTitle: Adicionar organizações
 
 Sua conta corporativa pode ser proprietária de organizações. Os integrantes da sua empresa podem colaborar em projetos relacionados dentro de uma organização. Para obter mais informações, consulte "[Sobre organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
-Enterprise owners can create new organizations within an enterprise account's settings or invite existing organizations to join an enterprise. To add an organization to your enterprise, you must create the organization from within the enterprise account settings.
+Os proprietários corporativos podem criar novas organizações dentro das configurações de uma conta corporativa ou convidar organizações existentes para participar de uma empresa. Para adicionar uma organização à sua empresa, você deve criar a organização dentro das configurações de conta corporativa.
+
+Você só pode adicionar organizações dessa forma a uma conta corporativa existente. {% data reusables.enterprise.create-an-enterprise-account %} Para obter mais informações, consulte "[Criando uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
 
 ## Criar uma organização em sua conta corporativa
 

@@ -2,7 +2,7 @@
 title: Guides for code security
 intro: 'Learn about the different ways that {% data variables.product.product_name %} can help you improve your code''s security.'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'

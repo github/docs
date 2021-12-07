@@ -12,7 +12,7 @@ const activeProducts = Object.values(productMap).filter(
   (product) => !product.wip && !product.hidden
 )
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -328,7 +328,7 @@ describe('server', () => {
     test('renders mini TOC in articles with more than one heading', async () => {
       const $ = await getDOM('/en/github/getting-started-with-github/githubs-products')
       expect($('h2#in-this-article').length).toBe(1)
-      expect($('h2#in-this-article + ul li a').length).toBeGreaterThan(1)
+      expect($('h2#in-this-article + div div ul').length).toBeGreaterThan(1)
     })
 
     test('renders mini TOC in articles that includes h3s when specified by frontmatter', async () => {
@@ -336,8 +336,8 @@ describe('server', () => {
         '/en/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise'
       )
       expect($('h2#in-this-article').length).toBe(1)
-      expect($('h2#in-this-article + ul li').length).toBeGreaterThan(0) // non-indented items
-      expect($('h2#in-this-article + ul li ul.ml-3').length).toBeGreaterThan(0) // indented items
+      expect($('h2#in-this-article + div div ul').length).toBeGreaterThan(0) // non-indented items
+      expect($('h2#in-this-article + div div ul li div div div ul.ml-3').length).toBeGreaterThan(0) // indented items
     })
 
     test('does not render mini TOC in articles with only one heading', async () => {
@@ -361,14 +361,14 @@ describe('server', () => {
       const $ = await getDOM(
         '/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates'
       )
-      expect($('h2#in-this-article + ul li a[href="#package-ecosystem"]').length).toBe(1)
+      expect($('h2#in-this-article + div div ul a[href="#package-ecosystem"]').length).toBe(1)
     })
 
     test('renders mini TOC with correct links when headings contain markup in localized content', async () => {
       const $ = await getDOM(
         '/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates'
       )
-      expect($('h2#in-this-article + ul li a[href="#package-ecosystem"]').length).toBe(1)
+      expect($('h2#in-this-article + div div ul a[href="#package-ecosystem"]').length).toBe(1)
     })
   })
 
@@ -609,6 +609,8 @@ describe('server', () => {
     test('redirects old articles to their English URL', async () => {
       const res = await get('/articles/deleting-a-team')
       expect(res.statusCode).toBe(301)
+      // no cache control because a language prefix had to be injected
+      expect(res.headers['cache-control']).toBeUndefined()
     })
 
     test('redirects old articles to their slugified URL', async () => {
@@ -629,12 +631,21 @@ describe('server', () => {
       const res = await get('/articles/deleting-a-team')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location.startsWith('/en/')).toBe(true)
+      expect(res.headers['cache-control']).toBeUndefined()
+    })
+
+    test('redirects that not only injects /en/ should have cache-control', async () => {
+      const res = await get('/en/articles/deleting-a-team')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
 
     test('redirects Desktop Classic paths to desktop.github.com', async () => {
       const res = await get('/desktop-classic')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('https://desktop.github.com')
+      expect(res.headers['cache-control']).toBeUndefined()
     })
 
     // this oneoff redirect is temporarily disabled because it introduces too much complexity
@@ -646,6 +657,8 @@ describe('server', () => {
       expect(res.headers.location).toBe(
         '/en/github/managing-subscriptions-and-notifications-on-github'
       )
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
   })
 
@@ -878,9 +891,13 @@ describe('extended Markdown', () => {
   test('renders expected mini TOC headings in platform-specific content', async () => {
     const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
     expect($('h2#in-this-article').length).toBe(1)
-    expect($('h2#in-this-article + ul li.extended-markdown.mac').length).toBeGreaterThan(1)
-    expect($('h2#in-this-article + ul li.extended-markdown.windows').length).toBeGreaterThan(1)
-    expect($('h2#in-this-article + ul li.extended-markdown.linux').length).toBeGreaterThan(1)
+    expect($('h2#in-this-article + div div ul li.extended-markdown.mac').length).toBeGreaterThan(1)
+    expect(
+      $('h2#in-this-article + div div ul li.extended-markdown.windows').length
+    ).toBeGreaterThan(1)
+    expect($('h2#in-this-article + div div ul li.extended-markdown.linux').length).toBeGreaterThan(
+      1
+    )
   })
 })
 
@@ -939,11 +956,26 @@ describe('?json query param for context debugging', () => {
 
 describe('static routes', () => {
   it('serves content from the /assets directory', async () => {
-    expect((await get('/assets/images/site/be-social.gif')).statusCode).toBe(200)
+    const res = await get('/assets/images/site/be-social.gif')
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    // Because static assets shouldn't use CSRF and thus shouldn't
+    // be setting a cookie.
+    expect(res.headers['set-cookie']).toBeUndefined()
+    // The "Surrogate-Key" header is set so we can do smart invalidation
+    // in the Fastly CDN. This needs to be available for static assets too.
+    expect(res.headers['surrogate-key']).toBeTruthy()
   })
 
   it('serves schema files from the /data/graphql directory at /public', async () => {
-    expect((await get('/public/schema.docs.graphql')).statusCode).toBe(200)
+    const res = await get('/public/schema.docs.graphql')
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    // Because static assets shouldn't use CSRF and thus shouldn't
+    // be setting a cookie.
+    expect(res.headers['set-cookie']).toBeUndefined()
     expect(
       (await get(`/public/ghes-${enterpriseServerReleases.latest}/schema.docs-enterprise.graphql`))
         .statusCode

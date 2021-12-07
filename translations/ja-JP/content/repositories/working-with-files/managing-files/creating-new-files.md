@@ -16,7 +16,7 @@ topics:
 
 {% data variables.product.product_name %}上でファイルを作成するときは、以下にご注意ください:
 
-- アクセス権を持たないリポジトリでの新しいファイル作成を試みている場合、変更をコミットした後で、ユーザーアカウントにプロジェクトをフォークして [プルリクエスト](/articles/about-pull-requests)をオリジナルのリポジトリに送信できるようお手伝いします。
+- アクセス権を持たないリポジトリでの新しいファイル作成を試みている場合、変更をコミットした後で、ユーザーアカウントにプロジェクトをフォークして [プルリクエスト](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)をオリジナルのリポジトリに送信できるようお手伝いします。
 - Web インターフェイスを介して作成されるファイル名では英数字とハイフン (`-`) しか使用できません。 他の文字を使用するには、[ローカルにファイルを作成してからコミットし、{% data variables.product.product_name %} 上のリポジトリにプッシュします](/articles/adding-a-file-to-a-repository-using-the-command-line)。
 
 {% data reusables.repositories.sensitive-info-warning %}

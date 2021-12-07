@@ -22,5 +22,5 @@ shortTitle: 自动删除分支
 3. 在“Merge（合并）”按钮下，选择或取消选择 **Automatically delete head branches（自动删除头部分支）**。 ![启用或禁用分支自动删除的复选框](/assets/images/help/repository/automatically-delete-branches.png)
 
 ## 延伸阅读
-- "[合并拉取请求](/articles/merging-a-pull-request)"
+- "[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
 - “[在仓库内创建和删除分支](/articles/creating-and-deleting-branches-within-your-repository)”

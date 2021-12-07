@@ -1,7 +1,7 @@
 ---
-title: Criando modelos de fluxo de trabalho
-shortTitle: Criando modelos
-intro: Saiba como criar modelos de fluxo de trabalho para ajudar as pessoas na sua equipe a adicionar novos fluxos de trabalho com mais facilidade.
+title: Creating workflow templates
+shortTitle: Creating templates
+intro: Learn how you can create workflow templates to help people in your team add new workflows more easily.
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
@@ -19,13 +19,13 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-## Visão Geral
+## Overview
 
 {% data reusables.actions.workflow-organization-templates %}
 
-## Criar um modelo do fluxo de trabalho
+## Creating a workflow template
 
-Os modelos do fluxo de trabalh podem ser criados por usuários com acesso de gravação ao repositório `.github` da organização. Em seguida, os modelos podem ser usados por integrantes da organização com permissão para criar fluxos de trabalho.
+Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows.
 
 {% ifversion fpt %}
 Your workflow templates can be used to create workflows in public repositories only. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use workflow templates to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-workflow-templates).
@@ -34,20 +34,20 @@ Your workflow templates can be used to create workflows in public repositories o
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 {% note %}
 
-**Observação:** Para evitar duplicação em fluxos de trabalho criados a partir de um modelo você pode chamar fluxos de trabalho reutilizáveis a partir de um modelo de fluxo de trabalho. Isso pode ajudar a manter seus fluxos de trabalho de forma mais fácil. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
+**Note:** To avoid duplication in workflows created from a template you can call reusable workflows from within a workflow template. This can help make your workflows easier to maintain. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 
 {% endnote %}
 {% endif %}
 
-Este procedimento demonstra como criar um modelo de fluxo de trabalho e um arquivo de metadados. O arquivo de metadados descreve como o modelo é apresentado aos usuários quando estão criando um novo fluxo de trabalho.
+This procedure demonstrates how to create a workflow template and metadata file. The metadata file describes how the template is presented to users when they are creating a new workflow.
 
-1. Se já não existir, crie um novo repositório público denominado `.github` na sua organização.
-2. Crie um diretório denominado `workflow-templates`.
-3. Crie seu novo arquivo de fluxo de trabalho dentro do diretório `workflow-templates`.
+1. If it doesn't already exist, create a new public repository named `.github` in your organization.
+2. Create a directory named `workflow-templates`.
+3. Create your new workflow file inside the `workflow-templates` directory.
 
-   Se você precisar referir-se ao branch-padrão de um repositório, você poderá usar o espaço reservado `branch$default`. Quando um fluxo de trabalho é criado usando seu modelo, o espaço reservado será automaticamente substituído pelo nome do branch-padrão do repositório.
+   If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created using your template, the placeholder will be automatically replaced with the name of the repository's default branch.
 
-   Por exemplo, este arquivo denominado `octo-organization-ci.yml` demonstra um fluxo de trabalho básico.
+   For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
 
    ```yaml
    name: Octo Organization CI
@@ -68,7 +68,7 @@ Este procedimento demonstra como criar um modelo de fluxo de trabalho e um arqui
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-4. Crie um arquivo de metadados dentro do diretório `workflow-templates`. O arquivo de metadados deve ter o mesmo nome do arquivo de fluxo de trabalho, mas em vez da extensão `.yml`, deve-se adicionar `.properties.json`. Por exemplo, este arquivo denominado `octo-organization-ci.properties.json` contém os metadados para um arquivo de fluxo de trabalho denominado `octo-organization-ci.yml`:
+4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
    ```yaml
    {
        "name": "Octo Organization Workflow",
@@ -84,16 +84,16 @@ Este procedimento demonstra como criar um modelo de fluxo de trabalho e um arqui
        ]
    }
    ```
-   * `nome` - **Obrigatório.** O nome do modelo de fluxo de trabalho. Isto é exibido na lista de modelos disponíveis.
-   * `descrição` - **Obrigatória.** A descrição do modelo de fluxo de trabalho. Isto é exibido na lista de modelos disponíveis.
-   * `iconName` - **Obrigatório.** Define um ícone para a entrada do fluxo de trabalho na lista de modelos. O `iconName` deve ser um ícone SVG com o mesmo nome e deve ser armazenado no diretório `workflow-templates`. Por exemplo, um arquivo SVG denominado `exemplo-icon.svg` é referenciado como `example-icon`.
-   * `categorias` - **Opcional.** Define a categoria de idioma do fluxo de trabalho. Quando um usuário visualiza os modelos disponíveis, esses modelos que correspondem àao mesmo idioma terão mais destaque. Para obter informações sobre as categorias de idioma disponíveis, consulte https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
-   * `filePatterns` - **Opcional.** Permite que o modelo seja usado se o repositório do usuário tiver um arquivo no diretório-raiz que corresponde a uma expressão regular definida.
+   * `name` - **Required.** The name of the workflow template. This is displayed in the list of available templates.
+   * `description` - **Required.** The description of the workflow template. This is displayed in the list of available templates.
+   * `iconName` - **Optional.** Defines an icon for the workflow's entry in the template list. The `iconName` must be an SVG icon of the same name, and must be stored in the `workflow-templates` directory. For example, a SVG file named `example-icon.svg` is referenced as `example-icon`.
+   * `categories` - **Optional.** Defines the language category of the workflow. When a user views the available templates, those templates that match the same language will feature more prominently. For information on the available language categories, see https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
+   * `filePatterns` - **Optional.** Allows the template to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
-Para adicionar outro modelo de fluxo de trabalho, adicione seus arquivos ao mesmo diretório `workflow-templates`. Por exemplo:
+To add another workflow template, add your files to the same `workflow-templates` directory. For example:
 
-![Arquivos do modelo do fluxo de trabalho](/assets/images/help/images/workflow-template-files.png)
+![Workflow template files](/assets/images/help/images/workflow-template-files.png)
 
-## Próximas etapas
+## Next steps
 
-Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Usando modelos de fluxo de trabalho](/actions/learn-github-actions/using-workflow-templates)".
+To continue learning about {% data variables.product.prodname_actions %}, see "[Using workflow templates](/actions/learn-github-actions/using-workflow-templates)."

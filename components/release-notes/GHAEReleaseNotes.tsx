@@ -85,7 +85,7 @@ const CollapsibleReleaseSection = ({
           {release.version}
           <div className="d-flex">
             <span className="color-fg-muted text-small text-normal mr-1">
-              {release.patches.length} releases
+              {release.patches.length} {release.patches.length === 1 ? 'release' : 'releases'}
             </span>
             <ChevronDownIcon className={isOpen ? 'rotate-180' : ''} />
           </div>

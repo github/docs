@@ -105,7 +105,7 @@ Enterprise owners can configure the dependency graph at an enterprise level. 更
 如果依赖关系图为空，则包含依赖项的文件可能有问题。 检查该文件以确保其格式对文件类型是正确的。
 
 {% ifversion fpt or ghec %}
-如果文件格式正确，请检查文件大小。 除非您是 {% data variables.product.prodname_enterprise %} 用户，否则依赖关系图将忽略超过 0.5 Mb 的单个清单和锁定文件。 默认情况下，每个仓库最多处理 20 个清单或锁定文件，因此您可以在仓库子目录中将依赖项拆分为较小的文件。{% endif %}
+如果文件格式正确，请检查文件大小。 除非您是 {% data variables.product.prodname_enterprise %} 用户，否则依赖关系图将忽略超过 1.5 Mb 的单个清单和锁定文件。 默认情况下，每个仓库最多处理 20 个清单或锁定文件，因此您可以在仓库子目录中将依赖项拆分为较小的文件。{% endif %}
 
 如果清单或锁定文件未获处理，其依赖项将从依赖关系图中省略，而不能接受有漏洞依赖项的检查。
 

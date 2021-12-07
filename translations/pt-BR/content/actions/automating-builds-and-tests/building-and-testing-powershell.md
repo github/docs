@@ -13,7 +13,7 @@ authors:
 type: tutorial
 topics:
   - CI
-  - Powershell
+  - PowerShell
 shortTitle: Criar & testar o PowerShell
 ---
 

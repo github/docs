@@ -21,6 +21,7 @@ search:
   placeholder: Pesquisar tópicos, produtos...
   loading: Carregando
   no_results: Nenhum resultado encontrado
+  no_content: No content
 homepage:
   explore_by_product: Explorar por produto
   version_picker: Versão
@@ -149,7 +150,7 @@ product_landing:
   upgrade_from: Upgrade from
   browse_all_docs: Browse all docs
   explore_release_notes: Explore release notes
-product_sublanding:
+product_guides:
   start: Início
   start_path: Caminho de início
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'

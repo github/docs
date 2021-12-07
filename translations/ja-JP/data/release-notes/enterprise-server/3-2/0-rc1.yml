@@ -53,9 +53,9 @@ sections:
       heading: 'セキュアな認証情報ストレージGit Credential Manager (GCM)と多要素認証のサポート'
       notes:
         - |
-          Git Credential Manager (GCM) Coreバージョン2.0.452以降は、セキュリティ強化された認証情報のストレージと、{% data variables.product.product_name %}のための多要素認証を提供します。
+          Git Credential Manager (GCM) versions 2.0.452 and later now provide security-hardened credential storage and multi-factor authentication support for {% data variables.product.product_name %}.
 
-          {% data variables.product.product_name %}をサポートするGCM Coreは[Git for Windows](https://gitforwindows.org)バージョン2.32以降に含まれています。GCM Coreは、Git for macOSもしくはLinuxには含まれていませんが、個別にインストールすることはできます。詳しい情報については、 `microsoft/Git-Credential-Manager-Core`リポジトリ中の[最新のリリース](https://github.com/microsoft/Git-Credential-Manager-Core/releases/)及び[インストール手順](https://github.com/microsoft/Git-Credential-Manager-Core/releases/)を参照してください。
+          GCM with support for {% data variables.product.product_name %} is included with [Git for Windows](https://gitforwindows.org) versions 2.32 and later. GCM is not included with Git for macOS or Linux, but can be installed separately. For more information, see the [latest release](https://github.com/GitCredentialManager/git-credential-manager/releases/) and [installation instructions](https://github.com/GitCredentialManager/git-credential-manager/releases/) in the `GitCredentialManager/git-credential-manager` repository.
   changes:
     - 
       heading: 管理に関する変更
@@ -197,7 +197,7 @@ sections:
     - 
       heading: XenServer Hypervisorサポートの非推奨化
       notes:
-        - Beginning in {% data variables.product.prodname_ghe_server %} 3.1, we will begin discontinuing support for Xen Hypervisor. The complete deprecation is scheduled for {% data variables.product.prodname_ghe_server %} 3.3, following the standard one year deprecation window. Please contact [GitHub Support](https://enterprise.githubsupport.com/hc/en-us/signin) with questions or concerns.
+        - Beginning in {% data variables.product.prodname_ghe_server %} 3.1, we will begin discontinuing support for Xen Hypervisor. The complete deprecation is scheduled for {% data variables.product.prodname_ghe_server %} 3.3, following the standard one year deprecation window. Please contact [GitHub Support](https://support.github.com/contact) with questions or concerns.
     - 
       heading: Removal of Legacy GitHub Services
       notes:

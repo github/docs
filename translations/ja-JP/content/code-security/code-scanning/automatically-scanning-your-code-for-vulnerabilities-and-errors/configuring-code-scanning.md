@@ -1,6 +1,6 @@
 ---
-title: コードスキャンを設定する
-intro: '{% data variables.product.prodname_dotcom %} がプロジェクトのコードをスキャンして脆弱性やエラーを検出する方法を設定できます。'
+title: Configuring code scanning
+intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans the code in your project for vulnerabilities and errors.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for the repository.'
 miniTocMaxHeadingLevel: 3
@@ -22,64 +22,65 @@ topics:
   - Pull requests
   - JavaScript
   - Python
-shortTitle: Code scanningの設定
+shortTitle: Configure code scanning
 ---
-
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-## {% data variables.product.prodname_code_scanning %} の設定について
+## About {% data variables.product.prodname_code_scanning %} configuration
 
-{% data variables.product.prodname_actions %}を使って、あるいは継続的インテグレーション（CI）システムから、{% data variables.product.product_name %}上で{% data variables.product.prodname_code_scanning %}を実行できます。 詳しい情報については「[{% data variables.product.prodname_actions %}について](/actions/getting-started-with-github-actions/about-github-actions)」あるいは
+You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system. For more information, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)" or 
 {%- ifversion fpt or ghes > 3.0 or ghae-next %}
-「[CIシステムでの{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}について](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)」を参照してください。
+"[About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)."
 {%- else %}
-「[CIシステムでの{% data variables.product.prodname_codeql_runner %}の実行](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)」を参照してください。
+"[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 {% endif %}
 
-この記事は、Actionsを使って{% data variables.product.product_name %} 上で {% data variables.product.prodname_code_scanning %} を実行することについて説明しています。
+This article is about running {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %} using actions.
 
-リポジトリに {% data variables.product.prodname_code_scanning %} を設定する前に、リポジトリに {% data variables.product.prodname_actions %} ワークフローを追加して {% data variables.product.prodname_code_scanning %} をセットアップする必要があります。 詳しい情報については、「[リポジトリに対する {% data variables.product.prodname_code_scanning %} をセットアップする](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)」を参照してください。
+Before you can configure {% data variables.product.prodname_code_scanning %} for a repository, you must set up {% data variables.product.prodname_code_scanning %} by adding a {% data variables.product.prodname_actions %} workflow to the repository. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
 {% data reusables.code-scanning.edit-workflow %}
 
-{% data variables.product.prodname_codeql %} 解析は、{% data variables.product.prodname_dotcom %} で実行できる {% data variables.product.prodname_code_scanning %} のほんの一例に過ぎません。 {% ifversion ghes %}{% data variables.product.prodname_dotcom_the_website %}上の{% endif %}{% data variables.product.prodname_marketplace %}は、使用可能な他の{% data variables.product.prodname_code_scanning %}ワークフローを含みます。 {% ifversion fpt or ghec %}**{% octicon "shield" aria-label="The shield symbol" %} セキュリティ**タブからアクセスできる"Get started with {% data variables.product.prodname_code_scanning %}"ページ上には、それらの選択肢があります。{% endif %}この記事で示されている例は、{% data variables.product.prodname_codeql_workflow %}ファイルに関連しています。
+{% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on  {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-label="The shield symbol" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.product.prodname_codeql_workflow %} file.
 
-## Editing a code scanning workflow
+## Editing a {% data variables.product.prodname_code_scanning %} workflow
 
-{% data variables.product.prodname_dotcom %} は、リポジトリの _.github/workflows_ ディレクトリにワークフローファイルを保存します。 ファイル名を検索して、追加済みのワークフローを見つけることができます。 For example, the default workflow file for CodeQL code scanning is called `codeql-analysis.yml`.
+{% data variables.product.prodname_dotcom %} saves workflow files in the _.github/workflows_ directory of your repository. You can find a workflow you have added by searching for its file name. For example, by default, the workflow file for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} is called _codeql-analysis.yml_.
 
-1. リポジトリで、編集したいワークフローファイルにアクセスします。
-1. ファイルビューの右上隅の {% octicon "pencil" aria-label="The edit icon" %}をクリックしてワークフローエディタを開きます。 ![ワークフローファイルの編集ボタン](/assets/images/help/repository/code-scanning-edit-workflow-button.png)
-1. ファイルを編集したら、[**Start commit**] をクリックして、[Commit changes] フォームに入力します。 現在のブランチに直接コミットするか、新しいブランチを作成してプルリクエストを開始するかを選択できます。 ![codeql.yml ワークフローの更新をコミットする](/assets/images/help/repository/code-scanning-workflow-update.png)
+1. In your repository, browse to the workflow file you want to edit.
+1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="The edit icon" %}.
+![Edit workflow file button](/assets/images/help/repository/code-scanning-edit-workflow-button.png)
+1. After you have edited the file, click **Start commit** and complete the "Commit changes" form. You can choose to commit directly to the current branch, or create a new branch and start a pull request.
+![Commit update to codeql.yml workflow](/assets/images/help/repository/code-scanning-workflow-update.png)
 
-ワークフローファイルの編集に関する詳しい情報については、「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」を参照してください。
+For more information about editing workflow files, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-## 頻度を設定する
+## Configuring frequency
 
-スケジュール設定されているときや、リポジトリで特定のイベントが発生したときに、コードをスキャンできます。
+You can configure the {% data variables.product.prodname_codeql_workflow %} to scan code on a schedule or when specific events occur in a repository.
 
-リポジトリへのプッシュごと、およびプルリクエストが作成されるたびにコードをスキャンすることで、開発者がコードに新しい脆弱性やエラーをもたらすことを防ぎます。 スケジュールに従ってコードをスキャンすると、開発者がリポジトリを積極的に維持していない場合でも、{% data variables.product.company_short %}、セキュリティ研究者、コミュニティが発見した最新の脆弱性とエラーが通知されます。
+Scanning code when someone pushes a change, and whenever a pull request is created, prevents developers from introducing new vulnerabilities and errors into the code. Scanning code on a schedule informs you about the latest vulnerabilities and errors that {% data variables.product.company_short %}, security researchers, and the community discover, even when developers aren't actively maintaining the repository.
 
-### プッシュ時にスキャンする
+### Scanning on push
 
-デフォルトのワークフローを使用する場合、{% data variables.product.prodname_code_scanning %} は、イベントによってトリガーされるスキャンに加えて、リポジトリ内のコードを週に1回スキャンします。 このスケジュールを調整するには、ワークフローで `cron` 値を編集します。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#on)」を参照してください。
+By default, the {% data variables.product.prodname_codeql_workflow %} uses the `on.push` event to trigger a code scan on every push to the default branch of the repository and any protected branches. For {% data variables.product.prodname_code_scanning %} to be triggered on a specified branch, the workflow must exist in that branch. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#on)."
 
-プッシュ時にスキャンするなら、結果はリポジトリの** Security（セキュリティ）**タブに表示されます。 詳しい情報については、「[リポジトリの コードスキャンアラートを管理する](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)」を参照してください。
+If you scan on push, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
-Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."  
 {% endif %}
 
-### プルリクエストをスキャンする
+### Scanning pull requests
 
-デフォルトの {% data variables.product.prodname_codeql_workflow %} は、`pull_request` イベントを使用して、デフォルトブランチに対するプルリクエストのコードスキャンをトリガーします。 {% ifversion ghes %}`pull_request`イベントは、Pull Requestがプライベートフォークからオープンされたときにはトリガーされません。{% else %}Pull Requestがプライベートフォークからのものであれば、リポジトリの設定で"Run workflows from fork pull requests（フォークのPull Requestからワークフローを実行）"オプションを選択している場合にのみ`pull_request`イベントはトリガーされます。 For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
+The default {% data variables.product.prodname_codeql_workflow %} uses the `pull_request` event to trigger a code scan on pull requests targeted against the default branch. {% ifversion ghes %}The `pull_request` event is not triggered if the pull request was opened from a private fork.{% else %}If a pull request is from a private fork, the `pull_request` event will only be triggered if you've selected the "Run workflows from fork pull requests" option in the repository settings. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
 
-`pull_request` イベントに関する詳しい情報については、「"[{% data variables.product.prodname_actions %}のためのワークフローの構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)」を参照してください。
+For more information about the `pull_request` event, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)."
 
-Pull Requestをスキャンすると、その結果はPull Requestチェック内のアラートとして表示されます。 詳しい情報については、「[プルリクエストでコードスキャンアラートをトリアージする](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)」を参照してください。
+If you scan pull requests, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
  Using the `pull_request` trigger, configured to scan the pull request's merge commit rather than the head commit, will produce more efficient and accurate results than scanning the head of the branch on each push. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
@@ -88,22 +89,22 @@ Pull Requestをスキャンすると、その結果はPull Requestチェック�
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ### Defining the severities causing pull request check failure
 
-By default, only alerts with the severity level of `Error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} or security severity level of `Critical` or `High`{% endif %} will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} and of security severities{% endif %} that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details)."
+By default, only alerts with the severity level of `Error`{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %} or security severity level of `Critical` or `High`{% endif %} will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %} and of security severities{% endif %} that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.
-{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %}
-![チェック失敗の設定](/assets/images/help/repository/code-scanning-check-failure-setting.png)
+1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure. 
+{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %}
+![Check failure setting](/assets/images/help/repository/code-scanning-check-failure-setting.png)
 {% else %}
-![チェック失敗の設定](/assets/images/help/repository/code-scanning-check-failure-setting-ghae.png)
+![Check failure setting](/assets/images/help/repository/code-scanning-check-failure-setting-ghae.png)
 {% endif %}
 {% endif %}
 
-### プルリクエストの不要なスキャンを回避する
+### Avoiding unnecessary scans of pull requests
 
-どのファイルが変更されたかに関わらず、デフォルトブランチに対する特定のプルリクエストにコードスキャンがトリガーされることを避けたい場合もあるでしょう。 これを設定するには、{% data variables.product.prodname_code_scanning %} ワークフローで `on:pull_request:paths-ignore` または `on:pull_request:paths` を指定します。 たとえば、プルリクエストにおける変更が、`.md` または `.txt` のファイル拡張子を持つファイルである場合、次の `paths-ignore` 配列を使用できます。
+You might want to avoid a code scan being triggered on specific pull requests targeted against the default branch, irrespective of which files have been changed. You can configure this by specifying `on:pull_request:paths-ignore` or `on:pull_request:paths` in the {% data variables.product.prodname_code_scanning %} workflow. For example, if the only changes in a pull request are to files with the file extensions `.md` or `.txt` you can use the following `paths-ignore` array.
 
 ``` yaml
 on:
@@ -118,28 +119,28 @@ on:
 
 {% note %}
 
-**注釈**
+**Notes**
 
-* `on:pull_request:paths-ignore` と `on:pull_request:paths` は、ワークフローのアクションがプルリクエストで実行されるかどうかを決定する条件を設定します。 アクションが実行されたときにどのファイルが解析__されるかは決定しません。 プルリクエストに、`on:pull_request:paths-ignore` または `on:pull_request:paths` にマッチしないファイルが含まれている場合、ワークフローはそのアクションを実行し、`on:pull_request:paths-ignore` または `on:pull_request:paths` にマッチするものを含む、プルリクエストにおいて変更されたすべてのファイルをスキャンします。ただし、除外されているファイルは除きます。 ファイルを解析から除外する方法については、「[スキャンするディレクトリを指定する](#specifying-directories-to-scan)」を参照してください。
-* For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} ワークフローファイルに対しては、`on:push` イベントで `paths-ignore` や `paths` といったキーワードは使用しないでください。解析に漏れが生じる恐れがあります。 正確な結果を得るには、{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} が新しい変更を前回のコミットの解析と比較できる必要があります。
+* `on:pull_request:paths-ignore` and `on:pull_request:paths` set conditions that determine whether the actions in the workflow will run on a pull request. They don't determine what files will be analyzed when the actions _are_ run. When a pull request contains any files that are not matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, the workflow runs the actions and scans all of the files changed in the pull request, including those matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, unless the files have been excluded. For information on how to exclude files from analysis, see "[Specifying directories to scan](#specifying-directories-to-scan)."
+* For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} workflow files, don't use the `paths-ignore` or `paths` keywords with the `on:push` event as this is likely to cause missing analyses. For accurate results, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} needs to be able to compare new changes with the analysis of the previous commit.
 
 {% endnote %}
 
-`on:pull_request:paths-ignore` と `on:pull_request:paths` を使用して、プルリクエストに対していつワークフローを実行するかを決定することに関する詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)」を参照してください。
+For more information about using `on:pull_request:paths-ignore` and `on:pull_request:paths` to determine when a workflow will run for a pull request, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)."
 
-### スケジュールに従ってスキャンする
+### Scanning on a schedule
 
-デフォルトの {% data variables.product.prodname_code_scanning %} ワークフローは、`pull_request` イベントを使用して、プルリクエストの `HEAD` コミットでコードスキャンをトリガーします。 このスケジュールを調整するには、ワークフローで `cron` 値を編集します。 詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onschedule)」を参照してください。
+If you use the default {% data variables.product.prodname_codeql_workflow %}, the workflow will scan the code in your repository once a week, in addition to the scans triggered by events. To adjust this schedule, edit the `cron` value in the workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onschedule)."
 
 {% note %}
 
-**注釈**: {% data variables.product.prodname_dotcom %} は、デフォルトのブランチのワークフローにあるスケジュール設定されたジョブのみを実行します。 他のブランチのワークフローでスケジュールを変更しても、ブランチをデフォルトブランチにマージするまで影響はありません。
+**Note**: {% data variables.product.prodname_dotcom %} only runs scheduled jobs that are in workflows on the default branch. Changing the schedule in a workflow on any other branch has no effect until you merge the branch into the default branch.
 
 {% endnote %}
 
-### サンプル
+### Example
 
-以下の例は、デフォルトブランチの名前が `main` で、`protected` という保護されたブランチがある特定のリポジトリに対する {% data variables.product.prodname_codeql_workflow %} を示しています。
+The following example shows a {% data variables.product.prodname_codeql_workflow %} for a particular repository that has a default branch called `main` and one protected branch called `protected`.
 
 ``` yaml
 on:
@@ -151,16 +152,16 @@ on:
     - cron: '20 14 * * 1'
 ```
 
-このワークフローは、次をスキャンします。
-* デフォルトブランチと保護されたブランチに対する全てのプッシュ
-* デフォルトブランチに対する全てのプルリクエスト
-* 毎週月曜の14:20 UTCにデフォルトブランチ
+This workflow scans:
+* Every push to the default branch and the protected branch
+* Every pull request to the default branch
+* The default branch every Monday at 14:20 UTC
 
-## オペレーティングシステムを指定する
+## Specifying an operating system
 
-コードのコンパイルに特定のオペレーティングシステムが必要な場合は、そのオペレーティングシステムを {% data variables.product.prodname_codeql_workflow %} で設定できます。 `jobs.analyze.runs-on` の値を編集して、{% data variables.product.prodname_code_scanning %} のアクションを実行するマシンのオペレーティングシステムを指定します。 {% ifversion ghes %}オペレーティングシステムの指定には、`self-hosted` の後に、2 つの要素がある配列の 2 番目の要素として、適切なラベルを使用します。{% else %}
+If your code requires a specific operating system to compile, you can configure the operating system in your {% data variables.product.prodname_codeql_workflow %}. Edit the value of `jobs.analyze.runs-on` to specify the operating system for the machine that runs your {% data variables.product.prodname_code_scanning %} actions. {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
 
-Code Scanningにセルフホストランナーを使うことにしたなら、`self-hosted` の後に、2 つの要素がある配列の 2 番目の要素として適切なラベルを使用し、オペレーティングシステムを指定できます。{% endif %}
+If you choose to use a self-hosted runner for code scanning, you can specify an operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% endif %}
 
 ``` yaml
 jobs:
@@ -169,16 +170,16 @@ jobs:
     runs-on: [self-hosted, ubuntu-latest]
 ```
 
-{% ifversion fpt or ghec %}詳しい情報については、「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」および「[セルフホストランナーを追加する](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。{% endif %}
+{% ifversion fpt or ghec %}For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."{% endif %}
 
-{% data variables.product.prodname_code_scanning_capc %} は、macOS、Ubuntu、Windows の最新バージョンをサポートしています。 したがって、この設定の典型的な値は`ubuntu-latest`、`windows-latest`、`macos-latest`になります。 詳しい情報については、{% ifversion ghes %}「[GitHub Actions のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)」および「[セルフホストランナーでラベルを使用する](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)」{% else %}「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)」{% endif %}を参照してください。
+{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} supports the latest versions of Ubuntu, Windows, and macOS. Typical values for this setting are therefore: `ubuntu-latest`, `windows-latest`, and `macos-latest`. For more information, see {% ifversion ghes %}"[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)" and "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}"[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}."
 
-{% ifversion ghes %}GitがセルフホストランナーのPATH変数内にあるようにしなければなりません。{% else %}セルフホストランナーを使っているなら、GitがPATH変数内にあるようにしなければなりません。{% endif %}
+{% ifversion ghes %}You must ensure that Git is in the PATH variable on your self-hosted runners.{% else %}If you use a self-hosted runner, you must ensure that Git is in the PATH variable.{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-## {% data variables.product.prodname_codeql %}データベースの場所の指定
+## Specifying the location for {% data variables.product.prodname_codeql %} databases
 
-一般に、{% data variables.product.prodname_codeql_workflow %}が{% data variables.product.prodname_codeql %}データベースを置く場所について気にする必要はありません。これは、以前のステップで作成されたデータベースを後のステップは自動的に見つけるからです。 ただし、たとえばこのデータベースをワークフローの成果物としてアップロードするといったような、{% data variables.product.prodname_codeql %}データベースが特定のディスク上の場所にあることを必要とするカスタムのワークフローステップを書いているなら、`init`アクションの下で`db-location`を使って場所を指定することもできます。
+In general, you do not need to worry about where the {% data variables.product.prodname_codeql_workflow %} places {% data variables.product.prodname_codeql %} databases since later steps will automatically find databases created by previous steps. However, if you are writing a custom workflow step that requires the {% data variables.product.prodname_codeql %} database to be in a specific disk location, for example to upload the database as a workflow artifact, you can specify that location using the `db-location` parameter under the `init` action.
 
 {% raw %}
 ``` yaml
@@ -188,22 +189,22 @@ jobs:
 ```
 {% endraw %}
 
-{% data variables.product.prodname_codeql_workflow %}は、`db-location`で提供されたパスが書き込み可能であり、存在しないか空のディレクトリであることを期待します。 セルフホストランナー上で動作するか、Dockerコンテナを使うジョブでこのパラメータを使う場合、選択されたディレクトリが実行間でクリアされること、あるいは不要になったらデータベースが削除されることを保証するのはユーザの責任です。 これは、実行のたびに新しいインスタンスとクリーンなファイルシステムになる{% data variables.product.prodname_dotcom %}ホストランナー上で動作するジョブには必要ありません。 詳しい情報については「[{% data variables.product.prodname_dotcom %}ホストランナーについて](/actions/using-github-hosted-runners/about-github-hosted-runners)」を参照してください。
+The {% data variables.product.prodname_codeql_workflow %} will expect the path provided in `db-location` to be writable, and either not exist, or be an empty directory. When using this parameter in a job running on a self-hosted runner or using a Docker container, it's the responsibility of the user to ensure that the chosen directory is cleared between runs, or that the databases are removed once they are no longer needed. {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
 
-このパラメータが使われなければ、{% data variables.product.prodname_codeql_workflow %}はデータベースを自分が選択した一時的な場所に作成します。
+If this parameter is not used, the {% data variables.product.prodname_codeql_workflow %} will create databases in a temporary location of its own choice.
 {% endif %}
 
-## 解析される言語を変更する
+## Changing the languages that are analyzed
 
-{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}は、自動的にサポートする言語で書かれたコードを検出します。
+{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} automatically detects code written in the supported languages.
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
-デフォルトの{% data variables.product.prodname_codeql_workflow %}ファイルには、分析されたリポジトリ中の言語がリストされた`language`というビルドマトリクスが含まれます。 {% data variables.product.prodname_codeql %}は、{% data variables.product.prodname_code_scanning %}がリポジトリに追加されたときにこのマトリクスを自動的に作成します。 `language`マトリクスを使うことで、{% data variables.product.prodname_codeql %}が各分析を並列に実行するよう最適化されます。 並列ビルドのパフォーマンスのメリットから、すべてのワークフローはこの設定を採用することをおすすめします。 ビルドマトリクスに関する詳しい情報については「[複雑なワークフローの管理](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)」を参照してください。
+The default {% data variables.product.prodname_codeql_workflow %} file contains a build matrix called `language` which lists the languages in your repository that are analyzed. {% data variables.product.prodname_codeql %} automatically populates this matrix when you add {% data variables.product.prodname_code_scanning %} to a repository. Using the `language` matrix optimizes {% data variables.product.prodname_codeql %} to run each analysis in parallel. We recommend that all workflows adopt this configuration due to the performance benefits of parallelizing builds. For more information about build matrices, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)."
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
-ワークフローが`language`マトリクスを使っているなら、{% data variables.product.prodname_codeql %}はマトリクス中の言語だけを分析するようにハードコードされています。 分析する言語を変更したいなら、マトリクス変数の値を編集してください。 解析されないように言語を削除したり、{% data variables.product.prodname_code_scanning %}をセットアップしたときにはリポジトリ中になかった言語を追加したりできます。 たとえば、{% data variables.product.prodname_code_scanning %}がセットアップされた初期にはリポジトリ中にJavaScriptしかなく、後からPythonのコードを追加したなら、マトリクスに`python`を追加する必要があるだけです。
+If your workflow uses the `language` matrix then {% data variables.product.prodname_codeql %} is hardcoded to analyze only the languages in the matrix. To change the languages you want to analyze, edit the value of the matrix variable. You can remove a language to prevent it being analyzed or you can add a language that was not present in the repository when {% data variables.product.prodname_code_scanning %} was set up. For example, if the repository initially only contained JavaScript when {% data variables.product.prodname_code_scanning %} was set up, and you later added Python code, you will need to add `python` to the matrix.
 
 ```yaml
 jobs:
@@ -216,7 +217,7 @@ jobs:
         language: ['javascript', 'python']
 ```
 
-ワークフローが`language`というマトリクスを含まないなら、{% data variables.product.prodname_codeql %}は分析を順次実行するように設定されます。 ワークフロー中で言語を指定していない場合、{% data variables.product.prodname_codeql %}はリポジトリ中のサポートされている言語を検出し、分析しようとします。 マトリクスを使わずに分析する言語を選択したい場合は、`init`アクションの下で`languages`パラメータが利用できます。
+If your workflow does not contain a matrix called `language`, then {% data variables.product.prodname_codeql %} is configured to run analysis sequentially. If you don't specify languages in the workflow, {% data variables.product.prodname_codeql %} automatically detects, and attempts to analyze, any supported languages in the repository. If you want to choose which languages to analyze, without using a matrix, you can use the `languages` parameter under the `init` action.
 
 ```yaml
 - uses: github/codeql-action/init@v1
@@ -224,15 +225,15 @@ jobs:
     languages: cpp, csharp, python
 ```
 {% ifversion fpt or ghec %}
-## 追加のクエリを実行する
+## Analyzing Python dependencies
 
-Linuxだけを使うGitHubがホストしているランナーでは、{% data variables.product.prodname_codeql_workflow %}はCodeQLの分析にさらなる結果を加えるためにPythonの依存関係を自動的にインストールしようとします。 この動作は、"Initialize CodeQL"ステップで呼ばれるアクションの`setup-python-dependencies`パラメータを指定して制御できます。 デフォルトでは、このパラメータは`true`に設定されます:
+For GitHub-hosted runners that use Linux only, the {% data variables.product.prodname_codeql_workflow %} will try to auto-install Python dependencies to give more results for the CodeQL analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
 
--  リポジトリがPythonで書かれたコードを含むなら、"Initialize CodeQL"ステップは必要な依存関係をGitHubがホストするランナーにインストールします。 自動インストールが成功したら、このアクションは環境変数の`CODEQL_PYTHON`を依存関係を含むPythonの実行可能ファイルに設定することもします。
+-  If the repository contains code written in Python, the "Initialize CodeQL" step installs the necessary dependencies on the GitHub-hosted runner. If the auto-install succeeds, the action also sets the environment variable `CODEQL_PYTHON` to the Python executable file that includes the dependencies.
 
-- リポジトリがPythonの依存関係を持たない場合、あるいは依存関係が予想外の方法で指定されている場合、警告が示されてアクションは残りのジョブを継続します。 依存関係の解釈に問題があってもアクションの実行は成功することがありますが、結果は不完全かも知れません。
+- If the repository doesn't have any Python dependencies, or the dependencies are specified in an unexpected way, you'll get a warning and the action will continue with the remaining jobs. The action can run successfully even when there are problems interpreting dependencies, but the results may be incomplete.
 
-あるいは、任意のオペレーティングシステムにおいて手動でPythonの依存関係をインストールできます。 以下のワークフローの抜粋に示すとおり、`setup-python-dependencies`を追加して`false`に設定するとともに、`CODEQL_PYTHON`を依存関係を含むPythonの実行可能ファイルに設定しなければなりません。
+Alternatively, you can install Python dependencies manually on any operating system. You will need to add `setup-python-dependencies` and set it to `false`, as well as set `CODEQL_PYTHON` to the Python executable that includes the dependencies, as shown in this workflow extract:
 
 ```yaml
 jobs:
@@ -269,11 +270,11 @@ jobs:
 {% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-## 分析のカテゴリの設定
+## Configuring a category for the analysis
 
-`category`を使って、同じツールやコミットに対して行われる、ただし様々な言語やコードの様々な部分に対して行われる複数の分析を区別してください。 ワークフロー中で指定したカテゴリは、SARIF結果ファイルに含まれます。
+Use `category` to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. The category you specify in your workflow will be included in the SARIF results file. 
 
-このパラメータは、特に単一リポジトリで作業をしていて、単一リポジトリの様々なコンポーネントに対して複数のSARIFファイルがある場合に有益です。
+This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
 
 {% raw %}
 ``` yaml
@@ -287,17 +288,17 @@ jobs:
 ```
 {% endraw %}
 
-ワークフローで`category`を指定しない場合、{% data variables.product.product_name %}はアクションをトリガーしたワークフロー名、アクション名、任意のマトリクス変数に基づいてカテゴリ名を生成します。 例:
-- `.github/workflows/codeql-analysis.yml`ワークフローと`analyze`アクションは、`.github/workflows/codeql.yml:analyze`というカテゴリを生成します。
-- `.github/workflows/codeql-analysis.yml`ワークフロー、`analyze`アクション、マトリクス変数`{language: javascript, os: linux}`は、`.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`というカテゴリを生成します。
+If you don't specify a `category` parameter in your workflow, {% data variables.product.product_name %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. For example:
+- The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
+- The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: javascript, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`.
 
-`category`の値は、SARIF v2.1.0で&lt;run&gt;.automationDetails.id</code>プロパティに現れます。 詳しい情報については「[{% data variables.product.prodname_code_scanning %}の SARIF サポート](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)」を参照してください。
+The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)." 
 
-指定したカテゴリは、SARIFファイルファイルに`runAutomationDetails`が含まれている場合、その詳細を上書きしません。
+Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
 
 {% endif %}
 
-## 追加のクエリを実行する
+## Running additional queries
 
 {% data reusables.code-scanning.run-additional-queries %}
 
@@ -327,7 +328,7 @@ In the example below, `scope` is the organization or personal account that publi
 
 ### Using queries in QL packs
 {% endif %}
-1つ以上のクエリスイートを追加するには、設定ファイルに `queries` セクションを追加します。 If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
+To add one or more queries, add a `with: queries:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
 
 {% raw %}
 ``` yaml
@@ -339,7 +340,7 @@ In the example below, `scope` is the organization or personal account that publi
 ```
 {% endraw %}
 
-設定ファイルでこれらを指定して、追加のクエリスイートを実行することもできます。 クエリスイートはクエリのコレクションであり、通常は目的または言語ごとにグループ化されています。
+You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
 
 {% data reusables.code-scanning.codeql-query-suites %}
 
@@ -347,7 +348,7 @@ In the example below, `scope` is the organization or personal account that publi
 ### Working with custom configuration files
 {% endif %}
 
-If you also use a configuration file for custom settings, any additional {% if codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% if codeql-packs %}packs or {% endif %}queries, prefix the value of {% if codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. 設定ファイルの例については、「[Example configuration files](#example-configuration-files)」を参照してください。
+If you also use a configuration file for custom settings, any additional {% if codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% if codeql-packs %}packs or {% endif %}queries, prefix the value of {% if codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
 
 In the following example, the `+` symbol ensures that the specified additional {% if codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
 
@@ -361,11 +362,11 @@ In the following example, the `+` symbol ensures that the specified additional {
     {% endif %}
 ```
 
-## サードパーティのコードスキャンツールを使用する
+## Using a custom configuration file
 
 A custom configuration file is an alternative way to specify additional {% if codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries and to specify which directories to scan during analysis.
 
-ワークフローファイル中では、`init`アクションの`config-file`パラメータを使って使用したい設定ファイルのパスを指定してください。 この例では、設定ファイル _./.github/codeql/codeql-config.yml_ を読み込みます。
+In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
 
 ``` yaml
 - uses: github/codeql-action/init@v1
@@ -375,7 +376,7 @@ A custom configuration file is an alternative way to specify additional {% if co
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-設定ファイルが外部のプライベートリポジトリにあるなら、`init`アクションの`external-repository-token` パラメータを使ってそのプライベートリポジトリにアクセスできるトークンを指定してください。
+If the configuration file is located in an external private repository, use the `external-repository-token` parameter of the `init` action to specify a token that has access to the private repository.
 
 {% raw %}
 ```yaml
@@ -385,7 +386,7 @@ A custom configuration file is an alternative way to specify additional {% if co
 ```
 {% endraw %}
 
-設定ファイル内の設定は、YAMLフォーマットで書かれます。
+The settings in the configuration file are written in YAML format.
 
 {% if codeql-packs %}
 ### Specifying {% data variables.product.prodname_codeql %} query packs
@@ -423,9 +424,9 @@ packs:
 {% endraw %}
 {% endif %}
 
-### 追加のクエリを指定する
+### Specifying additional queries
 
-追加のクエリは`queries`配列内で指定します。 この配列の各要素には、1つのクエリファイル、クエリファイルを含むディレクトリ、あるいはクエリスイートの定義ファイルを指定する値を持つ`uses`パラメータが含まれます。
+You specify additional queries in a `queries` array. Each element of the array contains a `uses` parameter with a value that identifies a single query file, a directory containing query files, or a query suite definition file.
 
 ``` yaml
 queries:
@@ -434,15 +435,15 @@ queries:
   - uses: ./query-suites/my-security-queries.qls
 ```
 
-あるいは、以下の設定ファイルの例にあるように、配列の各要素に名前を与えることもできます。 追加クエリに関する詳しい情報については、上の「[追加のクエリを実行する](#running-additional-queries)」を参照してください。
+Optionally, you can give each array element a name, as shown in the example configuration files below. For more information about additional queries, see "[Running additional queries](#running-additional-queries)" above.
 
-### デフォルトのクエリを無効にする
+### Disabling the default queries
 
-カスタムクエリのみを実行する場合は、構成ファイルに `disable-default-queries: true` を追加して、デフォルトのセキュリティクエリを無効にすることができます。
+If you only want to run custom queries, you can disable the default security queries by using `disable-default-queries: true`.
 
-### スキャンするディレクトリを指定する
+### Specifying directories to scan
 
-For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes > 3.3 or ghae-issue-5017 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. `paths-ignore`配列を追加することで、指定されたディレクトリ内のファイルを分析から除外できます。
+For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes > 3.3 or ghae-issue-5017 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
 
 ``` yaml
 paths:
@@ -454,28 +455,28 @@ paths-ignore:
 
 {% note %}
 
-**ノート**:
+**Note**:
 
-* {% data variables.product.prodname_code_scanning %} 設定ファイルのコンテキストで使用される `paths` および `paths-ignore` キーワードは、ワークフロー中で`on.<push|pull_request>.paths`に使われる同じキーワードと混同しないでください。 ワークフローの`on.<push|pull_request>`を変更するときに使用する場合、これらは指定されたディレクトリのコードを誰かが変更した時にアクションが実行されるかどうかを決定します。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)」を参照してください。
-* フィルタパターンキャラクタの`?`、`+`、`[`、`]`、`!`はサポートされておらず、そのままマッチします。
-* `**` **Note**: `**` characters can only be at the start or end of a line, or surrounded by slashes, and you can't mix `**` and other characters. たとえば、`foo/**`、`**/foo`、および `foo/**/bar` はすべて使用できる構文ですが、`**foo` は使用できません。 ただし、例に示すように、単一の * を他の文字と一緒に使用できます。 `*`キャラクタを含むものは、引用符で囲む必要があります。
+* The `paths` and `paths-ignore` keywords, used in the context of the {% data variables.product.prodname_code_scanning %} configuration file, should not be confused with the same keywords when used for `on.<push|pull_request>.paths` in a workflow. When they are used to modify `on.<push|pull_request>` in a workflow, they determine whether the actions will be run when someone modifies code in the specified directories. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)."
+* The filter pattern characters `?`, `+`, `[`, `]`, and `!` are not supported and will be matched literally.
+* `**` characters can only be at the start or end of a line, or surrounded by slashes, and you can't mix `**` and other characters. For example, `foo/**`, `**/foo`, and `foo/**/bar` are all allowed syntax, but `**foo` isn't. However you can use single stars along with other characters, as shown in the example. You'll need to quote anything that contains a `*` character.
 
 {% endnote %}
 
-コンパイル言語の場合、プロジェクト中の特定のディレクトリに{% data variables.product.prodname_code_scanning %}を限定したいなら、ワークフロー中で適切なビルドステップを指定しなければなりません。 ビルドからディレクトリを除外するために使用するコマンドは、ビルドシステムによって異なります。 詳しい情報については、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
+For compiled languages, if you want to limit {% data variables.product.prodname_code_scanning %} to specific directories in your project, you must specify appropriate build steps in the workflow. The commands you need to use to exclude a directory from the build will depend on your build system. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 
-特定のディレクトリのコードを変更すると、monorepo の一部をすばやく分析できます。 ビルドステップでディレクトリを除外し、ワークフローファイルで [`on.<push|pull_request>`](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) の`paths-ignore` および `paths` キーワードを使用する必要があります。
+You can quickly analyze small portions of a monorepo when you modify code in specific directories. You'll need to both exclude directories in your build steps and use the `paths-ignore` and `paths` keywords for [`on.<push|pull_request>`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) in your workflow.
 
-### 設定ファイルの例
+### Example configuration files
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-## コンパイルされた言語の {% data variables.product.prodname_code_scanning %} を設定する
+## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 
 {% data reusables.code-scanning.autobuild-compiled-languages %} {% data reusables.code-scanning.analyze-go %}
 
-{% data reusables.code-scanning.autobuild-add-build-steps %}コンパイルされた言語で {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} を設定する方法に関する詳しい情報については、「[コンパイルされた言語の {% data variables.product.prodname_codeql %} を設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages)」を参照してください。
+{% data reusables.code-scanning.autobuild-add-build-steps %} For more information about how to configure {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for compiled languages, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages)."
 
-## {% data variables.product.prodname_code_scanning %} 用の設定ファイルを作成できます。
+## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.prodname_dotcom %}は、サードパーティのツールによって外部で生成されたコード分析データを表示できます。 ワークフローに `upload-sarif` アクションを追加することで、{% data variables.product.prodname_dotcom %} のサードパーティツールからのコード分析を表示できます。 詳しい情報については、「[SARIF ファイルを GitHub にアップロードする](/code-security/secure-coding/uploading-a-sarif-file-to-github)」を参照してください。
+{% data variables.product.prodname_dotcom %} can display code analysis data generated externally by a third-party tool. You can upload code analysis data with the `upload-sarif` action. For more information, see "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."

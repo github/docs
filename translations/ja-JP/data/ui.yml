@@ -21,6 +21,7 @@ search:
   placeholder: トピックや製品などの検索
   loading: ロード中
   no_results: 結果が見つかりませんでした
+  no_content: No content
 homepage:
   explore_by_product: 製品で調べる
   version_picker: バージョン
@@ -149,7 +150,7 @@ product_landing:
   upgrade_from: アップグレード元
   browse_all_docs: すべてのドキュメントの参照
   explore_release_notes: リリースノートを調べる
-product_sublanding:
+product_guides:
   start: 開始
   start_path: 開始パス
   learning_paths: '{{ productMap[currentProduct].name }}の学習パス'

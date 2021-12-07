@@ -1,7 +1,6 @@
 ---
 title: Issue フォームの構文
 intro: Issue フォームには、さまざまな入力タイプ、検証、デフォルトのアサインされた人、デフォルトのラベルを定義できます。
-product: 'Issue フォームは、{% data variables.product.prodname_dotcom_the_website %} の公開リポジトリのベータで利用できます。'
 versions:
   fpt: '*'
   ghec: '*'

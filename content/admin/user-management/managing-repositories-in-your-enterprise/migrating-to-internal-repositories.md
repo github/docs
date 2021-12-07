@@ -24,7 +24,7 @@ In future releases of {% data variables.product.prodname_ghe_server %}, we will 
 
 To prepare for these changes, if you have private mode enabled, you can run a migration on your instance to convert public repositories to internal. This migration is currently optional, to allow you to test the changes on a non-production instance. The migration will become mandatory in the future.
 
-When you run the migration, all public repositories owned by organizations on your instance will become internal repositories. If any of those repositories have forks, the forks will be detached from their parent and become private. Private repositories will remain private.
+When you run the migration, all public repositories owned by organizations on your instance will become internal repositories. If any of those repositories have forks, the forks will become private. Private repositories will remain private.
 
 All public repositories owned by user accounts on your instance will become private repositories. If any of those repositories have forks, the forks will also become private. The owner of each fork will be given read permissions to the fork's parent.
 

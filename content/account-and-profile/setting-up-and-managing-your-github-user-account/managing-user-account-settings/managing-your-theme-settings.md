@@ -3,7 +3,7 @@ title: Managing your theme settings
 intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses a light or dark mode.'
 versions:
   fpt: '*'
-  ghae: next
+  ghae: '*'
   ghes: '>=3.2'
   ghec: '*'
 topics:
@@ -22,7 +22,7 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 
 {% note %}
 
-**Note:** The colorblind themes are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
+**Note:** The colorblind themes and light high contrast theme are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
 
 {% endnote %}
 

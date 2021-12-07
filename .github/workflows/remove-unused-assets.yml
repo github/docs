@@ -22,9 +22,9 @@ jobs:
           echo 'The repo is currently frozen! Exiting this workflow.'
           exit 1 # prevents further steps from running
       - name: Checkout
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
       - name: Setup Node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: 16.13.x
           cache: npm
@@ -58,7 +58,7 @@ jobs:
           project: Core docs work for the current week
           project-column: Should do
           branch: remove-unused-assets
-      - if: ${{ failure() }}
+      - if: ${{ failure() && env.FREEZE != 'true' }}
         name: Delete remote branch (if previous steps failed)
         uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
         with:
