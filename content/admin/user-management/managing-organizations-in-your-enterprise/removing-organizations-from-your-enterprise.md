@@ -1,6 +1,6 @@
 ---
 title: Removing organizations from your enterprise
-intro: 'If an organization should no longer be a part of an enterprise that you administer, you can remove the organization from the enterprise.'
+intro: 'If an organization should no longer be a part of your enterprise, you can remove the organization.'
 permissions: 'Enterprise owners can remove any organization from their enterprise.'
 versions:
   ghec: '*'
