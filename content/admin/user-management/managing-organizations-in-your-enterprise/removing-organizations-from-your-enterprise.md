@@ -27,5 +27,5 @@ shortTitle: Removing organizations
 ![organization search](/assets/images/help/enterprises/organization-search.png)
 3. To the right of the organization's name, select the {% octicon "gear" aria-label="The gear icon" %} drop-down menu and click **Remove organization**.
 ![remove organization](/assets/images/help/enterprises/remove-organization.png)
-4. In the Approve removal of organization dialog box, review and confirm the removal. Note that the information in this box is the same as the warning at the top of this article.
+4. Review the warnings, then click **Remove organization**.
 ![approve organization approval dialogue box](/assets/images/help/enterprises/remove-organization-warning.png)
