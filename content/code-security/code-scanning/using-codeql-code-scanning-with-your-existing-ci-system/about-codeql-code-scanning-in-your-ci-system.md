@@ -32,7 +32,7 @@ redirect_from:
 
 {% data reusables.code-scanning.codeql-context-for-actions-and-third-party-tools %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 <!--Content for GitHub.com, GHAE next, and GHES 3.2 and onward. CodeQL CLI is the preferred method, and CodeQL runner is deprecated. -->
 
 {% data reusables.code-scanning.codeql-cli-context-for-third-party-tools %}

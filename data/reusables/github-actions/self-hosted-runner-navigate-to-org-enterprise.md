@@ -12,6 +12,6 @@
      1. In the left sidebar, click **Enterprise overview**.
      1. In the enterprise sidebar, {% octicon "law" aria-label="The law icon" %} **Policies**.{% endif %}
 1. Navigate to the {% data variables.product.prodname_actions %} settings:
-   * **In an organization**: Click **Actions** in the left sidebar{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}, then click **Runners**{% endif %}.
-   * {% ifversion ghec %}**If using an enterprise account**:{% elsif ghes or ghae %}**If using an enterprise-level runner**:{% endif %} Click **Actions** under "{% octicon "law" aria-label="The law icon" %} Policies"{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}, then click the **Runners** tab{% endif %}.
+   * **In an organization**: Click **Actions** in the left sidebar{% ifversion fpt or ghec or ghes > 3.1 or ghae %}, then click **Runners**{% endif %}.
+   * {% ifversion ghec %}**If using an enterprise account**:{% elsif ghes or ghae %}**If using an enterprise-level runner**:{% endif %} Click **Actions** under "{% octicon "law" aria-label="The law icon" %} Policies"{% ifversion fpt or ghec or ghes > 3.1 or ghae %}, then click the **Runners** tab{% endif %}.
 {% endif %}
