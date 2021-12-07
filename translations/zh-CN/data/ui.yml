@@ -150,7 +150,7 @@ product_landing:
   upgrade_from: 升级自
   browse_all_docs: 浏览所有文档
   explore_release_notes: 浏览发行说明
-product_sublanding:
+product_guides:
   start: 开始
   start_path: 开始路径
   learning_paths: '{{ productMap[currentProduct].name }} 学习路径'

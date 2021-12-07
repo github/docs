@@ -7,7 +7,7 @@ redirect_from:
   - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
 type: how_to
 topics:
   - Actions
@@ -19,9 +19,13 @@ shortTitle: Use GitHub Connect for actions
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+## About automatic access to {% data variables.product.prodname_dotcom_the_website %} actions
+
 By default, {% data variables.product.prodname_actions %} workflows on {% data variables.product.product_name %} cannot use actions directly from {% data variables.product.prodname_dotcom_the_website %} or [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
 To make all actions from {% data variables.product.prodname_dotcom_the_website %} available on your enterprise instance, you can use {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. For other ways of accessing actions from {% data variables.product.prodname_dotcom_the_website %}, see "[About using actions in your enterprise](/admin/github-actions/about-using-actions-in-your-enterprise)."
+
+To use actions from {% data variables.product.prodname_dotcom_the_website %}, your self-hosted runners must be able to download public actions from `api.github.com`.
 
 ## Enabling automatic access to all {% data variables.product.prodname_dotcom_the_website %} actions
 

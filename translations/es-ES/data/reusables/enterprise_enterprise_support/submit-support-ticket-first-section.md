@@ -1,4 +1,4 @@
-1. Under "Your email address", type the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. ![Campo Tu dirección de correo electrónico](/assets/images/enterprise/support/support-ticket-email-address-field.png)
+1. Debajo de "Your email address", teclea la dirección de correo electrónico asociada con tu cuenta en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. ![Campo Tu dirección de correo electrónico](/assets/images/enterprise/support/support-ticket-email-address-field.png)
 1. Debajo de "Asunto", teclea un título descriptivo para tu problema. ![Campo de asuto](/assets/images/enterprise/support/support-ticket-subject-field.png)
 1. Debajo de "Descripción", proporciona información adicional que ayudará al equipo de {% data variables.contact.enterprise_support %} para solucionar el problema. La información útil podría incluir: ![Campo Descripción](/assets/images/enterprise/support/support-ticket-description-field.png)
     - Pasos para reproducir el incidente

@@ -1,6 +1,6 @@
 ---
-title: Administrar tu licencia de GitHub Enterprise
-shortTitle: Licenci de GitHub Enterprise
+title: Managing your license for GitHub Enterprise
+shortTitle: GitHub Enterprise license
 intro: '{% data variables.product.prodname_enterprise %} includes both cloud and self-hosted deployment options. If you host a {% data variables.product.prodname_ghe_server %} instance, you must unlock the instance with a license file. You can view, manage, and update the license file.'
 redirect_from:
   - /free-pro-team@latest/billing/managing-your-license-for-github-enterprise
@@ -23,6 +23,5 @@ children:
   - /uploading-a-new-license-to-github-enterprise-server
   - /viewing-license-usage-for-github-enterprise
   - /syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud
-  - /managing-licenses-for-visual-studio-subscription-with-github-enterprise
 ---
 

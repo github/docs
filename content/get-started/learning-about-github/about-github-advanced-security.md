@@ -69,7 +69,7 @@ If you have an enterprise account, license use for the entire enterprise is show
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.0 or ghae-next  %}
+{% ifversion ghec or ghes > 3.0 or ghae  %}
 
 ## Further reading
 

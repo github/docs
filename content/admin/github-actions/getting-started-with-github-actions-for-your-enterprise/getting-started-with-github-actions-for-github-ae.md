@@ -14,7 +14,6 @@ redirect_from:
   - /admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae
 ---
 
-{% data reusables.actions.ae-beta %}
 
 ## About {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_managed %}
 
@@ -32,12 +31,6 @@ You can use policies to manage access to {% data variables.product.prodname_acti
 
 ## Adding runners
 
-{% note %}
-
-**Note:** To add {% data variables.actions.hosted_runner %}s to {% data variables.product.prodname_ghe_managed %}, you will need to contact {% data variables.product.prodname_dotcom %} support.
-
-{% endnote %}
-
-To run {% data variables.product.prodname_actions %} workflows, you need to add runners. You can add runners at the enterprise, organization, or repository levels. For more information, see  "[About {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)."
+You can configure and host servers to run jobs for your enterprise on {% data variables.product.product_name %}. {% data reusables.actions.about-self-hosted-runners %} For more information, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
 
 {% data reusables.actions.general-security-hardening %}

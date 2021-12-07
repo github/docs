@@ -4,7 +4,7 @@ import { get, getDOM } from '../helpers/supertest.js'
 import supertest from 'supertest'
 import { jest } from '@jest/globals'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 const app = createApp()
 
@@ -25,7 +25,7 @@ describe('enterprise deprecation', () => {
 
   test('redirects non-language-prefixed requests for deprecated enterprise content >=2.13', async () => {
     const res = await get('/enterprise/2.13')
-    expect(res.statusCode).toBe(301)
+    expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/en/enterprise/2.13')
   })
 
@@ -41,7 +41,7 @@ describe('enterprise deprecation', () => {
 
   test('can access redirects from redirects.json in deprecated enterprise content >2.17', async () => {
     const res = await get('/enterprise/2.19/admin/categories/time')
-    expect(res.statusCode).toBe(301)
+    expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe(
       '/en/enterprise-server@2.19/admin/configuration/configuring-time-synchronization'
     )

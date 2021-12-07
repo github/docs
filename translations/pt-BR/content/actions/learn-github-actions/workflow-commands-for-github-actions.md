@@ -1,7 +1,7 @@
 ---
-title: Comandos do fluxo de trabalho para o GitHub Actions
-shortTitle: Comandos do fluxo de trabalho
-intro: Você pode usar comandos do fluxo de trabalho ao executar comandos do shell em um fluxo de trabalho ou no código de uma ação.
+title: Workflow commands for GitHub Actions
+shortTitle: Workflow commands
+intro: You can use workflow commands when running shell commands in a workflow or in an action's code.
 redirect_from:
   - /articles/development-tools-for-github-actions
   - /github/automating-your-workflow-with-github-actions/development-tools-for-github-actions
@@ -20,11 +20,11 @@ versions:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-## Sobre os comandos do fluxo de trabalho
+## About workflow commands
 
-As ações podem comunicar-se com a máquina do executor para definir as variáveis de ambiente, valores de saída usados por outras ações, adicionar mensagens de depuração aos registros de saída e outras tarefas.
+Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
 
-A maioria dos comandos de fluxo de trabalho usa o comando `echo` em um formato específico, enquanto outros são chamados escrevendo um arquivo. Para obter mais informações, consulte ["Arquivos de ambiente".](#environment-files)
+Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see ["Environment files".](#environment-files)
 
 ``` bash
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
@@ -32,25 +32,25 @@ echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
 {% note %}
 
-**Observação:** Os nomes do comando do fluxo de trabalho e do parâmetro não diferenciam maiúsculas e minúsculas.
+**Note:** Workflow command and parameter names are not case-sensitive.
 
 {% endnote %}
 
 {% warning %}
 
-**Aviso:** se você estiver usando um prompt do comando, omita as aspas duplas (`"`) ao usar comandos do fluxo de trabalho.
+**Warning:** If you are using Command Prompt, omit double quote characters (`"`) when using workflow commands.
 
 {% endwarning %}
 
-## Usar comandos do fluxo de trabalho para acessar funções do kit de de ferramentas
+## Using workflow commands to access toolkit functions
 
-O [actions/toolkit](https://github.com/actions/toolkit) inclui uma quantidade de funções que podem ser executadas como comandos do fluxo de trabalho. Use a sintaxe `::` para executar os comandos do fluxo de trabalho no arquivo YAML. Em seguida, esses comandos serão enviados para a o executor por meio do `stdout`. Por exemplo, em vez de usar o código para definir uma saída, como abaixo:
+The [actions/toolkit](https://github.com/actions/toolkit) includes a number of functions that can be executed as workflow commands. Use the `::` syntax to run the workflow commands within your YAML file; these commands are then sent to the runner over `stdout`. For example, instead of using code to set an output, as below:
 
 ```javascript
 core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-Você pode usar o comando `set-output` no seu fluxo de trabalho para definir o mesmo valor:
+You can use the `set-output` command in your workflow to set the same value:
 
 {% raw %}
 ``` yaml
@@ -62,52 +62,52 @@ Você pode usar o comando `set-output` no seu fluxo de trabalho para definir o m
 ```
 {% endraw %}
 
-A tabela a seguir mostra quais funções do conjunto de ferramentas estão disponíveis dentro de um fluxo de trabalho:
+The following table shows which toolkit functions are available within a workflow:
 
-| Função do kit de ferramentas | Comando equivalente do fluxo de trabalho                              |
-| ---------------------------- | --------------------------------------------------------------------- |
-| `core.addPath`               | Acessível usando o arquivo de ambiente `GITHUB_PATH`                  |
-| `core.debug`                 | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
-| `core.notice`                | `notice` 
-{% endif %}
-| `core.error`                 | `erro`                                                                |
-| `core.endGroup`              | `endgroup`                                                            |
-| `core.exportVariable`        | Acessível usando o arquivo de ambiente `GITHUB_ENV`                   |
-| `core.getInput`              | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}`      |
-| `core.getState`              | Acessível por meio do uso da variável de ambiente `STATE_{NAME}`      |
-| `core.isDebug`               | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG`      |
-| `core.saveState`             | `save-state`                                                          |
-| `core.setFailed`             | Usado como um atalho para `::error` e `exit 1`                        |
-| `core.setOutput`             | `set-output`                                                          |
-| `core.setSecret`             | `add-mask`                                                            |
-| `core.startGroup`            | `grupo`                                                               |
-| `core.warning`               | `aviso`                                                               |
+| Toolkit function | Equivalent workflow command |
+| ----------------- |  ------------- |
+| `core.addPath`    | Accessible using environment file `GITHUB_PATH` |
+| `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| `core.notice`     | `notice` |{% endif %}
+| `core.error`      | `error` |
+| `core.endGroup`   | `endgroup` |
+| `core.exportVariable` | Accessible using environment file `GITHUB_ENV` |
+| `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
+| `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
+| `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
+| `core.saveState`  | `save-state` |
+| `core.setCommandEcho` | `echo` |
+| `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
+| `core.setOutput`  | `set-output` |
+| `core.setSecret`  | `add-mask` |
+| `core.startGroup` | `group` |
+| `core.warning`    | `warning` |
 
-## Definir um parâmetro de saída
+## Setting an output parameter
 
 ```
 ::set-output name={name}::{value}
 ```
 
-Configura um parâmetro de saída da ação.
+Sets an action's output parameter.
 
-Opcionalmente, você também pode declarar os parâmetros de saída no arquivo de metadados de uma ação. Para obter mais informações, consulte "[Sintaxe de metadados para o {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs)".
+Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs)."
 
-### Exemplo
+### Example
 
 ``` bash
 echo "::set-output name=action_fruit::strawberry"
 ```
 
-## Configurar uma mensagem de depuração
+## Setting a debug message
 
 ```
 ::debug::{message}
 ```
 
-Imprime uma mensagem de erro no log. Você deve criar um segredo nomeado `ACTIONS_STEP_DEBUG` com o valor `true` para ver as mensagens de erro configuradas por esse comando no log. Para obter mais informações, consulte "[Habilitar o registro de depuração](/actions/managing-workflow-runs/enabling-debug-logging)".
+Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
 
-### Exemplo
+### Example
 
 ``` bash
 echo "::debug::Set the Octocat variable"
@@ -115,17 +115,17 @@ echo "::debug::Set the Octocat variable"
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
 
-## Configurando uma mensagem de aviso
+## Setting a notice message
 
 ```
 ::notice file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
-Cria uma mensagem de aviso e a imprime no registro. {% data reusables.actions.message-annotation-explanation %}
+Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
 {% data reusables.actions.message-parameters %}
 
-### Exemplo
+### Example
 
 ``` bash
 echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
@@ -133,48 +133,48 @@ echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% endif %}
 
-## Configurar uma mensagem de aviso
+## Setting a warning message
 
 ```
 ::warning file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
-Cria uma mensagem de aviso e a imprime no log. {% data reusables.actions.message-annotation-explanation %}
+Creates a warning message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
 {% data reusables.actions.message-parameters %}
 
-### Exemplo
+### Example
 
 ``` bash
 echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
-## Configurar uma mensagem de erro
+## Setting an error message
 
 ```
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
-Cria uma mensagem de erro e a imprime no log. {% data reusables.actions.message-annotation-explanation %}
+Creates an error message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
 {% data reusables.actions.message-parameters %}
 
-### Exemplo
+### Example
 
 ``` bash
 echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
-## Agrupar linhas dos registros
+## Grouping log lines
 
 ```
 ::group::{title}
 ::endgroup::
 ```
 
-Cria um grupo expansível no registro. Para criar um grupo, use o comando `grupo` e especifique um `título`. Qualquer coisa que você imprimir no registro entre os comandos `grupo` e `endgroup` estará aninhada dentro de uma entrada expansível no registro.
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
 
-### Exemplo
+### Example
 
 ```bash
 echo "::group::My title"
@@ -182,44 +182,44 @@ echo "Inside group"
 echo "::endgroup::"
 ```
 
-![Grupo dobrável no registro da execução do fluxo de trabalho](/assets/images/actions-log-group.png)
+![Foldable group in workflow run log](/assets/images/actions-log-group.png)
 
-## Mascarar um valor no registro
+## Masking a value in log
 
 ```
 ::add-mask::{value}
 ```
 
-Mascarar um valor evita que uma string ou variável seja impressa no log. Cada palavra mascarada separada por espaço em branco é substituída pelo caractere `*`. Você pode usar uma variável de ambiente ou string para o `value` da máscara.
+Masking a value prevents a string or variable from being printed in the log. Each masked word separated by whitespace is replaced with the `*` character. You can use an environment variable or string for the mask's `value`.
 
-### Exemplo de máscara de string
+### Example masking a string
 
-Quando você imprime `"Mona The Octocat"` no log, você verá `"***"`.
+When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
 
 ```bash
 echo "::add-mask::Mona The Octocat"
 ```
 
-### Exemplo de máscara de uma variável de ambiente
+### Example masking an environment variable
 
-Ao imprimir a variável `MY_NAME` ou o valor `"Mona The Octocat"` no log, você verá `"***"` em vez de `"Mona The Octocat"`.
+When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
 
 ```bash
 MY_NAME="Mona The Octocat"
 echo "::add-mask::$MY_NAME"
 ```
 
-## Parar e iniciar os comandos no fluxo de trabalho
+## Stopping and starting workflow commands
 
 `::stop-commands::{endtoken}`
 
-Para de processar quaisquer comandos de fluxo de trabalho. Esse comando especial permite fazer o registro do que você desejar sem executar um comando do fluxo de trabalho acidentalmente. Por exemplo, é possível parar o log para gerar um script inteiro que tenha comentários.
+Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
-Para parar o processamento de comandos de fluxo de trabalho, passe um token único para `stop-commands`. Para retomar os comandos do fluxo de trabalho, passe o mesmo token que você usou para parar os comandos do fluxo de trabalho.
+To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
 
 {% warning %}
 
-**Aviso:** Certifique-se de que o token que você está usando é gerado aleatoriamente e exclusivo para cada execução. Como demonstrado no exemplo abaixo, você pode gerar um hash exclusivo do seu `github.token` para cada execução.
+**Warning:** Make sure the token you're using is randomly generated and unique for each run. As demonstrated in the example below, you can generate a unique hash of your `github.token` for each run.
 
 {% endwarning %}
 
@@ -227,7 +227,7 @@ Para parar o processamento de comandos de fluxo de trabalho, passe um token úni
 ::{endtoken}::
 ```
 
-### Exemplo de parar e iniciar comandos de workflow
+### Example stopping and starting workflow commands
 
 {% raw %}
 
@@ -247,33 +247,73 @@ jobs:
 
 {% endraw %}
 
-## Enviar valores para as ações anterior e posterior
+## Echoing command outputs
 
-Você pode usar o comando `save-state` para criar variáveis de ambiente para compartilhar com as ações `pre:` ou `post:`. Por exemplo, você pode criar um arquivo com a ação `pre:`, passar o local do arquivo para a ação `main:` e, em seguida, usar a ação `post:` para excluir o arquivo. Como alternativa, você pode criar um arquivo com a ação `main:` ação, passar o local do arquivo para a ação `post:`, além de usar a ação `post:` para excluir o arquivo.
+```
+::echo::on
+::echo::off
+```
 
-Se você tiver múltiplas ações `pre:` ou `post:` ações, você poderá apenas acessar o valor salvo na ação em que `save-state` foi usado. Para obter mais informações sobre a ação `post:`, consulte "[Sintaxe de metadados para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#post)".
+Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
 
-O comando `save-state` pode ser executado apenas em uma ação e não está disponível para arquivos YAML. O valor salvo é armazenado como um valor de ambiente com o prefixo `STATE_`.
+Command echoing is disabled by default. However, a workflow command is echoed if there are any errors processing the command.
 
-Este exemplo usa o JavaScript para executar o comando `save-state`. A variável de ambiente resultante é denominada `STATE_processID` com o valor de `12345`:
+The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
+
+You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
+
+### Example toggling command echoing
+
+```yaml
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: toggle workflow command echoing
+        run: |
+          echo '::set-output name=action_echo::disabled'
+          echo '::echo::on'
+          echo '::set-output name=action_echo::enabled'
+          echo '::echo::off'
+          echo '::set-output name=action_echo::disabled'
+```
+
+The step above prints the following lines to the log:
+
+```
+::set-output name=action_echo::enabled
+::echo::off
+```
+
+Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
+
+## Sending values to the pre and post actions
+
+You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
+
+If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where `save-state` was used. For more information on the `post:` action, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#post)."
+
+The `save-state`  command can only be run within an action, and is not available to YAML files. The saved value is stored as an environment value with the `STATE_` prefix.
+
+This example uses JavaScript to run the `save-state` command. The resulting environment variable is named `STATE_processID` with the value of `12345`:
 
 ``` javascript
 console.log('::save-state name=processID::12345')
 ```
 
-A variável `STATE_processID` está exclusivamente disponível para o script de limpeza executado na ação `principal`. Este exemplo é executado em `principal` e usa o JavaScript para exibir o valor atribuído à variável de ambiente `STATE_processID`:
+The `STATE_processID` variable is then exclusively available to the cleanup script running under the `main` action. This example runs in `main` and uses JavaScript to display the value assigned to the `STATE_processID` environment variable:
 
 ``` javascript
-console.log("O PID em execução a partir da ação principal é: " +  process.env.STATE_processID);
+console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-## Arquivos de Ambiente
+## Environment Files
 
-Durante a execução de um fluxo de trabalho, o executor gera arquivos temporários que podem ser usados para executar certas ações. O caminho para esses arquivos são expostos através de variáveis de ambiente. Você precisará usar a codificação UTF-8 ao escrever para esses arquivos para garantir o processamento adequado dos comandos. Vários comandos podem ser escritos no mesmo arquivo, separados por novas linhas.
+During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 
 {% warning %}
 
-**Aviso:** no Windows, o PowerShell de legado (`shell: powershell`) não usa UTF-8 por padrão. Certifique-se de escrever os arquivos usando a codificação correta. Por exemplo, você deve definir a codificação UTF-8 ao definir o caminho:
+**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
 
 ```yaml
 jobs:
@@ -284,7 +324,7 @@ jobs:
         run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-Ou mude para PowerShell Core, cujo padrão é UTF-8:
+Or switch to PowerShell Core, which defaults to UTF-8: 
 
 ```yaml
 jobs:
@@ -297,27 +337,26 @@ jobs:
 
 More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow answer](https://stackoverflow.com/a/40098904/162694):
 
-> ### Leitura opcional: A perspectiva entre plataformas: PowerShell _Core_:
-> 
-> [PowerShell is now cross-platform](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), via its **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)** edition, whose encoding - sensibly - ***defaults to ***BOM-less UTF-8******, in line with Unix-like platforms.
+> ### Optional reading: The cross-platform perspective: PowerShell _Core_:
+> [PowerShell is now cross-platform](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), via its **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)** edition, whose encoding - sensibly - **defaults to *BOM-less UTF-8***, in line with Unix-like platforms.  
 
 {% endwarning %}
 
-## Definir uma variável de ambiente
+## Setting an environment variable
 
 ``` bash
 echo "{name}={value}" >> $GITHUB_ENV
 ```
 
-Cria ou atualiza uma variável de ambiente para quaisquer etapas a serem executadas em seguida no trabalho. A etapa que cria ou atualiza a variável de ambiente não tem acesso ao novo valor, mas todos os passos subsequentes em um trabalho terão acesso. As variáveis de ambiente diferenciam maiúsculas de minúsculas e podem ter pontuação.
+Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
 {% note %}
 
-**Observação:** As variáveis de ambiente devem ser referenciadas explicitamente usando o [`env` contexto](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) na sintaxe de expressão ou por meio do uso do arquivo `$GITHUB_ENV` diretamente. As variáveisde ambiente não estão implicitamente disponíveis nos comandos do shell.
+**Note:** Environment variables must be explicitly referenced using the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) in expression syntax or through use of the `$GITHUB_ENV` file directly; environment variables are not implicitly available in shell commands.
 
 {% endnote %}
 
-### Exemplo
+### Example
 
 {% raw %}
 ```
@@ -333,9 +372,9 @@ steps:
 ```
 {% endraw %}
 
-### Strings de linha múltipla
+### Multiline strings
 
-Para strings linha múltipla, você pode usar um delimitador com a seguinte sintaxe.
+For multiline strings, you may use a delimiter with the following syntax. 
 
 ```
 {name}<<{delimiter}
@@ -343,9 +382,9 @@ Para strings linha múltipla, você pode usar um delimitador com a seguinte sint
 {delimiter}
 ```
 
-#### Exemplo
+#### Example
 
-Neste exemplo, usamos `EOF` como um delimitador e definimos a variável de ambiente `JSON_RESPONSE` como o valor da resposta de curl.
+In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
 ```yaml
 steps:
   - name: Set the value
@@ -356,17 +395,17 @@ steps:
       echo 'EOF' >> $GITHUB_ENV
 ```
 
-## Adicionar um caminho do sistema
+## Adding a system path
 
 ``` bash
 echo "{path}" >> $GITHUB_PATH
 ```
 
-Prepara um diretório para a variável `PATH` do sistema e disponibiliza automaticamente para todas as ações subsequentes no trabalho atual; a ação atualmente em execução não pode acessar a variável de caminho atualizada. Para ver os caminhos atualmente definidos para o seu trabalho, você pode usar o `echo "$PATH"` em uma etapa ou ação.
+Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
-### Exemplo
+### Example
 
-Este exemplo demonstra como adicionar o diretório `$HOME/.local/bin` ao `PATH`:
+This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
 
 ``` bash
 echo "$HOME/.local/bin" >> $GITHUB_PATH

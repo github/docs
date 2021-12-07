@@ -30,15 +30,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump full context for debugging
-        run: |
-          cat << EOF
-          ${{ toJSON(github) }}
-          EOF
-
   build-pr:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
@@ -50,7 +41,7 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: Check out repo
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       # Make sure only approved files are changed if it's in github/docs
       - name: Check changed files
@@ -86,7 +77,7 @@ jobs:
         run: exit 1
 
       - name: Setup node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: 16.13.x
           cache: npm
@@ -117,10 +108,42 @@ jobs:
         run: npm set-script heroku-postbuild "echo 'Application was pre-built!'"
 
       - name: Delete heavy things we won't need deployed
+        if: ${{ github.repository == 'github/docs-internal' }}
         run: |
+
           # The dereferenced file is not used in runtime once the
           # decorated file has been created from it.
           rm -fr lib/rest/static/dereferenced
+
+          # Translations are never tested in Staging builds
+          # but let's keep the empty directory.
+          rm -fr translations
+          mkdir translations
+
+          # Delete all the big search indexes that are NOT English (`*-en-*`)
+          pushd lib/search/indexes
+          ls | grep -v '\-en\-' | xargs rm
+          popd
+
+          # Note! Some day it would be nice to be able to delete
+          # all the heavy assets because they bloat the tarball.
+          # But it's not obvious how to test it then. For now, we'll have
+          # to accept that every staging build has a copy of the images.
+
+          # The assumption here is that a staging build will not
+          # need these legacy redirects. Only the redirects from
+          # front-matter will be at play.
+          # These static redirects json files are notoriously large
+          # and they make the tarball unnecessarily large.
+          echo '[]' > lib/redirects/static/archived-frontmatter-fallbacks.json
+          echo '{}' > lib/redirects/static/developer.json
+          echo '{}' > lib/redirects/static/archived-redirects-from-213-to-217.json
+
+          # This will turn every `lib/**/static/*.json` into
+          # an equivalent `lib/**/static/*.json.br` file.
+          # Once the server starts, it'll know to fall back to reading
+          # the `.br` equivalent if the `.json` file isn't present.
+          node .github/actions-scripts/compress-large-files.js
 
       - name: Create an archive
         # Only bother if this is actually a pull request

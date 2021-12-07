@@ -21,7 +21,6 @@ shortTitle: Node.js packages
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -78,7 +77,7 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install
+      - run: npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -129,7 +128,7 @@ on:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -142,7 +141,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
-      - run: npm install
+      - run: npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
@@ -213,7 +212,7 @@ on:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -224,7 +223,7 @@ jobs:
         with:
           node-version: '10.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install
+      - run: npm ci
       # Publish to npm
       - run: npm publish --access public
         env:{% raw %}

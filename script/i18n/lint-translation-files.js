@@ -9,10 +9,11 @@
 
 import { execSync } from 'child_process'
 import program from 'commander'
+import fs from 'fs'
 
 // Set up supported linting check types and their corresponding commands.
 const CHECK_COMMANDS = {
-  parsing: 'TEST_TRANSLATION=true npx jest linting/lint-files',
+  parsing: 'npm run lint-translation',
   rendering: 'script/i18n/test-render-translation.js',
 }
 const SUPPORTED_CHECK_TYPES = Object.keys(CHECK_COMMANDS)
@@ -48,7 +49,7 @@ if (SUPPORTED_CHECK_TYPES.includes(specifiedCheckType)) {
 function lintAndResetFiles(checkType) {
   console.log(`Running ${checkType} check...`)
 
-  const log = `~/docs-translation-${checkType}-error.txt`
+  const log = `${process.env.HOME}/docs-translation-${checkType}-error.txt`
   const cmd = `${CHECK_COMMANDS[checkType]} > ${log}`
 
   // Lint the files based on the check type and output the errors to a log file.
@@ -58,10 +59,30 @@ function lintAndResetFiles(checkType) {
     console.log(`There were new ${checkType} errors! Check ${log} for more details.`)
   }
 
-  // Reset the files
-  execSync(
-    `cat ${log} | egrep "^translations/.*/(.+.md|.+.yml)$" | uniq | xargs -L1 script/i18n/reset-translated-file.js --prefer-main`
-  )
+  // return if file does not exist
+  if (!fs.existsSync(log)) {
+    console.log(`${log}: no such file`)
+    return
+  }
+
+  const filesToReset = fs
+    .readFileSync(log)
+    .toString()
+    .split('\n')
+    .filter((p) => p.startsWith('translations') && (p.endsWith('.md') || p.endsWith('.yml')))
+
+  if (filesToReset.length === 0) {
+    console.log('There are no violations')
+    return
+  }
+
+  // We are not passing --prefer-main because we want to remove the file so we
+  // reset it directly to the English source
+  filesToReset.forEach((file) => {
+    execSync(`script/i18n/reset-translated-file.js ${file} --reason="${checkType} error"`, {
+      stdio: 'inherit',
+    })
+  })
 
   // Print a message with next steps
   console.log(`Success!
