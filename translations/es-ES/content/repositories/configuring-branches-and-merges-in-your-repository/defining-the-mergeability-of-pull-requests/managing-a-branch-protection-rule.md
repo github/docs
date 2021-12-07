@@ -40,7 +40,7 @@ Protected branch rules that mention a special character, such as `*`, `?`, or `]
 
 To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name.
 
-For more information about each of each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+For more information about each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
 ## Creating a branch protection rule
 

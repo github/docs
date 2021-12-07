@@ -16,9 +16,7 @@ export function GHAEReleaseNotePatch({ patch, didEnterView }: Props) {
     }
   }, [onScreen])
 
-  const bannerText = patch.currentWeek
-    ? t('banner_text_current')
-    : `${t('banner_text_past')} ${patch.friendlyDate}.`
+  const bannerText = t('banner_text')
 
   return (
     <div
@@ -45,7 +43,7 @@ export function GHAEReleaseNotePatch({ patch, didEnterView }: Props) {
           <button className="js-print btn-link ml-3 text-small text-bold">Print</button>
         </div>
         <p className="color-fg-muted mt-1">
-          {patch.friendlyDate} - {bannerText}
+          {bannerText} {patch.friendlyDate}.
         </p>
       </header>
 

@@ -1,12 +1,10 @@
 import patterns from '../../lib/patterns.js'
 import { URL } from 'url'
-import languages, { languageKeys } from '../../lib/languages.js'
+import languages, { pathLanguagePrefixed } from '../../lib/languages.js'
 import { cacheControlFactory } from '../cache-control.js'
 
 const cacheControl = cacheControlFactory(60 * 60 * 24) // one day
 const noCacheControl = cacheControlFactory(0)
-
-const languagePrefixURIRegex = new RegExp(`^/(${languageKeys.join('|')})/`)
 
 export default function handleRedirects(req, res, next) {
   // never redirect assets
@@ -70,11 +68,15 @@ export default function handleRedirects(req, res, next) {
   }
 
   // do the redirect if the from-URL already had a language in it
-  if (languagePrefixURIRegex.test(req.path)) {
+  if (pathLanguagePrefixed(req.path)) {
     cacheControl(res)
   }
 
-  return res.redirect(301, redirect)
+  // If the redirect involved injecting a language prefix, then don't
+  // permanently redirect because that could overly cache in users'
+  // browsers if we some day want to make the language redirect
+  // depend on a cookie or 'Accept-Language' header.
+  return res.redirect(pathLanguagePrefixed(req.path) ? 301 : 302, redirect)
 }
 
 function removeQueryParams(redirect) {

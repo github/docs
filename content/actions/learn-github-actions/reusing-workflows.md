@@ -15,7 +15,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Overview
 
@@ -49,16 +48,15 @@ A reusable workflow can be used by another workflow if {% ifversion ghes or ghec
 
 ## Using runners
 
+{% ifversion fpt or ghes or ghec %}
+
 ### Using GitHub-hosted runners
 
-{% ifversion fpt or ghes or ghec %}
 The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. Billing for {% data variables.product.prodname_dotcom %}-hosted runners is always associated with the caller. The caller workflow cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
-{% endif %}
-{% ifversion ghae %}
-The assignment of {% data variables.actions.hosted_runner %}s is always evaluated using only the caller's context. Billing for {% data variables.actions.hosted_runner %}s is always associated with the caller. The caller cannot use {% data variables.actions.hosted_runner %}s from the called repository. For more information, see "[About {% data variables.actions.hosted_runner %}s](/github-ae@latest/actions/using-github-hosted-runners/about-ae-hosted-runners)."
-{% endif %}
 
 ### Using self-hosted runners
+
+{% endif %}
 
 Called workflows can access self-hosted runners from caller's context. This means that a called workflow can access self-hosted runners that are:
 * In the caller repository

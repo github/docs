@@ -65,7 +65,7 @@ When you unwatch a repository, you unsubscribe from future updates from that rep
 1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down to click **Watched repositories**.
   ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. On the watched repositories page, after you've evaluated the repositories you're watching, choose whether to:
-  {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     - Unwatch a repository
     - Ignore all notifications for a repository
     - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)

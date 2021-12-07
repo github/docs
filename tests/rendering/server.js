@@ -608,7 +608,7 @@ describe('server', () => {
   describe('redirects', () => {
     test('redirects old articles to their English URL', async () => {
       const res = await get('/articles/deleting-a-team')
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       // no cache control because a language prefix had to be injected
       expect(res.headers['cache-control']).toBeUndefined()
     })
@@ -616,7 +616,7 @@ describe('server', () => {
     test('redirects old articles to their slugified URL', async () => {
       const res = await get('/articles/about-github-s-ip-addresses')
       expect(res.text).toBe(
-        'Moved Permanently. Redirecting to /en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses'
+        'Found. Redirecting to /en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses'
       )
     })
 
@@ -629,7 +629,7 @@ describe('server', () => {
 
     test('adds English prefix to old article URLs', async () => {
       const res = await get('/articles/deleting-a-team')
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       expect(res.headers.location.startsWith('/en/')).toBe(true)
       expect(res.headers['cache-control']).toBeUndefined()
     })
