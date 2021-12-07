@@ -22,13 +22,13 @@ You can add query parameters to these URLs to preselect the configuration of a {
 
 The person creating the app can edit the preselected values from the {% data variables.product.prodname_github_app %} registration page, before submitting the app. If you do not include required parameters in the URL query string, like `name`, the person creating the app will need to input a value before submitting the app.
 
-{% ifversion ghes > 3.1 or fpt or ghae-next or ghec %}
+{% ifversion ghes > 3.1 or fpt or ghae or ghec %}
 For apps that require a secret to secure their webhook, the secret's value must be set in the form by the person creating the app, not by using query parameters. For more information, see "[Securing your webhooks](/developers/webhooks-and-events/webhooks/securing-your-webhooks)."
 {% endif %}
 
 The following URL creates a new public app called `octocat-github-app` with a preconfigured description and callback URL. This URL also selects read and write permissions for `checks`, subscribes to the `check_run` and `check_suite` webhook events, and selects the option to request user authorization (OAuth) during installation:
 
-{% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ```text
 {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_urls[]=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
@@ -50,7 +50,7 @@ The complete list of available query parameters, permissions, and events is list
 -----|------|-------------
 `name` | `string` | The name of the {% data variables.product.prodname_github_app %}. Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
 `description` | `string` | A description of the {% data variables.product.prodname_github_app %}.
-`url` | `string` | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.{% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}
+`url` | `string` | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 `callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to identify and authorize user-to-server requests. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`.{% else %}
 `callback_url` | `string` | The full URL to redirect to after someone authorizes an installation. This URL is used if your app needs to identify and authorize user-to-server requests.{% endif %}
 `request_oauth_on_install` | `boolean` | If your app authorizes users using the OAuth flow, you can set this option to `true` to allow people to authorize the app when they install it, saving a step. If you select this option, the `setup_url` becomes unavailable and users will be redirected to your `callback_url` after installing the app.

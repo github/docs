@@ -12,6 +12,7 @@ import isArchivedVersion from '../lib/is-archived-version.js'
 import got from 'got'
 import { readCompressedJsonFileFallback } from '../lib/read-json-file.js'
 import { cacheControlFactory } from './cache-control.js'
+import { pathLanguagePrefixed } from '../lib/languages.js'
 
 function readJsonFileLazily(xpath) {
   const cache = new Map()
@@ -74,6 +75,8 @@ export default async function archivedEnterpriseVersions(req, res, next) {
   // Skip asset paths
   if (patterns.assetPaths.test(req.path)) return next()
 
+  const redirectCode = pathLanguagePrefixed(req.path) ? 301 : 302
+
   // redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
   // (this only applies to versions <2.13)
   if (
@@ -81,7 +84,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)
   ) {
     cacheControl(res)
-    return res.redirect(301, req.baseUrl + req.path.replace(/^\/en/, ''))
+    return res.redirect(redirectCode, req.baseUrl + req.path.replace(/^\/en/, ''))
   }
 
   // find redirects for versions between 2.13 and 2.17
@@ -95,7 +98,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     const redirect = archivedRedirects()[req.path]
     if (redirect && redirect !== req.path) {
       cacheControl(res)
-      return res.redirect(301, redirect)
+      return res.redirect(redirectCode, redirect)
     }
   }
 
@@ -107,7 +110,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       if (redirectJson[req.path]) {
         res.set('x-robots-tag', 'noindex')
         cacheControl(res)
-        return res.redirect(301, redirectJson[req.path])
+        return res.redirect(redirectCode, redirectJson[req.path])
       }
     } catch (err) {
       // noop
@@ -130,7 +133,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     const staticRedirect = r.body.match(patterns.staticRedirect)
     if (staticRedirect) {
       cacheControl(res)
-      return res.redirect(301, staticRedirect[1])
+      return res.redirect(redirectCode, staticRedirect[1])
     }
 
     res.set('content-type', r.headers['content-type'])
@@ -149,7 +152,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     ])()
     if (r.statusCode === 200) {
       cacheControl(res)
-      return res.redirect(301, fallbackRedirect)
+      return res.redirect(redirectCode, fallbackRedirect)
     }
   }
 

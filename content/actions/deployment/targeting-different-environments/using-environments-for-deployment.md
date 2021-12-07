@@ -15,7 +15,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
 
 ## About environments
 
@@ -35,7 +34,7 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can confi
 
 ## Environment protection rules
 
-Environment protection rules require specific conditions to pass before a job referencing the environment can proceed. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can use environment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.{% else %}You can use environment protection rules to require a manual approval or delay a job.{% endif %}
+Environment protection rules require specific conditions to pass before a job referencing the environment can proceed. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can use environment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.{% else %}You can use environment protection rules to require a manual approval or delay a job.{% endif %}
 
 ### Required reviewers
 
@@ -47,7 +46,7 @@ For more information on reviewing jobs that reference an environment with requir
 
 Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ### Deployment branches
 
 Use deployment branches to restrict which branches can deploy to the environment. Below are the options for deployment branches for an environment:
@@ -94,7 +93,7 @@ Secrets stored in an environment are only available to workflow jobs that refere
    1. Enter the secret value.
    1. Click **Add secret**.
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can also create and configure environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)" and "[Secrets](/rest/reference/actions#secrets)."{% endif %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also create and configure environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)" and "[Secrets](/rest/reference/actions#secrets)."{% endif %}
 
 Running a workflow that references an environment that does not exist will create an environment with the referenced name. The newly created environment will not have any protection rules or secrets configured. Anyone that can edit workflows in the repository can create environments via a workflow file, but only repository admins can configure the environment.
 
@@ -118,7 +117,7 @@ Deleting an environment will delete all secrets and protection rules associated 
 1. Next to the environment that you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
 2. Click **I understand, delete this environment**.
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."{% endif %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."{% endif %}
 
 ## How environments relate to deployments
 
