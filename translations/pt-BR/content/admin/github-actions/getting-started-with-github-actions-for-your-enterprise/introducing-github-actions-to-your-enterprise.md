@@ -18,6 +18,8 @@ topics:
 
 ![Diagram of jobs running on self-hosted runners](/assets/images/help/images/actions-enterprise-overview.png)
 
+{% data reusables.enterprise.upgrade-ghes-for-actions %}
+
 Before you introduce {% data variables.product.prodname_actions %} to a large enterprise, you first need to plan your adoption and make decisions about how your enterprise will use {% data variables.product.prodname_actions %} to best support your unique needs.
 
 ## Governance and compliance

@@ -51,7 +51,7 @@ jobs:
       - run: git config --global user.email "67483024+docubot@users.noreply.github.com"
 
       - name: Checkout
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           fetch-depth: 0
           lfs: true
@@ -101,7 +101,7 @@ jobs:
           git commit -m "Add crowdin translations" || echo "Nothing to commit"
 
       - name: 'Setup node'
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: '16'
 
@@ -162,7 +162,8 @@ jobs:
           gh pr create --title "New translation batch for ${{ matrix.language }}" \
             --base=main \
             --head=${{ steps.set-branch.outputs.BRANCH_NAME }} \
-            --body-file /tmp/pr-body.txt || git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }}
+            --body-file /tmp/pr-body.txt || git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }} \
+            --label "translation-batch"
 
       # When the maximum execution time is reached for this job, Actions cancels the workflow run.
       # This emits a notification for the first responder to triage.

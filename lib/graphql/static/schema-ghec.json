@@ -2083,54 +2083,6 @@
       ]
     },
     {
-      "name": "createContentAttachment",
-      "kind": "mutations",
-      "id": "createcontentattachment",
-      "href": "/graphql/reference/mutations#createcontentattachment",
-      "description": "<p>Create a content attachment.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Create content attachments preview",
-        "description": "This preview adds support for creating content attachments.",
-        "toggled_by": "corsair-preview",
-        "toggled_on": [
-          "Mutation.createContentAttachment"
-        ],
-        "owning_teams": [
-          "@github/feature-lifecycle"
-        ],
-        "accept_header": "application/vnd.github.corsair-preview+json",
-        "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
-      },
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "CreateContentAttachmentInput!",
-          "id": "createcontentattachmentinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#createcontentattachmentinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "contentAttachment",
-          "type": "ContentAttachment",
-          "id": "contentattachment",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#contentattachment",
-          "description": "<p>The newly created content attachment.</p>"
-        }
-      ]
-    },
-    {
       "name": "createDeployment",
       "kind": "mutations",
       "id": "createdeployment",
@@ -8374,6 +8326,56 @@
           ]
         },
         {
+          "name": "bypassPullRequestAllowances",
+          "description": "<p>A list of actors able to bypass PRs for this branch protection rule.</p>",
+          "type": "BypassPullRequestAllowanceConnection!",
+          "id": "bypasspullrequestallowanceconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypasspullrequestallowanceconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "creator",
           "description": "<p>The actor who created this branch protection rule.</p>",
           "type": "Actor",
@@ -8841,6 +8843,104 @@
           "id": "branchprotectionrule",
           "kind": "objects",
           "href": "/graphql/reference/objects#branchprotectionrule"
+        }
+      ]
+    },
+    {
+      "name": "BypassPullRequestAllowance",
+      "kind": "objects",
+      "id": "bypasspullrequestallowance",
+      "href": "/graphql/reference/objects#bypasspullrequestallowance",
+      "description": "<p>A team or user who has the ability to bypass a pull request requirement on a protected branch.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor that can dismiss.</p>",
+          "type": "BranchActorAllowanceActor",
+          "id": "branchactorallowanceactor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#branchactorallowanceactor"
+        },
+        {
+          "name": "branchProtectionRule",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user or team.</p>",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#branchprotectionrule"
+        }
+      ]
+    },
+    {
+      "name": "BypassPullRequestAllowanceConnection",
+      "kind": "objects",
+      "id": "bypasspullrequestallowanceconnection",
+      "href": "/graphql/reference/objects#bypasspullrequestallowanceconnection",
+      "description": "<p>The connection type for BypassPullRequestAllowance.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[BypassPullRequestAllowanceEdge]",
+          "id": "bypasspullrequestallowanceedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypasspullrequestallowanceedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[BypassPullRequestAllowance]",
+          "id": "bypasspullrequestallowance",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypasspullrequestallowance"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "BypassPullRequestAllowanceEdge",
+      "kind": "objects",
+      "id": "bypasspullrequestallowanceedge",
+      "href": "/graphql/reference/objects#bypasspullrequestallowanceedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "BypassPullRequestAllowance",
+          "id": "bypasspullrequestallowance",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypasspullrequestallowance"
         }
       ]
     },
@@ -11838,72 +11938,6 @@
           "id": "referencedsubject",
           "kind": "unions",
           "href": "/graphql/reference/unions#referencedsubject"
-        }
-      ]
-    },
-    {
-      "name": "ContentAttachment",
-      "kind": "objects",
-      "id": "contentattachment",
-      "href": "/graphql/reference/objects#contentattachment",
-      "description": "<p>A content attachment.</p>",
-      "fields": [
-        {
-          "name": "body",
-          "description": "<p>The body text of the content attachment. This parameter supports markdown.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "contentReference",
-          "description": "<p>The content reference that the content attachment is attached to.</p>",
-          "type": "ContentReference!",
-          "id": "contentreference",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#contentreference"
-        },
-        {
-          "name": "databaseId",
-          "description": "<p>Identifies the primary key from the database.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
-        },
-        {
-          "name": "title",
-          "description": "<p>The title of the content attachment.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        }
-      ]
-    },
-    {
-      "name": "ContentReference",
-      "kind": "objects",
-      "id": "contentreference",
-      "href": "/graphql/reference/objects#contentreference",
-      "description": "<p>A content reference.</p>",
-      "fields": [
-        {
-          "name": "databaseId",
-          "description": "<p>Identifies the primary key from the database.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
-        },
-        {
-          "name": "reference",
-          "description": "<p>The reference of the content reference.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -69938,6 +69972,25 @@
       ]
     },
     {
+      "name": "BranchActorAllowanceActor",
+      "kind": "unions",
+      "id": "branchactorallowanceactor",
+      "href": "/graphql/reference/unions#branchactorallowanceactor",
+      "description": "<p>Types which can be actors for <code>BranchActorAllowance</code> objects.</p>",
+      "possibleTypes": [
+        {
+          "name": "Team",
+          "id": "team",
+          "href": "/graphql/reference/objects#team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
       "name": "Closer",
       "kind": "unions",
       "id": "closer",
@@ -73193,6 +73246,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "bypassPullRequestActorIds",
+          "description": "<p>A list of User or Team IDs allowed to bypass pull requests targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "clientMutationId",
           "description": "<p>A unique identifier for the client performing the mutation.</p>",
           "type": "String",
@@ -73533,48 +73594,6 @@
           "id": "commitmessage",
           "kind": "input-objects",
           "href": "/graphql/reference/input-objects#commitmessage"
-        }
-      ]
-    },
-    {
-      "name": "CreateContentAttachmentInput",
-      "kind": "inputObjects",
-      "id": "createcontentattachmentinput",
-      "href": "/graphql/reference/input-objects#createcontentattachmentinput",
-      "description": "<p>Autogenerated input type of CreateContentAttachment.</p>",
-      "inputFields": [
-        {
-          "name": "body",
-          "description": "<p>The body of the content attachment, which may contain markdown.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "contentReferenceId",
-          "description": "<p>The node ID of the content_reference.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        },
-        {
-          "name": "title",
-          "description": "<p>The title of the content attachment.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -78438,6 +78457,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "bypassPullRequestActorIds",
+          "description": "<p>A list of User or Team IDs allowed to bypass pull requests targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "clientMutationId",

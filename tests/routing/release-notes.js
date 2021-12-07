@@ -26,6 +26,8 @@ describe('release notes', () => {
       })
   })
 
+  afterAll(() => nock.cleanAll())
+
   it('redirects to the release notes on enterprise.github.com if none are present for this version here', async () => {
     const res = await get('/en/enterprise-server@2.19/admin/release-notes')
     expect(res.statusCode).toBe(302)

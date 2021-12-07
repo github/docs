@@ -39,7 +39,7 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
 - [Links and image paths](#links-and-image-paths)
   - [Preventing transformations](#preventing-transformations)
   - [Index pages](#index-pages)
-  - [Creating new sublanding pages](#creating-new-sublanding-pages)
+  - [Creating new product guides pages](#creating-new-product-guides-pages)
 
 ## Frontmatter
 
@@ -243,7 +243,7 @@ defaultTool: cli
 **Note: the featured track is set by a specific property in the learning tracks YAML. See that [README](../data/learning-tracks/README.md) for details.*
 
 ### `includeGuides`
-- Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-sublanding`.
+- Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-guides`.
 - Type: `Array`
 - Optional.
 
@@ -376,11 +376,11 @@ The homepage is the main Table of Contents file for the docs site. The homepage 
 
 `childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
 
-### Creating new sublanding pages
+### Creating new product guides pages
 
-To create a sublanding page (e.g. [Actions' Guide page](https://docs.github.com/en/actions/guides)), create or modify an existing markdown file with these specific frontmatter values:
+To create a product guides page (e.g. [Actions' Guide page](https://docs.github.com/en/actions/guides)), create or modify an existing markdown file with these specific frontmatter values:
 
-1. Use the sublanding page template by referencing it `layout: product-sublanding`
+1. Use the product guides page template by referencing it `layout: product-guides`
 2. (optional) Include the learning tracks in [`learningTracks`](#learningTracks)
 3. (optional) Define which articles to include with [`includeGuides`](#includeGuides).
 

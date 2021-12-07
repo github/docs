@@ -10,19 +10,26 @@ translations/pt-BR/content/actions/advanced-guides/storing-workflow-data-as-arti
 translations/pt-BR/content/actions/automating-builds-and-tests/building-and-testing-nodejs.md,rendering error
 translations/pt-BR/content/actions/automating-builds-and-tests/building-and-testing-python.md,rendering error
 translations/pt-BR/content/actions/creating-actions/creating-a-javascript-action.md,rendering error
+translations/pt-BR/content/actions/creating-actions/metadata-syntax-for-github-actions.md,rendering error
+translations/pt-BR/content/actions/creating-actions/releasing-and-maintaining-actions.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows.md,rendering error
+translations/pt-BR/content/actions/deployment/targeting-different-environments/using-environments-for-deployment.md,rendering error
 translations/pt-BR/content/actions/guides.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,Listed in localization-support#489
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
+translations/pt-BR/content/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/removing-self-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/using-a-proxy-server-with-self-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,Listed in localization-support#489
 translations/pt-BR/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,rendering error
+translations/pt-BR/content/actions/learn-github-actions/contexts.md,rendering error
+translations/pt-BR/content/actions/learn-github-actions/creating-workflow-templates.md,rendering error
+translations/pt-BR/content/actions/learn-github-actions/environment-variables.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/expressions.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/managing-complex-workflows.md,Listed in localization-support#489
 translations/pt-BR/content/actions/learn-github-actions/managing-complex-workflows.md,rendering error
@@ -31,6 +38,10 @@ translations/pt-BR/content/actions/learn-github-actions/understanding-github-act
 translations/pt-BR/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/workflow-commands-for-github-actions.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/workflow-syntax-for-github-actions.md,rendering error
+translations/pt-BR/content/actions/managing-workflow-runs/skipping-workflow-runs.md,rendering error
+translations/pt-BR/content/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time.md,rendering error
+translations/pt-BR/content/actions/publishing-packages/publishing-nodejs-packages.md,rendering error
+translations/pt-BR/content/actions/security-guides/security-hardening-for-github-actions.md,rendering error
 translations/pt-BR/content/admin/advanced-security/configuring-code-scanning-for-your-appliance.md,rendering error
 translations/pt-BR/content/admin/advanced-security/configuring-secret-scanning-for-your-appliance.md,rendering error
 translations/pt-BR/content/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise.md,rendering error
@@ -53,6 +64,7 @@ translations/pt-BR/content/admin/enterprise-management/configuring-high-availabi
 translations/pt-BR/content/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica.md,rendering error
 translations/pt-BR/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources.md,rendering error
 translations/pt-BR/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements.md,rendering error
+translations/pt-BR/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server.md,rendering error
 translations/pt-BR/content/admin/enterprise-support/overview/about-github-enterprise-support.md,rendering error
 translations/pt-BR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/index.md,rendering error
 translations/pt-BR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates.md,rendering error
@@ -67,17 +79,24 @@ translations/pt-BR/content/admin/github-actions/managing-access-to-actions-from-
 translations/pt-BR/content/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect.md,rendering error
 translations/pt-BR/content/admin/github-actions/using-github-actions-in-github-ae/index.md,rendering error
 translations/pt-BR/content/admin/guides.md,rendering error
+translations/pt-BR/content/admin/index.md,rendering error
+translations/pt-BR/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-azure.md,rendering error
+translations/pt-BR/content/admin/overview/about-upgrades-to-new-releases.md,rendering error
+translations/pt-BR/content/admin/packages/getting-started-with-github-packages-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users.md,rendering error
+translations/pt-BR/content/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions.md,rendering error
 translations/pt-BR/content/admin/user-management/monitoring-activity-in-your-enterprise/log-forwarding.md,rendering error
 translations/pt-BR/content/authentication/keeping-your-account-and-data-secure/connecting-with-third-party-applications.md,rendering error
 translations/pt-BR/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md,rendering error
 translations/pt-BR/content/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys.md,rendering error
+translations/pt-BR/content/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log.md,rendering error
 translations/pt-BR/content/authentication/managing-commit-signature-verification/signing-commits.md,rendering error
 translations/pt-BR/content/authentication/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device.md,rendering error
+translations/pt-BR/content/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials.md,rendering error
 translations/pt-BR/content/authentication/troubleshooting-ssh/error-permission-denied-publickey.md,Listed in localization-support#489
 translations/pt-BR/content/authentication/troubleshooting-ssh/error-permission-denied-publickey.md,rendering error
 translations/pt-BR/content/billing/index.md,rendering error
@@ -92,8 +111,10 @@ translations/pt-BR/content/code-security/code-scanning/integrating-with-code-sca
 translations/pt-BR/content/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system.md,rendering error
+translations/pt-BR/content/code-security/guides.md,rendering error
 translations/pt-BR/content/code-security/secret-scanning/about-secret-scanning.md,rendering error
 translations/pt-BR/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,rendering error
+translations/pt-BR/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,rendering error
 translations/pt-BR/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies.md,rendering error
@@ -106,9 +127,11 @@ translations/pt-BR/content/code-security/supply-chain-security/understanding-you
 translations/pt-BR/content/codespaces/codespaces-reference/disaster-recovery-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/index.md,rendering error
+translations/pt-BR/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/prebuilding-codespaces-for-your-project.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces.md,rendering error
+translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/creating-a-codespace.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,rendering error
@@ -117,6 +140,7 @@ translations/pt-BR/content/codespaces/developing-in-codespaces/index.md,renderin
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-source-control-in-your-codespace.md,rendering error
 translations/pt-BR/content/codespaces/getting-started/deep-dive.md,rendering error
+translations/pt-BR/content/codespaces/guides.md,rendering error
 translations/pt-BR/content/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization.md,rendering error
 translations/pt-BR/content/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization.md,rendering error
 translations/pt-BR/content/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces.md,rendering error
@@ -187,11 +211,13 @@ translations/pt-BR/content/github/extending-github/about-webhooks.md,rendering e
 translations/pt-BR/content/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line.md,rendering error
 translations/pt-BR/content/github/index.md,Listed in localization-support#489
 translations/pt-BR/content/github/index.md,rendering error
+translations/pt-BR/content/github/writing-on-github/editing-and-sharing-content-with-gists/forking-and-cloning-gists.md,rendering error
 translations/pt-BR/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.md,rendering error
 translations/pt-BR/content/github/writing-on-github/working-with-advanced-formatting/index.md,rendering error
 translations/pt-BR/content/github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections.md,rendering error
 translations/pt-BR/content/graphql/guides/index.md,rendering error
 translations/pt-BR/content/graphql/guides/migrating-graphql-global-node-ids.md,rendering error
+translations/pt-BR/content/issues/guides.md,rendering error
 translations/pt-BR/content/issues/trying-out-the-new-projects-experience/customizing-your-project-views.md,rendering error
 translations/pt-BR/content/issues/trying-out-the-new-projects-experience/managing-access-to-projects.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,Listed in localization-support#489
@@ -241,7 +267,6 @@ translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-f
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,parsing error
-translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,rendering error
@@ -263,6 +288,7 @@ translations/pt-BR/content/search-github/searching-on-github/searching-commits.m
 translations/pt-BR/content/search-github/searching-on-github/searching-discussions.md,rendering error
 translations/pt-BR/content/search-github/searching-on-github/searching-for-repositories.md,rendering error
 translations/pt-BR/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,rendering error
+translations/pt-BR/content/sponsors/guides.md,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/2-20/15.yml,Listed in localization-support#489
 translations/pt-BR/data/release-notes/enterprise-server/2-21/6.yml,Listed in localization-support#489
 translations/pt-BR/data/reusables/apps/deprecating_auth_with_query_parameters.md,Listed in localization-support#489

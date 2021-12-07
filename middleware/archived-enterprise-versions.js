@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import slash from 'slash'
+import statsd from '../lib/statsd.js'
 import {
   firstVersionDeprecatedOnNewSite,
   lastVersionWithoutArchivedRedirectsFile,
@@ -113,8 +114,16 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     }
   }
 
-  try {
-    const r = await got(getProxyPath(req.path, requestedVersion))
+  const statsdTags = [`version:${requestedVersion}`]
+  const doGet = () =>
+    got(getProxyPath(req.path, requestedVersion), {
+      throwHttpErrors: false,
+    })
+  const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy', [
+    ...statsdTags,
+    `path:${req.path}`,
+  ])()
+  if (r.statusCode === 200) {
     res.set('x-robots-tag', 'noindex')
 
     // make stubbed redirect files (which exist in versions <2.13) redirect with a 301
@@ -126,19 +135,25 @@ export default async function archivedEnterpriseVersions(req, res, next) {
 
     res.set('content-type', r.headers['content-type'])
     return res.send(r.body)
-  } catch (err) {
-    for (const fallbackRedirect of getFallbackRedirects(req, requestedVersion) || []) {
-      try {
-        await got(getProxyPath(fallbackRedirect, requestedVersion))
-        cacheControl(res)
-        return res.redirect(301, fallbackRedirect)
-      } catch (err) {
-        // noop
-      }
-    }
-
-    return next()
   }
+
+  for (const fallbackRedirect of getFallbackRedirects(req, requestedVersion) || []) {
+    const doGet = () =>
+      got(getProxyPath(fallbackRedirect, requestedVersion), {
+        throwHttpErrors: false,
+      })
+
+    const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy_fallback', [
+      ...statsdTags,
+      `fallback:${fallbackRedirect}`,
+    ])()
+    if (r.statusCode === 200) {
+      cacheControl(res)
+      return res.redirect(301, fallbackRedirect)
+    }
+  }
+
+  return next()
 }
 
 // paths are slightly different depending on the version
