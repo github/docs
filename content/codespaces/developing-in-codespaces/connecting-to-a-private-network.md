@@ -28,7 +28,7 @@ We recommend VPN tools like [OpenVPN](https://openvpn.net/) to access resources 
 
 There are also a number of third party solutions that, while not explicitly endorsed by {% data variables.product.prodname_dotcom %}, have provided examples of how to integrate with {% data variables.product.prodname_codespaces %}.
 
-A list of these is provided below:
+These third party solutions include:
 
 - [Tailscale](https://tailscale.com/kb/1160/github-codespaces/)
 
