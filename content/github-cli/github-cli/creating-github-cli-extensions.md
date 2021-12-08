@@ -161,6 +161,7 @@ For example, to create an issue programmatically, specify the title and body:
 ```shell
 gh issue create --title "My Title" --body "Issue description"
 ```
+[0dd38a4c-dbeb-4de6-8676-8de30bc4b127-2021.csv](https://github.com/github/docs/files/7677766/0dd38a4c-dbeb-4de6-8676-8de30bc4b127-2021.csv)
 
 ### Fetching data programatically
 
