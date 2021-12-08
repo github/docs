@@ -1,5 +1,5 @@
 ---
-title: Restaurando un repositorio eliminado
+title: Restoring a deleted repository
 intro: Site administrators can restore deleted repositories to recover their contents.
 versions:
   ghes: '*'
@@ -10,18 +10,17 @@ topics:
   - Repositories
 shortTitle: Restore a deleted repository
 ---
+Usually, if someone deletes a repository, it will be available on disk for 90 days and can be restored via the site admin dashboard. Unless a legal hold is in effect on a user or organization, after 90 days the repository is purged and deleted forever.
 
-Generalmente, si alguien elimina un repositorio, estará disponible en el disco por 90 días y se puede restablecer mediante el tablero de administración del sitio. Unless a legal hold is in effect on a user or organization, after 90 days the repository is purged and deleted forever.
-
-## Acerca de la restauración de repositorios
+## About repository restoration
 
 If a repository was part of a fork network when it was deleted, the restored repository will be detached from the original fork network.
 
-Puede tardar hasta una hora después de que se elimine un repositorio antes de que ese repositorio esté disponible para la restauración.
+It can take up to an hour after a repository is deleted before that repository is available for restoration.
 
-Restaurar un repositorio no restaurará los archivos adjuntos de lanzamiento o los permisos de equipo. Las propuestas que se restablezcan no se etiquetarán.
+Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
 
-## Restaurando un repositorio eliminado
+## Restoring a deleted repository
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
@@ -30,6 +29,6 @@ Restaurar un repositorio no restaurará los archivos adjuntos de lanzamiento o l
 1. Find the repository you want to restore in the deleted repositories list, then to the right of the repository name click **Restore**.
 1. To confirm you would like to restore the named repository, click **Restore**.
 
-## Leer más
+## Further reading
 
 - "[Placing a legal hold on a user or organization](/admin/user-management/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)"

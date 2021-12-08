@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import slash from 'slash'
+import statsd from '../lib/statsd.js'
 import {
   firstVersionDeprecatedOnNewSite,
   lastVersionWithoutArchivedRedirectsFile,
@@ -9,15 +10,35 @@ import patterns from '../lib/patterns.js'
 import versionSatisfiesRange from '../lib/version-satisfies-range.js'
 import isArchivedVersion from '../lib/is-archived-version.js'
 import got from 'got'
-import readJsonFile from '../lib/read-json-file.js'
+import { readCompressedJsonFileFallback } from '../lib/read-json-file.js'
 import { cacheControlFactory } from './cache-control.js'
+import { pathLanguagePrefixed } from '../lib/languages.js'
 
 function readJsonFileLazily(xpath) {
   const cache = new Map()
   // This will throw if the file isn't accessible at all, e.g. ENOENT
-  fs.accessSync(xpath)
+  // But, the file might have been replaced by one called `SAMENAME.json.br`
+  // because in staging, we ship these files compressed to make the
+  // deployment faster. So, in our file-presence check, we need to
+  // account for that.
+  try {
+    fs.accessSync(xpath)
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      try {
+        fs.accessSync(xpath + '.br')
+      } catch (err) {
+        if (err.code === 'ENOENT') {
+          throw new Error(`Neither ${xpath} nor ${xpath}.br is accessible`)
+        }
+        throw err
+      }
+    } else {
+      throw err
+    }
+  }
   return () => {
-    if (!cache.has(xpath)) cache.set(xpath, readJsonFile(xpath))
+    if (!cache.has(xpath)) cache.set(xpath, readCompressedJsonFileFallback(xpath))
     return cache.get(xpath)
   }
 }
@@ -54,6 +75,8 @@ export default async function archivedEnterpriseVersions(req, res, next) {
   // Skip asset paths
   if (patterns.assetPaths.test(req.path)) return next()
 
+  const redirectCode = pathLanguagePrefixed(req.path) ? 301 : 302
+
   // redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
   // (this only applies to versions <2.13)
   if (
@@ -61,7 +84,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)
   ) {
     cacheControl(res)
-    return res.redirect(301, req.baseUrl + req.path.replace(/^\/en/, ''))
+    return res.redirect(redirectCode, req.baseUrl + req.path.replace(/^\/en/, ''))
   }
 
   // find redirects for versions between 2.13 and 2.17
@@ -75,7 +98,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     const redirect = archivedRedirects()[req.path]
     if (redirect && redirect !== req.path) {
       cacheControl(res)
-      return res.redirect(301, redirect)
+      return res.redirect(redirectCode, redirect)
     }
   }
 
@@ -87,39 +110,53 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       if (redirectJson[req.path]) {
         res.set('x-robots-tag', 'noindex')
         cacheControl(res)
-        return res.redirect(301, redirectJson[req.path])
+        return res.redirect(redirectCode, redirectJson[req.path])
       }
     } catch (err) {
       // noop
     }
   }
 
-  try {
-    const r = await got(getProxyPath(req.path, requestedVersion))
+  const statsdTags = [`version:${requestedVersion}`]
+  const doGet = () =>
+    got(getProxyPath(req.path, requestedVersion), {
+      throwHttpErrors: false,
+    })
+  const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy', [
+    ...statsdTags,
+    `path:${req.path}`,
+  ])()
+  if (r.statusCode === 200) {
     res.set('x-robots-tag', 'noindex')
 
     // make stubbed redirect files (which exist in versions <2.13) redirect with a 301
     const staticRedirect = r.body.match(patterns.staticRedirect)
     if (staticRedirect) {
       cacheControl(res)
-      return res.redirect(301, staticRedirect[1])
+      return res.redirect(redirectCode, staticRedirect[1])
     }
 
     res.set('content-type', r.headers['content-type'])
     return res.send(r.body)
-  } catch (err) {
-    for (const fallbackRedirect of getFallbackRedirects(req, requestedVersion) || []) {
-      try {
-        await got(getProxyPath(fallbackRedirect, requestedVersion))
-        cacheControl(res)
-        return res.redirect(301, fallbackRedirect)
-      } catch (err) {
-        // noop
-      }
-    }
-
-    return next()
   }
+
+  for (const fallbackRedirect of getFallbackRedirects(req, requestedVersion) || []) {
+    const doGet = () =>
+      got(getProxyPath(fallbackRedirect, requestedVersion), {
+        throwHttpErrors: false,
+      })
+
+    const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy_fallback', [
+      ...statsdTags,
+      `fallback:${fallbackRedirect}`,
+    ])()
+    if (r.statusCode === 200) {
+      cacheControl(res)
+      return res.redirect(redirectCode, fallbackRedirect)
+    }
+  }
+
+  return next()
 }
 
 // paths are slightly different depending on the version

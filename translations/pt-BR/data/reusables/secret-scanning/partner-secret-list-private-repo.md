@@ -76,9 +76,13 @@ Google | Google Cloud Storage Service Account Access Key ID | google_cloud_stora
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
+Google | Google OAuth Access Token | google_oauth_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
 Google | Google OAuth Client ID | google_oauth_client_id{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Google | Google OAuth Client Secret | google_oauth_client_secret{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Grafana | Grafana API Key | grafana_api_key{% endif %} Hashicorp Terraform | Terraform Cloud / Enterprise API Token | terraform_api_token Hubspot | Hubspot API Key | hubspot_api_key
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
@@ -112,7 +116,11 @@ New Relic | New Relic REST API Key | new_relic_rest_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 New Relic | New Relic Insights Query Key | new_relic_insights_query_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
-New Relic | New Relic License Key | new_relic_license_key{% endif %} npm | npm Access Token | npm_access_token NuGet | NuGet API Key | nuget_api_key
+New Relic | New Relic License Key | new_relic_license_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Notion | Notion Integration Token | notion_integration_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Notion | Notion OAuth Client Secret | notion_oauth_client_secret{% endif %} npm | npm Access Token | npm_access_token NuGet | NuGet API Key | nuget_api_key
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Onfido | Onfido Live API Token | onfido_live_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
@@ -143,6 +151,8 @@ Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key{% endif %}
 Shippo | Shippo Live API Token | shippo_live_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Shippo | Shippo Test API Token | shippo_test_api_token{% endif %} Shopify | Shopify App Shared Secret | shopify_app_shared_secret Shopify | Shopify Access Token | shopify_access_token Shopify | Shopify Custom App Access Token | shopify_custom_app_access_token Shopify | Shopify Private App Password | shopify_private_app_password Slack | Slack API Token | slack_api_token Slack | Slack Incoming Webhook URL | slack_incoming_webhook_url Slack | Slack Workflow Webhook URL | slack_workflow_webhook_url
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Square | Square Access Token | square_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Square | Square Production Application Secret | square_production_application_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}

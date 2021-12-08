@@ -60,15 +60,11 @@ If a private repository is made public and then deleted, its private forks will 
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
+{% ifversion ghes or ghec or ghae %}
 
 ## Changing the visibility of an internal repository
 
-{% note %}
 
-**Note:** {% data reusables.gated-features.internal-repos %}
-
-{% endnote %}
 
 If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
 

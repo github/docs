@@ -1,1 +1,1 @@
-Um executor é um servidor que tem o[aplicativo do executor de {% data variables.product.prodname_actions %}](https://github.com/actions/runner) instalado. Você pode usar um executor hospedado em {% data variables.product.prodname_dotcom %} ou você pode hospedar seu próprio. 
+A runner is a server that runs your workflows when they're triggered.
