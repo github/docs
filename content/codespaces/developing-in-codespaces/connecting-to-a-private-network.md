@@ -16,7 +16,7 @@ topics:
 
 By default, your codespaces have access to all resources on the public internet, including package managers, license servers, databases, and cloud platform APIs, but they have no access to resources on private networks.
 
-## Connecting to private network resources
+## Connecting to resources on a private network
 
 The currently supported method of accessing resources on a private network is to use a VPN. It is currently not recommended to allowlist codespaces IPs as this would allow all codespaces (both yours and those of other customers) access to the network protected resources.
 
