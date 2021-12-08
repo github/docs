@@ -1,8 +1,11 @@
-name: Lint JS
+name: Lint code
 
-# **What it does**: Lints our JavaScript to ensure the code matches the specified code style.
-# **Why we have it**: We want some level of consistency to our JavaScript.
+# **What it does**: Lints our code to ensure the code matches the specified code style.
+# **Why we have it**: We want some level of consistency to our code.
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
+
+permissions:
+  contents: read
 
 on:
   workflow_dispatch:
@@ -15,10 +18,13 @@ on:
       - '**.mjs'
       - '**.ts'
       - '**.tsx'
+      - '**.yaml'
+      - '**.yml'
+      - '**.scss'
       # In case something like eslint or tsc or prettier upgrades
       - 'package-lock.json'
       # Ultimately, for debugging this workflow itself
-      - .github/workflows/js-lint.yml
+      - .github/workflows/code-lint.yml
 
 jobs:
   lint:
@@ -38,6 +44,9 @@ jobs:
 
       - name: Run linter
         run: npm run lint
+
+      - name: Run Prettier
+        run: npm run prettier-check
 
       - name: Run TypeScript
         run: npm run tsc
