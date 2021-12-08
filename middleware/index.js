@@ -14,7 +14,7 @@ import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import compression from 'compression'
 import disableCachingOnSafari from './disable-caching-on-safari.js'
-import setFastlySurrogateKey from './set-fastly-surrogate-key.js'
+import setDefaultFastlySurrogateKey from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import catchBadAcceptLanguage from './catch-bad-accept-language.js'
 import reqUtils from './req-utils.js'
@@ -84,7 +84,7 @@ export default function (app) {
   // Must appear before static assets and all other requests
   // otherwise we won't be able to benefit from that functionality
   // for static assets as well.
-  app.use(setFastlySurrogateKey)
+  app.use(setDefaultFastlySurrogateKey)
 
   // Must come before `csrf` otherwise you get a Set-Cookie on successful
   // asset requests. And it can come before `rateLimit` because if it's a
