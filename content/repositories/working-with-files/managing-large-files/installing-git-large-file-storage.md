@@ -104,8 +104,7 @@ shortTitle: Install Git LFS
  {% endnote %}
 5. Verify that the installation was successful:
   ```shell
-  $ git {% data variables.large_files.command_name %} install
-  > {% data variables.large_files.product_name_short %} initialized.
+  $ git {% data variables.large_files.command_name %} install  > {% data variables.large_files.product_name_short %} initialized.
   ```
 6. If you don't see a message indicating that `git {% data variables.large_files.command_name %} install` was successful, please contact {% data variables.contact.contact_support %}. Be sure to include the name of your operating system.
 
