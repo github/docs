@@ -9,6 +9,7 @@ import {
 import patterns from '../lib/patterns.js'
 import versionSatisfiesRange from '../lib/version-satisfies-range.js'
 import isArchivedVersion from '../lib/is-archived-version.js'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
 import got from 'got'
 import { readCompressedJsonFileFallback } from '../lib/read-json-file.js'
 import { cacheControlFactory } from './cache-control.js'
@@ -55,11 +56,52 @@ const archivedFrontmatterFallbacks = readJsonFileLazily(
 
 const cacheControl = cacheControlFactory(60 * 60 * 24 * 365)
 
-async function getRemoteJSON(url) {
+// Combine all the things you need to make sure the response is
+// aggresively cached.
+const cacheAggressively = (res) => {
+  cacheControl(res)
+
+  // This sets a custom Fastly surrogate key so that this response
+  // won't get updated in every deployment.
+  // Essentially, this sets a surrogate key such that Fastly
+  // doesn't do soft-purges on these responses on every
+  // automated deployment.
+  setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
+
+  // Because this middleware has (quite possibly) been executed before
+  // the CSRF middleware, that would have set a cookie. Remove that.
+  // The reason for removing the 'Set-Cookie' header is because
+  // otherwise Fastly won't cache it.
+  res.removeHeader('set-cookie')
+}
+
+// The way `got` does retries:
+//
+//   sleep = 1000 * Math.pow(2, retry - 1) + Math.random() * 100
+//
+// So, it means:
+//
+//   1. ~1000ms
+//   2. ~2000ms
+//   3. ~4000ms
+//
+// ...if the limit we set is 3.
+// Our own timeout, in ./middleware/timeout.js defaults to 10 seconds.
+// So there's no point in trying more attempts than 3 because it would
+// just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
+const retryConfiguration = {
+  limit: 3,
+}
+// According to our Datadog metrics, the *average* time for the
+// the 'archive_enterprise_proxy' metric is ~70ms (excluding spikes)
+// which much less than 500ms.
+const timeoutConfiguration = 500
+
+async function getRemoteJSON(url, config) {
   if (_getRemoteJSONCache.has(url)) {
     return _getRemoteJSONCache.get(url)
   }
-  const body = await got(url).json()
+  const body = await got(url, config).json()
   _getRemoteJSONCache.set(url, body)
   return body
 }
@@ -97,23 +139,27 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     // and memoized so calling it is cheap.
     const redirect = archivedRedirects()[req.path]
     if (redirect && redirect !== req.path) {
-      cacheControl(res)
+      cacheAggressively(res)
       return res.redirect(redirectCode, redirect)
     }
   }
 
   if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`)) {
-    try {
-      const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion))
+    const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
+      retry: retryConfiguration,
+      // This is allowed to be different compared to the other requests
+      // we make because downloading the `redirects.json` once is very
+      // useful because it caches so well.
+      // And, as of 2021 that `redirects.json` is 10MB so it's more likely
+      // to time out.
+      timeout: 1000,
+    })
 
-      // make redirects found via redirects.json redirect with a 301
-      if (redirectJson[req.path]) {
-        res.set('x-robots-tag', 'noindex')
-        cacheControl(res)
-        return res.redirect(redirectCode, redirectJson[req.path])
-      }
-    } catch (err) {
-      // noop
+    // make redirects found via redirects.json redirect with a 301
+    if (redirectJson[req.path]) {
+      res.set('x-robots-tag', 'noindex')
+      cacheAggressively(res)
+      return res.redirect(redirectCode, redirectJson[req.path])
     }
   }
 
@@ -121,6 +167,8 @@ export default async function archivedEnterpriseVersions(req, res, next) {
   const doGet = () =>
     got(getProxyPath(req.path, requestedVersion), {
       throwHttpErrors: false,
+      retry: retryConfiguration,
+      timeout: timeoutConfiguration,
     })
   const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy', [
     ...statsdTags,
@@ -132,11 +180,14 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     // make stubbed redirect files (which exist in versions <2.13) redirect with a 301
     const staticRedirect = r.body.match(patterns.staticRedirect)
     if (staticRedirect) {
-      cacheControl(res)
+      cacheAggressively(res)
       return res.redirect(redirectCode, staticRedirect[1])
     }
 
     res.set('content-type', r.headers['content-type'])
+
+    cacheAggressively(res)
+
     return res.send(r.body)
   }
 
@@ -144,6 +195,8 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     const doGet = () =>
       got(getProxyPath(fallbackRedirect, requestedVersion), {
         throwHttpErrors: false,
+        retry: retryConfiguration,
+        timeout: timeoutConfiguration,
       })
 
     const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy_fallback', [
@@ -151,7 +204,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       `fallback:${fallbackRedirect}`,
     ])()
     if (r.statusCode === 200) {
-      cacheControl(res)
+      cacheAggressively(res)
       return res.redirect(redirectCode, fallbackRedirect)
     }
   }

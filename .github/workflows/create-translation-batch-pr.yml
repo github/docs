@@ -16,6 +16,7 @@ on:
 jobs:
   create-translation-batch:
     name: Create translation batch
+    if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     # A sync's average run time is ~3.2 hours.
     # This sets a maximum execution time of 300 minutes (5 hours) to prevent the workflow from running longer than necessary.
