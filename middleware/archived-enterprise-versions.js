@@ -9,6 +9,7 @@ import {
 import patterns from '../lib/patterns.js'
 import versionSatisfiesRange from '../lib/version-satisfies-range.js'
 import isArchivedVersion from '../lib/is-archived-version.js'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
 import got from 'got'
 import { readCompressedJsonFileFallback } from '../lib/read-json-file.js'
 import { cacheControlFactory } from './cache-control.js'
@@ -54,6 +55,25 @@ const archivedFrontmatterFallbacks = readJsonFileLazily(
 )
 
 const cacheControl = cacheControlFactory(60 * 60 * 24 * 365)
+
+// Combine all the things you need to make sure the response is
+// aggresively cached.
+const cacheAggressively = (res) => {
+  cacheControl(res)
+
+  // This sets a custom Fastly surrogate key so that this response
+  // won't get updated in every deployment.
+  // Essentially, this sets a surrogate key such that Fastly
+  // doesn't do soft-purges on these responses on every
+  // automated deployment.
+  setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
+
+  // Because this middleware has (quite possibly) been executed before
+  // the CSRF middleware, that would have set a cookie. Remove that.
+  // The reason for removing the 'Set-Cookie' header is because
+  // otherwise Fastly won't cache it.
+  res.removeHeader('set-cookie')
+}
 
 // The way `got` does retries:
 //
@@ -119,7 +139,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     // and memoized so calling it is cheap.
     const redirect = archivedRedirects()[req.path]
     if (redirect && redirect !== req.path) {
-      cacheControl(res)
+      cacheAggressively(res)
       return res.redirect(redirectCode, redirect)
     }
   }
@@ -138,7 +158,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     // make redirects found via redirects.json redirect with a 301
     if (redirectJson[req.path]) {
       res.set('x-robots-tag', 'noindex')
-      cacheControl(res)
+      cacheAggressively(res)
       return res.redirect(redirectCode, redirectJson[req.path])
     }
   }
@@ -160,11 +180,14 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     // make stubbed redirect files (which exist in versions <2.13) redirect with a 301
     const staticRedirect = r.body.match(patterns.staticRedirect)
     if (staticRedirect) {
-      cacheControl(res)
+      cacheAggressively(res)
       return res.redirect(redirectCode, staticRedirect[1])
     }
 
     res.set('content-type', r.headers['content-type'])
+
+    cacheAggressively(res)
+
     return res.send(r.body)
   }
 
@@ -181,7 +204,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       `fallback:${fallbackRedirect}`,
     ])()
     if (r.statusCode === 200) {
-      cacheControl(res)
+      cacheAggressively(res)
       return res.redirect(redirectCode, fallbackRedirect)
     }
   }
