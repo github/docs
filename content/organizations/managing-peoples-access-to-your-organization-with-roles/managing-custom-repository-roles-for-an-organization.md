@@ -88,7 +88,7 @@ You can only choose an additional permission if it's not already included in the
 ### Security
 
 - **View {% data variables.product.prodname_code_scanning %} results**: Ability to view {% data variables.product.prodname_code_scanning %} alerts.
-- **Dismiss or reopen {% data variables.product.prodname_code_scanning %} results**: Provide users with dismiss and reopen permissions for {% data variables.product.prodname_code_scanning %} alerts.
+- **Dismiss or reopen {% data variables.product.prodname_code_scanning %} results**: Ability to dismiss or reopon {% data variables.product.prodname_code_scanning %} alerts.
 - **Delete {% data variables.product.prodname_code_scanning %} results**: Provide users with delete permissions for {% data variables.product.prodname_code_scanning %} alerts.
 
 ## Precedence for different levels of access
