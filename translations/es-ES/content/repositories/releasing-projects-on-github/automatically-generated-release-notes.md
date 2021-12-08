@@ -1,61 +1,79 @@
 ---
-title: Notas de lanzamiento generadas automáticamente
-intro: Puedes generar notas de lanzamiento automáticamente para tus lanzamientos de GitHub
+title: Automatically generated release notes
+intro: You can automatically generate release notes for your GitHub releases
 permissions: Repository collaborators and people with write access to a repository can generate and customize automated release notes for a release.
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Notas de lanzamiento automatizadas
+shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/github/feedback/discussions/categories/releases-feedback'
 ---
 
-## Acerca de las notas de lanzamiento generadas automáticamente
+## About automatically generated release notes
 
-Las notas de lanzamiento generadas automáticamente proporcionan una alternativa de automatización para escribir notas de lanzamiento manualmente para tus lanzamientos de {% data variables.product.prodname_dotcom %}. Con las notas de lanzamiento generadas automáticamente, puedes generar rápidamente un resumen del contenido de un lanzamiento. También puedes personalizar tus notas de lanzamiento automatizadas, utilizando etiquetas para crear categorías personalizadas para organizar las solicitudes de cambio que quieras incluir y excluyendo ciertas etiquetas y usuarios para que no aparezcan en la salida.
+Automatically generated release notes provide an automated alternative to manually writing release notes for your {% data variables.product.prodname_dotcom %} releases. With automatically generated release notes, you can quickly generate an overview of the contents of a release. You can also customize your automated release notes, using labels to create custom categories to organize pull requests you want to include, and exclude certain labels and users from appearing in the output.
 
-## Crear notas de lanzamiento generadas automáticamente para un lanzamiento nuevo
+## Creating automatically generated release notes for a new release
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. Haz clic en **Borrador de un nuevo lanzamiento**. ![Botón Borrador de lanzamientos](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt or ghec %}Haz clic en **Elige una etiqueta** y teclea {% else %}Teclea{% endif %} un número de versión para tu lanzamiento. Como alternativa, selecciona una etiqueta existente.
+3. Click **Draft a new release**.
+   ![Releases draft button](/assets/images/help/releases/draft_release_button.png)
+4. {% ifversion fpt or ghec %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. Alternatively, select an existing tag.
   {% ifversion fpt or ghec %}
-  ![Ingresa una etiqueta](/assets/images/help/releases/releases-tag-create.png)
-5. Si estás creando una etiqueta nueva, haz clic en **Crear etiqueta nueva**. ![Confirma si quieres crear una etiqueta nueva](/assets/images/help/releases/releases-tag-create-confirm.png)
+  ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
+5. If you are creating a new tag, click **Create new tag**.
+![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
   {% else %}
-  ![Versión de lanzamientos con etiquetas](/assets/images/enterprise/releases/releases-tag-version.png)
+  ![Releases tagged version](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
-6. Si creaste una etiqueta nueva, utiliza el menú desplegable para seleccionar la rama que contiene el proyecto que quieres lanzar.
-  {% ifversion fpt or ghec %}![Elige una rama](/assets/images/help/releases/releases-choose-branch.png)
-  {% else %}![Rama de lanzamientos con etiquetas](/assets/images/enterprise/releases/releases-tag-branch.png)
+6. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
+  {% ifversion fpt or ghec %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
+  {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png)
   {% endif %}
-7. En la caja de texto de descripción que se encuentra en la esquina superior derecha, haz clic en **Autogenerar notas de lanzamiento**. ![Autogenerar notas de lanzamiento](/assets/images/help/releases/auto-generate-release-notes.png)
-8. Verifica las notas generadas para garantizar que incluyan toda (y únicamente) la información que quieras incluir.
-9. Opcionalmente, para incluir los archivos binarios tales como programas compilados en tu lanzamiento, arrastra y suelta o selecciona manualmente los archivos en la caja de binarios. ![Proporcionar un DMG con el lanzamiento](/assets/images/help/releases/releases_adding_binary.gif)
-10. Para notificar a los usuarios que el lanzamiento no está listo para producción y puede ser inestable, selecciona **Esto es un pre-lanzamiento**. ![Casilla de verificación para marcar un lanzamiento como prelanzamiento](/assets/images/help/releases/prerelease_checkbox.png)
+7. To the top right of the description text box, click **Auto-generate release notes**.
+  ![Auto-generate release notes](/assets/images/help/releases/auto-generate-release-notes.png)
+8. Check the generated notes to ensure they include all (and only) the information you want to include.
+9. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
+   ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
+10. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
+   ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
 {%- ifversion fpt %}
-11. Opcionalmente, selecciona **Crear un debate para este lanzamiento** y luego, selecciona el menú desplegable de **Categoría** y haz clic en aquella que describa el debate de dicho lanzamiento. ![Casilla de verificación para crear un debate de lanzamiento y menú desplegable para elegir una categoría](/assets/images/help/releases/create-release-discussion.png)
+11. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
+  ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
 {%- endif %}
-12. Si estás listo para publicitar tu lanzamiento, haz clic en **Publicar lanzamiento**. Para seguir trabajando luego en el lanzamiento, haz clic en **Guardar borrador**. ![Botones Publicar lanzamiento y Borrador de lanzamiento](/assets/images/help/releases/release_buttons.png)
+12. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
+   ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
 
 
-## Crear una plantilla para las notas de lanzamiento generadas automáticamente
+## Configuring automatically generated release notes
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. En el campo de nombre de archivo, teclea `.github/release.yml` para crear el archivo `release.yml` en el directorio `.github`. ![Crear archivo nuevo](/assets/images/help/releases/release-yml.png)
-4. En el archivo, especifica las etiquetas y los autores de la solicitud de cambios a los cuales quieras excluir de este lanzamiento. También puedes crear categorías nuevas y listar las etiquetas de la solicitud de cambios que se deben incluir en cada una de ellas. Para obtener más información, consulta la sección "[Administrar etiquetas](/issues/using-labels-and-milestones-to-track-work/managing-labels)".
+3. In the file name field, type `.github/release.yml` to create the `release.yml` file in the `.github` directory.
+  ![Create new file](/assets/images/help/releases/release-yml.png)
+4. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. You can also create new categories and list the pull request labels to be included in each of them.
 
-## Ejemplo de configuración
+### Configuration options
+
+| Parameter | Description |
+| :- | :- |
+| `changelog.exclude.labels` | A list of labels that exclude a pull request from appearing in release notes. |
+| `changelog.exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from release notes. |
+| `changelog.categories[*].title` | **Required.** The title of a category of changes in release notes. |
+| `changelog.categories[*].labels`| **Required.** Labels that qualify a pull request for this category. Use `*` as a catch-all for pull requests that didn't match any of the previous categories. |
+| `changelog.categories[*].exclude.labels` | A list of labels that exclude a pull request from appearing in this category. |
+| `changelog.categories[*].exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from this category. |
+
+### Example configuration
 
 {% raw %}
-**release.yml**
 ```yaml{:copy}
-# release.yml
+# .github/release.yml
 
 changelog:
   exclude:
@@ -78,14 +96,6 @@ changelog:
 ```
 {% endraw %}
 
-## Sintaxis de las plantillas de lanzamiento
+## Further reading
 
-| Parámetro    | Descripción                                                                                                                                                                                                     | Requerido                                                                                         | Valor                                                                                           |
-|:------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------------------- |:----------------------------------------------------------------------------------------------- |
-| `changelog`  | Define el contenido dentro de esta como la plantilla personalizada para tus notas de lanzamiento.                                                                                                               | Requerido.                                                                                        | No se aceptó ningún valor.                                                                      |
-| `exclude`    | Crea una categoría de solicitudes de cambio a excluirse del lanzamiento. Puede configurarse en el nivel superior de la bitácora de cambios a aplicar a todas las categorías o a la que se aplicó por categoría. | Opcional                                                                                          | No se aceptó ningún valor.                                                                      |
-| `authors`    | Especifica los autores que se deben excluir del lanzamiento.                                                                                                                                                    | Opcional para la categoría `exclude`.                                                             | Acepta los nombres de usuario y bots como valores.                                              |
-| `categories` | Define el contenido anidado como categorías personalizadas para que se incluya en la plantilla.                                                                                                                 | Opcional                                                                                          | No se aceptó ningún valor.                                                                      |
-| `title`      | Crea una categoría ndividual.                                                                                                                                                                                   | Se requiere si existe el parámetro `categories`.                                                  | Toma el nombre de la categoría como su valor.                                                   |
-| `labels`     | Especifica las etiquetas que utilizará la categoría envolvente.                                                                                                                                                 | Se requiere si existe el parámetro `categories`, el cual es opcional para el parámetro `exclude`. | Acepta cualquier etiqueta, ya sea que existan actualmente o que estén planeadas para el futuro. |
-| `"*"`        | Catchall para cualquier solicitud de cambios que no se incluya dentro de alguna de las categorías *anteriores*. Si se utiliza, se debe agregar al final del archivo.                                            | Opcional                                                                                          | No se aceptó ningún valor.                                                                      |
+- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 

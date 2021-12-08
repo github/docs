@@ -16,7 +16,7 @@ topics:
   - SSO
 ---
 
-## {% data variables.product.prodname_emus %}について
+## About {% data variables.product.prodname_emus %}
 
 With {% data variables.product.prodname_emus %}, you can control the user accounts of your enterprise members through your identity provider (IdP). You can simplify authentication with SAML single sign-on (SSO) and provision, update, and deprovision user accounts for your enterprise members. Users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your IdP are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and added to your enterprise. You control usernames, profile data, team membership, and repository access from your IdP.
 
@@ -46,14 +46,14 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 {% data variables.product.prodname_managed_users_caps %} can only contribute to private and internal repositories within their enterprise and private repositories owned by their user account. {% data variables.product.prodname_managed_users_caps %} have read-only access to the wider {% data variables.product.prodname_dotcom %} community.
 
 * {% data variables.product.prodname_managed_users_caps %} cannot create issues or pull requests in, comment or add reactions to, nor star, watch, or fork repositories outside of the enterprise.
-* {% data variables.product.prodname_managed_users_caps %} cannot push code to repositories outside of the enterprise.
-* {% data variables.product.prodname_managed_users_caps %} and the content they create is only visible to other members of the enterprise.
+* {% data variables.product.prodname_managed_users_caps %} can view all public repositories on {% data variables.product.prodname_dotcom_the_website %}, but cannot push code to repositories outside of the enterprise.
+* {% data variables.product.prodname_managed_users_caps %} and the content they create is only visible to other members of the enterprise. 
 * {% data variables.product.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
 * {% data variables.product.prodname_managed_users_caps %} cannot create gists or comment on gists.
 * {% data variables.product.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
 * Other {% data variables.product.prodname_dotcom %} users cannot see, mention, or invite a {% data variables.product.prodname_managed_user %} to collaborate.
 * {% data variables.product.prodname_managed_users_caps %} can only own private repositories and {% data variables.product.prodname_managed_users %} can only invite other enterprise members to collaborate on their owned repositories.
-* Only private and internal repositories can be created in organizations owned by an {% data variables.product.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings.
+* Only private and internal repositories can be created in organizations owned by an {% data variables.product.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings. 
 
 ## About enterprises with managed users
 
@@ -61,7 +61,7 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 
 Your contact on the GitHub Sales team will work with you to create your new {% data variables.product.prodname_emu_enterprise %}. You'll need to provide the email address for the user who will set up your enterprise and a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
 
-After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. The setup user is only used to configure SAML single sign-on and SCIM provisioning integration for the enterprise. It will no longer have access to administer the enterprise account once SAML is successfully enabled.
+After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password. The setup user is only used to configure SAML single sign-on and SCIM provisioning integration for the enterprise. It will no longer have access to administer the enterprise account once SAML is successfully enabled.
 
 The setup user's username is your enterprise's shortcode suffixed with `_admin`. After you log in to your setup user, you can get started by configuring SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
@@ -71,7 +71,7 @@ The setup user's username is your enterprise's shortcode suffixed with `_admin`.
 
 {% endnote %}
 
-## {% data variables.product.prodname_managed_user %} として認証を行う
+## Authenticating as a {% data variables.product.prodname_managed_user %}
 
 {% data variables.product.prodname_managed_users_caps %} must authenticate through their identity provider.
 

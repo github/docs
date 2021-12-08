@@ -465,7 +465,7 @@ In this example, `job3` uses the `always()` conditional expression so that it al
 
 ## `jobs.<job_id>.runs-on`
 
-**Required**. The type of machine to run the job on. The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.
+**Required**. The type of machine to run the job on. The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner. You can provide `runs-on` as a single string or as an array of strings.
 
 {% ifversion ghae %}
 ### {% data variables.actions.hosted_runner %}s

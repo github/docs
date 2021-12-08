@@ -2,6 +2,9 @@
 get_started_with_github_ae:
   title: '{% data variables.product.prodname_ghe_managed %}を使ってみる'
   description: '{% data variables.product.prodname_ghe_managed %}について学び、新しいEnterpriseの初期設定を完了してください。'
+  featured_track: true
+  versions:
+    ghae: '*'
   guides:
     - /admin/overview/about-github-ae
     - /admin/overview/about-data-residency
@@ -12,6 +15,8 @@ deploy_an_instance:
   title: 'インスタンスのデプロイ'
   description: '選択したプラットフォームに{% data variables.product.prodname_ghe_server %}をインストールし、SAML認証を設定してください。'
   featured_track: true
+  versions:
+    ghes: '*'
   guides:
     - /admin/overview/system-overview
     - /admin/installation
@@ -22,6 +27,8 @@ deploy_an_instance:
 upgrade_your_instance:
   title: 'インスタンスのアップデート'
   description: 'ステージングでアップグレードをテストし、ユーザにメンテナンスを通知し、最新機能とセキュリティアップデートのためにインスタンスをアップグレードしてください。'
+  versions:
+    ghes: '*'
   guides:
     - /admin/enterprise-management/enabling-automatic-update-checks
     - /admin/installation/setting-up-a-staging-instance
@@ -29,9 +36,22 @@ upgrade_your_instance:
     - /admin/user-management/customizing-user-messages-for-your-enterprise
     - /admin/configuration/enabling-and-scheduling-maintenance-mode
     - /admin/enterprise-management/upgrading-github-enterprise-server
+adopting_github_actions_for_your_enterprise:
+  title: 'Adopt GitHub Actions for your enterprise'
+  description: 'Learn how to plan and implement a roll out of {% data variables.product.prodname_actions %} in your enterprise.'
+  guides:
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae
+    - /actions/security-guides/security-hardening-for-github-actions
 increase_fault_tolerance:
   title: 'インスタンスの耐障害性を高めてください'
   description: "開発者のコードをバックアップ、High Availability（HA）を設定して環境内の{% data variables.product.prodname_ghe_server %}の信頼性を保証してください。"
+  versions:
+    ghes: '*'
   guides:
     - /admin/configuration/accessing-the-administrative-shell-ssh
     - /admin/configuration/configuring-backups-on-your-appliance
@@ -41,6 +61,8 @@ increase_fault_tolerance:
 improve_security_of_your_instance:
   title: 'インスタンスのセキュリティを向上させてください'
   description: "ネットワーク設定とセキュリティの機能をレビューし、Enterpriseのデータを保護するために{% data variables.product.prodname_ghe_server %}を実行するインスタンスを保護してください。"
+  versions:
+    ghes: '*'
   guides:
     - /admin/configuration/enabling-private-mode
     - /admin/guides/installation/configuring-tls
@@ -54,6 +76,8 @@ improve_security_of_your_instance:
 configure_github_actions:
   title: '{% data variables.product.prodname_actions %}の設定'
   description: '開発者が{% data variables.product.prodname_actions %}と合わせた{% data variables.product.product_location %}の強力なソフトウェア開発ワークフローの開発、自動化、カスタマイズ、実行をできるようにしてください。'
+  versions:
+    ghes: '*'
   guides:
     - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
     - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
@@ -64,6 +88,8 @@ configure_github_actions:
 configure_github_advanced_security:
   title: '{% data variables.product.prodname_GH_advanced_security %}の設定'
   description: "{% data variables.product.prodname_GH_advanced_security %}で開発者のコードの品質とセキュリティを改善してください。"
+  versions:
+    ghes: '*'
   guides:
     - /admin/advanced-security/about-licensing-for-github-advanced-security
     - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
@@ -73,6 +99,9 @@ configure_github_advanced_security:
 get_started_with_your_enterprise_account:
   title: 'Get started with your enterprise account'
   description: 'Get started with your enterprise account to centrally manage multiple organizations on {% data variables.product.product_name %}.'
+  versions:
+    ghes: '*'
+    ghec: '*'
   guides:
     - /admin/overview/about-enterprise-accounts
     - /billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
