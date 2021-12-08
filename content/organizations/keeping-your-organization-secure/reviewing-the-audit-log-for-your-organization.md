@@ -307,6 +307,20 @@ An overview of some of the most common actions that are recorded as events in th
 | `update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
 {% endif %}
 
+{% ifversion ghae %}
+### `external_group` category actions
+
+{% data reusables.saml.external-group-audit-events %}
+
+{% endif %}
+
+{% ifversion ghae %}
+### `external_identity` category actions
+
+{% data reusables.saml.external-identity-audit-events %}
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 ### `git` category actions
 
