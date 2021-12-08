@@ -67,8 +67,14 @@ jobs:
           wget https://artifacts.crowdin.com/repo/deb/crowdin3.deb -O /tmp/crowdin.deb
           sudo dpkg -i /tmp/crowdin.deb
 
+      # Delete empty source files that would be rejected by Crowdin breaking the workflow
+      - name: Remove empty source files
+        run: |
+          find content -type f -empty -delete
+          find data    -type f -empty -delete
+
       - name: Upload files to crowdin
-        run: crowdin upload sources --no-progress --no-colors --verbose --debug '--branch=main' '--config=crowdin.yml'
+        run: crowdin upload sources --delete-obsolete --no-progress --no-colors --verbose --debug '--branch=main' '--config=crowdin.yml'
         env:
           # This is a numeric id, not to be confused with Crowdin API v1 "project identifier" string
           # See "API v2" on https://crowdin.com/project/<your-project>/settings#api
