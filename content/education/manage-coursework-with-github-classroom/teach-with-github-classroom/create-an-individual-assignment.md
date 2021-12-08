@@ -3,6 +3,7 @@ title: Create an individual assignment
 intro: You can create an assignment for students in your course to complete individually.
 versions:
   fpt: '*'
+permissions: Organization owners who are admins for a classroom can create and manage individual assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}
 redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
