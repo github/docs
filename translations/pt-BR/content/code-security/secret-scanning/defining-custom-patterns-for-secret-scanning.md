@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.2'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
