@@ -172,6 +172,18 @@ jobs:
             --body-file /tmp/pr-body.txt || git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }} \
             --label "translation-batch"
 
+      - name: Approve PR
+        if: github.ref_name == 'main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+        run: gh pr review --approve || echo "Nothing to approve"
+
+      - name: Set auto-merge
+        if: github.ref_name == 'main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+        run: gh pr merge ${{ steps.set-branch.outputs.BRANCH_NAME }} --auto --squash || echo "Nothing to merge"
+
       # When the maximum execution time is reached for this job, Actions cancels the workflow run.
       # This emits a notification for the first responder to triage.
       - name: Send Slack notification if workflow is cancelled
