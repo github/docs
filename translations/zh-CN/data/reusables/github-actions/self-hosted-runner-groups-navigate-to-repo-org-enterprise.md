@@ -6,7 +6,7 @@
 {% elsif ghec or ghes or ghae %}
 1. Navigate to where your self-hosted runner groups are located:
    * **In an organization**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.{% ifversion ghec %}
-   * **If using an enterprise account**: navigate to your enterprise account by visiting `https://github.com/enterprises/ENTERPRISE-NAME`, replacing `ENTERPRISE-NAME` with your enterprise account's name.{% elsif ghes or ghae %}
+   * **If using an enterprise account**: navigate to your enterprise account by clicking your profile photo in the top-right corner of {% data variables.product.prodname_dotcom_the_website %}, then clicking **Your enterprises**, then clicking the enterprise.{% elsif ghes or ghae %}
    * **如果使用企业级运行器**：
      1. 在任何页面的右上角，单击 {% octicon "rocket" aria-label="The rocket ship" %}。
      2. 在左边栏中，单击 **Enterprise overview（企业概览）**。
