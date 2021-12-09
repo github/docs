@@ -333,6 +333,7 @@ translations/pt-BR/content/get-started/getting-started-with-git/caching-your-git
 translations/pt-BR/content/get-started/getting-started-with-git/ignoring-files.md,rendering error
 translations/pt-BR/content/get-started/getting-started-with-git/managing-remote-repositories.md,rendering error
 translations/pt-BR/content/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain.md,rendering error
+translations/pt-BR/content/get-started/index.md,rendering error
 translations/pt-BR/content/get-started/learning-about-github/about-github-advanced-security.md,rendering error
 translations/pt-BR/content/get-started/learning-about-github/access-permissions-on-github.md,rendering error
 translations/pt-BR/content/get-started/learning-about-github/types-of-github-accounts.md,rendering error
@@ -346,6 +347,7 @@ translations/pt-BR/content/get-started/quickstart/create-a-repo.md,rendering err
 translations/pt-BR/content/get-started/quickstart/fork-a-repo.md,rendering error
 translations/pt-BR/content/get-started/quickstart/git-and-github-learning-resources.md,rendering error
 translations/pt-BR/content/get-started/quickstart/hello-world.md,rendering error
+translations/pt-BR/content/get-started/quickstart/index.md,rendering error
 translations/pt-BR/content/get-started/quickstart/set-up-git.md,rendering error
 translations/pt-BR/content/get-started/signing-up-for-github/index.md,rendering error
 translations/pt-BR/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae.md,rendering error
