@@ -1,17 +1,17 @@
 {% ifversion fpt %}
 1. Navigate to the main page of the organization where your self-hosted runner group is registered.
 2. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-3. Na barra lateral esquerda, clique em **Actions** (Ações).
+3. In the left sidebar, click **Actions**.
 4. Click **Runners**.
 {% elsif ghec or ghes or ghae %}
-1. Navegue por onde seu runner auto-hospedado está registrado:
+1. Navigate to where your self-hosted runner is registered:
    * **In an organization**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-   * {% ifversion ghec %}**Se você estiver usando uma conta corporativa**: acesse a conta corporativa visitando `https://github. om/enterprises/ENTERPRISE-NAME` e substituindo `ENTERPRISE-NAME` pelo nome da sua conta corporativa.{% elsif ghes or ghae %}**Se estiver usando um executor de nível corporativo**:
+   * {% ifversion ghec %}**If using an enterprise account**: navigate to your enterprise account by visiting `https://github.com/enterprises/ENTERPRISE-NAME`, replacing `ENTERPRISE-NAME` with your enterprise account's name.{% elsif ghes or ghae %}**If using an enterprise-level runner**:
 
-     1. No canto superior direito de qualquer página, clique em {% octicon "rocket" aria-label="The rocket ship" %}.
-     1. Na barra lateral esquerda, clique em **Visão geral da empresa**.
+     1. In the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
+     1. In the left sidebar, click **Enterprise overview**.
      1. In the enterprise sidebar, {% octicon "law" aria-label="The law icon" %} **Policies**.{% endif %}
-1. Navegue até as configurações {% data variables.product.prodname_actions %}:
-   * **In an organization**: Click **Actions** in the left sidebar{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}, then click **Runners**{% endif %}.
-   * {% ifversion ghec %}**Se você estiver usando uma conta corporativa**:{% elsif ghes or ghae %}**Se estiver usando um executor de nível corporativo**:{% endif %} Clique em **Ações** em "{% octicon "law" aria-label="The law icon" %} Políticas"{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %} e, em seguida, clique na aba **Executores**{% endif %}.
+1. Navigate to the {% data variables.product.prodname_actions %} settings:
+   * **In an organization**: Click **Actions** in the left sidebar{% ifversion fpt or ghec or ghes > 3.1 or ghae %}, then click **Runners**{% endif %}.
+   * {% ifversion ghec %}**If using an enterprise account**:{% elsif ghes or ghae %}**If using an enterprise-level runner**:{% endif %} Click **Actions** under "{% octicon "law" aria-label="The law icon" %} Policies"{% ifversion fpt or ghec or ghes > 3.1 or ghae %}, then click the **Runners** tab{% endif %}.
 {% endif %}

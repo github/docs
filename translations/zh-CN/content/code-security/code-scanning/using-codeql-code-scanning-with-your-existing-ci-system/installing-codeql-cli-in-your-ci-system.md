@@ -7,7 +7,7 @@ miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '>=3.1'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

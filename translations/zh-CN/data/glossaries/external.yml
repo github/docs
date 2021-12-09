@@ -7,10 +7,6 @@
   description: >-
     在命令行或 API 上执行 HTTPS 上的 Git 操作时，用来代替密码的令牌，也称为个人访问令牌。
 - 
-  term: 帐户恢复令牌
-  description: >-
-    **已废弃，将在 2021 年 12 月 1 日禁用。** 作为帐户恢复设置一部分存储的身份验证凭据称为“异地恢复帐户”，用于存储此备份凭据。
-- 
   term: API 预览
   description: >-
     一种尝试新 API 以及在现有 API 方法成为正式 GitHub API 之前对其进行更改的方式。
@@ -158,7 +154,7 @@
   description: >-
     GitHub 上的特定活动，将会：- 添加方块到用户的贡献图："[计为贡献的活动](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - 添加活动到用户个人资料上的时间表："[贡献活动](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
-  term: 贡献者
+  term: 贡献者，参与者
   description: >-
     贡献者是指对仓库没有协作者权限但参与过项目，并且他们打开的拉取请求已合并到仓库的人员。
 - 
@@ -181,13 +177,13 @@
 - 
   term: 默认分支
   description: >-
-    仓库中新拉取请求和代码提交的基本分支。每个仓库至少有一个分支，Git 会在您初始化仓库时创建该分支。第一个分支通常称为 {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}，并且通常是默认分支。
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - 
-  term: 从属者图
+  term: dependents graph
   description: >-
     一种显示依赖于公共仓库的包、项目和仓库的仓库图。
 - 
-  term: 依赖关系图
+  term: dependency graph
   description: >-
     一种显示仓库所依赖的包和项目的仓库图。
 - 
@@ -252,7 +248,7 @@
 - 
   term: gist
   description: >-
-    Gist 是一个您可以在 GitHub 上编辑、克隆和复刻的可共享文件。您可以将 Gist 设为{% ifversion ghae %}内部{% else %}公共{% endif %}或机密，但机密 gist 可用于具有 URL 的{% ifversion ghae %}任何企业成员{% else %}任何人{% endif %}。
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -377,7 +373,7 @@
   description: >-
     用户无法访问的个人帐户。当用户将其付费帐户降级到免费帐户或者其付费计划过期时，帐户将被锁定。
 - 
-  term: 管理控制台
+  term: management console
   description: >-
     GitHub Enterprise 界面中包含管理功能的部分。
 - 
@@ -385,7 +381,7 @@
   description: >-
     Markdown 是一种非常简单的语义文件格式，与 .doc、.rtf 和 .txt 等格式不太相似。通过 Markdown，没有 web 发布背景知识的人也能编写文字（包含链接、列表、项目符号等）并将其像网站一样展示。GitHub 支持 Markdown，并使用特定形式的 Markdown，称为 GitHub Flavored Markdown。请参阅 [GitHub Flavored Markdown 规范](https://github.github.com/gfm/) 或 [在 GitHub 上编写和设置格式入门](/articles/getting-started-with-writing-and-formatting-on-github)。
 - 
-  term: 标记
+  term: markup
   description: 一种用于标注和格式化文档的系统。
 - 
   term: main
@@ -396,7 +392,7 @@
   description: >-
     许多 Git 仓库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。{% ifversion fpt or ghes > 3.1 or ghae %} 例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。{% endif %}
 - 
-  term: 成员图
+  term: members graph
   description: 显示仓库所有分叉的仓库图。
 - 
   term: 提及
@@ -422,7 +418,7 @@
   description: >-
     父团队的子团队。您可有多个子（或嵌套的）团队。
 - 
-  term: 网络图
+  term: network graph
   description: >-
     显示整个仓库网络的分支历史记录的仓库图，其中包括根仓库的分支以及包含网络独有提交的分叉的分支。
 - 
@@ -543,10 +539,10 @@
   description: >-
     拉取请求中协作者批准更改或在拉取请求合并之前申请进一步更改的评论。
 - 
-  term: 脉冲图
+  term: pulse graph
   description: 提供仓库活动概要的仓库图。
 - 
-  term: 打卡图
+  term: punch graph
   description: >-
     根据周日期和时间显示仓库更新频率的仓库图
 - 
@@ -570,11 +566,7 @@
 - 
   term: 变基
   description: >-
-    要将一系列变更从一个分支重新应用到不同的基分支，并将分支的 HEAD 重置为结果。
-- 
-  term: 异地恢复帐户
-  description: >-
-    **已废弃，将在 2021 年 12 月 1 日禁用。**允许用户在无法使用双重身份验证方法或恢复代码时向其 GitHub 帐户添加额外一重安全保护。用户可以通过 Facebook 以帐户恢复令牌的形式存储其 GitHub 帐户的身份验证凭据，将其 GitHub 帐户与其 Facebook 帐户相关联。
+    要将一系列变更从一个分支重新应用到不同的基础分支，并将分支的 HEAD 重置为结果。
 - 
   term: 恢复代码
   description: 帮助您重新获取对 GitHub 帐户的访问权限的代码。

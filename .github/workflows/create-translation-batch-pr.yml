@@ -16,6 +16,7 @@ on:
 jobs:
   create-translation-batch:
     name: Create translation batch
+    if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     # A sync's average run time is ~3.2 hours.
     # This sets a maximum execution time of 300 minutes (5 hours) to prevent the workflow from running longer than necessary.
@@ -66,8 +67,14 @@ jobs:
           wget https://artifacts.crowdin.com/repo/deb/crowdin3.deb -O /tmp/crowdin.deb
           sudo dpkg -i /tmp/crowdin.deb
 
+      # Delete empty source files that would be rejected by Crowdin breaking the workflow
+      - name: Remove empty source files
+        run: |
+          find content -type f -empty -delete
+          find data    -type f -empty -delete
+
       - name: Upload files to crowdin
-        run: crowdin upload sources --no-progress --no-colors --verbose --debug '--branch=main' '--config=crowdin.yml'
+        run: crowdin upload sources --delete-obsolete --no-progress --no-colors --verbose --debug '--branch=main' '--config=crowdin.yml'
         env:
           # This is a numeric id, not to be confused with Crowdin API v1 "project identifier" string
           # See "API v2" on https://crowdin.com/project/<your-project>/settings#api
@@ -162,7 +169,8 @@ jobs:
           gh pr create --title "New translation batch for ${{ matrix.language }}" \
             --base=main \
             --head=${{ steps.set-branch.outputs.BRANCH_NAME }} \
-            --body-file /tmp/pr-body.txt || git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }}
+            --body-file /tmp/pr-body.txt || git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }} \
+            --label "translation-batch"
 
       # When the maximum execution time is reached for this job, Actions cancels the workflow run.
       # This emits a notification for the first responder to triage.

@@ -20,54 +20,71 @@ export const TableOfContents = (props: Props) => {
       className={cx(variant === 'compact' ? 'list-style-outside pl-2' : 'list-style-none')}
     >
       <ActionList
-        items=
-          {(items || []).filter(item => typeof item !== 'undefined').map((item) => {
+        items={(items || [])
+          .filter((item) => typeof item !== 'undefined')
+          .map((item) => {
             const { fullPath: href, title, intro, childTocItems } = item
             const isActive = router.pathname === href
-            return (variant === 'compact') ? {
-                key: href,
-                text: title,
-                renderItem: () => (
-                  <ActionList.Item>
-                    <li key={href} className="f4 d-list-item width-full">
-                      <Link className="d-block width-full" href={href}>{title}</Link>
-                      {(childTocItems || []).length > 0 && (
-                        <ul
-                          className={cx(
-                            variant === 'compact' ? 'list-style-circle pl-5 my-3' : 'list-style-none'
-                          )}
+            return variant === 'compact'
+              ? {
+                  key: href,
+                  text: title,
+                  renderItem: () => (
+                    <ActionList.Item>
+                      <li key={href} className="f4 d-list-item width-full">
+                        <Link className="d-block width-full" href={href}>
+                          {title}
+                        </Link>
+                        {(childTocItems || []).length > 0 && (
+                          <ul
+                            className={cx(
+                              variant === 'compact'
+                                ? 'list-style-circle pl-5 my-3'
+                                : 'list-style-none'
+                            )}
+                          >
+                            {(childTocItems || []).map((childItem) => {
+                              if (!childItem) {
+                                return null
+                              }
+                              return (
+                                <li key={childItem.fullPath} className="f4 d-block width-full">
+                                  <Link className="d-block width-full" href={childItem.fullPath}>
+                                    {childItem.title}
+                                  </Link>
+                                </li>
+                              )
+                            })}
+                          </ul>
+                        )}
+                      </li>
+                    </ActionList.Item>
+                  ),
+                }
+              : {
+                  key: href,
+                  title: title,
+                  renderItem: () => (
+                    <ActionList.Item className={cx('border-bottom')}>
+                      <li key={href} className={cx('mt-2', isActive && 'color-fg-muted')}>
+                        <BumpLink
+                          as={Link}
+                          href={href}
+                          title={<h2 className="py-1 h4">{title}</h2>}
                         >
-                          {(childTocItems || []).map((childItem) => {
-                            if (!childItem) {
-                              return null
-                            }
-                            return (
-                              <li key={childItem.fullPath} className="f4 d-block width-full">
-                                <Link className="d-block width-full" href={childItem.fullPath}>{childItem.title}</Link>
-                              </li>
-                            )
-                          })}
-                        </ul>
-                      )}
-                    </li>
-                  </ActionList.Item>
-                )
-            } : {
-              key: href,
-              title: title,
-              renderItem: () => (
-                <ActionList.Item className={cx('border-bottom')}>
-                  <li key={href} className={cx('mt-2', isActive && 'color-fg-muted')}>
-                    <BumpLink as={Link} href={href} title={<h2 className="py-1 h4">{title}</h2>}>
-                      {intro && (
-                        <p className="f4 color-fg-muted" dangerouslySetInnerHTML={{ __html: intro }} />
-                      )}
-                    </BumpLink>
-                  </li>
-                </ActionList.Item>
-              )
-            }
-          })} />
+                          {intro && (
+                            <p
+                              className="f4 color-fg-muted"
+                              dangerouslySetInnerHTML={{ __html: intro }}
+                            />
+                          )}
+                        </BumpLink>
+                      </li>
+                    </ActionList.Item>
+                  ),
+                }
+          })}
+      />
     </ul>
   )
 }

@@ -12,6 +12,6 @@
      1. 在左边栏中，单击 **Enterprise overview（企业概览）**。
      1. In the enterprise sidebar, {% octicon "law" aria-label="The law icon" %} **Policies**.{% endif %}
 1. 导航到 {% data variables.product.prodname_actions %} 设置：
-   * **In an organization**: Click **Actions** in the left sidebar{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}, then click **Runners**{% endif %}.
-   * {% ifversion ghec %}**如果使用企业帐户**{% elsif ghes or ghae %}**如果使用企业级运行器**{% endif %}：在“{% octicon "law" aria-label="The law icon" %} Policies（政策）”下单击 **Actions（操作）**{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}，然后单击 **Runners（运行器）**选项卡{% endif %}。
+   * **In an organization**: Click **Actions** in the left sidebar{% ifversion fpt or ghec or ghes > 3.1 or ghae %}, then click **Runners**{% endif %}.
+   * {% ifversion ghec %}**如果使用企业帐户**{% elsif ghes or ghae %}**如果使用企业级运行器**{% endif %}：在“{% octicon "law" aria-label="The law icon" %} Policies（政策）”下单击 **Actions（操作）**{% ifversion fpt or ghec or ghes > 3.1 or ghae %}，然后单击 **Runners（运行器）**选项卡{% endif %}。
 {% endif %}

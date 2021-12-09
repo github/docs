@@ -16,7 +16,6 @@ shortTitle: Add self-hosted runners
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 You can add a self-hosted runner to a repository, an organization, or an enterprise.
 

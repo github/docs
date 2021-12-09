@@ -14,7 +14,7 @@ children:
   - /supported-browsers
   - /github-cli
   - /github-desktop
-  - /github-for-mobile
+  - /github-mobile
   - /keyboard-shortcuts
   - /github-command-palette
   - /troubleshooting-connectivity-problems
