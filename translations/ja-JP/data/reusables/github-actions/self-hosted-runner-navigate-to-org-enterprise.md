@@ -12,6 +12,6 @@
      1. 左のサイドバーで**Enterprise overview（Enterpriseの概要）**をクリックしてください。
      1. In the enterprise sidebar, {% octicon "law" aria-label="The law icon" %} **Policies**.{% endif %}
 1. {% data variables.product.prodname_actions %}設定にアクセスしてください:
-   * **In an organization**: Click **Actions** in the left sidebar{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}, then click **Runners**{% endif %}.
-   * {% ifversion ghec %}**Enterpriseアカウントを使っている場合**:{% elsif ghes or ghae %}**Enterpriseレベルのランナーを使っている場合**:{% endif %} "{% octicon "law" aria-label="The law icon" %} Policies（ポリシー）”の下の**Actions**をクリック{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}し、続いて**Runners（ランナー）**タブをクリック{% endif %}してください。
+   * **In an organization**: Click **Actions** in the left sidebar{% ifversion fpt or ghec or ghes > 3.1 or ghae %}, then click **Runners**{% endif %}.
+   * {% ifversion ghec %}**Enterpriseアカウントを使っている場合**:{% elsif ghes or ghae %}**Enterpriseレベルのランナーを使っている場合**:{% endif %} "{% octicon "law" aria-label="The law icon" %} Policies（ポリシー）”の下の**Actions**をクリック{% ifversion fpt or ghec or ghes > 3.1 or ghae %}し、続いて**Runners（ランナー）**タブをクリック{% endif %}してください。
 {% endif %}
