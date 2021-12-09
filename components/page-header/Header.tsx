@@ -128,6 +128,8 @@ export const Header = () => {
           </div>
         </div>
       </header>
+      {/* Adding Portal Root here for DropdownMenu and ActionList Search Results */}
+      <div id="__primerPortalRoot__" className={cx(styles.portalRoot)} />
     </div>
   )
 }
