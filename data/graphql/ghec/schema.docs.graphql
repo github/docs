@@ -34500,6 +34500,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     before: String
 
     """
+    Filter by categories that are assignable by the viewer.
+    """
+    filterByAssignable: Boolean = false
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -36992,6 +36997,8 @@ Specifies the attributes for a new or updated required status check.
 input RequiredStatusCheckInput {
   """
   The ID of the App that must set the status in order for it to be accepted.
+  Omit this value to use whichever app has recently been setting this status, or
+  use "any" to allow any app to set the status.
   """
   appId: ID
 

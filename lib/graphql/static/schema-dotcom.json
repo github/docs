@@ -49045,6 +49045,17 @@
               }
             },
             {
+              "name": "filterByAssignable",
+              "defaultValue": false,
+              "description": "<p>Filter by categories that are assignable by the viewer.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "first",
               "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
               "type": {
@@ -77385,7 +77396,7 @@
       "inputFields": [
         {
           "name": "appId",
-          "description": "<p>The ID of the App that must set the status in order for it to be accepted.</p>",
+          "description": "<p>The ID of the App that must set the status in order for it to be accepted.\nOmit this value to use whichever app has recently been setting this status, or\nuse \"any\" to allow any app to set the status.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
