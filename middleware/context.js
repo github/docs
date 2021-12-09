@@ -19,19 +19,25 @@ const {
 } = pathUtils
 const featureFlags = Object.keys(readJsonFile('./feature-flags.json'))
 
+// This doesn't change just because the request changes, so compute it once.
+const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
+  version.startsWith('enterprise-server@')
+)
+
+const featureFlagsObject = Object.fromEntries(
+  featureFlags.map((featureFlagName) => [featureFlagName, process.env[featureFlagName]])
+)
+
 // Supply all route handlers with a baseline `req.context` object
 // Note that additional middleware in middleware/index.js adds to this context object
 export default async function contextualize(req, res, next) {
   // Ensure that we load some data only once on first request
   const { site, redirects, siteTree, pages: pageMap } = await warmServer()
 
-  req.context = {}
+  req.context = Object.assign({}, featureFlagsObject)
 
   // make feature flag environment variables accessible in layouts
   req.context.process = { env: {} }
-  featureFlags.forEach((featureFlagName) => {
-    req.context[featureFlagName] = process.env[featureFlagName]
-  })
 
   // define each context property explicitly for code-search friendliness
   // e.g. searches for "req.context.page" will include results from this file
@@ -50,9 +56,7 @@ export default async function contextualize(req, res, next) {
   req.context.languages = languages
   req.context.productNames = productNames
   req.context.enterpriseServerReleases = enterpriseServerReleases
-  req.context.enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
-    version.startsWith('enterprise-server@')
-  )
+  req.context.enterpriseServerVersions = enterpriseServerVersions
   req.context.redirects = redirects
   req.context.site = site[req.language].site
   req.context.siteTree = siteTree
