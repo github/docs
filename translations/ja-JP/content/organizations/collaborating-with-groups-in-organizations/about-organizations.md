@@ -18,18 +18,18 @@ topics:
 
 {% data reusables.organizations.organizations_include %}
 
+{% data reusables.organizations.org-ownership-recommendation %}詳細は、「[Organization の所有権の継続性を管理する](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)」を参照してください。
+
 {% ifversion fpt or ghec %}
 ## Organization と Enterprise アカウント
 
-Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。
+Enterprise accounts are a feature of {% data variables.product.prodname_ghe_cloud %} that allow owners to centrally manage policy and billing for multiple organizations.
 
 enterprise アカウントに属する Organization では、支払いは enterprise アカウントのレベルで管理され、Organization のレベルでは支払い設定は利用できません。 Enterprise のオーナーは、Enterprise アカウントですべての Organization に対するポリシーを設定することも、Organization のオーナーに Organization のレベルでポリシーを設定することを許可することもできます。 Organization のオーナーは、Enterprise アカウントのレベルで Organization に強制された設定を変更することはできません。 Organization のポリシーや設定について質問がある場合は Enterprise アカウントのオーナーに問い合わせてください。
 
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/overview/creating-an-enterprise-account){% ifversion ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+
 {% data reusables.enterprise-accounts.invite-organization %}
-
-{% data reusables.gated-features.enterprise-accounts %}
-
-{% data reusables.organizations.org-ownership-recommendation %}詳細は、「[Organization の所有権の継続性を管理する](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)」を参照してください。
 
 ## Organization の利用規約とデータ保護
 

@@ -14,7 +14,7 @@ import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import compression from 'compression'
 import disableCachingOnSafari from './disable-caching-on-safari.js'
-import setFastlySurrogateKey from './set-fastly-surrogate-key.js'
+import setDefaultFastlySurrogateKey from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import catchBadAcceptLanguage from './catch-bad-accept-language.js'
 import reqUtils from './req-utils.js'
@@ -81,6 +81,39 @@ export default function (app) {
     app.use(datadog)
   }
 
+  // Must appear before static assets and all other requests
+  // otherwise we won't be able to benefit from that functionality
+  // for static assets as well.
+  app.use(setDefaultFastlySurrogateKey)
+
+  // Must come before `csrf` otherwise you get a Set-Cookie on successful
+  // asset requests. And it can come before `rateLimit` because if it's a
+  // 200 OK, the rate limiting won't matter anyway.
+  // archivedEnterpriseVersionsAssets must come before static/assets
+  app.use(
+    asyncMiddleware(
+      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
+    )
+  )
+  app.use(
+    '/assets',
+    express.static('assets', {
+      index: false,
+      etag: false,
+      lastModified: false,
+      maxAge: '1 day', // Relatively short in case we update images
+    })
+  )
+  app.use(
+    '/public',
+    express.static('data/graphql', {
+      index: false,
+      etag: false,
+      lastModified: false,
+      maxAge: '7 days', // A bit longer since releases are more sparse
+    })
+  )
+
   // *** Early exits ***
   // Don't use the proxy's IP, use the requester's for rate limiting
   // See https://expressjs.com/en/guide/behind-proxies.html
@@ -110,7 +143,6 @@ export default function (app) {
   app.set('etag', false) // We will manage our own ETags if desired
   app.use(compression())
   app.use(disableCachingOnSafari)
-  app.use(setFastlySurrogateKey)
   app.use(catchBadAcceptLanguage)
 
   // *** Config and context for redirects ***
@@ -136,31 +168,6 @@ export default function (app) {
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, 2xx responses ***
-  // I largely ordered these by use frequency
-  // archivedEnterpriseVersionsAssets must come before static/assets
-  app.use(
-    asyncMiddleware(
-      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
-    )
-  )
-  app.use(
-    '/assets',
-    express.static('assets', {
-      index: false,
-      etag: false,
-      lastModified: false,
-      maxAge: '1 day', // Relatively short in case we update images
-    })
-  )
-  app.use(
-    '/public',
-    express.static('data/graphql', {
-      index: false,
-      etag: false,
-      lastModified: false,
-      maxAge: '7 days', // A bit longer since releases are more sparse
-    })
-  )
   app.use('/events', asyncMiddleware(instrument(events, './events')))
   app.use('/search', asyncMiddleware(instrument(search, './search')))
 

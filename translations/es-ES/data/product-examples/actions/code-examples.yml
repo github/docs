@@ -221,7 +221,7 @@
 - 
   title: Actualiza las GitHub Actions configuradas a sus últimas versiones
   description: Herramienta de CLI para verificar si todas tus acciones están actualizadas o no
-  languages: 'C#, Inno Setup, PowerSHell, Shell'
+  languages: 'C#, Inno Setup, PowerShell, Shell'
   href: fabasoad/ghacu
   tags:
     - versions

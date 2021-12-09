@@ -57,7 +57,7 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
   {% endtip %}
 
-4. Abra o Git Bash. Se estiver usando o Git Shell, que faz parte do {% data variables.product.prodname_desktop %}, abra o Git Shell e passe para a etapa 6.
+4. Abra o Git Bash.
 
 5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 

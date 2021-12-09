@@ -19,7 +19,7 @@ shortTitle: 转发端口
 
 通过端口转发，您可以访问在代码空间内运行的 TCP 端口。 For example, if you're running a web application on a particular port in your codespace, you can forward that port. This allows you to access the application from the browser on your local machine for testing and debugging.
 
-When an application running inside a codespace prints output to the terminal that contains a localhost URL, such as `http://localhost:PORT` or `http://127.0.0.1:PORT`, the port is automatically forwarded. If you're using {% data variables.product.prodname_github_codespaces %} in the browser or in {% data variable.product.prodname_vscode %}, the URL string in the terminal is converted into a link that you can click to view the web page on your local machine. 默认情况下，{% data variables.product.prodname_codespaces %} 使用 HTTP 转发端口。
+When an application running inside a codespace prints output to the terminal that contains a localhost URL, such as `http://localhost:PORT` or `http://127.0.0.1:PORT`, the port is automatically forwarded. If you're using {% data variables.product.prodname_codespaces %} in the browser or in {% data variables.product.prodname_vscode %}, the URL string in the terminal is converted into a link that you can click to view the web page on your local machine. 默认情况下，{% data variables.product.prodname_codespaces %} 使用 HTTP 转发端口。
 
 ![自动端口转发](/assets/images/help/codespaces/automatic-port-forwarding.png)
 

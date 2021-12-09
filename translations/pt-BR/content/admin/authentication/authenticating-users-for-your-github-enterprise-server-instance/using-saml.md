@@ -1,12 +1,12 @@
 ---
-title: Usar SAML
+title: Using SAML
 redirect_from:
   - /enterprise/admin/articles/configuring-saml-authentication/
   - /enterprise/admin/articles/about-saml-authentication/
   - /enterprise/admin/user-management/using-saml
   - /enterprise/admin/authentication/using-saml
   - /admin/authentication/using-saml
-intro: 'O SAML é um padrão de autenticação e autorização baseado em XML. O {% data variables.product.prodname_ghe_server %} pode agir como provedor de serviços (SP, Service Provider) com seu provedor de identidade (IdP, Identity Provider) SAML interno.'
+intro: 'SAML is an XML-based standard for authentication and authorization. {% data variables.product.prodname_ghe_server %} can act as a service provider (SP) with your internal SAML identity provider (IdP).'
 versions:
   ghes: '*'
 type: how_to
@@ -17,31 +17,30 @@ topics:
   - Identity
   - SSO
 ---
-
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-## Serviços SAML compatíveis
+## Supported SAML services
 
 {% data reusables.saml.saml-supported-idps %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-## Considerações de nome de usuário no SAML
+## Username considerations with SAML
 
-Cada nome de usuário do {% data variables.product.prodname_ghe_server %} é determinado por uma das seguintes afirmações na resposta SAML, ordenada por prioridade:
+Each {% data variables.product.prodname_ghe_server %} username is determined by one of the following assertions in the SAML response, ordered by priority:
 
-- Nome de usuário personalizado, se houver;
-- Declaração `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`, se houver;
-- Declaração `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`, se houver;
-- Elemento `NameID`.
+- The custom username attribute, if defined and present
+- An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` assertion, if present
+- An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` assertion, if present
+- The `NameID` element
 
-O elemento `NameID` é obrigatório, mesmo que os outros atributos estejam presentes.
+The `NameID` element is required even if other attributes are present.
 
-É criado um mapeamento entre `NameID` e o nome de usuário do {% data variables.product.prodname_ghe_server %}. Portanto, o `NameID` deve ser persistente, exclusivo e não estar sujeito a alterações no ciclo de vida do usuário.
+A mapping is created between the `NameID` and the {% data variables.product.prodname_ghe_server %} username, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% note %}
 
-**Observação**: Se o `NameID` para um usuário for alterado no IdP, o usuário verá uma mensagem de erro ao tentar entrar na sua instância do {% data variables.product.prodname_ghe_server %}. {% ifversion ghes %}Para restaurar o acesso do usuário, você precisa atualizar o mapeamento do `NameID` da conta do usuário. Para obter mais informações, consulte "[Atualizar o `NameIDo`](#updating-a-users-saml-nameid) do SAML.{% else %} Para obter mais informações, consulte "[Erro: 'Outro usuário já possui a conta'](#error-another-user-already-owns-the-account)."{% endif %}
+**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign in to your {% data variables.product.prodname_ghe_server %} instance. {% ifversion ghes %}To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %} For more information, see "[Error: 'Another user already owns the account'](#error-another-user-already-owns-the-account)."{% endif %}
 
 {% endnote %}
 
@@ -52,75 +51,88 @@ O elemento `NameID` é obrigatório, mesmo que os outros atributos estejam prese
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-## Metadados SAML
+## SAML metadata
 
-Os metadados do seu provedor de serviço da instância de {% data variables.product.prodname_ghe_server %} estão disponíveis em `http(s)://[hostname]/saml/metadata`.
+Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
-Para configurar seu provedor de identidade manualmente, a URL do serviço de consumidor de declaração (ACS, Assertion Consumer Service) é `http(s)://[hostname]/saml/consume` e usa a associação `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`.
+To configure your identity provider manually, the Assertion Consumer Service (ACS) URL is `http(s)://[hostname]/saml/consume`. It uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
 
-## Atributos SAML
+## SAML attributes
 
-Os atributos a seguir estão disponíveis. Você pode alterar seus nomes no [console de gerenciamento](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/), exceto o atributo `administrator`.
+These attributes are available. You can change the attribute names in the [management console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/), with the exception of the `administrator` attribute.
 
-| Nome padrão do atributo | Tipo        | Descrição                                                                                                                                                                                                                                                                              |
-| ----------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `NameID`                | Obrigatório | Identificador de usuário persistente. Qualquer formato de identificador de nome persistente pode ser usado. O elemento `NameID` será usado para um nome de usuário do {% data variables.product.prodname_ghe_server %}, a menos que uma das declarações alternativas seja fornecida. |
-| `administrador`         | Opcional    | Quando o valor for 'true', o usuário será promovido automaticamente como administrador. Qualquer outro valor ou um valor não existente rebaixará o usuário para uma conta regular.                                                                                                     |
-| `nome de usuário`       | Opcional    | Nome do usuário no {% data variables.product.prodname_ghe_server %}.                                                                                                                                                                                                                 |
-| `full_name`             | Opcional    | Nome do usuário exibido na página de perfil. Após o provisionamento, os usuários podem alterar seus nomes.                                                                                                                                                                             |
-| `emails`                | Opcional    | Endereços de e-mail para o usuário. É possível especificar mais de um.                                                                                                                                                                                                                 |
-| `public_keys`           | Opcional    | Chaves SSH públicas para o usuário. É possível especificar mais de um.                                                                                                                                                                                                                 |
-| `gpg_keys`              | Opcional    | Chaves chaves GPG para o usuário. É possível especificar mais de um.                                                                                                                                                                                                                   |
+| Default attribute name  | Type     | Description |
+|-----------------|----------|-------------|
+| `NameID` | Required | A persistent user identifier. Any persistent name identifier format may be used. The `NameID` element will be used for a {% data variables.product.prodname_ghe_server %} username unless one of the alternative assertions is provided. |
+| `administrator` | Optional | When the value is 'true', the user will automatically be promoted as an administrator. Any other value or a non-existent value will demote the user to a normal user account. |
+| `username` | Optional | The {% data variables.product.prodname_ghe_server %} username. |
+| `full_name`     | Optional | The name of the user displayed on their profile page. Users may change their names after provisioning. |
+| `emails`        | Optional | The email addresses for the user. More than one can be specified. |
+| `public_keys`   | Optional | The public SSH keys for the user. More than one can be specified. |
+| `gpg_keys`   | Optional | The GPG keys for the user. More than one can be specified.  |
 
-## Definir configurações SAML
+## Configuring SAML settings
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-3. Selecione **SAML**. ![Autenticação SAML](/assets/images/enterprise/management-console/auth-select-saml.png)
-4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Selecionar caixa de autenticação integrada SAML](/assets/images/enterprise/management-console/saml-built-in-authentication.png)
-5. Para habilitar SSO de resposta não solicitada, selecione **IdP initiated SSO** (SSO iniciado pelo IdP). Por padrão, o {% data variables.product.prodname_ghe_server %} responderá a uma solicitação iniciada pelo Provedor de identidade (IdP) não solicitado com `AuthnRequest`. ![SAML idP SSO](/assets/images/enterprise/management-console/saml-idp-sso.png)
+3. Select **SAML**.
+![SAML authentication](/assets/images/enterprise/management-console/auth-select-saml.png)
+4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Select SAML built-in authentication checkbox](/assets/images/enterprise/management-console/saml-built-in-authentication.png)
+5. Optionally, to enable unsolicited response SSO, select **IdP initiated SSO**. By default, {% data variables.product.prodname_ghe_server %} will reply to an unsolicited Identity Provider (IdP) initiated request with an `AuthnRequest` back to the IdP.
+![SAML idP SSO](/assets/images/enterprise/management-console/saml-idp-sso.png)
 
   {% tip %}
 
-  **Observação**: é recomendável manter esse valor **desmarcado**. Você deve habilitar esse recurso **somente ** na rara instância em que sua implementação SAML não oferecer suporte ao SSO iniciado pelo provedor de serviços e quando recomendado pelo {% data variables.contact.enterprise_support %}.
+  **Note**: We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
 
   {% endtip %}
 
-5. Selecione **Disable administrator demotion/promotion** (Desabilitar rebaixamento/promoção do administrador) se você **não** quiser que o provedor SAML determine direitos de administrador para usuários no {% data variables.product.product_location %}. ![Configuração de desabilitar administrador de SAML](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-6. No campo **Sign on URL** (URL de logon), digite o ponto de extremidade HTTP ou HTTPS do seu IdP para solicitações de logon único. Esse valor é fornecido pela configuração do IdP. Se o nome do host só estiver disponível na rede interna, talvez seja necessário [configurar a {% data variables.product.product_location %} para usar servidores de nomes internos](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![Autenticação SAML](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-7. Como alternativa, no campo **Issuer** (Emissor), digite o nome do emissor de SAML. Fazer isso verifica a autenticidade das mensagens enviadas para a {% data variables.product.product_location %}. ![Emissor SAML](/assets/images/enterprise/management-console/saml-issuer.png)
-8. Nos menus suspensos **Signature Method** (Método de assinatura) e **Digest Method** (Método de compilação), escolha o algoritmo de hash usado pelo emissor SAML para verificar a integridade das solicitações do {% data variables.product.product_location %}. Especifique o formato no menu suspenso **Name Identifier Format** (Formato de identificador de nome). ![Método SAML ](/assets/images/enterprise/management-console/saml-method.png)
-9. Em **Verification certificate** (Certificado de verificação), clique em **Choose File** (Escolher arquivo) e escolha um certificado para validar as respostas SAML do IdP. ![Autenticação SAML](/assets/images/enterprise/management-console/saml-verification-cert.png)
-10. Modifique os nomes do atributo SAML para corresponder ao IdP, se necessário, ou aceite os nomes padrão. ![Nomes de atributos SAML](/assets/images/enterprise/management-console/saml-attributes.png)
+5. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location %}.
+![SAML disable admin configuration](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/).
+![SAML authentication](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location %}.
+![SAML issuer](/assets/images/enterprise/management-console/saml-issuer.png)
+8. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location %}. Specify the format with the **Name Identifier Format** drop-down menu.
+![SAML method](/assets/images/enterprise/management-console/saml-method.png)
+9. Under **Verification certificate**, click **Choose File** and choose a certificate to validate SAML responses from the IdP.
+![SAML authentication](/assets/images/enterprise/management-console/saml-verification-cert.png)
+10. Modify the SAML attribute names to match your IdP if needed, or accept the default names.
+ ![SAML attribute names](/assets/images/enterprise/management-console/saml-attributes.png)
 
 {% ifversion ghes %}
 
-## Revogar o acesso à {{ site.data.variables.product.product_location_enterprise }}
+## Updating a user's SAML `NameID`
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. Selecione **SAML**. ![Barra lateral "Todos os usuários" nas configurações de administrador do site](/assets/images/enterprise/site-admin-settings/all-users.png)
-3. Na lista de usuários, clique no nome de usuário para o qual você gostaria de atualizar o mapeamento de `NameID`. ![Nome de usuário na lista de contas do usuário da instância](/assets/images/enterprise/site-admin-settings/all-users-click-username.png)
+2. In the left sidebar, click **All users**.
+  !["All users" sidebar item in site administrator settings](/assets/images/enterprise/site-admin-settings/all-users.png)
+3. In the list of users, click the username you'd like to update the `NameID` mapping for.
+  ![Username in list of instance user accounts](/assets/images/enterprise/site-admin-settings/all-users-click-username.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
-5. À direita de "Atualizar o NameID do SAML", clique em **Editar**. ![Botão "Editar" em "autenticação do SAML" e à direita "Atualizar o NameID do SAML"](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
-6. No campo "NameID", digite o novo `NameID` para o usuário. ![Campo "NameID" na caixa de diálogo modal com NameID digitado](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
-7. Em **Verification certificate** (Certificado de verificação), clique em **Choose File** (Escolher arquivo) e escolha um certificado para validar as respostas SAML do IdP. ![Botão "Atualizar o NameID" com o valor do NameID atualizado dentro do modal](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
+5. To the right of "Update SAML NameID", click **Edit** .
+  !["Edit" button under "SAML authentication" and to the right of "Update SAML NameID"](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
+6. In the "NameID" field, type the new `NameID` for the user.
+  !["NameID" field in modal dialog with NameID typed](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
+7. Click **Update NameID**.
+  !["Update NameID" button under updated NameID value within modal](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
 
 {% endif %}
 
-## Revogar o acesso à {% data variables.product.product_location %}
+## Revoking access to {% data variables.product.product_location %}
 
-Se remover um usuário do seu provedor de identidade, você também deverá suspendê-lo manualmente. Caso contrário, ele continuará podendo fazer autenticação usando tokens de acesso ou chaves SSH. Para obter mais informações, consulte "[Suspender e cancelar a suspensão de usuários](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
+If you remove a user from your identity provider, you must also manually suspend them. Otherwise, they'll continue to be able to authenticate using access tokens or SSH keys. For more information, see "[Suspending and unsuspending users](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
 
-## Requisitos de mensagem de resposta
+## Response message requirements
 
-A mensagem de resposta deve atender aos seguintes requisitos:
+The response message must fulfill the following requirements:
 
-- O `<Destination>` elemento deve sempre ser fornecido no documento de resposta raiz e deve corresponder ao URL do ACS  somente quando o documento de resposta raiz estiver assinado. Se for assinada, a declaração será ignorada.
-- O elemento `<Audience>` deve sempre ser fornecido como parte do elemento `<AudienceRestriction>`. O elemento `<Audience>` deve sempre ser fornecido como parte do elemento `<AudienceRestriction>`. Esta é a URL para a instância do {% data variables.product.prodname_ghe_server %}, como `https://ghe.corp.example.com`.
-- Todas as declarações na resposta **devem** ser precedidas de assinatura digital. É possível fazer isso assinando cada elemento `<Assertion>` ou assinando o elemento `<Response>`.
-- Um elemento `<NameID>` deve ser fornecido como parte do elemento `<Subject>`. Qualquer formato de identificador de nome persistente pode ser usado.
-- O atributo `Recipient` deve estar presente e definido na URL do ACS. Por exemplo:
+- The `<Destination>` element must be provided on the root response document and match the ACS URL only when the root response document is signed. If the assertion is signed, it will be ignored.
+- The `<Audience>` element must always be provided as part of the `<AudienceRestriction>` element. It must match the `EntityId` for {% data variables.product.prodname_ghe_server %}. This is the URL to the {% data variables.product.prodname_ghe_server %} instance, such as `https://ghe.corp.example.com`.
+- Each assertion in the response **must** be protected by a digital signature. This can be accomplished by signing each individual `<Assertion>` element or by signing the `<Response>` element.
+- A `<NameID>` element must be provided as part of the `<Subject>` element. Any persistent name identifier format may be used.
+- The `Recipient` attribute must be present and set to the ACS URL. For example:
 
 ```xml
 <samlp:Response ...>
@@ -140,50 +152,50 @@ A mensagem de resposta deve atender aos seguintes requisitos:
 </samlp:Response>
 ```
 
-## Autenticação SAML
+## Troubleshooting SAML authentication
 
-Mensagens de erro de registro de {% data variables.product.prodname_ghe_server %} para autenticação do SAML falhada no registro de autenticação em  _/var/log/github/auth.log_. Para obter mais informações sobre os requisitos de resposta do SAML, consulte "[Requisitos de mensagem de resposta](#response-message-requirements)".
+{% data variables.product.prodname_ghe_server %} logs error messages for failed SAML authentication in the authentication log at  _/var/log/github/auth.log_. For more information about SAML response requirements, see "[Response message requirements](#response-message-requirements)."
 
-### Erro: "Outro usuário já possui a conta"
+### Error: "Another user already owns the account"
 
-Quando um usuário inicia a sessão em {% data variables.product.prodname_ghe_server %} pela primeira vez com autenticação do SAML, {% data variables.product.prodname_ghe_server %} cria uma conta de usuário na instância e mapeia o `NameID` do SAML com a conta.
+When a user signs in to {% data variables.product.prodname_ghe_server %} for the first time with SAML authentication, {% data variables.product.prodname_ghe_server %} creates a user account on the instance and maps the SAML `NameID` to the account.
 
-Quando o usuário inicia a sessão novamente, {% data variables.product.prodname_ghe_server %} compara o mapeamento do `NameID` da conta com a resposta do IdP. Se o `NameID` na resposta do IdP não corresponder mais ao `NameID` que {% data variables.product.prodname_ghe_server %} espera para o usuário. ocorrerá uma falha no login. O usuário receberá a seguinte mensagem.
+When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` mapping to the IdP's response. If the `NameID` in the IdP's response no longer matches the `NameID` that {% data variables.product.prodname_ghe_server %} expects for the user, the sign-in will fail. The user will see the following message.
 
-> Outro usuário já possui a conta. Solicite ao administrador que verifique o registro de autenticação.
+> Another user already owns the account. Please have your administrator check the authentication log.
 
-De modo geral, a mensagem indica que o nome de usuário ou endereço de email da pessoa foi alterado no IdP. {% ifversion ghes %}Certifique-se de que o mapeamento do `NameID` para a conta do usuário no {% data variables.product.prodname_ghe_server %} corresponde ao `NameID` do usuário no seu IdP. Para obter mais informações, consulte "[Atualizar o `NameID`](#updating-a-users-saml-nameid) do SAML.{% else %}Para obter ajuda para atualizar o mapeamento do `NameID`, entre em contato com {% data variables.contact.contact_ent_support %}.{% endif %}
+The message typically indicates that the person's username or email address has changed on the IdP. {% ifversion ghes %}Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %}For help updating the `NameID` mapping, contact {% data variables.contact.contact_ent_support %}.{% endif %}
 
-### Se a resposta SAML não estiver assinada ou se a assinatura não corresponder ao conteúdo, o log de autenticação mostrará a seguinte mensagem de erro:
+### Error: Recipient in SAML response was blank or not valid
 
-Se `Recipient` não corresponder à URL do ACS, o log de autenticação mostrará a seguinte mensagem de erro:
-
-```
-Recipient na resposta SAML não pode ficar em branco.
-```
+If the `Recipient` does not match the ACS URL for your {% data variables.product.prodname_ghe_server %} instance, one of the following two error messages will appear in the authentication log when a user attempts to authenticate.
 
 ```
-Recipient na resposta SAML não era válido.
+Recipient in the SAML response must not be blank.
 ```
 
-Certifique-se de definir o valor de `Destinatário` no seu IdP como a URL do ACS completo para a sua instância do {% data variables.product.prodname_ghe_server %}. Por exemplo, `https://ghe.corp.example.com/saml/consume`.
-
-### Erro: "Resposta do SAML não foi assinada ou foi modificada"
-
-Se seu IdP não assinar a resposta do SAML ou a assinatura não corresponder ao conteúdo, será exibida a seguinte mensagem de erro no registro de autenticação.
-
 ```
-Resposta SAML não assinada ou modificada.
+Recipient in the SAML response was not valid.
 ```
 
-Certifique-se de que você configurou as declarações assinadas para o aplicativo de {% data variables.product.prodname_ghe_server %} no seu IdP.
+Ensure that you set the value for `Recipient` on your IdP to the full ACS URL for your {% data variables.product.prodname_ghe_server %} instance. For example, `https://ghe.corp.example.com/saml/consume`.
 
-### Erro: "Audiência é inválida" ou "Nenhuma declaração encontrada"
+### Error: "SAML Response is not signed or has been modified"
 
-Se a resposta do IdP tiver um valor ausente ou incorreto para `Audiência`, a seguinte mensagem de erro aparecerá no registro de autenticação.
+If your IdP does not sign the SAML response, or the signature does not match the contents, the following error message will appear in the authentication log.
+
+```
+SAML Response is not signed or has been modified.
+```
+
+Ensure that you configure signed assertions for the {% data variables.product.prodname_ghe_server %} application on your IdP.
+
+### Error: "Audience is invalid" or "No assertion found"
+
+If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
 
 ```shell
-Audience inválido. O atributo Audience não corresponde a url_sua_instância
+Audience is invalid. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
 ```
 
-Certifique-se de definir o valor para `Audiência` no seu IdP para a `EntityId` para a sua instância do {% data variables.product.prodname_ghe_server %}, que é a URL completa para sua instância do {% data variables.product.prodname_ghe_server %}. Por exemplo, `https://ghe.corp.example.com`.
+Ensure that you set the value for `Audience` on your IdP to the `EntityId` for your {% data variables.product.prodname_ghe_server %} instance, which is the full URL to your {% data variables.product.prodname_ghe_server %} instance. For example, `https://ghe.corp.example.com`.

@@ -28,7 +28,7 @@ Devido à complexidade da pesquisa de códigos, a execução das pesquisas apres
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- O código em [bifurcações](/articles/about-forks) só poderá ser pesquisado se a bifurcação tiver mais estrelas do que o repositório principal. Bifurcações com menos estrelas do que o repositório principal **não** são indexadas para pesquisa de códigos. Para incluir bifurcações com mais estrelas que o repositório principal delas nos resultados da pesquisa, você precisará adicionar `fork:true` ou `fork:only` à sua consulta. Para obter mais informações, consulte "[Pesquisar em bifurcações](/search-github/searching-on-github/searching-in-forks)".
+- O código em [bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) só poderá ser pesquisado se a bifurcação tiver mais estrelas do que o repositório principal. Bifurcações com menos estrelas do que o repositório principal **não** são indexadas para pesquisa de códigos. Para incluir bifurcações com mais estrelas que o repositório principal delas nos resultados da pesquisa, você precisará adicionar `fork:true` ou `fork:only` à sua consulta. Para obter mais informações, consulte "[Pesquisar em bifurcações](/search-github/searching-on-github/searching-in-forks)".
 - Apenas o _branch-padrão_ é indexado para a busca de código.{% ifversion fpt or ghec %}
 - Somente arquivos com menos de 384 KB são pesquisados.{% else %}* Somente arquivos com menos de 5 MB são pesquisados.
 - Somente os primeiros 500 KB de cada arquivo são pesquisados.{% endif %}

@@ -100,7 +100,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 ## branch_protection_rule
 
 Activity related to a branch protection rule. For more information, see "[About branch protection rules](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)."
@@ -190,7 +190,7 @@ Key | Type | Description
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae-next %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
+`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
 
 ### Webhook payload example
 
@@ -218,6 +218,7 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
 
+{% ifversion ghes < 3.4 %}
 ## content_reference
 
 {% data reusables.webhooks.content_reference_short_desc %}
@@ -232,6 +233,7 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {{ webhookPayloadsForCurrentVersion.content_reference.created }}
 
+{% endif %}
 ## create
 
 {% data reusables.webhooks.create_short_desc %}
