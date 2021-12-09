@@ -1,0 +1,53 @@
+---
+title: Viewing the security overview
+intro: 'Navigate to the different views available in the security overview'
+permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+product: '{% data reusables.gated-features.security-center %}'
+versions:
+  fpt: '*'
+  ghes: '>3.1'
+  ghec: '*'
+type: how_to
+topics:
+  - Security overview
+  - Advanced Security
+  - Alerts
+  - Organizations
+  - Teams
+shortTitle: View the security overview
+---
+
+## Viewing the security overview for an organization
+
+Organization owners and security managers can view the security overview for an organization.
+
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.security-overview %}
+1. To view aggregate information about alert types, click **Show more**.
+  ![Show more button](/assets/images/help/organizations/security-overview-show-more-button.png)
+{% data reusables.organizations.filter-security-overview %}
+
+{% ifversion ghec or ghes > 3.3 %}
+
+## Viewing alerts across your organization
+
+Organization owners and security managers can view subsets of alerts for an organization
+
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.security-overview %}
+1. In the security sidebar, select the subset of alerts you want to view.
+![View alert subset](/assets/images/help/organizations/view-alert-subset.png)
+2. Optionally, filter the list of alerts. Each view has its own selection of available filters. You can click multiple filters in the drop-down filter menus to narrow your search. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
+  ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
+
+{% endif %}
+
+## Viewing the security overview for a team
+
+Members of a team can see the security overview for repositories that the team has admin privileges for.
+
+{% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-security-overview %}
+{% data reusables.organizations.filter-security-overview %}

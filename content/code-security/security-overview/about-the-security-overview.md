@@ -1,6 +1,7 @@
 ---
 title: About the security overview
 intro: 'You can view, filter, and sort security alerts for repositories owned by your organization or team in one place: the Security Overview page.'
+permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
@@ -23,7 +24,7 @@ shortTitle: About security overview
 
 ## About the security overview
 
-You can use the security overview for a high-level view of the security status of your organization or to identify problematic repositories that require intervention. At the organization-level, the security overview displays aggregate and repository-specific security information for repositories owned by your organization. At the team-level, the security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+You can use the security overview for a high-level view of the security status of your organization or to identify problematic repositories that require intervention. At the organization-level, the security overview displays aggregate and repository-specific security information for repositories owned by your organization. Within the organization-level security overview, there are also dedicated views for specific security features, such as secret scanning alerts and code scanning alerts. At the team-level, the security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
 
 The security overview indicates whether {% ifversion fpt or ghes > 3.1 or ghec %}security{% endif %}{% ifversion ghae-next %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} features are enabled for repositories owned by your organization and consolidates alerts for each feature.{% ifversion fpt or ghes > 3.1 or ghec %} Security features include {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, as well as {% data variables.product.prodname_dependabot_alerts %}.{% endif %} For more information about {% data variables.product.prodname_GH_advanced_security %} features, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 or ghec %} For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
 
@@ -48,91 +49,3 @@ For each repository in the security overview, you will see icons for each type o
 By default, archived repositories are excluded from the security overview for an organization. You can apply filters to view archived repositories in the security overview. For more information, see "[Filtering the list of alerts](#filtering-the-list-of-alerts)."
 
 The security overview displays active alerts raised by security features. If there are no alerts in the security overview for a repository, undetected security vulnerabilities or code errors may still exist.
-
-## Viewing the security overview for an organization
-
-Organization owners can view the security overview for an organization.
-
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. To view aggregate information about alert types, click **Show more**.
-  ![Show more button](/assets/images/help/organizations/security-overview-show-more-button.png)
-{% data reusables.organizations.filter-security-overview %}
-
-## Viewing the security overview for a team
-
-Members of a team can see the security overview for repositories that the team has admin privileges for.
-
-{% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team-security-overview %}
-{% data reusables.organizations.filter-security-overview %}
-
-## Filtering the list of alerts
-
-### Filter by level of risk for repositories
-
-The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk.
-
-| Qualifier | Description |
-| -------- | -------- |
-| `risk:high` | Display repositories that are at high risk. |
-| `risk:medium` | Display repositories that are at medium risk. |
-| `risk:low` | Display repositories that are at low risk. |
-| `risk:unknown` | Display repositories that are at an unknown level of risk. |
-| `risk:clear` | Display repositories that have no detected level of risk. |
-
-### Filter by number of alerts
-
-| Qualifier | Description |
-| -------- | -------- |
-| <code>code-scanning-alerts:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use &gt and &lt comparison operators. |
-| <code>secret-scanning-alerts:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_secret_scanning %} alerts. This qualifier can use &gt and &lt comparison operators. |
-| <code>dependabot-alerts:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use &gt and &lt comparison operators. |
-
-### Filter by whether security features are enabled
-
-| Qualifier | Description |
-| -------- | -------- |
-| `enabled:code-scanning` | Display repositories that have {% data variables.product.prodname_code_scanning %} enabled. |
-| `not-enabled:code-scanning` | Display repositories that do not have {% data variables.product.prodname_code_scanning %} enabled. |
-| `enabled:secret-scanning` | Display repositories that have {% data variables.product.prodname_secret_scanning %} enabled. |
-| `not-enabled:secret-scanning` | Display repositories that have {% data variables.product.prodname_secret_scanning %} enabled. |
-| `enabled:dependabot-alerts` | Display repositories that have {% data variables.product.prodname_dependabot_alerts %} enabled. |
-| `not-enabled:dependabot-alerts` | Display repositories that do not have {% data variables.product.prodname_dependabot_alerts %} enabled. |
-
-### Filter by repository type
-
-| Qualifier | Description |
-| -------- | -------- |
-{%- ifversion fpt or ghes > 3.1 or ghec %}
-| `is:public` | Display public repositories. |
-{% elsif ghes or ghec or ghae %}
-| `is:internal` | Display internal repositories. |
-{%- endif %}
-| `is:private` | Display private repositories. |
-| `archived:true` | Display archived repositories. |
-| `archived:true` | Display archived repositories. |
-
-### Filter by team
-
-| Qualifier | Description |
-| -------- | -------- |
-| <code>team:<em>TEAM-NAME</em></code> | Displays repositories that *TEAM-NAME* has admin privileges for. |
-
-### Filter by topic
-
-| Qualifier | Description |
-| -------- | -------- |
-| <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
-
-### Sort the list of alerts
-
-| Qualifier | Description |
-| -------- | -------- |
-| `sort:risk` | Sorts the repositories in your security overview by risk. |
-| `sort:repos` | Sorts the repositories in your security overview alphabetically by name. |
-| `sort:code-scanning-alerts` | Sorts the repositories in your security overview by number of {% data variables.product.prodname_code_scanning %} alerts. |
-| `sort:secret-scanning-alerts` | Sorts the repositories in your security overview by number of {% data variables.product.prodname_secret_scanning %} alerts. |
-| `sort:dependabot-alerts` | Sorts the repositories in your security overview by number of {% data variables.product.prodname_dependabot_alerts %}. |
