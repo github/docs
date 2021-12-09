@@ -44,7 +44,7 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 
       {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %}
     {% ifversion fpt or ghae-issue-4619 or ghec %}
-    - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
+    - Если вы хотите выбрать тему, которая в настоящее время находится в публичной бета-версии, вам сначала нужно включить ее с помощью предварительного просмотра функции. Для получения дополнительной информации см. « [Изучение выпусков раннего доступа с предварительным просмотром функций] (/ get-start / using-github / explore-Early-access-Release-with-feature-preview)» . {% Endif%}
 
 {% if command-palette %}
 
@@ -59,3 +59,4 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 ## Further reading
 
 - "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"
+- 
