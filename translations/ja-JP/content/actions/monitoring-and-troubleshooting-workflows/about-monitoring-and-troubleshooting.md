@@ -12,62 +12,61 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Monitoring your workflows
 
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
-### 視覚化グラフの利用
+### Using the visualization graph
 
-すべてのワークフローの実行は、実行の進行を示すリアルタイムのグラフを生成します。 このグラフを使って、ワークフローをモニタリング及びデバッグできます。 例:
+Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug workflows. For example:
 
-   ![ワークフローグラフ](/assets/images/help/images/workflow-graph.png)
+   ![Workflow graph](/assets/images/help/images/workflow-graph.png)
 
-For more information, see "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)."
+For more information, see "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)." 
 
 {% endif %}
 
-### ワークフローステータスバッジを追加する
+### Adding a workflow status badge
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
 For more information, see "[Adding a workflow status badge](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)."
 
 {% ifversion fpt or ghec %}
-### ジョブの実行時間を表示する
+### Viewing job execution time
 
-To identify how long a job took to run, you can view its execution time. 例:
+To identify how long a job took to run, you can view its execution time. For example:
 
-   ![実行および支払請求可能な時間の詳細リンク](/assets/images/help/repository/view-run-billable-time.png)
+   ![Run and billable time details link](/assets/images/help/repository/view-run-billable-time.png)
 
-詳しい情報については、「[ジョブの実行時間を表示する](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)」を参照してください。
+For more information, see "[Viewing job execution time](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)."
 {% endif %}
 
-### ワークフロー実行の履歴を表示する
+### Viewing workflow run history
 
-You can view the status of each job and step in a workflow. 例:
+You can view the status of each job and step in a workflow. For example:
 
-   ![ワークフローの実行の名前](/assets/images/help/repository/run-name.png)
+   ![Name of workflow run](/assets/images/help/repository/run-name.png)
 
-詳しい情報については、「[ワークフロー実行の履歴を表示する](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)」を参照してください。
+For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
 
 ## Troubleshooting your workflows
 
-### ワークフロー実行ログを使用する
+### Using workflow run logs
 
-Each workflow run generates activity logs that you can view, search, and download. 例:
+Each workflow run generates activity logs that you can view, search, and download. For example:
 
-   ![Super linterワークフローの結果](/assets/images/help/repository/super-linter-workflow-results-updated-2.png)
+   ![Super linter workflow results](/assets/images/help/repository/super-linter-workflow-results-updated-2.png)
 
-詳しい情報については、「[ワークフロー実行ログを使用する](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)」を参照してください。
+For more information, see "[Using workflow run logs](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)."
 
-### デバッグロギングの有効化
+### Enabling debug logging
 
-ワークフロージョブあるいはステップが期待どおりに動作しない理由を診断する上で、十分な詳細がワークフローのログになかった場合、追加のデバッグロギングを有効化できます。 詳しい情報については、「[デバッグログの有効化](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)」を参照してください。
+If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging. For more information, see "[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."
 
-## セルフホストランナーのモニタリングとトラブルシューティング
+## Monitoring and troubleshooting self-hosted runners
 
-If you use self-hosted runners, you can view their activity and diagnose common issues.
+If you use self-hosted runners, you can view their activity and diagnose common issues. 
 
-詳しい情報については「[セルフホストランナーのモニタリングとトラブルシューティング](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)」を参照してください。
+For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."

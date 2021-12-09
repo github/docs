@@ -87,7 +87,7 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Setting the permissions of the `GITHUB_TOKEN` for your organization
 
 {% data reusables.github-actions.workflow-permissions-intro %}

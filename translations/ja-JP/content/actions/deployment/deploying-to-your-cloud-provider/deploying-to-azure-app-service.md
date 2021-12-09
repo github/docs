@@ -1,6 +1,6 @@
 ---
-title: Azure App Serviceへのデプロイ
-intro: 継続的デプロイメント（CD）ワークフローの一部として、Azure App Serviceへのデプロイを行えます。
+title: Deploying to Azure App Service
+intro: You can deploy to Azure App Service as part of your continuous deployment (CD) workflows.
 redirect_from:
   - /actions/guides/deploying-to-azure-app-service
   - /actions/deployment/deploying-to-azure-app-service
@@ -19,13 +19,12 @@ shortTitle: Deploy to Azure App Service
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## はじめに
+## Introduction
 
-このガイドでは、アプリケーションをビルド、テスト、[Azure App Service](https://azure.microsoft.com/en-us/services/app-service/)へデプロイするための{% data variables.product.prodname_actions %}の使い方を説明します。
+This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy an application to [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/).
 
-Azure App Serviceではいくつかの言語でWebアプリケーションを動作させることができますが、このガイドでは既存のNode.jsプロジェクトをデプロイする方法を示します。
+Azure App Service can run web apps in several languages, but this guide demonstrates deploying an existing Node.js project.
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -37,13 +36,13 @@ Azure App Serviceではいくつかの言語でWebアプリケーションを動
 
 {% endif %}
 
-## 必要な環境
+## Prerequisites
 
-{% data variables.product.prodname_actions %}ワークフローを作成する前に、まず以下のセットアップのステップを完了しておかなければなりません。
+Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
 
-1. Azure App Serviceプランの作成
+1. Create an Azure App Service plan.
 
-   たとえば、Azure CLIを使って新しいApp Serviceのプランを作成できます。
+   For example, you can use the Azure CLI to create a new App Service plan:
 
    ```bash{:copy}
    az appservice plan create \
@@ -52,16 +51,16 @@ Azure App Serviceではいくつかの言語でWebアプリケーションを動
        --is-linux
    ```
 
-   上のコマンドで、`MY_RESOURCE_GROUP`はすでに存在するAzure Resource Groupに、`MY_APP_SERVICE_PLAN`はApp Serviceプランの新しい名前に置き換えてください。
+   In the command above, replace `MY_RESOURCE_GROUP` with your pre-existing Azure Resource Group, and `MY_APP_SERVICE_PLAN` with a new name for the App Service plan.
 
-   [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/)の使いからに関する詳しい情報については、Azureのドキュメンテーションを参照してください。
+   See the Azure documentation for more information on using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/):
 
-   * 認証については「[Sign in with Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli)を参照してください。
-   * 新しいリソースグループを作成しなければならない場合は、「[az group](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create)」を参照してください。
+   * For authentication, see "[Sign in with Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli)".
+   * If you need to create a new resource group, see "[az group](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create)."
 
-2. Webアプリケーションの作成
+2. Create a web app.
 
-   たとえば、Azure CLIを使ってnodeのランタイムを持つAzure App Service Webアプリケーションを作成できます。
+   For example, you can use the Azure CLI to create an Azure App Service web app with a node runtime:
 
    ```bash{:copy}
    az webapp create \
@@ -71,13 +70,13 @@ Azure App Serviceではいくつかの言語でWebアプリケーションを動
        --runtime "node|10.14"
    ```
 
-   上のコマンドで、パラメータは自分の値で置き換えてください。`MY_WEBAPP_NAME`はWebアプリケーションの新しい名前です。
+   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
 
-3. Azure公開プロフィールを設定して、`AZURE_WEBAPP_PUBLISH_PROFILE`シークレットを作成してください。
+3. Configure an Azure publish profile and create an `AZURE_WEBAPP_PUBLISH_PROFILE` secret.
 
-   公開されたプロフィールを使って、Azureのデプロイ資格情報を生成してください。 詳しい情報については、Azureのドキュメンテーションの「[デプロイ資格情報を生成する](https://docs.microsoft.com/ja-jp/azure/app-service/deploy-github-actions?tabs=applevel#generate-deployment-credentials)」を参照してください。
+   Generate your Azure deployment credentials using a publish profile. For more information, see "[Generate deployment credentials](https://docs.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=applevel#generate-deployment-credentials)" in the Azure documentation.
 
-   {% data variables.product.prodname_dotcom %}リポジトリで、公開されたプロフィールの内容を含む`AZURE_WEBAPP_PUBLISH_PROFILE`という名前のシークレットを生成してください。 シークレットの作成に関する詳しい情報については「[暗号化されたシークレット](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)」を参照してください。
+   In your {% data variables.product.prodname_dotcom %} repository, create a secret named `AZURE_WEBAPP_PUBLISH_PROFILE` that contains the contents of the publish profile. For more information on creating secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
 
 4. For Linux apps, add an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` and set it to true in your app. For more information, see "[Configure apps in the portal](https://docs.microsoft.com/en-us/azure/app-service/configure-common#configure-app-settings)" in the Azure documentation.
 
@@ -85,13 +84,13 @@ Azure App Serviceではいくつかの言語でWebアプリケーションを動
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 {% endif %}
 
-## ワークフローの作成
+## Creating the workflow
 
-必要な環境を整えたら、ワークフローの作成に進むことができます。
+Once you've completed the prerequisites, you can proceed with creating the workflow.
 
 The following example workflow demonstrates how to build, test, and deploy the Node.js project to Azure App Service when there is a push to the `main` branch.
 
-ワークフローの`env`キー中の`AZURE_WEBAPP_NAME`を、作成したWebアプリケーションの名前に設定してください。 You can also change `AZURE_WEBAPP_PACKAGE_PATH` if the path to your project is not the repository root and `NODE_VERSION` if you want to use a node version other than `10.x`.
+Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. You can also change `AZURE_WEBAPP_PACKAGE_PATH` if the path to your project is not the repository root and `NODE_VERSION` if you want to use a node version other than `10.x`.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -138,11 +137,12 @@ jobs:
           package: {% raw %}${{ env.AZURE_WEBAPP_PACKAGE_PATH }}{% endraw %}
 ```
 
-## 追加リソース
+## Additional resources
 
-以下のリソースも役に立つでしょう。
+The following resources may also be useful:
 
 * For the original starter workflow, see [`azure.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* Webアプリケーションのデプロイに使われたアクションは、公式のAzure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy)アクションです。
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
-* Azure web appドキュメンテーション中の「[Azure で Node.js Web アプリを作成する](https://docs.microsoft.com/ja-jp/azure/app-service/quickstart-nodejs)」クイックスタートは、[Azure App Serviceエクステンション](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)とともにVS Codeを利用する方法を示しています。
+* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
+* For more examples of GitHub Action workflows that deploy to Azure, see the 
+[actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* The "[Create a Node.js web app in Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs)" quickstart in the Azure web app documentation demonstrates using VS Code with the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
