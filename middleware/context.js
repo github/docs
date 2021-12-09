@@ -58,17 +58,6 @@ export default async function contextualize(req, res, next) {
   req.context.siteTree = siteTree
   req.context.pages = pageMap
 
-  // Object exposing selected variables to client
-  req.context.expose = JSON.stringify({
-    // Languages and versions for search
-    searchOptions: {
-      languages: Object.keys(languages),
-      versions: searchVersions,
-      nonEnterpriseDefaultVersion,
-    },
-    // `|| undefined` won't show at all for production
-    airgap: Boolean(process.env.AIRGAP || req.cookies.AIRGAP) || undefined,
-  })
   if (process.env.AIRGAP || req.cookies.AIRGAP) req.context.AIRGAP = true
   req.context.searchVersions = searchVersions
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
