@@ -6,7 +6,7 @@
 {% elsif ghec or ghes or ghae %}
 1. 导航到自托管运行器注册的位置：
    * **在组织或仓库中**，导航到主页并单击 {% octicon "gear" aria-label="The Settings gear" %} **Settings（设置）**。 {% ifversion ghec %}
-   * **If using an enterprise account**: navigate to your enterprise account by visiting `https://github.com/enterprises/ENTERPRISE-NAME`, replacing `ENTERPRISE-NAME` with your enterprise account's name.{% elsif ghes or ghae %}
+   * **If using an enterprise account**: navigate to your enterprise account by clicking your profile photo in the top-right corner of {% data variables.product.prodname_dotcom_the_website %}, then clicking **Your enterprises**, then clicking the enterprise.{% elsif ghes or ghae %}
    * **如果使用企业级运行器**：
      1. 在任何页面的右上角，单击 {% octicon "rocket" aria-label="The rocket ship" %}。
      2. 在左边栏中，单击 **Enterprise overview（企业概览）**。

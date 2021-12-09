@@ -4,6 +4,7 @@ translations/zh-CN/content/account-and-profile/managing-subscriptions-and-notifi
 translations/zh-CN/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications.md,rendering error
 translations/zh-CN/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,rendering error
 translations/zh-CN/content/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox.md,rendering error
+translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard.md,rendering error
@@ -13,9 +14,7 @@ translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-gith
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository.md,rendering error
 translations/zh-CN/content/actions/advanced-guides/caching-dependencies-to-speed-up-workflows.md,rendering error
-translations/zh-CN/content/actions/advanced-guides/index.md,rendering error
 translations/zh-CN/content/actions/advanced-guides/storing-workflow-data-as-artifacts.md,rendering error
-translations/zh-CN/content/actions/advanced-guides/using-github-cli-in-workflows.md,rendering error
 translations/zh-CN/content/actions/automating-builds-and-tests/about-continuous-integration.md,rendering error
 translations/zh-CN/content/actions/automating-builds-and-tests/building-and-testing-java-with-ant.md,rendering error
 translations/zh-CN/content/actions/automating-builds-and-tests/building-and-testing-java-with-gradle.md,rendering error
@@ -28,7 +27,6 @@ translations/zh-CN/content/actions/automating-builds-and-tests/building-and-test
 translations/zh-CN/content/actions/automating-builds-and-tests/building-and-testing-ruby.md,rendering error
 translations/zh-CN/content/actions/automating-builds-and-tests/building-and-testing-swift.md,rendering error
 translations/zh-CN/content/actions/automating-builds-and-tests/building-and-testing-xamarin-applications.md,rendering error
-translations/zh-CN/content/actions/automating-builds-and-tests/index.md,rendering error
 translations/zh-CN/content/actions/creating-actions/about-custom-actions.md,rendering error
 translations/zh-CN/content/actions/creating-actions/creating-a-composite-action.md,rendering error
 translations/zh-CN/content/actions/creating-actions/creating-a-docker-container-action.md,rendering error
@@ -89,7 +87,6 @@ translations/zh-CN/content/actions/learn-github-actions/workflow-syntax-for-gith
 translations/zh-CN/content/actions/managing-issues-and-pull-requests/adding-labels-to-issues.md,rendering error
 translations/zh-CN/content/actions/managing-issues-and-pull-requests/closing-inactive-issues.md,rendering error
 translations/zh-CN/content/actions/managing-issues-and-pull-requests/commenting-on-an-issue-when-a-label-is-added.md,rendering error
-translations/zh-CN/content/actions/managing-issues-and-pull-requests/index.md,rendering error
 translations/zh-CN/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,rendering error
 translations/zh-CN/content/actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column.md,rendering error
 translations/zh-CN/content/actions/managing-issues-and-pull-requests/scheduling-issue-creation.md,rendering error
@@ -110,7 +107,7 @@ translations/zh-CN/content/actions/migrating-to-github-actions/migrating-from-az
 translations/zh-CN/content/actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions.md,rendering error
 translations/zh-CN/content/actions/migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions.md,rendering error
 translations/zh-CN/content/actions/migrating-to-github-actions/migrating-from-jenkins-to-github-actions.md,rendering error
-translations/zh-CN/content/actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions.md,broken liquid tags
+translations/zh-CN/content/actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions.md,rendering error
 translations/zh-CN/content/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting.md,rendering error
 translations/zh-CN/content/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge.md,rendering error
 translations/zh-CN/content/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging.md,rendering error
@@ -129,12 +126,10 @@ translations/zh-CN/content/actions/publishing-packages/publishing-nodejs-package
 translations/zh-CN/content/actions/quickstart.md,rendering error
 translations/zh-CN/content/actions/security-guides/automatic-token-authentication.md,rendering error
 translations/zh-CN/content/actions/security-guides/encrypted-secrets.md,rendering error
-translations/zh-CN/content/actions/security-guides/index.md,rendering error
 translations/zh-CN/content/actions/security-guides/security-hardening-for-github-actions.md,rendering error
 translations/zh-CN/content/actions/using-containerized-services/about-service-containers.md,rendering error
 translations/zh-CN/content/actions/using-containerized-services/creating-postgresql-service-containers.md,rendering error
 translations/zh-CN/content/actions/using-containerized-services/creating-redis-service-containers.md,rendering error
-translations/zh-CN/content/actions/using-containerized-services/index.md,rendering error
 translations/zh-CN/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/using-github-hosted-runners/customizing-github-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/using-github-hosted-runners/index.md,rendering error
@@ -142,6 +137,7 @@ translations/zh-CN/content/admin/advanced-security/configuring-code-scanning-for
 translations/zh-CN/content/admin/advanced-security/configuring-secret-scanning-for-your-appliance.md,rendering error
 translations/zh-CN/content/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise.md,rendering error
 translations/zh-CN/content/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/allowing-built-in-authentication-for-users-outside-your-identity-provider.md,rendering error
+translations/zh-CN/content/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-ldap.md,rendering error
 translations/zh-CN/content/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-saml.md,rendering error
 translations/zh-CN/content/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta.md,rendering error
 translations/zh-CN/content/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/index.md,rendering error
@@ -153,6 +149,7 @@ translations/zh-CN/content/admin/authentication/managing-identity-and-access-for
 translations/zh-CN/content/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-network-settings/network-ports.md,rendering error
+translations/zh-CN/content/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/accessing-the-management-console.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance.md,rendering error
@@ -161,7 +158,7 @@ translations/zh-CN/content/admin/configuration/configuring-your-enterprise/confi
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/index.md,rendering error
-translations/zh-CN/content/admin/configuration/configuring-your-enterprise/managing-github-for-mobile-for-your-enterprise.md,rendering error
+translations/zh-CN/content/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,rendering error
 translations/zh-CN/content/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud.md,rendering error
@@ -169,9 +166,11 @@ translations/zh-CN/content/admin/configuration/managing-connections-between-your
 translations/zh-CN/content/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-contributions-between-your-enterprise-account-and-githubcom.md,rendering error
 translations/zh-CN/content/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom.md,rendering error
 translations/zh-CN/content/admin/configuration/managing-connections-between-your-enterprise-accounts/index.md,rendering error
+translations/zh-CN/content/admin/enterprise-management/configuring-clustering/cluster-network-configuration.md,rendering error
 translations/zh-CN/content/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration.md,rendering error
 translations/zh-CN/content/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica.md,rendering error
 translations/zh-CN/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources.md,rendering error
+translations/zh-CN/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity.md,rendering error
 translations/zh-CN/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements.md,rendering error
 translations/zh-CN/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server.md,rendering error
 translations/zh-CN/content/admin/enterprise-support/overview/about-github-enterprise-support.md,rendering error
@@ -260,7 +259,6 @@ translations/zh-CN/content/code-security/code-scanning/automatically-scanning-yo
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,parsing error
-translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow.md,Listed in localization-support#489
@@ -307,6 +305,7 @@ translations/zh-CN/content/codespaces/customizing-your-codespace/setting-your-de
 translations/zh-CN/content/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces.md,rendering error
 translations/zh-CN/content/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces.md,rendering error
 translations/zh-CN/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,rendering error
+translations/zh-CN/content/codespaces/developing-in-codespaces/connecting-to-a-private-network.md,rendering error
 translations/zh-CN/content/codespaces/developing-in-codespaces/creating-a-codespace.md,rendering error
 translations/zh-CN/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,rendering error
 translations/zh-CN/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,rendering error
@@ -369,25 +368,32 @@ translations/zh-CN/content/education/manage-coursework-with-github-classroom/tea
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms.md,rendering error
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding.md,rendering error
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment.md,rendering error
+translations/zh-CN/content/get-started/exploring-projects-on-github/saving-repositories-with-stars.md,rendering error
 translations/zh-CN/content/get-started/getting-started-with-git/caching-your-github-credentials-in-git.md,rendering error
 translations/zh-CN/content/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain.md,rendering error
+translations/zh-CN/content/get-started/index.md,rendering error
 translations/zh-CN/content/get-started/learning-about-github/about-github-advanced-security.md,rendering error
 translations/zh-CN/content/get-started/quickstart/communicating-on-github.md,rendering error
 translations/zh-CN/content/get-started/quickstart/create-a-repo.md,rendering error
+translations/zh-CN/content/get-started/quickstart/fork-a-repo.md,rendering error
 translations/zh-CN/content/get-started/quickstart/git-and-github-learning-resources.md,rendering error
 translations/zh-CN/content/get-started/quickstart/github-flow.md,rendering error
+translations/zh-CN/content/get-started/quickstart/index.md,rendering error
+translations/zh-CN/content/get-started/quickstart/set-up-git.md,rendering error
 translations/zh-CN/content/get-started/signing-up-for-github/index.md,rendering error
 translations/zh-CN/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae.md,rendering error
 translations/zh-CN/content/get-started/using-git/about-git.md,rendering error
 translations/zh-CN/content/get-started/using-git/dealing-with-non-fast-forward-errors.md,rendering error
 translations/zh-CN/content/get-started/using-git/getting-changes-from-a-remote-repository.md,rendering error
 translations/zh-CN/content/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository.md,rendering error
-translations/zh-CN/content/get-started/using-github/github-for-mobile.md,rendering error
+translations/zh-CN/content/get-started/using-github/github-mobile.md,rendering error
+translations/zh-CN/content/get-started/using-github/index.md,rendering error
 translations/zh-CN/content/get-started/using-github/keyboard-shortcuts.md,rendering error
 translations/zh-CN/content/github-cli/github-cli/creating-github-cli-extensions.md,rendering error
 translations/zh-CN/content/github/customizing-your-github-workflow/exploring-integrations/about-github-marketplace.md,rendering error
 translations/zh-CN/content/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line.md,rendering error
 translations/zh-CN/content/github/site-policy/github-terms-for-additional-products-and-features.md,rendering error
+translations/zh-CN/content/github/site-policy/github-terms-of-service.md,rendering error
 translations/zh-CN/content/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository.md,rendering error
 translations/zh-CN/content/github/working-with-github-support/about-github-premium-support-for-github-enterprise-cloud.md,rendering error
 translations/zh-CN/content/github/working-with-github-support/github-enterprise-cloud-support.md,rendering error
@@ -398,6 +404,7 @@ translations/zh-CN/content/github/writing-on-github/working-with-advanced-format
 translations/zh-CN/content/github/writing-on-github/working-with-advanced-formatting/index.md,rendering error
 translations/zh-CN/content/github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections.md,rendering error
 translations/zh-CN/content/graphql/guides/index.md,rendering error
+translations/zh-CN/content/graphql/guides/managing-enterprise-accounts.md,rendering error
 translations/zh-CN/content/graphql/guides/migrating-graphql-global-node-ids.md,rendering error
 translations/zh-CN/content/graphql/index.md,rendering error
 translations/zh-CN/content/issues/guides.md,rendering error
@@ -416,6 +423,7 @@ translations/zh-CN/content/organizations/managing-organization-settings/managing
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization.md,Listed in localization-support#489
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization.md,rendering error
+translations/zh-CN/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-saml-single-sign-on-for-your-organization/index.md,rendering error
 translations/zh-CN/content/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management.md,rendering error
@@ -443,6 +451,7 @@ translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/addres
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request.md,rendering error
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md,rendering error
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests.md,rendering error
+translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork.md,rendering error
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request.md,rendering error
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks.md,rendering error
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork.md,rendering error
@@ -469,6 +478,7 @@ translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-f
 translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,rendering error
 translations/zh-CN/content/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository.md,rendering error
 translations/zh-CN/content/repositories/working-with-files/managing-files/deleting-files-in-a-repository.md,rendering error
+translations/zh-CN/content/repositories/working-with-files/using-files/navigating-code-on-github.md,rendering error
 translations/zh-CN/content/rest/guides/basics-of-authentication.md,Listed in localization-support#489
 translations/zh-CN/content/rest/guides/basics-of-authentication.md,rendering error
 translations/zh-CN/content/rest/guides/discovering-resources-for-a-user.md,rendering error
