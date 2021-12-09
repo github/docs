@@ -7,6 +7,7 @@ import CspParse from 'csp-parse'
 import { productMap } from '../../lib/all-products.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 import { jest } from '@jest/globals'
+import { languageKeys } from '../../lib/languages.js'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 const activeProducts = Object.values(productMap).filter(
@@ -610,6 +611,7 @@ describe('server', () => {
     test('redirects old articles to their English URL', async () => {
       const res = await get('/articles/deleting-a-team')
       expect(res.statusCode).toBe(302)
+      expect(res.headers['set-cookie']).toBeUndefined()
       // no cache control because a language prefix had to be injected
       expect(res.headers['cache-control']).toBeUndefined()
     })
@@ -621,17 +623,48 @@ describe('server', () => {
       )
     })
 
-    test('redirects / to /en', async () => {
+    test('redirects / to /en when no language preference is specified', async () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
       expect(res.headers['cache-control']).toBe('private, no-store')
+      expect(res.headers['set-cookie']).toBeUndefined()
+    })
+
+    test('redirects / to appropriate language preference if specified', async () => {
+      await Promise.all(
+        languageKeys.map(async (languageKey) => {
+          const res = await get('/', {
+            headers: {
+              'accept-language': `${languageKey}`,
+            },
+          })
+          expect(res.statusCode).toBe(302)
+          expect(res.headers.location).toBe(`/${languageKey}`)
+          expect(res.headers['cache-control']).toBe('private, no-store')
+          expect(res.headers['set-cookie']).toBeUndefined()
+        })
+      )
+    })
+
+    test('redirects / to /en when unsupported language preference is specified', async () => {
+      const res = await get('/', {
+        headers: {
+          // Tagalog: https://www.loc.gov/standards/iso639-2/php/langcodes_name.php?iso_639_1=tl
+          'accept-language': 'tl',
+        },
+      })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en')
+      expect(res.headers['cache-control']).toBe('private, no-store')
+      expect(res.headers['set-cookie']).toBeUndefined()
     })
 
     test('adds English prefix to old article URLs', async () => {
       const res = await get('/articles/deleting-a-team')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location.startsWith('/en/')).toBe(true)
+      expect(res.headers['set-cookie']).toBeUndefined()
       expect(res.headers['cache-control']).toBeUndefined()
     })
 
@@ -646,6 +679,7 @@ describe('server', () => {
       const res = await get('/desktop-classic')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('https://desktop.github.com')
+      expect(res.headers['set-cookie']).toBeUndefined()
       expect(res.headers['cache-control']).toBeUndefined()
     })
 
