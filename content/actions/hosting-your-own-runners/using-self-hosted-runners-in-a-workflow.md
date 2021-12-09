@@ -89,12 +89,3 @@ When routing a job to a self-hosted runner, {% data variables.product.prodname_d
    - If there are no matching runners at any level, the job will fail.
    - If the job remains queued for more than 24 hours, the job will fail.
 {% endif %}
-- If the job remains queued for more than 24 hours, the job will fail.
-{% else %}
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
-2. The job is then sent to the first matching runner that is online and idle.
-   - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
-   - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
-   - If there are no matching runners at any level, the job will fail.
-   - If the job remains queued for more than 24 hours, the job will fail.
-{% endif %}
