@@ -14,8 +14,7 @@ header:
     ghes_release_notes_upgrade_release_only: '📣 这不是 Enterprise Server 的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。'
     ghes_release_notes_upgrade_patch_and_release: '📣 这不是此版本系列的<a href="#{{ latestPatch }}">最新修补版</a>，也不是 Enterprise Server 的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。'
 release_notes:
-  banner_text_current: 这些更改将在未来一周内推出。
-  banner_text_past: 这些更改将在下面一周期间部署到企业
+  banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: 需要帮助？
   placeholder: 搜索主题、产品......
