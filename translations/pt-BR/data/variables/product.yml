@@ -46,8 +46,8 @@ prodname_cli: 'GitHub CLI'
 #GitHub Desktop
 prodname_desktop: 'GitHub Desktop'
 desktop_link: 'https://desktop.github.com/'
-#GitHub for Mobile
-prodname_mobile: 'GitHub para dispositivos móveis'
+#GitHub Mobile
+prodname_mobile: 'GitHub Mobile'
 prodname_ios: 'GitHub para iOS'
 prodname_android: 'GitHub para Android'
 #GitHub Pages

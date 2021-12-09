@@ -1,6 +1,6 @@
 ---
-title: Usar o GitHub
-intro: 'Explore os produtos de {% data variables.product.company_short %} de diferentes plataformas e dispositivos.'
+title: Using GitHub
+intro: 'Explore {% data variables.product.company_short %}''s products from different platforms and devices.'
 redirect_from:
   - /articles/using-github
   - /github/getting-started-with-github/using-github/
@@ -14,9 +14,8 @@ children:
   - /supported-browsers
   - /github-cli
   - /github-desktop
-  - /github-for-mobile
+  - /github-mobile
   - /keyboard-shortcuts
   - /github-command-palette
   - /troubleshooting-connectivity-problems
 ---
-
