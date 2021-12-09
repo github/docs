@@ -186,75 +186,81 @@ function getPages(pageList, languages, filters, files, max) {
 }
 
 async function processPage(page, pageMap, redirects, opts) {
-  const { bail, level, verboseUrl, checkAnchors, checkImages } = opts
-  const allFlaws = []
+  const { bail, verboseUrl } = opts
 
-  for (const permalink of page.permalinks) {
-    const html = await renderInnerHTML(page, permalink)
-    const $ = cheerio.load(html)
-    const flaws = []
-    $('a[href]').each((i, link) => {
-      const { href } = link.attribs
+  const allFlawsEach = await Promise.all(
+    page.permalinks.map((permalink) => processPermalink(permalink, page, pageMap, redirects, opts))
+  )
 
-      // The global cache can't be used for anchor links because they
-      // depend on each page it renders
-      if (!href.startsWith('#')) {
-        if (globalHrefCheckCache.has(href)) {
-          globalCacheHitCount++
-          return globalHrefCheckCache.get(href)
-        }
-        globalCacheMissCount++
-      }
+  const allFlaws = allFlawsEach.flat()
 
-      const flaw = checkHrefLink(href, $, redirects, pageMap, checkAnchors)
-
-      // Again if it's *not* an anchor link, we can use the cache.
-      if (!href.startsWith('#')) {
-        globalHrefCheckCache.set(href, flaw)
-      }
-
-      if (flaw) {
-        if (level === 'critical' && !flaw.CRITICAL) {
-          return
-        }
-        const text = $(link).text()
-        flaws.push({ permalink, page, href, flaw, text })
-      }
-    })
-
-    if (checkImages) {
-      $('img[src]').each((i, img) => {
-        const { src } = img.attribs
-
-        if (globalImageSrcCheckCache.has(src)) {
-          globalCacheHitCount++
-          return globalImageSrcCheckCache.get(src)
-        }
-
-        const flaw = checkImageSrc(src, $)
-
-        globalImageSrcCheckCache.set(src, flaw)
-
-        if (flaw) {
-          if (level === 'critical' && !flaw.CRITICAL) {
-            return
-          }
-          flaws.push({ permalink, page, src, flaw })
-        }
-      })
-    }
-
-    if (bail && flaws.length > 0) {
-      printFlaws(flaws, verboseUrl)
-      process.exit(1)
-    }
-
-    allFlaws.push(...flaws)
+  if (bail && allFlaws.length > 0) {
+    printFlaws(allFlaws, verboseUrl)
+    process.exit(1)
   }
 
   printFlaws(allFlaws, verboseUrl)
 
   return allFlaws
+}
+
+async function processPermalink(permalink, page, pageMap, redirects, opts) {
+  const { level, checkAnchors, checkImages } = opts
+  const html = await renderInnerHTML(page, permalink)
+  const $ = cheerio.load(html)
+  const flaws = []
+  $('a[href]').each((i, link) => {
+    const { href } = link.attribs
+
+    // The global cache can't be used for anchor links because they
+    // depend on each page it renders
+    if (!href.startsWith('#')) {
+      if (globalHrefCheckCache.has(href)) {
+        globalCacheHitCount++
+        return globalHrefCheckCache.get(href)
+      }
+      globalCacheMissCount++
+    }
+
+    const flaw = checkHrefLink(href, $, redirects, pageMap, checkAnchors)
+
+    // Again if it's *not* an anchor link, we can use the cache.
+    if (!href.startsWith('#')) {
+      globalHrefCheckCache.set(href, flaw)
+    }
+
+    if (flaw) {
+      if (level === 'critical' && !flaw.CRITICAL) {
+        return
+      }
+      const text = $(link).text()
+      flaws.push({ permalink, page, href, flaw, text })
+    }
+  })
+
+  if (checkImages) {
+    $('img[src]').each((i, img) => {
+      const { src } = img.attribs
+
+      if (globalImageSrcCheckCache.has(src)) {
+        globalCacheHitCount++
+        return globalImageSrcCheckCache.get(src)
+      }
+
+      const flaw = checkImageSrc(src, $)
+
+      globalImageSrcCheckCache.set(src, flaw)
+
+      if (flaw) {
+        if (level === 'critical' && !flaw.CRITICAL) {
+          return
+        }
+        flaws.push({ permalink, page, src, flaw })
+      }
+    })
+  }
+
+  return flaws
 }
 
 function printFlaws(flaws, verboseUrl = null) {
