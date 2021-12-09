@@ -78,7 +78,7 @@ When routing a job to a self-hosted runner, {% data variables.product.prodname_d
 {% elsif ghes = 3.3 %}
 - {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
 - If {% data variables.product.prodname_dotcom %} finds an online and idle runner at a certain level that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
-   - If the runner doesn't pick up the assigned job within 60 seconds, the job is queued at all levels and waits for a matching runner from any level to come online and pick up the job.
+  - If the runner doesn't pick up the assigned job within 60 seconds, the job is queued at all levels and waits for a matching runner from any level to come online and pick up the job.
 - If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner at any level, the job is queued to all levels and waits for a matching runner from any level to come online and pick up the job.
 - If the job remains queued for more than 24 hours, the job will fail.
 {% else %}
