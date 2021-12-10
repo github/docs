@@ -3,7 +3,7 @@ title: Customizing your project (beta) views
 intro: 'Display the information you need by changing the layout, grouping, sorting, and filters in your project.'
 allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
+  ftp: 'ftp://ftp.atomxplus.com'
   ghec: '*'
 type: reference
 topics:
