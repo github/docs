@@ -1,8 +1,8 @@
 ---
 title: Supported browsers
 redirect_from:
-  - /articles/why-doesn-t-graphs-work-with-ie-8/
-  - /articles/why-don-t-graphs-work-with-ie8/
+  - /articles/why-doesn-t-graphs-work-with-ie-8
+  - /articles/why-don-t-graphs-work-with-ie8
   - /articles/supported-browsers
   - /github/getting-started-with-github/supported-browsers
   - /github/getting-started-with-github/using-github/supported-browsers

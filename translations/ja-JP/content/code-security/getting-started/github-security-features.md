@@ -23,7 +23,7 @@ The {% data variables.product.prodname_advisory_database %} contains a curated l
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Available for all repositories
 {% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### Security policy
   
 Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."

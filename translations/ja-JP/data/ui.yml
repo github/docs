@@ -14,8 +14,7 @@ header:
     ghes_release_notes_upgrade_release_only: '📣 これはEnterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。'
     ghes_release_notes_upgrade_patch_and_release: '📣 これはこのリリースシリーズの<a href="#{{ latestPatch }}">最新パッチリリース</a>ではなく、これはEnterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。'
 release_notes:
-  banner_text_current: これらの変更は、次の1週間に渡って展開されます。
-  banner_text_past: これらの変更は、次の週の間にEnterpriseに展開されます：
+  banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: お困りですか？
   placeholder: トピックや製品などの検索

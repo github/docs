@@ -3,7 +3,8 @@
 - 能够向成员授予[对组织仓库的一系列访问权限](/articles/repository-permission-levels-for-an-organization)
 - [反映公司或组结构的嵌套团队](/articles/about-teams)，级联了访问权限和提及{% ifversion not ghae %}
 - 组织所有者能够查看成员的[双重身份验证 (2FA) 状态](/articles/about-two-factor-authentication)
-- 用于[要求所有组织成员使用双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)的选项{% endif %}
+- The option to [require all organization members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}{% ifversion fpt%}
+- The ability to [create and administer classrooms with GitHub Classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms){% endif %}
 
 {% ifversion fpt or ghec %}
 You can use organizations for free, with
