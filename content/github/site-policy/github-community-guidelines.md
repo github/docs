@@ -1,5 +1,127 @@
 ---
-title: GitHub Community Guidelines
+
+API
+API documentation
+API documentation
+Introduction
+General stats endpoints
+Retrieve overall information about blockchains and tokens
+Stats on multiple blockchains at once
+Bitcoin-like blockchain stats
+Ethereum-like blockchain stats
+Ripple-like blockchain stats
+Stellar-like blockchain stats
+Monero-like blockchain stats
+Cardano-like blockchain stats
+Mixin-like DAG stats
+Tezos-like blockchain stats
+EOS-like blockchain stats
+Cross-chain token stats
+Omni Layer stats
+ERC-20 stats
+Dashboard endpoints
+Retrieve information about various entities in a neat format from our databases
+Raw data endpoints
+Retrieve raw information about various entities directly from our full nodes
+Infinitable endpoints
+SQL-like queries: filter, sort, and aggregate blockchain data
+Misc endpoints
+Privacy-o-meter
+News aggregator
+Support
+Show all
+Blockchair API
+Blockchair API
+Blockchair API provides developers, researchers, and businesses with access to data contained in 18 blockchains
+Explore pricing plans
+Ripple-like blockchain stats
+Endpoint:
+
+https://api.blockchair.com/ripple/stats
+Output:
+
+data contains an array with blockchain statistics:
+
+ledgers — total number of ledgers
+circulation — number of coins in circulation (in XRP)
+best_ledger_height — the latest ledger number
+best_ledger_hash — the latest ledger hash
+best_ledger_time — the latest ledger time
+mempool_transactions — number of unconfirmed transactions
+mempool_tps — number of transactions per second added to the mempool
+mempool_total_fee_usd — sum of transaction fees in the mempool, in USD
+ledgers_24h — number of ledgers closed over the last 24 hours
+transactions_24h — number of transactions confirmed over the last 24 hours
+volume_24h — total monetary volume of transactions over the last 24 hours
+average_transaction_fee_24h — average transaction fee over the last 24 hours
+average_transaction_fee_usd_24h — the same in USD
+median_transaction_fee_24h— median transaction fee over the last 24 hours
+median_transaction_fee_usd_24h — the same in USD
+inflation_24h— number of new coins issued over the last 24 hours (can be negative in case more coins are destroyed than issued)
+inflation_usd_24h — the same in USD
+largest_transaction_24h: array of hash and value_usd — biggest payment over the last 24 hours
+market_price_usd — average market price of 1 coin in USD (market data source: CoinGecko)
+market_price_btc — average market price of 1 coin in BTC
+market_price_usd_change_24h_percentage — market price change in percent for 24 hours
+market_cap_usd — market capitalization (coins in circulation * price per coin in USD)
+market_dominance_percentage — dominance index (how much % of the total cryptocurrency market is the market capitalization of the coin)
+countdowns (optional) — an optional array of events ([event, time_left] format), where time_left is the number of seconds till the event
+Example output:
+
+https://api.blockchair.com/ripple/stats:
+
+{
+  "data": {
+    "market_price_usd": 0.290587,
+    "market_price_btc": 0.0000365637358586,
+    "market_price_usd_change_24h_percentage": -3.31938,
+    "market_cap_usd": 12543700763,
+    "market_dominance_percentage": 5.78,
+    "ledgers": 50795576,
+    "best_ledger_height": 50795575,
+    "best_ledger_hash": "07AFA06C63D6C24C31CBD83938A711C098D6C251EEAFC7AE65733CEA3D5EE32A",
+    "best_ledger_time": "2019-10-18 16:28:41",
+    "mempool_transactions": 43,
+    "mempool_total_fee_usd": 0.00024496484099999997,
+    "circulation": 99991318056632960,
+    "average_transaction_fee_24h": 874.9259920487995,
+    "median_transaction_fee_24h": 12,
+    "average_transaction_fee_usd_24h": 0.00025366991765268457,
+    "median_transaction_fee_usd_24h": 0.000003479196,
+    "ledgers_24h": 22359,
+    "transactions_24h": 864272,
+    "mempool_tps": 10.003148148148147,
+    "inflation_24h": -756174037,
+    "inflation_usd_24h": -219.239807069521,
+    "volume_24h": 712237245463407,
+    "largest_transaction_24h": {
+      "hash": "A773E7C3D07D76834280766AF7F90FE7E773E8D5AD77327A603BD6A5B1083611",
+      "value_usd": 14496650
+    }
+  },
+  "context": {
+    "code": 200,
+    ...
+  }
+}
+Request cost formula:
+
+Always 1.
+
+Explore visualization on our front-end:
+
+https://blockchair.com/ripple
+Blockchair logo
+About Blockchair
+FAQ
+Careers
+Terms of service
+Privacy policy
+TwitterTelegramGitHubLinkedIn
+© 2021 Blockchair
+No 3d party trackers
+Works without javascript
+1.010-2604-gf2f056ab-dirty Thu 09 Dec 2021 07:51:32 PM UTC: GitHub Community Guidelines
 redirect_from:
   - /community-guidelines/
   - /articles/github-community-guidelines
