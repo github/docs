@@ -240,7 +240,13 @@ async function processPermalink(permalink, page, pageMap, redirects, opts) {
 
   if (checkImages) {
     $('img[src]').each((i, img) => {
-      const { src } = img.attribs
+      let { src } = img.attribs
+
+      // Images get a cache-busting prefix injected in the image
+      // E.g. <img src="/assets/cb-123456/foo/bar.png">
+      // We need to remove that otherwise we can't look up the image
+      // on disk.
+      src = src.replace(/\/cb-\d+\//, '/')
 
       if (globalImageSrcCheckCache.has(src)) {
         globalCacheHitCount++
