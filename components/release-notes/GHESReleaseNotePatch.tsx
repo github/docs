@@ -66,7 +66,7 @@ export function GHESReleaseNotePatch({
           )}
         </div>
 
-        <p className="color-fg-muted mt-1">{dayjs(patch.date).format('MMMM, DD, YYYY')}</p>
+        <p className="color-fg-muted mt-1">{dayjs(patch.date).format('MMMM DD, YYYY')}</p>
 
         {patch.version !== latestPatch && currentVersion.currentRelease === latestRelease && (
           <p className="color-fg-muted mt-1">

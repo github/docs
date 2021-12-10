@@ -25,14 +25,14 @@ shortTitle: Manage secret alerts
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. In the left sidebar, click **Secret scanning alerts**. 
+1. In the left sidebar, click **Secret scanning alerts**.
    {% ifversion fpt or ghes or ghec %}
    !["Secret scanning alerts" tab](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
    !["Secret scanning alerts" tab](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
    {% endif %}
-4. Under "Secret scanning" click the alert you want to view.
+1. Under "Secret scanning" click the alert you want to view.
    {% ifversion fpt or ghec %}
    ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
@@ -42,7 +42,7 @@ shortTitle: Manage secret alerts
    {% ifversion ghae %}
    ![List of alerts from secret scanning](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
-5. Optionally, use the "Mark as" drop-down menu and click a reason for resolving an alert.
+1. Optionally, select the {% ifversion fpt or ghec %}"Close as"{% elsif ghes or ghae %}"Mark as"{% endif %} drop-down menu and click a reason for resolving an alert.
    {% ifversion fpt or ghec %}
    ![Drop-down menu for resolving an alert from secret scanning](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}

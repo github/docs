@@ -1,6 +1,6 @@
 ---
-title: 关于密码扫描
-intro: '{% data variables.product.product_name %} 扫描仓库查找已知的密码类型，以防止欺诈性使用意外提交的密码。'
+title: About secret scanning
+intro: '{% data variables.product.product_name %} scans repositories for known types of secrets, to prevent fraudulent use of secrets that were committed accidentally.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -23,56 +23,56 @@ topics:
 {% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-如果项目与外部服务通信，您可能使用令牌或私钥进行身份验证。 令牌和私钥是服务提供商可以签发的典型密码。 如果将密码检入仓库，则对仓库具有读取权限的任何人都可以使用该密码以您的权限访问外部服务。 建议将密码存储在项目仓库外部专用的安全位置。
+If your project communicates with an external service, you might use a token or private key for authentication. Tokens and private keys are examples of secrets that a service provider can issue. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. We recommend that you store secrets in a dedicated, secure location outside of the repository for your project.
 
-{% data variables.product.prodname_secret_scanning_caps %} 将在 {% data variables.product.prodname_dotcom %} 仓库中存在的所有分支上扫描整个 Git 历史记录，以查找任何密钥。 服务提供商可与 {% data variables.product.company_short %} 合作提供其用于扫描的密码格式。{% ifversion fpt or ghec %} 更多信息请参阅“[密码扫描合作伙伴计划](/developers/overview/secret-scanning-partner-program)”。
+{% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for any secrets. Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning.{% ifversion fpt or ghec %} For more information, see "[Secret scanning partner program](/developers/overview/secret-scanning-partner-program)."
 {% endif %}
 
 {% data reusables.secret-scanning.about-secret-scanning %}
 
 {% ifversion fpt or ghec %}
-## 关于公共仓库的 {% data variables.product.prodname_secret_scanning %}
+## About {% data variables.product.prodname_secret_scanning %} for public repositories
 
-{% data variables.product.prodname_secret_scanning_caps %} 自动对公共仓库启用。 当您推送到公共仓库时，{% data variables.product.product_name %} 会扫描提交的内容中是否有密码。 如果将私有仓库切换到公共仓库，{% data variables.product.product_name %} 会扫描整个仓库中的密码。
+{% data variables.product.prodname_secret_scanning_caps %} is automatically enabled on public repositories. When you push to a public repository, {% data variables.product.product_name %} scans the content of the commits for secrets. If you switch a private repository to public, {% data variables.product.product_name %} scans the entire repository for secrets.
 
-当 {% data variables.product.prodname_secret_scanning %} 检测一组凭据时，我们会通知发布密码的服务提供商。 服务提供商会验证该凭据，然后决定是否应撤销密钥、颁发新密钥或直接与您联系，具体取决于与您或服务提供商相关的风险。 有关如何使用令牌颁发合作伙伴的概述，请参阅“[密码扫描合作伙伴计划](/developers/overview/secret-scanning-partner-program)”。
+When {% data variables.product.prodname_secret_scanning %} detects a set of credentials, we notify the service provider who issued the secret. The service provider validates the credential and then decides whether they should revoke the secret, issue a new secret, or reach out to you directly, which will depend on the associated risks to you or the service provider. For an overview of how we work with token-issuing partners, see "[Secret scanning partner program](/developers/overview/secret-scanning-partner-program)."
 
 ### List of supported secrets for public repositories
 
-{% data variables.product.product_name %} 当前会扫描公共仓库，查找以下服务提供商发布的密码。
+{% data variables.product.product_name %} currently scans public repositories for secrets issued by the following service providers.
 
 {% data reusables.secret-scanning.partner-secret-list-public-repo %}
 
-## 关于私有仓库的 {% data variables.product.prodname_secret_scanning %}
+## About {% data variables.product.prodname_secret_scanning %} for private repositories
 {% endif %}
 
 {% ifversion ghes or ghae %}
-## 关于 {% data variables.product.product_name %} 上的 {% data variables.product.prodname_secret_scanning %}
+## About {% data variables.product.prodname_secret_scanning %} on {% data variables.product.product_name %}
 
-{% data variables.product.prodname_secret_scanning_caps %} 作为 {% data variables.product.prodname_GH_advanced_security %} 的一部分，在组织拥有的所有仓库上可用。 它不适用于用户拥有的仓库。
+{% data variables.product.prodname_secret_scanning_caps %} is available on all organization-owned repositories as part of {% data variables.product.prodname_GH_advanced_security %}. It is not available on user-owned repositories.
 {% endif %}
 
-如果您是仓库管理员或组织所有者，您可以为组织拥有的{% ifversion fpt or ghec %}私有{% endif %}仓库启用 {% data variables.product.prodname_secret_scanning %}。 You can enable  {% data variables.product.prodname_secret_scanning %} for all your repositories, or for all new repositories within your organization.{% ifversion fpt or ghec %} {% data variables.product.prodname_secret_scanning_caps %} is not available for user-owned private repositories.{% endif %} For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+If you're a repository administrator or an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for {% ifversion fpt or ghec %} private{% endif %} repositories that are owned by organizations. You can enable  {% data variables.product.prodname_secret_scanning %} for all your repositories, or for all new repositories within your organization.{% ifversion fpt or ghec %} {% data variables.product.prodname_secret_scanning_caps %} is not available for user-owned private repositories.{% endif %} For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}You can also define custom {% data variables.product.prodname_secret_scanning %} patterns that only apply to your repository or organization. 更多信息请参阅“[定义 {% data variables.product.prodname_secret_scanning %} 的自定义模式](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)”。{% endif %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}You can also define custom {% data variables.product.prodname_secret_scanning %} patterns that only apply to your repository or organization. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)."{% endif %}
 
 When you push commits to a{% ifversion fpt or ghec %} private{% endif %} repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents of the commits for secrets.
 
 When {% data variables.product.prodname_secret_scanning %} detects a secret in a{% ifversion fpt or ghec %} private{% endif %} repository, {% data variables.product.prodname_dotcom %} generates an alert.
 
-- {% data variables.product.prodname_dotcom %} 向仓库管理员和组织所有者发送电子邮件警报。
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
-- {% data variables.product.prodname_dotcom %} 向提交机密到仓库的贡献者发送电子邮件警报，其中包括指向相关 {% data variables.product.prodname_secret_scanning %} 警报的链接。 然后，提交作者可以在仓库中查看警报，然后解决警报。
+- {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners.
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+- {% data variables.product.prodname_dotcom %} sends an email alert to the contributor who committed the secret to the repository, with a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
 {% endif %}
-- {% data variables.product.prodname_dotcom %} 显示仓库中的警报。{% ifversion ghes = 3.0 %} 更多信息请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)”。{% endif %}
+- {% data variables.product.prodname_dotcom %} displays an alert in the repository.{% ifversion ghes = 3.0 %} For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
-有关查看和解析 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)”。{% endif %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+For more information about viewing and resolving {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
 
-仓库管理员和组织所有者可以授权用户和团队访问 {% data variables.product.prodname_secret_scanning %} 警报。 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”。
+Repository administrators and organization owners can grant users and teams access to {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 
 {% ifversion fpt or ghes > 3.0 or ghec %}
-要监控来自私有仓库或组织中的 {% data variables.product.prodname_secret_scanning %} 的结果，可以使用 {% data variables.product.prodname_secret_scanning %} API。 有关 API 端点的更多信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)”。{% endif %}
+To monitor results from {% data variables.product.prodname_secret_scanning %} across your {% ifversion fpt or ghec %}private {% endif %}repositories{% ifversion ghes > 3.1 %} or your organization{% endif %}, you can use the {% data variables.product.prodname_secret_scanning %} API. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."{% endif %}
 
 {% ifversion ghes or ghae %}
 ## List of supported secrets{% else %}
@@ -86,12 +86,12 @@ When {% data variables.product.prodname_secret_scanning %} detects a secret in a
 {% ifversion ghes < 3.2 or ghae %}
 {% note %}
 
-**注：** {% data variables.product.prodname_secret_scanning_caps %} 当前不允许定义自己的模式来检测密码。
+**Note:** {% data variables.product.prodname_secret_scanning_caps %} does not currently allow you to define your own patterns for detecting secrets.
 
 {% endnote %}
 {% endif %}
 
-## 延伸阅读
+## Further reading
 
-- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"
-- "[保护帐户和数据安全](/github/authenticating-to-github/keeping-your-account-and-data-secure)"
+- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
+- "[Keeping your account and data secure](/github/authenticating-to-github/keeping-your-account-and-data-secure)"

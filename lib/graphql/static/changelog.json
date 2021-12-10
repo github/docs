@@ -4,6 +4,43 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Argument `filterByAssignable: Boolean` added to field `Repository.discussionCategories`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `BranchActorAllowanceActor` was added",
+          "Type `BypassPullRequestAllowance` was added",
+          "Type `BypassPullRequestAllowanceConnection` was added",
+          "Type `BypassPullRequestAllowanceEdge` was added",
+          "Type `ContentAttachment` was removed",
+          "Type `ContentReference` was removed",
+          "Type `CreateContentAttachmentInput` was removed",
+          "Type `CreateContentAttachmentPayload` was removed",
+          "Field `bypassPullRequestAllowances` was added to object type `BranchProtectionRule`",
+          "Input field `bypassPullRequestActorIds` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Field `createContentAttachment` was removed from object type `Mutation`",
+          "Input field `bypassPullRequestActorIds` was added to input object type `UpdateBranchProtectionRuleInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `RequiredStatusCheckDescription` was added",
           "Type `RequiredStatusCheckInput` was added",
           "Field `requiredStatusChecks` was added to object type `BranchProtectionRule`",

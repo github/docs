@@ -3,7 +3,7 @@ title: GitHub Enterprise guides
 shortTitle: Guides
 intro: 'Learn how to increase developer productivity and code quality with {% data variables.product.product_name %}.'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   ghec: '*'
   ghes: '*'

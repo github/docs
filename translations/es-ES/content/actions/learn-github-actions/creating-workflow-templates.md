@@ -1,7 +1,7 @@
 ---
-title: Crear plantillas de flujo de trabajo
-shortTitle: Crear plantillas
-intro: Aprende cómo puedes crear plantillas de flujo de trabajo para ayudar a los integrantes de tu equipo a agregar flujos de trabajo nuevos más fácilmente.
+title: Creating workflow templates
+shortTitle: Creating templates
+intro: Learn how you can create workflow templates to help people in your team add new workflows more easily.
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
@@ -19,13 +19,13 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-## Resumen
+## Overview
 
 {% data reusables.actions.workflow-organization-templates %}
 
-## Crear una plantilla de flujo de trabajo
+## Creating a workflow template
 
-Los usuarios con acceso de escritura en el repositorio `.github` de la organización pueden crear plantillas de flujo de trabajo. Los miembros de la organización que tengan permisos para crear flujos de trabajo podrán entonces utilizar estas plantillas.
+Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows.
 
 {% ifversion fpt %}
 Your workflow templates can be used to create workflows in public repositories only. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use workflow templates to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-workflow-templates).
@@ -34,20 +34,20 @@ Your workflow templates can be used to create workflows in public repositories o
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 {% note %}
 
-**Nota:** Para evitar la duplicación en los flujos de trabajo que se crean a partir de una plantilla, puedes llamar a los flujos reutilizables desde una plantilla de flujo de trabajo. Esto puede ayudar a que tus flujos de trabajo se mantengan más fácilmente. Para obtener más información, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
+**Note:** To avoid duplication in workflows created from a template you can call reusable workflows from within a workflow template. This can help make your workflows easier to maintain. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 
 {% endnote %}
 {% endif %}
 
-Este procedimiento muestra cómo crear una plantilla de flujo de trabajo y un archivo de metadatos. El archivo de metadatos describe cómo se presenta la plantilla a los usuarios cuando están creando un flujo de trabajo nuevo.
+This procedure demonstrates how to create a workflow template and metadata file. The metadata file describes how the template is presented to users when they are creating a new workflow.
 
-1. En caso de que no exista previamente, crea en tu organización un repositorio público nuevo que se llame `.github`.
-2. Crea un directorio que se llame `workflow-templates`.
-3. Crea tu nuevo archivo de flujo de trabajo dentro del directorio `workflow-templates`.
+1. If it doesn't already exist, create a new public repository named `.github` in your organization.
+2. Create a directory named `workflow-templates`.
+3. Create your new workflow file inside the `workflow-templates` directory.
 
-   Si necesitas referirte a la rama predeterminada de un repositorio, puedes utilizar el marcador de posición `$default-branch`. Cuando se crea un flujo de trabajo utilizando tu plantilla, el marcador de posición se reemplazará automáticamente con el nombre de la rama predeterminada del repositorio.
+   If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created using your template, the placeholder will be automatically replaced with the name of the repository's default branch.
 
-   Por ejemplo, este archivo de nombre `octo-organization-ci.yml` ilustra un flujo de trabajo básico.
+   For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
 
    ```yaml
    name: Octo Organization CI
@@ -68,7 +68,7 @@ Este procedimiento muestra cómo crear una plantilla de flujo de trabajo y un ar
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-4. Crea un archivo de metadatos dentro del directorio `workflow-templates`. El archivo de metadatos debe tener el mismo nombre que el archivo de flujo de trabajo, pero en vez de tener la extensión `.yml`, este deberá encontrarse adjunto en `.properties.json`. Por ejemplo, este archivo que se llama `octo-organization-ci.properties.json` contiene los metadatos para un archivo de flujo de trabajo de nombre `octo-organization-ci.yml`:
+4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
    ```yaml
    {
        "name": "Octo Organization Workflow",
@@ -84,16 +84,16 @@ Este procedimiento muestra cómo crear una plantilla de flujo de trabajo y un ar
        ]
    }
    ```
-   * `name` - **Requerido.** El nombre de la plantilla de flujo de trabajo. Este se muestra en la lista de plantillas disponibles.
-   * `description` - **Requerido.** La descripción de la plantilla de flujo de trabajo. Este se muestra en la lista de plantillas disponibles.
-   * `iconName` - **Requerido.** Define un icono en la lista de plantillas para la entrada del flujo de trabajo. El `iconName` debe ser un icono en SVG del mismo nombre y se debe almacenar en el directorio `workflow-templates`. Por ejemplo, un archivo de tipo SVG que se nombre `example-icon.svg` se referenciará como `example-icon`.
-   * `categories` - **Opcional.** Define la categoría de lenguaje del flujo de trabajo. Cuando un usuario visualiza las plantillas disponibles, aquellas que empaten con el mismo lenguaje se presentarán con mayor prominencia. Para obtener información sobre las categorías de lenguaje disponibles, consulta https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
-   * `filePatterns` - **Opcional.** Permite que se utilice la plantilla si el repositorio del usuario contiene un archivo en su directorio raíz, el cual empate con una expresión regular definida.
+   * `name` - **Required.** The name of the workflow template. This is displayed in the list of available templates.
+   * `description` - **Required.** The description of the workflow template. This is displayed in the list of available templates.
+   * `iconName` - **Optional.** Defines an icon for the workflow's entry in the template list. The `iconName` must be an SVG icon of the same name, and must be stored in the `workflow-templates` directory. For example, a SVG file named `example-icon.svg` is referenced as `example-icon`.
+   * `categories` - **Optional.** Defines the language category of the workflow. When a user views the available templates, those templates that match the same language will feature more prominently. For information on the available language categories, see https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
+   * `filePatterns` - **Optional.** Allows the template to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
-Para agregar otra plantilla de flujo de trabajo, agrega tus archivos al mismo directorio de `workflow-templates`. Por ejemplo:
+To add another workflow template, add your files to the same `workflow-templates` directory. For example:
 
-![Archivos de plantilla de flujo de trabajo](/assets/images/help/images/workflow-template-files.png)
+![Workflow template files](/assets/images/help/images/workflow-template-files.png)
 
-## Pasos siguientes
+## Next steps
 
-Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Utilizar plantillas de flujo de trabajo](/actions/learn-github-actions/using-workflow-templates)".
+To continue learning about {% data variables.product.prodname_actions %}, see "[Using workflow templates](/actions/learn-github-actions/using-workflow-templates)."

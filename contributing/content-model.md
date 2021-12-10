@@ -181,7 +181,7 @@ Use the [referential content template](https://github.com/github/docs/blob/main/
   - [Billing](https://docs.github.com/en/rest/reference/billing) in the REST API documentation
   - [Mutations](https://docs.github.com/en/graphql/reference/mutations) in the GraphQL API documentation
 - Referential sections within other articles
-  - Supported languages in [GitHub for mobile](https://docs.github.com/en/github/getting-started-with-github/github-for-mobile#supported-languages-for-github-for-mobile)
+  - Supported languages in [GitHub Mobile](https://docs.github.com/en/get-started/using-github/github-mobile#supported-languages-for-github-mobile)
   - Hardware considerations in [Installing GitHub Enterprise Server on AWS](https://docs.github.com/en/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws)
 
 ### Procedural

@@ -1,0 +1,20 @@
+date: '2021-12-07'
+sections:
+  security_fixes:
+    - Support bundles could include sensitive files if they met a specific set of conditions. 
+  bugs:
+    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`. 
+    - A misconfiguration in the Management Console caused scheduling errors. 
+    - Docker would hold log files open after a log rotation. 
+    - GraphQL requests did not set the GITHUB_USER_IP variable in pre-receive hook environments. 
+  changes:
+    - Clarifies explanation of Actions path-style in documentation. 
+    - Updates support contact URLs to use the current support site, support.github.com. 
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

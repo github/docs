@@ -1,1 +1,1 @@
-Cuando habilitas {% data variables.product.prodname_actions %}, los flujos de trabajo puede ejecutar acciones ubicadas dentro de tu repositorio y en cualquier otro repositorio público.
+When you enable {% data variables.product.prodname_actions %}, workflows are able to run actions located within your repository and any other{% ifversion fpt %} public{% elsif ghec or ghes %} public or internal{% elsif ghae %} internal{% endif %} repository.
