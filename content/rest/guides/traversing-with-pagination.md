@@ -16,7 +16,7 @@ shortTitle: Traverse with pagination
 
 The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume.
 Most of the time, you might even find that you're asking for _too much_ information,
-and in order to keep our servers happy, the API will automatically [paginate the requested items][/rest/overview/resources-in-the-rest-api#pagination].
+and in order to keep our servers happy, the API will automatically [paginate the requested items](/rest/overview/resources-in-the-rest-api#pagination).
 
 In this guide, we'll make some calls to the Search API, and iterate over
 the results using pagination. You can find the complete source code for this project
