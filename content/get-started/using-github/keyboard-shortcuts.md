@@ -2,9 +2,9 @@
 title: Keyboard shortcuts
 intro: 'Nearly every page on {% data variables.product.prodname_dotcom %} has a keyboard shortcut to perform actions faster.'
 redirect_from:
-  - /articles/using-keyboard-shortcuts/
-  - /categories/75/articles/
-  - /categories/keyboard-shortcuts/
+  - /articles/using-keyboard-shortcuts
+  - /categories/75/articles
+  - /categories/keyboard-shortcuts
   - /articles/keyboard-shortcuts
   - /github/getting-started-with-github/keyboard-shortcuts
   - /github/getting-started-with-github/using-github/keyboard-shortcuts

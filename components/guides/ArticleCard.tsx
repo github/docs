@@ -16,20 +16,22 @@ export const ArticleCard = ({ card, typeLabel }: Props) => {
         </div>
         <p className="color-fg-muted my-3" dangerouslySetInnerHTML={{ __html: card.intro }} />
         {card.topics.length > 0 && (
-          <div>
+          <ul style={{ listStyleType: 'none' }}>
             {card.topics.map((topic) => {
               return (
-                <Label
-                  key={topic}
-                  data-testid="article-card-topic"
-                  variant="small"
-                  sx={{ bg: 'accent.emphasis', mr: 1 }}
-                >
-                  {topic}
-                </Label>
+                <li className="d-inline-block">
+                  <Label
+                    key={topic}
+                    data-testid="article-card-topic"
+                    variant="small"
+                    sx={{ bg: 'accent.emphasis', mr: 1 }}
+                  >
+                    {topic}
+                  </Label>
+                </li>
               )
             })}
-          </div>
+          </ul>
         )}
       </a>
     </div>
