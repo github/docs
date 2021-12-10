@@ -123,7 +123,7 @@
     "babel-loader": "^8.2.3",
     "babel-plugin-styled-components": "^1.13.3",
     "babel-preset-env": "^1.7.0",
-    "chalk": "^4.1.2",
+    "chalk": "^5.0.0",
     "commander": "^8.2.0",
     "count-array-values": "^1.2.1",
     "cross-env": "^7.0.3",
