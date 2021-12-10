@@ -61,7 +61,7 @@ jobs:
           branch: remove-unused-assets
       - if: ${{ failure() }}
         name: Delete remote branch (if previous steps failed)
-        uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
+        uses: dawidd6/action-delete-branch@d1efac9a6f7a9b408d4e8ff663a99c1fbac17b3f
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branches: remove-unused-assets
