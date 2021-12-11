@@ -13087,6 +13087,46 @@
       ]
     },
     {
+      "name": "ConvertedToDiscussionEvent",
+      "kind": "objects",
+      "id": "convertedtodiscussionevent",
+      "href": "/graphql/reference/objects#convertedtodiscussionevent",
+      "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "discussion",
+          "description": "<p>The discussion that the issue was converted into.</p>",
+          "type": "Discussion",
+          "id": "discussion",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#discussion"
+        }
+      ]
+    },
+    {
       "name": "CreatedCommitContribution",
       "kind": "objects",
       "id": "createdcommitcontribution",
@@ -67238,6 +67278,10 @@
           "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+        },
+        {
           "name": "CROSS_REFERENCED_EVENT",
           "description": "<p>Represents a mention made by one issue or pull request to another.</p>"
         },
@@ -68464,6 +68508,10 @@
         {
           "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
           "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
         },
         {
           "name": "CONVERT_TO_DRAFT_EVENT",
@@ -70300,6 +70348,11 @@
           "href": "/graphql/reference/objects#convertednotetoissueevent"
         },
         {
+          "name": "ConvertedToDiscussionEvent",
+          "id": "convertedtodiscussionevent",
+          "href": "/graphql/reference/objects#convertedtodiscussionevent"
+        },
+        {
           "name": "CrossReferencedEvent",
           "id": "crossreferencedevent",
           "href": "/graphql/reference/objects#crossreferencedevent"
@@ -71104,6 +71157,11 @@
           "name": "ConvertedNoteToIssueEvent",
           "id": "convertednotetoissueevent",
           "href": "/graphql/reference/objects#convertednotetoissueevent"
+        },
+        {
+          "name": "ConvertedToDiscussionEvent",
+          "id": "convertedtodiscussionevent",
+          "href": "/graphql/reference/objects#convertedtodiscussionevent"
         },
         {
           "name": "CrossReferencedEvent",
