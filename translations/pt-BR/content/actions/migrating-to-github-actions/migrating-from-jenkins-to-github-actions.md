@@ -2,7 +2,6 @@
 title: Migrating from Jenkins to GitHub Actions
 intro: '{% data variables.product.prodname_actions %} and Jenkins share multiple similarities, which makes migration to {% data variables.product.prodname_actions %} relatively straightforward.'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-jenkins-to-github-actions
   - /actions/learn-github-actions/migrating-from-jenkins-to-github-actions
 versions:
   fpt: '*'

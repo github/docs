@@ -2,7 +2,7 @@
 title: GitHub's SSH key fingerprints
 intro: Public key fingerprints can be used to validate a connection to a remote server.
 redirect_from:
-  - /articles/what-are-github-s-ssh-key-fingerprints/
+  - /articles/what-are-github-s-ssh-key-fingerprints
   - /articles/github-s-ssh-key-fingerprints
   - /articles/githubs-ssh-key-fingerprints
   - /github/authenticating-to-github/githubs-ssh-key-fingerprints
