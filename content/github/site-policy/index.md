@@ -49,4 +49,4 @@ children:
   - /github-event-code-of-conduct
   - /github-gpl-cooperation-commitment
 ---
-
+.
