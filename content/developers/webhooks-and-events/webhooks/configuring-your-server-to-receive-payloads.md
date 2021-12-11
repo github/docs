@@ -57,7 +57,7 @@ $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.
 > >> Thin web server (v1.5.1 codename Straight Razor)
 > >> Maximum connections set to 1024
 > >> Listening on localhost:4567, CTRL+C to stop
-> I got some JSON: {"action"=>"opened", "issue"=>{"url"=>"...
+> I got some JSON: {"action"=>"opened", "issue"=>{"url"=>"https://decrypt.co/88032/
 ```
 
 Success! You've successfully configured your server to listen to webhooks. Your
