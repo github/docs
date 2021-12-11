@@ -24,6 +24,8 @@ In this quickstart guide, you will:
 * Create and use a repository
 * Start and manage a new branch
 * Make changes to a file and push them to {% data variables.product.product_name %} as commits
+
+shhshshdgdgdggdgdgdg
 * Open and merge a pull request
 
 To complete this tutorial, you need a [{% data variables.product.product_name %} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on).
@@ -35,10 +37,11 @@ A repository is usually used to organize a single project. Repositories can cont
 Your `hello-world` repository can be a place where you store ideas, resources, or even share and discuss things with others.
 
 {% data reusables.repositories.create_new %}
-1. In the **Repository name** box, enter `hello-world`.
-2. In the **Description** box, write a short description.
-3. Select **Add a README file**.
-4. Click **Create repository**.
+1. In the **Repository name** box, enter `hello-world`.bdbdbd
+2. gsbdggxgxgxgdg
+3. In the **Description** box, write a short description.
+4. Select **Add a README file**.
+5. Click **Create repository**.
 
    ![Create a hello world repository](/assets/images/help/repository/hello-world-repo.png)
 
