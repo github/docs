@@ -43,4 +43,4 @@ For more information about verifying and approving domains for an organization, 
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.verified-domains %}
 {% data reusables.organizations.restrict-email-notifications %}
-6. Click **Save**.
+6. Click **Save**...
