@@ -1,3 +1,4 @@
+[dziobak92pl-2021-12-11-2021-12-11.csv](https://github.com/github/docs/files/7697681/dziobak92pl-2021-12-11-2021-12-11.csv)
 ---
 title: Introduction to GitHub Packages
 intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately {% ifversion ghae %} for specified users or internally for your enterprise{% else %}or publicly{% endif %} and use packages as dependencies in your projects.'
