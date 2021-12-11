@@ -169,8 +169,9 @@ jobs:
           gh pr create --title "New translation batch for ${{ matrix.language }}" \
             --base=main \
             --head=${{ steps.set-branch.outputs.BRANCH_NAME }} \
-            --body-file /tmp/pr-body.txt || git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }} \
-            --label "translation-batch"
+            --label "translation-batch-${{ matrix.language }}" \
+            --label "translation-batch" \
+            --body-file /tmp/pr-body.txt || git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }}
 
       - name: Approve PR
         if: github.ref_name == 'main'
