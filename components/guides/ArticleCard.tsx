@@ -19,9 +19,8 @@ export const ArticleCard = ({ card, typeLabel }: Props) => {
           <ul style={{ listStyleType: 'none' }}>
             {card.topics.map((topic) => {
               return (
-                <li className="d-inline-block">
+                <li className="d-inline-block" key={topic}>
                   <Label
-                    key={topic}
                     data-testid="article-card-topic"
                     variant="small"
                     sx={{ bg: 'accent.emphasis', mr: 1 }}
