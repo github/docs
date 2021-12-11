@@ -2,16 +2,16 @@
 title: Viewing your subscriptions
 intro: 'To understand where your notifications are coming from and your notifications volume, we recommend reviewing your subscriptions and watched repositories regularly.'
 redirect_from:
-  - /articles/subscribing-to-conversations/
-  - /articles/unsubscribing-from-conversations/
+  - /articles/subscribing-to-conversations
+  - /articles/unsubscribing-from-conversations
   - /articles/subscribing-to-and-unsubscribing-from-notifications
   - /articles/listing-the-issues-and-pull-requests-youre-subscribed-to
-  - /articles/watching-repositories/
-  - /articles/unwatching-repositories/
+  - /articles/watching-repositories
+  - /articles/unwatching-repositories
   - /articles/watching-and-unwatching-repositories
   - /articles/watching-and-unwatching-releases-for-a-repository
   - /articles/watching-and-unwatching-team-discussions
-  - /articles/listing-watched-repositories/
+  - /articles/listing-watched-repositories
   - /articles/listing-the-repositories-you-re-watching
   - /articles/listing-the-repositories-youre-watching
   - /github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions
