@@ -1,16 +1,17 @@
 ---
 title: Supported browsers
 redirect_from:
-  - /articles/why-doesn-t-graphs-work-with-ie-8/
-  - /articles/why-don-t-graphs-work-with-ie8/
+  - /articles/why-doesn-t-graphs-work-with-ie-8
+  - /articles/why-don-t-graphs-work-with-ie8
   - /articles/supported-browsers
   - /github/getting-started-with-github/supported-browsers
   - /github/getting-started-with-github/using-github/supported-browsers
 intro: 'We design {% data variables.product.product_name %} to support the latest web browsers. We support the current versions of [Chrome](https://www.google.com/chrome/), [Firefox](http://www.mozilla.org/firefox/), [Safari](http://www.apple.com/safari/), and [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge).'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 ## Firefox Extended Support Release
 

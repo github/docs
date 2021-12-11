@@ -5,7 +5,7 @@ intro: 'You can use a tenant in Azure Active Directory (Azure AD) as an identity
 permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -41,7 +41,7 @@ To configure authentication and user provisioning for {% data variables.product.
 
 ## Configuring authentication and user provisioning with Azure AD
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 1. In Azure AD, add {% data variables.product.ae_azure_ad_app_link %} to your tenant and configure single sign-on. For more information, see [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs.
 

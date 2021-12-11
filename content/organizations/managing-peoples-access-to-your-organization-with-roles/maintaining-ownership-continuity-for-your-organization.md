@@ -9,12 +9,14 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
 permissions: Organization owners can promote any member of an organization to an organization owner.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Maintain ownership continuity
 ---
 
 ## About maintaining ownership continuity for your organization

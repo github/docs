@@ -6,9 +6,11 @@ redirect_from:
   - /articles/securing-your-github-pages-site-with-https
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Secure site with HTTPS
 ---
 
 People with admin permissions for a repository can enforce HTTPS for a {% data variables.product.prodname_pages %} site.
@@ -20,6 +22,12 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 {% data reusables.pages.no_sensitive_data_pages %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
+
+{% note %}
+
+**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
+
+{% endnote %}
 
 ## Enforcing HTTPS for your {% data variables.product.prodname_pages %} site
 

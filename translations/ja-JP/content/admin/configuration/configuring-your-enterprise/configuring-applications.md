@@ -6,14 +6,14 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-applications
   - /admin/configuration/configuring-applications
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
 ---
 
-### 画像キャッシュを調整する
+## 画像キャッシュを調整する
 
 {% data variables.product.product_location %} がアバターをキャッシュする時間を選択できます。 キャッシュ時間を長くすると、ユーザのアバターをロードするのにかかる時間が長くなります。 キャッシュ時間を短すぎる値で設定すると、{% data variables.product.product_location %} のワークプロセスが過負荷になる可能性があります。
 

@@ -1,12 +1,14 @@
 ---
 title: Organizations
+intro: 'The Organizations API gives you access to control and manage all your {% data variables.product.product_name %} organizations.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -16,7 +18,7 @@ miniTocMaxHeadingLevel: 3
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 ## Blocking users
 
 The token used to authenticate the call must have the `admin:org` scope in order to make any blocking calls for an organization. Otherwise, the response returns `HTTP 404`.  
@@ -39,9 +41,19 @@ The token used to authenticate the call must have the `admin:org` scope in order
   {% if operation.subcategory == 'outside-collaborators' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghes > 3.4  %}
+## Custom repository roles
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'custom_roles' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
+
 ## Webhooks
 
-Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen within the organization. Subscribing to these events makes it possible to build integrations that react to events on {% data variables.product.product_name %}. For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
+Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. {% data reusables.webhooks.webhooks-rest-api-links %}
+
+For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
 
 ### Scopes & Restrictions
 

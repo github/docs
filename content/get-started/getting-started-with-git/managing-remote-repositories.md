@@ -2,9 +2,9 @@
 title: Managing remote repositories
 intro: 'Learn to work with your local repositories on your computer and remote repositories hosted on {% data variables.product.product_name %}.'
 redirect_from:
-  - /categories/18/articles/
-  - /remotes/
-  - /categories/managing-remotes/
+  - /categories/18/articles
+  - /remotes
+  - /categories/managing-remotes
   - /articles/managing-remote-repositories
   - /articles/adding-a-remote
   - /github/using-git/adding-a-remote
@@ -19,9 +19,11 @@ redirect_from:
   - /github/getting-started-with-github/managing-remote-repositories
   - /github/getting-started-with-github/getting-started-with-git/managing-remote-repositories
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Manage remote repositories
 ---
 ## Adding a remote repository
 
@@ -170,7 +172,7 @@ $ git remote -v
 
 ### Troubleshooting: Could not rename config section 'remote.[old name]' to 'remote.[new name]'
 
-This error means that the remote you tried the old remote name you typed doesn't exist.
+This error means that the old remote name you typed doesn't exist.
 
 You can check which remotes currently exist with the `git remote -v` command:
 

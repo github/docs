@@ -7,7 +7,8 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /developers/github-marketplace/handling-plan-changes
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---

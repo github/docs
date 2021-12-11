@@ -4,7 +4,7 @@ redirect_from:
   - /eu-safe-harbor/
   - /articles/global-privacy-practices
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

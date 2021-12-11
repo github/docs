@@ -6,13 +6,14 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
   - /admin/enterprise-management/increasing-storage-capacity
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
   - Storage
+shortTitle: Increase storage capacity
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
@@ -63,22 +64,29 @@ As more users join {% data variables.product.product_location %}, you may need t
 {% endwarning %}
 
 1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
-2. Run the `parted` command to format the disk:
+1. Run the `parted` command to format the disk:
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-3. Run the `ghe-upgrade` command to install a full, platform specific package to the newly partitioned disk. A universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`, will not work as expected. After the `ghe-upgrade` command completes, application services will automatically terminate.
+1. To stop replication, run the `ghe-repl-stop` command.
+
+   ```shell
+   $ ghe-repl-stop
+   ```
+   
+1. Run the `ghe-upgrade` command to install a full, platform specific package to the newly partitioned disk. A universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`, will not work as expected. After the `ghe-upgrade` command completes, application services will automatically terminate.
 
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. As the root user, using a text editor of your choice, edit the _/etc/fstab_ file, changing the UUID for the `/` mount point to the UUID of the new root drive. You can obtain the UUID of the new root drive with the command `sudo lsblk -f`.
-5. Shut down the appliance:
+1. Shut down the appliance:
   ```shell
   $ sudo poweroff
   ```
-6. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
-7. Start the appliance.
-8. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+1. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
+1. Start the appliance.
+1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+
+If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.

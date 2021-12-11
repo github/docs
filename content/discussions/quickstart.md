@@ -3,14 +3,15 @@ title: Quickstart for GitHub Discussions
 intro: 'Enable {% data variables.product.prodname_discussions %} on an existing repository and start conversations with your community.'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Quickstart
 ---
 
-{% data reusables.discussions.beta %}
 
 ## Introduction
 
-{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike issues. Discussions enable fluid, open conversation in a public forum.
+{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike {% data variables.product.prodname_github_issues %}. Discussions enable fluid, open conversation in a public forum.
 
 Discussions give a space for more collaborative conversations by connecting and giving a more centralized area to connect and find information.
 
@@ -18,21 +19,21 @@ Discussions give a space for more collaborative conversations by connecting and 
 
 Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public and private repositories.
 
-When you first enable a {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
+When you first enable {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %}
 **Settings**.
 ![Public settings button](/assets/images/help/discussions/public-repo-settings.png)
 1. Under "Features", click **Set up discussions**.
-  ![Set up a discussion button under "Features" for enabling or disabling discussions for a repository](/assets/images/help/discussions/setup-discussions-button.png)
+  ![Set up a discussion button under "Features" for enabling or disabling GitHub Discussions for a repository](/assets/images/help/discussions/setup-discussions-button.png)
 1. Under "Start a new discussion," edit the template to align with the resources and tone you want to set for your community.
 1. Click **Start discussion**.
   !["Start discussion" button](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
 
 ## Welcoming contributions to your discussions
 
-You can welcome your community and introduce a new way to communicate in a repository by creating a welcome post and pin the post to your {% data variables.product.prodname_discussions %} page. Pinning and locking discussions helps people know that a post is meant as an announcement. You can use announcements as a way to link people to more resources and offer guidance for opening discussions in your community. For more information about pinning a discussion, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)."
+You can welcome your community and introduce a new way to communicate in a repository by creating a welcome post and pinning the post to your {% data variables.product.prodname_discussions %} page. Pinning and locking discussions helps people know that a post is meant as an announcement. You can use announcements as a way to link people to more resources and offer guidance for opening discussions in your community. For more information about pinning a discussion, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)."
 
 
 ## Setting up community guidelines for contributors
@@ -43,7 +44,7 @@ For more information about providing guidelines for your project, see "[Adding a
 
 ## Creating a new discussion
 
-Anyone with access to a repository can create a discussion.
+Any authenticated user who can view a repository can create a discussion.
 
 {% data reusables.discussions.starting-a-discussion %}
 

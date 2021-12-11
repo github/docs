@@ -6,12 +6,20 @@ redirect_from:
   - /articles/configuring-automation-for-project-boards
   - /github/managing-your-work-on-github/configuring-automation-for-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Projects
+  - Issues
+  - Project management
+shortTitle: Configure automation
+type: how_to
 ---
+{% data reusables.projects.project_boards_old %}
+
 {% data reusables.project-management.automate-project-board-permissions %} For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards)."
 
 {% data reusables.project-management.use-automated-template %}

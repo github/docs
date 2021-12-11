@@ -5,13 +5,14 @@ redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
   - /admin/user-management/removing-users-from-teams-and-organizations
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Accounts
   - Enterprise
   - Teams
+shortTitle: Eliminar la membrecía de usuario
 ---
 
 Solo los propietarios o los administradores del equipo pueden eliminar miembros de la organización. Cuando se elimina un usuario de un equipo o una organización, sus propuestas, solicitudes de extracción y comentarios en los repositorios de la organización permanecen intactos y siguen siendo atribuidos al usuario.
@@ -22,7 +23,7 @@ Solo los propietarios o los administradores del equipo pueden eliminar miembros 
 
 {% endwarning %}
 
-### Eliminar un miembro del equipo
+## Eliminar un miembro del equipo
 
 {% warning %}
 
@@ -38,7 +39,7 @@ Para eliminar un miembro existente de un equipo sincronizado a un grupo LDAP, co
 4. Selecciona la persona o las personas que quieres eliminar. ![Casilla junto al miembro de la organización](/assets/images/help/teams/team-member-check-box.png)
 5. Arriba de la lista de miembros del equipo, utiliza el menú desplegable y haz clic en **Remove from team** (Eliminar del equipo). ![Menú desplegable con opción para cambiar el rol](/assets/images/help/teams/bulk-edit-drop-down.png)
 
-### Eliminar un usuario de una organización
+## Eliminar un usuario de una organización
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

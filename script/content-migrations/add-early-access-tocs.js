@@ -1,18 +1,17 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import readFrontmatter from '../../lib/read-frontmatter.js'
+import { sentenceCase } from 'change-case'
 
-const fs = require('fs')
-const path = require('path')
-const readFrontmatter = require('../../lib/read-frontmatter')
 const earlyAccessDir = path.posix.join(process.cwd(), 'content', 'early-access')
-const { sentenceCase } = require('change-case')
 
 updateOrCreateToc(earlyAccessDir)
 
 console.log('Updated Early Access TOCs!')
 
-function updateOrCreateToc (directory) {
-  const children = fs.readdirSync(directory)
-    .filter(subpath => !subpath.endsWith('index.md'))
+function updateOrCreateToc(directory) {
+  const children = fs.readdirSync(directory).filter((subpath) => !subpath.endsWith('index.md'))
 
   if (!children.length) return
 
@@ -29,15 +28,15 @@ function updateOrCreateToc (directory) {
     data = {
       title: sentenceCase(path.basename(directory)),
       versions: '*',
-      hidden: true
+      hidden: true,
     }
   }
 
-  data.children = children.map(child => `/${child.replace('.md', '')}`)
+  data.children = children.map((child) => `/${child.replace('.md', '')}`)
   const newContents = readFrontmatter.stringify(content, data, { lineWidth: 10000 })
   fs.writeFileSync(tocFile, newContents)
 
-  children.forEach(child => {
+  children.forEach((child) => {
     if (child.endsWith('.md')) return
     updateOrCreateToc(path.posix.join(directory, child))
   })

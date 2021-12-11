@@ -5,7 +5,9 @@ redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.2'
 type: how_to
 topics:
   - Repositories
@@ -14,12 +16,18 @@ topics:
   - Pull requests
   - Dependencies
   - Vulnerabilities
+shortTitle: Manage Dependabot PRs
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## About {% data variables.product.prodname_dependabot %} pull requests
 
 {% data reusables.dependabot.pull-request-introduction %}
 
-When {% data variables.product.prodname_dependabot %} raises a pull request, you're notified by your chosen method for the repository. Each pull request contains detailed information about the proposed change, taken from the package manager. These pull requests follow the normal checks and tests defined in your repository. In addition, where enough information is available, you'll see a compatibility score. This may also help you decide whether or not to merge the change. For information about this score, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+When {% data variables.product.prodname_dependabot %} raises a pull request, you're notified by your chosen method for the repository. Each pull request contains detailed information about the proposed change, taken from the package manager. These pull requests follow the normal checks and tests defined in your repository. 
+{% ifversion fpt or ghec %}In addition, where enough information is available, you'll see a compatibility score. This may also help you decide whether or not to merge the change. For information about this score, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."{% endif %}
 
 If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. For more information, see "[Customizing dependency updates](/github/administering-a-repository/customizing-dependency-updates)."
 
@@ -27,8 +35,8 @@ If you have many dependencies to manage, you may want to customize the configura
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-1. Any pull requests for security and version updates are easy to identify.
-    - The author is [dependabot](https://github.com/dependabot), the bot account used by {% data variables.product.prodname_dependabot %}.
+1. Any pull requests for security or version updates are easy to identify.
+    - The author is {% ifversion fpt or ghec %}[dependabot](https://github.com/dependabot){% else %}dependabot{% endif %}, the bot account used by {% data variables.product.prodname_dependabot %}.
     - By default, they have the `dependencies` label.
 
 ## Changing the rebase strategy for {% data variables.product.prodname_dependabot %} pull requests

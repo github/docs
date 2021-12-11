@@ -5,10 +5,12 @@ redirect_from:
   - /articles/requesting-an-archive-of-your-personal-accounts-data
 intro: '{% data reusables.user_settings.export-data %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Policy
   - Legal
+shortTitle: Request account archive
 ---
 
 {% data variables.product.product_name %} stores repository and profile metadata from your personal account's activity. You can export your personal account's data through settings on {% data variables.product.prodname_dotcom_the_website %} or with the User Migration API.

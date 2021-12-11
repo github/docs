@@ -3,9 +3,11 @@ title: Customizing your GitHub workflow
 redirect_from:
   - /categories/customizing-your-github-workflow
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 children:
   - /exploring-integrations
   - /purchasing-and-installing-apps-in-github-marketplace
+shortTitle: Customize your workflow
 ---
 

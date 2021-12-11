@@ -2,9 +2,10 @@
 title: GitHub language support
 intro: 'An overview of the programming languages supported by {% data variables.product.prodname_dotcom %} features.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub
 redirect_from:

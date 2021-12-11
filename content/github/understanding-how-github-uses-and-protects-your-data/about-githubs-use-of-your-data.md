@@ -5,10 +5,12 @@ redirect_from:
   - /articles/about-githubs-use-of-your-data
 intro: '{% data variables.product.product_name %} uses your repository''s data to connect you to relevant tools, people, projects, and information.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Policy
   - Legal
+shortTitle: GitHub's use of your data
 ---
  
 ## About {% data variables.product.product_name %}'s use of your data
@@ -19,7 +21,7 @@ topics:
 
 {% data reusables.user_settings.export-data %} For more information, see "[Requesting an archive of your personal account's data](/articles/requesting-an-archive-of-your-personal-account-s-data)."
 
-If you opt in to data use for a private repository, we will continue to treat your private data, source code, or trade secrets as confidential and private consistent with our [Terms of Service](/articles/github-terms-of-service/). The information we learn only comes from aggregated data. For more information, see "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)."
+If you opt in to data use for a private repository, we will continue to treat your private data, source code, or trade secrets as confidential and private consistent with our [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service). The information we learn only comes from aggregated data. For more information, see "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)."
 
 We'll announce substantial new features that use metadata or aggregate data on the [{% data variables.product.prodname_dotcom %} blog](https://github.com/blog).
 
@@ -33,6 +35,6 @@ To detect potential security vulnerabilities, {% data variables.product.product_
 
 ## Privacy and data sharing
 
-Private repository data is scanned by machine and never read by {% data variables.product.product_name %} staff. Human eyes will never see the contents of your private repositories, except as described in our [Terms of Service](/articles/github-terms-of-service/#3-access).
+Private repository data is scanned by machine and never read by {% data variables.product.product_name %} staff. Human eyes will never see the contents of your private repositories, except as described in our [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).
 
 Your individual personal or repository data will not be shared with third parties. We may share aggregate data learned from our analysis with our partners.

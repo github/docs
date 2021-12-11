@@ -7,10 +7,12 @@ redirect_from:
   - /articles/renewing-your-clients-paid-organization
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
+shortTitle: Renewing paid organization
 ---
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
 

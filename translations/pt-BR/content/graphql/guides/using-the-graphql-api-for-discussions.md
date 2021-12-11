@@ -1,8 +1,9 @@
 ---
 title: Usar a API do GraphQL para discussões
-intro: Aprenda a usar a API do GraphQL para as discussões do GitHub.
+intro: 'Aprenda a usar a API do GraphQL de {% data variables.product.prodname_discussions %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Usar o gráfico para Discussões
 ---
 
 A API do GraphQL do {% data variables.product.prodname_discussions %} permite que você obtenha, crie, edite e exclua publicações de discussão. Para obter mais informações sobre {% data variables.product.prodname_discussions %}, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
@@ -1079,4 +1080,4 @@ Campos de tipo de retorno:
 
 ## Pesquisar
 
-A discussão pode ser retornada do campo de `pesquisa` de alto nível. Para pesquisar uma discussão, especifique o `tipo` como `DSCUSSÃO`. O tipo `SearchResultItemConnection` tem um campo `discussionCount` para relatar o número de discussões retornadas, e o tipo `Discussão` é adicionado à união DE `SearchResultItem`. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
+A discussão pode ser retornada do campo de `pesquisa` de alto nível. Para pesquisar uma discussão, especifique o `tipo` como `DSCUSSÃO`. O tipo `SearchResultItemConnection` tem um campo `discussionCount` para relatar o número de discussões retornadas, e o tipo `Discussão` é adicionado à união DE `SearchResultItem`. Para obter mais informações, consulte "[Consultas](/graphql/reference/queries#searchresultitemconnection)" e "[Pesquisando discussões](/search-github/searching-on-github/searching-discussions)".

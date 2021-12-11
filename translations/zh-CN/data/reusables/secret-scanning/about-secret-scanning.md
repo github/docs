@@ -1,1 +1,2 @@
-如果有人将使用已知模式的密码检入 {% data variables.product.product_name %} 上的{% if currentVersion == "free-pro-team@latest" %}公共或私有{% endif %}仓库，则 {% data variables.product.prodname_secret_scanning %} 在该密码检入时可以捕获它，帮助您减小密码泄露的影响。 仓库管理员会收到包含密码的任何提交的通知， 然后他们可以快速查看仓库安全选项卡中所有检测到的密码。
+If someone checks a secret with a known pattern into a {% ifversion fpt or ghec %}public or private{% endif %} repository on {% data variables.product.product_name %}, {% data variables.product.prodname_secret_scanning %} catches the secret as it's checked in, and helps you mitigate the impact of the leak. 
+Repository administrators are notified about any commit that contains a secret, and they can quickly view all detected secrets in the Security tab for the repository.

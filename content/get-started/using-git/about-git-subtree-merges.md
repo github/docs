@@ -1,17 +1,18 @@
 ---
 title: About Git subtree merges
 redirect_from:
-  - /articles/working-with-subtree-merge/
-  - /subtree-merge/
+  - /articles/working-with-subtree-merge
+  - /subtree-merge
   - /articles/about-git-subtree-merges
   - /github/using-git/about-git-subtree-merges
   - /github/getting-started-with-github/about-git-subtree-merges
   - /github/getting-started-with-github/using-git/about-git-subtree-merges
 intro: 'If you need to manage multiple projects within a single repository, you can use a *subtree merge* to handle all the references.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 ## About subtree merges
 

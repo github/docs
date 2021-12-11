@@ -1,16 +1,18 @@
 ---
 title: Using Git rebase on the command line
 redirect_from:
-  - /articles/using-git-rebase/
+  - /articles/using-git-rebase
   - /articles/using-git-rebase-on-the-command-line
   - /github/using-git/using-git-rebase-on-the-command-line
   - /github/getting-started-with-github/using-git-rebase-on-the-command-line
   - /github/getting-started-with-github/using-git/using-git-rebase-on-the-command-line
 intro: Here's a short tutorial on using `git rebase` on the command line.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Git rebase
 ---
 ## Using Git rebase
 

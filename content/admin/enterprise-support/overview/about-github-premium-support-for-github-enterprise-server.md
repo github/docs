@@ -7,11 +7,12 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Premium Support for GHES
 ---
 {% note %}
 

@@ -6,13 +6,15 @@ redirect_from:
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
   - Repositories
+shortTitle: Publish advisories
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 
@@ -59,22 +61,6 @@ After you publish a security advisory, the URL for the security advisory will re
 
 If you need to update or correct information in a security advisory that you've published, you can edit the security advisory. For more information, see "[Editing a security advisory](/github/managing-security-vulnerabilities/editing-a-security-advisory)."
 
-## Requesting a CVE identification number
-
-Anyone with admin permissions to a security advisory can request a CVE identification number for the security advisory.
-
-{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-advisories %}
-4. In the "Security Advisories" list, click the security advisory you'd like to request a CVE identification number for.
-  ![Security advisory in list](/assets/images/help/security/security-advisory-in-list.png)
-5. Use the **Publish advisory** drop-down menu, and click **Request CVE**.
-  ![Request CVE in drop-down](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
-6. Click **Request CVE**.
-  ![Request CVE button](/assets/images/help/security/security-advisory-request-cve-button.png)
-
 ## Publishing a security advisory
 
 Publishing a security advisory deletes the temporary private fork for the security advisory.
@@ -90,6 +76,20 @@ Publishing a security advisory deletes the temporary private fork for the securi
 ## {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
 {% data reusables.repositories.github-reviews-security-advisories %}
+
+## Requesting a CVE identification number (Optional)
+
+{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
+4. In the "Security Advisories" list, click the security advisory you'd like to request a CVE identification number for.
+  ![Security advisory in list](/assets/images/help/security/security-advisory-in-list.png)
+5. Use the **Publish advisory** drop-down menu, and click **Request CVE**.
+  ![Request CVE in drop-down](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
+6. Click **Request CVE**.
+  ![Request CVE button](/assets/images/help/security/security-advisory-request-cve-button.png)
 
 ## Further reading
 

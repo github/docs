@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
   - /admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -14,6 +14,7 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: Access the monitor dashboard
 ---
 ## Accessing the monitor dashboard
 

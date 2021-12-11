@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 Si tienes permisos administrativos en una imagen de contenedor, peudes configurar los permisos de acceso para la imagen de contenedor en privados o públicos. Las imágenes públicas permiten el acceso anónimo y pueden extraerse sin autenticación o ingresar a ellas através del CLI.
 
 Como administrador, también puedes otorgar permisos de acceso para una imagen de contenedor que esté separada de los permisos que configuraste a nivel de organización y de repositorio.

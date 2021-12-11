@@ -27,3 +27,4 @@ sections:
     - GitHub Actions 如果以前在运行 2.22.0 的实例上启用并升级到 2.22.2，则可能无法成功启动。（更新于 2020-10-23）{% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}
     - 在新设置 2.22.2 实例或升级到 2.22.2 后，组织仪表板上的活动源将不再更新。（更新于 2020-10-27） {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}
     - 审核日志可归因于 127.0.0.1，而不是实际源 IP 地址。（更新于 2020-11-02） {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}
+    - 当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。

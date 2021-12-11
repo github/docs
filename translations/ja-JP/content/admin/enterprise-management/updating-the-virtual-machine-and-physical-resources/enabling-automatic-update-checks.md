@@ -6,11 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
   - /admin/enterprise-management/enabling-automatic-update-checks
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: Enable automatic update checks
 ---
 
 {% data variables.product.product_location %} のアップグレードパッケージが自動的にダウンロードされると、{% data variables.product.prodname_ghe_server %} をアップグレードできることを知らせるメッセージを受け取ります。 パッケージは{% data variables.product.product_location %}の `/var/lib/ghe-updates`ディレクトリへダウンロードされます。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server)」を参照してください。

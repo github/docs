@@ -1,6 +1,6 @@
 ---
-title: Administrar vulnerabilidades en las dependencias de tus proyectos
-intro: 'Puedes rastrear las dependencias de tu repositorio y recibir{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% else %}alertas de seguridad del {% data variables.product.prodname_dependabot_alerts %}{% endif %}cuando {% data variables.product.product_name %} detecta dependencias vulnerables.'
+title: Managing vulnerabilities in your project's dependencies
+intro: 'You can track your repository''s dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies.'
 redirect_from:
   - /articles/updating-your-project-s-dependencies/
   - /articles/updating-your-projects-dependencies/
@@ -8,8 +8,10 @@ redirect_from:
   - /articles/managing-vulnerabilities-in-your-projects-dependencies
   - /github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  fpt: '*'
+  ghes: '*'
+  ghae: issue-4864
+  ghec: '*'
 topics:
   - Repositories
   - Dependabot
@@ -28,5 +30,6 @@ children:
   - /viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
+shortTitle: Fix vulnerable dependencies
 ---
 

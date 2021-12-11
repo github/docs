@@ -2,7 +2,7 @@
 title: About GitHub AE
 intro: '{% data variables.product.prodname_ghe_managed %} is a security-enhanced and compliant way to use {% data variables.product.prodname_dotcom %} in the cloud.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: overview
 topics:
   - Enterprise
@@ -22,10 +22,6 @@ topics:
 ## Data residency
 
 All of your data is stored within the geographic region of your choosing. You can comply with GDPR and global data protection standards by keeping all of your data within your chosen region.
-
-## Encryption on your terms 
-
-All customer data is encrypted at rest. For more information, see "[Configuring data encryption for your enterprise](/admin/configuration/configuring-data-encryption-for-your-enterprise)."
 
 ## Isolated accounts
 

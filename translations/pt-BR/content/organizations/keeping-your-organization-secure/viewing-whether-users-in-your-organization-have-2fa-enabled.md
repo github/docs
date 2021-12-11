@@ -5,16 +5,18 @@ redirect_from:
   - /articles/viewing-whether-users-in-your-organization-have-2fa-enabled
   - /github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Uso da 2FA na organização
 ---
 
 {% note %}
 
-**Observação:** Você pode exigir que todos os integrantes{% if currentVersion == "free-pro-team@latest" %}, incluindo proprietários, gerentes de cobrança e{% else %} e{% endif %} colaboradores externos na sua organização possuem autenticação de dois fatores habilitada. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/articles/requiring-two-factor-authentication-in-your-organization)".
+**Observação:** você pode exigir que todos os integrantes{% ifversion fpt or ghec %}, inclusive proprietários, gerentes de cobrança e{% else %} e{% endif %} colaboradores externos na sua organização tenham a autenticação de dois fatores habilitada. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/articles/requiring-two-factor-authentication-in-your-organization)".
 
 {% endnote %}
 
@@ -25,6 +27,6 @@ topics:
 5. Clique em **Outside collaborators** (Colaboradores externos), na guia "People" (Pessoas), para exibir aqueles que pertencem à sua organização. ![select-outside-collaborators](/assets/images/help/organizations/select-outside-collaborators.png)
 6. Para exibir quais colaboradores externos habilitaram ou desabilitaram a autenticação de dois fatores, clique em **2FA** à direita e selecione **Enabled** (Habilitado) ou **Disabled** (Desabilitado). ![filter-outside-collaborators-by-2fa](/assets/images/help/2fa/filter-outside-collaborators-by-2fa.png)
 
-### Leia mais
+## Leia mais
 
 - "[Exibir as funções das pessoas em uma organização](/articles/viewing-people-s-roles-in-an-organization)"

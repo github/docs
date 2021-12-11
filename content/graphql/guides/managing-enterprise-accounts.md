@@ -4,11 +4,12 @@ intro: You can manage your enterprise account and the organizations it owns with
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: Manage enterprise accounts
 ---
 
 ## About managing enterprise accounts with GraphQL
@@ -57,11 +58,12 @@ For some example queries, see "[An example query using the Enterprise Accounts A
     - `admin:enterprise`
 
   The enterprise account specific scopes are:
-    - `admin:enterprise`: Gives full control of enterprises (includes `manage_billing:enterprise` and `read:enterprise`)
-    - `manage_billing:enterprise`: Read and write enterprise billing data.
+    - `admin:enterprise`: Gives full control of enterprises (includes {% ifversion ghes > 3.2 or ghae or ghec %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` and `read:enterprise`)
+    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes > 3.2 or ghae  %}
+    - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
     - `read:enterprise`: Read enterprise profile data.
-    
-4. Copy your personal access token and keep it in a secure place until you add it to your GraphQL client.
+
+3. Copy your personal access token and keep it in a secure place until you add it to your GraphQL client.
 
 ### 2. Choose a GraphQL client
 
@@ -95,9 +97,9 @@ Now you are ready to start making queries.
 
 ## An example query using the Enterprise Accounts API
 
-This GraphQL query requests the total number of {% if currentVersion != "github-ae@latest" %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the slug of your Enterprise's instance slug.
+This GraphQL query requests the total number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the handle for your enterprise account. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `<enterprise-account-name>` with `octo-enterprise`.
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 
 ```graphql
 query publicRepositoriesByOrganization($slug: String!) {
@@ -162,9 +164,9 @@ variables {
 ```
 {% endif %}
 
-The next GraphQL query example shows how challenging it is to retrieve the number of {% if currentVersion != "github-ae@latest" %}`public`{% else %}`private`{% endif %} repositories in each organization without using the Enterprise Account API.  Notice that the GraphQL Enterprise Accounts API has made this task simpler for enterprises since you only need to customize a single variable. To customize this query, replace `<name-of-organization-one>` and `<name-of-organization-two>`, etc. with the organization names on your instance.
+The next GraphQL query example shows how challenging it is to retrieve the number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each organization without using the Enterprise Account API.  Notice that the GraphQL Enterprise Accounts API has made this task simpler for enterprises since you only need to customize a single variable. To customize this query, replace `<name-of-organization-one>` and `<name-of-organization-two>`, etc. with the organization names on your instance.
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 ```graphql
 # Each organization is queried separately
 {
@@ -212,7 +214,7 @@ fragment repositories on Organization {
 
 ## Query each organization separately
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 
 ```graphql
 query publicRepositoriesByOrganization {

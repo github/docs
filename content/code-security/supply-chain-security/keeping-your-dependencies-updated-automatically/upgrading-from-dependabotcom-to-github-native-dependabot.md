@@ -2,7 +2,8 @@
 title: Upgrading from Dependabot.com to GitHub-native Dependabot
 intro: You can upgrade to GitHub-native Dependabot by merging a pull request that will allow your dependencies to continue being updated.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Repositories
@@ -11,12 +12,13 @@ topics:
   - Dependencies
 redirect_from:
   - /code-security/supply-chain-security/upgrading-from-dependabotcom-to-github-native-dependabot
+shortTitle: Dependabot.com upgrades
 ---
 {% warning %}
 
-Dependabot Preview will be shut down on August 3rd, 2021. In order to keep getting Dependabot updates, please migrate to GitHub-native Dependabot before then.
+Dependabot Preview has been shut down as of August 3rd, 2021. In order to keep getting Dependabot updates, please migrate to GitHub-native Dependabot.
 
-After that date, any open pull requests from Dependabot Preview will remain open, but the bot itself will no longer work on your {% data variables.product.prodname_dotcom %} accounts and organizations.
+Open pull requests from Dependabot Preview will remain open, including the pull request to upgrade to GitHub-native Dependabot, but the bot itself will no longer work on your {% data variables.product.prodname_dotcom %} accounts and organizations.
 
 {% endwarning %}
 
@@ -29,7 +31,7 @@ Dependabot Preview has been built directly into {% data variables.product.prodna
 While most of the Dependabot Preview features exist in {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, a few remain unavailable: 
 - **Live updates:** We hope to bring these back in the future. For now, you can run {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_dependabot %} daily to catch new packages within one day of release.
 - **PHP environment variable registries:** For projects that rely on the `ACF_PRO_KEY` environment variable, you may be able to vendor your licensed copy of the Advanced Custom Fields plugin. For an example, see [dependabot/acf-php-example](https://github.com/dependabot/acf-php-example#readme). For other environment variables, you can use {% data variables.product.prodname_actions %} to fetch dependencies from these registries.
-- **Auto-merge:** We always recommend verifying your dependencies before merging them; therefore, auto-merge will not be supported for the foreseeable future. For those of you who have vetted your dependencies, or are only using internal dependencies, we recommend adding third-party auto-merge apps, or setting up GitHub Actions to merge.
+- **Auto-merge:** We always recommend verifying your dependencies before merging them; therefore, auto-merge will not be supported for the foreseeable future. For those of you who have vetted your dependencies, or are only using internal dependencies, we recommend adding third-party auto-merge apps, or setting up GitHub Actions to merge. We have provided the [`dependabot/fetch-metadata`](https://github.com/marketplace/actions/fetch-metadata-from-dependabot-prs) action to help developers [enable GitHub's automerge](https://github.com/dependabot/fetch-metadata/#enabling-auto-merge).
 
 In {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, you can configure all version updates using the configuration file. This file is similar to the Dependabot Preview configuration file with a few changes and improvements that will be automatically included in your upgrade pull request. For more information about the upgrade pull request, see "[Upgrading to GitHub-native Dependabot](/code-security/supply-chain-security/upgrading-from-dependabotcom-to-github-native-dependabot#upgrading-to-github-native-dependabot)".
 

@@ -4,12 +4,14 @@ intro: You can configure webhooks to alert you when you receive new sponsorships
 redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Webhooks
   - Events
   - Open Source
+shortTitle: Webhooks for events
 ---
 
 ## About webhooks for events in your sponsored account

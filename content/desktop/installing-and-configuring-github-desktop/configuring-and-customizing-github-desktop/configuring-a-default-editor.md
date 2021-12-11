@@ -5,7 +5,8 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-a-default-editor
   - /desktop/installing-and-configuring-github-desktop/configuring-a-default-editor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Configure default editor
 ---
 ## Supported editors
 

@@ -1,11 +1,13 @@
 ---
 title: Meta
+intro: 'The Meta API returns meta information about {% data variables.product.product_name %} including the IP addresses of {% data variables.product.product_name %} services.'
 redirect_from:
   - /v3/meta
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

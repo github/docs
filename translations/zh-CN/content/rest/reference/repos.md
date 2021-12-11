@@ -1,59 +1,75 @@
 ---
-title: 仓库
+title: Repositories
+intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} repositories.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## 分支
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4742 %}
+## Autolinks
+
+To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets. For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+
+{% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'autolinks' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
+
+## Branches
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'branches' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 协作者
+## Collaborators
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'collaborators' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 评论
+## Comments
 
-### 提交评论的自定义媒体类型
+### Custom media types for commit comments
 
-以下是提交评论支持的媒体类型。 您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
+These are the supported media types for commit comments. You can read more
+about the use of media types in the API [here](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
     application/vnd.github-commitcomment.html+json
     application/vnd.github-commitcomment.full+json
 
-更多信息请参阅“[自定义媒体类型](/rest/overview/media-types)”。
+For more information, see "[Custom media types](/rest/overview/media-types)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 提交
+## Commits
 
-仓库提交 API 支持列出、查看和比较仓库中的提交。
+The Repo Commits API supports listing, viewing, and comparing commits in a repository.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-## 社区
+{% ifversion fpt or ghec %}
+## Community
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'community' %}{% include rest_operation %}{% endif %}
@@ -61,54 +77,56 @@ topics:
 
 {% endif %}
 
-## 内容
+## Contents
 
-此 API 端点允许您在仓库中创建、修改和删除 Base64 编码的内容。 要请求原始格式或渲染的 HTML（如果支持），请对仓库内容使用自定义媒体类型。
+These API endpoints let you create, modify, and delete Base64 encoded content in a repository. To request the raw format or rendered HTML (when supported), use custom media types for repository contents.
 
-### 仓库内容的自定义媒体类型
+### Custom media types for repository contents
 
-[自述文件](/rest/reference/repos#get-a-repository-readme)、[文件](/rest/reference/repos#get-repository-content)和[符号链接](/rest/reference/repos#get-repository-content)支持以下自定义媒体类型：
+[READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
 
-使用 `.raw` 媒体类型检索文件内容。
+Use the `.raw` media type to retrieve the contents of the file.
 
-对于 Markdown 或 AsciiDoc 等标记文件，您可以使用 `.html` 媒体类型检索渲染的 HTML。 使用我们的开源[标记库](https://github.com/github/markup)将标记语言渲染为 HTML。
+For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
 
-[所有对象](/rest/reference/repos#get-repository-content)都支持以下自定义媒体类型：
+[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
 
     application/vnd.github.VERSION.object
 
-使用 `object` 媒体类型参数以一致的对象格式检索内容，而不考虑内容类型。 例如，响应将是包含对象数组的 `entries` 属性的对象，而不是目录的对象数组。
+Use the `object` media type parameter to retrieve the contents in a consistent object format regardless of the content type. For example, instead of an array of objects
+for a directory, the response will be an object with an `entries` attribute containing the array of objects.
 
-您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
+You can read more about the use of media types in the API [here](/rest/overview/media-types).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 部署密钥
+## Deploy keys
 
 {% data reusables.repositories.deploy-keys %}
 
-部署密钥可以使用以下 API 端点进行设置，也可以使用 GitHub 进行设置。 要了解如何在 GitHub 中设置部署密钥，请参阅“[管理部署密钥](/developers/overview/managing-deploy-keys)”。
+Deploy keys can either be setup using the following API endpoints, or by using GitHub. To learn how to set deploy keys up in GitHub, see "[Managing deploy keys](/developers/overview/managing-deploy-keys)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'keys' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 部署
+## Deployments
 
-部署是部署特定引用（分支、SHA、标记）的请求。 GitHub 分发一个 [`deployment` 事件](/developers/webhooks-and-events/webhook-events-and-payloads#deployment)，使外部服务可以在创建新部署时侦听并采取行动。 部署使开发者和组织能够围绕部署构建松散耦合的工具，而不必担心交付不同类型的应用程序（例如 Web 和本地应用程序）的实现细节。
+Deployments are requests to deploy a specific ref (branch, SHA, tag). GitHub dispatches a [`deployment` event](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) that external services can listen for and act on when new deployments are created. Deployments enable developers and organizations to build loosely coupled tooling around deployments, without having to worry about the implementation details of delivering different types of applications (e.g., web, native).
 
-部署状态允许外部服务将部署标记为 `error`、`failure`、`pending`、`in_progress`、`queued` 或 `success` 状态，以供侦听 [`deployment_status` 事件](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status)的系统使用。
+Deployment statuses allow external services to mark deployments with an `error`, `failure`, `pending`, `in_progress`, `queued`, or `success` state that systems listening to [`deployment_status` events](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status) can consume.
 
-部署状态还可以包含可选的 `description` 和 `log_url`，强烈建议使用它们，因为它们使部署状态更有用。 `log_url` 是部署输出的完整 URL，`description` 是关于部署过程中所发生情况的高级摘要。
+Deployment statuses can also include an optional `description` and `log_url`, which are highly recommended because they make deployment statuses more useful. The `log_url` is the full URL to the deployment output, and
+the `description` is a high-level summary of what happened with the deployment.
 
-在创建新的部署和部署状态时，GitHub 将分发 `deployment` 和 `deployment_status` 事件。 这些事件允许第三方集成接收对部署请求的响应，并在取得进展时更新部署的状态。
+GitHub dispatches `deployment` and `deployment_status` events when new deployments and deployment statuses are created. These events allows third-party integrations to receive respond to deployment requests and update the status of a deployment as progress is made.
 
-下面是一个说明这些交互的工作方式的简单序列图。
+Below is a simple sequence diagram for how these interactions would work.
 
 ```
 +---------+             +--------+            +-----------+        +-------------+
@@ -137,87 +155,103 @@ topics:
      |                      |                       |                     |
 ```
 
-请记住，GitHub 从未真正访问过您的服务器。 与部署事件的交互取决于第三方集成。 多个系统可以侦听部署事件，由其中每个系统来决定它们是否负责将代码推送到服务器、构建本地代码等。
+Keep in mind that GitHub is never actually accessing your servers. It's up to your third-party integration to interact with deployment events. Multiple systems can listen for deployment events, and it's up to each of those systems to decide whether they're responsible for pushing the code out to your servers, building native code, etc.
 
-请注意，`repo_deployment` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps)授予对部署和部署状态的定向访问权限，但**不**授予对仓库代码的访问权限，而 {% if currentVersion != "github-ae@latest" %}`public_repo` 和{% endif %}`repo` 作用域还授予对代码的权限。
+Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% ifversion not ghae %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
 
 
-### 非活动部署
+### Inactive deployments
 
-当您将部署状态设置为 `success` 时，同一仓库中所有先前的非瞬态、非生产环境部署将变成 `inactive`。 为避免这种情况，您可以在创建部署状态时将 `auto_inactive` 设置为 `false`。
+When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
 
-您可以通过将 `state` 设为 `inactive` 来表示某个瞬态环境不再存在。  将 `state` 设为 `inactive`，表示部署在 {% data variables.product.prodname_dotcom %} 中 `destroyed` 并删除对它的访问权限。
+You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-## 环境
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+## Environments
 
-环境 API 允许您创建、配置和删除环境。 有关环境的更多信息，请参阅“[环境](/actions/reference/environments)”。 要管理环境密码，请参阅“[密码](/rest/reference/actions#secrets)”。
+The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+
+{% data reusables.gated-features.environments %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 {% endif %}
 
-## 复刻
+## Forks
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'forks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 邀请
+## Invitations
 
-仓库邀请 API 允许用户或外部服务邀请其他用户参与仓库协作。 受邀用户（或代表受邀用户的外部服务）可以选择接受或拒绝邀请。
+The Repository Invitations API allows users or external services to invite other users to collaborate on a repo. The invited users (or external services on behalf of invited users) can choose to accept or decline the invitations.
 
-请注意，`repo:invite` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps)授予对邀请的定向访问权限，但**不**授予对仓库代码的访问权限，而 `repo` 作用域同时授予对代码和邀请的权限。
+Note that the `repo:invite` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted
+access to invitations **without** also granting access to repository code, while the
+`repo` scope grants permission to code as well as invitations.
 
-### 邀请用户参与仓库
+### Invite a user to a repository		
 
-使用 API 端点来添加协作者。 更多信息请参阅“[添加仓库协作者](/rest/reference/repos#add-a-repository-collaborator)”。
+Use the API endpoint for adding a collaborator. For more information, see "[Add a repository collaborator](/rest/reference/repos#add-a-repository-collaborator)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 合并
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 
-仓库合并 API 支持合并仓库中的分支。 其过程基本上等同于在本地仓库中合并分支然后将其推送到 {% data variables.product.product_name %}。 其好处是合并是在服务器端完成的，不需要使用本地仓库。 这使它更适用于自动化，以及使用其他工具维护本地仓库比较繁琐且低效的情况。
+## Git LFS
 
-经过身份验证的用户将是通过此端点完成的任何合并的作者。
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'lfs' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+## Merging
+
+The Repo Merging API supports merging branches in a repository. This accomplishes
+essentially the same thing as merging one branch into another in a local repository
+and then pushing to {% data variables.product.product_name %}. The benefit is that the merge is done on the server side and a local repository is not needed. This makes it more appropriate for automation and other tools where maintaining local repositories would be cumbersome and inefficient.
+
+The authenticated user will be the author of any merges done through this endpoint.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'merging' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 页面
+## Pages
 
-{% data variables.product.prodname_pages %} API 可检索关于您的 {% data variables.product.prodname_pages %} 配置以及构建状态的信息。 只有经过验证的所有者才能访问有关网站和构建的信息{% if currentVersion != "github-ae@latest" %}，即使网站是公开的也一样{% endif %}。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)”。
+The {% data variables.product.prodname_pages %} API retrieves information about your {% data variables.product.prodname_pages %} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners{% ifversion not ghae %}, even if the websites are public{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
 
-在其响应中包含 `status` 键的 {% data variables.product.prodname_pages %} API 端点中，其值可能是以下值之一：
-* `null`：站点尚未构建。
-* `queued`：已请求构建，但尚未开始。
-* `building`：正在构建中。
-* `built`：站点已构建。
-* `errored`：表示构建过程中发生错误。
+In {% data variables.product.prodname_pages %} API endpoints with a `status` key in their response, the value can be one of:
+* `null`: The site has yet to be built.
+* `queued`: The build has been requested but not yet begun.
+* `building`:The build is in progress.
+* `built`: The site has been built.
+* `errored`: Indicates an error occurred during the build.
 
-在返回 GitHub Pages 站点信息的 {% data variables.product.prodname_pages %} API 端点中，JSON 响应包括以下字段：
-* `html_url`：所渲染的 Pages 站点的绝对 URL（包括模式）。 例如，`https://username.github.io`。
-* `source`：包含所渲染 Pages 站点的源分支和目录的对象。 这包括：
-   - `branch`：用于发布[站点源文件](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)的仓库分支。 例如，_main_ 或 _gh-pages_。
-   - `path`：提供站点发布内容的仓库目录。 可能是 `/` 或 `/docs`。
+In {% data variables.product.prodname_pages %} API endpoints that  return GitHub Pages site information, the JSON responses include these fields:
+* `html_url`: The absolute URL (including scheme) of the rendered Pages site. For example, `https://username.github.io`.
+* `source`: An object that contains the source branch and directory for the rendered Pages site. This includes:
+   - `branch`: The repository branch used to publish your [site's source files](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
+   - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'pages' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 版本发布
+## Releases
 
 {% note %}
 
-**注：**发布 API 取代了下载 API。 您可以从返回发行版和发行版资产的 API 端点检索下载次数和浏览器下载 URL。
+**Note:** The Releases API replaces the Downloads API. You can retrieve the download count and browser download URL from the endpoints in this API that return releases and release assets.
 
 {% endnote %}
 
@@ -225,106 +259,120 @@ topics:
   {% if operation.subcategory == 'releases' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 统计
+## Statistics
 
-仓库统计 API 允许您获取 {% data variables.product.product_name %} 用于可视化不同类型仓库活动的数据。
+The Repository Statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different
+types of repository activity.
 
-### 谈一谈缓存
+### A word about caching
 
-计算仓库统计信息是一项昂贵的操作，所以我们尽可能返回缓存的数据。  如果您查询仓库的统计信息时，数据尚未缓存，您将会收到 `202` 响应；同时触发后台作业以开始编译这些统计信息。 稍等片刻，待作业完成，然后再次提交请求。 如果作业已完成，该请求将返回 `200` 响应，响应正文中包含统计信息。
+Computing repository statistics is an expensive operation, so we try to return cached
+data whenever possible.  If the data hasn't been cached when you query a repository's
+statistics, you'll receive a `202` response; a background job is also fired to
+start compiling these statistics. Give the job a few moments to complete, and
+then submit the request again. If the job has completed, that request will receive a
+`200` response with the statistics in the response body.
 
-仓库统计信息由仓库默认分支的 SHA 缓存；推送到默认分支将重置统计信息缓存。
+Repository statistics are cached by the SHA of the repository's default branch; pushing to the default branch resets the statistics cache.
 
-### 统计排除某些类型的提交
+### Statistics exclude some types of commits
 
-API 公开的统计信息与[各种仓库图](/github/visualizing-repository-data-with-graphs/about-repository-graphs)显示的统计信息相匹配。
+The statistics exposed by the API match the statistics shown by [different repository graphs](/github/visualizing-repository-data-with-graphs/about-repository-graphs).
 
-总结：
-- 所有统计信息都排除合并提交。
-- 参与者统计信息还排除空提交。
+To summarize:
+- All statistics exclude merge commits.
+- Contributor statistics also exclude empty commits.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'statistics' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 状态
+## Statuses
 
-状态 API 允许外部服务将提交标记为 `error`、`failure`、`pending` 或 `success` 状态，然后将其反映在涉及这些提交的拉取请求中。
+The status API allows external services to mark commits with an `error`,
+`failure`, `pending`, or `success` state, which is then reflected in pull requests
+involving those commits.
 
-状态还可以包含可选的 `description` 和 `target_url`，强烈建议使用它们，因为它们使状态在 GitHub UI 中更有用。
+Statuses can also include an optional `description` and `target_url`, and
+we highly recommend providing them as they make statuses much more
+useful in the GitHub UI.
 
-一种常见用例是持续集成服务使用状态将提交标记为构建成功或失败。  `target_url` 是构建输出的完整 URL，`description` 是关于构建过程中所发生情况的高级摘要。
+As an example, one common use is for continuous integration
+services to mark commits as passing or failing builds using status.  The
+`target_url` would be the full URL to the build output, and the
+`description` would be the high level summary of what happened with the
+build.
 
-状态可以包括 `context` 以指示提供该状态的服务是什么。 例如，您可以让持续集成服务推送上下文为 `ci` 的状态，让安全审核工具推送上下文为 `security` 的状态。  然后，您可以使用[获取特定引用的组合状态](/rest/reference/repos#get-the-combined-status-for-a-specific-reference)来检索提交的整个状态。
+Statuses can include a `context` to indicate what service is providing that status.
+For example, you may have your continuous integration service push statuses with a context of `ci`, and a security audit tool push statuses with a context of `security`.  You can
+then use the [Get the combined status for a specific reference](/rest/reference/repos#get-the-combined-status-for-a-specific-reference) to retrieve the whole status for a commit.
 
-请注意，`repo:status` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps)授予对状态的定向访问权限，但**不**授予对仓库代码的访问权限，而 `repo` 作用域同时授予对代码和状态的权限。
+Note that the `repo:status` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to statuses **without** also granting access to repository code, while the
+`repo` scope grants permission to code as well as statuses.
 
-如果您正在开发 GitHub 应用程序，希望提供有关外部服务的更多信息，则可能需要使用[检查 API](/rest/reference/checks)。
+If you are developing a GitHub App and want to provide more detailed information about an external service, you may want to use the [Checks API](/rest/reference/checks).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-## 流量
+{% ifversion fpt or ghec %}
+## Traffic
 
-对于您具有推送权限的仓库，流量 API 提供对仓库图中所示信息的访问权限。 更多信息请参阅“<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">查看仓库的流量</a>”。
+For repositories that you have push access to, the traffic API provides access
+to the information provided in your repository graph. For more information, see "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Viewing traffic to a repository</a>."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 {% endif %}
 
-## Web 挂钩
+## Webhooks
 
-仓库 web 挂钩 API 允许仓库管理员管理仓库的接收后挂钩。 Web 挂钩可使用 JSON HTTP API 进行管理，也可以使用 [PubSubHubbub](#PubSubHubbub) API 进行管理。
+Repository webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in a repository. {% data reusables.webhooks.webhooks-rest-api-links %}
 
-如果您要设置一个 web 挂钩来接收来自组织所有仓库的事件，请参阅关于[组织 web 挂钩](/rest/reference/orgs#webhooks)的 API 文档。
+If you would like to set up a single webhook to receive events from all of your organization's repositories, see our API documentation for [Organization Webhooks](/rest/reference/orgs#webhooks).
+
+In addition to the REST API, {% data variables.product.prodname_dotcom %} can also serve as a [PubSubHubbub](#pubsubhubbub) hub for repositories.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-### 接收 web 挂钩
+### Receiving Webhooks
 
-为了让 {% data variables.product.product_name %} 发送 web 挂钩有效负载，您的服务器需要能够从 Internet 访问。 我们还强烈建议使用 SSL，以便我们可以通过 HTTPS 发送加密的有效负载。
+In order for {% data variables.product.product_name %} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
 
-#### Web 挂钩标头
+#### Webhook headers
 
-{% data variables.product.product_name %} 发送时将附带几个 HTTP 标头，以区分事件类型和有效负载标识符。 更多信息请参阅 [web 挂钩标头](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers)。
+{% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) for details.
 
 ### PubSubHubbub
 
-GitHub 还可以作为所有仓库的 [PubSubHubbabub](https://github.com/pubsubhubbub/PubSubHubbub) 枢纽。 PSHB 是一个简单的发布/订阅协议，允许服务器注册在主题更新时接收更新。 这些更新随 HTTP POST 请求一起发送到回调 URL。 GitHub 仓库推送的主题 URL 采用以下格式：
+GitHub can also serve as a [PubSubHubbub](https://github.com/pubsubhubbub/PubSubHubbub) hub for all repositories. PSHB is a simple publish/subscribe protocol that lets servers register to receive updates when a topic is updated. The updates are sent with an HTTP POST request to a callback URL.
+Topic URLs for a GitHub repository's pushes are in this format:
 
 `https://github.com/{owner}/{repo}/events/{event}`
 
-事件可以是任何可用的 web 挂钩事件。 更多信息请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads)”。
+The event can be any available webhook event. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
 
-#### 响应格式
+#### Response format
 
-默认格式为[现有接收后挂钩应具有的格式](/post-receive-hooks/)：作为 POST 中的 `payload` 参数发送的 JSON 正文。  您还可以指定接收带有 `Accept` 标头或 `.json` 扩展名的原始 JSON 正文。
+The default format is what [existing post-receive hooks should expect](/post-receive-hooks/): A JSON body sent as the `payload` parameter in a POST.  You can also specify to receive the raw JSON body with either an `Accept` header, or a `.json` extension.
 
     Accept: application/json
     https://github.com/{owner}/{repo}/events/push.json
 
-#### 回调 URL
-回调 URL 可以使用 `http://` 协议。
+#### Callback URLs
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}您还可以 `github://` 回叫来指定 GitHub 服务。
-{% data reusables.apps.deprecating_github_services_ghe %}
-{% endif %}
+Callback URLs can use the `http://` protocol.
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-    # Send updates to Campfire github://campfire?subdomain=github&room=Commits&token=abc123
-{% endif %}
+#### Subscribing
 
-#### 订阅
-
-GitHub PubSubHubbub 端点为：`{% data variables.product.api_url_code %}/hub`。 使用 cURL 的成功请求如下所示：
+The GitHub PubSubHubbub endpoint is: `{% data variables.product.api_url_code %}/hub`. A successful request with curl looks like:
 
 ``` shell
 curl -u "user" -i \
@@ -334,13 +382,13 @@ curl -u "user" -i \
   -F "hub.callback=http://postbin.org/123"
 ```
 
-PubSubHubbub 请求可以多次发送。 如果挂钩已经存在，它将根据请求进行修改。
+PubSubHubbub requests can be sent multiple times. If the hook already exists, it will be modified according to the request.
 
-##### 参数
+##### Parameters
 
-| 名称             | 类型    | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hub.mode`     | `字符串` | **必填**。 值为 `subscribe` 或 `unsubscribe`。                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `hub.topic`    | `字符串` | **必填**。  要订阅的 GitHub 仓库的 URI。  路径格式必须为 `/{owner}/{repo}/events/{event}`。                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `hub.callback` | `字符串` | 要接收主题更新的 URI。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `hub.secret`   | `字符串` | 用于生成传出正文内容的哈希签名的共享密钥。  您可以通过比较原始请求正文与 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`X-Hub-Signature` 或 `X-Hub-Signature-256` 标头{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature` 标头{% elsif currentVersion == "github-ae@latest" %}`X-Hub-Signature-256` 标头{% endif %} 的内容来验证来自 GitHub 的推送。 您可以查看 [PubSubHubbub 文档](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)了解详情。 |
+Name | Type | Description
+-----|------|--------------
+``hub.mode``|`string` | **Required**. Either `subscribe` or `unsubscribe`.
+``hub.topic``|`string` |**Required**.  The URI of the GitHub repository to subscribe to.  The path must be in the format of `/{owner}/{repo}/events/{event}`.
+``hub.callback``|`string` | The URI to receive the updates to the topic.
+``hub.secret``|`string` | A shared secret key that generates a hash signature of the outgoing body content.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes > 2.22 or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghes < 3.0 %}`X-Hub-Signature` header{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. You can see [the PubSubHubbub documentation](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) for more details.

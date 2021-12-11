@@ -7,7 +7,7 @@ redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
   - /desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ## About pushing changes to {% data variables.product.prodname_dotcom %}
 

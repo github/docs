@@ -1,1 +1,0 @@
-1. Benutze in der oberen rechten Ecke einer beliebigen Seite das {% octicon "plus" aria-label="Plus symbol" %}-Dropdownmenü und wähle **New Repository** (Neues Repository). ![Dropdownmenü mit der Option, ein neues Repository zu erstellen](/assets/images/help/repository/repo-create.png)

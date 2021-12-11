@@ -3,7 +3,7 @@ title: Basics of setting up GitHub Classroom
 shortTitle: '{% data variables.product.prodname_classroom %} basics'
 intro: 'Learn how to set up your classroom, manage assignments, and configure time-saving automation.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom
 ---
@@ -18,7 +18,6 @@ For more information about terminology for {% data variables.product.prodname_cl
 3. Creating assignments
     - <a href="https://youtu.be/6QzKZ63KLss" target="_blank">Creating an assignment using a {% data variables.product.prodname_dotcom %} repository</a> {% octicon "link-external" aria-label="The external link icon" %}
     - <a href="https://youtu.be/Qmwh6ijsQJU" target="_blank">Creating an assignment using Microsoft MakeCode as your online IDE</a> {% octicon "link-external" aria-label="The external link icon" %}
-    - <a href="https://youtu.be/p_g5sQ7hUis" target="_blank">Creating an assignment using Repl.it as your online IDE</a> {% octicon "link-external" aria-label="The external link icon" %}
 4. <a href="https://youtu.be/ObaFRGp_Eko" target="_blank">How students complete assignments</a> {% octicon "link-external" aria-label="The external link icon" %}
 5. <a href="https://youtu.be/g45OJn3UyCU" target="_blank">How teachers review assignments</a> {% octicon "link-external" aria-label="The external link icon" %}
 6. <a href="https://youtu.be/QxrA3taZdNM" target="_blank">Creating group assignments</a> {% octicon "link-external" aria-label="The external link icon" %}

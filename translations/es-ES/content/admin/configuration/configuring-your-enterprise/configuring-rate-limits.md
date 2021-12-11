@@ -1,55 +1,63 @@
 ---
-title: Configurar límites de tasa
-intro: 'Puedes configurar límites de tasa para {% data variables.product.prodname_ghe_server %} usando la {% data variables.enterprise.management_console %}.'
+title: Configuring rate limits
+intro: 'You can set rate limits for {% data variables.product.prodname_ghe_server %} using the {% data variables.enterprise.management_console %}.'
 redirect_from:
   - /enterprise/admin/installation/configuring-rate-limits
   - /enterprise/admin/configuration/configuring-rate-limits
   - /admin/configuration/configuring-rate-limits
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
 ---
+## Enabling rate limits for {% data variables.product.prodname_enterprise_api %}
 
-### Habilitar límites de tasa para {% data variables.product.prodname_enterprise_api %}
+Enabling rate limits on {% data variables.product.prodname_enterprise_api %} can prevent overuse of resources by individual or unauthenticated users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
-Habilitar límites de tasa en {% data variables.product.prodname_enterprise_api %} puede evitar el uso excesivo de recursos por parte de usuarios individuales o sin autenticación. Para obtener más información, consulta la sección "[Limites de tasa](/enterprise/{{ page.version }}/v3/#rate-limiting)."
-
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
-Puedes eximir a una lista de usuarios para que no tomen los límites de tasa de la API si utilizas la utilidad `ghe-config` en el shell administrativo. Para obtener más información, consulta la sección "[Utilidades de la línea de comandos](/enterprise/admin/configuration/command-line-utilities#ghe-config)".
+{% ifversion ghes %}
+You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-config)."
 {% endif %}
 
 {% note %}
 
-**Nota:** La {% data variables.enterprise.management_console %} detalla el período de tiempo (por minuto o por hora) de cada límite de tasa.
+**Note:** The {% data variables.enterprise.management_console %} lists the time period (per minute or per hour) for each rate limit.
 
 {% endnote %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. En "Limitación de tasa", selecciona **Enable API Rate Limiting** (Habilitar la limitación de tasa de API). ![Casilla para habilitar la limitación de tasa de API](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
-3. Escribe los límites para las solicitudes autenticadas y no autenticadas para cada API o acepta los límites predeterminados que aparecen completados.
+2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**.
+![Checkbox for enabling API rate limiting](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
+3. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Habilitar límites de tasa de abuso
+## Enabling secondary rate limits
 
-Establecer límites de tasa de abuso protege el nivel general de servicio en {% data variables.product.product_location %}.
+Setting secondary rate limits protects the overall level of service on {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. En "Limitación de tasa", selecciona **Enable Abuse Rate Limiting** (Habilitar limitación de tasa de abuso). ![Casilla para habilitar la limitación de tasa de abuso](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
-3. Escribe límites para las solicitudes totales, límite de CPU y límite de CPU para búsquedas, o acepta los límites predeterminados que aparecen completados.
+{% ifversion ghes > 3.1 %}
+2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
+   ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
+{% else %}
+2. Under "Rate Limiting", select **Enable Abuse Rate Limiting**.
+    ![Checkbox for enabling abuse rate limiting](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
+{% endif %}
+3. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Habilitar límites de tasa de Git
+## Enabling Git rate limits
 
-Puedes aplicar límites de tasa de Git por red de repositorios o por Id. de usuario. Los límites de tasa de Git se expresan en operaciones simultáneas por minuto y se adaptan en función de la carga de CPU actual.
+You can apply Git rate limits per repository network or per user ID. Git rate limits are expressed in concurrent operations per minute, and are adaptive based on the current CPU load.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. En "Limitación de tasa", selecciona **Enable Git Rate Limiting** (Habilitar limitación de tasa de Git). ![Casilla para habilitar la limitación de tasa de Git](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
-3. Escribe los límites para cada red de repositorios o ID de usuario. ![Campos para la red de repositorios y límites de ID de usuario](/assets/images/enterprise/management-console/example-git-rate-limits.png)
+2. Under "Rate Limiting", select **Enable Git Rate Limiting**.
+![Checkbox for enabling Git rate limiting](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
+3. Type limits for each repository network or user ID.
+  ![Fields for repository network and user ID limits](/assets/images/enterprise/management-console/example-git-rate-limits.png)
 {% data reusables.enterprise_management_console.save-settings %}

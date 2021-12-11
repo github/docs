@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/setting-up-github-desktop
   - /desktop/installing-and-configuring-github-desktop/setting-up-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ## Part 1: Installing {% data variables.product.prodname_desktop %}
 

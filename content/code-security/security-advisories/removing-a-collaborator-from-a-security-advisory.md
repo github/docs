@@ -4,12 +4,14 @@ intro: 'When you remove a collaborator from a security advisory, they lose read 
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
   - Collaboration
+shortTitle: Remove collaborators
 ---
 
 People with admin permissions to a security advisory can remove collaborators from the security advisory.

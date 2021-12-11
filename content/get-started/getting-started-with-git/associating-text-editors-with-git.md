@@ -2,17 +2,19 @@
 title: Associating text editors with Git
 intro: Use a text editor to open and edit your files with Git.
 redirect_from:
-  - /textmate/
-  - /articles/using-textmate-as-your-default-editor/
-  - /articles/using-sublime-text-2-as-your-default-editor/
+  - /textmate
+  - /articles/using-textmate-as-your-default-editor
+  - /articles/using-sublime-text-2-as-your-default-editor
   - /articles/associating-text-editors-with-git
   - /github/using-git/associating-text-editors-with-git
   - /github/getting-started-with-github/associating-text-editors-with-git
   - /github/getting-started-with-github/getting-started-with-git/associating-text-editors-with-git
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Associate text editors
 ---
 {% mac %}
 
@@ -59,6 +61,7 @@ versions:
 ## Using Atom as your editor
 
 1. Install [Atom](https://atom.io/). For more information, see "[Installing Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" in the Atom documentation.
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Type this command:
   ```shell
   $ git config --global core.editor "atom --wait"

@@ -2,7 +2,7 @@
 title: GitHub AE Product Specific Terms
 hidden: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/site-policy/ghem-supplemental-terms-for-microsoft-volume-licensing
   - /github/site-policy/github-ae-product-specific-terms

@@ -3,7 +3,7 @@ title: Restricting network traffic to your enterprise
 shortTitle: Restricting network traffic
 intro: You can use an IP allow list to restrict access to your enterprise to connections from specified IP addresses.
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -70,4 +70,4 @@ For instance-level restrictions using Azure NSGs, contact {% data variables.cont
 
 ## Using {% data variables.product.prodname_actions %} with an IP allow list
 
-{% data reusables.github-actions.ip-allow-list-hosted-runners %}
+{% data reusables.github-actions.ip-allow-list-self-hosted-runners %}

@@ -9,14 +9,15 @@ redirect_from:
   - /articles/finding-your-organization-s-next-billing-date/
   - /articles/viewing-your-plans-and-billing-date/
   - /articles/viewing-your-subscriptions-and-billing-date
-
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Accounts
   - Organizations
   - User account
+shortTitle: Subscriptions & billing date
 ---
 ## Finding your personal account's next billing date
 
@@ -33,4 +34,4 @@ topics:
 
 ## Further reading
 
-- "[About billing for {% data variables.product.product_name %} accounts](/articles/about-billing-for-github-accounts)"
+- "[About billing for {% data variables.product.prodname_dotcom %} accounts](/articles/about-billing-for-github-accounts)"

@@ -6,19 +6,20 @@ redirect_from:
   - /enterprise/admin/enterprise-management/cluster-network-configuration
   - /admin/enterprise-management/cluster-network-configuration
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Clustering
   - Enterprise
   - Infrastructure
   - Networking
+shortTitle: Configure a cluster network
 ---
 ## Network considerations
 
 The simplest network design for clustering is to place the nodes on a single LAN. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
+{% ifversion ghes %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
 
 ### Application ports for end users
 
@@ -98,6 +99,8 @@ Because client connections to the cluster come from the load balancer, the clien
 
 We strongly recommend enabling PROXY support for both your instance and the load balancer.
 
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
+
  - For your instance, use this command:
   ```shell
   $ ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply
@@ -110,7 +113,7 @@ We strongly recommend enabling PROXY support for both your instance and the load
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
-To enable the `X-Fowarded-For` header, use this command:
+To enable the `X-Forwarded-For` header, use this command:
 
 ```shell
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply

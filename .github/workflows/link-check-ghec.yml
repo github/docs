@@ -1,0 +1,36 @@
+name: 'Link Checker: Enterprise Cloud'
+
+# **What it does**: This checks links for GHEC version of docs.
+# **Why we have it**: We want to know if links break.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+
+      - name: Setup node
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        with:
+          node-version: 16.13.x
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: 'Link check: Enterprise Cloud'
+        env:
+          DOCS_VERSION: 'enterprise-cloud'
+        run: npm run link-check

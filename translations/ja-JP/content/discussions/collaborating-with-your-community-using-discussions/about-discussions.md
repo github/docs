@@ -2,12 +2,12 @@
 title: ディスカッションについて
 intro: 'ディスカッションでは、質問、質問への回答、情報の共有、発表、{% data variables.product.product_name %} 上のプロジェクトについて会話を実施したり参加したりすることができます。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 ---
 
-{% data reusables.discussions.beta %}
 
-### ディスカッションについて
+## {% data variables.product.prodname_discussions %}について
 
 {% data variables.product.prodname_discussions %} を使用すると、プロジェクトのコミュニティは、プロジェクトのリポジトリ内で会話を作成して参加できます。 ディスカッションにより、プロジェクトのメンテナ、コントリビューター、訪問者は、サードパーティのツールを使用せずに、一か所に集合し、次のような目標を集めて達成できます。
 
@@ -19,11 +19,11 @@ versions:
 
 Issue やプルリクエストをクローズするように、ディスカッションをクローズする必要はありません。
 
-リポジトリ管理者またはプロジェクトメンテナがリポジトリのディスカッションを有効にすると、リポジトリにアクセスするすべての人がリポジトリのディスカッションを作成して参加できます。 リポジトリ管理者とプロジェクトメンテナは、リポジトリ内のディスカッションとディスカッションカテゴリを管理し、ディスカッションを固定してディスカッションの可視性を高めることができます。 モデレータとコラボレータは、コメントを回答としてマークしたり、ディスカッションをロックしたり、Issue をディスカッションに変換したりすることができます。 詳細は「[Organization のためのリポジトリ権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)」を参照してください。
+If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who visits the repository can create and participate in discussions for the repository. リポジトリ管理者とプロジェクトメンテナは、リポジトリ内のディスカッションとディスカッションカテゴリを管理し、ディスカッションを固定してディスカッションの可視性を高めることができます。 モデレータとコラボレータは、コメントを回答としてマークしたり、ディスカッションをロックしたり、Issue をディスカッションに変換したりすることができます。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 リポジトリのディスカッションの管理の詳細については、「[リポジトリでのディスカッションを管理する](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)」を参照してください。
 
-### About discussion organization
+## About discussion organization
 
 You can organize discussions with categories and labels.
 
@@ -37,7 +37,7 @@ You can organize discussions with categories and labels.
 
 {% data reusables.discussions.you-can-label-discussions %}
 
-### ディスカッションのベストプラクティス
+## Best practices for {% data variables.product.prodname_discussions %}
 
 コミュニティのメンバーまたはメンテナとして、コミュニティに影響を与える質問をしたり、情報について話し合ったりするためのディスカッションを開始します。 詳しい情報については、「[ディスカッションを使用したメンテナとのコラボレーション](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions)」を参照してください。
 
@@ -47,14 +47,14 @@ You can organize discussions with categories and labels.
 
 {% data reusables.discussions.you-can-convert-an-issue %}詳しい情報については、「[リポジトリ内のディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)」を参照してください。
 
-### フィードバックを送る
+## フィードバックを送る
 
 {% data variables.product.prodname_discussions %} に関するフィードバックを {% data variables.product.company_short %} と共有できます。 会話に参加するには、[`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22) を参照してください。
 
-### 参考リンク
+## 参考リンク
 
 - 「[{% data variables.product.prodname_dotcom %} での書き方と書式設定について](/github/writing-on-github/about-writing-and-formatting-on-github)」
-- 「[ディスカッションを検索する](/github/searching-for-information-on-github/searching-discussions)」
+- 「[ディスカッションを検索する](/search-github/searching-on-github/searching-discussions)」
 - 「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」
 - [コメントと会話の管理](/communities/moderating-comments-and-conversations)
 - 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」

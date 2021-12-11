@@ -1,8 +1,9 @@
 ---
-title: Mejorar la versión de Dependabot.com al Dependabot nativo de GitHub
-intro: Puedes mejorar a un Dependabot nativo de GitHub si fusionas una solicitud de cambios que permitirá a tus dependencias seguir actualizándose.
+title: Upgrading from Dependabot.com to GitHub-native Dependabot
+intro: You can upgrade to GitHub-native Dependabot by merging a pull request that will allow your dependencies to continue being updated.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Repositories
@@ -11,43 +12,43 @@ topics:
   - Dependencies
 redirect_from:
   - /code-security/supply-chain-security/upgrading-from-dependabotcom-to-github-native-dependabot
+shortTitle: Dependabot.com upgrades
 ---
-
 {% warning %}
 
-La vista previa del Dependabot cerrará el 3 de agosto de 2021. Para seguir obteniendo actualizaciones del Dependabot, por favor, migra el Dependabot nativo de GitHub antes de esta fecha.
+Dependabot Preview has been shut down as of August 3rd, 2021. In order to keep getting Dependabot updates, please migrate to GitHub-native Dependabot.
 
-Después de esta fecha, cualquier solicitud de cambios abierta desde la vista previa del Dependabot permanecerá abierta, pero el bot mismo ya no funcinará en tus cuentas y organizaciones de {% data variables.product.prodname_dotcom %}.
+Open pull requests from Dependabot Preview will remain open, including the pull request to upgrade to GitHub-native Dependabot, but the bot itself will no longer work on your {% data variables.product.prodname_dotcom %} accounts and organizations.
 
 {% endwarning %}
 
-### Acerca de mejorar de una vista previa del Dependabot a un {% data variables.product.prodname_dependabot %} nativo de {% data variables.product.prodname_dotcom %}
+## About upgrading from Dependabot Preview to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}
 
-La vista previa del Dependabot se creó directamente en {% data variables.product.prodname_dotcom %} para que puedas utilizar el {% data variables.product.prodname_dependabot %} junto con el resto de las funcionalidades en {% data variables.product.prodname_dotcom %} sin tener que instalar y utilizar una aplicación por separado. Al migrarte al {% data variables.product.prodname_dependabot %} nativo de {% data variables.product.prodname_dotcom %}, también podemos enfocarnos en traer muchas características emocionantes al {% data variables.product.prodname_dependabot %}, incluyendo más [actualizaciones de ecosistema](https://github.com/github/roadmap/issues/150), [notificaciones mejoradas](https://github.com/github/roadmap/issues/133) y compatibilidad del {% data variables.product.prodname_dependabot %} con [{% data variables.product.prodname_ghe_server %}](https://github.com/github/roadmap/issues/86) y [{% data variables.product.prodname_ghe_managed %}](https://github.com/github/roadmap/issues/135).
+Dependabot Preview has been built directly into {% data variables.product.prodname_dotcom %}, so you can use {% data variables.product.prodname_dependabot %} alongside all the other functionality in {% data variables.product.prodname_dotcom %} without having to install and use a separate application. By migrating to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, we can also focus on bringing lots of exciting new features to {% data variables.product.prodname_dependabot %}, including more [ecosystem updates](https://github.com/github/roadmap/issues/150), [improved notifications](https://github.com/github/roadmap/issues/133), and {% data variables.product.prodname_dependabot %} support for [{% data variables.product.prodname_ghe_server %}](https://github.com/github/roadmap/issues/86) and [{% data variables.product.prodname_ghe_managed %}](https://github.com/github/roadmap/issues/135).
 
-### Diferencias entre la vista previa del Dependabot y el {% data variables.product.prodname_dependabot %} nativo de {% data variables.product.prodname_dotcom %}
+## Differences between Dependabot Preview and {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}
 
-Si bien la mayoría de las características de la vista previa del Dependabot existen en el {% data variables.product.prodname_dependabot %} nativo de {% data variables.product.prodname_dotcom %}, algunas no están disponibles en él:
-- **Actualizaciones en vivo:** Esperamos tenerlas de vuelta pronto. Por el momento, puedes ejecutar el {% data variables.product.prodname_dependabot %} de {% data variables.product.prodname_dotcom %} diariamente para que atrae paquetes al transcurrir un día de su lanzamiento.
-- **Registros de variable de ambiente PHP:** Para los proyectos que dependen de la variable de ambiente `ACF_PRO_KEY`, puede que seas capaz de expender tu copia licenciada del plugin de los Campos Personalizados Avanzados. Para encontrar un ejemplo, consulta [dependabot/acf-php-example](https://github.com/dependabot/acf-php-example#readme). Para encontrar otras variables de ambiente, puedes utilizar {% data variables.product.prodname_actions %} para recuperar las dependencias desde estos registros.
-- **Fusión automática:** Siempre recomendamos verificar tus dependencias antes de fusionarlas; por lo tanto, la fusión automática no será compatible en el futuro previsible. Para aquellos que vetaron sus dependencias o que solo utilizan las internas, recomendamos agregar aplicaciones de fusión automática de terceros o configurar GitHub Actions para fusionar.
+While most of the Dependabot Preview features exist in {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, a few remain unavailable: 
+- **Live updates:** We hope to bring these back in the future. For now, you can run {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_dependabot %} daily to catch new packages within one day of release.
+- **PHP environment variable registries:** For projects that rely on the `ACF_PRO_KEY` environment variable, you may be able to vendor your licensed copy of the Advanced Custom Fields plugin. For an example, see [dependabot/acf-php-example](https://github.com/dependabot/acf-php-example#readme). For other environment variables, you can use {% data variables.product.prodname_actions %} to fetch dependencies from these registries.
+- **Auto-merge:** We always recommend verifying your dependencies before merging them; therefore, auto-merge will not be supported for the foreseeable future. For those of you who have vetted your dependencies, or are only using internal dependencies, we recommend adding third-party auto-merge apps, or setting up GitHub Actions to merge. We have provided the [`dependabot/fetch-metadata`](https://github.com/marketplace/actions/fetch-metadata-from-dependabot-prs) action to help developers [enable GitHub's automerge](https://github.com/dependabot/fetch-metadata/#enabling-auto-merge).
 
-En el {% data variables.product.prodname_dependabot %} nativo de {% data variables.product.prodname_dotcom %}, puedes configurar todas las actualizaciones de versión utilizando el archivo de configuración. Este archivo es similar al archivo de configuración de la vista previa de Dependabot con algunos cambios y mejoras que se incluirán automáticamente en su solicitud de extracción de actualización. Para obtener más información sobre la solicitud de cambios de actualziación, consulta la sección "[Actualizar a un Dependabot nativo de GitHub](/code-security/supply-chain-security/upgrading-from-dependabotcom-to-github-native-dependabot#upgrading-to-github-native-dependabot)".
+In {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, you can configure all version updates using the configuration file. This file is similar to the Dependabot Preview configuration file with a few changes and improvements that will be automatically included in your upgrade pull request. For more information about the upgrade pull request, see "[Upgrading to GitHub-native Dependabot](/code-security/supply-chain-security/upgrading-from-dependabotcom-to-github-native-dependabot#upgrading-to-github-native-dependabot)".
 
-Para ver las bitácoras de actualización del {% data variables.product.prodname_dependabot %} nativo de {% data variables.product.prodname_dotcom %} que se encontraban anteriormente en el tablero de Dependabot.com:
+To see update logs for {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %} that were previously on the Dependabot.com dashboard:
 
-  1. Navega a la página de **Perspectivas** de tu repositorio.
-  2. Haz clic en la **Gráfica de dependencias** a la izquierda.
-  3. Haz clic en **{% data variables.product.prodname_dependabot %}**.
+  1. Navigate to your repository’s **Insights** page.
+  2. Click **Dependency graph** to the left.
+  3. Click **{% data variables.product.prodname_dependabot %}**.
 
-Para obtener más información acerca de las actualizaciones con un {% data variables.product.prodname_dependabot %} nativo de {% data variables.product.prodname_dotcom %}, consulta la sección "[Acerca de las actualizaciones de versión del Dependabot](/code-security/supply-chain-security/about-dependabot-version-updates)".
+For more information about version updates with {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, see "[About Dependabot version updates](/code-security/supply-chain-security/about-dependabot-version-updates)."
 
-### Actualizar a un {% data variables.product.prodname_dependabot %} nativo de {% data variables.product.prodname_dotcom %}
+## Upgrading to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}
 
-El actualizar de la vista previa del Dependabot a un {% data variables.product.prodname_dependabot %} nativo de {% data variables.product.prodname_dotcom %} requiere que: fusiones la solicitud de cambios de *Actualices a un Dependabot nativo de GitHub* en tu repositorio. Esta solicitud de cambios incluye el archivo de configuración actualizado que se requiere para tener un {% data variables.product.prodname_dependabot %} nativo de {% data variables.product.prodname_dotcom %}.
+Upgrading from Dependabot Preview to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %} requires you to merge the *Upgrade to GitHub-native Dependabot* pull request in your repository. This pull request includes the updated configuration file needed for {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}.
 
-Si estás utilizando repositorios privados, tendrás que proporcionar al Dependabot acceso a ellos en la configuración de análisis y seguridad de tu organización. Para obtener más información, consulta la sección "[Permitir que el Dependabot acceda a las dependencias privadas](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)". Anteriormente, el Dependabot tenía acceso a todos los repositorios dentro de una organización, pero implementamos este cambio porque así es mucho más seguro utilizar el principio del privilegio mínimo necesario para el Dependabot.
+If you are using private repositories, you will have to grant Dependabot access to these repositories in your organization's security and analysis settings. For more information, see "[Allowing Dependabot to access private dependencies](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)". Previously, Dependabot had access to all repositories within an organization, but we implemented this change because it is much safer to use the principle of least privilege for Dependabot.
 
-Si estás utilizando registros privados, tendrás que agregar tus secretos existentes de la vista previa del Dependabot a tus "Secretos del Dependabot" de tu organización o repositorio. Para obtener más información, consulta la sección "[Administrar los secretos cifrados del Dependabot](/code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot)".
+If you are using private registries, you will have to add your existing Dependabot Preview secrets to your repository's or organization's "Dependabot secrets". For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot)".
 
-Si tienes cualquier duda o si necesitas ayuda para migrarte, puedes ver o abrir propuestas en el repositorio [dependabot/dependabot-core](https://github.com/dependabot/dependabot-core/issues/new?assignees=%40dependabot%2Fpreview-migration-reviewers&labels=E%3A+preview-migration&template=migration-issue.md&title=).
+If you have any questions or need help migrating, you can view or open issues in the [dependabot/dependabot-core](https://github.com/dependabot/dependabot-core/issues/new?assignees=%40dependabot%2Fpreview-migration-reviewers&labels=E%3A+preview-migration&template=migration-issue.md&title=) repository.

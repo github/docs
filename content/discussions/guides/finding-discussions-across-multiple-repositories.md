@@ -1,11 +1,12 @@
 ---
 title: Finding discussions across multiple repositories
-intro: 'You can easily access every discussion you''ve created or participated in across multiple repositories.'
+intro: You can easily access every discussion you've created or participated in across multiple repositories.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Find discussions
 ---
 
-{% data reusables.discussions.beta %}
 
 ## Finding discussions
 
@@ -16,6 +17,6 @@ versions:
 
 ## Further reading
 
-- "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)"
+- "[Searching discussions](/search-github/searching-on-github/searching-discussions)"
 - "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"

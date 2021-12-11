@@ -7,11 +7,13 @@ redirect_from:
   - /articles/upgrading-or-downgrading-your-clients-paid-organization
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
   - Upgrades
+shortTitle: Upgrade or downgrade
 ---
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
 

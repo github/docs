@@ -3,14 +3,19 @@ title: Habilitar las GitHub Actions con la puerta de enlace de MinIO para el alm
 intro: 'Puedes habilitar a las {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %} y utilizar la puerta de enlace de MinIO para el almacenamiento en NAS para almacenar artefactos que generan las ejecuciones del flujo de trabajo.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - Infrastructure
+  - Storage
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
+shortTitle: Puerta de enlace de MinIO para el almacenamiento en NAS
 ---
 
-### Prerrequisitos
+## Prerrequisitos
 
 {% data reusables.actions.enterprise-s3-support-warning %}
 
@@ -21,7 +26,7 @@ Antes de que habilites las {% data variables.product.prodname_actions %}, asegú
 
 {% data reusables.actions.enterprise-common-prereqs %}
 
-### Habilitar las {% data variables.product.prodname_actions %} con la puerta de enlace de MinIO para almacenamiento en NAS
+## Habilitar las {% data variables.product.prodname_actions %} con la puerta de enlace de MinIO para almacenamiento en NAS
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

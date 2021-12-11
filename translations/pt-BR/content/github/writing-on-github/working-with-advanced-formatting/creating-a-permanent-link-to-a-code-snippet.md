@@ -6,12 +6,16 @@ redirect_from:
   - /articles/creating-a-permanent-link-to-a-code-snippet
   - /github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Links permanentes para o código
 ---
+
+## Vinculando ao código
 
 Esse tipo de link permanente será renderizado como um trecho de código somente no repositório em que ele foi originado. Em outros repositórios, o trecho de código permalink será renderizado como uma URL.
 
@@ -32,7 +36,13 @@ Esse tipo de link permanente será renderizado como um trecho de código somente
 5. Navegue até a conversa em que deseja vincular ao trecho de código.
 6. Cole seu permalink em um comentário e clique em **Comment** (Comentário). ![Permalink colado em um comentário no mesmo repositório](/assets/images/help/repository/code-snippet-permalink-in-comment.png)
 
-### Leia mais
+## Vinculando ao Markdown
+
+Você pode vincular a linhas específicas em arquivos Markdown carregando o arquivo Markdown sem a interpretação do Markdown. Para carregar um arquivo Markdown sem interpretação, você pode usar o parâmetro `?plain=1` no final da url para o arquivo. Por exemplo, `github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1`.
+
+Você pode vincular a uma linha específica no arquivo Markdown da mesma forma que você pode vincular no código. Acrescente `#L` com o número da linha ou números no final da url. Por exemplo, `github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1#L14` irá destacar a linha 14 no arquivo simples README.md.
+
+## Leia mais
 
 - "[Criar um problema](/articles/creating-an-issue/)"
 - "[Abrir um problema a partir de código](/articles/opening-an-issue-from-code/)"

@@ -5,9 +5,10 @@ redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/
   - /apps/building-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 children:

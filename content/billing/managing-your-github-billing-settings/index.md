@@ -12,7 +12,8 @@ redirect_from:
   - /categories/99/articles/
   - /articles/managing-your-github-billing-settings
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 children:
   - /about-billing-on-github
   - /viewing-your-subscriptions-and-billing-date
@@ -26,3 +27,4 @@ children:
   - /unlocking-a-locked-account
   - /removing-a-payment-method
 ---
+

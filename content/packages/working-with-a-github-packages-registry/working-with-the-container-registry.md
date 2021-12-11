@@ -13,7 +13,9 @@ redirect_from:
   - /packages/guides/container-guides-for-github-packages/enabling-improved-container-support
   - /packages/guides/enabling-improved-container-support
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Container registry
 ---
 
 ## About {% data variables.product.prodname_container_registry %} support

@@ -6,14 +6,22 @@ redirect_from:
   - /github/administering-a-repository/keeping-your-actions-up-to-date-with-dependabot
   - /code-security/supply-chain-security/keeping-your-actions-up-to-date-with-dependabot
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Repositories
   - Dependabot
   - Version updates
   - Actions
+shortTitle: Auto-update actions
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## About {% data variables.product.prodname_dependabot_version_updates %} for actions
 
 Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. When you enable {% data variables.product.prodname_dependabot_version_updates %} for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} will help ensure that references to actions in a repository's *workflow.yml* file are kept up to date. For each action in the file, {% data variables.product.prodname_dependabot %} checks the action's reference (typically a version number or commit identifier associated with the action) against the latest version. If a more recent version of the action is available, {% data variables.product.prodname_dependabot %} will send you a pull request that updates the reference in the workflow file to the latest version. For more information about {% data variables.product.prodname_dependabot_version_updates %}, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)." For more information about configuring workflows for {% data variables.product.prodname_actions %}, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
@@ -28,7 +36,7 @@ Actions are often updated with bug fixes and new features to make automated proc
 1. Set a `schedule.interval` to specify how often to check for new versions.
 {% data reusables.dependabot.check-in-dependabot-yml %} If you have edited an existing file, save your changes.
 
-You can also enable {% data variables.product.prodname_dependabot_version_updates %} on forks. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates#enabling-version-updates-on-forks)."
+You can also enable {% data variables.product.prodname_dependabot_version_updates %} on forks. For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-version-updates-on-forks)."
 
 ### Example *dependabot.yml* file for {% data variables.product.prodname_actions %}
 

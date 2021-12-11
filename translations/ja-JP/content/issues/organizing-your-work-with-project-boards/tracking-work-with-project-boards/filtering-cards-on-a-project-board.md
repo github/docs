@@ -6,12 +6,16 @@ redirect_from:
   - /articles/filtering-cards-on-a-project-board
   - /github/managing-your-work-on-github/filtering-cards-on-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: ボード上のカードのフィルタ
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 カードでは、任意のアサインされた人、マイルストーン、またはラベルをクリックして、その修飾子でプロジェクトをフィルタリングできます。 検索をクリアするには、同じアサインされた人、マイルストーン、またはラベルを再度クリックします。
 
@@ -26,7 +30,7 @@ topics:
 - `status:pending`、`status:success`、または `status:failure` を使用して、カードをチェックステータスでフィルタリングする
 - `type:issue`、`type:pr`、または `type:note` を使用して、カードをタイプでフィルタリングする
 - `is:open`、`is:closed`、または `is:merged`と、`is:issue`、`is:pr`、または `is:note` とを使用して、カードをステータスとタイプでフィルタリングする
-- `linked:pr`を使用してクローズしているリファレンスによってプルリクエストにリンクされている Issue でカードをフィルタリングする{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+- `linked:pr`を使用してクローズしているリファレンスによってプルリクエストにリンクされている Issue でカードをフィルタリングする{% ifversion fpt or ghes or ghae or ghec %}
 - `repo:ORGANIZATION/REPOSITORY` を使用して、Organization 全体のプロジェクトボード内のリポジトリでカードをフィルタリングする{% endif %}
 
 1. フィルタリングしたいカードが含まれるプロジェクトボードに移動します。
@@ -38,7 +42,7 @@ topics:
 
 {% endtip %}
 
-### 参考リンク
+## 参考リンク
 
 - [プロジェクトボードについて](/articles/about-project-boards)
 - [プロジェクトボードへの Issue およびプルリクエストの追加](/articles/adding-issues-and-pull-requests-to-a-project-board)

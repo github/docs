@@ -11,12 +11,13 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
   - /admin/user-management/exporting-migration-data-from-githubcom
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Export data from GitHub.com
 ---
 ## Preparing the source organization on {% data variables.product.prodname_dotcom %}
 
@@ -32,8 +33,7 @@ topics:
 
 To export repository data from {% data variables.product.prodname_dotcom_the_website %}, use <a href="/rest/reference/migrations" class="dotcom-only">the Migrations API</a>.
 
-The Migrations API is currently in a preview period, which means that the endpoints and parameters may change in the future. To access the Migrations API, you must provide a custom [media type](/rest/overview/media-types) in the `Accept` header: `application/vnd.github.wyandotte-preview+json`. The examples below include the custom media type.
-
+The Migrations API is currently in a preview period, which means that the endpoints and parameters may change in the future. 
 ## Generating a migration archive
 
 {% data reusables.enterprise_migrations.locking-repositories %}
@@ -44,8 +44,9 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * Your access token for authentication.
     * A [list of the repositories](/rest/reference/repos#list-organization-repositories) you want to migrate:
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X POST \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      -X POST \
+      -H "Accept: application/vnd.github.v3+json" \
       -d'{"lock_repositories":true,"repositories":["<em>orgname</em>/<em>reponame</em>", "<em>orgname</em>/<em>reponame</em>"]}' \
       https://api.github.com/orgs/<em>orgname</em>/migrations
       ```
@@ -59,7 +60,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * The unique `id` of the migration:
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      -H "Accept: application/vnd.github.v3+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>
       ```
 
@@ -73,8 +74,8 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * Your access token for authentication.
     * The unique `id` of the migration:
       ```shell
-      curl -H "Accept: application/vnd.github.wyandotte-preview+json" \
-      -u <em>GITHUB_USERNAME</em>:<em>GITHUB_ACCESS_TOKEN</em> \
+      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      -H "Accept: application/vnd.github.v3+json" \
       -L -o migration_archive.tar.gz \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
@@ -83,8 +84,9 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * Your access token for authentication.
     * The unique `id` of the migration:
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      -X DELETE \
+      -H "Accept: application/vnd.github.v3+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
 {% data reusables.enterprise_migrations.ready-to-import-migrations %}

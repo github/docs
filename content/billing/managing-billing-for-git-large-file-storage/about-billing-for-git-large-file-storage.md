@@ -6,11 +6,13 @@ redirect_from:
   - /articles/about-billing-for-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - LFS
   - Upgrades
+shortTitle: About Git LFS billing
 ---
 ## About billing for {% data variables.large_files.product_name_long %}
 

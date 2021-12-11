@@ -2,7 +2,7 @@
 title: GitHub AE Data Protection Agreement
 hidden: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/site-policy/ghem-data-protection-addendum
   - /github/site-policy/github-ae-data-protection-agreement
@@ -194,7 +194,7 @@ For the purposes of Article 46 (2) of the General Data Protection Regulation (EU
 
 (e) 'the applicable data protection law' means the legislation protecting the fundamental rights and freedoms of individuals and, in particular, their right to privacy with respect to the processing of personal data applicable to a data controller in the Member State in which the data exporter is established;
 
-(f) 'technical and organisational security measures' means those measures aimed at protecting personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing.
+(f) 'technical and organizational security measures' means those measures aimed at protecting personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorized disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing.
 
 #### Clause 2: Details of the transfer
 The details of the transfer and in particular the special categories of personal data where applicable are specified in Appendix 1 below which forms an integral part of the Clauses.
@@ -215,9 +215,9 @@ The data exporter agrees and warrants:
 
 (b) that it has instructed and throughout the duration of the personal data processing services will instruct the data importer to process the personal data transferred only on the data exporter's behalf and in accordance with the applicable data protection law and the Clauses;
 
-(c) that the data importer will provide sufficient guarantees in respect of the technical and organisational security measures specified in Appendix 2 below;
+(c) that the data importer will provide sufficient guarantees in respect of the technical and organizational security measures specified in Appendix 2 below;
 
-(d) that after assessment of the requirements of the applicable data protection law, the security measures are appropriate to protect personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing, and that these measures ensure a level of security appropriate to the risks presented by the processing and the nature of the data to be protected having regard to the state of the art and the cost of their implementation;
+(d) that after assessment of the requirements of the applicable data protection law, the security measures are appropriate to protect personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorized disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing, and that these measures ensure a level of security appropriate to the risks presented by the processing and the nature of the data to be protected having regard to the state of the art and the cost of their implementation;
 
 (e) that it will ensure compliance with the security measures;
 
@@ -238,15 +238,15 @@ The data importer agrees and warrants:
 
 (b) that it has no reason to believe that the legislation applicable to it prevents it from fulfilling the instructions received from the data exporter and its obligations under the contract and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by the Clauses, it will promptly notify the change to the data exporter as soon as it is aware, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract;
 
-(c) that it has implemented the technical and organisational security measures specified in Appendix 2 before processing the personal data transferred;
+(c) that it has implemented the technical and organizational security measures specified in Appendix 2 before processing the personal data transferred;
 
 (d) that it will promptly notify the data exporter about:
 
    (i) any legally binding request for disclosure of the personal data by a law enforcement authority unless otherwise prohibited, such as a prohibition under criminal law to preserve the confidentiality of a law enforcement investigation,
 
-   (ii) any accidental or unauthorised access, and
+   (ii) any accidental or unauthorized access, and
 
-   (iii) any request received directly from the data subjects without responding to that request, unless it has been otherwise authorised to do so;
+   (iii) any request received directly from the data subjects without responding to that request, unless it has been otherwise authorized to do so;
 
 (e) to deal promptly and properly with all inquiries from the data exporter relating to its processing of the personal data subject to the transfer and to abide by the advice of the supervisory authority with regard to the processing of the data transferred;
 
@@ -404,4 +404,3 @@ c. Any third party auditor must disclose to GitHub any findings and recommended 
 d. In the event of a regulatory audit, access will be permitted only during regular business hours, Pacific time.
 
 e. To the extent permitted by law, Customer must keep confidential any information gathered through any such audit of GitHub that, by its nature, should be confidential.
-

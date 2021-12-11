@@ -1,9 +1,11 @@
 ---
 title: Interactions
+intro: 'With the Interactions API, people with owner or admin access can set the interaction limit for the users in their organizations and repositories.'
 redirect_from:
   - /v3/interactions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

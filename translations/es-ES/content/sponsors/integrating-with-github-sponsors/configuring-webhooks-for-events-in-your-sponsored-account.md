@@ -4,19 +4,21 @@ intro: Puedes configurar wehbhooks para que te envíen una alerta cuando recibas
 redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Webhooks
   - Events
   - Open Source
+shortTitle: Webhooks para eventos
 ---
 
-### Acerca de los webhooks para los eventos en tu cuenta patrocinada
+## Acerca de los webhooks para los eventos en tu cuenta patrocinada
 
 Para monitorear los cambios a tus patrocinios, tales como las cancelaciones al final de un periodo de pago, puedes crear webhooks para tu cuenta patrocinada de usuario u organización. Cuando configuras un webhook para tu cuenta patrocinada, recibirás las actualizaciones cuando los patrocinios se creen, editen o borren. Para obtener más información, consulta el [evento de webhook de `sponsorship`](/webhooks/event-payloads/#sponsorship).
 
-### Administrar los webhooks para los eventos en tu cuenta patrocinada
+## Administrar los webhooks para los eventos en tu cuenta patrocinada
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-webhooks-tab %}

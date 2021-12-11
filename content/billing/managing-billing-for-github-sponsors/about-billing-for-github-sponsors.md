@@ -6,10 +6,12 @@ redirect_from:
   - /articles/about-billing-for-github-sponsors
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors/about-billing-for-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Sponsors
+shortTitle: About billing
 ---
 {% data reusables.sponsors.sponsorship-details %}
 

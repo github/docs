@@ -6,9 +6,11 @@ redirect_from:
   - /articles/viewing-users-youve-blocked-from-your-personal-account
   - /github/building-a-strong-community/viewing-users-youve-blocked-from-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: View blocked users in account
 ---
 
 {% data reusables.user_settings.access_settings %}

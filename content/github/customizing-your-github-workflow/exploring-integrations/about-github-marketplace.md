@@ -5,9 +5,10 @@ redirect_from:
   - /articles/about-github-marketplace
   - /github/customizing-your-github-workflow/about-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 ---
-You can discover, browse, and install free and paid tools, including {% data variables.product.prodname_github_app %}s, {% data variables.product.prodname_oauth_app %}s, and {% data variables.product.prodname_actions %}, in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
+You can discover, browse, and install free and paid tools, including {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_actions %}, in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
 
 If you purchase a paid tool, you'll pay for your tool subscription with the same billing information you use to pay for your {% data variables.product.product_name %} subscription, and receive one bill on your regular billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
 
@@ -15,7 +16,7 @@ You may also have the option to select a free 14-day trial on some tools. You ca
 
 ## Finding tools on {% data variables.product.prodname_marketplace %}
 
-You can discover, browse, and install apps and actions created by others on {% data variables.product.prodname_marketplace %}, see "[Searching {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)."
+You can discover, browse, and install apps and actions created by others on {% data variables.product.prodname_marketplace %}, see "[Searching {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)."
 
 {% data reusables.actions.actions-not-verified %}
 

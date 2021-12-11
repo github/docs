@@ -1,7 +1,7 @@
 ---
 title: About Git rebase
 redirect_from:
-  - /rebase/
+  - /rebase
   - articles/interactive-rebase/
   - /articles/about-git-rebase
   - /github/using-git/about-git-rebase
@@ -9,9 +9,10 @@ redirect_from:
   - /github/getting-started-with-github/using-git/about-git-rebase
 intro: 'The `git rebase` command allows you to easily change a series of commits, modifying the history of your repository. You can reorder, edit, or squash commits together.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 Typically, you would use `git rebase` to:
 
@@ -21,7 +22,7 @@ Typically, you would use `git rebase` to:
 
 {% warning %}
 
-**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase on {% data variables.product.product_location %}, see "[About pull request merges](/articles/about-pull-request-merges)."
+**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase on {% data variables.product.product_location %}, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
 {% endwarning %}
 

@@ -1,13 +1,15 @@
 ---
 title: Forking and cloning gists
 intro: 'Gists are actually Git repositories, which means that you can fork or clone any gist, even if you aren''t the original author. You can also view a gist''s full commit history, including diffs.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/forking-and-cloning-gists
   - /github/writing-on-github/forking-and-cloning-gists
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 ## Forking gists
 
@@ -23,7 +25,7 @@ If you want to make local changes to a gist and push them up to the web, you can
 
 ## Viewing gist commit history
 
-To view a gist's full commit history, click the "Revisions" tab at the top of the gist{.
+To view a gist's full commit history, click the "Revisions" tab at the top of the gist.
 
 ![Gist revisions tab](/assets/images/help/gist/gist_revisions_tab.png)
 

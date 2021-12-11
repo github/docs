@@ -2,7 +2,7 @@
 title: 初始化 GitHub AE
 intro: '要让您的企业准备好使用，您可以完成 {% data variables.product.product_name %} 的初始配置。'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -10,11 +10,11 @@ redirect_from:
   - /admin/configuration/initializing-github-ae
 ---
 
-### 关于初始化
+## 关于初始化
 
 在初始化企业之前，必须购买 {% data variables.product.product_name %}。 更多信息请联系 {% data variables.contact.contact_enterprise_sales %}。
 
-在购买 {% data variables.product.product_name %} 后，我们会要求您提供想要初始化企业的个人的电子邮件地址和用户名。 您在 {% data variables.contact.enterprise_support %} 中的专用技术客户经理将为企业所有者创建一个帐户，并向企业所有者发送一封电子邮件以登录 {% data variables.product.product_name %} 并完成初始化。 确保您提供的信息与 IdP 中的预期企业所有者信息相匹配。 有关企业所有者的更多信息，请参阅“[企业中的角色](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)”。
+{% data reusables.github-ae.initialize-enterprise %} 确保您提供的信息与 IdP 中的预期企业所有者信息相匹配。 有关企业所有者的更多信息，请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)”。
 
 {% note %}
 
@@ -28,7 +28,7 @@ redirect_from:
 
 在初始化期间，企业所有者将命名企业、配置 SAML SSO、为企业中的所有组织创建策略以及为用户配置支持联系人。
 
-### 基本要求
+## 基本要求
 
 要开始初始化，您将收到来自 {% data variables.product.company_short %} 的邀请电子邮件。 在配置 {% data variables.product.prodname_ghe_managed %} 之前，要查看以下先决条件。
 
@@ -43,13 +43,13 @@ redirect_from:
 
 2. {% data reusables.saml.assert-the-administrator-attribute %}
 
-### 登录并命名企业
+## 登录并命名企业
 
 1. 按照欢迎电子邮件中的说明联系您的企业。
 2. 在“Change password（更改密码）”下键入您的凭据，然后单击 **Change password（更改密码）**。
 3. 在“What would you like your enterprise account to be named?（您要将企业帐户命名为什么？）”下，键入企业的名称，然后单击 **Save and continue（保存并继续）**。 ![用于命名企业的"Save and continue（保存并继续）"按钮](/assets/images/enterprise/configuration/ae-enterprise-configuration.png)
 
-### 将 IdP 连接到企业
+## 将 IdP 连接到企业
 
 要配置 {% data variables.product.product_name %} 的身份验证，您必须提供包含 SAML IdP 详细信息的 {% data variables.product.product_name %}。 {% data variables.product.company_short %} 建议使用 Azure AD 作为您的 IdP。 更多信息请参阅“[使用身份提供程序配置身份验证和预配](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)”。
 
@@ -60,7 +60,7 @@ redirect_from:
 1. 单击 **Test SAML configuration（测试 SAML 配置）** 以确保您输入的信息是正确的。 !["Test SAML configuration（测试 SAML 配置）"按钮](/assets/images/enterprise/configuration/ae-test-saml-configuration.png)
 1. 单击 **Save（保存）**。 ![用于 IdP 配置的"Save（保存）"按钮](/assets/images/enterprise/configuration/ae-save.png)
 
-### 设置企业策略
+## 设置企业策略
 
 配置策略将为企业的仓库和组织管理设置限制。 这些可以在初始化过程后重新配置。
 
@@ -76,7 +76,7 @@ redirect_from:
 10. 单击 **Save（保存）** ![用于企业策略配置的"Save（保存）"按钮](/assets/images/enterprise/configuration/ae-save.png)
 11. （可选）要重置所有选项，请单击“Reset to default policies（重置为默认策略）”。 ![重置所有默认策略的链接](/assets/images/enterprise/configuration/ae-reset-default-options.png)
 
-### 设置内部支持联系人
+## 设置内部支持联系人
 
 您可以配置用户联系内部支持团队的方法。 这可以在初始化过程后重新配置。
 
@@ -84,7 +84,7 @@ redirect_from:
 2. 在“Internal support contact（内部支持联系人）”下，选择您企业的用户通过网址或电子邮件地址联系支持的方法。 然后，键入支持联系信息。 ![内部支持联系人 URL 的文本字段](/assets/images/enterprise/configuration/ae-support-link-url.png)
 3. 单击 **Save（保存）**。 ![用于企业支持联系人配置的"Save（保存）"按钮](/assets/images/enterprise/configuration/ae-save.png)
 
-### 设置电子邮件设置
+## 设置电子邮件设置
 
 一旦初始化，您便可在初始化过程后重新配置任何设置。 更多信息请参阅“[配置电子邮件通知](/admin/configuration/configuring-email-for-notifications)”。
 

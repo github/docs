@@ -1,4 +1,4 @@
-{% data variables.contact.enterprise_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, {% if currentVersion == "github-ae@latest" %}or {% endif %} workaround instructions{% if enterpriseServerVersions contains currentVersion %}, or by advising you of an available release that addresses the issue{% endif %}.
+{% data variables.contact.enterprise_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, {% ifversion ghae %}or {% endif %} workaround instructions{% ifversion ghes %}, or by advising you of an available release that addresses the issue{% endif %}.
 
 If you use a custom or unsupported plug-in, module, or custom code, {% data variables.contact.enterprise_support %} may ask you to remove the unsupported plug-in, module, or code while attempting to resolve the issue. If the problem is fixed when the unsupported plug-in, module, or custom code is removed, {% data variables.contact.enterprise_support %} may consider the ticket solved.
 

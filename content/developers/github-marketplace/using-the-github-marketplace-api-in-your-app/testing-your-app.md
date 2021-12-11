@@ -7,7 +7,8 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
   - /developers/github-marketplace/testing-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---

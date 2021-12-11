@@ -5,11 +5,13 @@ redirect_from:
   - /apps/building-github-apps/creating-github-apps-from-a-manifest
   - /developers/apps/creating-a-github-app-from-a-manifest
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: App creation manifest flow
 ---
 ## About GitHub App Manifests
 
@@ -58,7 +60,7 @@ The person creating the app will be redirected to a GitHub page with an input fi
 `name` | `string` | The name of the GitHub App.
 `url` | `string` | **Required.** The homepage of your GitHub App.
 `hook_attributes` | `object` | The configuration of the GitHub App's webhook.
-`redirect_url` | `string` | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+`redirect_url` | `string` | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 `callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs.{% else %}
 `callback_url` | `string` |  A full URL to redirect to after someone authorizes an installation.{% endif %}
 `description` | `string` | A description of the GitHub App.
@@ -98,7 +100,7 @@ This example uses a form on a web page with a button that triggers the `POST` re
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+   {% ifversion fpt or ghae or ghes > 3.0 or ghec %}"callback_urls": [
      "https://example.com/callback"
    ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
@@ -133,7 +135,7 @@ This example uses a form on a web page with a button that triggers the `POST` re
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+   {% ifversion fpt or ghae or ghes > 3.0 or ghec %}"callback_urls": [
      "https://example.com/callback"
    ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
@@ -172,11 +174,6 @@ You must complete this step of the GitHub App Manifest flow within one hour.
 **Note:** This endpoint is rate limited. See [Rate limits](/rest/reference/rate-limit) to learn how to get your current rate limit status.
 
 {% endnote %}
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-{% data reusables.pre-release-program.fury-pre-release %}
-{% data reusables.pre-release-program.api-preview-warning %}
-{% endif %}
 
     POST /app-manifests/{code}/conversions
 

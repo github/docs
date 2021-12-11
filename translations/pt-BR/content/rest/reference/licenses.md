@@ -1,13 +1,16 @@
 ---
 title: Licenças
+intro: A API de Licenças permite recuperar as licenças populares de código aberto e informações sobre o arquivo de licença do projeto em particular.
 redirect_from:
   - /v3/licenses
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 A API de Licenças retorna metadados sobre as licenças de código aberto populares e informações sobre o arquivo de licença de um determinado projeto.
@@ -29,7 +32,7 @@ Se uma licença for correspondida, a chave da licença e o nome retornados serã
 
 O GitHub pode ser muitas coisas, mas não é um escritório de advocacia. Como tal, o GitHub não oferece aconselhamento jurídico. Usar a API de licenças ou enviar-nos um e-mail sobre a mesma não constitui aconselhamento jurídico, nem cria uma relação advogado e cliente. Em caso de dúvida sobre o que se pode e não se pode fazer com uma licença específica, antes de avançar, você deverá buscar orientação jurídica antes de seguir em frente. Na verdade, você deve sempre consultar o seu próprio advogado antes de tomar decisões que possam ter desdobramentos jurídicos ou que possam afetar seus direitos.
 
-O GitHub criou a API da licença para ajudar os usuários a obter informações sobre licenças de código aberto e os projetos que as utilizam. Esperamos que ajude. No entanto, tenha em mente que não somos advogados (pelo menos não a maioria de nós) e que cometemos erros como qualquer um. Por esse motivo, o GitHub fornece a API numa base "como se apresenta" e não faz garantias sobre quaisquer informações ou licenças fornecidas em ou através dela, além de eximir-se da responsabilidade por danos resultantes do uso da API.
+O GitHub criou a API da licença para ajudar os usuários a obter informações sobre licenças de código aberto e os projetos que as utilizam. Esperamos que ajude. No entanto, tenha em mente que não somos advogados (pelo menos a maioria de nós) e que cometemos erros como qualquer um. For that reason, GitHub provides the API on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the API.
 
 {% endwarning %}
 

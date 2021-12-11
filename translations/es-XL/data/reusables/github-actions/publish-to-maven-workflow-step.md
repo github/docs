@@ -1,1 +1,0 @@
-Ejecuta el comando `mvn -B deploy` para publicar el repositorio `ossrh`. La variable de entorno `MAVEN_USERNAME` se establecerá con los contenidos de tu `OSSRH_USERNAME` secreto, y la variable de entorno `MAVEN_PASSWORD` se establecerá con los contenidos de tu `OSSRH_TOKEN` secreto.

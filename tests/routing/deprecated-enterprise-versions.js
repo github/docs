@@ -1,7 +1,13 @@
-const app = require('../../lib/app')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM } = require('../helpers/supertest')
-const supertest = require('supertest')
+import createApp from '../../lib/app.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import { get, getDOM } from '../helpers/supertest.js'
+import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
+import supertest from 'supertest'
+import { jest } from '@jest/globals'
+
+jest.useFakeTimers('legacy')
+
+const app = createApp()
 
 describe('enterprise deprecation', () => {
   jest.setTimeout(60 * 1000)
@@ -20,20 +26,26 @@ describe('enterprise deprecation', () => {
 
   test('redirects non-language-prefixed requests for deprecated enterprise content >=2.13', async () => {
     const res = await get('/enterprise/2.13')
-    expect(res.statusCode).toBe(301)
+    expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/en/enterprise/2.13')
   })
 
   test('workaround for lost frontmatter redirects works in deprecated enterprise content >=2.13', async () => {
-    const res = await get('/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page')
+    const res = await get(
+      '/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page'
+    )
     expect(res.statusCode).toBe(301)
-    expect(res.headers.location).toBe('/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile')
+    expect(res.headers.location).toBe(
+      '/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile'
+    )
   })
 
   test('can access redirects from redirects.json in deprecated enterprise content >2.17', async () => {
     const res = await get('/enterprise/2.19/admin/categories/time')
-    expect(res.statusCode).toBe(301)
-    expect(res.headers.location).toBe('/en/enterprise-server@2.19/admin/configuration/configuring-time-synchronization')
+    expect(res.statusCode).toBe(302)
+    expect(res.headers.location).toBe(
+      '/en/enterprise-server@2.19/admin/configuration/configuring-time-synchronization'
+    )
   })
 
   test('handles requests for deprecated Enterprise pages ( >=2.13 )', async () => {
@@ -43,10 +55,12 @@ describe('enterprise deprecation', () => {
     expect($('h1').text()).toBe('About branches')
   })
 
-  test('sets the expected x-robots-tag header for deprecated Enterprise pages', async () => {
+  test('sets the expected headers for deprecated Enterprise pages', async () => {
     const res = await get('/en/enterprise/2.13/user/articles/about-branches')
     expect(res.statusCode).toBe(200)
     expect(res.get('x-robots-tag')).toBe('noindex')
+    expect(res.get('surrogate-key')).toBe(SURROGATE_ENUMS.MANUAL)
+    expect(res.get('set-cookie')).toBeUndefined()
   })
 
   test('handles requests for deprecated Enterprise pages ( <2.13 )', async () => {
@@ -78,17 +92,17 @@ describe('enterprise deprecation', () => {
 describe('deprecation banner', () => {
   test('renders a deprecation warning banner on oldest supported Enterprise version', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
-    expect($('.deprecation-banner').length).toBe(1)
+    expect($('[data-testid=deprecation-banner]').length).toBe(1)
   })
 
   test('does not render a deprecation warning banner on other Enterprise versions', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}`)
-    expect($('.deprecation-banner').length).toBe(0)
+    expect($('[data-testid=deprecation-banner]').length).toBe(0)
   })
 
   test('deprecation warning banner includes a date', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
-    expect($('.deprecation-banner b').text().endsWith('discontinued on .')).toBe(false)
+    expect($('[data-testid=deprecation-banner] b').text().endsWith('discontinued on .')).toBe(false)
   })
 
   test('deprecation warning banner includes the right text depending on the date', async () => {
@@ -96,19 +110,19 @@ describe('deprecation banner', () => {
     const expectedString = enterpriseServerReleases.isOldestReleaseDeprecated
       ? 'was discontinued'
       : 'will be discontinued'
-    expect($('.deprecation-banner b').text().includes(expectedString)).toBe(true)
+    expect($('[data-testid=deprecation-banner] b').text().includes(expectedString)).toBe(true)
   })
 })
 
 describe('does not render survey prompt or contribution button', () => {
   test('does not render survey prompt', async () => {
     let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
-    expect($('.js-survey').length).toBeGreaterThan(0)
+    expect($('[data-testid="survey-form"]').length).toBeGreaterThan(0)
     $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
-      expect($('.js-survey').length).toBe(0)
+      expect($('[data-testid="survey-form"]').length).toBe(0)
     } else {
-      expect($('.js-survey').length).toBeGreaterThan(0)
+      expect($('[data-testid="survey-form"]').length).toBeGreaterThan(0)
     }
   })
 
@@ -119,7 +133,7 @@ describe('does not render survey prompt or contribution button', () => {
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
       expect($('.contribution').length).toBe(0)
     } else {
-      expect($('.js-survey').length).toBeGreaterThan(0)
+      expect($('[data-testid=survey-form]').length).toBeGreaterThan(0)
     }
   })
 })
@@ -177,7 +191,7 @@ describe('JS and CSS assets', () => {
 
   it('returns the expected node_modules', async () => {
     const result = await supertest(app)
-      .get('/node_modules/algoliasearch/dist/algoliasearch.min.js')
+      .get('/node_modules/instantsearch.js/dist/instantsearch.production.min.js')
       .set('Referrer', '/en/enterprise/2.17')
 
     expect(result.statusCode).toBe(200)

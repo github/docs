@@ -6,12 +6,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Initiate failover to appliance
 ---
 The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 2-10 minutes.
 
@@ -23,7 +24,14 @@ The time required to failover depends on how long it takes to manually promote t
       ```shell
       $ ghe-maintenance -s
       ```
-2. When the number of active Git operations reaches zero, wait 30 seconds.
+2.  When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds. 
+
+    {% note %}
+
+    **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
+    
+    {% endnote %}
+
 3. To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
   ```shell
   $ ghe-repl-status -vv

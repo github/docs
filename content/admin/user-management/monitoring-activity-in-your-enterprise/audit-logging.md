@@ -1,14 +1,14 @@
 ---
 title: Audit logging
-intro: '{% data variables.product.product_name %} keeps logs of audited{% if enterpriseServerVersions contains currentVersion %} system,{% endif %} user, organization, and repository events. Logs are useful for debugging and internal and external compliance.'
+intro: '{% data variables.product.product_name %} keeps logs of audited{% ifversion ghes %} system,{% endif %} user, organization, and repository events. Logs are useful for debugging and internal and external compliance.'
 redirect_from:
   - /enterprise/admin/articles/audit-logging/
   - /enterprise/admin/installation/audit-logging
   - /enterprise/admin/user-management/audit-logging
   - /admin/user-management/audit-logging
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: reference
 topics:
   - Auditing
@@ -22,7 +22,7 @@ For a full list, see "[Audited actions](/admin/user-management/audited-actions).
 
 Every Git push operation is logged. For more information, see "[Viewing push logs](/admin/user-management/viewing-push-logs)."
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## System events
 
 All audited system events, including all pushes and pulls, are logged to `/var/log/github/audit.log`. Logs are automatically rotated every 24 hours and are retained for seven days.
