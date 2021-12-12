@@ -121,7 +121,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Make a repository a template (see "[Creating a template repository](/articles/creating-a-template-repository)") | | | | | **X** |
 | Change a repository's settings | | | | | **X** |
 | Manage team and collaborator access to the repository | | | | | **X** |
-| Edit the repository's default branch | | | | | **X** |{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+| Edit the repository's default branch | | | | | **X** |{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 | Rename the repository's default branch (see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)") | | | | | **X** |
 | Rename a branch other than the repository's default branch (see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)") | | | **X** | **X** | **X** |{% endif %}
 | Manage webhooks and deploy keys | | | | | **X** |{% ifversion fpt or ghec %}
@@ -165,7 +165,7 @@ In this section, you can find the access required for security features, such as
 | [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |{% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | [Designate additional people or teams to receive {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) in repositories | | | | | **X** |{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 [1] Repository writers and maintainers can only see alert information for their own commits.
 {% endif %}
 

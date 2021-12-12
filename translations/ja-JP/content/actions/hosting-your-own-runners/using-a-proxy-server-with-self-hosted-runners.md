@@ -15,7 +15,6 @@ shortTitle: Proxy servers
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Configuring a proxy server using environment variables
 

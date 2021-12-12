@@ -2,8 +2,8 @@
 title: Creating a personal access token
 intro: You should create a personal access token to use in place of a password with the command line or with the API.
 redirect_from:
-  - /articles/creating-an-oauth-token-for-command-line-use/
-  - /articles/creating-an-access-token-for-command-line-use/
+  - /articles/creating-an-oauth-token-for-command-line-use
+  - /articles/creating-an-access-token-for-command-line-use
   - /articles/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token
@@ -54,7 +54,7 @@ A token with no assigned scopes can only access public information. To use your 
    ![Generate token button](/assets/images/help/settings/generate_token.png)
    {% ifversion fpt or ghec %}
    ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes > 3.1 or ghae-next %}
+   {% elsif ghes > 3.1 or ghae %}
    ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png)
    {% else %}
    ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)

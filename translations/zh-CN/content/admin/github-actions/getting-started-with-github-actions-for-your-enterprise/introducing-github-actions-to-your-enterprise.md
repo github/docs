@@ -18,6 +18,8 @@ topics:
 
 ![Diagram of jobs running on self-hosted runners](/assets/images/help/images/actions-enterprise-overview.png)
 
+{% data reusables.enterprise.upgrade-ghes-for-actions %}
+
 Before you introduce {% data variables.product.prodname_actions %} to a large enterprise, you first need to plan your adoption and make decisions about how your enterprise will use {% data variables.product.prodname_actions %} to best support your unique needs.
 
 ## Governance and compliance
@@ -102,7 +104,11 @@ Finally, you should consider security hardening for self-hosted runners. For mor
 You must configure external blob storage for these artifacts. Decide which supported storage provider your enterprise will use. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)."
 {% endif %}
 
+{% ifversion ghec or ghes %}
+
 {% data reusables.github-actions.artifact-log-retention-statement %}
+
+{% endif %}
 
 If you want to retain logs and artifacts longer than the upper limit you can configure in {% data variables.product.product_name %}, you'll have to plan how to export and store the data.
 

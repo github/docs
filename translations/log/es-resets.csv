@@ -99,6 +99,7 @@ translations/es-ES/content/actions/managing-workflow-runs/manually-running-a-wor
 translations/es-ES/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
 translations/es-ES/content/actions/managing-workflow-runs/skipping-workflow-runs.md,rendering error
 translations/es-ES/content/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge.md,rendering error
+translations/es-ES/content/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time.md,rendering error
 translations/es-ES/content/actions/publishing-packages/publishing-docker-images.md,rendering error
 translations/es-ES/content/actions/publishing-packages/publishing-java-packages-with-gradle.md,rendering error
 translations/es-ES/content/actions/publishing-packages/publishing-nodejs-packages.md,rendering error
@@ -529,6 +530,7 @@ translations/es-ES/content/github/working-with-github-support/github-enterprise-
 translations/es-ES/content/github/working-with-github-support/github-enterprise-cloud-support.md,rendering error
 translations/es-ES/content/github/working-with-github-support/submitting-a-ticket.md,Listed in localization-support#489
 translations/es-ES/content/github/working-with-github-support/submitting-a-ticket.md,rendering error
+translations/es-ES/content/github/writing-on-github/editing-and-sharing-content-with-gists/forking-and-cloning-gists.md,rendering error
 translations/es-ES/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.md,Listed in localization-support#489
 translations/es-ES/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.md,rendering error
 translations/es-ES/content/github/writing-on-github/working-with-advanced-formatting/index.md,rendering error

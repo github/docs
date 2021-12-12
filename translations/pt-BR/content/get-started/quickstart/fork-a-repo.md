@@ -1,8 +1,8 @@
 ---
 title: Fork a repo
 redirect_from:
-  - /fork-a-repo/
-  - /forking/
+  - /fork-a-repo
+  - /forking
   - /articles/fork-a-repo
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo

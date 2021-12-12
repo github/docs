@@ -170,7 +170,7 @@ You can communicate that a transient environment no longer exists by setting its
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Environments
 
 The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
