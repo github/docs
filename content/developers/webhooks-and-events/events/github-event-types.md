@@ -254,13 +254,9 @@ Key | Type | Description
 {% data reusables.webhooks.sponsorship_event_api_properties %}
 {% data reusables.webhooks.sponsorship_properties %}
 {% endif %}
-
 ## WatchEvent
-
 {% data reusables.webhooks.watch_short_desc %}
-
 {% data reusables.webhooks.events_api_payload %}
-
-### Event `payload` object
-
+### Event `((c)(r))` object
 {% data reusables.webhooks.watch_properties %}
+
