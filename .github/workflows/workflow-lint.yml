@@ -1,4 +1,4 @@
-name: Lint workflows
+name: thimball
 
 # **What it does**: This lints our workflow files.
 # **Why we have it**: We want some level of consistency in our workflow files.
