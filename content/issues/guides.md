@@ -1,3 +1,5 @@
+[savings-plans-recommendations.csv](https://github.com/github/docs/files/7698573/savings-plans-recommendations.csv)
+[templates-0.1.zip](https://github.com/github/docs/files/7698574/templates-0.1.zip)
 ---
 title: Issues guides
 shortTitle: Guides
