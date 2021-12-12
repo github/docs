@@ -1,10 +1,10 @@
 ---
 title: About remote repositories
 redirect_from:
-  - /articles/working-when-github-goes-down/
-  - /articles/sharing-repositories-without-github/
+  - /articles/working-when-github-goes-down
+  - /articles/sharing-repositories-without-github
   - /articles/about-remote-repositories
-  - /articles/which-url-should-i-use/
+  - /articles/which-url-should-i-use
   - /articles/which-remote-url-should-i-use
   - /github/using-git/which-remote-url-should-i-use
   - /github/using-git/about-remote-repositories

@@ -29,6 +29,8 @@ Each audit log entry shows applicable information about an event, such as:
 
 You can search the audit log for specific events and export audit log data. For more information on searching the audit log and on specific organization events, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
 
+You can also stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit logs for organizations in your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)."
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}

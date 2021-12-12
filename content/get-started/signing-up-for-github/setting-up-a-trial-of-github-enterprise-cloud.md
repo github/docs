@@ -29,7 +29,7 @@ You can use organizations for free with {% data variables.product.prodname_free_
 
 ## About trials of {% data variables.product.prodname_ghe_cloud %}
 
-You can set up a 14-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. You do not need to provide a payment method during the trial unless you add {% data variables.product.prodname_marketplace %} apps to your organization that require a payment method. For more information, see "<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">About billing for {% data variables.product.prodname_marketplace %}</a>."
+You can set up a 30-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. You do not need to provide a payment method during the trial unless you add {% data variables.product.prodname_marketplace %} apps to your organization that require a payment method. For more information, see "<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">About billing for {% data variables.product.prodname_marketplace %}</a>."
 
 Your trial includes 50 seats. If you need more seats to evaluate {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. At the end of the trial, you can choose a different number of seats.
 

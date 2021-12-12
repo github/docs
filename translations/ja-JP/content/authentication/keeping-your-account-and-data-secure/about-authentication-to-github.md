@@ -78,7 +78,7 @@ If you authenticate without {% data variables.product.prodname_cli %}, you will 
 
 {% ifversion fpt or ghec %}To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## {% data variables.product.company_short %}'s token formats
 

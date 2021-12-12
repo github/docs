@@ -2,7 +2,6 @@
 title: Migrating from Travis CI to GitHub Actions
 intro: '{% data variables.product.prodname_actions %} and Travis CI share multiple similarities, which helps make it relatively straightforward to migrate to {% data variables.product.prodname_actions %}.'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
@@ -20,7 +19,6 @@ shortTitle: Migrate from Travis CI
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -200,9 +198,13 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see ["Hosting your own runners](/actions/hosting-your-own-runners)."
 
+{% ifversion fpt or ghec %}
+
 ### Concurrent jobs and execution time
 
 The concurrent jobs and workflow execution times in {% data variables.product.prodname_actions %} can vary depending on your {% data variables.product.company_short %} plan. For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration)."
+
+{% endif %}
 
 ### Using different languages in {% data variables.product.prodname_actions %}
 

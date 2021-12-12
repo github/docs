@@ -1,8 +1,8 @@
 ---
 title: Ignoring files
 redirect_from:
-  - /git-ignore/
-  - /ignore-files/
+  - /git-ignore
+  - /ignore-files
   - /articles/ignoring-files
   - /github/using-git/ignoring-files
   - /github/getting-started-with-github/ignoring-files

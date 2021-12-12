@@ -1,19 +1,18 @@
 ---
-title: Ignorar execuções de fluxo de trabalho
-intro: Você pode ignorar as execuções de fluxo de trabalho acionadas pelos eventos `push` e `pull_request` incluindo um comando na sua mensagem de commit.
+title: Skipping workflow runs
+intro: You can skip workflow runs triggered by the `push` and `pull_request` events by including a command in your commit message.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: ghae-next
+  ghae: '*'
   ghec: '*'
-shortTitle: Ignorar execução de fluxo de trabalho
+shortTitle: Skip workflow runs
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-Os fluxos de trabalho que seriam acionados usando `on: push` ou `on: pull_request` não serão acionado se você adicionar qualquer uma das strings a seguir para a mensagem de commit em um push ou o commit HEAD de um pull request:
+Workflows that would otherwise be triggered using `on: push` or `on: pull_request` won't be triggered if you add any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
 
 * `[skip ci]`
 * `[ci skip]`
@@ -21,14 +20,14 @@ Os fluxos de trabalho que seriam acionados usando `on: push` ou `on: pull_reques
 * `[skip actions]`
 * `[actions skip]`
 
-Como alternativa, você pode terminar a mensagem de commit com duas linhas vazias seguidas de `skip-checks: true` ou `skip-checks:true`.
+Alternatively, you can end the commit message with two empty lines followed by either `skip-checks: true` or `skip-checks:true`.
 
-Você não conseguirá fazer o merge do pull request se o repositório estiver configurado para exigir verificações específicas para passar primeiro. Para permitir que o merge do pull request, você pode fazer o push de um novo commit no pull request sem que a instrução seja ignorada na mensagem do commit.
+You won't be able to merge the pull request if your repository is configured to require specific checks to pass first. To allow the pull request to be merged you can push a new commit to the pull request without the skip instruction in the commit message.
 
 {% note %}
 
-**Observação:** Ignorar instruções só se aplica aos eventos `push` e `pull_request`. Por exemplo, adicionar `[skip ci]` a uma mensagem de commit não impedirá que um fluxo de trabalho que acionou `on : pull_request_target` seja executado.
+**Note:** Skip instructions only apply to the `push` and `pull_request` events. For example, adding `[skip ci]` to a commit message won't stop a workflow that's triggered `on: pull_request_target` from running.
 
 {% endnote %}
 
-Ignorar as instruções só se aplica às execuções do(s) fluxo(s) de trabalho que serão acionadas pelo commit que contém as instruções de para ignorar. Você também pode desabilitar um fluxo de trabalho da execução. Para obter mais informações, consulte "[Desabilitar e habilitar um fluxo de trabalho](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)".
+Skip instructions only apply to the workflow run(s) that would be triggered by the commit that contains the skip instructions. You can also disable a workflow from running. For more information, see "[Disabling and enabling a workflow](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)."

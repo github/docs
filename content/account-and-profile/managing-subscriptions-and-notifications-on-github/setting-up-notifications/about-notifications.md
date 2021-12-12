@@ -2,7 +2,7 @@
 title: About notifications
 intro: 'Notifications provide updates about the activity on {% data variables.product.product_location %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
 redirect_from:
-  - /articles/notifications/
+  - /articles/notifications
   - /articles/about-notifications
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications-beta
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications
@@ -28,7 +28,7 @@ You can choose to receive ongoing updates about specific activity on {% data var
 You can choose to subscribe to notifications for:
 - A conversation in a specific issue, pull request, or gist.
 - All activity in a repository or team discussion.
-- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).{% else %}
 - Releases in a repository.{% endif %}
 
@@ -63,7 +63,7 @@ To keep your subscriptions manageable, review your subscriptions and watched rep
 To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
 
 {% ifversion fpt or ghes or ghec %}
-You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)."
+You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)."
 {% endif %}
 
 ## Reasons for receiving notifications
