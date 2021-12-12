@@ -1,5 +1,5 @@
 ---
-title: Fork a repo
+title: Fork a repository
 redirect_from:
   - /fork-a-repo
   - /forking
