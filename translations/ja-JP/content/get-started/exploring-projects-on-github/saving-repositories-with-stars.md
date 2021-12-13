@@ -2,10 +2,10 @@
 title: Saving repositories with stars
 intro: 'You can star repositories and topics to keep track of projects you find interesting{% ifversion fpt or ghec %} and discover related content in your news feed{% endif %}.'
 redirect_from:
-  - /articles/stars/
-  - /articles/about-stars/
-  - /articles/browsing-friends-stars/
-  - /articles/managing-your-stars/
+  - /articles/stars
+  - /articles/about-stars
+  - /articles/browsing-friends-stars
+  - /articles/managing-your-stars
   - /articles/saving-repositories-with-stars
   - /github/getting-started-with-github/saving-repositories-with-stars
   - /github/getting-started-with-github/exploring-projects-on-github/saving-repositories-with-stars

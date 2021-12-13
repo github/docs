@@ -2,7 +2,7 @@
 title: About notifications
 intro: 'Notifications provide updates about the activity on {% data variables.product.product_location %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
 redirect_from:
-  - /articles/notifications/
+  - /articles/notifications
   - /articles/about-notifications
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications-beta
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications
