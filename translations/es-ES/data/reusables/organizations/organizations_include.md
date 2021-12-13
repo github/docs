@@ -3,7 +3,8 @@ Las organizaciones incluyen:
 - La capacidad de otorgarles a los miembros [un rango de permisos de acceso a los repositorios de la organización](/articles/repository-permission-levels-for-an-organization)
 - [Los elementos anidados que reflejan la estructura de tu grupo o compañía](/articles/about-teams) con permisos de acceso y menciones en cascada{% ifversion not ghae %}
 - La posibilidad de que los propietarios de la organización vean el [estado de autenticación de dos factores(2FA)](/articles/about-two-factor-authentication) de los miembros
-- La opción de [requerir que todos los miembros de la organización utilicen autenticación bifactorial](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}
+- The option to [require all organization members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}{% ifversion fpt%}
+- The ability to [create and administer classrooms with GitHub Classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms){% endif %}
 
 {% ifversion fpt or ghec %}
 Puedes utilizar las organizaciones de forma gratuita con
