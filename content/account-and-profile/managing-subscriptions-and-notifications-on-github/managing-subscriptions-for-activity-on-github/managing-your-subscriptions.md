@@ -23,7 +23,7 @@ To help you understand your subscriptions and decide whether to unsubscribe, see
 
 ## Choosing how to unsubscribe
 
-To unwatch (or unsubscribe from) repositories quickly, go to the "Watched repositories" page, where you can see all repositories you're watching. For more information, see "[Unwatch a repository](#unwatch-a-repository)."
+To unwatch (or unsubscribe from) repositories quickly, go to the "Watched repositories" page, where you can see all repositories you're watching. For more information, see "[Unwatching repositories](#unwatching-repositories)."
 
 To unsubscribe from multiple notifications at the same time, you can unsubscribe using your inbox or on the subscriptions page. Both of these options offer more context about your subscriptions than the "Watched repositories" page.
 
@@ -57,7 +57,7 @@ When you unsubscribe from notifications in your inbox, they will automatically d
 2. Select the notifications you want to unsubscribe to. In the top right, click **Unsubscribe.**
   ![Subscriptions page](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
 
-## Unwatch a repository
+## Unwatching repositories
 
 When you unwatch a repository, you unsubscribe from future updates from that repository unless you participate in a conversation or are @mentioned.
 
@@ -68,9 +68,11 @@ When you unwatch a repository, you unsubscribe from future updates from that rep
   {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     - Unwatch a repository
     - Ignore all notifications for a repository
-    - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+    - If enabled, customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}
   {% else %}
     - Unwatch a repository
     - Only watch releases for a repository
     - Ignore all notifications for a repository
   {% endif %}
+3. It is also possible to unsubscribe from all repositories owned by a given user or organization. Use the "Unwatch All" drop-down to select one of the organizations whose repositories you'd like to unsubscribe from. ![Unwatch All button](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
+4. This action will result in a dialog that confirms the decision to unwatch the repositories owned by the given user or organization ![dialog](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
