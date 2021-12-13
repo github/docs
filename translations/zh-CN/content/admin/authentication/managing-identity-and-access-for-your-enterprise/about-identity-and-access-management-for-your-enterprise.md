@@ -2,7 +2,6 @@
 title: About identity and access management for your enterprise
 shortTitle: About identity and access management
 intro: 'You can use SAML single sign-on (SSO) and System for Cross-domain Identity Management (SCIM) to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% ifversion ghae %}to {% data variables.product.product_location %}{% endif %}.'
-product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   ghec: '*'
   ghae: '*'
