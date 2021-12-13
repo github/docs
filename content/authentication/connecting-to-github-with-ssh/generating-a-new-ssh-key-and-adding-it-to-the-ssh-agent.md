@@ -252,6 +252,6 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 
 - "[About SSH](/articles/about-ssh)"
 - "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)"
-{%- ifversion fpt %}
-- "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
+{%- ifversion fpt or ghec %}
+- "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
 {%- endif %}

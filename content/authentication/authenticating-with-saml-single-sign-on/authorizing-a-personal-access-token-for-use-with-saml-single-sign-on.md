@@ -7,7 +7,6 @@ redirect_from:
   - /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - SSO
