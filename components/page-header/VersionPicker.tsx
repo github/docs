@@ -21,37 +21,32 @@ export const VersionPicker = ({ variant }: Props) => {
     return null
   }
 
-  const allLinks = (page.permalinks || []).map((permalink) => ({
-    text: permalink.pageVersionTitle,
-    selected: allVersions[currentVersion].versionTitle === permalink.pageVersionTitle,
-    item: <Link href={permalink.href}>{permalink.pageVersionTitle}</Link>,
-  }))
-  const hasEnterpriseVersions = (page.permalinks || []).find((permalink) =>
-    permalink.pageVersion.startsWith('enterprise-version')
-  )
-
-  if (hasEnterpriseVersions) {
-    allLinks.push({
-      text: t('all_enterprise_releases'),
-      selected: false,
-      item: (
-        <Link
-          href={`/${router.locale}/${enterpriseServerVersions[0]}/admin/all-releases`}
-          className="f6 no-underline color-fg-muted"
-        >
-          {t('all_enterprise_releases')}{' '}
-          <ArrowRightIcon verticalAlign="middle" size={15} className="mr-2" />
-        </Link>
-      ),
-    })
-  }
-
   return (
     <Picker
       variant={variant}
       data-testid="version-picker"
       defaultText="Choose version"
-      options={allLinks}
+      options={(page.permalinks || [])
+        .map((permalink) => ({
+          text: permalink.pageVersionTitle,
+          selected: allVersions[currentVersion].versionTitle === permalink.pageVersionTitle,
+          item: <Link href={permalink.href}>{permalink.pageVersionTitle}</Link>,
+        }))
+        .concat([
+          {
+            text: t('all_enterprise_releases'),
+            selected: false,
+            item: (
+              <Link
+                href={`/${router.locale}/${enterpriseServerVersions[0]}/admin/all-releases`}
+                className="f6 no-underline color-fg-muted"
+              >
+                {t('all_enterprise_releases')}{' '}
+                <ArrowRightIcon verticalAlign="middle" size={15} className="mr-2" />
+              </Link>
+            ),
+          },
+        ])}
     />
   )
 }

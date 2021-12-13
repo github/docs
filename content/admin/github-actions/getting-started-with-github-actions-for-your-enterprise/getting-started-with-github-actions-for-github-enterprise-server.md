@@ -61,23 +61,38 @@ The peak quantity of concurrent jobs running without performance loss depends on
 
 {%- ifversion ghes < 3.2 %}
 
-{% data reusables.actions.hardware-requirements-before %}
+| vCPUs | Memory | Maximum job throughput |
+| :--- | :--- | :--- |
+| 4 | 32 GB | Demo or light testing |
+| 8 | 64 GB | 25 jobs |
+| 16 | 160 GB | 35 jobs |
+| 32 | 256 GB | 100 jobs |
 
 {%- endif %}
 
 {%- ifversion ghes = 3.2 %}
 
-{% data reusables.actions.hardware-requirements-3.2 %}
+| vCPUs | Memory | Maximum Concurrency*|
+| :--- | :--- | :--- |
+| 32 | 128 GB | 1000 jobs |
+| 64 | 256 GB | 1300 jobs |
+| 96 | 384 GB | 2200 jobs |
 
-Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
+*Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
 
 {%- endif %}
 
 {%- ifversion ghes > 3.2 %}
 
-{% data reusables.actions.hardware-requirements-after %}
+| vCPUs | Memory | Maximum Concurrency*|
+| :--- | :--- | :--- |
+| 8 | 64 GB | 300 jobs |
+| 16 | 160 GB | 700 jobs |
+| 32 | 128 GB | 1300 jobs |
+| 64 | 256 GB | 2000 jobs |
+| 96 | 384 GB | 4000 jobs |
 
-Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
+*Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
 
 {%- endif %}
 
