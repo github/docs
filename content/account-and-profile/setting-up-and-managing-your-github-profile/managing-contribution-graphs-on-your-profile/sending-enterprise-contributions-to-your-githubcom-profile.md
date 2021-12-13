@@ -2,7 +2,7 @@
 title: Sending enterprise contributions to your GitHub.com profile
 intro: 'You can highlight your work on {% data variables.product.prodname_enterprise %} by sending the contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile.'
 redirect_from:
-  - /articles/sending-your-github-enterprise-contributions-to-your-github-com-profile/
+  - /articles/sending-your-github-enterprise-contributions-to-your-github-com-profile
   - /articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile
   - /articles/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile
   - /github/setting-up-and-managing-your-github-profile/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile

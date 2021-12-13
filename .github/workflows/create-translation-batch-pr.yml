@@ -62,10 +62,15 @@ jobs:
       - name: Remove unwanted git hooks
         run: rm .git/hooks/post-checkout
 
-      - name: Install Crowdin CLI
+      # https://support.crowdin.com/cli-tool/#debian
+      - name: Download and install the public signing key
+        run: wget -qO - https://artifacts.crowdin.com/repo/GPG-KEY-crowdin | sudo apt-key add -
+      - name: Create the crowdin.list file in the /etc/apt/sources.list.d directory
         run: |
-          wget https://artifacts.crowdin.com/repo/deb/crowdin3.deb -O /tmp/crowdin.deb
-          sudo dpkg -i /tmp/crowdin.deb
+          sudo touch /etc/apt/sources.list.d/crowdin.list
+          echo "deb https://artifacts.crowdin.com/repo/deb/ /" | sudo tee -a /etc/apt/sources.list.d/crowdin.list
+      - name: Install the Crowdin CLI Debian Package
+        run: sudo apt-get update && sudo apt-get install crowdin3
 
       # Delete empty source files that would be rejected by Crowdin breaking the workflow
       - name: Remove empty source files
@@ -169,8 +174,9 @@ jobs:
           gh pr create --title "New translation batch for ${{ matrix.language }}" \
             --base=main \
             --head=${{ steps.set-branch.outputs.BRANCH_NAME }} \
-            --body-file /tmp/pr-body.txt || git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }} \
-            --label "translation-batch"
+            --label "translation-batch-${{ matrix.language }}" \
+            --label "translation-batch" \
+            --body-file /tmp/pr-body.txt || git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }}
 
       - name: Approve PR
         if: github.ref_name == 'main'

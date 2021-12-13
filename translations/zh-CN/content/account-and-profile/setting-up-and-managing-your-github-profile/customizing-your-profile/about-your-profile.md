@@ -2,8 +2,8 @@
 title: About your profile
 intro: 'Your profile page tells people the story of your work through the repositories you''re interested in, the contributions you''ve made, and the conversations you''ve had.'
 redirect_from:
-  - /articles/viewing-your-feeds/
-  - /articles/profile-pages/
+  - /articles/viewing-your-feeds
+  - /articles/profile-pages
   - /articles/about-your-profile
   - /github/setting-up-and-managing-your-github-profile/about-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile

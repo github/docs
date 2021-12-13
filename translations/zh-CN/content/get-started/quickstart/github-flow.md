@@ -2,8 +2,8 @@
 title: GitHub flow
 intro: 'Follow {% data variables.product.prodname_dotcom %} flow to collaborate on projects.'
 redirect_from:
-  - /articles/creating-and-editing-files-in-your-repository/
-  - /articles/github-flow-in-the-browser/
+  - /articles/creating-and-editing-files-in-your-repository
+  - /articles/github-flow-in-the-browser
   - /articles/github-flow
   - /github/collaborating-with-issues-and-pull-requests/github-flow
   - /github/getting-started-with-github/github-flow

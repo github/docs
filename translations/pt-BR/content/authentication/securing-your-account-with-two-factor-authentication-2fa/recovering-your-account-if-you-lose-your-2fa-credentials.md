@@ -2,8 +2,8 @@
 title: Recovering your account if you lose your 2FA credentials
 intro: 'If you lose access to your two-factor authentication credentials, you can use your recovery codes, or another recovery option, to regain access to your account.'
 redirect_from:
-  - /articles/recovering-your-account-if-you-lost-your-2fa-credentials/
-  - /articles/authenticating-with-an-account-recovery-token/
+  - /articles/recovering-your-account-if-you-lost-your-2fa-credentials
+  - /articles/authenticating-with-an-account-recovery-token
   - /articles/recovering-your-account-if-you-lose-your-2fa-credentials
   - /github/authenticating-to-github/recovering-your-account-if-you-lose-your-2fa-credentials
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials

@@ -2,8 +2,8 @@
 title: Tracking changes in a file
 intro: You can trace changes to lines in a file and discover how parts of the file evolved over time.
 redirect_from:
-  - /articles/using-git-blame-to-trace-changes-in-a-file/
-  - /articles/tracing-changes-in-a-file/
+  - /articles/using-git-blame-to-trace-changes-in-a-file
+  - /articles/tracing-changes-in-a-file
   - /articles/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/managing-files-on-github/tracking-changes-in-a-file
