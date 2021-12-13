@@ -2,7 +2,7 @@
 title: Getting changes from a remote repository
 intro: You can use common Git commands to access remote repositories.
 redirect_from:
-  - /articles/fetching-a-remote
+  - /articles/fetching-a-remote/
   - /articles/getting-changes-from-a-remote-repository
   - /github/using-git/getting-changes-from-a-remote-repository
   - /github/getting-started-with-github/getting-changes-from-a-remote-repository

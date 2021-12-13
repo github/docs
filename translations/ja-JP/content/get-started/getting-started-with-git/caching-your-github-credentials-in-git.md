@@ -1,7 +1,7 @@
 ---
 title: Caching your GitHub credentials in Git
 redirect_from:
-  - /firewalls-and-proxies
+  - /firewalls-and-proxies/
   - /articles/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-credentials-in-git

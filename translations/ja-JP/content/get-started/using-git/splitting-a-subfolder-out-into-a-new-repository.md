@@ -1,7 +1,7 @@
 ---
 title: Splitting a subfolder out into a new repository
 redirect_from:
-  - /articles/splitting-a-subpath-out-into-a-new-repository
+  - /articles/splitting-a-subpath-out-into-a-new-repository/
   - /articles/splitting-a-subfolder-out-into-a-new-repository
   - /github/using-git/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/splitting-a-subfolder-out-into-a-new-repository
