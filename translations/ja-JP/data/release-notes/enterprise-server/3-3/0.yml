@@ -1,6 +1,6 @@
 ---
 date: '2021-12-07'
-intro: For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+intro: For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."<br><br>**Note:** We are aware of an issue where {% data variables.product.prodname_actions %} may fail to start automatically following the upgrade to {% data variables.product.prodname_ghe_server %} 3.3. To resolve, connect to the appliance via SSH and run the `ghe-actions-start` command.
 sections:
   features:
     - 
@@ -159,6 +159,7 @@ sections:
   #bugs:
   #- PLACEHOLDER
   known_issues:
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
     - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
