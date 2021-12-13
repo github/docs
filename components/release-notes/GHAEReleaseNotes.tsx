@@ -5,6 +5,8 @@ import { GHAEReleaseNotePatch } from './GHAEReleaseNotePatch'
 import { GHAEReleaseNotesContextT } from './types'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 
+import styles from './PatchNotes.module.scss'
+
 type GitHubAEProps = {
   context: GHAEReleaseNotesContextT
 }
@@ -35,8 +37,10 @@ export function GHAEReleaseNotes({ context }: GitHubAEProps) {
       </article>
 
       <aside
-        className="position-sticky top-0 d-none d-md-block border-left no-print color-bg-default flex-shrink-0"
-        style={{ width: 260, height: '100vh' }}
+        className={cx(
+          'position-sticky d-none d-md-block border-left no-print color-bg-default flex-shrink-0',
+          styles.aside
+        )}
       >
         <nav className="height-full overflow-auto">
           <MarkdownContent data-search="article-content">
