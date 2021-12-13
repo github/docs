@@ -4,4 +4,4 @@
    1. Proporciona una secuencia de pruebas de muestra para asegurarte de que tu configuración empate con los patrones que esperas.
 
    ![Crear un formato de patrón personalizado del {% data variables.product.prodname_secret_scanning %}](/assets/images/help/repository/secret-scanning-create-custom-pattern.png)
-1. Cuando estés satisfecho con tu patrón personalizado nuevo, haz clic en {% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}**Crear patrón**{% elsif ghes = 3.2 %}**Crear patrón personalizado**{% endif %}.
+1. Cuando estés satisfecho con tu patrón personalizado nuevo, haz clic en {% ifversion fpt or ghes > 3.2 or ghae or ghec %}**Crear patrón**{% elsif ghes = 3.2 %}**Crear patrón personalizado**{% endif %}.

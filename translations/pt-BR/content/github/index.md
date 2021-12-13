@@ -20,5 +20,4 @@ children:
   - /understanding-how-github-uses-and-protects-your-data
   - /site-policy
   - /site-policy-deprecated
-  - /setting-up-and-managing-your-enterprise
 ---

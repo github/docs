@@ -1,9 +1,9 @@
 ---
-title: 审查 SSH 密钥
+title: Reviewing your SSH keys
 intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
-  - /articles/keeping-your-application-access-tokens-safe/
-  - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe/
+  - /articles/keeping-your-application-access-tokens-safe
+  - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe
   - /articles/reviewing-your-ssh-keys
   - /github/authenticating-to-github/reviewing-your-ssh-keys
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-ssh-keys
@@ -16,32 +16,32 @@ topics:
   - Identity
   - Access management
 ---
-
-您可以删除未经授权（或可能已泄密）的 SSH 密钥，以确保攻击者无法再访问您的仓库。 您还可以批准有效的现有 SSH 密钥。
+You can delete unauthorized (or possibly compromised) SSH keys to ensure that an attacker no longer has access to your repositories. You can also approve existing SSH keys that are valid.
 
 {% mac %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于您无法识别或已过期的密钥，请单击 **Delete（删除）**。 如果有您要保留的有效 SSH 密钥，请单击 **Approve（批准）**。 ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
+3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
+	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **注：**如果您由于 Git 操作失败而审核 SSH 密钥，则导致 [SSH 密钥审核错误](/articles/error-we-re-doing-an-ssh-key-audit)的未验证密钥将在 SSH 密钥列表中突出显示。
+     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
 
   {% endtip %}
 
-4. 打开终端。
+4. Open Terminal.
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. 找到并记录公钥指纹。
+6. Find and take a note of your public key fingerprint. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. {% data variables.product.product_name %} 上的 SSH 密钥*应*匹配您计算机上的相同密钥。
+7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
 
 {% endmac %}
 
@@ -49,27 +49,28 @@ topics:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于您无法识别或已过期的密钥，请单击 **Delete（删除）**。 如果有您要保留的有效 SSH 密钥，请单击 **Approve（批准）**。 ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
+3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
+	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **注：**如果您由于 Git 操作失败而审核 SSH 密钥，则导致 [SSH 密钥审核错误](/articles/error-we-re-doing-an-ssh-key-audit)的未验证密钥将在 SSH 密钥列表中突出显示。
+     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
 
   {% endtip %}
 
-4. 打开 Git Bash。
+4. Open Git Bash. 
 
 5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-6. 找到并记录公钥指纹。
+6. Find and take a note of your public key fingerprint. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. {% data variables.product.product_name %} 上的 SSH 密钥*应*匹配您计算机上的相同密钥。
+7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
 
 {% endwindows %}
 
@@ -77,30 +78,31 @@ topics:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于您无法识别或已过期的密钥，请单击 **Delete（删除）**。 如果有您要保留的有效 SSH 密钥，请单击 **Approve（批准）**。 ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
+3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
+	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **注：**如果您由于 Git 操作失败而审核 SSH 密钥，则导致 [SSH 密钥审核错误](/articles/error-we-re-doing-an-ssh-key-audit)的未验证密钥将在 SSH 密钥列表中突出显示。
+     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
 
   {% endtip %}
 
-4. 打开终端。
+4. Open Terminal.
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. 找到并记录公钥指纹。
+6. Find and take a note of your public key fingerprint. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. {% data variables.product.product_name %} 上的 SSH 密钥*应*匹配您计算机上的相同密钥。
+7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
 
 {% endlinux %}
 
 {% warning %}
 
-**警告**：如果在 {% data variables.product.product_name %} 上看到您不熟悉的 SSH 密钥，请立即删除并联系 {% data variables.contact.contact_support %}寻求进一步的帮助。 无法识别的公钥可能表示安全问题。
+**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %} for further help. An unidentified public key may indicate a possible security concern.
 
 {% endwarning %}

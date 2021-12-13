@@ -2,7 +2,7 @@
 title: Setting up a trial of GitHub Enterprise Server
 intro: 'You can try {% data variables.product.prodname_ghe_server %} for free.'
 redirect_from:
-  - /articles/requesting-a-trial-of-github-enterprise/
+  - /articles/requesting-a-trial-of-github-enterprise
   - /articles/setting-up-a-trial-of-github-enterprise-server
   - /github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-server
   - /github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server

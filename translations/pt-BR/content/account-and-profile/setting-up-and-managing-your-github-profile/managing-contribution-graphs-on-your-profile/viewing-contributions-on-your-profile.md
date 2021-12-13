@@ -2,8 +2,8 @@
 title: Viewing contributions on your profile
 intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes or ghec %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
-  - /articles/viewing-contributions/
-  - /articles/viewing-contributions-on-your-profile-page/
+  - /articles/viewing-contributions
+  - /articles/viewing-contributions-on-your-profile-page
   - /articles/viewing-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/viewing-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile

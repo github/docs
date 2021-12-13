@@ -3,16 +3,16 @@ title: Configuring notifications
 intro: 'Choose the type of activity on {% data variables.product.prodname_dotcom %} that you want to receive notifications for and how you want these updates delivered.'
 redirect_from:
   - /articles/about-web-notifications
-  - /format-of-notification-emails/
-  - /articles/configuring-notification-emails/
-  - /articles/about-notification-emails/
+  - /format-of-notification-emails
+  - /articles/configuring-notification-emails
+  - /articles/about-notification-emails
   - /articles/about-email-notifications
   - /articles/accessing-your-notifications
-  - /articles/configuring-notification-delivery-methods/
-  - /articles/managing-notification-delivery-methods/
-  - /articles/managing-notification-emails-for-organizations/
+  - /articles/configuring-notification-delivery-methods
+  - /articles/managing-notification-delivery-methods
+  - /articles/managing-notification-emails-for-organizations
   - /articles/choosing-the-delivery-method-for-your-notifications
-  - /articles/choosing-the-types-of-notifications-you-receive/
+  - /articles/choosing-the-types-of-notifications-you-receive
   - /github/managing-subscriptions-and-notifications-on-github/configuring-notifications
   - /github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications
 versions:
