@@ -21,12 +21,6 @@ miniTocMaxHeadingLevel: 3
 {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4742 %}
 ## Autolinks
 
-{% tip %}
-
-**Note:** The Autolinks API is in beta and may change.
-
-{% endtip %}
-
 To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets. For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
 
 {% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.
@@ -176,7 +170,7 @@ You can communicate that a transient environment no longer exists by setting its
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Environments
 
 The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."

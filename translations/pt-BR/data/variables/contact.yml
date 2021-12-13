@@ -10,7 +10,7 @@ contact_dmca: >-
   {% ifversion fpt or ghec %}[Formulário de reivindicação de direitos autorais](https://github.com/contact/dmca){% endif %}
 contact_privacy: >-
   {% ifversion fpt or ghec %}[Formulário de contato sobre privacidade](https://github.com/contact/privacy){% endif %}
-contact_enterprise_sales: "[Equipe de Vendas do GitHub](https://enterprise.github.com/contact)"
+contact_enterprise_sales: "[Equipe de Vendas do GitHub](https://github.com/enterprise/contact)"
 contact_feedback_actions: '[Formulário de feedback do GitHub Actions](https://support.github.com/contact/feedback?contact[category]=actions)'
 #The team that provides Standard Support
 enterprise_support: 'Suporte do GitHub Enterprise'

@@ -6,7 +6,7 @@ import schema from '../helpers/schemas/versions-schema.js'
 import { getJSON } from '../helpers/supertest.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('versions module', () => {
   test('is an object with versions as keys', () => {

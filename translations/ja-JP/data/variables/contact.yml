@@ -10,7 +10,7 @@ contact_dmca: >-
   {% ifversion fpt or ghec %}[著作権侵害の申し立て](https://github.com/contact/dmca){% endif %}
 contact_privacy: >-
   {% ifversion fpt or ghec %}[プライバシーに関する連絡フォーム](https://github.com/contact/privacy){% endif %}
-contact_enterprise_sales: "[GitHubの営業チーム](https://enterprise.github.com/contact)"
+contact_enterprise_sales: "[GitHubの営業チーム](https://github.com/enterprise/contact)"
 contact_feedback_actions: '[GitHub Actionsのフィードバックフォーム](https://support.github.com/contact/feedback?contact[category]=actions)'
 #The team that provides Standard Support
 enterprise_support: 'GitHub Enterprise Support'

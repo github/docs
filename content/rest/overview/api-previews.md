@@ -183,6 +183,7 @@ You can now configure whether organization members can create repositories and w
 
 {% endif %}
 
+{% ifversion ghes < 3.4 %}
 ## Content attachments
 
 You can now provide more information in GitHub for URLs that link to registered domains by using the {% data variables.product.prodname_unfurls %} API. See "[Using content attachments](/apps/using-content-attachments/)" for more details.
@@ -190,7 +191,8 @@ You can now provide more information in GitHub for URLs that link to registered 
 **Custom media types:** `corsair-preview`
 **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
-{% ifversion ghes < 3.3 %}
+{% endif %}
+{% ifversion ghae or ghes < 3.3 %}
 
 ## Enable and disable Pages
 

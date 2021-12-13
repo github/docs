@@ -1,6 +1,6 @@
 ---
-title: High Availability設定について
-intro: 'High Availability 設定では、完全に冗長なセカンダリの {% data variables.product.prodname_ghe_server %} アプライアンスは、すべての主要なデータストアのレプリケーションによってプライマリアプライアンスとの同期を保ちます。'
+title: About high availability configuration
+intro: 'In a high availability configuration, a fully redundant secondary {% data variables.product.prodname_ghe_server %} appliance is kept in sync with the primary appliance through replication of all major datastores.'
 redirect_from:
   - /enterprise/admin/installation/about-high-availability-configuration
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
@@ -14,57 +14,56 @@ topics:
   - Infrastructure
 shortTitle: About HA configuration
 ---
+When you configure high availability, there is an automated setup of one-way, asynchronous replication of all datastores (Git repositories, MySQL, Redis, and Elasticsearch) from the primary to the replica appliance.
 
-High Availability設定をする際には、プライマリからレプリカアプライアンスへのすべてのデータストア（Gitリポジトリ、MySQL、Redis、Elasticsearch）の一方方向の非同期レプリケーションが、自動的にセットアップされます。
-
-{% data variables.product.prodname_ghe_server %} はアクティブ／パッシブ設定をサポートします。この設定では、レプリカアプライアンスはデータベースサービスをレプリケーションモードで実行しながらスタンバイとして実行しますが、アプリケーションサービスは停止します。
+{% data variables.product.prodname_ghe_server %} supports an active/passive configuration, where the replica appliance runs as a standby with database services running in replication mode but application services stopped.
 
 {% data reusables.enterprise_installation.replica-limit %}
 
-## ターゲットとなる障害のシナリオ
+## Targeted failure scenarios
 
-以下に対する保護として、High Availability設定を使ってください。
+Use a high availability configuration for protection against:
 
 {% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
-High Availability設定は、以下に対するソリューションとしては適切ではありません。
+A high availability configuration is not a good solution for:
 
-  - **スケーリング外**。 Geo-replicationを使えば地理的にトラフィックを分散させることができるものの、書き込みのパフォーマンスはプライマリアプライアンスの速度と可用性によって制限されます。 For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."{% ifversion ghes > 3.2 %}
+  - **Scaling-out**. While you can distribute traffic geographically using geo-replication, the performance of writes is limited to the speed and availability of the primary appliance. For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."{% ifversion ghes > 3.2 %}
   - **CI/CD load**. If you have a large number of CI clients that are geographically distant from your primary instance, you may benefit from configuring a repository cache. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."{% endif %}
-  - **プライマリアプライアンスのバックアップ**。 High Availabilityレプリカは、システム災害復旧計画のオフサイトバックアップを置き換えるものではありません。 データ破壊や損失の中には、プライマリからレプリカへ即座にレプリケーションされてしまうものもあります。 安定した過去の状態への安全なロールバックを保証するには、履歴スナップショットでの定期的なバックアップを行う必要があります。
-  - **ダウンタイムゼロのアップグレード**。 コントロールされた昇格のシナリオにおけるデータ損失やスプリットブレインの状況を避けるには、プライマリアプライアンスをメンテナンスモードにして、すべての書き込みが完了するのを待ってからレプリカを昇格させてください。
+  - **Backing up your primary appliance**. A high availability replica does not replace off-site backups in your disaster recovery plan. Some forms of data corruption or loss may be replicated immediately from the primary to the replica. To ensure safe rollback to a stable past state, you must perform regular backups with historical snapshots.
+  - **Zero downtime upgrades**. To prevent data loss and split-brain situations in controlled promotion scenarios, place the primary appliance in maintenance mode and wait for all writes to complete before promoting the replica.
 
-## ネットワークトラフィックのフェイルオーバー戦略
+## Network traffic failover strategies
 
-フェイルオーバーの間は、ネットワークトラフィックをプライマリからレプリカへリダイレクトするよう、別個に設定管理しなければなりません。
+During failover, you must separately configure and manage redirecting network traffic from the primary to the replica.
 
-### DNSフェイルオーバー
+### DNS failover
 
-DNS フェイルオーバーでは、プライマリの {% data variables.product.prodname_ghe_server %} アプライアンスを指す DNS レコードに短い TTL 値を使用します。 60秒から5分の間のTTLを推奨します。
+With DNS failover, use short TTL values in the DNS records that point to the primary {% data variables.product.prodname_ghe_server %} appliance. We recommend a TTL between 60 seconds and five minutes.
 
-フェイルオーバーの間、プライマリはメンテナンスモードにして、プライマリのDNSレコードはレプリカアプライアンスのIPアドレスへリダイレクトしなければなりません。 トラフィックをプライマリからレプリカへリダイレクトするのに要する時間は、TTLの設定とDNSレコードの更新に必要な時間に依存します。
+During failover, you must place the primary into maintenance mode and redirect its DNS records to the replica appliance's IP address. The time needed to redirect traffic from primary to replica will depend on the TTL configuration and time required to update the DNS records.
 
-Geo-replication を使用している場合は、トラフィックを最も近いレプリカに転送するように Geo DNS を設定する必要があります。 詳細は「[Geo-replication について](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)」を参照してください。
+If you are using geo-replication, you must configure Geo DNS to direct traffic to the nearest replica. For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."
 
-### ロードバランサ
+### Load balancer
 
 {% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-フェイルオーバーの間、プライマリアプライアンスはメンテナンスモードにしなければなりません。 ロードバランサは、レプリカがプライマリに昇格したときに自動的に検出するように設定することも、手動での設定変更が必要なようにしておくこともできます。 ユーザからのトラフィックに反応する前に、レプリカはプライマリに手動で昇格させておかなければなりません、 詳細は「[ロードバランサとともに {% data variables.product.prodname_ghe_server %} を使用する](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)」を参照してください。
+During failover, you must place the primary appliance into maintenance mode. You can configure the load balancer to automatically detect when the replica has been promoted to primary, or it may require a manual configuration change. You must manually promote the replica to primary before it will respond to user traffic. For more information, see "[Using {% data variables.product.prodname_ghe_server %} with a load balancer](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
-## レプリケーション管理のユーティリティ
+## Utilities for replication management
 
-{% data variables.product.prodname_ghe_server %} でレプリケーションを管理するには、SSH を使用してレプリカアプライアンスに接続して以下のコマンドラインユーティリティを使用します。
+To manage replication on {% data variables.product.prodname_ghe_server %}, use these command line utilities by connecting to the replica appliance using SSH.
 
 ### ghe-repl-setup
 
-`ghe-repl-setup` コマンドは、{% data variables.product.prodname_ghe_server %} アプライアンスをレプリカスタンバイモードにします。
+The `ghe-repl-setup` command puts a {% data variables.product.prodname_ghe_server %} appliance in replica standby mode.
 
- - 2 つのアプライアンス間の通信のために、暗号化された WireGuard VPN トンネルが設定されます。
- - レプリケーションのためのデータベースサービスが設定され、起動されます。
- - アプリケーションサービスは無効化されます。 HTTP、Git、あるいはその他のサポートされているプロトコルでレプリカアプライアンスへアクセスしようとすると、"appliance in replica mode"メンテナンスページあるいはエラーメッセージが返されます。
+ - An encrypted WireGuard VPN tunnel is configured for communication between the two appliances.
+ - Database services are configured for replication and started.
+ - Application services are disabled. Attempts to access the replica appliance over HTTP, Git, or other supported protocols will result in an "appliance in replica mode" maintenance page or error message.
 
 ```shell
 admin@169-254-1-2:~$ ghe-repl-setup 169.254.1.1
@@ -73,12 +72,12 @@ Connection check succeeded.
 Configuring database replication against primary ...
 Success: Replica mode is configured against 169.254.1.1.
 To disable replica mode and undo these changes, run `ghe-repl-teardown'.
-新たに設定されたプライマリに対してレプリケーションを開始するには`ghe-repl-start'を実行してください。
+Run `ghe-repl-start' to start replicating against the newly configured primary.
 ```
 
 ### ghe-repl-start
 
-`ghe-repl-start`コマンドは、すべてのデータストアのアクティブなレプリケーションを有効化します。
+The `ghe-repl-start` command turns on active replication of all datastores.
 
 ```shell
 admin@169-254-1-2:~$ ghe-repl-start
@@ -88,12 +87,12 @@ Starting Elasticsearch replication ...
 Starting Pages replication ...
 Starting Git replication ...
 Success: replication is running for all services.
-レプリケーションの健全性と進行状況をモニタリングするには`ghe-repl-status'を使ってください。
+Use `ghe-repl-status' to monitor replication health and progress.
 ```
 
 ### ghe-repl-status
 
-`ghe-repl-status`コマンドは、各データストアのレプリケーションストリームについて`OK`、`WARNING`、`CRITICAL`のいずれかのステータスを返します。 レプリケーションチャンネルのいずれかが`WARNING`ステータスにある場合、このコマンドはコード`1`で終了します。 同様に、いずれかのチャンネルが`CRITICAL`ステータスにある場合、このコマンドはコード`2`で終了します。
+The `ghe-repl-status` command returns an `OK`, `WARNING` or `CRITICAL` status for each datastore replication stream. When any of the replication channels are in a `WARNING` state, the command will exit with the code `1`. Similarly, when any of the channels are in a `CRITICAL` state, the command will exit with the code `2`.
 
 ```shell
 admin@169-254-1-2:~$ ghe-repl-status
@@ -104,7 +103,7 @@ OK: git data is in sync (10 repos, 2 wikis, 5 gists)
 OK: pages data is in sync
 ```
 
-`-v`及び`-vv`オプションは、各データストアのレプリケーションのステータスについての詳細を返します。
+The `-v` and `-vv` options give details about each datastore's replication state:
 
 ```shell
 $ ghe-repl-status -v
@@ -145,7 +144,7 @@ OK: pages data is in sync
 
 ### ghe-repl-stop
 
-`ghe-repl-stop`コマンドは、一時的にすべてのデータストアのレプリケーションを無効化し、レプリケーションサービスを停止させます。 レプリケーションを再開するには[ghe-repl-start](#ghe-repl-start)コマンドを使ってください。
+The `ghe-repl-stop` command temporarily disables replication for all datastores and stops the replication services. To resume replication, use the [ghe-repl-start](#ghe-repl-start) command.
 
 ```shell
 admin@168-254-1-2:~$ ghe-repl-stop
@@ -159,7 +158,7 @@ Success: replication was stopped for all services.
 
 ### ghe-repl-promote
 
-`ghe-repl-promote`コマンドはレプリケーションを無効化し、レプリカアプライアンスをプライマリに変換します。 アプライアンスはオリジナルのプライマリと同じ設定がなされ、すべてのサービスが有効化されます。
+The `ghe-repl-promote` command disables replication and converts the replica appliance to a primary. The appliance is configured with the same settings as the original primary and all services are enabled.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
@@ -182,8 +181,9 @@ Success: Replica has been promoted to primary and is now accepting requests.
 
 ### ghe-repl-teardown
 
-`ghe-repl-teardown`コマンドはレプリケーションモードを完全に無効化し、レプリカの設定を削除します。
+The `ghe-repl-teardown` command disables replication mode completely, removing the replica configuration.
 
-## 参考リンク
+## Further reading
 
-- "[High Availabilityレプリカの作成](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)"
+- "[Creating a high availability replica](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)"
+- "[Network ports](/admin/configuration/configuring-network-settings/network-ports)"

@@ -1,1 +1,1 @@
-当您启用 {% data variables.product.prodname_actions %} 时，工作流程能够运行位于您的仓库和任何其他公共仓库中的操作。
+When you enable {% data variables.product.prodname_actions %}, workflows are able to run actions located within your repository and any other{% ifversion fpt %} public{% elsif ghec or ghes %} public or internal{% elsif ghae %} internal{% endif %} repository.

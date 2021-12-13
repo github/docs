@@ -1,6 +1,6 @@
 ---
-title: Utilizar el control de código fuente en tu codespace
-intro: 'Después de hacer cambios en un archivo de tu codespace, puedes confirmar los cambios rápidamente y subir tu actualización al repositorio remoto.'
+title: Using source control in your codespace
+intro: After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -10,68 +10,73 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-shortTitle: Control origen
+shortTitle: Source control
 ---
 
  
 
-## Acerca del control de código fuente en {% data variables.product.prodname_codespaces %}
+## About source control in {% data variables.product.prodname_codespaces %}
 
-Puedes llevar a cabo todas las acciones de Git que necesites directamente dentro de tu codespace. Por ejemplo, puedes recuperar cambios del repositorio remoto, cambiar de rama, crear una rama nueva, confirmar y subir cambios y crear solicitudes de cambios. Puedes utilizar la terminal integrada dentro de tu codespace para ingresar comandos de Git o puedes hacer clic en los iconos u opciones de menú para completar las tareas más comunes de Git. Esta guía te explica cómo utilizar la interface de usuario gráfica para el control de código fuente.
+You can perform all the Git actions you need directly within your codespace. For example, you can fetch changes from the remote repository, switch branches, create a new branch, commit and push changes, and create a pull request. You can use the integrated terminal within your codespace to enter Git commands, or you can click icons and menu options to complete all the most common Git tasks. This guide explains how to use the graphical user interface for source control.
 
-El control de fuentes en {% data variables.product.prodname_github_codespaces %} utiliza el mismo flujo de trabajo que {% data variables.product.prodname_vscode %}. Para obtener más información, consulta la sección de la documentación de {% data variables.product.prodname_vscode %} "[Utilizar el control de versiones en VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)".
+Source control in {% data variables.product.prodname_github_codespaces %} uses the same workflow as {% data variables.product.prodname_vscode %}. For more information, see the {% data variables.product.prodname_vscode %} documentation "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)."
 
-Un flujo de trabajo típico para actualizar un archivo utilizando {% data variables.product.prodname_github_codespaces %} sería:
+A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
 
-* Desde la rama predeterminada de tu repositorio en {% data variables.product.prodname_dotcom %}, crea un codespace. Consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace)".
-* En tu codespace, crea una rama nueva para trabajar en ella.
-* Haz tus cambios y guárdalos.
-* Confirma el cambio.
-* Levanta una solicitud de cambios.
+* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+* In your codespace, create a new branch to work on.
+* Make your changes and save them.
+* Commit the change.
+* Raise a pull request.
 
-## Crear o cambiar de rama
+## Creating or switching branches
 
 {% data reusables.codespaces.create-or-switch-branch %}
 
 {% tip %}
 
-**Tip**: Si alguien cambió un archivo en el repositorio remoto, en la rama a la cual te cambiaste, no verás estos cambios hasta que los extraigas hacia tu codespace.
+**Tip**: If someone has changed a file on the remote repository, in the branch you switched to, you will not see those changes until you pull the changes into your codespace. 
 
 {% endtip %}
 
-## Extraer cambios del repositorio remoto
+## Pulling changes from the remote repository
 
-Puedes extraer cambios del repositorio remoto hacia tu codespace en cualquier momento.
+You can pull changes from the remote repository into your codespace at any time. 
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. En la parte superior de la barra lateral, haz clic en los puntos suspensivos (**...**). ![Botón de puntos suspensivos para las acciones de "más" y "ver"](/assets/images/help/codespaces/source-control-ellipsis-button.png)
-1. En el menú desplegable, haz clic en **Extraer**.
+1. At the top of the side bar, click the ellipsis (**...**).
+![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button.png)
+1. In the drop-down menu, click **Pull**.
 
-Si el la configuración del contenedor dev cambió desde que creaste el codespace, puedes aplicar los cambios si recompilas el contenedor para el codespace. Para obtener más información, consulta la sección "[Configurar Codespaces para tu proyecto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)".
+If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
 
-## Configurar tu codespace para que recupere los cambios nuevos automáticamente
+## Setting your codespace to automatically fetch new changes 
 
-Puedes configurar tu codespace para que recupere automáticamente los detalles de cualquier confirmación nueva que se haya hecho al repositorio remoto. Esto te permite ver si tu copia local del repositorio está desactualizada, en cuyo caso, podrías elegir extraer los cambios nuevos.
+You can set your codespace to automatically fetch details of any new commits that have been made to the remote repository. This allows you to see whether your local copy of the repository is out of date, in which case you may choose to pull in the new changes. 
 
-Si la operación de búsqueda detecta cambios nuevos en el repositorio remoto, verás la cantidad de confirmaciones nuevas en la barra de estado. Luego podrás extraer los cambios en tu copia local.
+If the fetch operation detects new changes on the remote repository, you'll see the number of new commits in the status bar. You can then pull the changes into your local copy.
 
-1. Haz clic en el botón de **Administrar** en la parte inferior de la barra de actividad. ![Botón de administrar](/assets/images/help/codespaces/manage-button.png)
-1. En el menú, haz clic en **Ajustes**.
-1. En la página de ajustes, busca: `autofetch`. ![Buscar la recuperación automática](/assets/images/help/codespaces/autofetch-search.png)
-1. Para recuperar los detalles de las actualizaciones para todos los remotos registrados para el repositorio actual, configura **Git: Autofetch** en `all`. ![Habilitar la recuperación automática en Git](/assets/images/help/codespaces/autofetch-all.png)
-1. Si quieres cambiar la cantidad de segundos entre cada recuperación automática, edita el valor de **Git: Autofetch Period**.
+1. Click the **Manage** button at the bottom of the Activity Bar.
+![Manage button](/assets/images/help/codespaces/manage-button.png)
+1. In the menu, slick **Settings**.
+1. On the Settings page, search for: `autofetch`.
+![Search for autofetch](/assets/images/help/codespaces/autofetch-search.png)
+1. To fetch details of updates for all remotes registered for the current repository, set **Git: Autofetch** to `all`.
+![Enable Git autofetch](/assets/images/help/codespaces/autofetch-all.png)
+1. If you want to change the number of seconds between each automatic fetch, edit the value of **Git: Autofetch Period**.
 
-## Configramr tus cambios
+## Committing your changes 
 
-{% data reusables.codespaces.source-control-commit-changes %}
+{% data reusables.codespaces.source-control-commit-changes %} 
 
-## Levantar una solicitud de cambios
+## Raising a pull request
 
-{% data reusables.codespaces.source-control-pull-request %}
+{% data reusables.codespaces.source-control-pull-request %} 
 
-## Subir cambios a tu repositorio remoto
+## Pushing changes to your remote repository
 
-Puedes subir los cambios que has hecho. Esto aplica a aquellos de la rama ascendente en el repositorio remoto. Puede que necesites hacer eso si aún no estás listo para crear una solicitud de cambios o si prefieres crearla en {% data variables.product.prodname_dotcom %}.
+You can push the changes you've made. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
 
-1. En la parte superior de la barra lateral, haz clic en los puntos suspensivos (**...**). ![Botón de puntos suspensivos para las acciones de "más" y "ver"](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
-1. En el menú desplegable, haz clic en **Subir**.
+1. At the top of the side bar, click the ellipsis (**...**).
+![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
+1. In the drop-down menu, click **Push**.

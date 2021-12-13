@@ -2,9 +2,9 @@
 title: Setting repository visibility
 intro: You can choose who can view your repository.
 redirect_from:
-  - /articles/making-a-private-repository-public/
-  - /articles/making-a-public-repository-private/
-  - /articles/converting-a-public-repo-to-a-private-repo/
+  - /articles/making-a-private-repository-public
+  - /articles/making-a-public-repository-private
+  - /articles/converting-a-public-repo-to-a-private-repo
   - /articles/setting-repository-visibility
   - /github/administering-a-repository/setting-repository-visibility
   - /github/administering-a-repository/managing-repository-settings/setting-repository-visibility
@@ -21,9 +21,9 @@ shortTitle: Repository visibility
 
 Organization owners can restrict the ability to change repository visibility to organization owners only. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
-If you're a member of an {% data variables.product.prodname_emu_enterprise %}, your repositories owned by your user account can only be private, and repositories in your enterprise's organizations can only be private or internal.
+Members of an {% data variables.product.prodname_emu_enterprise %} can only set the visibility of repositories owned by their user account to private, and repositories in their enterprise's organizations can only be private or internal. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 
 {% endif %}
 
@@ -46,21 +46,26 @@ We recommend reviewing the following caveats before you change the visibility of
 ### Making a repository private
 {% ifversion fpt or ghes or ghec %}
 * {% data variables.product.product_name %} will detach public forks of the public repository and put them into a new network. Public forks are not made private.{% endif %}
-* If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository. {% ifversion fpt or ghes or ghec %}The visibility of any forks will also change to private.{% elsif ghae %}If the internal repository has any forks, the visibility of the forks is already private.{% endif %} For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"{% ifversion fpt %}
-* If you're using {% data variables.product.prodname_free_user %} for user accounts or organizations, some features won't be available in the repository after you change the visibility to private. Any published {% data variables.product.prodname_pages %} site will be automatically unpublished. If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}{% ifversion fpt or ghec %}
-* {% data variables.product.prodname_dotcom %} will no longer include the repository in the {% data variables.product.prodname_archive %}. For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
-* {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %}, will stop working unless the repository is owned by an organization that is part of an enterprise with a license for {% data variables.product.prodname_advanced_security %} and sufficient spare seats. {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% ifversion ghes %}
-* Anonymous Git read access is no longer available. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."{% endif %}
+{%- ifversion ghes or ghec or ghae %}
+* If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository. {% ifversion fpt or ghes or ghec %}The visibility of any forks will also change to private.{% elsif ghae %}If the internal repository has any forks, the visibility of the forks is already private.{% endif %} For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
+{%- endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
+{%- ifversion fpt %}
+* If you're using {% data variables.product.prodname_free_user %} for user accounts or organizations, some features won't be available in the repository after you change the visibility to private. Any published {% data variables.product.prodname_pages %} site will be automatically unpublished. If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+{%- endif %}
+
+{%- ifversion fpt or ghec %}
+* {% data variables.product.prodname_dotcom %} will no longer include the repository in the {% data variables.product.prodname_archive %}. For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
+* {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %}, will stop working unless the repository is owned by an organization that is part of an enterprise with a license for {% data variables.product.prodname_advanced_security %} and sufficient spare seats. {% data reusables.advanced-security.more-info-ghas %}
+{%- endif %}
+
+{%- ifversion ghes %}
+* Anonymous Git read access is no longer available. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
+{%- endif %}
+
+{% ifversion ghes or ghec or ghae %}
 
 ### Making a repository internal
-
-{% note %}
-
-**Note:** {% data reusables.gated-features.internal-repos %}
-
-{% endnote %}
 
 * Any forks of the repository will remain in the repository network, and {% data variables.product.product_name %} maintains the relationship between the root repository and the fork. For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
 

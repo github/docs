@@ -7,10 +7,6 @@
   description: >-
     Token usado no lugar de uma senha ao executar operações do Git em HTTPS com Git na linha de comando ou na API. Também chamado de token de acesso pessoal.
 - 
-  term: token de recuperação de conta
-  description: >-
-    **Obsoleto e será desativado em 1 de dezembro de 2021.** A credencial de autenticação armazenada como parte de uma configuração de recuperação de conta denominada Recuperação de Contas em Outro Lugar Recover que permite que você armazene essa credencial de backup.
-- 
   term: Visualização da API
   description: >-
     Forma de testar novas APIs e alterações nos métodos existentes antes de integrá-las como parte da API oficial do GitHub.
@@ -183,11 +179,11 @@
   description: >-
     O branch base para os novos pull requests e commits de código em um repositório. Cada repositório tem pelo menos um branch, que o Git cria quando você inicializa o repositório. Geralmente, o primeiro branch é denominado {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, e, muitas vezes, é o branch padrão.
 - 
-  term: gráfico de dependentes
+  term: dependents graph
   description: >-
     Gráfico que mostra os pacotes, projetos e repositórios que dependem de um repositório público.
 - 
-  term: gráfico de dependências
+  term: dependency graph
   description: >-
     Gráfico que mostra os pacotes e projetos dos quais o repositório depende.
 - 
@@ -252,7 +248,7 @@
 - 
   term: gist
   description: >-
-    Um gist é um arquivo compartilhável que você pode editar, clonar e bifurcar no GitHub. Você pode criar um gist {% ifversion ghae %}interno{% else %}público{% endif %} ou secreto, embora os gists secretos estejam disponíveis para {% ifversion ghae %}qualquer membro corporativo{% else %}qualquer pessoa{% endif %} com a URL.
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -377,7 +373,7 @@
   description: >-
     Conta pessoal que não pode ser acessada pelo usuário. As contas ficam bloqueadas após o downgrade da modalidade paga para a grátis ou após o vencimento do plano da conta paga.
 - 
-  term: console de gerenciamento
+  term: management console
   description: >-
     Seção na interface do GitHub Enterprise que contém recursos administrativos.
 - 
@@ -396,7 +392,7 @@
   description: >-
     O branch padrão em muitos repositórios Git. Por padrão, quando você cria um novo repositório Git na linha de comando, um branch denominado `master` será criado. Muitas ferramentas agora usam um nome alternativo para o branch padrão.{% ifversion fpt or ghes > 3.1 or ghae %} Por exemplo, quando você cria um novo repositório no GitHub, o branch padrão é denominado `main`.{% endif %}
 - 
-  term: gráfico de integrantes
+  term: members graph
   description: Gráfico que exibe todas as bifurcações de um repositório.
 - 
   term: menção
@@ -422,7 +418,7 @@
   description: >-
     Equipe secundária de uma equipe principal. É possível ter várias equipes secundárias (ou aninhadas).
 - 
-  term: gráfico de rede
+  term: network graph
   description: >-
     Gráfico que exibe o histórico de branches de toda a rede do repositório, incluindo branches do repositório raiz e branches de bifurcações que contêm commits exclusivos da rede.
 - 
@@ -543,10 +539,10 @@
   description: >-
     Comentários de colaboradores sobre uma pull request que aprovem as alterações ou solicitem outras alterações antes do merge da pull request.
 - 
-  term: gráfico Pulse
+  term: pulse graph
   description: Gráfico que mostra uma visão geral da atividade de um repositório.
 - 
-  term: gráfico Punch
+  term: punch graph
   description: >-
     Gráfico que mostra a frequência de atualizações em um repositório conforme o dia da semana e a hora do dia.
 - 
@@ -566,15 +562,11 @@
     Nível de permissão que permite ao usuário ler ou fazer pull das informações do repositório. Todos os repositórios públicos dão acesso de leitura a todos os usuários do GitHub. Sinônimo para acesso pull.
 - 
   term: README
-  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo README ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
+  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo LEIAME ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
 - 
   term: rebase
   description: >-
     Reaplicar uma série de alterações de um branch para uma base diferente e redefinir o HEAD daquele branch para o resultado.
-- 
-  term: recuperação de contas em outro lugar
-  description: >-
-    **Obsoleto e será desabilitado em 1 de dezembro de 2021.** Permite aos usuários adicionar uma camada de segurança extra à conta do GitHub em caso de perda do acesso à autenticação de dois fatores ou aos códigos de recuperação. Os usuários podem associar suas contas do GitHub às contas do Facebook armazenando uma credencial de autenticação em forma de token de recuperação para a conta do GitHub no Facebook.
 - 
   term: código de recuperação
   description: Código que ajuda a recuperar o acesso à conta do GitHub.
@@ -611,7 +603,7 @@
 - 
   term: mantenedor de repositório
   description: >-
-    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o README e os arquivos de contribuição atualizados.
+    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o LEIAME e os arquivos de contribuição atualizados.
 - 
   term: revisão obrigatória de pull request
   description: >-

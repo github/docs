@@ -1,8 +1,8 @@
 ---
-title: Criar uma senha forte
-intro: 'Proteja sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} com uma senha forte e única usando um gerenciador de senhas.'
+title: Creating a strong password
+intro: 'Secure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} with a strong and unique password using a password manager.'
 redirect_from:
-  - /articles/what-is-a-strong-password/
+  - /articles/what-is-a-strong-password
   - /articles/creating-a-strong-password
   - /github/authenticating-to-github/creating-a-strong-password
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password
@@ -13,27 +13,26 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Criar uma senha forte
+shortTitle: Create a strong password
 ---
+You must choose or generate a password for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} that is at least:
+- {% ifversion ghes %}Seven{% else %}Eight{% endif %} characters long, if it includes a number and a lowercase letter, or
+- 15 characters long with any combination of characters
 
-Você deve escolher ou gerar uma senha para a sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} que seja pelo menos:
-- {% ifversion ghes %}Sete{% else %}Oito{% endif %} caracteres, se incluir um número e uma letra minúscula, ou
-- 15 caracteres com qualquer combinação de caracteres
+To keep your account secure, we recommend you follow these best practices:
+- Use a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/), to generate a password of at least 15 characters.
+- Generate a unique password for {% data variables.product.product_name %}. If you use your {% data variables.product.product_name %} password elsewhere and that service is compromised, then attackers or other malicious actors could use that information to access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
-Para manter sua conta protegida, é recomendável seguir estas práticas recomendadas:
-- Use um gerenciador de senhas, como [LastPass](https://lastpass.com/) ou [1Password](https://1password.com/) para gerar uma senha de pelo menos 15 caracteres.
-- Gere uma senha exclusiva para o {% data variables.product.product_name %}. Se você usar sua senha {% data variables.product.product_name %} em outro lugar e o serviço estiver comprometido, os invasores ou outros atores maliciosos poderiam usar essa informação para acessar sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
-
-- Configure a autenticação de dois fatores para sua conta pessoal. Para obter mais informações, consulte "[Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication)".
-- Nunca compartilhe sua senha, mesmo com um possível colaborador. Cada pessoa deve usar a própria conta pessoal no {% data variables.product.product_name %}. Para obter mais informações sobre maneiras de colaborar, consulte: "[Convidar colaboradores para um repositório pessoal](/articles/inviting-collaborators-to-a-personal-repository)", "[Sobre modelos de desenvolvimento colaborativo](/articles/about-collaborative-development-models/)" ou "[Colaborar com grupos em organizações](/organizations/collaborating-with-groups-in-organizations/)".
+- Configure two-factor authentication for your personal account. For more information, see "[About two-factor authentication](/articles/about-two-factor-authentication)."
+- Never share your password, even with a potential collaborator. Each person should use their own personal account on {% data variables.product.product_name %}. For more information on ways to collaborate, see: "[Inviting collaborators to a personal repository](/articles/inviting-collaborators-to-a-personal-repository)," "[About collaborative development models](/articles/about-collaborative-development-models/)," or "[Collaborating with groups in organizations](/organizations/collaborating-with-groups-in-organizations/)."
 
 {% data reusables.repositories.blocked-passwords %}
 
-Você só pode usar sua senha para entrar no {% data variables.product.product_name %} usando seu navegador. Ao efetuar a autenticação no {% data variables.product.product_name %} de outra forma, como, por exemplo, linha de comando ou API, você deve usar outras credenciais. Para obter mais informações, consulte "[Sobre a autenticação do {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)".
+You can only use your password to log on to {% data variables.product.product_name %} using your browser. When you authenticate to {% data variables.product.product_name %} with other means, such as the command line or API, you should use other credentials. For more information, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)." 
 
 {% ifversion fpt or ghec %}{% data reusables.user_settings.password-authentication-deprecation %}{% endif %}
 
-## Leia mais
+## Further reading
 
-- "[Armazenar suas credenciais de {% data variables.product.product_name %} no Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
-- "[Manter a conta e os dados seguros](/articles/keeping-your-account-and-data-secure/)"
+- "[Caching your {% data variables.product.product_name %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
+- "[Keeping your account and data secure](/articles/keeping-your-account-and-data-secure/)"

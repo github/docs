@@ -7,6 +7,9 @@
     - Escolha **{% data variables.product.support_ticket_priority_high %}** para relatar problemas que afetam as operações de negócios, incluindo {% ifversion fpt or ghec %}removendo dados confidenciais (commits, issues, pull requests, anexos carregados) de suas próprias contas e restaurações da organização{% else %}problemas de desempenho do sistema{% endif %}ou para relatar erros críticos.
     - Escolha **{% data variables.product.support_ticket_priority_normal %}** para {% ifversion fpt or ghec %}solicitar recuperação de conta ou remoção de sinalizador de spam, relatar problemas de login do usuário{% else %}fazer solicitações técnicas, como alterações de configuração e integrações de terceiros{% endif %}e para relatar erros não críticos.
     - Escolha **{% data variables.product.support_ticket_priority_low %}** para fazer perguntas gerais e enviar solicitações para novos recursos, compras, treinamentos ou check-ups do ambiente de segurança de Ti.
+{%- ifversion ghes or ghec %}
+1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback. Select **Request a callback from GitHub Support**, select the country code drop-down menu to choose your country, and enter your phone number. ![Request callback option](/assets/images/help/support/request-callback.png)
+{%- endif %}
 1. Em "Subject" (Assunto), insira um título descritivo para o problema que está ocorrendo. ![Campo Subject (Assunto)](/assets/images/help/support/subject-field.png)
 5. Em "How can we help" (Como podemos ajudar), insira as informações adicionais que ajudarão a equipe de suporte a resolver o problema. As informações úteis podem incluir: ![Campo How can we help (Como podemos ajudar)](/assets/images/help/support/how-can-we-help-field.png)
     - Etapas para reproduzir o problema

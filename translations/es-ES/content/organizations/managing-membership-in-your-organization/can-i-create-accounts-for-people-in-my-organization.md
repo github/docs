@@ -1,6 +1,6 @@
 ---
-title: ¿Puedo crear cuentas para personas en mi organización?
-intro: 'Si bien puedes agregar usuarios a una organización que has creado, no puedes crear cuentas de usuario personales en nombre de otra persona.'
+title: Can I create accounts for people in my organization?
+intro: 'While you can add users to an organization you''ve created, you can''t create personal user accounts on behalf of another person.'
 redirect_from:
   - /articles/can-i-create-accounts-for-those-in-my-organization/
   - /articles/can-i-create-accounts-for-people-in-my-organization
@@ -11,7 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Crear cuentas para las personas
+shortTitle: Create accounts for people
 ---
 
 ## About user accounts
@@ -22,8 +22,8 @@ Because you access an organization by logging in to a user account, each of your
 If you need greater control over the user accounts of your organization members, consider {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 {% endif %}
 
-## Agregar usuarios a tu organización
+## Adding users to your organization
 
 1. Provide each person instructions to [create a user account](/articles/signing-up-for-a-new-github-account).
-2. Preguntar el nombre de usuario a cada persona a la que deseas dar membresía a la organización.
-3. [Invitar a las nuevas cuentas personales para que se unan](/articles/inviting-users-to-join-your-organization) a tu organización. Usar [roles de la organización](/articles/permission-levels-for-an-organization) y [permisos de repositorio](/articles/repository-permission-levels-for-an-organization) para limitar el acceso a cada cuenta.
+2. Ask for the username of each person you want to give organization membership to.
+3. [Invite the new personal accounts to join](/articles/inviting-users-to-join-your-organization) your organization. Use [organization roles](/articles/permission-levels-for-an-organization) and [repository permissions](/articles/repository-permission-levels-for-an-organization) to limit the access of each account.
