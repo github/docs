@@ -11,7 +11,7 @@ name: Create translation Batch Pull Request
 on:
   workflow_dispatch:
   schedule:
-    - cron: '33 18 * * *' # every day at 18:33 UTC at least until automerge is working
+    - cron: '25 */6 * * *' # Every six hours
 
 jobs:
   create-translation-batch:
