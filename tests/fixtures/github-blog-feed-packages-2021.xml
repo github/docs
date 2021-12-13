@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>packages &#8211; The GitHub Blog</title>
+	<atom:link href="https://github.blog/changelog/label/packages/feed/" rel="self" type="application/rss+xml" />
+	<link>https://github.blog</link>
+	<description>Updates, ideas, and inspiration from GitHub to help developers build and design software.</description>
+	<lastBuildDate>Mon, 21 Jun 2021 19:05:37 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.7.4</generator>
+
+<image>
+	<url>https://github.blog/wp-content/uploads/2019/01/cropped-github-favicon-512.png?fit=32%2C32</url>
+	<title>packages &#8211; The GitHub Blog</title>
+	<link>https://github.blog</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">153214340</site>	<item>
+		<title>GitHub Packages Container registry is generally available!</title>
+		<link>https://github.blog/changelog/2021-06-21-github-packages-container-registry-is-generally-available</link>
+		
+		<dc:creator><![CDATA[phanatic]]></dc:creator>
+		<pubDate>Mon, 21 Jun 2021 19:05:37 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2021-06-21-github-packages-container-registry-is-generally-available</guid>
+
+					<description><![CDATA[GitHub Packages Container registry is generally available!]]></description>
+										<content:encoded><![CDATA[<p>GitHub Packages Container registry, <a href="https://ghcr.io">ghcr.io</a>, is now generally available! Container registry provides the best developer experience for publishing, managing, and consuming containers on GitHub. For more information, check out the <a href="https://github.blog/2021-06-21-github-packages-container-registry-generally-available/">Container registry general availability blog post</a>.</p>
+<p>Learn more about <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry">GitHub Container registry</a></p>
+<p><a href="https://github.community/c/code-to-cloud/github-packages/43">For questions, visit the GitHub Packages community</a></p>
+<p><a href="https://github.com/github/roadmap/projects/1?card_filter_query=label%3Apackages">To see what&#039;s next for Packages, visit our public roadmap</a></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">58760</post-id>	</item>
+		<item>
+		<title>Packages&#058; ghcr.io maintenance mode on 2021-06-05</title>
+		<link>https://github.blog/changelog/2021-06-02-packages-ghcr-io-maintenance-mode-on-2021-06-05</link>
+		
+		<dc:creator><![CDATA[phanatic]]></dc:creator>
+		<pubDate>Wed, 02 Jun 2021 20:26:25 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2021-06-02-packages-ghcr-io-maintenance-mode-on-2021-06-05</guid>
+
+					<description><![CDATA[Packages&#058; ghcr.io maintenance mode on 2021-06-05]]></description>
+										<content:encoded><![CDATA[<p>On June 5th, 2021 the GitHub Container Registry, <a href="https://ghcr.io">ghcr.io</a>, will be put into maintenance mode. The maintenance window will occur from 16:00 &#8211; 17:30 UTC. During this short time pushes to the service will be blocked, however pulls or downloads will remain available. For more detailed status information during maintenance, please refer to <a href="https://githubstatus.com">https://githubstatus.com</a></p>
+<p>Learn more about <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry">GitHub Container Registry</a></p>
+<p><a href="https://github.community/c/code-to-cloud/github-packages/43">For questions, visit the GitHub Packages community</a></p>
+<p><a href="https://github.com/github/roadmap/projects/1?card_filter_query=label%3Apackages">To see what&#039;s next for Packages, visit our public roadmap</a></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">58525</post-id>	</item>
+		<item>
+		<title>Packages: Container registry now supports GITHUB_TOKEN</title>
+		<link>https://github.blog/changelog/2021-03-24-packages-container-registry-now-supports-github_token</link>
+		
+		<dc:creator><![CDATA[phanatic]]></dc:creator>
+		<pubDate>Wed, 24 Mar 2021 17:56:45 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2021-03-24-packages-container-registry-now-supports-github_token</guid>
+
+					<description><![CDATA[Packages&#058; Container registry now supports GITHUB_TOKEN]]></description>
+										<content:encoded><![CDATA[<p>You can now use GITHUB_TOKEN to authenticate with the Packages Container registry in your Actions workflows.  Say goodbye to all those PATs (delete them from your profile too!), and say hello to using the GITHUB_TOKEN in your workflows to read, create, update, and delete containers. </p>
+<pre><code class="language-diff">      - name: Login to Packages Container registry
+        uses: docker/login-action@v1 
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+-          password: ${{ secrets.PAT }}
++          password: ${{ secrets.GITHUB_TOKEN }}</code></pre>
+<p>Write and read access of Actions to containers can be managed in the container settings.</p>
+<p><img src="https://i2.wp.com/user-images.githubusercontent.com/2134/111272974-7ebea280-85f0-11eb-9605-45cbb80518ce.gif?ssl=1" alt="manage actions access animation" data-recalc-dims="1"></p>
+<p>Learn more about <a href="https://docs.github.com/en/packages/guides/using-github-packages-with-github-actions#authenticating-to-github-container-registry<" rel="noopener" target="_blank">authenticating to Container registry with GitHub Actions</a></p>
+<p><a href="https://github.community/c/code-to-cloud/github-packages/43">For questions, visit the GitHub Packages community</a></p>
+<p><a href="https://github.com/github/roadmap/projects/1?card_filter_query=label%3Apackages">To see what&#039;s next for Packages, visit our public roadmap</a></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">56993</post-id>	</item>
+		<item>
+		<title>Packages&#058; internal visibility now available for Container registry</title>
+		<link>https://github.blog/changelog/2021-03-24-packages-internal-visibility-now-available-for-container-registry</link>
+		
+		<dc:creator><![CDATA[phanatic]]></dc:creator>
+		<pubDate>Wed, 24 Mar 2021 17:55:30 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2021-03-24-packages-internal-visibility-now-available-for-container-registry</guid>
+
+					<description><![CDATA[Packages&#058; internal visibility now available for Container registry]]></description>
+										<content:encoded><![CDATA[<p>The GitHub Packages Container registry can now create and use containers set with Internal visibility. Internal visibility allows all members of an organization and all organizations within an enterprise read access to the container to more easily share data with your teammates.</p>
+<p>This feature is generally available today on GitHub Enterprise Cloud. Navigate to your organization&#039;s Packages settings and click the option for Internal visibility to enable.</p>
+<p><img src="https://i0.wp.com/user-images.githubusercontent.com/12765610/112353717-43277680-8c89-11eb-9ab6-e5b678c74dd8.png?ssl=1" alt="image" data-recalc-dims="1"></p>
+<p>Learn more about <a href="https://docs.github.com/en/packages/guides/configuring-access-control-and-visibility-for-container-images#container-creation-visibility-for-organization-members">configuring visibility for container images</a></p>
+<p><a href="https://github.community/c/code-to-cloud/github-packages/43">For questions, visit the GitHub Packages community</a></p>
+<p><a href="https://github.com/github/roadmap/projects/1?card_filter_query=label%3Apackages">To see what&#039;s next for Packages, visit our public roadmap</a></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">56992</post-id>	</item>
+		<item>
+		<title>Packages: time has been dropped from npm package metadata responses</title>
+		<link>https://github.blog/changelog/2021-03-05-packages-time-has-been-dropped-from-npm-package-metadata-responses</link>
+		
+		<dc:creator><![CDATA[phanatic]]></dc:creator>
+		<pubDate>Fri, 05 Mar 2021 17:02:14 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2021-03-05-packages-time-has-been-dropped-from-npm-package-metadata-responses</guid>
+
+					<description><![CDATA[Packages&#058; time has been dropped from npm package metadata responses]]></description>
+										<content:encoded><![CDATA[<p>The Packages npm registry no longer returns a <code>time</code> value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a <code>time</code> value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.</p>
+<p>Learn more about the <a href="https://docs.github.com/en/packages/guides/configuring-npm-for-use-with-github-packages">Packages npm registry</a></p>
+<p><a href="https://github.community/c/code-to-cloud/github-packages/43">For questions, visit the GitHub Packages community</a></p>
+<p><a href="https://github.com/github/roadmap/projects/1?card_filter_query=label%3Apackages">To see what&#039;s next for Packages, visit our public roadmap</a></p>
+<p>Note: This post originally inaccurately referred to <code>time</code> as not being returned in the &#8220;official npm specification&#8221;. While an &#8220;official npm specification&#8221; does not exist, time is referred to in the <a href="https://github.com/npm/registry/blob/master/docs/responses/package-metadata.md#full-metadata-format">registry package-metadata documentation</a> and used for some commands.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">56624</post-id>	</item>
+		<item>
+		<title>Packages&#058; delete and restore for all packages</title>
+		<link>https://github.blog/changelog/2021-02-17-packages-delete-and-restore-for-all-packages</link>
+		
+		<dc:creator><![CDATA[phanatic]]></dc:creator>
+		<pubDate>Thu, 18 Feb 2021 01:15:14 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2021-02-17-packages-delete-and-restore-for-all-packages</guid>
+
+					<description><![CDATA[Packages&#058; delete and restore for all packages]]></description>
+										<content:encoded><![CDATA[<p>You can now delete and restore any package type within GitHub Packages, even publicly visible packages.  Any package or package version of yours can now be deleted through the github.com website or REST APIs. The ability to delete any package will help you manage the packages you want to keep in your account. Any package deleted within the last 30 days can also be restored to undo a delete and bring the package back to its original state.</p>
+<p>Learn more about <a href="https://docs.github.com/packages/learn-github-packages/deleting-and-restoring-a-package">deleting and restoring packages</a> and <a href="https://docs.github.com/rest/reference/packages">Packages REST APIs</a></p>
+<p><a href="https://github.community/c/code-to-cloud/github-packages/43">For questions, visit the GitHub Packages community</a></p>
+<p><a href="https://github.com/github/roadmap/projects/1?card_filter_query=label%3Apackages">To see what&#039;s next for Packages, visit our public roadmap</a></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">56289</post-id>	</item>
+		<item>
+		<title>Packages: ghcr.io maintenance mode on 2021-01-09</title>
+		<link>https://github.blog/changelog/2021-01-08-packages-ghcr-io-maintenance-mode-on-2021-01-09</link>
+		
+		<dc:creator><![CDATA[phanatic]]></dc:creator>
+		<pubDate>Fri, 08 Jan 2021 20:27:27 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2021-01-08-packages58-ghcr-io-maintenance-mode-on-2021-01-09</guid>
+
+					<description><![CDATA[Packages&#38;#58 ghcr.io maintenance mode on 2021-01-09]]></description>
+										<content:encoded><![CDATA[<p>On January 9th 2021 the GitHub Container Registry, <a href="https://ghcr.io">ghcr.io</a>, will be put into maintenance mode. During this short time pushes to the service will be blocked, however pulls or downloads will remain available. For more detailed status information during maintenance, please refer to <a href="https://githubstatus.com">https://githubstatus.com</a></p>
+<p>Learn more about <a href="https://docs.github.com/en/free-pro-team@latest/packages/guides/about-github-container-registry">GitHub Container Registry</a></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">55793</post-id>	</item>
+		<item>
+		<title>Packages can filter for tagged and untagged containers</title>
+		<link>https://github.blog/changelog/2020-12-14-packages-can-filter-for-tagged-and-untagged-containers</link>
+		
+		<dc:creator><![CDATA[phanatic]]></dc:creator>
+		<pubDate>Mon, 14 Dec 2020 17:48:23 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2020-12-14-packages-can-filter-for-tagged-and-untagged-containers</guid>
+
+					<description><![CDATA[Packages can filter for tagged and untagged containers]]></description>
+										<content:encoded><![CDATA[<p>As more and more versions of containers are published it can become harder to find the tagged images in between a long list of untagged images which create a lot of noise.  Now when you visit the version list page of a container, like the <a href="https://github.com/orgs/github/packages/container/super-linter/versions">super-linter versions</a>, you&#039;ll see options for listing <a href="https://github.com/orgs/github/packages/container/super-linter/versions?filters%5Bversion_type%5D=tagged">tagged</a>, <a href="https://github.com/orgs/github/packages/container/super-linter/versions?filters%5Bversion_type%5D=untagged">untagged</a>, and <a href="https://github.com/orgs/github/packages/container/super-linter/versions?filters%5Bversion_type%5D=all">all</a> images. We default to showing only the tagged images on the version list page to keep the list limited to the most important images.</p>
+<p>This filtering is only available for <a href="https://docs.github.com/en/free-pro-team@latest/packages/getting-started-with-github-container-registry/enabling-improved-container-support">GitHub Packages containers (beta)</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">55332</post-id>	</item>
+		<item>
+		<title>Packages container support is an opt-in beta</title>
+		<link>https://github.blog/changelog/2020-11-17-packages-container-support-is-an-opt-in-beta</link>
+		
+		<dc:creator><![CDATA[phanatic]]></dc:creator>
+		<pubDate>Tue, 17 Nov 2020 17:21:57 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2020-11-17-packages-container-support-is-an-opt-in-beta</guid>
+
+					<description><![CDATA[Packages container support is an opt-in beta]]></description>
+										<content:encoded><![CDATA[<p>You can now more easily opt-in to the public beta of GitHub Packages&#039; <a href="https://github.blog/2020-09-01-introducing-github-container-registry/">improved containers experience</a>. New users and organizations can opt-in to the beta for their organization using either organization settings, or for their user account using user feature preview.</p>
+<p>Current organizations and users of the Packages containers beta will be automatically opted-in for continued access to service. </p>
+<p>See <a href="https://docs.github.com/en/free-pro-team@latest/packages/getting-started-with-github-container-registry/enabling-improved-container-support">Enabling improved container support</a> for more information.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">55125</post-id>	</item>
+		<item>
+		<title>Packages &#8211; Organization admins access to containers</title>
+		<link>https://github.blog/changelog/2020-11-16-packages-organization-admins-access-to-containers</link>
+		
+		<dc:creator><![CDATA[phanatic]]></dc:creator>
+		<pubDate>Mon, 16 Nov 2020 23:54:34 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2020-11-16-packages-organization-admins-access-to-containers</guid>
+
+					<description><![CDATA[Packages - Organization admins access to containers]]></description>
+										<content:encoded><![CDATA[<p>Organization admins now have admin privileges for all containers in their organization. Specifically, admins can read, write, manage access, and change the visibility of containers.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">55124</post-id>	</item>
+	</channel>
+</rss>
