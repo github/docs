@@ -183,7 +183,7 @@ describe('server', () => {
   })
 
   test('renders a 500 page when errors are thrown', async () => {
-    const $ = await getDOM('/_500')
+    const $ = await getDOM('/_500', undefined, true)
     expect($('h1').text()).toBe('Ooops!')
     expect($.text().includes('It looks like something went wrong.')).toBe(true)
     expect(
