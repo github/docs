@@ -247,6 +247,11 @@ describe('server', () => {
     // check for CORS header
     expect(res.headers['access-control-allow-origin']).toBe('*')
 
+    // Check that it can be cached at the CDN
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+
     const categories = JSON.parse(res.text)
     expect(Array.isArray(categories)).toBe(true)
     expect(categories.length).toBeGreaterThan(1)
