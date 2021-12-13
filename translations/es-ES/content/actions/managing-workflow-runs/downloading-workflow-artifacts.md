@@ -11,7 +11,6 @@ shortTitle: Download workflow artifacts
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and you can customize this retention period, depending on the type of repository. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."
 

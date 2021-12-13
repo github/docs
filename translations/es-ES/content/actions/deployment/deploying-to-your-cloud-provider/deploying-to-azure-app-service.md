@@ -1,6 +1,6 @@
 ---
-title: Desplegar a Azure App Service
-intro: Puedes desplegar hacia Azure App Service como parte de tus flujos de trabajo de despliegue continuo (DC).
+title: Deploying to Azure App Service
+intro: You can deploy to Azure App Service as part of your continuous deployment (CD) workflows.
 redirect_from:
   - /actions/guides/deploying-to-azure-app-service
   - /actions/deployment/deploying-to-azure-app-service
@@ -14,18 +14,17 @@ topics:
   - CD
   - Containers
   - Azure App Service
-shortTitle: Desplegar hacia el Servicio de Azure App
+shortTitle: Deploy to Azure App Service
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## Introducción
+## Introduction
 
-Esta guía te explica cómo utilizar {% data variables.product.prodname_actions %} para crear, probar y desplegar una aplicación en [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/).
+This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy an application to [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/).
 
-Azure App Service puede ejecutar apps web en varios lenguajes de programación, pero esta guía demuestra el despliegue en un proyecto existente que se encuentra en Node.js.
+Azure App Service can run web apps in several languages, but this guide demonstrates deploying an existing Node.js project.
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -37,13 +36,13 @@ Azure App Service puede ejecutar apps web en varios lenguajes de programación, 
 
 {% endif %}
 
-## Prerrequisitos
+## Prerequisites
 
-Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions %}, primero necesitarás completar los siguientes pasos de configuración:
+Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
 
-1. Crear un plan de Azure App Service.
+1. Create an Azure App Service plan.
 
-   Por ejemplo, puedes utilizar el CLI de Azure para crear un plan de App Service nuevo:
+   For example, you can use the Azure CLI to create a new App Service plan:
 
    ```bash{:copy}
    az appservice plan create \
@@ -52,16 +51,16 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
        --is-linux
    ```
 
-   En el comando anterior, reemplaza `MY_RESOURCE_GROUP` con tu Grupo de Recursos de Azure preexistente y `MY_APP_SERVICE_PLAN` con un nombre nuevo para el plan de App Service.
+   In the command above, replace `MY_RESOURCE_GROUP` with your pre-existing Azure Resource Group, and `MY_APP_SERVICE_PLAN` with a new name for the App Service plan.
 
-   Consulta la documentación de Azure para obtener más información sobre cómo utilizar el [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/):
+   See the Azure documentation for more information on using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/):
 
-   * Para la autenticación, consulta "[Iniciar sesión con Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli)".
-   * Si necesitas crear un grupo de recursos nuevo, consulta lasección "[grupo az](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create)".
+   * For authentication, see "[Sign in with Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli)".
+   * If you need to create a new resource group, see "[az group](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create)."
 
-2. Crea una app web.
+2. Create a web app.
 
-   Por ejemplo, puedes utilizar el CLI de Azure para crear una app web de Azure App Service con un tiempo de ejecución de nodo:
+   For example, you can use the Azure CLI to create an Azure App Service web app with a node runtime:
 
    ```bash{:copy}
    az webapp create \
@@ -71,27 +70,27 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
        --runtime "node|10.14"
    ```
 
-   En este comando, reemplaza los parámetros con tus propios valores, en donde `MY_WEBAPP_NAME` es un nombre nuevo para la app web.
+   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
 
-3. Configura un perfil de publicación de Azure y crea un secreto de `AZURE_WEBAPP_PUBLISH_PROFILE`.
+3. Configure an Azure publish profile and create an `AZURE_WEBAPP_PUBLISH_PROFILE` secret.
 
-   Genera tus credenciales de despliegue de Azure utilizando un perfil de publicación. Para obtener más información, consulta la sección "[Generar credenciales de despliegue](https://docs.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=applevel#generate-deployment-credentials)" en la documentación de Azure.
+   Generate your Azure deployment credentials using a publish profile. For more information, see "[Generate deployment credentials](https://docs.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=applevel#generate-deployment-credentials)" in the Azure documentation.
 
-   En tu repositorio de {% data variables.product.prodname_dotcom %}, crea un secreto que se llame `AZURE_WEBAPP_PUBLISH_PROFILE` que tenga el contenido del perfil de publicación. Para obtener más información sobre cómo crear secretos, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)".
+   In your {% data variables.product.prodname_dotcom %} repository, create a secret named `AZURE_WEBAPP_PUBLISH_PROFILE` that contains the contents of the publish profile. For more information on creating secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
 
-4. Para las apps de Linux, agrega un ajuste de app llamado `WEBSITE_WEBDEPLOY_USE_SCM` y configúralo en "true" en tu app. Para obtener más información, consulta la sección "[Configurar apps en el portal](https://docs.microsoft.com/en-us/azure/app-service/configure-common#configure-app-settings)" en la documentación de Azure.
+4. For Linux apps, add an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` and set it to true in your app. For more information, see "[Configure apps in the portal](https://docs.microsoft.com/en-us/azure/app-service/configure-common#configure-app-settings)" in the Azure documentation.
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 {% endif %}
 
-## Crear un flujo de trabajo
+## Creating the workflow
 
-Una vez que hayas completado los prerequisitos, puedes proceder con la creación del flujo de trabajo.
+Once you've completed the prerequisites, you can proceed with creating the workflow.
 
-El siguiente flujo de trabajo de ejemplo demuestra cómo crear, probar y desplegar el proyecto de Node.js a Azure App Service cuando haya una subida a la rama `main`.
+The following example workflow demonstrates how to build, test, and deploy the Node.js project to Azure App Service when there is a push to the `main` branch.
 
-Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. También puedes cambiar el `AZURE_WEBAPP_PACKAGE_PATH` si la ruta de tu proyecto no es la raíz del repositorio y `NODE_VERSION` si quieres utilizar una versión de nodo diferente a `10.x`.
+Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. You can also change `AZURE_WEBAPP_PACKAGE_PATH` if the path to your project is not the repository root and `NODE_VERSION` if you want to use a node version other than `10.x`.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -138,11 +137,12 @@ jobs:
           package: {% raw %}${{ env.AZURE_WEBAPP_PACKAGE_PATH }}{% endraw %}
 ```
 
-## Recursos adicionales
+## Additional resources
 
-Los siguientes recursos también pueden ser útiles:
+The following resources may also be useful:
 
-* Para encontrar el flujo de trabajo inicial original, consulta el archivo [`azure.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure.yml) en el repositorio `starter-workflows` de {% data variables.product.prodname_actions %}.
-* La acción que se utilizó para desplegar la app web es la acción oficial [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) de Azure.
-* Para encontrar más ejemplos de flujos de trabajo de GitHub Actions que desplieguen a Azure, consulta el repositorio [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
-* La guía rápida de "[Crear una app web de Node.js en Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs)" dentro de la documentación de la app web de Azure demuestra cómo utilizar VS Code con la [Extensión de Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+* For the original starter workflow, see [`azure.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
+* For more examples of GitHub Action workflows that deploy to Azure, see the 
+[actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* The "[Create a Node.js web app in Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs)" quickstart in the Azure web app documentation demonstrates using VS Code with the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
