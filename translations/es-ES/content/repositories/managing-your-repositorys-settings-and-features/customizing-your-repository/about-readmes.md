@@ -40,7 +40,7 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 ![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 
 ## Auto-generated table of contents for README files
 
