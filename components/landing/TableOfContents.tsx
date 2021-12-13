@@ -31,7 +31,7 @@ export const TableOfContents = (props: Props) => {
                   text: title,
                   renderItem: () => (
                     <ActionList.Item>
-                      <li key={href} className="f4 d-list-item width-full">
+                      <li key={href} className="f4 d-list-item width-full list-style-none">
                         <Link className="d-block width-full" href={href}>
                           {title}
                         </Link>
@@ -48,7 +48,7 @@ export const TableOfContents = (props: Props) => {
                                 return null
                               }
                               return (
-                                <li key={childItem.fullPath} className="f4 d-block width-full">
+                                <li key={childItem.fullPath} className="f4 d-block width-full m-2">
                                   <Link className="d-block width-full" href={childItem.fullPath}>
                                     {childItem.title}
                                   </Link>
