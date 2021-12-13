@@ -294,6 +294,10 @@ A boolean specifying whether the secret must be supplied.
 
 When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
 
+The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
+
+### Example
+{% raw %}
 ```yaml
 on: 
   workflow_dispatch:
@@ -315,9 +319,16 @@ on:
         description: 'Environment to run tests against'
         type: environment
         required: true {% endif %}
-```
+  
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
 
-The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
+    steps:
+      - name: Print the input tag to STDOUT
+        run: echo The tag is ${{ github.event.inputs.tag }}
+```
+{% endraw %}
 
 ## `on.schedule`
 

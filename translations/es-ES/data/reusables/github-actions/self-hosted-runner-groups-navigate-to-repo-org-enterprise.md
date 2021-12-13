@@ -6,7 +6,7 @@
 {% elsif ghec or ghes or ghae %}
 1. Navega a donde se ubiquen tus grupos de ejecutores auto-hospedados:
    * **In an organization**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.{% ifversion ghec %}
-   * **If using an enterprise account**: navigate to your enterprise account by visiting `https://github.com/enterprises/ENTERPRISE-NAME`, replacing `ENTERPRISE-NAME` with your enterprise account's name.{% elsif ghes or ghae %}
+   * **If using an enterprise account**: navigate to your enterprise account by clicking your profile photo in the top-right corner of {% data variables.product.prodname_dotcom_the_website %}, then clicking **Your enterprises**, then clicking the enterprise.{% elsif ghes or ghae %}
    * **Si utilizas un ejecutor a nivel de empresa**:
      1. En la esquina superior derecha de cualquier página, da clic en {% octicon "rocket" aria-label="The rocket ship" %}.
      2. En la barra lateral izquierda, da clic en **Resumen empresarial**.

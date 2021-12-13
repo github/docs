@@ -1,11 +1,31 @@
+import fs from 'fs/promises'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+import { beforeAll, jest } from '@jest/globals'
+import nock from 'nock'
+import japaneseCharacters from 'japanese-characters'
+
 import '../../lib/feature-flags.js'
-import { jest } from '@jest/globals'
 import { getDOM, getJSON } from '../helpers/supertest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import japaneseCharacters from 'japanese-characters'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('featuredLinks', () => {
   jest.setTimeout(3 * 60 * 1000)
+
+  beforeAll(async () => {
+    const packagesFeedFixturePayload = await fs.readFile(
+      path.join(__dirname, '../fixtures/github-blog-feed-packages-2021.xml'),
+      'utf-8'
+    )
+    nock('https://github.blog')
+      .get('/changelog/label/packages/feed')
+      .reply(200, packagesFeedFixturePayload)
+  })
+
+  afterAll(() => nock.cleanAll())
 
   describe('rendering', () => {
     test('non-TOC pages do not have intro links', async () => {

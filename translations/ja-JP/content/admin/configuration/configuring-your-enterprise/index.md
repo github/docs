@@ -23,7 +23,7 @@ children:
   - /configuring-backups-on-your-appliance
   - /site-admin-dashboard
   - /enabling-private-mode
-  - /managing-github-for-mobile-for-your-enterprise
+  - /managing-github-mobile-for-your-enterprise
   - /configuring-email-for-notifications
   - /verifying-or-approving-a-domain-for-your-enterprise
   - /configuring-rate-limits

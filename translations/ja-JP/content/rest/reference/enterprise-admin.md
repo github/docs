@@ -34,6 +34,10 @@ REST API endpoints{% ifversion ghes %}—except [Management Console](#management
 {% data variables.product.api_url_pre %}
 ```
 
+{% ifversion fpt or ghec %}
+When endpoints include `{enterprise}`, replace `{enterprise}` with the handle for your enterprise account, which is included in the URL for your enterprise settings. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `{enterprise}` with `octo-enterprise`.
+{% endif %}
+
 {% ifversion ghes %}
 [Management Console](#management-console) API endpoints are only prefixed with a hostname:
 
