@@ -1,9 +1,9 @@
 ---
 title: Access permissions on GitHub
 redirect_from:
-  - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
-  - /articles/what-are-the-different-types-of-team-permissions/
-  - /articles/what-are-the-different-access-permissions/
+  - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
+  - /articles/what-are-the-different-types-of-team-permissions
+  - /articles/what-are-the-different-access-permissions
   - /articles/access-permissions-on-github
   - /github/getting-started-with-github/access-permissions-on-github
   - /github/getting-started-with-github/learning-about-github/access-permissions-on-github

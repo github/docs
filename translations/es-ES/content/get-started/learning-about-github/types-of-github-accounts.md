@@ -2,10 +2,10 @@
 title: Types of GitHub accounts
 intro: 'Your user account is your identity on {% data variables.product.product_location %}. Your user account can be a member of any number of organizations.{% ifversion fpt or ghec %} Organizations can belong to enterprise accounts.{% endif %}'
 redirect_from:
-  - /manage-multiple-clients/
-  - /managing-clients/
-  - /articles/what-s-the-difference-between-user-and-organization-accounts/
-  - /articles/differences-between-user-and-organization-accounts/
+  - /manage-multiple-clients
+  - /managing-clients
+  - /articles/what-s-the-difference-between-user-and-organization-accounts
+  - /articles/differences-between-user-and-organization-accounts
   - /articles/types-of-github-accounts
   - /github/getting-started-with-github/types-of-github-accounts
   - /github/getting-started-with-github/learning-about-github/types-of-github-accounts
