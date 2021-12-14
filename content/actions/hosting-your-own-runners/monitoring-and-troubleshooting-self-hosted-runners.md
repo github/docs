@@ -203,10 +203,6 @@ Check that the self-hosted runner's service account has permission to use the Do
 ```shell
 $ sudo systemctl show -p User actions.runner.octo-org-octo-repo.runner01.service
 User=runner-user
-
-# if the service name is not known (look for a service name starting with "actions.runner"):
-$ sudo systemctl show -p User $(systemctl --type=service | grep actions.runner | grep -o "[^ ]*" | head -n 1)
-User=runner-user
 ```
 
 {% endlinux %}
