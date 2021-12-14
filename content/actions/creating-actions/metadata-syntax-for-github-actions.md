@@ -169,7 +169,8 @@ runs:
 
 ### `pre-if`
 
-**Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`.
+**Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`. In `pre-if`, status check functions evaluate against the job's status, not the action's own status.
+
 Note that the `step` context is unavailable, as no steps have run yet.
 
 In this example, `cleanup.js` only runs on Linux-based runners:
@@ -196,7 +197,7 @@ The `post:` action always runs by default but you can override this using `post-
 
 ### `post-if`
 
-**Optional** Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`.
+**Optional** Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`. In `post-if`, status check functions evaluate against the job's status, not the action's own status.
 
 For example, this `cleanup.js` will only run on Linux-based runners:
 
