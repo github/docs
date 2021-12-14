@@ -26,6 +26,9 @@ on:
       - ready_for_review
       - unlocked
 
+permissions:
+  contents: write
+
 # This workflow requires a label in the format `sync-english-index-for-<PLAN@RELEASE>`
 jobs:
   updateIndices:
@@ -59,7 +62,6 @@ jobs:
         env:
           VERSION: ${{ steps.getVersion.outputs.versionToSync }}
           LANGUAGE: 'en'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm run build
           npm run sync-search

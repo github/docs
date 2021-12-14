@@ -13,6 +13,9 @@ on:
   schedule:
     - cron: '25 */6 * * *' # Every six hours
 
+permissions:
+  contents: write
+
 jobs:
   create-translation-batch:
     name: Create translation batch
