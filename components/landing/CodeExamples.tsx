@@ -56,9 +56,9 @@ export const CodeExamples = () => {
       <div className="d-flex flex-wrap gutter">
         {(isSearching ? searchResults : productCodeExamples.slice(0, numVisible)).map((example) => {
           return (
-            <div key={example.href} className="col-12 col-xl-4 col-lg-6 mb-4">
+            <li key={example.href} className="col-12 col-xl-4 col-lg-6 mb-4 list-style-none">
               <CodeExampleCard example={example} />
-            </div>
+            </li>
           )
         })}
       </div>
