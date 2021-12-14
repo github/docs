@@ -1,7 +1,7 @@
 ---
-title: Política de nombre de usuario de GitHub
+title: GitHub Username Policy
 redirect_from:
-  - /articles/name-squatting-policy/
+  - /articles/name-squatting-policy
   - /articles/github-username-policy
 versions:
   fpt: '*'
@@ -10,18 +10,18 @@ topics:
   - Legal
 ---
 
-Los nombres de cuentas de GitHub se proporcionan dependiendo de quién los reclame primero, y se pretende que se comiencen a utilizar activamente de inmediato.
+GitHub account names are available on a first-come, first-served basis, and are intended for immediate and active use.
 
-## ¿Qué pasa si el nombre de usuario que quiero ya está en uso?
+## What if the username I want is already taken?
 
-Ten en mente que no toda la actividad en GitHub está disponible públicamente para su consulta; puede que las cuentas sin actividad visible estén activas.
+Keep in mind that not all activity on GitHub is publicly visible; accounts with no visible activity may be in active use.
 
-Si ya han reclamado el nombre de usuario que quieres, considera otros nombres o variaciones únicas de éste. Puedes identificar un nombre de usuario aún disponible si utilizas números, guiones, o una morfología alterna.
+If the username you want has already been claimed, consider other names or unique variations. Using a number, hyphen, or an alternative spelling might help you identify a desirable username still available.
 
-## Política de marcas
+## Trademark Policy
 
-Si consideras que la cuenta de alguien está violando tus derechos de marca, puedes encontrar más información sobre cómo hacer una queja de marca en nuestra página de [Política de Marca](/articles/github-trademark-policy/).
+If you believe someone's account is violating your trademark rights, you can find more information about making a trademark complaint on our [Trademark Policy](/articles/github-trademark-policy/) page.
 
-## Política de ocupación de nombre
+## Name Squatting Policy
 
-GitHub prohibe el acaparamiento de nombres de cuenta, y dichos nombres de cuenta no pueden reservarse o mantenerse en inactividad para reclamarse posteriormente. Las cuentas que violen esta política de acaparamiento serán eliminadas o renombradas sin previo aviso. Los intentos de vender, comprar o solicitar otras formas de pago a cambio de nombres de cuenta están prohibidos y pueden resultar en una suspensión de cuenta permanente.
+GitHub prohibits account name squatting, and account names may not be reserved or inactively held for future use. Accounts violating this name squatting policy may be removed or renamed without notice. Attempts to sell, buy, or solicit other forms of payment in exchange for account names are prohibited and may result in permanent account suspension.

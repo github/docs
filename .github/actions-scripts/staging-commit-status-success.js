@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+import * as github from '@actions/github'
+
 import getOctokit from '../../script/helpers/github.js'
 
 const { GITHUB_TOKEN } = process.env
@@ -24,6 +26,10 @@ if (!ACTIONS_RUN_LOG) {
 if (!HEAD_SHA) {
   throw new Error('$HEAD_SHA not set')
 }
+
+const { context } = github
+const owner = context.repo.owner
+const repo = context.payload.repository.name
 
 await octokit.repos.createCommitStatus({
   owner,
