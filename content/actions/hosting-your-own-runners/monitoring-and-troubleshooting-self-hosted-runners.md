@@ -67,7 +67,6 @@ actions.runner.octo-org-octo-repo.hostname.service loaded active running GitHub 
 You can use `journalctl` to monitor the real-time activity of the self-hosted runner:
 
 ```shell
-# if the service name is known:
 $ sudo journalctl -u actions.runner.octo-org-octo-repo.runner01.service -f
 
 # if the service name is not known (look for a service name starting with "actions.runner"):
