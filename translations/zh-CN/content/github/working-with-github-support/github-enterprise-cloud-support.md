@@ -1,8 +1,8 @@
 ---
 title: GitHub Enterprise Cloud support
 redirect_from:
-  - /articles/business-plan-support/
-  - /articles/github-business-cloud-support/
+  - /articles/business-plan-support
+  - /articles/github-business-cloud-support
   - /articles/github-enterprise-cloud-support
 intro: '{% data variables.product.prodname_ghe_cloud %} includes a target eight-hour response time for priority support requests, Monday to Friday in your local time zone.'
 versions:
