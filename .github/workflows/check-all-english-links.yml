@@ -9,6 +9,10 @@ on:
   schedule:
     - cron: '40 19 * * *' # once a day at 19:40 UTC / 11:40 PST
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   check_all_english_links:
     name: Check all links

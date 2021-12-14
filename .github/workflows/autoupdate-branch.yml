@@ -24,6 +24,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   autoupdate:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'

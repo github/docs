@@ -22,6 +22,9 @@ on:
       # Ultimately, for debugging this workflow itself
       - .github/workflows/browser-test.yml
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
