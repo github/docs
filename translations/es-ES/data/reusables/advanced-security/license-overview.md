@@ -1,12 +1,12 @@
-Cada licencia de {% data variables.product.prodname_GH_advanced_security %} especifica una cantidad máxima de cuentas o de plazas que pueden utilizar estas características. Cada confirmante activo en por lo menos un repositorio con la característica habilitada utilizará una plaza. A committer is considered active if one of their commits has been pushed to the repository within the last 90 days, regardless of when it was originally authored.
+Cada licencia de {% data variables.product.prodname_GH_advanced_security %} especifica una cantidad máxima de cuentas o de plazas que pueden utilizar estas características. Cada confirmante activo en por lo menos un repositorio con la característica habilitada utilizará una plaza. Un confirmante se considera como activo si una de sus confirmaciones se subió al repositorio dentro de los últimos 90 días, sin importar de cuándo se escribió originalmente.
 
 {% note %}
 
-**Note:** Active committers are calculated using both the commit author information and the timestamp for when the code was pushed to {% data variables.product.product_name %}.
+**Nota:** Los confirmantes activos se calculan utilizando la información del autor de las confirmaciones y la marca de tiempo de cuando el código se subió a {% data variables.product.product_name %}.
 
-- When a user pushes code to {% data variables.product.prodname_dotcom %}, every user who authored code in that push counts towards {% data variables.product.prodname_GH_advanced_security %} seats, even if the code is not new to {% data variables.product.prodname_dotcom %}.
+- Cuando un usuario sube código a {% data variables.product.prodname_dotcom %}, cada usuario que fue el autor de dicho código en esa subida contará como una plaza de {% data variables.product.prodname_GH_advanced_security %}, incluso si el código no es nuevo en {% data variables.product.prodname_dotcom %}.
 
-- Users should always create branches from a recent base, or rebase them before pushing. This will ensure that users who have not committed in the last 90 days do not take up {% data variables.product.prodname_GH_advanced_security %} seats.
+- Los usuarios siempre deben crear ramas desde una base reciente, o rebasarlas antes de subirlas. Esto garantizará que los usuarios que no hayan hecho confirmaciones en los últimos 90 días no utilicen plazas de {% data variables.product.prodname_GH_advanced_security %}.
 
 {% endnote %}
 
