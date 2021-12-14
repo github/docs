@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
 
-import type { BreadcrumbT } from 'components/Breadcrumbs'
+import type { BreadcrumbT } from 'components/page-header/Breadcrumbs'
 import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
 
-type ProductT = {
+export type ProductT = {
   external: boolean
   href: string
   id: string
@@ -13,9 +13,18 @@ type ProductT = {
   versions?: Array<string>
 }
 
+export type ProductGroupT = {
+  name: string
+  icon: string
+  octicon: string
+  children: Array<ProductT>
+}
+
 type VersionItem = {
   version: string
   versionTitle: string
+  currentRelease: string
+  latestVersion: string
 }
 
 export type ProductTreeNode = {
@@ -62,7 +71,8 @@ export type MainContextT = {
     article?: BreadcrumbT
   }
   activeProducts: Array<ProductT>
-  community_redirect: {
+  productGroups: Array<ProductGroupT>
+  communityRedirect: {
     name: string
     href: string
   }
@@ -77,13 +87,14 @@ export type MainContextT = {
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
   currentPathWithoutLanguage: string
-  currentLanguage: string
   userLanguage: string
   allVersions: Record<string, VersionItem>
+  currentVersion?: string
   currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
     documentType: string
+    type?: string
     languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
     title: string
@@ -104,13 +115,17 @@ export type MainContextT = {
 
   searchVersions: Record<string, string>
   nonEnterpriseDefaultVersion: string
+
+  status: number
+  fullUrl: string
 }
 
-export const getMainContextFromRequest = (req: any): MainContextT => {
+export const getMainContext = (req: any, res: any): MainContextT => {
   return {
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
-    community_redirect: req.context.page?.community_redirect || {},
+    productGroups: req.context.productGroups,
+    communityRedirect: req.context.page?.communityRedirect || {},
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
     isHomepageVersion: req.context.page?.documentType === 'homepage',
@@ -133,6 +148,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     page: {
       languageVariants: req.context.page.languageVariants,
       documentType: req.context.page.documentType,
+      type: req.context.page.type || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
@@ -156,15 +172,17 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
-    currentLanguage: req.context.currentLanguage,
     userLanguage: req.context.userLanguage || '',
     allVersions: req.context.allVersions,
+    currentVersion: req.context.currentVersion,
     currentProductTree: req.context.currentProductTree
       ? getCurrentProductTree(req.context.currentProductTree)
       : null,
     featureFlags: {},
     searchVersions: req.context.searchVersions,
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
+    status: res.statusCode,
+    fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
   }
 }
 

@@ -1,51 +1,60 @@
 ---
-title: Anexando arquivos
-intro: Você pode transmitir informações anexando vários tipos de arquivo aos seus problemas e pull requests.
+title: Attaching files
+intro: You can convey information by attaching a variety of file types to your issues and pull requests.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/file-attachments-on-issues-and-pull-requests
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
   - /github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
 
 {% warning %}
 
-**Aviso:** Se você adicionar uma imagem {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %} ou vídeo {% endif %} a uma pull request ou comentário de problema, qualquer um poderá ver a URL anônima sem autenticação, mesmo que o pull request esteja em um repositório privado{% if enterpriseServerVersions contains currentVersion %} ou se o modo privado estiver habilitado{% endif %}. Para manter arquivos de mídia confidenciais privados, forneça-os a partir de uma rede privada ou servidor que exige autenticação. {% if currentVersion == "free-pro-team@latest" %}Para mais informações sobre URLs anônimas, consulte "[Sobre URLs anônimas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+**Warning:** If you add an image{% ifversion fpt or ghes > 3.1 or ghae or ghec %} or video{% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
-Para anexar um arquivo a uma conversa sobre um problema ou pull request, arraste-o e solte-o dentro da caixa de comentários. Como alternativa, você pode clicar na barra na parte inferior da caixa de comentários para navegar, selecionar e adicionar um arquivo do seu computador.
+To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
 
-![Selecionar anexos do computador](/assets/images/help/pull_requests/select-bar.png)
+![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
 
 {% tip %}
 
-**Dica:** Em muitos navegadores, você pode copiar e colar imagens diretamente na caixa.
+**Tip:** In many browsers, you can copy-and-paste images directly into the box.
 
 {% endtip %}
 
-O tamanho máximo do arquivo é:
-- 10MB de imagens e gifs{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-- 10MB para vídeos enviados para um repositório pertencentes a um usuário ou organização em um plano grátis do GitHub
-- 100MB para vídeos enviados para um repositório pertencente a um usuário ou organização em um plano pago do GitHub{% endif %}
-- 25MB para todos os outros arquivos
+The maximum file size is:
+- 10MB for images and gifs{% ifversion fpt or ghec %}
+- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
+- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% elsif fpt or ghes > 3.1 or ghae %}
+- 100MB for videos{% endif %}
+- 25MB for all other files
 
-Arquivos compatíveis:
+We support these files:
 
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-* Arquivos log (*.log*)
-* Documentos do Microsoft Word (*.docx*), Powerpoint (*.pptx*), e Excel (*.xlsx*)
-* Arquivos de texto (*.txt*)
+* Log files (*.log*)
+* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
+* Text files (*.txt*)
 * PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-* Vídeo (*.mp4*, *.mov*){% endif %}
+* ZIP (*.zip*, *.gz*){% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+* Video (*.mp4*, *.mov*)
 
-![Anexos GIF animados](/assets/images/help/pull_requests/dragging_images.gif)
+{% note %}
+
+**Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using h.264 for greatest compatibility.
+
+{% endnote %}
+{% endif %}
+
+![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)

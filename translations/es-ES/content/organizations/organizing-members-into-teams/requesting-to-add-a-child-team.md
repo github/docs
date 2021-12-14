@@ -5,12 +5,14 @@ redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Agregar un equipo hijo
 ---
 
 Cuando solicitas agregar un equipo como hijo, se envía una solicitud a los mantenedores del equipo hijo. Una vez que un mantenedor del equipo hijo aprueba tu solicitud, el equipo hijo se anida en el equipo padre de la jerarquía de tu organización.
@@ -29,7 +31,7 @@ Si eres propietario de una organización o tienes permisos de mantenedor del equ
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. Haz clic en **Confirm changes** (Confirmar cambios) para enviar una solicitud para agregar al equipo hijo. ![Casilla modal para información acerca de los cambios en los permisos de acceso del repositorio](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Leer más
+## Leer más
 
 - [Acerca de los equipos](/articles/about-teams)"
 - "[Mover un equipo en la jerarquía de tu organización](/articles/moving-a-team-in-your-organization-s-hierarchy)"

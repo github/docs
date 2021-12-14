@@ -1,1 +1,0 @@
-1. Debajo de "Repository visibility change" (Cambio de visibilidad de repositorios), usa el menú desplegable y elige una política. ![Menú desplegable con opciones de políticas de visibilidad de repositorios](/assets/images/help/business-accounts/repository-visibility-policy-drop-down.png)

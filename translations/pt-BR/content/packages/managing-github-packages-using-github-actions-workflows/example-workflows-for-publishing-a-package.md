@@ -2,9 +2,11 @@
 title: Exemplos de fluxos de trabalho para publicar um pacote
 intro: 'Para ajudá-lo a dar os primeiros passos com seus próprios fluxos de trabalho personalizados, revise alguns exemplos de fluxos de trabalho para publicação de pacotes.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Exemplos de fluxos de trabalho
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

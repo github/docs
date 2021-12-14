@@ -26,7 +26,7 @@
     - CreateDeploymentInput
     - CreateDeploymentPayload
   owning_teams:
-    - '@github/ecosystem-api'
+    - '@github/c2c-actions-service'
 - 
   title: >-
     MergeInfoPreview - 有关拉取请求合并状态的更多详细信息。
@@ -93,16 +93,6 @@
     - RemovedFromProjectEvent.projectColumnName
   owning_teams:
     - '@github/github-projects'
-- 
-  title: 创建内容附件
-  description: 此预览支持创建内容附件。
-  toggled_by: ':corsair-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Mutation.createContentAttachment
-  owning_teams:
-    - '@github/feature-lifecycle'
 - 
   title: 标签预览
   description: >-

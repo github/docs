@@ -9,6 +9,7 @@ redirect_from:
   - /articles/managing-billing-for-github-marketplace-apps
 versions:
   fpt: '*'
+  ghec: '*'
 children:
   - /about-billing-for-github-marketplace
   - /upgrading-the-billing-plan-for-a-github-marketplace-app

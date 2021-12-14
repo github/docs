@@ -15,6 +15,7 @@ redirect_from:
   - /developers/github-marketplace/drafting-a-listing-for-your-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Draft an app listing
@@ -60,7 +61,7 @@ Once you've created a {% data variables.product.prodname_marketplace %} draft li
 
 ## Submitting your app
 
-Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/articles/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
+Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
 
 ## Removing a {% data variables.product.prodname_marketplace %} listing
 

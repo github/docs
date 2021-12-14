@@ -1,4 +1,4 @@
-| Clave                        | Type        | Descripción                                                                                             |
+| Clave                        | Tipo        | Descripción                                                                                             |
 | ---------------------------- | ----------- | ------------------------------------------------------------------------------------------------------- |
 | `Acción`                     | `secuencia` | La acción que se realizó. Puede ser uno de entre: `created`, `closed`, `opened`, `edited`, o `deleted`. |
 | `hito`                       | `objeto`    | El hito mismo.                                                                                          |

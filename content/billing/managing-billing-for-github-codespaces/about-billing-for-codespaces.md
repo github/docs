@@ -5,6 +5,7 @@ intro: 'View pricing and see how to manage {% data variables.product.prodname_co
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
@@ -12,15 +13,13 @@ topics:
   - Billing
 ---
 
-{% data reusables.codespaces.codespaces-trial-period %}
-
 ## {% data variables.product.prodname_codespaces %} pricing
 
 {% data variables.product.prodname_codespaces %} usage is billed for all accounts on the Team and Enterprise plans, and does not include any entitlements. Individual accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage. 
 
 {% data variables.product.prodname_codespaces %} usage is billed according to the units of measure in the following table:
 
- Product              | SKU      | Unit of measure | Price |
+| Product             | SKU      | Unit of measure | Price |
 | ------------------- | -------- | --------------- | ----- |
 | Codespaces Compute  |  2 core  | 1 hour          | $0.18 |
 |                     |  4 core  | 1 hour          | $0.36 |
@@ -35,13 +34,19 @@ topics:
 
 Your {% data variables.product.prodname_codespaces %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
+{% ifversion ghec %}
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+{% endif %}
+
+{% data reusables.dotcom_billing.pricing_cal %}
 
 ## Setting a spending limit
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} 
 
 For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+
+{% data reusables.codespaces.exporting-changes %}
 
 ## How billing is handled for forked repositories
 

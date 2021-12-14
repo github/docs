@@ -1,9 +1,10 @@
 ---
 title: Working with support for Codespaces
-intro: Tips on getting the best help from support for {% data variables.product.prodname_codespaces %}.
+intro: 'Tips on getting the best help from support for {% data variables.product.prodname_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces

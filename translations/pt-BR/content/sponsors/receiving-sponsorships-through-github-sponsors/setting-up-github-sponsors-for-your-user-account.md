@@ -1,19 +1,21 @@
 ---
 title: Configurando o GitHub Sponsors (Patrocinadores do GitHub) para sua conta de usuário
-intro: 'Você pode se tornar um desenvolvedor patrocinado ingressando no {% data variables.product.prodname_sponsors %}, preenchendo seu perfil de desenvolvedor patrocinado, criando camadas de patrocínio, enviando informações bancárias e fiscais, bem como habilitando a autenticação de dois fatores na sua conta do {% data variables.product.prodname_dotcom %}.'
+intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication for your account on {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - User account
   - Sponsors profile
+shortTitle: Configurar conta de usuário
 ---
 
-### Ingressar no {% data variables.product.prodname_sponsors %}
+## Ingressar no {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} {% data reusables.sponsors.stripe-supported-regions %}
 
@@ -27,7 +29,7 @@ Para aderir ao {% data variables.product.prodname_sponsors %} como organização
 
 Se você tiver uma conta bancária em uma região aceita, o {% data variables.product.prodname_dotcom %} irá rever sua solicitação dentro de duas semanas.
 
-### Preencher seu perfil de desenvolvedor patrocinado
+## Preencher seu perfil de desenvolvedor patrocinado
 
 Depois de {% data variables.product.prodname_dotcom %} avaliar sua solicitação, você pode configurar o seu perfil de desenvolvedor patrocinado para que as pessoas possam começar a patrocinar você.
 
@@ -39,7 +41,7 @@ Depois de {% data variables.product.prodname_dotcom %} avaliar sua solicitação
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
 
-### Criar camadas de patrocínio
+## Criar camadas de patrocínio
 
 {% data reusables.sponsors.tier-details %}
 
@@ -49,11 +51,12 @@ Depois de {% data variables.product.prodname_dotcom %} avaliar sua solicitação
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
 
-### Enviando informações bancárias
+## Enviando informações bancárias
 
 Se você vive em uma região aceita, você pode seguir essas instruções para enviar informações bancárias criando uma conta do Stripe Connect. A sua região de residência e a região da sua conta bancária devem corresponder. {% data reusables.sponsors.stripe-supported-regions %}
 
@@ -62,7 +65,7 @@ Se você vive em uma região aceita, você pode seguir essas instruções para e
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
-### Enviando suas informações fiscais
+## Enviando suas informações fiscais
 
 {% data reusables.sponsors.tax-form-information-dev %}
 
@@ -72,11 +75,11 @@ Se você vive em uma região aceita, você pode seguir essas instruções para e
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
-### Habilitar a autenticação de dois fatores (2FA, two-factor authentication) na sua conta do {% data variables.product.prodname_dotcom %}
+## Habilitar a autenticação de dois fatores (2FA, two-factor authentication) na sua conta do {% data variables.product.prodname_dotcom %}
 
-Antes de se tornar um desenvolvedor patrocinado, você deve habilitar a 2FA em sua conta do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
+Before you can become a sponsored developer, you must enable 2FA for your account on {% data variables.product.product_location %}. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
 
-### Enviar seu aplicativo ao {% data variables.product.prodname_dotcom %} para aprovação
+## Enviar seu aplicativo ao {% data variables.product.prodname_dotcom %} para aprovação
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 4. Clique em **Request approval** (Solicitar aprovação). ![Botão Request approval (Solicitar aprovação)](/assets/images/help/sponsors/request-approval-button.png)

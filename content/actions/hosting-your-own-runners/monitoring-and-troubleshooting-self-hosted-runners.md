@@ -7,8 +7,9 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 defaultPlatform: linux
 shortTitle: Monitor & troubleshoot
@@ -17,7 +18,6 @@ shortTitle: Monitor & troubleshoot
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Checking the status of a self-hosted runner
 
@@ -25,9 +25,7 @@ shortTitle: Monitor & troubleshoot
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. Under {% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
-
-    ![Runner list](/assets/images/help/settings/actions-runner-list.png)
+1. Under {% ifversion fpt or ghes > 3.1 or ghae or ghec %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
 
     The status can be one of the following:
 

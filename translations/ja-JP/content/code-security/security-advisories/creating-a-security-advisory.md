@@ -6,18 +6,20 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
+shortTitle: アドバイザリの作成
 ---
 
 リポジトリに対する管理者権限があるユーザなら誰でも、セキュリティアドバイザリを作成できます。
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-### セキュリティアドバイザリを作成する
+## セキュリティアドバイザリを作成する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -30,7 +32,7 @@ topics:
 {% data reusables.repositories.security-advisory-edit-description %}
 11. [**Create draft security advisory**] をクリックします。 ![[Create security advisory] ボタン](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
-### 次のステップ
+## 次のステップ
 
 - セキュリティアドバイザリのドラフトにコメントして、チームと脆弱性について話し合います。
 - セキュリティアドバイザリにコラボレータを追加します。 詳しい情報については、「[セキュリティアドバイザリにコラボレータを追加する](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory)」を参照してください。

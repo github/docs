@@ -5,8 +5,11 @@ permissions: 'Enterprise owners can view usage for {% data variables.product.pro
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   ghes: '>=3.1'
+type: how_to
 topics:
+  - Advanced Security
   - Enterprise
+  - Licensing
 shortTitle: View Advanced Security usage
 ---
 

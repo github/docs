@@ -7,14 +7,16 @@ redirect_from:
   - /articles/viewing-a-wikis-history-of-changes
   - /github/building-a-strong-community/viewing-a-wikis-history-of-changes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: 查看更改历史记录
 ---
 
-### 查看 wiki 历史记录
+## 查看 wiki 历史记录
 
 Wiki 历史记录包括：
 - 进行更改的用户
@@ -26,19 +28,19 @@ Wiki 历史记录包括：
 3. 使用 wiki 边栏，导航到您要查看其历史记录的页面。
 4. 在 wiki 顶部，单击修订链接。 ![Wiki 修订链接](/assets/images/help/wiki/wiki_revision_link.png)
 
-### 查看以前的内容
+## 查看以前的内容
 
 在 wiki 历史记录表中，您可以单击 [SHA-1 hash（SHA-1 哈希）](http://en.wikipedia.org/wiki/SHA-1)（最右侧的字母和数字序列）以查看特定时间点存在的 wiki 页面。
 
 ![Wiki SHA 编号](/assets/images/help/wiki/wiki_sha_number.png)
 
-### 比较两个修订
+## 比较两个修订
 
 1. 选择您要比较的两行。
 2. 在历史记录表顶部，单击 **Compare Revisions（比较修订）**。 ![Wiki 比较修订按钮](/assets/images/help/wiki/wiki_compare_revisions.png)
 3. 您将看到更改的差异，显示添加、删除和修改了哪些行。
 
-### 还原以前的更改
+## 还原以前的更改
 
 如果您有编辑 wiki 的权限，则只能还原更改。
 

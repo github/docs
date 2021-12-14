@@ -6,11 +6,13 @@ redirect_from:
   - /articles/associating-milestones-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/associating-milestones-with-issues-and-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: 添加到里程碑
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -24,7 +26,7 @@ topics:
 
 {% endtip %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于里程碑](/articles/about-milestones)"
 - "[创建和编辑议题及拉取请求的里程碑](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"

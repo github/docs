@@ -6,6 +6,10 @@ import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
 
 export default async function renderPage(req, res, next) {
+  if (req.path.startsWith('/storybook')) {
+    return nextHandleRequest(req, res)
+  }
+
   const page = req.context.page
   // render a 404 page
   if (!page) {
@@ -27,6 +31,15 @@ export default async function renderPage(req, res, next) {
 
   // add page context
   const context = Object.assign({}, req.context, { page })
+
+  // Updating the Last-Modified header for substantive changes on a page for engineering
+  // Docs Engineering Issue #945
+  if (context.page.effectiveDate) {
+    // Note that if a page has an invalidate `effectiveDate` string value,
+    // it would be caught prior to this usage and ultimately lead to
+    // 500 error.
+    res.setHeader('Last-Modified', new Date(context.page.effectiveDate).toUTCString())
+  }
 
   // collect URLs for variants of this page in all languages
   context.page.languageVariants = Page.getLanguageVariants(req.pagePath)

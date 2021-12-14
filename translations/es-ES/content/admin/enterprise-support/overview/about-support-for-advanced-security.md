@@ -1,86 +1,76 @@
 ---
-title: Acerca del soporte para Advanced Security
-intro: '{% data variables.contact.enterprise_support %} puede ayudarte a solucionar problemas que encuentras mientras usas {% data variables.product.prodname_advanced_security %}.'
+title: About support for Advanced Security
+intro: '{% data variables.contact.enterprise_support %} can help you troubleshoot issues you run into while using {% data variables.product.prodname_advanced_security %}.'
 redirect_from:
   - /enterprise/admin/enterprise-support/about-support-for-advanced-security
   - /admin/enterprise-support/about-support-for-advanced-security
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Support for Advanced Security
 ---
-
 {% note %}
 
-**Nota**: {% data reusables.support.data-protection-and-privacy %}
+**Note**: {% data reusables.support.data-protection-and-privacy %}
 
 {% endnote %}
 
-### Acerca del soporte para {% data variables.product.prodname_advanced_security %}
+## About support for {% data variables.product.prodname_advanced_security %}
 
-{% data variables.product.prodname_advanced_security %} incluye {% data variables.contact.enterprise_support %} en inglés, por correo electrónico.
+{% data variables.product.prodname_advanced_security %} includes {% data variables.contact.enterprise_support %} in English, by email.
 
-### Alcance del soporte técnico
+## Scope of support
 
-Si tu solicitud de soporte técnico está fuera del alcance de lo que puede hacer nuestro equipo para ayudarte, podemos recomendarte los siguientes pasos para resolver el problema por fuera del {% data variables.contact.enterprise_support %}. Es probable que tu solicitud de soporte técnico esté fuera del alcance del {% data variables.contact.enterprise_support %} si se trata principalmente de lo siguiente:
-- Integraciones de terceros
-- Configuración del hardware
-- Configuración de sistemas externos
-- Proyectos de código abierto
-- Creando proyectos o repositorios
-- Diseño de cluster LGTM
-- Crear o depurar el código de nuevas consultas para {% data variables.product.prodname_codeql %}
+If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.enterprise_support %}. Your support request is possibly out of {% data variables.contact.enterprise_support %}'s scope if it's primarily about:
+- Third party integrations
+- Hardware setup
+- Configuration of external systems
+- Open source projects
+- Building projects or repositories
+- LGTM cluster design
+- Writing or debugging new queries for {% data variables.product.prodname_codeql %}
 
-Si no estás seguro de si el problema está fuera de nuestro alcance, abre un ticket y nos complacerá ayudarte a determinar la mejor manera de continuar.
+If you're uncertain if the issue is out of scope, open a ticket and we're happy to help you determine the best way to proceed.
 
-### Ponerte en contacto con {% data variables.contact.enterprise_support %}
+## Contacting {% data variables.contact.enterprise_support %}
 
-Puedes ponerte en contacto con {% data variables.contact.enterprise_support %} a través de {% data variables.contact.contact_enterprise_portal %} para obtener ayuda:
-- Instalar y usar {% data variables.product.prodname_advanced_security %}
-- Identificar y verificar las causas de los errores soportados
+{% data reusables.support.zendesk-old-tickets %}
 
-### Horas de operación
+You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
+- Installing and using {% data variables.product.prodname_advanced_security %}
+- Identifying and verifying the causes of supported errors
 
-Ofrecemos soporte para {% data variables.product.prodname_advanced_security %} en Inglés 24 horas al día, 5 días a la semana, excluyendo fines de semana y días festivos en Estados Unidos. EE.UU. El tiempo de respuesta estándar es de 1 día hábil.
+## Hours of operation
 
-### Cronograma de feriados
+We offer support for {% data variables.product.prodname_advanced_security %} in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays. The standard response time is 1 business day.
 
-{% data variables.contact.enterprise_support %} observa estos días festivos en Estados Unidos. EE.UU.
+## Holiday schedule
 
-| Feriado en EE.UU.                 | Fecha en la que se celebra  |
-| --------------------------------- | --------------------------- |
-| Año Nuevo                         | 1 de enero                  |
-| Día de Martin Luther King, Jr.    | Tercer lunes de enero       |
-| Día de los Presidentes            | Tercer lunes de febrero     |
-| Día de los Caídos                 | Último lunes de mayo        |
-| Día de la Independencia           | 4 de julio                  |
-| Día del Trabajo                   | Primer lunes de septiembre  |
-| Día de los Veteranos              | 12 de noviembre             |
-| Día de Acción de Gracias          | Cuarto jueves de noviembre  |
-| Día posterior a Acción de Gracias | Cuarto viernes de noviembre |
-| Nochebuena                        | 24 de diciembre             |
-| Día de Navidad                    | 25 de diciembre             |
-| Día posterior a Navidad           | 28 de diciembre             |
-| Víspera de Año Nuevo              | 31 de diciembre             |
+{% data variables.contact.enterprise_support %} observes these U.S. holidays.
 
-### Instalando actualizaciones de {% data variables.product.prodname_advanced_security %}
 
-Para asegurarse de que su instancia {% data variables.product.prodname_advanced_security %} es estable, debe instalar e implementar nuevas versiones cuando estén disponibles. Esto asegura que tengas las últimas características, modificaciones y mejoras así como cualquier actualización de las características, correcciones de código, parches u otras actualizaciones generales y correcciones para {% data variables.product.prodname_advanced_security %}.
+{% data reusables.enterprise_enterprise_support.support-holiday-availability %}
 
-### Asignar una prioridad a un ticket de soporte
 
-Cuando contactas a {% data variables.contact.enterprise_support %} para obtener ayuda con {% data variables.product.prodname_advanced_security %}, puedes escoger una de tres prioridades para el ticket: {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, o {% data variables.product.support_ticket_priority_low %}.
+## Installing {% data variables.product.prodname_advanced_security %} updates
+
+To ensure that your {% data variables.product.prodname_advanced_security %} instance is stable, you must install and implement new releases when they are made available. This ensures that you have the latest features, modifications, and enhancements as well as any updates to features, code corrections, patches, or other general updates and fixes to {% data variables.product.prodname_advanced_security %}.
+
+## Assigning a priority to a support ticket
+
+When you contact {% data variables.contact.enterprise_support %} for help with {% data variables.product.prodname_advanced_security %}, you can choose one of three priorities for the ticket: {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
-|                           Prioridad                           | Descripción                                                                                                                                                                                                                                                       |
-|:-------------------------------------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  {% data variables.product.support_ticket_priority_high %}  | {% data variables.product.prodname_advanced_security %} no funciona o se detiene o se ve gravemente afectado de tal manera que el usuario final no puede seguir utilizando el software razonablemente y no hay solución disponible para solucionar el problema. |
-| {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} está funcionando de forma inconsistente, lo que provoca un deterioro de la productividad y el uso del usuario final.                                                                                    |
-|  {% data variables.product.support_ticket_priority_low %}   | {% data variables.product.prodname_advanced_security %} funciona consistentemente, pero el usuario final solicita cambios menores en el software, tales como actualizaciones de documentación, defectos cosméticos o mejoras.                                   |
+| Priority | Description |
+| :---: | --- |
+| {% data variables.product.support_ticket_priority_high %} | {% data variables.product.prodname_advanced_security %} is not functioning or is stopped or severely impacted such that the end user cannot reasonably continue use of the software and no workaround is available. |
+| {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} is functioning inconsistently, causing impaired end user usage and productivity. |
+| {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_advanced_security %} is functioning consistently, but the end user requests minor changes in the software, such as documentation updates, cosmetic defects, or enhancements.|
 
-### Resolver y cerrar tickets de soporte
+## Resolving and closing support tickets
 
 {% data reusables.support.enterprise-resolving-and-closing-tickets %}

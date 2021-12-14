@@ -17,15 +17,18 @@ on:
       - '.github/workflows/*.yml'
       - '.github/workflows/*.yaml'
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: Run linter
         uses: cschleiden/actions-linter@caffd707beda4fc6083926a3dff48444bc7c24aa
         with:
-          workflows: '[".github/workflows/*.yml", ".github/workflows/*.yaml", "!.github/workflows/remove-from-fr-board.yaml"]'
+          workflows: '[".github/workflows/*.yml", ".github/workflows/*.yaml", "!.github/workflows/remove-from-fr-board.yaml", "!.github/workflows/staging-deploy-pr.yml", "!.github/workflows/triage-issue-comments.yml"]'

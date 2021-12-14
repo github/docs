@@ -1,11 +1,12 @@
 ---
 title: Managing complex workflows
 shortTitle: Managing complex workflows
-intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices,{% ifversion fpt or ghes > 3.0 or ghae %} environments,{% endif %} and labels.'
+intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices,{% ifversion fpt or ghes > 3.0 or ghae or ghec %} environments,{% endif %} and labels.'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Workflows
@@ -13,11 +14,10 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Overview
 
-This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you work create more complex workflows.
+This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you create more complex workflows.
 
 ## Storing secrets
 
@@ -88,7 +88,7 @@ jobs:
 
 For more information, see [`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Caching dependencies
 
 {% data variables.product.prodname_dotcom %}-hosted runners are started as fresh environments for each job, so if your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
@@ -145,17 +145,6 @@ For more information, see "[Using databases and service containers](/actions/con
 
 This feature helps you assign jobs to a specific hosted runner. If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.{% endif %}
 
-{% ifversion ghae %}
-This example shows how a workflow can use labels to specify the required runner:
-
-```yaml
-jobs:
-  example-job:
-    runs-on: [AE-runner-for-CI]
-```
-
-For more information, see ["Using labels with {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners)."
-{% else %}
 This example shows how a workflow can use labels to specify the required runner:
 
 ```yaml
@@ -167,13 +156,18 @@ jobs:
 A workflow will only run on a runner that has all the labels in the `runs-on` array. The job will preferentially go to an idle self-hosted runner with the specified labels. If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.
 
 To learn more about self-hosted runner labels, see ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+
+{% ifversion fpt or ghes %}
 To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% data reusables.actions.reusable-workflows %}
+
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
 ## Using environments
 
-You can configure environments with protection rules and secrets. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
+You can configure environments with protection rules and secrets. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 {% endif %}
 
 ## Using a workflow template
@@ -189,4 +183,4 @@ You can configure environments with protection rules and secrets. Each job in a 
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows with your organization](/actions/learn-github-actions/sharing-workflows-with-your-organization)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows, secrets, and runners with your organization](/actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization)."

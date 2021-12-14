@@ -67,7 +67,7 @@ sections:
         - |
           [{% data variables.product.prodname_mobile %}](https://github.com/mobile) filtering allows you to search for and find issues, pull requests, and discussions from your device. New metadata for issues and pull request list items allow you to filter by assignees, checks status, review states, and comment counts.
 
-          {% data variables.product.prodname_mobile %} beta is available for {% data variables.product.prodname_ghe_server %}. Sign in with our [Android](https://play.google.com/store/apps/details?id=com.github.android) and [iOS](https://apps.apple.com/app/github/id1477376905) apps to triage notifications and manage issues and pull requests on the go. Administrators can disable mobile support for their Enterprise using the management console or by running `ghe-config app.mobile.enabled false`. For more information, see "[GitHub for mobile](/github/getting-started-with-github/using-github/github-for-mobile)."
+          {% data variables.product.prodname_mobile %} beta is available for {% data variables.product.prodname_ghe_server %}. Sign in with our [Android](https://play.google.com/store/apps/details?id=com.github.android) and [iOS](https://apps.apple.com/app/github/id1477376905) apps to triage notifications and manage issues and pull requests on the go. Administrators can disable mobile support for their Enterprise using the management console or by running `ghe-config app.mobile.enabled false`. For more information, see "[GitHub Mobile](/get-started/using-github/github-mobile)."
 
   changes:
     - heading: Administration Changes
@@ -138,6 +138,7 @@ sections:
       ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
       ```
     - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
 
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 2.20

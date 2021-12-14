@@ -28,13 +28,26 @@ You can create custom messages that users will see on the sign in and sign out p
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-## Creating your account and adding users
+## Creating your account
 
-Once your instance has been created, you'll need to create your own admin account and use it to provision users.
+Once your instance has been created, you'll need to create your own admin account.
 
 1. On the "Create Admin Account" page at `http(s)://[hostname]/join`, choose your username, password, and email address, then click **Create an account**.
 ![Create Admin Account](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png)
 {% data reusables.enterprise_site_admin_settings.sign-in %}
+
+## Inviting users
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
+
+{% tip %}
+
+**Tip:** If email for notifications is configured on the appliance, an invite will also be sent to the provided email address.
+
+{% endtip %}
+
+## Further reading
+
+- "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"

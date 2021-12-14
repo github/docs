@@ -5,9 +5,11 @@ permissions: 'People with write permissions to a repository can configure {% dat
 redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates
   - /code-security/supply-chain-security/configuration-options-for-dependency-updates
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: reference
 topics:
   - Dependabot
@@ -15,17 +17,21 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+shortTitle: Opções de configuração
 ---
 
-### Sobre o arquivo *dependabot.yml*
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
+## Sobre o arquivo *dependabot.yml*
 
 O arquivo de configuração do {% data variables.product.prodname_dependabot %} , *dependabot.yml*, usa a sintaxe YAML. Se você não souber o que é YAMLe quiser saber mais, consulte "[Aprender a usar YAML em cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
-Você deve armazenar este arquivo no diretório `.github` do seu repositório. Ao adicionar ou atualizar o arquivo *dependabot.yml* , isso aciona uma verificação imediata de atualizações de versão. Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar um pull request para uma atualização de segurança. Para obter mais informações, consulte "[Habilitar e desabilitar as atualizações da versão](/github/administering-a-repository/enabling-and-disabling-version-updates)" e "[Configurar {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".
+Você deve armazenar este arquivo no diretório `.github` do seu repositório. Ao adicionar ou atualizar o arquivo *dependabot.yml* , isso aciona uma verificação imediata de atualizações de versão. Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar um pull request para uma atualização de segurança. Para obter mais informações, consulte "[Habilitando e desabilitando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)" e "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)".
 
 O arquivo *dependabot.yml* tem duas chaves obrigatórias de nível superior: `versão`e `atualizações`. Opcionalmente, você pode incluir uma chave de `registro` de nível superior. O arquivo deve começar com a `versão: 2`.
 
-### Opções de configuração para atualizações
+## Opções de configuração para atualizações
 
 A chave `atualizações` de nível superior é obrigatória. Você a utiliza para configurar como {% data variables.product.prodname_dependabot %} atualiza as versões ou as dependências do seu projeto. Cada entrada configura as configurações de atualização para um gerenciador de pacotes específico. Você pode usar o seguinte opções.
 
@@ -69,11 +75,11 @@ Além disso, a opção [`open-pull-requests-limite`](#open-pull-requests-limit) 
 
 As atualizações de segurança são geradas para manifestos de pacote vulneráveis apenas no branch padrão. Quando as opções de configuração são definidas para o mesmo branch (verdadeiro a menos que você use `target-branch`) e especifica um `package-ecosystem` e o `directory` para o manifesto vulnerável, as pull requests para atualizações de segurança usam opções relevantes.
 
-Em geral, as atualizações de segurança usam quaisquer opções de configuração que afetam pull request, por exemplo, adicionando metadados ou alterando seu comportamento. Para obter mais informações sobre atualizações de segurança, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
+Em geral, as atualizações de segurança usam quaisquer opções de configuração que afetam pull request, por exemplo, adicionando metadados ou alterando seu comportamento. Para obter mais informações sobre atualizações de segurança, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
 {% endnote %}
 
-#### `package-ecosystem`
+### `package-ecosystem`
 
 **Obrigatório**. Você adiciona um elemento de `package-ecosystem` para cada gerenciador de pacotes que você deseja que {% data variables.product.prodname_dependabot %} monitore para novas versões. O repositório também deve conter um manifesto de dependência ou um arquivo de bloqueio para cada um desses gerenciadores de pacotes. Se você quiser habilitar o vendoring para um gerente de pacotes com o qual é compatível, as dependências do vendor devem estar localizadas no diretório necessário. Para obter mais informações, consulte o [`vendor`](#vendor) abaixo.
 
@@ -104,7 +110,7 @@ atualizações:
       interval: "daily"
 ```
 
-#### `diretório`
+### `diretório`
 
 **Obrigatório**. Você deve definir o local dos manifestos dos pacote para cada gerenciador de pacotes (por exemplo, *package.json* ou *Gemfile*). Você define o diretório relativo à raiz do repositório para todos os ecossistemas, exceto GitHub Actions. Para GitHub Actions, defina o diretório para `/` para verificar os arquivos de fluxo de trabalho em `.github/workflows`.
 
@@ -133,9 +139,9 @@ atualizações:
       interval: "daily"
 ```
 
-#### `schedule.interval`
+### `schedule.interval`
 
-**Obrigatório**. Você deve definir a frequência de verificação das novas versões para cada gerenciador de pacotes. Por padrão, isso é às 5 am UTC. Para modificar isso, use [`schedule.time`](#scheduletime) e [`schedule.timezone`](#scheduletimezone).
+**Obrigatório**. Você deve definir a frequência de verificação das novas versões para cada gerenciador de pacotes. Por padrão, {% data variables.product.prodname_dependabot %} atribui aleatoriamente um tempo para aplicar todas as atualizações no arquivo de configuração. Para definir um horário específico, use [`schedule.time`](#scheduletime) e [`schedule.timezone`](#scheduletimezone).
 
 - `diariamente`— ocorre em todos os dias de semana, de segunda a sexta.
 - `semanal`— ocorre uma vez por semana. Por padrão, ocorre às segundas. Para modificar isso, use [`schedule.day`](#scheduleday).
@@ -162,11 +168,11 @@ atualizações:
 
 {% note %}
 
-**Observação**: o `agendamento` define quando {% data variables.product.prodname_dependabot %} tenta realizar uma nova atualização. No entanto, essa não é a única vez que você poderá receber pull requests. As atualizações podem ser acionadas com base em alterações do seu arquivo `dependabot.yml`, alterações no(s) seu(s) arquivo(s) de manifesto após uma falha na atualização ou {% data variables.product.prodname_dependabot_security_updates %}. Para obter mais informações, consulte "[Frequência de pull requests de {% data variables.product.prodname_dependabot %}](/github/administering-a-repository/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" e "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)".
+**Observação**: o `agendamento` define quando {% data variables.product.prodname_dependabot %} tenta realizar uma nova atualização. No entanto, essa não é a única vez que você poderá receber pull requests. As atualizações podem ser acionadas com base em alterações do seu arquivo `dependabot.yml`, alterações no(s) seu(s) arquivo(s) de manifesto após uma falha na atualização ou {% data variables.product.prodname_dependabot_security_updates %}. Para obter mais informações, consulte "[Frequência de pull requests de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" e "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)".
 
 {% endnote %}
 
-#### `allow`
+### `allow`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
@@ -180,7 +186,7 @@ Use a opção `allow` para personalizar quais dependências são atualizadas. Is
   | `direta`             | Todas                                               | Todas as dependências explicitamente definidas.                                                                                             |
   | `indireta`           | `bundler`, `pip`, `composer`, `cargo`               | Dependências de dependências diretas (também conhecidas como sub-dependências ou dependências transitórias).                                |
   | `todos`              | Todas                                               | Todas as dependências explicitamente definidas. Para `bundler`, `pip`, `composer`, `cargo`, também as dependências de dependências diretas. |
-  | `produção`           | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Somente dependências no "grupo de dependência do produto".                                                                                  |
+  | `produção`           | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Apenas dependências no "Grupo de dependência de produção".                                                                                  |
   | `desenvolvimento`    | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Somente dependências no "grupo de dependência do desenvolvimento".                                                                          |
 
 ```yaml
@@ -220,7 +226,7 @@ updates:
         dependency-type: "production"
 ```
 
-#### `assignees`
+### `assignees`
 
 Use `assignees` para especificar responsáveis individuais para todas as pull requests criadas para um gerenciador de pacotes.
 
@@ -240,7 +246,7 @@ atualizações:
       - "octocat"
 ```
 
-#### `commit-message`
+### `commit-message`
 
 Por padrão, o {% data variables.product.prodname_dependabot %} tenta detectar suas preferências de mensagem do commit e usa padrões similares. Use a opção `commit-message` para especificar suas preferências explicitamente.
 
@@ -287,27 +293,27 @@ updates:
       include: "scope"
 ```
 
-#### `ignore`
+### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
 As dependências podem ser ignoradas adicionando-as a `ignore` ou usando o comando `@dependabot ignore` em um pull request aberto por {% data variables.product.prodname_dependabot %}.
 
-##### Criar as condições de `ignore` a partir de `@dependabot ignore`
+#### Criar as condições de `ignore` a partir de `@dependabot ignore`
 
 As dependências ignoradas usando o comando `@dependabot ignore` são armazenadas centralmente para cada gerenciador de pacotes. Se você começar a ignorar as dependências no arquivo `dependabot.yml`, estas preferências existentes serão consideradas junto com as dependências `ingore` na configuração.
 
 Você pode verificar se um repositório armazenou as preferências `ignore` ao fazer a pesquisa no repositório por `"@dependabot ignore" in:comments`. Se você deseja deixar de ignorar uma dependência ignorada, reabra o pull request.
 
-Para obter mais informações sobre os comandos `@dependabot ignore`, consulte [Gerenciando pull requests para atualizações de dependências](/github/administering-a-repository/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)".
+Para obter mais informações sobre os comandos `@dependabot ignore`, consulte [Gerenciando pull requests para atualizações de dependências](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)".
 
-##### Especificando dependências e versões para ignorar
+#### Especificando dependências e versões para ignorar
 
 Você pode usar a opção `ignore` para personalizar quais dependências são atualizadas. A opção `ignore` suporta as seguintes opções.
 
 - `dependency-name`—use para ignorar atualizações para dependências com nomes correspondentes, opcionalmente usando `*` para corresponder a zero ou mais caracteres. Para dependências do Java, o formato do atributo `dependency-name` é: `groupId:artifactId` (por exemplo: `org.kohsuke:github-api`).
 - `versions`—use para ignorar versões específicas ou intervalos de versões. Se você deseja definir um intervalo, use o padrão pattern para o gerenciador de pacotes (por exemplo: `^1.0.0` para npm, ou `~> 2.0` para o Bundler).
-- `update-types`—use para ignorar tipos de atualizações, como semver `major`, `minor` ou `atualizações de atualização de versão` (por exemplo: `version-update:semver-patch` ignorará atualizações de patch). Você pode combinar isso com `dependency-name: *` para ignorar `update-types` específicos para todas as dependências. Atualmente, `version-update:semver-major`, `version-update:semver-minor` e `version-update:semver-patch` são as únicas opções compatíveis. As atualizações de segurança não afetadas por esta configuração.
+- `update-types`—use para ignorar tipos de atualizações, como semver `major`, `minor` ou `atualizações de atualização de versão` (por exemplo: `version-update:semver-patch` ignorará atualizações de patch). Você pode combinar isso com a `dependency-name: "*"` para ignorar em `update-types` específicos para todas as dependências. Atualmente, `version-update:semver-major`, `version-update:semver-minor` e `version-update:semver-patch` são as únicas opções compatíveis. As atualizações de segurança não afetadas por esta configuração.
 
 Se as `versões` e `update-types` forem usadas em conjunto, {% data variables.product.prodname_dependabot %} irá ignorar qualquer atualização em qualquer conjunto.
 
@@ -335,12 +341,12 @@ updates:
 
 {% note %}
 
-**Observação**: {% data variables.product.prodname_dependabot %} só pode executar atualizações de versão no manifesto ou em arquivos de bloqueio se puder acessar todas as dependências do arquivo, ainda que você adicione dependências inacessíveis à opção `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para a sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" e "[Solução de problemas de erros de {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)".
+**Observação**: {% data variables.product.prodname_dependabot %} só pode executar atualizações de versão no manifesto ou em arquivos de bloqueio se puder acessar todas as dependências do arquivo, ainda que você adicione dependências inacessíveis à opção `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para a sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" e "[Solução de problemas de erros de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)".
 
 
 {% endnote %}
 
-#### `insecure-external-code-execution`
+### `insecure-external-code-execution`
 
 Gerenciadores de pacotes com os valores de`package-ecossistema` de `bundler`, `mix` e `pip` pode executar o código externo no manifesto como parte do processo de atualização da versão. Isto pode permitir que um pacote comprometido roube credenciais ou obtenha acesso aos registros configurados. Ao adicionar a configuração dos [`registros`](#registries) dentro de uma configuração de `atualização`, {% data variables.product.prodname_dependabot %} impedirá automaticamente a execução de código externo. Neste caso, poderá ocorrer uma falha na atualização da versão. Você pode optar por substituir esse comportamento e permitir a execução de código externo para o `bundler`, `mix` e `pip` gerenciadores de pacotes, configurando `insecure-external-code-execution` como `permitir`.
 
@@ -366,7 +372,7 @@ updates:
 ```
 {% endraw %}
 
-#### `etiquetas`
+### `etiquetas`
 
 {% data reusables.dependabot.default-labels %}
 
@@ -389,7 +395,7 @@ atualizações:
       - "dependencies"
 ```
 
-#### `marco`
+### `marco`
 
 Use `milestone` para associar todas as pull requests levantadas por um gerenciador de pacotes com um marco. Você precisa especificar o identificador numérico do marco e não sua etiqueta. Se você visualizar um marco, a parte final da URL da página, depois de `milestone` é o identificador. Por exemplo: `https://github.com/<org>/<repo>/milestone/3`.
 
@@ -408,7 +414,7 @@ updates:
     milestone: 4
 ```
 
-#### `open-pull-requests-limit`
+### `open-pull-requests-limit`
 
 Por padrão, {% data variables.product.prodname_dependabot %} abre um máximo de cinco pull requests para atualizações de versão. Uma vez que há cinco pull requests abertos, novas solicitações serão bloqueadas até que você faça o merge ou feche alguns dos pull requests aberto, e, após esse peeríodo, novos pull requests poderão ser abertos em atualizações subsequentes. Use `open-pull-requests-limit` para alterar este limite. Isto também fornece uma maneira simples de desativar temporariamente as atualizações de versão para um gerenciador de pacotes.
 
@@ -434,7 +440,7 @@ updates:
     open-pull-requests-limit: 10
 ```
 
-#### `pull-request-branch-name.separator`
+### `pull-request-branch-name.separator`
 
 {% data variables.product.prodname_dependabot %} gera um branch para cada pull request. Cada nome de branch inclui `dependabot` e o gerenciador de pacotes e dependências que são atualizados. Por padrão, essas partes são separadas por um símbolo `/` , por exemplo: `dependabot/npm_and_yarn/next_js/acorn-6.4.1`.
 
@@ -457,7 +463,7 @@ updates:
       separator: "-"
 ```
 
-#### `rebase-strategy`
+### `rebase-strategy`
 
 Por padrão, {% data variables.product.prodname_dependabot %} faz os rebases dos pull requests abertos automaticamente quando detecta qualquer alteração no pull request. Use `rebase-strategy` para desativar este comportamento.
 
@@ -481,7 +487,7 @@ updates:
     rebase-strategy: "disabled"
 ```
 
-#### `registros`
+### `registros`
 
 Para permitir que {% data variables.product.prodname_dependabot %} acesse um registro de pacote privado ao executar uma atualização de versão, você deverá incluir uma configuração de `registros` com a configuração de `atualizações` relevante. Pode permitir que todos os registros definidos sejam usados configurando `registros` como `"*"`. Como alternativa, você pode listar os registros que a atualização pode usar. Para isso, use o nome do registro conforme definido na seção de `registros` do arquivo _dependabot.yml_.
 
@@ -497,7 +503,8 @@ registries:
   maven-github:
     type: maven-repository
     url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+    username: octocat
+    password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
   npm-npmjs:
     type: npm-registry
     url: https://registry.npmjs.org
@@ -513,7 +520,7 @@ updates:
 {% endraw %}
 ```
 
-#### `reviewers`
+### `reviewers`
 
 Use `reviewers` para especificar revisores individuais ou equipes de revisores para todas as pull requests levantadas para um gerenciador de pacotes. Você deve usar o nome completo da equipe, incluindo a organização, como se você estivesse @mencionando a equipe.
 
@@ -535,9 +542,9 @@ updates:
       - "my-org/python-team"
 ```
 
-#### `schedule.day`
+### `schedule.day`
 
-Quando você definiu um cronograma de atualização `semanal` , por padrão, {% data variables.product.prodname_dependabot %} verifica novas versões na segunda-feira às 05:00 UTC. Use `schedule.day` para especificar um dia alternativo para procurar atualizações.
+Ao definir um cronograma de atualização `semanal`, por padrão, {% data variables.product.prodname_dependabot %} verifica novas versões na segunda-feira em um horário aleatório definido para o repositório. Use `schedule.day` para especificar um dia alternativo para procurar atualizações.
 
 Valores suportados
 
@@ -562,9 +569,9 @@ updates:
       day: "sunday"
 ```
 
-#### `schedule.time`
+### `schedule.time`
 
-Por padrão, {% data variables.product.prodname_dependabot %} verifica se há novas versões às 05:00 UTC. Use `schedule.time` para especificar um horário alternativo do dia para procurar por atualizações (format: `hh:mm`).
+Por padrão, {% data variables.product.prodname_dependabot %} verifica se há novas versões em um horário aleatório definido para o repositório. Use `schedule.time` para especificar um horário alternativo do dia para procurar por atualizações (format: `hh:mm`).
 
 ```yaml
 # Configurar um horário para verificações
@@ -578,9 +585,9 @@ updates:
       time: "09:00"
 ```
 
-#### `schedule.timezone`
+### `schedule.timezone`
 
-Por padrão, {% data variables.product.prodname_dependabot %} verifica se há novas versões às 05:00 UTC. Use `schedule.timezone` para especificar um fuso horário alternativo. O identificador do fuso horário deve ser do banco de dados do fuso horário mantido por [iana](https://www.iana.org/time-zones). Para obter mais informações, consulte [lista de fusos horários do banco de dados do tz](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+Por padrão, {% data variables.product.prodname_dependabot %} verifica se há novas versões em um horário aleatório definido para o repositório. Use `schedule.timezone` para especificar um fuso horário alternativo. O identificador do fuso horário deve ser do banco de dados do fuso horário mantido por [iana](https://www.iana.org/time-zones). Para obter mais informações, consulte [lista de fusos horários do banco de dados do tz](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```yaml
 # Especificar o fuso horário para verificações
@@ -596,7 +603,7 @@ updates:
       timezone: "Asia/Tokyo"
 ```
 
-#### `target-branch`
+### `target-branch`
 
 Por padrão, {% data variables.product.prodname_dependabot %} verifica se há arquivos de manifesto no branch padrão e levanta pull requests para atualizações de versão contra este branch. Use `target-branch` para especificar um branch diferente para arquivos de manifesto e para pull requests. Quando você usa esta opção, as configurações para este gerenciador de pacotes não afetarão mais quaisquer pull requests levantadas para atualizações de segurança.
 
@@ -627,7 +634,7 @@ updates:
       - "npm dependencies"
 ```
 
-#### `vendor`
+### `vendor`
 
 Use a opção `vendor` para dizer {% data variables.product.prodname_dependabot %} para dependências de vendor ao atualizá-las. Não use esta opção se você estiver usando o `gomod`, uma vez que {% data variables.product.prodname_dependabot %} detecta automaticamente o vendoring para esta ferramenta.
 
@@ -652,7 +659,7 @@ updates:
 | `gomod`                | Nenhuma exigência de caminho (as dependências geralmente estão localizadas no diretório do _vendor_ do diretório) | [documentação de `go mod vendor`](https://golang.org/ref/mod#go-mod-vendor)  |
 
 
-#### `versioning-strategy`
+### `versioning-strategy`
 
 Quando {% data variables.product.prodname_dependabot %} edita um arquivo arquivo manifesto para atualizar uma versão, ele usa as seguintes estratégias globais:
 
@@ -703,7 +710,7 @@ updates:
     versioning-strategy: lockfile-only
 ```
 
-### Opções de configuração para registros privados
+## Opções de configuração para registros privados
 
 A chave de `registros` de nível superior é opcional. Ela permite especificar detalhes de autenticação que {% data variables.product.prodname_dependabot %} pode usar para acessar os registros de pacotes privados.
 
@@ -738,20 +745,20 @@ updates:
 
 Você utiliza as seguintes opções para especificar as configurações de acesso. As configurações de registro devem conter um `tipo` e uma `url`, e, de modo geral, uma combinação de `nome de usuário` e `senha` ou `token`.
 
-| Option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Descrição                                                                                                                                                                                                                                                                                                       |
-|:------------------------------------------------------------------------------------------------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tipo`                                                                                                 | Identifica o tipo de registro. Veja a lista completa de tipos abaixo.                                                                                                                                                                                                                                           |
-| `url`                                                                                                  | A URL a ser usada para acessar as dependências deste registro. O protocolo é opcional. Se não for especificado, presume-se `https://`. {% data variables.product.prodname_dependabot %} adiciona ou ignora barras à direita, conforme necessário.                                                               |
-| `nome de usuário`                                                                                      | O nome de usuário que {% data variables.product.prodname_dependabot %} usa para acessar o registro.                                                                                                                                                                                                             |
-| `senha`                                                                                                | Uma referência a um segredo de {% data variables.product.prodname_dependabot %} que contém a senha para o usuário especificado. Para obter mais informações, consulte "[Gerenciar segredos criptografados para o Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)".    |
-| `Chave`                                                                                                | Uma referência a um segredo de {% data variables.product.prodname_dependabot %} que contém uma chave de acesso para este registro. Para obter mais informações, consulte "[Gerenciar segredos criptografados para o Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)". |
-| `token`                                                                                                | Uma referência a um segredo de {% data variables.product.prodname_dependabot %} que contém um token de acesso para este registro. Para obter mais informações, consulte "[Gerenciar segredos criptografados para o Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)".  |
-| `replaces-base`                                                                                        | Para registros com `type: python-index`, se o valor booleano for `true`, o pip resolverá as dependências usando a URL especificada, em vez da URL base do Índice de Pacotes Python (por padrão `https://pypi.org/simple`).                                                                                      |
+| Option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Descrição                                                                                                                                                                                                                                                                                                                                                         |
+|:------------------------------------------------------------------------------------------------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tipo`                                                                                                 | Identifica o tipo de registro. Veja a lista completa de tipos abaixo.                                                                                                                                                                                                                                                                                             |
+| `url`                                                                                                  | A URL a ser usada para acessar as dependências deste registro. O protocolo é opcional. Se não for especificado, presume-se `https://`. {% data variables.product.prodname_dependabot %} adiciona ou ignora barras à direita, conforme necessário.                                                                                                                 |
+| `nome de usuário`                                                                                      | O nome de usuário que {% data variables.product.prodname_dependabot %} usa para acessar o registro.                                                                                                                                                                                                                                                               |
+| `senha`                                                                                                | Uma referência a um segredo de {% data variables.product.prodname_dependabot %} que contém a senha para o usuário especificado. Para obter mais informações, consulte "[Gerenciar segredos criptografados para o Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)".    |
+| `Chave`                                                                                                | Uma referência a um segredo de {% data variables.product.prodname_dependabot %} que contém uma chave de acesso para este registro. Para obter mais informações, consulte "[Gerenciar segredos criptografados para o Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)". |
+| `token`                                                                                                | Uma referência a um segredo de {% data variables.product.prodname_dependabot %} que contém um token de acesso para este registro. Para obter mais informações, consulte "[Gerenciar segredos criptografados para o Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)".  |
+| `replaces-base`                                                                                        | Para registros com `type: python-index`, se o valor booleano for `true`, o pip resolverá as dependências usando a URL especificada, em vez da URL base do Índice de Pacotes Python (por padrão `https://pypi.org/simple`).                                                                                                                                        |
 
 
 Cada `tipo` de configuração exige que você forneça configurações específicas. Alguns tipos permitem mais de uma maneira de conectar-se. As seções a seguir fornecem detalhes das configurações que você deve usar para cada `tipo`.
 
-#### `composer-repository`
+### `composer-repository`
 
 O tipo `composer-repository` é compatível com nome de usuário e senha.
 
@@ -766,7 +773,7 @@ registries:
 ```
 {% endraw %}
 
-#### `docker-registry`
+### `docker-registry`
 
 O tipo `docker-registry` é compatível com nome de usuário e senha.
 
@@ -794,7 +801,7 @@ registries:
 ```
 {% endraw %}
 
-#### `git`
+### `git`
 
 O tipo `git` é compatível com o nome de usuário e senha.
 
@@ -809,7 +816,7 @@ registries:
 ```
 {% endraw %}
 
-#### `hex-organization`
+### `hex-organization`
 
 O tipo `hex-organization` é compatível com organização e com a chave.
 
@@ -823,9 +830,9 @@ registries:
 ```
 {% endraw %}
 
-#### `maven-repository`
+### `maven-repository`
 
-O tipo `maven-repository` é compatível com o nome de usuário e senha ou token.
+O tipo `maven-repository` é compatível com o nome de usuário e senha.
 
 {% raw %}
 ```yaml
@@ -838,19 +845,11 @@ registries:
 ```
 {% endraw %}
 
-{% raw %}
-```yaml
-registries:
-  maven-github:
-    type: maven-repository
-    url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
-```
-{% endraw %}
-
-#### `npm-registry`
+### `npm-registry`
 
 O tipo `npm-registry` é compatível com o nome de usuário e senha ou token.
+
+Ao usar nome de usuário e senha, o seu token de autorização `.npmrc` pode conter um `base64` condificado e `_password`. No entanto, a senha especificada no arquivo de configuração {% data variables.product.prodname_dependabot %} deverá ser a senha original (não codificada).
 
 {% raw %}
 ```yaml
@@ -859,7 +858,7 @@ registries:
     type: npm-registry
     url: https://registry.npmjs.org
     username: octocat
-    password: ${{secrets.MY_NPM_PASSWORD}}
+    password: ${{secrets.MY_NPM_PASSWORD}}  # Must be an unencoded password
 ```
 {% endraw %}
 
@@ -873,7 +872,7 @@ registries:
 ```
 {% endraw %}
 
-#### `nuget-feed`
+### `nuget-feed`
 
 O tipo `nuget-feed` é compatível com o nome de usuário e senha ou token.
 
@@ -898,7 +897,7 @@ registries:
 ```
 {% endraw %}
 
-#### `python-index`
+### `python-index`
 
 O tipo `python-index` é compatível com o nome de usuário e senha ou token.
 
@@ -925,7 +924,7 @@ registries:
 ```
 {% endraw %}
 
-#### `rubygems-server`
+### `rubygems-server`
 
 O tipo `rubygems-server` é compatível com o nome de usuário e senha ou token.
 
@@ -950,9 +949,9 @@ registries:
 ```
 {% endraw %}
 
-#### `terraform-registry`
+### `terraform-registry`
 
-The `terraform-registry` type supports a token.
+O tipo `terraform-registry` é compatível com um token.
 
 {% raw %}
 ```yaml

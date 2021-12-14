@@ -6,11 +6,13 @@ redirect_from:
   - /articles/getting-started-with-writing-and-formatting-on-github
 intro: GitHub の Issue、プルリクエスト、およびウィキでは、シンプルな機能を使用してコメントをフォーマットしたり他のユーザとやりとりしたりできます。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - /about-writing-and-formatting-on-github
   - /basic-writing-and-formatting-syntax
+shortTitle: Start writing on GitHub
 ---
 

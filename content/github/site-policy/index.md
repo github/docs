@@ -12,9 +12,8 @@ children:
   - /github-terms-of-service
   - /github-corporate-terms-of-service
   - /github-privacy-statement
-  - /github-data-protection-agreement-non-enterprise-customers
+  - /github-data-protection-agreement
   - /global-privacy-practices
-  - /github-insights-and-data-protection-for-your-organization
   - /github-sponsors-additional-terms
   - /github-codespaces-privacy-statement
   - /github-terms-for-additional-products-and-features
@@ -28,7 +27,7 @@ children:
   - /github-private-information-removal-policy
   - /github-subprocessors-and-cookies
   - /github-bug-bounty-program-legal-safe-harbor
-  - /responsible-disclosure-of-security-vulnerabilities
+  - /coordinated-disclosure-of-security-vulnerabilities
   - /guidelines-for-legal-requests-of-user-data
   - /github-government-takedown-policy
   - /github-acceptable-use-policies
