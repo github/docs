@@ -11,7 +11,6 @@ on:
 
 permissions:
   pull-requests: write
-  issues: write
 
 jobs:
   unmark_for_review:

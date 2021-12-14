@@ -13,6 +13,11 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+  # Needed for the 'trilom/file-changes-action' action
+  pull-requests: read
+
 env:
   CI: true
 

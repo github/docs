@@ -8,6 +8,9 @@ on:
   schedule:
     - cron: '10,30,50 * * * *' # every twenty minutes
 
+permissions:
+  contents: read
+
 jobs:
   ping_staging_apps:
     name: Ping

@@ -4,9 +4,6 @@ name: Lint code
 # **Why we have it**: We want some level of consistency to our code.
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
 
-permissions:
-  contents: read
-
 on:
   workflow_dispatch:
   push:
@@ -25,6 +22,9 @@ on:
       - 'package-lock.json'
       # Ultimately, for debugging this workflow itself
       - .github/workflows/code-lint.yml
+
+permissions:
+  contents: read
 
 jobs:
   lint:
