@@ -1,5 +1,5 @@
 {% ifversion fpt %}
-1. Navigate to the main page of the organization or repository where your self-hosted runner group is registered.
+1. Navega a la página principal de la organización o repositorio en donde se registró tu grupo de ejecutores auto-hospedados.
 2. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
 3. En la barra lateral izquierda, da clic en **Acciones**.
 4. Click **Runners**.
@@ -12,6 +12,6 @@
      2. En la barra lateral izquierda, da clic en **Resumen empresarial**.
      3. In the enterprise sidebar, click {% octicon "law" aria-label="The law icon" %} **Policies**.{% endif %}
 2. Navega a los ajustes de {% data variables.product.prodname_actions %}:
-   * **In an organization or repository**: Click **Actions** in the left sidebar{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, then click **Runners**{% endif %}.{% ifversion ghec or ghae or ghes %}
-   * {% ifversion ghec %}**If using an enterprise account**:{% elsif ghes or ghae %}**If using an enterprise-level runner**:{% endif %} Click **Actions** under "{% octicon "law" aria-label="The law icon" %} Policies"{% ifversion ghes > 3.1 or ghae or ghec %}, then click the **Runners** tab{% endif %}.{% endif %}
+   * **En una organización o repositorio**: Haz clic **Actions** en la barra lateral izquierda{% ifversion fpt or ghes > 3.1 or ghae or ghec %} y luego en **Ejecutores**{% endif %}.{% ifversion ghec or ghae or ghes %}
+   * {% ifversion ghec %}**Si estás utilizand una cuenta empresarial**:{% elsif ghes or ghae %}**Si estás utilizando un ejecutor a nivel empresarial**:{% endif %} Haz clic en **Acciones** debajo de "{% octicon "law" aria-label="The law icon" %} Políticas"{% ifversion ghes > 3.1 or ghae or ghec %}, y luego en la pestaña de **Ejecutores** {% endif %}.{% endif %}
 {% endif %}
