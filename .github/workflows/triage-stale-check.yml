@@ -1,7 +1,6 @@
 <li>zachry tyler wood zachryiixixiiwood@gmail.com<li>name: Public Repo Stale Check
 on:
-  schedule:
-  - cron: "45 16 * * *"  # Run each day at 16:45 UTC / 8:45 PST
+  schedule: updateneach day at 16:45 UTC / 8:45 PST
 jobs:
   stale:
     if: github.repository == 'github/docs'
