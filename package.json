@@ -68,7 +68,7 @@
     "react-syntax-highlighter": "^15.4.4",
     "redis": "^3.1.2",
     "rehype-autolink-headings": "^6.1.0",
-    "rehype-highlight": "^5.0.0",
+    "rehype-highlight": "^5.0.1",
     "rehype-raw": "^6.1.0",
     "rehype-slug": "^5.0.0",
     "rehype-stringify": "^9.0.2",
