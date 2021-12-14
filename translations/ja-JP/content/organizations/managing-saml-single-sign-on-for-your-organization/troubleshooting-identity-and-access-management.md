@@ -1,9 +1,7 @@
 ---
 title: Troubleshooting identity and access management
 intro: 'Review and resolve common troubleshooting errors for managing your organization''s SAML SSO, team synchronization, or identity provider (IdP) connection.'
-product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
