@@ -2,8 +2,8 @@
 title: Updating your GitHub access credentials
 intro: '{% data variables.product.product_name %} credentials include{% ifversion not ghae %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Should you have the need, you can reset all of these access credentials yourself.'
 redirect_from:
-  - /articles/rolling-your-credentials
-  - /articles/how-can-i-reset-my-password
+  - /articles/rolling-your-credentials/
+  - /articles/how-can-i-reset-my-password/
   - /articles/updating-your-github-access-credentials
   - /github/authenticating-to-github/updating-your-github-access-credentials
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/updating-your-github-access-credentials

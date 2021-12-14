@@ -1,8 +1,8 @@
 ---
 title: Git and GitHub learning resources
 redirect_from:
-  - /articles/good-resources-for-learning-git-and-github
-  - /articles/what-are-other-good-resources-for-learning-git-and-github
+  - /articles/good-resources-for-learning-git-and-github/
+  - /articles/what-are-other-good-resources-for-learning-git-and-github/
   - /articles/git-and-github-learning-resources
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources

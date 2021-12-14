@@ -2,9 +2,9 @@
 title: Removing sensitive data from a repository
 intro: 'If you commit sensitive data, such as a password or SSH key into a Git repository, you can remove it from the history. To entirely remove unwanted files from a repository''s history you can use either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.'
 redirect_from:
-  - /remove-sensitive-data
-  - /removing-sensitive-data
-  - /articles/remove-sensitive-data
+  - /remove-sensitive-data/
+  - /removing-sensitive-data/
+  - /articles/remove-sensitive-data/
   - /articles/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository

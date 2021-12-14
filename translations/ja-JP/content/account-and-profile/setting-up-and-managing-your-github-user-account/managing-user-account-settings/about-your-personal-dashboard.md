@@ -1,8 +1,8 @@
 ---
 title: About your personal dashboard
 redirect_from:
-  - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github
-  - /articles/opting-into-the-public-beta-for-a-new-dashboard
+  - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github/
+  - /articles/opting-into-the-public-beta-for-a-new-dashboard/
   - /articles/about-your-personal-dashboard
   - /github/setting-up-and-managing-your-github-user-account/about-your-personal-dashboard
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard
