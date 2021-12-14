@@ -269,7 +269,7 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 
 ## Status check functions
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions)".
+You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
 
 ### success
 
@@ -336,7 +336,7 @@ steps:
 steps:
   ...
   - name: The composite action has failed
-    if: ${{ github.action_status == 'failure' }}
+    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
 ```
 
 ## Object filters
