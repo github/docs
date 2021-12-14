@@ -1,0 +1,281 @@
+    <!--Note:The template file will be copied to a new file. When you change the code of the template file you can create new file with this base code. -->
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width"/>
+<title>Playhoods</title>
+<head>
+</head>
+<body>
+<table border=2 bgcolor="pink" width=340 height=400>
+<tr ><td><font color=yellow>
+<button onclick="drawBoard()">Start Khelo.Pk</button>
+Yellow<input type=text size=3 id=t1 name=t1><font color=red>Red<input type=text size=3 id=t2 name=t2 ></td></tr>
+<div id="play1"></div>
+<tr><td>
+<div><center>
+<canvas id="mCanvas" onclick="run(event)" width=300 height=300 style="border:3px solid"></canvas>
+
+<canvas id="dCanvas" width=300 height=100  style="border:3px solid"></canvas></center>
+<div id="main"></div>
+<div id="head"></div>
+<div id="demo"></div>
+</div>
+</td></tr>
+</table>
+
+<script>
+var a=60;
+var b=240;
+var rx=[];
+var ry=[];
+var wP=[];
+var yP=[];
+var rP=[];
+var x=0;
+var y=0;
+var w1=0;
+var w2=0;
+function drawBoard()
+{  
+t1.value=w1;
+t2.value=w2;
+var c = document.getElementById("mCanvas");
+var ctx = c.getContext("2d");
+ctx.font = "18px Comic Sans MS";
+ctx.fillStyle = "red";
+ctx.textBaseline = "top";
+ctx.fillText("Welcome To KHELO.PK!!...",10,10,140,20);
+ for(var i=0;i<=3;i++)
+  {
+  x=x+a;
+  rx[i]=x;
+  y=0;
+  yP[i]=15;
+  rP[i]=15;
+  for(var j=0;j<=3;j++)
+   {
+   y=y+a;
+   ry[j]=y;
+   wP[4*i+j]="g";
+ctx.beginPath();
+ctx.arc(rx[i],ry[j],16,0,2*Math.PI);
+ctx.arc(rx[i],ry[j],14,0,2*Math.PI);
+//ctx.strokeStyle='white';
+//ctx.stroke();
+ctx.fillStyle='green';
+ctx.fill();
+
+// Horizontal Lines
+
+ctx.moveTo(a,ry[j]);
+ctx.lineTo(b,ry[j]);
+
+// Verticle Lines
+ctx.moveTo(rx[i],a);
+ctx.lineTo(rx[i],b);
+
+ctx.lineWidth = 1.5;
+ctx.strokeStyle = 'blue';
+ctx.stroke();
+  }
+ }
+}
+
+var ycount=0;
+var rcount=0;
+var p1="y";
+var cP=[];
+var p;
+var rq=0;
+var yq=0;
+var c1;
+var c2;
+var c3;
+function run()
+{
+var pi=Math.floor(event.clientX/60)-1;
+var pj=Math.floor(event.clientY/60)-1;
+c1=4*pi+pj;
+if(p1=="y" && wP[c1]=="g" && ycount<=3)
+{
+wP[c1]="y";
+playerTurn("Reds Turn",rx[pi],ry[pj],'yellow');
+  if(ycount>=3 && yq==0)
+  {
+  yq=1;
+  p="y";
+  yP[ycount]=c1;
+  cP=yP;
+  ChkWinner(yP,p);
+  }
+   else if(ycount>=3 && yq==1)
+   {
+   yP[c3]=c1;
+   p="y";
+   cP=yP;
+   ChkWinner(yP,p);
+   }
+    else
+    {
+    yP[ycount]=c1;
+    }
+p1="r";
+ycount=ycount+1;
+}
+
+else if(p1=="r" && wP[c1]=="g" && rcount<=3)
+{
+wP[c1]="r";
+playerTurn("Yellows Turn",rx[pi],ry[pj],'red');
+  if(rcount>=3 && rq==0)
+  {
+  rq=1;
+  rP[rcount]=c1;
+  p="r";
+  cP=rP;
+  ChkWinner(rP,p);
+  }
+   else if(rcount>=3 && rq==1)
+   {
+   rP[c3]=c1;
+   p="r";
+   cP=rP;
+   ChkWinner(rP,p);
+   }
+    else
+    {
+    rP[rcount]=c1;
+    }
+ p1="y";
+rcount=rcount+1;
+}
+
+else if(p1=="y" && wP[c1]=="y" && ycount>=4)
+ {
+ wP[c1]="g";
+ c3=Finx(yP,c1)
+ playerTurn("Place Your Yellow Goti",rx[pi],ry[pj],'green');
+ ycount=ycount-1;
+ p1="y";
+ }
+
+else if(p1=="r" && wP[c1]=="r" && rcount>=4)
+ {
+ wP[c1]="g";
+ c3=Finx(rP,c1);
+ playerTurn("Placed Your Red Goti",rx[pi],ry[pj],'green');
+ rcount=rcount-1;
+ p1="r";
+ }
+}
+
+function Finx(cP,c1)
+{
+for(var i=0;i<=3;i++)
+ {
+  if(cP[i]==c1)
+  {
+  //console.log(cP[i]);
+  c3=i;
+  }
+ }
+ return c3;
+}
+
+var f1=0;
+var sP=[[]];
+var c2;
+var vP=[];
+function ChkWinner(cP,p)
+{
+sP[0]=[0,1,2,3];
+sP[1]=[4,5,6,7];
+sP[2]=[8,9,10,11];
+sP[3]=[12,13,14,15];
+sP[4]=[0,4,8,12];
+sP[5]=[1,5,9,13];
+sP[6]=[2,6,10,14];
+sP[7]=[3,7,11,15];
+sP[8]=[0,5,10,15];
+sP[9]=[3,6,9,12];
+for(var i=0;i<=3;i++)
+ {
+ for(var j=0;j<=3;j++)
+  {
+  if(cP[i]<cP[j])
+   {
+   c2=cP[i];
+   cP[i]=cP[j];
+   cP[j]=c2; 
+   }
+  else 
+   {
+   //wP[i]=wP[i];
+   cP[i]=cP[i];
+   }
+  }
+ }
+
+vP[0]=[cP[0],cP[1],cP[2],cP[3]];
+ 
+for(var i=0;i<=9;i++)
+ {
+f1=0;
+ for(var j=0;j<=3;j++)
+  {
+    //console.log(cP[j]+p+","+sP[i][j]);
+    if(cP[j]===sP[i][j])
+    {
+    f1=f1+1;
+    //console.log(p+"f1."+f1);
+    //gResult(p);
+    }
+  }
+if(f1==4 && p=="y")
+{
+w1=w1+1;
+t1.value=w1;
+gResult("Yellow");
+}
+else if(f1==4 && p=="r")
+{
+w2=w2+1;
+t2.value=w2;
+gResult("Red");
+}
+ }
+}
+
+function playerTurn(pT,x,y,cClr)
+{
+var c = document.getElementById("mCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(x, y, 12, 0, 2 * Math.PI);
+ctx.fillStyle=cClr;
+ctx.fill();
+ctx.clearRect(10,260,140,260);
+ctx.fillText(pT,10,260,140,260);
+}
+
+function gResult(p)
+{ 
+alert("Player "+p+" wins");
+var s1="Hurry!!...Player  "+p+" \nWin the KHELO.PK!!..."
+s1=s1.split("\n");
+h1=dCanvas.height/5;
+var d=document.getElementById("dCanvas");
+var cdx = d.getContext("2d");
+cdx.font = "20px Comic Sans MS";
+cdx.fillStyle =p;
+cdx.fill();
+cdx.textBaseline = "top";
+cdx.clearRect(0,0,dCanvas.width,dCanvas.height);
+for(var j=0;j<=s1.length;j++)
+{cdx.fillText(s1[j],10,h1);
+h1+=40;}
+}
+</script>
+</body>
+</html>
