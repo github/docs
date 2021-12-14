@@ -68,9 +68,6 @@ You can use `journalctl` to monitor the real-time activity of the self-hosted ru
 
 ```shell
 $ sudo journalctl -u actions.runner.octo-org-octo-repo.runner01.service -f
-
-# if the service name is not known (look for a service name starting with "actions.runner"):
-$ sudo journalctl -u $(systemctl --type=service | grep actions.runner | grep -o "[^ ]*" | head -n 1) -f
 ```
 
 In this example output, you can see `runner01` start, receive a job named `testAction`, and then display the resulting status:
