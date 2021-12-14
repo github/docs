@@ -2,7 +2,7 @@
 title: Site admin dashboard
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %}'
 redirect_from:
-  - /enterprise/admin/articles/site-admin-dashboard/
+  - /enterprise/admin/articles/site-admin-dashboard
   - /enterprise/admin/installation/site-admin-dashboard
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard

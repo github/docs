@@ -3,9 +3,8 @@ title: Configuring authentication and provisioning for your enterprise using Okt
 shortTitle: Configuring with Okta
 intro: 'You can use Okta as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.product.prodname_ghe_managed %}.'
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.prodname_ghe_managed %}.'
-product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
