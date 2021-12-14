@@ -1,10 +1,10 @@
 ---
 title: GitHub Subprocessors and Cookies
 redirect_from:
-  - /subprocessors/
-  - /github-subprocessors/
-  - /github-tracking/
-  - /github-cookies/
+  - /subprocessors
+  - /github-subprocessors
+  - /github-tracking
+  - /github-cookies
   - /articles/github-subprocessors-and-cookies
 versions:
   fpt: '*'

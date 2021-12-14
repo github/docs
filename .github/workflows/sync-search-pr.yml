@@ -13,6 +13,9 @@ on:
       # Ultimately, for debugging this workflow itself
       - .github/workflows/sync-search-pr.yml
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest

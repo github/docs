@@ -2,5 +2,5 @@ Los siguientes IdP pueden aprovisionar o desaprovisionar las cuentas de usuario 
 
 {% ifversion ghae %}
 - Azure AD
-- Okta (currently in beta)
+- Okta (actualmente en beta)
 {% endif %}

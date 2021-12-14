@@ -247,6 +247,11 @@ describe('server', () => {
     // check for CORS header
     expect(res.headers['access-control-allow-origin']).toBe('*')
 
+    // Check that it can be cached at the CDN
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+
     const categories = JSON.parse(res.text)
     expect(Array.isArray(categories)).toBe(true)
     expect(categories.length).toBeGreaterThan(1)
@@ -339,7 +344,7 @@ describe('server', () => {
       )
       expect($('h2#in-this-article').length).toBe(1)
       expect($('h2#in-this-article + div div ul').length).toBeGreaterThan(0) // non-indented items
-      expect($('h2#in-this-article + div div ul li div div div ul.ml-3').length).toBeGreaterThan(0) // indented items
+      expect($('h2#in-this-article + div div ul li div div div ul li').length).toBeGreaterThan(0) // indented items
     })
 
     test('does not render mini TOC in articles with only one heading', async () => {

@@ -260,9 +260,9 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 #### `runs.steps[*].shell`
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
-**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Required if `run` is set.
+**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 {% else %}
-**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Required if `run` is set.
+**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 {% endif %}
 
 #### `runs.steps[*].name`

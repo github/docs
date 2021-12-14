@@ -8,6 +8,10 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '25 17 * * *' # once a day at 17:25 UTC / 11:50 PST
+
+permissions:
+  contents: read
+
 jobs:
   test:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'

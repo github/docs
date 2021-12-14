@@ -9,6 +9,9 @@ on:
   schedule:
     - cron: '32 */2 * * *' # At minute 32 past every 2nd hour.
 
+permissions:
+  pull-requests: read
+
 jobs:
   repo-sync-stalls:
     runs-on: ubuntu-latest
@@ -17,7 +20,6 @@ jobs:
         name: Check if repo sync is stalled
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
-          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           script: |
             let pulls;
             const owner = context.repo.owner
