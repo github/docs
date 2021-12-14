@@ -38,6 +38,7 @@ import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import events from './events.js'
 import search from './search.js'
+import healthz from './healthz.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
@@ -182,6 +183,7 @@ export default function (app) {
   // *** Rendering, 2xx responses ***
   app.use('/events', asyncMiddleware(instrument(events, './events')))
   app.use('/search', asyncMiddleware(instrument(search, './search')))
+  app.use('/healthz', asyncMiddleware(instrument(healthz, './healthz')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
