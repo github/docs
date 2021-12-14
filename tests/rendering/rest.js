@@ -4,7 +4,7 @@ import fs from 'fs/promises'
 import { difference, isPlainObject } from 'lodash-es'
 import { getJSON } from '../helpers/supertest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import getRest from '../../lib/rest/index.js'
+import getRest, { restRepoCategoryExceptions } from '../../lib/rest/index.js'
 import { jest } from '@jest/globals'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -28,6 +28,7 @@ describe('REST references docs', () => {
           !excludeFromResourceNameCheck.find((excludedFile) => filename.endsWith(excludedFile))
       )
       .map((filename) => filename.replace('.md', ''))
+      .filter((filename) => !restRepoCategoryExceptions.includes(filename))
 
     const missingResource =
       'Found a markdown file in content/rest/reference that is not represented by an OpenAPI REST operation category.'

@@ -126,4 +126,4 @@ on the entire commit.
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [PR Review API]: /rest/reference/pulls#comments
-[commit comment API]: /rest/reference/repos#get-a-commit-comment
+[commit comment API]: /rest/reference/commits#get-a-commit-comment
