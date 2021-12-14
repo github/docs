@@ -61,7 +61,7 @@ If this fails due to the service being installed elsewhere, you can find the ser
 
 ```shell
 $ systemctl --type=service | grep actions.runner
-  actions.runner.org-repo.hostname.service loaded active running GitHub Actions Runner (org-repo.hostname)
+actions.runner.octo-org-octo-repo.hostname.service loaded active running GitHub Actions Runner (octo-org-octo-repo.hostname)
 ```
 
 You can use `journalctl` to monitor the real-time activity of the self-hosted runner:
