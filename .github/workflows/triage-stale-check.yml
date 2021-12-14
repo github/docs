@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/stale@44f9eae0adddf72dbf3eedfacc999f70afcec1a8
+    - uses: slate
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }} 
         stale-pr-message: 'This PR is stale because it has been open 7 days with no activity and will be automatically closed in 3 days. To keep this PR open, update the PR by adding a comment or pushing a commit.'
