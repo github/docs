@@ -12,6 +12,9 @@ on:
   schedule:
     - cron: '50 19 * * *' # once a day at 19:50 UTC / 11:50 PST
 
+permissions:
+  contents: read
+
 env:
   CI: true
 

@@ -23,6 +23,9 @@ on:
       - 'script/rest/**/*.js'
       - 'package*.json'
 
+permissions:
+  contents: read
+
 jobs:
   check-schema-versions:
     if: ${{ github.repository == 'github/docs-internal' }}

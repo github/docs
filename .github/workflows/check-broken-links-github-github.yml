@@ -9,6 +9,9 @@ on:
   schedule:
     - cron: '20 13 * * 1' # run every Monday at 1:20PM UTC
 
+permissions:
+  contents: read
+
 # **IMPORTANT:** Do not change the FREEZE environment variable set here!
 # This workflow runs on a recurring basis. To temporarily disable it (e.g.,
 # during a docs deployment freeze), add an Actions Secret to the repo settings
