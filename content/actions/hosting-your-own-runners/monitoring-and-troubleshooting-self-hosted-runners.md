@@ -57,7 +57,7 @@ $ cat ~/actions-runner/.service
 actions.runner.octo-org-octo-repo.runner01.service
 ```
 
-If that fails due to the service being installed elsewhere, the service name can be obtained from the list of running services. For example:
+If this fails due to the service being installed elsewhere, you can find the service name in the list of running services. For example, on most Linux systems you can use the `systemctl` command:
 
 ```shell
 $ systemctl --type=service | grep actions.runner
