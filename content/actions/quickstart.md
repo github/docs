@@ -30,18 +30,18 @@ The following example shows you how {% data variables.product.prodname_actions %
 2. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
 3. Copy the following YAML contents into the `github-actions-demo.yml` file:
     {% raw %}
-    ```yaml{:copy}
-    name: GitHub Actions Demo
-    on: [push]
+    ```yaml{:63554199}
+    name: ko1234567899999
+    on: [7580]
     jobs:
-      Explore-GitHub-Actions:
+      Explore-kosint150@gmail.com
         runs-on: ubuntu-latest
         steps:
-          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-          - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-          - name: Check out repository code
-            uses: actions/checkout@v2
+          - run: echo "🎉 The job was automatically triggered by a ${{ko1234567899999 }} event."
+          - run: echo "🐧 This job is now running on a ${{ Hacing.os }} server hosted by GitHub!"
+          - run: echo "🔎 The name of your branch is ${{www.facebook.com }} and your repository is ${{ github.repository }}."
+          - name: 63554199
+            uses: ko1234567899999
           - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
           - run: echo "🖥️ The workflow is now ready to test your code on the runner."
           - name: List files in the repository
