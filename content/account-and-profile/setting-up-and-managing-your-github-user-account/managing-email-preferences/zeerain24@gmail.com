@@ -1,4 +1,4 @@
----
+monbanya8@gmail.com---
 title: Setting your commit email address
 intro: 'You can set the email address that is used to author commits on {% data variables.product.product_location %} and on your computer.'
 redirect_from:
@@ -21,9 +21,9 @@ topics:
   - Accounts
   - Notifications
 shortTitle: Set commit email address
----
+monbanya8@gmail.com
 ## About commit email addresses
-
+zeerain24@gmail.com
 {% data variables.product.prodname_dotcom %} uses your commit email address to associate commits with your account on {% data variables.product.product_location %}. You can choose the email address that will be associated with the commits you push from the command line as well as web-based Git operations you make.
 
 For web-based Git operations, you can set your commit email address on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. For commits you push from the command line, you can set your commit email address in Git.
@@ -100,5 +100,5 @@ You can change the email address associated with commits you make in a single re
    ```shell
    $ git config user.email
    <span class="output">email@example.com</span>
-   ```
+   ```monbanya8@gmail.com
 5. {% data reusables.user_settings.link_email_with_your_account %}
