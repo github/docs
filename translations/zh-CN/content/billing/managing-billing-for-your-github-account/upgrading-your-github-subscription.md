@@ -4,20 +4,20 @@ intro: 'You can upgrade the subscription for any type of account on {% data vari
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
-  - /articles/upgrading-your-personal-account-s-billing-plan/
-  - /articles/upgrading-your-personal-account/
-  - /articles/upgrading-your-personal-account-from-free-to-a-paid-account/
-  - /articles/upgrading-your-personal-account-from-free-to-paid-with-a-credit-card/
-  - /articles/upgrading-your-personal-account-from-free-to-paid-with-paypal/
-  - /articles/500-error-while-upgrading/
-  - /articles/upgrading-your-organization-s-billing-plan/
-  - /articles/changing-your-organization-billing-plan/
-  - /articles/upgrading-your-organization-account-from-free-to-paid-with-a-credit-card/
-  - /articles/upgrading-your-organization-account-from-free-to-paid-with-paypal/
-  - /articles/upgrading-your-organization-account/
-  - /articles/switching-from-per-repository-to-per-user-pricing/
-  - /articles/adding-seats-to-your-organization/
-  - /articles/upgrading-your-github-billing-plan/
+  - /articles/upgrading-your-personal-account-s-billing-plan
+  - /articles/upgrading-your-personal-account
+  - /articles/upgrading-your-personal-account-from-free-to-a-paid-account
+  - /articles/upgrading-your-personal-account-from-free-to-paid-with-a-credit-card
+  - /articles/upgrading-your-personal-account-from-free-to-paid-with-paypal
+  - /articles/500-error-while-upgrading
+  - /articles/upgrading-your-organization-s-billing-plan
+  - /articles/changing-your-organization-billing-plan
+  - /articles/upgrading-your-organization-account-from-free-to-paid-with-a-credit-card
+  - /articles/upgrading-your-organization-account-from-free-to-paid-with-paypal
+  - /articles/upgrading-your-organization-account
+  - /articles/switching-from-per-repository-to-per-user-pricing
+  - /articles/adding-seats-to-your-organization
+  - /articles/upgrading-your-github-billing-plan
   - /articles/upgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:

@@ -1,12 +1,12 @@
 ---
-title: 删除付款方式
-intro: '如果您没有将付款方式用于 {% data variables.product.prodname_dotcom %} 上任何付费订阅，则可以删除付款方式，以使其不再存储在您的帐户中。'
+title: Removing a payment method
+intro: 'If you aren''t using your payment method for any paid subscriptions on {% data variables.product.prodname_dotcom %}, you can remove the payment method so it''s no longer stored in your account.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/removing-a-payment-method
-  - /articles/removing-a-credit-card-associated-with-your-user-account/
-  - /articles/removing-a-payment-method-associated-with-your-user-account/
-  - /articles/removing-a-credit-card-associated-with-your-organization/
-  - /articles/removing-a-payment-method-associated-with-your-organization/
+  - /articles/removing-a-credit-card-associated-with-your-user-account
+  - /articles/removing-a-payment-method-associated-with-your-user-account
+  - /articles/removing-a-credit-card-associated-with-your-organization
+  - /articles/removing-a-payment-method-associated-with-your-organization
   - /articles/removing-a-payment-method
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/removing-a-payment-method
 versions:
@@ -17,18 +17,17 @@ topics:
   - Organizations
   - User account
 ---
-
-如果您使用优惠券为 {% data variables.product.product_name %} 订阅付款，并且不会将付款方式用于 {% data variables.product.product_name %} 上的任何[其他付费功能或产品](/articles/about-billing-on-github)，则可以删除信用卡或 PayPal 信息。
+If you're paying for your {% data variables.product.product_name %} subscription with a coupon, and you aren't using your payment method for any [other paid features or products](/articles/about-billing-on-github) on {% data variables.product.product_name %}, you can remove your credit card or PayPal information.
 
 {% data reusables.dotcom_billing.coupon-expires %}
 
 {% tip %}
 
-**提示：**如果您[将帐户降级为免费产品](/articles/downgrading-your-github-subscription)并且没有任何其他付费功能或产品的订阅，我们将自动删除您的付款信息。
+**Tip:** If you [downgrade your account to a free product](/articles/downgrading-your-github-subscription) and you don't have subscriptions for any other paid features or products, we'll automatically remove your payment information.
 
 {% endtip %}
 
-## 删除个人帐户的付款方式
+## Removing your personal account's payment method
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -36,7 +35,7 @@ topics:
 {% data reusables.dotcom_billing.remove-payment-method %}
 {% data reusables.dotcom_billing.remove_payment_info %}
 
-## 删除组织的付款方式
+## Removing your organization's payment method
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
