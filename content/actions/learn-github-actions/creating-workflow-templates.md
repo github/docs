@@ -1,6 +1,6 @@
 ---
-title: Creating workflows
-shortTitle: Creating workflows
+title: Creating starter workflows
+shortTitle: Creating starter workflows
 intro: Learn how you can create starter workflows to help people in your team add new workflows more easily.
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
@@ -22,9 +22,9 @@ topics:
 
 {% data reusables.actions.workflow-organization-templates %}
 
-## Creating a workflow
+## Creating a Starter Workflow
 
-Workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
+Starter Workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
 
 {% ifversion fpt %}
 These workflows can be created in public repositories only. Organizations using {% data variables.product.prodname_ghe_cloud %} can also create these workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-workflow-templates).
@@ -33,12 +33,12 @@ These workflows can be created in public repositories only. Organizations using 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 {% note %}
 
-**Note:** To avoid duplication among workflows you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+**Note:** To avoid duplication among starter workflows you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 
 {% endnote %}
 {% endif %}
 
-This procedure demonstrates how to create a workflow and metadata file. The metadata file describes how these workflows will be presented to users when they are creating a new workflow.
+This procedure demonstrates how to create a workflow and metadata file. The metadata file describes how these starter workflows will be presented to users when they are creating a new workflow.
 
 1. If it doesn't already exist, create a new public repository named `.github` in your organization.
 2. Create a directory named `workflow-templates`.
