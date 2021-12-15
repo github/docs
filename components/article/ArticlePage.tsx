@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 import cx from 'classnames'
 import { ActionList, Heading } from '@primer/components'
 
-import { ChevronDownIcon, ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
+import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
 import { Link } from 'components/Link'
@@ -61,9 +60,8 @@ export const ArticlePage = () => {
   } = useArticleContext()
   const { t } = useTranslation('pages')
   const currentPath = router.asPath.split('?')[0]
-  const [isActive, setActive] = useState(-1)
 
-  const renderTocItem = (item: MiniTocItem, index: number) => {
+  const renderTocItem = (item: MiniTocItem) => {
     return (
       <ActionList.Item
         as="li"
@@ -72,19 +70,9 @@ export const ArticlePage = () => {
         sx={{ listStyle: 'none', padding: '2px' }}
       >
         <div className={cx('lh-condensed d-block width-full')}>
-          <div className="d-inline-flex" dangerouslySetInnerHTML={{ __html: item.contents }} />
-          {item.items && item.items.length > 0 && (
-            <button
-              className="color-bg-default border-0 ml-1"
-              onClick={() => setActive(index === isActive ? -1 : index)}
-            >
-              {<ChevronDownIcon />}
-            </button>
-          )}
+          <div dangerouslySetInnerHTML={{ __html: item.contents }} />
           {item.items && item.items.length > 0 ? (
-            <ul className={index === isActive ? 'ml-3' : 'd-none'}>
-              {item.items.map(renderTocItem)}
-            </ul>
+            <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
           ) : null}
         </div>
       </ActionList.Item>
@@ -158,7 +146,7 @@ export const ArticlePage = () => {
                       return {
                         key: title + i,
                         text: title,
-                        renderItem: () => <ul>{renderTocItem(items, i)}</ul>,
+                        renderItem: () => <ul>{renderTocItem(items)}</ul>,
                       }
                     })}
                   />
