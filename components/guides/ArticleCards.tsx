@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import {
-  ArticleGuide,
-  useProductGuidesContext,
-} from 'components/context/ProductGuidesContext'
+import { ArticleGuide, useProductGuidesContext } from 'components/context/ProductGuidesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleCard } from './ArticleCard'
 import { DropdownMenu } from '@primer/components'
@@ -35,20 +32,16 @@ export const ArticleCards = () => {
   const guides = isUserFiltering ? filteredResults : includeGuides || []
 
   const types = Object.entries(guideTypes).map(([key, val]) => {
-    return (
-      {text: val, key: key}
-    )
-  }) as ItemInput[]
-  
-  types.unshift({text: t('filters.all'), key: undefined})
-  
-  const topics = allTopics?.map((topic) => {
-    return (
-      {text: topic, key: topic}
-    )
+    return { text: val, key: key }
   }) as ItemInput[]
 
-  topics.unshift({text: t('filters.all'), key: undefined})
+  types.unshift({ text: t('filters.all'), key: undefined })
+
+  const topics = allTopics?.map((topic) => {
+    return { text: topic, key: topic }
+  }) as ItemInput[]
+
+  topics.unshift({ text: t('filters.all'), key: undefined })
 
   return (
     <div>
@@ -58,26 +51,28 @@ export const ArticleCards = () => {
           <label htmlFor="type" className="text-uppercase f6 color-fg-muted d-block">
             {t('filters.type')}
           </label>
-            <DropdownMenu
-              aria-label="guide types"
-              data-testid="types-dropdown"
-              placeholder={t('filters.all')}
-              items={types}
-              selectedItem={typeFilter}
-              onChange={setTypeFilter} />
+          <DropdownMenu
+            aria-label="guide types"
+            data-testid="types-dropdown"
+            placeholder={t('filters.all')}
+            items={types}
+            selectedItem={typeFilter}
+            onChange={setTypeFilter}
+          />
         </div>
 
         <div data-testid="card-filter-topics" className="mx-4">
           <label htmlFor="topic" className="text-uppercase f6 color-fg-muted d-block">
             {t('filters.topic')}
           </label>
-            <DropdownMenu
-              aria-label="guide topics"
-              data-testid="topics-dropdown"
-              placeholder={t('filters.all')}
-              items={topics}
-              selectedItem={topicFilter}
-              onChange={setTopicFilter} />
+          <DropdownMenu
+            aria-label="guide topics"
+            data-testid="topics-dropdown"
+            placeholder={t('filters.all')}
+            items={topics}
+            selectedItem={topicFilter}
+            onChange={setTopicFilter}
+          />
         </div>
       </form>
 

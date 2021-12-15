@@ -1,6 +1,6 @@
 ---
-title: Crear y probar en Ruby
-intro: Puedes crear un flujo de trabajo de integración continua (CI) para crear y probar tu proyecto de Ruby.
+title: Building and testing Ruby
+intro: You can create a continuous integration (CI) workflow to build and test your Ruby project.
 redirect_from:
   - /actions/guides/building-and-testing-ruby
 versions:
@@ -12,29 +12,28 @@ type: tutorial
 topics:
   - CI
   - Ruby
-shortTitle: Crear & probar a Ruby
+shortTitle: Build & test Ruby
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## Introducción
+## Introduction
 
-Esta guía te muestra cómo crear un flujo de trabajo de integración contínua (IC) que cree y pruebe una aplicación de Ruby. Si tus pruebas de IC pasan, podrías querer desplegar tu código o publicar una gema.
+This guide shows you how to create a continuous integration (CI) workflow that builds and tests a Ruby application. If your CI tests pass, you may want to deploy your code or publish a gem.
 
-## Prerrequisitos
+## Prerequisites
 
-Te recomendamos que tengas una comprensión básica de Ruby, YAML, las opciones de configuración de flujo de trabajo y de cómo crear un archivo de flujo de trabajo. Para obtener más información, consulta:
+We recommend that you have a basic understanding of Ruby, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
-- [Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
-- [Ruby en 20 minutos](https://www.ruby-lang.org/en/documentation/quickstart/)
+- [Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
+- [Ruby in 20 minutes](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Comenzar con la plantilla de flujo de trabajo de Ruby
+## Starting with the Ruby workflow template
 
-{% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de Ruby que funcionará con la mayoría de los proyectos de Ruby. Para obtener más información, consulta la sección [Plantilla de flujo de trabajo de Ruby](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
+{% data variables.product.prodname_dotcom %} provides a Ruby workflow template that will work for most Ruby projects. For more information, see the [Ruby workflow template](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
 
-Para comenzar rápidamente, agrega la plantilla al directorio `.github/workflows` de tu repositorio. El flujo de trabajo que se muestra a continuación asume que la rama predeterminada de tu repositorio es `main`.
+To get started quickly, add the template to the `.github/workflows` directory of your repository. The workflow shown below assumes that the default branch for your repository is `main`.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -64,13 +63,13 @@ jobs:
         run: bundle exec rake
 ```
 
-## Especificar la versión de Ruby
+## Specifying the Ruby version
 
-La forma más fácil de especificar una versión de Ruby es utilizando la acción `ruby/setup-ruby` que se proporciona en la organización de Ruby en GitHub. Esta acción agrega cualquier versión compatible con Ruby al `PATH` de cada ejecución de un job en un flujo de trabajo. Para obtener más información, consulta [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
+The easiest way to specify a Ruby version is by using the `ruby/setup-ruby` action provided by the Ruby organization on GitHub. The action adds any supported Ruby version to `PATH` for each job run in a workflow. For more information see, the [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
 
-La forma en la que se recomienda utilizar Ruby con GitHub Actions es mediante la acción `ruby/setup-ruby` de Ruby, ya que esto garantiza el comportamiento consistente a través de los diversos ejecutores y versiones de Ruby.
+Using Ruby's `ruby/setup-ruby` action is the recommended way of using Ruby with GitHub Actions because it ensures consistent behavior across different runners and different versions of Ruby.
 
-La acción `setup-ruby` toma una versión de Ruby como entrada y la configura en el ejecutor.
+The `setup-ruby` action takes a Ruby version as an input and configures that version on the runner.
 
 {% raw %}
 ```yaml
@@ -84,11 +83,11 @@ steps:
 ```
 {% endraw %}
 
-Como alternativa, puedes ingresar un archivo de `.ruby-version` en la raíz de tu repositorio y `setup-ruby` utilizará la versión que se defina en dicho archivo.
+Alternatively, you can check a `.ruby-version` file  into the root of your repository and `setup-ruby` will use the version defined in that file.
 
-## Hacer pruebas con varias versiones de Ruby
+## Testing with multiple versions of Ruby
 
-Puedes agregar una estrategia de matriz para ejecutar tu flujo de trabajo con más de una versión de Ruby. Por ejemplo, puedes probar tu código contra los últimos lanzamientos de parche para las versiones 2.7, 2.6, y 2.5. La 'x' es un caracter de comodín que empata el último lanzamiento de parche disponible para una versión.
+You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 2.7, 2.6, and 2.5. The 'x' is a wildcard character that matches the latest patch release available for a version.
 
 {% raw %}
 ```yaml
@@ -98,9 +97,9 @@ strategy:
 ```
 {% endraw %}
 
-Cad versión de Ruby que se especifica en el arreglo `ruby-version` crea un job que ejecuta los mismos pasos. El contexto {% raw %}`${{ matrix.ruby-version }}`{% endraw %} se utiliza para acceder a la versión actual del job. Para obtener más información acerca de las estrategias y los contextos de la matriz, consulta las secciones "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions)" y "[Contextos](/actions/learn-github-actions/contexts)".
+Each version of Ruby specified in the `ruby-version` array creates a job that runs the same steps. The {% raw %}`${{ matrix.ruby-version }}`{% endraw %} context is used to access the current job's version. For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions)" and "[Contexts](/actions/learn-github-actions/contexts)."
 
-El flujo de trabajo ya actualizado en su totalidad con una estrategia de matriz podría verse así:
+The full updated workflow with a matrix strategy could look like this:
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -134,9 +133,9 @@ jobs:
         run: bundle exec rake
 ```
 
-## Instalar dependencias con Bundler
+## Installing dependencies with Bundler
 
-La acción `setup-ruby` te instalará bundler automáticamente. La versión se determina de acuerdo con tu archivo `gemfile.lock`. Si no hay alguna versión presente en tu archivo de bloqueo, entonces se instalará la última versión compatible.
+The `setup-ruby` action will automatically install bundler for you. The version is determined by your `gemfile.lock` file. If no version is present in your lockfile, then the latest compatible version will be installed.
 
 {% raw %}
 ```yaml
@@ -149,11 +148,11 @@ steps:
 ```
 {% endraw %}
 
-### Almacenar dependencias en caché
+### Caching dependencies
 
-Si estás utilizando ejecutores hospedados en {% data variables.product.prodname_dotcom %}, las acciones de `setup-ruby` proporcionarán un método para manejar automáticamente el guardado en caché de tus gemas entre ejecuciones.
+If you are using {% data variables.product.prodname_dotcom %}-hosted runners, the `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
 
-Para habilitar el guardado en caché, configura lo siguiente.
+To enable caching, set the following.
 
 {% raw %}
 ```yaml
@@ -164,11 +163,11 @@ steps:
 ```
 {% endraw %}
 
-Esto configurará a bundler para que instale tus gemas en `vendor/cache`. Para cada ejecución exitosa de tu flujo de trabajo, Actions guardará esta carpeta en caché y volverá a descargarse para cualquier ejecución de flujo de trabajo subsecuente. Se utiliza un hash de tu gemfile.lock y de la versión de Ruby como la clave de caché. Si instalas cualquier gema nueva o cambias una versión, el caché se invalidará y bundler realizará una instalación desde cero.
+This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by Actions and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
 
-**Guardar en caché sin setup-ruby**
+**Caching without setup-ruby**
 
-Para tener un mejor control sobre el guardado en caché, si estás utilizando ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes utilizar la acción `actions/cache` directamente. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+For greater control over caching, if you are using {% data variables.product.prodname_dotcom %}-hosted runners, you can use the `actions/cache` Action directly. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 {% raw %}
 ```yaml
@@ -186,7 +185,7 @@ steps:
 ```
 {% endraw %}
 
-Si estás utilizando una compilación de matriz, deberás incluir las variables de dicha matriz en tu clave de caché. Por ejemplo, si tienes una estrategia de matriz para versiones de Ruby diferentes (`matrix.ruby-version`) y sistemas operativos diferentes (`matrix.os`), tus pasos de flujo de trabajo podrían verse así:
+If you're using a matrix build, you will want to include the matrix variables in your cache key. For example, if you have a matrix strategy for different ruby versions (`matrix.ruby-version`) and different operating systems (`matrix.os`), your workflow steps might look like this:
 
 {% raw %}
 ```yaml
@@ -204,9 +203,9 @@ steps:
 ```
 {% endraw %}
 
-## Probar tu código en matrices
+## Matrix testing your code
 
-La siguiente matriz de ejemplo prueba todos los lanzamientos estables y versiones principales de MRI, JRuby y TruffleRuby en Ubuntu y macOS.
+The following example matrix tests all stable releases and head versions of MRI, JRuby and TruffleRuby on Ubuntu and macOS.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -237,9 +236,9 @@ jobs:
       - run: bundle exec rake
 ```
 
-## Limpiar tu código
+## Linting your code
 
-El siguiente ejemplo instala `rubocop` y lo utiliza para limpiar todos los archivos. Para obtener más información, consulta la sección [Rubocop](https://github.com/rubocop-hq/rubocop). Puedes [configurar Rubocop](https://docs.rubocop.org/rubocop/configuration.html) para decidir cuáles serán las reglas de limpieza específicas.
+The following example installs `rubocop` and uses it to lint all files. For more information, see [Rubocop](https://github.com/rubocop-hq/rubocop). You can [configure Rubocop](https://docs.rubocop.org/rubocop/configuration.html) to decide on the specific linting rules.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -261,11 +260,11 @@ jobs:
         run: rubocop
 ```
 
-## Publicar gemas
+## Publishing Gems
 
-Puedes configurar tu flujo de trabajo para publicar tu paquete de Ruby en cualquier registro de paquetes que quieras cuando pasen tus pruebas de IC.
+You can configure your workflow to publish your Ruby package to any package registry you'd like when your CI tests pass.
 
-Puedes almacenar todos los tokens de acceso o credenciales necesarios para publicar tu paquete utilizando secretos del repositorio. Elsiguiente ejemplo crea y publica un paquete en el `Registro de Paquetes de Github` y en `RubyGems`.
+You can store any access tokens or credentials needed to publish your package using repository secrets. The following example creates and publishes a package to `GitHub Package Registry` and `RubyGems`.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -284,7 +283,7 @@ on:
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

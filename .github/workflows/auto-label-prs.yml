@@ -7,6 +7,10 @@ name: Auto label Pull Requests
 on:
   pull_request:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   triage:
     if: github.repository == 'github/docs-internal'

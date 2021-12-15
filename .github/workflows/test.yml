@@ -13,6 +13,11 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+  # Needed for the 'trilom/file-changes-action' action
+  pull-requests: read
+
 env:
   CI: true
 
@@ -81,7 +86,7 @@ jobs:
         uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
         with:
           path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}-${{ hashFiles('.github/workflows/test.yml') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
       - name: Run build script
         run: npm run build

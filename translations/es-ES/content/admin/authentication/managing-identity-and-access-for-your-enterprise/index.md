@@ -1,6 +1,6 @@
 ---
-title: Administrar la identidad y el acceso para tu empresa
-shortTitle: Administrar el acceso y la identidad
+title: Managing identity and access for your enterprise
+shortTitle: Managing identity and access
 intro: 'You can centrally manage {% ifversion ghae %}accounts and {% endif %}access to your {% ifversion ghae %}enterprise{% elsif ghec %}enterprise''s resources{% endif %} on {% data variables.product.product_name %} with SAML single sign-on (SSO) and System for Cross-domain Identity Management (SCIM).'
 versions:
   ghec: '*'

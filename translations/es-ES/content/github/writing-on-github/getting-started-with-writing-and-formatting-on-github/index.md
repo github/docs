@@ -1,10 +1,10 @@
 ---
-title: Introducción a la escritura y el formato en GitHub
+title: Getting started with writing and formatting on GitHub
 redirect_from:
-  - /articles/markdown-basics/
-  - /articles/things-you-can-do-in-a-text-area-on-github/
+  - /articles/markdown-basics
+  - /articles/things-you-can-do-in-a-text-area-on-github
   - /articles/getting-started-with-writing-and-formatting-on-github
-intro: 'Puedes usar características simples para darles formato a tus comentarios e interactuar con otros en propuestas, solicitudes de extracción y wikis en GitHub.'
+intro: 'You can use simple features to format your comments and interact with others in issues, pull requests, and wikis on GitHub.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,6 @@ versions:
 children:
   - /about-writing-and-formatting-on-github
   - /basic-writing-and-formatting-syntax
-shortTitle: Comenzar a escribir en GitHub
+shortTitle: Start writing on GitHub
 ---
 

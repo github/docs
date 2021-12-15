@@ -18,4 +18,3 @@ children:
   - /migrating-from-travis-ci-to-github-actions
 ---
 
-{% data reusables.actions.ae-beta %}

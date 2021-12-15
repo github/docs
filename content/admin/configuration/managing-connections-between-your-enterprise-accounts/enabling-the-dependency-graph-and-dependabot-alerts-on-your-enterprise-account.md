@@ -46,7 +46,7 @@ If you enable vulnerability detection, when {% data variables.product.product_lo
 ### Prerequisites
 
 For {% data variables.product.product_location %} to detect vulnerable dependencies and generate {% data variables.product.prodname_dependabot_alerts %}:
-- You must connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghae %}This also enables the dependency graph service. {% endif %}{% ifversion ghes or ghae-next %}For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."{% endif %}
+- You must connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghae %}This also enables the dependency graph service. {% endif %}{% ifversion ghes or ghae %}For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."{% endif %}
 {% ifversion ghes %}- You must enable the dependency graph service.{% endif %}
 - You must enable vulnerability scanning.
 
@@ -70,19 +70,23 @@ You can enable the dependency graph via the {% data variables.enterprise.managem
 {% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 1. In the administrative shell, enable the dependency graph on {% data variables.product.product_location %}:
-    ``` shell
-    $ {% ifversion ghes > 3.1 %}ghe-config app.dependency-graph.enabled true{% else %}ghe-config app.github.dependency-graph-enabled true{% endif %}
+    {% ifversion ghes > 3.1 %}```shell
+    ghe-config app.dependency-graph.enabled true
     ```
+    {% else %}```shell
+    ghe-config app.github.dependency-graph-enabled true
+  ghe-config app.github.vulnerability-alerting-and-settings-enabled true
+    ```{% endif %}
    {% note %}
 
    **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
-1. Apply the configuration.
+2. Apply the configuration.
     ```shell
     $ ghe-config-apply
     ```
-1. Return to {% data variables.product.prodname_ghe_server %}.
+3. Return to {% data variables.product.prodname_ghe_server %}.
 {% endif %}
 
 ### Enabling {% data variables.product.prodname_dependabot_alerts %}

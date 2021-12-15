@@ -1,21 +1,21 @@
 ---
-title: GitHub を使ってみる
-shortTitle: 始めましょう！
-intro: '{% data variables.product.prodname_dotcom %} を使用してソフトウェアの構築、出荷、および保守を始める方法を学びます。 当社の製品を探索し、アカウントにサインアップして、世界最大の開発コミュニティと繋がりましょう。'
+title: Getting started with GitHub
+shortTitle: Get started
+intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.prodname_dotcom %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
 redirect_from:
-  - /categories/54/articles/
-  - /categories/bootcamp/
-  - /categories/32/articles/
-  - /categories/2/articles/
-  - /categories/organizations/
-  - /categories/about-github/
-  - /categories/53/articles/
-  - /categories/setup/
+  - /categories/54/articles
+  - /categories/bootcamp
+  - /categories/32/articles
+  - /categories/2/articles
+  - /categories/organizations
+  - /categories/about-github
+  - /categories/53/articles
+  - /categories/setup
   - /categories/getting-started-with-github
-  - /categories/19/articles/
+  - /categories/19/articles
   - /categories/using-git
   - /github/using-git
-  - /github/getting-started-with-github/
+  - /github/getting-started-with-github
 versions:
   fpt: '*'
   ghes: '*'
@@ -60,4 +60,3 @@ children:
   - /getting-started-with-git
   - /using-git
 ---
-

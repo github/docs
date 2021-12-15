@@ -1,6 +1,6 @@
 ---
-title: Criar e testar .NET
-intro: Você pode criar um fluxo de trabalho de integração contínua (CI) para criar e testar o seu projeto .NET.
+title: Building and testing .NET
+intro: You can create a continuous integration (CI) workflow to build and test your .NET project.
 redirect_from:
   - /actions/guides/building-and-testing-net
 versions:
@@ -8,32 +8,31 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Criar & test .NET
+shortTitle: Build & test .NET
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## Introdução
+## Introduction
 
-Este guia mostra como criar, testar e publicar um pacote no .NET.
+This guide shows you how to build, test, and publish a .NET package.
 
-{% ifversion ghae %} Para criar e testar o seu projeto .NET em {% data variables.product.prodname_ghe_managed %}, você deverá criar uma imagem personalizada do sistema operacional que inclui o SDK .NET Core. Para obter instruções sobre como garantir que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
-Os executores hospedados em {% else %} {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado, que inclui o SDK Core do .NET. Para uma lista completa de software atualizado e as versões pré-instaladas do .NET Core SDK, consulte [o software instalado nos executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners).
+{% ifversion ghae %} To build and test your .NET project on {% data variables.product.prodname_ghe_managed %}, the .NET Core SDK is required. {% data reusables.actions.self-hosted-runners-software %}
+{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the .NET Core SDK. For a full list of up-to-date software and the preinstalled versions of .NET Core SDK, see [software installed on {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners).
 {% endif %}
 
-## Pré-requisitos
+## Prerequisites
 
-Você já deve estar familiarizado com a sintaxe YAML e como é usado com {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
 
-Recomendamos que você tenha um entendimento básico do .NET Core SDK. Para obter mais informações, consulte [Primeiros passos com o .NET](https://dotnet.microsoft.com/learn).
+We recommend that you have a basic understanding of the .NET Core SDK. For more information, see [Getting started with .NET](https://dotnet.microsoft.com/learn).
 
-## Começando com o modelo do fluxo de trabalho do .NET
+## Starting with the .NET workflow template
 
-{% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho do .NET que deve funcionar para a maioria dos projetos .NET e este guia inclui exemplos que mostram como personalizar este modelo. Para obter mais informações, consulte o [modelo do fluxo de trabalho do .NET](https://github.com/actions/setup-dotnet).
+{% data variables.product.prodname_dotcom %} provides a .NET workflow template that should work for most .NET projects, and this guide includes examples that show you how to customize this template. For more information, see the [.NET workflow template](https://github.com/actions/setup-dotnet).
 
-Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do repositório.
+To get started quickly, add the template to the `.github/workflows` directory of your repository.
 
 {% raw %}
 ```yaml
@@ -64,13 +63,13 @@ jobs:
 ```
 {% endraw %}
 
-## Especificando uma versão do .NET
+## Specifying a .NET version
 
-Para usar uma versão pré-instalada do .NET Core SDK em um executor hospedado em {% data variables.product.prodname_dotcom %}, use a ação `setup-dotnet`. Esta ação encontra uma versão específica do .NET do cache de ferramentas em cada executor e adiciona os binários necessários para `PATH`. Estas alterações persistirão para o resto do trabalho.
+To use a preinstalled version of the .NET Core SDK on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `setup-dotnet` action. This action finds a specific version of .NET from the tools cache on each runner, and adds the necessary binaries to `PATH`. These changes will persist for the remainder of the job.
 
-A ação `setup-dotnet` é a forma recomendada de usar .NET com {% data variables.product.prodname_actions %}, porque garante um comportamento consistente em executores diferentes e versões diferentes do .NET. Se você estiver usando um executor auto-hospedado, você deverá instalar o .NET e adicioná-lo ao `PATH`. Para obter mais informações, consulte a ação [`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk).
+The `setup-dotnet` action is the recommended way of using .NET with {% data variables.product.prodname_actions %}, because it ensures consistent behavior across different runners and different versions of .NET. If you are using a self-hosted runner, you must install .NET and add it to `PATH`. For more information, see the [`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk) action.
 
-### Usar múltiplas versões do .NET
+### Using multiple .NET versions
 
 {% raw %}
 ```yaml
@@ -98,9 +97,9 @@ jobs:
 ```
 {% endraw %}
 
-### Usar uma versão específica do .NET
+### Using a specific .NET version
 
-Você pode configurar o seu trabalho para usar uma versão específica do .NET, como `3.1.3`. Como alternativa, você pode usar a sintaxe da versão semântica para obter a última versão secundária. Este exemplo usa a versão mais recente do .NET 3.
+You can configure your job to use a specific version of .NET, such as `3.1.3`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of .NET 3.
 
 {% raw %}
 ```yaml
@@ -112,9 +111,9 @@ Você pode configurar o seu trabalho para usar uma versão específica do .NET, 
 ```
 {% endraw %}
 
-## Instalar dependências
+## Installing dependencies
 
-Os executores hospedados em {% data variables.product.prodname_dotcom %} têm o gerenciador do pacote NuGet instalado. Você pode usar o dotnet CLI para instalar dependências do registro do pacote NuGet antes de criar e testar seu código. Por exemplo, o YAML abaixo instala o pacote `Newtonsoft`.
+{% data variables.product.prodname_dotcom %}-hosted runners have the NuGet package manager installed. You can use the dotnet CLI to install dependencies from the NuGet package registry before building and testing your code. For example, the YAML below installs the `Newtonsoft` package.
 
 {% raw %}
 ```yaml
@@ -131,11 +130,11 @@ steps:
 
 {% ifversion fpt or ghec %}
 
-### Memorizar dependências
+### Caching dependencies
 
-Você pode armazenar em cache dependências do NuGet usando uma chave única, o que lhe permite restaurar as dependências para futuros fluxos de trabalho com a ação [`cache`](https://github.com/marketplace/actions/cache). Por exemplo, o YAML abaixo instala o pacote `Newtonsoft`.
+You can cache NuGet dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For example, the YAML below installs the `Newtonsoft` package.
 
-Para obter mais informações, consulte "[Memorizar dependências para acelerar fluxos de trabalho](/actions/guides/caching-dependencies-to-speed-up-workflows)".
+For more information, see "[Caching dependencies to speed up workflows](/actions/guides/caching-dependencies-to-speed-up-workflows)."
 
 {% raw %}
 ```yaml
@@ -159,15 +158,15 @@ steps:
 
 {% note %}
 
-**Observação:** Dependendo do número de dependências, pode ser mais rápido para usar o armazenamento de dependências. Os projetos com muitas dependências grandes devem ver um aumento no desempenho conforme reduz o tempo necessário para fazer o download. Os projetos com menos dependências podem não ver um aumento significativo no desempenho e até mesmo ver um ligeiro diminuir devido à forma como o NuGet instala dependências armazenadas em cache. O desempenho varia de projeto para projeto.
+**Note:** Depending on the number of dependencies, it may be faster to use the dependency cache. Projects with many large dependencies should see a performance increase as it cuts down the time required for downloading. Projects with fewer dependencies may not see a significant performance increase and may even see a slight decrease due to how NuGet installs cached dependencies. The performance varies from project to project.
 
 {% endnote %}
 
 {% endif %}
 
-## Criar e testar seu código
+## Building and testing your code
 
-Você pode usar os mesmos comandos usados localmente para criar e testar seu código. Este exemplo demonstra como usar a `dotnet build` e o `dotnet test` em um trabalho:
+You can use the same commands that you use locally to build and test your code. This example demonstrates how to use `dotnet build` and `dotnet test` in a job:
 
 {% raw %}
 ```yaml
@@ -186,11 +185,11 @@ steps:
 ```
 {% endraw %}
 
-## Empacotar dados do fluxo de trabalho como artefatos
+## Packaging workflow data as artifacts
 
-Após a conclusão de um fluxo de trabalho, você poderá fazer o upload dos artefatos resultantes para análise. Por exemplo, é possível que você precise salvar os arquivos de registro, os despejos de núcleo, os resultados de teste ou capturas de tela. O exemplo a seguir demonstra como você pode usar a ação `upload-artefato` para fazer o upload de resultados de testes.
+After a workflow completes, you can upload the resulting artifacts for analysis. For example, you may need to save log files, core dumps, test results, or screenshots. The following example demonstrates how you can use the `upload-artifact` action to upload test results.
 
-Para obter mais informações, consulte "[Dados recorrentes do fluxo de trabalho que usam artefatos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
+For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
 {% raw %}
 ```yaml
@@ -226,9 +225,9 @@ jobs:
 ```
 {% endraw %}
 
-## Publicar nos registros do pacote
+## Publishing to package registries
 
-É possível configurar o seu fluxo de trabalho para publicar o pacote Dotnet em um pacote de registro quando o CI teste passa. Você pode usar segredos do repositório para armazenar quaisquer tokens ou credenciais necessárias para publicar seu binário. O exemplo a seguir cria e publica um pacote em {% data variables.product.prodname_registry %} usando `dotnet core cli`.
+You can configure your workflow to publish your Dotnet package to a package registry when your CI tests pass. You can use repository secrets to store any tokens or credentials needed to publish your binary. The following example creates and publishes a package to {% data variables.product.prodname_registry %} using `dotnet core cli`.
 
 ```yaml
 name: Upload dotnet package
@@ -239,7 +238,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

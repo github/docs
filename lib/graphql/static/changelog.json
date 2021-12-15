@@ -4,6 +4,36 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `ConvertedToDiscussionEvent` was added",
+          "Member `ConvertedToDiscussionEvent` was added to Union type `IssueTimelineItems`",
+          "Enum value 'CONVERTED_TO_DISCUSSION_EVENT` was added to enum `IssueTimelineItemsItemType'",
+          "Member `ConvertedToDiscussionEvent` was added to Union type `PullRequestTimelineItems`",
+          "Enum value 'CONVERTED_TO_DISCUSSION_EVENT` was added to enum `PullRequestTimelineItemsItemType'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Argument `filterByAssignable: Boolean` added to field `Repository.discussionCategories`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `BranchActorAllowanceActor` was added",
           "Type `BypassPullRequestAllowance` was added",
           "Type `BypassPullRequestAllowanceConnection` was added",
