@@ -36,14 +36,6 @@ env:
   BUILD_ACTIONS_RUN_LOG: https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
 
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump full context for debugging
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
   pr-metadata:
     # This is needed because the workflow we depend on
     # (see on.workflow_run.workflows) might be running from pushes on

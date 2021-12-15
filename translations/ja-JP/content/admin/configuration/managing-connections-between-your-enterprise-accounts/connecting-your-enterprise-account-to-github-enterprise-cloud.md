@@ -3,9 +3,9 @@ title: Connecting your enterprise account to GitHub Enterprise Cloud
 shortTitle: Connect enterprise accounts
 intro: 'After you enable {% data variables.product.prodname_github_connect %}, you can share specific features and workflows between {% data variables.product.product_location %} and {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
-  - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-to-github-com/
+  - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-to-github-com
   - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com
-  - /enterprise/admin/developer-workflow/connecting-github-enterprise-server-to-githubcom/
+  - /enterprise/admin/developer-workflow/connecting-github-enterprise-server-to-githubcom
   - /enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud
   - /enterprise/admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
   - /admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
