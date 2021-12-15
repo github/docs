@@ -81,6 +81,16 @@ export default async function renderPage(req, res, next) {
       context.renderedPage + req.context.graphql.prerenderedInputObjectsForCurrentVersion.html
   }
 
+  // handle special-case prerendered GraphQL mutations page
+  if (req.pagePath.endsWith('graphql/reference/mutations')) {
+    // concat the markdown source miniToc items and the prerendered miniToc items
+    context.miniTocItems = context.miniTocItems.concat(
+      req.context.graphql.prerenderedMutationsForCurrentVersion.miniToc
+    )
+    context.renderedPage =
+      context.renderedPage + req.context.graphql.prerenderedMutationsForCurrentVersion.html
+  }
+
   // Create string for <title> tag
   context.page.fullTitle = context.page.titlePlainText
 
