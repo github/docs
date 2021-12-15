@@ -1,7 +1,7 @@
 ---
-title: 管理仓库的代码扫描警报
-shortTitle: 管理警报
-intro: 从安全的角度，您可以查看、修复、忽略或删除项目代码中潜在漏洞或错误的警报。
+title: Managing code scanning alerts for your repository
+shortTitle: Manage alerts
+intro: 'From the security view, you can view, fix, dismiss, or delete alerts for potential vulnerabilities or errors in your project''s code.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
@@ -23,36 +23,35 @@ topics:
   - Alerts
   - Repositories
 ---
-
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 
-## 关于 {% data variables.product.prodname_code_scanning %} 中的警报
+## About alerts from {% data variables.product.prodname_code_scanning %}
 
-您可以设置 {% data variables.product.prodname_code_scanning %}，以使用默认 {% data variables.product.prodname_codeql %} 分析、第三方分析或多种类型的分析来检查仓库中的代码。 分析完成后，生成的警报将并排显示在仓库的安全视图中。 第三方工具或自定义查询的结果可能不包括您在 {% data variables.product.company_short %} 的默认 {% data variables.product.prodname_codeql %} 分析所检测的警报中看到的所有属性。 更多信息请参阅“[为仓库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”。
+You can set up {% data variables.product.prodname_code_scanning %} to check the code in a repository using the default {% data variables.product.prodname_codeql %} analysis, a third-party analysis, or multiple types of analysis. When the analysis is complete, the resulting alerts are displayed alongside each other in the security view of the repository. Results from third-party tools or from custom queries may not include all of the properties that you see for alerts detected by {% data variables.product.company_short %}'s default {% data variables.product.prodname_codeql %} analysis. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
-默认情况下， {% data variables.product.prodname_code_scanning %} 定期在默认分支和拉取请求中分析您的代码。 有关管理拉取请求中的警报的更多信息，请参阅“[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”。
+By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-## 关于警报详细信息
+## About alerts details
 
-每个警报都会高亮显示代码的问题以及识别该问题的工具名称。 You can see the line of code that triggered the alert, as well as properties of the alert, such as the severity{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}, security severity,{% endif %} and the nature of the problem. 警报还会告知该问题第一次被引入的时间。 对于由 {% data variables.product.prodname_codeql %} 分析确定的警报，您还会看到如何解决问题的信息。
+Each alert highlights a problem with the code and the name of the tool that identified it. You can see the line of code that triggered the alert, as well as properties of the alert, such as the severity{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, security severity,{% endif %} and the nature of the problem. Alerts also tell you when the issue was first introduced. For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
 
-![来自 {% data variables.product.prodname_code_scanning %} 的警报示例](/assets/images/help/repository/code-scanning-alert.png)
+![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
 
-如果使用 {% data variables.product.prodname_codeql %} 设置 {% data variables.product.prodname_code_scanning %}，也可以检测代码中的数据流问题。 数据流分析将查找代码中的潜在安全问题，例如：不安全地使用数据、将危险参数传递给函数以及泄漏敏感信息。
+If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, this can also detect data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
 
-当 {% data variables.product.prodname_code_scanning %} 报告数据流警报时，{% data variables.product.prodname_dotcom %} 将显示数据在代码中如何移动。 {% data variables.product.prodname_code_scanning_capc %} 可用于识别泄露敏感信息的代码区域，以及可能成为恶意用户攻击切入点的代码区域。
+When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_capc %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
 
 ### About severity levels
 
 Alert severity levels may be `Error`, `Warning`, or `Note`.
 
-By default, any code scanning results with a severity of `error` will cause check failure. {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}You can specify the severity level at which pull requests that trigger code scanning alerts should fail. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."{% endif %}
+By default, any code scanning results with a severity of `error` will cause check failure. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}You can specify the severity level at which pull requests that trigger code scanning alerts should fail. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### About security severity levels
 
 {% data variables.product.prodname_code_scanning_capc %} displays security severity levels for alerts that are generated by security queries. Security severity levels can be `Critical`, `High`, `Medium`, or `Low`.
@@ -80,48 +79,53 @@ On the alert page, you can see that the filepath is marked as library code (`Lib
 
 ![Code scanning library alert details](/assets/images/help/repository/code-scanning-library-alert-show.png)
 
-## 查看仓库的警报
+## Viewing the alerts for a repository
 
-任何对仓库有读取权限的人都可以查看拉取请求上的 {% data variables.product.prodname_code_scanning %} 注释。 更多信息请参阅“[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”。
+Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
-您需要写入权限才能在 **Security（安全）**选项卡上查看仓库所有警报的摘要。
+You need write permission to view a summary of all the alerts for a repository on the **Security** tab.
 
 By default, the code scanning alerts page is filtered to show alerts for the default branch of the repository only.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-1. Optionally, use the free text search box or the drop-down menus to filter alerts. 例如，您可以通过用于识别警报的工具进行过滤。 ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+1. Optionally, use the free text search box or the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
+   ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
 {% data reusables.code-scanning.explore-alert %}
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-   ![警报摘要](/assets/images/help/repository/code-scanning-click-alert.png)
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+   ![Summary of alerts](/assets/images/help/repository/code-scanning-click-alert.png)
 {% else %}
-   ![来自 {% data variables.product.prodname_code_scanning %} 的警报列表](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+   ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
-1. （可选）如果警报突出显示数据流的问题，请单击 **Show paths（显示路径）**以显示从数据源到使用它的接收者的路径。 ![警报上的"显示路径"链接](/assets/images/help/repository/code-scanning-show-paths.png)
-1. 来自 {% data variables.product.prodname_codeql %} 分析的警报包括对问题的描述。 单击 **Show more（显示更多）**以获取有关如何修复代码的指导。 ![警报的详细信息](/assets/images/help/repository/code-scanning-alert-details.png)
+1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
+   ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
+1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
+   ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% note %}
 
-**注意：** 对于 {% data variables.product.prodname_codeql %} 的 {% data variables.product.prodname_code_scanning %} 分析，您可以在仓库的 {% data variables.product.prodname_code_scanning %} 警报列表顶部的标头中看到有关最新运行的信息。
+**Note:** For {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_codeql %}, you can see information about the latest run in a header at the top of the list of {% data variables.product.prodname_code_scanning %} alerts for the repository. 
 
-例如，您可以看到上次扫描运行的时间，所分析的代码行数与您仓库中的代码行总数的比较， 以及生成的警报总数。 ![UI 横幅](/assets/images/help/repository/code-scanning-ui-banner.png)
+For example, you can see when the last scan ran, the number of lines of code analyzed compared to the total number of lines of code in your repository, and the total number of alerts that were generated.
+  ![UI banner](/assets/images/help/repository/code-scanning-ui-banner.png)
 
 {% endnote %}
 {% endif %}
 
 ## Filtering {% data variables.product.prodname_code_scanning %} alerts
 
-You can filter the alerts shown in the {% data variables.product.prodname_code_scanning %} alerts view. This is useful if there are many alerts as you can focus on a particular type of alert. There are some predefined filters and a range of keywords that you can use to refine the list of alerts displayed.
+You can filter the alerts shown in the {% data variables.product.prodname_code_scanning %} alerts view. This is useful if there are many alerts as you can focus on a particular type of alert. There are some predefined filters and a range of keywords that you can use to refine the list of alerts displayed. 
 
 - To use a predefined filter, click **Filters**, or a filter shown in the header of the list of alerts, and choose a filter from the drop-down list.
   {% ifversion fpt or ghes > 3.0 or ghec %}![Predefined filters](/assets/images/help/repository/code-scanning-predefined-filters.png)
   {% else %}![Predefined filters](/assets/images/enterprise/3.0/code-scanning-predefined-filters.png){% endif %}
 - To use a keyword, either type directly in the filters text box, or:
   1. Click in the filters text box to show a list of all available filter keywords.
-  2. Click the keyword you want to use and then choose a value from the drop-down list. ![Keyword filters list](/assets/images/help/repository/code-scanning-filter-keywords.png)
+  2. Click the keyword you want to use and then choose a value from the drop-down list.
+  ![Keyword filters list](/assets/images/help/repository/code-scanning-filter-keywords.png)
 
 The benefit of using keyword filters is that only values with results are shown in the drop-down lists. This makes it easy to avoid setting filters that find no results.
 
@@ -133,36 +137,37 @@ You can use the "Only alerts in application code" filter or `autofilter:true` ke
 
 {% ifversion fpt or ghes > 3.1 or ghec %}
 
-## 搜索 {% data variables.product.prodname_code_scanning %} 警报
+## Searching {% data variables.product.prodname_code_scanning %} alerts
 
-您可以搜索警报列表。 如果仓库中存在大量警报，或者您不知道警报的确切名称，这很有用。 {% data variables.product.product_name %} 可执行以下自由文本搜索：
-- 警报的名称
-- 警报描述
-- 警报详细信息（这也包括默认情况下在**显示更多**可折叠部分中隐藏的信息）
+You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
+- The name of the alert
+- The alert description
+- The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
 
- ![搜索中使用的警报信息](/assets/images/help/repository/code-scanning-free-text-search-areas.png)
+ ![The alert information used in searches](/assets/images/help/repository/code-scanning-free-text-search-areas.png)
 
-| 支持的搜索              | 语法示例                | 结果                               |
-| ------------------ | ------------------- | -------------------------------- |
-| 单字搜索               | `injection`         | 返回包含单词 `injection` 的所有警报         |
-| 多字词搜索              | `sql injection`     | 返回包含 `sql` 或 `injection` 的所有警报   |
-| 精确匹配搜索</br>（使用双引号） | `"sql injection"`   | 返回包含确切短语 `sql injection` 的所有警报   |
-| OR 搜索              | `sql OR injection`  | 返回包含 `sql` 或 `injection` 的所有警报   |
-| AND 搜索             | `sql AND injection` | 返回包含单词 `sql` 和 `injection` 的所有警报 |
+| Supported search | Syntax example | Results |
+| ---- | ---- | ---- |
+| Single word search | `injection` | Returns all the alerts containing the word `injection` |
+| Multiple word search | `sql injection` | Returns all the alerts containing `sql` or `injection` |
+| Exact match search</br>(use double quotes) |  `"sql injection"` | Returns all the alerts containing the exact phrase `sql injection` |
+| OR search | `sql OR injection` | Returns all the alerts containing `sql` or `injection` |
+| AND search | `sql AND injection` | Returns all the alerts containing both words `sql` and `injection` | 
 
 {% tip %}
 
-**提示：**
-- 多字词搜索等同于 OR 搜索。
-- AND 搜索将返回以任何顺序在警告名称、描述或详细信息中的_任意位置_找到搜索词的结果。
+**Tips:** 
+- The multiple word search is equivalent to an OR search.
+- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name, description, or details.
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. 在 **Filters（过滤器）**下拉菜单的右边，在自由文本搜索框中输入关键词以搜索。 ![自由文本搜索框](/assets/images/help/repository/code-scanning-search-alerts.png)
-2. 按 <kbd>return</kbd>。 警报列表将包含与搜索条件匹配的未处理 {% data variables.product.prodname_code_scanning %} 警报。
+1. To the right of the **Filters** drop-down menus, type the keywords to search for in the free text search box.
+  ![The free text search box](/assets/images/help/repository/code-scanning-search-alerts.png)
+2. Press <kbd>return</kbd>. The alert listing will contain the open {% data variables.product.prodname_code_scanning %} alerts matching your search criteria.
 
 {% endif %}
 
@@ -175,79 +180,80 @@ You can use the "Only alerts in application code" filter or `autofilter:true` ke
 
 {% endif %}
 
-## 修复警报
+## Fixing an alert
 
-任何对仓库具有写入权限的人都可以通过提交对代码的更正来修复警报。 如果仓库已安排对拉取请求运行 {% data variables.product.prodname_code_scanning %}，则最好通过拉取请求提交您的更正。 这将触发对更改的 {% data variables.product.prodname_code_scanning %} 分析，并测试您的修复是否会带来任何新的问题。 更多信息请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)”和“[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”。
+Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
-如果您有仓库的写入权限，您可以通过查看警报摘要并单击 **Closed（已关闭）**来查看已修复的警报。 更多信息请参阅“[查看仓库的警报](#viewing-the-alerts-for-a-repository)”。 “Closed（已关闭）”列表显示已修复的警报和用户已忽略的警报。
+If you have write permission for a repository, you can view fixed alerts by viewing the summary of alerts and clicking **Closed**. For more information, see "[Viewing the alerts for a repository](#viewing-the-alerts-for-a-repository)." The "Closed" list shows fixed alerts and alerts that users have dismissed.
 
-您可以使用{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %} 自由文本搜索或{% endif %} 过滤器显示警报子集，然后依次将所有匹配的警报标记为已关闭。
+You can use{% ifversion fpt or ghes > 3.1 or ghae or ghec %} the free text search or{% endif %} the filters to display a subset of alerts and then in turn mark all matching alerts as closed. 
 
-警报只能在一个分支中修复。 您可以在警报摘要上使用“Branch（分支）”下拉菜单检查警报是否是在特定分支中修复的。
+Alerts may be fixed in one branch but not in another. You can use the "Branch" drop-down menu, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-![按分支过滤警报](/assets/images/help/repository/code-scanning-branch-filter.png)
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+![Filtering alerts by branch](/assets/images/help/repository/code-scanning-branch-filter.png)
 {% else %}
-![按分支过滤警报](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
+![Filtering alerts by branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 {% endif %}
 
-## 忽略或删除警报
+## Dismissing or deleting alerts
 
-有两种方法可以关闭警报。 您可以修复代码中的问题，也可以忽略警报。 或者，如果您具有仓库的管理员权限，您可以删除警报。 删除警报适用于以下情况：您设置了 {% data variables.product.prodname_code_scanning %} 工具，然后决定删除它，或者您配置了 {% data variables.product.prodname_codeql %} 分析，但查询集超出您的需求，于是您从工具中删除了某些查询。 在这两种情况下，删除警报允许您清理 {% data variables.product.prodname_code_scanning %} 结果。 您可以在 **Security（安全）**选项卡中从摘要列表删除警报。
+There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert. Alternatively, if you have admin permissions for the repository, you can delete alerts. Deleting alerts is useful in situations where you have set up a {% data variables.product.prodname_code_scanning %} tool and then decided to remove it, or where you have configured {% data variables.product.prodname_codeql %} analysis with a larger set of queries than you want to continue using, and you've then removed some queries from the tool. In both cases, deleting alerts allows you to clean up your {% data variables.product.prodname_code_scanning %} results. You can delete alerts from the summary list within the **Security** tab.
 
-忽略警报是关闭您认为不需要修复的警报的一种方式。 {% data reusables.code-scanning.close-alert-examples %} 您可以从代码中的 {% data variables.product.prodname_code_scanning %} 注释忽略警报，或者从 **Security（安全）**选项卡中的摘要列表忽略警报。
+Dismissing an alert is a way of closing an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} You can dismiss alerts from {% data variables.product.prodname_code_scanning %} annotations in code, or from the summary list within the **Security** tab.
 
-当您忽略警报时：
+When you dismiss an alert:
 
-- 它在所有分支中被忽略。
-- 警报将从项目的当前警报数中删除。
-- 警报被移动到警报摘要中的“Closed（已关闭）”列表，需要时您可以在其中重新打开它。
-- 将记录您关闭警报的原因。
-- {% data variables.product.prodname_code_scanning %} 下次运行时，相同的代码将不会生成警报。
+- It's dismissed in all branches.
+- The alert is removed from the number of current alerts for your project.
+- The alert is moved to the "Closed" list in the summary of alerts, from where you can reopen it, if required.
+- The reason why you closed the alert is recorded.
+- Next time {% data variables.product.prodname_code_scanning %} runs, the same code won't generate an alert.
 
-当您删除警报时：
+When you delete an alert:
 
-- 它在所有分支中被删除。
-- 警报将从项目的当前警报数中删除。
-- 它_不会_添加到警报摘要中的“Closed（已关闭）”列表。
-- 如果生成警报的代码保持不变，并且相同的 {% data variables.product.prodname_code_scanning %} 工具在不更改任何配置的情况下再次运行，则该警报将再次显示在您的分析结果中。
+- It's deleted in all branches.
+- The alert is removed from the number of current alerts for your project.
+- It is _not_ added to the "Closed" list in the summary of alerts.
+- If the code that generated the alert stays the same, and the same {% data variables.product.prodname_code_scanning %} tool runs again without any configuration changes, the alert will be shown again in your analysis results.
 
-要忽略或删除警报：
+To dismiss or delete alerts:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. 如果您拥有仓库管理员权限，想要删除此 {% data variables.product.prodname_code_scanning %} 工具的警报，请选中部分或全部复选框，然后单击 **Delete（删除）**。
+1. If you have admin permissions for the repository, and you want to delete alerts for this {% data variables.product.prodname_code_scanning %} tool, select some or all of the check boxes and click **Delete**.
 
-   ![删除警报](/assets/images/help/repository/code-scanning-delete-alerts.png)
+   ![Deleting alerts](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
-   （可选）您可以使用{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %} 自由文本搜索或{% endif %} 过滤器显示警报子集，然后一次删除所有匹配的警报。 例如，如果您从 {% data variables.product.prodname_codeql %} 分析中删除了查询，您可以使用“Rule（规则）”过滤器仅列出该查询的警报，然后选择并删除所有这些警报。
+   Optionally, you can use{% ifversion fpt or ghes > 3.1 or ghae or ghec %} the free text search or{% endif %} the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-  ![按规则过滤警报](/assets/images/help/repository/code-scanning-filter-by-rule.png)
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+  ![Filter alerts by rule](/assets/images/help/repository/code-scanning-filter-by-rule.png)
 {% else %}
-  ![按规则过滤警报](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
+  ![Filter alerts by rule](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
 {% endif %}
 
-1. 如果要忽略警报，请务必先了解警报，以便选择正确的忽略原因。 单击要了解的警报。
+1. If you want to dismiss an alert, it's important to explore the alert first, so that you can choose the correct dismissal reason. Click the alert you'd like to explore.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-   ![从摘要列表中打开警报](/assets/images/help/repository/code-scanning-click-alert.png)
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+   ![Open an alert from the summary list](/assets/images/help/repository/code-scanning-click-alert.png)
 {% else %}
-  ![来自 {% data variables.product.prodname_code_scanning %} 的警报列表](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+  ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
-1. 查看警报，然后单击 **Dismiss（忽略）**并选择关闭警报的原因。 ![选择忽略警报的原因](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
+1. Review the alert, then click **Dismiss** and choose a reason for closing the alert.
+   ![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 
    {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
    {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-### 一次忽略多个警报
+### Dismissing multiple alerts at once
 
-如果项目有多个由于相同原因要忽略的警报，您可以从警报摘要中批量忽略它们。 通常，您需要过滤列表，然后忽略所有匹配的警报。 例如，您可能想要忽略项目中所有已标记为特定通用缺陷枚举 (CWE) 漏洞的当前警报。
+If a project has multiple alerts that you want to dismiss for the same reason, you can bulk dismiss them from the summary of alerts. Typically, you'll want to filter the list and then dismiss all of the matching alerts. For example, you might want to dismiss all of the current alerts in the project that have been tagged for a particular Common Weakness Enumeration (CWE) vulnerability.
 
-## 延伸阅读
+## Further reading
 
-- “[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”
-- “[为仓库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”
-- "[关于与 {% data variables.product.prodname_code_scanning %} 集成](/code-security/secure-coding/about-integration-with-code-scanning)"
+- "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)"
+- "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"
+- "[About integration with {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-integration-with-code-scanning)"

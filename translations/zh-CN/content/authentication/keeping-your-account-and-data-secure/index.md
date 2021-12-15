@@ -1,9 +1,9 @@
 ---
-title: 保护帐户和数据安全
+title: Keeping your account and data secure
 intro: 'To protect your personal information, you should keep both your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and any associated data secure.'
 redirect_from:
   - /articles/keeping-your-account-and-data-secure
-  - /github/authenticating-to-github/keeping-your-account-and-data-secure/
+  - /github/authenticating-to-github/keeping-your-account-and-data-secure
 versions:
   fpt: '*'
   ghes: '*'
@@ -32,6 +32,6 @@ children:
   - /githubs-ssh-key-fingerprints
   - /sudo-mode
   - /preventing-unauthorized-access
-shortTitle: 帐户安全
+shortTitle: Account security
 ---
 

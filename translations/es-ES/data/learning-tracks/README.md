@@ -6,7 +6,7 @@ Los enfoques de aprendizaje son una recolección de artículos que te ayudan a d
 
 El aprender a rastrear datos de un producto se define en dos lugares:
 
-1. Un arreglo siempre para aprender a rastrear nombres se define en la página preliminar de índice de sub-llegada.
+1. Un arreglo siempre para aprender a rastrear nombres se define en el índice de las guías de la página preliminar de llegada del producto.
 
     Por ejemplo, en `content/actions/guides/index.md`:
     ```
@@ -23,13 +23,13 @@ El aprender a rastrear datos de un producto se define en dos lugares:
 
     Por ejemplo, en `data/learning-tracks/actions.yml`, cada uno de los elementos del arreglo `learningTracks` del archivo de contenido se representa con datos adicionales tales como `title`, `description` y un arreglo de enlaces de `guides`.
 
-    Una pista de aprendizaje en este YAML **por versión** se debe designar como una pista de aprendizaje "destacada" a través de `featured_track: true`, la cual lo configurará para mostrarse en la parte superior de la página de sub-llegada del producto. Las pruebas fallaràn si falta esta propiedad.
+    Una pista de aprendizaje en este YAML **por versión** se debe designar como una pista de aprendizaje "destacada" a través de `featured_track: true`, la cual lo configurará para mostrarse en la parte superior de la página de guías del producto. Las pruebas fallaràn si falta esta propiedad.
 
     La propiedad `featured_track` puede ser un valor booleano simple (por ejemplo, `featured_track: true`) o puede ser una secuencia que incluya declaraciones de versión (por ejemplo, `featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'`). Si utilizas versionamiento, tendrás `featured_track`s múltiples por archivo YML, pero asegúrate de que solo uno se interprete en cada versión compatible actual. Las pruebas fallarán si hay más o menos de un enlace destacado para cada versión.
 
 ## Control de versiones
 
-El versionamiento para aprender pistas se procesa en l ahora interpretada de la página. El código vive en [`lib/learning-tracks.js`](lib/learning-tracks.js), al cual llama `page.render()`. `components/sublanding` interpreta las pistas de aprendizaje procesadas.
+El versionamiento para aprender pistas se procesa en l ahora interpretada de la página. El código vive en [`lib/learning-tracks.js`](lib/learning-tracks.js), al cual llama `page.render()`. Entonces, `components/guides` interpreta los rastros de aprendizaje procesados.
 
 Las condicionales líquidas **no** deben utilizarse para versionar en el archivo YAML para las guías. Solo las guías de pistas de aprendizaje que aplican a la versión actual se interpretarán automáticamente. Si no hay pistas con guías que pertenezcan a la versión actual, la sección de pistas de aprendizaje no se interpretará en lo absoluto.
 

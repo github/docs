@@ -1,6 +1,6 @@
 ---
-title: 管理组织的复刻政策
-intro: '您可以允许或阻止对组织拥有的任何私有{% ifversion fpt or ghes or ghae or ghec %} 和内部{% endif %} 仓库进行复刻。'
+title: Managing the forking policy for your organization
+intro: 'You can allow or prevent the forking of any private{% ifversion ghes or ghae or ghec %} and internal{% endif %} repositories owned by your organization.'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -14,22 +14,25 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 管理复刻策略
+shortTitle: Manage forking policy
 ---
 
-默认情况下，新的组织被配置为禁止复刻私有{% ifversion fpt or ghes or ghae or ghec %}和内部{% endif %}仓库。
+By default, new organizations are configured to disallow the forking of private{% ifversion ghes or ghec or ghae %} and internal{% endif %} repositories.
 
-如果您在组织级别上允许复刻私有{% ifversion fpt or ghes or ghae or ghec %}和内部{% endif %}仓库，则还可以配置复刻特定{% ifversion fpt or ghes or ghae or ghec %}或内部{% endif %}仓库的能力。 更多信息请参阅“[管理仓库的复刻政策](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)”。
-
-{% data reusables.organizations.internal-repos-enterprise %}
+If you allow forking of private{% ifversion ghes or ghec or ghae %} and internal{% endif %} repositories at the organization level, you can also configure the ability to fork a specific private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository. For more information, see "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}
-5. 在“Repository forking（仓库复刻）”下，选择 **Allow forking of private repositories（允许复刻私有仓库）**或 **Allow forking of private and internal repositories（允许复刻私有和内部仓库）**。 ![允许或禁止组织复刻的复选框](/assets/images/help/repository/allow-disable-forking-organization.png)
-6. 单击 **Save（保存）**。
+1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**.
 
-## 延伸阅读
+   {%- ifversion fpt %}
+   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-fpt.png)
+   {%- elsif ghes or ghec or ghae %}
+   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-organization.png)
+   {%- endif %}
+6. Click **Save**.
 
-- "[关于复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+## Further reading
+
+- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

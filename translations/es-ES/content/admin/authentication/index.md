@@ -1,5 +1,5 @@
 ---
-title: Autenticación
+title: Authentication
 intro: You can configure how users access your enterprise.
 redirect_from:
   - /enterprise/admin/authentication

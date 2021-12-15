@@ -12,7 +12,6 @@ sections:
     - Some critical services may not have been available on backend nodes in GHES Cluster.
   changes:
     - An additional outer layer of `gzip` compression when creating a cluster support bundle with `ghe-cluster-suport-bundle` is now turned off by default. This outer compression can optionally be applied with the `ghe-cluster-suport-bundle -c` command line option.
-    - Upgraded collectd to version 5.12.0.
     - We have added extra text to the admin console to remind users about the mobile apps' data collection for experience improvement purposes.
   known_issues:
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.

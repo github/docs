@@ -14,14 +14,13 @@ header:
     ghes_release_notes_upgrade_release_only: '📣 Este no es el <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">lanzamiento más reciente </a> de Enterprise Server.'
     ghes_release_notes_upgrade_patch_and_release: '📣 Este no es el <a href="#{{ latestPatch }}">lanzamiento de parche más reciente</a> de esta serie de lanzamientos, y no es el<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">último lanzamiento</a> de Enterprise Server.'
 release_notes:
-  banner_text_current: Estos cam bios se implementarán en la siguiente semana.
-  banner_text_past: Estos cambios se implementarán en las empresas durante la semana de
+  banner_text: GitHub comenzó a implementar estos cambios en empresas en
 search:
   need_help: '¿Necesitas ayuda?'
   placeholder: Busca temas, productos...
   loading: Cargando
   no_results: No se encontró ningún resultado
-  no_content: No content
+  no_content: Sin contenido
 homepage:
   explore_by_product: Explorar por producto
   version_picker: Versión
@@ -70,7 +69,7 @@ products:
       fields: Campos
       arguments: Argumentos
       name: Nombre
-      type: Type
+      type: Tipo
       description: Descripción
       input_fields: Campos de entrada
       return_fields: Campos de retorno
@@ -150,7 +149,7 @@ product_landing:
   upgrade_from: Mejorar desde
   browse_all_docs: Buscar todos los documentos
   explore_release_notes: Explorar las notas de lanzamiento
-product_sublanding:
+product_guides:
   start: Inicio
   start_path: Ruta de inicio
   learning_paths: 'Rutas de aprendizaje de {{ productMap[currentProduct].name }}'
@@ -161,7 +160,7 @@ product_sublanding:
   all_guides: 'Todas las guías de {{ productMap[currentProduct].name }}'
   filter_instructions: Filtra la lista de guías utilizando estos controles
   filters:
-    type: Type
+    type: Tipo
     topic: Tema
     all: Todas
   guides_found:

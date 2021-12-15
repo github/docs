@@ -16,6 +16,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: none
+
 env:
   FREEZE: ${{ secrets.FREEZE }}
 

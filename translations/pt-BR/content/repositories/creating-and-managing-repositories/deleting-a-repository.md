@@ -1,9 +1,9 @@
 ---
-title: Excluir um repositório
-intro: Você poderá excluir qualquer repositório ou bifurcação se for proprietário da organização ou tiver permissões de administrador para o repositório ou a bifurcação. A exclusão de um repositório bifurcado não elimina o repositório upstream.
+title: Deleting a repository
+intro: You can delete any repository or fork if you're either an organization owner or have admin permissions for the repository or fork. Deleting a forked repository does not delete the upstream repository.
 redirect_from:
-  - /delete-a-repo/
-  - /deleting-a-repo/
+  - /delete-a-repo
+  - /deleting-a-repo
   - /articles/deleting-a-repository
   - /github/administering-a-repository/deleting-a-repository
   - /github/administering-a-repository/managing-repository-settings/deleting-a-repository
@@ -15,25 +15,26 @@ versions:
 topics:
   - Repositories
 ---
+{% data reusables.organizations.owners-and-admins-can %} delete an organization repository. If **Allow members to delete or transfer repositories for this organization** has been disabled, only organization owners can delete organization repositories. {% data reusables.organizations.new-repo-permissions-more-info %}
 
-Os {% data reusables.organizations.owners-and-admins-can %} excluem um repositório da organização. Se a opção **Allow members to delete or transfer repositories for this organization** (Permitir que os integrantes excluam ou transfiram repositórios desta organização) tiver sido desabilitada, somente proprietários da organização poderão excluir repositórios da organização. {% data reusables.organizations.new-repo-permissions-more-info %}
-
-{% ifversion not ghae %}Excluir um repositório público não excluirá nenhuma bifurcação do repositório.{% endif %}
+{% ifversion not ghae %}Deleting a public repository will not delete any forks of the repository.{% endif %}
 
 {% warning %}
 
-**Avisos**:
+**Warnings**:
 
-- Excluir um repositório irá excluir **permanentemente** anexos da versão e permissões da equipe. Esta ação **não pode** ser desfeita.
-- Deleting a private or internal repository will delete all forks of the repository.
+- Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
+- Deleting a private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository will delete all forks of the repository.
 
 {% endwarning %}
 
-Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-2. Em Danger Zone (Zona de perigo), clique em **Delete this repository** (Excluir este repositório). ![Botão Repository deletion (Exclusão de repositório)](/assets/images/help/repository/repo-delete.png)
-3. **Leia os avisos**.
-4. Digite o nome do repositório que deseja excluir para verificar se está eliminando o correto. ![Etiquetagem de exclusão](/assets/images/help/repository/repo-delete-confirmation.png)
-5. Clique em **I understand the consequences, delete this repository** (Entendi as consequências; exclua este repositório).
+2. Under Danger Zone, click **Delete this repository**.
+   ![Repository deletion button](/assets/images/help/repository/repo-delete.png)
+3. **Read the warnings**.
+4. To verify that you're deleting the correct repository, type the name of the repository you want to delete.
+   ![Deletion labeling](/assets/images/help/repository/repo-delete-confirmation.png)
+5. Click **I understand the consequences, delete this repository**.

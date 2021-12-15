@@ -12,9 +12,11 @@ const platforms = [
   { id: 'linux', label: 'Linux' },
 ]
 
+// Nota bene: platform === os
+
 // Imperatively modify article content to show only the selected platform
 // find all platform-specific *block* elements and hide or show as appropriate
-// example: {% mac } block content {% mac %}
+// example: {% mac %} block content {% endmac %}
 function showPlatformSpecificContent(platform: string) {
   const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.extended-markdown'))
   markdowns

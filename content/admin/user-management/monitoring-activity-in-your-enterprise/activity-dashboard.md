@@ -2,7 +2,7 @@
 title: Activity dashboard
 intro: The Activity dashboard gives you an overview of all the activity in your enterprise.
 redirect_from:
-  - /enterprise/admin/articles/activity-dashboard/
+  - /enterprise/admin/articles/activity-dashboard
   - /enterprise/admin/installation/activity-dashboard
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard

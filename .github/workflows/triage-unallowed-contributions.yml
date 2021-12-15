@@ -24,6 +24,9 @@ on:
       - 'scripts/**'
       - 'translations/**'
 
+permissions:
+  pull-requests: write
+
 jobs:
   triage:
     if: >-
@@ -75,7 +78,6 @@ jobs:
         if: ${{ steps.filter.outputs.notAllowed }}
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const badFilesArr = [
               '.github/actions-scripts/**',
@@ -102,7 +104,7 @@ jobs:
             let workflowFailMessage = "It looks like you've modified some files that we can't accept as contributions."
 
             try {
-               createdComment = await github.issues.createComment ({
+               createdComment = await github.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.payload.number,

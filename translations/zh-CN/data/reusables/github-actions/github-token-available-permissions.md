@@ -10,6 +10,7 @@ permissions:
   issues: read|write|none
   discussions: read|write|none
   packages: read|write|none
+  pages: read|write|none
   pull-requests: read|write|none
   repository-projects: read|write|none
   security-events: read|write|none

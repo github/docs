@@ -18,11 +18,13 @@ topics:
 
 ![Diagram of jobs running on self-hosted runners](/assets/images/help/images/actions-enterprise-overview.png)
 
+{% data reusables.enterprise.upgrade-ghes-for-actions %}
+
 Before you introduce {% data variables.product.prodname_actions %} to a large enterprise, you first need to plan your adoption and make decisions about how your enterprise will use {% data variables.product.prodname_actions %} to best support your unique needs.
 
 ## Governance and compliance
 
-Your should create a plan to govern your enterprise's use of {% data variables.product.prodname_actions %} and meet your compliance obligations. 
+Your should create a plan to govern your enterprise's use of {% data variables.product.prodname_actions %} and meet your compliance obligations.
 
 Determine which actions your developers will be allowed to use. {% ifversion ghes %}First, decide whether you'll enable access to actions from outside your instance. {% data reusables.actions.access-actions-on-dotcom %} For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
 
@@ -55,8 +57,8 @@ You should plan where you'll store your secrets. We recommend storing secrets in
 In {% data variables.product.prodname_dotcom %}, you can store secrets at the repository or organization level. Secrets at the repository level can be limited to workflows in certain environments, such as production or testing. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
 ![Screenshot of a list of secrets](/assets/images/help/settings/actions-org-secrets-list.png)
-
-You should consider adding manual approval protection for sensitive environments, so that workflows must be approved before getting access to the environments' secrets. For more information, see "[Using environments for deployments](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
+{% ifversion fpt or ghes > 3.0 or ghec or ghae %}
+You should consider adding manual approval protection for sensitive environments, so that workflows must be approved before getting access to the environments' secrets. For more information, see "[Using environments for deployments](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."{% endif %}
 
 ### Security considerations for third-party actions
 
@@ -102,7 +104,11 @@ Finally, you should consider security hardening for self-hosted runners. For mor
 You must configure external blob storage for these artifacts. Decide which supported storage provider your enterprise will use. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)."
 {% endif %}
 
+{% ifversion ghec or ghes %}
+
 {% data reusables.github-actions.artifact-log-retention-statement %}
+
+{% endif %}
 
 If you want to retain logs and artifacts longer than the upper limit you can configure in {% data variables.product.product_name %}, you'll have to plan how to export and store the data.
 

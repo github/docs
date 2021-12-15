@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 import cx from 'classnames'
 import { ActionList, Heading } from '@primer/components'
 
-import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
+import { ChevronDownIcon, ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
 import { Link } from 'components/Link'
@@ -15,6 +16,7 @@ import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
 import { PlatformPicker } from 'components/article/PlatformPicker'
+import { ToolPicker } from 'components/article/ToolPicker'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -52,14 +54,16 @@ export const ArticlePage = () => {
     contributor,
     permissions,
     includesPlatformSpecificContent,
+    includesToolSpecificContent,
     product,
     miniTocItems,
     currentLearningTrack,
   } = useArticleContext()
   const { t } = useTranslation('pages')
   const currentPath = router.asPath.split('?')[0]
+  const [isActive, setActive] = useState(-1)
 
-  const renderTocItem = (item: MiniTocItem) => {
+  const renderTocItem = (item: MiniTocItem, index: number) => {
     return (
       <ActionList.Item
         as="li"
@@ -67,10 +71,20 @@ export const ArticlePage = () => {
         className={item.platform}
         sx={{ listStyle: 'none', padding: '2px' }}
       >
-        <div className={cx('lh-condensed')}>
-          <div dangerouslySetInnerHTML={{ __html: item.contents }} />
+        <div className={cx('lh-condensed d-block width-full')}>
+          <div className="d-inline-flex" dangerouslySetInnerHTML={{ __html: item.contents }} />
+          {item.items && item.items.length > 0 && (
+            <button
+              className="color-bg-default border-0 ml-1"
+              onClick={() => setActive(index === isActive ? -1 : index)}
+            >
+              {<ChevronDownIcon />}
+            </button>
+          )}
           {item.items && item.items.length > 0 ? (
-            <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
+            <ul className={index === isActive ? 'ml-3' : 'd-none'}>
+              {item.items.map(renderTocItem)}
+            </ul>
           ) : null}
         </div>
       </ActionList.Item>
@@ -111,6 +125,7 @@ export const ArticlePage = () => {
               )}
 
               {includesPlatformSpecificContent && <PlatformPicker variant="underlinenav" />}
+              {includesToolSpecificContent && <ToolPicker variant="underlinenav" />}
 
               {product && (
                 <Callout
@@ -143,7 +158,7 @@ export const ArticlePage = () => {
                       return {
                         key: title + i,
                         text: title,
-                        renderItem: () => <ul>{renderTocItem(items)}</ul>,
+                        renderItem: () => <ul>{renderTocItem(items, i)}</ul>,
                       }
                     })}
                   />
