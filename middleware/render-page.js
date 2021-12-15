@@ -2,10 +2,9 @@ import { get } from 'lodash-es'
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
 import Page from '../lib/page.js'
+import statsd from '../lib/statsd.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
-
-const pageCache = new Map()
 
 export default async function renderPage(req, res, next) {
   if (req.path.startsWith('/storybook')) {
@@ -31,45 +30,6 @@ export default async function renderPage(req, res, next) {
   // Is the request for JSON debugging info?
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
 
-  // ****** temporary caching measure for holiday spam prevention *********
-
-  const isApiPage =
-    req.context.currentPathWithoutLanguage.includes('rest/reference') ||
-    req.context.currentPathWithoutLanguage.includes('graphql/reference')
-
-  // Serve from the cache if possible
-  const isCacheable =
-    // Skip for CI
-    !process.env.CI &&
-    // Skip for tests
-    process.env.NODE_ENV !== 'test' &&
-    // Skip for HTTP methods other than GET
-    req.method === 'GET' &&
-    // Skip for JSON debugging info requests
-    !isRequestingJsonForDebugging &&
-    // Only API pages
-    isApiPage
-
-  // don't cache query strings
-  const originalUrl = req.originalUrl.split('?')[0]
-
-  if (isCacheable) {
-    // Stop processing if the connection was already dropped
-    if (isConnectionDropped(req, res)) return
-
-    const cachedHtml = pageCache.get(originalUrl)
-    if (cachedHtml) {
-      // Stop processing if the connection was already dropped
-      if (isConnectionDropped(req, res)) return
-
-      console.log(`Serving from cached version of ${originalUrl}`)
-      // statsd.increment('page.sent_from_cache')
-      return res.send(cachedHtml)
-    }
-  }
-
-  // ****** [end] temporary caching measure for holiday spam prevention *********
-
   // add page context
   const context = Object.assign({}, req.context, { page })
 
@@ -88,7 +48,10 @@ export default async function renderPage(req, res, next) {
   if (isConnectionDropped(req, res)) return
 
   // render page
-  context.renderedPage = await page.render(context)
+  const pageRenderTimed = statsd.asyncTimer(page.render, 'middleware.render_page', [
+    `path:${req.pagePath || req.path}`,
+  ])
+  context.renderedPage = await pageRenderTimed(context)
 
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return
@@ -145,12 +108,5 @@ export default async function renderPage(req, res, next) {
   // Hand rendering over to NextJS
   req.context.renderedPage = context.renderedPage
   req.context.miniTocItems = context.miniTocItems
-
-  // ****** temporary caching measure for holiday spam prevention *********
-  if (isCacheable) {
-    pageCache.set(originalUrl, req.context.renderedPage)
-  }
-  // ****** [end] temporary caching measure for holiday spam prevention *********
-
   return nextHandleRequest(req, res)
 }
