@@ -327,7 +327,7 @@ Webhook events are triggered based on the specificity of the domain you register
 Key | Type | Description
 ----|------|-------------{% ifversion fpt or ghes or ghae or ghec %}
 `action` |`string` | The action performed. Can be `created`.{% endif %}
-`deployment` |`object` | The [deployment](/rest/reference/repos#list-deployments).
+`deployment` |`object` | The [deployment](/rest/reference/deployments#list-deployments).
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -352,11 +352,11 @@ Key | Type | Description
 Key | Type | Description
 ----|------|-------------{% ifversion fpt or ghes or ghae or ghec %}
 `action` |`string` | The action performed. Can be `created`.{% endif %}
-`deployment_status` |`object` | The [deployment status](/rest/reference/repos#list-deployment-statuses).
+`deployment_status` |`object` | The [deployment status](/rest/reference/deployments#list-deployment-statuses).
 `deployment_status["state"]` |`string` | The new state. Can be `pending`, `success`, `failure`, or `error`.
 `deployment_status["target_url"]` |`string` | The optional link added to the status.
 `deployment_status["description"]`|`string` | The optional human-readable description added to the status.
-`deployment` |`object` | The [deployment](/rest/reference/repos#list-deployments) that this status is associated with.
+`deployment` |`object` | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -820,7 +820,7 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 Key | Type | Description
 ----|------|------------
 `id` | `integer` | The unique identifier of the page build.
-`build` | `object` | The [List GitHub Pages builds](/rest/reference/repos#list-github-pages-builds) itself.
+`build` | `object` | The [List GitHub Pages builds](/rest/reference/pages#list-github-pages-builds) itself.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -846,7 +846,7 @@ Key | Type | Description
 ----|------|------------
 `zen` | `string` | Random string of GitHub zen.
 `hook_id` | `integer` | The ID of the webhook that triggered the ping.
-`hook` | `object` | The [webhook configuration](/rest/reference/repos#get-a-repository-webhook).
+`hook` | `object` | The [webhook configuration](/rest/reference/webhooks#get-a-repository-webhook).
 `hook[app_id]` | `integer` | When you register a new {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} sends a ping event to the **webhook URL** you specified during registration. The event contains the `app_id`, which is required for [authenticating](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) an app.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}

@@ -1,6 +1,6 @@
 ---
-title: Sobre o suporte Premium do GitHub para o GitHub Enterprise Cloud
-intro: 'O {% data variables.contact.premium_support %} é uma oferta de suporte complementar paga para clientes do {% data variables.product.prodname_ghe_cloud %}.'
+title: About GitHub Premium Support for GitHub Enterprise Cloud
+intro: '{% data variables.contact.premium_support %} is a paid, supplemental support offering for {% data variables.product.prodname_ghe_cloud %} customers.'
 redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
@@ -9,30 +9,30 @@ versions:
   ghec: '*'
 topics:
   - Jobs
-shortTitle: Suporte do GitHub Premium
+shortTitle: GitHub Premium Support
 ---
 
 {% note %}
 
-**Notas:**
+**Notes:**
 
-- Os termos do {% data variables.contact.premium_support %} estão sujeitos a alteração sem aviso prévio e entram em vigor a partir de setembro de 2018.
+- The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of September 2018.
 
 - {% data reusables.support.data-protection-and-privacy %}
 
-- Este artigo contém os termos do {% data variables.contact.premium_support %} para os clientes do {% data variables.product.prodname_ghe_cloud %}. Os termos podem ser diferentes para clientes do {% data variables.product.prodname_ghe_server %} ou do {% data variables.product.prodname_enterprise %} que compram o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %} juntos. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)" and "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_enterprise %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)."
+- This article contains the terms of {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_cloud %} customers. The terms may be different for customers of {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_enterprise %} customers who purchase {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} together. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)" and "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_enterprise %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)."
 
 {% endnote %}
 
-## Sobre o {% data variables.contact.premium_support %}
+## About {% data variables.contact.premium_support %}
 
-O {% data variables.contact.premium_support %} oferece:
-  - Suporte gravado, em inglês, por meio do nosso portal de suporte 24 horas por dia, 7 dais por semana
-  - Suporte por telefone, em inglês, 24 horas por dias, 7 dias por semana
-  - Um Contrato de nível de serviço (SLA, Service Level Agreement) com tempos de resposta inicial garantidos
-  - Acesso a conteúdo premium
-  - Verificação de integridade agendadas
-  - Serviços gerenciados
+{% data variables.contact.premium_support %} offers:
+  - Written support, in English, through our support portal 24 hours per day, 7 days per week
+  - Phone support, in English, 24 hours per day, 7 days per week
+  - A Service Level Agreement (SLA) with guaranteed initial response times
+  - Access to premium content
+  - Scheduled health checks
+  - Managed services
 
 {% data reusables.support.about-premium-plans %}
 
@@ -42,32 +42,32 @@ O {% data variables.contact.premium_support %} oferece:
 
 {% data reusables.support.contacting-premium-support %}
 
-## Horas de operação
+## Hours of operation
 
-O {% data variables.contact.premium_support %} está disponível 24 horas por dia, 7 dias por semana.
+{% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week.
 
 {% data reusables.support.service-level-agreement-response-times %}
 
-## Atribuindo uma prioridade a um tíquete de suporte
+## Assigning a priority to a support ticket
 
-Ao entrar em contato com {% data variables.contact.premium_support %}, você pode escolher uma das quatro prioridades para o tíquete: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}.
+When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
 {% data reusables.support.ghec-premium-priorities %}
 
-## Resolução e fechamento de tíquete de suporte
+## Resolving and closing support tickets
 
-O {% data variables.contact.premium_support %} pode considerar um tíquete resolvido após fornecer uma explicação, recomendação, instruções de uso ou instruções de solução alternativa.
+{% data variables.contact.premium_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, or workaround instructions,
 
-Se você usar um plugin, módulo ou código personalizado incompatível, o {% data variables.contact.premium_support %} solicitará a remoção desse item incompatível durante a tentativa de resolução do problema. Se o problema for corrigido quando o plugin, módulo ou código personalizado incompatível for removido, o {% data variables.contact.premium_support %} poderá considerar o tíquete resolvido.
+If you use a custom or unsupported plug-in, module, or custom code, {% data variables.contact.premium_support %} may ask you to remove the unsupported plug-in, module, or code while attempting to resolve the issue. If the problem is fixed when the unsupported plug-in, module, or custom code is removed, {% data variables.contact.premium_support %} may consider the ticket solved.
 
-O {% data variables.contact.premium_support %} poderá encerrar tíquetes se estiverem fora do escopo de suporte ou se várias tentativas de entrar em contato com você não tiverem sido bem-sucedidas. Se {% data variables.contact.premium_support %} encerrar um tíquete por falta de resposta, você poderá solicitar que {% data variables.contact.premium_support %} reabra o tíquete.
+{% data variables.contact.premium_support %} may close tickets if they're outside the scope of support or if multiple attempts to contact you have gone unanswered. If {% data variables.contact.premium_support %} closes a ticket due to lack of response, you can request that {% data variables.contact.premium_support %} reopen the ticket.
 
 {% data reusables.support.receiving-credits %}
 
 {% data reusables.support.accessing-premium-content %}
 
-## Leia mais
+## Further reading
 
-- "[Enviar um tíquete](/articles/submitting-a-ticket)"
+- "[Submitting a ticket](/articles/submitting-a-ticket)"
