@@ -3,12 +3,12 @@ title: About billing for GitHub accounts
 intro: '{% data variables.product.company_short %} offers free and paid products for every developer or team.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
-  - /articles/what-is-the-total-cost-of-using-an-organization-account/
-  - /articles/what-are-the-costs-of-using-an-organization-account/
-  - /articles/what-plan-should-i-choose/
-  - /articles/do-you-have-custom-plans/
-  - /articles/user-account-billing-plans/
-  - /articles/organization-billing-plans/
+  - /articles/what-is-the-total-cost-of-using-an-organization-account
+  - /articles/what-are-the-costs-of-using-an-organization-account
+  - /articles/what-plan-should-i-choose
+  - /articles/do-you-have-custom-plans
+  - /articles/user-account-billing-plans
+  - /articles/organization-billing-plans
   - /articles/github-s-billing-plans
   - /articles/about-billing-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-billing-for-github-accounts
