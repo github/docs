@@ -1,6 +1,7 @@
 ---
 title: Filtering alerts in the security overview
 intro: 'Use filters to view specific categories of alerts'
+permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
@@ -88,11 +89,17 @@ The level of risk for a repository is determined by the number and severity of a
 
 | Qualifier | Description |
 | -------- | -------- |
-| `repository:REPOSITORY-NAME` | Displays alerts for the specified repository |
+| `repository:REPOSITORY-NAME` | Displays alerts for the specified repository. |
 
 ### Filter by secret types
 
 | Qualifier | Description |
 | -------- | -------- |
-| `secret-type:SERVICE_PROVIDER` | Displays alerts for secrets issued by the specified provider |
+| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. |
 | `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." |
+
+### Filter by provider
+
+| Qualifier | Description |
+| -------- | -------- |
+|`provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. |
