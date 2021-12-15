@@ -1,7 +1,7 @@
 ---
-title: 参考
-shortTitle: 参考
-intro: 查看参考文档以了解 GitHub REST API 中可用的资源。
+title: Reference
+shortTitle: Reference
+intro: View reference documentation to learn about the resources available in the GitHub REST API.
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,14 +14,19 @@ children:
   - /activity
   - /apps
   - /billing
+  - /branches
   - /checks
   - /codes-of-conduct
   - /code-scanning
   - /codespaces
+  - /commits
+  - /collaborators
+  - /deployments
   - /emojis
   - /enterprise-admin
   - /gists
   - /git
+  - /pages
   - /gitignore
   - /interactions
   - /issues
@@ -36,12 +41,15 @@ children:
   - /pulls
   - /rate-limit
   - /reactions
+  - /releases
   - /repos
+  - /repository-metrics
   - /scim
   - /search
   - /secret-scanning
   - /teams
   - /users
+  - /webhooks
   - /permissions-required-for-github-apps
 ---
 
