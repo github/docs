@@ -97,7 +97,7 @@ Unlike OAuth apps, GitHub Apps have targeted permissions that allow them to requ
 
 | GitHub Apps | OAuth Apps |
 | ----- | ----------- |
-| GitHub Apps ask for repository contents permission and use your installation token to authenticate via [HTTP-based Git](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation). | OAuth Apps ask for `write:public_key` scope and [Create a deploy key](/rest/reference/repos#create-a-deploy-key) via the API. You can then use that key to perform Git commands. |
+| GitHub Apps ask for repository contents permission and use your installation token to authenticate via [HTTP-based Git](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation). | OAuth Apps ask for `write:public_key` scope and [Create a deploy key](/rest/reference/deployments#create-a-deploy-key) via the API. You can then use that key to perform Git commands. |
 | The token is used as the HTTP password. | The token is used as the HTTP username. |
 
 ## Machine vs. bot accounts
