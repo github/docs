@@ -24,6 +24,6 @@ To view current and past deployments, click **Environments** on the home page of
 
 The deployments page displays the last active deployment of each environment for your repository. If the deployment includes an environment URL, a **View deployment** button that links to the URL is shown next to the deployment.
 
-The activity log shows the deployment history for your environments. By default, only the most recent deployment for an environment has an `Active` status; all previously active deployments have an `Inactive` status. For more information on automatic inactivation of deployments, see "[Inactive deployments](/rest/reference/repos#inactive-deployments)."
+The activity log shows the deployment history for your environments. By default, only the most recent deployment for an environment has an `Active` status; all previously active deployments have an `Inactive` status. For more information on automatic inactivation of deployments, see "[Inactive deployments](/rest/reference/deployments#inactive-deployments)."
 
 You can also use the REST API to get information about deployments. For more information, see "[Repositories](/rest/reference/repos#deployments)."

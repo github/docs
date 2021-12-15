@@ -2,7 +2,7 @@
 title: Using GitHub Enterprise Server with a load balancer
 intro: 'Use a load balancer in front of a single {% data variables.product.prodname_ghe_server %} appliance or a pair of appliances in a High Availability configuration.'
 redirect_from:
-  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer/
+  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer

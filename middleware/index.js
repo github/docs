@@ -111,7 +111,6 @@ export default function (app) {
     express.static('assets', {
       index: false,
       etag: false,
-      lastModified: false,
       // Can be aggressive because images inside the content get unique
       // URLs with a cache busting prefix.
       maxAge: '7 days',
@@ -122,7 +121,6 @@ export default function (app) {
     express.static('data/graphql', {
       index: false,
       etag: false,
-      lastModified: false,
       maxAge: '7 days', // A bit longer since releases are more sparse
     })
   )
