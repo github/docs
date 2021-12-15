@@ -33,7 +33,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-pr:
     # Important. This whole file is only supposed to run in the PRIVATE repo.
     if: ${{ github.repository == 'github/docs-internal' }}
 
