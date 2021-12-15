@@ -34,10 +34,12 @@ import helpToDocs from './redirects/help-to-docs.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
 import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
+import spotContentFlaws from './spot-content-flaws.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import events from './events.js'
 import search from './search.js'
+import healthz from './healthz.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
@@ -110,7 +112,6 @@ export default function (app) {
     express.static('assets', {
       index: false,
       etag: false,
-      lastModified: false,
       // Can be aggressive because images inside the content get unique
       // URLs with a cache busting prefix.
       maxAge: '7 days',
@@ -121,7 +122,6 @@ export default function (app) {
     express.static('data/graphql', {
       index: false,
       etag: false,
-      lastModified: false,
       maxAge: '7 days', // A bit longer since releases are more sparse
     })
   )
@@ -174,6 +174,7 @@ export default function (app) {
 
   // *** Config and context for rendering ***
   app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(asyncMiddleware(instrument(spotContentFlaws, './spot-content-flaws'))) // Must come after findPage
   app.use(instrument(blockRobots, './block-robots'))
 
   // Check for a dropped connection before proceeding
@@ -182,6 +183,7 @@ export default function (app) {
   // *** Rendering, 2xx responses ***
   app.use('/events', asyncMiddleware(instrument(events, './events')))
   app.use('/search', asyncMiddleware(instrument(search, './search')))
+  app.use('/healthz', asyncMiddleware(instrument(healthz, './healthz')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)

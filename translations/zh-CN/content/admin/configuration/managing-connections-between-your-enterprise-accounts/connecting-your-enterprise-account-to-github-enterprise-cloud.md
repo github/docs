@@ -3,9 +3,9 @@ title: Connecting your enterprise account to GitHub Enterprise Cloud
 shortTitle: Connect enterprise accounts
 intro: 'After you enable {% data variables.product.prodname_github_connect %}, you can share specific features and workflows between {% data variables.product.product_location %} and {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
-  - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-to-github-com/
+  - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-to-github-com
   - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com
-  - /enterprise/admin/developer-workflow/connecting-github-enterprise-server-to-githubcom/
+  - /enterprise/admin/developer-workflow/connecting-github-enterprise-server-to-githubcom
   - /enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud
   - /enterprise/admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
   - /admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
@@ -34,15 +34,19 @@ To configure a connection, your proxy configuration must allow connectivity to `
 
 After enabling {% data variables.product.prodname_github_connect %}, you will be able to enable features such as unified search and unified contributions. For more information about all of the features available, see "[Managing connections between your enterprise accounts](/admin/configuration/managing-connections-between-your-enterprise-accounts)."
 
-When you connect {% data variables.product.product_location %} to {% data variables.product.prodname_ghe_cloud %}, a record on {% data variables.product.prodname_dotcom_the_website %} stores information about the connection:
+When you connect {% data variables.product.product_location %} to {% data variables.product.prodname_ghe_cloud %}, or enable {% data variables.product.prodname_github_connect %} features, a record on {% data variables.product.prodname_dotcom_the_website %} stores information about the connection:
 {% ifversion ghes %}
 - The public key portion of your {% data variables.product.prodname_ghe_server %} license
 - A hash of your {% data variables.product.prodname_ghe_server %} license
 - The customer name on your {% data variables.product.prodname_ghe_server %} license
 - The version of {% data variables.product.product_location_enterprise %}{% endif %}
-- The hostname of your {% data variables.product.product_name %} instance
+- The hostname of {% data variables.product.product_location %}
 - The organization or enterprise account on {% data variables.product.prodname_dotcom_the_website %} that's connected to {% data variables.product.product_location %}
 - The authentication token that's used by {% data variables.product.product_location %} to make requests to {% data variables.product.prodname_dotcom_the_website %}
+- If Transport Layer Security (TLS) is enabled and configured on {% data variables.product.product_location %}{% ifversion ghes %}
+- The {% data variables.product.prodname_github_connect %} features that are enabled on {% data variables.product.product_location %}, and the date and time of enablement{% endif %}
+
+{% data variables.product.prodname_github_connect %} syncs the above connection data between {% data variables.product.product_location %} and {% data variables.product.prodname_ghe_cloud %} weekly, from the day and approximate time that {% data variables.product.prodname_github_connect %} was enabled.
 
 Enabling {% data variables.product.prodname_github_connect %} also creates a {% data variables.product.prodname_github_app %} owned by your {% data variables.product.prodname_ghe_cloud %} organization or enterprise account. {% data variables.product.product_name %} uses the {% data variables.product.prodname_github_app %}'s credentials to make requests to {% data variables.product.prodname_dotcom_the_website %}.
 {% ifversion ghes %}

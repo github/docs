@@ -2,12 +2,12 @@
 title: Configuring GitHub Pages for your enterprise
 intro: 'You can enable or disable {% data variables.product.prodname_pages %} for your enterprise{% ifversion ghes %} and choose whether to make sites publicly accessible{% endif %}.'
 redirect_from:
-  - /enterprise/admin/guides/installation/disabling-github-enterprise-pages/
-  - /enterprise/admin/guides/installation/configuring-github-enterprise-pages/
+  - /enterprise/admin/guides/installation/disabling-github-enterprise-pages
+  - /enterprise/admin/guides/installation/configuring-github-enterprise-pages
   - /enterprise/admin/installation/configuring-github-pages-on-your-appliance
   - /enterprise/admin/configuration/configuring-github-pages-on-your-appliance
   - /admin/configuration/configuring-github-pages-on-your-appliance
-  - /enterprise/admin/guides/installation/configuring-github-pages-for-your-enterprise/
+  - /enterprise/admin/guides/installation/configuring-github-pages-for-your-enterprise
   - /admin/configuration/configuring-github-pages-for-your-enterprise
 versions:
   ghes: '*'
