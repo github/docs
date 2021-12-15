@@ -13,16 +13,6 @@ on:
       - reopened
       - synchronize
 
-  # This is necessary so that the cached things can be reused between
-  # pull requests.
-  # If we don't let the workflow run on `main` the caching will only
-  # help between multiple runs of the same workflow. By letting
-  # it build on pushes to main too, the cache will be reusable
-  # in other people's PRs too.
-  push:
-    branches:
-      - main
-
 permissions:
   contents: read
 
@@ -112,8 +102,6 @@ jobs:
         run: npm set-script heroku-postbuild "echo 'Application was pre-built!'"
 
       - name: Create an archive
-        # Only bother if this is actually a pull request
-        if: ${{ github.event.pull_request.number }}
         run: |
           tar -c --file=app.tar \
             node_modules/ \
@@ -143,8 +131,6 @@ jobs:
       # We are not willing to trust the rest (e.g. script/) for the remainder
       # of the deployment process.
       - name: Upload build artifact
-        # Only bother if this is actually a pull request
-        if: ${{ github.event.pull_request.number }}
         uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074
         with:
           name: pr_build
