@@ -2,6 +2,7 @@ import { get } from 'lodash-es'
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
 import Page from '../lib/page.js'
+import statsd from '../lib/statsd.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
 
@@ -47,7 +48,10 @@ export default async function renderPage(req, res, next) {
   if (isConnectionDropped(req, res)) return
 
   // render page
-  context.renderedPage = await page.render(context)
+  const pageRenderTimed = statsd.asyncTimer(page.render, 'middleware.render_page', [
+    `path:${req.pagePath || req.path}`,
+  ])
+  context.renderedPage = await pageRenderTimed(context)
 
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return
