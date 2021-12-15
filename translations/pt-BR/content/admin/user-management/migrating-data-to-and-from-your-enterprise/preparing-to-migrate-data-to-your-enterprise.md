@@ -1,12 +1,12 @@
 ---
-title: Preparar-se para migrar dados para a sua empresa
-intro: 'Após gerar um arquivo de migração, você poderá importar os dados para a sua instância de destino do {% data variables.product.prodname_ghe_server %}. Antes de aplicar as alterações permanentemente na instância de destino, será possível revisá-las para resolver possíveis conflitos.'
+title: Preparing to migrate data to your enterprise
+intro: 'After generating a migration archive, you can import the data to your target {% data variables.product.prodname_ghe_server %} instance. You''ll be able to review changes for potential conflicts before permanently applying the changes to your target instance.'
 redirect_from:
   - /enterprise/admin/migrations/preparing-the-migrated-data-for-import-to-github-enterprise-server
   - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
   - /enterprise/admin/migrations/reviewing-migration-conflicts
   - /enterprise/admin/migrations/resolving-migration-conflicts-or-setting-up-custom-mappings
-  - /enterprise/admin/guides/migrations/preparing-the-migrated-data-for-import-to-github-enterprise/
+  - /enterprise/admin/guides/migrations/preparing-the-migrated-data-for-import-to-github-enterprise
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
   - /admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
@@ -15,12 +15,11 @@ type: how_to
 topics:
   - Enterprise
   - Migration
-shortTitle: Prepare-se para fazer a migração dos dados
+shortTitle: Prepare to migrate data
 ---
+## Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}
 
-## Preparar os dados migrados para importação para {% data variables.product.prodname_ghe_server %}
-
-1. Usando o comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp), copie o arquivo de migração gerado na organização ou instância de origem para o destino no {% data variables.product.prodname_ghe_server %}:
+1. Using the [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) command, copy the migration archive generated from your source instance or organization to your {% data variables.product.prodname_ghe_server %} target:
 
     ```shell
     $ scp -P 122 <em>/path/to/archive/MIGRATION_GUID.tar.gz</em> admin@<em>hostname</em>:/home/admin/
@@ -28,122 +27,122 @@ shortTitle: Prepare-se para fazer a migração dos dados
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
-3. Use o comando `ghe-migrator prepare` para preparar o arquivo para importação na instância de destino e gerar um novo GUID de Migração para uso nas etapas subsequentes:
+3. Use the `ghe-migrator prepare` command to prepare the archive for import on the target instance and generate a new Migration GUID for you to use in subsequent steps:
 
     ```shell
     ghe-migrator prepare /home/admin/<em>MIGRATION_GUID</em>.tar.gz
     ```
 
-    * Para começar uma nova tentativa de importação, execute o comando `ghe-migrator` novamente e obtenha um novo GUID de Migração.
+    * To start a new import attempt, run `ghe-migrator prepare` again and get a new Migration GUID.
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-## Gerar uma lista de conflitos de migração
+## Generating a list of migration conflicts
 
-1. Usando o comando `ghe-migrator conflicts` com o GUID de migração, gere um arquivo *conflicts.csv*:
+1. Using the `ghe-migrator conflicts` command with the Migration GUID, generate a *conflicts.csv* file:
     ```shell
     $ ghe-migrator conflicts -g <em>MIGRATION_GUID</em> > conflicts.csv
     ```
-    - Se nenhum conflito for relatado, você poderá importar os dados com segurança seguindo as etapas em "[Migrar dados para a sua empresa](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)".
-2. Se houver conflitos, usando o comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp), copie *conflicts.csv* para o seu computador local:
+    - If no conflicts are reported, you can safely import the data by following the steps in "[Migrating data to your enterprise](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)".
+2. If there are conflicts, using the [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) command, copy *conflicts.csv* to your local computer:
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:conflicts.csv ~/Desktop
   ```
-3. Continue em "[Resolver conflitos de migração ou configurar mapeamentos personalizados](#resolving-migration-conflicts-or-setting-up-custom-mappings)".
+3. Continue to "[Resolving migration conflicts or setting up custom mappings](#resolving-migration-conflicts-or-setting-up-custom-mappings)".
 
-## Revisar conflitos de migração
+## Reviewing migration conflicts
 
-1. Usando o editor de texto ou um [software de planilha compatível com CSV](https://en.wikipedia.org/wiki/Comma-separated_values#Application_support), abra o arquivo *conflicts.csv*.
-2. Seguindo os exemplos e tabelas de referência abaixo, revise o arquivo *conflicts.csv* para garantir a execução das ações adequadas na importação.
+1. Using a text editor or [CSV-compatible spreadsheet software](https://en.wikipedia.org/wiki/Comma-separated_values#Application_support), open *conflicts.csv*.
+2. With guidance from the examples and reference tables below, review the *conflicts.csv* file to ensure that the proper actions will be taken upon import.
 
-O arquivo *conflicts.csv* contém um *mapa de migração* de conflitos e ações recomendadas. O mapa de migração lista quais dados estão sendo migrados da origem e como eles serão aplicados ao destino.
+The *conflicts.csv* file contains a *migration map* of conflicts and recommended actions. A migration map lists out both what data is being migrated from the source, and how the data will be applied to the target.
 
-| `nome_modelo` | `url_origem`                                           | `url_destino`                                          | `ação_recomendada` |
-| ------------- | ------------------------------------------------------ | ------------------------------------------------------ | ------------------ |
-| `usuário`     | `https://exemplo-gh.source/octocat`                    | `https://exemplo-gh.target/octocat`                    | `map`              |
-| `organização` | `https://exemplo-gh.source/octo-org`                   | `https://exemplo-gh.target/octo-org`                   | `map`              |
-| `repositório` | `https://exemplo-gh.source/octo-org/widgets`           | `https://exemplo-gh.target/octo-org/widgets`           | `rename`           |
-| `equipe`      | `https://exemplo-gh.source/orgs/octo-org/teams/admins` | `https://exemplo-gh.target/orgs/octo-org/teams/admins` | `merge`            |
+| `model_name`   | `source_url`   | `target_url` | `recommended_action` |
+|--------------|--------------|------------|--------------------|
+| `user`         | `https://example-gh.source/octocat` | `https://example-gh.target/octocat` | `map` |
+| `organization` | `https://example-gh.source/octo-org` | `https://example-gh.target/octo-org` | `map` |
+| `repository`   | `https://example-gh.source/octo-org/widgets` | `https://example-gh.target/octo-org/widgets` | `rename` |
+| `team`         | `https://example-gh.source/orgs/octo-org/teams/admins` | `https://example-gh.target/orgs/octo-org/teams/admins` | `merge` |
 
-Cada linha do arquivo *conflicts.csv* mostra as seguintes informações:
+Each row in *conflicts.csv* provides the following information:
 
-| Nome               | Descrição                                                                 |
-| ------------------ | ------------------------------------------------------------------------- |
-| `nome_modelo`      | Tipo de dado que está sendo alterado.                                     |
-| `url_origem`       | URL de origem dos dados.                                                  |
-| `url_destino`      | URL esperada de destino dos dados.                                        |
-| `ação_recomendada` | Ação preferencial que o `ghe-migrator` vai executar ao importar os dados. |
+|    Name      | Description   |
+|--------------|---------------|
+| `model_name` | The type of data being changed. |
+| `source_url` | The source URL of the data. |
+| `target_url` | The expected target URL of the data.  |
+| `recommended_action` | The preferred action `ghe-migrator` will take when importing the data.  |
 
-### Mapeamentos possíveis para cada tipo de registro
+### Possible mappings for each record type
 
-O `ghe-migrator` pode executar várias ações de mapeamento diferentes quando transfere os dados:
+There are several different mapping actions that `ghe-migrator` can take when transferring data:
 
-| `Ação`          | Descrição                                                                             | Modelos aplicáveis                   |
-| --------------- | ------------------------------------------------------------------------------------- | ------------------------------------ |
-| `import`        | (padrão) Os dados da origem são importados para o destino.                            | Todos os tipos de registro           |
-| `map`           | Os dados da origem são substituídos pelos dados existentes no destino.                | Usuários, organizações, repositórios |
-| `rename`        | Os dados da origem são renomeados e copiados para o destino.                          | Usuários, organizações, repositórios |
-| `map_or_rename` | Se houver destino, mapeie para o destino. Se não houver, renomeie o modelo importado. | Usuários                             |
-| `merge`         | Os dados da origem são combinados com os dados existentes no destino.                 | Equipes                              |
+| `action`      | Description | Applicable models |
+|------------------------|-------------|-------------------|
+| `import`      | (default) Data from the source is imported to the target. | All record types
+| `map`         | Data from the source is replaced by existing data on the target. | Users, organizations, repositories
+| `rename`      | Data from the source is renamed, then copied over to the target. | Users, organizations, repositories
+| `map_or_rename` | If the target exists, map to that target. Otherwise, rename the imported model. | Users
+| `merge`       | Data from the source is combined with existing data on the target. | Teams
 
-**É altamente recomendável que você revise o arquivo *conflicts.csv* e utilize [`ghe-migror audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) para garantir que as ações adequadas estão sendo tomadas.** Se tudo estiver em ordem, você poderá continuar a "[Migrar os dados para a sua empresa](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)".
+**We strongly suggest you review the *conflicts.csv* file and use [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) to ensure that the proper actions are being taken.** If everything looks good, you can continue to "[Migrating data to your enterprise](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)".
 
 
-## Resolver conflitos de migração ou configurar mapeamentos personalizados
+## Resolving migration conflicts or setting up custom mappings
 
-Se achar que o `ghe-migrator` fará uma alteração incorreta, você poderá fazer correções alterando os dados em *conflicts.csv*. Você pode alterar qualquer linha no arquivo *conflicts.csv*.
+If you believe that `ghe-migrator` will perform an incorrect change, you can make corrections by changing the data in *conflicts.csv*. You can make changes to any of the rows in *conflicts.csv*.
 
-Por exemplo, digamos que você perceba que o usuário `octocat` da origem está sendo mapeado para `octocat` no destino:
+For example, let's say you notice that the `octocat` user from the source is being mapped to `octocat` on the target:
 
-| `nome_modelo` | `url_origem`                        | `url_destino`                       | `ação_recomendada` |
-| ------------- | ----------------------------------- | ----------------------------------- | ------------------ |
-| `usuário`     | `https://exemplo-gh.source/octocat` | `https://exemplo-gh.target/octocat` | `map`              |
+| `model_name`   | `source_url`   | `target_url` | `recommended_action` |
+|--------------|--------------|------------|--------------------|
+| `user`         | `https://example-gh.source/octocat` | `https://example-gh.target/octocat` | `map`
 
-Você pode optar por mapear o usuário para outro usuário no destino. Suponha que você saiba que `octocat` deveria ser `monalisa` no destino. É possível alterar a coluna `url_destino` no arquivo *conflicts.csv* para se referir a `monalisa`:
+You can choose to map the user to a different user on the target. Suppose you know that `octocat` should actually be `monalisa` on the target. You can change the `target_url` column in *conflicts.csv* to refer to `monalisa`:
 
-| `nome_modelo` | `url_origem`                        | `url_destino`                        | `ação_recomendada` |
-| ------------- | ----------------------------------- | ------------------------------------ | ------------------ |
-| `usuário`     | `https://exemplo-gh.source/octocat` | `https://exemplo-gh.target/monalisa` | `map`              |
+| `model_name`   | `source_url`   | `target_url` | `recommended_action` |
+|--------------|--------------|------------|--------------------|
+| `user`         | `https://example-gh.source/octocat` | `https://example-gh.target/monalisa` | `map`
 
-Em outra situação, se você quiser renomear o repositório `octo-org/widgets` como `octo-org/amazing-widgets` na instância de destino, altere `url_destino` para `octo-org/amazing-widgets` e `ação_recomendada` para `rename`:
+As another example, if you want to rename the `octo-org/widgets` repository to `octo-org/amazing-widgets` on the target instance, change the `target_url` to `octo-org/amazing-widgets` and the `recommend_action` to `rename`:
 
-| `nome_modelo` | `url_origem`                                 | `url_destino`                                        | `ação_recomendada` |
-| ------------- | -------------------------------------------- | ---------------------------------------------------- | ------------------ |
-| `repositório` | `https://exemplo-gh.source/octo-org/widgets` | `https://exemplo-gh.target/octo-org/amazing-widgets` | `rename`           |
+| `model_name`   | `source_url`   | `target_url` | `recommended_action` |
+|--------------|--------------|------------|--------------------|
+| `repository`   | `https://example-gh.source/octo-org/widgets` | `https://example-gh.target/octo-org/amazing-widgets` | `rename`   |
 
-### Adicionar mapeamentos personalizados
+### Adding custom mappings
 
-Uma situação comum durante as migrações é o cenário em que os usuários migrados têm nomes de usuários diferentes no destino e na origem.
+A common scenario during a migration is for migrated users to have different usernames on the target than they have on the source.
 
-Com uma lista de nomes de usuários da origem e uma lista de nomes de usuários do destino, você pode criar um arquivo CSV com mapeamentos personalizados e aplicá-la para garantir que o nome de usuário e o conteúdo de cada usuário sejam atribuídos corretamente no fim da migração.
+Given a list of usernames from the source and a list of usernames on the target, you can build a CSV file with custom mappings and then apply it to ensure each user's username and content is correctly attributed to them at the end of a migration.
 
-Você pode gerar um arquivo em formato CSV dos usuários que estão sendo migrados para aplicar mapeamentos personalizados usando o comando [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data):
+You can quickly generate a CSV of users being migrated in the CSV format needed to apply custom mappings by using the [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) command:
 
 ```shell
 $ ghe-migrator audit -m user -g <em>MIGRATION_GUID</em> > users.csv
 ```
 
-Agora você pode editar esse CSV, inserir a nova URL para cada usuário que pretende mapear ou renomear e atualizar a quarta coluna para aplicar `map` ou `rename`.
+Now, you can edit that CSV and enter the new URL for each user you would like to map or rename, and then update the fourth column to have `map` or `rename` as appropriate.
 
-Por exemplo, para renomear o usuário `octocat` como `monalisa` no destino `https://example-gh.target`, você deveria criar uma linha com o seguinte conteúdo:
+For example, to rename the user `octocat` to `monalisa` on the target `https://example-gh.target` you would create a row with the following content:
 
-| `nome_modelo` | `url_origem`                        | `url_destino`                        | `estado` |
-| ------------- | ----------------------------------- | ------------------------------------ | -------- |
-| `usuário`     | `https://exemplo-gh.source/octocat` | `https://exemplo-gh.target/monalisa` | `rename` |
+| `model_name`   | `source_url`   | `target_url` | `state` |
+|--------------|--------------|------------|--------------------|
+| `user`         | `https://example-gh.source/octocat` | `https://example-gh.target/monalisa` | `rename`
 
-O mesmo processo pode ser usado para criar mapeamentos em cada registro compatível com mapeamentos personalizados. Para obter mais informações, consulte a nossa [tabela com as possibilidades de mapeamento em registros](/enterprise/admin/guides/migrations/reviewing-migration-conflicts#possible-mappings-for-each-record-type).
+The same process can be used to create mappings for each record that supports custom mappings. For more information, see [our table on the possible mappings for records](/enterprise/admin/guides/migrations/reviewing-migration-conflicts#possible-mappings-for-each-record-type).
 
-### Aplicar dados de migração modificados
+### Applying modified migration data
 
-1. Depois de fazer as alterações, use o comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) para aplicar o seu *conflicts.csv* modificado (ou qualquer outro arquivo de mapeamento *.csv* no formato correto) para a instância de destino:
+1. After making changes, use the [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) command to apply your modified *conflicts.csv* (or any other mapping *.csv* file in the correct format) to the target instance:
 
     ```shell
     $ scp -P 122 ~/Desktop/conflicts.csv admin@<em>hostname</em>:/home/admin/
     ```
 
-2. Mapeie novamente os dados de migração usando o comando `mapa do ghe-migrator`, passando pelo caminho para o seu arquivo *.csv* modificado e pelo GUID de Migração:
+2. Re-map the migration data using the `ghe-migrator map` command, passing in the path to your modified *.csv* file and the Migration GUID:
 
     ```shell
     $ ghe-migrator map -i conflicts.csv  -g <em>MIGRATION_GUID</em>
     ```
 
-3. Se o comando `ghe-migrator map -i conflicts.csv  -g MIGRATION_GUID` ainda reportar conflitos, execute o processo de resolução de conflitos de migração novamente.
+3. If the `ghe-migrator map -i conflicts.csv  -g MIGRATION_GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.
