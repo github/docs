@@ -21,7 +21,7 @@ on:
     - cron: '10,40 * * * *' # every 30 minutes
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
