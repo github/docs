@@ -3,7 +3,7 @@ title: Inviting users to join your organization
 intro: 'You can invite anyone to become a member of your organization using their username or email address for {% data variables.product.product_location %}.'
 permissions: Organization owners can invite users to join an organization.
 redirect_from:
-  - /articles/adding-or-inviting-members-to-a-team-in-an-organization
+  - /articles/adding-or-inviting-members-to-a-team-in-an-organization/
   - /articles/inviting-users-to-join-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization
 versions:

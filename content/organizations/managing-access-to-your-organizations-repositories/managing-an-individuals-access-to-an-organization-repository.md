@@ -2,7 +2,7 @@
 title: Managing an individual's access to an organization repository
 intro: You can manage a person's access to a repository owned by your organization.
 redirect_from:
-  - /articles/managing-an-individual-s-access-to-an-organization-repository-early-access-program
+  - /articles/managing-an-individual-s-access-to-an-organization-repository-early-access-program/
   - /articles/managing-an-individual-s-access-to-an-organization-repository
   - /articles/managing-an-individuals-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-repository

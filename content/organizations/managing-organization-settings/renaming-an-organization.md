@@ -2,7 +2,7 @@
 title: Renaming an organization
 intro: 'If your project or company has changed names, you can update the name of your organization to match.'
 redirect_from:
-  - /articles/what-happens-when-i-change-my-organization-s-name
+  - /articles/what-happens-when-i-change-my-organization-s-name/
   - /articles/renaming-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/renaming-an-organization
 versions:

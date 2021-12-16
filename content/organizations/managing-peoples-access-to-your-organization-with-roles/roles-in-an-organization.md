@@ -2,7 +2,7 @@
 title: Roles in an organization
 intro: Organization owners can assign roles to individuals and teams giving them different sets of permissions in the organization.
 redirect_from:
-  - /articles/permission-levels-for-an-organization-early-access-program
+  - /articles/permission-levels-for-an-organization-early-access-program/
   - /articles/permission-levels-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization
   - /organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization

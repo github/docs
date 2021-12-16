@@ -2,7 +2,7 @@
 title: Migrating admin teams to improved organization permissions
 intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. Members of legacy admin teams automatically retain the ability to create repositories until those teams are migrated to the improved organization permissions model.'
 redirect_from:
-  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions
+  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions/
   - /articles/migrating-admin-teams-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/migrating-admin-teams-to-improved-organization-permissions
 versions:

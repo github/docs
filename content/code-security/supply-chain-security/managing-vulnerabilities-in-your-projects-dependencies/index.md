@@ -2,9 +2,9 @@
 title: Managing vulnerabilities in your project's dependencies
 intro: 'You can track your repository''s dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies.'
 redirect_from:
-  - /articles/updating-your-project-s-dependencies
-  - /articles/updating-your-projects-dependencies
-  - /articles/managing-security-vulnerabilities-in-your-projects-dependencies
+  - /articles/updating-your-project-s-dependencies/
+  - /articles/updating-your-projects-dependencies/
+  - /articles/managing-security-vulnerabilities-in-your-projects-dependencies/
   - /articles/managing-vulnerabilities-in-your-projects-dependencies
   - /github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies
 versions:

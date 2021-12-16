@@ -2,7 +2,7 @@
 title: Managing team access to an organization repository
 intro: 'You can give a team access to a repository, remove a team''s access to a repository, or change a team''s permission level for a repository.'
 redirect_from:
-  - /articles/managing-team-access-to-an-organization-repository-early-access-program
+  - /articles/managing-team-access-to-an-organization-repository-early-access-program/
   - /articles/managing-team-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-repository
 versions:

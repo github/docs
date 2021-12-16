@@ -1,7 +1,7 @@
 ---
 title: Changing a commit message
 redirect_from:
-  - /articles/can-i-delete-a-commit-message
+  - /articles/can-i-delete-a-commit-message/
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
   - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message

@@ -2,7 +2,7 @@
 title: Approving OAuth Apps for your organization
 intro: 'When an organization member requests {% data variables.product.prodname_oauth_app %} access to organization resources, organization owners can approve or deny the request.'
 redirect_from:
-  - /articles/approving-third-party-applications-for-your-organization
+  - /articles/approving-third-party-applications-for-your-organization/
   - /articles/approving-oauth-apps-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization
 versions:

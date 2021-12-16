@@ -2,8 +2,8 @@
 title: Converting an Owners team to improved organization permissions
 intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. The "Owner" is now an administrative role given to individual members of your organization. Members of your legacy Owners team are automatically given owner privileges.'
 redirect_from:
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program/
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions/
   - /articles/converting-an-owners-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-owners-team-to-improved-organization-permissions
 versions:

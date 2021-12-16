@@ -2,7 +2,7 @@
 title: About your organization’s news feed
 intro: You can use your organization's news feed to keep up with recent activity on repositories owned by that organization.
 redirect_from:
-  - /articles/news-feed
+  - /articles/news-feed/
   - /articles/about-your-organization-s-news-feed
   - /articles/about-your-organizations-news-feed
   - /github/setting-up-and-managing-organizations-and-teams/about-your-organizations-news-feed
