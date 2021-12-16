@@ -52,7 +52,7 @@ survey:
   optional: 任意
   required: 必須
   email_placeholder: email@example.com
-  email_label: さらに質問がある場合、ご連絡差し上げてもよいでしょうか？
+  email_label: If we can contact you with more questions, please enter your email address
   send: 送信
   feedback: ありがとうございます！フィードバックをいただきました。
   not_support: 返信が必要な場合は、サポートにお問い合わせください。
