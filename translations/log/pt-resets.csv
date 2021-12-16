@@ -410,6 +410,7 @@ translations/pt-BR/content/code-security/supply-chain-security/managing-vulnerab
 translations/pt-BR/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
+translations/pt-BR/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,rendering error
 translations/pt-BR/content/codespaces/codespaces-reference/disaster-recovery-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/index.md,rendering error
@@ -585,6 +586,7 @@ translations/pt-BR/content/graphql/guides/index.md,rendering error
 translations/pt-BR/content/graphql/guides/managing-enterprise-accounts.md,rendering error
 translations/pt-BR/content/graphql/guides/migrating-graphql-global-node-ids.md,rendering error
 translations/pt-BR/content/graphql/index.md,rendering error
+translations/pt-BR/content/graphql/reference/mutations.md,rendering error
 translations/pt-BR/content/issues/guides.md,rendering error
 translations/pt-BR/content/issues/tracking-your-work-with-issues/about-task-lists.md,rendering error
 translations/pt-BR/content/issues/tracking-your-work-with-issues/creating-an-issue.md,rendering error
