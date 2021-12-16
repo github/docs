@@ -2,7 +2,7 @@
 title: Creating a team
 intro: You can create independent or nested teams to manage repository permissions and mentions for groups of people.
 redirect_from:
-  - /articles/creating-a-team-early-access-program/
+  - /articles/creating-a-team-early-access-program
   - /articles/creating-a-team
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-team
 versions:
