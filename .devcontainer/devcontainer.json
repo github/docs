@@ -36,7 +36,7 @@
 	
 	// Test restricting low-spec machines
 	"hostRequirements": {
-		"cpus": 9,
+		"cpus": 8,
 		"memory": "8gb",
 		"storage": "32gb" 
 	}

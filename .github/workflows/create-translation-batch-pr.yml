@@ -11,7 +11,7 @@ name: Create translation Batch Pull Request
 on:
   workflow_dispatch:
   schedule:
-    - cron: '25 */6 * * *' # Every six hours
+    - cron: '02 17 * * *' # Once a day at 17:02 UTC / 9:02 PST
 
 permissions:
   contents: write
