@@ -1,10 +1,10 @@
 ---
-title: Git Large File Storage のダウングレード
-intro: '{% data variables.large_files.product_name_short %} のストレージと帯域幅を 1 月あたり 50GB 刻みでダウングレードできます。'
+title: Downgrading Git Large File Storage
+intro: 'You can downgrade storage and bandwidth for {% data variables.large_files.product_name_short %} by increments of 50 GB per month.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-git-large-file-storage
-  - /articles/downgrading-storage-and-bandwidth-for-a-personal-account/
-  - /articles/downgrading-storage-and-bandwidth-for-an-organization/
+  - /articles/downgrading-storage-and-bandwidth-for-a-personal-account
+  - /articles/downgrading-storage-and-bandwidth-for-an-organization
   - /articles/downgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/downgrading-git-large-file-storage
 versions:
@@ -16,19 +16,18 @@ topics:
   - LFS
   - Organizations
   - User account
-shortTitle: Git LFSストレージのダウングレード
+shortTitle: Downgrade Git LFS storage
 ---
+When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)."
 
-データパック数をダウングレードすると、その変更は次回の支払日から有効になります。 詳細は「[{% data variables.large_files.product_name_long %} の支払いについて](/articles/about-billing-for-git-large-file-storage)」を参照してください。
-
-## 個人アカウントのストレージと帯域幅をダウングレード
+## Downgrading storage and bandwidth for a personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-remove-data %}
 {% data reusables.large_files.downgrade_data_packs %}
 
-## Organization のストレージと帯域幅をダウングレード
+## Downgrading storage and bandwidth for an organization
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
