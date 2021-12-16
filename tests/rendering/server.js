@@ -247,6 +247,11 @@ describe('server', () => {
     // check for CORS header
     expect(res.headers['access-control-allow-origin']).toBe('*')
 
+    // Check that it can be cached at the CDN
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+
     const categories = JSON.parse(res.text)
     expect(Array.isArray(categories)).toBe(true)
     expect(categories.length).toBeGreaterThan(1)
@@ -1022,6 +1027,8 @@ describe('static routes', () => {
     // The "Surrogate-Key" header is set so we can do smart invalidation
     // in the Fastly CDN. This needs to be available for static assets too.
     expect(res.headers['surrogate-key']).toBeTruthy()
+    expect(res.headers.etag).toBeUndefined()
+    expect(res.headers['last-modified']).toBeTruthy()
   })
 
   it('rewrites /assets requests from a cache-busting prefix', async () => {
@@ -1042,6 +1049,9 @@ describe('static routes', () => {
     // Because static assets shouldn't use CSRF and thus shouldn't
     // be setting a cookie.
     expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers.etag).toBeUndefined()
+    expect(res.headers['last-modified']).toBeTruthy()
+
     expect(
       (await get(`/public/ghes-${enterpriseServerReleases.latest}/schema.docs-enterprise.graphql`))
         .statusCode

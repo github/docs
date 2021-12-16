@@ -9,6 +9,10 @@ on:
   schedule:
     - cron: '20 16 * * *' # run every day at 16:20 UTC / 8:20 PST
 
+permissions:
+  contents: write
+  pull-requests: write
+
 # **IMPORTANT:** Do not change the FREEZE environment variable set here!
 # This workflow runs on a recurring basis. To temporarily disable it (e.g.,
 # during a docs deployment freeze), add an Actions Secret to the repo settings

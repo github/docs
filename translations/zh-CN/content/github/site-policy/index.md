@@ -1,7 +1,7 @@
 ---
-title: 站点策略
+title: Site policy
 redirect_from:
-  - /categories/61/articles/
+  - /categories/61/articles
   - /categories/site-policy
 versions:
   fpt: '*'

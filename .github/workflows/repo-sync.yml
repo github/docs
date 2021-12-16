@@ -20,6 +20,10 @@ on:
   schedule:
     - cron: '10,40 * * * *' # every 30 minutes
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   close-invalid-repo-sync:
     name: Close invalid Repo Sync PRs

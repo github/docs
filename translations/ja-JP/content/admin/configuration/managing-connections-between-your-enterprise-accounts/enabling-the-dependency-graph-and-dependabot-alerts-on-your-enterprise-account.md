@@ -70,19 +70,23 @@ You can enable the dependency graph via the {% data variables.enterprise.managem
 {% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 1. In the administrative shell, enable the dependency graph on {% data variables.product.product_location %}:
-    ``` shell
-    $ {% ifversion ghes > 3.1 %}ghe-config app.dependency-graph.enabled true{% else %}ghe-config app.github.dependency-graph-enabled true{% endif %}
+    {% ifversion ghes > 3.1 %}```shell
+    ghe-config app.dependency-graph.enabled true
     ```
+    {% else %}```shell
+    ghe-config app.github.dependency-graph-enabled true
+  ghe-config app.github.vulnerability-alerting-and-settings-enabled true
+    ```{% endif %}
    {% note %}
 
    **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
-1. Apply the configuration.
+2. Apply the configuration.
     ```shell
     $ ghe-config-apply
     ```
-1. Return to {% data variables.product.prodname_ghe_server %}.
+3. Return to {% data variables.product.prodname_ghe_server %}.
 {% endif %}
 
 ### Enabling {% data variables.product.prodname_dependabot_alerts %}

@@ -1,8 +1,8 @@
 ---
 title: Using SAML
 redirect_from:
-  - /enterprise/admin/articles/configuring-saml-authentication/
-  - /enterprise/admin/articles/about-saml-authentication/
+  - /enterprise/admin/articles/configuring-saml-authentication
+  - /enterprise/admin/articles/about-saml-authentication
   - /enterprise/admin/user-management/using-saml
   - /enterprise/admin/authentication/using-saml
   - /admin/authentication/using-saml

@@ -1,74 +1,73 @@
 ---
-title: コミットメッセージの変更
+title: Changing a commit message
 redirect_from:
-  - /articles/can-i-delete-a-commit-message/
+  - /articles/can-i-delete-a-commit-message
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
   - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
-intro: 'コミットメッセージに不明確、不正確、または機密情報が含まれている場合、ローカルでメッセージを修正して、{% data variables.product.product_name %}に新しいメッセージで新しいコミットをプッシュできます。 また、コミットメッセージを変更して、不足している情報を追加することも可能です。'
+intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.product_name %}. You can also change a commit message to add missing information.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
+## Rewriting the most recent commit message
 
-## 直近のコミットメッセージの書き換え
+You can change the most recent commit message using the `git commit --amend` command.
 
-`git commit --amend` コマンドで、直近のコミットメッセージを変更できます。
+In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
 
-Git では、コミットメッセージのテキストはコミットの一部として扱われます。 コミットメッセージを変更すると、コミット ID (コミットの SHA1 チェックサム) も変更されます。 実質的には、古いコミットに代わる新しいコミットを作成することになります。
+## Commit has not been pushed online
 
-## オンラインにプッシュされていないコミット
+If the commit only exists in your local repository and has not been pushed to {% data variables.product.product_location %}, you can amend the commit message with the `git commit --amend` command.
 
-コミットがローカルリポジトリにのみ存在し、{% data variables.product.product_location %}にプッシュされていない場合、`git commit --amend` コマンドでコミットメッセージを修正できます。
-
-1. コマンドラインで、修正したいコミットのあるリポジトリに移動します。
-2. `git commit --amend` と入力し、**Enter** を押します。
-3. テキストエディタでコミットメッセージを編集し、コミットを保存します。
-    - コミットにトレーラーを追加することで、共作者を追加できます。 詳しい情報については、「[複数の作者を持つコミットを作成する](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)」を参照してください。
+1. On the command line, navigate to the repository that contains the commit you want to amend.
+2. Type `git commit --amend` and press **Enter**.
+3. In your text editor, edit the commit message, and save the commit.
+    - You can add a co-author by adding a trailer to the commit. For more information, see "[Creating a commit with multiple authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
 {% ifversion fpt or ghec %}
-    - コミットにトレーラーを追加することで、Organization の代理でコミットを作成できます。 詳しい情報については「[Organization の代理でコミットを作成](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)」を参照してください。
+    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 
-次回のプッシュ時に、{% data variables.product.product_location %}に新たなコミットとメッセージが表示されます。
+The new commit and message will appear on {% data variables.product.product_location %} the next time you push.
 
 {% tip %}
 
-Git で使うデフォルトのテキストエディタは、`core.editor` の設定で変更できます。 詳しい情報については、Git のマニュアルにある「[基本クライアント設定](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)」を参照してください。
+You can change the default text editor for Git by changing the `core.editor` setting. For more information, see "[Basic Client Configuration](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)" in the Git manual.
 
 {% endtip %}
 
-## 古いまたは複数のコミットメッセージの修正
+## Amending older or multiple commit messages
 
-すでにコミットを {% data variables.product.product_location %}にプッシュしている場合、修正済みのメッセージでコミットをフォースプッシュする必要があります。
+If you have already pushed the commit to {% data variables.product.product_location %}, you will have to force push a commit with an amended message.
 
 {% warning %}
 
-リポジトリの履歴が変更されるため、フォースプッシュは推奨されません。 フォースプッシュを行った場合、リポジトリをすでにクローンした人はローカルの履歴を手動で修正する必要があります。 詳しい情報については、Git のマニュアルにある「[上流リベースからのリカバリ](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)」を参照してください。
+We strongly discourage force pushing, since this changes the history of your repository. If you force push, people who have already cloned your repository will have to manually fix their local history. For more information, see "[Recovering from upstream rebase](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)" in the Git manual.
 
 {% endwarning %}
 
-**直近でプッシュされたコミットのメッセージを変更する**
+**Changing the message of the most recently pushed commit**
 
-1. [上記の手順](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)に従って、コミットメッセージを修正します。
+1. Follow the [steps above](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
 2. Use the `push --force-with-lease` command to force push over the old commit.
   ```shell
   $ git push --force-with-lease <em>example-branch</em>
   ```
 
-**古いまたは複数のコミットメッセージを変更する**
+**Changing the message of older or multiple commit messages**
 
-複数のコミットまたは古いコミットの、メッセージを修正する必要がある場合は、インタラクティブなリベースを利用した後にフォースプッシュして、コミットの履歴を変更できます。
+If you need to amend the message for multiple commits or an older commit, you can use interactive rebase, then force push to change the commit history.
 
-1. コマンドラインで、修正したいコミットのあるリポジトリに移動します。
-2. `git rebase -i HEAD~n` コマンドで、デフォルトのテキストエディタに直近 `n` コミットの一覧を表示できます。
+1. On the command line, navigate to the repository that contains the commit you want to amend.
+2. Use the `git rebase -i HEAD~n` command to display a list of the last `n` commits in your default text editor.
 
     ```shell
-    # 現在のブランチの最後の 3 つのコミットのリストを表示する
+    # Displays a list of the last 3 commits on the current branch
     $ git rebase -i HEAD~3
     ```
-    リストは、以下のようになります。
+    The list will look similar to the following:
 
     ```shell
     pick e499d89 Delete CNAME
@@ -93,33 +92,33 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
     #
     # Note that empty commits are commented out
     ```
-3. 変更する各コミットメッセージの前の `pick` を `reword` に置き換えます。
+3. Replace `pick` with `reword` before each commit message you want to change.
   ```shell
   pick e499d89 Delete CNAME
   reword 0c39034 Better README
   reword f7fde4a Change the commit message but push the same commit.
   ```
-4. コミット一覧のファイルを保存して閉じます。
-5. 生成された各コミットコミットファイルに、新しいコミットメッセージを入力し、ファイルを保存して閉じます。
-6. 変更を GitHub にプッシュする準備ができたら、push --force コマンドを使用して、古いコミットを強制的にプッシュします。
+4. Save and close the commit list file.
+5. In each resulting commit file, type the new commit message, save the file, and close it.
+6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
 ```shell
 $ git push --force <em>example-branch</em>
 ```
 
-インタラクティブリベースに関する詳しい情報については、Git のマニュアルにある「[インタラクティブモード](https://git-scm.com/docs/git-rebase#_interactive_mode)」を参照してください。
+For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
 
 {% tip %}
 
-この方法でも、コミットメッセージを修正すると、ID が新しい新たなコミットメッセージが作成されます。 ただしこの方法では、修正したコミットに続く各コミットも新しい ID を取得します。各コミットには、親の ID が含まれているためです。
+As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the id of its parent.
 
 {% endtip %}
 
 {% warning %}
 
-修正したコミットをフォースプッシュしても元のコミットは {% data variables.product.product_name %}から削除されない場合がありますので、元のコミットメッセージに機密情報が含まれている場合は注意してください。 古いコミットは、以降のクローンには含まれませんが、{% data variables.product.product_name %}にキャッシュされ、コミット ID でアクセスできます。 リモートリポジトリから古いコミットメッセージをパージするには、古いコミット ID を添えて {% data variables.contact.contact_support %}にお問い合わせください。
+If you have included sensitive information in a commit message, force pushing a commit with an amended commit may not remove the original commit from {% data variables.product.product_name %}. The old commit will not be a part of a subsequent clone; however, it may still be cached on {% data variables.product.product_name %} and accessible via the commit ID. You must contact {% data variables.contact.contact_support %} with the old commit ID to have it purged from the remote repository.
 
 {% endwarning %}
 
-## 参考リンク
+## Further reading
 
-* 「[コミットに署名する](/articles/signing-commits)」
+* "[Signing commits](/articles/signing-commits)"

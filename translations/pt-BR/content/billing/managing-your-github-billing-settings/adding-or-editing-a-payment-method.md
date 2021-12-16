@@ -1,20 +1,20 @@
 ---
-title: Adicionar ou editar uma forma de pagamento
-intro: Você pode adicionar uma forma de pagamento à sua conta ou atualizar a forma atual a qualquer momento.
+title: Adding or editing a payment method
+intro: You can add a payment method to your account or update your account's existing payment method at any time.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/adding-or-editing-a-payment-method
-  - /articles/updating-your-personal-account-s-payment-method/
-  - /articles/how-do-i-update-my-credit-card/
-  - /articles/updating-your-account-s-credit-card/
-  - /articles/updating-your-personal-account-s-credit-card/
-  - /articles/updating-your-personal-account-s-paypal-information/
-  - /articles/does-github-provide-invoicing/
-  - /articles/switching-payment-methods-for-your-personal-account/
-  - /articles/paying-for-your-github-organization-account/
-  - /articles/updating-your-organization-s-credit-card/
-  - /articles/updating-your-organization-s-paypal-information/
-  - /articles/updating-your-organization-s-payment-method/
-  - /articles/switching-payment-methods-for-your-organization/
+  - /articles/updating-your-personal-account-s-payment-method
+  - /articles/how-do-i-update-my-credit-card
+  - /articles/updating-your-account-s-credit-card
+  - /articles/updating-your-personal-account-s-credit-card
+  - /articles/updating-your-personal-account-s-paypal-information
+  - /articles/does-github-provide-invoicing
+  - /articles/switching-payment-methods-for-your-personal-account
+  - /articles/paying-for-your-github-organization-account
+  - /articles/updating-your-organization-s-credit-card
+  - /articles/updating-your-organization-s-paypal-information
+  - /articles/updating-your-organization-s-payment-method
+  - /articles/switching-payment-methods-for-your-organization
   - /articles/adding-or-editing-a-payment-method
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/adding-or-editing-a-payment-method
 versions:
@@ -24,29 +24,31 @@ type: how_to
 topics:
   - Organizations
   - User account
-shortTitle: Gerenciar um método de pagamento
+shortTitle: Manage a payment method
 ---
-
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
-Não fornecemos fatura nem damos suporte a ordens de compra para contas pessoais. Enviamos recibos por e-mail mensal ou anualmente na data de cobrança da sua conta. Se seu país, empresa ou contador exigir que seus recibos forneçam mais detalhes, você também pode [adicionar informações extras](/articles/adding-information-to-your-personal-account-s-receipts).
+We don't provide invoicing or support purchase orders for personal accounts. We email receipts monthly or yearly on your account's billing date. If your company, country, or accountant requires your receipts to provide more detail, you can also [add extra information](/articles/adding-information-to-your-personal-account-s-receipts) to your receipts.
 
-## Atualizar a forma de pagamento da sua conta pessoal
+## Updating your personal account's payment method
 
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. Se sua conta tiver informações de cobrança existentes que você deseja atualizar, clique em **Editar**. ![Botão de Cobrança de novo cartão](/assets/images/help/billing/billing-information-edit-button.png)
+1. If your account has existing billing information that you want to update, click **Edit**.
+![Billing New Card button](/assets/images/help/billing/billing-information-edit-button.png)
 {% data reusables.dotcom_billing.enter-billing-info %}
-1. Se sua conta tem um método de pagamento existente que você deseja atualizar, clique em **Editar**. ![Botão de Cobrança de novo cartão](/assets/images/help/billing/billing-payment-method-edit-button.png)
+1. If your account has an existing payment method that you want to update, click **Edit**.
+![Billing New Card button](/assets/images/help/billing/billing-payment-method-edit-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
-## Atualizar a forma de pagamento da sua organização
+## Updating your organization's payment method
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-Se sua organização estiver fora dos EUA ou se você estiver usando uma conta de verificação corporativa para pagar pelo {% data variables.product.product_name %}, o PayPal pode ser uma forma prática de pagamento.
+If your organization is outside of the US or if you're using a corporate checking account to pay for {% data variables.product.product_name %}, PayPal could be a helpful method of payment.
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. Se sua conta tiver um cartão de crédito existente que você deseja atualizar, clique em **Novo Cartão**. ![Botão de Cobrança de novo cartão](/assets/images/help/billing/billing-new-card-button.png)
+1. If your account has an existing credit card that you want to update, click **New Card**.
+![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}

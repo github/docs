@@ -1,10 +1,10 @@
 ---
 title: GitHub Terms of Service
 redirect_from:
-  - /tos/
-  - /terms/
-  - /terms-of-service/
-  - /github-terms-of-service-draft/
+  - /tos
+  - /terms
+  - /terms-of-service
+  - /github-terms-of-service-draft
   - /articles/github-terms-of-service
 versions:
   fpt: '*'
