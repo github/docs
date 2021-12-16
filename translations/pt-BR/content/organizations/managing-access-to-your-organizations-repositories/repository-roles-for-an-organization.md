@@ -3,7 +3,7 @@ title: Repository roles for an organization
 intro: 'You can customize access to each repository in your organization by assigning granular roles, giving people access to the features and tasks they need.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /articles/repository-permission-levels-for-an-organization-early-access-program/
+  - /articles/repository-permission-levels-for-an-organization-early-access-program
   - /articles/repository-permission-levels-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization
   - /organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization
