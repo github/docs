@@ -1,7 +1,7 @@
 ---
-title: Fazer o registro em uma conta conta do GitHub
-shortTitle: Inscreva-se para uma nova conta no GitHub
-intro: 'O {% data variables.product.company_short %} oferece contas de usuário para pessoas e organizações para que equipes de pessoas trabalhem juntas.'
+title: Signing up for a new GitHub account
+shortTitle: Sign up for a new GitHub account
+intro: '{% data variables.product.company_short %} offers user accounts for individuals and organizations for teams of people working together.'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
   - /github/getting-started-with-github/signing-up-for-a-new-github-account
@@ -13,15 +13,19 @@ topics:
   - Accounts
 ---
 
-Para obter mais informações sobre tipos de contas e produtos, consulte "[Tipos de contas do {% data variables.product.prodname_dotcom %}](/articles/types-of-github-accounts)" e "[Produtos do {% data variables.product.company_short %}](/articles/github-s-products)".
+## About new accounts on {% data variables.product.prodname_dotcom_the_website %}
+
+You can create a personal account, which serves as your identity on {% data variables.product.prodname_dotcom_the_website %}, or an organization, which allows multiple personal accounts to collaborate across multiple projects. For more information about account types, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+
+When you create a personal account or organization, you must select a billing plan for the account. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
+
+## Signing up for a new account
 
 {% data reusables.accounts.create-account %}
-1. Siga as instruções para criar a conta pessoa ou organização.
+1. Follow the prompts to create your personal account or organization.
 
-## Próximas etapas
+## Next steps
 
-- "[Verificar endereço de e-mail](/articles/verifying-your-email-address)"
-- "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)"
-- "[Adicionar uma bio ao perfil](/articles/adding-a-bio-to-your-profile)"
-- "[Criar uma organização](/articles/creating-a-new-organization-from-scratch)"
-- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) no repositório  `github/roadmap`
+- "[Verify your email address](/articles/verifying-your-email-address)"
+- "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository

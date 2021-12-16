@@ -2,7 +2,7 @@
 title: Source code migration tools
 intro: You can use external tools to move your projects to GitHub.
 redirect_from:
-  - /articles/importing-from-subversion/
+  - /articles/importing-from-subversion
   - /articles/source-code-migration-tools
   - /github/importing-your-projects-to-github/source-code-migration-tools
 versions:

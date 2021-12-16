@@ -370,7 +370,7 @@ function ShowSearchResults({
           isHeaderSearch && 'overflow-auto'
         )}
       >
-        <div className="mt-4 pb-6 width-full border-bottom">
+        <div className="mt-4 pb-4 width-full border-bottom">
           <p className={cx(styles.searchWording, 'f6 ml-4 d-inline-block')}>
             You're searching the <strong>{searchVersion}</strong> version.
           </p>

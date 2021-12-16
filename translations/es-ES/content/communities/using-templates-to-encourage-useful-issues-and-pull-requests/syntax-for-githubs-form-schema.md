@@ -1,6 +1,6 @@
 ---
-title: Sintaxis para el modelado de formato de GitHub
-intro: 'Puedes utilizar el modelado de formato de {% data variables.product.company_short %} para configurar los formatos para las características compatibles.'
+title: Syntax for GitHub's form schema
+intro: 'You can use {% data variables.product.company_short %}''s form schema to configure forms for supported features.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,17 +11,17 @@ topics:
 
 {% note %}
 
-**Nota:** El modelado de formatos de {% data variables.product.company_short %} se encuentra actualmente en beta y está sujeto a cambios.
+**Note:** {% data variables.product.company_short %}'s form schema is currently in beta and subject to change.
 
 {% endnote %}
 
-## Acerca del modelado de formatos de {% data variables.product.company_short %}
+## About {% data variables.product.company_short %}'s form schema
 
-Puedes utilizar el modelado de formato de {% data variables.product.company_short %} para configurar los formatos para las características compatibles. Para obtener más información, consulta "[Configurar plantillas de propuestas para tu repositorio](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)".
+You can use {% data variables.product.company_short %}'s form schema to configure forms for supported features. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)."
 
-Un formato es un conjunto de elemotos para solicitar la aportación de un usuario. Puedes configurar un formato si creas una definición de formato YAML, la cual es un arreglo de elementos de formato. Cada elemento de formato es un conjunto de pares de valor-llave que determinan el tipo y las propiedades del elemento y las restricciones que quieres aplicarle. Para algunas claves, el valor es otro conjunto de pares de clave-valor.
+A form is a set of elements for requesting user input. You can configure a form by creating a YAML form definition, which is an array of form elements. Each form element is a set of key-value pairs that determine the type of the element, the properties of the element, and the constraints you want to apply to the element. For some keys, the value is another set of key-value pairs.
 
-Por ejemplo, la siguente definición de formato incluye cuatro elementos de formato: un área de texto para proporcionar el sistema operativo del usuario, un menú desplegable para elegir la versión de software que está ejecutando el usuario, una casilla de verificación para reconocer que se leyó y aceptó el código de conducta y el lenguaje de marcado que agradece al usuario por haber completado el formato.
+For example, the following form definition includes four form elements: a text area for providing the user's operating system, a dropdown menu for choosing the software version the user is running, a checkbox to acknowledge the Code of Conduct, and Markdown that thanks the user for completing the form.
 
 ```yaml{:copy}
 - type: textarea
@@ -55,48 +55,48 @@ Por ejemplo, la siguente definición de formato incluye cuatro elementos de form
     value: "Thanks for completing our form!"
 ```
 
-## Claves
+## Keys
 
-Para cada elemento de formato, puedes configurar las siguientes claves.
+For each form element, you can set the following keys.
 
-| Clave         | Descripción                                                                                                                                                                                                                                                            | Requerido | Type      | Predeterminado                                  | Valores válidos                                 |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ----------------------------------------------- |
-| `type`        | El tipo de elemento que quieres definir.                                                                                                                                                                                                                               | Requerido | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul>                       |
-| `id`          | El identificador del elemento, excepto cuando el `type` se configura como `markdown`. {% data reusables.form-schema.id-must-be-unique %} Si se proporcionó, la `id` es el identificador canónico para el campo en los pre-llenados de parámetro de la consulta de URL. | Opcional  | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
-| `attributes`  | Un conjunto de pares clave-valor que definen las propiedades del elemento.                                                                                                                                                                                             | Requerido | Hash      | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
-| `validations` | Un conjunto de pares de clave-valor que configuran las restricciones en el elemento.                                                                                                                                                                                   | Opcional  | Hash      | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+| `type` | The type of element that you want to define. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
+| `id` | The identifier for the element, except when `type` is set to `markdown`. {% data reusables.form-schema.id-must-be-unique %} If provided, the `id` is the canonical identifier for the field in URL query parameter prefills. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `attributes` | A set of key-value pairs that define the properties of the element.  | Required | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `validations` | A set of key-value pairs that set constraints on the element. | Optional | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-Puedes elegir desde los siguientes tipos de elementos de formato. Cada tipo tiene atributos y validaciones únicos.
+You can choose from the following types of form elements. Each type has unique attributes and validations.
 
-| Type                        | Descripción                                                                                                                          |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [`markdown`](#markdown)     | El texto de lenguaje de marcado se muestra en el formato para proporcionar contexto adicional al usuario, pero **no se ha enviado**. |
-| [`textarea`](#textarea)     | Un campo de texto de línea múltiple.                                                                                                 |
-| [`input`](#input)           | Un campo de texto de línea sencilla.                                                                                                 |
-| [`desplegable`](#dropdown)  | Un menú desplegable.                                                                                                                 |
-| [`checkboxes`](#checkboxes) | Un conjunto de casillas de verificación.                                                                                             |
+| Type | Description |
+| ---- | ----------- |
+| [`markdown`](#markdown) | Markdown text that is displayed in the form to provide extra context to the user, but is **not submitted**. |
+| [`textarea`](#textarea) | A multi-line text field. |
+| [`input`](#input) | A single-line text field. |
+| [`dropdown`](#dropdown) | A dropdown menu. |
+| [`checkboxes`](#checkboxes) | A set of checkboxes. |
 
 ### `markdown`
 
-Puedes utilizar un elemento de `markdown` para mostrar el lenguaje de marcado en tu formato que proporcione contexto adicional al usuario, pero que no se haya emitido.
+You can use a `markdown` element to display Markdown in your form that provides extra context to the user, but is not submitted.
 
-#### Atributos
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Clave   | Descripción                                                               | Requerido | Type      | Predeterminado                                  | Valores válidos                                 |
-| ------- | ------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ----------------------------------------------- |
-| `value` | El texto se interpreta. El formateo en lenguaje de marcado es compatible. | Requerido | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+| `value` | The text that is rendered. Markdown formatting is supported. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 {% tip %}
 
-**Tips:** El procesamiento de YAML tratará el símbolo de hash como un comentario. Para insertar encabezados con lenguaje de marcado, pon tu texto entre comillas.
+**Tips:** YAML processing will treat the hash symbol as a comment. To insert Markdown headers, wrap your text in quotes.
 
-Para el texto de línea múltiple, puedes utilizar el operador de pipa.
+For multi-line text, you can use the pipe operator.
 
 {% endtip %}
 
-#### Ejemplo
+#### Example
 
 ```YAML{:copy}
 body:
@@ -110,30 +110,29 @@ body:
 
 ### `textarea`
 
-Puedes utilizar un elemento de `textarea` para agregar un texto de línea múltiple a tu formato. Los contribuyentes también pueden adjuntar archivos en los campos de `textarea`.
+You can use a `textarea` element to add a multi-line text field to your form. Contributors can also attach files in `textarea` fields.
 
-#### Atributos
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Clave         | Descripción                                                                                                                                                                                                           | Requerido | Type      | Predeterminado                                  | Valores válidos                                                                                                                                                                                                          |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `etiqueta`    | Una descripción breve de la entrada que se espera del usuario, lo cual también se muestra en el formato.                                                                                                              | Requerido | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
-| `descripción` | Una descripción del área de texto para proporcionar contexto u orientación, la cual se muestra en el formato.                                                                                                         | Opcional  | Secuencia | Secuencia vacía                                 | {% octicon "dash" aria-label="The dash icon" %}
-| `placeholder` | Un marcador de posición que interpreta en el área de texto cuando está vacía.                                                                                                                                         | Opcional  | Secuencia | Secuencia vacía                                 | {% octicon "dash" aria-label="The dash icon" %}
-| `value`       | El texto se pre-llena en el área de texto.                                                                                                                                                                            | Opcional  | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
-| `render`      | Si se proporciona un valor, el texto emitido se formatea en un bloque de código. Cuando se proporciona esta llave, el áera de texto no se expandirá para los adjuntos de archivo o la edición de lenguaje de marcado. | Opcional  | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | Los lenguajes que conoce {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta [el archivo YAML de lenguajes](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml). |
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+| `label` | A brief description of the expected user input, which is also displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the text area to provide context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `placeholder` | A semi-opaque placeholder that renders in the text area when empty. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `value` | Text that is pre-filled in the text area. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `render` | If a value is provided, submitted text will be formatted into a codeblock. When this key is provided, the text area will not expand for file attachments or Markdown editing. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | Languages known to {% data variables.product.prodname_dotcom %}. For more information, see [the languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml). |
 
-#### Validaciones
+#### Validations
 
 {% data reusables.form-schema.validations-intro %}
 
-| Clave | Descripción | Requerido | Type | Predeterminado | Valores válidos |
-| ----- | ----------- | --------- | ---- | -------------- | --------------- |
-|       |             |           |      |                |                 |
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### Ejemplo
+#### Example
 
 ```YAML{:copy}
 body:
@@ -154,29 +153,28 @@ body:
 
 ### `input`
 
-Puedes utilizar un elemento de `input` para agregar un campo de texto de línea sencilla a tu formato.
+You can use an `input` element to add a single-line text field to your form.
 
-#### Atributos
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Clave         | Descripción                                                                                              | Requerido | Type      | Predeterminado                                  | Valores válidos                                 |
-| ------------- | -------------------------------------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ----------------------------------------------- |
-| `etiqueta`    | Una descripción breve de la entrada que se espera del usuario, lo cual también se muestra en el formato. | Requerido | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
-| `descripción` | Una descripción del campo para proporcionar contexto u orientación, la cual se muestra en el formato.    | Opcional  | Secuencia | Secuencia vacía                                 | {% octicon "dash" aria-label="The dash icon" %}
-| `placeholder` | Un marcador de posición semi-transparente que interpreta en el campo cuando está vacío.                  | Opcional  | Secuencia | Secuencia vacía                                 | {% octicon "dash" aria-label="The dash icon" %}
-| `value`       | El texto se pre-llenó en el campo.                                                                       | Opcional  | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+| `label` | A brief description of the expected user input, which is also displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the field to provide context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `placeholder` | A semi-transparent placeholder that renders in the field when empty. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `value` | Text that is pre-filled in the field. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-#### Validaciones
+#### Validations
 
 {% data reusables.form-schema.validations-intro %}
 
-| Clave | Descripción | Requerido | Type | Predeterminado | Valores válidos |
-| ----- | ----------- | --------- | ---- | -------------- | --------------- |
-|       |             |           |      |                |                 |
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### Ejemplo
+#### Example
 
 ```YAML{:copy}
 body:
@@ -190,31 +188,30 @@ body:
     required: true
 ```
 
-### `desplegable`
+### `dropdown`
 
-Puedes utilizar un elemento de `dropdown` para agregar un menú desplegable en tu formato.
+You can use a `dropdown` element to add a dropdown menu in your form.
 
-#### Atributos
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Clave         | Descripción                                                                                                                | Requerido | Type                  | Predeterminado                                  | Valores válidos                                 |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------- | --------- | --------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| `etiqueta`    | Una descripción de la entrada que se espera del usuario, lo cual también se muestra en el formato.                         | Requerido | Secuencia             | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
-| `descripción` | Una descripción del menú desplegable para proporcionar contexto adicional u orientación, la cual se muestra en el formato. | Opcional  | Secuencia             | Secuencia vacía                                 | {% octicon "dash" aria-label="The dash icon" %}
-| `multiple`    | Determina si el usuario puede seleccionar más de una opción.                                                               | Opcional  | Booleano              | false                                           | {% octicon "dash" aria-label="The dash icon" %}
-| `options`     | Un arreglo de opciones que puede elegir el usuario. No puede estar vacío y todas las elecciones deben ser distintas.       | Requerido | Arreglo de secuencias | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+| `label` | A brief description of the expected user input, which is displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the dropdown to provide extra context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `multiple` | Determines if the user can select more than one option. | Optional | Boolean | false | {% octicon "dash" aria-label="The dash icon" %} |
+| `options` | An array of options the user can choose from. Cannot be empty and all choices must be distinct. | Required | String array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-#### Validaciones
+#### Validations
 
 {% data reusables.form-schema.validations-intro %}
 
-| Clave | Descripción | Requerido | Type | Predeterminado | Valores válidos |
-| ----- | ----------- | --------- | ---- | -------------- | --------------- |
-|       |             |           |      |                |                 |
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### Ejemplo
+#### Example
 
 ```YAML{:copy}
 body:
@@ -233,22 +230,22 @@ body:
 
 ### `checkboxes`
 
-Puedes utilizar el elemento de `checkboxes` para agregar un conjunto de casillas de verificación a tu formato.
+You can use the `checkboxes` element to add a set of checkboxes to your form.
 
-#### Atributos
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Clave         | Descripción                                                                                                                                       | Requerido | Type      | Predeterminado                                  | Valores válidos                                 |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ----------------------------------------------- |
-| `etiqueta`    | Una descripción de la entrada que se espera del usuario, lo cual también se muestra en el formato.                                                | Opcional  | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
-| `descripción` | Una descripción del conjunto de casillas de verificación, la cual se muestra en el formato. Es compatible con el formateo de lenguaje de marcado. | Opcional  | Secuencia | Secuencia vacía                                 | {% octicon "dash" aria-label="The dash icon" %}
-| `options`     | Un arreglo de casillas de verificación que puede seleccionar el usuario. Para conocer la sintaxis, consulta a continuación.                       | Requerido | Arreglo   | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+| `label` | A brief description of the expected user input, which is displayed in the form. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the set of checkboxes, which is displayed in the form. Supports Markdown formatting. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `options` | An array of checkboxes that the user can select. For syntax, see below. | Required | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 {% data reusables.form-schema.options-syntax %}
 {% data reusables.form-schema.required-key %}
 
-#### Ejemplo
+#### Example
 
 ```YAML{:copy}
 body:
@@ -263,6 +260,6 @@ body:
       - label: Linux
 ```
 
-## Leer más
+## Further reading
 
 - [YAML](https://yaml.org)

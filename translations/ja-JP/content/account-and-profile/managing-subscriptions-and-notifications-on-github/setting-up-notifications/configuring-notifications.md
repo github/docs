@@ -3,16 +3,16 @@ title: Configuring notifications
 intro: 'Choose the type of activity on {% data variables.product.prodname_dotcom %} that you want to receive notifications for and how you want these updates delivered.'
 redirect_from:
   - /articles/about-web-notifications
-  - /format-of-notification-emails/
-  - /articles/configuring-notification-emails/
-  - /articles/about-notification-emails/
+  - /format-of-notification-emails
+  - /articles/configuring-notification-emails
+  - /articles/about-notification-emails
   - /articles/about-email-notifications
   - /articles/accessing-your-notifications
-  - /articles/configuring-notification-delivery-methods/
-  - /articles/managing-notification-delivery-methods/
-  - /articles/managing-notification-emails-for-organizations/
+  - /articles/configuring-notification-delivery-methods
+  - /articles/managing-notification-delivery-methods
+  - /articles/managing-notification-emails-for-organizations
   - /articles/choosing-the-delivery-method-for-your-notifications
-  - /articles/choosing-the-types-of-notifications-you-receive/
+  - /articles/choosing-the-types-of-notifications-you-receive
   - /github/managing-subscriptions-and-notifications-on-github/configuring-notifications
   - /github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications
 versions:
@@ -54,7 +54,7 @@ The notifications inbox on {% data variables.product.product_location %}{% ifver
   - Group notifications in your inbox by repository or date to get a quick overview with less context switching
 
 {% ifversion fpt or ghes or ghec %}
-In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub for mobile](#managing-your-notification-settings-with-github-for-mobile)" or "[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
+In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub Mobile](#managing-your-notification-settings-with-github-mobile)" or "[GitHub Mobile](/get-started/using-github/github-mobile)."
 {% endif %}
 
 ### Benefits of using an email client for notifications
