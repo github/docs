@@ -6,9 +6,6 @@ name: 'Link Checker: Enterprise Cloud'
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
   pull_request:
 
 permissions:
