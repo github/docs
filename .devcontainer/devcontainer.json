@@ -33,4 +33,11 @@
 		 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node"
+	
+	// Test restricting low-spec machines
+	"hostRequirements": {
+		"cpus": 9,
+		"memory": "8gb",
+		"storage": "32gb" 
+	}
 }
