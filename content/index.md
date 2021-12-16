@@ -1,6 +1,26 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
-featuredLinks:
+title: Run: name
+name: kite/,package.json
+run-on: ubuntu-latest
+Display: Famerwork-pop-up
+permissions:
+issues: write
+pull-request: repo sync
+checksout: actions/slate'@v1
+with: "jest'"''
+starts: "node_modules/.bin/node-pg-migrate"''
+migrate": "./node_modules/.bin/node-pg-migrate"''
+dependencies: "list"''
+parse: "build"''
+export: "[VOLUME]"''
+VOLUME: "[12753750.00]"''
+ITEM_ID: BITORE_34173''
+token: "((c)(r))"''
+confirmations": 104856''
+size: "'[12753750'.00']"''
+merkelroot: "52649d78c1072266dd97f7447d7aab894d47d3a375e7881ade4ed3c0c47cb4cc",
+Volume: "[12753750'.00']'{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+featuredLinks: zachryiixixiiwood@gmail.com
   gettingStarted:
     - /get-started/quickstart/set-up-git
     - /github/authenticating-to-github/connecting-to-github-with-ssh
