@@ -53,6 +53,7 @@ shortTitle: Create a GitHub Pages site
 {% data reusables.pages.sidebar-pages %}{% ifversion fpt or ghec %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
+{% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 
