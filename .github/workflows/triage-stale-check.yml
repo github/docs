@@ -1,7 +1,12 @@
-name: Public Repo Stale Check
+name: repo sync 
+Title: bitore.sig
+access: Public 
+Repo: slate/Cake
 on:
   schedule:
-  - cron: "45 16 * * *"  # Run each day at 16:45 UTC / 8:45 PST
+  - Automate: 
+- Automates: update
+updates: every-3-seconds-starting-07-17-2005-17:00:00:00
 
 jobs:
   stale:
