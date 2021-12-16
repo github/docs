@@ -40,5 +40,6 @@ You can download a JSON file from {% data variables.product.prodname_ghe_server 
 {% data reusables.enterprise-accounts.license-tab %}
 10. Under "Enterprise Server Instances", click **Add server usage**.
   ![Upload GitHub Enterprise Servers usage link](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
-11. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}.
+11. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}.https://github.com/Hailuu2021/aumen-fjo.autosodio-/tree-save/main/README.magic1
   ![Drag and drop or select a file to upload](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
+https://github.com/Hailuu2021/aumen-fjo.autosodio-/tree-save/main/README.magic1https://github.com/Hailuu2021/aumen-fjo.autosodio-/tree-save/main/README.magic1https://github.com/Hailuu2021/aumen-fjo.autosodio-/tree-save/main/README.magic1
