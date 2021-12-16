@@ -2,9 +2,9 @@
 title: Providing data to GitHub Support
 intro: 'Since {% data variables.contact.github_support %} doesn''t have access to your environment, we require some additional information from you.'
 redirect_from:
-  - /enterprise/admin/guides/installation/troubleshooting
-  - /enterprise/admin/articles/support-bundles
-  - /enterprise/admin/guides/enterprise-support/providing-data-to-github-enterprise-support
+  - /enterprise/admin/guides/installation/troubleshooting/
+  - /enterprise/admin/articles/support-bundles/
+  - /enterprise/admin/guides/enterprise-support/providing-data-to-github-enterprise-support/
   - /enterprise/admin/enterprise-support/providing-data-to-github-support
   - /admin/enterprise-support/providing-data-to-github-support
 versions:

@@ -2,12 +2,12 @@
 title: Exporting migration data from your enterprise
 intro: 'To change platforms or move from a trial instance to a production instance, you can export migration data from a {% data variables.product.prodname_ghe_server %} instance by preparing the instance, locking the repositories, and generating a migration archive.'
 redirect_from:
-  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise
+  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise/
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
   - /enterprise/admin/migrations/preparing-the-github-enterprise-server-source-instance
   - /enterprise/admin/migrations/exporting-the-github-enterprise-server-source-repositories
-  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance
-  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories
+  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance/
+  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories/
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
   - /admin/user-management/exporting-migration-data-from-your-enterprise
 versions:

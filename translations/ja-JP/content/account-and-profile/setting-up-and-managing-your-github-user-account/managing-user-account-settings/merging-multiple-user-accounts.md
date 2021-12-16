@@ -20,12 +20,6 @@ shortTitle: Merge multiple user accounts
 
 {% endtip %}
 
-{% warning %}
-
-**Warning:** Organization and repository access permissions aren't transferable between accounts. If the account you want to delete has an existing access permission, an organization owner or repository administrator will need to invite the account that you want to keep.
-
-{% endwarning %}
-
 1. [Transfer any repositories](/articles/how-to-transfer-a-repository) from the account you want to delete to the account you want to keep. Issues, pull requests, and wikis are transferred as well. Verify the repositories exist on the account you want to keep.
 2. [Update the remote URLs](/github/getting-started-with-github/managing-remote-repositories) in any local clones of the repositories that were moved.
 3. [Delete the account](/articles/deleting-your-user-account) you no longer want to use.

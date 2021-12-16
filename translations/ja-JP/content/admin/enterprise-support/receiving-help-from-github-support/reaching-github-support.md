@@ -2,7 +2,7 @@
 title: Reaching GitHub Support
 intro: 'Contact {% data variables.contact.enterprise_support %} using the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
 redirect_from:
-  - /enterprise/admin/guides/enterprise-support/reaching-github-enterprise-support
+  - /enterprise/admin/guides/enterprise-support/reaching-github-enterprise-support/
   - /enterprise/admin/enterprise-support/reaching-github-support
   - /admin/enterprise-support/reaching-github-support
 versions:

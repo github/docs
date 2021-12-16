@@ -98,7 +98,7 @@ You'll need to replace `YOUR_APP_NAME` with the name of your GitHub App, `ID_OF_
 
 ### Remove any unnecessary repository hooks
 
-Once your GitHub App has been installed on a repository, you should remove any unnecessary webhooks that were created by your legacy OAuth App. If both apps are installed on a repository, they may duplicate functionality for the user. To remove webhooks, you can listen for the [`installation_repositories` webhook](/webhooks/event-payloads/#installation_repositories) with the `repositories_added` action and [Delete a repository webhook](/rest/reference/webhooks#delete-a-repository-webhook) on those repositories that were created by your OAuth App.
+Once your GitHub App has been installed on a repository, you should remove any unnecessary webhooks that were created by your legacy OAuth App. If both apps are installed on a repository, they may duplicate functionality for the user. To remove webhooks, you can listen for the [`installation_repositories` webhook](/webhooks/event-payloads/#installation_repositories) with the `repositories_added` action and [Delete a repository webhook](/rest/reference/repos#delete-a-repository-webhook) on those repositories that were created by your OAuth App.
 
 ### Encourage users to revoke access to your OAuth app
 

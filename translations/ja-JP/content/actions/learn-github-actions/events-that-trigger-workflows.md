@@ -307,7 +307,7 @@ on:
 
 ### `deployment_status`
 
-Runs your workflow anytime a third party provides a deployment status, which triggers the `deployment_status` event. Deployments created with a commit SHA may not have a Git ref. For information about the REST API, see "[Create a deployment status](/rest/reference/deployments#create-a-deployment-status)."
+Runs your workflow anytime a third party provides a deployment status, which triggers the `deployment_status` event. Deployments created with a commit SHA may not have a Git ref. For information about the REST API, see "[Create a deployment status](/rest/reference/repos#create-a-deployment-status)."
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
@@ -701,7 +701,7 @@ on:
 
 {% note %}
 
-**Note:** The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the REST API. For more information, see "[Get a commit](/rest/reference/commits#get-a-commit)".
+**Note:** The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the REST API. For more information, see "[Get a commit](/rest/reference/repos#get-a-commit)".
 
 {% endnote %}
 
