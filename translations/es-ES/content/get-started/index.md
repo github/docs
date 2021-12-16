@@ -1,21 +1,21 @@
 ---
-title: Comenzar con GitHub
-shortTitle: Empezar
-intro: 'Aprende cómo comenzar a crear, enviar y mantener software con {% data variables.product.prodname_dotcom %}. Explora nuestros productos, regístrate para una cuenta y conéctate con la comunidad de desarrollo más grande del mundo.'
+title: Getting started with GitHub
+shortTitle: Get started
+intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.prodname_dotcom %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
 redirect_from:
-  - /categories/54/articles/
-  - /categories/bootcamp/
-  - /categories/32/articles/
-  - /categories/2/articles/
-  - /categories/organizations/
-  - /categories/about-github/
-  - /categories/53/articles/
-  - /categories/setup/
+  - /categories/54/articles
+  - /categories/bootcamp
+  - /categories/32/articles
+  - /categories/2/articles
+  - /categories/organizations
+  - /categories/about-github
+  - /categories/53/articles
+  - /categories/setup
   - /categories/getting-started-with-github
-  - /categories/19/articles/
+  - /categories/19/articles
   - /categories/using-git
   - /github/using-git
-  - /github/getting-started-with-github/
+  - /github/getting-started-with-github
 versions:
   fpt: '*'
   ghes: '*'
@@ -60,4 +60,3 @@ children:
   - /getting-started-with-git
   - /using-git
 ---
-

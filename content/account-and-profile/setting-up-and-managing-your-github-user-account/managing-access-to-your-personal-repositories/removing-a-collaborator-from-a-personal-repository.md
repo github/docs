@@ -2,11 +2,11 @@
 title: Removing a collaborator from a personal repository
 intro: 'When you remove a collaborator from your project, they lose read/write access to your repository. If the repository is private and the person has created a fork, then that fork is also deleted.'
 redirect_from:
-  - /articles/how-do-i-remove-a-collaborator/
-  - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository/
-  - /articles/removing-a-collaborator-from-a-private-repository/
-  - /articles/deleting-a-private-fork-of-a-private-user-repository/
-  - /articles/how-do-i-delete-a-fork-of-my-private-repository/
+  - /articles/how-do-i-remove-a-collaborator
+  - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository
+  - /articles/removing-a-collaborator-from-a-private-repository
+  - /articles/deleting-a-private-fork-of-a-private-user-repository
+  - /articles/how-do-i-delete-a-fork-of-my-private-repository
   - /articles/removing-a-collaborator-from-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/removing-a-collaborator-from-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository

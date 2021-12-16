@@ -19,7 +19,7 @@ prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% ifversion ghes %}your GitHub Enterprise Server instance{% elsif ghae %}your enterprise{% else %}GitHub.com{% endif %}
+  {% ifversion ghes %}tu instancia de GitHub Enterprise Server{% elsif ghae %}tu empresa{% else %}GitHub.com{% endif %}
 #Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 #Do not use in other situations!
 product_location_enterprise: 'tu instancia de servidor de GitHub Enterprise'
@@ -46,8 +46,8 @@ prodname_cli: 'CLI de GitHub'
 #GitHub Desktop
 prodname_desktop: 'GitHub Desktop'
 desktop_link: 'https://desktop.github.com/'
-#GitHub for Mobile
-prodname_mobile: 'GitHub para móviles'
+#GitHub Mobile
+prodname_mobile: 'GitHub Mobile'
 prodname_ios: 'GitHub para iOS'
 prodname_android: 'GitHub para Android'
 #GitHub Pages
@@ -119,7 +119,7 @@ support_ticket_priority_high: 'Alto'
 support_ticket_priority_normal: 'Normal'
 support_ticket_priority_low: 'Bajo'
 #GitHub Professional Services
-prodname_professional_services: 'GitHub Professional Services'
+prodname_professional_services: 'Servicios Profesionales de GitHub'
 prodname_professional_services_team: 'Servicios profesionales'
 #Security features / code scanning platform / Security Lab
 prodname_security: 'GitHub Security Lab'
@@ -136,7 +136,7 @@ prodname_codeql_workflow: 'Flujo de trabajo de análisis de CodeQL'
 #Visual Studio
 prodname_vs: 'Visual Studio'
 prodname_vscode: 'Visual Studio Code'
-prodname_vss_ghe: 'Visual Studio subscriptions with GitHub Enterprise'
+prodname_vss_ghe: 'Suscripciones a Visual Studio con GitHub Enterprise'
 prodname_vss_admin_portal_with_url: 'el [portal de admnistrador para las suscripciones de Visual Studio](https://visualstudio.microsoft.com/subscriptions-administration/)'
 prodname_vscode_command_palette: 'VS Code Command Palette'
 #GitHub Dependabot

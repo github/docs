@@ -65,7 +65,7 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    analyze:{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
       permissions:
         security-events: write
         actions: read{% endif %}
@@ -123,7 +123,7 @@ If your workflow fails with an error `No source code was seen during the build` 
 
 For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)." 
 
-{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1  or ghae or ghec %}
 ## Lines of code scanned are lower than expected
 
 For compiled languages like C/C++, C#, Go, and Java, {% data variables.product.prodname_codeql %} only scans files that are built during the analysis. Therefore the number of lines of code scanned will be lower than expected if some of the source code isn't compiled correctly. This can happen for several reasons:

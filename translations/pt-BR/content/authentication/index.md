@@ -1,18 +1,18 @@
 ---
-title: Autenticação
-intro: 'Mantenha sua conta e dados seguros com as funcionalidades como {% ifversion not ghae %}autenticação de dois fatores, {% endif %}SSH{% ifversion not ghae %},{% endif %} e verificação de assinatura de commit.'
+title: Authentication
+intro: 'Keep your account and data secure with features like {% ifversion not ghae %}two-factor authentication, {% endif %}SSH{% ifversion not ghae %},{% endif %} and commit signature verification.'
 redirect_from:
-  - /categories/56/articles/
-  - /categories/ssh/
-  - /mac-verify-ssh/
-  - /ssh-issues/
-  - /verify-ssh-redirect/
-  - /win-verify-ssh/
-  - /categories/92/articles/
-  - /categories/gpg/
-  - /categories/security/
+  - /categories/56/articles
+  - /categories/ssh
+  - /mac-verify-ssh
+  - /ssh-issues
+  - /verify-ssh-redirect
+  - /win-verify-ssh
+  - /categories/92/articles
+  - /categories/gpg
+  - /categories/security
   - /categories/authenticating-to-github
-  - /github/authenticating-to-github/
+  - /github/authenticating-to-github
 versions:
   fpt: '*'
   ghes: '*'

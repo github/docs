@@ -34,7 +34,7 @@ The repository owner has full control of the repository. In addition to the acti
 | :- | :- |
 | {% ifversion fpt or ghec %}Invite collaborators{% else %}Add collaborators{% endif %} | "[Inviting collaborators to a personal repository](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)" |
 | Change the visibility of the repository | "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)" |{% ifversion fpt or ghec %}
-| Limit interactions with the repository | "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)" |{% endif %}{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+| Limit interactions with the repository | "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)" |{% endif %}{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 | Rename a branch, including the default branch | "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)" |{% endif %}
 | Merge a pull request on a protected branch, even if there are no approving reviews | "[About protected branches](/github/administering-a-repository/about-protected-branches)" |
 | Delete the repository | "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)" |
@@ -45,7 +45,7 @@ The repository owner has full control of the repository. In addition to the acti
 | Delete packages | "[Deleting packages](/packages/learn-github-packages/deleting-a-package)" |{% endif %}
 | Customize the repository's social media preview | "[Customizing your repository's social media preview](/github/administering-a-repository/customizing-your-repositorys-social-media-preview)" |
 | Create a template from the repository | "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)" |{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-| Control access to {% data variables.product.prodname_dependabot_alerts %} alerts for vulnerable dependencies | "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" |{% endif %}{% ifversion fpt or ghec %}
+| Control access to {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies | "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" |{% endif %}{% ifversion fpt or ghec %}
 | Dismiss {% data variables.product.prodname_dependabot_alerts %} in the repository | "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)" |
 | Manage data use for a private repository | "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)"|{% endif %}
 | Define code owners for the repository | "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)" |
@@ -68,7 +68,7 @@ Collaborators can also perform the following actions.
 
 | Action | More information |
 | :- | :- |
-| Fork the repository | "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)" |{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+| Fork the repository | "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)" |{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 | Rename a branch other than the default branch | "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)" |{% endif %}
 | Create, edit, and delete comments on commits, pull requests, and issues in the repository | <ul><li>"[About issues](/github/managing-your-work-on-github/about-issues)"</li><li>"[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"</li><li>"[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"</li></ul> |
 | Create, assign, close, and re-open issues in the repository | "[Managing your work with issues](/github/managing-your-work-on-github/managing-your-work-with-issues)" |

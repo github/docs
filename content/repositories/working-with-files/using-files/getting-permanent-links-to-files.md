@@ -2,8 +2,8 @@
 title: Getting permanent links to files
 intro: 'When viewing a file on {% data variables.product.product_location %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
 redirect_from:
-  - /articles/getting-a-permanent-link-to-a-file/
-  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
+  - /articles/getting-a-permanent-link-to-a-file
+  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
   - /articles/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/managing-files-on-github/getting-permanent-links-to-files

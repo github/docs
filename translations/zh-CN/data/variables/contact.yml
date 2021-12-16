@@ -10,7 +10,7 @@ contact_dmca: >-
   {% ifversion fpt or ghec %}[版权声明表](https://github.com/contact/dmca){% endif %}
 contact_privacy: >-
   {% ifversion fpt or ghec %}[隐私联系表](https://github.com/contact/privacy){% endif %}
-contact_enterprise_sales: "[GitHub' 销售团队](https://enterprise.github.com/contact)"
+contact_enterprise_sales: "[GitHub' 销售团队](https://github.com/enterprise/contact)"
 contact_feedback_actions: '[GitHub 操作的反馈表](https://support.github.com/contact/feedback?contact[category]=actions)'
 #The team that provides Standard Support
 enterprise_support: 'GitHub Enterprise 支持'
