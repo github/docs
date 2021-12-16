@@ -2,7 +2,7 @@
 title: Can I create accounts for people in my organization?
 intro: 'While you can add users to an organization you''ve created, you can''t create personal user accounts on behalf of another person.'
 redirect_from:
-  - /articles/can-i-create-accounts-for-those-in-my-organization/
+  - /articles/can-i-create-accounts-for-those-in-my-organization
   - /articles/can-i-create-accounts-for-people-in-my-organization
   - /github/setting-up-and-managing-organizations-and-teams/can-i-create-accounts-for-people-in-my-organization
 versions:
