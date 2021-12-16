@@ -72,3 +72,6 @@ Any issues that are referenced in a task list specify that they are tracked by t
 
 * "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
 * "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}
+
+ :warning: 
+ If you have already completed a Pull Request for an issue you will not be able to create new issues from items in the task list after you sumbit a Pull Request. 
