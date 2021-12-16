@@ -2,8 +2,8 @@
 title: About Jekyll build errors for GitHub Pages sites
 intro: 'If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you''ll receive an error message with more information.'
 redirect_from:
-  - /articles/viewing-jekyll-build-error-messages/
-  - /articles/generic-jekyll-build-failures/
+  - /articles/viewing-jekyll-build-error-messages
+  - /articles/generic-jekyll-build-failures
   - /articles/about-jekyll-build-errors-for-github-pages-sites
   - /github/working-with-github-pages/about-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
