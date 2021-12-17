@@ -27,6 +27,12 @@ on:
 permissions:
   contents: read
 
+# This allows a subsequently queued workflow run to take priority over
+# previously queued runs but NOT interrupt currently executing runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: false
+
 jobs:
   autoupdate:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
