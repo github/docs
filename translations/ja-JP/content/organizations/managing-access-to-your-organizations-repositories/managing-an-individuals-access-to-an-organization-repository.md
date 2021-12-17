@@ -1,8 +1,8 @@
 ---
-title: Organization のリポジトリへの個人のアクセスを管理する
-intro: Organization が所有するリポジトリへの個人のアクセスを管理できます。
+title: Managing an individual's access to an organization repository
+intro: You can manage a person's access to a repository owned by your organization.
 redirect_from:
-  - /articles/managing-an-individual-s-access-to-an-organization-repository-early-access-program/
+  - /articles/managing-an-individual-s-access-to-an-organization-repository-early-access-program
   - /articles/managing-an-individual-s-access-to-an-organization-repository
   - /articles/managing-an-individuals-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-repository
@@ -14,13 +14,13 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 個人のアクセスの管理
+shortTitle: Manage individual access
 permissions: People with admin access to a repository can manage access to the repository.
 ---
 
 ## About access to organization repositories
 
-Organization のリポジトリからコラボレーターを削除すると、そのコラボレータはリポジトリに対する読み取りおよび書き込みアクセスを失います。 リポジトリがプライベートで、コラボレータがリポジトリをフォークしている場合、そのそのフォークも削除されますが、リポジトリのローカルクローンは保持したままになります。
+When you remove a collaborator from a repository in your organization, the collaborator loses read and write access to the repository. If the repository is private and the collaborator has forked the repository, then their fork is also deleted, but the collaborator will still retain any local clones of your repository.
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
@@ -30,20 +30,25 @@ Organization のリポジトリからコラボレーターを削除すると、�
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% data reusables.organizations.invite-teams-or-people %}
-5. In the search field, start typing the name of the person to invite, then click a name in the list of matches. ![リポジトリに招待する Team または人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field.png)
-6. Under "Choose a role", select the repository role to assign the person, then click **Add NAME to REPOSITORY**. ![Team または人の権限を選択する](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
+5. In the search field, start typing the name of the person to invite, then click a name in the list of matches.
+  ![Search field for typing the name of a team or person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
+6. Under "Choose a role", select the repository role to assign the person, then click **Add NAME to REPOSITORY**.
+  ![Selecting permissions for the team or person](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
-## Organization のリポジトリへの個人のアクセスを管理する
+## Managing an individual's access to an organization repository
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
-4. アクセスのタイプが異なるユーザを管理するには、[**Members**] または [**Outside collaborators**] をクリックします。 ![メンバーまたは外部コラボレーターを Organization に招待するボタン](/assets/images/help/organizations/select-outside-collaborators.png)
-5. 管理する個人の名前の右側にある {% octicon "gear" aria-label="The Settings gear" %}ドロップダウン メニューで、[**Manage**] をクリックします。 ![[Manage] アクセスリンク](/assets/images/help/organizations/member-manage-access.png)
-6. [Manage access] ページで、リポジトリの隣にある [**Manage access**] をクリックします。 ![リポジトリの [Manage access] ボタン](/assets/images/help/organizations/repository-manage-access.png)
-7. この個人がコラボレーターなのか、チーム メンバーとしてリポジトリにアクセスできるのかなど、特定のリポジトリに対するアクセスを確認します。 ![ユーザのリポジトリへのアクセスのマトリクス](/assets/images/help/organizations/repository-access-matrix-for-user.png)
+4. Click either **Members** or **Outside collaborators** to manage people with different types of access. ![Button to invite members or outside collaborators to an organization](/assets/images/help/organizations/select-outside-collaborators.png)
+5. To the right of the name of the person you'd like to manage, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**.
+  ![The manage access link](/assets/images/help/organizations/member-manage-access.png)
+6. On the "Manage access" page, next to the repository, click **Manage access**.
+![Manage access button for a repository](/assets/images/help/organizations/repository-manage-access.png)
+7. Review the person's access to a given repository, such as whether they're a collaborator or have access to the repository via team membership.
+![Repository access matrix for the user](/assets/images/help/organizations/repository-access-matrix-for-user.png)
 
-## 参考リンク
+## Further reading
 
-{% ifversion fpt or ghec %}- [リポジトリ内での操作を制限する](/articles/limiting-interactions-with-your-repository){% endif %}
+{% ifversion fpt or ghec %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

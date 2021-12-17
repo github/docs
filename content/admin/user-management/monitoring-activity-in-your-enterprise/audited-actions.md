@@ -3,7 +3,7 @@ title: Audited actions
 intro: You can search the audit log for a wide variety of actions.
 miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /enterprise/admin/articles/audited-actions/
+  - /enterprise/admin/articles/audited-actions
   - /enterprise/admin/installation/audited-actions
   - /enterprise/admin/user-management/audited-actions
   - /admin/user-management/audited-actions
@@ -58,7 +58,7 @@ Action                            | Description
 ## Enterprise configuration settings
 
 Action                                          | Description
------------------------------------------------ | -------------------------------------------{% ifversion ghes > 3.0 or ghae-next %}
+----------------------------------------------- | -------------------------------------------{% ifversion ghes > 3.0 or ghae %}
 `business.advanced_security_policy_update` | A site admin creates, updates, or removes a policy for {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."{% endif %}
 `business.clear_members_can_create_repos` | A site admin clears a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% ifversion ghes > 3.1 %}
 `business.referrer_override_enable` | A site admin enables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."
@@ -102,7 +102,7 @@ Action             | Description
 ## Pull requests
 
 | Action | Description |
-| :- | :- |{% ifversion ghes > 3.1 or ghae-next %}
+| :- | :- |{% ifversion ghes > 3.1 or ghae %}
 | `pull_request.create` | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)." |
 | `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." |
 | `pull_request.reopen` | A pull request was reopened after previously being closed. |
@@ -197,7 +197,7 @@ Action                            | Description
 `user.two_factor_requested`       | A user was prompted for a two-factor authentication code.{% endif %}
 `user.unsuspend`                  | A user account was unsuspended by a site admin.
 
-{% ifversion ghes > 3.1 or ghae-issue-1157 %}
+{% ifversion ghes > 3.1 or ghae %}
 ## Workflows
 
 {% data reusables.actions.actions-audit-events-workflow %}

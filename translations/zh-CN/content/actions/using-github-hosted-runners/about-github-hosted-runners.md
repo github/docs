@@ -1,6 +1,6 @@
 ---
-title: 关于 GitHub 托管的运行器
-intro: '{% data variables.product.prodname_dotcom %} 提供托管的虚拟机来运行工作流程。 虚拟机包含可供 {% data variables.product.prodname_actions %} 使用的工具、包和设置。'
+title: About GitHub-hosted runners
+intro: '{% data variables.product.prodname_dotcom %} offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
   - /github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions
@@ -13,68 +13,68 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: GitHub 托管的运行器
+shortTitle: GitHub-hosted runners
 ---
 
-{% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## 关于 {% data variables.product.prodname_dotcom %} 托管的运行器
+## About {% data variables.product.prodname_dotcom %}-hosted runners
 
-{% data variables.product.prodname_dotcom %} 托管的运行器是由安装了 {% data variables.product.prodname_actions %} 运行器应用程序的 {% data variables.product.prodname_dotcom %} 托管的虚拟机。 {% data variables.product.prodname_dotcom %} 提供使用 Linux、Windows 和 macOS 操作系统的运行器。
+A {% data variables.product.prodname_dotcom %}-hosted runner is a virtual machine hosted by {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_actions %} runner application installed. {% data variables.product.prodname_dotcom %} offers runners with Linux, Windows, and macOS operating systems.
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，设备维护和升级由您负责。 您可以直接在虚拟机上或 Docker 容器中运行工作流程。
+When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machine maintenance and upgrades are taken care of for you. You can run workflows directly on the virtual machine or in a Docker container.
 
-可以为工作流程中的每项作业指定运行器类型。 工作流程中的每项作业都在全新的虚拟机实例中执行。 作业中的所有步骤在同一虚拟机实例中执行，让该作业中的操作使用文件系统共享信息。
+You can specify the runner type for each job in a workflow. Each job in a workflow executes in a fresh instance of the virtual machine. All steps in the job execute in the same instance of the virtual machine, allowing the actions in that job to share information using the filesystem.
 
 {% ifversion not ghes %}
 
 {% data reusables.github-actions.runner-app-open-source %}
 
-### {% data variables.product.prodname_dotcom %} 托管的运行器的云主机
+### Cloud hosts for {% data variables.product.prodname_dotcom %}-hosted runners
 
-{% data variables.product.prodname_dotcom %} 在 Microsoft Azure 中安装了 {% data variables.product.prodname_actions %} 运行器应用程序的 Standard_DS2_v2 虚拟机上托管 Linux 和 Windows 运行器。 {% data variables.product.prodname_dotcom %} 托管的运行器应用程序是 Azure Pipelines Agent 的复刻。 入站 ICMP 数据包被阻止用于所有 Azure 虚拟机，因此 ping 或 traceroute 命令可能无效。 有关 Standard_DS2_v2 机器资源的更多信息，请参阅 Microsoft Azure 文档中的“[Dv2 和 DSv2 系列](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)”。
+{% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on Standard_DS2_v2 virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. For more information about the Standard_DS2_v2 machine resources, see "[Dv2 and DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" in the Microsoft Azure documentation.
 
-{% data variables.product.prodname_dotcom %} 在 {% data variables.product.prodname_dotcom %} 自己的 macOS Cloud 中托管 macOS 运行器。
+{% data variables.product.prodname_dotcom %} hosts macOS runners in {% data variables.product.prodname_dotcom %}'s own macOS Cloud.
 
-### {% data variables.product.prodname_dotcom %} 托管的运行器的工作流程连续性
+### Workflow continuity for {% data variables.product.prodname_dotcom %}-hosted runners
 
 {% data reusables.github-actions.runner-workflow-continuity %}
 
-此外，如果工作流程运行已成功排队，但未在 45 分钟内由 {% data variables.product.prodname_dotcom %} 托管的运行器处理，则会丢弃排队的工作流程运行。
+In addition, if the workflow run has been successfully queued, but has not been processed by a {% data variables.product.prodname_dotcom %}-hosted runner within 45 minutes, then the queued workflow run is discarded.
 
-### {% data variables.product.prodname_dotcom %} 托管的运行器的管理权限
+### Administrative privileges of {% data variables.product.prodname_dotcom %}-hosted runners
 
-Linux 和 macOS 虚拟机都使用无密码的 `sudo` 运行。 在需要比当前用户更多的权限才能执行命令或安装工具时，您可以使用无需提供密码的 `sudo`。 更多信息请参阅“[Sudo 手册](https://www.sudo.ws/man/1.8.27/sudo.man.html)”。
+The Linux and macOS virtual machines both run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
 
-Windows 虚拟机配置为以禁用了用户帐户控制 (UAC) 的管理员身份运行。 更多信息请参阅 Windows 文档中的“[用户帐户控制工作原理](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)”。
+Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
 
-## 支持的运行器和硬件资源
+## Supported runners and hardware resources
 
-Windows 和 Linux 虚拟机的硬件规格：
-- 2 核 CPU
-- 7 GB RAM 内存
-- 14 GB SSD 硬盘空间
+Hardware specification for Windows and Linux virtual machines:
+- 2-core CPU
+- 7 GB of RAM memory
+- 14 GB of SSD disk space
 
-MacOS 虚拟机的硬件规格：
-- 3 核 CPU
-- 14 GB RAM 内存
-- 14 GB SSD 硬盘空间
+Hardware specification for macOS virtual machines:
+- 3-core CPU
+- 14 GB of RAM memory
+- 14 GB of SSD disk space
 
 {% data reusables.github-actions.supported-github-runners %}
 
-工作流程日志列出用于运行作业的运行器。 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
+Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-## 支持的软件
+## Supported software
 
-{% data variables.product.prodname_dotcom %} 托管的运行器中包含的软件工具每周更新。 更新过程需要几天时间，整个部署结束后，`主`分支上的预装软件列表将进行更新。
-### 预安装的软件
+The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. The update process takes several days, and the list of preinstalled software on the `main` branch is updated after the whole deployment ends. 
+### Preinstalled software
 
-工作流程日志包括指向准确运行器上预安装的工具的链接。 要在工作流程日志中查找此信息，请扩展 `Set up job` 部分。 在该部分下，展开 `Virtual Environment` 部分。 `Included Software` 后面的链接将说明运行器上运行该工作流程的预安装工具。 ![Installed software link](/assets/images/actions-runner-installed-software-link.png) 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow.
+![Installed software link](/assets/images/actions-runner-installed-software-link.png)
+For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-有关每个运行器操作系统包含的工具整个列表，请参阅以下链接：
+For the overall list of included tools for each runner operating system, see the links below:
 
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
@@ -84,53 +84,53 @@ MacOS 虚拟机的硬件规格：
 * [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
 
-{% data variables.product.prodname_dotcom %} 托管的运行器除了上述参考中列出的包之外，还包括操作系统的默认内置工具。 例如，Ubuntu 和 macOS 运行器除了其他默认工具之外，还包括 `grep`、`find` 和 `which`。
+{% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools. 
 
-### 使用预安装的软件
+### Using preinstalled software
 
-我们建议使用操作来与运行器上安装的软件进行交互。 此方法有如下优点：
-- 通常，操作提供更灵活的功能，如版本选择、传递参数的能力和参数
-- 它可确保工作流程中使用的工具版本无论软件更新如何，都将保持不变
+We recommend using actions to interact with the software installed on runners. This approach has several benefits:
+- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
+- It ensures the tool versions used in your workflow will remain the same regardless of software updates
 
-如果有您想要请求的工具，请在 [actions/virtual-environments](https://github.com/actions/virtual-environments) 打开一个议题。 此仓库还包含有关运行器上所有主要软件更新的公告。
+If there is a tool that you'd like to request, please open an issue at [actions/virtual-environments](https://github.com/actions/virtual-environments). This repository also contains announcements about all major software updates on runners.
 
-### 安装其他软件
+### Installing additional software
 
-您可以在 {% data variables.product.prodname_dotcom %} 托管的运行器上安装其他软件。 更多信息请参阅“[自定义 GitHub 托管的运行器](/actions/using-github-hosted-runners/customizing-github-hosted-runners)”。
+You can install additional software on {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Customizing GitHub-hosted runners](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
 
-## IP 地址
+## IP addresses
 
 {% note %}
 
-**注意：**如果使用 {% data variables.product.prodname_dotcom %} 组织或企业帐户的 IP 地址允许列表，则无法使用 {% data variables.product.prodname_dotcom %} 托管的运行器，而必须使用自托管的运行器。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
+**Note:** If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you cannot use {% data variables.product.prodname_dotcom %}-hosted runners and must instead use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 
 {% endnote %}
 
-To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. 更多信息请参阅“[获取 GitHub 元信息](/rest/reference/meta#get-github-meta-information)”端点响应中的 `actions` 键。
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint.
 
-Windows 和 Ubuntu 运行程序托管在 Azure 中，随后具有与 Azure 数据中心相同的 IP 地址范围。 macOS 运行器托管在 {% data variables.product.prodname_dotcom %} 自己的 macOS 云中。
+Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
 
 Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allow-lists for your internal resources.
 
-API 返回的 {% data variables.product.prodname_actions %} IP 地址列表每周更新一次。
+The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week. 
 
-## 文件系统
+## File systems
 
-{% data variables.product.prodname_dotcom %} 在虚拟机上的特定目录中执行操作和 shell 命令。 虚拟机上的文件路径不是静态的。 使用环境变量 {% data variables.product.prodname_dotcom %} 提供 `home`、`workspace` 和 `workflow` 目录的构建文件路径。
+{% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the virtual machine. The file paths on virtual machines are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.
 
-| 目录                    | 环境变量                | 描述                                                                                                        |
-| --------------------- | ------------------- | --------------------------------------------------------------------------------------------------------- |
-| `home`                | `HOME`              | 包含用户相关的数据。 例如，此目录可能包含登录凭据。                                                                                |
-| `workspace`           | `GITHUB_WORKSPACE`  | 在此目录中执行操作和 shell 命令。 操作可以修改此目录的内容，后续操作可以访问这些修改。                                                           |
-| `workflow/event.json` | `GITHUB_EVENT_PATH` | 触发工作流程的 web 挂钩事件的 `POST` 有效负载。 每当操作执行时，{% data variables.product.prodname_dotcom %} 都会重写此变量，以隔离操作之间的文件内容。 |
+| Directory | Environment variable | Description |
+|-----------|----------------------|-------------|
+| `home` | `HOME` | Contains user-related data. For example, this directory could contain credentials from a login attempt. |
+| `workspace` | `GITHUB_WORKSPACE` | Actions and shell commands execute in this directory. An action can modify the contents of this directory, which subsequent actions can access. |
+| `workflow/event.json` | `GITHUB_EVENT_PATH` | The `POST` payload of the webhook event that triggered the workflow. {% data variables.product.prodname_dotcom %} rewrites this each time an action executes to isolate file content between actions.
 
-有关 {% data variables.product.prodname_dotcom %} 为每个操作创建的环境变量列表，请参阅“[使用环境变量](/github/automating-your-workflow-with-github-actions/using-environment-variables)”。
+For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see "[Using environment variables](/github/automating-your-workflow-with-github-actions/using-environment-variables)."
 
-### Docker 容器文件系统
+### Docker container filesystem
 
-在 Docker 容器中运行的操作在 `/github` 路径下有静态目录。 但强烈建议使用默认环境变量在 Docker 容器中构建文件路径。
+Actions that run in Docker containers have static directories under the `/github` path. However, we strongly recommend using the default environment variables to construct file paths in Docker containers.
 
-{% data variables.product.prodname_dotcom %} 保留 `/github` 路径前缀，并为操作创建三个目录。
+{% data variables.product.prodname_dotcom %} reserves the `/github` path prefix and creates three directories for actions.
 
 - `/github/home`
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
@@ -138,8 +138,8 @@ API 返回的 {% data variables.product.prodname_actions %} IP 地址列表每�
 
 {% ifversion fpt or ghec %}
 
-## 延伸阅读
-- "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"
+## Further reading
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 
 {% endif %}
 

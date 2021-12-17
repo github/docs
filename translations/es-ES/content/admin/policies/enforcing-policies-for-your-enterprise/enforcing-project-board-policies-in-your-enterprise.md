@@ -24,24 +24,26 @@ shortTitle: Project board policies
 
 ## About policies for project boards in your enterprise
 
-You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage project boards. You can also allow organization owners to manage policies for project boards. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage project boards. You can also allow organization owners to manage policies for project boards. For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
 
-## Hacer cumplir una política para tableros de proyecto en toda la organización
+## Enforcing a policy for organization-wide project boards
 
 Across all organizations owned by your enterprise, you can enable or disable organization-wide project boards, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.projects-tab %}
-4. En "Proyectos de la organización", revisa la información sobre cómo modificar los parámetros. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. En "Proyectos de la organización", usa el menú desplegable y elige una política. ![Menú desplegable con opciones de políticas de tableros de proyecto de la organización](/assets/images/help/business-accounts/organization-projects-policy-drop-down.png)
+4. Under "Organization projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "Organization projects", use the drop-down menu and choose a policy.
+  ![Drop-down menu with organization project board policy options](/assets/images/help/business-accounts/organization-projects-policy-drop-down.png)
 
-## Hacer cumplir una política para tableros de proyecto de repositorios
+## Enforcing a policy for repository project boards
 
 Across all organizations owned by your enterprise, you can enable or disable repository-level project boards, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.projects-tab %}
-4. En "Proyectos de repositorios", revisa la información sobre cómo modificar los parámetros. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. En "Proyectos de repositorios", usa el menú desplegable y elige una política. ![Menú desplegable con opciones de políticas de tableros de proyecto de repositorios](/assets/images/help/business-accounts/repository-projects-policy-drop-down.png)
+4. Under "Repository projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "Repository projects", use the drop-down menu and choose a policy.
+  ![Drop-down menu with repository project board policy options](/assets/images/help/business-accounts/repository-projects-policy-drop-down.png)

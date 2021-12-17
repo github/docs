@@ -13,13 +13,12 @@ shortTitle: Build & test .NET
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
 This guide shows you how to build, test, and publish a .NET package.
 
-{% ifversion ghae %} To build and test your .NET project on {% data variables.product.prodname_ghe_managed %}, you will need to create a custom operating system image that includes the .NET Core SDK. For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% ifversion ghae %} To build and test your .NET project on {% data variables.product.prodname_ghe_managed %}, the .NET Core SDK is required. {% data reusables.actions.self-hosted-runners-software %}
 {% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the .NET Core SDK. For a full list of up-to-date software and the preinstalled versions of .NET Core SDK, see [software installed on {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners).
 {% endif %}
 
@@ -239,7 +238,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

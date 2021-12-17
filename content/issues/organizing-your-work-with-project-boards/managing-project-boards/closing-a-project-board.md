@@ -3,7 +3,7 @@ title: Closing a project board
 intro: 'If you''ve completed all the tasks in a project board or no longer need to use a project board, you can close the project board.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/closing-a-project-board
-  - /articles/closing-a-project/
+  - /articles/closing-a-project
   - /articles/closing-a-project-board
   - /github/managing-your-work-on-github/closing-a-project-board
 versions:

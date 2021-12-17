@@ -1,9 +1,9 @@
 ---
-title: テーマ設定を管理する
+title: Managing your theme settings
 intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses a light or dark mode.'
 versions:
   fpt: '*'
-  ghae: next
+  ghae: '*'
   ghes: '>=3.2'
   ghec: '*'
 topics:
@@ -14,7 +14,7 @@ redirect_from:
 shortTitle: Manage theme settings
 ---
 
-{% data variables.product.product_name %} を使用時期と使用方法を選択して柔軟性を高めるために、テーマ設定をして {% data variables.product.product_name %} の外観を変更できます。 You can choose from themes that are light or dark, or you can configure {% data variables.product.product_name %} to follow your system settings.
+For choice and flexibility in how and when you use {% data variables.product.product_name %}, you can configure theme settings to change how {% data variables.product.product_name %} looks to you. You can choose from themes that are light or dark, or you can configure {% data variables.product.product_name %} to follow your system settings.
 
 You may want to use a dark theme to reduce power consumption on certain devices, to reduce eye strain in low-light conditions, or because you prefer how the theme looks.
 
@@ -22,21 +22,21 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 
 {% note %}
 
-**Note:** The colorblind themes are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
+**Note:** The colorblind themes and light high contrast theme are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
 
 {% endnote %}
 
 {% endif %}
 
 {% data reusables.user_settings.access_settings %}
-1. [User settings] サイドバーで、[**Appearance**] をクリックします。
+1. In the user settings sidebar, click **Appearance**.
 
-   ![[User settings] サイドバーの [Appearance] タブ](/assets/images/help/settings/appearance-tab.png)
+   !["Appearance" tab in user settings sidebar](/assets/images/help/settings/appearance-tab.png)
 
 1. Under "Theme mode", select the drop-down menu, then click a theme preference.
 
    ![Drop-down menu under "Theme mode" for selection of theme preference](/assets/images/help/settings/theme-mode-drop-down-menu.png)
-1. 使いたいテーマをクリックしてください。
+1. Click the theme you'd like to use.
     - If you chose a single theme, click a theme.
 
       {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
@@ -56,6 +56,6 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 
 {% endif %}
 
-## 参考リンク
+## Further reading
 
-- "[{% data variables.product.prodname_desktop %}用のテーマの設定方法](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"
+- "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"

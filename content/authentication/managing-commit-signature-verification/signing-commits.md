@@ -2,8 +2,8 @@
 title: Signing commits
 intro: You can sign commits locally using GPG or S/MIME.
 redirect_from:
-  - /articles/signing-commits-and-tags-using-gpg/
-  - /articles/signing-commits-using-gpg/
+  - /articles/signing-commits-and-tags-using-gpg
+  - /articles/signing-commits-using-gpg
   - /articles/signing-commits
   - /github/authenticating-to-github/signing-commits
   - /github/authenticating-to-github/managing-commit-signature-verification/signing-commits

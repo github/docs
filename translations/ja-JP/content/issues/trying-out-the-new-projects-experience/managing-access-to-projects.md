@@ -15,9 +15,9 @@ topics:
 
 ## About project access
 
-Admins of organization-level projects can manage access to their organization's projects for everyone in the organization. Organization project admins can also manage access for individual organization members.
+Admins of organization-level projects can manage access for the entire organization, for teams, and for individual organization members.
 
-Admins of user-level projects can invite collaborators and manage access for individual collaborators.
+Admins of user-level projects can invite individual collaborators and manage their access.
 
 Project admins can also control the visibility of their project for everyone on the internet. For more information, see "[Managing the visibility of your projects](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)."
 
@@ -35,17 +35,19 @@ The default base role is `write`, meaning that everyone in the organization can 
    - **Write**: Everyone in the organization can see and edit the project. Organization owners are also admins for the project.
    - **Admin**: Everyone in the organization is an admin for the project.
 
-### Managing access for individual members of your organization
+### Managing access for teams and individual members of your organization
 
-You can also add individual organization members as collaborators to your project. Only organization members can be added as collaborators to organization projects.
+You can also add teams, and individual organization members, as collaborators. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+
+You can only invite an individual user to collaborate on your organization-level project if they are a member of the organization.
 
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.
-1. Under **Invite collaborators**, search for the organization member that you want to invite.
+1. Under **Invite collaborators**, search for the team or organization member that you want to invite.
 1. Select the role for the collaborator.
-   - **Read**: The individual can view the project.
-   - **Write**: The individual can view and edit the project.
-   - **Admin**: The individual can view, edit, and add new collaborators to the project.
+   - **Read**: The team or individual can view the project.
+   - **Write**: The team or individual can view and edit the project.
+   - **Admin**: The team or individual can view, edit, and add new collaborators to the project.
 1. Click **Invite**.
 
 ### Managing access of an existing collaborator on your project
@@ -53,6 +55,9 @@ You can also add individual organization members as collaborators to your projec
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.
 1. Under **Manage access**, find the collaborator(s) whose permissions you want to modify.
+
+   You can use the **Type** and **Role** drop-down menus to filter the access list.
+
 1. Edit the role for the collaborator(s) or click {% octicon "trash" aria-label="the trash icon" %} to remove the collaborator(s).
 
 ## Managing access for user-level projects
@@ -79,4 +84,7 @@ This only affects collaborators for your project, not for repositories in your p
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.
 1. Under **Manage access**, find the collaborator(s) whose permissions you want to modify.
+
+   You can use the **Role** drop-down menu to filter the access list.
+
 1. Edit the role for the collaborator(s) or click {% octicon "trash" aria-label="the trash icon" %} to remove the collaborator(s).

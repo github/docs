@@ -1,5 +1,6 @@
 import cx from 'classnames'
 import dayjs from 'dayjs'
+import { ActionList } from '@primer/components'
 
 import { Link } from 'components/Link'
 import { ArrowRightIcon } from '@primer/octicons-react'
@@ -27,45 +28,59 @@ export const ArticleList = ({ title, viewAllHref, articles }: ArticleListPropsT)
         </div>
       )}
 
-      <ul className="list-style-none" data-testid="article-list">
-        {articles.map((link) => {
-          return (
-            <li key={link.href} className={cx('border-top')}>
-              <BumpLink
-                as={Link}
-                href={link.href}
-                className="py-3"
-                title={
-                  <h4 data-testid="link-with-intro-title">
-                    <span
-                      dangerouslySetInnerHTML={
-                        link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
-                      }
-                    />
-                  </h4>
-                }
+      <ActionList
+        {...{ as: 'ul' }}
+        data-testid="article-list"
+        items={articles.map((link) => {
+          return {
+            renderItem: () => (
+              <ActionList.Item
+                as="li"
+                key={link.href}
+                className={cx('border-top')}
+                sx={{
+                  borderRadius: 0,
+                  ':hover': {
+                    borderRadius: 0,
+                  },
+                }}
               >
-                {!link.hideIntro && link.intro && (
-                  <TruncateLines as="p" maxLines={2} className="color-fg-muted mb-0 mt-1">
-                    <span
-                      data-testid="link-with-intro-intro"
-                      dangerouslySetInnerHTML={{ __html: link.intro }}
-                    />
-                  </TruncateLines>
-                )}
-                {link.date && (
-                  <time
-                    className="tooltipped tooltipped-n color-fg-muted text-mono mt-1"
-                    aria-label={dayjs(link.date).format('LLL')}
-                  >
-                    {dayjs(link.date).format('MMMM DD')}
-                  </time>
-                )}
-              </BumpLink>
-            </li>
-          )
+                <BumpLink
+                  as={Link}
+                  href={link.href}
+                  className="py-3"
+                  title={
+                    <h4 data-testid="link-with-intro-title">
+                      <span
+                        dangerouslySetInnerHTML={
+                          link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
+                        }
+                      />
+                    </h4>
+                  }
+                >
+                  {!link.hideIntro && link.intro && (
+                    <TruncateLines as="p" maxLines={2} className="color-fg-muted mb-0 mt-1">
+                      <span
+                        data-testid="link-with-intro-intro"
+                        dangerouslySetInnerHTML={{ __html: link.intro }}
+                      />
+                    </TruncateLines>
+                  )}
+                  {link.date && (
+                    <time
+                      className="tooltipped tooltipped-n color-fg-muted text-mono mt-1"
+                      aria-label={dayjs(link.date).format('MMMM DD')}
+                    >
+                      {dayjs(link.date).format('MMMM DD')}
+                    </time>
+                  )}
+                </BumpLink>
+              </ActionList.Item>
+            ),
+          }
         })}
-      </ul>
+      ></ActionList>
     </>
   )
 }

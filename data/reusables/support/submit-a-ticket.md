@@ -12,6 +12,10 @@
     - Choose **{% data variables.product.support_ticket_priority_high %}** to report issues impacting business operations, including {% ifversion fpt or ghec %}removing sensitive data (commits, issues, pull requests, uploaded attachments) from your own accounts and organization restorations{% else %}system performance issues{% endif %}, or to report critical bugs.
     - Choose **{% data variables.product.support_ticket_priority_normal %}** to {% ifversion fpt or ghec %}request account recovery or spam unflagging, report user login issues{% else %}make technical requests like configuration changes and third-party integrations{% endif %}, and to report non-critical bugs.
     - Choose **{% data variables.product.support_ticket_priority_low %}** to ask general questions and submit requests for new features, purchases, training, or health checks.
+{%- ifversion ghes or ghec %}
+1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback. Select **Request a callback from GitHub Support**, select the country code drop-down menu to choose your country, and enter your phone number.
+![Request callback option](/assets/images/help/support/request-callback.png)
+{%- endif %}  
 1. Under "Subject", type a descriptive title for the issue you're having.
 ![Subject field](/assets/images/help/support/subject-field.png)
 5. Under "How can we help", provide any additional information that will help the Support team troubleshoot the problem. Helpful information may include:

@@ -1,8 +1,8 @@
 ---
-title: ソースコード移行ツール
-intro: 外部ツールを使って、プロジェクトを GitHub に移動できます。
+title: Source code migration tools
+intro: You can use external tools to move your projects to GitHub.
 redirect_from:
-  - /articles/importing-from-subversion/
+  - /articles/importing-from-subversion
   - /articles/source-code-migration-tools
   - /github/importing-your-projects-to-github/source-code-migration-tools
 versions:
@@ -12,28 +12,27 @@ versions:
   ghec: '*'
 shortTitle: Code migration tools
 ---
-
 {% ifversion fpt or ghec %}
 
-We recommend using [GitHub Importer](/articles/about-github-importer) to import projects from Subversion, Mercurial, Team Foundation Version Control (TFVC), or another Git repository. これらの外部ツールを使って、プロジェクトを Git に変換することもできます。
+We recommend using [GitHub Importer](/articles/about-github-importer) to import projects from Subversion, Mercurial, Team Foundation Version Control (TFVC), or another Git repository. You can also use these external tools to convert your project to Git.
 
 {% endif %}
 
-## Subversion からインポートする
+## Importing from Subversion
 
-一般的な Subversion の環境では、複数のプロジェクトが単一のルートリポジトリに保管されます。 GitHub 上では、一般的に、それぞれのプロジェクトはユーザアカウントや Organization の別々の Git リポジトリにマップします。 次の場合、Subversion リポジトリのそれぞれの部分を別々の GitHub リポジトリにインポートすることをおすすめします。
+In a typical Subversion environment, multiple projects are stored in a single root repository. On GitHub, each of these projects will usually map to a separate Git repository for a user account or organization. We suggest importing each part of your Subversion repository to a separate GitHub repository if:
 
-* コラボレーターが、他の部分とは別のプロジェクトの部分をチェックアウトまたはコミットする必要がある場合
-* それぞれの部分にアクセス許可を設定したい場合
+* Collaborators need to check out or commit to that part of the project separately from the other parts
+* You want different parts to have their own access permissions
 
-Subversion リポジトリを Git にコンバートするには、これらのツールをおすすめします:
+We recommend these tools for converting Subversion repositories to Git:
 
 - [`git-svn`](https://git-scm.com/docs/git-svn)
 - [svn2git](https://github.com/nirvdrum/svn2git)
 
-## Mercurial からインポートする
+## Importing from Mercurial
 
-Mercurial リポジトリを Git にコンバートするには、 [hg-fast-export](https://github.com/frej/fast-export) をおすすめします。
+We recommend [hg-fast-export](https://github.com/frej/fast-export) for converting Mercurial repositories to Git.
 
 ## Importing from TFVC
 
@@ -43,16 +42,16 @@ For more information about moving from TFVC (a centralized version control syste
 
 {% tip %}
 
-**参考:** Git へのプロジェクトの変換が完了した後、[{% data variables.product.prodname_dotcom %} にプッシュできます。](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)
+**Tip:** After you've successfully converted your project to Git, you can [push it to {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}
 
 {% ifversion fpt or ghec %}
 
-## 参考リンク
+## Further reading
 
-- 「[GitHub Importer について](/articles/about-github-importer)」
-- [GitHub Importerでのリポジトリのインポート](/articles/importing-a-repository-with-github-importer)
+- "[About GitHub Importer](/articles/about-github-importer)"
+- "[Importing a repository with GitHub Importer](/articles/importing-a-repository-with-github-importer)"
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})
 
 {% endif %}

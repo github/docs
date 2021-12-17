@@ -1,6 +1,6 @@
 ---
-title: RubyGemsレジストリの利用
-intro: '{% data variables.product.prodname_registry %} にパッケージを公開し、{% data variables.product.prodname_registry %} に保存されたパッケージを依存関係としてBundlerを使うRubyのプロジェクトで利用するよう、RubyGemsを設定できます。'
+title: Working with the RubyGems registry
+intro: 'You can configure RubyGems to publish a package to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Ruby project with Bundler.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-rubygems-for-use-with-github-package-registry
@@ -13,65 +13,66 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: RubyGemsレジストリ
+shortTitle: RubyGems registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% data reusables.package_registry.default-name %} たとえば、{% data variables.product.prodname_dotcom %}は`OWNER/test`というリポジトリ内の`com.example:test`という名前のパッケージを公開します。
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-## 必要な環境
+## Prerequisites
 
-- rubygems 2.4.1 以上. rubygemsのバージョンは以下のようにすればわかります。
+- You must have rubygems 2.4.1 or higher. To find your rubygems version:
 
   ```shell
   $ gem --version
   ```
 
-- Bundler 1.6.4 以上. Bundlerのバージョンは以下のようにすれば分かります。
+- You must have bundler 1.6.4 or higher. To find your Bundler version:
 
   ```shell
   $ bundle --version
   Bundler version 1.13.7
   ```
 
-- 複数の認証情報を扱うには、keycutter をインストールしてください. keycutterは以下のようにすればインストールできます。
+- Install keycutter to manage multiple credentials. To install keycutter:
 
   ```shell
   $ gem install keycutter
   ```
 
-## {% data variables.product.prodname_registry %} への認証を行う
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### 個人アクセストークンでの認証
+### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
 
-gemの公開なら*~/.gem/credentials*ファイルを編集することで、単一のgemのインストールなら*~/.gemrc*ファイルを編集することで、Bundlerを使って1つ以上のgemを追跡してインストールするなら*~/.gemrc*ファイルを編集することで、RubyGemsで{% data variables.product.prodname_registry %}に認証を受けることができます。
+You can authenticate to {% data variables.product.prodname_registry %} with RubyGems by editing the  *~/.gem/credentials* file for publishing gems, editing the *~/.gemrc* file for installing a single gem, or using Bundler for tracking and installing one or more gems.
 
-新しいgemsを公開するには、*~/.gem/credentials*ファイルを編集して個人アクセストークンを含めることによって、RubyGemsで{% data variables.product.prodname_registry %}に認証を受けなければなりません。  *~/.gem/credentials*ファイルが存在しない場合、新しく作成してください。
+To publish new gems, you need to authenticate to {% data variables.product.prodname_registry %} with RubyGems by editing your *~/.gem/credentials* file to include your personal access token.  Create a new *~/.gem/credentials* file if this file doesn't exist.
 
-たとえば、*~/.gem/credentials*を作成もしくは編集して、以下を含めてください。*TOKEN*は個人アクセストークンで置き換えてください。
+For example, you would create or edit a *~/.gem/credentials* to include the following, replacing *TOKEN* with your personal access token.
 
 ```shell
-gem.metadata = { "github_repo" => "ssh://github.com/OWNER/REPOSITORY" }
+---
+:github: Bearer <em>TOKEN</em>
 ```
 
-To install gems, you need to authenticate to {% data variables.product.prodname_registry %} by editing the *~/.gemrc* file for your project to include `https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`. 以下のように置き換えてください。
-  - `USERNAME`を{% data variables.product.prodname_dotcom %}のユーザ名で。
-  - `TOKEN`を個人アクセストークンで。
-  - `OWNER` を、プロジェクトを含むリポジトリを所有しているユーザまたはOrganizationアカウント名で。{% ifversion ghes %}
-  - `REGISTRY-URL` をインスタンスの Rubygems レジストリの URL で。 インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、 *HOSTNAME* を {% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。
+To install gems, you need to authenticate to {% data variables.product.prodname_registry %} by editing the *~/.gemrc* file for your project to include `https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`. You must replace:
+  - `USERNAME` with your {% data variables.product.prodname_dotcom %} username.
+  - `TOKEN` with your personal access token.
+  - `OWNER` with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes %}
+  - `REGISTRY-URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the hostname of your {% data variables.product.prodname_ghe_server %} instance.
 {% elsif ghae %}
-  - `REGISTRY-URL` をインスタンスの Rubygems レジストリである `rubygems.HOSTNAME` のURL で。 *HOSTNAME* を {% data variables.product.product_location %} のホスト名で。
+  - `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.product.product_location %}.
 {% endif %}
 
-*~/.gemrc*ファイルがないなら、以下の例を使って新しい*~/.gemrc*ファイルを作成してください。
+If you don't have a *~/.gemrc* file, create a new *~/.gemrc* file using this example.
 
 ```shell
 ---
@@ -85,24 +86,24 @@ To install gems, you need to authenticate to {% data variables.product.prodname_
 
 ```
 
-Bundlerで認証を受けるには、個人アクセストークンを使うようにBundlerを設定してください。 *USERNAME*を{% data variables.product.prodname_dotcom %}のユーザ名で、*TOKEN*を個人アクセストークンで、*OWNER*をプロジェクトを含むリポジトリを所有しているユーザもしくはOrganizationアカウント名で置き換えます。{% ifversion ghes %}}`REGISTRY-URL` をインスタンスのRubygemsレジストリのURLで置き換えてください。 インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、 *HOSTNAME* を {% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% elsif ghae %}`REGISTRY-URL` を、インスタンスの Rubygems レジストリの URL である `rubygems.HOSTNAME` に置き換えてください。 *HOSTNAME* を、{% data variables.product.product_location %} のホスト名に置き換えてください。{% endif %}
+To authenticate with Bundler, configure Bundler to use your personal access token, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, and *OWNER* with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the hostname of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %}Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.product.product_location %}.{% endif %}
 
 ```shell
 $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
 ```
 
-## パッケージを公開する
+## Publishing a package
 
-{% data reusables.package_registry.default-name %} たとえば、`octo-gem`を`octo-org`というOrganizationに公開するなら、{% data variables.product.prodname_registry %}はそのgemを`octo-org/octo-gem`リポジトリに公開します。 gem の作成に関する詳しい情報については、RubyGems ドキュメンテーションの「[gem の作成](http://guides.rubygems.org/make-your-own-gem/)」を参照してください。
+{% data reusables.package_registry.default-name %} For example, when you publish `octo-gem` to the `octo-org` organization, {% data variables.product.prodname_registry %} publishes the gem to the `octo-org/octo-gem` repository. For more information on creating your gem, see "[Make your own gem](http://guides.rubygems.org/make-your-own-gem/)" in the RubyGems documentation.
 
 {% data reusables.package_registry.viewing-packages %}
 
 {% data reusables.package_registry.authenticate-step %}
-2. *gemspec*からパッケージをビルドして、*.gem*パッケージを作成してください。
+2. Build the package from the *gemspec* to create the *.gem* package.
   ```shell
   gem build OCTO-GEM.gemspec
   ```
-3. {% data variables.product.prodname_registry %}にパッケージを公開してください。 `OWNER`をプロジェクトを含むリポジトリを所有しているユーザもしくはOrganizationアカウント名で、`OCTO-GEM`をgemパッケージ名で置き換えます。{% ifversion ghes %}`REGISTRY-URL` をインスタンスのRubygemsレジストリのURLで置き換えてください。 インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、*HOSTNAME* を{% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% elsif ghae %}`REGISTRY-URL` を、インスタンスの Rubygems レジストリの URL である `rubygems.HOSTNAME` に置き換えてください。 *HOSTNAME* を、{% data variables.product.product_location %} のホスト名に置き換えてください。{% endif %}
+3. Publish a package to {% data variables.product.prodname_registry %}, replacing `OWNER` with the name of the user or organization account that owns the repository containing your project and `OCTO-GEM` with the name of your gem package.{% ifversion ghes %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.product.product_location %}.{% endif %}
 
   ```shell
   $ gem push --key github \
@@ -110,20 +111,20 @@ $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% els
   <em>OCTO-GEM-0.0.1</em>.gem
   ```
 
-## 同じリポジトリへの複数パッケージの公開
+## Publishing multiple packages to the same repository
 
-複数のgemを同じリポジトリに公開したい場合は、{% data variables.product.prodname_dotcom %}リポジトリの`gem.metadata`にある`github_repo`フィールドに、URL を記述できます。 このフィールドを含めた場合、{% data variables.product.prodname_dotcom %} は、gem 名の代わりに、この値を元にしてリポジトリを照合します。{% ifversion ghes or ghae %}*HOSTNAME*を、{% data variables.product.product_location %} のホスト名に置き換えます。{% endif %}
+To publish multiple gems to the same repository, you can include the URL to the {% data variables.product.prodname_dotcom %} repository in the `github_repo` field in `gem.metadata`. If you include this field, {% data variables.product.prodname_dotcom %} matches the repository based on this value, instead of using the gem name.{% ifversion ghes or ghae %} Replace *HOSTNAME* with the host name of {% data variables.product.product_location %}.{% endif %}
 
 ```ruby
 gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
 ```
 
-## パッケージをインストールする
+## Installing a package
 
-{% data variables.product.prodname_registry %}からのgemsは、*rubygems.org*からのgemsを使うのと同じように利用できます。 {% data variables.product.prodname_dotcom %}ユーザあるいはOrganizationを*~/.gemrc*ファイルにソースとして追加するか、Bundlerを使って*Gemfile*を編集することによって、{% data variables.product.prodname_registry %}に認証を受けなければなりません。
+You can use gems from {% data variables.product.prodname_registry %} much like you use gems from *rubygems.org*. You need to authenticate to {% data variables.product.prodname_registry %} by adding your {% data variables.product.prodname_dotcom %} user or organization as a source in the *~/.gemrc* file or by using Bundler and editing your *Gemfile*.
 
 {% data reusables.package_registry.authenticate-step %}
-1. Bundlerについては、{% data variables.product.prodname_dotcom %}ユーザもしくはOrganizationをソースとして*Gemfile*に追加して、この新しいソースからgemsをフェッチするようにしてください。 たとえば、指定したパッケージに対してのみ{% data variables.product.prodname_registry %}を使用する*Gemfile*に新しい`source`ブロックを追加できます。*GEM NAME*を {% data variables.product.prodname_registry %}からインストールするパッケージで、*OWNER*をインストールしたいgemを含むリポジトリを所有するユーザもしくはOrganizationで置き換えてください。{% ifversion ghes %}`REGISTRY-URL`をインスタンスのRubygemsレジストリのURLで置き換えてください。 インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、*HOSTNAME* を{% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% elsif ghae %}`REGISTRY-URL` を、インスタンスの Rubygems レジストリの URL である `rubygems.HOSTNAME` に置き換えてください。 *HOSTNAME* を、{% data variables.product.product_location %} のホスト名に置き換えてください。{% endif %}
+1. For Bundler, add your {% data variables.product.prodname_dotcom %} user or organization as a source in your *Gemfile* to fetch gems from this new source. For example, you can add a new `source` block to your *Gemfile* that uses {% data variables.product.prodname_registry %} only for the packages you specify, replacing *GEM NAME* with the package you want to install from {% data variables.product.prodname_registry %} and *OWNER* with the user or organization that owns the repository containing the gem you want to install.{% ifversion ghes %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.product.product_location %}.{% endif %}
 
   ```ruby
   source "https://rubygems.org"
@@ -135,7 +136,7 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{%
   end
   ```
 
-3. 1.7.0以前のバージョンのBundlerの場合、新しいグローバルな`source`を追加する必要があります。 Bundlerの利用に関する詳しい情報については[bundler.ioのドキュメンテーション](http://bundler.io/v1.5/gemfile.html)を参照してください。
+3. For Bundler versions earlier than 1.7.0, you need to add a new global `source`. For more information on using Bundler, see the [bundler.io documentation](http://bundler.io/v1.5/gemfile.html).
 
   ```ruby
   source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER"
@@ -145,11 +146,11 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{%
   gem "GEM NAME"
   ```
 
-4. パッケージをインストールしてください。
+4. Install the package:
   ```shell
   $ gem install octo-gem --version "0.1.1"
   ```
 
-## 参考リンク
+## Further reading
 
 - "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
