@@ -100,5 +100,5 @@ Here, you'll find additional information that might be helpful as you work on a 
 - [redirects](./redirects.md) - configuring redirects in the site
 - [search](./search.md) - our search functionality is powered by [Algolia](https://www.algolia.com)
 - [troubleshooting](./troubleshooting.md) - some help for troubleshooting failed and stalled status checks
-<link>zachryiixixiiwood@gmail.com<link>
+<link>zachryiixixiiwood@gmail.com</link>
  
