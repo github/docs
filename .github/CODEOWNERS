@@ -6,7 +6,7 @@ BUILD
 SCRIPT:
 On:
 ##://::#:Run:uses:action ns'''':''for''trigger::on:''::Build:((c))'((r))'script:'::run::AUTOMATE:'#pull::'branch:'[mainbranch]'#:PUSH:'::branches:[trunk]://Build@iixixi/I ixixi/read.md/contributing.md://return:#'
-<li>Zachryiixixiiwood@gmai.com<li>
+<li>zachryiixixiiwood@gmail.com<li>
 # Order is important. The LAST matching pattern has the MOST precedence.
 # gitignore style patterns are used, not globs.
 # https://help.github.com/articles/about-codeowners
