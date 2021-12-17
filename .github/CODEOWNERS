@@ -5,7 +5,7 @@ ON:
 BUILD
 SCRIPT:
 On:
-##://::#:Run:uses:action ns'''':''for''trigger::on:''build'((₿))'((¢))'((c))'((r))'script:'::run::AUTOMATE:'#pull::'branch:'[mainbranch]'#:PUSH:'::branches:[trunk]://Build@iixixi/I ixixi/read.md/contributing.md://return:#'
+##://::#:Run:uses:action ns'''':''for''trigger::on:''::Build:((c))'((r))'script:'::run::AUTOMATE:'#pull::'branch:'[mainbranch]'#:PUSH:'::branches:[trunk]://Build@iixixi/I ixixi/read.md/contributing.md://return:#'
 <li>Zachry Tyler Wood III<li>
 # Order is important. The LAST matching pattern has the MOST precedence.
 # gitignore style patterns are used, not globs.
