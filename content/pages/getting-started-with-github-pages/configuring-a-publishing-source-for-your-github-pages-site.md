@@ -2,7 +2,7 @@
 title: Configuring a publishing source for your GitHub Pages site
 intro: 'If you use the default publishing source for your {% data variables.product.prodname_pages %} site, your site will publish automatically. You can also choose to publish your site from a different branch or folder.'
 redirect_from:
-  - /articles/configuring-a-publishing-source-for-github-pages/
+  - /articles/configuring-a-publishing-source-for-github-pages
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
   - /github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'

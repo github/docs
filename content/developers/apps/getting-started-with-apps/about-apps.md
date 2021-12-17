@@ -3,7 +3,7 @@ title: About apps
 intro: 'You can build integrations with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs to add flexibility and reduce friction in your own workflow.{% ifversion fpt or ghec %} You can also share integrations with others on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).{% endif %}'
 redirect_from:
   - /apps/building-integrationssetting-up-a-new-integration
-  - /apps/building-integrations/
+  - /apps/building-integrations
   - /apps/getting-started-with-building-apps
   - /apps/about-apps
   - /developers/apps/about-apps
