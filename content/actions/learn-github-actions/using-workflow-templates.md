@@ -36,7 +36,7 @@ Anyone with write permission to a repository can set up {% data variables.produc
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. If you already have a workflow in your repository, click **New workflow**.
-1. Find the template that you want to use, then click **Set up this workflow**.
+1. Find the template that you want to use, then click **Configure**.
 1. If the workflow contains comments detailing additional setup steps, follow these steps.
 1. Some workflows use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the workflow uses a secret, store the value described in the secret name as a secret in your repository. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 1. Optionally, make additional changes. For example, you might want to change the value of `on` to change when the workflow runs.
