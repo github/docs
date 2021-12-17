@@ -14,9 +14,11 @@ permissions:
   contents: read
   deployments: write
 
+# This allows a subsequently queued workflow run to take priority over
+# previously queued runs but NOT interrupt currently executing runs
 concurrency:
   group: '${{ github.workflow }}'
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
