@@ -3,8 +3,8 @@ title: Webhook events and payloads
 intro: 'For each webhook event, you can review when the event occurs, an example payload, and descriptions about the payload object parameters.'
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
-  - /early-access/integrations/webhooks/
-  - /v3/activity/events/types/
+  - /early-access/integrations/webhooks
+  - /v3/activity/events/types
   - /webhooks/event-payloads
   - /developers/webhooks-and-events/webhook-events-and-payloads
 versions:

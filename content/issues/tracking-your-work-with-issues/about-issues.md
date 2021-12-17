@@ -3,8 +3,8 @@ title: About issues
 intro: 'Use {% data variables.product.prodname_github_issues %} to track ideas, feedback, tasks, or bugs for work on {% data variables.product.company_short %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-issues
-  - /articles/creating-issues/
-  - /articles/about-issues/
+  - /articles/creating-issues
+  - /articles/about-issues
   - /github/managing-your-work-on-github/about-issues
   - /issues/tracking-your-work-with-issues/creating-issues/about-issues
 versions:
