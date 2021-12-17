@@ -24,12 +24,12 @@ permissions:
   pull-requests: read
   statuses: write
 
-# This allows one Build workflow run to interrupt another
+# This allows a subsequently queued workflow run to interrupt previous runs
 # These are different from the concurrency in that here it checks if the
 # whole workflow runs again. The "inner concurrency" is used for
 # undeployments to cleaning up resources.
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label }}'
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
 jobs:
@@ -47,7 +47,7 @@ jobs:
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
     concurrency:
-      group: 'PR Staging @ ${{ github.event.pull_request.head.label }}'
+      group: 'PR Staging @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
       cancel-in-progress: true
     steps:
       - name: Check out repo
