@@ -2,7 +2,7 @@
 title: Log forwarding
 intro: '{% data variables.product.product_name %} uses `syslog-ng` to forward {% ifversion ghes %}system{% elsif ghae %}Git{% endif %} and application logs to the server you specify.'
 redirect_from:
-  - /enterprise/admin/articles/log-forwarding/
+  - /enterprise/admin/articles/log-forwarding
   - /enterprise/admin/installation/log-forwarding
   - /enterprise/admin/enterprise-management/log-forwarding
   - /admin/enterprise-management/log-forwarding
@@ -17,7 +17,12 @@ topics:
   - Logging
   - Security
 ---
+
+## About log forwarding
+
 Any log collection system that supports syslog-style log streams is supported (e.g., [Logstash](http://logstash.net/) and [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
+
+When you enable log forwarding, you must upload a CA certificate to encrypt communications between syslog endpoints. Your appliance and the remote syslog server will perform two-way SSL, each providing a certificate to the other and validating the certificate which is received.
 
 ## Enabling log forwarding
 
@@ -26,8 +31,8 @@ Any log collection system that supports syslog-style log streams is supported (e
 1. Select **Enable log forwarding**.
 1. In the **Server address** field, type the address of the server to which you want to forward logs. You can specify multiple addresses in a comma-separated list.
 1. In the Protocol drop-down menu, select the protocol to use to communicate with the log server. The protocol will apply to all specified log destinations.
-1. Select **Enable TLS**.
-1. Click **Choose File** and choose a CA certificate to encrypt communication between syslog endpoints. The entire certificate chain will be validated, and must terminate in a root certificate. For more information, see [TLS options in the syslog-ng documentation](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599).
+1. Optionally, select **Enable TLS**. We recommend enabling TLS according to your local security policies, especially if there are untrusted networks between the appliance and any remote log servers. 
+1. To encrypt communication between syslog endpoints, click **Choose File** and choose a CA certificate for the remote syslog server. You should upload a CA bundle containing a concatenation of the certificates of the CAs involved in signing the certificate of the remote log server. The entire certificate chain will be validated, and must terminate in a root certificate. For more information, see [TLS options in the syslog-ng documentation](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599).
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

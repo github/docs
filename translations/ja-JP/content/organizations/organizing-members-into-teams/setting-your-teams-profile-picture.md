@@ -6,12 +6,14 @@ redirect_from:
   - /articles/setting-your-teams-profile-picture
   - /github/setting-up-and-managing-organizations-and-teams/setting-your-teams-profile-picture
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Teamプロフィールの画像
 ---
 
 Team のプロフィール画像を設定しない場合、Team プロフィール画像は Organization のプロフィール画像と同じになります。

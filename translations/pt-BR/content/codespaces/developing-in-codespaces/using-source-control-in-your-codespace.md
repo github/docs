@@ -1,81 +1,82 @@
 ---
-title: Usando controle de origem no seu codespace
-intro: 'Depois de fazer alterações em um arquivo no seu código, você pode fazer um commit rápido das alterações e fazer push da sua atualização para o repositório remoto.'
+title: Using source control in your codespace
+intro: After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Source control
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
-### Sobre o controle de origem em {% data variables.product.prodname_codespaces %}
+## About source control in {% data variables.product.prodname_codespaces %}
 
-Você pode executar todas as ações do Git necessárias diretamente no seu codespace. Por exemplo, é possível obter alterações do repositório remoto, alternar os branches, criar um novo branch, fazer commit, fazer push e criar um pull request. Você pode usar o terminal integrado dentro do seu codespace para inserir nos comandos do Git, ou você pode clicar em ícones e opções de menu para realizar todas as tarefas mais comuns do Git. Este guia explica como usar a interface gráfica de usuário para controle de origem.
+You can perform all the Git actions you need directly within your codespace. For example, you can fetch changes from the remote repository, switch branches, create a new branch, commit and push changes, and create a pull request. You can use the integrated terminal within your codespace to enter Git commands, or you can click icons and menu options to complete all the most common Git tasks. This guide explains how to use the graphical user interface for source control.
 
-O controle de origem em {% data variables.product.prodname_github_codespaces %} usa o mesmo fluxo de trabalho que {% data variables.product.prodname_vscode %}. Para obter mais informações, consulte a documentação {% data variables.product.prodname_vscode %}"[Usando Controle de Versão no Código VS](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)".
+Source control in {% data variables.product.prodname_github_codespaces %} uses the same workflow as {% data variables.product.prodname_vscode %}. For more information, see the {% data variables.product.prodname_vscode %} documentation "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)."
 
-Um fluxo de trabalho típico para atualizar um arquivo que usa {% data variables.product.prodname_github_codespaces %} seria:
+A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
 
-* A partir do branch padrão do seu repositório em {% data variables.product.prodname_dotcom %}, crie um codespace. Consulte "[Criando um codespace](/codespaces/developing-in-codespaces/creating-a-codespace)".
-* No seu código, crie uma nova agência para trabalhar.
-* Faça suas alterações e salve-as.
-* Faça commit da alteração.
-* Abra um pull request.
+* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+* In your codespace, create a new branch to work on.
+* Make your changes and save them.
+* Commit the change.
+* Raise a pull request.
 
-### Criar ou trocar de branches
+## Creating or switching branches
 
-1. Se o branch atual não for mostrado na barra de status, na parte inferior do seu codespace, clique com o botão direito na barra de status e selecione **Controle de origem**.
-1. Clique no nome do branch na barra de status. ![O branch na barra de status](/assets/images/help/codespaces/branch-in-status-bar.png)
-1. No menu suspenso, clique no branch para o qual você deseja alternar ou digite o nome de um novo branch e clique em **Criar novo branch**. ![Escolha no menu do branch](/assets/images/help/codespaces/create-new-branch.png)
+{% data reusables.codespaces.create-or-switch-branch %}
 
 {% tip %}
 
-**Dica**: Se alguém alterou um arquivo no repositório remoto, no branch para o qual você mudou, você não verá essas alterações até você fazer pull das alterações no seu codespace.
+**Tip**: If someone has changed a file on the remote repository, in the branch you switched to, you will not see those changes until you pull the changes into your codespace. 
 
 {% endtip %}
 
-### Fazer pull das alterações do repositório remoto
+## Pulling changes from the remote repository
 
-Você pode fazer pull das alterações do repositório remoto para seu codespace a qualquer momento.
-
-{% data reusables.codespaces.source-control-display-dark %}
-1. Na parte superior da barra lateral, clique na elipse (**...**). ![Botão Elipsis para visualizar e mais ações](/assets/images/help/codespaces/source-control-ellipsis-button.png)
-1. No menu suspenso, clique em **Pull**.
-
-Se um contêiner de desenvolvimento foi alterado desde que você criou o codespace, você poderá aplicar as alterações reconstruindo o contêiner para o codespace. Para obter mais informações, consulte "[Configurar codespaces para o seu projeto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)".
-
-### Configurar o seu codespace para buscar novas alterações automaticamente
-
-É possível definir seu codespace para obter automaticamente os detalhes de quaisquer novos commits que tenham sido criados no repositório remoto. Isso permite que você veja se sua cópia local do repositório está desatualizada. Nesse caso, você pode optar por fazer pull das novas alterações.
-
-Se a operação de busca detectarem novas alterações no repositório remoto, você verá o número de novos commits na barra de status. Você pode fazer pull das alterações para a sua cópia local.
-
-1. Clique no botão **Gerenciar** na parte inferior da barra de atividades. ![Botão Gerenciar](/assets/images/help/codespaces/manage-button.png)
-1. No menu, clique em **Configurações**.
-1. Na página de configurações, pesquise por: `Autofetch`. ![Pesquisar por busca automática](/assets/images/help/codespaces/autofetch-search.png)
-1. Para buscar os detalhes das atualizações para todos os controles remotos registrados no repositório atual, defina **Git: Autofetch** como `todos`. ![Habilite a busca automática do Git](/assets/images/help/codespaces/autofetch-all.png)
-1. Se você deseja alterar o número de segundos entre cada busca automática, edite o valor de **Git: Período de Autofetch**.
-
-### Fazendo commit das suas alterações
+You can pull changes from the remote repository into your codespace at any time. 
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. Para testar suas alterações, clique  **+** ao lado do arquivo que você alterou, ou ao lado de **Alterações** se você mudou vários arquivos e quiser testar todos. ![Barra lateral de controle de origem com botão de staging destacado](/assets/images/help/codespaces/codespaces-commit-stage.png)
-1. Digite uma mensagem do commit que descreve a alteração que você fez. ![Barra lateral do controle de origem com uma mensagem de commit](/assets/images/help/codespaces/codespaces-commit-commit-message.png)
-1. Para fazer commit das alterações em fase de preparação, clique na marca de seleção na parte superior da barra lateral de controle de origem. ![Clique no ícone da marca de verificação](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)
+1. At the top of the side bar, click the ellipsis (**...**).
+![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button.png)
+1. In the drop-down menu, click **Pull**.
 
-### Abrindo um pull request
+If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
 
-1. Depois de realizar alterações na sua cópia local do repositório, clique no ícone **Criar Pull Request**. ![Barra lateral de controle de origem com botão de staging destacado](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
-1. Verifique se o branch local e o repositório do qual você está fazendo merge, o branch remoto e o repositório no qual você está fazendo merge estão corretos. Em seguida, dê ao pull request um título e uma descrição. ![Barra lateral de controle de origem com botão de staging destacado](/assets/images/help/codespaces/codespaces-commit-pr.png)
-1. Clique em **Criar**.
+## Setting your codespace to automatically fetch new changes 
 
-### Fazer push das alterações para o seu repositório remoto
+You can set your codespace to automatically fetch details of any new commits that have been made to the remote repository. This allows you to see whether your local copy of the repository is out of date, in which case you may choose to pull in the new changes. 
 
-Você pode fazer push das alterações que fez. Isso aplica essas alterações ao branch upstream no repositório remoto. Você pode querer fazer isso se ainda não estiver pronto para criar um pull request, ou se você preferir criar um pull request em {% data variables.product.prodname_dotcom %}.
+If the fetch operation detects new changes on the remote repository, you'll see the number of new commits in the status bar. You can then pull the changes into your local copy.
 
-1. Na parte superior da barra lateral, clique na elipse (**...**). ![Botão Elipsis para visualizar e mais ações](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
-1. No menu suspenso, clique em **Push**.
+1. Click the **Manage** button at the bottom of the Activity Bar.
+![Manage button](/assets/images/help/codespaces/manage-button.png)
+1. In the menu, slick **Settings**.
+1. On the Settings page, search for: `autofetch`.
+![Search for autofetch](/assets/images/help/codespaces/autofetch-search.png)
+1. To fetch details of updates for all remotes registered for the current repository, set **Git: Autofetch** to `all`.
+![Enable Git autofetch](/assets/images/help/codespaces/autofetch-all.png)
+1. If you want to change the number of seconds between each automatic fetch, edit the value of **Git: Autofetch Period**.
+
+## Committing your changes 
+
+{% data reusables.codespaces.source-control-commit-changes %} 
+
+## Raising a pull request
+
+{% data reusables.codespaces.source-control-pull-request %} 
+
+## Pushing changes to your remote repository
+
+You can push the changes you've made. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
+
+1. At the top of the side bar, click the ellipsis (**...**).
+![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
+1. In the drop-down menu, click **Push**.

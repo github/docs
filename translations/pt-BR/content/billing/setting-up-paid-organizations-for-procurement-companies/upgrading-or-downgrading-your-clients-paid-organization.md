@@ -5,14 +5,15 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-or-downgrading-your-clients-paid-organization
   - /articles/upgrading-or-downgrading-your-client-s-paid-organization
   - /articles/upgrading-or-downgrading-your-clients-paid-organization
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-or-downgrading-your-clients-paid-organization
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
   - Upgrades
+shortTitle: Atualização ou downgrade
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
@@ -25,7 +26,7 @@ topics:
 
 {% endtip %}
 
-### Atualizar o número de estações pagas de uma organização
+## Atualizar o número de estações pagas de uma organização
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.add-seats %}
@@ -34,7 +35,7 @@ topics:
 
 Depois que você adicionar as estações, será cobrado na forma de pagamento registrada no arquivo da organização um valor proporcional com base no número de estações que você está adicionando e no tempo restante no ciclo de cobrança.
 
-### Fazer downdgrade do número de estações pagas de uma organização para gratuitas
+## Fazer downdgrade do número de estações pagas de uma organização para gratuitas
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.downgrade-org-to-free %}

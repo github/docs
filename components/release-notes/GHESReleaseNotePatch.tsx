@@ -6,7 +6,6 @@ import { PatchNotes } from './PatchNotes'
 import { Link } from 'components/Link'
 import { CurrentVersion, ReleaseNotePatch, GHESMessage } from './types'
 import { useOnScreen } from 'components/hooks/useOnScreen'
-import { PrintAction } from 'components/PrintAction'
 
 type Props = {
   patch: ReleaseNotePatch
@@ -26,7 +25,7 @@ export function GHESReleaseNotePatch({
 }: Props) {
   const { t } = useTranslation('header')
   const containerRef = useRef<HTMLDivElement>(null)
-  const onScreen = useOnScreen(containerRef, '-40% 0px -50%')
+  const onScreen = useOnScreen(containerRef, { rootMargin: '-40% 0px -50%' })
   useEffect(() => {
     if (onScreen) {
       didEnterView()
@@ -36,12 +35,12 @@ export function GHESReleaseNotePatch({
   return (
     <div
       ref={containerRef}
-      className="mb-10 color-bg-secondary pb-6 border-bottom border-top"
+      className="mb-10 color-bg-subtle pb-6 border-bottom border-top"
       id={patch.version}
     >
       <header
         style={{ zIndex: 1 }}
-        className="container-xl position-sticky top-0 color-bg-secondary border-bottom px-3 pt-4 pb-2"
+        className="container-xl color-bg-subtle border-bottom px-3 pt-4 pb-2"
       >
         <div className="d-flex flex-items-center">
           <h2 className="border-bottom-0 m-0 p-0">
@@ -50,7 +49,7 @@ export function GHESReleaseNotePatch({
 
           {patch.release_candidate && (
             <span
-              className="IssueLabel color-bg-warning-inverse color-text-inverse ml-3"
+              className="IssueLabel color-bg-attention-emphasis color-fg-on-emphasis ml-3"
               style={{ whiteSpace: 'pre' }}
             >
               Release Candidate
@@ -65,16 +64,12 @@ export function GHESReleaseNotePatch({
               Download
             </Link>
           )}
-
-          <PrintAction>
-            <button className="btn-link ml-3 text-small text-bold">Print</button>
-          </PrintAction>
         </div>
 
-        <p className="color-text-secondary mt-1">{dayjs(patch.date).format('MMMM, DD, YYYY')}</p>
+        <p className="color-fg-muted mt-1">{dayjs(patch.date).format('MMMM DD, YYYY')}</p>
 
         {patch.version !== latestPatch && currentVersion.currentRelease === latestRelease && (
-          <p className="color-text-secondary mt-1">
+          <p className="color-fg-muted mt-1">
             <span
               dangerouslySetInnerHTML={{ __html: message.ghes_release_notes_upgrade_patch_only }}
             />{' '}
@@ -83,7 +78,7 @@ export function GHESReleaseNotePatch({
         )}
 
         {patch.version === latestPatch && currentVersion.currentRelease !== latestRelease && (
-          <p className="color-text-secondary mt-1">
+          <p className="color-fg-muted mt-1">
             <span
               dangerouslySetInnerHTML={{ __html: message.ghes_release_notes_upgrade_release_only }}
             />{' '}
@@ -92,7 +87,7 @@ export function GHESReleaseNotePatch({
         )}
 
         {patch.version !== latestPatch && currentVersion.currentRelease !== latestRelease && (
-          <p className="color-text-secondary mt-1">
+          <p className="color-fg-muted mt-1">
             <span
               dangerouslySetInnerHTML={{
                 __html: message.ghes_release_notes_upgrade_patch_and_release,

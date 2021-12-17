@@ -1,7 +1,0 @@
-Cuando seleccionas la opción **Squash and merge** (Combinar y fusionar) en una solicitud de extracción en la {% data variables.product.product_location %}, las confirmaciones de la solicitud de extracción se combinan en una única confirmación. En lugar de ver todas las confirmaciones individuales de un contribuyente de una rama de tema, las confirmaciones se combinan en una confirmación y se fusionan en la rama predeterminada. Las solicitudes de extracción con confirmaciones combinadas se fusionan usando la [fast-forward option](https://git-scm.com/docs/git-merge#_fast_forward_merge) (opción de avance rápido).
-
-Para combinar y fusionar solicitudes de extracción, debes tener [permisos de escritura](/articles/repository-permission-levels-for-an-organization/) en el repositorio, y el repositorio debe [permitir la fusión de combinaciones](/articles/configuring-commit-squashing-for-pull-requests/).
-
-![commit-squashing-diagram](/assets/images/help/pull_requests/commit-squashing-diagram.png)
-
-Puedes combinar y fusionar para crear un historial Git más optimizado en tu repositorio. Los compromisos de trabajo en curso son útiles cuando se trabaja en una rama de característica, pero no son tan importantes para retenerlos en el historial Git. Si combinas estas confirmaciones en una única confirmación al fusionar con la rama predeterminada, puedes conservar los cambios originales usando un historial Git claro.

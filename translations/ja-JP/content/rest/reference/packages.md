@@ -1,29 +1,25 @@
 ---
-title: パッケージ
+title: Packages
+intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
 product: '{% data reusables.gated-features.packages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
-{% data variables.product.prodname_registry %} APIでは、REST APIを使ってパッケージを管理できます。 パッケージのリストアや削除についてさらに学ぶには、「[パッケージのリストアと削除](/packages/learn-github-packages/deleting-and-restoring-a-package)」を参照してください。
+The {% data variables.product.prodname_registry %} API enables you to manage packages using the REST API. To learn more about restoring or deleting packages, see "[Restoring and deleting packages](/packages/learn-github-packages/deleting-and-restoring-a-package)."
 
-このAPIを使うには、個人アクセストークンを使って認証を受けなければなりません。
-  - パッケージメタデータにアクセスするには、トークンに`read:packages`スコープが含まれていなければなりません。
-  - パッケージやパッケージのバージョンを削除するには、トークンに`read:packages`及び`delete:packages`スコープが含まれていなければなりません。
-  - パッケージやパッケージのバージョンをリストアするには、トークンに`read:packages`及び`write:packages`スコープが含まれていなければなりません。
+To use this API, you must authenticate using a personal access token. 
+  - To access package metadata, your token must include the `read:packages` scope.
+  - To delete packages and package versions, your token must include the `read:packages` and `delete:packages` scopes.
+  - To restore packages and package versions, your token must include the `read:packages` and `write:packages` scopes.
 
-`package_type`が`npm`、`maven`、`rubygems`、`nuget`のいずれかなら、パッケージは{% data variables.product.prodname_dotcom %}リポジトリからの権限を継承するので、トークンには`repo`スコープも含まれていなければなりません。  スコープに関する詳しい情報については「[スコープと権限について](/packages/learn-github-packages/about-github-packages#about-scopes-and-permissions-for-package-registries)あるいは「[Dockerでの{% data variables.product.prodname_registry %} APIの利用](#using-the-github-packages-api-with-docker)」を参照してください。
+If your `package_type` is `npm`, `maven`, `rubygems`, or `nuget`, then your token must also include the `repo` scope since your package inherits permissions from a {% data variables.product.prodname_dotcom %} repository. If your package is in the {% data variables.product.prodname_container_registry %}, then your `package_type` is `container` and your token does not need the `repo` scope to access or manage this `package_type`. `container` packages offer granular permissions separate from a repository. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)."
 
-SSOが有効化されたOrganization内のリソースにアクセスするために{% data variables.product.prodname_registry %} APIを使いたい場合は、個人アクセストークンにSSOを有効化しなければなりません。 詳しい情報については「[SAMLシングルサインオンと使う個人アクセストークンの認可](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」を参照してください。
-
-#### Dockerでの{% data variables.product.prodname_registry %} APIの利用
-
-パッケージが`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`というパッケージの名前空間を使うDockerイメージなら、`package_type`は`docker`であり、パッケージが権限を{% data variables.product.prodname_dotcom %}リポジトリから継承するので、トークンには`repo`スコープが含まれていなければなりません。
-
-パッケージが`ghcr.io/OWNER/IMAGE-NAME`というパッケージの名前空間を使うDockerイメージなら、`package_type`は`container`であり、この`package_type`のアクセスあるいは管理のためにトークンに`repo`スコープが含まれている必要はありません。 `container`パッケージは、リポジトリは別に詳細な権限を提供します。
-
+If you want to use the {% data variables.product.prodname_registry %} API to access resources in an organization with SSO enabled, then you must enable SSO for your personal access token. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

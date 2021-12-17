@@ -12,7 +12,8 @@ export default function csp(req, res, next) {
   const csp = {
     directives: {
       defaultSrc: ["'none'"],
-      connectSrc: ["'self'", '*.algolia.net', '*.algolianet.com'],
+      prefetchSrc: ["'self'"],
+      connectSrc: ["'self'"],
       fontSrc: ["'self'", 'data:', AZURE_STORAGE_URL],
       imgSrc: [
         "'self'",

@@ -1,1 +1,1 @@
-{% if currentVersion == "free-pro-team@latest" %}[tablero personal](https://github.com/dashboard){% else %}tablero personal(`https://[hostname]/dashboard`){% endif %}
+{% ifversion fpt or ghec %}[tablero personal](https://github.com/dashboard){% else %} tablero personal (`https://[hostname]/dashboard`){% endif %}

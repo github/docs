@@ -4,11 +4,13 @@ intro: Puedes usar clientes de Subversion y algunos flujos de trabajo y propieda
 redirect_from:
   - /articles/working-with-subversion-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 children:
   - /what-are-the-differences-between-subversion-and-git
   - /support-for-subversion-clients
   - /subversion-properties-supported-by-github
+shortTitle: Trabajar con Subversion en GitHub
 ---
 

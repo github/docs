@@ -7,9 +7,11 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /developers/github-marketplace/rest-endpoints-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: REST API
 ---
 
 以下は、Marketplaceのリストで利用できる便利なエンドポイントです。

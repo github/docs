@@ -2,7 +2,7 @@ import { getDOM } from '../helpers/supertest.js'
 import languages from '../../lib/languages.js'
 import { jest } from '@jest/globals'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('<head>', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -31,7 +31,7 @@ describe('<head>', () => {
     ).toBe(true)
     // HTML intro
     expect(
-      $('div.lead-mktg')
+      $('[data-testid="lead"]')
         .html()
         .startsWith('<p>You can <a href="/articles/merging-a-pull-request">merge pull requests</a>')
     )

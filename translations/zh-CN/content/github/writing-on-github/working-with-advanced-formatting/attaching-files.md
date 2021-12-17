@@ -1,51 +1,60 @@
 ---
-title: 附加文件
-intro: 您可以通过将各种文件类型附加到议题和拉取请求来传达信息。
+title: Attaching files
+intro: You can convey information by attaching a variety of file types to your issues and pull requests.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/file-attachments-on-issues-and-pull-requests
-  - /articles/issue-attachments/
+  - /articles/issue-attachments
   - /articles/file-attachments-on-issues-and-pull-requests
   - /github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
 
 {% warning %}
 
-**警告：**如果您将图像{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}或视频{% endif %}添加到拉取请求或议题评论中，则任何人都可以在未经身份验证的情况下查看匿名 URL，即使该拉取请求在私有仓库中{% if enterpriseServerVersions contains currentVersion %}或启用了私有模式{% endif %}。 要对敏感媒体文件保密，请从需要身份验证的私有网络或服务器提供它们。 {% if currentVersion == "free-pro-team@latest" %}有关匿名 URL 的更多信息，请参阅“[关于匿名 URL](/github/authenticating-to-github/about-anonymized-urls)”。{% endif %}
+**Warning:** If you add an image{% ifversion fpt or ghes > 3.1 or ghae or ghec %} or video{% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
-要将文件附加到议题或拉取请求对话，请将它拖放到评论框中。 或者，您也可以单击评论框底部的栏来浏览、选择和添加计算机中的文件。
+To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
 
-![从计算机选择附件](/assets/images/help/pull_requests/select-bar.png)
+![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
 
 {% tip %}
 
-**提示：**在许多浏览器中，您可以将图像直接复制并粘贴到该框中。
+**Tip:** In many browsers, you can copy-and-paste images directly into the box.
 
 {% endtip %}
 
-最大文件大小为：
-- 10MB，对于图像和 gif{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-- 10MB，对于上传到使用免费 GitHub 计划的用户或组织所拥有仓库的视频
-- 100MB，对于上传到使用付费 GitHub 计划的用户或组织所拥有仓库的视频{% endif %}
-- 25MB，对于所有其他文件
+The maximum file size is:
+- 10MB for images and gifs{% ifversion fpt or ghec %}
+- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
+- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% elsif fpt or ghes > 3.1 or ghae %}
+- 100MB for videos{% endif %}
+- 25MB for all other files
 
-我们支持这些文件：
+We support these files:
 
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-* 日志文件 (*.log*)
-* Microsoft Word (*.docx*)、Powerpoint (*.pptx*) 和 Excel (*.xlsx*) 文档
-* 文本文件 (*.txt*)
-* PDF (*.pdf*)
-* ZIP（*.zip*、*.gz*）{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-* 视频（*.mp4*、*.mov*）{% endif %}
+* Log files (*.log*)
+* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
+* Text files (*.txt*)
+* PDFs (*.pdf*)
+* ZIP (*.zip*, *.gz*){% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+* Video (*.mp4*, *.mov*)
 
-![附件动画 GIF](/assets/images/help/pull_requests/dragging_images.gif)
+{% note %}
+
+**Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using h.264 for greatest compatibility.
+
+{% endnote %}
+{% endif %}
+
+![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)

@@ -5,6 +5,7 @@ redirect_from:
   - /v3/interactions
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

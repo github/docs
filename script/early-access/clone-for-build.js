@@ -122,6 +122,9 @@ destinationDirNames.forEach((dirName) => {
     return
   }
 
+  // Ensure the base directory exists
+  fs.mkdirSync(path.join(process.cwd(), dirName), { recursive: true })
+
   // Move the directory from the cloned source to the destination
   fs.renameSync(sourceDir, destDir)
 

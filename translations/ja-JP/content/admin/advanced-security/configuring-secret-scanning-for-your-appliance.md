@@ -1,13 +1,13 @@
 ---
-title: アプライアンスのシークレットスキャンを設定する
-shortTitle: シークレットスキャンを設定する
-intro: '{% data variables.product.product_location %} の {% data variables.product.prodname_secret_scanning %} を有効化、設定、無効化できます。 {% data variables.product.prodname_secret_scanning_caps %} を使用すると、ユーザはコードをスキャンして、誤ってコミットされたシークレットを探すことができます。'
+title: Configuring secret scanning for your appliance
+shortTitle: Configuring secret scanning
+intro: 'You can enable, configure, and disable {% data variables.product.prodname_secret_scanning %} for {% data variables.product.product_location %}. {% data variables.product.prodname_secret_scanning_caps %} allows users to scan code for accidentally committed secrets.'
 product: '{% data reusables.gated-features.secret-scanning %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -18,58 +18,56 @@ topics:
 
 {% data reusables.secret-scanning.beta %}
 
-### {% data variables.product.prodname_secret_scanning %} について
+## About {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.secret-scanning.about-secret-scanning %} For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)."
 
-### Prerequisites for {% data variables.product.prodname_secret_scanning %}
+## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+
+{% data reusables.advanced-security.check-for-ghas-license %}
+
+## Prerequisites for {% data variables.product.prodname_secret_scanning %}
 
 
-- [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Supplemental Streaming SIMD Extensions 3) CPU フラグは、{% data variables.product.product_location %} を実行するVM/KVMで有効にする必要があります。
+- The [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.product.product_location %}.
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion ver_gt "enterprise-server@3.0" %} (see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)"){% endif %}
+- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes > 3.0 %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
 - {% data variables.product.prodname_secret_scanning_caps %} enabled in the management console (see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 
-### vCPU での SSSE3 フラグのサポートを確認する
+### Checking support for the SSSE3 flag on your vCPUs
 
-{% data variables.product.prodname_secret_scanning %} はハードウェアアクセラレーションによるパターンマッチングを利用して、{% data variables.product.prodname_dotcom %} リポジトリにコミットされた潜在的な認証情報を見つけるため、SSSE3 の一連の命令が必要です。 SSSE3 は、ほとんどの最新の CPU で有効になっています。 {% data variables.product.prodname_ghe_server %} インスタンスで使用可能な vCPU に対して SSSE3 が有効になっているかどうかを確認できます。
+The SSSE3 set of instructions is required because {% data variables.product.prodname_secret_scanning %} leverages hardware accelerated pattern matching to find potential credentials committed to your {% data variables.product.prodname_dotcom %} repositories. SSSE3 is enabled for most modern CPUs. You can check whether SSSE3 is enabled for the vCPUs available to your {% data variables.product.prodname_ghe_server %} instance.
 
-1. {% data variables.product.prodname_ghe_server %} インスタンスの管理シェルに接続します。 詳しい情報については「[管理シェル（SSH）にアクセスする](/admin/configuration/accessing-the-administrative-shell-ssh)」を参照してください。
-2. 次のコマンドを入力します。
+1. Connect to the administrative shell for your {% data variables.product.prodname_ghe_server %} instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
+2. Enter the following command:
 
-```shell
-grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
-```
+   ```shell
+   grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
+   ```
 
-これで値 `0` が返される場合は、SSSE3 フラグが使用可能で有効になっていることを示します。 その後、{% data variables.product.product_location %} に対して {% data variables.product.prodname_secret_scanning %} を有効化できます。 For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" below.
+   If this returns the value `0`, it means that the SSSE3 flag is available and enabled. You can now enable {% data variables.product.prodname_secret_scanning %} for {% data variables.product.product_location %}. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" below.
 
-これで `0` が返されない場合、SSSE3 は VM/KVM で有効になっていません。 フラグを有効化する方法、またはゲスト VM で使用可能にする方法については、ハードウェア/ハイパーバイザーのドキュメントを参照する必要があります。
+   If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to refer to the documentation of the hardware/hypervisor on how to enable the flag, or make it available to guest VMs.
 
-#### {% data variables.product.prodname_advanced_security %} ライセンスがあるかどうかを確認する
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-1. 左のサイドバーに **{% data variables.product.prodname_advanced_security %}** エントリがあるかどうかを確認します。 ![[Advanced Security] サイドバー](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
-
-{% data reusables.enterprise_management_console.advanced-security-license %}
-
-### {% data variables.product.prodname_secret_scanning %} の有効化
+## Enabling {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. [{% data variables.product.prodname_advanced_security %}] で、[**{% data variables.product.prodname_secret_scanning_caps %}**] をクリックします。 ![{% data variables.product.prodname_secret_scanning %} を有効化または無効化するチェックボックス](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
+1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," click **{% data variables.product.prodname_secret_scanning_caps %}**.
+![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-### {% data variables.product.prodname_secret_scanning %} を無効にする
+## Disabling {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. [{% data variables.product.prodname_advanced_security %}] で、[**{% data variables.product.prodname_secret_scanning_caps %}**] を選択解除します。 ![{% data variables.product.prodname_secret_scanning %} を有効化または無効化するチェックボックス](/assets/images/enterprise/management-console/secret-scanning-disable.png)
+1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," unselect **{% data variables.product.prodname_secret_scanning_caps %}**.
+![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}

@@ -26,7 +26,7 @@ poetry         | `pip`            | v1               | | **✓** | |
 Terraform      | `terraform`      | >= 0.13, <= 1.0  | **✓** | **✓** | |
 yarn           | `npm`            | v1               | **✓** | **✓** | |
 
-[1] {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files: `build.gradle` and `build.gradle.kts` (for Kotlin projects).
+[1] {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files: `build.gradle`, `build.gradle.kts` (for Kotlin projects), and files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
 [2] {% data variables.product.prodname_dependabot %} doesn't run Maven but supports updates to `pom.xml` files.
 

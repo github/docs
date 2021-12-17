@@ -27,7 +27,9 @@ describe('crowdin.yml config file', () => {
 
   test('ignores all hidden pages', async () => {
     const hiddenPages = pages
-      .filter((page) => page.hidden && page.languageCode === 'en')
+      .filter(
+        (page) => page.hidden && page.languageCode === 'en' && !page.hasExperimentalAlternative
+      )
       .map((page) => `/content/${page.relativePath}`)
     const overlooked = hiddenPages.filter((page) => !isIgnored(page, ignoredPagePaths))
     const message = `Found some hidden pages that are not yet excluded from localization.

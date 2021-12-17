@@ -2,9 +2,11 @@
 title: Ejemplo de flujos de trabajo para publicar un paquete
 intro: 'Para ayudarte a iniciar con tus propios flujos de trabajo personalizados, revisa algunos flujos de trabajo de ejemplo para publicar paquetes.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Flujos de trabajo de ejemplo
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

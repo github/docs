@@ -1,6 +1,6 @@
-{% if currentVersion == "github-ae@latest" %}
-Para permitir que tus
-{% data variables.actions.hosted_runner %} se comuniquen con {% data variables.product.prodname_dotcom %}, agrega la dirección o rango de direcciones IP de tus {% data variables.actions.hosted_runner %} a la lista de IP permitidas. Para obtener más información, consulta "[Agregar una dirección IP permitida](#adding-an-allowed-ip-address)".
+{% ifversion ghae %}
+Para permitir que tus ejecutores auto-hospedados se comuniquen con
+{% data variables.product.prodname_dotcom %}, agrega la dirección o rango de direcciones IP de tus ejecutores auto-hospedados a la lista de IP permitidas. Para obtener más información, consulta "[Agregar una dirección IP permitida](#adding-an-allowed-ip-address)".
 {% else %}
 {% warning %}
 

@@ -1,8 +1,8 @@
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 {% note %}
 
-**注：{% data variables.product.product_location %} 上的 **{% data variables.product.prodname_actions %} 对 {% data variables.product.prodname_dotcom_the_website %} 或 {% data variables.product.prodname_marketplace %} 上的操作具有有限的访问权限。 更多信息请参阅“[自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信](#communication-between-self-hosted-runners-and-github)”。
+**Note:** {% data variables.product.prodname_actions %} on {% data variables.product.product_location %} may have limited access to actions on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_marketplace %}. For more information, see "[Managing access to actions from {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)" and contact your {% data variables.product.prodname_enterprise %} site administrator.
 
 {% endnote %}
 

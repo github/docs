@@ -1,1 +1,1 @@
-{% data variables.product.prodname_secret_scanning %} scans for any secrets in your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository.
+{% data variables.product.prodname_secret_scanning %} verifica todos segredos em todo o histórico do Git em todos os branches presentes no repositório {% data variables.product.prodname_dotcom %}.
