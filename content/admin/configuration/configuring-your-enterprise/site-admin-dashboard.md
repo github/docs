@@ -56,8 +56,8 @@ If you need to get information on the users, organizations, and repositories in 
 Specifically, you can download CSV reports that list
 
 - all users
-- all users who have been active within the last month
-- all users who have been inactive for one month or more
+- all active users
+- all [dormant users](/admin/user-management/managing-dormant-users)
 - all users who have been suspended
 - all organizations
 - all repositories
