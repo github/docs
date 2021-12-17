@@ -2,8 +2,8 @@
 title: Scopes for OAuth Apps
 intro: '{% data reusables.shortdesc.understanding_scopes_for_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/
-  - /apps/building-oauth-apps/scopes-for-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps
+  - /apps/building-oauth-apps/scopes-for-oauth-apps
   - /apps/building-oauth-apps/understanding-scopes-for-oauth-apps
   - /developers/apps/scopes-for-oauth-apps
 versions:
