@@ -1,6 +1,6 @@
 ---
-title: Sobre projetos (beta)
-intro: 'Os projetos são uma ferramenta personalizável e flexível para planejamento e acompanhamento de trabalhos em {% data variables.product.company_short %}.'
+title: About projects (beta)
+intro: 'Projects are a customizable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -13,52 +13,52 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## Sobre projetos
+## About projects
 
-Um projeto é uma planilha personalizável que se integra aos seus problemas e pull requests em {% data variables.product.company_short %}. Você pode personalizar o layout filtrando, organizando e agrupando seus problemas e PRs. Você também pode adicionar campos personalizados para rastrear metadados. Os projetos são flexíveis para que sua equipe possa trabalhar da maneira que for melhor para eles.
+A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.company_short %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. You can also add custom fields to track metadata. Projects are flexible so that your team can work in the way that is best for them.
 
-### Mantendo-se atualizado
+### Staying up-to-date
 
-O seu projeto permanece automaticamente atualizado com as informações em {% data variables.product.company_short %}. Quando um pull request ou um problema é alterado, o seu projeto reflete essa alteração. Esta integração também funciona nos dois sentidos, para que, quando você altera as informações sobre um problema ou pull request do seu projeto, o problema ou o pull request irá refletir essa informação.
+Your project automatically stays up-to-date with the information on {% data variables.product.company_short %}. When a pull request or issue changes, your project reflects that change. This integration also works both ways, so that when you change information about a pull request or issue from your project, the pull request or issue reflects that information.
 
-### Adicionando metadados às suas tarefas
+### Adding metadata to your tasks
 
-Você pode usar campos personalizados para adicionar metadados às suas tarefas. Por exemplo, você pode monitorar os seguintes metadados:
+You can use custom fields to add metadata to your tasks. For example, you can track the following metadata:
 
-- um campo de data para acompanhar as datas de envio
-- um campo numérico para monitorar a complexidade de uma tarefa
-- um único campo de seleção para rastrear se uma tarefa tem prioridade baixa, média ou alta
-- um campo de texto para adicionar uma observação rápida
+- a date field to track target ship dates
+- a number field to track the complexity of a task
+- a single select field to track whether a task is Low, Medium, or High priority
+- a text field to add a quick note
 - an iteration field to plan work week-by-week
 
-### Visualizando seu projeto de diferentes perspectivas
+### Viewing your project from different perspectives
 
-Você pode ver seu projeto como um layout de tabela de alta densidade:
+You can view your project as a high density table layout:
 
-![Tabela de projeto](/assets/images/help/issues/projects_table.png)
+![Project table](/assets/images/help/issues/projects_table.png)
 
-Ou como um quadro:
+Or as a board:
 
-![Quadro de projeto](/assets/images/help/issues/projects_board.png)
+![Project board](/assets/images/help/issues/projects_board.png)
 
-Para ajudar você a concentrar-se em aspectos específicos do seu projeto, você pode agrupar, ordenar ou filtrar itens:
+To help you focus on specific aspects of your project, you can group, sort, or filter items:
 
-![Visualização do projeto](/assets/images/help/issues/project_view.png)
+![Project view](/assets/images/help/issues/project_view.png)
 
-Para obter mais informações, consulte "[Personalizar as visualizações do seu projeto](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
+For more information, see "[Customizing your project views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."
 
 ### Working with the project command palette
 
-You can use the project command palette to quickly change views or add fields. A paleta de comandos guia você para que você não precise memorizar atalhos de teclado personalizados. Para obter mais informações, consulte "[Personalizar as visualizações do seu projeto](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
+You can use the project command palette to quickly change views or add fields. The command palette guides you so that you don't need to memorize custom keyboard shortcuts. For more information, see "[Customizing your project views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."
 
-### Automatizando tarefas de gerenciamento de projetos
+### Automating project management tasks
 
 Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done." You can also use the GraphQL API and {% data variables.product.prodname_actions %} to automate routine project management tasks. For more information, see "[Automating projects](/issues/trying-out-the-new-projects-experience/automating-projects)" and "[Using the API to manage projects](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)."
 
-## Comparação de projetos (beta) com os projetos que não são beta
+## Comparing projects (beta) with the non-beta projects
 
-Projetos (beta) é uma nova versão personalizável dos projetos. Para obter mais informações sobre a versão que não é beta dos projetos, consulte "[Organizar seu trabalho com quadros de projeto](/issues/organizing-your-work-with-project-boards)".
+Projects (beta) is a new, customizable version of projects. For more information about the non-beta version of projects, see "[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."
 
-## Compartilhando feedback
+## Sharing feedback
 
-Você pode compartilhar seu feedback sobre projetos (beta) com {% data variables.product.company_short %}. Para juntar-se à conversa, consulte [a discussão de feedbacks](https://github.com/github/feedback/discussions/categories/issues-feedback).
+You can share your feedback about projects (beta) with {% data variables.product.company_short %}. To join the conversation, see [the feedback discussion](https://github.com/github/feedback/discussions/categories/issues-feedback).

@@ -16,7 +16,9 @@ Amazon Web Services (AWS) | Amazon AWS Temporary Access Key ID | aws_temporary_a
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Asana | Asana Personal Access Token | asana_personal_access_token{% endif %} Atlassian | Atlassian API Token | atlassian_api_token Atlassian | Atlassian JSON Web Token | atlassian_jwt
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token{% endif %} Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token Azure | Azure SAS Token | azure_sas_token Azure | Azure Service Management Certificate | azure_management_certificate
+Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key{% endif %} Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token Azure | Azure SAS Token | azure_sas_token Azure | Azure Service Management Certificate | azure_management_certificate
 {%- ifversion ghes < 3.4 or ghae or ghae-issue-5342 %}
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %} Azure | Azure Storage Account Key | azure_storage_account_key
 {%- ifversion fpt or ghec or ghes > 3.2 %}

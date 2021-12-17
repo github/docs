@@ -10,6 +10,9 @@ on:
     branches:
       - translations
 
+permissions:
+  contents: write
+
 jobs:
   homogenize_frontmatter:
     name: Homogenize frontmatter

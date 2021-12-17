@@ -3,7 +3,7 @@ title: Managing pre-receive hooks on the GitHub Enterprise Server appliance
 intro: 'Configure how people will use pre-receive hooks within their {% data variables.product.prodname_ghe_server %} appliance.'
 redirect_from:
   - /enterprise/admin/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
-  - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance/
+  - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:

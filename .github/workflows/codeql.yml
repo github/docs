@@ -15,6 +15,11 @@ on:
       - '**/*.js'
       - '.github/workflows/codeql.yml'
 
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
 jobs:
   build:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'

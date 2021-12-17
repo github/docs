@@ -1,10 +1,10 @@
 ---
-title: Exibir o uso do Git Large File Storage
-intro: 'Você pode auditar a cota de largura de banda mensal da sua conta e o armazenamento restante do {% data variables.large_files.product_name_short %}.'
+title: Viewing your Git Large File Storage usage
+intro: 'You can audit your account''s monthly bandwidth quota and remaining storage for {% data variables.large_files.product_name_short %}.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-git-large-file-storage-usage
-  - /articles/viewing-storage-and-bandwidth-usage-for-a-personal-account/
-  - /articles/viewing-storage-and-bandwidth-usage-for-an-organization/
+  - /articles/viewing-storage-and-bandwidth-usage-for-a-personal-account
+  - /articles/viewing-storage-and-bandwidth-usage-for-an-organization
   - /articles/viewing-your-git-large-file-storage-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage
 versions:
@@ -15,25 +15,24 @@ topics:
   - LFS
   - Organizations
   - User account
-shortTitle: Visualizar o uso do LFS do Git
+shortTitle: View Git LFS usage
 ---
-
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}
 
-## Exibir o uso de armazenamento e largura de banda de uma conta pessoal
+## Viewing storage and bandwidth usage for a personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
-## Exibir o uso de armazenamento e largura de banda de uma organização
+## Viewing storage and bandwidth usage for an organization
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.lfs-data %}
 
-## Leia mais
+## Further reading
 
-- "[Sobre o uso de armazenamento e largura de banda](/articles/about-storage-and-bandwidth-usage)"
-- "[Atualizar o {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage/)"
+- "[About storage and bandwidth usage](/articles/about-storage-and-bandwidth-usage)"
+- "[Upgrading {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage/)"

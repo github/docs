@@ -3,7 +3,7 @@ title: Upgrade requirements
 intro: 'Before upgrading {% data variables.product.prodname_ghe_server %}, review these recommendations and requirements to plan your upgrade strategy.'
 redirect_from:
   - /enterprise/admin/installation/upgrade-requirements
-  - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release/
+  - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
 versions:
