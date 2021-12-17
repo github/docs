@@ -25,9 +25,9 @@ topics:
 
 ## About workflow templates
 
-{% data variables.product.product_name %} offers workflow templates for a variety of languages and tooling. When you set up workflows in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends workflows based on the language and framework in your repository. For example, if you use [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} will suggest a template file that installs your Node.js packages and runs your tests.
+{% data variables.product.product_name %} offers workflow templates for a variety of languages and tooling. When you set up workflows in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends workflows based on the language and framework in your repository. For example, if you use [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} will suggest a template file that installs your Node.js packages and runs your tests.{% if actions-starter-template-ui %} You can search and filter to find relevant workflow templates.{% endif %}
 
-You can also create your own workflow templates to share with your organization. For more information, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."
+You can also create your own workflow templates to share with your organization. These templates will appear alongside the {% data variables.product.product_name %} workflow templates. For more information, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."
 
 ## Using workflow templates
 
@@ -36,8 +36,8 @@ Anyone with write permission to a repository can set up {% data variables.produc
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. If you already have a workflow in your repository, click **New workflow**.
-1. Find the template that you want to use, then click **Set up this workflow**.
-1. If the workflow template contains comments detailing additional setup steps, follow these steps.
+1. Find the template that you want to use, then click **Set up this workflow**.{% if actions-starter-template-ui %} To help you find the template that you want, you can search for keywords or filter by category.{% endif %}
+1. If the workflow template contains comments detailing additional setup steps, follow these steps. Many of the templates have corresponding guides. For more information, see [the {% data variables.product.prodname_actions %} guides](/actions/guides)."
 1. Some workflow templates use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the workflow template uses a secret, store the value described in the secret name as a secret in your repository. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 1. Optionally, make additional changes. For example, you might want to change the value of `on` to change when the workflow runs.
 1. Click **Start commit**.
