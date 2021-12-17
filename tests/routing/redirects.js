@@ -76,7 +76,7 @@ describe('redirects', () => {
     test('have q= converted to query=', async () => {
       const res = await get('/en/enterprise/admin?q=pulls')
       expect(res.statusCode).toBe(301)
-      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
+      const expected = '/en/enterprise/admin?query=pulls'
       expect(res.headers.location).toBe(expected)
     })
 
@@ -104,7 +104,8 @@ describe('redirects', () => {
 
     test('work on deprecated versions', async () => {
       const res = await get('/enterprise/2.12/admin/search?utf8=%E2%9C%93&q=pulls')
-      expect(res.statusCode).toBe(200)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe('/enterprise/2.12/admin/search?utf8=%E2%9C%93&query=pulls')
     })
   })
 

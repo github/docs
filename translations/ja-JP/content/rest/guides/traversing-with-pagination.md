@@ -263,4 +263,4 @@ puts "The next page link is #{next_page_href}"
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [hypermedia-relations]: https://github.com/octokit/octokit.rb#pagination
-[listing commits]: /rest/reference/repos#list-commits
+[listing commits]: /rest/reference/commits#list-commits

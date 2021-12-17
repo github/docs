@@ -1,7 +1,7 @@
 ---
-title: 新しい GitHub アカウントへのサインアップ
-shortTitle: 新しい GitHub アカウントへのサインアップ
-intro: '{% data variables.product.company_short %} は、人々が協力して作業するチームのために個人および Organization のユーザアカウントを提供します。'
+title: Signing up for a new GitHub account
+shortTitle: Sign up for a new GitHub account
+intro: '{% data variables.product.company_short %} offers user accounts for individuals and organizations for teams of people working together.'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
   - /github/getting-started-with-github/signing-up-for-a-new-github-account
@@ -13,15 +13,19 @@ topics:
   - Accounts
 ---
 
-アカウントの種類と製品の詳しい情報については、「[{% data variables.product.prodname_dotcom %}アカウントの種類](/articles/types-of-github-accounts)」および「[{% data variables.product.company_short %} の製品](/articles/github-s-products)」を参照してください。
+## About new accounts on {% data variables.product.prodname_dotcom_the_website %}
+
+You can create a personal account, which serves as your identity on {% data variables.product.prodname_dotcom_the_website %}, or an organization, which allows multiple personal accounts to collaborate across multiple projects. For more information about account types, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+
+When you create a personal account or organization, you must select a billing plan for the account. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
+
+## Signing up for a new account
 
 {% data reusables.accounts.create-account %}
-1. プロンプトに従って、個人アカウントまたは Organization を作成してください。
+1. Follow the prompts to create your personal account or organization.
 
-## 次のステップ
+## Next steps
 
-- 「[メールアドレスを検証する](/articles/verifying-your-email-address)」
-- 「[2 要素認証を設定する](/articles/configuring-two-factor-authentication)」
-- 「[プロフィールに略歴を追加する](/articles/adding-a-bio-to-your-profile)」
-- 「[Organization を作成する](/articles/creating-a-new-organization-from-scratch)」
-- `github/roadmap` リポジトリの [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})
+- "[Verify your email address](/articles/verifying-your-email-address)"
+- "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository
