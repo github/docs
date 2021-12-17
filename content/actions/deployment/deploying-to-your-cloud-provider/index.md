@@ -8,6 +8,6 @@ versions:
   ghec: '*'
 children:
   - /deploying-to-amazon-elastic-container-service
-  - /deploying-to-azure-app-service
+  - /deploying-to-azure
   - /deploying-to-google-kubernetes-engine
 ---
