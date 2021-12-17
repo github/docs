@@ -22,6 +22,7 @@ prodname_ghe_server: 'GitHub Enterprise Server'
 prodname_ghe_cloud: 'GitHub Enterprise Cloud'
 prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
+prodname_docs: 'GitHub Docs'
 
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
