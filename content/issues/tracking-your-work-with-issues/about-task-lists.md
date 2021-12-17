@@ -51,7 +51,7 @@ If you add a task list to the body of an issue, the list has added functionality
 
 {% data reusables.repositories.task-list-markdown %}
 
-You cannot create task list items issues from closed issues or issues with linked pull requests.
+You cannot create task list items within closed issues or issues with linked pull requests.
 
 ## Reordering tasks
 
