@@ -223,7 +223,7 @@ jobs:
           github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           result-encoding: string
           script: |
-            const prFiles = await github.pulls.listFiles({
+            const { data: prFiles } = await github.pulls.listFiles({
               ...context.repo,
               pull_number: process.env.PR_NUMBER,
             })
@@ -237,13 +237,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh pr close ${{ steps.find-pull-request.outputs.number }} --repo $GITHUB_REPOSITORY
-
-      - name: Comment on the pull request if no files remain
-        if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count == '0' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh pr comment ${{ steps.find-pull-request.outputs.number }} --repo $GITHUB_REPOSITORY --body "This pull request was closed because it no longer contained any changes."
 
       - name: Approve pull request
         if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count != '0' }}
