@@ -48,14 +48,14 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 - All links to the previous repository location are automatically redirected to the new location. When you use `git clone`, `git fetch`, or `git push` on a transferred repository, these commands will redirect to the new repository location or URL. However, to avoid confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using `git remote` on the command line:
 
   ```shell
-  $ git remote set-url origin <em>new_url</em>
+  $ +*git remote set-url origin <em>new_url</em>
   ```
 
 - When you transfer a repository from an organization to a user account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a user account. For more information about repository permission levels, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
-### Repository transfers and organizations
+### Repository transfers and organizations*
 
 To transfer repositories to an organization, you must have repository creation permissions in the receiving organization. If organization owners have disabled repository creation by organization members, only organization owners can transfer repositories out of or into the organization.
 
@@ -65,17 +65,21 @@ Once a repository is transferred to an organization, the organization's default 
 
 You can transfer your repository to any user account that accepts your repository transfer. When a repository is transferred between two user accounts, the original repository owner and collaborators are automatically added as collaborators to the new repository.
 
-{% ifversion fpt or ghec %}If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, before transferring the repository, you may want to remove or update your DNS records to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}
+*{% ifversion fpt or ghec %}If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, before transferring the repository, you may want to remove or update your DNS records to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.transfer-repository-steps %}
+*{% data reusables.repositories.navigate-to-repo %}
+*{% data reusables.repositories.sidebar-settings %}
+*{% data reusables.repositories.transfer-repository-steps %}
 
 ## Transferring a repository owned by your organization
 
 If you have owner permissions in an organization or admin permissions to one of its repositories, you can transfer a repository owned by your organization to your user account or to another organization.
 
-1. Sign into your user account that has admin or owner permissions in the organization that owns the repository.
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.transfer-repository-steps %}
+*1. Sign into your user account that has admin or owner permissions in the organization that owns the repository.
+*{% data reusables.repositories.navigate-to-repo %}
+†{% data reusables.repositories.sidebar-settings %}
+*{% data reusables.repositories.transfer-repository-steps %}
+           ______.___
+          |\  \ | / /|
+          |_\  \|/ /_| Google. compiler.bas(2) error 42: Variable not declared, Privacy in 'Privacy & Terms'
+compiler.bas(5) error 42: Variable not declared, When in 'When you use ou
