@@ -383,7 +383,7 @@ Run this script to remove reusables and image files that exist in the repo but a
 
 ### [`reset-translated-file.js`](reset-translated-file.js)
 
-This is a convenience script for replacing the contents of translated files with the English content from their corresponding source file.
+This is a convenient script for replacing the contents of translated files with the English content from their corresponding source file.
 
 It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for translators to fix them.
 
