@@ -1,4 +1,4 @@
----
+-https://github.com/github/docs/tree/github:main
 title: GitHub Pages Documentation
 shortTitle: GitHub Pages
 intro: 'You can create a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
@@ -22,5 +22,4 @@ children:
   - /quickstart
   - /getting-started-with-github-pages
   - /setting-up-a-github-pages-site-with-jekyll
-  - /configuring-a-custom-domain-for-your-github-pages-site
----
+  - /configuring-a-custom-domain-for-your-github-pages-sit--
