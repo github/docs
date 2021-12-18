@@ -1,5 +1,5 @@
 ---
-title: Using Git rebase on the command line
+#title: Using Git rebase on the command line
 redirect_from:
   - /articles/using-git-rebase
   - /articles/using-git-rebase-on-the-command-line
