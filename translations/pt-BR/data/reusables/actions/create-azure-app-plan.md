@@ -1,6 +1,6 @@
-1. Create an Azure App Service plan.
+1. Crie um plano do Azure App Service.
 
-   For example, you can use the Azure CLI to create a new App Service plan:
+   Por exemplo, você pode usar o CLI do Azure para criar um novo plano de App Service:
 
    ```bash{:copy}
    az appservice plan create \
@@ -9,9 +9,9 @@
       --is-linux
    ```
 
-   In the command above, replace `MY_RESOURCE_GROUP` with your pre-existing Azure Resource Group, and `MY_APP_SERVICE_PLAN` with a new name for the App Service plan.
+   No comando acima, substitua `MY_RESOURCE_GROUP` pelo seu Grupo de Recursos do Azure pré-existente, e `MY_APP_SERVICE_PLAN` por um novo nome para o plano do App Service.
 
-   See the Azure documentation for more information on using the [Azure CLI](https://docs.microsoft.com/cli/azure/):
+   Para obter mais informações, consulte a documentação do Azure usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/):
 
-   * For authentication, see "[Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)."
-   * If you need to create a new resource group, see "[az group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_create)."
+   * Para autenticação, consulte "[Efetuar login com o CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)."
+   * Se você precisar criar um novo grupo de recursos, consulte "[grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_create)".
