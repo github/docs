@@ -1,4 +1,5 @@
----
+---repo sync [repo repo status [Extract+sync+repo sync [Extract+sync]]]
+repo sync [git commit -a # Commit local changes first so they aren't lost. repo start bitcoincash:?r=https://bitpay.com/i/DGDG4nZV23nYCBQXrwD5VR # Start the branch git reset --hard HEAD@{1} # And reset the branch so that it matches the commit before repo start repo upload .]
 title: Working with the Docker registry
 intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.{% endif %}'
 product: '{% data reusables.gated-features.packages %}'
