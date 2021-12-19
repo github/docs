@@ -1,6 +1,26 @@
-#!/bin/sh
-[ -n "$CI" ] && exit 0
-. "$(dirname "$0")/_/husky.sh"
-
-node script/prevent-translation-commits.js
-npx lint-staged
+#!/bin/Bash
+'Run:' '"name":' "$CI" ] && exit 0
+"$(dirname "$0")/_/husky.sh"
++- :Build:: .diff'@.git.it:'@bitore.si/100644/000000000000..8c0bb0edd1ccc/dev/b/bitore.sig
+ +- Runs: name
+ +- name: kite
+ +- run-on: ubuntu-latest
+ +- Display: Famerwork-Windows-pop-up
+ +- permissions:
+ +- issues: write
+ +- pull-request: repo sync
+ +- checkout: actions'"@slate"''
+ +- "versioning":' '"@v1"'' 
+ +- "Get":' ".git./.git.it/node_modules/.bin/node-pg-migrate"''
+ +- dependencies: list"''
+ +- parse: "build"''
+ +- export: "[VOLUME]"''
+ +- VOLUME: [12753750.00]"
+ +- ITEM_ID: BITORE_34173
+ +- token: ((c)(r))
+ +- confirmations: "o'Auth"node script/prevent-translation-commits.js
+rendeerer:
+lint: 
+:Build::
+Return: 'Run ''
+<link>zachryiixixiiwood@gmail.com<link>
