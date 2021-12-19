@@ -26,11 +26,11 @@ Para verificar se, atualmente, há algum incidente afetando os serviços no {% d
 
 ## Entrar em contato com o {% data variables.contact.github_support %}
 
-{% data reusables.support.zendesk-deprecation %}
+{% data reusables.support.zendesk-old-tickets %}
 
 Você pode usar {% data variables.contact.community_support_forum %} para procurar tópicos, fazer perguntas, compartilhar soluções e interagir diretamente com {% data variables.contact.community_support %}.
 
-Para relatar problemas de segurança, segurança e abuso ou receber suporte assistido para uma conta paga, acesse {% data variables.contact.contact_support_portal %}. Se você for um administrador de {% data variables.product.prodname_ghe_server %} sem uma conta de usuário em {% data variables.product.prodname_dotcom_the_website %}, acesse {% data variables.contact.contact_enterprise_portal %}. A comunicação de e-mail do GitHub Support sempre será enviada de um endereço `github.com` ou `githubsupport.com`.
+Para relatar problemas de segurança, segurança e abuso ou receber suporte assistido para uma conta paga, acesse {% data variables.contact.contact_support_portal %}. A comunicação de e-mail do GitHub Support sempre será enviada de um endereço `github.com` ou `githubsupport.com`.
 
 ## Conceder acesso temporário do {% data variables.contact.github_support %} a um repositório privado
 

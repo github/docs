@@ -1,8 +1,8 @@
 ---
-title: アクティビティダッシュボード
-intro: アクティビティダッシュボードで、Enterprise 内のすべてのアクティビティの概要を確認できます。
+title: Activity dashboard
+intro: The Activity dashboard gives you an overview of all the activity in your enterprise.
 redirect_from:
-  - /enterprise/admin/articles/activity-dashboard/
+  - /enterprise/admin/articles/activity-dashboard
   - /enterprise/admin/installation/activity-dashboard
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard
@@ -12,21 +12,22 @@ versions:
 topics:
   - Enterprise
 ---
+The Activity dashboard provides weekly, monthly, and yearly graphs of the number of:
+- New pull requests
+- Merged pull requests
+- New issues
+- Closed issues
+- New issue comments
+- New repositories
+- New user accounts
+- New organizations
+- New teams
 
-アクティビティダッシュボードには、次の数値の週次、月次、年次のグラフが表示されます。
-- 新規プルリクエスト
-- マージされたプルリクエスト
-- 新規 Issue
-- 解決された Issue
-- 新規 Issue コメント
-- 新規リポジトリ
-- 新規ユーザアカウント
-- 新規 Organization
-- 新規 Team
+![Activity dashboard](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-![アクティビティダッシュボード](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
+## Accessing the Activity dashboard
 
-## アクティビティダッシュボードへのアクセス
-
-1. ページの上部で [**Explore**] をクリックします。 ![[Explore] タブ](/assets/images/enterprise/settings/ent-new-explore.png)
-2. 右上にある **Activity** をクリックする。 ![Activity ボタン](/assets/images/enterprise/activity/activity-button.png)
+1. At the top of any page, click **Explore**.
+![Explore tab](/assets/images/enterprise/settings/ent-new-explore.png)
+2. In the upper-right corner, click **Activity**.
+![Activity button](/assets/images/enterprise/activity/activity-button.png)

@@ -1,11 +1,11 @@
 ---
-title: 在 GitHub 上编写
+title: Writing on GitHub
 redirect_from:
-  - /categories/88/articles/
-  - /articles/github-flavored-markdown/
-  - /articles/writing-on-github/
+  - /categories/88/articles
+  - /articles/github-flavored-markdown
+  - /articles/writing-on-github
   - /categories/writing-on-github
-intro: '您可以通过各种格式选项构建 {% data variables.product.product_name %} 共享的信息。'
+intro: 'You can structure the information shared on {% data variables.product.product_name %} with various formatting options.'
 versions:
   fpt: '*'
   ghes: '*'

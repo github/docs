@@ -1,7 +1,7 @@
 ---
-title: Memorizar dependências para acelerar os fluxos de trabalho
-shortTitle: Memorizar dependências
-intro: 'Para agilizar os seus fluxos de trabalho e torná-los mais eficientes, você pode criar e usar caches para dependências e outros arquivos reutilizados geralmente.'
+title: Caching dependencies to speed up workflows
+shortTitle: Caching dependencies
+intro: 'To make your workflows faster and more efficient, you can create and use caches for dependencies and other commonly reused files.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -15,59 +15,82 @@ topics:
   - Workflows
 ---
 
-## Sobre a memorização das dependências do fluxo de trabalho
+## About caching workflow dependencies
 
-As execuções do fluxo de trabalho geralmente reutilizam as mesmas saídas ou dependências baixadas de uma execução para outra. Por exemplo, as ferramentas de gerenciamento de pacotes e de dependência, como, por exemplo, Maven, Gradle, npm e Yarn mantêm uma cache local de dependências baixadas.
+Workflow runs often reuse the same outputs or downloaded dependencies from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies.
 
-Os trabalhos nos executores hospedados em {% data variables.product.prodname_dotcom %} começam em um ambiente virtual limpo e devem baixar as dependências todas as vezes, o que gera uma maior utilização da rede, maior tempo de execução e aumento dos custos. Para ajudar a acelerar o tempo que leva para recrear esses arquivos, {% data variables.product.prodname_dotcom %} pode memorizar as dependências que você usa frequentemente nos fluxos de trabalho.
+Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean virtual environment and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, {% data variables.product.prodname_dotcom %} can cache dependencies you frequently use in workflows.
 
-Para memorizar as dependências para um trabalho, você precisará usar a ação `cache` do {% data variables.product.prodname_dotcom %}. A ação recupera uma cache identificada por uma chave única. Para obter mais informações, consulte [`ações/cache`](https://github.com/actions/cache).
+To cache dependencies for a job, you'll need to use {% data variables.product.prodname_dotcom %}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache).
 
-Se você estiver armazenando gems do Ruby, disso considere usar a ação mantida pelo Ruby, que pode armazenar em cache as instalações do pacote na iniciação. Para obter mais informações, consulte [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
+If you are caching the package managers listed below, consider using the respective setup-* actions, which require almost zero configuration and are easy to use.
 
-Para armazenar em cache e restaurar as dependências do npm, Yarn ou pnpm, você pode usar a ação [`actions/setup-node`](https://github.com/actions/setup-node).
-
-O cache do Gradle e Maven está disponível com a ação [`actions/setup-java`](https://github.com/actions/setup-java).
+<table>
+<thead>
+  <tr>
+    <th>Package managers</th>
+    <th>setup-* action for caching</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>npm, yarn, pnpm</td>
+    <td><a href="https://github.com/actions/setup-node">setup-node</a></td>
+  </tr>
+  <tr>
+    <td>pip, pipenv</td>
+    <td><a href="https://github.com/actions/setup-python">setup-python</a></td>
+  </tr>
+  <tr>
+    <td>gradle, maven</td>
+    <td><a href="https://github.com/actions/setup-java">setup-java</a></td>
+  </tr>
+  <tr>
+    <td>ruby gems</td>
+    <td><a href="https://github.com/ruby/setup-ruby">setup-ruby</a></td>
+  </tr>
+</tbody>
+</table>
 
 {% warning %}
 
-**Alerta**: Recomendamos que você não armazene nenhuma informação confidencial na cache dos repositórios públicos. Por exemplo, as informações confidenciais podem incluir tokens de acesso ou credenciais de login armazenadas em um arquivo no caminho da cache. Além disso, os programas de interface da linha de comando (CLI) como o `login do Docker` pode salvar as credenciais de acesso em um arquivo de configuração. Qualquer pessoa com acesso de leitura pode criar um pull request em um repositório e acessar o conteúdo da cache. As bifurcações de um repositório também podem criar pull requests no branch-base e acessar as caches no branch-base.
+**Warning**: We recommend that you don't store any sensitive information in the cache of public repositories. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of the cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.
 
 {% endwarning %}
 
-## Comparando artefatos e memorização de dependência
+## Comparing artifacts and dependency caching
 
-Os artefatos são similares, pois fornecem a habilidade de armazenar arquivos em {% data variables.product.prodname_dotcom %}, mas cada recurso oferece usos diferentes e não podem ser usados de forma intercambiável.
+Artifacts and caching are similar because they provide the ability to store files on {% data variables.product.prodname_dotcom %}, but each feature offers different use cases and cannot be used interchangeably.
 
-- Use a memorização quando desejar reutilizar os arquivos que não mudam com frequência entre trabalhos ou execuções de fluxos de trabalho.
-- Use artefatos quando desejar salvar arquivos produzidos por um trabalho a ser visualizado após a conclusão de um fluxo de trabalho. Para obter mais informações, consulte "[Dados recorrentes do fluxo de trabalho que usam artefatos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
+- Use caching when you want to reuse files that don't change often between jobs or workflow runs.
+- Use artifacts when you want to save files produced by a job to view after a workflow has ended. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-## Restrições para acessar uma cache
+## Restrictions for accessing a cache
 
-Com `v2` da ação da `cache`, você pode acessar a cache nos fluxos de trabalho ativados por qualquer evento que tem um `GITHUB_REF`. Se você estiver usando `v1` da ação da `cache`, você só poderá acessar a cache em fluxos de trabalho ativados por eventos de `push` e `pull_request`, exceto para o evento `fechado` de `pull_request`. Para obter mais informações, consulte "[Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows)".
+With `v2` of the `cache` action, you can access the cache in workflows triggered by any event that has a `GITHUB_REF`. If you are using `v1` of the `cache` action, you can only access the cache in workflows triggered by `push` and `pull_request` events, except for the `pull_request` `closed` event. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
-Um fluxo de trabalho pode acessar e restaurar um cache criado no branch atual, no branch de base (incluindo branches base de repositórios bifurcados) ou no branch-padrão (geralmente `principal`). Por exemplo, um cache criado no branch-padrão pode ser acessado a partir de qualquer pull request. Além disso, se o branch `feature-b` tiver o branch de base `feature-a`, um fluxo de trabalho acionado em `feature-b` teria acesso a caches criados no branch-padrão (`principal`), `feature-a` e `feature-b`.
+A workflow can access and restore a cache created in the current branch, the base branch (including base branches of forked repositories), or the default branch (usually `main`). For example, a cache created on the default branch would be accessible from any pull request. Also, if the branch `feature-b` has the base branch `feature-a`, a workflow triggered on `feature-b` would have access to caches created in the default branch (`main`), `feature-a`, and `feature-b`.
 
-As restrições de acesso fornecem o isolamento da cache e a segurança ao criar um limite lógico entre os diferentes branches. Por exemplo, um cache criado para o branch `feature-a` (com a base no `principal`) não seria acessível para um pull request para o branch `feature-b` (com a base no `principal`).
+Access restrictions provide cache isolation and security by creating a logical boundary between different branches. For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-b` (with the base `main`).
 
-Vários fluxos de trabalho dentro de um repositório compartilham entradas de cache. Uma cache criada para um branch de um fluxo de trabalho pode ser acessada e restaurada a partir de outro fluxo de trabalho para o mesmo repositório e branch.
+Multiple workflows within a repository share cache entries. A cache created for a branch within a workflow can be accessed and restored from another workflow for the same repository and branch.
 
-## Usar a ação `cache`
+## Using the `cache` action
 
-A ação `cache` tentará restaurar uma cache com base na `chave` que você fornecer. Quando a ação encontrar uma cache, ela irá restaurar os arquivos memorizados no `caminho` que você configurar.
+The `cache` action will attempt to restore a cache based on the `key` you provide. When the action finds a cache, the action restores the cached files to the `path` you configure.
 
-Se não houver uma correspondência perfeita, a ação criará uma nova entrada da cache se o trabalho for concluído com sucesso. A nova cache usará a `chave` que você forneceu e conterá os arquivos no diretório do `caminho`.
+If there is no exact match, the action creates a new cache entry if the job completes successfully. The new cache will use the `key` you provided and contains the files in the `path` directory.
 
-Como alternativa, você pode fornecer uma lista de `chaves de restauração` a serem usadas quando a `chave` não corresponder à cache existente. Uma lista de `chaves de restauração` é importante quando você está tentando restaurar uma cache de outro branch, pois `as chaves de restauração`<code podem corresponder parcialmente às chaves da cache. Para obter mais informações sobre a correspondência das `chaves de restauração`, consulte "[Correspondendo uma chave da cache](#matching-a-cache-key)".
+You can optionally provide a list of `restore-keys` to use when the `key` doesn't match an existing cache. A list of `restore-keys` is useful when you are restoring a cache from another branch because `restore-keys` can partially match cache keys. For more information about matching `restore-keys`, see "[Matching a cache key](#matching-a-cache-key)."
 
-Para obter mais informações, consulte [`ações/cache`](https://github.com/actions/cache).
+For more information, see [`actions/cache`](https://github.com/actions/cache).
 
-### Parâmetros de entrada para a ação da `cache`
+### Input parameters for the `cache` action
 
-- `key`: **Obrigatório** A chave criada ao salvar uma cache e a chave usada para pesquisar uma cache. Pode ser qualquer combinação de variáveis, valores de contexto, strings estáticas e funções. As chaves têm um tamanho máximo de 512 caracteres e as chaves maiores que o tamanho máximo gerarão uma falha na ação.
-- ``de caminho : **Required** O caminho do arquivo no corredor para cache ou restauração. O caminho pode ser absoluto ou relativo com relação ao diretório de trabalho.
-  - Os caminhos podem ser diretórios ou arquivos únicos. Os padrões de glob são compatíveis.
-  - Com o `v2` da ação `cache`, é possível especificar um único caminho ou é possível adicionar vários caminhos em linhas separadas. Por exemplo:
+- `key`: **Required** The key created when saving a cache and the key used to search for a cache. Can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.
+- `path`: **Required** The file path on the runner to cache or restore. The path can be an absolute path or relative to the working directory.
+  - Paths can be either directories or single files, and glob patterns are supported.
+  - With `v2` of the `cache` action, you can specify a single path, or you can add multiple paths on separate lines. For example:
     ```
     - name: Cache Gradle packages
       uses: actions/cache@v2
@@ -76,16 +99,16 @@ Para obter mais informações, consulte [`ações/cache`](https://github.com/act
           ~/.gradle/caches
           ~/.gradle/wrapper
     ```
-  - Com `v1` da ação da `cache`, somente um caminho único é compatível e deve ser um diretório. Você não pode armazenar um único arquivo.
-- `chaves de restauração`: **Opcional** Uma lista ordenada de chaves alternativas a serem usadas para encontrar a cache se não ocorrer correspondência para a `chave`.
+  - With `v1` of the `cache` action, only a single path is supported and it must be a directory. You cannot cache a single file.
+- `restore-keys`: **Optional** An ordered list of alternative keys to use for finding the cache if no cache hit occurred for `key`.
 
-### Parâmetros de saída para a ação da `cache`
+### Output parameters for the `cache` action
 
-- `cache-hit`: Um valor booleano para indicar que uma correspondência exata foi encontrada para a chave.
+- `cache-hit`: A boolean value to indicate an exact match was found for the key.
 
-### Exemplo do uso da ação da `cache`
+### Example using the `cache` action
 
-Este exemplo cria uma nova cache quando são alterados os pacotes no arquivo `package-lock.json` ou quando é alterado o sistema operacional do executor. A chave da cache usa contextos e expressões para gerar uma chave que inclui o sistema operacional do executor e um hash SHA-256 do arquivo `package-lock.json` file.
+This example creates a new cache when the packages in `package-lock.json` file change, or when the runner's operating system changes. The cache key uses contexts and expressions to generate a key that includes the runner's operating system and a SHA-256 hash of the `package-lock.json` file.
 
 {% raw %}
 ```yaml{:copy}
@@ -124,23 +147,23 @@ jobs:
 ```
 {% endraw %}
 
-O processo de a `chave` corresponder a uma cache existente é denominado correspondência e a ação restaura o arquivo memorizado no diretório do `caminho`.
+When `key` matches an existing cache, it's called a cache hit, and the action restores the cached files to the `path` directory.
 
-O processo de a `chave` não corresponder a uma cache existente é denominado falha e cria-se uma nova cache se o trabalho for concluído com sucesso. Ao ocorrer uma falha da cache, a ação pesquisa chaves alternativas chamadas `chaves de restauração`.
+When `key` doesn't match an existing cache, it's called a cache miss, and a new cache is created if the job completes successfully. When a cache miss occurs, the action searches for alternate keys called `restore-keys`.
 
-1. Se você fornecer `chaves de restauração`, a ação da `cache` pesquisará, em seguida, todas as caches que correspondem à lista de `chaves de restauração`.
-   - Se houver uma correspondência exata, a ação irá restaurar os arquivos na cache para o diretório do `caminho`.
-   - Se não houver correspondências exatas, a ação pesquisará correspondências parciais das chaves de restauração. Quando uma ação encontra uma correspondência parcial, a última cache é restaurada para o diretório do `caminho`.
-1. A ação da `cache` é concluída e a próxima etapa do fluxo de trabalho é executada no trabalho.
-1. Se o trabalho for concluído com sucesso, a ação cria uma nova cache com o conteúdo do diretório do `caminho`.
+1. If you provide `restore-keys`, the `cache` action sequentially searches for any caches that match the list of `restore-keys`.
+   - When there is an exact match, the action restores the files in the cache to the `path` directory.
+   - If there are no exact matches, the action searches for partial matches of the restore keys. When the action finds a partial match, the most recent cache is restored to the `path` directory.
+1. The `cache` action completes and the next workflow step in the job runs.
+1. If the job completes successfully, the action creates a new cache with the contents of the `path` directory.
 
-Para memorizar os arquivos em mais de um diretório, você precisará de uma etapa que usa a ação da [`cache`](https://github.com/actions/cache) para cada diretório. Após criar uma cache, você não poderá alterar o conteúdo de uma cache existente, mas você poderá criar uma nova cache com uma nova chave.
+To cache files in more than one directory, you will need a step that uses the [`cache`](https://github.com/actions/cache) action for each directory. Once you create a cache, you cannot change the contents of an existing cache but you can create a new cache with a new key.
 
-### Usar contextos para criar chaves da cache
+### Using contexts to create cache keys
 
-Uma chave da cache pode incluir quaisquer contextos, funções, literais e operadores suportados por {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
+A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-Usar expressões para criar uma `chave` permite que você crie automaticamente uma nova cache quando as dependências forem alteradas. Por exemplo, você pode criar uma `chave` usando uma expressão que calcula o hash de um arquivo `package-lock.json` de npm.
+Using expressions to create a `key` allows you to automatically create a new cache when dependencies have changed. For example, you can create a `key` using an expression that calculates the hash of an npm `package-lock.json` file.
 
 {% raw %}
 ```yaml
@@ -148,19 +171,19 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{% data variables.product.prodname_dotcom %} avalia a expressão `hash "package-lock.json"` para derivar a `chave` final.
+{% data variables.product.prodname_dotcom %} evaluates the expression `hash "package-lock.json"` to derive the final `key`.
 
 ```yaml
 npm-d5ea0750
 ```
 
-## Corresponder uma chave da cache
+## Matching a cache key
 
-A ação da `cache` primeiro pesquisa correspondências da cache para a `chave` e para as `chaves de restauração` no branch que contém a execução do fluxo de trabalho. Se não houver correspondências no branch atual, a ação da `cache` pesquisa a `chave` e as `chaves de restauração` no branch-pai e nos branches upstream.
+The `cache` action first searches for cache hits for `key` and `restore-keys` in the branch containing the workflow run. If there are no hits in the current branch, the `cache` action searches for `key` and `restore-keys` in the parent branch and upstream branches.
 
-Você pode fornecer uma lista de chaves de restauração a serem usadas quando houver uma falha de cache na `chave`. Você pode criar múltiplas chaves de restauração ordenadas da mais específica para a menos específica. A ação da `cache` pesquisa as `chaves de restauração` em ordem sequencial. Quando uma chave não corresponde diretamente, a ação pesquisa as chaves prefixadas com a chave de restauração. Se houver múltiplas correspondências parciais para uma chave de restauração, a ação retornará a cache criada por último.
+You can provide a list of restore keys to use when there is a cache miss on `key`. You can create multiple restore keys ordered from the most specific to least specific. The `cache` action searches for `restore-keys` in sequential order. When a key doesn't match directly, the action searches for keys prefixed with the restore key. If there are multiple partial matches for a restore key, the action returns the most recently created cache.
 
-### Exemplo do uso de múltiplas chaves de restauração
+### Example using multiple restore keys
 
 {% raw %}
 ```yaml
@@ -171,7 +194,7 @@ restore-keys: |
 ```
 {% endraw %}
 
-O executor avalia as expressões, que resolvem essas `chaves de restauração`:
+The runner evaluates the expressions, which resolve to these `restore-keys`:
 
 {% raw %}
 ```yaml
@@ -182,13 +205,13 @@ restore-keys: |
 ```
 {% endraw %}
 
-A chave de restauração `npm-foobar-` corresponde a qualquer chave que começa com a string `npm-foobar-`. Por exemplo, ambas as chaves `npm-foobar-fd3052de` e `npm-foobar-a9b253ff` correspondem à chave de restauração. Será usada a cache com a data de criação mais recente. As chaves neste exemplo são pesquisadas na ordem a seguir:
+The restore key `npm-foobar-` matches any key that starts with the string `npm-foobar-`. For example, both of the keys `npm-foobar-fd3052de` and `npm-foobar-a9b253ff` match the restore key. The cache with the most recent creation date would be used. The keys in this example are searched in the following order:
 
-1. **`npm-foobar-d5ea0750`** corresponde a um hash específico.
-1. **`npm-foobar-`** corresponde a chaves da cache prefixadas com `npm-foobar-`.
-1. **`npm-`** corresponde a chaves prefixadas com `npm-`.
+1. **`npm-foobar-d5ea0750`** matches a specific hash.
+1. **`npm-foobar-`** matches cache keys prefixed with `npm-foobar-`.
+1. **`npm-`** matches any keys prefixed with `npm-`.
 
-#### Exemplo de prioridade de pesquisa
+#### Example of search priority
 
 ```yaml
 key:
@@ -198,15 +221,15 @@ restore-keys: |
   npm-
 ```
 
-Por exemplo, se um pull request contiver um branch de`recurso` (escopo atual) e atingir o branch-padrão (`principal`), a ação pesquisará a `chave` e as `chaves de restauração` na ordem a seguir:
+For example, if a pull request contains a `feature` branch (the current scope) and targets the default branch (`main`), the action searches for `key` and `restore-keys` in the following order:
 
-1. Chave `npm-feature-d5ea0750` no escopo do branch `de recurso`
-1. Chave `npm-feature-` no escopo do ramo `de recurso`
-2. Chave `npm-` no escopo do branch `de recurso`
-1. Chave `npm-feature-d5ea0750` no escopo do branc `principal`
-3. Chave `npm-feature-` no escopo do branch `principal`
-4. Chave `npm` no escopo do branch `principal`
+1. Key `npm-feature-d5ea0750` in the `feature` branch scope
+1. Key `npm-feature-` in the `feature` branch scope
+2. Key `npm-` in the `feature` branch scope
+1. Key `npm-feature-d5ea0750` in the `main` branch scope
+3. Key `npm-feature-` in the `main` branch scope
+4. Key `npm-` in the `main` branch scope
 
-## Limites de uso e política de eliminação
+## Usage limits and eviction policy
 
-{% data variables.product.prodname_dotcom %} removerá todas as entradas da cache não acessadas há mais de 7 dias. Não há limite para o número de caches que você pode armazenar, mas o limite do tamanho total de todas as caches em um repositório é 5 GB. Se você exceder este limite, {% data variables.product.prodname_dotcom %} salvará a sua cache, mas começará a eliminar as caches até que o tamanho total seja inferior a 5 GB.
+{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 10 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 10 GB.

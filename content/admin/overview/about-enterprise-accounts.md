@@ -2,7 +2,7 @@
 title: About enterprise accounts
 intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to {% ifversion ghec %}enable collaboration between your organizations, while giving{% elsif ghes or ghae %}give{% endif %} administrators a single point of visibility and management.'
 redirect_from:
-  - /articles/about-github-business-accounts/
+  - /articles/about-github-business-accounts
   - /articles/about-enterprise-accounts
   - /enterprise/admin/installation/about-enterprise-accounts
   - /enterprise/admin/overview/about-enterprise-accounts
@@ -37,6 +37,8 @@ Organizations are shared accounts where enterprise members can collaborate acros
 {% ifversion ghec %}
 
 Enterprise owners can create organizations and link the organizations to the enterprise. Alternatively, you can invite an existing organization to join your enterprise account. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. Specific enforcement options vary by setting; generally, you can choose to enforce a single policy for every organization in your enterprise account or allow owners to set policy on the organization level. For more information, see "[Setting policies for your enterprise](/admin/policies)."
+
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
 
 {% elsif ghes or ghae %}
 

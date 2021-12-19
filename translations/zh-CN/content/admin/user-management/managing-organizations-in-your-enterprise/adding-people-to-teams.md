@@ -1,12 +1,12 @@
 ---
-title: 向团队添加人员
+title: Adding people to teams
 redirect_from:
-  - /enterprise/admin/articles/adding-teams/
-  - /enterprise/admin/articles/adding-or-inviting-people-to-teams/
-  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams/
+  - /enterprise/admin/articles/adding-teams
+  - /enterprise/admin/articles/adding-or-inviting-people-to-teams
+  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams
   - /enterprise/admin/user-management/adding-people-to-teams
   - /admin/user-management/adding-people-to-teams
-intro: '创建团队后，组织管理员可以将用户从 {% data variables.product.product_location %} 添加到团队并决定他们可以访问哪些仓库。'
+intro: 'Once a team has been created, organization admins can add users from {% data variables.product.product_location %} to the team and determine which repositories they have access to.'
 versions:
   ghes: '*'
 type: how_to
@@ -16,13 +16,12 @@ topics:
   - Teams
   - User account
 ---
+Each team has its own individually defined [access permissions for repositories owned by your organization](/articles/permission-levels-for-an-organization).
 
-每个团队都有自己单独定义的[组织所拥有仓库的访问权限](/articles/permission-levels-for-an-organization)。
+- Members with the owner role can add or remove existing organization members from all teams.
+- Members of teams that give admin permissions can only modify team membership and repositories for that team.
 
-- 具有所有者角色的成员可以向所有团队添加成员或从中移除现有组织成员。
-- 具有管理员权限的团队成员仅可以修改所属团队的成员资格和仓库。
-
-## 设置团队
+## Setting up a team
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -30,8 +29,8 @@ topics:
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
-## 将团队映射到 LDAP 组（例如，使用 LDAP 同步进行用户身份验证）
+## Mapping teams to LDAP groups (for instances using LDAP Sync for user authentication)
 
 {% data reusables.enterprise_management_console.badge_indicator %}
 
-要将新成员添加到已同步至 LDAP 组的团队，请将用户添加为 LDAP 组的成员，或者联系您的 LDAP 管理员。
+To add a new member to a team synced to an LDAP group, add the user as a member of the LDAP group, or contact your LDAP administrator.

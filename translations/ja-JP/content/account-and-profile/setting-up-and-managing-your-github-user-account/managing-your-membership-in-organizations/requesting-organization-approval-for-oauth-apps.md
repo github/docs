@@ -1,9 +1,9 @@
 ---
-title: OAuth App に対する Organization の承認をリクエストする
-intro: 'Organization のメンバーは、オーナーが {% data variables.product.prodname_oauth_app %} に Organization リソースへのアクセスを許可するようリクエストできます。'
+title: Requesting organization approval for OAuth Apps
+intro: 'Organization members can request that an owner approve access to organization resources for {% data variables.product.prodname_oauth_app %}.'
 redirect_from:
-  - /articles/requesting-organization-approval-for-third-party-applications/
-  - /articles/requesting-organization-approval-for-your-authorized-applications/
+  - /articles/requesting-organization-approval-for-third-party-applications
+  - /articles/requesting-organization-approval-for-your-authorized-applications
   - /articles/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps
@@ -14,16 +14,18 @@ topics:
   - Accounts
 shortTitle: Request OAuth App approval
 ---
-
-## 個人アカウントではすでに許可されている {% data variables.product.prodname_oauth_app %} を Organization でも承認するようリクエストする
+## Requesting organization approval for an {% data variables.product.prodname_oauth_app %} you've already authorized for your personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.access_applications %}
 {% data reusables.user_settings.access_authorized_oauth_apps %}
-3. アプリケーションのリストで、アクセスを要求する {% data variables.product.prodname_oauth_app %} の名前をクリックします。 ![[View application] ボタン](/assets/images/help/settings/settings-third-party-view-app.png)
-4. {% data variables.product.prodname_oauth_app %} にアクセスさせる Organization の横で、[**Request access**] をクリックします。 ![[Request access] ボタン](/assets/images/help/settings/settings-third-party-request-access.png)
-5. {% data variables.product.prodname_oauth_app %} アクセスをリクエストすることに関する情報を読み、[**Request approval from owners**] をクリックします。 ![[Request approval] ボタン](/assets/images/help/settings/oauth-access-request-approval.png)
+3. In the list of applications, click the name of the {% data variables.product.prodname_oauth_app %} you'd like to request access for.
+![View application button](/assets/images/help/settings/settings-third-party-view-app.png)
+4. Next to the organization you'd like the {% data variables.product.prodname_oauth_app %} to access, click **Request access**.
+![Request access button](/assets/images/help/settings/settings-third-party-request-access.png)
+5. After you review the information about requesting {% data variables.product.prodname_oauth_app %} access, click **Request approval from owners**.
+![Request approval button](/assets/images/help/settings/oauth-access-request-approval.png)
 
-## 参考リンク
+## Further reading
 
-- [{% data variables.product.prodname_oauth_app %}のアクセス制限について](/articles/about-oauth-app-access-restrictions)
+- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"

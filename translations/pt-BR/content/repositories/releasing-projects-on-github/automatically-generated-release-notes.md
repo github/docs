@@ -43,19 +43,29 @@ As otas de versão geradas automaticamente fornecem uma alternativa automatizada
 12. Se estiver pronto para tornar pública a sua versão, clique em **Publish release** (Publicar versão). Para trabalhar na versão posteriormente, clique em **Save draft** (Salvar rascunho). ![Botões Publish release (Publicar versão) e Draft release (Rascunhar versão)](/assets/images/help/releases/release_buttons.png)
 
 
-## Criando um modelo para observações de versão geradas automaticamente
+## Configuring automatically generated release notes
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. No campo de nome de arquivo, digite `.github/release.yml` para criar o arquivo `release.yml` no diretório `.github`. ![Criar novo arquivo](/assets/images/help/releases/release-yml.png)
-4. No arquivo, especifique as etiquetas e autores do pull request que você deseja excluir desta versão. Você também pode criar novas categorias e listar as etiquetas de pull request para que sejam incluídas cada uma delas. Para obter mais informações, consulte "[Gerenciar etiquetas](/issues/using-labels-and-milestones-to-track-work/managing-labels)".
+4. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. Você também pode criar novas categorias e listar as etiquetas de pull request para que sejam incluídas cada uma delas.
 
-## Exemplo de configuração
+### Opções de configuração
+
+| Parâmetro                                 | Descrição                                                                                                                                                      |
+|:----------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `changelog.exclude.labels`                | A list of labels that exclude a pull request from appearing in release notes.                                                                                  |
+| `changelog.exclude.authors`               | A list of user or bot login handles whose pull requests are to be excluded from release notes.                                                                 |
+| `changelog.categories[*].title`           | **Required.** The title of a category of changes in release notes.                                                                                             |
+| `changelog.categories[*].labels`          | **Required.** Labels that qualify a pull request for this category. Use `*` as a catch-all for pull requests that didn't match any of the previous categories. |
+| `changelog.categories[*].exclude.labels`  | A list of labels that exclude a pull request from appearing in this category.                                                                                  |
+| `changelog.categories[*].exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from this category.                                                                 |
+
+### Exemplo de configuração
 
 {% raw %}
-**release.yml**
 ```yaml{:copy}
-# release.yml
+# .github/release.yml
 
 changelog:
   exclude:
@@ -78,14 +88,6 @@ changelog:
 ```
 {% endraw %}
 
-## Sintaxe do modelo da versão
+## Leia mais
 
-| Parâmetro                | Descrição                                                                                                                                                                           | Obrigatório                                                                       | Valor                                                               |
-|:------------------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------------------------------------------------------------------------------- |:------------------------------------------------------------------- |
-| `registro de alterações` | Define o conteúdo dentro dele como o modelo personalizado para suas observações da versão.                                                                                          | Obrigatório.                                                                      | Nenhum valor aceito.                                                |
-| `exclusão`               | Cria uma categoria de pull requests a ser excluída da versão. Pode ser definido no nível superior do registro de alterações para se aplicar a todas as categorias ou por categoria. | Opcional                                                                          | Nenhum valor aceito.                                                |
-| `autores`                | Especifica os autores a serem excluídos da versão.                                                                                                                                  | Opcional para a categoria `excluir`.                                              | Aceita nomes de usuário e bots como valores.                        |
-| `categorias`             | Define o conteúdo aninhado como categorias personalizadas a serem incluídas no modelo.                                                                                              | Opcional                                                                          | Nenhum valor aceito.                                                |
-| `title`                  | Cria uma categoria individual.                                                                                                                                                      | Necessário se o parâmetro `categorias` existir.                                   | Aceita o nome da categoria como seu valor.                          |
-| `etiquetas`              | Especifica etiquetas a serem usadas pela categoria de inclusão.                                                                                                                     | Necessário se há parâmetros de `categorias`, opcional para o parâmetro `excluir`. | Aceita quaisquer etiquetas, existentes ou planejadas para o futuro. |
-| `"*"`                    | Catchall para qualquer pull request não incluído dentro de uma categoria *acima de*. Se usado, deverá ser adicionado ao final do arquivo.                                           | Opcional                                                                          | Nenhum valor aceito.                                                |
+- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 

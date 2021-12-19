@@ -1,6 +1,6 @@
 ---
-title: GitHub Enterprise Cloud の GitHub Premium Support について
-intro: '{% data variables.contact.premium_support %} は、{% data variables.product.prodname_ghe_cloud %} のお客様のための有料の補足的なサポートです。'
+title: About GitHub Premium Support for GitHub Enterprise Cloud
+intro: '{% data variables.contact.premium_support %} is a paid, supplemental support offering for {% data variables.product.prodname_ghe_cloud %} customers.'
 redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
@@ -14,25 +14,25 @@ shortTitle: GitHub Premium Support
 
 {% note %}
 
-**ノート:**
+**Notes:**
 
-- {% data variables.contact.premium_support %} の規約は 2018 年 9 月に発効しています。この規約は、予告なく変更されることがあります。
+- The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of September 2018.
 
 - {% data reusables.support.data-protection-and-privacy %}
 
-- この記事に記載されているのは、{% data variables.product.prodname_ghe_cloud %} のお客様向け {% data variables.contact.premium_support %} 規約です。 {% data variables.product.prodname_ghe_server %} および {% data variables.product.prodname_ghe_cloud %} を一緒に購入された {% data variables.product.prodname_ghe_server %} または {% data variables.product.prodname_enterprise %} のお客様に対する規約は異なる場合があります。 詳細は「[{% data variables.product.prodname_ghe_server %} の {% data variables.contact.premium_support %} について](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)」および「[{% data variables.product.prodname_enterprise %} の {% data variables.contact.premium_support %} について](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)」を参照してください。
+- This article contains the terms of {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_cloud %} customers. The terms may be different for customers of {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_enterprise %} customers who purchase {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} together. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)" and "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_enterprise %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)."
 
 {% endnote %}
 
-## {% data variables.contact.premium_support %} について
+## About {% data variables.contact.premium_support %}
 
-{% data variables.contact.premium_support %} は以下を提供します:
-  - GitHub Enterprise サポートページを通じた文面 (英語) での 24 時間 365 日のサポート
-  - 24 時間 365 日の英語での電話サポート
-  - 初回応答時間が保証されるサービスレベルアグリーメント (SLA)
-  - プレミアムコンテンツへのアクセス
-  - 定期的なヘルスチェック
-  - 管理されたサービス
+{% data variables.contact.premium_support %} offers:
+  - Written support, in English, through our support portal 24 hours per day, 7 days per week
+  - Phone support, in English, 24 hours per day, 7 days per week
+  - A Service Level Agreement (SLA) with guaranteed initial response times
+  - Access to premium content
+  - Scheduled health checks
+  - Managed services
 
 {% data reusables.support.about-premium-plans %}
 
@@ -42,32 +42,32 @@ shortTitle: GitHub Premium Support
 
 {% data reusables.support.contacting-premium-support %}
 
-## 営業時間
+## Hours of operation
 
-{% data variables.contact.premium_support %} は、24 時間 365 日利用できます。
+{% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week.
 
 {% data reusables.support.service-level-agreement-response-times %}
 
-## サポートチケットへの優先度の割り当て
+## Assigning a priority to a support ticket
 
-{% data variables.contact.premium_support %} へのお問い合わせ時に、チケットの優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} の 4 つから選択できます。
+When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
 {% data reusables.support.ghec-premium-priorities %}
 
-## サポートチケットの解決とクローズ
+## Resolving and closing support tickets
 
-{% data variables.contact.premium_support %} は、説明、推奨対応、使用方法、または回避策を提供した後、解決済みのチケットを検討する場合があります。
+{% data variables.contact.premium_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, or workaround instructions,
 
-カスタムあるいはサポートされていないプラグイン、モジュール、カスタムコードを使っている場合、{% data variables.contact.premium_support %} は問題の解決を試みるに当たってサポートされていないプラグイン、モジュール、コードの削除をお願いすることがあります。 サポートされていないプラグイン、モジュール、カスタムコードが削除されたことで問題が修正された場合、{% data variables.contact.premium_support %}はチケットが解決されたと見なすことがあります。
+If you use a custom or unsupported plug-in, module, or custom code, {% data variables.contact.premium_support %} may ask you to remove the unsupported plug-in, module, or code while attempting to resolve the issue. If the problem is fixed when the unsupported plug-in, module, or custom code is removed, {% data variables.contact.premium_support %} may consider the ticket solved.
 
-{% data variables.contact.premium_support %}は、チケットがサポートの範囲外の場合、あるいは複数回の連絡に対して返答がいただけなかった場合、チケットをクローズすることがあります。 反応がなかったことによって{% data variables.contact.premium_support %}がチケットをクローズした場合、{% data variables.contact.premium_support %}にチケットをサイドオープンするようリクエストできます。
+{% data variables.contact.premium_support %} may close tickets if they're outside the scope of support or if multiple attempts to contact you have gone unanswered. If {% data variables.contact.premium_support %} closes a ticket due to lack of response, you can request that {% data variables.contact.premium_support %} reopen the ticket.
 
 {% data reusables.support.receiving-credits %}
 
 {% data reusables.support.accessing-premium-content %}
 
-## 参考リンク
+## Further reading
 
-- [チケットをサブミットする](/articles/submitting-a-ticket)
+- "[Submitting a ticket](/articles/submitting-a-ticket)"

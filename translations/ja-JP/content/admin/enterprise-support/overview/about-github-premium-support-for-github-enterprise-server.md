@@ -1,9 +1,9 @@
 ---
-title: GitHub Enterprise ServerのGitHub Premium Supportについて
-intro: '{% data variables.contact.premium_support %} は、{% data variables.product.prodname_enterprise %} のお客様のための有料の補足的なサポートです。'
+title: About GitHub Premium Support for GitHub Enterprise Server
+intro: '{% data variables.contact.premium_support %} is a paid, supplemental support offering for {% data variables.product.prodname_enterprise %} customers.'
 redirect_from:
-  - /enterprise/admin/guides/enterprise-support/about-premium-support-for-github-enterprise/
-  - /enterprise/admin/guides/enterprise-support/about-premium-support/
+  - /enterprise/admin/guides/enterprise-support/about-premium-support-for-github-enterprise
+  - /enterprise/admin/guides/enterprise-support/about-premium-support
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 versions:
@@ -14,28 +14,27 @@ topics:
   - Support
 shortTitle: Premium Support for GHES
 ---
-
 {% note %}
 
-**ノート:**
+**Notes:**
 
-- {% data variables.contact.premium_support %} の規約は 2018 年 9 月に発効しています。この規約は、予告なく変更されることがあります。 {% data variables.contact.premium_support %} を 2018 年 9 月 17 日以前に購入した場合、プランは異なるかもしれません。 詳細については {% data variables.contact.premium_support %} にお問い合わせください。
+- The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of September 2018. If you purchased {% data variables.contact.premium_support %} prior to September 17, 2018, your plan might be different. Contact {% data variables.contact.premium_support %} for more details.
 
 - {% data reusables.support.data-protection-and-privacy %}
 
-- この記事に記載されているのは、{% data variables.product.prodname_ghe_server %} のお客様向け {% data variables.contact.premium_support %} 規約です。 {% data variables.product.prodname_ghe_server %} および {% data variables.product.prodname_ghe_cloud %} を一緒に購入された {% data variables.product.prodname_ghe_cloud %} または {% data variables.product.prodname_enterprise %} のお客様に対する規約は異なる場合があります。 詳しい情報については、「<a href="/articles/about-github-premium-support-for-github-enterprise-cloud" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %}の{% data variables.contact.premium_support %}について</a>」および「[{% data variables.product.prodname_enterprise %}の{% data variables.contact.premium_support %}について](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)」を参照してください。
+- This article contains the terms of {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %} customers. The terms may be different for customers of {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_enterprise %} customers who purchase {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} together. For more information, see "<a href="/articles/about-github-premium-support-for-github-enterprise-cloud" class="dotcom-only">About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_cloud %}</a>" and "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_enterprise %}](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)."
 
 {% endnote %}
 
-## {% data variables.contact.premium_support %} について
+## About {% data variables.contact.premium_support %}
 
-{% data variables.contact.enterprise_support %} のすべての利点に加えて、{% data variables.contact.premium_support %} は以下を提供します:
-  - GitHub Enterprise サポートページを通じた文面 (英語) での 24 時間 365 日のサポート
-  - 24 時間 365 日の英語での電話サポート
-  - 初回応答時間が保証されるサービスレベルアグリーメント (SLA)
-  - プレミアムコンテンツへのアクセス
-  - 定期的なヘルスチェック
-  - 管理されたサービス
+In addition to all of the benefits of {% data variables.contact.enterprise_support %}, {% data variables.contact.premium_support %} offers:
+  - Written support, in English, through our support portal 24 hours per day, 7 days per week
+  - Phone support, in English, 24 hours per day, 7 days per week
+  - A Service Level Agreement (SLA) with guaranteed initial response times
+  - Access to premium content
+  - Scheduled health checks
+  - Managed services
 
 {% data reusables.support.about-premium-plans %}
 
@@ -45,25 +44,25 @@ shortTitle: Premium Support for GHES
 
 {% data reusables.support.contacting-premium-support %}
 
-## 営業時間
+## Hours of operation
 
-{% data variables.contact.premium_support %} は、24 時間 365 日利用できます。  {% data variables.contact.premium_support %} を 2018 年 9 月 17 日以前に購入した場合、休日のサポートは限定されます。 {% data variables.contact.premium_support %} の休日に関する情報については、「[{% data variables.contact.github_support %} について](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)」の休日スケジュールを参照してください。
+{% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week.  If you purchased {% data variables.contact.premium_support %} prior to September 17, 2018, support is limited during holidays. For more information on holidays {% data variables.contact.premium_support %} observes, see the holiday schedule at "[About {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)."
 
 {% data reusables.support.service-level-agreement-response-times %}
 
 {% data reusables.enterprise_enterprise_support.installing-releases %}
 
-適用されるライセンスアグリーメントの Supported Releasesセクションに従い、{% data variables.contact.premium_support %} への発注から 90 日以内に {% data variables.product.prodname_ghe_server %} の最小限のサポートされるバージョンをインストールしなければなりません。
+You must install the minimum supported version of {% data variables.product.prodname_ghe_server %} pursuant to the Supported Releases section of your applicable license agreement within 90 days of placing an order for {% data variables.contact.premium_support %}.
 
-## サポートチケットへの優先度の割り当て
+## Assigning a priority to a support ticket
 
-{% data variables.contact.premium_support %} へのお問い合わせ時に、チケットの優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} の 4 つから選択できます。
+When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
 {% data reusables.support.ghes-priorities %}
 
-## サポートチケットの解決とクローズ
+## Resolving and closing support tickets
 
 {% data reusables.support.premium-resolving-and-closing-tickets %}
 

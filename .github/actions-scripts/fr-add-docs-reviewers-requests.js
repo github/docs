@@ -120,7 +120,7 @@ async function run() {
   const featureID = findFieldID('Feature', data)
   const contributorTypeID = findFieldID('Contributor type', data)
   const sizeTypeID = findFieldID('Size', data)
-  const authorID = findFieldID('Author', data)
+  const authorID = findFieldID('Contributor', data)
 
   // Get the ID of the single select values that we want to set
   const readyForReviewID = findSingleSelectID('Ready for review', 'Status', data)
@@ -134,8 +134,8 @@ async function run() {
   // Exclude existing items going forward.
   // Until we have a way to check from a PR whether the PR is in a project,
   // this is how we (roughly) avoid overwriting PRs that are already on the board
-  let newItemIDs = []
-  let newItemAuthors = []
+  const newItemIDs = []
+  const newItemAuthors = []
   itemIDs.forEach((id, index) => {
     if (!existingItemIDs.includes(id)) {
       newItemIDs.push(id)
