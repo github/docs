@@ -24,7 +24,6 @@ Build your own tools that seamlessly integrate with the place you push code ever
 
 [Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {% data variables.product.prodname_ghe_server %}.
 
-
 ## Have an integration that works with GitHub?
 
 Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:</p>
