@@ -77,6 +77,7 @@ If your instance has subdomain isolation disabled:
 {% endraw %}
 {% endif %}
 
+not
 {% endif %}
 
 To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
