@@ -36,7 +36,7 @@ With {% data variables.product.prodname_free_user %}, your user account includes
 - Two-factor authentication enforcement
 - 2,000 {% data variables.product.prodname_actions %} minutes
 - 500MB {% data variables.product.prodname_registry %} storage
-
+-n.
 ## {% data variables.product.prodname_pro %}
 
 In addition to the features available with {% data variables.product.prodname_free_user %} for user accounts, {% data variables.product.prodname_pro %} includes:
