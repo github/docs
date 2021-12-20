@@ -39,7 +39,7 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 
 ## Troubleshooting certificate provisioning ("Certificate not yet created" error")
 
-On the Pages page, once your custom domain is saved, an automatic DNS check should begin. If the check is successful, the [Certbot](https://certbot.eff.org/) application running on GitHub's server should automatically request and apply an SSL certificate from [Let's Encrypt](https://letsencrypt.org/). Once this process is complete, you should see a **Certificate Active** status.
+When you set or change your custom domain in the Pages settings, an automatic DNS check begins. This check determines if your DNS settings are configured to allow {% data variables.product.prodname_dotcom %} to obtain a certificate automatically. If the check is successful, {% data variables.product.prodname_dotcom %} queues a job to request a TLS certificate from [Let's Encrypt](https://letsencrypt.org/). On receiving receiving a valid certificate, {% data variables.product.prodname_dotcom %} automatically uploads it to the servers that handle TLS termination for Pages. When this process completes successfully, a check mark is displayed beside your custom domain name.
 
 The process may take some time. If, several afters after clicking Save, the process seems to be "stuck" without a successful Certificate Active status, try clicking Remove next to your custom domain name. Retype the domain name and click Save once again. This will cancel and restart the provisioning process.
 
