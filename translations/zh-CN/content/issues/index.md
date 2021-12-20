@@ -1,7 +1,7 @@
 ---
 title: GitHub Issues
 shortTitle: GitHub Issues
-intro: '了解如何使用 {% data variables.product.prodname_github_issues %} 来规划和跟踪您的工作。'
+intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 introLinks:
   overview: /issues/tracking-your-work-with-issues/creating-issues/about-issues
   quickstart: /issues/tracking-your-work-with-issues/quickstart
@@ -44,9 +44,9 @@ redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/managing-your-work-with-issues
   - /github/managing-your-work-on-github
-  - /categories/100/articles/
-  - /categories/managing-projects/
-  - /categories/managing-projects-on-github/
+  - /categories/100/articles
+  - /categories/managing-projects
+  - /categories/managing-projects-on-github
   - /categories/managing-your-work-on-github
   - /about-issues
   - /creating-an-issue

@@ -18,6 +18,8 @@ Asana | Asana Personal Access Token | asana_personal_access_token{% endif %} Atl
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
+Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
 Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key{% endif %} Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token Azure | Azure SAS Token | azure_sas_token Azure | Azure Service Management Certificate | azure_management_certificate
 {%- ifversion ghes < 3.4 or ghae or ghae-issue-5342 %}
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %} Azure | Azure Storage Account Key | azure_storage_account_key
