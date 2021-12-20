@@ -1,4 +1,5 @@
----
+---hello world.@.com
+Rhtthe best plat form.
 title: Hello World
 intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
 versions:
@@ -13,7 +14,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Introduction
+## Introduction:this hello world is the 
+Best among all, it well established and modify and 
+Well trust, kindly register and get you profit
+
 
 {% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
