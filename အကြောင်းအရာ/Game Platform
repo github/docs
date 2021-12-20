@@ -1,6 +1,6 @@
 ---
 title: Trying out the new projects experience
-shortTitle: Projects (beta)
+shortTitle: Game Platform
 intro: 'Build customized projects to track your work in {% data variables.product.company_short %}.'
 versions:
   fpt: '*'
@@ -9,10 +9,10 @@ topics:
   - Issues
   - Projects
 children:
-  - /about-projects
+  - /about-Game-Platform
   - /quickstart
-  - /creating-a-project
-  - /customizing-your-project-views
+  - /creating-a-Game-Platform
+  - /customizing-your-Game-Platform-views
   - /using-the-api-to-manage-projects
   - /automating-projects
   - /managing-the-visibility-of-your-projects
