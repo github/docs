@@ -1,6 +1,6 @@
 ---
-title: 发布 Node.js 包
-intro: 您可以将 Node.js 包发布到注册表，作为持续集成 (CI) 工作流程的一部分。
+title: Publishing Node.js packages
+intro: You can publish Node.js packages to a registry as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages
   - /actions/language-and-framework-guides/publishing-nodejs-packages
@@ -16,55 +16,54 @@ topics:
   - Publishing
   - Node
   - JavaScript
-shortTitle: Node.js 包
+shortTitle: Node.js packages
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## 简介
+## Introduction
 
-本指南介绍如何创建一个工作流程，以在持续集成 (CI) 测试通过后将 Node.js 包发布到 {% data variables.product.prodname_registry %} 和 npm 注册表。 通过单个工作流程，您可以将包发布到单个注册表或多个注册表。
+This guide shows you how to create a workflow that publishes Node.js packages to the {% data variables.product.prodname_registry %} and npm registries after continuous integration (CI) tests pass.
 
-## 基本要求
+## Prerequisites
 
-建议基本了解工作流程配置选项和如何创建工作流程文件。 更多信息请参阅“[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
+We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-有关为 Node.js 项目创建 CI 工作流程的更多信息，请参阅“[将 Node.js 与 {% data variables.product.prodname_actions %} 一起使用](/actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions)。”
+For more information about creating a CI workflow for your Node.js project, see "[Using Node.js with {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions)."
 
-您可能还发现基本了解以下内容是有帮助的：
+You may also find it helpful to have a basic understanding of the following:
 
-- “[使用 npm 注册表](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)”
-- "[环境变量](/actions/reference/environment-variables)"
-- [加密的密码](/actions/reference/encrypted-secrets)"
-- "[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow)"
+- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+- "[Environment variables](/actions/reference/environment-variables)"
+- "[Encrypted secrets](/actions/reference/encrypted-secrets)"
+- "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
 
-## 关于包配置
+## About package configuration
 
- *package.json* 文件中的 `name` 和 `version` 字段创建唯一标识符，供注册表用来将包链接到注册表。 您可以在 *package.json* 文件中添加 `description` 字段，从而为包列表页面添加一个摘要。 更多信息请参阅 npm 文档中的“[创建 package.json 文件](https://docs.npmjs.com/creating-a-package-json-file)”和“[创建 Node.js 模块](https://docs.npmjs.com/creating-node-js-modules)”。
+ The `name` and `version` fields in the *package.json* file create a unique identifier that registries use to link your package to a registry. You can add a summary for the package listing page by including a `description` field in the *package.json* file. For more information, see "[Creating a package.json file](https://docs.npmjs.com/creating-a-package-json-file)" and "[Creating Node.js modules](https://docs.npmjs.com/creating-node-js-modules)" in the npm documentation.
 
-当本地 *.npmrc* 文件存在且指定了 `registry` 值时，`npm publish` 命令将使用 *.npmrc* 文件中配置的注册表。 {% data reusables.github-actions.setup-node-intro %}
+When a local *.npmrc* file exists and has a `registry` value specified, the `npm publish` command uses the registry configured in the *.npmrc* file. {% data reusables.github-actions.setup-node-intro %}
 
-您可以使用 `setup-node` 操作指定运行器上安装的 Node.js 版本。
+You can specify the Node.js version installed on the runner using the `setup-node` action.
 
-如果在工作流程中添加步骤来配置 *package.json* 文件中的 `publishConfig` 字段，则无需使用 `setup-node` 操作指定注册表 url，但软件包仅限于发布到一个注册表。 更多信息请参阅 npm 文档中的“[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)”。
+If you add steps in your workflow to configure the `publishConfig` fields in your *package.json* file, you don't need to specify the registry-url using the `setup-node` action, but you will be limited to publishing the package to one registry. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
 
-## 发布包到 npm 注册表
+## Publishing packages to the npm registry
 
-每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程将包发布到 npm 注册表。
+Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to the npm registry if CI tests pass.
 
-要根据工作流程中的 npm 注册表执行经过身份验证的操作，您需要将 npm 身份验证令牌作存储为密码。 例如，创建名为 `NPM_TOKEN` 的仓库密码。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-默认情况下，npm 使用 *package.json* 文件的 `name` 字段来确定 npm 注册表。 当发布到全局命名空间时，您只需要包含包名称。 例如，您要发布一个名为 `npm-hello-world-test` 的包到 `https://www.npmjs.com/package/npm-hello-world-test`。
+By default, npm uses the `name` field of the *package.json* file to determine the name of your published package. When publishing to a global namespace, you only need to include the package name. For example, you would publish a package named `npm-hello-world-test` to `https://www.npmjs.com/package/npm-hello-world-test`.
 
-如果发布一个包含范围前缀的包，请将范围包含在 *package.json* 文件的名称中。 例如，如果 npm 范围前缀是 octocat 并且包名是 hello-world，则 *package.json* 文件中的 `name` 应为 `@octocat/hello-world`。 如果 npm 包使用范围前缀且包是公开的，则需使用选项 `npm publish --access public`。 这是 npm 需要用来防止有人无意中发布私有包的选项。
+If you're publishing a package that includes a scope prefix, include the scope in the name of your *package.json* file. For example, if your npm scope prefix is octocat and the package name is hello-world, the `name` in your *package.json* file should be `@octocat/hello-world`. If your npm package uses a scope prefix and the package is public, you need to use the option `npm publish --access public`. This is an option that npm requires to prevent someone from publishing a private package unintentionally.
 
-此示例将 `NPM_TOKEN` 密码存储在 `NODE_AUTH_TOKEN` 环境变量中。 当 `setup-node` 操作创建 *.npmrc* 文件时，会引用 `NODE_AUTH_TOKEN` 环境变量中的令牌。
+This example stores the `NPM_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
 {% raw %}
 ```yaml{:copy}
-name: Node.js Package
+name: Publish Package to npmjs
 on:
   release:
     types: [created]
@@ -76,16 +75,16 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install
+      - run: npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 {% endraw %}
 
-在上面的示例中，`setup-node` 操作在运行器上创建一个包含以下内容的 *.npmrc* 文件：
+In the example above, the `setup-node` action creates an *.npmrc* file on the runner with the following contents:
 
 ```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
@@ -93,15 +92,17 @@ registry=https://registry.npmjs.org/
 always-auth=true
 ```
 
-## 发布包到 {% data variables.product.prodname_registry %}
+Please note that you need to set the `registry-url` to `https://registry.npmjs.org/` in `setup-node` to properly configure your credentials.
 
-每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件发生时运行。 如果 CI 测试通过，工作流程会将包发布到 {% data variables.product.prodname_registry %}。
+## Publishing packages to {% data variables.product.prodname_registry %}
 
-### 配置目标仓库
+Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs anytime the `release` event with type `created` occurs. The workflow publishes the package to {% data variables.product.prodname_registry %} if CI tests pass.
 
-如果您没有在 *package.json* 文件中提供 `repository` 键，则 {% data variables.product.prodname_registry %} 将包发布到您在 *package.json* 文件的 `name` 字段中指定的 {% data variables.product.prodname_dotcom %} 仓库。 例如，名为 `@my-org/test` 的包将被发布到 `my-org/test` {% data variables.product.prodname_dotcom %} 仓库。
+### Configuring the destination repository
 
-但是，如果您提供了 `repository` 键，则该键中的仓库将被用作 {% data variables.product.prodname_registry %} 的目标 npm 注册表。 例如，发布以下 *package.json* 将导致名为 `my-amazing-package` 的包被发布到 `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} 仓库。
+If you don't provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. For example, a package named `@my-org/test` is published to the `my-org/test` {% data variables.product.prodname_dotcom %} repository.
+
+However, if you do provide the `repository` key, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. For example, publishing the below *package.json* results in a package named `my-amazing-package` published to the `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} repository.
 
 ```json
 {
@@ -112,24 +113,24 @@ always-auth=true
   },
 ```
 
-### 向目标仓库验证
+### Authenticating to the destination repository
 
-要根据 {% data variables.product.prodname_registry %} 注册表在工作流程中执行经验证的操作，可以使用 `GITHUB_TOKEN`。 {% data reusables.github-actions.github-token-permissions %}
+To perform authenticated operations against the {% data variables.product.prodname_registry %} registry in your workflow, you can use the `GITHUB_TOKEN`. {% data reusables.github-actions.github-token-permissions %}
 
-如果要将包发布到其他仓库，您必须使用对目标仓库中的包具有写入权限的个人访问令牌 (PAT)。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”和“[加密密码](/actions/reference/encrypted-secrets)”。
+If you want to publish your package to a different repository, you must use a personal access token (PAT) that has permission to write to packages in the destination repository. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
-### 示例工作流程
+### Example workflow
 
-此示例将 `GITHUB_TOKEN` 密码存储在 `NODE_AUTH_TOKEN` 环境变量中。 当 `setup-node` 操作创建 *.npmrc* 文件时，会引用 `NODE_AUTH_TOKEN` 环境变量中的令牌。
+This example stores the `GITHUB_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
 ```yaml{:copy}
-name: Node.js Package
+name: Publish package to GitHub Packages
 on:
   release:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -138,17 +139,17 @@ jobs:
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
-      - run: npm install
+      - run: npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-`setup-node` 操作在运行器上创建 *.npmrc* 文件。 使用 `scope` 输入到 `setup-node` 操作时，*.npmrc* 文件包含作用域前缀。 默认情况下，`setup-node` 操作在 *.npmrc* 文件中将作用域设置为包含该工作流程文件的帐户。
+The `setup-node` action creates an *.npmrc* file on the runner. When you use the `scope` input to the `setup-node` action, the *.npmrc* file includes the scope prefix. By default, the `setup-node` action sets the scope in the *.npmrc* file to the account that contains that workflow file.
 
 ```ini
 //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
@@ -156,13 +157,13 @@ jobs:
 always-auth=true
 ```
 
-## 使用 yarn 发布包
+## Publishing packages using yarn
 
-如果您使用 Yarn 包管理器，可以使用 Yarn 安装和发布包。
+If you use the Yarn package manager, you can install and publish packages using Yarn.
 
 {% raw %}
 ```yaml{:copy}
-name: Node.js Package
+name: Publish Package to npmjs
 on:
   release:
     types: [created]
@@ -174,7 +175,7 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
@@ -184,59 +185,3 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 {% endraw %}
-
-## 发布包到 npm 和 {% data variables.product.prodname_registry %}
-
-{% note %}
-
-**注意：**如果需要发布到具有不同作用域前缀的注册表，则需修改运行器上的 *package.json* 文件以更改作用域前缀。 例如，如果将包发布到 npm 的 `@mona` 作用域和 {% data variables.product.prodname_registry %} 的 `@octocat` 作用域，则可在发布到 npm 之后和发布到 {% data variables.product.prodname_registry %} 之前，在运行器的 *package.json* 文件中将 `@mona` 作用域替换成 `@octocat`。
-
-{% endnote %}
-
-您可以使用每个注册表的 `setup-node` 操作将包发布到 npm 注册表和 {% data variables.product.prodname_registry %}。
-
-如果将包发布到两个注册表，则需要确保 npm 上的作用域前缀与 {% data variables.product.prodname_dotcom %} 用户或组织名称匹配。 要将包发布到具有作用域前缀的公共注册表，可以使用 `npm publish --access public`。 更多信息请参阅 [`npm-scope`](https://docs.npmjs.com/misc/scope) 和 npm 文档中的“[创建和发布作用域的公共包](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)”。
-
-确认 *package.json* 文件包含 {% data variables.product.prodname_dotcom %} 仓库和 npm 注册表的作用域。 例如，如果您计划将 `octocat/npm-hello-world-test` 仓库中的包发布到 {% data variables.product.prodname_dotcom %} 和 https://www.npmjs.com/package/@octocat/npm-hello-world-test，则 *package.json* 文件中的名称将是 `"name": "@octocat/npm-hello-world-test"`。
-
-要根据 {% data variables.product.prodname_registry %} 注册表在工作流程中执行经验证的操作，可以使用 `GITHUB_TOKEN`。 {% data reusables.github-actions.github-token-permissions %}
-
-使用 `scope` 输入到 `setup-node` 操作时，操作将创建包含作用域前缀的 *.npmrc* 文件。 默认情况下，`setup-node` 操作在 *.npmrc* 文件中将作用域设置为拥有该工作流程文件的用户或组织。
-
-此工作流程将调用 `setup-node` 操作两次。 每当 `setup-node` 操作运行时，都会覆盖 *.npmrc* 文件。 *.npmrc* 文件引用的令牌允许您对 `NODE_AUTH_TOKEN` 环境变量中的包注册表执行验证的操作。 工作流程在 `npm publish` 命令每次运行时设置 `NODE_AUTH_TOKEN` 环境变量，先通过令牌发布到 npm (`NPM_TOKEN`)，然后通过令牌发布到 {% data variables.product.prodname_registry %} (`GITHUB_TOKEN`)。
-
-
-```yaml{:copy}
-name: Node.js Package
-on:
-  release:
-    types: [created]
-jobs:
-  build:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-    permissions: 
-      contents: read
-      packages: write {% endif %}
-    steps:
-      - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '10.x'
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm install
-      # Publish to npm
-      - run: npm publish --access public
-        env:{% raw %}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v2
-        with:
-          registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@octocat'
-      # Publish to GitHub Packages
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
-```

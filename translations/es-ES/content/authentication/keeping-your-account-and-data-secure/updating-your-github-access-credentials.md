@@ -1,9 +1,9 @@
 ---
-title: Actualizar tus credenciales de acceso de GitHub
-intro: 'Las credenciales de {% data variables.product.product_name %} no solo incluyen{% ifversion not ghae %} tu contraseña, sino también{% endif %} los tokens de acceso, llaves de SSH, y tokens de la API de la aplicación que utilizas para comunicarte con {% data variables.product.product_name %}. Si lo necesitas, puedes restablecer todas estas credenciales de acceso tú mismo.'
+title: Updating your GitHub access credentials
+intro: '{% data variables.product.product_name %} credentials include{% ifversion not ghae %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Should you have the need, you can reset all of these access credentials yourself.'
 redirect_from:
-  - /articles/rolling-your-credentials/
-  - /articles/how-can-i-reset-my-password/
+  - /articles/rolling-your-credentials
+  - /articles/how-can-i-reset-my-password
   - /articles/updating-your-github-access-credentials
   - /github/authenticating-to-github/updating-your-github-access-credentials
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/updating-your-github-access-credentials
@@ -15,56 +15,57 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Actualizar las credenciales de acceso
+shortTitle: Update access credentials
 ---
-
 {% ifversion not ghae %}
-## Solicitar una contraseña nueva
+## Requesting a new password
 
 1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
-2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured. ![Diálogo de solicitud de correo electrónico de restablecimiento de contraseña](/assets/images/help/settings/password-recovery-email-request.png)
-3. Te enviaremos por correo electrónico un enlace que te permitirá restablecer la contraseña. Debes hacer clic en este enlace dentro de las 3 horas posteriores a haber recibido el correo electrónico. Si no recibiste un correo electrónico de nuestra parte, asegúrate de revisar la carpeta de spam.
-4. Si habilitaste la autenticación bifactorial, se te pedirán tus credenciales de 2FA. Teclea tus credenciales bifactoriales o uno de tus códigos de recuperación de 2FA y haz clic en **Verificar**. ![Mensaje de autenticación bifactorial](/assets/images/help/2fa/2fa-password-reset.png)
-5. Teclea una contraseña nueva, confírmala y haz clic en **Cambiar contraseña**. Para recibir ayuda para crear una contraseña segura, consulta "[Crear una contraseña segura](/articles/creating-a-strong-password)."
+2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
+  ![Password reset email request dialog](/assets/images/help/settings/password-recovery-email-request.png)
+3. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
+4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials. Type your 2FA credentials or one of your 2FA recovery codes and click **Verify**.
+  ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
+5. Type a new password, confirm your new password, and click **Change password**. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)."
   {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
-  ![Casilla de recuperación de contraseña](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
+  ![Password recovery box](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}
 
-Para evitar perder tu contraseña en el futuro, te sugerimos utilizar un administrador de contraseñas seguro, tal como [LastPass](https://lastpass.com/) o [1Password](https://1password.com/).
+To avoid losing your password in the future, we suggest using a secure password manager, like [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
 {% endtip %}
 
-## Cambiar una contraseña existente
+## Changing an existing password
 
 {% data reusables.repositories.blocked-passwords %}
 
 1. {% data variables.product.signin_link %} to {% data variables.product.product_name %}.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-4. En "Change password" (Cambiar contraseña), escribe tu contraseña antigua, una contraseña segura nueva y confirma tu contraseña nueva. Para recibir ayuda para crear una contraseña segura, consulta "[Crear una contraseña segura](/articles/creating-a-strong-password)"
-5. Haz clic en **Update password** (Actualizar contraseña).
+4. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)"
+5. Click **Update password**.
 
 {% tip %}
 
-Para mayor seguridad, habilita la autenticación de dos factores además de cambiar la contraseña. Consulta [Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication) para obtener más detalles.
+For greater security, enable two-factor authentication in addition to changing your password. See [About two-factor authentication](/articles/about-two-factor-authentication) for more details.
 
 {% endtip %}
 {% endif %}
-## Actualizar tus tokens de acceso
+## Updating your access tokens
 
-Consulta "[Revisar tus integraciones autorizadas](/articles/reviewing-your-authorized-integrations)" para recibir indicaciones sobre revisar y eliminar tokens de acceso. Para generar tokens de acceso nuevos, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+See "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-## Actualizar tus claves SSH
+## Updating your SSH keys
 
-Consulta "[Revisar tus claves SSH](/articles/reviewing-your-ssh-keys)" para obtener indicaciones sobre la revisar y eliminar claves SSH. Para generar y agregar claves SSH nuevas, consulta "[Generar una clave SSH](/articles/generating-an-ssh-key)".
+See "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)" for instructions on reviewing and deleting SSH keys. To generate and add new SSH keys, see "[Generating an SSH key](/articles/generating-an-ssh-key)."
 
-## Restablecer tokens API
+## Resetting API tokens
 
-Si tienes alguna aplicación registrada con {% data variables.product.product_name %}, querrás restablecer sus tokens de OAuth. Para obtener más información, consulta la terminal de "[Restablecer una autorización](/rest/reference/apps#reset-an-authorization)".
+If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the "[Reset an authorization](/rest/reference/apps#reset-an-authorization)" endpoint.
 
 {% ifversion not ghae %}
-## Evitar el acceso no autorizado
+## Preventing unauthorized access
 
-Para obtener más sugerencias acerca de proteger tu cuenta y evitar el acceso sin autorización, consulta "[Evitar el acceso sin autorización](/articles/preventing-unauthorized-access)".
+For more tips on securing your account and preventing unauthorized access, see "[Preventing unauthorized access](/articles/preventing-unauthorized-access)."
 {% endif %}

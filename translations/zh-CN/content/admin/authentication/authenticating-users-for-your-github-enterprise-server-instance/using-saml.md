@@ -1,12 +1,12 @@
 ---
-title: 使用 SAML
+title: Using SAML
 redirect_from:
-  - /enterprise/admin/articles/configuring-saml-authentication/
-  - /enterprise/admin/articles/about-saml-authentication/
+  - /enterprise/admin/articles/configuring-saml-authentication
+  - /enterprise/admin/articles/about-saml-authentication
   - /enterprise/admin/user-management/using-saml
   - /enterprise/admin/authentication/using-saml
   - /admin/authentication/using-saml
-intro: 'SAML 是一种基于 XML 的身份验证和授权标准。 {% data variables.product.prodname_ghe_server %} 可以作为您的内部 SAML 身份提供程序 (IdP) 的服务提供程序 (SP)。'
+intro: 'SAML is an XML-based standard for authentication and authorization. {% data variables.product.prodname_ghe_server %} can act as a service provider (SP) with your internal SAML identity provider (IdP).'
 versions:
   ghes: '*'
 type: how_to
@@ -17,31 +17,30 @@ topics:
   - Identity
   - SSO
 ---
-
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-## 支持的 SAML 服务
+## Supported SAML services
 
 {% data reusables.saml.saml-supported-idps %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-## 使用 SAML 时的用户名考量因素
+## Username considerations with SAML
 
-每个 {% data variables.product.prodname_ghe_server %} 用户名都由 SAML 响应中的以下断言之一决定，这些断言按优先级从高到低排列的顺序为：
+Each {% data variables.product.prodname_ghe_server %} username is determined by one of the following assertions in the SAML response, ordered by priority:
 
-- 自定义用户名属性（如果定义且存在）
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 断言（如果存在）
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 断言（如果存在）
-- `NameID` 元素
+- The custom username attribute, if defined and present
+- An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` assertion, if present
+- An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` assertion, if present
+- The `NameID` element
 
-即使其他属性存在，也需要 `NameID` 元素。
+The `NameID` element is required even if other attributes are present.
 
-将在 `NameID` 与 {% data variables.product.prodname_ghe_server %} 用户名之间创建映射，`NameID` 应持久、唯一，并且在用户生命周期内不会发生变化。
+A mapping is created between the `NameID` and the {% data variables.product.prodname_ghe_server %} username, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% note %}
 
-**注**：如果在 IdP 上更改某用户的 `NameID`，该用户在尝试登录到您的 {% data variables.product.prodname_ghe_server %} 实例时会看到错误消息。 {% ifversion ghes %}要恢复用户的访问权限，您需要更新用户帐户的 `NameID` 映射。 更多信息请参阅“[更新用户的 SAML `NameID`](#updating-a-users-saml-nameid)”。{% else %} 更多信息请参阅“[错误：另一个用户已拥有该帐户](#error-another-user-already-owns-the-account)”。{% endif %}
+**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign in to your {% data variables.product.prodname_ghe_server %} instance. {% ifversion ghes %}To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %} For more information, see "[Error: 'Another user already owns the account'](#error-another-user-already-owns-the-account)."{% endif %}
 
 {% endnote %}
 
@@ -52,75 +51,97 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-## SAML 元数据
+## SAML metadata
 
-您的 {% data variables.product.prodname_ghe_server %} 实例的服务提供程序元数据位于 `http(s)://[hostname]/saml/metadata` 下。
+Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
-要手动配置您的身份提供程序，断言使用者服务 (ACS) URL 为 `http(s)://[hostname]/saml/consume`。 它使用 `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` 绑定。
+To configure your identity provider manually, the Assertion Consumer Service (ACS) URL is `http(s)://[hostname]/saml/consume`. It uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
 
-## SAML 属性
+## SAML attributes
 
-以下属性可用。 您可以在 [Management Console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/) 中更改属性名称，但 `administrator` 属性除外。
+These attributes are available. You can change the attribute names in the [management console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/), with the exception of the `administrator` attribute.
 
-| 默认属性名称        | 类型 | 描述                                                                                                              |
-| ------------- | -- | --------------------------------------------------------------------------------------------------------------- |
-| `NameID`      | 必选 | 持久用户标识符。 可以使用任意持久名称标识符格式。 除非提供备用断言之一，否则将为 {% data variables.product.prodname_ghe_server %} 用户名使用 `NameID` 元素。 |
-| `管理员`         | 可选 | 如果值为“true”，用户将被自动升级为管理员。 任何其他值或不存在的值会将用户降级为普通用户帐户。                                                              |
-| `用户名`         | 可选 | {% data variables.product.prodname_ghe_server %} 用户名。                                                         |
-| `full_name`   | 可选 | 用户的个人资料页面上显示的姓名。 用户可以在配置后更改他们的姓名。                                                                               |
-| `emails`      | 可选 | 用户的电子邮件地址。 可以指定多个。                                                                                              |
-| `public_keys` | 可选 | 用户的 SSH 公钥。 可以指定多个。                                                                                             |
-| `gpg_keys`    | 可选 | 用户的 GPG 密钥。 可以指定多个。                                                                                             |
+| Default attribute name  | Type     | Description |
+|-----------------|----------|-------------|
+| `NameID` | Required | A persistent user identifier. Any persistent name identifier format may be used. The `NameID` element will be used for a {% data variables.product.prodname_ghe_server %} username unless one of the alternative assertions is provided. |
+| `administrator` | Optional | When the value is 'true', the user will automatically be promoted as an administrator. Any other value or a non-existent value will demote the user to a normal user account. |
+| `username` | Optional | The {% data variables.product.prodname_ghe_server %} username. |
+| `full_name`     | Optional | The name of the user displayed on their profile page. Users may change their names after provisioning. |
+| `emails`        | Optional | The email addresses for the user. More than one can be specified. |
+| `public_keys`   | Optional | The public SSH keys for the user. More than one can be specified. |
+| `gpg_keys`   | Optional | The GPG keys for the user. More than one can be specified.  |
 
-## 配置 SAML 设置
+To specify more than one value for an attribute, use multiple `<saml2:AttributeValue>` elements.
+
+```
+<saml2:Attribute FriendlyName="public_keys" Name="urn:oid:1.2.840.113549.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+    <saml2:AttributeValue>ssh-rsa LONG KEY</saml2:AttributeValue>
+    <saml2:AttributeValue>ssh-rsa LONG KEY 2</saml2:AttributeValue>
+</saml2:Attribute>
+```
+
+## Configuring SAML settings
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-3. 选择 **SAML**。 ![SAML 身份验证](/assets/images/enterprise/management-console/auth-select-saml.png)
-4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![选中 SAML 内置身份验证复选框](/assets/images/enterprise/management-console/saml-built-in-authentication.png)
-5. 或者，要启用非请求响应 SSO，请选择 **IdP initiated SSO**。 默认情况下，{% data variables.product.prodname_ghe_server %} 将向 IdP 发回 `AuthnRequest`，回复非请求身份提供程序 (IdP) 发起的请求。 ![SAML idP SSO](/assets/images/enterprise/management-console/saml-idp-sso.png)
+3. Select **SAML**.
+![SAML authentication](/assets/images/enterprise/management-console/auth-select-saml.png)
+4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Select SAML built-in authentication checkbox](/assets/images/enterprise/management-console/saml-built-in-authentication.png)
+5. Optionally, to enable unsolicited response SSO, select **IdP initiated SSO**. By default, {% data variables.product.prodname_ghe_server %} will reply to an unsolicited Identity Provider (IdP) initiated request with an `AuthnRequest` back to the IdP.
+![SAML idP SSO](/assets/images/enterprise/management-console/saml-idp-sso.png)
 
   {% tip %}
 
-  **注**：我们建议保留此值处于**未选择**状态。 您**只**应在罕见的情况下启用此功能，即您的 SAML 实现不支持服务提供程序发起的 SSO，并且 {% data variables.contact.enterprise_support %} 建议执行此操作。
+  **Note**: We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
 
   {% endtip %}
 
-5. 如果您**不**希望 SAML 提供程序为 {% data variables.product.product_location %} 上的用户确定管理员权限，请选择 **Disable administrator demotion/promotion（禁用管理员降级/升级）**。 ![SAML 禁用管理员配置](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-6. 在 **Single sign-on URL** 字段中，为单点登录请求输入您的 IdP 上的 HTTP 或 HTTPS 端点。 此值由您的 IdP 配置提供。 如果主机只能在您的内部网络中使用，您需要先[将 {% data variables.product.product_location %} 配置为使用内部域名服务器](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/)。 ![SAML 身份验证](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-7. （可选）在 **Issuer（签发者）** 字段中，输入您的 SAML 签发者的姓名。 这将验证发送到 {% data variables.product.product_location %} 的消息的真实性。 ![SAML 颁发者](/assets/images/enterprise/management-console/saml-issuer.png)
-8. 在 **Signature Method（签名方法）** 和 **Digest Method（摘要方法）** 下拉菜单中，选择您的 SAML 颁发者用于验证 {% data variables.product.product_location %} 请求完整性的哈希算法。 使用 **Name Identifier Format** 下拉菜单指定格式。 ![SAML 方法](/assets/images/enterprise/management-console/saml-method.png)
-9. 在 **Verification certificate（验证证书）**下，单击 **Choose File（选择文件）**并选择用于验证 IdP 的 SAML 响应的证书。 ![SAML 身份验证](/assets/images/enterprise/management-console/saml-verification-cert.png)
-10. 如果需要，请修改 SAML 属性名称以匹配您的 IdP，或者接受默认名称。![SAML 属性名称](/assets/images/enterprise/management-console/saml-attributes.png)
+5. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location %}.
+![SAML disable admin configuration](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/).
+![SAML authentication](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location %}.
+![SAML issuer](/assets/images/enterprise/management-console/saml-issuer.png)
+8. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location %}. Specify the format with the **Name Identifier Format** drop-down menu.
+![SAML method](/assets/images/enterprise/management-console/saml-method.png)
+9. Under **Verification certificate**, click **Choose File** and choose a certificate to validate SAML responses from the IdP.
+![SAML authentication](/assets/images/enterprise/management-console/saml-verification-cert.png)
+10. Modify the SAML attribute names to match your IdP if needed, or accept the default names.
+ ![SAML attribute names](/assets/images/enterprise/management-console/saml-attributes.png)
 
 {% ifversion ghes %}
 
-## 撤销 {{ site.data.variables.product.product_location_enterprise }} 的权限
+## Updating a user's SAML `NameID`
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. 选择 **SAML**。 ![网站管理员设置中的"All users（所有用户）"侧边栏项目](/assets/images/enterprise/site-admin-settings/all-users.png)
-3. 在用户列表中，点击您想要更新其 `NameID` 映射的用户名。 ![实例用户帐户列表中的用户名](/assets/images/enterprise/site-admin-settings/all-users-click-username.png)
+2. In the left sidebar, click **All users**.
+  !["All users" sidebar item in site administrator settings](/assets/images/enterprise/site-admin-settings/all-users.png)
+3. In the list of users, click the username you'd like to update the `NameID` mapping for.
+  ![Username in list of instance user accounts](/assets/images/enterprise/site-admin-settings/all-users-click-username.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
-5. 在“Update SAML NameID（更新 SAML 名称 ID）”右侧，单击 **Edit（编辑）**。 ![SAML 身份验证](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
-6. 在“NameID（名称 ID）”字段中，为用户键入新的 `NameID`。 ![键入了名称 ID 的模态对话框中的"名称 ID"字段](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
-7. 单击 **Update NameID（更新名称 ID）**。 ![模态中更新的名称 ID 下的"Update NameID（更新名称 ID）"按钮](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
+5. To the right of "Update SAML NameID", click **Edit** .
+  !["Edit" button under "SAML authentication" and to the right of "Update SAML NameID"](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
+6. In the "NameID" field, type the new `NameID` for the user.
+  !["NameID" field in modal dialog with NameID typed](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
+7. Click **Update NameID**.
+  !["Update NameID" button under updated NameID value within modal](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
 
 {% endif %}
 
-## 撤销 {% data variables.product.product_location %} 的权限
+## Revoking access to {% data variables.product.product_location %}
 
-如果您将某个用户从您的身份提供程序中移除，还必须手动挂起他们。 否则，他们仍可以继续使用访问令牌或 SSH 密钥进行身份验证。 更多信息请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。
+If you remove a user from your identity provider, you must also manually suspend them. Otherwise, they'll continue to be able to authenticate using access tokens or SSH keys. For more information, see "[Suspending and unsuspending users](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
 
-## 响应消息的要求
+## Response message requirements
 
-响应消息必须满足以下要求：
+The response message must fulfill the following requirements:
 
-- `<Destination>` 元素必须在根响应文档上提供，而且只有在根响应文档签署后才匹配 ACS URL。 如果断言已签名，它将被忽略。
-- `<Audience>` 元素必须始终作为 `<AudienceRestriction>` 元素的一部分提供。 `<Audience>` 元素必须始终作为 `<AudienceRestriction>` 元素的一部分提供。 这是 {% data variables.product.prodname_ghe_server %} 实例的 URL，如 `https://ghe.corp.example.com`。
-- 响应中的每一个断言都**必须**由数字签名加以保护。 签署各个 `<Assertion>` 元素或签署 `<Response>` 元素可以实现此操作。
-- `<NameID>` 元素必须作为 `<Subject>` 元素的一部分提供。 可以使用任意持久名称标识符格式。
-- `Recipient` 属性必须存在并设为 ACS URL。 例如：
+- The `<Destination>` element must be provided on the root response document and match the ACS URL only when the root response document is signed. If the assertion is signed, it will be ignored.
+- The `<Audience>` element must always be provided as part of the `<AudienceRestriction>` element. It must match the `EntityId` for {% data variables.product.prodname_ghe_server %}. This is the URL to the {% data variables.product.prodname_ghe_server %} instance, such as `https://ghe.corp.example.com`.
+- Each assertion in the response **must** be protected by a digital signature. This can be accomplished by signing each individual `<Assertion>` element or by signing the `<Response>` element.
+- A `<NameID>` element must be provided as part of the `<Subject>` element. Any persistent name identifier format may be used.
+- The `Recipient` attribute must be present and set to the ACS URL. For example:
 
 ```xml
 <samlp:Response ...>
@@ -140,23 +161,23 @@ topics:
 </samlp:Response>
 ```
 
-## SAML 身份验证
+## Troubleshooting SAML authentication
 
-{% data variables.product.prodname_ghe_server %} 在  _/var/log/github/auth.log_ 的身份验证日志中为失败的 SAML 身份验证记录错误消息。 关于 SAML 响应要求的更多信息，请参阅“[响应消息要求](#response-message-requirements)”。
+{% data variables.product.prodname_ghe_server %} logs error messages for failed SAML authentication in the authentication log at  _/var/log/github/auth.log_. For more information about SAML response requirements, see "[Response message requirements](#response-message-requirements)."
 
-### Error: "Another user already owns the account"（错误：“其他用户已拥有该帐户”）
+### Error: "Another user already owns the account"
 
-您的 {% data variables.product.prodname_ghe_server %} 实例的服务提供程序元数据位于 `http(s)://[hostname]/saml/metadata` 下。
+When a user signs in to {% data variables.product.prodname_ghe_server %} for the first time with SAML authentication, {% data variables.product.prodname_ghe_server %} creates a user account on the instance and maps the SAML `NameID` to the account.
 
-当用户再次登录时，{% data variables.product.prodname_ghe_server %} 会比较帐户的 `NameID` 映射与 IdP 的响应。 如果 IdP 响应中的 `NameID` 不再与 {% data variables.product.prodname_ghe_server %} 对用户预期的 `NameID` 匹配， 登录将失败。 用户将看到以下消息。
+When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` mapping to the IdP's response. If the `NameID` in the IdP's response no longer matches the `NameID` that {% data variables.product.prodname_ghe_server %} expects for the user, the sign-in will fail. The user will see the following message.
 
-> 另一个用户已经拥有该帐户。 请让您的管理员检查身份验证日志。
+> Another user already owns the account. Please have your administrator check the authentication log.
 
-该消息通常表示此人的用户名或电子邮件地址已在 IdP 上更改。 {% ifversion ghes %}确保在 {% data variables.product.prodname_ghe_server %} 上的用户帐户的 `NameID` 映射与 IdP 上的 `NameID` 匹配。 更多信息请参阅“[更新用户的 SAML `NameID`](#updating-a-users-saml-nameid)”。{% else %}如需更新 `NameID` 映射的帮助，请联系 {% data variables.contact.contact_ent_support %}。{% endif %}
+The message typically indicates that the person's username or email address has changed on the IdP. {% ifversion ghes %}Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %}For help updating the `NameID` mapping, contact {% data variables.contact.contact_ent_support %}.{% endif %}
 
-### Error: Recipient in SAML response was blank or not valid（错误：SAML 响应中的收件人为空或无效）
+### Error: Recipient in SAML response was blank or not valid
 
-如果 `Recipient` 与 {% data variables.product.prodname_ghe_server %} 实例的 ACS URL 不匹配，则当用户尝试验证时，身份验证日志中将显示以下两条错误消息之一：
+If the `Recipient` does not match the ACS URL for your {% data variables.product.prodname_ghe_server %} instance, one of the following two error messages will appear in the authentication log when a user attempts to authenticate.
 
 ```
 Recipient in the SAML response must not be blank.
@@ -166,24 +187,24 @@ Recipient in the SAML response must not be blank.
 Recipient in the SAML response was not valid.
 ```
 
-`Recipient` 属性必须存在并设为 ACS URL。 例如，`https://ghe.corp.example.com/saml/consume`。
+Ensure that you set the value for `Recipient` on your IdP to the full ACS URL for your {% data variables.product.prodname_ghe_server %} instance. For example, `https://ghe.corp.example.com/saml/consume`.
 
-### Error: "SAML Response is not signed or has been modified"（错误：“SAML 响应未签名或已修改”）
+### Error: "SAML Response is not signed or has been modified"
 
-如果您的 IdP 未对 SAML 响应进行签名，或者签名与内容不匹配，则身份验证日志中将显示以下错误消息。
+If your IdP does not sign the SAML response, or the signature does not match the contents, the following error message will appear in the authentication log.
 
 ```
 SAML Response is not signed or has been modified.
 ```
 
-确保为 IdP 上的 {% data variables.product.prodname_ghe_server %} 应用程序配置签名的断言。
+Ensure that you configure signed assertions for the {% data variables.product.prodname_ghe_server %} application on your IdP.
 
-### Error: "Audience is invalid" or "No assertion found"（错误：“受众无效”或“未找到断言”）
+### Error: "Audience is invalid" or "No assertion found"
 
-如果 IdP 的响应缺少 `Audience` 的值或者该值不正确，则身份验证日志中将显示以下错误消息。
+If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
 
 ```shell
-Audience is invalid. Audience is invalid. Audience attribute does not match your_instance_url
+Audience is invalid. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
 ```
 
-确保对您的 {% data variables.product.prodname_ghe_server %} 实例将 IdP 上的 `Audience` 值设为 `EntityId`，这是 {% data variables.product.prodname_ghe_server %} 实例的完整 URL。 例如，`https://ghe.corp.example.com`。
+Ensure that you set the value for `Audience` on your IdP to the `EntityId` for your {% data variables.product.prodname_ghe_server %} instance, which is the full URL to your {% data variables.product.prodname_ghe_server %} instance. For example, `https://ghe.corp.example.com`.

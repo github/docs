@@ -1,8 +1,8 @@
 ---
-title: Impressões digitais da chave SSH do GitHub
-intro: Impressões digitais da chave pública podem ser usadas para validar uma conexão com um servidor remote.
+title: GitHub's SSH key fingerprints
+intro: Public key fingerprints can be used to validate a connection to a remote server.
 redirect_from:
-  - /articles/what-are-github-s-ssh-key-fingerprints/
+  - /articles/what-are-github-s-ssh-key-fingerprints
   - /articles/github-s-ssh-key-fingerprints
   - /articles/githubs-ssh-key-fingerprints
   - /github/authenticating-to-github/githubs-ssh-key-fingerprints
@@ -13,18 +13,10 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Impressão digital de chave SSH
+shortTitle: SSH key fingerprints
 ---
-
-Estas são as impressões digitais de chave pública de {% data variables.product.prodname_dotcom %}:
+These are {% data variables.product.prodname_dotcom %}'s public key fingerprints:
 
 - `SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8` (RSA)
-
-Estas chaves serão compatíveis no início de 14 de setembro de 2021:
-
 - `SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM` (ECDSA)
 - `SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU` (Ed25519)
-
-Essa chave será desativada em 16 de novembro de 2021:
-
-- `SHA256:br9IjFspm1vxR3iA35FWE+4VTyz1hYVLIE2t1/CeyWQ` (DSA)

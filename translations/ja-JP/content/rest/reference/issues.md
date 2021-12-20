@@ -1,5 +1,5 @@
 ---
-title: 問題
+title: Issues
 intro: 'The Issues API enables you to view and manage issues, including issue assignees, comments, labels, and milestones.'
 redirect_from:
   - /v3/issues
@@ -13,62 +13,65 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Issue のカスタムメディアタイプ
+### Custom media types for issues
 
-Issue についてサポートされているメディアタイプは次のとおりです。
+These are the supported media types for issues.
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
     application/vnd.github.VERSION.html+json
     application/vnd.github.VERSION.full+json
 
-メディアタイプの詳しい情報については、「[カスタムメディアタイプ](/rest/overview/media-types)」を参照してください。
+For more information about media types, see "[Custom media types](/rest/overview/media-types)."
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## アサインされた人
+## Assignees
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'assignees' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## コメント
+## Comments
 
-Issue コメント API は、Issue およびプルリクエストに関するリスト、表示、編集、コメントの作成に対応しています。
+The Issue Comments API supports listing, viewing, editing, and creating
+comments on issues and pull requests.
 
-Issue コメントは、[3 つのカスタムメディアタイプ](#custom-media-types)を使用します。 API におけるメディアタイプの使用に関する詳細は、[こちら](/rest/overview/media-types)を参照してください。
+Issue Comments use [these custom media types](#custom-media-types).
+You can read more about the use of media types in the API
+[here](/rest/overview/media-types).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## イベント
+## Events
 
-Issue イベント API は、Issue およびプルリクエストでのアクティビティによってトリガーされるイベントのタイプを返します。 The Issue Events API can return different types of events triggered by activity in issues and pull requests. For more information about the specific events that you can receive from the Issue Events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." 詳細は、「[イベント API](/developers/webhooks-and-events/github-event-types)」を参照してください。
+The Issue Events API can return different types of events triggered by activity in issues and pull requests. For more information about the specific events that you can receive from the Issue Events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." An events API for GitHub activity outside of issues and pull requests is also available. For more information, see the "[Events API](/developers/webhooks-and-events/github-event-types)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'events' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## ラベル
+## Labels
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'labels' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## マイルストーン
+## Milestones
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'milestones' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## タイムライン
+## Timeline
 
-タイムラインイベント API は、Issue およびプルリクエストでのタイムラインアクティビティによってトリガーされるイベントのタイプを返します。 The Issue Events API can return different types of events triggered by activity in issues and pull requests. For more information about the specific events that you can receive from the Issue Events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." 詳細は、「[GitHub イベント API](/developers/webhooks-and-events/github-event-types)」を参照してください。
+The Timeline Events API can return different types of events triggered by timeline activity in issues and pull requests. For more information about the specific events that you can receive from the Issue Events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." An events API for GitHub activity outside of issues and pull requests is also available. For more information, see the "[GitHub Events API](/developers/webhooks-and-events/github-event-types)."
 
-この API を使用すると、Issue およびプルリクエストに関する情報を表示したり、Issue コメントを通知する相手を決定したりできます。
+You can use this API to display information about issues and pull request or determine who should be notified of issue comments.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'timeline' %}{% include rest_operation %}{% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Administrar vulnerabilidades en las dependencias de tus proyectos
-intro: 'Puedes rastrear las dependencias de tus repositorios y recibir alertas de seguridad de {% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}{% endif %} cuando {% data variables.product.product_name %} detecta dependencias vulnerables.'
+title: Managing vulnerabilities in your project's dependencies
+intro: 'You can track your repository''s dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies.'
 redirect_from:
   - /articles/updating-your-project-s-dependencies/
   - /articles/updating-your-projects-dependencies/
@@ -30,6 +30,6 @@ children:
   - /viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
-shortTitle: Arreglar dependencias vulnerables
+shortTitle: Fix vulnerable dependencies
 ---
 

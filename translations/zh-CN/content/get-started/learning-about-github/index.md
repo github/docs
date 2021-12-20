@@ -1,9 +1,9 @@
 ---
-title: 了解 GitHub
-intro: '了解如何使用 {% data variables.product.company_short %} 产品来改进您的软件管理流程并与其他人合作。'
+title: Learning about GitHub
+intro: 'Learn how you can use {% data variables.product.company_short %} products to improve your software management process and collaborate with other people.'
 redirect_from:
   - /articles/learning-about-github
-  - /github/getting-started-with-github/learning-about-github/
+  - /github/getting-started-with-github/learning-about-github
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,10 +17,11 @@ topics:
   - Security
 children:
   - /githubs-products
+  - /about-versions-of-github-docs
   - /github-language-support
-  - /about-github-advanced-security
   - /types-of-github-accounts
   - /access-permissions-on-github
+  - /about-github-advanced-security
   - /faq-about-changes-to-githubs-plans
 ---
 

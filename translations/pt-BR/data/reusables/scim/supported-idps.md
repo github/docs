@@ -2,4 +2,5 @@ Os seguintes IdPs podem provisionar ou desprovisionar contas de usuário em {% d
 
 {% ifversion ghae %}
 - Azure AD
+- Okta (currently in beta)
 {% endif %}

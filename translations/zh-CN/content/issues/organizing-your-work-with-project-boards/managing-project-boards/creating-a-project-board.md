@@ -1,9 +1,9 @@
 ---
-title: 创建项目板
-intro: 项目板可用于创建满足您需求的自定义工作流程，例如对特定功能工作、全面路线图甚至发布检查清单进行跟踪和排列优先级。
+title: Creating a project board
+intro: 'Project boards can be used to create customized workflows to suit your needs, like tracking and prioritizing specific feature work, comprehensive roadmaps, or even release checklists.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
-  - /articles/creating-a-project/
+  - /articles/creating-a-project
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
@@ -18,25 +18,25 @@ topics:
   - Project management
 type: how_to
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-{% data reusables.project-management.link-repos-to-project-board %}更多信息请参阅“[将仓库链接到项目板](/articles/linking-a-repository-to-a-project-board)”。
+{% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a project board](/articles/linking-a-repository-to-a-project-board)."
 
-创建项目板后，您可以向其添加议题、拉取请求和备注。 更多信息请参阅“[向项目板添加议题和拉取请求](/articles/adding-issues-and-pull-requests-to-a-project-board)”和“[向项目板添加备注](/articles/adding-notes-to-a-project-board)”。
+Once you've created your project board, you can add issues, pull requests, and notes to it. For more information, see "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)" and "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
 
-还可以配置工作流程自动化，使项目板与议题和拉取请求的状态保持同步。 更多信息请参阅“[关于项目板的自动化](/articles/about-automation-for-project-boards)”。
+You can also configure workflow automations to keep your project board in sync with the status of issues and pull requests. For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards)."
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## 创建用户拥有的项目板
+## Creating a user-owned project board
 
 {% data reusables.profile.access_profile %}
-2. 在个人资料页面顶部的主导航栏中，单击 {% octicon "project" aria-label="The project board icon" %} **Projects（项目）**。 ![项目选项卡](/assets/images/help/projects/user-projects-tab.png)
+2. On the top of your profile page, in the main navigation, click {% octicon "project" aria-label="The project board icon" %} **Projects**.
+![Project tab](/assets/images/help/projects/user-projects-tab.png)
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -52,7 +52,7 @@ type: how_to
 
 {% data reusables.project-management.edit-project-columns %}
 
-## 创建组织范围的项目板
+## Creating an organization-wide project board
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -72,10 +72,11 @@ type: how_to
 
 {% data reusables.project-management.edit-project-columns %}
 
-## 创建仓库项目板
+## Creating a repository project board
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 在仓库名称下，单击 {% octicon "project" aria-label="The project board icon" %} **Projects（项目）**。 ![项目选项卡](/assets/images/help/projects/repo-tabs-projects.png)
+2. Under your repository name, click {% octicon "project" aria-label="The project board icon" %} **Projects**.
+![Project tab](/assets/images/help/projects/repo-tabs-projects.png)
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -89,10 +90,10 @@ type: how_to
 
 {% data reusables.project-management.edit-project-columns %}
 
-## 延伸阅读
+## Further reading
 
-- "[关于项目板](/articles/about-project-boards)"
-- "[编辑项目板](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
-- "[复制项目板](/articles/copying-a-project-board)"{% endif %}
-- "[关闭项目板](/articles/closing-a-project-board)"
-- “[关于项目板的自动化](/articles/about-automation-for-project-boards)”
+- "[About projects boards](/articles/about-project-boards)"
+- "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
+- "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
+- "[Closing a project board](/articles/closing-a-project-board)"
+- "[About automation for project boards](/articles/about-automation-for-project-boards)"
