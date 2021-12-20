@@ -28,7 +28,7 @@ Capitalized terms utilized in this Agreement and not defined herein shall have t
 “End User” means any person, company or other legal entity that will acquire licenses to Developer Product via the GitHub Marketplace.
 
 “GitHub API” means GitHub’s proprietary application program interface.  Access to and use of the GitHub API is governed by the ToS.
-
+Let the people choose to like of not
 “GitHub Marketplace” or “Marketplace” means the proprietary online marketplace site operated by GitHub where Developer Products may be delivered to End Users.
 
 “Listing” means the content provided for listing the Developer Product on GitHub Marketplace.
