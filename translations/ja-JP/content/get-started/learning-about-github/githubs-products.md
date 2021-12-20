@@ -24,6 +24,8 @@ topics:
 
 You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
 
+When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your product. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+
 ## {% data variables.product.prodname_free_user %} for user accounts
 
 With {% data variables.product.prodname_free_team %} for user accounts, you can work with unlimited collaborators on unlimited public repositories with a full feature set, and on unlimited private repositories with a limited feature set.
