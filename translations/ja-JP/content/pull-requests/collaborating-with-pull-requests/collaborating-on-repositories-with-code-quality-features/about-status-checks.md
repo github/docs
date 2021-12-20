@@ -1,9 +1,9 @@
 ---
-title: ステータスチェックについて
-intro: ステータスチェックを利用すると、コントリビュート先のリポジトリの条件をコミットが満たしているかどうかを知ることができます。
+title: About status checks
+intro: Status checks let you know if your commits meet the conditions set for the repository you're contributing to.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
-  - /articles/about-statuses/
+  - /articles/about-statuses
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
   - /github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
@@ -15,33 +15,32 @@ versions:
 topics:
   - Pull requests
 ---
+Status checks are based on external processes, such as continuous integration builds, which run for each push you make to a repository. You can see the *pending*, *passing*, or *failing* state of status checks next to individual commits in your pull request.
 
-ステータスチェックは、リポジトリにプッシュをするたびに実行される継続的インテグレーションのビルドのような、外部のプロセスに基づいています。 プルリクエスト中の個々のコミットの隣に、* pending*、*passing*、 *failing* などの、ステータスチェックのステータスが表示されます。
+![List of commits and statuses](/assets/images/help/pull_requests/commit-list-statuses.png)
 
-![コミットとステータスのリスト](/assets/images/help/pull_requests/commit-list-statuses.png)
+Anyone with write permissions to a repository can set the state for any status check in the repository.
 
-書き込み権限があるユーザまたはインテグレーションなら誰でも、リポジトリのステータスチェックを任意のステータスに設定できます。
-
-ブランチへの最後のコミットの全体的なステータスは、リポジトリのブランチページあるいはリポジトリのプルリクエストのリストで見ることができます。
+You can see the overall state of the last commit to a branch on your repository's branches page or in your repository's list of pull requests.
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-## {% data variables.product.product_name %}でのステータスチェックの種類
+## Types of status checks on {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} のステータスチェックには 2 種類あります。
+There are two types of status checks on {% data variables.product.product_name %}:
 
-- チェック
-- ステータス
+- Checks
+- Statuses
 
 _Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
-Organization オーナー、およびリポジトリにプッシュアクセスを持つユーザは、{% data variables.product.product_name %} の API でチェックおよびステータスを作成できます。 詳しい情報については、「[チェック](/rest/reference/checks)」および「[ ステータス](/rest/reference/repos#statuses)」を参照してください。
+Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/repos#statuses)."
 
-## チェック
+## Checks
 
-リポジトリで_チェック_が設定されている場合、プルリクエストには [**Checks**] タブがあり、そこからステータスチェックからの詳細なビルドの出力を表示して、失敗したチェックを再実行できます。
+When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from status checks and rerun failed checks.
 
-![プルリクエスト中のステータスチェック](/assets/images/help/pull_requests/checks.png)
+![Status checks within a pull request](/assets/images/help/pull_requests/checks.png)
 
 {% note %}
 
@@ -49,28 +48,28 @@ Organization オーナー、およびリポジトリにプッシュアクセス�
 
 {% endnote %}
 
-コミットの特定の行でチェックが失敗している場合、その失敗、警告、注意に関する詳細がプルリクエストの [**Files**] タブの関連するコードの横に表示されます。
+When a specific line in a commit causes a check to fail, you will see details about the failure, warning, or notice next to the relevant code in the **Files** tab of the pull request.
 
-![失敗したステータスチェックの詳細](/assets/images/help/pull_requests/checks-detailed.png)
+![Details of a status check](/assets/images/help/pull_requests/checks-detailed.png)
 
-[**Conversation**] タブの下のコミットドロップダウンメニューを使って、プルリクエスト中のさまざまなコミットのチェックのサマリー間を行き来できます。
+You can navigate between the checks summaries for various commits in a pull request, using the commit drop-down menu under the **Conversation** tab.
 
-![ドロップダウンメニュー中でのさまざまなコミットのチェックのサマリー](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
+![Check summaries for different commits in a drop-down menu](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
 
-### 個々のコミットに関するチェックのスキップとリクエスト
+### Skipping and requesting checks for individual commits
 
-リポジトリがプッシュに対して自動的にチェックをリクエストするように設定されている場合、プッシュする個々のコミットについてチェックをスキップできます。 リポジトリがプッシュに対して自動的にチェックをリクエストするよう設定されて_いない_場合、プッシュする個々のコミットについてチェックをリクエストできます。 これらの設定についての詳しい情報は、「[チェックスイート](/rest/reference/checks#update-repository-preferences-for-check-suites)」を参照してください。
+When a repository is set to automatically request checks for pushes, you can choose to skip checks for an individual commit you push. When a repository is _not_ set to  automatically request checks for pushes, you can request checks for an individual commit you push. For more information on these settings, see "[Check Suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
 
-コミットに対するチェックをスキップもしくはリクエストするには、以下の追加行のいずれかをコミットメッセージの末尾に追加します:
+To skip or request checks for your commit, add one of the following trailer lines to the end of your commit message:
 
-- コミットの_チェックをスキップ_には、コミットメッセージと変更の短く意味のある説明を入力してください。 After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
+- To _skip checks_ for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
   ```shell
   $ git commit -m "Update README
   >
   >
   skip-checks: true"
   ```
-- コミットのチェックを_リクエスト_するには、コミットメッセージと変更の短く意味のある説明を入力してください。 After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
+- To _request_ checks for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
   ```shell
   $ git commit -m "Refactor usability tests
   >

@@ -1,9 +1,9 @@
 ---
-title: Jekyll を使用して GitHub Pages サイトをローカルでテストする
-intro: '{% data variables.product.prodname_pages %} サイトをローカルでビルドすると、サイトに対する変更のプレビューとテストを行うことができます。'
+title: Testing your GitHub Pages site locally with Jekyll
+intro: 'You can build your {% data variables.product.prodname_pages %} site locally to preview and test changes to your site.'
 redirect_from:
-  - /articles/setting-up-your-pages-site-locally-with-jekyll/
-  - /articles/setting-up-your-github-pages-site-locally-with-jekyll/
+  - /articles/setting-up-your-pages-site-locally-with-jekyll
+  - /articles/setting-up-your-github-pages-site-locally-with-jekyll
   - /articles/testing-your-github-pages-site-locally-with-jekyll
   - /github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll
 product: '{% data reusables.gated-features.pages %}'
@@ -14,27 +14,27 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Jekyllでのサイトのローカルテスト
+shortTitle: Test site locally with Jekyll
 ---
 
-リポジトリへの書き込み権限があるユーザは、{% data variables.product.prodname_pages %} サイトをローカルでテストできます。
+Anyone with read permissions for a repository can test a {% data variables.product.prodname_pages %} site locally.
 
-## 必要な環境
+## Prerequisites
 
-Jekyll を使用してサイトをテストする前に、以下の操作が必要です。
-  - [Jekyll](https://jekyllrb.com/docs/installation/) をインストールする。
-  - Jekyll サイトを作成する。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトを作成する](/articles/creating-a-github-pages-site-with-jekyll)」を参照してください。
+Before you can use Jekyll to test a site, you must:
+  - Install [Jekyll](https://jekyllrb.com/docs/installation/).
+  - Create a Jekyll site. For more information, see "[Creating a {% data variables.product.prodname_pages %} site with Jekyll](/articles/creating-a-github-pages-site-with-jekyll)."
 
 {% data reusables.pages.recommend-bundler %}
 
 {% data reusables.pages.jekyll-install-troubleshooting %}
 
-## サイトをローカルでビルドする
+## Building your site locally
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
-3. `bundle install` を実行します。
-3. ローカルで Jekyll サイトを実行します.
+3. Run `bundle install`.
+3. Run your Jekyll site locally.
   ```shell
   $ bundle exec jekyll serve
   > Configuration file: /Users/octocat/my-site/_config.yml
@@ -48,17 +48,17 @@ Jekyll を使用してサイトをテストする前に、以下の操作が必�
   >    Server address: http://127.0.0.1:4000/
   >  Server running... press ctrl-c to stop.
   ```
-3. サイトをプレビューするには、ウェブブラウザで `http://localhost:4000` を開きます。
+3. To preview your site, in your web browser, navigate to `http://localhost:4000`.
 
-## {% data variables.product.prodname_pages %} gem の更新
+## Updating the {% data variables.product.prodname_pages %} gem
 
-Jekyll は、頻繁に更新されているアクティブなオープンソースプロジェクトです。 お使いのコンピュータ上の `github-pages` gem が {% data variables.product.prodname_pages %} サーバー上の `github-pages` gem と比較して古くなっている場合は、ローカルでビルドしたときと {% data variables.product.product_name %} に公開したときで、サイトの見え方が異なることがあります。 こうならないように、お使いのコンピュータ上の `github-pages` gem は常にアップデートしておきましょう。
+Jekyll is an active open source project that is updated frequently. If the `github-pages` gem on your computer is out of date with the `github-pages` gem on the {% data variables.product.prodname_pages %} server, your site may look different when built locally than when published on {% data variables.product.product_name %}. To avoid this, regularly update the `github-pages` gem on your computer.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. `github-pages` gem をアップデートします。
-    - Bundler をインストールしている場合は、`bundle update github-pages` を実行します。
-    - Bundler をインストールしていない場合は、`gem update github-pages` を実行します。
+2. Update the `github-pages` gem.
+    - If you installed Bundler, run `bundle update github-pages`.
+    - If you don't have Bundler installed, run `gem update github-pages`.
 
-## 参考リンク
+## Further reading
 
-- Jekyll ドキュメンテーションの [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/)
+- [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/) in the Jekyll documentation

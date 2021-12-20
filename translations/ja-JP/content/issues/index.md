@@ -1,7 +1,7 @@
 ---
-title: GitHubのIssue
-shortTitle: GitHubのIssue
-intro: '作業を計画し、追跡するために{% data variables.product.prodname_github_issues %}を使う方法を学んでください。'
+title: GitHub Issues
+shortTitle: GitHub Issues
+intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 introLinks:
   overview: /issues/tracking-your-work-with-issues/creating-issues/about-issues
   quickstart: /issues/tracking-your-work-with-issues/quickstart
@@ -44,9 +44,9 @@ redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/managing-your-work-with-issues
   - /github/managing-your-work-on-github
-  - /categories/100/articles/
-  - /categories/managing-projects/
-  - /categories/managing-projects-on-github/
+  - /categories/100/articles
+  - /categories/managing-projects
+  - /categories/managing-projects-on-github
   - /categories/managing-your-work-on-github
   - /about-issues
   - /creating-an-issue

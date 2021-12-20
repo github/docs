@@ -37,6 +37,7 @@ featuredLinks:
     - /github/getting-started-with-github/signing-up-for-a-new-github-account
     - /get-started/quickstart/hello-world
     - /github/getting-started-with-github/set-up-git
+    - /get-started/learning-about-github/about-versions-of-github-docs
     - /github/getting-started-with-github/github-glossary
     - /github/getting-started-with-github/fork-a-repo
     - /github/getting-started-with-github/keyboard-shortcuts

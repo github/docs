@@ -2,11 +2,11 @@
 title: About searching on GitHub
 intro: 'Our integrated search covers the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
 redirect_from:
-  - /articles/using-the-command-bar/
-  - /articles/github-search-basics/
-  - /articles/search-basics/
-  - /articles/searching-github/
-  - /articles/advanced-search/
+  - /articles/using-the-command-bar
+  - /articles/github-search-basics
+  - /articles/search-basics
+  - /articles/searching-github
+  - /articles/advanced-search
   - /articles/about-searching-on-github
   - /github/searching-for-information-on-github/about-searching-on-github
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github
