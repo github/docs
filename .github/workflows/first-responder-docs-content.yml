@@ -36,7 +36,7 @@ jobs:
             const updatedIssueInformation = await github.issues.get({
               owner: ownerName,
               repo: repoName,
-              issue_number: issueNumber
+              issue_number: issueNumber 
             })
             const teamMembers = await github.request(
               `/orgs/github/teams/docs/members?per_page=100`
