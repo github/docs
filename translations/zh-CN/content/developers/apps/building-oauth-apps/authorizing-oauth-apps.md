@@ -2,11 +2,11 @@
 title: Authorizing OAuth Apps
 intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access/
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/creating-multiple-tokens-for-oauth-apps/
-  - /v3/oauth/
-  - /apps/building-oauth-apps/authorization-options-for-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/creating-multiple-tokens-for-oauth-apps
+  - /v3/oauth
+  - /apps/building-oauth-apps/authorization-options-for-oauth-apps
   - /apps/building-oauth-apps/authorizing-oauth-apps
   - /developers/apps/authorizing-oauth-apps
 versions:
