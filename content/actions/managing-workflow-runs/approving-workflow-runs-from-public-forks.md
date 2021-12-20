@@ -14,7 +14,7 @@ shortTitle: Approve public fork runs
 You can configure workflow approval requirements for a [repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks), [organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks), or [enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise).
 
 Workflow runs that have been awaiting approval for more than 30 days are automatically deleted.
-
+put Workflow as an Automatic turn on and give option to turn off
 ## Approving workflow runs on a pull request from a public fork
 
 Maintainers with write access to a repository can use the following procedure to review and run workflows on pull requests from contributors that require approval.
