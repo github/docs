@@ -58,7 +58,6 @@ Look! You can see my backticks.
     require 'redcarpet'
     markdown = Redcarpet.new("Hello World!")
     puts markdown.to_html
-    puts markdown.to_html
     ```
 
 ![渲染的启用 Ruby 语法突显的代码块](/assets/images/help/writing/code-block-syntax-highlighting-rendered.png)
