@@ -1,9 +1,9 @@
 ---
 title: Issues guides
-shortTitle: 指南
-intro: '了解如何使用 {% data variables.product.prodname_github_issues %} 来规划和跟踪您的工作。'
+shortTitle: Guides
+intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'
@@ -25,4 +25,3 @@ includeGuides:
   - /issues/using-labels-and-milestones-to-track-work/managing-labels
   - /issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests
 ---
-

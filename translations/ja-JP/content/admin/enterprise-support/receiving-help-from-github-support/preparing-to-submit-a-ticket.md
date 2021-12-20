@@ -1,6 +1,6 @@
 ---
-title: チケットのサブミットの準備
-intro: 'サポートチケットを開く前にこれらの推奨事項に従うと、{% data variables.contact.enterprise_support %} で問題解決を迅速に行うことができます。'
+title: Preparing to submit a ticket
+intro: 'You can expedite your issue with {% data variables.contact.enterprise_support %} by following these suggestions before you open a support ticket.'
 redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
   - /admin/enterprise-support/preparing-to-submit-a-ticket
@@ -13,21 +13,20 @@ topics:
   - Support
 shortTitle: Prepare a ticket
 ---
+Before submitting a ticket, you should:
 
-チケットをサブミットする前に以下の作業を済ませておいてください。
+- Obtain information that can help {% data variables.contact.github_support %} track, prioritize, reproduce, or investigate the issue.
+- Reproduce the issue if applicable and be prepared to share the steps.
+- Be prepared to provide a full description of the issue and expected results.
+- Copy exact wording of all error messages related to your issue.
+- Determine if there is an existing ticket number in any ongoing communications with {% data variables.contact.github_support %}.
+- Determine the best person to contact {% data variables.contact.github_support %}.
 
-- {% data variables.contact.github_support %} による問題の追跡、優先順位付け、再現、調査を支援する情報の取得
-- 可能であれば問題を再現し、その手順を共有する用意をしてください。
-- 問題の詳細な説明と期待される結果を提供できるように準備してください。
-- 問題に関連するすべてのエラーメッセージをそのままコピーしてください。
-- {% data variables.contact.github_support %} との進行中のやりとりがあれば、既存のチケット番号があるかを確認してください。
-- {% data variables.contact.github_support %} と連絡を取り合うのに適した人を決めてください。
+## Choosing a contact person
 
-## 担当者の選択
+Especially for tickets with {% data variables.product.support_ticket_priority_urgent %} priority, the person contacting {% data variables.contact.github_support %} should:
 
-特にチケットの優先度が {% data variables.product.support_ticket_priority_urgent %} の場合、{% data variables.contact.github_support %} に問い合わせるユーザは、次のことを確認してください。
-
- - 社内のシステム、ツール、ポリシー、実務をよく知っていること。
- - {% data variables.product.product_name %} に熟練したユーザであること。
- - 問題のトラブルシューティングに必要なすべてのサービスへの完全なアクセスと権限を持っていること。
- - 推奨された変更をネットワーク及び該当する製品に行う権限を持っていること。
+ - Be knowledgeable in your internal systems, tools, policies, and practices.
+ - Be a proficient user of {% data variables.product.product_name %}.
+ - Have full access and permissions to any services that are required to troubleshoot the issue.
+ - Be authorized to make the recommended changes to your network and any applicable products.

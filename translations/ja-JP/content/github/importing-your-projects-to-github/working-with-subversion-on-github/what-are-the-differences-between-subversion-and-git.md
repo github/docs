@@ -1,8 +1,8 @@
 ---
-title: Subversion と Git の違い
-intro: Subversion (SVN) リポジトリは、Git リポジトリに似ています。ですが、プロジェクトのアーキテクチャの点からいくつかの違いがあります。
+title: What are the differences between Subversion and Git?
+intro: 'Subversion (SVN) repositories are similar to Git repositories, but there are several differences when it comes to the architecture of your projects.'
 redirect_from:
-  - /articles/what-are-the-differences-between-svn-and-git/
+  - /articles/what-are-the-differences-between-svn-and-git
   - /articles/what-are-the-differences-between-subversion-and-git
   - /github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git
 versions:
@@ -11,10 +11,9 @@ versions:
   ghec: '*'
 shortTitle: Subversion & Git differences
 ---
+## Directory structure
 
-## ディレクトリ構造
-
-プロジェクトのそれぞれの *reference* やコミットのラベルスナップショットは、`trunk`、`branches`、`tags` などの特定のサブディレクトリにまとめられます。 たとえば、2 つの feature のある開発中の SVN プロジェクトは、このようになるでしょう:
+Each *reference*, or labeled snapshot of a commit, in a project is organized within specific subdirectories, such as `trunk`, `branches`, and `tags`. For example, an SVN project with two features under development might look like this:
 
       sample_project/trunk/README.md
       sample_project/trunk/lib/widget.rb
@@ -23,48 +22,48 @@ shortTitle: Subversion & Git differences
       sample_project/branches/another_new_feature/README.md
       sample_project/branches/another_new_feature/lib/widget.rb
 
-SVN のワークフローは以下のようになります:
+An SVN workflow looks like this:
 
-* `trunk` ディレクトリは、プロジェクトの最新の安定したリリースを表します。
-* アクティブな feature は、 `branches` の下のサブディレクトリで開発されます。
-* feature が完了した時、feature ディレクトリは `trunk` にマージされ消去されます。
+* The `trunk` directory represents the latest stable release of a project.
+* Active feature work is developed within subdirectories under `branches`.
+* When a feature is finished, the feature directory is merged into `trunk` and removed.
 
-Git プロジェクトも、単一のディレクトリに保管されます。 ですが、Gitは、reference を特別な *.git* ディレクトリに保管するため、その詳細は隠れています。 たとえば、2 つの feature のある開発中の Git プロジェクトは、このようになるでしょう:
+Git projects are also stored within a single directory. However, Git obscures the details of its references by storing them in a special *.git* directory. For example, a Git project with two features under development might look like this:
 
       sample_project/.git
       sample_project/README.md
       sample_project/lib/widget.rb
 
-Git のワークフローは以下のようになります:
+A Git workflow looks like this:
 
-* Git リポジトリは、ブランチおよびタグのすべての履歴を、*.git* ディレクトリ内に保管します。
-* 最新の安定したリリースは、デフォルトブランチに含まれています。
-* アクティブな feature は、別のブランチで開発されます。
-* feature が完了すると、フィーチャブランチはデフォルトブランチにマージされ、消去されます。
+* A Git repository stores the full history of all of its branches and tags within the *.git* directory.
+* The latest stable release is contained within the default branch.
+* Active feature work is developed in separate branches.
+* When a feature is finished, the feature branch is merged into the default branch and deleted.
 
-Git はディレクトリ構造は同じままですが、SVN とは違い、ファイルの変更内容はブランチベースです。
+Unlike SVN, with Git the directory structure remains the same, but the contents of the files change based on your branch.
 
-## サブプロジェクトを含める
+## Including subprojects
 
-*サブプロジェクト*は、メインプロジェクト外で開発され管理されるプロジェクトです。 一般的に、自分でコードを管理する必要なく、プロジェクトに何らかの機能を加えるためにサブプロジェクトをインポートします。 サブプロジェクトがアップデートされる度、すべてを最新にするためにプロジェクトと同期できます。
+A *subproject* is a project that's developed and managed somewhere outside of your main project. You typically import a subproject to add some functionality to your project without needing to maintain the code yourself. Whenever the subproject is updated, you can synchronize it with your project to ensure that everything is up-to-date.
 
-SVN では、サブプロジェクトは、*SVN external* と呼ばれます。 Git では、*Git サブモジュール*と呼ばれます。 コンセプトは似ていますが、Git サブモジュールは自動では最新状態のままにはなりません。プロジェクトに新しいバージョンを取り込むためには、明示的に要求する必要があります。
+In SVN, a subproject is called an *SVN external*. In Git, it's called a *Git submodule*. Although conceptually similar, Git submodules are not kept up-to-date automatically; you must explicitly ask for a new version to be brought into your project.
 
 For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
 
-## 履歴を保存する
+## Preserving history
 
-SVN は、プロジェクトの履歴は変更されないものとして設定されています。 Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
+SVN is configured to assume that the history of a project never changes. Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
 {% tip %}
 
-[GitHub は Subversion クライアントをサポートしていますが、](/articles/support-for-subversion-clients)同じプロジェクトで Git と SVN の両方を使っている場合、予期しない結果となる可能性があります。 Git のコミット履歴を操作した場合、常に同じコミットが SVN の履歴に残ります。 機密データを誤ってコミットした場合、[Git の履歴から削除するために役立つ記事があります](/articles/removing-sensitive-data-from-a-repository).
+[GitHub supports Subversion clients](/articles/support-for-subversion-clients), which may produce some unexpected results if you're using both Git and SVN on the same project. If you've manipulated Git's commit history, those same commits will always remain within SVN's history. If you accidentally committed some sensitive data, we have [an article that will help you remove it from Git's history](/articles/removing-sensitive-data-from-a-repository).
 
 {% endtip %}
 
-## 参考リンク
+## Further reading
 
-- [GitHub がサポートする Subversion プロパティ](/articles/subversion-properties-supported-by-github)
-- [_Git SCM_ ブックの「ブランチおよびマージ」](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
-- 「[GitHub にソースコードをインポートする](/articles/importing-source-code-to-github)」
-- [ソースコードの移行ツール](/articles/source-code-migration-tools)
+- "[Subversion properties supported by GitHub](/articles/subversion-properties-supported-by-github)"
+- ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
+- "[Importing source code to GitHub](/articles/importing-source-code-to-github)"
+- "[Source code migration tools](/articles/source-code-migration-tools)"

@@ -9,6 +9,7 @@ sections:
     - 'Allocated memcached memory could be zero in clustering mode. {% comment %} https://github.com/github/enterprise2/pull/26928, https://github.com/github/enterprise2/pull/26832 {% endcomment %}'
     - 'Non-empty binary files displayed an incorrect file type and size on the pull request "Files" tab. {% comment %} https://github.com/github/github/pull/192810, https://github.com/github/github/pull/172284, https://github.com/github/coding/issues/694 {% endcomment %}'
     - 'Fixes {% data variables.product.prodname_pages %} builds so they take into account the NO_PROXY setting of the appliance. This is relevant to appliances configured with an HTTP proxy only. (update 2021-09-30) {% comment %} https://github.com/github/pages/pull/3360 {% endcomment %}'
+    - 'The GitHub Connect configuration of the source instance was always restored to new instances even when the `--config` option for `ghe-restore` was not used. This would lead to a conflict with the GitHub Connect connection and license synchronization if both the source and destination instances were online at the same time. The fix also requires updating backup-utils to 3.2.0 or higher. [updated: 2021-11-18]'
   known_issues:
     - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。

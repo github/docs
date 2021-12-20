@@ -15,7 +15,6 @@ type: overview
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About self-hosted runners
 
@@ -32,17 +31,19 @@ Your runner machine connects to {% data variables.product.product_name %} using 
 
 For more information about installing and using self-hosted runners, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-## Differences between {% data variables.product.prodname_dotcom %}-hosted and self-hosted runners
+## {% ifversion fpt or ghes %}Differences between {% data variables.product.prodname_dotcom %}-hosted and {% elsif ghae %}Characteristics of {% endif %}self-hosted runners
 
-{% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted runners are a highly configurable way to run workflows in your own custom environment.
+{% ifversion fpt or ghes %}
+{% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted{% elsif ghae %}Self-hosted{% endif %} runners are a highly configurable way to run workflows in your own custom environment. {% ifversion ghae %}Self-hosted runners:{% endif %}
 
+{% ifversion fpt or ghes %}
 **{% data variables.product.prodname_dotcom %}-hosted runners:**
 - Receive automatic updates for the operating system, preinstalled packages and tools, and the self-hosted runner application.
 - Are managed and maintained by {% data variables.product.prodname_dotcom %}.
 - Provide a clean instance for every job execution.
 - Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
 
-**Self-hosted runners:**
+**Self-hosted runners:**{% endif %}
 - Receive automatic updates for the self-hosted runner application only. You are responsible for updating the operating system and all other software. 
 - Can use cloud services or local machines that you already pay for.
 - Are customizable to your hardware, operating system, software, and security requirements.
@@ -128,6 +129,8 @@ Some extra configuration might be required to use actions from {% data variables
 
 The self-hosted runner polls {% data variables.product.product_name %} to retrieve application updates and to check if any jobs are queued for processing. The self-hosted runner uses a HTTPS _long poll_ that opens a connection to {% data variables.product.product_name %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.
 
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
+
 {% ifversion ghae %}
 You must ensure that the self-hosted runner has appropriate network access to communicate with the {% data variables.product.prodname_ghe_managed %} URL and its subdomains.
 For example, if your instance name is `octoghae`, then you will need to allow the self-hosted runner to access `octoghae.githubenterprise.com`, `api.octoghae.githubenterprise.com`, and `codeload.octoghae.githubenterprise.com`.
@@ -187,7 +190,7 @@ If you use an IP address allow list for your {% data variables.product.prodname_
 
 {% else %}
 
-You must ensure that the machine has the appropriate network access to communicate with {% data variables.product.product_location %}.
+You must ensure that the machine has the appropriate network access to communicate with {% data variables.product.product_location %}.{% ifversion ghes %} Self-hosted runners connect directly to {% data variables.product.product_location %} and do not require any external internet access in order to function. As a result, you can use network routing to direct communication between the self-hosted runner and {% data variables.product.product_location %}. For example, you can assign a private IP address to your self-hosted runner and configure routing to send traffic to {% data variables.product.product_location %}, with no need for traffic to traverse a public network.{% endif %}
 
 {% endif %}
 
@@ -215,13 +218,19 @@ codeload.github.com
 
 {% endif %}
 
-{% ifversion fpt or ghec %}
+## Self-hosted runner security
 
-## Self-hosted runner security with public repositories
+{% ifversion fpt or ghec %}
 
 {% data reusables.github-actions.self-hosted-runner-security %}
 
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
 This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated virtual machine, and it is destroyed at the end of the job execution.
+
+{% endif %}
 
 Untrusted workflows running on your self-hosted runner pose significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
 
@@ -230,4 +239,4 @@ Untrusted workflows running on your self-hosted runner pose significant security
 * Exposing access to the machine's network environment.
 * Persisting unwanted or dangerous data on the machine.
 
-{% endif %}
+For more information about security hardening for self-hosted runners, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."

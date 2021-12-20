@@ -1,6 +1,6 @@
 date: '2021-11-09'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
@@ -54,7 +54,7 @@ sections:
         - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the maintenance of repositories, especially for repositories that contain many unreachable objects. Note that the first maintenance cycle after upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may take longer than usual to complete.'
 
         # https://github.com/github/releases/issues/1533
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes a repository cache for geographically-distributed teams and CI infrastructure. The repository cache keeps a read-only copy of your repositories available in additional geographies, which prevents clients from downloading duplicate Git content from your primary instance. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 includes the public beta of a repository cache for geographically-distributed teams and CI infrastructure. The repository cache keeps a read-only copy of your repositories available in additional geographies, which prevents clients from downloading duplicate Git content from your primary instance. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
 
         # https://github.com/github/releases/issues/1616
         - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the user impersonation process. An impersonation session now requires a justification for the impersonation, actions are recorded in the audit log as being performed as an impersonated user, and the user who is impersonated will receive an email notification that they have been impersonated by an enterprise administrator. For more information, see "[Impersonating a user](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."'
@@ -168,6 +168,11 @@ sections:
         # https://github.com/github/releases/issues/1588
         - Performance improvements have been made to {% data variables.product.prodname_actions %}, which may result in higher maximum job concurrency.
 
+    - heading: 'GitHub Packages changes'
+      notes:
+        # https://github.com/github/docs-content/issues/5554
+        - When a repository is deleted, any associated package files are now immediately deleted from your {% data variables.product.prodname_registry %} external storage.
+
     - heading: 'Dependabot and Dependency graph changes'
       notes:
         # https://github.com/github/releases/issues/1141
@@ -205,7 +210,7 @@ sections:
         - You can now use the REST API to configure custom autolinks to external resources. The REST API now provides beta `GET`/`POST`/`DELETE` endpoints which you can use to view, add, or delete custom autolinks associated with a repository. For more information, see "[Autolinks](/rest/reference/repos#autolinks)."
 
         # https://github.com/github/releases/issues/1578
-        - You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Repositories](/rest/reference/repos#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.
+        - You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Branches](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.
 
         # https://github.com/github/releases/issues/1527
         - Enterprise administrators on GitHub Enterprise Server can now use the REST API to enable or disable Git LFS for a repository. For more information, see "[Repositories](/rest/reference/repos#git-lfs)."
@@ -227,6 +232,11 @@ sections:
 
         # https://github.com/github/releases/issues/1665
         - When a new tag is created, the [push](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) webhook payload now always includes a `head_commit` object that contains the data of the commit that the new tag points to. As a result, the `head_commit` object will always contain the commit data of the payload's `after` commit.
+
+    - heading: 'Performance Changes'
+      notes:
+        # https://github.com/github/releases/issues/1823
+        - Page loads and jobs are now significantly faster for repositories with many Git refs.
 
   # No security/bug fixes for the RC release
   # security_fixes:

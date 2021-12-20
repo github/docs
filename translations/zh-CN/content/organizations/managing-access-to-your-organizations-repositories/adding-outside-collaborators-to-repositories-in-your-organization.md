@@ -13,13 +13,18 @@ topics:
   - Organizations
   - Teams
 shortTitle: 添加外部协作者
+permissions: People with admin access to a repository can add an outside collaborator to the repository.
 ---
 
 ## 关于外部协作者
 
-{% data reusables.organizations.owners-and-admins-can %} 可将外部协作者添加到仓库，除非组织所有者限制了邀请协作者的能力。 更多信息请参阅“[设置添加外部协作者的权限](/articles/setting-permissions-for-adding-outside-collaborators)”。.
-
 {% data reusables.organizations.outside-collaborators-use-seats %}
+
+An organization owner can restrict the ability to invite collaborators. 更多信息请参阅“[设置添加外部协作者的权限](/articles/setting-permissions-for-adding-outside-collaborators)”。.
+
+{% ifversion ghes %}
+Before you can add someone as an outside collaborator on a repository, the person must have a user account on {% data variables.product.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site admin can create a user account for the person. 更多信息请参阅“[使用内置身份验证](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)”。
+{% endif %}
 
 {% ifversion not ghae %}
 如果您的组织[要求成员和外部协作者使用双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)，则他们必须启用双重身份验证后才可接受您的邀请，协作处理组织仓库。

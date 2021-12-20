@@ -33,7 +33,9 @@ async function main() {
     try {
       fileContents = await readFileAsync(path, 'utf8')
     } catch (e) {
-      console.error(e.message)
+      if (fs.existsSync(path)) {
+        console.error(e.message)
+      }
       return null
     }
 

@@ -2,7 +2,7 @@
 title: About code owners
 intro: You can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.
 redirect_from:
-  - /articles/about-codeowners/
+  - /articles/about-codeowners
   - /articles/about-code-owners
   - /github/creating-cloning-and-archiving-repositories/about-code-owners
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners
@@ -37,7 +37,7 @@ Each CODEOWNERS file assigns the code owners for a single branch in the reposito
 
 For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
 
-{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-9273 %}
 ## CODEOWNERS file size
 
 CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
@@ -124,10 +124,6 @@ Repository owners can add branch protection rules to ensure that changed code is
 
 # In this example, any change inside the `/apps` directory
 # will require approval from a member of the @example-org/content team.
-# If a member of @example-org/content opens a pull request 
-# with a change inside the `/apps` directory, their approval is implicit.
-# The team is still added as a reviewer but not a required reviewer.
-# Anyone can approve the changes.
 /apps/ @example-org/content-team
 ```
 

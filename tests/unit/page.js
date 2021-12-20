@@ -532,6 +532,37 @@ describe('Page class', () => {
     })
   })
 
+  describe('videos', () => {
+    let page
+
+    beforeEach(async () => {
+      page = await Page.init({
+        relativePath: 'article-with-videos.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+    })
+
+    it('includes videos specified in the featuredLinks frontmatter', async () => {
+      expect(page.featuredLinks.videos).toStrictEqual([
+        {
+          title: 'codespaces',
+          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+        },
+        {
+          title: 'more codespaces',
+          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+        },
+        {
+          title: 'even more codespaces',
+          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+        },
+      ])
+
+      expect(page.featuredLinks.videosHeading).toBe('Custom Videos heading')
+    })
+  })
+
   describe('Page.parseFrontmatter()', () => {
     it('throws an error on bad input', () => {
       const markdown = null
@@ -564,15 +595,6 @@ describe('Page class', () => {
       )
       // expect(variants.find(({ code }) => code === 'ja').href).toBe('/ja/enterprise/2.14/user/articles/github-glossary')
     })
-  })
-
-  test('fixes translated frontmatter that includes verdadero', async () => {
-    const page = await Page.init({
-      relativePath: 'article-with-mislocalized-frontmatter.md',
-      basePath: path.join(__dirname, '../fixtures'),
-      languageCode: 'ja',
-    })
-    expect(page.mapTopic).toBe(true)
   })
 
   describe('page.versions frontmatter', () => {

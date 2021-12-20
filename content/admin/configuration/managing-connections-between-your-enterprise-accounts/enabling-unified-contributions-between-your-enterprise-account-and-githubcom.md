@@ -3,9 +3,9 @@ title: Enabling unified contributions between your enterprise account and GitHub
 shortTitle: Enable unified contributions
 intro: 'After enabling {% data variables.product.prodname_github_connect %}, you can allow {% data variables.product.prodname_ghe_cloud %} members to highlight their work on {% data variables.product.product_name %} by sending the contribution counts to their {% data variables.product.prodname_dotcom_the_website %} profiles.'
 redirect_from:
-  - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-and-github-com/
-  - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-github-com/
-  - /enterprise/admin/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-githubcom/
+  - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-and-github-com
+  - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-github-com
+  - /enterprise/admin/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/installation/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
@@ -13,7 +13,7 @@ redirect_from:
 permissions: 'Enterprise owners who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified contributions between {% data variables.product.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise

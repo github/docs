@@ -17,15 +17,14 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## 概要
+## Overview
 
 {% data reusables.actions.workflow-organization-templates %}
 
-## ワークフロー テンプレートの作成
+## Creating a workflow template
 
-ワークフローテンプレートは、Organizationの `.github` リポジトリへの書き込みアクセス権を持つユーザが作成できます。 その後、ワークフローを作成する権限を持つOrganizationのメンバーがテンプレートを使用できます。
+Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows.
 
 {% ifversion fpt %}
 Your workflow templates can be used to create workflows in public repositories only. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use workflow templates to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-workflow-templates).
@@ -39,15 +38,15 @@ Your workflow templates can be used to create workflows in public repositories o
 {% endnote %}
 {% endif %}
 
-この手順では、ワークフロー テンプレートとメタデータ ファイルを作成する方法を示します。 メタデータ ファイルには、ユーザが新しいワークフローを作成するときにテンプレートがどのように表示されるかについて説明します。
+This procedure demonstrates how to create a workflow template and metadata file. The metadata file describes how the template is presented to users when they are creating a new workflow.
 
-1. 存在しない場合は、Organization内で`.github`という名前の新しいパブリック リポジトリを作成します。
-2. `workflow-templates`という名前のディレクトリを作成します。
-3. `workflow-templates` ディレクトリ内に新しいワークフローファイルを作成します。
+1. If it doesn't already exist, create a new public repository named `.github` in your organization.
+2. Create a directory named `workflow-templates`.
+3. Create your new workflow file inside the `workflow-templates` directory.
 
-   リポジトリのデフォルトブランチを参照する必要がある場合は、 `$default-branch` プレースホルダを使用できます。 テンプレートを使用してワークフローを作成すると、プレースホルダはリポジトリのデフォルトブランチの名前に自動的に置き換えられます。
+   If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created using your template, the placeholder will be automatically replaced with the name of the repository's default branch.
 
-   たとえば、`octo-organization-ci.yml`という名前のこのファイルは、基本的なワークフローを示しています。
+   For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
 
    ```yaml
    name: Octo Organization CI
@@ -68,7 +67,7 @@ Your workflow templates can be used to create workflows in public repositories o
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-4. `workflow-templates` ディレクトリ内にメタデータファイルを作成します。 メタデータ ファイルは、ワークフロー ファイルと同じ名前である必要がありますが、 `.yml` 拡張子の代わりに、 `.properties.json`を付ける必要があります。 たとえば`octo-organization-ci.properties.json`という名前のこのファイルには 、`octo-organization-ci.yml`という名前のワークフローファイルのメタデータが含まれています。
+4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
    ```yaml
    {
        "name": "Octo Organization Workflow",
@@ -84,16 +83,16 @@ Your workflow templates can be used to create workflows in public repositories o
        ]
    }
    ```
-   * `name` - **必須。** ワークフロー テンプレートの名前。 これは、使用可能なテンプレートの一覧に表示されます。
-   * `description` - **必須。** ワークフロー テンプレートの説明。 これは、使用可能なテンプレートの一覧に表示されます。
-   * `iconName` - **必須。** テンプレート リスト内のワークフローのエントリのアイコンを定義します。 `iconName` は、同じ名前の SVG アイコンである必要があり、 `workflow-templates` ディレクトリに格納する必要があります。 たとえば、`example-icon.svg`という名前の SVG ファイルは、 `example-icon`として参照されます。
-   * `categories` - **オプション。** ワークフローの言語カテゴリを定義します。 ユーザーが使用可能なテンプレートを表示する際に、同じ言語に一致するテンプレートが目立つようにになります。 使用可能な言語カテゴリについては、「https://github.com/github/linguist/blob/master/lib/linguist/languages.yml」を参照してください。
-   * `filePatterns` - **オプション 。** 定義された正規表現に一致するファイルがユーザーのリポジトリのルート ディレクトリにある場合に、テンプレートを使用できるようにします。
+   * `name` - **Required.** The name of the workflow template. This is displayed in the list of available templates.
+   * `description` - **Required.** The description of the workflow template. This is displayed in the list of available templates.
+   * `iconName` - **Optional.** Defines an icon for the workflow's entry in the template list. The `iconName` must be an SVG icon of the same name, and must be stored in the `workflow-templates` directory. For example, a SVG file named `example-icon.svg` is referenced as `example-icon`.
+   * `categories` - **Optional.** Defines the language category of the workflow. When a user views the available templates, those templates that match the same language will feature more prominently. For information on the available language categories, see https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
+   * `filePatterns` - **Optional.** Allows the template to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
-別のワークフロー テンプレートを追加するには、同じ `workflow-templates` ディレクトリにファイルを追加します。 例:
+To add another workflow template, add your files to the same `workflow-templates` directory. For example:
 
-![ワークフロー テンプレート ファイル](/assets/images/help/images/workflow-template-files.png)
+![Workflow template files](/assets/images/help/images/workflow-template-files.png)
 
-## 次のステップ
+## Next steps
 
 To continue learning about {% data variables.product.prodname_actions %}, see "[Using workflow templates](/actions/learn-github-actions/using-workflow-templates)."
