@@ -15,7 +15,7 @@ topics:
   - Permissions
   - Administrator
 ---
-
+Auto Learn Coding Strategy right after sign up
 
 ## About enabling {% data variables.product.prodname_codespaces %} for your organization
 
