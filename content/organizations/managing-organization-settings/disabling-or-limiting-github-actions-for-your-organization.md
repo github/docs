@@ -7,7 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
+  ghec: '*'u
 topics:
   - Organizations
   - Teams
