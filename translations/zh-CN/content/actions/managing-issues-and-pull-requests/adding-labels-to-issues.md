@@ -45,7 +45,7 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
           issues: write{% endif %}
         steps:
           - name: Label issues
-            uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414
+            uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
             with:
               add-labels: "triage"
               repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
