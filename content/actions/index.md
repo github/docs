@@ -13,7 +13,7 @@ featuredLinks:
     - /actions/guides/about-packaging-with-github-actions
     - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
   guideCards:
-    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/learn-github-actions/using-starter-workflows
     - /actions/guides/publishing-nodejs-packages
     - /actions/guides/building-and-testing-powershell
   popular:
