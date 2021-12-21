@@ -34,8 +34,8 @@ children:
   - /essential-features-of-github-actions
   - /managing-complex-workflows
   - /sharing-workflows-secrets-and-runners-with-your-organization
-  - /creating-workflow-templates
-  - /using-workflow-templates
+  - /creating-starter-workflows-for-your-organization
+  - /using-starter-workflows
   - /reusing-workflows
   - /events-that-trigger-workflows
   - /expressions
