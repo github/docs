@@ -89,10 +89,14 @@ This procedure demonstrates how to create the service account for your GKE integ
   {% raw %}
   ```
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
-    --member=serviceAccount:$SA_EMAIL \
-    --role=roles/container.admin \
-    --role=roles/storage.admin \
-    --role=roles/container.clusterViewer
+  	--member=serviceAccount:$SA_EMAIL \
+  	--role=roles/container.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+  	--member=serviceAccount:$SA_EMAIL \
+  	--role=roles/storage.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+  	--member=serviceAccount:$SA_EMAIL \
+  	--role=roles/container.clusterViewer
   ```
   {% endraw %}
 1. Download the JSON keyfile for the service account:
