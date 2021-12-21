@@ -1,6 +1,6 @@
 ### Running on a different operating system
 
-The starter workflow template configures jobs to run on Linux, using the {% data variables.product.prodname_dotcom %}-hosted `ubuntu-latest` runners. You can change the `runs-on` key to run your jobs on a different operating system. For example, you can use the {% data variables.product.prodname_dotcom %}-hosted Windows runners.
+The starter workflow configures jobs to run on Linux, using the {% data variables.product.prodname_dotcom %}-hosted `ubuntu-latest` runners. You can change the `runs-on` key to run your jobs on a different operating system. For example, you can use the {% data variables.product.prodname_dotcom %}-hosted Windows runners.
 
 {% raw %}
 ```yaml
