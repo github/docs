@@ -96,6 +96,18 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 {% data reusables.repositories.section-links %}
 
+Markdown files will automatically generate a table of contents, located in the top header portion for the .md file, when a file has 2 or more headings.
+
+Heading examples:
+```markdown
+# The largest heading
+## The second largest heading
+###### The smallest heading
+```
+
+![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
+
+
 ## Relative links
 
 {% data reusables.repositories.relative-links %}
