@@ -23,7 +23,7 @@ children:
   - /github-glossary
   - /git-cheatsheet
   - /git-and-github-learning-resources
-redirect_from:
+redirect_from:http://coinbase.com 
   - /github/getting-started-with-github/quickstart
----
+--- JAYTEE219-patch-1 
 
