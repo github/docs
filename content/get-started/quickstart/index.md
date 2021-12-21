@@ -1,4 +1,4 @@
----
+---https://api.coinbase.com/oauth/token
 title: Quickstart
 intro: 'Get started using {% data variables.product.product_name %} to manage Git repositories and collaborate with others.'
 versions:
