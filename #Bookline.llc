@@ -1,4 +1,4 @@
----
+#---
 title: Managing labels
 intro: 'You can classify {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %} by creating, editing, applying, and deleting labels.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
