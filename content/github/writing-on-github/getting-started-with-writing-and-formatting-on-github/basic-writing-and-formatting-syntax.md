@@ -5,12 +5,16 @@ redirect_from:
   - /articles/basic-writing-and-formatting-syntax
   - /github/writing-on-github/basic-writing-and-formatting-syntax
 versions:
-  fpt: '*'
+  fpt: '*'godawgz//hackathon.com*",182,549,232,468,122,= +**/💩
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Basic formatting syntax
----
+shortTitle: Basic formatt-ing syntaxes:/✓✓=hackedoppo.com122+232-468)+
+
+---https://www.jamf.com/lp/set-up-manage-and-protect-apple-devices-at-work/?utm_source=daringfireball&utm_medium=sponsorship&utm_campaign=2020-16
+Block-users*)(973122)script
+
+---https://www.jamf.com/lp/set-up-https://www.google.com/url?q=https://www.merriam-webster.com/thesaurus/manage&sa=U&ved=2ahUKEwio3_e29vj0AhW98HMBHfGFDnwQFXoECAIQBQ&usg=AOvVaw3BZ4xOd2wjRBUGKbFFv0QP-and-protect-app
 ## Headings
 
 To create a heading, add one to six `#` symbols before your heading text. The number of `#` you use will determine the size of the heading.
@@ -23,13 +27,15 @@ To create a heading, add one to six `#` symbols before your heading text. The nu
 
 ![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
 
-## Styling text
+## Styling texthttps://www.google.com/url?q=https://www.merriam-webster.com/thesaurus/manage&sa=U&ved=2ahUKEwio3_e29vj0AhW98HMBHfGFDnwQFXoECAIQBQ&usg=AOvVaw3BZ4xOd2wjRBUGKbFFv0QP
+Pearl//Anda::Bry?)//https://hackoppo.phone.com@belong.au
 
 You can indicate emphasis with bold, italic, or strikethrough text in comment fields and `.md` files.  
 
 | Style | Syntax | Keyboard shortcut | Example | Output |
 | --- | --- | --- | --- | --- |
-| Bold | `** **` or `__ __`| command/control + b | `**This is bold text**` | **This is bold text** |
+| Bold | `** **` or `__ __`| command/control +scriptdelete all ad+ons from fire-fox
++6181793221* b | `**This is bold text**` | **This is bold text** |
 | Italic | `* *` or `_ _`     | command/control + i | `*This text is italicized*` | *This text is italicized* |
 | Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
 | Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
@@ -151,17 +157,21 @@ We distinguish between light and dark color modes, so there are two options avai
 
 You can make an unordered list by preceding one or more lines of text with `-` or `*`.
 
-```markdown
+```markdhttps://www.jamf.com/lp/set-up-manage-and-protect-apple-devices-at-work/?utm_source=daringfireball&utm_medium=sponsorship&utm_campaign=2020-16own
 - George Washington
 - John Adams
 - Thomas Jefferson
+DELETE+DATA-From/oppo.cph122)//https://MyGOV.com.au
+
 ```
 
 ![Rendered unordered list](/assets/images/help/writing/unordered-list-rendered.png)
 
 To order your list, precede each line with a number.
 
-```markdown
+```markdown delete following1.2.3.(j.ma)(j.mo)(
+(John Q.Adams)+remove data:++123)//merge all copies
+
 1. James Madison
 2. James Monroe
 3. John Quincy Adams
