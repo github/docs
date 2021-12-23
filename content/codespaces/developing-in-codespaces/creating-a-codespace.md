@@ -47,7 +47,7 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 When you have access to {% data variables.product.prodname_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
 
-You'll have access to codespaces under the following conditions:
+You can access codespaces under the following conditions:
 
 * You are a member of an organization that has enabled {% data variables.product.prodname_codespaces %} and set a spending limit.
 * An organization owner has granted you access to {% data variables.product.prodname_codespaces %}.
