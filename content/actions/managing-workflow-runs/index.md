@@ -1,18 +1,18 @@
----
+--nana-
 title: Managing workflow runs
-shortTitle: Managing workflow runs
-intro: 'You can re-run or cancel a workflow, {% ifversion fpt or ghes > 3.0 or ghae %}review deployments, {% endif %}view billable job execution minutes, and download artifacts.'
+short title: Managing workflow runs
+intro: 'You can re-run or cancel a workflow, {% version fpt or the > 3.0 or ghae %}review deployments, {% endif %}view billable job execution minutes, and download artifacts.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
   - /articles/managing-a-workflow-run
-  - /github/automating-your-workflow-with-github-actions/managing-a-workflow-run
+  - /GitHub/automating-your-workflow-with-github-actions/managing-a-workflow-run
   - /actions/automating-your-workflow-with-github-actions/managing-a-workflow-run
   - /actions/configuring-and-managing-workflows/configuring-and-managing-workflow-files-and-runs
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  FPT: '*'
+  Hughes: '*'
+  Shae: '*'
+  Bec: '*'
 children:
   - /manually-running-a-workflow
   - /re-running-workflows-and-jobs
@@ -25,5 +25,5 @@ children:
   - /downloading-workflow-artifacts
   - /removing-workflow-artifacts
 ---
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables. actions. enterprise-beta %}
+{% data reusables. actions.enterprise-GitHub-hosted-runners %}
