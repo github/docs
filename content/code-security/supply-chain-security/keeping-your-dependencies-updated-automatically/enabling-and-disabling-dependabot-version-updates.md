@@ -140,8 +140,7 @@ updates:
 For more information about checking for existing ignore preferences, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
 
 ## Maintaining dependencies outside of `build.gradle` or `settings.gradle`
-Create `dependencies.gradle` file to extract all the dependencies. The file name HAS TO BE `dependencies.gradle`, otherwise the solution will not work. (version.gradle is also not supported!) For more information check [Maintaining dependencies outside of `build.gradle` or `settings.gradle`](https://www.sameerkulkarni.de/posts/dependabot-with-gradle/)
-Example:
+Create `dependencies.gradle` file to extract all the dependencies. The file name HAS TO BE `dependencies.gradle`, otherwise the solution will not work. (version.gradle is also not supported!). Below example suggets how to maintain the dependencies in `dependencies.gradle`
 
 ```groovy
 
