@@ -138,3 +138,60 @@ updates:
 ```
 
 For more information about checking for existing ignore preferences, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
+
+## Maintaining dependencies outside of `build.gradle` or `settings.gradle`
+Create `dependencies.gradle` file to extract all the dependencies. The file name HAS TO BE `dependencies.gradle`, otherwise the solution will not work. (version.gradle is also not supported!) For more information check [Maintaining dependencies outside of `build.gradle` or `settings.gradle`](https://www.sameerkulkarni.de/posts/dependabot-with-gradle/)
+Example:
+
+```groovy
+
+ext {
+    // -- PLUGINS
+    springBootVersion = "2.5.5"
+    springDependencyManagementVersion = "1.0.11.RELEASE"
+	....
+
+    //-- DEPENDENCIES
+	 ....  
+	 springFoxBootVersion = "3.0.0"
+    hibernateVersion = "5.4.31.Final"
+    c3p0Version = "0.9.5.5"
+    postgresVersion = "42.2.10"
+    .... 
+    supportDependencies = [
+            springfox_boot_starter            : "io.springfox:springfox-boot-starter:$springFoxBootVersion",
+            hibernate_entitymanager           : "org.hibernate:hibernate-entitymanager:$hibernateVersion",
+            hibernate_core                    : "org.hibernate:hibernate-core:$hibernateVersion",
+            c3p0                              : "com.mchange:c3p0:$c3p0Version"
+            hibernate_java8                   : "org.hibernate:hibernate-java8:$hibernateVersion",
+            postgresql                        : "org.postgresql:postgresql:$postgresVersion",
+            ....
+    ]
+}
+
+```
+
+* Modify `build.gradle` to use `dependencies.gradle`
+
+```groovy
+
+buildscript {
+    apply from: 'dependencies.gradle'
+}
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
+    ....
+}
+dependencies {
+	....
+    implementation supportDependencies.springfox_boot_starter
+    implementation supportDependencies.hibernate_entitymanager
+    implementation supportDependencies.hibernate_core
+    implementation supportDependencies.c3p0
+   ....
+}
+....
+
+```
+
