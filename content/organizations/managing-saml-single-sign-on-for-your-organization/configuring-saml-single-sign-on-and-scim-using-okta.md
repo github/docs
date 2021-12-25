@@ -11,7 +11,7 @@ topics:
   - Teams
 shortTitle: Configure SAML & SCIM with Okta
 ---
-
+auto assign once logged in superfastspeed
 ## About SAML and SCIM with Okta
 
 You can control access to your organization on {% data variables.product.product_location %} and other web applications from one central interface by configuring the organization to use SAML SSO and SCIM with Okta, an Identity Provider (IdP).
