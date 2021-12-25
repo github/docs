@@ -23,7 +23,7 @@ children:
   - /renaming-a-repository
   - /transferring-a-repository
   - /deleting-a-repository
-  - /restoring-a-deleted-repository
-shortTitle: Create & manage repositories
----
+  - /restoring-a-deleted-reppository
+  - /repo sync
+---TREE
 
