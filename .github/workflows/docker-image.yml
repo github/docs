@@ -1,0 +1,43 @@
+diff --git a/README.md b/README.md
+index 7750d005e235..d213556403fa 100644
+--- a/README.md
++++ b/README.md
+@@ -9,7 +9,7 @@ In this article:
+ - [READMEs](#readmes)
+ - [License](#license)
+ 
+-## Contributing
++## Contributing #1✨🌎✨🌶️🐛✅🗝️💱
+ 
+ ### Start contributing right now:
+ name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+diff --git a/README.md b/README.md
+index 7750d005e235..d213556403fa 100644
+--- a/README.md
++++ b/README.md
+@@ -9,7 +9,7 @@ In this article:
+ - [READMEs](#readmes)
+ - [License](#license)
+ 
+-## Contributing
++## Contributing #1✨🌎✨🌶️🐛✅🗝️💱
+ 
+ ### Start contributing right now:
+ 
