@@ -6,17 +6,17 @@ product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'how_to'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### About exit codes
+## About exit codes
 
 {% data variables.product.prodname_dotcom %} uses the exit code to set the action's check run status, which can be `success` or `failure`.
 
@@ -25,7 +25,7 @@ Exit status | Check run status | Description
 `0` | `success` | The action completed successfully and other tasks that depends on it can begin.
 Nonzero value (any integer but 0)| `failure` | Any other exit code indicates the action failed. When an action fails, all concurrent actions are canceled and future actions are skipped. The check run and check suite both get a `failure` status.
 
-### Setting a failure exit code in a JavaScript action
+## Setting a failure exit code in a JavaScript action
 
 If you are creating a JavaScript action, you can use the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failure exit code. For example:
 
@@ -39,7 +39,7 @@ try {
 
 For more information, see "[Creating a JavaScript action](/articles/creating-a-javascript-action)."
 
-### Setting a failure exit code in a Docker container action
+## Setting a failure exit code in a Docker container action
 
 If you are creating a Docker container action, you can set a failure exit code in your `entrypoint.sh` script. For example:
 

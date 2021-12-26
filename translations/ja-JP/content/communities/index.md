@@ -10,10 +10,11 @@ versions:
   github-ae: '*'
 topics:
   - Community
+children:
+  - /setting-up-your-project-for-healthy-contributions
+  - /using-templates-to-encourage-useful-issues-and-pull-requests
+  - /moderating-comments-and-conversations
+  - /maintaining-your-safety-on-github
+  - /documenting-your-project-with-wikis
 ---
 
-{% link_with_intro /setting-up-your-project-for-healthy-contributions %}
-{% link_with_intro /using-templates-to-encourage-useful-issues-and-pull-requests %}
-{% link_with_intro /moderating-comments-and-conversations %}
-{% link_with_intro /maintaining-your-safety-on-github %}
-{% link_with_intro /documenting-your-project-with-wikis %}

@@ -1,4 +1,4 @@
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 {% warning %}
 
 ** Warning:** Self-hosted runners are currently disabled for {% data variables.product.prodname_ghe_managed %}. This is because {% data variables.product.prodname_ghe_managed %} offers guarantees for security boundaries which are incompatible with how self-hosted runners work. However, if you do need to use self-hosted runners with {% data variables.product.prodname_ghe_managed %} and understand the security implications, you can contact {% data variables.product.prodname_dotcom %} support for a security exception that will enable self-hosted runners.

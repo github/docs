@@ -10,7 +10,7 @@
 
 {% note %}
 
-**注：** {% data variables.product.prodname_secret_scanning_caps %} 正在测试用于 {% data variables.product.prodname_ghe_server %} 3.0。 对于机密扫描的一般可用版本，请升级到最新版本的 {% data variables.product.prodname_ghe_server %}。
+**注：** {% data variables.product.prodname_secret_scanning_caps %} 是 {% data variables.product.prodname_ghe_server %} 3.0 中的测试版功能。 对于 {% data variables.product.prodname_secret_scanning %} 的一般可用版本，请升级到 {% data variables.product.prodname_ghe_server %} 的最新版本。
 
 
 {% endnote %}

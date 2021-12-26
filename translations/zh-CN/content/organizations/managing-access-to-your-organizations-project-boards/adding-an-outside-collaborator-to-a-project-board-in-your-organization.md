@@ -15,8 +15,8 @@ topics:
 
 外部协作者并未明确是组织的成员，但对组织的项目板具有访问权限。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}

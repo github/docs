@@ -19,8 +19,8 @@ topics:
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. 在团队列表中，单击您要在父团队下嵌套的团队的名称。 ![组织的团队列表](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

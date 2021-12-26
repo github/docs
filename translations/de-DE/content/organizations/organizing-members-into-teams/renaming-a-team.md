@@ -13,8 +13,8 @@ topics:
   - Teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. Gib einen neuen Namen für das Team ein oder ändere dessen Beschreibung. ![Felder für Teamname und -beschreibung](/assets/images/help/teams/team-name-description.png)

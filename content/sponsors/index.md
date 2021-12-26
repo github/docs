@@ -8,7 +8,8 @@ redirect_from:
   - /categories/supporting-the-open-source-community-with-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors
 changelog:
-  label: 'sponsors'
+  label: sponsors
+examples_source: data/product-examples/sponsors/user-examples.yml
 featuredLinks:
   guides:
     - /sponsors/sponsoring-open-source-contributors/managing-your-sponsorship
@@ -26,10 +27,15 @@ featuredLinks:
     - /sponsors/about-github-sponsors-for-open-source-contributors
 layout: product-landing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+children:
+  - /getting-started-with-github-sponsors
+  - /sponsoring-open-source-contributors
+  - /receiving-sponsorships-through-github-sponsors
+  - /integrating-with-github-sponsors
+  - /guides
 ---
-
-<!--{% link_with_intro /getting-started-with-github-sponsors %}-->
-<!--{% link_with_intro /sponsoring-open-source-contributors %}-->
-<!--{% link_with_intro /receiving-sponsorships-through-github-sponsors%}-->
-<!--{% link_with_intro /integrating-with-github-sponsors %}-->
+<!---->
+<!---->
+<!---->
+<!---->

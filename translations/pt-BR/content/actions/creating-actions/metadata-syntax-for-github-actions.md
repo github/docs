@@ -171,7 +171,7 @@ Neste exemplo, o `cleanup.js` é executado apenas nos executores baseados no Lin
 
 ```yaml
   pre: 'cleanup.js'
-  pre-if: 'runner.os == linux'
+  pre-if: runner.os == 'linux'
 ```
 
 #### `post`
@@ -197,7 +197,7 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
 
 ```yaml
   post: 'cleanup.js'
-  post-if: 'runner.os == linux'
+  post-if: runner.os == 'linux'
 ```
 
 ### `runs` para ações em etapas de execução compostas
@@ -291,11 +291,11 @@ O aplicativo especificado com a sintaxe [`using`](#runsusing) executará esse ar
 Neste exemplo, a ação `pre-entrypoint:` executa um script denominado `setup.sh`:
 
 ```yaml
-executa:
+runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   pre-entrypoint: 'setup.sh'
   entrypoint: 'main.sh'
 ```
@@ -319,11 +319,11 @@ Para obter mais informações sobre como o `entrypoint` é executado, consulte "
 **Opcional**Permite que você execute um script de cleanup, uma vez finalizada a ação`runs.entrypoint`. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação. Porque {% data variables.product.prodname_actions %} executa o script dentro de um novo contêiner usando a mesma imagem-base, o estado do momento da execução é diferente do contêiner principal do `entrypoint`. Você pode acessar qualquer estado que precisar na área de trabalho, em `HOME` ou como variável `STATE_`. A ação `post-entrypoint:` é sempre executada por padrão, mas você pode substituí-la usando [`post-if`](#post-if).
 
 ```yaml
-executa:
+runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   entrypoint: 'main.sh'
   post-entrypoint: 'cleanup.sh'
 ```

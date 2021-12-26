@@ -1,29 +1,33 @@
 ---
 title: Managing categories for discussions in your repository
-intro: You can categorize the discussions in your repository to organize conversations for your community members, and you can choose a format for each category.
-permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
+intro: 'You can categorize the discussions in your repository to organize conversations for your community members, and you can choose a format for each category.'
+permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Manage categories
 ---
 
 {% data reusables.discussions.beta %}
 
-### About categories for discussions
+## About categories for discussions
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
+{% data reusables.discussions.about-announcement-format %}
+
 Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %} For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
 
-### Default categories
+## Default categories
 
-| Category | Purpose | Type |
+| Category | Purpose | Format |
 | :- | :- | :- |
+| 📣 Announcements | Updates and news from project maintainers | Announcement |
 | #️⃣ General | Anything and everything relevant to the project | Open-ended discussion |
-|💡Ideas | Ideas to change or improve the project | Open-ended discussion |
+|💡 Ideas | Ideas to change or improve the project | Open-ended discussion |
 | 🙏 Q&A | Questions for the community to answer, with a question/answer format | Question and Answer |
 | 🙌 Show and tell | Creations, experiments, or tests relevant to the project | Open-ended discussion |
 
-### Creating a category
+## Creating a category
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
@@ -35,7 +39,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 1. Click **Create**.
   !["Create" button for new category](/assets/images/help/discussions/new-category-click-create-button.png)
 
-### Editing a category
+## Editing a category
 
 You can edit a category to change the category's emoji, title, description, and discussion format.
 
@@ -48,7 +52,7 @@ You can edit a category to change the category's emoji, title, description, and 
 1. Click **Save changes**.
   !["Save changes" button for existing category](/assets/images/help/discussions/existing-category-click-save-changes-button.png)
 
-### Deleting a category
+## Deleting a category
 
 When you delete a category, {% data variables.product.product_name %} will move all discussions in the deleted category to an existing category that you choose.
 

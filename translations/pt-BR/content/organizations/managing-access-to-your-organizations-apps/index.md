@@ -12,7 +12,8 @@ versions:
 topics:
   - Organizations
   - Teams
+children:
+  - /adding-github-app-managers-in-your-organization
+  - /removing-github-app-managers-from-your-organization
 ---
 
-{% link_in_list /adding-github-app-managers-in-your-organization %}
-{% link_in_list /removing-github-app-managers-from-your-organization %}

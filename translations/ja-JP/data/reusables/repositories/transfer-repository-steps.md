@@ -4,7 +4,7 @@
 1. 新しいオーナーのプランによって生じうる機能の損失についての警告を読んでください。 ![無料製品を使っている人物へのリポジトリの移譲に関する警告](/assets/images/help/repository/repo-transfer-free-plan-warnings.png)
 1. 移譲したいリポジトリの名前を入力し、**I understand, transfer this repository（理解しました。このリポジトリを移譲してください）**をクリックしてください。 ![移譲ボタン](/assets/images/help/repository/repo-transfer-complete.png)
 {% else %}
-1. Click **Transfer**. ![移譲ボタン](/assets/images/help/repository/repo-transfer.png)
+1. **Transfer（移譲）**をクリックしてください。 ![移譲ボタン](/assets/images/help/repository/repo-transfer.png)
 1. 警告を読み、リポジトリ名を入力して行ったことを確認してください。
 1. 新しいオーナーの名前を入力し、**I understand, transfer this repo（理解しました。このリポジトリを移譲してください）**をクリックしてください。 ![移譲ボタン](/assets/images/help/repository/repo-transfer-complete.png)
 {% endif %}

@@ -1,0 +1,57 @@
+---
+title: Gerenciar as suas camadas de patrocínio
+intro: 'Você pode adicionar uma nova camada de patrocínio, ou editar ou retirar uma camada existente.'
+redirect_from:
+  - /articles/changing-your-sponsorship-tiers
+  - /github/supporting-the-open-source-community-with-github-sponsors/changing-your-sponsorship-tiers
+  - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers
+versions:
+  free-pro-team: '*'
+type: how_to
+topics:
+  - Open Source
+  - Sponsors profile
+---
+
+### Sobre as camadas de patrocínio
+
+{% data reusables.sponsors.tier-details %}
+
+{% data reusables.sponsors.maximum-tier %}
+
+### Adicionar uma camada
+
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
+1. If you are setting up tiers for the first time, we recommend you review the suggested tier examples to see how some other open source contributors have set up {% data variables.product.prodname_sponsors %}. Decide whether you want to start with some suggested draft tiers, which you can customize in the tier editor.
+   - To use a suggested tier, select the rewards you'd like to include in your draft tier or tiers. Then, click **Continue to tier editor**.
+   - To create tiers without using with any of the draft suggestions, click **Skip this step**. !["Skip this step" option and "Continue to tier editor" button](/assets/images/help/sponsors/tier-editor-button.png)
+1. Optionally, to edit a draft tier, find the draft tier and click **Edit**. ![Edit button next to draft tier](/assets/images/help/sponsors/draft-tier-edit.png)
+{% data reusables.sponsors.click-add-tier %}
+{% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.save-tier-draft %}
+{% data reusables.sponsors.review-and-publish-tier %}
+
+### Editando ou retirar uma camada
+
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
+{% data reusables.sponsors.edit-tier %}
+  {% note %}
+
+  **Note:** To see ideas of tier descriptions, scroll down.
+
+  {% endnote %}
+{% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.tier-update %}
+{% data reusables.sponsors.retire-tier %}
+
+### Habilitar camadas com quantidades personalizadas
+
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
+{% data reusables.sponsors.enable-custom-amounts %}
+
+### Desabilitar camadas com quantidades personalizadas
+
+Você pode desabilitar camadas com valores personalizados desmarcando a opção **Habilitar valores** personalizados na aba **Camadas de Sponsors**. Se você desabilitar quantidades personalizadas, todas as camadas personalizadas irão se tornar obsoletas..

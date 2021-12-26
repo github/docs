@@ -19,6 +19,14 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
 {% data reusables.ssh.dsa-support %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also add an SSH key using the {% data variables.product.prodname_cli %}. For more information, see "[`gh ssh-key add`](https://cli.github.com/manual/gh_ssh-key_add)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
+
 {% mac %}
 
 1. Copy the SSH public key to your clipboard.
@@ -80,6 +88,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
+  $ sudo apt-get update
   $ sudo apt-get install xclip
   # Downloads and installs xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 

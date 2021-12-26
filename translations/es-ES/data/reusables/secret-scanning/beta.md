@@ -10,7 +10,7 @@
 
 {% note %}
 
-**Nota:** El {% data variables.product.prodname_secret_scanning_caps %} se encuentra en beta dentro de {% data variables.product.prodname_ghe_server %} 3.0. Para encontrar un lanzamiento de disponibilidad general del escaneo de secretos, mejora al último lanzamiento de {% data variables.product.prodname_ghe_server %}.
+**Nota:** El {% data variables.product.prodname_secret_scanning_caps %} estaba en beta en {% data variables.product.prodname_ghe_server %} 3.0. Para encontrar el lanzamiento del {% data variables.product.prodname_secret_scanning %} que está generalmente disponible, mejora al último lanzamiento de {% data variables.product.prodname_ghe_server %}.
 
 
 {% endnote %}

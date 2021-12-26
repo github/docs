@@ -11,17 +11,17 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+children:
+  - /about-actions
+  - /creating-a-docker-container-action
+  - /creating-a-javascript-action
+  - /creating-a-composite-run-steps-action
+  - /metadata-syntax-for-github-actions
+  - /dockerfile-support-for-github-actions
+  - /setting-exit-codes-for-actions
+  - /publishing-actions-in-github-marketplace
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
-
-{% link_in_list /about-actions %}
-{% link_in_list /creating-a-docker-container-action %}
-{% link_in_list /creating-a-javascript-action %}
-{% link_in_list /creating-a-composite-run-steps-action %}
-{% link_in_list /metadata-syntax-for-github-actions %}
-{% link_in_list /dockerfile-support-for-github-actions %}
-{% link_in_list /setting-exit-codes-for-actions %}
-{% link_in_list /publishing-actions-in-github-marketplace %}

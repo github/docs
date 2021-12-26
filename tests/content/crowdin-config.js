@@ -1,5 +1,8 @@
-const config = require('../helpers/crowdin-config').read()
-const { loadPages } = require('../../lib/pages')
+import xCrowdinConfig from '../helpers/crowdin-config.js'
+import { loadPages } from '../../lib/page-data.js'
+import { jest } from '@jest/globals'
+
+const config = xCrowdinConfig.read()
 const ignoredPagePaths = config.files[0].ignore
 const ignoredDataPaths = config.files[2].ignore
 
@@ -7,9 +10,8 @@ describe('crowdin.yml config file', () => {
   jest.setTimeout(60 * 1000)
 
   let pages
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     pages = await loadPages()
-    done()
   })
 
   test('has expected file structure', async () => {
@@ -25,11 +27,13 @@ describe('crowdin.yml config file', () => {
 
   test('ignores all hidden pages', async () => {
     const hiddenPages = pages
-      .filter(page => page.hidden && page.languageCode === 'en')
-      .map(page => `/content/${page.relativePath}`)
-    const overlooked = hiddenPages.filter(page => !isIgnored(page, ignoredPagePaths))
+      .filter((page) => page.hidden && page.languageCode === 'en')
+      .map((page) => `/content/${page.relativePath}`)
+    const overlooked = hiddenPages.filter((page) => !isIgnored(page, ignoredPagePaths))
     const message = `Found some hidden pages that are not yet excluded from localization.
-      Please copy and paste the lines below into the \`ignore\` section of /crowdin.yml: \n\n"${overlooked.join('",\n"')}"`
+      Please copy and paste the lines below into the \`ignore\` section of /crowdin.yml: \n\n"${overlooked.join(
+        '",\n"'
+      )}"`
 
     // This may not be true anymore given the separation of Early Access docs
     // expect(hiddenPages.length).toBeGreaterThan(0)
@@ -40,8 +44,8 @@ describe('crowdin.yml config file', () => {
 
 // file is ignored if its exact filename in the list,
 // or if it's within an ignored directory
-function isIgnored (filename, ignoredPagePaths) {
-  return ignoredPagePaths.some(ignoredPath => {
+function isIgnored(filename, ignoredPagePaths) {
+  return ignoredPagePaths.some((ignoredPath) => {
     const isDirectory = !ignoredPath.endsWith('.md')
     return ignoredPath === filename || (isDirectory && filename.startsWith(ignoredPath))
   })

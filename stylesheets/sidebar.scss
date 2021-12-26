@@ -52,7 +52,7 @@
 
   &.active {
     &::before {
-      border-left: 3px solid var(--color-text-primary);
+      border-left: 2px solid var(--color-text-primary);
     }
   }
 }
@@ -75,5 +75,23 @@
 }
 
 .sidebar-maptopic > ul {
+  display: none;
+}
+
+.sidebar-maptopic > details > summary > div,
+.sidebar-article > a {
+  color: var(--color-text-secondary);
+}
+
+.sidebar-maptopic > details > summary > div:hover,
+.sidebar-article > a:hover {
+  color: var(--color-text-primary);
+  transition: color 0.2s ease;
+}
+
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
   display: none;
 }

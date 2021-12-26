@@ -50,9 +50,9 @@ Nos repositórios da sua organização, os usuários bloqueados também não pod
 ### Bloquear um usuário nas configurações da organização
 
 1. Para bloquear um integrante da organização, primeiramente, [ remova o usuário](/articles/removing-a-member-from-your-organization) da organização.
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 6. Em "Block a user" (Bloquear um usuário), digite o nome de usuário que deseja bloquear. ![Campo Username (Nome de usuário)](/assets/images/help/organizations/org-block-username-field.png)
 7. Se quiser configurar um limite de tempo para o bloqueio, use o menu suspenso Block options (Opções de bloqueio) e selecione o período pelo qual deseja bloquear o usuário. ![Menu suspenso Block options (Opções de bloqueio)](/assets/images/help/organizations/org-block-options-menu.png)

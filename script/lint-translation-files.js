@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-
-const { execSync } = require('child_process')
+import { execSync } from 'child_process'
 
 // [start-readme]
 //
@@ -13,13 +12,26 @@ const parsingErrorsLog = '~/docs-translation-parsing-error.txt'
 const renderErrorsLog = '~/docs-translation-rendering-error.txt'
 
 // 1. Check for parsing errors and output to file. Note this one must be run FIRST.
-execSync(`TEST_TRANSLATION=true npx jest content/lint-files > ${parsingErrorsLog}`)
+console.log('Checking for parsing errors...')
+try {
+  execSync(`TEST_TRANSLATION=true npx jest linting/lint-files > ${parsingErrorsLog}`)
+} catch (error) {
+  console.log('There were new parsing errors!')
+}
 
 // 2. Check for rendering errors and output to file. Note this one must be run SECOND.
-execSync(`script/test-render-translation.js > ${renderErrorsLog}`)
+console.log('Checking for rendering errors...')
+try {
+  execSync(`script/test-render-translation.js > ${renderErrorsLog}`)
+} catch (error) {
+  console.log('There were new rendering errors!')
+}
 
 // Reset the broken files.
-execSync(`cat ${parsingErrorsLog} ${renderErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | uniq | xargs -L1 script/reset-translated-file.js --prefer-main`)
+console.log('Resetting broken files...')
+execSync(
+  `cat ${parsingErrorsLog} ${renderErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | uniq | xargs -L1 script/reset-translated-file.js --prefer-main`
+)
 
 // Print a message with next steps.
 console.log(`Success!

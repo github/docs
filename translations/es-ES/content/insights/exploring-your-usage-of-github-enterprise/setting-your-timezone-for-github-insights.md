@@ -1,7 +1,6 @@
 ---
 title: Configurando tu zona horaria para GitHub Insights
 intro: 'Puedes establecer la zona horaria para las métricas que ves en {% data variables.product.prodname_insights %}.'
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can set their own timezone.'
 versions:
   enterprise-server: '*'

@@ -21,8 +21,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 3. Wähle die Teams aus, deren Sichtbarkeit Du ändern möchtest. ![Liste der Teams mit zwei ausgewählten Teams](/assets/images/help/teams/list-of-teams-selected.png)
 4. Klicke im Dropdownmenü über der Liste der Teams auf **Change visibility** (Sichtbarkeit ändern). ![Dropdownmenü mit Option zum Ändern der Teamsichtbarkeit](/assets/images/help/teams/team-bulk-management-options.png)

@@ -14,6 +14,11 @@ jobs:
     name: Check all links
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+      REPORT_AUTHOR: docubot
+      REPORT_LABEL: broken link report
+      REPORT_REPOSITORY: github/docs-content
     steps:
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
       - name: npm ci
@@ -28,25 +33,57 @@ jobs:
         id: check
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
       - if: ${{ failure() }}
-        name: Close previous report
-        uses: lee-dohm/close-matching-issues@22002609b2555fe18f52b8e2e7c07cbf5529e8a8
-        with:
-          query: 'label:"broken link report"'
-          token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
-      - if: ${{ failure() }}
         name: Create issue from file
         id: broken-link-report
-        uses: peter-evans/create-issue-from-file@a04ce672e3acedb1f8e416b46716ddfd09905326
+        uses: peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e
         with:
-          token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          token: ${{ env.GITHUB_TOKEN }}
+
           title: ${{ steps.check.outputs.title }}
           content-filepath: ./broken_links.md
-          labels: broken link report
+          repository: ${{ env.REPORT_REPOSITORY }}
+          labels: ${{ env.REPORT_LABEL }}
       - if: ${{ failure() }}
-        name: Add comment to issue
-        uses: peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd
-        with:
-          body: |
-            cc @github/docs-content
-          issue-number: ${{ steps.broken-link-report.outputs.issue-number }}
-          token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+        name: Close and/or comment on old issues
+        env:
+          NEW_REPORT_URL: 'https://github.com/${{ env.REPORT_REPOSITORY }}/issues/${{ steps.broken-link-report.outputs.issue-number }}'
+        run: |
+          gh alias set list-reports "issue list \
+                                       --repo ${{ env.REPORT_REPOSITORY }} \
+                                       --author ${{ env.REPORT_AUTHOR }} \
+                                       --label '${{ env.REPORT_LABEL }}'"
+
+          # Link to the previous report from the new report that triggered this
+          # workflow run.
+
+          for issue_url in $(gh list-reports \
+                                  --state all \
+                                  --limit 2 \
+                                  --json url \
+                                  --jq '.[].url' | grep -v ${{ env.NEW_REPORT_URL }}); do
+            gh issue comment ${{ env.NEW_REPORT_URL }} --body "⬅️ [Previous report]($issue_url)"
+          done
+
+          # Link to the newer report from any older report that is still open,
+          # then close the older report.
+
+          for issue_url in $(gh list-reports \
+                                  --search 'no:assignee' \
+                                  --json url \
+                                  --jq '.[].url'); do
+            if [ "$issue_url" != "${{ env.NEW_REPORT_URL }}" ]; then
+              gh issue comment $issue_url --body "➡️ [Newer report](${{ env.NEW_REPORT_URL }})"
+              gh issue close $issue_url
+            fi
+          done
+
+          # If an old report is open and assigned to someone, link to the newer
+          # report without closing the old report.
+
+          for issue_url in $(gh list-reports \
+                                  --json assignees,url \
+                                  --jq '.[] | select (.assignees != []) | .url'); do
+            if [ "$issue_url" != "${{ env.NEW_REPORT_URL }}" ]; then
+              gh issue comment $issue_url --body "➡️ [Newer report](${{ env.NEW_REPORT_URL }})"
+            fi
+          done

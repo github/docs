@@ -1,6 +1,6 @@
 ---
-title: Use GitHub at your educational institution
-intro: 'Maximize the benefits of using {% data variables.product.prodname_dotcom %} at your institution for your students, instructors, and IT staff with {% data variables.product.prodname_education %} and our various training programs for students and instructors.'
+title: Utiliza GitHub en tu institución educativa
+intro: 'Aumenta los beneficios de utilizar {% data variables.product.prodname_dotcom %} en tu institución para los estudiantes, instructores y el personal de TI con {% data variables.product.prodname_education %} y nuestros múltiples programas de capacitación para estudiantes e instructores.'
 mapTopic: true
 redirect_from:
   - /education/teach-and-learn-with-github-education/use-github-at-your-educational-institution

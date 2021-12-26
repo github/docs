@@ -10,7 +10,7 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 | Support channels | <ul><li>Online ticket submission</li><li>Phone support</li></ul> | <ul><li>Online ticket submission</li><li>Phone support</li><li>Screen share for critical issues</li></ul>
 | Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
 | Authorized contacts | 10 | 25 |
-| Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Technical Support Account Manager</li></ul>   |
+| Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
 | Scheduled checks| Bi-annual health check and reporting             | <ul><li>Quarterly health check and reporting</li><li>Quarterly account reviews</li></ul>    |
 | Administration| | 4 hours of Managed Services per month  |
 

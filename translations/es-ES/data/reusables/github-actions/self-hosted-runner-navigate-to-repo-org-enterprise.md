@@ -6,7 +6,5 @@
      1. En la barra lateral izquierda, da clic en **Resumen empresarial**.
      1. {% endif %} En la barra lateral de empresa, {% octicon "law" aria-label="The law icon" %} **Políticas**.
 1. Navega a los ajustes de {% data variables.product.prodname_actions %}:
-   * **En un repositorio de organización**: da clic en **Acciones** en la barra lateral izquierda.
-
-     ![Configuración de acciones](/assets/images/help/settings/settings-sidebar-actions.png)
-   * {% if currentVersion == "free-pro-team@latest" %}**Si utilizas una cuenta empresarial**{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}**Si utilizas un ejecutor a nivel de empresa**{% endif %}: Haz clic en **Acciones** debajo de "Políticas {% octicon "law" aria-label="The law icon" %}".
+   * **En una organización o repositorio**: Haz clic en **Acciones** en la barra lateral izquierda{% if currentVersion == "free-pro-team@latest" %} y luego en **Ejecutores**{% endif %}.
+   * {% if currentVersion == "free-pro-team@latest" %}**Si estás utilizand una cuenta empresarial**:{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}**Si estás utilizando un ejecutor a nivel empresarial**:{% endif %} Haz clic en **Acciones** debajo de "{% octicon "law" aria-label="The law icon" %} Políticas"{% if currentVersion == "free-pro-team@latest" %}, y luego en la pestaña de **Ejecutores** {% endif %}.

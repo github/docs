@@ -10,14 +10,14 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 4. Select the person or people you'd like to remove. ![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)
 5. Above the list of team members, use the drop-down menu and click **Remove from team**. ![Drop-down menu with option to change role](/assets/images/help/teams/bulk-edit-drop-down.png)

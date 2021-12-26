@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import allVersions from '../../lib/all-versions.js'
+import getOperations from '../rest/utils/get-operations.js'
 
-const fs = require('fs')
-const path = require('path')
-const program = require('commander')
-const allVersions = require('../../lib/all-versions')
-const getOperations = require('../rest/utils/get-operations')
 const dereferencedDir = 'lib/rest/static/dereferenced'
 const decoratedDir = 'lib/rest/static/decorated'
 
@@ -17,27 +17,39 @@ const decoratedDir = 'lib/rest/static/decorated'
 // [end-readme]
 
 program
-  .description('Create new openAPI files in lib/rest/static/decorated and lib/rest/static/dereferenced based on an existing version.')
-  .option('-n, --newVersion <version>', 'The new version to copy the REST files to. Must be in <plan@release> format.')
-  .option('-o, --oldVersion <version>', 'The existing version to copy the REST files from. Must be in <plan@release> format.')
+  .description(
+    'Create new openAPI files in lib/rest/static/decorated and lib/rest/static/dereferenced based on an existing version.'
+  )
+  .option(
+    '-n, --newVersion <version>',
+    'The new version to copy the REST files to. Must be in <plan@release> format.'
+  )
+  .option(
+    '-o, --oldVersion <version>',
+    'The existing version to copy the REST files from. Must be in <plan@release> format.'
+  )
   .parse(process.argv)
 
-const newVersion = program.newVersion
-const oldVersion = program.oldVersion
+const newVersion = program.opts().newVersion
+const oldVersion = program.opts().oldVersion
 
 if (!(newVersion && oldVersion)) {
   console.log('Error! You must provide --newVersion and --oldVersion.')
   process.exit(1)
 }
 
-if (!(Object.keys(allVersions).includes(newVersion) && Object.keys(allVersions).includes(oldVersion))) {
-  console.log('Error! You must provide the full name of a currently supported version, e.g., enterprise-server@2.22.')
+if (
+  !(Object.keys(allVersions).includes(newVersion) && Object.keys(allVersions).includes(oldVersion))
+) {
+  console.log(
+    'Error! You must provide the full name of a currently supported version, e.g., enterprise-server@2.22.'
+  )
   process.exit(1)
 }
 
 main()
 
-async function main () {
+async function main() {
   const oldDereferencedFilename = `${allVersions[oldVersion].openApiVersionName}.deref.json`
   const newDereferencedFilename = `${allVersions[newVersion].openApiVersionName}.deref.json`
   const newDecoratedFilename = `${allVersions[newVersion].openApiVersionName}.json`
@@ -63,13 +75,15 @@ async function main () {
   fs.writeFileSync(newDereferencedFile, newDereferenceContent)
   console.log(`Created ${newDereferencedFile}.`)
 
-  const dereferencedSchema = require(path.join(process.cwd(), newDereferencedFile))
+  const dereferencedSchema = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), newDereferencedFile))
+  )
 
   // Store all operations in an array of operation objects
   const operations = await getOperations(dereferencedSchema)
 
   // Process each operation asynchronously
-  await Promise.all(operations.map(operation => operation.process()))
+  await Promise.all(operations.map((operation) => operation.process()))
 
   // Write processed operations to disk
   fs.writeFileSync(newDecoratedFile, JSON.stringify(operations, null, 2))

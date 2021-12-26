@@ -9,32 +9,23 @@ redirect_from:
   - /packages/guides/package-client-guides-for-github-packages
   - /packages/guides/container-guides-for-github-packages
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+children:
+  - /working-with-the-container-registry
+  - /working-with-the-docker-registry
+  - /working-with-the-rubygems-registry
+  - /working-with-the-npm-registry
+  - /working-with-the-apache-maven-registry
+  - /working-with-the-gradle-registry
+  - /working-with-the-nuget-registry
+  - /migrating-to-the-container-registry-from-the-docker-registry
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-
+{% ifversion fpt %}
 ![Diagram showing packages support for Docker, Container registry, RubyGems, npm, Apache Maven, NuGet, and Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
-
 {% else %}
-
 ![Diagram showing packages support for Docker, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
-
 {% endif %}
-
-### Table of Contents
-
-{% link_in_list /working-with-the-npm-registry %}
-{% link_in_list /working-with-the-rubygems-registry %}
-{% link_in_list /working-with-the-apache-maven-registry %}
-{% link_in_list /working-with-the-gradle-registry %}    
-{% link_in_list /working-with-the-nuget-registry %}
-{% link_in_list /working-with-the-docker-registry %}
-{% link_in_list /working-with-the-container-registry %}
-{% link_in_list /enabling-improved-container-support-with-the-container-registry %}
-{% link_in_list /migrating-to-the-container-registry-from-the-docker-registry %}

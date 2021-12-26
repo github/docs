@@ -21,6 +21,7 @@ Administrar uma sala de aula, atribuir e revisar o trabalho de seus alunos e ens
 
 - [Fundamentos da configuração de {% data variables.product.prodname_classroom %} ](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)
 - [Gerenciar salas de aula](/education/manage-coursework-with-github-classroom/manage-classrooms)
+- [Use o Git e a atividade iniciante de {% data variables.product.company_short %}](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)
 - [Criar um trabalho individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)
 - [Criar uma atribuição em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)
 - [Criar uma atividade a partir de um repositório de modelo](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)

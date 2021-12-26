@@ -1,0 +1,87 @@
+---
+date: '2021-03-03'
+friendlyDate: '3 de marzo de 2021'
+title: 'Week of March 3, 2021'
+currentWeek: false
+sections:
+  features:
+    - 
+      heading: 'GitHub Actions beta'
+      notes:
+        - |
+          [{% data variables.product.prodname_actions %}](https://github.com/features/actions) is a powerful, flexible solution for CI/CD and workflow automation. For more information, see "[Introduction to {% data variables.product.prodname_actions %}](/actions/learn-github-actions/introduction-to-github-actions)."
+
+          {% data variables.product.prodname_actions %} on {% data variables.product.product_name %} uses a new [{% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/about-ae-hosted-runners), only available for {% data variables.product.product_name %}, that enables you to customize the size, image, and networking configuration of the runners. These runners are a finished-service CI compute environment with auto-scaling and management, fully managed by {% data variables.product.company_short %}. During the beta, the use {% data variables.actions.hosted_runner %}s is free of charge. For more information, see "[Adding {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/adding-ae-hosted-runners)."
+
+          Please note that when {% data variables.product.prodname_actions %} is enabled during this upgrade, two organizations named "GitHub Actions" (@**actions** and @**github**) will appear in {% data variables.product.product_location %}. These organizations are required by {% data variables.product.prodname_actions %}. Users named @**ghost** and @**actions** appear as the actors for creation of these organizations in the audit log.
+    - 
+      heading: 'GitHub Packages beta'
+      notes:
+        - |
+          [{% data variables.product.prodname_registry %}](https://github.com/features/packages) is a package hosting service, natively integrated with {% data variables.product.prodname_actions %}, APIs, and webhooks. Create an [end-to-end DevOps workflow](/github-ae@latest/packages/quickstart) that includes your code, continuous integration, and deployment solutions. During this beta, {% data variables.product.prodname_registry %} is offered free of charge to {% data variables.product.product_name %} customers.
+    - 
+      heading: 'GitHub Advanced Security beta'
+      notes:
+        - |
+          {% data variables.product.prodname_GH_advanced_security %} is available in beta and includes both code scanning and secret scanning. During this beta, {% data variables.product.prodname_GH_advanced_security %} features are being offered free of charge to {% data variables.product.product_name %} customers. Repository and organization administrators can opt-in to use {% data variables.product.prodname_GH_advanced_security %} in the Security and Analysis tab under settings.
+
+          Learn more about {% data variables.product.prodname_GH_advanced_security %} [code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) and [secret scanning](/github/administering-a-repository/about-secret-scanning) on {% data variables.product.prodname_ghe_managed %}.
+    - 
+      heading: Administra equipos desde tu proveedor de identidad (IdP)
+      notes:
+        - |
+          Customers using SCIM (System for Cross-domain Identity Management) can now sync security groups in Azure Active Directory with {% data variables.product.company_short %} teams.  Once a team has been linked to a security group, membership will be automatically updated in {% data variables.product.product_name %} when a user is added or removed from their assigned security group.
+    - 
+      heading: Beta de listas de IP permitidas
+      notes:
+        - |
+          [{% data variables.product.company_short %} IP allow lists](/admin/configuration/restricting-network-traffic-to-your-enterprise) provide the ability to filter traffic from administrator-specified IP ranges, defined by CIDR notation. The allow list is defined at the enterprise or organization account level in Security > Settings. All traffic that attempts to reach resources within the enterprise account and organizations are filtered by the IP allow lists. This functionality is provided in addition to the ability to request network security group changes that filter traffic to the entirety of the GHAE tenant.
+  changes:
+    - 
+      heading: Cambios de desarrollador
+      notes:
+        - |
+          [Organization owners can now disable publication](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) of {% data variables.product.prodname_pages %} sites from repositories in the organization. This will not unpublish existing sites.
+        - 'Repositories that use {% data variables.product.prodname_pages %} can now [build and deploy from any branch](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).'
+        - When writing an issue or pull request, the list syntax for bullets, numbers, and tasks will now be autocompleted after you press `return` or `enter`.
+        - You can now delete a directory in a repository from the repository page. When navigating to a directory, a new kebab button next to the "Add file" button gives the option to delete the directory.
+        - 'It''s now easier and faster to [reference issues or pull requests](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests), with search across multiple words after the "#".'
+    - 
+      heading: Cambios en la administración
+      notes:
+        - Enterprise owners can now publish a mandatory message. The message is shown to all users and they must acknowledge it. This can be used to display important information, terms of service or policies.
+        - The {% data variables.product.prodname_github_app%} single file path permission can now [support up to ten files](/developers/apps/creating-a-github-app-using-url-parameters).
+        - When configuring a {% data variables.product.prodname_github_app%}, the authorization callback URL is a required field. Now we will permit the integrator to specify multiple callback URLs. {% data variables.product.product_name %} denies authorization if the callback URL from the request is not listed.
+        - 'A [new API endpoint](/rest/reference/apps#create-a-scoped-access-token) enables the exchange of a user to server token for a user to server token scoped to specific repositories.'
+        - 'Events are now logged in the audit log on [promoting a team member to be a team maintainer and on demoting a team maintainer to be a team member](/admin/user-management/audited-actions#teams).'
+        - 'The [OAuth device authorization flow](/developers/apps/authorizing-oauth-apps#device-flow) is now supported. This allows any CLI client or developer tool to authenticate using a secondary system.'
+        - Los usuarios ya no pueden borrar sus cuentas si se habilita el aprovisionamiento de SCIM.
+    - 
+      heading: Renombrar la rama predeterminada
+      notes:
+        - |
+          Enterprise and organization owners can now set the default branch name for new repositories. Enterprise owners can also enforce their choice of default branch name across all organizations or allow individual organizations to choose their own.
+
+          Existing repositories are unaffected by these settings, and their default branch name will not be changed.
+
+          This change is one of many changes {% data variables.product.company_short %} is making to support projects and maintainers that want to rename their default branch. To learn more, see [github/renaming](https://github.com/github/renaming).
+  bugs:
+    - 
+      heading: Corrección de errores
+      notes:
+        - Users can no longer set a backup email address on their profile. Their email address is set through the IdP only.
+        - Ya no puedes habilitar la autenticación bifactorial después de configurar la autenticación a través de tu IdP.
+        - |
+          {% data variables.product.product_name %} ahora puede conectarse a los tableros de Azure.
+        - Los encabezados de versión no estaban en las API y ahora se configuraron en "GitHub AE".
+        - Se arreglaron los enlaces a la documentación.
+        - Estaba fallando la configuración para reenviar bitácoras de auditoría dentro de los ajustes de empresa.
+        - El navegar hacia los gists podría resultar en un error 500.
+        - The Support email or URL was failing to save. It now saves after a period of a few minutes.
+        - Las plantillas de solicitudes de cambio a nivel organizacional no se estaban aplicando a todas las solicitudes de cambio en la organización.
+  known_issues:
+    - 
+      heading: Problemas conocidos
+      notes:
+        - Geographic location data is not shown in the audit log. Location information can otherwise be discerned from the IP address associated with each event.
+        - El enlace al {% data variables.product.prodname_registry %} desde una página de repositorio muestra una página de búsqueda incorrecta cuando dicho repositorio no tiene paquetes.

@@ -86,7 +86,7 @@ header {
     margin-bottom: 0;
   }
 
-  @include breakpoint(md) {
+  @include breakpoint(lg) {
     #search-results-container {
       display: none;
       position: absolute;
@@ -137,4 +137,8 @@ header {
       transition: width 0.3s ease-in-out;
     }
   }
+}
+
+#__next .ais-SearchBox-input.js-open {
+  top: 0;
 }

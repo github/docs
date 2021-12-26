@@ -19,8 +19,8 @@ Wenn Du Organisationsinhaber bist oder über Team-Betreuer-Berechtigungen sowohl
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Klicke in der Teamliste auf den Namen des Teams, dem Du Dein Team unterordnen möchtest. ![Liste der Teams der Organisation](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

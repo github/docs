@@ -8,13 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. Next to the application you'd like to disable, click {% octicon "pencil" aria-label="The edit icon" %}. ![Edit icon](/assets/images/help/settings/settings-third-party-deny-edit.png)
 6. Click **Deny access**. ![Deny confirmation button](/assets/images/help/settings/settings-third-party-deny-confirm.png)

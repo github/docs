@@ -13,7 +13,7 @@ jobs:
   comment-that-approved:
     name: Add review template
     runs-on: ubuntu-latest
-    if: github.event.label.name == 'docs-content-ready-for-review' && github.repository == 'github/docs-internal'
+    if: github.event.label.name == 'add-review-template' && github.repository == 'github/docs-internal'
 
     steps:
       - name: check out repo content

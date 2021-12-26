@@ -3,6 +3,10 @@ title: Acerca de GitHub AE
 intro: '{% data variables.product.prodname_ghe_managed %} es una forma de tener cumplimiento y seguridad ampliada para utilizar {% data variables.product.prodname_dotcom %} en la nube.'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
 ### Acerca de {% data variables.product.prodname_ghe_managed %}
@@ -21,7 +25,7 @@ Todos tus datos se almacenan dentro de la región geográfica de tu elección. P
 
 ### Cifrado bajo tus condiciones
 
-Todos los datos del cliente se cifran estáticos y puedes proporcionar tus propias llaves de cifrado para cifrar tus datos bajo tus propias políticas. Tú controlas tu llave y el acceso a todos tus datos. Para obtener más información, consulta la sección "[Configurar el cifrado de datos para tu empresa](/admin/configuration/configuring-data-encryption-for-your-enterprise)".
+Todos los datos del cliente se cifran cuando estáticos. Para obtener más información, consulta la sección "[Configurar el cifrado de datos para tu empresa](/admin/configuration/configuring-data-encryption-for-your-enterprise)".
 
 ### Cuentas aisladas
 
@@ -34,3 +38,7 @@ Asegura el acceso a tu empresa en {% data variables.product.prodname_ghe_managed
 ### Ambientes comerciales y gubernamentales
 
 {% data variables.product.prodname_ghe_managed %} se encuentra disponible en la nube de Azure Government, la nube de confianza de las agencias gubernamentales de los EE.UU. y de sus socios. {% data variables.product.prodname_ghe_managed %} también se encuentra disponible en la nube comercial, para que puedas elegir el ambiente de hospedaje que se adecua a tu organización.
+
+### Leer más
+
+- "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"

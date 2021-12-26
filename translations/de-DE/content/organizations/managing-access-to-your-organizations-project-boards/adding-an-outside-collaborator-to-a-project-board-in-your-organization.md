@@ -15,8 +15,8 @@ topics:
 
 Ein externer Mitarbeiter ist eine Person, die nicht explizit Mitglied Deiner Organisation ist, aber auf ein Projektboard in Deiner Organisation zugreifen kann.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}

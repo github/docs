@@ -1,19 +1,20 @@
 ---
 title: Managing user permissions for your organization
-intro: You can control which users in your organization can use {% data variables.product.prodname_codespaces %}.
-permissions: To manage user permissions for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.
+intro: 'You can control which users in your organization can use {% data variables.product.prodname_codespaces %}.'
+permissions: 'To manage user permissions for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
   - Permissions
   - Administrator
+shortTitle: User permissions
 ---
 
 {% data reusables.codespaces.release-stage %}
 
-### About user permissions for {% data variables.product.prodname_codespaces %}
+## About user permissions for {% data variables.product.prodname_codespaces %}
 
 Organization owners can control which users in your organization can create and use codespaces.
 
@@ -21,7 +22,7 @@ To use codespaces in your organization, your users must have at least write acce
 
 By default, a codespace can only access the repository where it was created. If you want codespaces in your organization to be able to access other organization repositories that the codespace creator can access, see "[Managing access and security for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)."
 
-### Configuring which users in your organization can use {% data variables.product.prodname_codespaces %}
+## Configuring which users in your organization can use {% data variables.product.prodname_codespaces %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

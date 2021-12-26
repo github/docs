@@ -16,12 +16,12 @@ versions:
 保護ルールとシークレットを持つ環境を設定できます。 ワークフローのジョブが環境を参照すると、その環境の保護ルールをすべてパスするまではジョブは開始されません。 すべての環境の保護ルールをパスするまで、ジョブは環境で定義されているシークレットにアクセスできません。
 
 {% if currentVersion == "free-pro-team@latest" %}
-Environment protection rules and environment secrets are only available on public repositories and private repositories on an enterprise plan. If you convert a repository from public to private on a non-enterprise plan, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. リポジトリをパブリックに変換して戻せば、以前に設定されていた保護ルールや環境のシークレットにアクセスできるようになります。
+環境保護ルールと環境シークレットは、Enterprise プランのパブリックリポジトリとプライベートリポジトリでのみ使用できます。 Enterprise プラン以外でリポジトリをパブリックからプライベートに変換すると、設定された保護ルールまたは環境シークレットは無視され、環境を設定できなくなります。 リポジトリをパブリックに変換して戻せば、以前に設定されていた保護ルールや環境のシークレットにアクセスできるようになります。
 {% endif %}
 
 #### 環境の保護ルール
 
-環境の保護ルールは、その環境を参照しているジョブが進行する前に特定の条件をパスすることを要求します。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can use environment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.{% else %}You can use environment protection rules to require a manual approval or delay a job.{% endif %}
+環境の保護ルールは、その環境を参照しているジョブが進行する前に特定の条件をパスすることを要求します。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}環境保護ルールを使用して、手動による承認を要求したり、ジョブを遅延させたり、環境を特定のブランチに制限したりすることができます。{% else %}環境保護ルールを使用して、手動による承認を要求したり、ジョブを遅延させたりすることができます。{% endif %}
 
 ##### 必須のレビュー担当者
 
@@ -48,6 +48,12 @@ Environment protection rules and environment secrets are only available on publi
 
 環境に保存されたシークレットは、その環境を参照するワークフロージョブからのみ利用できます。 環境が承認を必要とするなら、ジョブは必須のレビュー担当者の一人が承認するまで環境のシークレットにアクセスできません。 シークレットに関する詳しい情報については「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
+{% note %}
+
+**注釈:** セルフホストランナーで実行されるワークフローは、環境を使用している場合でも、分離されたコンテナでは実行されません。 環境シークレットは、リポジトリおよび Organization シークレットと同じレベルのセキュリティで処理する必要があります。 詳しい情報については「[GitHub Actionsのためのセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions#hardening-for-self-hosted-runners)」を参照してください。
+
+{% endnote %}
+
 ### 環境の作成
 
 {% data reusables.github-actions.permissions-statement-environment %}
@@ -59,7 +65,7 @@ Environment protection rules and environment secrets are only available on publi
 1. 環境の名前を入力し、**Configure environment（環境を設定）**をクリックしてください。 環境名では、大文字と小文字は区別されません。 環境名は255文字を超えてはならず、リポジトリ内でユニークでなければなりません。
 1. 環境保護ルールあるいは環境のシークレットを設定してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can also create and configure environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)" and "[Secrets](/rest/reference/actions#secrets)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}REST API を介して環境を作成および設定することもできます。 詳しい情報については、「[環境](/rest/reference/repos#environments)」および「[シークレット](/rest/reference/actions#secrets)」を参照してください。{% endif %}
 
 存在しない環境を参照するワークフローを実行すると、参照された名前を持つ環境が作成されます。 新しく作成される環境には、保護ルールやシークレットは設定されていません。 リポジトリのワークフローを編集できる人は、ワークフローファイルを通じて環境を作成できますが、その環境を設定できるのはリポジトリ管理者だけです。
 
@@ -71,6 +77,9 @@ Environment protection rules and environment secrets are only available on publi
 
 ワークフローが環境を参照する場合、その環境はリポジトリのデプロイメントに現れます。 現在及び以前のデプロイメントの表示に関する詳細については「[デプロイメント履歴の表示](/developers/overview/viewing-deployment-history)」を参照してください。
 
+### 並行処理を使用して環境内のデプロイメントをシリアライズする
+並行処理では、環境で一度に最大 1 つのデプロイメントが進行中で、1 つのデプロイメントが保留になるようにすることができます。 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#concurrency)」を参照してください。
+
 ### 環境の削除
 
 {% data reusables.github-actions.permissions-statement-environment %}
@@ -80,7 +89,7 @@ Environment protection rules and environment secrets are only available on publi
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-environment %}
-1. 削除したい環境の隣の{% octicon "trashcan" aria-label="The trashcan icon" %}をクリックしてください。
+1. 削除する環境の横にある {% octicon "trash" aria-label="The trash icon" %} をクリックします。
 2. **I understand, delete this environment（分かりました、この環境を削除してください）**をクリックしてください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}REST API を介して環境を削除することもできます。 詳しい情報については、「[環境](/rest/reference/repos#environments)」を参照してください。{% endif %}

@@ -1,0 +1,2 @@
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}2. 在组织旁边，单击 **Settings（设置）**。
+  ![设置按钮](/assets/images/help/organizations/settings-button.png){% else %}2. 在组织名称下，单击 {% octicon "gear" aria-label="The Settings gear icon" %} **Settings（设置）**。 ![The settings button](/assets/images/help/organizations/organization-settings-tab.png){% endif %}

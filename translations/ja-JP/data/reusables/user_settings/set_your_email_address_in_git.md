@@ -1,1 +1,1 @@
-Gitでメールアドレスを設定してください。 You can use {% if currentVersion == "free-pro-team@latest"%}your [{% data variables.product.product_name %}-provided `no-reply` email address](/articles/setting-your-commit-email-address) or {% endif %}any email address.
+Gitでメールアドレスを設定してください。 {% if currentVersion == "free-pro-team@latest"%}[{% data variables.product.product_name %}が提供する`no-reply`メールアドレス](/articles/setting-your-commit-email-address)もしくは{% endif %}任意のメールアドレスが利用できます。

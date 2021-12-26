@@ -135,9 +135,9 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Hello ${{ github.event.inputs.name }}!"
-        eco "- em ${{ github.event.inputs.home }}!"
+      - run: |
+          echo "Hello ${{ github.event.inputs.name }}!"
+          eco "- em ${{ github.event.inputs.home }}!"
 ```
 {% endraw %}
 
@@ -175,18 +175,18 @@ Executa o fluxo de trabalho sempre que o evento `check_run` ocorre. {% data reus
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Carga de evento webhook                            | Tipos de atividade                                                                           | `GITHUB_SHA`                   | `GITHUB_REF`  |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------ | ------------- |
-| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | Último commit no branch padrão | Branch padrão |
+| Carga de evento webhook                            | Tipos de atividade                                            | `GITHUB_SHA`                   | `GITHUB_REF`  |
+| -------------------------------------------------- | ------------------------------------------------------------- | ------------------------------ | ------------- |
+| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed` | Último commit no branch padrão | Branch padrão |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-Por exemplo, você pode executar um fluxo de trabalho quando uma execução de verificação tiver sido `rerequested` ou `requested_action`.
+Por exemplo, você pode executar um fluxo de trabalho quando uma execução de verificação tiver sido `rerequested` ou `completed`.
 
 ```yaml
 on:
   check_run:
-    types: [rerequested, requested_action]
+    types: [rerequested, completed]
 ```
 
 #### `check_suite`
@@ -480,7 +480,7 @@ Por exemplo, você pode executar um fluxo de trabalho quando um cartão de proje
 ```yaml
 on:
   project_card:
-    types: [opened, deleted]
+    types: [created, deleted]
 ```
 
 #### `project_column`
@@ -676,6 +676,12 @@ on:
   release:
     types: [published]
 ```
+
+{% note %}
+
+**Observação:** O tipo</code>prereleased`não será acionado para pré-versões publicadas a partir de versões de rascunho, mas o tipo <code>published` será acionado. Se você quiser que um fluxo de trabalho seja executado quando *e* forem publicadas pré-versões, assine `published` em vez de `released` e `prereleased`.
+
+{% endnote %}
 
 #### `status`
 

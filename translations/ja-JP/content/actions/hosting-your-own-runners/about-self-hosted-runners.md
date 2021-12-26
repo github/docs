@@ -65,8 +65,9 @@ type: overview
 - **ジョブキュー時間** - セルフホストランナーの各ジョブは、最大24時間キューイングできます。 この制限内にセルフホストランナーがジョブの実行を開始しなければ、ジョブは終了させられ、完了に失敗します。
 {% data reusables.github-actions.usage-api-requests %}
 - **ジョブマトリックス** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
-### Workflow continuity for self-hosted runners
+### セルフホストランナーのワークフローの継続性
 
 {% data reusables.github-actions.runner-workflow-continuity %}
 
@@ -76,8 +77,8 @@ type: overview
 
 #### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 or later
+- CentOS 7 or later
 - Oracle Linux 7
 - Fedora 29以降
 - Debian 9以降

@@ -12,6 +12,8 @@ versions:
   github-ae: '*'
 ---
 
+### About subtree merges
+
 Typically, a subtree merge is used to contain a repository within a repository. The "subrepository" is stored in a folder of the main repository.
 
 The best way to explain subtree merges is to show by example. We will:

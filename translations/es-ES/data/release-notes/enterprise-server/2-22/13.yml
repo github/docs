@@ -1,0 +1,19 @@
+date: '2021-05-13'
+sections:
+  security_fixes:
+    - '**ALTA:** Se identificó una vulnerabilidad de distorsión en la IU que permitió que se otorgaran más permisos durante un flujo web de autorización de usuario para una GitHub App que se mostraba al usuario durante la aprobación. Para explotar esta vulnerabilidad, un atacante necesita crear una GitHub App en la instancia y hacer que un usuario autorice la aplicación a través del flujo de autenticación web. Todos los permisos otorgados se mostraron adecuadamente durante la primer autorización, pero en algunas circunstancias, si el usuario vuelve al flujo de autorizaciones después de que la GitHub App configuró permisos adicionales a nivel de usuario, dichos permisos podrían no mostrarse, lo cual llevó a que se otorgaran más permisos de los que el usuario necesitaba potencialmente. esta vulnerabilidad afectó a GitHub Enterprise Server 3.0.x antes del 3.0.7 y al 2.22.x antes del 2.22.13. Se arregló en las versiones 3.0.7 y 2.22.13. Se asignó un CVE-2021-22866 a esta vulnerabilidad y se reportó a través del [Programa de Recompensas por fallos de GitHub](https://bounty.github.com/).'
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'La recuperación automática de fallos del orquestador puede habilitarse durante la fase de aplicación de configuración.'
+    - 'Los usuarios con permiso de mantenedor en un repositorio obtuviern una advertencia de verificación por correo electrónico en vez de una compilación exitosa de página en la página de configuración de las páginas del repositorio.'
+    - 'El propietario del código de una regla de comodín se agregó incorrectamente a la lista de propietarios para la insignia de propietarios de código, incluso si una regla tardía tomó precedencia para dicha ruta.'
+    - 'Documentación de OpenAPI para un encabezado inválido.'
+  changes:
+    - 'Se agregó el registro en bitácora para cambios de configuración en una recarga de HAProxy.'
+    - 'Se agregó el registro en bitácora para la creación de repositorios.'
+  known_issues:
+    - 'En un GitHub Enterprise Server recién configurado sin usuarios, un atacante pudo crear el primer usuario administrador.'
+    - 'Las reglas personalizadas del cortafuegos no se mantienen durante una mejora.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'

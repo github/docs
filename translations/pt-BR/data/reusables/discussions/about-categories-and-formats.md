@@ -1,1 +1,1 @@
-Todas as discussões devem ser criadas em uma categoria e os administradores e mantenedores de repositório definem as categorias de um repositório. As categorias podem conter conversas abertas ou conversas com formato de pergunta/resposta.
+All discussions must be created in a category. People with maintain or admin permissions define the categories for a repository. Each category has a format: open-ended discussion, question and answer, or announcement.

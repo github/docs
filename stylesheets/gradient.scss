@@ -34,7 +34,7 @@ $gradients: (
       -70deg,
       var(--color-auto-blue-5) 0%,
       var(--color-auto-pink-5) 100%
-    )
+    ),
 ) !default;
 
 @mixin bg-gradient($parent, $gradient) {

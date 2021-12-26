@@ -43,9 +43,11 @@ Cualquiera con acceso a un repositorio puede crear un debate.
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### Organizar los debates en tus categorías relevantes
+### Organizar debates
 
 Los propietarios de los repositorios y las personas con acceso de escritura pueden crear categorías nuevas para mantener los debates organizados. Los colaboradores que participen y creen debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. Para obtener más información, consulta la sección "[Administrar las categorías para los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
+
+{% data reusables.discussions.you-can-label-discussions %}
 
 ### Promover las conversaciones sanas
 

@@ -1,6 +1,5 @@
 ---
 title: GitHub Insights 可用的指标
-product: '{% data reusables.gated-features.github-insights %}'
 intro: '{% data variables.product.prodname_insights %} 包括各种指标，便于您了解团队的软件交付流程。'
 redirect_from:
   - /github/installing-and-configuring-github-insights/metrics-available-with-github-insights

@@ -2,7 +2,7 @@
 
 La plantilla inicial de flujo de trabajo configura el `PATH` para que contenga OpenJDK 8 para las plataformas x64. Si quieres utilizar una versión diferente de Java, o enfocarte en una arquitectura diferente (`x64` o `x86`), puedes utilizar la acción `setup-java` para elegir un ambiente de ejecución de Java diferente.
 
-For example, to use version 11 of the JDK provided by Adoptium for the x64 platform, you can use the `setup-java` action and configure the `java-version`, `distribution` and `architecture` parameters to `'11'`, `'adopt'` and `x64`.
+Por ejemplo, para utilizar la versión 11 de JDK que se proporciona con Adoptium para la plataforma x64, puedes utilizar la acción `setup-java` y configurar los parámetros `java-version`, `distribution` y `architecture` en `'11'`, `'adopt'` y `x64`.
 
 {% raw %}
 ```yaml{:copy}

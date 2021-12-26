@@ -8,14 +8,15 @@ type Props = {
   className?: string
 }
 export const TruncateLines = (props: Props) => {
-  const Component = props.as || 'div'
+  const { as, maxLines, className, children } = props
+  const Component = as || 'div'
   return (
-    <Component className={cx('root', props.className)}>
-      {props.children}
+    <Component className={cx('root', className)}>
+      {children}
       <style jsx>{`
         .root {
           display: -webkit-box;
-          -webkit-line-clamp: ${props.maxLines};
+          -webkit-line-clamp: ${maxLines};
           -webkit-box-orient: vertical;
           overflow: hidden;
         }

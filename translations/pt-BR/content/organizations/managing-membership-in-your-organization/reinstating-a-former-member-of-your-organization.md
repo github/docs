@@ -39,8 +39,8 @@ Se a sua organização tem uma assinatura paga por usuário, uma licença não u
 
 ### Restabelecer ex-integrantes da organização
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}

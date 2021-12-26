@@ -7,7 +7,7 @@ redirect_from:
   - /articles/github-enterprise-cloud-addendum
   - /github/site-policy/github-enterprise-service-level-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 _These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._

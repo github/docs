@@ -56,6 +56,7 @@ prodname_pages: 'Páginas de GitHub'
 #CodeQL
 prodname_codeql: 'CodeQL'
 prodname_ql: 'QL'
+prodname_codeql_cli: 'CodeQL CLI'
 #Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'GitHub App'
@@ -77,8 +78,7 @@ prodname_debug: 'Depuración de GitHub'
 prodname_discussions: 'GitHub Discussions'
 #GitHub Packages
 prodname_registry: 'Registro del paquete de GitHub'
-prodname_github_container_registry: 'Registro de Contenedores de GitHub'
-prodname_container_registry: 'registro de contenedores'
+prodname_container_registry: 'Registro de contenedores'
 #GitHub Insights
 prodname_insights: 'GitHub Insights'
 #GitHub Sponsors
@@ -88,10 +88,9 @@ prodname_matching_fund: 'Fondo Compensatorio para Patrocinios de GitHub'
 prodname_GH_advanced_security: 'GitHub Advanced Security'
 prodname_advanced_security: 'Advanced Security'
 #Security Center
-prodname_security_center: 'Security Center'
+prodname_security_center: 'Centro de seguridad'
 #Codespaces
 prodname_codespaces: 'Codespaces'
-prodname_vs_codespaces: 'Codespaces de Visual Studio'
 prodname_github_codespaces: 'Acerca de GitHub Codespaces'
 #GitHub resources: blog, jobs, Learning Lab
 prodname_gcf: 'Soporte de la Comunidad de GitHub'

@@ -5,8 +5,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/withdrawing-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
 ---
 
 如果错误地发布了安全通告，可以联系 {% data variables.contact.contact_support %} 撤销。

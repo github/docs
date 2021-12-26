@@ -1,5 +1,8 @@
-const { RedisClient: InMemoryRedis } = require('redis-mock')
-const RedisAccessor = require('../../lib/redis-accessor')
+import { jest } from '@jest/globals'
+import redisMock from 'redis-mock'
+import RedisAccessor from '../../lib/redis-accessor.js'
+
+const { RedisClient: InMemoryRedis } = redisMock
 
 describe('RedisAccessor', () => {
   test('is a constructor', async () => {
@@ -11,7 +14,12 @@ describe('RedisAccessor', () => {
 
   test('has expected instance properties', async () => {
     const instance = new RedisAccessor()
-    expect(Object.keys(instance).sort()).toEqual(['_allowGetFailures', '_allowSetFailures', '_client', '_prefix'])
+    expect(Object.keys(instance).sort()).toEqual([
+      '_allowGetFailures',
+      '_allowSetFailures',
+      '_client',
+      '_prefix',
+    ])
   })
 
   test('has expected static methods', async () => {
@@ -121,14 +129,14 @@ describe('RedisAccessor', () => {
       expect(
         RedisAccessor.translateSetArguments({
           newOnly: true,
-          expireIn: 20
+          expireIn: 20,
         })
       ).toEqual(['NX', 'PX', 20])
 
       expect(
         RedisAccessor.translateSetArguments({
           existingOnly: true,
-          expireIn: 20
+          expireIn: 20,
         })
       ).toEqual(['XX', 'PX', 20])
 
@@ -136,48 +144,46 @@ describe('RedisAccessor', () => {
         RedisAccessor.translateSetArguments({
           existingOnly: true,
           expireIn: 20,
-          rollingExpiration: false
+          rollingExpiration: false,
         })
       ).toEqual(['XX', 'PX', 20, 'KEEPTTL'])
 
       expect(
         RedisAccessor.translateSetArguments({
           existingOnly: true,
-          rollingExpiration: false
+          rollingExpiration: false,
         })
       ).toEqual(['XX', 'KEEPTTL'])
     })
 
     test('throws a misconfiguration error if options `newOnly` and `existingOnly` are both set to true', async () => {
-      expect(
-        () => RedisAccessor.translateSetArguments({ newOnly: true, existingOnly: true })
-      ).toThrowError(
-        new TypeError('Misconfiguration: entry cannot be both new and existing')
-      )
+      expect(() =>
+        RedisAccessor.translateSetArguments({ newOnly: true, existingOnly: true })
+      ).toThrowError(new TypeError('Misconfiguration: entry cannot be both new and existing'))
     })
 
     test('throws a misconfiguration error if option `expireIn` is set to a finite number that rounds to less than 1', async () => {
-      const misconfigurationError = new TypeError('Misconfiguration: cannot set a TTL of less than 1 millisecond')
+      const misconfigurationError = new TypeError(
+        'Misconfiguration: cannot set a TTL of less than 1 millisecond'
+      )
 
-      expect(
-        () => RedisAccessor.translateSetArguments({ expireIn: 0 })
-      ).toThrowError(misconfigurationError)
+      expect(() => RedisAccessor.translateSetArguments({ expireIn: 0 })).toThrowError(
+        misconfigurationError
+      )
 
-      expect(
-        () => RedisAccessor.translateSetArguments({ expireIn: -1 })
-      ).toThrowError(misconfigurationError)
+      expect(() => RedisAccessor.translateSetArguments({ expireIn: -1 })).toThrowError(
+        misconfigurationError
+      )
 
-      expect(
-        () => RedisAccessor.translateSetArguments({ expireIn: 0.4 })
-      ).toThrowError(misconfigurationError)
+      expect(() => RedisAccessor.translateSetArguments({ expireIn: 0.4 })).toThrowError(
+        misconfigurationError
+      )
     })
 
     test('throws a misconfiguration error if option `rollingExpiration` is set to false but `newOnly` is set to true', async () => {
-      expect(
-        () => RedisAccessor.translateSetArguments({ newOnly: true, rollingExpiration: false })
-      ).toThrowError(
-        new TypeError('Misconfiguration: cannot keep an existing TTL on a new entry')
-      )
+      expect(() =>
+        RedisAccessor.translateSetArguments({ newOnly: true, rollingExpiration: false })
+      ).toThrowError(new TypeError('Misconfiguration: cannot keep an existing TTL on a new entry'))
     })
   })
 
@@ -233,8 +239,7 @@ Error: Redis ReplyError`
       await expect(instance.set('myKey', 'myValue')).rejects.toThrowError(
         new Error(`Failed to set value in Redis.
 Key: myPrefix:myKey
-Error: Redis ReplyError`
-        )
+Error: Redis ReplyError`)
       )
 
       expect(consoleErrorSpy).not.toBeCalled()
@@ -342,8 +347,7 @@ Error: Redis ReplyError`
       await expect(instance.get('myKey')).rejects.toThrowError(
         new Error(`Failed to get value from Redis.
 Key: myPrefix:myKey
-Error: Redis ReplyError`
-        )
+Error: Redis ReplyError`)
       )
 
       expect(consoleErrorSpy).not.toBeCalled()

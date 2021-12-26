@@ -1,0 +1,1 @@
+To organize discussions more granularly, you can apply labels. For example, you can use labels to indicate the status of a discussion to make triaging more efficient. Each repository has one shared set of labels for issues, pull requests, and discussions. Para obter mais informações, consulte "[Gerenciar etiquetas](/github/managing-your-work-on-github/managing-labels)".

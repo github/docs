@@ -5,5 +5,6 @@
 - Repository-Inhaber und -Administratoren können einen Pull Request sogar dann zusammenführen, wenn er keinen genehmigenden Review erhalten hat oder wenn ein Reviewer, der die Änderungen verlangt hat, die Organisation verlassen hat oder nicht verfügbar ist.
 - Wenn sowohl erforderliche Reviews wie das Verwerfen veralteter Reviews aktiviert sind und ein den Code verändernder Commit an den Branch eines genehmigten Pull Requests übermittelt wird, dann wird die Genehmigung verworfen. Der Pull Request muss erneut überprüft und genehmigt werden, bevor er zusammengeführt werden kann.
 - Wenn verschiedene offene Pull Requests jeweils einen Head-Branch aufweisen, der auf denselben Commit verweist, kannst Du sie nicht zusammenführen, wenn der Review bei einer oder bei beiden ausstehend ist oder abgelehnt wurde.
+- Pull request authors cannot approve their own pull requests.
 
 {% endtip %}

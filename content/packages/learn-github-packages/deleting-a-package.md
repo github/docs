@@ -1,22 +1,22 @@
 ---
 title: Deleting a package
-intro: 'You can delete a version of a {% if currentVersion != "github-ae@latest" %}private{% endif %} package using GraphQL or on {% data variables.product.product_name %}.'
+intro: 'You can delete a version of a {% ifversion not ghae %}private{% endif %} package using GraphQL or on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.packages %}'
 versions:
-  enterprise-server: '>=2.22 <3.1'
-  github-ae: '*'
+  ghes: '>=2.22 <3.1'
+  ghae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% if currentVersion != "github-ae@latest" %}At this time, {% data variables.product.prodname_registry %} on {% data variables.product.product_location %} does not support deleting public packages.{% endif %}
+{% ifversion not ghae %}At this time, {% data variables.product.prodname_registry %} on {% data variables.product.product_location %} does not support deleting public packages.{% endif %}
 
-You can only delete a specified version of a {% if currentVersion != "github-ae@latest" %}private {% endif %}package on {% data variables.product.product_name %} or with the GraphQL API. To remove an entire {% if currentVersion != "github-ae@latest" %}private {% endif %}package from appearing on {% data variables.product.product_name %}, you must delete every version of the package first.
+You can only delete a specified version of a {% ifversion not ghae %}private {% endif %}package on {% data variables.product.product_name %} or with the GraphQL API. To remove an entire {% ifversion not ghae %}private {% endif %}package from appearing on {% data variables.product.product_name %}, you must delete every version of the package first.
 
-### Deleting a version of a {% if currentVersion != "github-ae@latest" %}private {% endif %}package on {% data variables.product.product_name %}
+## Deleting a version of a {% ifversion not ghae %}private {% endif %}package on {% data variables.product.product_name %}
 
-To delete a {% if currentVersion != "github-ae@latest" %}private {% endif %}package version, you must have admin permissions in the repository.
+To delete a {% ifversion not ghae %}private {% endif %}package version, you must have admin permissions in the repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
@@ -29,7 +29,7 @@ To delete a {% if currentVersion != "github-ae@latest" %}private {% endif %}pack
 6. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
   ![Confirm package deletion button](/assets/images/help/package-registry/confirm-package-deletion.png)
 
-### Deleting a version of a {% if currentVersion != "github-ae@latest" %}private {% endif %}package with GraphQL
+## Deleting a version of a {% ifversion not ghae %}private {% endif %}package with GraphQL
 
 Use the `deletePackageVersion` mutation in the GraphQL API. You must use a token with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about tokens, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)."
 
@@ -43,7 +43,7 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-To find all of the {% if currentVersion != "github-ae@latest" %}private {% endif %}packages you have published to {% data variables.product.prodname_registry %}, along with the version IDs for the packages, you can use the `packages` connection through the `repository` object. You will need a token with the `read:packages` and `repo` scopes. For more information, see the [`packages`](/graphql/reference/objects#repository) connection or the [`PackageOwner`](/graphql/reference/interfaces#packageowner) interface.
+To find all of the {% ifversion not ghae %}private {% endif %}packages you have published to {% data variables.product.prodname_registry %}, along with the version IDs for the packages, you can use the `packages` connection through the `repository` object. You will need a token with the `read:packages` and `repo` scopes. For more information, see the [`packages`](/graphql/reference/objects#repository) connection or the [`PackageOwner`](/graphql/reference/interfaces#packageowner) interface.
 
 For more information about the `deletePackageVersion` mutation, see "[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)."
 

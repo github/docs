@@ -36,5 +36,5 @@ Después de que desconectas tu suscripción de Azure de tu cuenta empresarial, t
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 {% data reusables.enterprise-accounts.payment-information-tab %}
-1. Debajo de "Suscripción de Azure", a la derecha de la ID de suscripción que quieres desconectar, haz clic en **{% octicon "trashcan" aria-label="The trashcan icon" %}**.
+1. Debajo de "Suscripción de Azure", a la derecha de la ID de suscripción que quieres desconectar, haz clic en **{% octicon "trash" aria-label="The trash icon" %}**.
 1. Revisa el mensaje emergente y da clic en **Eliminar**.

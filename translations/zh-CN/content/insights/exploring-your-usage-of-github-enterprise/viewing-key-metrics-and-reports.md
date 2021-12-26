@@ -1,7 +1,6 @@
 ---
 title: 查看关键指标和报告
 intro: 您可以查看和过滤关键指标和报告，帮助了解并改进通过数据交付软件的过程。
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/viewing-and-filtering-key-metrics-and-reports
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can view key metrics and reports.'

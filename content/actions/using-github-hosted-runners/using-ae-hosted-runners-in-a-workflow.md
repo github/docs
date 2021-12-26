@@ -2,16 +2,17 @@
 title: Using AE hosted runners in a workflow
 intro: 'You can use labels to send jobs to a pool of {% data variables.actions.hosted_runner %}s.'
 versions:
-  github-ae: '*'
+  ghae: '*'
+shortTitle: Use AE hosted runners
 ---
 
 {% data reusables.actions.ae-beta %}
 
-### Using {% data variables.actions.hosted_runner %}s in a workflow
+## Using {% data variables.actions.hosted_runner %}s in a workflow
 
 Labels allow you to send workflow jobs to any {% data variables.actions.hosted_runner %} that includes that label. You can use the default labels, and you can create your own custom labels.
 
-### Using default labels to route jobs
+## Using default labels to route jobs
 
 An {% data variables.actions.hosted_runner %} receives a label when it is added to {% data variables.product.prodname_actions %}. The label is used to indicate where it was assigned.
 
@@ -23,7 +24,7 @@ runs-on: [AE-runner-for-CI]
 
 For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
-### Using custom labels to route jobs
+## Using custom labels to route jobs
 
 You can create custom labels and assign them to your {% data variables.actions.hosted_runner %}s at any time. Custom labels let you send jobs to particular types of runners, based on how they're labeled. 
 

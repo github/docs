@@ -30,6 +30,7 @@ function test() {
 {% endtip %}
 
 ### Resaltado de la sintaxis
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 Puedes agregar un identificador opcional de idioma para habilitar el resaltado de la sintaxis en tu bloque de código cercado.
 

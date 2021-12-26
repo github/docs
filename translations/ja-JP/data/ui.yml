@@ -3,15 +3,19 @@ header:
   github_docs: GitHub Docs
   contact: お問い合わせ
   notices:
-    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
-    release_candidate: '# The version name is rendered before the below text via includes/header-notification.html '' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'''
+    ghae_silent_launch: GitHub AEは、現在限定リリース中です。詳細については<a href="https://enterprise.github.com/contact">営業チームにお問い合わせ</a>ください。
+    release_candidate: '# バージョン名はincludes/header-notification.htmlを通じて下のテキストの前に表示されます。これは現在リリース候補として利用できます。詳しい情報については「<a href="/admin/overview/about-upgrades-to-new-releases">新しいリリースへのアップグレードについて</a>」を参照してください。'
     localization_complete: ドキュメントには頻繁に更新が加えられ、その都度公開されています。本ページの翻訳はまだ未完成な部分があることをご了承ください。最新の情報については、<a id="to-english-doc" href="/en">英語のドキュメンテーション</a>をご参照ください。本ページの翻訳に問題がある場合は<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">こちらまで</a>ご連絡ください。
     localization_in_progress: こんにちは！このページは開発中か、まだ翻訳中です。最新の正しい情報を得るには、<a id="to-english-doc" href="/en">英語のドキュメンテーション</a>にアクセスしてください。
-    early_access: '📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.'
-    ghes_release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
-    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
+    early_access: '📣 このURLは公に<b>共有しないで</b>ください。このページには、早期アクセスの機能に関する内容が含まれています。'
+    release_notes_use_latest: 最新のセキュリティ、パフォーマンス、バグフィックスのために、最新のリリースをお使いください。
+    #GHES release notes
+    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+release_notes:
+  banner_text_current: これらの変更は、次の1週間に渡って展開されます。
+  banner_text_past: これらの変更は、次の週の間にEnterpriseに展開されます：
 search:
   need_help: お困りですか？
   placeholder: トピックや製品などの検索
@@ -20,48 +24,44 @@ homepage:
   version_picker: バージョン
 toc:
   getting_started: はじめましょう
-  popular_articles: 人気
+  popular: 人気
   guides: ガイド
   whats_new: 更新情報
 pages:
   article_version: '記事のバージョン：'
   miniToc: 'ここには以下の内容があります:'
+  contributor_callout: この記事は、次の人によってコントリビュートされ、管理されています。
 errors:
   oops: 問題が発生しています。
   something_went_wrong: 何か問題が生じています。
   we_track_errors: 弊社はこれらのエラーを自動的に追跡しますが、問題が生じ続けるなら弊社に連絡をしてください。
   page_doesnt_exist: 指定されたページは存在しません。
 support:
-  still_need_help: Still need help?
+  still_need_help: 問題がまだ解決していませんか？
   contact_support: サポートへの連絡
-  ask_community: Ask the GitHub community
-helpfulness:
-  able_to_find: Did this doc help you?
+  ask_community: GitHubコミュニティで質問する
+survey:
+  able_to_find: このドキュメントは役立ちましたか？
   yes: true
   no: false
-  yes_feedback: Want to learn about new docs features and updates? Sign up for updates!
-  email_placeholder: email@example.com
-  no_feedback: We're continually improving our docs. We'd love to hear how we can do better.
-  comment_label: Let us know what we can do better
+  yes_feedback: 私たちはドキュメントを継続的に改善しています。うまくできていることをお聞かせください。
+  no_feedback: 私たちはドキュメントを継続的に改善しています。改善の方法をお聞かせください。
+  comment_yes_label: うまくできていることをお知らせください。
+  comment_no_label: 改善の方法をお知らせください。
   optional: 任意
   required: 必須
-  email_label: Can we contact you if we have more questions?
+  email_placeholder: email@example.com
+  email_label: さらに質問がある場合、ご連絡差し上げてもよいでしょうか？
   send: 送信
-  feedback: ありがとうございます。フィードバックが送信されました。
+  feedback: ありがとうございます！フィードバックをいただきました。
+  not_support: 返信が必要な場合は、サポートにお問い合わせください。
+  privacy_policy: プライバシーポリシー
 contribution_cta:
-  title: Help us make these docs great!
-  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
-  button: Make a contribution
+  title: これらのドキュメントを素晴らしいものにするのを手伝ってください！
+  body: GitHubのすべてのドキュメントはオープンソースです。間違っていたり、はっきりしないところがありましたか？Pull Requestをお送りください。
+  button: コントリビューションを行う
   or: OR,
-  to_guidelines: learn how to contribute.
-enterprise_releases_list:
-  title: Enterprise Server Releases
-  currently_supported: Currently supported
-  currently_supported_message: See <a href="https://github.com/enterprise">GitHub Enterprise</a> for information about the latest release.
-  deprecated: Deprecated
-  deprecated_message: 'These docs remain available but are no longer maintained:'
-  deprecated_developer: Deprecated on developer.github.com
-  deprecated_developer_message: 'These docs remain available on the legacy <a href="https://developer.github.com">developer site</a> but are no longer maintained:'
+  to_guidelines: コントリビューションの方法を学んでください。
 products:
   graphql:
     reference:
@@ -127,30 +127,53 @@ footer:
       press: プレス
       shop: ショップ
 product_landing:
-  quick_start: クイックスタート
-  reference_guides: Reference guides
+  quickstart: クイックスタート
+  reference: リファレンス
   overview: 概要
+  guides: ガイド
+  code_examples: コード例
+  search_code_examples: 検索コードの例
+  show_more: 詳細を表示
+  explore_people_and_projects: 人やプロジェクトを調べる
+  sorry: 検索結果はありません
+  no_example: 指定されたフィルタにあった例がないようです。
+  try_another: 他のフィルタを試すか、あなたのコードサンプルを追加してください。
+  no_result: 申し訳ありませんが、指定されたフィルタにマッチするガイドはありません。
+  learn: コードサンプルの追加方法を学ぶ
+  communities_using_discussions: ディスカッションを使用しているコミュニティ
+  add_your_community: コミュニティを追加する
+  sponsor_community: GitHub Sponsorsコミュニティ
+  supported_releases: サポートされているリリース
+  release_notes_for: リリースノート
+  upgrade_from: アップグレード元
+  browse_all_docs: すべてのドキュメントの参照
+  explore_release_notes: リリースノートを調べる
 product_sublanding:
-  start: Start
-  start_path: Start path
-  learning_paths: '{{ allProducts[currentProduct].name }} learning paths'
-  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
-  guides: '{{ allProducts[currentProduct].name }} guides'
+  start: 開始
+  start_path: 開始パス
+  learning_paths: '{{ productMap[currentProduct].name }}の学習パス'
+  learning_paths_desc: 学習パスは、特定の課題をマスターするのに役立つガイド集です。
+  guides: '{{ productMap[currentProduct].name }}のガイド'
   more_guides: その他のガイド
-  load_more: Load more guides
-  all_guides: 'All {{ allProducts[currentProduct].name }} guides'
-  no_result: Sorry, there is no guide that match your filter.
+  load_more: さらにガイドをロード
+  all_guides: 'すべての{{ productMap[currentProduct].name }}のガイド'
   filters:
     type: 種類
-    topic: Topic
+    topic: トピック
     all: すべて
   guide_types:
     overview: 概要
     quick_start: クイックスタート
     tutorial: チュートリアル
-    how_to: How-to guide
+    how_to: ハウツーガイド
     reference: リファレンス
 learning_track_nav:
-  prevGuide: Previous guide
-  nextGuide: Next guide
-contributor_callout: This article is contributed and maintained by
+  prevGuide: 前のガイド
+  nextGuide: 次のガイド
+toggle_images:
+  off: 画像はオフです。クリックして表示
+  on: 画像はオンです。クリックして隠す
+  hide_single: 画像を隠す
+  show_single: 画像を表示
+scroll_button:
+  scroll_to_top: 最上部へスクロール

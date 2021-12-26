@@ -16,7 +16,7 @@
   $ export CR_PAT=YOUR_TOKEN
   ```
 3. コンテナタイプにあったCLIを利用して、
-`ghcr.io`にある{% data variables.product.prodname_github_container_registry %}サービスにサインインしてください。
+`ghcr.io`にある{% data variables.product.prodname_container_registry %}サービスにサインインしてください。
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin

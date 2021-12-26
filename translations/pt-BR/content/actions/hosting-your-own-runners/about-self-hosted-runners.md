@@ -65,6 +65,7 @@ Existem alguns limites sobre o uso de {% data variables.product.prodname_actions
 - **Tempo de fila de tarefas** - Cada trabalho para executores auto-hospedados pode ser enfileirado por um máximo de 24 horas. Se um executor auto-hospedado não começar a executar a tarefa dentro deste limite, a tarefa será encerrada e não será concluída.
 {% data reusables.github-actions.usage-api-requests %}
 - **Matriz de vagas** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
 ### Continuidade do fluxo de trabalho para executores auto-hospedados
 
@@ -76,8 +77,8 @@ Os sistemas operacionais a seguir são compatíveis com o aplicativo de execuç�
 
 #### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 ou posterior
+- CentOS 7 ou posterior
 - Oracle Linux 7
 - Fedora 29 ou versão posterior
 - Debian 9 ou versão posterior

@@ -2,7 +2,7 @@
 
 The code in this directory is destined to run in a web browser!
 
-The [index.js](index.js) file in this directory is bundled by [Webpack](https://github.com/webpack/webpack). In development, we use [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) to bundle automatically while running the server. In production, we run `webpack --mode production` via `npm run build`.
+The [index.ts](index.ts) file in this directory is bundled by [Webpack](https://github.com/webpack/webpack). In development, we use [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) to bundle automatically while running the server. In production, we run `webpack --mode production` via `npm run build`.
 
 This file is then referenced in the footer:
 
@@ -11,7 +11,7 @@ This file is then referenced in the footer:
 ```
 
 Every other file in this directory is written as a module to
-be required in `index.js`. They all have this format:
+be required in `index.ts`. They all have this format:
 
 ```js
 module.exports = () => {
@@ -20,7 +20,7 @@ module.exports = () => {
 }
 ```
 
-In development, the bundle will recompile every time a file used by `javascripts/index.js` is changed. This 
+In development, the bundle will recompile every time a file used by `javascripts/index.ts` is changed. This 
 ensures that you're always getting an up-to-date version of the script.
 
 In production, the bundle is compiled during build-time.

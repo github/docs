@@ -1,13 +1,12 @@
 ---
 title: Managing discussions for your community
 shortTitle: Managing discussions
-intro: 'You can enable and configure discussions for your repository, and you can use tools on {% data variables.product.product_name %} to moderate conversations among community members.'
+intro: 'You can enable and configure {% data variables.product.prodname_discussions %} for your repository, and you can use tools on {% data variables.product.product_name %} to moderate conversations among community members.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+children:
+  - /managing-discussions-in-your-repository
+  - /managing-categories-for-discussions-in-your-repository
+  - /moderating-discussions
 ---
-
 {% data reusables.discussions.beta %}
-
-{% link_in_list /managing-discussions-in-your-repository %}
-{% link_in_list /managing-categories-for-discussions-in-your-repository %}
-{% link_in_list /moderating-discussions %}

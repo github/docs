@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Security
 ---
 
 ### About alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}

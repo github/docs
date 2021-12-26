@@ -1,0 +1,1 @@
+There is a limit of ten tokens that are issued per user/application/scope combination. If the application requests enough tokens to go over one of the limits, older tokens _with the same scope being requested_ will stop working.

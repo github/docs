@@ -1,7 +1,7 @@
 ---
 user_migrations_intro: >-
-  You can use this API to review, backup, or migrate your user data stored on {% data variables.product.product_name %}.com.
+  このAPIを使って{% data variables.product.product_name %}.comに保存されているユーザデータのレビュー、バックアップ、移行を行えます。
 organization_migrations_intro: >-
-  The organization migrations API lets you move a repository from GitHub to {% data variables.product.prodname_ghe_server %}.
+  Organization移行APIを使うと、リポジトリをGitHubから{% data variables.product.prodname_ghe_server %}に移動できます。
 source_imports_intro: >-
-  The Source Import API lets you start an import from a Git, Subversion, Mercurial, or Team Foundation Server source repository. This is the same functionality as the {% data variables.product.prodname_dotcom %} Importer. For more information, see "[Importing a repository with {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)."
+  ソースインポートAPIを使用すると、Git、Subversion、Mercurial、Team Foundation Version Controlソースリポジトリからインポートを開始できます。これは{% data variables.product.prodname_dotcom %} Importerと同じ機能です。詳しい情報については「[{% data variables.product.prodname_dotcom %} Importerでのリポジトリのインポート](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)」を参照してください。

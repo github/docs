@@ -1,4 +1,3 @@
-
 /* Breadcrumbs
 ------------------------------------------------------------------------------*/
 
@@ -12,7 +11,7 @@
 .breadcrumbs span:not(:last-child)::after {
   content: "/";
   color: var(--color-auto-gray-4);
-  padding-right: $spacer-1;
+  padding-right: $spacer-2;
   padding-left: $spacer-2;
   display: inline-block;
 }

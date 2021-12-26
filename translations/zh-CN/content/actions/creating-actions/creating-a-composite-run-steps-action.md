@@ -21,6 +21,8 @@ topics:
 
 完成此项目后，您应会了解如何构建自己的组合运行步骤操作以及在工作流程中测试它。
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### 基本要求
 
 在开始之前，您将要创建 {% data variables.product.product_name %} 仓库。
@@ -121,13 +123,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - uses: actions/checkout@v2
-    - id: foo
-      uses: actions/hello-world-composite-run-steps-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }}
-      shell: bash
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: actions/hello-world-composite-run-steps-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
 ```
 {% endraw %}
 

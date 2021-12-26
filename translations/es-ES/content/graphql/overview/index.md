@@ -5,18 +5,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+children:
+  - /about-the-graphql-api
+  - /public-schema
+  - /schema-previews
+  - /breaking-changes
+  - /changelog
+  - /explorer
+  - /resource-limitations
 ---
 
-{% link_in_list /about-the-graphql-api %}
-
-{% link_in_list /public-schema %}
-
-{% link_in_list /schema-previews %}
-
-{% link_in_list /breaking-changes %}
-
-{% link_in_list /changelog %}
-
-{% link_in_list /explorer %}
-
-{% link_in_list /resource-limitations %}

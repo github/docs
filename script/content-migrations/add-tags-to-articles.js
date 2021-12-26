@@ -1,44 +1,45 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import xXlsxPopulate from 'xlsx-populate'
+import readFrontmatter from '../../lib/read-frontmatter.js'
 
-const fs = require('fs')
-const path = require('path')
-const XlsxPopulate = require('xlsx-populate')
-const readFrontmatter = require('../../lib/read-frontmatter')
+const XlsxPopulate = xXlsxPopulate // this is an optional dependency, install with `npm i --include=optional`
 
 const START_ROW = 2
 
 // Load an existing workbook
-XlsxPopulate.fromFileAsync('./SanitizedInformationArchitecture.xlsx')
-  .then(workbook => {
-    const sheet = workbook.sheet('New content architecture')
+XlsxPopulate.fromFileAsync('./SanitizedInformationArchitecture.xlsx').then((workbook) => {
+  const sheet = workbook.sheet('New content architecture')
 
-    for (let row = START_ROW; sheet.row(row).cell(1).value() !== undefined; row++) {
-      const pageUrl = sheet.row(row).cell(1).hyperlink()
-      // article, learning path, or category
-      const contentStructure = sheet.row(row).cell(2).value()
-      // comma-separated keywords
-      const topics = sheet.row(row).cell(5).value()
+  for (let row = START_ROW; sheet.row(row).cell(1).value() !== undefined; row++) {
+    const pageUrl = sheet.row(row).cell(1).hyperlink()
+    // article, learning path, or category
+    const contentStructure = sheet.row(row).cell(2).value()
+    // comma-separated keywords
+    const topics = sheet.row(row).cell(5).value()
 
-      // The spreadsheet cell sometimes contains the string "null"
-      if (!topics || topics === 'null') continue
+    // The spreadsheet cell sometimes contains the string "null"
+    if (!topics || topics === 'null') continue
 
-      // enterprise admin article urls will always include enterprise-server@3.0
-      let fileName = pageUrl.replace('https://docs.github.com/en', 'content')
-        .replace('enterprise-server@3.0', '')
+    // enterprise admin article urls will always include enterprise-server@3.0
+    let fileName = pageUrl
+      .replace('https://docs.github.com/en', 'content')
+      .replace('enterprise-server@3.0', '')
 
-      // Only category files use the index.md format
-      if (contentStructure === 'article' || contentStructure === 'learning path') {
-        fileName = fileName + '.md'
-      } else {
-        fileName = fileName + '/index.md'
-      }
-
-      const topicsArray = topics.split(',').map(topic => topic.trim()) || []
-      updateFrontmatter(path.join(process.cwd(), fileName), topicsArray)
+    // Only category files use the index.md format
+    if (contentStructure === 'article' || contentStructure === 'learning path') {
+      fileName = fileName + '.md'
+    } else {
+      fileName = fileName + '/index.md'
     }
-  })
 
-function updateFrontmatter (filePath, newTopics) {
+    const topicsArray = topics.split(',').map((topic) => topic.trim()) || []
+    updateFrontmatter(path.join(process.cwd(), fileName), topicsArray)
+  }
+})
+
+function updateFrontmatter(filePath, newTopics) {
   const articleContents = fs.readFileSync(filePath, 'utf8')
   const { content, data } = readFrontmatter(articleContents)
 
@@ -49,7 +50,7 @@ function updateFrontmatter (filePath, newTopics) {
     topics = topics.concat(data.topics)
   }
 
-  newTopics.forEach(topic => {
+  newTopics.forEach((topic) => {
     topics.push(topic)
   })
 

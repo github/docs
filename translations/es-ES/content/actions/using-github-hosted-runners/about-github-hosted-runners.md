@@ -75,10 +75,9 @@ Para encontrar una lista general de las herramientas que se incluyen en cada sis
 
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
-* [Ubuntu 16.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1604-README.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
-* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
+* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
 
 Los ejecutores alojados en {% data variables.product.prodname_dotcom %} incluyen las herramientas integradas predeterminadas del sistema operativo, además de los paquetes enumerados en las referencias anteriores. Por ejemplo, los ejecutores de Ubuntu y macOS incluyen `grep`, `find` y `which`, entre otras herramientas predeterminadas.
@@ -90,6 +89,10 @@ Te recomendamos utilizar acciones para interactuar con el software instalado en 
 - Garantiza que las versiones de herramienta que se utilizan en tu flujo de trabajo permanecerán iguales sin importar las actualizaciones de software
 
 Si hay alguna herramienta que quieras solicitar, abre una propuesta en [actions/virtual-environments](https://github.com/actions/virtual-environments). Este repositorio también contiene anuncios sobre todas las actualizaciones de software principales en los ejecutores.
+
+#### Instalar software adicional
+
+Puedes instalar software adicional en los ejecutores hospedados en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección [Personalizar los ejecutores hospedados en GitHub](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
 
 ### Direcciones IP
 
@@ -130,6 +133,6 @@ Las acciones que se ejecutan en contenedores Docker tienen directorios estático
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Leer más
-- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 
 {% endif %}

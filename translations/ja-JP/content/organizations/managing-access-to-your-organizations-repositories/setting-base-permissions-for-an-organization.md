@@ -23,9 +23,8 @@ Organization のリポジトリに対する管理者権限があるユーザが�
 
 ### 基本レベルの権限の設定
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. [Base permissions] で、ドロップダウンを使用して新しい基本レベルの権限を選択します。 ![[base permissions] ドロップダウンから新しい権限レベルを選択する](/assets/images/help/organizations/base-permissions-drop-down.png)
 6. 変更を確認します。 確定するために、[**Change default permission to PERMISSION**] をクリックします。 ![基本レベルの権限の変更を確認して確定する](/assets/images/help/organizations/base-permissions-confirm.png)

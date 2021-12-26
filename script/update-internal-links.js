@@ -1,23 +1,29 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+import astFromMarkdown from 'mdast-util-from-markdown'
+import visit from 'unist-util-visit'
+import { loadPages, loadPageMap } from '../lib/page-data.js'
+import loadSiteData from '../lib/site-data.js'
+import loadRedirects from '../lib/redirects/precompile.js'
+import { getPathWithoutLanguage, getPathWithoutVersion } from '../lib/path-utils.js'
+import xAllVersions from '../lib/all-versions.js'
+import frontmatter from '../lib/read-frontmatter.js'
+import renderContent from '../lib/render-content/index.js'
+import patterns from '../lib/patterns.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const fs = require('fs')
-const walk = require('walk-sync')
-const path = require('path')
-const astFromMarkdown = require('mdast-util-from-markdown')
-const visit = require('unist-util-visit')
-const { loadPages, loadPageMap } = require('../lib/pages')
-const loadSiteData = require('../lib/site-data')
-const loadRedirects = require('../lib/redirects/precompile')
-const { getPathWithoutLanguage, getPathWithoutVersion } = require('../lib/path-utils')
-const allVersions = Object.keys(require('../lib/all-versions'))
-const frontmatter = require('../lib/read-frontmatter')
-const renderContent = require('../lib/render-content')
-const patterns = require('../lib/patterns')
+const allVersions = Object.keys(xAllVersions)
 
 const walkFiles = (pathToWalk) => {
-  return walk(path.posix.join(__dirname, '..', pathToWalk), { includeBasePath: true, directories: false })
-    .filter(file => file.endsWith('.md') && !file.endsWith('README.md'))
-    .filter(file => !file.includes('/early-access/')) // ignore EA for now
+  return walk(path.posix.join(__dirname, '..', pathToWalk), {
+    includeBasePath: true,
+    directories: false,
+  })
+    .filter((file) => file.endsWith('.md') && !file.endsWith('README.md'))
+    .filter((file) => !file.includes('/early-access/')) // ignore EA for now
 }
 
 const allFiles = walkFiles('content').concat(walkFiles('data'))
@@ -26,7 +32,7 @@ const allFiles = walkFiles('content').concat(walkFiles('data'))
 // Hacky but it captures the current rare edge cases.
 const linkInlineMarkup = {
   emphasis: '*',
-  strong: '**'
+  strong: '**',
 }
 
 const currentVersionWithSpacesRegex = /\/enterprise\/{{ currentVersion }}/g
@@ -48,7 +54,7 @@ const currentVersionWithoutSpaces = '/enterprise/{{currentVersion}}'
 
 main()
 
-async function main () {
+async function main() {
   console.log('Working...')
   const pageList = await loadPages()
   const pageMap = await loadPageMap(pageList)
@@ -59,7 +65,7 @@ async function main () {
     pages: pageMap,
     redirects,
     site: site.en.site,
-    currentLanguage: 'en'
+    currentLanguage: 'en',
   }
 
   for (const file of allFiles) {
@@ -75,7 +81,7 @@ async function main () {
     // We can't do async functions within visit, so gather the nodes upfront
     const nodesPerFile = []
 
-    visit(ast, node => {
+    visit(ast, (node) => {
       if (node.type !== 'link') return
       if (!node.url.startsWith('/')) return
       if (node.url.startsWith('/assets')) return
@@ -125,9 +131,7 @@ async function main () {
         versionMatch = oldLink.match(/(enterprise-server(?:@.[^/]*?)?)\//)
 
         // Remove the fragment for now.
-        linkToCheck = linkToCheck
-          .replace(/#.*$/, '')
-          .replace(patterns.trailingSlash, '$1')
+        linkToCheck = linkToCheck.replace(/#.*$/, '').replace(patterns.trailingSlash, '$1')
 
         // Try to find the rendered link in the set of pages!
         foundPage = findPage(linkToCheck, pageMap, redirects)
@@ -140,22 +144,31 @@ async function main () {
       }
 
       if (!foundPage) {
-        console.error(`Can't find link in pageMap! ${oldLink} in ${file.replace(process.cwd(), '')}`)
+        console.error(
+          `Can't find link in pageMap! ${oldLink} in ${file.replace(process.cwd(), '')}`
+        )
         process.exit(1)
       }
 
       // If the original link includes a fragment OR the original title includes Liquid, do not change;
       // otherwise, use the found page title. (We don't want to update the title if a fragment is found because
       // the title likely points to the fragment section header, not the page title.)
-      const newTitle = fragmentMatch || oldTitle.includes('{%') || !hasQuotesAroundLink ? oldTitle : foundPage.title
+      const newTitle =
+        fragmentMatch || oldTitle.includes('{%') || !hasQuotesAroundLink
+          ? oldTitle
+          : foundPage.title
 
       // If the original link includes a fragment, append it to the found page path.
       // Also remove the language code because Markdown links don't include language codes.
-      let newLink = getPathWithoutLanguage(fragmentMatch ? foundPage.path + fragmentMatch[1] : foundPage.path)
+      let newLink = getPathWithoutLanguage(
+        fragmentMatch ? foundPage.path + fragmentMatch[1] : foundPage.path
+      )
 
       // If the original link includes a hardcoded version, preserve it; otherwise, remove versioning
       // because Markdown links don't include versioning.
-      newLink = versionMatch ? `/${versionMatch[1]}${getPathWithoutVersion(newLink)}` : getPathWithoutVersion(newLink)
+      newLink = versionMatch
+        ? `/${versionMatch[1]}${getPathWithoutVersion(newLink)}`
+        : getPathWithoutVersion(newLink)
 
       let newMarkdownLink = `[${inlineMarkup}${newTitle}${inlineMarkup}](${newLink})`
 
@@ -180,18 +193,18 @@ async function main () {
   console.log('Done!')
 }
 
-function findPage (tryPath, pageMap, redirects) {
+function findPage(tryPath, pageMap, redirects) {
   if (pageMap[tryPath]) {
     return {
       title: pageMap[tryPath].title,
-      path: tryPath
+      path: tryPath,
     }
   }
 
   if (pageMap[redirects[tryPath]]) {
     return {
       title: pageMap[redirects[tryPath]].title,
-      path: redirects[tryPath]
+      path: redirects[tryPath],
     }
   }
 }

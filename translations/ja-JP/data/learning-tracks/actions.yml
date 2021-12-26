@@ -8,6 +8,7 @@ getting_started:
     - /actions/learn-github-actions/essential-features-of-github-actions
     - /actions/learn-github-actions/managing-complex-workflows
     - /actions/learn-github-actions/security-hardening-for-github-actions
+  featured_track: true
 continuous_integration:
   title: 'コードのビルドとテスト'
   description: 'まさにリポジトリ内に、カスタムの継続的インテグレーション（CI）を作成できます。'

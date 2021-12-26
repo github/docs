@@ -23,13 +23,19 @@ versions:
 
 有关管理仓库讨论的更多信息，请参阅“[管理仓库中的讨论](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)”。
 
-### 关于讨论的类别和格式
+### 关于讨论组织
+
+您可以使用类别和标签组织讨论。
 
 {% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
 
 对于采用问题/答案格式的讨论，讨论中的单个评论可以标记为讨论的答案。 {% data reusables.discussions.github-recognizes-members %}
 
+{% data reusables.discussions.about-announcement-format %}
+
 更多信息请参阅“[管理仓库中讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)”。
+
+{% data reusables.discussions.you-can-label-discussions %}
 
 ### 讨论的最佳实践
 

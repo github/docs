@@ -8,11 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+children:
+  - /getting-started-with-the-api
+  - /git-automation-with-oauth-tokens
+  - /about-webhooks
 ---
 
-
-### Inhaltsverzeichnis
-
-{% link_in_list /getting-started-with-the-api %}
-{% link_in_list /git-automation-with-oauth-tokens %}
-{% link_in_list /about-webhooks %}

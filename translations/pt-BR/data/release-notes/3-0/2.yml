@@ -30,6 +30,7 @@ sections:
     - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
     - reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.
     - 'Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).'
+    - 'When deleting a branch after merging a pull request, an error message appears although the branch deletion succeeds.'
     - |
       Users may experience assets such as avatars not loading, or a failure to push/pull code. This may be caused by a PID mismatch in the `haproxy-cluster-proxy` service. To determine if you have an affected instance:
 

@@ -1,7 +1,6 @@
 ---
 title: Acerca de los datos en la información de GitHub
 intro: 'Los datos incluidos en las métricas de {% data variables.product.prodname_insights %} son altamente personalizables.'
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: ''
 versions:
   enterprise-server: '*'

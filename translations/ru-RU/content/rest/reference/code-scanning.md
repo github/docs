@@ -7,8 +7,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+type: reference
 topics:
-  - api
+  - API
+  - Code scanning
+  - REST
 ---
 
 {% data reusables.code-scanning.beta %}

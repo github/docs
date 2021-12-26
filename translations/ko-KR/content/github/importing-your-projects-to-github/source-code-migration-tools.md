@@ -12,7 +12,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-We recommend using [GitHub Importer](/articles/about-github-importer) to import projects from Subversion, Mercurial, Team Foundation Server, or another Git repository. You can also use these external tools to convert your project to Git.
+We recommend using [GitHub Importer](/articles/about-github-importer) to import projects from Subversion, Mercurial, Team Foundation Version Control (TFVC), or another Git repository. You can also use these external tools to convert your project to Git.
 
 {% endif %}
 
@@ -32,12 +32,9 @@ We recommend these tools for converting Subversion repositories to Git:
 
 We recommend [hg-fast-export](https://github.com/frej/fast-export) for converting Mercurial repositories to Git.
 
-### Importing from Team Foundation Server
+### Importing from TFVC
 
-We recommend these tools for moving changes between Team Foundation Server and Git:
-
-- [git-tfs](https://github.com/git-tfs/git-tfs)
-- [Git-TF](https://gittf.codeplex.com/)
+We recommend [git-tfs](https://github.com/git-tfs/git-tfs) for moving changes between TFVC and Git.
 
 {% tip %}
 

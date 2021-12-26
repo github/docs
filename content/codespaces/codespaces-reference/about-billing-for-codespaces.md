@@ -2,13 +2,14 @@
 title: About billing for Codespaces
 intro: 'When {% data variables.product.prodname_codespaces %} becomes generally available, you will be billed for storage and compute usage.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/about-billing-for-codespaces
   - /codespaces/getting-started-with-codespaces/about-billing-for-codespaces
-type: reference  
+type: reference
 topics:
   - Codespaces
+shortTitle: Billing
 ---
 
 {% data reusables.codespaces.release-stage %}

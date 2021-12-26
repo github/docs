@@ -30,8 +30,8 @@ Der Round-Robin-Algorithmus wählt die Prüfer basierend auf den Empfängern der
 Der Lastenausgleich-Algorithmus (load balance algorithm) wählt Prüfer basierend auf der Gesamtzahl ihrer neuesten Review-Anforderungen aus und berücksichtigt die Anzahl der ausstehenden Reviews jedes Mitglieds. Der Lastenausgleich-Algorithmus versucht sicherzustellen, dass jedes Teammitglied eine gleiche Anzahl von Pull Requests innerhalb eines Zeitraums von 30 Tagen überprüft.
 
 ### Code-Review-Zuweisungen konfigurieren
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. Klicke in der linken Seitenleiste auf **Code review assignment** (Code-Review-Zuweisung). ![Schaltfläche „Code review assignment" (Code-Review-Zuweisung)](/assets/images/help/teams/review-assignment-button.png)
@@ -43,8 +43,8 @@ Der Lastenausgleich-Algorithmus (load balance algorithm) wählt Prüfer basieren
 11. Klicke auf **Save changes** (Änderungen speichern).
 
 ### Code-Review-Zuweisungen deaktivieren
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. Wähle **Enable auto assignment** (automatische Zuweisung aktivieren) um das Häkchen zu entfernen. ![Schaltfläche „Code review assignment" (Code-Review-Zuweisung)](/assets/images/help/teams/review-assignment-enable.png)

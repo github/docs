@@ -4,8 +4,8 @@ intro: You can invite someone to manage your user owned repositories if you are 
 versions:
   free-pro-team: '*'
 topics:
-  - accounts
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 ### About successors

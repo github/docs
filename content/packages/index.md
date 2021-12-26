@@ -12,15 +12,14 @@ featuredLinks:
     - /packages/learn-github-packages/installing-a-package
   popular:
     - /packages/working-with-a-github-packages-registry/working-with-the-npm-registry
-    - /packages/working-with-a-github-packages-registry/working-with-the-docker-registry
+    - '{% ifversion fpt %}/packages/working-with-a-github-packages-registry/working-with-the-container-registry{% else %}/packages/working-with-a-github-packages-registry/working-with-the-docker-registry{% endif %}'
     - /packages/learn-github-packages
     - /packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry
   guideCards:
-    - /packages/working-with-a-github-packages-registry/working-with-the-docker-registry
-    - /packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry
+    - '{% ifversion fpt %}/packages/working-with-a-github-packages-registry/working-with-the-container-registry{% else %}/packages/working-with-a-github-packages-registry/working-with-the-docker-registry{% endif %}'
     - /packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry
 changelog:
-  label: 'packages'
+  label: packages
   prefix: 'Packages: '
 redirect_from:
   - /github/managing-packages-with-github-packages
@@ -28,13 +27,13 @@ redirect_from:
   - /github/managing-packages-with-github-package-registry
 layout: product-landing
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+children:
+  - /quickstart
+  - /learn-github-packages
+  - /working-with-a-github-packages-registry
+  - /managing-github-packages-using-github-actions-workflows
 ---
-
 <!--This section is needed to determine the order of the left sidebar for now-->
-<!-- {% link_with_intro /quickstart %}  -->
-<!-- {% link_with_intro /learn-github-packages %} -->
-<!-- {% link_with_intro /working-with-a-github-packages-registry %} -->
-<!-- {% link_with_intro /managing-github-packages-using-github-actions-workflows %} -->

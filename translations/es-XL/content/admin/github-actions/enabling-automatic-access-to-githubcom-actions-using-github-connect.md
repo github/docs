@@ -8,7 +8,9 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: next
 topics:
+  - Actions
   - Enterprise
+  - GitHub Connect
 ---
 
 {% data reusables.actions.enterprise-beta %}

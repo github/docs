@@ -20,9 +20,8 @@ Wenn Du SAML SSO aktivierst, aber nicht erzwingst, können Organisationsmitglied
 
 Bevor Du SAML SSO in Deiner Organisation erzwingst, stelle sicher, dass Du den Identitätsanbieter (IdP Identity Provider) eingerichtet hast. Weitere Informationen findest Du unter „[Auf die Erzwingung von SAML Single Sign-On in Deiner Organisation vorbereiten](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization).“
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. Wähle unter „SAML single sign-on“ (SAML Single Sign-On) **Enable SAML authentication** (SAML-Authentifizierung aktivieren) aus. ![Kontrollkästchen zum Aktivieren von SAML SSO](/assets/images/help/saml/saml_enable.png)
 

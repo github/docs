@@ -1,0 +1,2 @@
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}2. Organizationの隣の**Settings（設定）**をクリックしてください。
+  ![設定ボタン](/assets/images/help/organizations/settings-button.png){% else %}2. Organization名の下で、{% octicon "gear" aria-label="The Settings gear icon" %}**Settings（設定）**をクリックしてください。 ![The settings button](/assets/images/help/organizations/organization-settings-tab.png){% endif %}

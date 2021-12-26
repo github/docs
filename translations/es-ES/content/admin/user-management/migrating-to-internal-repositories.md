@@ -7,8 +7,12 @@ redirect_from:
 permissions: Site administrators can migrate to internal repositories.
 versions:
   enterprise-server: '>=2.20'
+type: how_to
 topics:
   - Enterprise
+  - Privacy
+  - Repositories
+  - Security
 ---
 
 ### Acerca de los repositorios internos
@@ -34,6 +38,12 @@ El script de migración no tendrá efecto si no tienes el modo privado habilitad
 ### Ejecutar la migración
 
 1. Conecta con el shell administrativo. Para obtener más información, consulta "[Acceder al shell administrativo (SSH)](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)."
+{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+2. Ejecuta el comando de migración.
+   ```shell
+   github-env bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w |  tee -a /tmp/convert_public_ghes_repos_to_internal.log
+   ```
+{% else %}
 2. Navega hacia el directorio `/data/github/current`.
    ```shell
    cd /data/github/current
@@ -42,6 +52,7 @@ El script de migración no tendrá efecto si no tienes el modo privado habilitad
    ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
+{% endif %}
 
 Se mostrará el registro de salida en la terminal y quedará en `/tmp/convert_public_ghes_repos_to_internal.log`.
 

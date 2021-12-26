@@ -61,6 +61,10 @@
   term: Azure
   description: Eine Microsoft-Cloud-Computing-Plattform.
 - 
+  term: Azure DevOps
+  description: >-
+    A Microsoft product offering source code hosting, issues, CI/CD pipelines, and other developer services. The on-premises version was formerly known as Team Foundation Server. The cloud-hosted version was formerly known as Visual Studio Team Services.
+- 
   term: leeres Repository
   description: >-
     Ein leeres Repository ist normalerweise ein entsprechend benanntes Verzeichnis mit einem .git-Suffix, das keine lokal ausgecheckte Kopie der Dateien unter Revisionskontrolle besitzt. Alle Git-Verwaltungs- und -Kontrolldateien, die normalerweise im ausgeblendeten .git-Unterverzeichnis vorhanden sind, sind demnach stattdessen direkt im repository.git-Verzeichnis vorhanden, und es sind keine anderen Dateien vorhandenen und ausgecheckt. In der Regel stellen Publisher von öffentlichen Repositorys leere Repositorys zur Verfügung.
@@ -648,7 +652,7 @@
 - 
   term: Team Foundation Server
   description: >-
-    Ein Microsoft-Produkt, das Quellcodeverwaltungs- und andere Teamdienste bereitstellt.
+    The former name of a Microsoft product that provides source code management and other team services. Now known as Azure DevOps Server.
 - 
   term: Textile
   description: >-

@@ -1,6 +1,6 @@
 ---
-name: Improve existing docs
-about: Make a suggestion to improve our existing documentation.
+name: Improve existing content
+about: Make a suggestion to improve the content in an existing article.
 title: ''
 labels:
 - content

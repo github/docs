@@ -1,5 +1,5 @@
 ---
-title: GitHub Data Protection Agreement (Non-Enterprise Customers)
+title: Contrato de protección de datos de GitHub (para clientes no empresariales)
 redirect_from:
   - /github/site-policy/github-data-protection-addendum
   - /github/site-policy-deprecated/github-data-protection-addendum
@@ -7,11 +7,11 @@ versions:
   free-pro-team: '*'
 ---
 
-_These terms apply to non-enterprise customers. They also apply to enterprise customers who licensed GitHub offerings prior to January 4, 2021. Enterprise customers who purchase GitHub offerings after that date are directed to https://www.github.com/enterprise-legal for current terms._
+_Estas condiciones aplican a los clientes no empresariales. También aplican a los clientes empresariales que licenciaron ofertas de GitHub antes del 4 de enero de 2021. Los clientes empresariales que compraron las ofertas de GitHub después de esta fecha se redirigirán a https://www.github.com/enterprise-legal para ver las condiciones actuales._
 
 ## INTRODUCCIÓN
 
-The parties agree that the GitHub Data Protection Agreement (Non-Enterprise Customers) (**“DPA”**) sets forth their obligations with respect to the processing of Customer Personal Data in connection with the GitHub Enterprise Cloud hosted service (the **“Service”**). GitHub makes the commitments in this DPA to all non-enterprise customers using the Service. Separate terms, including different privacy terms, govern Customer’s use of non-GitHub products.
+Las partes concuerdan en que el Acuerdo de protección de datos de GitHub (para clientes no empresariales) (**"DPA"**) enuncia sus obligaciones con respecto al procesamiento de los Datos Personales del cliente en conexión con el servicio hospedado de GitHub Enterprise Cloud (el**"Servicio"**). GitHub se compromete en este DPA con todos los clientes no empresariales que utilicen el Servicio. Las condiciones por separado, incluyendo las condiciones de privacidad diferentes, rigen el uso del cliente para los productos ajenos a GitHub.
 
 En caso de que exista cualquier conflicto o inconsistencia entre la DPA y cualquier otra condición en el acuerdo del cliente con Github, la DPA deberá prevalecer. Las disposiciones de la DPA sustituyen cualquier disposición que entre en conflicto con la Declaración de Privacidad de GitHub que pudiera aplicarse de otra forma al procesamiento de los Datos Personales del Cliente como se define en el presente documento. Para mayor claridad, en apego a la Cláusula 10 de las Cláusulas Contractuales Estándar en el Adjunto 1, las Cláusulas Contractuales Estándar prevalecerán sobre cualquier otra condición en la DPA.
 
@@ -90,7 +90,7 @@ e.  *Las obligaciones y los derechos del Cliente* están establecidos en el Acue
 Tomando en cuenta las tecnologías más actuales, los costos de implementación, y la naturaleza, alcance, contexto y propósito de procesamiento, así como el riesgo de variar la probabilidad y severidad de los derechos y libertades de las personas naturales, GitHub implementará medidas técnicas y organizacionales adecuadas para garantizar un nivel de seguridad adecuado para los riesgos, tales como aquellas contra la destrucción accidental o ilegal, o contra la pérdida, alteración, o contra el acceso o divulgación no autorizados que se presenten debido al Procesamiento de los Datos. GitHub supervisará regularmente el cumplimiento de estas medidas y continuará tomando las debidas salvaguardias durante la vigencia del Acuerdo.
 
 #### 4.2 Respuesta a Incidentes y Notificación de Filtración.
-GitHub will comply with Applicable Data Protection Laws.
+GitHub cumplirá con las Leyes de Protección de Datos Aplicables.
 
 #### 4.3 Personal de GitHub.
 GitHub representa y garantiza que tomará los pasos razonables para asegurarse de que todo su personal que maneje Datos Protegidos haya acordado mantener dichos datos como confidenciales y haya recibido capacitación adecuada para cumplir con esta Adenda y con las Leyes de Protección de Datos Aplicables.
@@ -326,7 +326,7 @@ Exportador de los datos: El cliente es el exportador de los datos.
 
 Sin embargo, ya que el importador de los dtos proporciona servicios de almacenamiento y no controla las categorías de los datos que almacena, el exportador de los datos podría elegir transferir las categorías especiales de los datos. Por consiguiente, el exportador de los datos es el único responsable de garantizar que cumple con todas las obligaciones impuestas por las leyes y regulaciones aplicables relacionadas con la recolección y procesamiento de cualquier categoría de datos, incluyendo el obtener el consentimiento explícito del titular de los datos antes de procesar datos personales sensibles.
 
-**Processing operations:** The personal data transferred will be subject to the following basic processing activities: GitHub uses personal data for the limited purposes set forth in the GitHub Privacy Statement, available at [https://docs.github.com/articles/github-privacy-statement](/articles/github-privacy-statement), and the “Data Processing” section of the DPA. Subcontratistas: De acuerdo con la DPA, el importador de los datos podrá contratar a otras compañías para proporcionar servicios limitados en nombre del importador de los datos, tales como proporcionar soporte al cliente. Cualquier subcontratista de este tipo tendrá permiso de obtener los Datos Personales del Cliente únicamente para entregar los servicios para los cuales lo contrató el importador de los mismos, y se les prohibe utilizar los Datos Personales del Cliente para cualquier otro propósito.
+**Operaciones de procesamiento:** Los datos personales transferidos estarán sujetos a las siguientes actividades de procesamiento básico: GitHub utiliza los datos pesonales para los propósitos limitados que se establecen en la Declaración de Privacidad de GitHub, disponible en [https://docs.github.com/articles/github-privacy-statement](/articles/github-privacy-statement), y en la sección de "Procesamiento de Datos" de la DPA. Subcontratistas: De acuerdo con la DPA, el importador de los datos podrá contratar a otras compañías para proporcionar servicios limitados en nombre del importador de los datos, tales como proporcionar soporte al cliente. Cualquier subcontratista de este tipo tendrá permiso de obtener los Datos Personales del Cliente únicamente para entregar los servicios para los cuales lo contrató el importador de los mismos, y se les prohibe utilizar los Datos Personales del Cliente para cualquier otro propósito.
 
 ### Apéndice 2 para las Cláusulas Contractuales Estándar
 Descripción de las medidas de seguridad técnicas y organizacionales implementadas por el importador de los datos de acuerdo con las Cláusulas 4(d) y 5(c):
@@ -335,7 +335,7 @@ Descripción de las medidas de seguridad técnicas y organizacionales implementa
 
 **2. Contacto de Privacidad de los Datos.** El director de privacidad para el importador de los datos puede contactarse en la siguiente dirección: GitHub, Inc. Atención: Privacidad 88 Colin P. Kelly Jr. Street San Francisco, CA 94107 USA
 
-**3. Technical and Organization Measures.** The data importer has implemented and will maintain appropriate technical and organizational measures, internal controls, and information security routines intended to protect Customer Personal Data against accidental loss, destruction, alteration, unauthorized disclosure or access or unlawful destruction.
+**3. Las medidas técnicas y de organización.** El importador de datos implementó y mantendrá las medidas organizacionales y técnicas adecuadas, los controles internos y las rutinas de seguridad informática que se necesitan para proteger los Datos Personales del Cliente contra la pérdida accidental, destrucción, alteración, divulgación o acceso no autorizados, o una destrucción ilegal.
 
 La Firma de GitHub, Inc. se muestra a continuación.
 

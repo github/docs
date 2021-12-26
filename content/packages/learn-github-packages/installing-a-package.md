@@ -8,23 +8,23 @@ redirect_from:
   - /packages/manage-packages/installing-a-package
 permissions: You can install any package that you have permission to view.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-### About package installation
+## About package installation
 
 You can search {% data variables.product.product_name %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. For more information, see "[Searching {% data variables.product.prodname_registry %} for packages](/github/searching-for-information-on-github/searching-for-packages)."
 
 After you find a package, you can read the package's description and installation and usage instructions on the package page.
 
-### Installing a package
+## Installing a package
 
-You can install a package from {% data variables.product.prodname_registry %} using any {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
+You can install a package from {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
 1. Authenticate to {% data variables.product.prodname_registry %} using the instructions for your package client. For more information, see "[Authenticating to GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
 2. Install the package using the instructions for your package client.

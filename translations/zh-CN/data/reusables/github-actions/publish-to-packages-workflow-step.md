@@ -1,1 +1,1 @@
-运行 `mvn --batch-mode deploy` 命令以发布到 {% data variables.product.prodname_registry %}。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。
+运行 `mvn --batch-mode deploy` 命令以发布到 {% data variables.product.prodname_registry %}。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %} `permissions` 键指定授予 `GITHUB_TOKEN` 的访问权限。{% endif %}

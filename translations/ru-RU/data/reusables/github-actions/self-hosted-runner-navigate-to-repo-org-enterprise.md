@@ -6,7 +6,5 @@
      1. In the left sidebar, click **Enterprise overview**.
      1. {% endif %} In the enterprise sidebar, {% octicon "law" aria-label="The law icon" %} **Policies**.
 1. Navigate to the {% data variables.product.prodname_actions %} settings:
-   * **In an organization or repository**: click **Actions** in the left sidebar.
-
-     ![Actions setting](/assets/images/help/settings/settings-sidebar-actions.png)
-   * {% if currentVersion == "free-pro-team@latest" %}**If using an enterprise account**{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}**If using an enterprise-level runner**{% endif %}: click **Actions** under "{% octicon "law" aria-label="The law icon" %} Policies".
+   * **In an organization or repository**: Click **Actions** in the left sidebar{% if currentVersion == "free-pro-team@latest" %}, then click **Runners**{% endif %}.
+   * {% if currentVersion == "free-pro-team@latest" %}**If using an enterprise account**:{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}**If using an enterprise-level runner**:{% endif %} Click **Actions** under "{% octicon "law" aria-label="The law icon" %} Policies"{% if currentVersion == "free-pro-team@latest" %}, then click the **Runners** tab{% endif %}.

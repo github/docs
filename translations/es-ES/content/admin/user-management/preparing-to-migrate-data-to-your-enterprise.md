@@ -10,8 +10,10 @@ redirect_from:
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Migration
 ---
 
 ### Preparar los datos migrados para importarlos a {% data variables.product.prodname_ghe_server %}

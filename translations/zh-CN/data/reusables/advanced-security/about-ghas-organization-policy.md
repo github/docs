@@ -1,4 +1,4 @@
-{% data variables.product.company_short %} 按提交者对 {% data variables.product.prodname_advanced_security %} 计费。 {% if currentVersion == "free-pro-team@latest" %}更多信息请参阅“[管理 {% data variables.product.prodname_GH_advanced_security %} 的许可](/github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security)”。{% endif %}
+{% data variables.product.company_short %} 按提交者对 {% data variables.product.prodname_advanced_security %} 计费。 {% if currentVersion == "free-pro-team@latest" %}更多信息请参阅“[管理 {% data variables.product.prodname_GH_advanced_security %} 的许可](/billing/managing-licensing-for-github-advanced-security)”。{% elsif currentVersion ver_gt "enterprise-server@3.0" %}更多信息请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security)”。{% endif %}
 
 您可以执行策略来控制仓库管理员是否被允许在组织的仓库中为 {% data variables.product.prodname_advanced_security %} 启用功能。 您可以为企业帐户拥有的所有组织或您选择的单个组织配置策略。
 

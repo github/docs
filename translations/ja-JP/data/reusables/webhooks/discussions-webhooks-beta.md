@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Webhook events for {% data variables.product.prodname_discussions %} are currently in beta and subject to change.
+**ノート:** {% data variables.product.prodname_discussions %}のwebhookイベントは現在ベータであり、変更されることがあります。
 
 {% endnote %}

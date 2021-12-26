@@ -1,1 +1,1 @@
-1. Gib unter „IP Address" eine IP-Adresse oder einen Adressbereich in CIDR-Notation ein. ![Schlüsselfeld zum Hinzufügen der IP-Adresse](/assets/images/help/security/ip-address-field.png)
+1. At the bottom of the "IP allow list" section, enter an IP address, or a range of addresses in CIDR notation. ![Schlüsselfeld zum Hinzufügen der IP-Adresse](/assets/images/help/security/ip-address-field.png)

@@ -1,7 +1,7 @@
 
-1. Führe den Befehl `gpg --list-secret-keys --keyid-format LONG` aus, um die GPG-Schlüssel aufzulisten, für die Du über einen öffentlichen und privaten Schlüssel verfügst. Zum Signieren von Commits oder Tags ist ein privater Schlüssel erforderlich.
+1. Use the `gpg --list-secret-keys --keyid-format=long` command to list the long form of the GPG keys for which you have both a public and private key. Zum Signieren von Commits oder Tags ist ein privater Schlüssel erforderlich.
   ```shell
-  $ gpg --list-secret-keys --keyid-format LONG
+  $ gpg --list-secret-keys --keyid-format=long
 ```
   {% note %}
 

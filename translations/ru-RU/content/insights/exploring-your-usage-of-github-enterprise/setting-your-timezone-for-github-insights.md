@@ -1,7 +1,6 @@
 ---
 title: Setting your timezone for GitHub Insights
 intro: 'You can set the timezone for metrics you view in {% data variables.product.prodname_insights %}.'
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can set their own timezone.'
 versions:
   enterprise-server: '*'

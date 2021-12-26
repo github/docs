@@ -1,0 +1,28 @@
+---
+date: '2021-03-02'
+sections:
+  security_fixes:
+    - '**HIGH:** An improper access control vulnerability was identified in GitHub Enterprise Server that allowed authenticated users of the instance to gain write access to unauthorized repositories via specifically crafted pull requests and REST API requests. An attacker would need to be able to fork the targeted repository, a setting that is disabled by default for organization owned private repositories. Branch protections such as required pull request reviews or status checks would prevent unauthorized commits from being merged without further review or validation. This vulnerability has been assigned CVE-2021-22861. This issue was reported via the [GitHub Bug Bounty Program](https://bounty.github.com).'
+    - '**HIGH:** An improper access control vulnerability was identified in the GitHub Enterprise Server GraphQL API that allowed authenticated users of the instance to modify the maintainer collaboration permission of a pull request without proper authorization. By exploiting this vulnerability, an attacker would be able to gain access to head branches of pull requests opened on repositories of which they are a maintainer. Forking is disabled by default for organization owned private repositories and would prevent this vulnerability. Additionally, branch protections such as required pull request reviews or status checks would prevent unauthorized commits from being merged without further review or validation. This vulnerability has been assigned CVE-2021-22863. This issue was reported via the [GitHub Bug Bounty Program](https://bounty.github.com).'
+    - '**HIGH:** A remote code execution vulnerability was identified in GitHub Enterprise Server that could be exploited when building a GitHub Pages site. User-controlled configuration of the underlying parsers used by GitHub Pages were not sufficiently restricted and made it possible to execute commands on the GitHub Enterprise Server instance. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the GitHub Enterprise Server instance. This vulnerability has been assigned CVE-2020-10519 and was reported via the [GitHub Bug Bounty Program](https://bounty.github.com).'
+    - '**LOW:** A specially crafted request to the SVN bridge could trigger a long wait before failure resulting in Denial of Service (DoS).'
+    - 'Packages have been updated to the latest security versions.'
+  bugs:
+    - 'An informational message was unintentionally logged as an error during GitHub Enterprise Backup Utilities snapshots, which resulted in unnecessary emails being sent when backups were scheduled by cron jobs that listen for output to stderr.'
+    - 'While restoring a large backup, exception logging related to Redis memory exhaustion could cause the restore to fail due to a full disk.'
+    - 'When editing a wiki page a user could experience a 500 error when clicking the Save button.'
+    - 'An S/MIME signed commit using a certificate with multiple names in the subject alternative name would incorrectly show as "Unverified" in the commit badge.'
+    - 'Suspended user was sent emails when added to a team.'
+    - 'When uploading a new license file with a different number of seats from the previous license file, the seat difference was not correctly represented in the enterprise account Settings -> License page.'
+    - 'The "Prevent repository admins from changing anonymous Git read access" checkbox available in the enterprise account settings could not be successfully enabled or disabled.'
+    - 'During a leap year, the user was getting a 404 response when trying to view Contribution activity on a Monday.'
+  changes:
+    - 'Added support for [AWS EC2 r5b instance types](https://aws.amazon.com/about-aws/whats-new/2020/12/introducing-new-amazon-ec2-r5b-instances-featuring-60-gbps-of-ebs-bandwidth-and-260K-iops/).'
+    - 'Adjusted background queue prioritization to more evenly distribute jobs.'
+  known_issues:
+    - 'On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.'
+    - 'Custom firewall rules are not maintained during an upgrade.'
+    - 'Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.'
+    - 'Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.'
+    - 'When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.'
+    - 'Security alerts are not reported when pushing to a repository on the command line.'

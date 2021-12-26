@@ -5,9 +5,9 @@ redirect_from:
   - /libraries/
   - /v3/libraries
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -65,7 +65,6 @@ Library name | Repository
 
 Library name | Repository | More information
 |---|---|---|
-**GitHub Java API**| [org.eclipse.egit.github.core](https://github.com/eclipse/egit-github/tree/master/org.eclipse.egit.github.core) | Is part of the [GitHub Mylyn Connector](https://github.com/eclipse/egit-github) and aims to support the entire GitHub v3 API.  Builds are available in [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22org.eclipse.egit.github.core%22).
 **GitHub API for Java**| [org.kohsuke.github (From github-api)](http://github-api.kohsuke.org/)|defines an object oriented representation of the GitHub API.
 **JCabi GitHub API**|[github.jcabi.com (Personal Website)](http://github.jcabi.com)|is based on Java7 JSON API (JSR-353), simplifies tests with a runtime GitHub stub, and covers the entire API.
 
@@ -101,14 +100,9 @@ Library name | Repository | metacpan Website for the Library
 
 Library name | Repository
 |---|---|
-**GitHub PHP Client**|[tan-tan-kanarek/github-php-client](https://github.com/tan-tan-kanarek/github-php-client)
 **PHP GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api)
-**GitHub API**|[yiiext/github-api](https://github.com/yiiext/github-api)
 **GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api)
-**GitHub Nette Extension**|[kdyby/github](https://github.com/kdyby/github)
-**GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api)
 **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
-**PHP7 Client & WebHook wrapper**|[FlexyProject/GitHubAPI](https://github.com/FlexyProject/GitHubAPI)
 
 ### PowerShell
 

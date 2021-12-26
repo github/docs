@@ -1,0 +1,1 @@
+Enterpriseアカウントに関連づけられたサポートチケットを開いたり、見たり、コメントしたりするためには、Enterpriseアカウントのサポート資格が必要です。 Enterpriseのオーナー及び支払マネージャーは自動的にサポート資格を持ち、Enterpriseオーナーはサポート資格をEnterpriseのメンバーに追加できます。 詳しい情報については「[Enterpriseのサポート資格の管理](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)」を参照してください。

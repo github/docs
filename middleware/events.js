@@ -1,15 +1,17 @@
-const express = require('express')
-const { omit } = require('lodash')
-const Ajv = require('ajv')
-const schema = require('../lib/schema-event')
+import express from 'express'
+import { omit } from 'lodash-es'
+import Ajv from 'ajv'
+import addFormats from 'ajv-formats'
+import schema from '../lib/schema-event.js'
 
-const OMIT_FIELDS = ['type', 'token']
+const OMIT_FIELDS = ['type']
 
 const ajv = new Ajv()
+addFormats(ajv)
 
 const router = express.Router()
 
-router.post('/', async function postEvents (req, res, next) {
+router.post('/', async function postEvents(req, res, next) {
   const isDev = process.env.NODE_ENV === 'development'
   const fields = omit(req.body, '_csrf')
 
@@ -21,10 +23,7 @@ router.post('/', async function postEvents (req, res, next) {
   if (req.hydro.maySend()) {
     // intentionally don't await this async request
     // so that the http response afterwards is sent immediately
-    req.hydro.publish(
-      req.hydro.schemas[fields.type],
-      omit(fields, OMIT_FIELDS)
-    ).catch((e) => {
+    req.hydro.publish(req.hydro.schemas[fields.type], omit(fields, OMIT_FIELDS)).catch((e) => {
       if (isDev) console.error(e)
     })
   }
@@ -32,4 +31,4 @@ router.post('/', async function postEvents (req, res, next) {
   return res.status(200).json({})
 })
 
-module.exports = router
+export default router

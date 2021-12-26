@@ -1,6 +1,7 @@
 {% tip %}
 
-**Nota:**Cerrar un repositorio previene que los usuarios suban información al mismo o que modifiquen sus recursos como informes de problemas, etiquetas, hitos, wikis, y comentarios. Los nuevos equipos y colaboradores no podrán asociarse con un repositorio cerrado.
+**Note:** Locking a repository prevents all read or write access to the repository. You cannot associate new teams or collaborators with a locked repository.
+If you're performing a trial run, you do not need to lock the repository. When you migrate data from a repository that's in use,
 
-Si estás realizando una ejecución de prueba, no necesitas cerrar el repositorio. En el resto de los casos, se recomienda ampliamente. Para obtener más información, consulta "[Acerca de las migraciones](/enterprise/admin/migrations/about-migrations#types-of-migrations)".
+{% data variables.product.company_short %} strongly recommends locking the repository. Para obtener más información, consulta "[Acerca de las migraciones](/enterprise/admin/migrations/about-migrations#types-of-migrations)".
 {% endtip %}

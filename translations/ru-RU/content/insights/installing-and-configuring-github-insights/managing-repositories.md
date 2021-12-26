@@ -1,10 +1,9 @@
 ---
 title: Managing repositories
 intro: 'You can manage the repositories connected to {% data variables.product.prodname_insights %} and the data included in metrics for each repository.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-repositories
-permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage repositories.'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage repositories. '
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'

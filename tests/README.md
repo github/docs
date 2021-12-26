@@ -10,6 +10,21 @@ by Facebook and used by many teams at GitHub. Jest is convenient in that it
 provides everything: a test runner, an assertion library, code coverage analysis,
 custom reporters for different types of test output, etc.
 
+### Install optional dependencies
+
+We typically rely on CI to run our tests, so we consider some large test-only
+dependencies **optional** (for example, puppeteer). In order to run the tests locally you'll
+need to make sure optional dependencies are installed by running:
+
+```sh
+npm ci --include=optional
+```
+
+If you run into the error "Could not find expected browser (chrome) locally" you may need to manually install the expected chromium version with:
+```
+node node_modules/puppeteer/install.js
+```
+
 ### Running all the tests
 
 Once you've followed the development instructions above, you can run the entire
@@ -62,17 +77,18 @@ This test checks all internal links and image references in the English site. To
 ```sh
 npx jest links-and-images
 ```
+
 It checks images, anchors, and links for every **version** of every **page**.
 
 It reports five types of problems:
 
 1. **Broken image references**
-    * Example: `/assets/images/foo.png` where `foo.png` doesn't exist.
+   - Example: `/assets/images/foo.png` where `foo.png` doesn't exist.
 2. **Broken same-page anchors**
-    * Example: `#foo` where the page does not have a heading `Foo`.
+   - Example: `#foo` where the page does not have a heading `Foo`.
 3. **Broken links due to page not found**
-    * Example: `/github/using-git/foo` where there is no `foo.md` file at that path.
+   - Example: `/github/using-git/foo` where there is no `foo.md` file at that path.
 4. **Broken links due to versioning**
-    * Example: an unversioned link to a Dotcom-only article in a page that has Enterprise versions.
+   - Example: an unversioned link to a Dotcom-only article in a page that has Enterprise versions.
 5. **Broken anchors on links**
-    * Example: `/some/valid/link#bar` where the linked page can be found but it does not have a heading `Bar`.
+   - Example: `/some/valid/link#bar` where the linked page can be found but it does not have a heading `Bar`.

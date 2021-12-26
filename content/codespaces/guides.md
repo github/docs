@@ -1,11 +1,11 @@
 ---
 title: Codespaces guides
 shortTitle: Guides
-intro: Learn how to make the most of GitHub {% data reusables.gated-features.codespaces %}
+intro: 'Learn how to make the most of GitHub {% data reusables.gated-features.codespaces %}'
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 includeGuides:
   - /codespaces/quickstart
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
@@ -25,3 +25,4 @@ includeGuides:
   - /codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization
   - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces
 ---
+

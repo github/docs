@@ -1,0 +1,24 @@
+date: '2021-06-24'
+sections:
+  security_fixes:
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - A large number of `gauge-dependency-graph-api-dispatch_dispatch` metrics could accumulate in the Management Console.
+    - The sshd service would sometimes fail to start on instances running on Google Cloud Platform.
+    - Old upgrade files would persist on the user disk, sometimes resulting in out of space conditions.
+    - '`gh-migrator` displayed an incorrect path to its log output.'
+    - An export archive would silently fail to import pull requests if they contained review requests from teams not present in the archive.
+  changes:
+    - Update the {% data variables.product.prodname_actions %} Runner version in GHES 3.1 to [v2.278.0](https://github.com/actions/runner/releases/tag/v2.278.0)
+  known_issues:
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - |
+      After upgrading from 3.0.x to 3.1.x, in some cases GitHub Actions can fail with an error: `An unexpected error occurred when executing this workflow.` To workaround this problem, connect to the administrative shell (ssh) and run:
+      ```
+      ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+      ```

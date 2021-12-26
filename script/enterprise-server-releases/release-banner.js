@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import yaml from 'js-yaml'
+import allVersions from '../../lib/all-versions.js'
 
-const fs = require('fs')
-const path = require('path')
-const program = require('commander')
-const yaml = require('js-yaml')
-const allVersions = require('../../lib/all-versions')
 const releaseCandidateFile = 'data/variables/release_candidate.yml'
 const releaseCandidateYaml = path.join(process.cwd(), releaseCandidateFile)
 
@@ -22,7 +22,10 @@ program
   .storeOptionsAsProperties(false)
   .passCommandToAction(false)
   .option(`-a, --action <${allowedActions.join(' or ')}>`, 'Create or remove the banner.')
-  .option('-v, --version <version>', 'The version the banner applies to. Must be in <plan@release> format.')
+  .option(
+    '-v, --version <version>',
+    'The version the banner applies to. Must be in <plan@release> format.'
+  )
   .parse(process.argv)
 
 const options = program.opts()
@@ -32,13 +35,15 @@ if (!allowedActions.includes(options.action)) {
   process.exit(1)
 }
 
-if (!(Object.keys(allVersions).includes(options.version))) {
-  console.log('Error! You must specify --version with the full name of a supported version, e.g., enterprise-server@2.22.')
+if (!Object.keys(allVersions).includes(options.version)) {
+  console.log(
+    'Error! You must specify --version with the full name of a supported version, e.g., enterprise-server@2.22.'
+  )
   process.exit(1)
 }
 
 // Load the release candidate variable
-const releaseCandidateData = yaml.safeLoad(fs.readFileSync(releaseCandidateYaml, 'utf8'))
+const releaseCandidateData = yaml.load(fs.readFileSync(releaseCandidateYaml, 'utf8'))
 
 // Create or remove the variable
 if (options.action === 'create') {
@@ -50,7 +55,7 @@ if (options.action === 'remove') {
 }
 
 // Update the file
-fs.writeFileSync(releaseCandidateYaml, yaml.safeDump(releaseCandidateData))
+fs.writeFileSync(releaseCandidateYaml, yaml.dump(releaseCandidateData))
 
 // Display next steps
 console.log(`\nDone! Commit the update to ${releaseCandidateFile}. This ${options.action}s the banner for ${options.version}.

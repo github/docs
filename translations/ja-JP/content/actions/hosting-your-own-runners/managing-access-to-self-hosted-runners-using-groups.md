@@ -41,8 +41,8 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. [**Self-hosted runners**] セクションで、[**Add new**] をクリックし、次に [**New group**] をクリックします。
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. {% if currentVersion == "free-pro-team@latest" %}[Runners]{% else %}[Self-hosted runners]{% endif %} セクションで、[**Add new**]、[**New group**] の順にクリックします。
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. ランナーグループの名前を入力し、リポジトリアクセスのポリシーを割り当てます。
@@ -53,7 +53,7 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 
    **Warning**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
@@ -73,7 +73,7 @@ Enterprise は、セルフホストランナーをグループに追加して、
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. [**Self-hosted runners**] タブをクリックします。
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 1. [**Add new**] をクリックしてから、[**New group**] をクリックします。
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
@@ -85,7 +85,7 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
    **Warning**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
@@ -104,7 +104,7 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
 新しいセルフホストランナーは自動的にデフォルトグループに割り当てられ、その後、別のグループに移動できます。
 
-1. In the **Self-hosted runners** section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. {% if currentVersion == "free-pro-team@latest" %}[Runners]{% else %}[Self-hosted runners]{% endif %} セクションで、移動するランナーの現在のグループを見つけて、グループメンバーのリストを展開します。 ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
 1. セルフホストランナーの横にあるチェックボックスを選択し、[**Move to group**] をクリックして、利用可能な移動先を確認します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 1. 移動先のグループをクリックして、ランナーを移動します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 
@@ -112,7 +112,7 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
 セルフホストランナーは、グループが削除されると自動的にデフォルトグループに戻ります。
 
-1. 設定ページの [**Self-hosted runners**] セクションで、削除するグループを見つけて、{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} ボタンをクリックします。 ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-kebab.png)
+1. 設定ページの {% if currentVersion == "free-pro-team@latest" %}[Runners]{% else %}[Self-hosted runners]{% endif %} セクションで、削除するグループを見つけて、{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} ボタンをクリックします。 ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. グループを削除するには、[**Remove group**] をクリックします。 ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-remove.png)
 
