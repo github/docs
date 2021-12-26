@@ -2,7 +2,7 @@
 title: Configuring a hostname
 intro: We recommend setting a hostname for your appliance instead of using a hard-coded IP address.
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-hostnames/
+  - /enterprise/admin/guides/installation/configuring-hostnames
   - /enterprise/admin/installation/configuring-a-hostname
   - /enterprise/admin/configuration/configuring-a-hostname
   - /admin/configuration/configuring-a-hostname

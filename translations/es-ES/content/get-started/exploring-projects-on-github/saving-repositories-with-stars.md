@@ -1,11 +1,11 @@
 ---
-title: Guardar repositorios con estrellas
-intro: 'Puedes marcar los repositorios y temas como favoritos para llevar el seguimiento de los proyectos que te parezcan interesantes{% ifversion fpt or ghec %} y descubrir el contenido relacionado en tu sección de noticias{% endif %}.'
+title: Saving repositories with stars
+intro: 'You can star repositories and topics to keep track of projects you find interesting{% ifversion fpt or ghec %} and discover related content in your news feed{% endif %}.'
 redirect_from:
-  - /articles/stars/
-  - /articles/about-stars/
-  - /articles/browsing-friends-stars/
-  - /articles/managing-your-stars/
+  - /articles/stars
+  - /articles/about-stars
+  - /articles/browsing-friends-stars
+  - /articles/managing-your-stars
   - /articles/saving-repositories-with-stars
   - /github/getting-started-with-github/saving-repositories-with-stars
   - /github/getting-started-with-github/exploring-projects-on-github/saving-repositories-with-stars
@@ -16,47 +16,114 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Guardar repositorios marcados como favoritos
+shortTitle: Save repos with stars
 ---
+You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.
 
-Puedes buscar, clasificar y filtrar tus repositorios y temas marcados con estrella en tu {% data variables.explore.your_stars_page %}.
+## About stars
 
-## Acerca de las estrellas
-
-Marcar con estrellas tus repositorios y temas favoritos te facilitará encontrarlos posteriormente. Puedes ver todos los repositorios y temas que has marcado con estrellas visitando tu {% data variables.explore.your_stars_page %}.
+Starring makes it easy to find a repository or topic again later. You can see all the repositories and topics you have starred by going to your {% data variables.explore.your_stars_page %}.
 
 {% ifversion fpt or ghec %}
-Puedes seleccionar los repositorios y temas como favoritos para descubrir proyectos similares en {% data variables.product.product_name %}. Cuando marcas repositorios o temas con estrellas, {% data variables.product.product_name %} puede recomendar contenido relacionado en la vista de tus noticias. Para obtener más información, consulta "[Encontrar formas de contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".
+You can star repositories and topics to discover similar projects on {% data variables.product.product_name %}. When you star repositories or topics, {% data variables.product.product_name %} may recommend related content in the discovery view of your news feed. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".
 {% endif %}
 
-Marcar un repositorio con estrella también muestra reconocimiento al mantenedor del repositorio por su trabajo. Muchas de las clasificaciones de los repositorios de {% data variables.product.prodname_dotcom %} dependen de la cantidad de estrellas que tiene un repositorio. Además, [Explore](https://github.com/explore) muestra repositorios populares en base a la cantidad de estrellas que tienen.
+Starring a repository also shows appreciation to the repository maintainer for their work. Many of {% data variables.product.prodname_dotcom %}'s repository rankings depend on the number of stars a repository has. In addition, [Explore](https://github.com/explore) shows popular repositories based on the number of stars they have.
 
-## Marcar un repositorio como favorito
+## Starring a repository
 
-Marcar un repositorio como favorito es un proceso simple de dos pasos.
+Starring a repository is a simple two-step process.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. En la esquina superior derecha de la página, haz clic en **Favorito**. ![Marcar un repositorio como favorito](/assets/images/help/stars/starring-a-repository.png)
-1. Opcionalmente, para dejar de marcar un repositorio como favorito, haz clic en **Desmarcar como favorito**. ![Dejar de marcar a un repositorio como favorito](/assets/images/help/stars/unstarring-a-repository.png)
+1. In the top-right corner of the page, click **Star**.
+![Starring a repository](/assets/images/help/stars/starring-a-repository.png)
+1. Optionally, to unstar a previously starred repository, click **Unstar**.
+![Untarring a repository](/assets/images/help/stars/unstarring-a-repository.png)
 
-## Buscar estrellas
+{% ifversion fpt or ghec %}
+## Organizing starred repositories with lists
 
-Puedes utilizar la barra de búsqueda en tu {% data variables.explore.your_stars_page %} para encontrar rápidamente los repositorios y temas que marcaste como favoritos.
+{% note %}
 
-1. Dirígete a tu {% data variables.explore.your_stars_page %}.
-1. Utiliza la barra de búsqueda para encontrar tus repositorios marcados como favoritos o temas por su nombre. ![Buscar a través de las estrellas](/assets/images/help/stars/stars_search_bar.png)
+**Note:** Lists are currently in public beta and subject to change.
 
-La barra de búsqueda únicamente busca en los nombres de los temas y repositorios, y no en cualquier otro calificador (tal como el tamaño del repositorio o la fecha en la que se actualizó la última vez).
+{% endnote %}
 
-## Clasificar y filtrar estrellas
+Curate repositories that you've starred with public lists. You can create public lists that appear on your stars page at `https://github.com/USERNAME?tab=stars`.
 
-Puedes utilizar la clasificación o el filtrado para personalizar como ves los repositorios marcados como favoritos y los temas en tu página de favoritos.
+If you add a private repository to a list, then the private repository will only appear in your list for people with `read` access to the repository.
 
-1. Dirígete a tu {% data variables.explore.your_stars_page %}.
-1. Para clasificar las estrellas, selecciona el menú desplegable de **Clasificar** y luego **Marcados recientemente como favoritos**, **Recientemente activos** o **Con más estrellas**. ![Clasificar estrellas](/assets/images/help/stars/stars_sort_menu.png)
-1. Para filtrar tu lista de favoritos con base en su lenguaje de programación, haz clic en el que quieras bajo **Filtrar por lenguaje**. ![Filtrar estrellas por lenguaje](/assets/images/help/stars/stars_filter_language.png)
-1. Para filtrar tu lista de favoritos según el repositorio o tema, haz clic en la opción deseada. ![Filtrar favoritos por tema](/assets/images/help/stars/stars_filter_topic.png)
+![Screenshot of lists on stars page](/assets/images/help/stars/lists-overview-on-stars-page.png)
 
-## Leer más
+You can add a repository to an existing or new list wherever you see a repository's **Star** or **Starred** dropdown menu, whether on a repository page or in a list of starred repositories. 
 
-- "[Clasificar tu repositorio con temas](/articles/classifying-your-repository-with-topics)"
+![Screenshot of "Star" dropdown menu with list options featured from the repository page](/assets/images/help/stars/stars-dropdown-on-repo.png)
+
+![Screenshot of "Starred" dropdown menu with list options featured from a starred repository list](/assets/images/help/stars/add-repo-to-list.png)
+
+### Creating a list
+
+{% data reusables.stars.stars-page-navigation %}
+2. Next to "Lists", click **Create list**.
+  ![Screenshot of "Create list" button](/assets/images/help/stars/create-list.png)
+3. Enter a name and description for your list and click **Create**.
+  ![Screenshot of modal showing where you enter a name and description with the "Create" button.](/assets/images/help/stars/create-list-with-description.png)
+
+### Adding a repository to a list
+
+{% data reusables.stars.stars-page-navigation %}
+2. Find the repository you want to add to your list.
+  ![Screenshot of starred repos search bar](/assets/images/help/stars/search-bar-for-starred-repos.png)
+3. Next to the repository you want to add, use the **Starred** dropdown menu and select your list.
+  ![Screenshot of dropdown showing a list checkboxes](/assets/images/help/stars/add-repo-to-list.png)
+
+### Removing a repository from your list
+
+{% data reusables.stars.stars-page-navigation %}
+2. Select your list.
+3. Next to the repository you want to remove, use the **Starred** dropdown menu and deselect your list.
+  ![Screenshot of dropdown showing list checkboxes](/assets/images/help/stars/add-repo-to-list.png)
+
+### Editing a list name or description
+
+{% data reusables.stars.stars-page-navigation %}
+1. Select the list you want to edit.
+2. Click **Edit list**.
+3. Update the name or description and click **Save list**.
+  ![Screenshot of modal showing "Save list" button](/assets/images/help/stars/edit-list-options.png) 
+
+### Deleting a list
+
+{% data reusables.stars.stars-page-navigation %}
+2. Select the list you want to delete.
+3. Click **Delete list**.
+  ![Screenshot of modal showing "Delete list" button](/assets/images/help/stars/edit-list-options.png)
+4. To confirm, click **Delete**.
+
+{% endif %}
+
+## Searching starred repositories and topics
+
+You can use the search bar on your {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred. 
+
+1. Go to your {% data variables.explore.your_stars_page %}.
+1. Use the search bar to find your starred repositories or topics by their name.
+![Searching through stars](/assets/images/help/stars/stars_search_bar.png)
+
+The search bar only searches based on the name of a repository or topic, and not on any other qualifiers (such as the size of the repository or when it was last updated).
+
+## Sorting and filtering stars on your stars page
+
+You can use sorting or filtering to customize how you see starred repositories and topics on your stars page.
+
+1. Go to your {% data variables.explore.your_stars_page %}.
+1. To sort stars, select the **Sort** drop-down menu, then select **Recently starred**, **Recently active**, or **Most stars**.
+![Sorting stars](/assets/images/help/stars/stars_sort_menu.png)
+1. To filter your list of stars based on their language, click on the desired language under **Filter by languages**.
+![Filter stars by language](/assets/images/help/stars/stars_filter_language.png)
+1. To filter your list of stars based on repository or topic, click on the desired option.
+![Filter stars by topic](/assets/images/help/stars/stars_filter_topic.png)
+
+## Further reading
+
+- "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"

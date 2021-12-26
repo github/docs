@@ -4,14 +4,8 @@ name: Lint code
 # **Why we have it**: We want some level of consistency to our code.
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
 
-permissions:
-  contents: read
-
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
   pull_request:
     paths:
       - '**.js'
@@ -21,10 +15,19 @@ on:
       - '**.yaml'
       - '**.yml'
       - '**.scss'
+      - .eslintrc.js
       # In case something like eslint or tsc or prettier upgrades
       - 'package-lock.json'
       # Ultimately, for debugging this workflow itself
       - .github/workflows/code-lint.yml
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   lint:

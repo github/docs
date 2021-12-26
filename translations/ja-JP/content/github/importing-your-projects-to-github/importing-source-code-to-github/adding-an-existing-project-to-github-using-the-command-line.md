@@ -2,7 +2,7 @@
 title: Adding an existing project to GitHub using the command line
 intro: 'Putting your existing work on {% data variables.product.product_name %} can let you share and collaborate in lots of great ways.'
 redirect_from:
-  - /articles/add-an-existing-project-to-github/
+  - /articles/add-an-existing-project-to-github
   - /articles/adding-an-existing-project-to-github-using-the-command-line
   - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
 versions:

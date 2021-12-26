@@ -29,6 +29,7 @@ toc:
   popular: 热门
   guides: 指南
   whats_new: 新增内容
+  videos: 视频
 pages:
   article_version: '文章版本'
   miniToc: 本文内容
@@ -52,7 +53,7 @@ survey:
   optional: 可选
   required: 必选
   email_placeholder: email@example.com
-  email_label: 如果有更多问题，我们能联系您吗？
+  email_label: If we can contact you with more questions, please enter your email address
   send: 发送​​
   feedback: 谢谢！我们收到了您的反馈。
   not_support: 如果您需要回复，请联系客服。

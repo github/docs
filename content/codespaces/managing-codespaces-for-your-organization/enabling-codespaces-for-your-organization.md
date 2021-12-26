@@ -37,10 +37,19 @@ By default, a codespace can only access the repository from which it was created
 {% data reusables.organizations.click-codespaces %}
 1. Under "User permissions", select one of the following options:
 
-   * **Allow for all users** to allow all your organization members to use {% data variables.product.prodname_codespaces %}.
    * **Selected users** to select specific organization members to use {% data variables.product.prodname_codespaces %}.
+   * **Allow for all members** to allow all your organization members to use {% data variables.product.prodname_codespaces %}.
+   * **Allow for all members and outside collaborators** to allow all your organization members as well as outside collaborators to use {% data variables.product.prodname_codespaces %}.
 
-   ![Radio buttons for "User permissions"](/assets/images/help/codespaces/organization-user-permission-settings.png)
+   ![Radio buttons for "User permissions"](/assets/images/help/codespaces/org-user-permission-settings-outside-collaborators.png)
+
+   {% note %}
+
+   **Note:** When you select **Allow for all members and outside collaborators**,  all outside collaborators who have been added to specific repositories can create and use {% data variables.product.prodname_codespaces %}. Your organization will be billed for all usage incurred by outside collaborators. For more information on managing outside collaborators, see "[About outside collaborators](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)."
+
+   {% endnote %}
+
+1. Click **Save**.
 
 ## Disabling {% data variables.product.prodname_codespaces %} for your organization
 

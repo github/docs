@@ -1,20 +1,19 @@
 ---
-title: Diferenças entre o Subversion e o Git
-intro: 'Os repositórios do Subversion (SVN) são semelhantes aos do Git, mas com várias diferenças em relação à arquitetura dos projetos.'
+title: What are the differences between Subversion and Git?
+intro: 'Subversion (SVN) repositories are similar to Git repositories, but there are several differences when it comes to the architecture of your projects.'
 redirect_from:
-  - /articles/what-are-the-differences-between-svn-and-git/
+  - /articles/what-are-the-differences-between-svn-and-git
   - /articles/what-are-the-differences-between-subversion-and-git
   - /github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: Subversão & diferenças do Git
+shortTitle: Subversion & Git differences
 ---
+## Directory structure
 
-## Estrutura do diretório
-
-Cada *referência* ou instantâneo etiquetado de um commit em um projeto é organizado em subdiretórios específicos, como `trunk`, `branches` e `tags`. Por exemplo, um projeto do SVN com dois recursos em desenvolvimento pode ter esta aparência:
+Each *reference*, or labeled snapshot of a commit, in a project is organized within specific subdirectories, such as `trunk`, `branches`, and `tags`. For example, an SVN project with two features under development might look like this:
 
       sample_project/trunk/README.md
       sample_project/trunk/lib/widget.rb
@@ -23,48 +22,48 @@ Cada *referência* ou instantâneo etiquetado de um commit em um projeto é orga
       sample_project/branches/another_new_feature/README.md
       sample_project/branches/another_new_feature/lib/widget.rb
 
-Um fluxo de trabalho do SVN fica assim:
+An SVN workflow looks like this:
 
-* O diretório `trunk` representa a versão estável mais recente de um projeto.
-* O trabalho de recurso ativo é desenvolvido com subdiretórios em `branches`.
-* Quando um recurso é concluído, o diretório dele passa por merge em `trunk` e é removido.
+* The `trunk` directory represents the latest stable release of a project.
+* Active feature work is developed within subdirectories under `branches`.
+* When a feature is finished, the feature directory is merged into `trunk` and removed.
 
-Os projetos do Git também são armazenados em um único diretório. No entanto, o Git obscurece os detalhes das referências armazenando-os em um diretório *.git* especial. Por exemplo, um projeto do Git com dois recursos em desenvolvimento pode ter esta aparência:
+Git projects are also stored within a single directory. However, Git obscures the details of its references by storing them in a special *.git* directory. For example, a Git project with two features under development might look like this:
 
       sample_project/.git
       sample_project/README.md
       sample_project/lib/widget.rb
 
-Um fluxo de trabalho do Git fica assim:
+A Git workflow looks like this:
 
-* Um repositório do Git armazena o histórico completo de todos os branches e tags dentro do diretório *.git*.
-* A última versão estável está contida no branch-padrão.
-* O trabalho de recurso ativo é desenvolvido em branches separados.
-* Quando um recurso é concluído, o branch de recurso é mesclado no branch-padrão e excluído.
+* A Git repository stores the full history of all of its branches and tags within the *.git* directory.
+* The latest stable release is contained within the default branch.
+* Active feature work is developed in separate branches.
+* When a feature is finished, the feature branch is merged into the default branch and deleted.
 
-Ao contrário do SVN, a estrutura de diretórios no Git permanece a mesma, mas o conteúdo dos arquivos é alterado de acordo com o branch que você possui.
+Unlike SVN, with Git the directory structure remains the same, but the contents of the files change based on your branch.
 
-## Incluir subprojetos
+## Including subprojects
 
-Um *subprojeto* é um projeto desenvolvido e gerenciado em algum lugar fora do projeto principal. Normalmente, você importa um subprojeto para adicionar alguma funcionalidade ao seu projeto sem precisar manter o código por conta própria. Sempre que o subprojeto é atualizado, você pode sincronizá-lo com o projeto para garantir que tudo esteja atualizado.
+A *subproject* is a project that's developed and managed somewhere outside of your main project. You typically import a subproject to add some functionality to your project without needing to maintain the code yourself. Whenever the subproject is updated, you can synchronize it with your project to ensure that everything is up-to-date.
 
-No SVN, um subprojeto é chamado de *SVN externo*. No Git, ele é chamado de *submódulo do Git*. Embora conceitualmente semelhantes, os submódulos do Git não são mantidos atualizados de forma automática. É preciso solicitar explicitamente que uma nova versão seja trazida para o projeto.
+In SVN, a subproject is called an *SVN external*. In Git, it's called a *Git submodule*. Although conceptually similar, Git submodules are not kept up-to-date automatically; you must explicitly ask for a new version to be brought into your project.
 
 For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
 
-## Preservar o histórico
+## Preserving history
 
-O SVN está configurado para pressupor que o histórico de um projeto nunca é alterado. O Git permite modificar alterações e commits anteriores usando ferramentas como [`git rebase`](/github/getting-started-with-github/about-git-rebase).
+SVN is configured to assume that the history of a project never changes. Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
 {% tip %}
 
-[O GitHub oferece suporte a clientes do Subversion](/articles/support-for-subversion-clients), o que pode produzir alguns resultados inesperados se você está usando o Git e o SVN no mesmo projeto. Se você tiver manipulado o histórico de commits do Git, esses mesmos commits permanecerão para sempre no histórico do SVN. Caso tenha feito commit acidentalmente em alguns dados confidenciais, temos [um artigo para ajudar você a removê-lo do histórico do Git](/articles/removing-sensitive-data-from-a-repository).
+[GitHub supports Subversion clients](/articles/support-for-subversion-clients), which may produce some unexpected results if you're using both Git and SVN on the same project. If you've manipulated Git's commit history, those same commits will always remain within SVN's history. If you accidentally committed some sensitive data, we have [an article that will help you remove it from Git's history](/articles/removing-sensitive-data-from-a-repository).
 
 {% endtip %}
 
-## Leia mais
+## Further reading
 
-- "[Propriedades do Subversion com suporte no GitHub](/articles/subversion-properties-supported-by-github)"
-- ["Fazer branch e merge" no livro _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
-- "[Importar código-fonte para o GitHub](/articles/importing-source-code-to-github)"
-- "[Ferramentas de migração do código-fonte](/articles/source-code-migration-tools)"
+- "[Subversion properties supported by GitHub](/articles/subversion-properties-supported-by-github)"
+- ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
+- "[Importing source code to GitHub](/articles/importing-source-code-to-github)"
+- "[Source code migration tools](/articles/source-code-migration-tools)"

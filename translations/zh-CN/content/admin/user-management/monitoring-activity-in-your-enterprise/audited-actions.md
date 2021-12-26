@@ -3,7 +3,7 @@ title: Audited actions
 intro: You can search the audit log for a wide variety of actions.
 miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /enterprise/admin/articles/audited-actions/
+  - /enterprise/admin/articles/audited-actions
   - /enterprise/admin/installation/audited-actions
   - /enterprise/admin/user-management/audited-actions
   - /admin/user-management/audited-actions

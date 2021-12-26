@@ -29,6 +29,7 @@ toc:
   popular: Popular
   guides: Guias
   whats_new: O que há de novo
+  videos: Vídeos
 pages:
   article_version: 'Versão do artigo'
   miniToc: Neste artigo
@@ -52,7 +53,7 @@ survey:
   optional: Opcional
   required: Obrigatório
   email_placeholder: email@example.com
-  email_label: Podemos entrar em contato com você em caso de dúvidas?
+  email_label: If we can contact you with more questions, please enter your email address
   send: Enviar
   feedback: Thank you! We received your feedback.
   not_support: If you need a reply, please contact support instead.

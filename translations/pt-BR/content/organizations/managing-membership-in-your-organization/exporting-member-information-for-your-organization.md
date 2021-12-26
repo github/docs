@@ -1,6 +1,6 @@
 ---
 title: Exporting member information for your organization
-intro: 'You can export information about members in your organization, directly from the user interface.'
+intro: You can export information about members in your organization, directly from the user interface.
 permissions: Organization owners can export member information for their organization.
 versions:
   fpt: '*'

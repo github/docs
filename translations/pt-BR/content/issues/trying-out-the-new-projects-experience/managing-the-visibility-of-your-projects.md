@@ -1,6 +1,6 @@
 ---
 title: Managing the visibility of your projects (beta)
-intro: You can control who can view your projects.
+intro: 'You can control who can view your projects.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:

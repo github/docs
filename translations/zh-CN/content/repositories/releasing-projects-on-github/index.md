@@ -1,9 +1,9 @@
 ---
-title: 在 GitHub 上发布项目
-intro: 您可以创建发行版以打包软件、发行说明和二进制文件，供他人下载。
+title: Releasing projects on GitHub
+intro: 'You can create a release to package software, release notes, and binary files for other people to download.'
 redirect_from:
-  - /categories/85/articles/
-  - /categories/releases/
+  - /categories/85/articles
+  - /categories/releases
   - /github/administering-a-repository/releasing-projects-on-github
 versions:
   fpt: '*'
@@ -21,6 +21,6 @@ children:
   - /comparing-releases
   - /automatically-generated-release-notes
   - /automation-for-release-forms-with-query-parameters
-shortTitle: 发布项目
+shortTitle: Release projects
 ---
 
