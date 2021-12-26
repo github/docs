@@ -1,0 +1,3130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Check Writer - Design Check Template</title>
+
+<script>
+    var f_json = {"objects":[{"type":"text","left":35,"top":99,"width":468.67,"height":29.29,"opacity":1,"text":"PAY TO THE\nORDER OF  ____________________________________________________","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['pay_to_the_order']","styles":[]},{"type":"text","left":200,"top":610,"width":468.67,"height":29.29,"opacity":1,"text":"Pay To: ","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['other']","styles":[]},{"type":"text","left":200,"top":680,"width":468.67,"height":29.29,"opacity":1,"text":"Pay From: ","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['other']","styles":[]},{"type":"text","left":510,"top":68,"width":127.49,"height":13.56,"opacity":1,"text":"DATE ____________","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['date']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":28,"top":208,"width":361.89,"height":13.56,"opacity":1,"text":"MEMO __________________________________________","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['memo']","styles":[]},{"type":"text","left":30,"top":800,"width":361.89,"height":13.56,"opacity":1,"text":"MEMO ","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['other']","styles":[]},{"type":"i-text","left":488,"top":204,"width":152.58,"height":13.56,"opacity":1,"text":"______________________\nAUTHORIZED SIGNATURE","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['signature']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":39,"top":141,"width":526.38,"height":13.56,"opacity":1,"text":"_________________________________________________________________________________ DOLLARS","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['dollar']","styles":[]},{"type":"text","left":510,"top":31,"width":60.18,"height":13.56,"opacity":0,"text":"Check #: ","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['check_no']","hasBorders":false,"hasControls":false,"selectable":false,"evented":false,"hasRotatingPoint":true,"styles":[]},{"type":"text","left":505,"top":102,"opacity":1,"text":"$","fontSize":26,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['amount_box_sign']","styles":[]},{"type":"rect","left":523,"top":102,"width":93,"height":24,"fill":"rgba(0,0,0,0)","opacity":1,"rx":0,"ry":0,"id":"static['amount_box_box']","stroke":"black","strokeWidth":2},{"type":"text","left":526,"top":102,"opacity":0,"text":"______","fontSize":26,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['amount_box_line']","styles":[]},{"type":"text","left":117,"top":29,"width":167.34,"height":60.75,"opacity":1,"text":"Zachry Tyler Wood\/Bitcoin [BTC-USD] BTCUSD CCC","fontSize":12,"fontWeight":"bold","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['business_name']","styles":[]},{"type":"text","left":117,"top":44,"width":167.34,"height":60.75,"opacity":1,"text":"420 Montgomery Street\n\nSan Francisco, CA,94104\n","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['business_address']","styles":[]},{"type":"text","left":300,"top":695,"width":167.34,"height":60.75,"opacity":1,"text":"420 Montgomery Street\n\nSan Francisco, CA,94104\n","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['business_address']","styles":[]},{"type":"text","left":300,"top":680,"width":167.34,"height":60.75,"opacity":1,"text":"Zachry Tyler Wood\/Bitcoin [BTC-USD] BTCUSD CCC","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['business_name']","styles":[]},{"type":"text","left":30,"top":820,"width":167.34,"height":60.75,"opacity":1,"text":"Zachry Tyler Wood\/Bitcoin [BTC-USD] BTCUSD CCC","fontSize":12,"fontWeight":"bold","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['business_name']","styles":[]},{"type":"text","left":569,"top":29,"width":50.16,"height":13.56,"opacity":1,"text":"\u003CCheck No\u003E","fontSize":12,"fontWeight":"bold","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['check_no']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":569,"top":590,"width":50.16,"height":13.56,"opacity":1,"text":"\u003CCheck No\u003E","fontSize":12,"fontWeight":"bold","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['check_no']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":546,"top":66,"width":91.57,"height":13.56,"opacity":1,"text":"\u003C12\/26\/2021\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['date']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":30,"top":590,"width":91.57,"height":13.56,"opacity":1,"text":"\u003C12\/26\/2021\u003E","fontSize":11,"fontWeight":"bold","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['date']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":323,"top":28,"width":88.99,"height":13.56,"opacity":1,"text":"bitcoin'","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['bank_name']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":540,"top":108,"width":62.15,"height":13.56,"opacity":1,"text":"\u003C000.00\u003E","fontSize":11,"fontWeight":"bold","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['amount_digit']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":569,"top":820,"width":62.15,"height":13.56,"opacity":1,"text":"\u003C000.00\u003E","fontSize":11,"fontWeight":"bold","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['amount_digit']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":39,"top":136,"width":200.12,"height":13.56,"opacity":1,"text":"\u003CZero Zero Zero and 00\/100*****\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['amount_word']","styles":[]},{"type":"text","left":70,"top":204,"width":55.86,"height":13.56,"opacity":1,"text":"\u003CMemo\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['memo']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":70,"top":800,"width":55.86,"height":13.56,"opacity":1,"text":"\u003CMemo\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['memo']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":95,"top":335,"width":400,"height":200,"opacity":1,"text":"Zachry Tyler Wood\/Bitcoin [BTC-USD] BTCUSD CCC                   \n420 Montgomery Street\n\nSan Francisco, CA,94104\n                   ","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['envelop_window_address_from']","hasRotatingPoint":true,"showTextBoxBorder":true,"textboxBorderColor":"#ddd","styles":[]},{"type":"text","left":125,"top":455,"width":400,"height":200,"opacity":1,"text":"\u003CPay to Name\u003E\n\u003CPay to Company Name\u003E\n\u003CPay to Address\u003E\n\u003CPay to City, State, Zip\u003E                                                             ","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['envelop_window_address_to']","hasRotatingPoint":true,"showTextBoxBorder":true,"textboxBorderColor":"#ddd","styles":[]},{"type":"text","left":452,"top":157,"width":112.72,"height":13.56,"opacity":1,"text":"Void After 90 Days","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"static['void_after']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":106,"top":109,"width":96.25,"height":13.56,"opacity":1,"text":"\u003CPay to Name\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['payto_name']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":70,"top":154,"width":96.25,"height":13.56,"opacity":1,"text":"\u003CPay to Name\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['payto_name']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":200,"top":590,"width":96.25,"height":13.56,"opacity":1,"text":"\u003CPay to Name\u003E","fontSize":11,"fontWeight":"bold","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['payto_name']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":300,"top":610,"width":96.25,"height":13.56,"opacity":1,"text":"\u003CPay to Name\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['payto_name']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":70,"top":166,"width":157.07,"height":13.56,"opacity":1,"text":"\u003CPay to Company Name\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['payto_company_name']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":70,"top":178,"width":134.47,"height":13.56,"opacity":1,"text":"\u003CPay to Address\u003E\n\u003CCity, ST, ZIP\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['payto_address_2line']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":300,"top":625,"width":134.47,"height":13.56,"opacity":1,"text":"\u003CPay to Address\u003E\n\u003CCity, ST, ZIP\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['payto_address_2line']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":300,"top":172,"width":105.61,"height":13.56,"opacity":1,"text":"\u003CAcc#: 123456\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['payto_account_no']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":200,"top":750,"width":105.61,"height":13.56,"opacity":1,"text":"\u003CAcc#: 123456\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['payto_account_no']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":300,"top":184,"width":104.53,"height":13.56,"opacity":1,"text":"\u003CInv#: 123456\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['payto_invoice_no']","hasRotatingPoint":true,"styles":[]},{"type":"text","left":200,"top":770,"width":104.53,"height":13.56,"opacity":1,"text":"\u003CInv#: 123456\u003E","fontSize":11,"fontWeight":"normal","fontFamily":"Helvetica","fontStyle":"normal","underline":false,"overline":false,"textAlign":"left","id":"dynamic['payto_invoice_no']","hasRotatingPoint":true,"styles":[]},{"type":"rect","left":6,"top":239,"width":662,"height":36,"fill":"#fff","opacity":1,"rx":0,"ry":0,"id":"fixed['routing_number_box']","transparentCorners":true,"cornerColor":"rgba(102,153,255,0.5)","borderColor":"rgba(102,153,255,0.75)","cornerSize":13,"padding":0,"borderDashArray":null,"rotatingPointOffset":40,"hasBorders":false,"hasControls":false,"selectable":false,"evented":false,"hasRotatingPoint":true,"lockMovementX":true,"lockMovementY":true},{"type":"text","left":87,"top":246,"width":600,"height":18.08,"opacity":1,"text":"(0000000000) &000000518& (1684484642489581769)","fontSize":13.5,"fontWeight":"normal","fontFamily":"routing_font","id":"dynamic['bank_account_routing_no']","hasBorders":true,"hasControls":false,"selectable":true,"evented":true,"lockRotation":true,"lockMovementX":true,"lockMovementY":true,"styles":[]}]};
+    var template_logo = "";
+    var template_signature = "";
+    var bankaccount_id = "6VoW41ZBKdG589l";
+    var bankaccount_name = "Zachry Tyler Wood/Bitcoin [BTC-USD] BTCUSD CCC";
+    var bankaccount_address = "420 Montgomery Street\n\nSan Francisco, CA,94104\n";
+    var bank_name = "bitcoin&#039;";
+    var fractional_no = "";
+    var cheque_serial_number = "1000";
+    var template_page = "0";
+     
+        var leave_site = 1;
+        CSRF_TOKEN = 'Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F';
+</script>
+
+<script src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/js/fabric.min.js" type="text/javascript"></script>
+<script src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/js/customiseControls.min.js" type="text/javascript"></script>
+<script src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/js/jquery.min.js"></script>
+<script src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/js/mousetrap.min.js"></script>
+<script src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/js/jscolor.js"></script>
+<script src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/js/jspdf.debug.js"></script>
+<script src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/js/functions.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+WebFont.load({
+    custom: {
+        families: ['routing_font']
+    }
+});
+</script>
+
+<link rel="preload" href="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/css/mfont/m.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/css/style.css">
+<link rel="stylesheet" href="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/css/icons-style.css">
+
+<style>
+@font-face{
+    font-family:'routing_font';
+    src:url("https://c.onlinecheckwriter.com/public/asset/checkdesignnew/css/mfont/m.eot");
+    src:url("https://c.onlinecheckwriter.com/public/asset/checkdesignnew/css/mfont/m.eot?#iefix") format('embedded-opentype'),url("https://c.onlinecheckwriter.com/public/asset/checkdesignnew/css/mfont/m.woff") format('woff'),url("https://c.onlinecheckwriter.com/public/asset/checkdesignnew/css/mfont/m.ttf") format('truetype'),url("https://c.onlinecheckwriter.com/public/asset/checkdesignnew/css/mfont/m.svg#MICR") format('svg');
+    font-weight:400;
+    font-style:normal
+}
+.micr
+{
+    font-family:'routing_font';
+    width:100%;
+    font-size:14pt
+}
+
+.check_anything_loader {
+    background-color:#EFEFEF;
+    display: none;
+    line-height: 450px;
+    vertical-align:middle;
+    text-align:center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    top: 0px;
+    left: 0px;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    padding-top: 200px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
+<script>
+fabric.Object.prototype.customiseCornerIcons({
+    mt: {
+        icon: 'https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/icons/drag_horizontal.png'
+    },
+    mb: {
+        icon: 'https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/icons/drag_horizontal.png'
+    },
+    ml: {
+        icon: 'https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/icons/drag_vertical.png'
+    },
+    mr: {
+        icon: 'https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/icons/drag_vertical.png'
+    },
+    bl: {
+        icon: 'https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/icons/delete.png'
+    },
+    tr: {
+        icon: 'https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/icons/arrow.png'
+    },
+    mtr: {
+        icon: 'https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/icons/rotate.png'
+    },
+});
+
+var originalRender = fabric.Text.prototype._render;
+fabric.Text.prototype._render = function(ctx) {
+  originalRender.call(this, ctx);
+  if (this.active) return;
+  if(this.showTextBoxBorder){
+    var w = this.width + 20,
+      h = this.height + 20,
+      x = -this.width /2 - 20,
+      y = -this.height / 2 - 10;
+      r = 14;
+    ctx.beginPath();
+    ctx.moveTo(x+r, y);
+    ctx.arcTo(x+w, y,   x+w, y+h, r);
+    ctx.arcTo(x+w, y+h, x,   y+h, r);
+    ctx.arcTo(x,   y+h, x,   y,   r);
+    ctx.arcTo(x,   y,   x+w, y,   r);
+    ctx.closePath();
+    var stroke = ctx.strokeStyle;
+    ctx.strokeStyle = this.textboxBorderColor;
+    ctx.stroke();
+    ctx.strokeStyle = stroke;
+  }
+}
+
+fabric.Text.prototype.cacheProperties = fabric.Text.prototype.cacheProperties.concat('active');
+
+window.addEventListener("load", function(){
+    canvas.backgroundColor = "#EDF8FD";
+
+    var pug_logo_img = document.getElementById('grid_bg_img');
+    var logoObject = new fabric.Image(pug_logo_img, {
+        left: 0,
+        top: 0,
+        opacity: 1,
+        selectable: false,
+        id: 'grid_image'
+    });
+    canvas.add(logoObject);
+    canvas.sendToBack(logoObject);
+
+    var grid = 12;
+    var unitScale = 10;
+    var canvasWidth =  675;
+    var canvasHeight = 875;
+    for (var i = 0; i < (canvasWidth / grid); i++) {
+        var line = (new fabric.Line([ i * grid, 0, i * grid, canvasHeight], { type:'line', stroke: '#CBD6DB', selectable: false, opacity: 0, id: "grid_line" }));
+        canvas.add(line);
+        canvas.sendToBack(line);
+    }
+    for (var i = 0; i < (canvasHeight / grid); i++) {
+        var line = (new fabric.Line([ 0, i * grid, canvasWidth, i * grid], { type: 'line', stroke: '#CBD6DB', selectable: false, opacity: 0, id: "grid_line" }))
+        canvas.add(line);
+        canvas.sendToBack(line);
+    }
+
+    
+    
+    switchLeftMenu('elements');
+});
+</script>
+<script>
+function changeTemplate() {
+    var template = $('#default_template').val();
+    window.location.href="https://app.onlinecheckwriter.com/manage/bankaccount/editdesign?bankaccount_id=6VoW41ZBKdG589l&template="+template;
+}
+
+function updateRoutingPos(pos) {
+    delay(function(){
+        minl = 67;
+        maxl = 107;
+        mint = 226;
+        maxt = 266;
+        if(pos=="left") {
+            var val = document.getElementById("custom['set_routing_left']").value;
+            if (val<minl || val>maxl) {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: ' Left position must be between '+minl+' and '+maxl,
+                    preConfirm: () => {
+                        document.getElementById("custom['set_routing_left']").focus();
+                    }
+                });
+                return false;
+            }
+            else {
+                var activeObject = canvas.getActiveObject();
+                if(activeObject) {
+                    activeObject.set({
+                        left: Number(val)
+                    })
+                    canvas.renderAll();
+                }
+            }
+        }
+        else if(pos=="top") {
+            var val = document.getElementById("custom['set_routing_top']").value;
+            if (val<mint || val>maxt) {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: ' Top position must be between '+mint+' and '+maxt,
+                    preConfirm: () => {
+                        document.getElementById("custom['set_routing_top']").focus();
+                    }
+                });
+                return false;
+            }
+            else {
+                var activeObject = canvas.getActiveObject();
+                if(activeObject) {
+                    activeObject.set({
+                        top: Number(val)
+                    })
+                    canvas.renderAll();
+                }
+            }
+        }
+    }, 600, this);
+}
+
+function updateRouting(el) {
+    delay(function(){
+        if (el==1) { var val = document.getElementById("custom['set_routing_number']").value; var msg = "Routing Number"; var fld = "set_routing_number"; }
+        if (el==2) { var val = document.getElementById("custom['set_account_number']").value; var msg = "Account Number"; var fld = "set_account_number"; }
+        if (el==3) { var val = document.getElementById("custom['set_check_start_number']").value; var msg = "Next Check Serial Number"; var fld = "set_check_start_number"; }
+
+        if (val=="") {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: msg + ' Cannot be empty',
+                preConfirm: () => {
+                    document.getElementById("custom['"+fld+"']").focus();
+                }
+            });
+            return false;
+        }
+        else if (val!="") {
+
+            if(el=='1'){
+                if (val.length == 9) {
+                    if(!checkRoutingNumber(val))
+                    {
+                        Swal.fire({
+                            type: 'error',
+                            title: 'Oops...',
+                            text: 'Invalid Routing number',
+
+                        });
+                        return false;
+                    }
+                    var activeObject = canvas.getActiveObject();
+                    if(activeObject) {
+                        var txt = "(0000000000) &"+document.getElementById("custom['set_routing_number']").value+"& ("+document.getElementById("custom['set_account_number']").value+")";
+
+                        activeObject.set({
+                            text: txt
+                        })
+                        canvas.renderAll();
+
+                        $.post("/manage/checkdesignnew/updaterouting", {
+                            _token: "Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F",
+                            type: el,
+                            bankaccount_id: bankaccount_id,
+                            data: val
+                        });
+                    }
+                }
+            }else{
+                var activeObject = canvas.getActiveObject();
+                if(activeObject) {
+                    var txt = "(0000000000) &"+document.getElementById("custom['set_routing_number']").value+"& ("+document.getElementById("custom['set_account_number']").value+")";
+
+                    activeObject.set({
+                        text: txt
+                    })
+                    canvas.renderAll();
+
+                    $.post("/manage/checkdesignnew/updaterouting", {
+                        _token: "Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F",
+                        type: el,
+                        bankaccount_id: bankaccount_id,
+                        data: val
+                    });
+                }
+            }
+        }
+    }, 600, this);
+}
+
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+
+function updateText() {
+    delay(function(){
+        var txt = document.getElementById("custom['set_text_text']").value;
+        var wrapWidth = Number(document.getElementById("custom['set_text_width']").value);
+
+        if (txt == "") {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Oops... Please enter some Text',
+                preConfirm: () => {
+                    document.getElementById("custom['set_text_text']").focus();
+                }
+            });
+            return false;
+        }
+        else if (wrapWidth < 20 || wrapWidth > 800) {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Oops... Maximum Width should be between 20 and 800',
+                preConfirm: () => {
+                    document.getElementById("custom['set_text_width']").focus();
+                }
+            });
+            return false;
+        }
+        else {
+            var activeObject = canvas.getActiveObject();
+            var objectId = activeObject.id;
+            if(activeObject) {
+                activeObject.set({
+                    text: txt.trim().replace(/^\s+|\s+$/gm,''),
+                    fontSize: Number(document.getElementById("custom['set_text_font_size']").value),
+                    fontFamily: document.getElementById("custom['set_text_font_family']").value,
+                    fill : document.getElementById("custom['set_text_font_color']").style.backgroundColor,
+                    fontWeight: set_font_bold,
+                    fontStyle: set_font_italic,
+                    underline: set_font_underline,
+                    textAlign: set_text_align,
+                    opacity: 1,
+                    wrapWidth: wrapWidth,
+                })
+                if (toupdate_dynamic != "") {
+
+                    if(!validateBankAccountDetails(toupdate_dynamic,txt))
+                    {
+                        return false;
+                    }
+
+                    $.post("/manage/checkdesignnew/updatedynamic", {
+                        _token: "Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F",
+                        type: toupdate_dynamic,
+                        bankaccount_id: "6VoW41ZBKdG589l",
+                        data: txt,
+                        dataType: 'json',
+                    }).done(function( response ) {
+
+                       if(response.success == false)
+                       {
+                           errorDialog('error',response.type,response.errorMsg);
+                           return false;
+                       }
+
+                    });
+
+                    canvas.getObjects().forEach(function(o) {
+                        if(o.id == "dynamic['"+toupdate_dynamic+"']") {
+                            o.text = txt;
+                        }
+                        if(o.id == "dynamic['envelop_window_address_from']" && toupdate_dynamic=="business_name") {
+                            o.text = txt + "                   \n" + bankaccount_address + "                   ";
+                        }
+                        if(o.id == "dynamic['envelop_window_address_from']" && toupdate_dynamic=="business_address") {
+                            o.text = bankaccount_name + "                   \n" + txt + "                   ";
+                        }
+                    })
+
+                    if (toupdate_dynamic == "business_name") { bankaccount_name = txt; }
+                    if (toupdate_dynamic == "business_address") { bankaccount_address = txt; }
+                    if (toupdate_dynamic == "bank_name") { bank_name = txt; }
+                    if (toupdate_dynamic == "fractional_no") { fractional_no = txt; }
+                }
+
+                var from_addresses = "dynamic['envelop_window_address_from']";
+                var to_addresses = "dynamic['envelop_window_address_to']";
+
+                if(objectId == from_addresses)
+                {
+                    activeObject.set({
+                         width : 170.56982421875,
+                         showTextBoxBorder : true,
+                         textboxBorderColor : "#aaa",
+                   });
+                }
+
+                if(objectId == to_addresses)
+                {
+                    activeObject.set({
+                         width : 304.8310546875,
+                         showTextBoxBorder : true,
+                         textboxBorderColor : "#aaa",
+                   });
+                }
+
+                canvas.renderAll();
+            }
+        }
+    }, 600, this);
+}
+
+$(function(){
+    $(document).on('click',function(e){
+
+        var attr = $(e.target).attr('show-disabled-warning');
+
+        if (typeof attr !== typeof undefined && attr !== false) {
+            Swal.fire({type:'warning',title: 'Oops...',text: 'Bank Account Number and Routing Number is not editable for verified bank account. You can delete this account and add a new one.' });
+        }
+
+    });
+
+});
+
+
+
+function validateBankAccountDetails(type,text)
+{
+    switch(type)
+    {
+        case 'business_name'    : return validateBusinessName(text);
+                                  break;
+
+        case 'business_address' : return validateBusinessAddress(text);
+                                  break;
+
+        case 'bank_name'        : return validateBankName(text);
+                                  break;
+
+        default                 : return true;
+                                  break;
+    }
+}
+
+
+function validateBusinessName(text)
+{
+    var limit = 60;
+    if(text.length > limit)
+    {
+        errorDialog('error','Bank account name','Maximum length is exceeded! Please enter between 1 and '+limit+' characters');
+        return false;
+    }
+    return true;
+}
+
+
+function validateBusinessAddress(text)
+{
+    var limit = 190;
+    if(text.length > limit)
+    {
+        errorDialog('error','Bank address','Maximum length is exceeded! Please enter between 1 and '+limit+' characters');
+        return false;
+    }
+    return true;
+}
+
+
+function validateBankName(text)
+{
+    var limit = 45;
+    if(text.length > limit)
+    {
+        errorDialog('error','Bank name','Maximum length is exceeded! Please enter between 1 and '+limit+' characters');
+        return false;
+    }
+    return true;
+}
+
+
+function errorDialog(type,title,message)
+{
+    Swal.fire({
+        type: type,
+        title: title,
+        text: message
+    });
+}
+
+
+</script>
+</head>
+
+<body bgcolor="#EFEFEF" onbeforeunload="return leavesite()">
+
+    <style>
+            body {
+            margin: 2rem;
+            }
+
+            .video-dialog {
+            max-width: 3200px;
+            max-height:2000px
+            margin: 30px auto;
+            }
+            .video-body {
+            position: relative;
+            padding: 0px;
+            }
+            .videoclose {
+            position: absolute;
+            right: -1px;
+            top: 0;
+            z-index: 999;
+            font-size: 2rem;
+            font-weight: normal;
+            color: #fff;
+            opacity: 1;
+            }
+</style>
+
+
+<div class="topmenu">
+    <ul>
+        <li class="dropdown" style="background:#0B4726; width:30%; text-align:center;">
+            <a href="https://app.onlinecheckwriter.com/manage/bankaccount/index"><img src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/logo.png" style="height:40px;"></a>
+        </li>
+
+        <li class="dropdown" style="text-align:center; padding: 6px;">
+            <button class="go_back_button" onclick="window.location.href='https://app.onlinecheckwriter.com/manage/bankaccount/index'">Go Back</button>
+        </li>
+
+        <li class="dropdown" style="color: #fff; text-align:center; padding: 6px;">
+            <select id="default_template" name="default_template" class="default_template" onchange="changeTemplate()">
+                <option selected disabled>Go to Default Template</option>
+                <option value="1">OCW Recommended Style</option>
+              </select>
+         </li>
+
+
+
+
+          <li class="dropdown" style="text-align:center; padding: 6px;">
+
+
+        <!-- Button trigger modal -->
+                <a class=" video-btn fa fa-play-circle" style="font-size:30px;color:white" data-toggle="modal"
+                data-src="https://cdn.onlinecheckwriter.com/video-tutorial/Design+Page.mp4" data-target="#videomodel">
+
+                </a>
+
+
+        <!-- Modal -->
+                <div class="modal fade" id="videomodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true" >
+                 <div class="modal-dialog modal-lg video-dialog" role="document">
+                    <div class="modal-content">
+
+                    <div class="modal-body video-body">
+
+                        <button type="button" class="close videoclose" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        <!-- 16:9 aspect ratio -->
+                        <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="" width="950" height="800" id="video"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+
+    </li>
+</ul>
+
+
+</div >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+        $(document).ready(function() {
+        var $videoSrc;
+        $(".video-btn").click(function() {
+            $videoSrc = $(this).attr("data-src");
+            console.log("button clicked" + $videoSrc);
+
+        $("#videomodel").on("shown.bs.modal", function(e) {
+            console.log("modal opened" + $videoSrc);
+            $("#video").attr(
+            "src",
+            $videoSrc + "?autoplay=1&showinfo=0&modestbranding=1&rel=0&mute=1"
+            );
+        });
+        });
+        $("#videomodel").on("hide.bs.modal", function(e) {
+            $("#video").attr("src", '');
+        });
+
+        });
+
+</script>
+
+
+
+
+
+
+
+
+
+    <img id="grid_bg_img" style="display: none;" src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/check_bg.png">
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="preview-close" id="preview_close"> &times;</span>
+        </div>
+        <div class="modal-body" id="check_preview_modal"><img src="" id="check_preview_image" width="96%"></div>
+        <div class="modal-footer">
+        </div>
+    </div>
+</div>
+
+<div id="check_anything_loader" class="check_anything_loader"><img src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/loading_icon.gif"></div>
+    <table style="margin:0px; border-collapse:collapse; padding:0px; border:0px;" width="100%">
+    <tr>
+        <td rowspan="2"  style="text-align:left; vertical-align:top; width:30%; background-color: #6f787c;">
+            <div id="left_menu_bar_head" class="lefttools">
+
+    <ul>
+    <li data-tag="elements"><a href="javascript:void(0)" id="left_menu_bar['elements']" onclick="switchLeftMenu('elements')" class="active" style="color:lightgreen;"><i class="fa fa-tag fa-2x" aria-hidden="true"></i> <br>Elements</a></li>
+    <li data-tag="text"><a href="javascript:void(0)" id="left_menu_bar['text']" onclick="switchLeftMenu('text')" style="color:lightblue;" ><i class="fa fa-text-width fa-2x" aria-hidden="true"></i> <br>Text</a></li>
+    <li data-tag="logos"><a href="javascript:void(0)" id="left_menu_bar['logos']" onclick="switchLeftMenu('logos')" style="color:orange;"><i class="icon icon-picture-icon" style="font-size: 28px"></i> <br>Logos</a></li>
+    <li data-tag="signature"><a href="javascript:void(0)" id="left_menu_bar['signature']" onclick="switchLeftMenu('signature')" style="color:pink;"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> <br>Signature</a></li>
+    <li data-tag="images"><a href="javascript:void(0)" id="left_menu_bar['images']" onclick="switchLeftMenu('images')" style="color:#f66;"><i class="fa fa-camera fa-2x" aria-hidden="true"></i> <br>Images</a></li>
+    <li data-tag="background"><a href="javascript:void(0)" id="left_menu_bar['background']" onclick="switchLeftMenu('background')" style="color:#A5FAE3;"><i class="fa fa-image fa-2x" aria-hidden="true"></i> <br>Background</a></li>
+    <li data-tag="banklogos"><a href="javascript:void(0)" id="left_menu_bar['banklogos']" onclick="switchLeftMenu('banklogos')" style="color:#A58AE3;"><i class="fa fa-bank fa-2x" aria-hidden="true"></i> <br>Bank&nbsp;Logos</a></li>
+    <li data-tag="icons"><a href="javascript:void(0)" id="left_menu_bar['icons']" onclick="switchLeftMenu('icons')" style="color:#A5fA03;"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i> <br>Icons</a></li>
+    <li data-tag="shapes"><a href="javascript:void(0)" id="left_menu_bar['shapes']" onclick="switchLeftMenu('shapes')" style="color:yellow;"><i class="fa fa-square fa-2x" aria-hidden="true"></i> <br>Shapes</a></li>
+    <li data-tag="settings"><a href="javascript:void(0)" id="left_menu_bar['settings']" onclick="switchLeftMenu('settings')" style="display:none; color:white;"><i class="fa fa-cog fa-2x fa-s fa-spin" style="animation-duration:6s;" aria-hidden="true"></i> <br>Settings</a></li>
+</ul>
+
+    <div style="margin-left:80px;padding:29px 16px;">
+
+        <div id="left_menu_bar_elements" style="display:block;">
+            <style>
+.addbutton {
+  color: #BBFFC0;
+  position: relative;
+  padding-left: 8px;
+  cursor: pointer;
+  margin-bottom: 4px;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.left_elements_menus {
+  position: relative;
+  cursor: pointer;
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: Verdana;
+  color: white;
+  padding-left: 7px;
+}
+</style>
+<script>
+jQuery(document).ready(function($) {
+  $(".switchsub").hide(500);
+});
+
+function toggleElements(n) {
+  if( $("#static_"+n).is(':visible') ) {
+    $("#static_"+n).hide(500);
+  }
+  else {
+    $("#static_"+n).show(200);
+  }
+
+  for(i=1; i<9; i++) { if (i!=n) { $("#static_"+i).hide(500); } }
+}
+</script>
+
+<div id="right_menu_bar_head" class="righttools scrollbar_style" style="height: 700px;">
+
+  <span class="menu_bar_sub_title" href="javascript:void(0)" id="right_menu_bar['static']"> STATIC ELEMENTS</span>
+  <br>&nbsp;
+  <div id="right_menu_bar_static" style="display:block;">
+
+    <div style="display:block;"><label class="switchdatas">
+      <input type="checkbox" id="static_check_pay_to_the_order_main" onclick="toggleIt('static[\'pay_to_the_order\']', this, 'main')"  checked> <span class="checkmark"></span>
+    </label><span class="switch-label" onclick="toggleElements(1)">Pay to the Order Of </span></div>
+    <div class="switchsub" id="static_1">
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        With Line
+        <input type="checkbox" id="static_check_pay_to_the_order_line" onclick="toggleIt('static[\'pay_to_the_order\']', this, 'line', 'PAY TO THE\nORDER OF  ____________________________________________________', 'PAY TO THE\nORDER OF')"  checked> <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Bold
+        <input type="checkbox" id="static_check_pay_to_the_order_bold" onclick="toggleIt('static[\'pay_to_the_order\']', this, 'bold')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Italic
+        <input type="checkbox" id="static_check_pay_to_the_order_italic" onclick="toggleIt('static[\'pay_to_the_order\']', this, 'italic')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Underline
+        <input type="checkbox" id="static_check_pay_to_the_order_underline" onclick="toggleIt('static[\'pay_to_the_order\']', this, 'underline')" > <span class="checkmark"></span>
+      </label>
+    </div>
+
+    <div style="display:block;"><label class="switchdatas">
+      <input type="checkbox" id="static_check_date_main" onclick="toggleIt('static[\'date\']', this, 'main')"  checked> <span class="checkmark"></span>
+    </label><span class="switch-label" onclick="toggleElements(2)">Date </span></div>
+    <div class="switchsub" id="static_2">
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        With Line
+        <input type="checkbox" id="static_check_date_line" onclick="toggleIt('static[\'date\']', this, 'line', 'DATE ____________', 'DATE')"  checked> <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Bold
+        <input type="checkbox" id="static_check_date_bold" onclick="toggleIt('static[\'date\']', this, 'bold')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Italic
+        <input type="checkbox" id="static_check_date_italic" onclick="toggleIt('static[\'date\']', this, 'italic')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Underline
+        <input type="checkbox" id="static_check_date_underline" onclick="toggleIt('static[\'date\']', this, 'underline')" > <span class="checkmark"></span>
+      </label>
+    </div>
+
+    <div style="display:block;"><label class="switchdatas">
+      <input type="checkbox" id="static_check_dollar_main" onclick="toggleIt('static[\'dollar\']', this, 'main')"  checked> <span class="checkmark"></span>
+    </label><span class="switch-label" onclick="toggleElements(3)">Dollars </span></div>
+    <div class="switchsub" id="static_3">
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        With Line
+        <input type="checkbox" id="static_check_dollar_line" onclick="toggleIt('static[\'dollar\']', this, 'line', '_________________________________________________________________________________ DOLLARS', '                                                                                                                                                                   DOLLARS')"  checked> <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Bold
+        <input type="checkbox" id="static_check_dollar_bold" onclick="toggleIt('static[\'dollar\']', this, 'bold')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Italic
+        <input type="checkbox" id="static_check_dollar_italic" onclick="toggleIt('static[\'dollar\']', this, 'italic')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Underline
+        <input type="checkbox" id="static_check_dollar_underline" onclick="toggleIt('static[\'dollar\']', this, 'underline')" > <span class="checkmark"></span>
+      </label>
+    </div>
+
+    <div style="display:block;"><label class="switchdatas">
+      <input type="checkbox" id="static_check_memo_main" onclick="toggleIt('static[\'memo\']', this, 'main')"  checked> <span class="checkmark"></span>
+    </label><span class="switch-label" onclick="toggleElements(4)">Memo </span></div>
+    <div class="switchsub" id="static_4">
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        With Line
+        <input type="checkbox" id="static_check_memo_line" onclick="toggleIt('static[\'memo\']', this, 'line', 'MEMO __________________________________________', 'MEMO')"  checked> <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Bold
+        <input type="checkbox" id="static_check_memo_bold" onclick="toggleIt('static[\'memo\']', this, 'bold')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Italic
+        <input type="checkbox" id="static_check_memo_italic" onclick="toggleIt('static[\'memo\']', this, 'italic')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Underline
+        <input type="checkbox" id="static_check_memo_underline" onclick="toggleIt('static[\'memo\']', this, 'underline')" > <span class="checkmark"></span>
+      </label>
+    </div>
+
+    <div style="display:block;"><label class="switchdatas">
+      <input type="checkbox" id="static_check_signature_main" onclick="toggleIt('static[\'signature\']', this, 'main')"  checked> <span class="checkmark"></span>
+    </label><span class="switch-label" onclick="toggleElements(5)">Signature Line </span></div>
+    <div class="switchsub" id="static_5">
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        With MP
+        <input type="checkbox" id="static_check_signature_mp" onclick="toggleIt('static[\'signature\']', this, 'signature_mp')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        With Authorized
+        <input type="checkbox" id="static_check_signature_authorized" onclick="toggleIt('static[\'signature\']', this, 'signature_authorized')"  checked> <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Bold
+        <input type="checkbox" id="static_check_signature_bold" onclick="toggleIt('static[\'signature\']', this, 'bold')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Italic
+        <input type="checkbox" id="static_check_signature_italic" onclick="toggleIt('static[\'signature\']', this, 'italic')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Underline
+        <input type="checkbox" id="static_check_signature_underline" onclick="toggleIt('static[\'signature\']', this, 'underline')" > <span class="checkmark"></span>
+      </label>
+    </div>
+
+    <div style="display:block;"><label class="switchdatas">
+      <input type="checkbox" id="static_check_void_after_main" onclick="toggleIt('static[\'void_after\']', this, 'main')"  checked> <span class="checkmark"></span>
+    </label><span class="switch-label" onclick="toggleElements(8)">Void After </span></div>
+    <div class="switchsub" id="static_8">
+
+      <label class="switchdatas" style="margin-left: 4px;">
+        <span contenteditable="true" id="left_void_after_days" style="border:1px dashed black; padding:1px 4px; background-color: #fff; color:#000;">90</span> Days
+      </label>
+
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Bold
+        <input type="checkbox" id="static_check_void_after_bold" onclick="toggleIt('static[\'void_after\']', this, 'bold')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Italic
+        <input type="checkbox" id="static_check_void_after_italic" onclick="toggleIt('static[\'void_after\']', this, 'italic')" > <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        Underline
+        <input type="checkbox" id="static_check_void_after_underline" onclick="toggleIt('static[\'void_after\']', this, 'underline')" > <span class="checkmark"></span>
+      </label>
+    </div>
+
+    <div style="display:block;"><label class="switchdatas">
+      <input type="checkbox" id="static_check_amount_box_sign_main" onclick="toggleIt('static[\'amount_box_sign\']', this, 'amount_box_main')"  checked> <span class="checkmark"></span>
+    </label><span class="switch-label" onclick="toggleElements(6)">$ Box </span></div>
+    <div class="switchsub" id="static_6">
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        $ Sign
+        <input type="checkbox" id="static_check_amount_box_sign" onclick="toggleIt('static[\'amount_box_sign\']', this, 'main')"  checked> <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        With Box
+        <input type="checkbox" id="static_check_amount_box_box" onclick="toggleIt('static[\'amount_box_box\']', this, 'main')"  checked> <span class="checkmark"></span>
+      </label>
+      <label class="switchdatas" style="margin-left:30px; display:block">
+        With Line
+        <input type="checkbox" id="static_check_amount_box_line" onclick="toggleIt('static[\'amount_box_line\']', this, 'main')" > <span class="checkmark"></span>
+      </label>
+    </div>
+
+    <div style="display:block;"><label class="switchdatas" onclick="toggleElements(7)">
+      Check Number
+      <input type="checkbox" id="static_check_check_no_main" onclick="toggleIt('static[\'check_no\']', this, 'main')" > <span class="checkmark"></span>
+    </label></div>
+    <div class="switchsub" id="static_7">
+    </div>
+
+  </div>
+  <br>
+
+<script>
+
+$('#left_void_after_days').on('keypress', function(e) {
+
+    var inputvalue = $(this).html();
+    var isNum =  $.isNumeric( inputvalue );
+    var leng = inputvalue.length;
+
+    if(inputvalue = "")
+    e.preventDefault();
+
+    //prevent typing chars or letters
+    if (isNaN(String.fromCharCode(e.which)))
+     e.preventDefault();
+
+    //  Allowed maximum 3 input lengths
+    var len = 3;
+    if ($(this).html().length >= len) {
+      e.preventDefault();
+    }
+});
+
+$('#left_void_after_days').on('keydown', function(e) {
+
+    // prevent pressing a spacebar
+     if(e.which == 32)
+     e.preventDefault();
+});
+$('#left_void_after_days').on('input', function(e) {
+  toggleIt('static[\'void_after\']', this, 'voiddays');
+});
+</script>
+
+
+  <span class="menu_bar_sub_title" href="javascript:void(0)" id="right_menu_bar['dynamic']"> DYNAMIC ELEMENTS</span>
+  <br>&nbsp;
+  <div id="right_menu_bar_dynamic" style="display:block;">
+      <div style="display:block;"><label class="switchdatas">
+        Routing Number
+        <input type="checkbox" id="dynamic_check_bank_account_routing_no_main" onclick="toggleIt('dynamic[\'bank_account_routing_no\']', this, 'main')"  checked> <span class="checkmark"></span>
+      </label></div>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('stub', 1)"></i><label onclick="addDynamic('stub', 1)" class="left_elements_menus">Stub 1</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('stub', 2)"></i><label onclick="addDynamic('stub', 2)" class="left_elements_menus">Stub 2</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('business_name', bankaccount_name)"></i><label onclick="addDynamic('business_name', bankaccount_name)" class="left_elements_menus">Your Name/Business Name</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('business_address', bankaccount_address)"></i><label onclick="addDynamic('business_address', bankaccount_address)" class="left_elements_menus">Your Address/Business Address</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('check_no', '<Check No>')"></i><label onclick="addDynamic('check_no', '<Check No>')" class="left_elements_menus">Check Number</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('date', '<12/26/2021>')"></i><label onclick="addDynamic('date', '12/26/2021')" class="left_elements_menus">Date</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('bank_name', bank_name)"></i><label onclick="addDynamic('bank_name', bank_name)" class="left_elements_menus">Bank Name</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('amount_digit', '<000.00>')"></i><label onclick="addDynamic('amount_digit', '<000.00>')" class="left_elements_menus">Amount in Digit</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('amount_word', '<Zero Zero Zero and 00/100*****>')"></i><label onclick="addDynamic('amount_word', '<Zero Zero Zero and 00/100*****>')" class="left_elements_menus">Amount in Words</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('memo', '<Memo>')"></i><label onclick="addDynamic('memo', '<Memo>')" class="left_elements_menus">Memo</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('qrcode', '<QR CODE>')"></i><label onclick="addDynamic('qrcode', '<QR CODE>')" class="left_elements_menus">QR Code</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('payto_name', '<Pay to Name>')"></i><label onclick="addDynamic('payto_name', '<Pay to Name>')" class="left_elements_menus">Pay to Name</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('payto_company_name', '<Pay to Company Name>')"></i><label onclick="addDynamic('payto_company_name', '<Pay to Company Name>')" class="left_elements_menus">Pay to Company Name</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('payto_address_2line', '<Pay to Address>\n<City, ST, ZIP>')"></i><label onclick="addDynamic('payto_address_2line', '<Pay to Address>\n<City, ST, ZIP>')" class="left_elements_menus">Pay to Address (2 Line)</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('payto_address_1line', '<Pay to Address, City, ST, ZIP>')"></i><label onclick="addDynamic('payto_address_1line', '<Pay to Address, City, ST, ZIP>')" class="left_elements_menus">Pay to Address (1 Line)</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('payto_account_no', '<Account No>')"></i><label onclick="addDynamic('payto_account_no', '<Account No>')" class="left_elements_menus">Account Number</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('payto_invoice_no', '<Invoice No>')"></i><label onclick="addDynamic('payto_invoice_no', '<Invoice No>')" class="left_elements_menus">Invoice Number</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('fractional_no', fractional_no)"></i><label onclick="addDynamic('fractional_no', fractional_no)" class="left_elements_menus">Fractional Number</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('envelop_window_address_from', bankaccount_name + '                   \n' + bankaccount_address + '                   ')"></i><label onclick="addDynamic('envelop_window_address_from', bankaccount_name + '                   \n' + bankaccount_address + '                   ')" class="left_elements_menus">Window Env From Address</label><br>
+      <i class="fa fa-arrow-right addbutton" onclick="addDynamic('envelop_window_address_to', '<Pay to Name>\n<Pay to Company Name>\n<Pay to Address>\n<Pay to City, State, Zip>                                                             ')"></i><label onclick="addDynamic('envelop_window_address_to', '<Pay to Name>\n<Pay to Company Name>\n<Pay to Address>\n<Pay to City, State, Zip>                                                             ')" class="left_elements_menus">Window Env To Address</label><br>
+  </div>
+</div>
+
+<script>
+function addDynamic(elm, txt) {
+  if(elm=="stub") {
+    var textOptions = { id : "dynamic['date']",           left : 30,  top : 300,  fontSize: 11, fontFamily: "Helvetica", fontWeight: "bold" };
+    if (txt==2) { textOptions['top'] = 590; }
+    canvas.add(new fabric.Text('<12/26/2021>', textOptions));
+    var textOptions = { id : "dynamic['payto_name']",     left : 200, top : 300,  fontSize: 11, fontFamily: "Helvetica", fontWeight: "bold" };
+    if (txt==2) { textOptions['top'] = 590; }
+    canvas.add(new fabric.Text('<Pay to Name>', textOptions));
+    var textOptions = { id : "dynamic['check_no']",       left : 569, top : 300,  fontSize: 12, fontFamily: "Helvetica", fontWeight: "bold" };
+    if (txt==2) { textOptions['top'] = 590; }
+    canvas.add(new fabric.Text('<Check No>', textOptions));
+    var textOptions = { id : "static['other']",           left : 200, top : 320,  fontSize: 11, fontFamily: "Helvetica" };
+    if (txt==2) { textOptions['top'] = 610; }
+    canvas.add(new fabric.Text('Pay To: ', textOptions));
+    var textOptions = { id : "dynamic['payto_name']",     left : 300, top : 320,  fontSize: 11, fontFamily: "Helvetica" };
+    if (txt==2) { textOptions['top'] = 610; }
+    canvas.add(new fabric.Text('<Pay to Name>', textOptions));
+    var textOptions = { id : "dynamic['payto_address_2line']",     left : 300, top : 335,  fontSize: 11, fontFamily: "Helvetica" };
+    if (txt==2) { textOptions['top'] = 625; }
+    canvas.add(new fabric.Text('<Pay to Address>\n<City, ST, ZIP>', textOptions));
+    var textOptions = { id : "static['other']",           left : 200, top : 390,  fontSize: 11, fontFamily: "Helvetica" };
+    if (txt==2) { textOptions['top'] = 680; }
+    canvas.add(new fabric.Text('Pay From: ', textOptions));
+    var textOptions = { id : "dynamic['business_name']",  left : 300, top : 390,  fontSize: 11, fontFamily: "Helvetica" };
+    if (txt==2) { textOptions['top'] = 680; }
+    canvas.add(new fabric.Text(bankaccount_name, textOptions));
+    var textOptions = { id : "dynamic['business_address']",left : 300, top : 405,  fontSize: 11, fontFamily: "Helvetica" };
+    if (txt==2) { textOptions['top'] = 695; }
+    canvas.add(new fabric.Text(bankaccount_address, textOptions));
+    var textOptions = { id : "dynamic['payto_account_no']",left : 200, top : 460,  fontSize: 11, fontFamily: "Helvetica" };
+    if (txt==2) { textOptions['top'] = 750; }
+    canvas.add(new fabric.Text('<Account No>', textOptions));
+    var textOptions = { id : "dynamic['payto_invoice_no']",left : 200, top : 480,  fontSize: 11, fontFamily: "Helvetica" };
+    if (txt==2) { textOptions['top'] = 770; }
+    canvas.add(new fabric.Text('<Invoice No>', textOptions));
+    var textOptions = { id : "static['other']",           left : 30,   top : 510,  fontSize: 11, fontFamily: "Helvetica" };
+    if (txt==2) { textOptions['top'] = 800; }
+    canvas.add(new fabric.Text('MEMO ', textOptions));
+    var textOptions = { id : "dynamic['memo']",           left : 70,   top : 510,  fontSize: 11, fontFamily: "Helvetica" };
+    if (txt==2) { textOptions['top'] = 800; }
+    canvas.add(new fabric.Text('<Memo>', textOptions));
+    var textOptions = { id : "dynamic['business_name']",  left : 30,   top : 530,  fontSize: 12, fontFamily: "Helvetica", fontWeight: "bold" };
+    if (txt==2) { textOptions['top'] = 820; }
+    canvas.add(new fabric.Text(bankaccount_name, textOptions));
+    var textOptions = { id : "dynamic['amount_digit']",   left : 569,  top : 530,  fontSize: 11, fontFamily: "Helvetica", fontWeight: "bold" };
+    if (txt==2) { textOptions['top'] = 820; }
+    canvas.add(new fabric.Text('<000.00>', textOptions));
+  }
+  else if(elm=="qrcode") {
+    var shapeOptions = objectProperties();
+    shapeOptions['id'] = "dynamic['"+elm+"']";
+    shapeOptions['left'] = 100;
+    shapeOptions['top'] = 196;
+    var pug_image_img = new Image();
+    pug_image_img.src = "https://app.onlinecheckwriter.com/manage/checkdesignnew/loadimage?the_img=https://app.onlinecheckwriter.com/asset/checkdesignnew/images/qr_code_dummy.png";
+    var imageObject = new fabric.Image(pug_image_img, shapeOptions);
+    canvas.add(imageObject).setActiveObject(imageObject);
+  }
+  else {
+    var textOptions = {
+        id : "dynamic['"+elm+"']",
+        left : 250,
+        top : 320,
+        fontSize: 11,
+        fontFamily: "Helvetica"
+    };
+    if (elm == "envelop_window_address_to") {
+      textOptions["left"] = 125;
+      textOptions["top"] = 455;
+      textOptions["showTextBoxBorder"] = true;
+      textOptions["textboxBorderColor"] = "#aaa";
+    }
+    if (elm == "envelop_window_address_from") {
+      textOptions["left"] = 95;
+      textOptions["top"] = 335;
+      textOptions["showTextBoxBorder"] = true;
+      textOptions["textboxBorderColor"] = "#aaa";
+    }
+    var textObject = new fabric.Text(txt, textOptions);
+    canvas.add(textObject).setActiveObject(textObject);
+  }
+  canvas.renderAll();
+}
+</script>
+        </div>
+
+        <div id="left_menu_bar_main" style="display:none;">
+            <div style="text-align:center">
+    <img src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/logo.png" style="width:94%;">
+</div>
+<br>
+<div style="color:#fff">
+    Design your checks easy and fast. 
+</div>        </div>
+
+        <div id="left_menu_bar_text" style="display:none;">
+            <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%" border=0>
+  <tr>
+    <td colspan="2"><h1><i class="fa fa-plus facircle" aria-hidden="true"></i> Add New Text</h1></td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+      <textarea id="custom['text_text']" class="textarea-style on-focus on-hover" placeholder="Add custom Text here..."></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <input id="custom['text_add']" class="text-add-button" type="button" value="ADD TEXT TO CHECK" onclick="addText()">
+      <br><br>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <span class="text-style">Font Family</span>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <select id="custom['text_font_family']" class="select-style on-focus on-hover"></select>
+      <br><br><br>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 45%">
+      <span class="text-style">Font Size</span>
+    </td>
+    <td style="width: 55%">
+      <span class="text-style">Font Style</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 45%">
+      <input id="custom['text_font_size']" class="number-style on-focus on-hover" type="number" value="16" max="72" min="1" >
+      <br><br><br>
+    </td>
+    <td style="width: 55%">
+      <i class="fa fa-bold fa-lg button-style on-focus on-hover" aria-hidden="true" onclick="fontStyle('bold', this)"></i>
+      <i class="fa fa-italic fa-lg button-style on-focus on-hover" aria-hidden="true" onclick="fontStyle('italic', this)"></i>
+      <i class="fa fa-underline fa-lg button-style on-focus on-hover" aria-hidden="true" onclick="fontStyle('underline', this)"></i>
+      <br><br><br>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 45%">
+      <span class="text-style">Font Color</span>
+    </td>
+    <td style="width: 55%">
+      <span class="text-style">Align</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 45%">
+      <input id="custom['text_font_color']" class="jscolor {
+          valueElement: 'color_value',
+          position:'bottom',
+          borderColor:'#FFF #666 #666 #FFF',
+          insetColor:'#666 #FFF #FFF #666',
+          backgroundColor:'#CCC',
+          value: '#000'
+        } color-picker-style" type="text" value="" readonly>
+    </td>
+    <td style="width: 55%">
+      <i id="custom['text_align_left']" class="fa fa-align-left fa-lg button-style on-focus on-hover" style="background-color:#ddd; border:1px solid #fff; color: #000;" aria-hidden="true" onclick="fontAlign('left', this)"></i>
+      <i id="custom['text_align_center']" class="fa fa-align-center fa-lg button-style on-focus on-hover" aria-hidden="true" onclick="fontAlign('center', this)"></i>
+      <i id="custom['text_align_right']" class="fa fa-align-right fa-lg button-style on-focus on-hover" aria-hidden="true" onclick="fontAlign('right', this)"></i>
+    </td>
+  </tr>
+
+</table>
+
+<script>
+var fonts = ["Arial", "Times New Roman", "Helvetica", "Courier", "Courier New", "Verdana", "Georgia", "Palatino", "Garamond", "Bookman", "Comic Sans MS", "Trebuchet MS", "Impact"];
+var select_font_family = document.getElementById("custom['text_font_family']");
+fonts.forEach(function(font) {
+  var option = document.createElement('option');
+  option.innerHTML = font;
+  option.value = font;
+  select_font_family.appendChild(option);
+});
+</script>        </div>
+
+        <div id="left_menu_bar_logos" style="display:none;">
+            <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+    <tr>
+        <td><h1><i class="fa fa-plus facircle" aria-hidden="true"></i> Logo Manager</h1></td>
+    </tr>
+    <tr>
+        <td>
+            <a id="custom['left_tools_logos_uploads_button']" class="two-buttons-near-one active" href="#" onclick="switchLogosWindow('uploads')">Uploads</a><a id="custom['left_tools_logos_clipboard_button']" class="two-buttons-near-two" href="#" onclick="switchLogosWindow('clipboard')">Clipboard</a>
+        </td>
+    </tr>
+</table>
+
+<div id="custom['left_tools_logos_uploads_window']" style="display:block; margin-top:20px;">
+    <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+
+        <tr>
+            <td>
+                <form id="logo_upload_form" method="post" enctype="multipart/form-data">
+                    <div class="upload-btn-wrapper">
+                        <input type="hidden" name="_token" value="Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F">
+                        <input id="custom['left_tools_logos_upload_button']" type="file" accept="image/*" name="photo" onchange="uploadLogo(this.form)" />
+                        <button class="text-add-button" href="#">UPLOAD NEW LOGO</button>
+                    </div>
+                </form>
+                <br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div id="custom['left_tools_logos_uploaded_display']" class="scrollbar_style" style="width:100%; height:700px;"></div>
+                <br><br>
+            </td>
+        </tr>
+        
+    </table>
+</div>
+
+<div id="custom['left_tools_logos_clipboard_window']" style="display:none; margin-top:20px;">
+    <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+
+        <tr>
+            <td>
+                <span class="text-style">Color</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_logos_clipboard_color_category_select_div']">
+                    <select id="custom['left_tools_logos_clipboard_category_select']" class="select-style on-focus on-hover" onchange="loadLogos(1, this)"><option value="0" selected>All</option></select>
+                </div>                
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_logos_clipboard_color_display']" class="scrollbar_style" style="width:100%; height:300px;"></div>
+                <br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span class="text-style">Monograms</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_logos_clipboard_monogram_category_select_div']">
+                    <select id="custom['left_tools_logos_clipboard_monogram_select']" class="select-style on-focus on-hover" onchange="loadLogos(2, this)"><option value="0" selected>All</option></select>
+                </div>                
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_logos_clipboard_monogram_display']" class="scrollbar_style" style="width:100%; height:200px;"></div>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+
+        </div>
+
+        <div id="left_menu_bar_signature" style="display:none;">
+            <link href="https://c.onlinecheckwriter.com/public/cdn\signaturefonts\style.css" rel="stylesheet">
+
+<style>
+    #s-pad canvas {
+        z-index:10;
+        border:1px solid #cdcdcd;
+        border-radius:10px;
+        margin:0 auto;
+    }
+    #sign_line {
+        position:absolute;
+        width:80%;
+        border-top:1px solid #979797;
+        color:#979797;
+        font-size:10px;
+        top:70%;
+        z-index:1;
+        margin-left:10%;
+    }
+    #s-pad,#s-pad canvas {
+        position:relative;
+        width:100%;
+    }
+    #signature-pad,#signature-pad canvas {
+        position:relative;
+        width:100%;
+    }
+    #signature-pad canvas {
+        z-index:10;
+        border:1px solid #cdcdcd;
+        border-radius:10px;
+        margin:0 auto;
+    }
+    #s_line {
+        position:absolute;
+        width:80%;
+        border-top:1px solid #979797;
+        color:#979797;
+        font-size:10px;
+        top:70%;
+        z-index:1;
+        margin-left:10%;
+    }
+    </style>
+    <style>
+    .sign_modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+    .sign_modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 600px;
+    }
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    </style>
+    <style>
+    .collapsible {
+        background-color: #161819;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }
+    .collapsible:hover {
+        background-color: #555;
+    }
+    .content {
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: #f1f1f1;
+        margin-left: -16px;
+    }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://app.onlinecheckwriter.com/cdn/paybycheck/getpaidbybutton/sign/jquery.signaturepad.css">
+    <script type="text/javascript" charset="utf-8" src="/new_design/js/signature_pad/signature_pad.js"></script>
+    <script type="text/javascript" language="javascript" src="https://c.onlinecheckwriter.com/public/assets/demo/default/custom/components/phoneformat/jquery-input-mask-phone-number.js"></script>
+
+
+    <div id="mysign_modal" class="sign_modal">
+        <div class="sign_modal-content">
+        <span id="sign_modal-close" class="close">&times;</span>
+        <h3>Use the following Signature Pad to sign</h3>
+        <input id="signature" name="signature" type="hidden" value="" />
+
+        <div id="signature-pad">
+            <canvas width="600" height="300" id="signature_canvas"></canvas>
+            <div id="s_line" style="text-align: center">Sign Here</div>
+        </div>
+        <div class="body_top" style="margin-bottom: 10px; display:flex;">
+            <input type="text" id="signature_pad_nick_name" name="nick_name" class="nick_name" style="width:600px;" maxlength="8" placeholder="Nick Name" autocomplete="off" >        </div>
+        <div class="clear"></div>
+
+        <input type="button" value="Clear Signature" style="font-size:18px;" id="clearsignature" />
+        <input type="button" value="Save Signature" style="font-size:18px;" id="submit_next_button" onclick="signOnScreenSave()" />
+      </div>
+    </div>
+
+    <script>
+        var canvas;
+        var signaturePad;
+
+        $().ready(function(){
+            signature_canvas = document.getElementById("signature_canvas");
+            signaturePad = new SignaturePad(signature_canvas);
+            //RSIZE();
+
+            $('#clearsignature').click(function(e){
+                signaturePad.clear();
+                e.preventDefault();
+            });
+        });
+
+        $(window).resize(function() {
+            RSIZE();
+        });
+
+        function RSIZE() {
+            var r =  window.devicePixelRatio || 1;
+            signature_canvas.width         = signature_canvas.offsetWidth;
+            signature_canvas.height        = signature_canvas.offsetHeight;
+            signature_canvas.getContext("2d").scale(r, r);
+        }
+
+        document.getElementById("sign_modal-close").onclick = function() {
+            document.getElementById("mysign_modal").style.display = "none";
+        }
+    </script>
+
+
+    <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+        <tr>
+            <td colspan="2"><h1><i class="fa fa-plus facircle" aria-hidden="true"></i> Signature Manager</h1></td>
+        </tr>
+    </table>
+
+    <button class="collapsible" onclick="leftSignatureSMS()"><i class="fa fa-mobile fa-lg" style="padding-right:4px;" ></i> Sign from Phone</button>
+    <button class="collapsible" onclick="leftSignatureTablet()"><i class="fa fa-tablet fa-lg" style="padding-right:4px;" ></i> Sign from Tablet</button>
+    <button class="collapsible" id="left_tools_signature_upload_link" onclick="uploadSignature()"><i class="fa fa-upload fa-lg" style="padding-right:4px;" ></i> Upload Signature</button>
+    <button class="collapsible" onclick="leftSignatureQR()"><i class="fa fa-qrcode fa-lg" style="padding-right:4px;" ></i> Sign from QR Code</button>
+        <div class="content">
+            <p style="text-align:center; padding:6px 4px;"><img class="button blue" src="https://chart.apis.google.com/chart?chf=a,s,000000|bg,s,FFFFFF&chs=150x150&chld=M|4&cht=qr&chl=https://app.onlinecheckwriter.com/outside/signature/JrtX7gSArhIwpI0P4NnW&choe=UTF-8">
+            <br>Scan above QR code using your phone or tablet to sign.</p>
+        </div>
+    <button class="collapsible" onclick="leftSignatureOnScreen()"><i class="fa fa-pencil fa-lg" style="padding-right:4px;" ></i> Sign on Screen</button>
+    <button class="collapsible" onclick="leftSignatureDigital()"><i class="fa fa-desktop fa-lg" style="padding-right:4px;" ></i> Digital Signature</button>
+    <button class="collapsible" id="left_tools_signature_existing_all"><i class="fa fa-archive fa-lg" style="padding-right:4px;" ></i> Existing Signatures</button>
+        <div class="content">
+            <div id="custom['left_tools_signature_uploaded_display']" class="scrollbar_style" style="width:100%; height:400px; text-align:center; padding:6px 2px;"></div>
+        </div>
+
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+    <script>
+
+          function uploadSignature(){
+              $('#uploadsign')[0].reset();
+              $('#uploadSignatureModal').css('display','');
+          }
+
+
+    $('.sub-menu ul').hide();
+    $(".sub-menu a").click(function () {
+        var submenu_status =  $(this).parent("li").children("ul").is(":hidden");
+        $(".sub-menu ul").not(this).slideUp("100");
+        //$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+
+        if( submenu_status == true ) {
+            $(this).parent(".sub-menu").children("ul").slideDown("100");
+            $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+        }
+        else {
+            $(this).parent(".sub-menu").children("ul").slideUp("100");
+            $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+        }
+    });
+
+
+    var filename = "";
+    function signOnScreenSave() {
+
+        var signature_pad_nick_name= $('#signature_pad_nick_name').val();
+        signature_pad_nick_name =signature_pad_nick_name.trim();
+        if (signaturePad.isEmpty()) {
+            Swal.fire('Please sign in the Signature Pad');
+            $('#signature').val('');
+            return false;
+        }
+        if(signature_pad_nick_name == ""){
+            Swal.fire('Nick Name is required');
+            return false;
+        }
+        $('#signature').val(signaturePad.toDataURL());
+         $.ajax({
+                url:"/manage/checkdesignnew/savesignonscreen?_token=Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F",
+                type:"post",
+                data:{signature:$('#signature').val(),nick_name:signature_pad_nick_name},
+                success:function(data){
+                if(data.success=='true') {
+                    document.getElementById("mysign_modal").style.display="none";
+                    Swal.fire('Success!','Signature Saved!','success');
+                    $('#signature').val('');
+                    $('.nick_name').val('');
+                    signaturePad.clear();
+                    filename = data.url;
+                    var delete_data = data.data.id+','+data.data.image_type;
+                    var old_data = document.getElementById("custom['left_tools_signature_uploaded_display']").innerHTML;
+                   // document.getElementById("custom['left_tools_signature_uploaded_display']").innerHTML = "<div class='card' style='position:relative;'><img src='/manage/checkdesignnew/loadimage?the_img="+filename+"' style='max-width:70px; max-height:70px;' onclick='addSignatureOCW(this.src)'><span style='background: #000000c4;width: 18px; height: 18px; color: #fff; display: flex;justify-content: center; align-items: center;font-weight: bold; border-radius: 4px;font-size: 10px;position: absolute;top: 0px;right:0px;' class='delet_close'>X</span></div>" + old_data;
+                    document.getElementById("custom['left_tools_signature_uploaded_display']").innerHTML = getSignatureCard(data,delete_data,old_data);
+                    setTimeout(function(){ addSignatureOCW("/manage/checkdesignnew/loadimage?the_img="+filename); }, 1800);
+                }
+            }
+        });
+
+    }
+
+    function leftSignatureOnScreen() {
+        document.getElementById("mysign_modal").style.display="block";
+    }
+
+    function leftSignatureTablet() {
+        Swal.fire({
+            title: 'Enter your Email Address ',
+            type: 'info',
+            input: 'text',
+            inputAttributes: {
+                autocapitalize: 'off',
+                maxlength:'50',
+            },
+            inputValidator: (value) => {
+                var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                if(!emailReg.test(value))
+                    return 'Enter Valid Email Address';
+
+                    return !value && 'Email is Required';
+            },
+            showCloseButton: true,
+            showCancelButton: true,
+            confirmButtonText: '<i class="fa fa-envelope"></i> &nbsp; Email Me',
+            cancelButtonText: '<i class="fa fa-times"></i> &nbsp; Cancel ',
+            showLoaderOnConfirm: true,
+
+            preConfirm: function (email) {
+                if (email == '') {
+                    Swal.fire('Email Address is blank');
+                } else {
+                    $.post("/manage/checksignature/sendemail?_token=Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F",{ id:'6VoW41ZBKdG589l', email:email })
+                    .done(function( email ) { signature_qty_waiting++;
+                                  Swal.fire('Email Sent Successfully'); });
+                    if (email == '') {
+                        Swal.fire('Email Address is blank');
+                    }
+                }
+            },
+            allowOutsideClick: false
+        })
+    }
+
+    function leftSignatureSMS() {
+        Swal.fire({
+            title: 'Enter your Phone Number ',
+            type: 'info',
+            input: 'text',
+            onOpen:function(){
+                $('#phone_number').usPhoneFormat({
+                format:'(xxx) xxx-xxxx',
+             });
+            },
+            inputAttributes: {
+                autocapitalize: 'off',
+                id:"phone_number",
+                maxlength:'14',
+            },
+            inputValidator: (value) => {
+                // if(!value.match(/(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/g))
+                //     return 'Enter Valid Phone Number';
+                var numbers = value.replace ( /[^\d.]/g, '' );
+                if(!$.isNumeric(numbers))
+                return 'Enter Valid Phone Number';
+            },
+            showCloseButton: true,
+            showCancelButton: true,
+            confirmButtonText: '<i class="fa fa-tablet"></i> &nbsp; Text Me',
+            cancelButtonText: '<i class="fa fa-times"></i> &nbsp; Cancel ',
+            showLoaderOnConfirm: true,
+preConfirm: function (phone) {
+
+
+                if (phone == '') {
+                    Swal.fire('Phone Number is blank');
+                        return false;
+                } else {
+                    $.post("/manage/checksignature/sendsms?_token=Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F",{ id:'6VoW41ZBKdG589l', phone:phone })
+                    .done(function( phone ) { signature_qty_waiting++;
+                                              Swal.fire('Sms Sent Successfully'); });
+                    if (phone == '') {
+                        Swal.fire('Phone Number is blank');
+                    }
+                }
+            },
+            allowOutsideClick: false
+        })
+
+    }
+    </script>
+
+    <!----------------17-07-2020 by danish digital signature-------------------------------->
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Droid+Sans|Cedarville+Cursive" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+    <style>
+
+
+    /* The Modal (background) */
+    .digitalModal {
+      /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+    }
+
+    /* Modal Content */
+    .digitalModal-content {
+      background-color: #fefefe;
+      margin: auto;
+      border: 1px solid #888;
+      width: 50%;
+    }
+
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+
+
+    #signature_type{
+        margin-left:12px;
+        width: 40%;
+        padding: 8px;
+        height: 25px;
+        border:solid 2px #797979;
+    }
+    #digital_signature_canvas{
+                    height:80px;
+                    width:60%;
+                    color: #145394;
+                    font-size:25pt;
+                    border: 2px solid #797979;
+                    background: #fff;
+        }
+    .modal_head_digit{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .modal_body_digit{
+        padding: 10px 20px;
+        background: #f5f5f5;
+        margin-top: 10px;
+    }
+    #signature_text{
+        padding: 7px 10px;
+        width: 45%;
+        border: 2px solid #797979;
+        height: 25px;
+    }
+
+    .modal_footer_digit{
+
+         margin-bottom: 10px;
+         margin-top: 10px;
+    }
+
+    .modal_footer_digit button{
+
+        padding: 9px;
+        margin-left: 20px;
+    }
+    #nickNameModal {
+      /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+    }
+    .nick_name{
+        padding: 7px 10px;
+        width: 45%;
+        border: 2px solid #797979;
+        height: 25px;
+    }
+    #photo{
+        padding: 7px 10px;
+        width: 60%;
+        border: 2px solid #797979;
+        height: 25px;
+        margin-bottom: 20px;
+    }
+    </style>
+
+<div id="uploadSignatureModal" class="digitalModal" style="display:none">
+    <div class="digitalModal-content" style="width: 500px;">
+        <div class="modal_head_digit">
+          <h4>Upload Signature</h4>
+          <button class="close" onclick="closeSignatureModal()">&times;</button>
+        </div>
+        <div class="modal_body_digit">
+         <form  id="uploadsign" method="post" enctype="multipart/form-data">
+
+                <input  type="file" id="photo"  accept="image/*" name="photo" /><br>
+
+          <input type="hidden" id="hidden_digital_signature" value="">
+          <input type="hidden" value="Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F" name="_token" id="upload_token">
+          <div class="body_top" style="margin-bottom: 10px; display:flex;">
+              <input type="text" id="upload_signature_nick_name" name="nick_name" class="nick_name" style="width:400px;" maxlength="8" placeholder="Nick Name" autocomplete="off" >
+          </div>
+        </div>
+       <div class="modal_footer_digit">
+          <button type="button" class="save_digital" onclick="uploadSignatureOCW(this.form)"><i class="btn_load"></i> Save signature</button>
+
+       </div>
+    </form>
+    </div>
+  </div>
+
+    <div id="digitalModal" class="digitalModal" style="display:none">
+      <div class="digitalModal-content" style="width: 500px;">
+          <div class="modal_head_digit">
+            <h4>Digital Signature</h4>
+            <button class="close" onclick="closeSignatureModal()">&times;</button>
+          </div>
+          <div class="modal_body_digit">
+            <div class="body_top" style="margin-bottom: 10px; display:flex;">
+                <input type="text" id="signature_text" style="width:400px;" maxlength="28" placeholder="Type Your Name..." autocomplete="off" onkeyup="textToCanvas()">
+             </div>
+             <canvas id="digital_signature" style="border:1px solid black;" width="420" height=100></canvas>
+            <input type="hidden" id="hidden_digital_signature" value="">
+            <input type="hidden" value="Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F" id="token">
+            <div class="body_top" style="margin-bottom: 10px; display:flex;">
+                  <input type="text" id="digital_signature_nick_name" name="nick_name" class="nick_name" style="width:400px;" maxlength="8" placeholder="Nick Name" autocomplete="off" >            </div>
+          </div>
+         <div class="modal_footer_digit">
+            <button class="save_digital" onclick="canvasSignatureSave()"><i class="btn_load"></i> Save signature</button>
+         </div>
+      </div>
+    </div>
+
+     <div id="nickNameModal"  style="display:none">
+                <div class="digitalModal-content" style="width: 600px;">
+                    <div class="modal_head_digit">
+                      <h4>Nick Name</h4>
+                      <button class="close"  onclick="closeNickNameModel()">&times;</button>
+                    </div>
+                    <div class="modal_body_digit">
+                      <div class="body_top" style="margin-bottom: 10px; display:flex;">
+                        <input type="text" id="nick_name" name="nick_name" class="nick_name" style="width:400px;" maxlength="8" placeholder="Nick Name" autocomplete="off" >                       </div>
+                       <img src="" alt="" id="imagr_url" class="css-class" alt="alt text">
+                       <input type="hidden" id="signature_id" name="signature_id" >
+                      <input type="hidden" value="Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F" id="token">
+                    </div>
+                   <div class="modal_footer_digit">
+                      <button class="clear_digital" id="clear_nickname" onclick="clearNickNameModel()">Cancel </button>
+                      <button class="save_digital" onclick="updateNickNameModal()"><i class="btn_load"></i>Update</button>
+                   </div>
+                </div>
+              </div>
+
+    <script type='text/javascript'>
+
+        function clearDigitalSignature(){
+
+            var canvas = document.getElementById("digital_signature");
+            const context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            $("#signature_text").val('');
+
+        }
+
+        function textToCanvas(){
+            var canvas = document.getElementById("digital_signature");
+            var ctx = canvas.getContext("2d");
+            var x = canvas.width / 2;
+            var y = canvas.height / 1.6;
+            var text = document.getElementById('signature_text').value
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "black";
+            ctx.textAlign = 'center';
+            ctx.font = "40px PrimeraSignature";//Monsieur La Doulaise";
+            ctx.fillText(text, x, y);
+        }
+
+        function canvasSignatureSave(){
+
+            var signature_text=$('#signature_text').val();
+                signature_text=signature_text.trim();
+            var digital_signature_nick_name=$('#digital_signature_nick_name').val();
+                digital_signature_nick_name=digital_signature_nick_name.trim();
+            if (signature_text=="") {
+                Swal.fire('Please Type Your Name');
+                return false;
+                $('#signature_text').val('');
+            }
+            if(digital_signature_nick_name == ""){
+                Swal.fire('Nick Name is required');
+                return false;
+            }
+            var canvas = document.getElementById('digital_signature');
+            var dataURL = canvas.toDataURL('image/png');
+            $.ajax({
+                       url:"/manage/checkdesignnew/savesignonscreen?_token=Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F",
+                       type:"post",
+                       data:{signature:dataURL,nick_name:digital_signature_nick_name},
+                        success:function(data){
+                        if(data.success=='true') {
+                            filename = data.url;
+                            Swal.fire('Success!','Digital Signature Saved!','success');
+                            $(".nick_name").val('');
+                            $('.digitalModal').css('display','none');
+                            var old_data = document.getElementById("custom['left_tools_signature_uploaded_display']").innerHTML;
+                            var delete_data = data.data.id+','+data.data.image_type;
+                           // document.getElementById("custom['left_tools_signature_uploaded_display']").innerHTML = "<div class='card' style='position:relative;'><img src='/manage/checkdesignnew/loadimage?the_img="+filename+"' style='max-width:70px; max-height:70px;' onclick='addSignatureOCW(this.src)'><span style='background: #000000c4;width: 18px; height: 18px; color: #fff; display: flex;justify-content: center; align-items: center;font-weight: bold; border-radius: 4px;font-size: 10px;position: absolute;top: 0px;right:0px;' class='delet_close'>X</span></div>" + old_data;
+                             document.getElementById("custom['left_tools_signature_uploaded_display']").innerHTML = getSignatureCard(data,delete_data,old_data);
+                             setTimeout(function(){ addSignatureOCW("/manage/checkdesignnew/loadimage?the_img="+filename); }, 1800);
+
+                        }else{
+                            Swal.fire({icon: 'error',title: 'Oops...',text: 'Something went wrong!'});
+                        }
+                    }
+            });
+        }
+
+
+        function closeSignatureModal(){
+            $('.digitalModal').css('display','none');
+        }
+
+        function editNickName(id,image_url,nickname){
+        $('#nickNameModal').css('display','');
+        $('#signature_id').val(id);
+        $('#nick_name').val(nickname);
+        var img_sig = $("#img_"+id+"_2>div>img").attr('src');
+        $('#imagr_url').attr('src', img_sig);
+
+        }
+        function closeNickNameModel(){
+            $('#nickNameModal').css('display','none');
+
+        }
+
+        function clearNickNameModel(){
+            $('#nickNameModal').css('display','none');
+        }
+
+        function  updateNickNameModal(){
+           var id= $('#signature_id').val();
+           var nick_name= $('#nick_name').val();
+           nick_name = nick_name.trim();
+           if(nick_name == ""){
+            Swal.fire({icon: 'error',title: 'Oops...',text: 'Nick Name is Required!'});
+            return false;
+           }
+           $.ajax({
+               url : "/manage/checkdesignnew/editnickname",
+               data:{id:id,nick_name:nick_name},
+               success:function(data){
+                   console.log(data.data);
+                 if(data.success == true){
+                    Swal.fire({icon: 'success',title: 'Success',text: 'Updated!'});
+                    $('#nickNameModal').css('display','none');
+                    $('#slu_name_'+data.data.id).text(data.data.nick_name);
+                    var nickname = $(`#slu_name_`+data.data.id+``).text();
+                    $("#slu_"+id).attr('onClick','editNickName(`'+data.data.id+'`,  `'+data.data.image_url+'`, `'+data.data.nick_name+'`)');
+                 }else{
+                    Swal.fire({icon: 'error',title: 'Oops...',text: 'Something went wrong!'});
+                 }
+               }
+           })
+        }
+
+
+
+
+        // function getSignatureCard(data,delete_data,old_data){
+        //       return "<div id='img_"+data.data.id+'_'+data.data.image_type+"' class='card' style='position:relative;'> <span onclick='deleteImage("+delete_data+")' style='background: #000000c4;width: 18px; height: 18px; color: #fff; display: flex;justify-content: center; align-items: center;font-weight: bold; border-radius: 4px;font-size: 10px;position: absolute;top: 0px;right:0px;' class='delet_close'>X</span><a onclick='editNickName(`"+data.data.id+"`,  `"+data.data.image_url+"`, `"+encodeHtmlEntities(data.data.nick_name)+"`)' class='fa fa-edit' id='slu_"+data.data.id+"' style='background: #000000c4;width: 18px; height: 18px; color: #fff; display: flex;justify-content: center; align-items: center;font-weight: bold; border-radius: 4px;font-size: 10px;position: absolute;top: 0px;right:20px;'></a><img src='/manage/checkdesignnew/loadimage?the_img=https://onlinecheckwriter.s3.amazonaws.com/"+data.data.image_url+"' style='max-width:60px; ' ><h6  style='margin-top:20px; margin-bottom:0px; bottom: 10px;position: absolute;  margin: 0 auto;  border:1px solid black; padding:5px; padding-right:10px; border-radius:5px; margin-left:5px; text-align: center;' id='slu_name_"+data.data.id+"'  class='card-footer'>"+encodeHtmlEntities(data.data.nick_name)+"</h6></div>"+ old_data;
+        // }
+
+
+        function getSignatureCard(data,delete_data,old_data){
+              return "<div   id='img_"+data.data.id+'_'+data.data.image_type+"' class='card ' style='position:relative;'>     <div onclick='signatureClicked("+data.data.id+")' style='width:100%; z-index:99; position:absolute; height:90%;  top:20px; left:0;'> <img id='sign_"+data.data.id+"' src='/manage/checkdesignnew/loadimage?the_img=https://onlinecheckwriter.s3.amazonaws.com/"+data.data.image_url+"' style='max-width:60px;' > </div>          <span onclick='deleteImage("+delete_data+")' style='background: #000000c4;width: 18px; height: 18px; color: #fff; display: flex;justify-content: center; align-items: center;font-weight: bold; border-radius: 4px;font-size: 10px;position: absolute;top: 0px;right:0px;' class='delet_close'>X</span>  <a onclick='editNickName(`"+data.data.id+"`,  `"+data.data.image_url+"`, `"+encodeHtmlEntities(data.data.nick_name)+"`)' class='fa fa-edit' id='slu_"+data.data.id+"' style='background: #000000c4;width: 18px; height: 18px; color: #fff; display: flex;justify-content: center; align-items: center;font-weight: bold; border-radius: 4px;font-size: 10px;position: absolute;top: 0px;right:20px;'></a>     <h6  style='margin-top:20px; margin-bottom:0px; bottom: 10px;position: absolute;  margin: 0 auto;  border:1px solid black; padding:5px; padding-right:10px; border-radius:5px; margin-left:5px; text-align: center;' id='slu_name_"+data.data.id+"' class='card-footer'>"+encodeHtmlEntities(data.data.nick_name)+"</h6></div>"+ old_data;
+        }
+
+
+
+
+
+
+
+    </script>
+        </div>
+
+        <div id="left_menu_bar_images" style="display:none;">
+            <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+    <tr>
+        <td><h1><i class="fa fa-plus facircle" aria-hidden="true"></i> Add New Image</h1></td>
+    </tr>
+    <tr>
+        <td>
+            <a id="custom['left_tools_images_uploads_button']" class="two-buttons-near-one active" href="#" onclick="switchImagesWindow('uploads')">Uploads</a><a id="custom['left_tools_images_clipboard_button']" class="two-buttons-near-two" href="#" onclick="switchImagesWindow('clipboard')">Clipboard</a>
+        </td>
+    </tr>    
+</table>
+
+<div id="custom['left_tools_images_uploads_window']" style="display:block; margin-top:20px;">
+    <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+        <tr>
+            <td>
+                <form id="image_upload_form" method="post" enctype="multipart/form-data">
+                    <div class="upload-btn-wrapper">
+                        <input type="hidden" name="_token" value="Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F">
+                        <input id="custom['left_tools_images_upload_button']" type="file" accept="image/*" name="photo" oninput="uploadImage(this.form)" />
+                        <button class="text-add-button" href="#">UPLOAD NEW IMAGE</button>
+                    </div>
+                </form>
+                <br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span class="text-style">Opacity</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="custom_images_opacity" class="range_slider_style" style="width:60%;" type="range" min="0" max="100" step="1" value="100" >
+                <input id="custom_images_opacity_value" class="input-text-style on-focus on-hover" type="input" value="100" style="width:20%; height:17px; top:-7px;" >
+                <br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div id="custom['left_tools_images_uploaded_display']" class="scrollbar_style" style="width:100%; height:600px;"></div>
+                <br><br>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="custom['left_tools_images_clipboard_window']" style="display:none; margin-top:20px;">
+    <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+        <tr>
+            <td>
+                <span class="text-style">Color</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_images_clipboard_color_category_select_div']">
+                    <select id="custom['left_tools_images_clipboard_color_category_select']" class="select-style on-focus on-hover" onchange="loadImages(1, this)"><option value="0" selected>All</option></select>
+                </div>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_images_clipboard_color_display']" class="scrollbar_style" style="width:100%; height:300px;"></div>
+                <br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span class="text-style">Monograms</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_images_clipboard_monogram_category_select_div']">
+                    <select id="custom['left_tools_images_clipboard_monogram_category_select']" class="select-style on-focus on-hover" onchange="loadImages(2, this)"><option value="0" selected>All</option></select>
+                </div>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_images_clipboard_monogram_display']" class="scrollbar_style" style="width:100%; height:300px;"></div>
+            </td>
+        </tr>
+    </table>
+ </div>
+
+<script>
+$("#custom_images_opacity").on("input", function() {
+    $('#custom_images_opacity_value').val(this.value);
+}).trigger("change");
+
+$("#custom_images_opacity_value").on("input", function() {
+    $('#custom_images_opacity').val(this.value);
+}).trigger("change");
+</script>
+        </div>
+
+        <div id="left_menu_bar_background" style="display:none;">
+            <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+    <tr>
+        <td><h1><i class="fa fa-plus facircle" aria-hidden="true"></i> Background Manager</h1></td>
+    </tr>
+    <tr>
+        <td>
+            <a id="custom['left_tools_background_uploads_button']" class="two-buttons-near-one active" href="#" onclick="switchBackgroundWindow('uploads')">Uploads</a><a id="custom['left_tools_background_clipboard_button']" class="two-buttons-near-two" href="#" onclick="switchBackgroundWindow('clipboard')">Clipboard</a>
+        </td>
+     </tr>
+</table>
+
+<div id="custom['left_tools_background_uploads_window']" style="display:block; margin-top:20px;">
+    <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+        <tr>
+            <td colspan="2">
+                <form id="background_upload_form" method="post" enctype="multipart/form-data">
+                    <div class="upload-btn-wrapper">
+                        <input type="hidden" name="_token" value="Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F">
+                        <input id="custom['left_tools_background_upload_button']" type="file" accept="image/*" name="photo" oninput="uploadBackground(this.form)" />
+                        <button class="text-add-button" href="#">UPLOAD NEW</button>
+                    </div>
+                </form>
+                <br>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <span class="text-style">Opacity</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input id="custom_background_opacity" class="range_slider_style" style="width:60%;" type="range" min="0" max="100" step="1" value="100" oninput="updateBackground('')" onblur="updateBackground('')" >
+                <input id="custom_background_opacity_value" class="input-text-style on-focus on-hover" type="input" value="100" style="width:20%; height:17px; top:-7px;" oninput="updateBackground()" >
+                <br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="width: 65%; vertical-align:top;">
+                <span class="text-style">Width &nbsp; &nbsp; Height</span>
+            </td>
+            <td style="width: 35% vertical-align:top;">
+                <span class="text-style">Stretch</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 65% vertical-align:top;">
+                <input id="custom['background_stretch_width_value']" class="number-style on-focus on-hover" style="width:26px;" type="number" value="300" max="675" min="1" oninput="updateBackgroundData('width')">
+                <input id="custom['background_stretch_height_value']" class="number-style on-focus on-hover" style="width:26px;" type="number" value="150" max="240" min="1" oninput="updateBackgroundData('height')">
+                <br><br>
+            </td>
+            <td style="width: 35% vertical-align:top;">
+                <i id="custom['background_stretch_width']" class="fa icon icon-arrows-h-icon button-style on-focus on-hover" style="background-color:#ddd; border:1px solid #fff; color: #000; height:16px;" aria-hidden="true" onclick="backgroundStretch('width', this)"></i>
+                <i id="custom['background_stretch_height']" class="fa icon icon-arrows-v-icon button-style on-focus on-hover" style="background-color:#ddd; border:1px solid #fff; color: #000; height:16px;" aria-hidden="true" onclick="backgroundStretch('height', this)"></i>
+                <br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <hr>
+                <div id="custom['left_tools_background_uploaded_display']" class="scrollbar_style" style="width:100%; height:500px;"></div>
+                <br><br>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="custom['left_tools_background_clipboard_window']" style="display:none; margin-top:20px;">
+    <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+        <tr>
+            <td>
+                <span class="text-style">Color</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_background_clipboard_color_category_select_div']">
+                    <select id="custom['left_tools_background_clipboard_color_category_select']" class="select-style on-focus on-hover" onchange="loadBackground(1, this)"><option value="0" selected>All</option></select>
+                </div>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_background_clipboard_color_display']" class="scrollbar_style" style="width:100%; height:300px;"></div>
+                <br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span class="text-style">Monograms</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_background_clipboard_monogram_category_select_div']">
+                    <select id="custom['left_tools_background_clipboard_monogram_category_select']" class="select-style on-focus on-hover" onchange="loadBackground(2, this)"><option value="0" selected>All</option></select>
+                </div>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_background_clipboard_monogram_display']" class="scrollbar_style" style="width:100%; height:300px;"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+$("#custom_background_opacity").on("input", function() {
+    $('#custom_background_opacity_value').val(this.value);
+}).trigger("change");
+
+$("#custom_background_opacity_value").on("input", function() {
+    $('#custom_background_opacity').val(this.value);
+}).trigger("change");
+
+var no_bg_display = "<div class='card'><img src=\"https://c.onlinecheckwriter.com/public/asset/checkdesignnew/images/no_bg.png\" style='max-width:70px; max-height:70px;' onclick='deleteBackground()'></div>";
+var old_bg_display ="";
+
+function loadBackground(folder, th){
+    var loadUrl = "/manage/checkdesignnew/getimage?type=4&table=2&folder="+folder+"&category="+th.value;
+    var results = "";
+
+    $.getJSON(loadUrl, function (data) {
+        console.log(data);
+        $.each(data, function (bb) {
+            image_url = data[bb].image_url;
+            results += "<div class='card'><img src='/manage/checkdesignnew/loadimage?the_img=https://onlinecheckwriter.s3.amazonaws.com/"+image_url+"' style='max-width:70px; max-height:70px;' onclick='addBackground(this)'></div>";
+        });
+
+        if (folder==1) { document.getElementById("custom['left_tools_background_clipboard_color_display']").innerHTML = results; }
+        else if (folder==2) { document.getElementById("custom['left_tools_background_clipboard_monogram_category_select']").innerHTML = results; }
+    });
+}
+</script>
+        </div>
+
+        <div id="left_menu_bar_banklogos" style="display:none;">
+            <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+    <tr>
+        <td><h1><i class="fa fa-plus facircle" aria-hidden="true"></i> Bank Logos</h1></td>
+    </tr>
+    <tr>
+        <td>
+            <a id="custom['left_tools_banklogos_uploads_button']" class="two-buttons-near-one active" href="#" onclick="switchBankLogosWindow('uploads')">Uploads</a><a id="custom['left_tools_banklogos_clipboard_button']" class="two-buttons-near-two" href="#" onclick="switchBankLogosWindow('clipboard')">Clipboard</a>
+        </td>
+    </tr>    
+</table>
+
+<div id="custom['left_tools_banklogos_uploads_window']" style="display:block; margin-top:20px;">
+    <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+        <tr>
+            <td>
+                <form id="banklogo_upload_form" method="post" enctype="multipart/form-data">
+                    <div class="upload-btn-wrapper">
+                        <input type="hidden" name="_token" value="Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F">
+                        <input id="custom['left_tools_banklogos_upload_button']" type="file" accept="image/*" name="photo" onchange="uploadBankLogo(this.form)" />
+                        <button class="text-add-button" href="#">UPLOAD NEW LOGO</button>
+                    </div>
+                </form>
+                <br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div id="custom['left_tools_banklogos_uploaded_display']" class="scrollbar_style" style="width:100%; height:600px;"></div>
+                <br><br>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="custom['left_tools_banklogos_clipboard_window']" style="display:none; margin-top:20px;">
+    <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+        <tr>
+            <td>
+                <span class="text-style">Color</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_banklogos_clipboard_color_category_select_div']">
+                    <select id="custom['left_tools_banklogos_clipboard_color_category_select']" class="select-style on-focus on-hover" onchange="loadBankLogos(1, this)"><option value="0" selected>All</option></select>
+                </div>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_banklogos_clipboard_color_display']" class="scrollbar_style" style="width:100%; height:300px;"></div>
+                <br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span class="text-style">Monograms</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_banklogos_clipboard_monogram_category_select_div']">
+                    <select id="custom['left_tools_banklogos_clipboard_monogram_category_select']" class="select-style on-focus on-hover" onchange="loadBankLogos(2, this)"><option value="0" selected>All</option></select>
+                </div>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="custom['left_tools_banklogos_clipboard_monogram_display']" class="scrollbar_style" style="width:100%; height:300px;"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+        </div>
+
+        <div id="left_menu_bar_icons" style="display:none;">
+            <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+        <tr>
+            <td><h1><i class="fa fa-plus facircle" aria-hidden="true"></i> Icons</h1></td>
+        </tr>
+    </table>
+    
+    <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+    
+            <tr>
+                <td>
+                    <span class="text-style">Color</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="custom['left_tools_icons_clipboard_color_category_select_div']">
+                        <select id="custom['left_tools_icons_clipboard_color_category_select']" class="select-style on-focus on-hover" onchange="loadIcons(1, this)"><option value="0" selected>All</option></select>
+                    </div>
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="custom['left_tools_icons_clipboard_color_display']" class="scrollbar_style" style="width:100%; height:300px;"></div>
+                    <br><br>
+                </td>
+            </tr>
+    
+            <tr>
+                <td>
+                    <span class="text-style">Monograms</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="custom['left_tools_icons_clipboard_monogram_category_select_div']">
+                        <select id="custom['left_tools_icons_clipboard_monogram_category_select']" class="select-style on-focus on-hover" onchange="loadIcons(2, this)"><option value="0" selected>All</option></select>
+                    </div>
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="custom['left_tools_icons_clipboard_monogram_display']" class="scrollbar_style" style="width:100%; height:300px;"></div>
+                </td>
+            </tr>
+    
+        </table>
+    
+    
+    
+    
+            </div>
+
+        <div id="left_menu_bar_shapes" style="display:none;">
+            <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%" border=0>
+  <tr>
+    <td colspan="2"><h1><i class="fa fa-plus facircle" aria-hidden="true"></i> Add New Shape</h1></td>
+  </tr>
+
+  <tr>
+    <td class="lefttools_shapes_td">
+        <div id="custom['shape_shape_square']" class="lefttools_shapes" onclick="selectShape('square')">
+            <div class="square"></div>
+        </div>
+    </td>
+    <td class="lefttools_shapes_td">
+        <div id="custom['shape_shape_circle']" class="lefttools_shapes" onclick="selectShape('circle')">
+            <div class="circle"></div>
+        </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="lefttools_shapes_td">
+        <div id="custom['shape_shape_triangle']" class="lefttools_shapes" onclick="selectShape('triangle')">
+            <div class="triangle"></div>
+        </div>
+    </td>
+    <td class="lefttools_shapes_td">
+        <div id="custom['shape_shape_star']" class="lefttools_shapes" onclick="selectShape('star')">
+            <div class="fa icon icon-star-icon" style="color: #fff; font-size:42px;" aria-hidden="true" ></div>
+        </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="lefttools_shapes_td">
+        <div id="custom['shape_shape_line']" class="lefttools_shapes" onclick="selectShape('line')">
+            <div class="line">&nbsp;</div>
+        </div>
+    </td>
+    <td class="lefttools_shapes_td">
+        <div id="custom['shape_shape_heart']" class="lefttools_shapes" onclick="selectShape('heart')">
+            <div class="fa icon icon-heart-icon" style="color: #fff; font-size:42px;" aria-hidden="true" ></div>
+        </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+      <input id="custom['shape_add']" class="text-add-button" type="button" value="ADD SHAPE" onclick="addShape()">
+      <br><br><br>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <span class="text-style">Boder Color</span>
+    </td>
+    <td>
+      <span class="text-style">Border Width</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <input id="custom['shape_stroke_color']" class="jscolor {
+          valueElement: 'color_value',
+          position:'bottom',
+          borderColor:'#FFF #666 #666 #FFF',
+          insetColor:'#666 #FFF #FFF #666',
+          backgroundColor:'#CCC',
+          value: '#000'
+        } color-picker-style" type="text" value="" readonly>
+        <br><br><br>
+    </td>
+    <td>
+      <input id="custom['shape_border_width']" class="number-style on-focus on-hover" type="number" value="1" max="72" min="0" maxlength="2" >
+      <br><br><br>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <span class="text-style">Fill Color</span>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+        <input id="custom['shape_fill_color']" class="jscolor {
+          valueElement: 'color_value',
+          position:'bottom',
+          borderColor:'#FFF #666 #666 #FFF',
+          insetColor:'#666 #FFF #FFF #666',
+          backgroundColor:'#CCC',
+          value: '#000'
+        } color-picker-style" type="text" value="" readonly>
+        <br><br><br>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+      <span class="text-style">Opacity</span>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+        <input id="custom_shape_opacity" class="range_slider_style" style="width:60%;" type="range" min="0" max="100" step="1" value="100"/>
+        <input id="custom_shape_opacity_value" class="input-text-style on-focus on-hover" type="input" value="100" style="width:20%; height:17px; top:-7px;" maxlength="3">
+        <br><br><br>
+    </td>
+  </tr>  
+
+</table>
+
+<script>
+$("#custom_shape_opacity").on("input", function() {
+    $('#custom_shape_opacity_value').val(this.value);
+}).trigger("change");
+
+$("#custom_shape_opacity_value").on("input", function() {
+    $('#custom_shape_opacity').val(this.value);
+}).trigger("change");
+</script>        </div>
+
+        <div id="left_menu_bar_text_settings" style="display:none;">
+            <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%" border=0>
+
+  <tr>
+    <td colspan="2"><h1><i class="fa fa-edit facircle" aria-hidden="true"></i> Edit Text</h1></td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+      <textarea id="custom['set_text_text']" class="textarea-style on-focus on-hover" placeholder="Add custom Text here..." onkeyup="updateText()"></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <input class="set-text-add-button" type="button" value=" ">
+      <br><br>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 45%">
+      <span class="text-style">
+        Maximum Width 
+        <sup>
+          <i class="fa fa-question-circle tooltip cursor-pointer">
+            <span class="tooltiptext">Set Maximum Width for this element. Text will break into new line beyond this width. Width should be between 20 and 800.</span>
+          </i>
+        </sup>
+      </span>
+    </td>
+    <td style="width: 55%">
+      <span class="text-style">
+        Font Family
+        <sup>
+          <i class="fa fa-question-circle tooltip cursor-pointer">
+            <span class="tooltiptext">Set Font Family for this element.</span>
+          </i>
+        </sup>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 45%">
+      <input id="custom['set_text_width']" class="number-style on-focus on-hover" type="number" value="800" max="800" min="20" oninput="updateText()" >
+      <br><br><br>
+    </td>
+    <td style="width: 55%">
+      <select id="custom['set_text_font_family']" class="select-style on-focus on-hover" onchange="updateText()"></select>
+      <br><br><br>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 45%">
+      <span class="text-style">
+        Font Size
+        <sup>
+          <i class="fa fa-question-circle tooltip cursor-pointer">
+            <span class="tooltiptext">Set Font Size for this element.</span>
+          </i>
+        </sup>
+      </span>
+    </td>
+    <td style="width: 55%">
+      <span class="text-style">
+        Font Style
+        <sup>
+          <i class="fa fa-question-circle tooltip cursor-pointer">
+            <span class="tooltiptext">Set Bold, Italic and/or Underline for this element.</span>
+          </i>
+        </sup>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 45%">
+      <input id="custom['set_text_font_size']" class="number-style on-focus on-hover" type="number" value="16" max="72" min="1" oninput="updateText()" >
+      <br><br><br>
+    </td>
+    <td style="width: 55%">
+      <i id="custom['set_text_bold']" class="fa fa-bold fa-lg button-style on-focus on-hover" aria-hidden="true" onclick="setFontStyle('bold', this)"></i>
+      <i id="custom['set_text_italic']" class="fa fa-italic fa-lg button-style on-focus on-hover" aria-hidden="true" onclick="setFontStyle('italic', this)"></i>
+      <i id="custom['set_text_underline']" class="fa fa-underline fa-lg button-style on-focus on-hover" aria-hidden="true" onclick="setFontStyle('underline', this)"></i>
+      <br><br><br>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 45%">
+      <span class="text-style">
+        Font Color
+        <sup>
+          <i class="fa fa-question-circle tooltip cursor-pointer">
+            <span class="tooltiptext">Set Font Color for this element.</span>
+          </i>
+        </sup>
+      </span>
+    </td>
+    <td style="width: 55%">
+      <span class="text-style">
+        Align
+        <sup>
+          <i class="fa fa-question-circle tooltip cursor-pointer">
+            <span class="tooltiptext">Set Alignment of this element to Left, Center or Right.</span>
+          </i>
+        </sup>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 45%">
+      <input id="custom['set_text_font_color']" class="jscolor {
+          position:'bottom',
+          borderColor:'#FFF #666 #666 #FFF',
+          insetColor:'#666 #FFF #FFF #666',
+          backgroundColor:'#CCC',
+          value: '#000',
+          valueElement:'custom[\'set_text_font_color_hide\']'
+        } color-picker-style" type="text" value="" readonly>
+        <input type="hidden" id="custom['set_text_font_color_hide']" value="#000000" onchange="updateText()">
+    </td>
+    <td style="width: 55%">
+      <i id="custom['set_text_align_left']" class="fa fa-align-left fa-lg button-style on-focus on-hover" style="background-color:#ddd; border:1px solid #fff; color: #000;" aria-hidden="true" onclick="setFontAlign('left', this)"></i>
+      <i id="custom['set_text_align_center']" class="fa fa-align-center fa-lg button-style on-focus on-hover" aria-hidden="true" onclick="setFontAlign('center', this)"></i>
+      <i id="custom['set_text_align_right']" class="fa fa-align-right fa-lg button-style on-focus on-hover" aria-hidden="true" onclick="setFontAlign('right', this)"></i>
+    </td>
+  </tr>
+
+</table>
+
+<script>
+document.getElementById("custom['set_text_font_color']").addEventListener('change', function(e){
+    updateText();
+})
+
+var fonts = ["Arial", "Times New Roman", "Helvetica", "Courier", "Courier New", "Verdana", "Georgia", "Palatino", "Garamond", "Bookman", "Comic Sans MS", "Trebuchet MS", "Impact"];
+var select_font_family = document.getElementById("custom['set_text_font_family']");
+fonts.forEach(function(font) {
+  var option = document.createElement('option');
+  option.innerHTML = font;
+  option.value = font;
+  select_font_family.appendChild(option);
+});
+</script>        </div>
+
+        <div id="left_menu_bar_logos_settings" style="display:none;">
+            LOGOS SETTINGS        </div>
+
+        <div id="left_menu_bar_signature_settings" style="display:none;">
+            SIGNATURE SETTINGS        </div>
+
+        <div id="left_menu_bar_images_settings" style="display:none;">
+            <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+    <tr>
+        <td colspan="2"><h1><i class="fa fa-plus facircle" aria-hidden="true"></i>Edit</h1></td>
+    </tr>
+</table>
+
+<div id="custom['left_tools_images_uploads_window']" style="display:block; margin-top:20px;">
+    <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%">
+
+        <tr>
+            <td colspan="2">
+                <span class="text-style">Opacity</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input id="custom_set_images_opacity" class="range_slider_style" style="width:60%;" type="range" min="0" max="100" step="1" value="100" >
+                <input id="custom_set_images_opacity_value" class="input-text-style on-focus on-hover" type="input" value="100" style="width:20%; height:17px; top:-7px;" >
+                <br><br>
+            </td>
+        </tr>
+        
+    </table>
+</div>
+
+<script>
+$("#custom_set_images_opacity").on("input", function() {
+    $('#custom_set_images_opacity_value').val(this.value);
+    updateImagesOCW();
+}).trigger("change");
+
+$("#custom_set_images_opacity_value").on("input", function() {
+    $('#custom_set_images_opacity').val(this.value);
+    updateImagesOCW();
+}).trigger("change");
+</script>
+        </div>
+
+        <div id="left_menu_bar_background_settings" style="display:none;">
+            BACKGROUND SETTINGS        </div>
+
+        <div id="left_menu_bar_shapes_settings" style="display:none;">
+            <table style="margin:0px; border-collapse:collapse; padding:0px;" border=0>
+
+  <tr>
+    <td colspan="2"><h1><i class="fa fa-edit facircle" aria-hidden="true"></i> Edit Shape</h1></td>
+  </tr>
+
+  <tr>
+    <td>
+      <span class="text-style">Boder Color</span>
+    </td>
+    <td>
+      <span class="text-style">Border Width</span>
+    </td>    
+  </tr>
+  <tr>
+    <td>
+        <input id="custom['set_shape_stroke_color']" class="jscolor {
+          position:'bottom',
+          borderColor:'#FFF #666 #666 #FFF',
+          insetColor:'#666 #FFF #FFF #666',
+          backgroundColor:'#CCC',
+          value: '#000',
+          valueElement:'custom[\'set_shape_stroke_color_hide\']'
+        } color-picker-style" type="text" value="" readonly>
+        <input type="hidden" id="custom['set_shape_stroke_color_hide']" value="#000000" onchange="updateShape()">
+        <br><br><br>
+    </td>
+    <td>
+      <input id="custom['set_shape_border_width']" class="number-style on-focus on-hover" type="number" value="1" max="72" min="0" oninput="updateShape()" >
+      <br><br><br>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+      <span class="text-style">Fill Color</span>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+        <input id="custom['set_shape_fill_color']" class="jscolor {
+          position:'bottom',
+          borderColor:'#FFF #666 #666 #FFF',
+          insetColor:'#666 #FFF #FFF #666',
+          backgroundColor:'#CCC',
+          value: '#000',
+          valueElement:'custom[\'set_shape_fill_color_hide\']'
+        } color-picker-style" type="text" value="" readonly>
+        <input type="hidden" id="custom['set_shape_fill_color_hide']" value="#000000" onchange="updateShape()">
+        <br><br><br>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+      <span class="text-style">Opacity</span>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+        <input id="custom_set_shape_opacity" class="range_slider_style" style="width:60%;" type="range" min="0" max="100" step="1" value="100" />
+        <input id="custom_set_shape_opacity_value" class="input-text-style on-focus on-hover" type="input" value="100" style="width:20%; height:17px; top:-7px;" >
+        <br><br><br>
+    </td>
+  </tr>
+  
+</table>
+
+
+<script>
+document.getElementById("custom['set_shape_fill_color']").addEventListener('change', function(e){
+  updateShape();
+})
+document.getElementById("custom['set_shape_stroke_color']").addEventListener('change', function(e){
+  updateShape();
+})
+
+
+$("#custom_set_shape_opacity").on("input", function() {
+    $('#custom_set_shape_opacity_value').val(this.value);
+    updateShape();
+}).trigger("change");
+
+$("#custom_set_shape_opacity_value").on("input", function() {
+    $('#custom_set_shape_opacity').val(this.value);
+    updateShape();
+}).trigger("change");
+
+
+</script>        </div>
+
+        <div id="left_menu_bar_routing_settings" style="display:none;">
+            <table style="margin:0px; border-collapse:collapse; padding:0px; width:100%" border="0">
+  <tr>
+    <td>
+      <span class="text-style">Routing Number</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <input id="custom['set_routing_number']"  class="input-text-style on-focus on-hover" onkeyup="updateRouting(1)" onkeypress="return isNumber(event)" onblur="updateRouting(1)" maxlength="9"></select>
+      <br><br>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="text-style">Account Number</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input id="custom['set_account_number']"   class="input-text-style on-focus on-hover" onkeyup="updateRouting(2)" onblur="updateRouting(2)" maxlength="24"></select>
+      <br><br>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="text-style">Next Check Number</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input id="custom['set_check_start_number']" class="input-text-style on-focus on-hover" onkeyup="updateRouting(3)" onblur="updateRouting(3)" onkeypress="return isNumber(event)" maxlength="12"></select>
+      <br><br>
+    </td>
+  </tr>
+  <tr>
+    <td >
+        &nbsp; <span class="text-style"><span title="Align Horizontally" class="fa fa-arrows-h fa-3x" aria-hidden="true"></span>  &nbsp; &nbsp; &nbsp; <span class="fa fa-arrows-v fa-3x" title="Align Vertically" aria-hidden="true"></span></span>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding-top: 5px !important;">
+        <input id="custom['set_routing_left']" class="number-style on-focus on-hover" style="width:26px;" type="number" value="87" max="107" min="67" oninput="updateRoutingPos('left')">
+        <input id="custom['set_routing_top']" class="number-style on-focus on-hover" style="width:26px;" type="number" value="246" max="266" min="226" oninput="updateRoutingPos('top')">
+        <br><br>
+    </td>
+  </tr>
+
+</table>
+        </div>
+        
+    </div>
+</div>
+        </td>
+        <td style="text-align:left; vertical-align:top; ">
+            <div class="toptools">
+    <ul>
+        <!-- <li><a id="top_tools['select']" href="javascript:void(0)" class="active"><i class="fa fa-mouse-pointer" aria-hidden="true"></i> <br> Select</a></li> -->
+        <li><a id="top_tools['cut']" href="javascript:void(0)"><i class="fa fa-cut" aria-hidden="true"></i> <br> Cut</a></li>
+        <li><a id="top_tools['copy']" href="javascript:void(0)" onclick="copy()"><i class="fa fa-copy" aria-hidden="true"></i> <br> Copy</a></li>
+        <li><a id="top_tools['paste']" href="javascript:void(0)" onclick="paste()"><i class="fa fa-paste" aria-hidden="true"></i> <br> Paste</a></li>
+        <!-- <li><a id="top_tools['align']" href="javascript:void(0)"><i class="fa fa-align-justify" aria-hidden="true"></i> <br> Align</a></li> -->
+        <!-- <li><a id="top_tools['arrange']" href="javascript:void(0)"><i class="fa fa-sort" aria-hidden="true"></i> <br> Arrange</a></li> -->
+        <li><a id="top_tools['rotate']" href="javascript:void(0)" onclick="rotateIt()"><i class="fa fa-refresh" aria-hidden="true"></i> <br> Rotate</a></li>
+        <li><a id="top_tools['undo']" href="javascript:void(0)" onclick="undo()"><i class="fa fa-undo" aria-hidden="true"></i> <br> Undo</a></li>
+        <li><a id="top_tools['redo']" href="javascript:void(0)" onclick="redo()"><i class="fa fa-repeat" aria-hidden="true"></i> <br> Redo</a></li>
+        <li><a id="top_tools['grid_line']" href="javascript:void(0)" onclick="gridLine()"><i class="fa fa-th" aria-hidden="true"></i> <br> Grids</a></li>
+        <li><a id="top_tools['preview']" href="javascript:void(0)" onclick="preview()" style="color:blue;"><i class="fa fa-file-preview" aria-hidden="true"></i> <br> Preview</a></li>
+        <li><a id="top_tools['save']" href="javascript:void(0)" onclick="save()" style="color:green;"><i class="fa fa-save fa-lg" aria-hidden="true"></i> <br> Save</a></li>
+    </ul>
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:center; vertical-align:top; width:70%; background-color: #EFEFEF;">
+            <canvas id="canvas" width="675px" height="875px" style="border:1px solid #aaa; margin-left:4px; box-shadow: 0 0 10px #aaa;" ></canvas>
+        </td>
+    </tr>
+</table>
+    <script src="https://c.onlinecheckwriter.com/public/asset/checkdesignnew/js/edit_startup.js"></script>
+
+<form action="https://app.onlinecheckwriter.com/manage/bankaccount/savedesign" method="post" id="checkdataform" name="checkdataform">
+    <input type="hidden" name="_token" value="Zc2klgkfoTNbM1xkVeyXqPWmcgVhpTi5KDYvHn7F">
+    <textarea id="checkdata" name="checkdata" style="display:none"></textarea>
+    <input type="hidden" id="bankaccount_id" name="bankaccount_id" value="6VoW41ZBKdG589l">
+</form>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107216104-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('set', {'user_id': '197154'});
+    gtag('config', 'UA-107216104-1',{
+        'linker': {
+            'domains': ['onlinecheckwriter.com','app.onlinecheckwriter.com','ad.onlinecheckwriter.com','lp.onlinecheckwriter.com']
+        }
+    });
+</script>
+
+
+
+
+
+<script src="https://dmc1acwvwny3.cloudfront.net/atatus-spa.js"></script>
+<script type="text/javascript">
+    atatus.config('7a08b4386e0042e4ac7bcdc1ca3a93f9',{
+        customData: {
+            user_id: "197154",
+        },
+    }).install();
+</script>
+<script>
+    var customData = {
+        'name' : "197154",
+        'email' : "zachrywood10@gmail.com"
+    }
+
+    window._loq = window._loq || []
+    window._loq.push(['custom', customData])
+</script>
+
+<script type='text/javascript'>
+    window.__lo_site_id = 189679;
+
+    (function() {
+        var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
+        wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
+    })();
+</script>
+
+<script type='text/javascript' src="https://c.onlinecheckwriter.com/public/cdn/session/ocw-session-update.js?v=1640457062"></script>
+<!-- BEGIN CJ TRACKING CODE -->
+    <script type='text/javascript'>
+        if (!window.cj) window.cj = {};
+        cj.sitePage = {
+            enterpriseId: 1563511,
+            pageType: 'accountCenter',
+            userId: '197154',
+            emailHash: '26bedd42009bca00bf65f1f87c7cde9a6e45bf28318241fa42e5027e980a2058',
+            };
+    </script>
+    <script type='text/javascript'>
+            (function(a,b,c,d){
+            a='https://onlinecheckwriter.com/proxydirectory/tags/12313/tag.js';
+            b=document;c='script';d=b.createElement(c);d.src=a;
+            d.type='text/java'+c;d.async=true;
+            d.id='cjapitag';
+            a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a)
+            })();
+    </script>
+    <!-- END CJ TRACKING CODE -->
+<script type='text/javascript' src="https://c.onlinecheckwriter.com/public/custom/js/global_amount_limit.js?v=1640457062"></script>
+<script>
+function getGlobalConfig(name){
+    if(name == 'min_amount_limit')
+        return 0.01;
+    else if(name == 'max_amount_limit')
+        return 100000000000;
+}
+
+function formateCurrency(amount)
+{
+    return  new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2,maximumFractionDigits:2}).format(amount);
+}
+
+function createEllipsis(anyText,limit)
+{
+    if(anyText != null && anyText != undefined)
+    {
+        if(anyText.length > limit)
+        {
+            anyText = anyText.substr(0,limit)+'...';
+        }
+    }
+
+    return anyText;
+}
+
+function formateToPercentage(value)
+{
+
+    var option = {
+                    style: 'percent',
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                };
+    var formatter = new Intl.NumberFormat("en-US",option);
+        percentage = formatter.format(value );
+        console.log(percentage);
+        return percentage;
+    return new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 2,maximumFractionDigits:2}).format(value);
+}
+function validateZip(zip)
+{
+    if (/[^A-Za-z\d  -]/.test(zip))
+    {
+       return false;
+    }
+
+    if(zip.length < 5 || zip.length > 10)
+    {
+        return false;
+    }
+    return true;
+}
+
+function validateEmail(email)
+{
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    if(!emailReg.test(email))
+    {
+        return false;
+    }
+    return true;
+}
+
+function checkRoutingNumber(t)
+{
+      // Run through each digit and calculate the total.
+    n = 0;
+    for (i = 0; i < t.length; i += 3) {
+        n += parseInt(t.charAt(i),     10) * 3
+        +  parseInt(t.charAt(i + 1), 10) * 7
+        +  parseInt(t.charAt(i + 2), 10);
+    }
+
+    // If the resulting sum is an even multiple of ten (but not zero),
+    // the aba routing number is good.
+
+    if (n != 0 && n % 10 == 0)
+        return true;
+    else
+        return false;
+
+}
+function encodeHtmlEntities(str){
+    return str.replace(/[\u00A0-\u9999<>\&]/g, function(i) {
+                    return '&#'+i.charCodeAt(0)+';';
+                    });
+}
+
+function isNullOrWhitespace( input ) {
+    return !input || !input.trim();
+}
+
+function validatePhoneNumber(phone)
+{
+    if(!phone.match(/(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/g))
+    {
+        return false;
+    }
+    return true;
+}
+function modalToggle()
+{
+    let mainBtn = document.querySelectorAll('.main_btns');
+
+
+            for (let index = 0; index < mainBtn.length; index++) {
+                mainBtn[index].classList.remove('active')
+
+                setTimeout(()=> {
+                    mainBtn[0].classList.add('active')
+                }, 500)
+            }
+
+
+    $('.modal-child').on('show.bs.modal', function () {
+        var modalParent = $(this).attr('data-modal-parent');
+        //modalParent.addClass();
+    });
+    $('.modal-child').on('hidden.bs.modal', function () {
+        var modalParent = $(this).attr('data-modal-parent');
+        //modalParent.removeClass()
+    });
+}
+
+
+function validatePhone(phone)
+{
+    if(phone.length != 14)
+         return false;
+    return true;
+}
+
+
+ function enableModalController()
+  {
+    $('.modal_controller').click(function()
+       {
+           var current_modal = $('.current_modal').val();
+           switch(current_modal)
+            {
+                case '1' : $('#mail_pre_modal').modal('show');
+                           $('.current_modal').val(0);
+                           break;
+
+                           case '2' : $('#mail_pre_modal').modal('show');
+                           $('.current_modal').val(0);
+                           break;
+
+                           case '3' : $('#mail_pre_modal').modal('show');
+                           $('.current_modal').val(0);
+                           break;
+
+                           case '4' : $('#mail_schedule_modal').modal('show');
+                           $('.current_modal').val(2);
+                           break;
+
+                           case '5' : $('#mail_pre_modal').modal('show');
+                           $('.current_modal').val(0);
+                           break;
+
+                           case '6' : $('#mail_recurring_modal').modal('show');
+                           $('.current_modal').val(1);
+                           break;
+            }
+       });
+  }
+function accessErrorMessage()
+{
+    swal("Oops", 'You dont have permission to do this', "warning");
+
+}
+// Text field work only number
+function isNumberKey(evt)
+            {
+                var charCode = (evt.which) ? evt.which : event.keyCode;
+                if (charCode != 45 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    return false;
+            }
+        }
+
+
+
+
+
+function isAmount(e)
+    {
+        //supports decimal point
+        //requires input field as number type
+         if(e.keyCode != 46)
+           {
+            if (e.shiftKey === true ) {
+
+                if (e.keyCode == 9) {
+                    return true;
+                }
+               return false;
+            }
+            else if (e.keyCode==43) {
+            return false;
+            }
+            else if (e.keyCode==46) {
+            return false;
+            }
+            else if(e.keyCode == 101)
+            {
+            return false;
+            }
+            else if (e.keyCode==45) {
+            return false;
+            }
+            if (e.keyCode == 69) {
+            return false;
+            }else {
+            return true;
+          }
+
+        }
+    }
+
+
+//=========> Tooltip common
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+<script>
+    function onlyNumberKey(evt) {
+        // Only ASCII character in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+            return true;
+    }
+
+    var trial_expired = 0;
+    
+    function isTrialExpired()
+    {
+        if (trial_expired == 1) {
+            window.location = "https://app.onlinecheckwriter.com/manage/subscription/trial_expire";
+            return true;
+        }
+        return false;
+    }
+
+    function isAutoprocessActive()
+    {
+        var current_url = new URL(window.location.href);
+        if(current_url.searchParams.get("auto_process") != undefined  && current_url.searchParams.get("auto_process") == 'true')
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+</script>
+
+<script type="text/javascript" language="javascript" src="https://c.onlinecheckwriter.com/public/assets/demo/default/custom/components/phoneformat/jquery-input-mask-phone-number.js"></script>
+
+<script src="https://c.onlinecheckwriter.com/public/asset/js/jquery-validation.js"></script>
+<script src="https://c.onlinecheckwriter.com/public/custom/js/autocomplete-dynamic.js?v=1640457062"></script>
+<script src="https://c.onlinecheckwriter.com/public/asset/js/bootstrap-select-country.min.js"></script>
+<script src="https://c.onlinecheckwriter.com/public/asset/js/jquery.mask.min.js"></script>
+
+</body>
+</html>
