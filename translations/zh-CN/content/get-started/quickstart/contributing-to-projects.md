@@ -1,6 +1,6 @@
 ---
 title: 参与项目
-intro: Learn how to contribute to a project through forking.
+intro: 学习如何通过复刻来参与一个项目.
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
@@ -14,7 +14,7 @@ topics:
   - Open Source
 ---
 
-## About forking
+## 关于复刻
 
 After using GitHub by yourself for a while, you may find yourself wanting to contribute to someone else’s project. Or maybe you’d like to use someone’s project as the starting point for your own. This process is known as forking.
 
@@ -22,17 +22,17 @@ Creating a "fork" is producing a personal copy of someone else's project. Forks 
 
 ## 复刻仓库
 
-This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
+本教程使用 [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), 一个托管于 {% data variables.product.prodname_dotcom_the_website %} 的测试仓库, 让你测试复刻和拉取请求工作流.
 
-1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
-2. Click **Fork**. ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
-1. {% data variables.product.product_name %} will take you to your copy (your fork) of the Spoon-Knife repository.
+1. 导航到在 https://github.com/octocat/Spoon-Knife 上的 `Spoon-Knife` 项目.
+2. 点击 **Fork**. ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
+3. {% data variables.product.product_name %} 将会带你到你的 Spoon-Knife 仓库的副本(你的复刻).
 
-## Cloning a fork
+## 克隆一个复刻
 
-You've successfully forked the Spoon-Knife repository, but so far, it only exists on {% data variables.product.product_name %}. To be able to work on the project, you will need to clone it to your computer.
+你已经成功的复刻了 Spoon-Knife 仓库, 但目前它只存在于 {% data variables.product.product_name %}. 想要在这个项目上工作, 你将需要将其克隆到你的计算机上.
 
-You can clone your fork with the command line, {% data variables.product.prodname_cli %}, or {% data variables.product.prodname_desktop %}.
+你可以使用命令行克隆你的复刻, {% data variables.product.prodname_cli %}, 或 {% data variables.product.prodname_desktop %}.
 
 {% include tool-switcher %}
 {% webui %}
