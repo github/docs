@@ -65,7 +65,7 @@ jobs:
 
 ## Specifying the Ruby version
 
-The easiest way to specify a Ruby version is by using the `ruby/setup-ruby` action provided by the Ruby organization on GitHub. The action adds any supported Ruby version to `PATH` for each job run in a workflow. For more information see, the [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
+The easiest way to specify a Ruby version is by using the `ruby/setup-ruby` action provided by the Ruby organization on GitHub. The action adds any supported Ruby version to `PATH` for each job run in a workflow. For more information and available Ruby versions, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
 
 Using Ruby's `ruby/setup-ruby` action is the recommended way of using Ruby with GitHub Actions because it ensures consistent behavior across different runners and different versions of Ruby.
 
@@ -87,13 +87,13 @@ Alternatively, you can check a `.ruby-version` file  into the root of your repos
 
 ## Testing with multiple versions of Ruby
 
-You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 2.7, 2.6, and 2.5. The 'x' is a wildcard character that matches the latest patch release available for a version.
+You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 3.0, 2.7, and 2.6.  YAML parsers will truncate trailing zeros from numeric values, and often convert floats to integers.  So, an unquoted 3.0 is converted to an integer, so it will match any minor version, as in 3.0.3, 3.1.0, etc.  Likewise, 2.10 needs to be quoted, otherwise it will be interpreted as 2.1.
 
 {% raw %}
 ```yaml
 strategy:
   matrix:
-    ruby-version: [2.7.x, 2.6.x, 2.5.x]
+    ruby-version: ['3.0', 2.7, 2.6]
 ```
 {% endraw %}
 
@@ -119,7 +119,7 @@ jobs:
 
     strategy:
       matrix:
-        ruby-version: [2.7.x, 2.6.x, 2.5.x]
+        ruby-version: ['3.0', 2.7, 2.6]
 
     steps:
       - uses: actions/checkout@v2
@@ -225,7 +225,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu, macos]
-        ruby: [2.5, 2.6, 2.7, head, debug, jruby, jruby-head, truffleruby, truffleruby-head]
+        ruby: [2.6, 2.7, '3.0', head, debug, jruby, jruby-head, truffleruby, truffleruby-head]
     continue-on-error: {% raw %}${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}{% endraw %}
     steps:
       - uses: actions/checkout@v2
