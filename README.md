@@ -1,3 +1,4 @@
+#{{' ${{[(GITHUB.secrets_TOKEN)]}/{[VOLUME]}/{BITORE_34173}}} }}=:' $ BITORE_34173.1188931
 # ZachryTylerWood
 The open-source repo for docs.github.com
  name: Close Stale Issues
