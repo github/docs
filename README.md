@@ -26,8 +26,8 @@ The open-source repo for docs.github.com
 Iixixi
 /
 ZachryTylerWood
-Public template
-forked from github/docs
+COPZRIGHTS aLL RIGHTS RESERVED BTC BTCUSD BTC'USD BITORE 34173 bitcoin BITCOIN Bitcoin: PRIVATE template
+ forked from github/docs
 Code
 Issues
 Pull requests
