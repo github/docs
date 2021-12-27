@@ -56,6 +56,8 @@ Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be 
 
 After setting up your trial, you can explore {% data variables.product.prodname_ghe_cloud %} by following the [Enterprise Onboarding Guide](https://resources.github.com/enterprise-onboarding/).
 
+{% data reusables.docs.you-can-read-docs-for-your-product %}
+
 {% data reusables.products.product-roadmap %}
 
 ## Finishing your trial

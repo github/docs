@@ -396,6 +396,7 @@ translations/pt-BR/content/code-security/code-scanning/automatically-scanning-yo
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/index.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
+translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,rendering error
@@ -769,7 +770,9 @@ translations/pt-BR/content/organizations/restricting-access-to-your-organization
 translations/pt-BR/content/organizations/restricting-access-to-your-organizations-data/denying-access-to-a-previously-approved-oauth-app-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/restricting-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/restricting-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization.md,rendering error
+translations/pt-BR/content/packages/learn-github-packages/about-permissions-for-github-packages.md,rendering error
 translations/pt-BR/content/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility.md,rendering error
+translations/pt-BR/content/packages/learn-github-packages/installing-a-package.md,rendering error
 translations/pt-BR/content/packages/learn-github-packages/introduction-to-github-packages.md,rendering error
 translations/pt-BR/content/packages/learn-github-packages/publishing-a-package.md,rendering error
 translations/pt-BR/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,rendering error
@@ -794,6 +797,7 @@ translations/pt-BR/content/pages/getting-started-with-github-pages/index.md,rend
 translations/pt-BR/content/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site.md,rendering error
 translations/pt-BR/content/pages/getting-started-with-github-pages/using-submodules-with-github-pages.md,rendering error
 translations/pt-BR/content/pages/index.md,rendering error
+translations/pt-BR/content/pages/quickstart.md,rendering error
 translations/pt-BR/content/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll.md,rendering error
 translations/pt-BR/content/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites.md,rendering error
 translations/pt-BR/content/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll.md,rendering error
@@ -812,7 +816,9 @@ translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/gettin
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request.md,rendering error
+translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/index.md,rendering error
+translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/index.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests.md,rendering error
