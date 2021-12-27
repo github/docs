@@ -4,9 +4,8 @@ BEGIN:
 RUNS:
 Script:
 :Build:: "build_script"
-"build_script": "`{{ secrets.GITHUB_TOKEN }}"': '""{{'$' {{{{'[(GITHUB.secrets_TOKEN)']}/{'[12753750'].00']}/{BITORE_34173}}} }}":  "=:":' '"{{' '$' BITORE_34173.1188931"''
-# ZachryTylerWood
-The open-source repo for docs.github.com
+"{{ secrets.GITHUB_TOKEN }}":'' '"{{ ((c)(r))_BITORE_34173 }}
+'The open-source repo for docs.github.com
  name: Close Stale Issues
   uses: actions/stale@v4.1.0
     # Token for the repository. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.
