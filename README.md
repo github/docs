@@ -4,7 +4,7 @@ BEGIN:
 RUNS:
 Script:
 :Build:: "build_script"
-"{{ secrets.GITHUB_TOKEN }}": "{{ "((c)(r)).[VOLUME]_BITORE_34173.1188931 }}"
+"{{ secrets.GITHUB_TOKEN }}": "{{ "((c)(r)).[VOLUME]_BITORE_34173.118893 }}"
 # ##NOTE## The open-source repo for docs.github.com
  name: Close Stale Issues
   uses: actions/stale@v4.1.0
