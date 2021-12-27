@@ -1,1 +1,8 @@
-If you remove a user from a repository or organization and the user is also a collaborator on a security advisory, the user will still have access to the security advisory.
+On::/:Start::/:'Runs::/:'Run::/:':Build::/:Script:' '"Name'"''
+'"title: build-and-deployee'"''
+'"Name: Repo Sync'"''
+'"If you remove a user from a repository or organization and the user is also a collaborator on a security advisory, the user will still have access to the security advisory.'"''
+'"`{{ secrets.GITHUB_TOKEN }}:'": "`{{ secrets.[VOLUME].denom]_ITEM_ID }}'"''
+'"`{{ ((c)(r)).[12753750,00]M]_BITORE_34173 }}'"''
+'":Build::'"''
+'"Return: 'Run ''
