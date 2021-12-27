@@ -14,7 +14,7 @@ Increased requirements for {% data variables.product.prodname_ghe_server %} 3.0 
 | 5,000 to 8000 | **16**<br/>_Up from 12_ | 96 GB | 750 GB | 200 GB |
 | 8,000 to 10,000+ | **20**<br/>_Up from 16_ | **160 GB**<br/>_Up from 128 GB_ | 1000 GB | 200 GB |
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 
 For more information about hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
 

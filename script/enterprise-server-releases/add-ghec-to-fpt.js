@@ -1,11 +1,4 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import path from 'path'
-import walk from 'walk-sync'
-import program from 'commander'
-import { escapeRegExp } from 'lodash-es'
-import frontmatter from '../../lib/read-frontmatter.js'
-import { getLiquidConditionals } from '../helpers/get-liquid-conditionals.js'
 
 // [start-readme]
 //
@@ -14,6 +7,14 @@ import { getLiquidConditionals } from '../helpers/get-liquid-conditionals.js'
 // of free-pro-team.
 //
 // [end-readme]
+
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import program from 'commander'
+import { escapeRegExp } from 'lodash-es'
+import frontmatter from '../../lib/read-frontmatter.js'
+import { getLiquidConditionals } from '../helpers/get-liquid-conditionals.js'
 
 const contentPath = path.join(process.cwd(), 'content')
 const dataPath = path.join(process.cwd(), 'data')

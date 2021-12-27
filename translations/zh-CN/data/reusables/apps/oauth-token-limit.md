@@ -1,1 +1,1 @@
-每个用户/应用程序/作用域组合签发的令牌数量有限。 如果应用程序请求足够的令牌超越其中一个限制，_所请求的作用域相同的_旧令牌将停止工作。
+每个用户/应用程序/作用域组合签发的令牌数量有限。 If an application creates more than 10 tokens for the same user and the same scopes, the oldest tokens with the same user/application/scope combination will be revoked.

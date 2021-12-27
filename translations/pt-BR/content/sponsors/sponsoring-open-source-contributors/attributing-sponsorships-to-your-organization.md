@@ -4,13 +4,15 @@ intro: Você pode atribuir os patrocínios pagos por uma das suas organizações
 redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/attributing-sponsorships-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 permissions: People who are organization owners of both organizations can attribute one organization's sponsorships to another organization.
 type: how_to
 topics:
   - Open Source
   - Organizations
   - Sponsors profile
+shortTitle: Patrocínios de atributos
 ---
 
 1. Acesse a organização cujos patrocínios você deseja atribuir a outra organização.

@@ -1,0 +1,26 @@
+---
+date: '2021-12-07'
+sections:
+  security_fixes:
+    - Support bundles could include sensitive files if they met a specific set of conditions.
+  bugs:
+    - In some cases when Actions was not enabled, `ghe-support-bundle` reported an unexpected message `Unable to find MS SQL container.`
+    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
+    - A misconfiguration in the Management Console caused scheduling errors.
+    - Docker would hold log files open after a log rotation.
+    - Migrations could get stuck due to incorrect handling of `blob_path` values that are not UTF-8 compatible.
+    - GraphQL requests did not set the GITHUB_USER_IP variable in pre-receive hook environments.
+    - Pagination links on org audit logs would not persist query parameters.
+    - During a hotpatch, it was possible for duplicate hashes if a transition ran more than once.
+  changes:
+    - Clarifies explanation of Actions path-style in documentation.
+    - Updates support contact URLs to use the current support site, support.github.com.
+    - Additional troubleshooting provided when running `ghe-mssql-diagnostic`.
+  known_issues:
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级过程中被删除。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
+    - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

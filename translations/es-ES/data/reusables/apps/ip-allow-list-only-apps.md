@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The addresses in the IP allow list of a {% data variables.product.prodname_github_app %} only affect requests made by installations of the {% data variables.product.prodname_github_app %}. The automatic addition of a {% data variables.product.prodname_github_app %}'s IP address to an organization's allow list does not allow access to a {% data variables.product.product_name %} user who connects from that IP address.
+**Nota:** Las direcciones en la lista de direcciones IP permitidas de una {% data variables.product.prodname_github_app %} solo afectan las solicitudes que realizan las instalaciones de {% data variables.product.prodname_github_app %}. La adición automática de una direcci´no IP de una {% data variables.product.prodname_github_app %} hacia una lista de direcciones permitidas de una organización no permite el acceso a un usuario de {% data variables.product.product_name %} que se conecte desde dicha dirección IP.
 
 {% endnote %}

@@ -1,10 +1,4 @@
 #!/usr/bin/env node
-import linkinator from 'linkinator'
-import { deprecated, latest } from '../lib/enterprise-server-releases.js'
-
-const checker = new linkinator.LinkChecker()
-const englishRoot = 'http://localhost:4002/en'
-const allowedVersions = ['dotcom', 'enterprise-server', 'github-ae']
 
 // [start-readme]
 //
@@ -16,6 +10,13 @@ const allowedVersions = ['dotcom', 'enterprise-server', 'github-ae']
 // If you want to run it locally, you must have a local server running. You can use `npm run link-check`.
 //
 // [end-readme]
+
+import linkinator from 'linkinator'
+import { deprecated, latest } from '../lib/enterprise-server-releases.js'
+
+const checker = new linkinator.LinkChecker()
+const englishRoot = 'http://localhost:4002/en'
+const allowedVersions = ['dotcom', 'enterprise-cloud', 'enterprise-server', 'github-ae']
 
 const config = {
   path: englishRoot,
@@ -39,12 +40,17 @@ const config = {
 
 // Customize config for specific versions
 if (process.env.DOCS_VERSION === 'dotcom') {
-  // If Dotcom, skip Enterprise Server and GitHub AE links
+  // If Dotcom, skip Enterprise Cloud, Enterprise Server, and GitHub AE links
   config.linksToSkip.push(
+    '^.*/enterprise-cloud@latest.*$',
     '^.*/enterprise-server@.*$',
     '^.*/enterprise/.*$',
     '^.*/github-ae@latest.*$'
   )
+} else if (process.env.DOCS_VERSION === 'enterprise-cloud') {
+  // If Enterprise Cloud, skip links that are not Enterprise Cloud links
+  config.path = `${englishRoot}/enterprise-cloud@latest`
+  config.linksToSkip.push('^((?!enterprise-cloud@latest).)*$')
 } else if (process.env.DOCS_VERSION === 'enterprise-server') {
   // If Enterprise Server, skip links that are not Enterprise Server links
   config.path = `${englishRoot}/enterprise-server@${latest}`

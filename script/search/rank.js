@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// This module accepts an Algolia search record object as input and
+// This module accepts a search record object as input and
 // returns a ranking score which influences how results are sorted.
 
 // higher in this list == higher search ranking
@@ -10,7 +10,7 @@ const rankings = ['/rest', '/graphql', '/site-policy'].reverse()
 export default function rank(record) {
   for (const index in rankings) {
     const pattern = rankings[index]
-    if (record.url.includes(pattern)) return Number(index)
+    if (record.objectID.includes(pattern)) return Number(index)
   }
 
   // Set the default ranking to the highest possible

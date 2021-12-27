@@ -3,6 +3,7 @@ title: FAQ about changes to GitHub’s plans
 intro: 'As of April 14, 2020, GitHub announced that all of the core GitHub features are now free for everyone.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - GitHub
 redirect_from:
@@ -90,6 +91,6 @@ If you’re currently an invoice customer, email your sales representative for a
 
 ## How will this impact users and organizations in regions where U.S. government sanctions are applied?
 
-Due to U.S. trade controls law restrictions, GitHub is unable to provide private repository services and paid services to accounts in U.S. sanctioned regions. GitHub has preserved, however, access to free public repository services. Please read about [GitHub and Trade Controls](/github/site-policy/github-and-trade-controls) for more information.
+Due to U.S. trade controls law restrictions, GitHub is unable to provide private repository services and paid services to accounts in U.S. sanctioned regions. GitHub has preserved, however, access to free public repository services. Please read about [GitHub and Trade Controls](/free-pro-team@latest/github/site-policy/github-and-trade-controls) for more information.
 
 GitHub will continue advocating with U.S. regulators for the greatest possible access to free code collaboration services to developers in sanctioned regions, including free private repositories. We believe that offering those free services supports U.S. foreign policy of encouraging the free flow of information and free speech in those regions.

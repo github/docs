@@ -1,10 +1,10 @@
 ---
-title: Utilizar GitHub Actions en GitHub AE
-intro: 'Aprende cómo configurar las {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_managed %}.'
+title: Using GitHub Actions in GitHub AE
+intro: 'Learn how to configure {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_managed %}.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 children:
-  - /getting-started-with-github-actions-for-github-ae
   - /using-actions-in-github-ae
+shortTitle: Use Actions in GitHub AE
 ---
 

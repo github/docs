@@ -7,16 +7,26 @@ name: Add docs-reviewers request to the docs-content review board
 on:
   workflow_dispatch:
   schedule:
-    - cron: '25 4 * * *'
+    - cron: '50 */6 * * *'
+
+permissions:
+  contents: read
 
 jobs:
   add-requests-to-board:
     name: Add requests to board
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out repo content
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+
+      - name: Setup Node
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        with:
+          node-version: 16.13.x
+          cache: npm
 
       - name: Install dependencies
         run: npm install @octokit/graphql
@@ -25,7 +35,7 @@ jobs:
         run: |
           node .github/actions-scripts/fr-add-docs-reviewers-requests.js
         env:
-          TOKEN: ${{ secrets.DOCS_BOT }}
+          TOKEN: ${{ secrets.DOCS_BOT_FR }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           REPO: 'github'

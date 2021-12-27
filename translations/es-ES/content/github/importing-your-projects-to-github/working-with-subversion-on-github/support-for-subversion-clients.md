@@ -5,15 +5,17 @@ redirect_from:
   - /articles/support-for-subversion-clients
   - /github/importing-your-projects-to-github/support-for-subversion-clients
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+shortTitle: Soporte para clientes de Subversion
 ---
 
 GitHub admite clientes de Subversion por medio del protocolo HTTPS. Utilizamos el puente de Subversion para comunicar los comandos svn a GitHub.
 
-### Funciones de Subversion admitidas en GitHub
+## Funciones de Subversion admitidas en GitHub
 
-#### Control
+### Control
 
 La primera cosa que desearás realizar es un control de Subversion.  Ya que los clones de Git mantienen un directorio de trabajo (donde editas los archivos) separado de los datos del repositorio, solo hay una rama en el directorio de trabajo a la vez.
 
@@ -44,7 +46,7 @@ Los controles de Subversion son diferentes: combinan los datos del repositorio e
   Updated to revision 1.
   ```
 
-#### Crear ramas
+### Crear ramas
 
 También puedes crear ramas usando el puente de Subversion a GitHub.
 
@@ -76,7 +78,7 @@ $ git fetch
 > * [new branch]    more_awesome -> origin/more_awesome
 ```
 
-#### Realizar confirmaciones de cambios en Subversion
+### Realizar confirmaciones de cambios en Subversion
 
 Después de haber agregado algunas características y haber arreglado algunos errores, desearás confirmar estos cambios en GitHub. Esto funciona de la misma forma en la que estás acostumbrado en Subversion. Edita tus archivos y utiliza `svn commit` para registrar tus cambios:
 
@@ -99,7 +101,7 @@ $ svn commit -m 'Test coverage for problems'
 > Revisión confirmada 4.
 ```
 
-#### Alternar entre ramas
+### Alternar entre ramas
 
 Para alternar entre ramas, probablemente desearás comenzar con un control del `trunk` (tronco):
 
@@ -113,7 +115,7 @@ Luego, puedes alternar a otra rama:
 $ svn switch https://github.com/<em>user</em>/<em>repo</em>/branches/more_awesome
 ```
 
-### Encontrar el SHA de confirmación de Git para una confirmación de Subversion
+## Encontrar el SHA de confirmación de Git para una confirmación de Subversion
 
 El servidor de Subversion de GitHub muestra el sha de confirmación de Git para cada confirmación de Subversion.
 
@@ -126,6 +128,6 @@ $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>
 
 Con este SHA de confirmación, puedes, por ejemplo, consultar la correspondiente confirmación Git en GitHub.
 
-### Leer más
+## Leer más
 
 * "[Propiedades de Subversion admitidas por GitHub](/articles/subversion-properties-supported-by-github)"

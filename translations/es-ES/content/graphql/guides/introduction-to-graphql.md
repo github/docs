@@ -5,22 +5,23 @@ redirect_from:
   - /v4/guides/intro-to-graphql
   - /graphql/guides/intro-to-graphql
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### Terminología de GraphQL
+## Terminología de GraphQL
 
 La API de GraphQL de GitHub representa un cambio conceptual y arquitectónico de la API de REST de GitHub. Seguramente encontrarás nueva terminología en los [documentos de referencia](/graphql) de la API de GraphQL.
 
-### Modelo
+## Modelo
 
 Un modelo define un tipo de sistema de la API de GraphQL. Describe el conjunto de datos posibles (objetos, campos, relaciones, todo) a los que puede acceder un cliente. Los llamados desde el cliente se [validan](https://graphql.github.io/learn/validation/) y [ejecutan](https://graphql.github.io/learn/execution/) contra un modelo. Un cliente puede encontrar información acerca del modelo a través de [introspección](#discovering-the-graphql-api). UN modelo reside en el servidor de la API de GraphQL. Para obtener más información, consulta la sección "[Descubriendo la API de GraphQL](#discovering-the-graphql-api)".
 
-### Campo
+## Campo
 
 Un campo es una unidad de datos que puedes recuperar de un objeto. Como dicen los [documentos oficiales de GraphQL](https://graphql.github.io/learn/schema/): "El lenguaje de consulta GraphQL se trata básicamente de seleccionar campos en los objetos".
 
@@ -30,11 +31,11 @@ Las [especificaciones oficiales](https://graphql.github.io/graphql-spec/June2018
 
 Esto significa que si intentas recuperar un campo que no es un valor escalar, la validación del modelo arrojará un error. Debes agregar subcampos anidados hasta que todos los campos recuperen valores escalares.
 
-### Argumento
+## Argumento
 
 Un argumento es un conjuto de pares clave-valor adjuntos a un campo específico. Algunos campos requieren un argumento. Las [mutaciones](/graphql/guides/forming-calls-with-graphql#about-mutations) requieren un objeto de entrada como argumento.
 
-### Implementación
+## Implementación
 
 El modelo de GraphQL podría utilizar el término _implementa_ para definir cómo un objeto hereda de una [interface](/graphql/reference/interfaces).
 
@@ -61,17 +62,17 @@ En los documentos de referencia, podrás notar que:
 
 * Cada [interface](/graphql/reference/interfaces) lista los objetos _que heredan desde ella_ bajo **Implementaciones**.
 
-### Conexión
+## Conexión
 
 Las conexiones permiten consultar objetos relacionados como parte del mismo llamado. Con las conexiones, puedes utilizar un solo llamado de GraphQL y, en contraste, tendrías que utilizar múltiples llamados en una API de REST. Para obtener más información, consulta "[Migrar de REST a GraphQL](/graphql/guides/migrating-from-rest-to-graphql)".
 
 Es útil imaginar una gráfica: puntos conectados con líneas. Los puntos son nodos, las líneas son bordes. Una conexión define una relación entre nodos.
 
-### Borde
+## Borde
 
 Los bordes representan las conexiones entre nodos. Cuando consultas una conexión, cruzas sus bordes para obtener sus nodos. Cada campo de `edges` tiene un campo de `node` y uno de `cursor`. Los cursores se utilizan para la [paginación](https://graphql.github.io/learn/pagination/).
 
-### Nodo
+## Nodo
 
 _Nodo_ es un término genérico para un objeto. Puedes buscar un nodo directamente, o puedes acceder a nodos relacionados a través de una conexión. Si especificas un `node` que no regrese un valor [escalar](/graphql/reference/scalars), deberás incluir los subcampos hasta que todos los campos recuperen valores escalares. Para obtener información sobre el acceso a las ID de los nodos a través de la API de REST y utilizarlos en las consultas de GraphQL, consulta la sección "[Utilizar ID de Nodos Globales](/graphql/guides/using-global-node-ids)".
 
@@ -116,6 +117,12 @@ GraphQL es [introspectivo](https://graphql.github.io/learn/introspection/). Esto
   ```shell
   $ curl -H "Authorization: bearer <em>token</em>" {% data variables.product.graphql_url_pre %}
   ```
+
+  {% note %}
+
+  **Nota**: Si obtienes la respuesta `"message": "Bad credentials"` o `401 Unauthorized`, verifica que estés utilizando un token válido. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+
+  {% endnote %}
 
   Estos resultados están en JSON, así que recomendamos imprimirlos notablemente para su lectura y búsqueda más fácil. Puedes utilizar una herramienta de línea de comandos como [jq](https://stedolan.github.io/jq/) o enlazar los resultados en `python -m json.tool` para lograrlo.
 

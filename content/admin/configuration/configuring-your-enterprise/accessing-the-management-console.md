@@ -2,12 +2,12 @@
 title: Accessing the management console
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-management-console %}'
 redirect_from:
-  - /enterprise/admin/articles/about-the-management-console/
-  - /enterprise/admin/articles/management-console-for-emergency-recovery/
-  - /enterprise/admin/articles/web-based-management-console/
-  - /enterprise/admin/categories/management-console/
-  - /enterprise/admin/articles/accessing-the-management-console/
-  - /enterprise/admin/guides/installation/web-based-management-console/
+  - /enterprise/admin/articles/about-the-management-console
+  - /enterprise/admin/articles/management-console-for-emergency-recovery
+  - /enterprise/admin/articles/web-based-management-console
+  - /enterprise/admin/categories/management-console
+  - /enterprise/admin/articles/accessing-the-management-console
+  - /enterprise/admin/guides/installation/web-based-management-console
   - /enterprise/admin/installation/accessing-the-management-console
   - /enterprise/admin/configuration/accessing-the-management-console
   - /admin/configuration/accessing-the-management-console
@@ -34,7 +34,7 @@ To access the {% data variables.enterprise.management_console %}, you must use t
 
 ## Accessing the {% data variables.enterprise.management_console %} as a site administrator
 
-The first time that you access the {% data variables.enterprise.management_console %} as a site administrator, you must upload your {% data variables.product.prodname_enterprise %} license file to authenticate into the app. For more information, see "[Managing your {% data variables.product.prodname_enterprise %} license](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license)."
+The first time that you access the {% data variables.enterprise.management_console %} as a site administrator, you must upload your {% data variables.product.prodname_enterprise %} license file to authenticate into the app. For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

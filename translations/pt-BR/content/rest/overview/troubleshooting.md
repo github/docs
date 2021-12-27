@@ -4,9 +4,10 @@ intro: Aprenda a resolver os problemas mais comuns que as pessoas enfrentam na A
 redirect_from:
   - /v3/troubleshooting
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -15,24 +16,24 @@ topics:
 
 Se você estiver encontrando algumas situações estranhas na API, aqui está uma lista de resoluções de alguns dos problemas que você pode estar enfrentando.
 
-### Erro `404` para um repositório existente
+## Erro `404` para um repositório existente
 
 Normalmente, enviamos um erro `404` quando seu cliente não está autenticado corretamente. Nesses casos, você pode esperar ver um `403 Forbidden`. No entanto, como não queremos fornecer _nenhuma_ informação sobre repositórios privados, a API retorna um erro `404`.
 
-Para solucionar o problema, verifique se [você está efetuando a autenticação corretamente](/guides/getting-started/), se [seu token de acesso do OAuth tem os escopos necessários](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) e se as [restrições de aplicativos de terceiros][oap-guide] não estão bloqueando o acesso.
+Para solucionar problemas, certifique-se de [você está efetuando a autenticação corretamente](/guides/getting-started/), [seu token de acesso OAuth tenha os escopos necessários](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [restrições do aplicativo de terceiros][oap-guide] não estejam bloqueando o acesso, e [o token não venceu ou foi revogado](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
-### Nem todos os resultados retornados
+## Nem todos os resultados retornados
 
 A maioria das chamadas da API que acessam uma lista de recursos (_por exemplo,_, usuários, issues, _etc._) é compatível com a paginação. Se você está fazendo solicitações e recebendo um conjunto incompleto de resultados, provavelmente você só está vendo a primeira página. Você precisará solicitar as páginas restantes para obter mais resultados.
 
 É importante *não* tentar adivinhar o formato da URL de paginação. Nem todas as chamadas de API usam a mesma estrutura. Em vez disso, extraia as informações de paginação do [Cabeçalho do link](/rest#pagination), que é enviado com cada solicitação.
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Erros de autenticação básica
+{% ifversion fpt or ghec %}
+## Erros de autenticação básica
 
 Em 13 de novembro de 2020 a autenticação de nome de usuário e senha da API REST e da API de Autorizações OAuth tornaram-se obsoletas e já não funcionaram mais.
 
-#### Usar `nome de usuário`/`senha` para autenticação básica
+### Usar `nome de usuário`/`senha` para autenticação básica
 
 Se você estiver usando um `nome de usuário` e `senha` para chamadas de API, eles não são conseguirão mais efetuar a autenticação. Por exemplo:
 
@@ -52,7 +53,7 @@ Para aplicativos OAuth, você deve usar o [fluxo de aplicativo web](/apps/buildi
 curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
 ```
 
-#### Chamadas para API de autorização do OAuth
+### Chamadas para API de autorização do OAuth
 
 Se você estiver fazendo chamadas de [API de autorização do OAuth](/enterprise-server/rest/reference/oauth-authorizations) para gerenciar as autorizações do seu aplicativo OAuth ou para gerar tokens de acesso de forma similar a este exemplo:
 
@@ -61,6 +62,10 @@ curl -u my_username:my_password -X POST "https://api.github.com/authorizations" 
 ```
 
 Você deverá alternar para o fluxo do aplicativo web [](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) para gerar tokens de acesso.
+
+## Tempo esgotado
+
+Se  {% data variables.product.product_name %} demorar mais de 10 segundos para processar uma solicitação de API, {% data variables.product.product_name %} encerrará a solicitação e você receberá uma resposta de tempo esgotado.
 
 {% endif %}
 

@@ -1,13 +1,15 @@
 ---
 title: 使用命令行导入 Git 仓库
-intro: '{% if currentVersion == "free-pro-team@latest" %}如果 [GitHub Importer](/articles/importing-a-repository-with-github-importer) 不适用于您的目的，例如，如果您现有的代码托管在私有网络上，则我们建议使用命令行导入。{% else %}当您现有的代码托管在私有网络上时，适合使用命令行导入 Git 项目。{% endif %}'
+intro: '{% ifversion fpt %}如果 [GitHub Importer](/articles/importing-a-repository-with-github-importer) 不适用于您的目的，例如，如果您现有的代码托管在私有网络上，则我们建议使用命令行导入。{% else %}当您现有的代码托管在私有网络上时，适合使用命令行导入 Git 项目。{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
   - /github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: 本地导入仓库
 ---
 
 在开始之前，请确保您知道：
@@ -22,7 +24,7 @@ versions:
 - 外部帐户 **extuser**
 - 外部 Git 主机 `https://external-host.com`
 - {% data variables.product.product_name %} 个人用户帐户 **ghuser**
-- {% data variables.product.product_name %} 仓库 **repo.git**
+- {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上名为 **repo.git** 的仓库
 
 {% endtip %}
 
@@ -36,7 +38,7 @@ versions:
   ```shell
   $ cd <em>repo.git</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>ghuser</em>/<em>repo.git</em>
-  # Pushes the mirror to the new {% data variables.product.product_name %} repository
+  # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
   ```
 4. 删除临时本地仓库。
   ```shell

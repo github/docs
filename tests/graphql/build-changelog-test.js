@@ -5,11 +5,10 @@ import {
   previewAnchor,
   prependDatedEntry,
 } from '../../script/graphql/build-changelog.js'
-import xFs from 'fs'
+import fs from 'fs/promises'
 import MockDate from 'mockdate'
 import readFileAsync from '../../lib/readfile-async.js'
 import readJsonFile from '../../lib/read-json-file.js'
-const fs = xFs.promises
 const expectedChangelogEntry = readJsonFile('./tests/fixtures/changelog-entry.json')
 const expectedUpdatedChangelogFile = readJsonFile('./tests/fixtures/updated-changelog-file.json')
 

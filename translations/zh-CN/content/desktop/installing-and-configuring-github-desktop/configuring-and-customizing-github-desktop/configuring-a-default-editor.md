@@ -5,10 +5,11 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-a-default-editor
   - /desktop/installing-and-configuring-github-desktop/configuring-a-default-editor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 配置默认编辑器
 ---
 
-### 支持的编辑器
+## 支持的编辑器
 
 {% data variables.product.prodname_desktop %} 支持以下编辑器。
 
@@ -54,7 +55,7 @@ versions:
 
 {% endwindows %}
 
-### 配置默认编辑器
+## 配置默认编辑器
 
 {% mac %}
 

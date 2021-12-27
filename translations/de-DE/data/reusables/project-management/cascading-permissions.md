@@ -1,1 +1,0 @@
-Wenn eine Person mehrere Zugriffsmöglichkeiten auf das Projektboard einer Organisation (einzeln, durch ein Team oder als Organisationsmitglied) hat, setzt die höchste Projektboard-Berechtigungsebene niedrigere Berechtigungsebenen außer Kraft.

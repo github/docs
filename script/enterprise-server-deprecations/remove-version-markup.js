@@ -1,11 +1,4 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import program from 'commander'
-import frontmatter from '../../lib/read-frontmatter.js'
-import removeLiquidStatements from '../../script/helpers/remove-liquid-statements.js'
-import removeDeprecatedFrontmatter from '../../script/helpers/remove-deprecated-frontmatter.js'
-import { all, getNextReleaseNumber } from '../../lib/enterprise-server-releases.js'
-import walkFiles from '../helpers/walk-files.js'
 
 // [start-readme]
 //
@@ -13,6 +6,14 @@ import walkFiles from '../helpers/walk-files.js'
 // contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
 //
 // [end-readme]
+
+import fs from 'fs'
+import program from 'commander'
+import frontmatter from '../../lib/read-frontmatter.js'
+import removeLiquidStatements from '../../script/helpers/remove-liquid-statements.js'
+import removeDeprecatedFrontmatter from '../../script/helpers/remove-deprecated-frontmatter.js'
+import { all, getNextReleaseNumber } from '../../lib/enterprise-server-releases.js'
+import walkFiles from '../helpers/walk-files.js'
 
 program
   .description(
