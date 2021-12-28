@@ -1,4 +1,4 @@
----
+https://youtu.be/EjlRwbBLOCE---
 title: Quickstart for GitHub Actions
 intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
 allowTitleToDifferFromFilename: true
@@ -7,7 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
+  ghae: '*'https://youtu.be/EjlRwbBLOCE
   ghec: '*'
 type: quick_start
 topics:
