@@ -1,11 +1,16 @@
-# ZachryTylerWood
+"# ZachryTylerWood
 The open-source repo for docs.github.com
-On::/:BEGIN::/:GLOW7::/:"Runs": "SCRIPT": "const": "{{ '${{[{(((c)(r)))]}.{[127537550].00]BITORE.34173}}}}' }}"'"''
-    ## Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
-    ## cache-dependency-path('jest}: 'require'
-    ## Deprecated. Use node-version instead. Will not be supported after October 1, 2019
-"GetElementbyID'(((c)(r)))'"''
-"item": "is"==yargs(AGS)).); / 
+On:
+BEGIN:
+GLOW7::/:
+Runs: 
+const: {{ ${{ ((c))((r))[127537550].00]BITORE_34173 }} }}
+  ## Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
+# cache-dependency-path('jest}: 'require'
+# Deprecated. Use 
+install: -cd 
+GetElementbyID: '(((c)(r)))"
+"item": "is==yargs(AGS)).); / 
 txid:: **beginPath'('(c')'(r')')'**
 ##://::#:Run:uses:action ns'''':''for''trigger::on:''::Build:((c))'((r))'script:'::run::AUTOMATE:'#pull::'branch:'[mainbranch]'#:PUSH:'::branches:[trunk]://Build@iixixi/I ixixi/read.md/contributing.md://return:#'
 <li>zachryiixixiiwood@gmail.com<li>
@@ -630,8 +635,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run linter
-        run: npx prettier -c "**/*.{yml,yaml}"
+        run: packsge.jsom
 BUILD:
 SCRIPT:
 RETURN:
 RUN:
+<link>Zachryiixixiiwood@gmail.com</link>
+<li>Zachrytylrtwood Dob: 10-15-1994 SSID:633-44-1725<dev>
