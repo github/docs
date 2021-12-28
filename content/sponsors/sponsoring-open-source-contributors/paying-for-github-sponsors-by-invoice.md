@@ -1,3 +1,4 @@
+[logs_515002.zip](https://github.com/github/docs/files/7786021/logs_515002.zip)
 ---
 title: Paying for GitHub Sponsors by invoice
 shortTitle: Paying by invoice
