@@ -1,7 +1,7 @@
 ---
-title: GitHub Actions について学ぶ
-shortTitle: GitHub Actions について学ぶ
-intro: '{% data variables.product.prodname_actions %} を初めて使用する場合も、そこで提供されているすべての項目を学ぶ場合も、このガイドは、{% data variables.product.prodname_actions %} を使用してアプリケーション開発ワークフローを促進する際に役立ちます。'
+title: Learn GitHub Actions
+shortTitle: Learn GitHub Actions
+intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
 redirect_from:
   - /articles/about-github-actions
   - /github/automating-your-workflow-with-github-actions/about-github-actions
@@ -11,7 +11,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/overview
   - /actions/getting-started-with-github-actions/getting-started-with-github-actions
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
-  - /articles/creating-a-workflow-with-github-actions/
+  - /articles/creating-a-workflow-with-github-actions
   - /articles/configuring-a-workflow
   - /github/automating-your-workflow-with-github-actions/configuring-a-workflow
   - /actions/automating-your-workflow-with-github-actions/configuring-a-workflow
@@ -46,4 +46,3 @@ children:
   - /usage-limits-billing-and-administration
 ---
 
-{% data reusables.actions.ae-beta %}

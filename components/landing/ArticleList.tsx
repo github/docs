@@ -70,7 +70,7 @@ export const ArticleList = ({ title, viewAllHref, articles }: ArticleListPropsT)
                   {link.date && (
                     <time
                       className="tooltipped tooltipped-n color-fg-muted text-mono mt-1"
-                      aria-label={dayjs(link.date).format('LLL')}
+                      aria-label={dayjs(link.date).format('MMMM DD')}
                     >
                       {dayjs(link.date).format('MMMM DD')}
                     </time>

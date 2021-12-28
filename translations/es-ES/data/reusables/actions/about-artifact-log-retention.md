@@ -4,6 +4,6 @@ Predeterminadamente, los artefactos y archivos de bitácora que generan los fluj
 - Para los repositorios públicos: puedes cambiar este periodo de retención a cualquier cantidad entre 1 o 90 días.
 {%- endif %}
 
-- For private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories: you can change this retention period to anywhere between 1 day or 400 days.
+- En el caso de los repositorios privados {% ifversion ghec or ghes or ghae %} e internos{% endif %}: puedes cambiar este periodo de retención a cualquier valor entre 1 y 400 días.
 
 Cuando personalizas el periodo de retención, esto aplicará solamente a los artefactos y archivos de bitácora nuevos, y no aplicará retroactivamente a los objetos existentes. Para los repositorios y organizaciones administrados, el periodo de retención máximo no puede exceder el límite que configuró la organización o empresa administradora.

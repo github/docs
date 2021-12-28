@@ -1,5 +1,5 @@
-1. Select the **Account or organization** drop-down menu and click the name of your enterprise. ![Account field](/assets/images/help/support/account-field.png)
-1. Select the **From** drop-down menu and click the email address you'd like {% data variables.contact.github_support %} to contact. ![Campo Email (E-mail)](/assets/images/help/support/from-field.png)
+1. Select the **Account or organization** drop-down menu and click the name of your enterprise. ![Campo de conta](/assets/images/help/support/account-field.png)
+1. Selecione o menu suspenso **de** e clique no endereço de e-mail que você deseja que {% data variables.contact.github_support %} entre em contato. ![Campo Email (E-mail)](/assets/images/help/support/from-field.png)
 1. Select the **Product** drop-down menu and click **GitHub Enterprise Server (self-hosted)**. ![Product field](/assets/images/help/support/product-field.png)
 1. Select the **Release series** drop-down menu and click the release {% data variables.product.product_location_enterprise %} is running. ![Release field](/assets/images/help/support/release-field.png)
 1. Select the **Priority** drop-down menu and click the appropriate urgency. Para obter mais informações, consulte "[Atribuindo prioridade a um tíquete de suporte](/admin/enterprise-support/overview/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket)". ![Priority field](/assets/images/help/support/priority-field.png)

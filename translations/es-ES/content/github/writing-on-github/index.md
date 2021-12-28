@@ -1,11 +1,11 @@
 ---
-title: Escribir en GitHub
+title: Writing on GitHub
 redirect_from:
-  - /categories/88/articles/
-  - /articles/github-flavored-markdown/
-  - /articles/writing-on-github/
+  - /categories/88/articles
+  - /articles/github-flavored-markdown
+  - /articles/writing-on-github
   - /categories/writing-on-github
-intro: 'Puedes estructurar la información que se comparte en {% data variables.product.product_name %} con varias opciones de formateo.'
+intro: 'You can structure the information shared on {% data variables.product.product_name %} with various formatting options.'
 versions:
   fpt: '*'
   ghes: '*'

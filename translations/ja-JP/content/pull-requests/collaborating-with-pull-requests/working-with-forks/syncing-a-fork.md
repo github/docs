@@ -1,6 +1,6 @@
 ---
-title: フォークを同期する
-intro: リポジトリのフォークを最新に保つために上流リポジトリと同期します。
+title: Syncing a fork
+intro: Sync a fork of a repository to keep it up-to-date with the upstream repository.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/syncing-a-fork
   - /articles/syncing-a-fork
@@ -15,24 +15,26 @@ topics:
   - Pull requests
 ---
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## Syncing a fork from the web UI
 
 1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-1. Select the **Fetch upstream** drop-down. !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
-1. Review the details about the commits from the upstream repository, then click **Fetch and merge**. !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png)
+1. Select the **Fetch upstream** drop-down.
+    !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
+1. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
+    !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png)
 
 If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
 
 ## Syncing a fork from the command line
 
 {% endif %}
-上流リポジトリとフォークを同期する前に、Git で[上流リポジトリをポイントするリモートの設定](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork)をする必要があります。
+Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. ワーキングディレクトリをローカルプロジェクトに変更します。
-3. 上流リポジトリから、ブランチと各ブランチのコミットをフェッチします。 `BRANCHNAME` へのコミットは、ローカルブランチ `upstream/BRANCHNAME` に保存されます。
+2. Change the current working directory to your local project.
+3. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.
@@ -42,12 +44,12 @@ If the changes from the upstream repository cause conflicts, {% data variables.p
   > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      main     -> upstream/main
   ```
-4. フォークのローカルのデフォルトブランチを確認してください。この場合は、`main` を使用します。
+4. Check out your fork's local default branch - in this case, we use `main`.
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
-5. 上流のデフォルトブランチ (この場合は `upstream/main`) からの変更をローカルのデフォルトブランチにマージします。 これにより、ローカルの変更を失うことなく、フォークのデフォルトブランチが上流リポジトリと同期されます。
+5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
   ```shell
   $ git merge upstream/main
   > Updating a422352..5fdff0f
@@ -68,6 +70,6 @@ If the changes from the upstream repository cause conflicts, {% data variables.p
 
 {% tip %}
 
-**参考**: フォークの同期は、リポジトリのローカルコピーだけをアップデートします。 {% data variables.product.product_location %} 上のフォークをアップデートするには、[変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)必要があります。
+**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.product.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

@@ -4,7 +4,7 @@ intro: 'You can enforce policies for dependency insights within your enterprise'
 permissions: Enterprise owners can enforce policies for dependency insights in an enterprise.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
-  - /articles/enforcing-a-policy-on-dependency-insights/
+  - /articles/enforcing-a-policy-on-dependency-insights
   - /articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account

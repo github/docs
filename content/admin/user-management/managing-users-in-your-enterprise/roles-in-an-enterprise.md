@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account
-  - /articles/permission-levels-for-a-business-account/
+  - /articles/permission-levels-for-a-business-account
   - /articles/roles-for-an-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise
 versions:

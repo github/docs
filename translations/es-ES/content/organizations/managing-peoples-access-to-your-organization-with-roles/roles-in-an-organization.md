@@ -108,10 +108,10 @@ Some of the features listed below are limited to organizations using {% data var
 | Attribute your sponsorships to another organization (see "[Attributing sponsorships to your organization](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)" for details ) | **X** | | |  |
 | Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" for details) | **X** | | |  |
 | Manage security and analysis settings (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" for details) | **X** | | | **X** |
-| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)" for details) | **X** | | | **X** |
+| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)" for details) | **X** | | | **X** |{% ifversion ghec %}
 | Enable and enforce [SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |  |
 | [Manage a user's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |
-| Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" for details) | **X** |  |  |  |
+| Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" for details) | **X** |  |  |  |{% endif %}
 | Transfer repositories | **X** | |    |  |
 | Purchase, install, manage billing for, and cancel {% data variables.product.prodname_marketplace %} apps | **X** | | |  |
 | List apps in {% data variables.product.prodname_marketplace %} | **X** | | |  |
@@ -125,8 +125,8 @@ Some of the features listed below are limited to organizations using {% data var
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | | |  |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | | |  |
 | Manage the default branch name (see "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)") | **X** | | |  |
-| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | | |  |
-| Enable team synchronization (see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" for details) | **X** |  | |  |
+| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | | |  |{% ifversion ghec %}
+| Enable team synchronization (see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" for details) | **X** |  | |  |{% endif %}
 
 {% elsif ghes > 3.2 or ghae-issue-4999 %}
 <!--GHES 3.3+ and eventual GHAE release don't have the extra column for Billing managers, but have security managers-->

@@ -1,6 +1,6 @@
 ---
-title: 使用工作流程运行日志
-intro: 您可以查看、搜索和下载工作流程运行中每个作业的日志。
+title: Using workflow run logs
+intro: 'You can view, search, and download the logs for each job in a workflow run.'
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
 versions:
@@ -12,23 +12,22 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-您可以从工作流程运行页面查看工作流程运行是在进行中，还是已完成。 您必须登录到 {% data variables.product.prodname_dotcom %} 帐户才能查看工作流程运行信息，包括公共仓库。 更多信息请参阅“[GitHub 上的访问权限](/articles/access-permissions-on-github)”。
+You can see whether a workflow run is in progress or complete from the workflow run page. You must be logged in to a {% data variables.product.prodname_dotcom %} account to view workflow run information, including for public repositories. For more information, see "[Access permissions on GitHub](/articles/access-permissions-on-github)."
 
-如果运行已完成，则可查看运行结果是成功、失败、已取消还是中性。 如果运行失败，您可以查看并搜索构建日志，来诊断失败原因并重新运行工作流程。 您也可以查看可计费作业执行分钟数，或下载日志和创建构件。
+If the run is complete, you can see whether the result was a success, failure, canceled, or neutral. If the run failed, you can view and search the build logs to diagnose the failure and re-run the workflow. You can also view billable job execution minutes, or download logs and build artifacts.
 
-{% data variables.product.prodname_actions %} 使用 Checks API 来输出工作流程的状态、结果和日志。 {% data variables.product.prodname_dotcom %} 对每个工作流程创建新检查套件。 检查套件包含检查工作流程中每项作业的运行，而每项作业包含步骤。 {% data variables.product.prodname_actions %} 作为工作流程中的一个步骤运行。 有关检查 API 的详细信息，请参阅“[检查](/rest/reference/checks)”。
+{% data variables.product.prodname_actions %} use the Checks API to output statuses, results, and logs for a workflow. {% data variables.product.prodname_dotcom %} creates a new check suite for each workflow run. The check suite contains a check run for each job in the workflow, and each job includes steps. {% data variables.product.prodname_actions %} are run as a step in a workflow. For more information about the Checks API, see "[Checks](/rest/reference/checks)."
 
 {% data reusables.github-actions.invalid-workflow-files %}
 
-## 查看日志以诊断故障
+## Viewing logs to diagnose failures
 
-如果工作流程运行失败，您可以查看是哪个步骤导致了失败，然后审查失败步骤的创建日志进行故障排除。 您可以查看每个步骤运行的时长。 也可以将永久链接复制到日志文件中的特定行，与您的团队分享。 {% data reusables.repositories.permissions-statement-read %}
+If your workflow run fails, you can see which step caused the failure and review the failed step's build logs to troubleshoot. You can see the time it took for each step to run. You can also copy a permalink to a specific line in the log file to share with your team. {% data reusables.repositories.permissions-statement-read %}
 
-除了工作流程文件中配置的步骤外，{% data variables.product.prodname_dotcom %} 为每个作业添加了另外两个步骤，以设置和完成作业的执行。 这些步骤以名称"设置作业"和"完成作业"记录在工作流程运行中。
+In addition to the steps configured in the workflow file, {% data variables.product.prodname_dotcom %} adds two additional steps to each job to set up and complete the job's execution. These steps are logged in the workflow run with the names "Set up job" and "Complete job".
 
-对于在 {% data variables.product.prodname_dotcom %} 托管的运行器上运行的作业，“设置作业”记录运行器虚拟环境的详细信息。 并包含一个链接，可链接到运行器机器上的预安装工具列表。
+For jobs run on {% data variables.product.prodname_dotcom %}-hosted runners, "Set up job" records details of the runner's virtual environment, and includes a link to the list of preinstalled tools that were present on the runner machine.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -38,25 +37,25 @@ versions:
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 {% data reusables.repositories.view-specific-line-superlinter %}
 
-## 搜索日志
+## Searching logs
 
-您可以搜索特定步骤的创建日志。 在搜索日志时，只有展开的步骤会包含在结果中。 {% data reusables.repositories.permissions-statement-read %}
+You can search the build logs for a particular step. When you search logs, only expanded steps are included in the results. {% data reusables.repositories.permissions-statement-read %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-1. 在日志输出的右上角，在 **Search logs（搜索日志）**搜索框中输入搜索查询。
+1. In the upper-right corner of the log output, in the **Search logs** search box, type a search query.
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-  ![搜索日志的搜索框](/assets/images/help/repository/search-log-box-updated-2.png)
+  ![Search box to search logs](/assets/images/help/repository/search-log-box-updated-2.png)
 {% else %}
-  ![搜索日志的搜索框](/assets/images/help/repository/search-log-box-updated.png)
+  ![Search box to search logs](/assets/images/help/repository/search-log-box-updated.png)
 {% endif %}
 
-## 下载日志
+## Downloading logs
 
-您可以从工作流程运行中下载日志文件。 您也可以下载工作流程的构件。 更多信息请参阅“[使用构件持久化工作流程](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。 {% data reusables.repositories.permissions-statement-read %}
+You can download the log files from your workflow run. You can also download a workflow's artifacts. For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)." {% data reusables.repositories.permissions-statement-read %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -65,14 +64,14 @@ versions:
 {% data reusables.repositories.navigate-to-job-superlinter %}
 1. In the upper right corner, click {% ifversion fpt or ghes > 3.0 or ghae or ghec %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
   {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-  ![下载日志下拉菜单](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
+  ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
   {% else %}
-  ![下载日志下拉菜单](/assets/images/help/repository/download-logs-drop-down-updated.png)
+  ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated.png)
   {% endif %}
 
-## 删除日志
+## Deleting logs
 
-您可以从工作流程运行中删除日志文件。 {% data reusables.repositories.permissions-statement-write %}
+You can delete the log files from your workflow run. {% data reusables.repositories.permissions-statement-write %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -80,41 +79,41 @@ versions:
 {% data reusables.repositories.view-run-superlinter %}
 1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
     {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-    ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
+    ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
     {% else %}
-    ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
+    ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
     {% endif %}
-2. 要删除日志文件，单击 **Delete all logs（删除所有日志）**按钮并审查确认提示。
+2. To delete the log files, click the **Delete all logs** button and review the confirmation prompt. 
   {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-  ![删除所有日志](/assets/images/help/repository/delete-all-logs-updated-2.png)
+  ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated-2.png)
   {% else %}
-  ![删除所有日志](/assets/images/help/repository/delete-all-logs-updated.png)
+  ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated.png)
   {% endif %}
-删除日志后，**Delete all logs（删除所有日志）** 按钮将会移除，以表示在工作流程运行中没有日志文件。
+After deleting logs, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
 
-## 使用 {% data variables.product.prodname_cli %} 查看日志
+## Viewing logs with {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.cli-learn-more %}
 
-要查看特定作业的日志，请使用 `run view` 子命令。 将 `run-id` 替换为您想要查看其日志的运行的 ID。 {% data variables.product.prodname_cli %} 将返回一个交互式菜单，供您从运行中选择作业。 如果您没有指定 `run-id`，{% data variables.product.prodname_cli %} 将返回一个交互式菜单，让您选择最近的运行，然后返回另一个交互式菜单，让您从运行中选择作业。
+To view the log for a specific job, use the `run view` subcommand. Replace `run-id` with the ID of run that you want to view logs for. {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a job from the run. If you don't specify `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run, and then returns another interactive menu for you to choose a job from the run.
 
 ```shell
 gh run view <em>run-id</em> --log
 ```
 
-您也可以使用 `--bob` 标记来指定作业 ID。 将 `job-id` 替换为您想要查看其日志的作业的 ID。
+You can also use the `--job` flag to specify a job ID. Replace `job-id` with the ID of the job that you want to view logs for.
 
 ```shell
 gh run view --job <em>job-id</em> --log
 ```
 
-您可以使用 `grep` 来搜索日志。 例如，此命令将返回所有包含单词 `error` 的日志条目。
+You can use `grep` to search the log. For example, this command will return all log entries that contain the word `error`.
 
 ```shell
 gh run view --job <em>job-id</em> --log | grep error
 ```
 
-要过滤日志中任何失败的步骤，请使用 `--log-fail` 而不是 `--log`。
+To filter the logs for any failed steps, use `--log-failed` instead of `--log`.
 
 ```shell
 gh run view --job <em>job-id</em> --log-failed

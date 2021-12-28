@@ -1,6 +1,6 @@
 ---
-title: Node.jsパッケージの公開
-intro: 継続的インテグレーション（CI）ワークフローの一部として、Node.jsのパッケージをレジストリに公開できます。
+title: Publishing Node.js packages
+intro: You can publish Node.js packages to a registry as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages
   - /actions/language-and-framework-guides/publishing-nodejs-packages
@@ -21,50 +21,49 @@ shortTitle: Node.js packages
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## はじめに
+## Introduction
 
-本ガイドでは、継続的インテグレーション（CI）テストにパスした後、Node.jsのパッケージを{% data variables.product.prodname_registry %}及びnpmレジストリに公開するワークフローの作成方法を紹介します。 1つのワークフローで、パッケージを1つのレジストリや複数のレジストリに公開できます。
+This guide shows you how to create a workflow that publishes Node.js packages to the {% data variables.product.prodname_registry %} and npm registries after continuous integration (CI) tests pass.
 
-## 必要な環境
+## Prerequisites
 
-ワークフローの設定オプションと、ワークフローファイルの作成方法についての基本的な知識を持っておくことをおすすめします。 詳しい情報については、「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」を参照してください。
+We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-Node.jsプロジェクトのためのCIワークフローの作成に関する詳しい情報については「[{% data variables.product.prodname_actions %}でのNode.jsの利用](/actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions)」を参照してください。
+For more information about creating a CI workflow for your Node.js project, see "[Using Node.js with {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions)."
 
-また、以下の基本的な理解があれば役立ちます。
+You may also find it helpful to have a basic understanding of the following:
 
-- 「[npm レジストリの利用](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)」
-- 「[環境変数](/actions/reference/environment-variables)」
-- 「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」
-- 「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow)」
+- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+- "[Environment variables](/actions/reference/environment-variables)"
+- "[Encrypted secrets](/actions/reference/encrypted-secrets)"
+- "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
 
-## パッケージの設定について
+## About package configuration
 
- *package.json*ファイル中の`name`及び`version`フィールドは、レジストリがパッケージをレジストリにリンクするために利用するユニークな識別子を作成します。 *package.json*ファイル中に`description`を含めることによって、パッケージのリストページのためのまとめを追加できます。 詳しい情報については、npmのドキュメンテーション中の「[package.jsonファイルの作成](https://docs.npmjs.com/creating-a-package-json-file)」及び「[Node.jsモジュールの作成](https://docs.npmjs.com/creating-node-js-modules)」を参照してください。
+ The `name` and `version` fields in the *package.json* file create a unique identifier that registries use to link your package to a registry. You can add a summary for the package listing page by including a `description` field in the *package.json* file. For more information, see "[Creating a package.json file](https://docs.npmjs.com/creating-a-package-json-file)" and "[Creating Node.js modules](https://docs.npmjs.com/creating-node-js-modules)" in the npm documentation.
 
-ローカルの*.npmrc*ファイルがあり、`registry`の値が指定されている場合、`npm publish`コマンドは*.npmrc*ファイルで設定されたレジストリを使います。 {% data reusables.github-actions.setup-node-intro %}
+When a local *.npmrc* file exists and has a `registry` value specified, the `npm publish` command uses the registry configured in the *.npmrc* file. {% data reusables.github-actions.setup-node-intro %}
 
-`setup-node`アクションを使えば、ランナーにインストールされたNode.jsのバージョンを指定できます。
+You can specify the Node.js version installed on the runner using the `setup-node` action.
 
-*package.json*ファイルに`publishConfig`フィールドを設定するステップをワークフローに追加したなら、`setup-node`アクションを使ってregistry-urlを指定する必要はありませんが、パッケージを公開するレジストリは1つだけに限られます。 詳しい情報についてはnpmドキュメンテーションの「[Configの公開](https://docs.npmjs.com/files/package.json#publishconfig)」を参照してください。
+If you add steps in your workflow to configure the `publishConfig` fields in your *package.json* file, you don't need to specify the registry-url using the `setup-node` action, but you will be limited to publishing the package to one registry. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
 
-## npmレジストリへのパッケージの公開
+## Publishing packages to the npm registry
 
-新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすればnpmレジストリにパッケージを公開します。
+Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to the npm registry if CI tests pass.
 
-ワークフロー中で npm レジストリに対して認証を受けた操作を行うためには、npm の認証トークンをシークレットとして保存しなければなりません。 たとえば、`NPM_TOKEN` というリポジトリシークレットを作成します。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-デフォルトでは、npmは*package.json*ファイルの`name`フィールドを使ってnpmレジストリを決めます。 グローバルな名前空間に公開する場合は、パッケージ名だけを含める必要があります。 たとえば`https://www.npmjs.com/package/npm-hello-world-test`に`npm-hello-world-test`という名前のパッケージを公開できます。
+By default, npm uses the `name` field of the *package.json* file to determine the name of your published package. When publishing to a global namespace, you only need to include the package name. For example, you would publish a package named `npm-hello-world-test` to `https://www.npmjs.com/package/npm-hello-world-test`.
 
-スコープのプレフィックスを含むパッケージを公開するなら、そのスコープを*package.json*ファイルの名前に含めてください。 たとえばnpmのスコーププレフィックスがoctocatであり、パッケージ名がhello-worldなら、*package.json*ファイル中の`name`は`@octocat/hello-world`とすべきです。 npmパッケージがスコーププレフィックスを使っており、パブリックであるなら、`npm publish --access public`オプションを使う必要があります。 これは、意図せずプライベートパッケージを公開してしまうことを防ぐためにnpmが必要とするオプションです。
+If you're publishing a package that includes a scope prefix, include the scope in the name of your *package.json* file. For example, if your npm scope prefix is octocat and the package name is hello-world, the `name` in your *package.json* file should be `@octocat/hello-world`. If your npm package uses a scope prefix and the package is public, you need to use the option `npm publish --access public`. This is an option that npm requires to prevent someone from publishing a private package unintentionally.
 
-以下の例は、`NPM_TOKEN`シークレットを環境変数の`NODE_AUTH_TOKEN`に保存します。 `setup-node`アクションが*.npmrc*ファイルを作成する際には、環境変数の`NODE_AUTH_TOKEN`からトークンを参照します。
+This example stores the `NPM_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
 {% raw %}
 ```yaml{:copy}
-name: Node.js Package
+name: Publish Package to npmjs
 on:
   release:
     types: [created]
@@ -73,19 +72,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # npm に公開するように .npmrc ファイルを設定する
+      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install
+      - run: npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 {% endraw %}
 
-上の例では、`setup-node`アクションは以下の内容でランナー上に*.npmrc*ファイルを作成します。
+In the example above, the `setup-node` action creates an *.npmrc* file on the runner with the following contents:
 
 ```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
@@ -93,15 +92,17 @@ registry=https://registry.npmjs.org/
 always-auth=true
 ```
 
-## {% data variables.product.prodname_registry %}へのパッケージの公開
+Please note that you need to set the `registry-url` to `https://registry.npmjs.org/` in `setup-node` to properly configure your credentials.
 
-新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすれば{% data variables.product.prodname_registry %}にパッケージを公開します。
+## Publishing packages to {% data variables.product.prodname_registry %}
 
-### 宛先リポジトリの設定
+Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs anytime the `release` event with type `created` occurs. The workflow publishes the package to {% data variables.product.prodname_registry %} if CI tests pass.
 
-*package.json* ファイルで `repository` キーを指定しない場合、{% data variables.product.prodname_registry %} は *package.json* ファイルの `name` フィールドで指定した {% data variables.product.prodname_dotcom %} リポジトリにパッケージを公開します。 たとえば、`@my-org/test` という名前のパッケージは、`my-org/test` {% data variables.product.prodname_dotcom %} というリポジトリに公開されます。
+### Configuring the destination repository
 
-ただし、`repository` キーを指定すると、そのキーのリポジトリが {% data variables.product.prodname_registry %} の宛先 npm レジストリとして使用されます。 たとえば、以下の *package.json* を公開すると、`my-amazing-package` という名前のパッケージが `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} リポジトリに公開されます。
+If you don't provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. For example, a package named `@my-org/test` is published to the `my-org/test` {% data variables.product.prodname_dotcom %} repository.
+
+However, if you do provide the `repository` key, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. For example, publishing the below *package.json* results in a package named `my-amazing-package` published to the `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} repository.
 
 ```json
 {
@@ -112,24 +113,24 @@ always-auth=true
   },
 ```
 
-### 宛先リポジトリへの認証
+### Authenticating to the destination repository
 
-ワークフロー中で{% data variables.product.prodname_registry %}レジストリに対して認証を受けた操作をするには、`GITHUB_TOKEN`が使えます。 {% data reusables.github-actions.github-token-permissions %}
+To perform authenticated operations against the {% data variables.product.prodname_registry %} registry in your workflow, you can use the `GITHUB_TOKEN`. {% data reusables.github-actions.github-token-permissions %}
 
-パッケージを別のリポジトリに公開する場合は、宛先リポジトリ内のパッケージに書き込む権限を持つ個人アクセストークン (PAT) を使用する必要があります。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」および「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
+If you want to publish your package to a different repository, you must use a personal access token (PAT) that has permission to write to packages in the destination repository. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
-### ワークフローの例
+### Example workflow
 
-以下の例は、`GITHUB_TOKEN`シークレットを環境変数の`NODE_AUTH_TOKEN`に保存します。 `setup-node`アクションが*.npmrc*ファイルを作成する際には、環境変数の`NODE_AUTH_TOKEN`からトークンを参照します。
+This example stores the `GITHUB_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
 ```yaml{:copy}
-name: Node.js Package
+name: Publish package to GitHub Packages
 on:
   release:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -138,17 +139,17 @@ jobs:
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
-      - run: npm install
+      - run: npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-`setup-node`アクションは、ランナー上で*.npmrc*ファイルを作成します。 `setup-node`アクションで`scope`インプットを使うと、*.npmrc*ファイルにはスコーププレフィックスが含まれます。 デフォルトでは、`setup-node`アクションは*.npmrc*ファイルのスコープを、ワークフローファイルを含むアカウントに設定します。
+The `setup-node` action creates an *.npmrc* file on the runner. When you use the `scope` input to the `setup-node` action, the *.npmrc* file includes the scope prefix. By default, the `setup-node` action sets the scope in the *.npmrc* file to the account that contains that workflow file.
 
 ```ini
 //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
@@ -156,13 +157,13 @@ jobs:
 always-auth=true
 ```
 
-## yarnを利用したパッケージの公開
+## Publishing packages using yarn
 
-パッケージマネージャーのYarnを使う場合、Yarnを使ってパッケージのインストールと公開が行えます。
+If you use the Yarn package manager, you can install and publish packages using Yarn.
 
 {% raw %}
 ```yaml{:copy}
-name: Node.js Package
+name: Publish Package to npmjs
 on:
   release:
     types: [created]
@@ -171,12 +172,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # npm に公開するように .npmrc ファイルを設定する
+      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
-          # 既定値はワークフローファイルを所有するユーザまたは Organization
+          # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
       - run: yarn
       - run: yarn publish
@@ -184,59 +185,3 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 {% endraw %}
-
-## npmと{% data variables.product.prodname_registry %}へのパッケージの公開
-
-{% note %}
-
-**ノート：** 異なるスコーププレフィックスを持つレジストリへ公開する必要がある場合は、ランナー上の*package.json*ファイルを修正してスコーププレフィックスを変更しなければなりません。 たとえばnpmに対しては`@mona`スコープで、{% data variables.product.prodname_registry %}に対しては`@octocat`スコープでパッケージを公開する場合は、npmへの公開後、{% data variables.product.prodname_registry %}への公開前にランナー上の*package.json*ファイルの`@mona`スコープを`@octocat`で置き換えることができます。
-
-{% endnote %}
-
-`setup-node`アクションをそれぞれのレジストリに対して利用すれば、npmレジストリと{% data variables.product.prodname_registry %}の両方にパッケージを公開できます。
-
-両方のレジストリにパッケージを公開するなら、npm上のスコーププレフィックスが{% data variables.product.prodname_dotcom %}のユーザ名もしくはOrganization名と一致することを確認する必要があります。 パッケージをスコーププレフィックス付きでパブリックなレジストリに公開するには、`npm publish --access public`コマンドが使えます。 詳しい情報については、npmドキュメンテーション中の[`npm-scope`](https://docs.npmjs.com/misc/scope)及び「[スコープ付きのパブリックパッケージの作成と公開](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)」を参照してください。
-
-*package.json*ファイルに{% data variables.product.prodname_dotcom %}レジストリとnpmレジストリのスコープが含まれていることを確かめてください。 たとえば、`octocat/npm-hello-world-test`リポジトリ内のパッケージを{% data variables.product.prodname_dotcom %}及びhttps://www.npmjs.com/package/@octocat/npm-hello-world-testに公開する計画をしているなら、*package.json*ファイル内の名前は`"name": "@octocat/npm-hello-world-test"`となるでしょう。
-
-ワークフロー中で{% data variables.product.prodname_registry %}レジストリに対して認証を受けた操作をするには、`GITHUB_TOKEN`が使えます。 {% data reusables.github-actions.github-token-permissions %}
-
-`setup-node`アクションで`scope`インプットを使うと、このアクションはスコーププレフィックスを含む*.npmrc*ファイルを作成します。 デフォルトでは、`setup-node`アクションは*.npmrc*ファイル中のスコープを、ワークフローファイルを所有するユーザもしくはOrganizationに設定します。
-
-このワークフローは、`setup-node`アクションを2回呼びます。 `setup-node`アクションは、実行されるたびに*.npmrc*ファイルを上書きします。 *.npmrc*ファイルは、パッケージレジストリに対する認証を受けた操作を行えるようにしてくれるトークンを、環境変数の`NODE_AUTH_TOKEN`から参照します。 このワークフローは、環境変数の`NODE_AUTH_TOKEN`を`npm publish`コマンドが実行されるたびに設定します。初回はnpmへの公開のためのトークン（`NPM_TOKEN`）が、続いて{% data variables.product.prodname_registry %}への公開のためのトークン（`GITHUB_TOKEN`）が使われます。
-
-
-```yaml{:copy}
-name: Node.js Package
-on:
-  release:
-    types: [created]
-jobs:
-  build:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-    permissions: 
-      contents: read
-      packages: write {% endif %}
-    steps:
-      - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '10.x'
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm install
-      # Publish to npm
-      - run: npm publish --access public
-        env:{% raw %}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v2
-        with:
-          registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@octocat'
-      # Publish to GitHub Packages
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
-```

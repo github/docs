@@ -2,7 +2,7 @@
 title: Editing a saved reply
 intro: You can edit the title and body of a saved reply.
 redirect_from:
-  - /articles/changing-a-saved-reply/
+  - /articles/changing-a-saved-reply
   - /articles/editing-a-saved-reply
   - /github/writing-on-github/editing-a-saved-reply
 versions:

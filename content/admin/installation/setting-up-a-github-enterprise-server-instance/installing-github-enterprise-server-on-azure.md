@@ -2,7 +2,7 @@
 title: Installing GitHub Enterprise Server on Azure
 intro: 'To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a DS-series instance and use Premium-LRS storage.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
@@ -62,7 +62,7 @@ Before launching {% data variables.product.product_location %} on Azure, you'll 
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see "[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
+4. Create and attach a new managed data disk to the VM, and configure the size based on your license count. All Azure managed disks created since June 10, 2017 are encrypted at rest by default with Storage Service Encryption (SSE). For more information about the `az vm disk attach` command, see "[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
 
   Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `100`), and a name for the resulting VHD.
 

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -277,7 +277,7 @@ $ codeql database analyze /codeql-dbs/example-repo  octo-org/security-queries \
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## Example CI configuration for {% data variables.product.prodname_codeql %} analysis
 
@@ -331,7 +331,7 @@ If you want to upload more than one set of results to the {% data variables.prod
 
 ### Alternative if your CI system cannot trigger the {% data variables.product.prodname_codeql_cli %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 If your CI system cannot trigger the {% data variables.product.prodname_codeql_cli %} autobuild and you cannot specify a command line for the build, you can use indirect build tracing to create {% data variables.product.prodname_codeql %} databases for compiled languages. For more information, see [Using indirect build tracing](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#using-indirect-build-tracing) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 

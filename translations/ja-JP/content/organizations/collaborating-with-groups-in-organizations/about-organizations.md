@@ -1,6 +1,6 @@
 ---
-title: Organizationについて
-intro: Organizationは、企業やオープンソースプロジェクトが多くのプロジェクトにわたって一度にコラボレーションできる共有アカウントです。 オーナーと管理者は、Organizationのデータとプロジェクトへのメンバーのアクセスを、洗練されたセキュリティ及び管理機能で管理できます。
+title: About organizations
+intro: Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features.
 redirect_from:
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations
@@ -14,25 +14,25 @@ topics:
   - Teams
 ---
 
-{% data reusables.organizations.about-organizations %}
+{% data reusables.organizations.about-organizations %} For more information about account types, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
-{% data reusables.organizations.organizations_include %}
+{% data reusables.organizations.organizations_include %} 
 
-{% data reusables.organizations.org-ownership-recommendation %}詳細は、「[Organization の所有権の継続性を管理する](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)」を参照してください。
+{% data reusables.organizations.org-ownership-recommendation %} For more information, see "[Maintaining ownership continuity for your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
 
 {% ifversion fpt or ghec %}
-## Organization と Enterprise アカウント
+## Organizations and enterprise accounts
 
 Enterprise accounts are a feature of {% data variables.product.prodname_ghe_cloud %} that allow owners to centrally manage policy and billing for multiple organizations.
 
-enterprise アカウントに属する Organization では、支払いは enterprise アカウントのレベルで管理され、Organization のレベルでは支払い設定は利用できません。 Enterprise のオーナーは、Enterprise アカウントですべての Organization に対するポリシーを設定することも、Organization のオーナーに Organization のレベルでポリシーを設定することを許可することもできます。 Organization のオーナーは、Enterprise アカウントのレベルで Organization に強制された設定を変更することはできません。 Organization のポリシーや設定について質問がある場合は Enterprise アカウントのオーナーに問い合わせてください。
+For organizations that belong to an enterprise account, billing is managed at the enterprise account level, and billing settings are not available at the organization level. Enterprise owners can set policy for all organizations in the enterprise account or allow organization owners to set the policy at the organization level. Organization owners cannot change settings enforced for your organization at the enterprise account level. If you have questions about a policy or setting for your organization, contact the owner of your enterprise account.
 
 {% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/overview/creating-an-enterprise-account){% ifversion ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 {% data reusables.enterprise-accounts.invite-organization %}
 
-## Organization の利用規約とデータ保護
+## Terms of service and data protection for organizations
 
-会社、非営利団体、グループなどは、Organization として標準の利用規約あるいは企業向け利用規約に合意できます。 詳細は「[企業向け利用規約にアップグレードする](/articles/upgrading-to-the-corporate-terms-of-service)」を参照してください。
+An entity, such as a company, non-profit, or group, can agree to the Standard Terms of Service or the Corporate Terms of Service for their organization. For more information, see "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."
 
 {% endif %}
