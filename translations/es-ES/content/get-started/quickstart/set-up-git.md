@@ -1,18 +1,18 @@
 ---
-title: Configurar Git
+title: Set up Git
 redirect_from:
-  - /git-installation-redirect/
-  - /linux-git-installation/
-  - /linux-set-up-git/
-  - /mac-git-installation/
-  - /mac-set-up-git/
-  - /set-up-git-redirect/
-  - /win-git-installation/
-  - /win-set-up-git/
+  - /git-installation-redirect
+  - /linux-git-installation
+  - /linux-set-up-git
+  - /mac-git-installation
+  - /mac-set-up-git
+  - /set-up-git-redirect
+  - /win-git-installation
+  - /win-set-up-git
   - /articles/set-up-git
   - /github/getting-started-with-github/set-up-git
   - /github/getting-started-with-github/quickstart/set-up-git
-intro: 'En el centro de {% data variables.product.prodname_dotcom %} hay un sistema de control de versión de código abierto (VCS) llamado Git. Git es responsable de todo lo relacionado con {% data variables.product.prodname_dotcom %} que suceda de forma local en tu computadora.'
+intro: 'At the heart of {% data variables.product.prodname_dotcom %} is an open source version control system (VCS) called Git. Git is responsible for everything {% data variables.product.prodname_dotcom %}-related that happens locally on your computer.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -24,50 +24,49 @@ topics:
   - Notifications
   - Accounts
 ---
+## Using Git
 
-## Utilizar GitHub
+To use Git on the command line, you'll need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
-Para usar Git en la línea de comando, deberás descargar, instalar y configurar Git en tu computadora. También puedes instalar el {% data variables.product.prodname_cli %} para utilizar {% data variables.product.prodname_dotcom %} desde la línea de comandos. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
+If you want to work with Git locally, but don't want to use the command line, you can instead download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)."
 
-Si deseas trabajar con Git de forma local, pero no deseas utilizar la línea de comando, puedes descargar e instalar en su lugar el cliente [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}).  Para obtener más información, consulta la sección "[Instalar y configurar {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".
+If you don't need to work with files locally, {% data variables.product.product_name %} lets you complete many Git-related actions directly in the browser, including:
 
-Si no deseas trabajar con archivos de forma local, {% data variables.product.product_name %} te permite realizar muchas acciones relacionadas con Git de forma directa en el navegador, lo que incluye:
+- [Creating a repository](/articles/create-a-repo)
+- [Forking a repository](/articles/fork-a-repo)
+- [Managing files](/repositories/working-with-files/managing-files)
+- [Being social](/articles/be-social)
 
-- [Crear un repositorio](/articles/create-a-repo)
-- [Bifurcar un repositorio](/articles/fork-a-repo)
-- [Administrar archivos](/repositories/working-with-files/managing-files)
-- [Socializar](/articles/be-social)
+## Setting up Git
 
-## Configurar Git
+1. [Download and install the latest version of Git](https://git-scm.com/downloads).
+2. [Set your username in Git](/github/getting-started-with-github/setting-your-username-in-git).
+3. [Set your commit email address in Git](/articles/setting-your-commit-email-address).
 
-1. [Descarga e instala la última versión de Git](https://git-scm.com/downloads).
-2. [Configura tu nombre de usuario en Git](/github/getting-started-with-github/setting-your-username-in-git).
-3. [Configura tu dirección de correo electrónico de confirmación en Git](/articles/setting-your-commit-email-address).
+## Next steps: Authenticating with {% data variables.product.prodname_dotcom %} from Git
 
-## Pasos siguientes: Autenticación con {% data variables.product.prodname_dotcom %} desde Git
-
-Cuando te conectas a un repositorio {% data variables.product.prodname_dotcom %} desde Git, deberás autenticarte con {% data variables.product.product_name %} utilizando HTTPS o SSH.
+When you connect to a {% data variables.product.prodname_dotcom %} repository from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH.
 
 {% note %}
 
-**Nota:** Puedes autenticarte en {% data variables.product.product_name %} utilizando el {% data variables.product.prodname_cli %} ya sea para HTTP o SSH. Para obtener más información, consulta [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+**Note:** You can authenticate to {% data variables.product.product_name %} using {% data variables.product.prodname_cli %}, for either HTTP or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
 {% endnote %}
 
-### Conectar por HTTPS (recomendado)
+### Connecting over HTTPS (recommended)
 
-Si [clonas con HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), puedes [almacenar tus credenciales de {% data variables.product.prodname_dotcom %} en el caché dentro de Git](/github/getting-started-with-github/caching-your-github-credentials-in-git) utilizando un asistente de credenciales.
+If you [clone with HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), you can [cache your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git) using a credential helper.
 
-### Conectar por SSH
+### Connecting over SSH
 
-Si clonas [con SSH](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls), debes [generar las claves de SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) en cada computadora que utilices para subir o extraer desde {% data variables.product.product_name %}.
+If you [clone with SSH](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls), you must [generate SSH keys](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) on each computer you use to push or pull from {% data variables.product.product_name %}.
 
-## Celebrar
+## Celebrate
 
-¡Felicitaciones, ahora tienes configurado todo Git y {% data variables.product.prodname_dotcom %}! Ahora puedes elegir crear un repositorio en donde puedas poner tus proyectos. Esta es una forma excelente de respaldar tu código y facilita compartirlo en todo el mundo. Para obtener más información, consulta "[Crear un repositorio](/articles/create-a-repo)".
+Congratulations, you now have Git and {% data variables.product.prodname_dotcom %} all set up! You may now choose to create a repository where you can put your projects. This is a great way to back up your code and makes it easy to share the code around the world. For more information see "[Create a repository](/articles/create-a-repo)".
 
-Puedes crear una copia de un repositorio si la bifurcas y propones los cambios que quieres ver si afectar al repositorio de nivel superior. Para obtener más información, consulta "[Bifurcar un repositorio](/articles/fork-a-repo)."
+You can create a copy of a repository by forking it and propose the changes that you want to see without affecting the upstream repository. For more information see "[Fork a repository](/articles/fork-a-repo)."
 
-Each repository on {% data variables.product.prodname_dotcom %} is owned by a person or an organization. Puedes interactuar con las personas, repositorios y organizaciones conectándote y siguiéndolos en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Sé sociable ](/articles/be-social)".
+Each repository on {% data variables.product.prodname_dotcom %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)."
 
 {% data reusables.support.connect-in-the-forum-bootcamp %}

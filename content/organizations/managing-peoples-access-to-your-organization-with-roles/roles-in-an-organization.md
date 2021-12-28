@@ -2,7 +2,7 @@
 title: Roles in an organization
 intro: Organization owners can assign roles to individuals and teams giving them different sets of permissions in the organization.
 redirect_from:
-  - /articles/permission-levels-for-an-organization-early-access-program/
+  - /articles/permission-levels-for-an-organization-early-access-program
   - /articles/permission-levels-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization
   - /organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization
@@ -108,10 +108,10 @@ Some of the features listed below are limited to organizations using {% data var
 | Attribute your sponsorships to another organization (see "[Attributing sponsorships to your organization](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)" for details ) | **X** | | |  |
 | Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" for details) | **X** | | |  |
 | Manage security and analysis settings (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" for details) | **X** | | | **X** |
-| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)" for details) | **X** | | | **X** |
+| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)" for details) | **X** | | | **X** |{% ifversion ghec %}
 | Enable and enforce [SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |  |
 | [Manage a user's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |
-| Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" for details) | **X** |  |  |  |
+| Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" for details) | **X** |  |  |  |{% endif %}
 | Transfer repositories | **X** | |    |  |
 | Purchase, install, manage billing for, and cancel {% data variables.product.prodname_marketplace %} apps | **X** | | |  |
 | List apps in {% data variables.product.prodname_marketplace %} | **X** | | |  |
@@ -125,8 +125,8 @@ Some of the features listed below are limited to organizations using {% data var
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | | |  |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | | |  |
 | Manage the default branch name (see "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)") | **X** | | |  |
-| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | | |  |
-| Enable team synchronization (see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" for details) | **X** |  | |  |
+| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | | |  |{% ifversion ghec %}
+| Enable team synchronization (see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" for details) | **X** |  | |  |{% endif %}
 
 {% elsif ghes > 3.2 or ghae-issue-4999 %}
 <!--GHES 3.3+ and eventual GHAE release don't have the extra column for Billing managers, but have security managers-->
@@ -153,7 +153,8 @@ Some of the features listed below are limited to organizations using {% data var
 | Can be made a *team maintainer* | **X** | **X** | **X**  |
 | Transfer repositories | **X** | |  |
 | Manage security and analysis settings (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" for details) | **X** | | **X** |{% ifversion ghes > 3.1 %}
-| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)" for details) | **X** | | **X** |{% endif %}
+| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)" for details) | **X** | | **X** |{% endif %}{% ifversion ghes > 3.2 %}
+| Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** | | **X** |{% endif %}
 | Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" for details) | **X** |  |  |
 | Create project boards (see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)" for details) | **X** | **X** | **X** |
 | View and post public team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)" for details) | **X** | **X** | **X**  |
@@ -184,7 +185,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Reinstate former members to the organization | **X** | | |
 | Add and remove people from **all teams** | **X** |  |  
 | Promote organization members to *team maintainer* | **X** |  |
-| Configure code review assignments (see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)") | **X** |  |
+| Configure code review assignments (see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)")) | **X** |  |
 | Add collaborators to **all repositories** | **X** |  |
 | Access the organization audit log | **X** |  |
 | Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)" for details) | **X** |  |  |{% ifversion ghes > 3.1 %}

@@ -17,13 +17,12 @@ shortTitle: Build & test Swift
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
 This guide shows you how to build and test a Swift package.
 
-{% ifversion ghae %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, you will need to create a custom operating system image that includes the necessary Swift dependencies. For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% ifversion ghae %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, the necessary Swift dependencies are required. {% data reusables.actions.self-hosted-runners-software %}
 {% else %}{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, and the Ubuntu and macOS runners include the dependencies for building Swift packages. For a full list of up-to-date software and the preinstalled versions of Swift and Xcode, see "[About GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."{% endif %}
 
 ## Prerequisites
@@ -32,11 +31,11 @@ You should already be familiar with YAML syntax and how it's used with {% data v
 
 We recommend that you have a basic understanding of Swift packages. For more information, see "[Swift Packages](https://developer.apple.com/documentation/swift_packages)" in the Apple developer documentation.
 
-## Starting with the Swift workflow template
+## Using the Swift starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Swift workflow template that should work for most Swift projects, and this guide includes examples that show you how to customize this template. For more information, see the [Swift workflow template](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
+{% data variables.product.prodname_dotcom %} provides a Swift starter workflow that should work for most Swift projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [Swift starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
 
-To get started quickly, add the template to the `.github/workflows` directory of your repository.
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
 ```yaml{:copy}

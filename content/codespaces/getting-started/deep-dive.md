@@ -116,3 +116,4 @@ If you already use {% data variables.product.prodname_vscode %}, you can use [Se
 - [Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
 - [Managing billing for {% data variables.product.prodname_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
 - [Setting up your project for Codespaces](/codespaces/setting-up-your-project-for-codespaces)
+- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)

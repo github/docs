@@ -1,6 +1,6 @@
 ---
-title: 配置仓库的密码扫描
-intro: '您可以配置 {% data variables.product.prodname_dotcom %} 如何扫描您仓库中的密码。'
+title: Configuring secret scanning for your repositories
+intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for secrets.'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
@@ -17,7 +17,7 @@ topics:
   - Secret scanning
   - Advanced Security
   - Repositories
-shortTitle: 配置密钥扫描
+shortTitle: Configure secret scans
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -26,61 +26,66 @@ shortTitle: 配置密钥扫描
 {% ifversion fpt or ghec %}
 {% note %}
 
-**注：**{% data variables.product.prodname_secret_scanning_caps %} 默认在公共仓库上启用，无法关闭。 您只能配置私有仓库的 {% data variables.product.prodname_secret_scanning %}。
+**Note:** {% data variables.product.prodname_secret_scanning_caps %} is enabled by default on public repositories and cannot be turned off. You can configure {% data variables.product.prodname_secret_scanning %} for your private repositories only.
 
 {% endnote %}
 {% endif %}
 
-## 为{% ifversion fpt or ghec %}私有{% endif %}仓库启用 {% data variables.product.prodname_secret_scanning %}
+## Enabling {% data variables.product.prodname_secret_scanning %} for {% ifversion fpt or ghec %}private {% endif %}repositories
 
-{% ifversion ghes or ghae-next %}
-您可以对组织拥有的任何仓库启用 {% data variables.product.prodname_secret_scanning %}。
-{% endif %} 启用后，{% data reusables.secret-scanning.secret-scanning-process %}
+{% ifversion ghes or ghae %}
+You can enable {% data variables.product.prodname_secret_scanning %} for any repository that is owned by an organization. 
+{% endif %} Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
-4. 如果 {% data variables.product.prodname_advanced_security %} 尚未对仓库启用，请在“{% data variables.product.prodname_GH_advanced_security %}”右侧单击 **Enable（启用）**。
-   {% ifversion fpt or ghec %}![为仓库启用 {% data variables.product.prodname_GH_advanced_security %}](/assets/images/help/repository/enable-ghas-dotcom.png)
-   {% elsif ghes > 3.0 or ghae-next %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
-5. 查看启用 {% data variables.product.prodname_advanced_security %} 的影响，然后点击 **对仓库启用 {% data variables.product.prodname_GH_advanced_security %}**。
-6. 当您启用 {% data variables.product.prodname_advanced_security %} 时，{% data variables.product.prodname_secret_scanning %} 可能会因为组织的设置而自动启用。 如果 "{% data variables.product.prodname_secret_scanning_caps %}" 显示 **Enable（启用）**按钮，则您仍需通过单击 **Enable（启用）**来启用 {% data variables.product.prodname_secret_scanning %}。 如果您看到 **Disable（禁用）**按钮，则表明 {% data variables.product.prodname_secret_scanning %} 已启用。 ![为仓库启用 {% data variables.product.prodname_secret_scanning %}](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+4. If {% data variables.product.prodname_advanced_security %} is not already enabled for the repository, to the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
+   {% ifversion fpt or ghec %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/help/repository/enable-ghas-dotcom.png)
+   {% elsif ghes > 3.0 or ghae %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
+5. Review the impact of enabling {% data variables.product.prodname_advanced_security %}, then click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository**.
+6. When you enable {% data variables.product.prodname_advanced_security %}, {% data variables.product.prodname_secret_scanning %} may automatically be enabled for the repository due to the organization's settings. If "{% data variables.product.prodname_secret_scanning_caps %}" is shown with an **Enable** button, you still need to enable {% data variables.product.prodname_secret_scanning %} by clicking **Enable**. If you see a **Disable** button, {% data variables.product.prodname_secret_scanning %} is already enabled. 
+   ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
    {% elsif ghes = 3.0 %}
-7. 在“{% data variables.product.prodname_secret_scanning_caps %}”右边单击 **Enable（启用）**。 ![为仓库启用 {% data variables.product.prodname_secret_scanning %}](/assets/images/help/repository/enable-secret-scanning-ghe.png)
+7. To the right of "{% data variables.product.prodname_secret_scanning_caps %}", click **Enable**.
+   ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/help/repository/enable-secret-scanning-ghe.png)
    {% endif %}
 {% ifversion ghae %}
-1. 在可以启用 {% data variables.product.prodname_secret_scanning %} 之前，您需要先启用 {% data variables.product.prodname_GH_advanced_security %}。 在“{% data variables.product.prodname_GH_advanced_security %}”右边单击 **Enable（启用）**。 ![为仓库启用 {% data variables.product.prodname_GH_advanced_security %}](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)
-2. 单击**为此仓库启用 {% data variables.product.prodname_GH_advanced_security %}** 以确认操作。 ![确认为仓库启用 {% data variables.product.prodname_GH_advanced_security %}](/assets/images/enterprise/github-ae/repository/enable-ghas-confirmation-ghae.png)
-3. 在“{% data variables.product.prodname_secret_scanning_caps %}”右边单击 **Enable（启用）**。 ![为仓库启用 {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
+1. Before you can enable {% data variables.product.prodname_secret_scanning %}, you need to enable {% data variables.product.prodname_GH_advanced_security %} first. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
+   ![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)
+2. Click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository** to confirm the action.
+   ![Confirm enabling {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/github-ae/repository/enable-ghas-confirmation-ghae.png)
+3. To the right of "{% data variables.product.prodname_secret_scanning_caps %}", click **Enable**.
+   ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 {% endif %}
 
-## 排除{% ifversion fpt or ghec %}私有{% endif %}仓库中的 {% data variables.product.prodname_secret_scanning %} 警报
+## Excluding alerts from {% data variables.product.prodname_secret_scanning %} in {% ifversion fpt or ghec %}private {% endif %}repositories
 
-您可以使用 *secret_scanning.yml* 文件从 {% data variables.product.prodname_secret_scanning %} 排除目录。 例如，可以排除包含测试或随机生成内容的目录。
+You can use a *secret_scanning.yml* file to exclude directories from {% data variables.product.prodname_secret_scanning %}. For example, you can exclude directories that contain tests or randomly generated content.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. 在文件名字段中，键入 *.github/secret_scanning.yml*。
-4. 在 **Edit new file（编辑新文件）**下，键入 `paths-ignore:`，后接您想要从 {% data variables.product.prodname_secret_scanning %} 排除的路径。
+3. In the file name field, type *.github/secret_scanning.yml*.
+4. Under **Edit new file**, type `paths-ignore:` followed by the paths you want to exclude from {% data variables.product.prodname_secret_scanning %}.
     ``` yaml
     paths-ignore:
       - "foo/bar/*.js"
     ```
-
-    您可以使用特殊字符（如 `*`）来过滤路径。 有关过滤模式的更多信息，请参阅“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
+    
+    You can use special characters, such as `*` to filter paths. For more information about filter patterns, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
 
     {% note %}
-
-    **注意：**
-    - 如果 `paths-ignore` 中的条目超过 1,000 个，{% data variables.product.prodname_secret_scanning %} 只会从扫描中排除前 1,000 个目录。
-    - 如果 *secret_scanning.yml* 大于 1 MB，{% data variables.product.prodname_secret_scanning %} 将忽略整个文件。
-
+    
+    **Notes:**
+    - If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
+    - If *secret_scanning.yml* is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
+    
     {% endnote %}
 
-您也可以忽略来自 {% data variables.product.prodname_secret_scanning %} 的个别警报。 更多信息请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)”。
+You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)."
 
-## 延伸阅读
+## Further reading
 
-- “[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}- "[定义 {% data variables.product.prodname_secret_scanning %} 的自定义模式](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"{% endif %}
+- "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}- "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"{% endif %}

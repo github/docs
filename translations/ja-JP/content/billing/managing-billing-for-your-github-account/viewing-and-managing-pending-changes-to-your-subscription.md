@@ -1,11 +1,11 @@
 ---
-title: プランの保留中の変更の表示と管理
-intro: 次回の請求日に発効する前に、プランの保留中の変更を表示およびキャンセルできます。
+title: Viewing and managing pending changes to your subscription
+intro: You can view and cancel pending changes to your subscriptions before they take effect on your next billing date.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-and-managing-pending-changes-to-your-subscription
-  - /articles/viewing-and-managing-pending-changes-to-your-personal-account-s-billing-plan/
-  - /articles/viewing-and-managing-pending-changes-to-your-organization-s-billing-plan/
-  - /articles/viewing-and-managing-pending-changes-to-your-billing-plan/
+  - /articles/viewing-and-managing-pending-changes-to-your-personal-account-s-billing-plan
+  - /articles/viewing-and-managing-pending-changes-to-your-organization-s-billing-plan
+  - /articles/viewing-and-managing-pending-changes-to-your-billing-plan
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/viewing-and-managing-pending-changes-to-your-subscription
 versions:
@@ -15,14 +15,13 @@ type: how_to
 topics:
   - Organizations
   - User account
-shortTitle: サブスクリプションの変更の保留
+shortTitle: Pending subscription changes
 ---
+You can cancel pending changes to your account's subscription as well as pending changes to your subscriptions to other paid features and products.
 
-アカウントのプランに対する保留中の変更、および他の有料機能や製品へのプランの保留中の変更をキャンセルすることができます。
+When you cancel a pending change, your subscription will not change on your next billing date (unless you make a subsequent change to your subscription before your next billing date).
 
-保留中の変更をキャンセルしても、次回の請求日にプランが変更されることはありません (次回の請求日より前にプランに変更を加えない限り)。
-
-## 個人アカウントのプランに対する保留中の変更の表示と管理
+## Viewing and managing pending changes to your personal account's subscription
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -30,13 +29,13 @@ shortTitle: サブスクリプションの変更の保留
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-## Organization のプランに対する保留中の変更の表示と管理
+## Viewing and managing pending changes to your organization's subscription
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-## 参考リンク
+## Further reading
 
-- "[{% data variables.product.prodname_dotcom %}の製品](/articles/github-s-products)"
+- "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)"

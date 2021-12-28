@@ -1,10 +1,10 @@
 ---
-title: プロジェクトの依存関係にある脆弱性を管理する
-intro: 'リポジトリの依存関係を追跡し、{% data variables.product.product_name %} が脆弱性のある依存関係を検出したときに{% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}セキュリティアラート{% endif %}を受け取ることができます。'
+title: Managing vulnerabilities in your project's dependencies
+intro: 'You can track your repository''s dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies.'
 redirect_from:
-  - /articles/updating-your-project-s-dependencies/
-  - /articles/updating-your-projects-dependencies/
-  - /articles/managing-security-vulnerabilities-in-your-projects-dependencies/
+  - /articles/updating-your-project-s-dependencies
+  - /articles/updating-your-projects-dependencies
+  - /articles/managing-security-vulnerabilities-in-your-projects-dependencies
   - /articles/managing-vulnerabilities-in-your-projects-dependencies
   - /github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies
 versions:
@@ -30,6 +30,6 @@ children:
   - /viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
-shortTitle: 脆弱性のある依存関係の修復
+shortTitle: Fix vulnerable dependencies
 ---
 

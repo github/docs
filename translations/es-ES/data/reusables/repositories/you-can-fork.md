@@ -1,4 +1,4 @@
-{% ifversion ghae %}Si las políticas de tu empresa permiten bifurcar los repositorios internos y privados, puedes{% else %}Puedes{% endif %} bifurcar un repositorio hacia tu cuenta de usuario o hacia cualquier organización en donde tengas permisos de creación de repositorios. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+{% ifversion ghae %}Si las políticas de tu empresa permiten bifurcar los repositorios internos y privados, puedes{% else %}Puedes{% endif %} bifurcar un repositorio hacia tu cuenta de usuario o hacia cualquier organización en donde tengas permisos de creación de repositorios. Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
 {% ifversion fpt or ghes or ghec %}
 

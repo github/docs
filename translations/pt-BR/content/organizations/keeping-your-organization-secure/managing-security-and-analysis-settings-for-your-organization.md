@@ -54,7 +54,10 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
    {% ifversion fpt or ghec %}
    ![Botão "Habilitar tudo" ou "Desabilitar tudo" para os recursos de "Configurar segurança e análise"](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-dotcom.png)
    {% endif %}
-   {% ifversion ghes > 3.0 %}
+   {% ifversion ghes > 3.2 %}
+   ![Botão "Habilitar tudo" ou "Desabilitar tudo" para os recursos de "Configurar segurança e análise"](/assets/images/enterprise/3.3/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
+   {% endif %}
+   {% ifversion ghes = 3.1 or ghes = 3.2 %}
    ![Botão "Habilitar tudo" ou "Desabilitar tudo" para os recursos de "Configurar segurança e análise"](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
    {% endif %}
    {% ifversion ghes = 3.0 %}
@@ -94,7 +97,10 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
    {% ifversion fpt or ghec %}
    ![Caixa de seleção para habilitar ou desabilitar um recurso para novos repositórios](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-dotcom.png)
    {% endif %}
-   {% ifversion ghes > 3.0 %}
+   {% ifversion ghes > 3.2 %}
+   ![Caixa de seleção para habilitar ou desabilitar um recurso para novos repositórios](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
+   {% endif %}
+   {% ifversion ghes = 3.1 or ghes = 3.2 %}
    ![Caixa de seleção para habilitar ou desabilitar um recurso para novos repositórios](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
    {% endif %}
    {% ifversion ghes = 3.0 %}
@@ -104,7 +110,7 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
    ![Caixa de seleção para habilitar ou desabilitar um recurso para novos repositórios](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
    {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 
 ## Permitir que {% data variables.product.prodname_dependabot %} acesse dependências privadas
 

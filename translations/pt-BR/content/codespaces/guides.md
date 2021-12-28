@@ -1,10 +1,10 @@
 ---
-title: Guias de codespaces
-shortTitle: Guias
+title: Codespaces guides
+shortTitle: Guides
 product: '{% data reusables.gated-features.codespaces %}'
-intro: Aprenda a aproveitar ao máximo do GitHub
+intro: Learn how to make the most of GitHub
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghec: '*'

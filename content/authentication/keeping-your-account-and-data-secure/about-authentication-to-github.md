@@ -29,7 +29,7 @@ You can access your resources in {% data variables.product.product_name %} in a 
 You can authenticate to {% data variables.product.product_name %} in your browser {% ifversion ghae %}using your IdP. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."{% else %}in different ways.
 
 {% ifversion fpt or ghec %}
-- If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user)){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %} If you're not a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate using your browser on {% data variables.product.prodname_dotcom_the_website %}. 
+- If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %} If you're not a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate using your browser on {% data variables.product.prodname_dotcom_the_website %}. 
 {% endif %}
 
 - **Username and password only**
@@ -76,9 +76,9 @@ If you authenticate without {% data variables.product.prodname_cli %}, you will 
 
 ### Authorizing for SAML single sign-on
 
-{% ifversion fpt or ghec %}To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."{% endif %}
+{% ifversion fpt or ghec %}To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## {% data variables.product.company_short %}'s token formats
 

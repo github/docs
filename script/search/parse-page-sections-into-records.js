@@ -1,18 +1,18 @@
 #!/usr/bin/env node
-import { chain } from 'lodash-es'
 import { maxContentLength } from '../../lib/search/config.js'
+
 // This module takes cheerio page object and divides it into sections
 // using H1,H2 heading elements as section delimiters. The text
 // that follows each heading becomes the content of the search record.
 
-const urlPrefix = 'https://docs.github.com'
-const ignoredHeadingSlugs = ['in-this-article', 'further-reading']
+const ignoredHeadingSlugs = ['in-this-article', 'further-reading', 'prerequisites']
 
-export default function parsePageSectionsIntoRecords(href, $) {
-  const title = $('h1').text().trim()
-  const breadcrumbsArray = $('nav.breadcrumbs a')
+export default function parsePageSectionsIntoRecords(page) {
+  const { href, $, languageCode } = page
+  const title = $('h1').first().text().trim()
+  const breadcrumbsArray = $('[data-search=breadcrumbs] nav.breadcrumbs a')
     .map((i, el) => {
-      return $(el).text().trim().replace(/\n/g, ' ').replace(/\s+/g, ' ')
+      return $(el).text().trim().replace('/', '').replace(/\s+/g, ' ')
     })
     .get()
     .slice(0, -1)
@@ -28,66 +28,109 @@ export default function parsePageSectionsIntoRecords(href, $) {
     topics.push(productName.replace('GitHub ', ''))
   }
 
-  let records
+  const objectID = href
 
-  const $sections = $('[data-search=article-content] h2')
+  const rootSelector = '[data-search=article-body]'
+  const $root = $(rootSelector)
+
+  const $sections = $('h2', $root)
     .filter('[id]')
     .filter((i, el) => {
       return !ignoredHeadingSlugs.includes($(el).attr('id'))
     })
 
-  if ($sections.length > 0) {
-    records = $sections
-      .map((i, el) => {
-        const heading = $(el).text().trim()
-        const slug = $(el).attr('id')
-        const objectID = [href, slug].join('#')
-        const url = [urlPrefix, objectID].join('')
-        const content = $(el)
-          // Platform-specific content is nested in a DIV
-          // GraphQL content in nested in two DIVS
-          .nextUntil('h2, div > h2, div > div > h2')
-          .map((i, el) => $(el).text())
-          .get()
-          .join(' ')
-          .trim()
-          .slice(0, maxContentLength)
-        return {
-          objectID,
-          url,
-          slug,
-          breadcrumbs,
-          heading,
-          title,
-          content,
-          topics,
-        }
-      })
-      .get()
-  } else {
-    // There are no sections. Treat the entire article as the record.
-    const objectID = href
-    const url = [urlPrefix, objectID].join('')
-    const content = $(
-      '[data-search=article-body] p, [data-search=article-body] ul, [data-search=article-body] ol, [data-search=article-body] table'
-    )
-      .map((i, el) => $(el).text())
-      .get()
-      .join(' ')
-      .trim()
-      .slice(0, maxContentLength)
+  const headings = $sections
+    .map((i, el) => $(el).text())
+    .get()
+    .join(' ')
+    .trim()
 
-    records = [
-      {
-        objectID,
-        url,
-        breadcrumbs,
-        title,
-        content,
-        topics,
-      },
-    ]
+  const intro = $('[data-search=lead] p').text().trim()
+
+  let body = ''
+  // Typical example pages with no `$root` are:
+  // https://docs.github.com/en/code-security/guides or
+  // https://docs.github.com/en/graphql/overview/explorer
+  //
+  // We need to avoid these because if you use `getAllText()` on these
+  // pages, it will extract *everything* from the page, which will
+  // include the side bar and footer.
+  // TODO: Come up a custom solution to extract some text from these
+  // pages that yields some decent content to be searched on, because
+  // when you view these pages in a browser, there's clearly text there.
+  if ($root.length > 0) {
+    body = getAllText($, $root)
   }
 
-  return chain(records).uniqBy('objectID').value()
+  if (!body && !intro) {
+    console.warn(`${objectID} has no body and no intro.`)
+  }
+
+  if (languageCode !== 'en' && body.length > maxContentLength) {
+    body = body.slice(0, maxContentLength)
+  }
+
+  const content = `${intro}\n${body}`.trim()
+
+  return {
+    objectID,
+    breadcrumbs,
+    title,
+    headings,
+    content,
+    topics,
+  }
+}
+
+function getAllText($, $root) {
+  let text = ''
+
+  // We need this so we can know if we processed, for example,
+  // a <td> followed by a <p> because if that's the case, don't use
+  // a ' ' to concatenate the texts together but a '\n' instead.
+  // That means, given this input:
+  //
+  //    <p>Bla</p><table><tr><td>Foo</td><td>Bar</td></table><p>Hi again</p>
+  //
+  // we can produce this outcome:
+  //
+  //    'Bla\nFoo Bar\nHi again'
+  //
+  let previousTagName = ''
+
+  $('p, h2, h3, td, pre, li', $root).each((i, element) => {
+    const $element = $(element)
+    if (previousTagName === 'td' && element.tagName !== 'td') {
+      text += '\n'
+    }
+    // Because our cheerio selector is all the block level tags,
+    // what you might end up with is, from:
+    //
+    //   <li><p>Text</p></li>
+    //   <li><pre>Code</pre></li>
+    //
+    //   ['Text', 'Text', 'Code', 'Code']
+    //
+    // because it will spot both the <li> and the <p>.
+    // If all HTML was exactly like that, you could omit the <li> selector,
+    // but a lot of HTML is like this:
+    //
+    //    <li>Bare text<li>
+    //
+    // So we need to bail if we're inside a block level element whose parent
+    // already was a <li>.
+    if ((element.tagName === 'p' || element.tagName === 'pre') && element.parent.tagName === 'li') {
+      return
+    }
+    text += $element.text()
+    if (element.tagName === 'td') {
+      text += ' '
+    } else {
+      text += '\n'
+    }
+    previousTagName = element.tagName
+  })
+  text = text.trim().replace(/\s*[\r\n]+/g, '\n')
+
+  return text
 }

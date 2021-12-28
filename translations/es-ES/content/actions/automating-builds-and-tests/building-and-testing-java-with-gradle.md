@@ -1,6 +1,6 @@
 ---
-title: Construir y probar Java con Gradle
-intro: Puedes crear un flujo de trabajo de integración continua (CI) en acciones de GitHub para construir y probar tu proyecto Java con Gradle.
+title: Building and testing Java with Gradle
+intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Java project with Gradle.
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-gradle
   - /actions/guides/building-and-testing-java-with-gradle
@@ -14,39 +14,39 @@ topics:
   - CI
   - Java
   - Gradle
-shortTitle: Crear & probar con Java & Gradle
+shortTitle: Build & test Java & Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## Introducción
+## Introduction
 
-Esta guía te muestra cómo crear un flujo de trabajo que realiza la integración continua (CI) para tu proyecto Java usando el sistema de construcción Gradle. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. Puedes extender tu flujo de trabajo de CI para almacenar en caché los archivos y cargar artefactos desde una ejecución de flujo de trabajo.
+This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Gradle build system. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to cache files and upload artifacts from a workflow run.
 
-{% ifversion ghae %}Para obtener instrucciones de cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-Los ejecutores alojados {% data variables.product.prodname_dotcom %} tienen una caché de herramientas con software preinstalado, que incluye kits de desarrollo de Java (JDK) y Gradle. Para encontrar una lista de software y de las versiones pre-instaladas de JDK y de Gradle, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Gradle. For a list of software and the pre-installed versions for JDK and Gradle, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-## Prerrequisitos
+## Prerequisites
 
-Deberías estar familiarizado con YAML y la sintaxis para las {% data variables.product.prodname_actions %}. Para obtener más información, consulta:
-- "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
-- "[Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
+- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
+- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
 
-Te recomendamos que tengas una comprensión básica de Java y del marco de Gradle. Para obtener más información, consulta [Empezar](https://docs.gradle.org/current/userguide/getting_started.html) en la documentación de Gradle.
+We recommend that you have a basic understanding of Java and the Gradle framework. For more information, see [Getting Started](https://docs.gradle.org/current/userguide/getting_started.html) in the Gradle documentation.
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Comenzar con una plantilla de flujo de trabajo de Gradle
+## Starting with a Gradle workflow template
 
-{% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de Gradle que funcionará para la mayoría de los proyectos Java basados en Gradle. Para obtener más información, consulta la [Plantilla de flujo de trabajo de Gradle](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
+{% data variables.product.prodname_dotcom %} provides a Gradle workflow template that will work for most Gradle-based Java projects. For more information, see the [Gradle workflow template](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
 
-Para comenzar rápidamente, puedes elegir la plantilla de Gradle preconfigurada cuando creas un nuevo flujo de trabajo. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
+To get started quickly, you can choose the preconfigured Gradle template when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
 
-También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
+You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -72,26 +72,26 @@ jobs:
         run: ./gradlew build
 ```
 
-Este flujo de trabajo realiza los siguientes pasos:
+This workflow performs the following steps:
 
-1. El paso `checkout (comprobación)` descarga una copia de tu repositorio en el ejecutor.
-2. El paso `setup-java` configura el JDK de Java 11 por Adoptium.
-3. El paso de "Validar el wrapper de Gradle" valida la sumas de verificaciones de los archivos JAR del wrapper de Gradle que estén presentes en el árbol fuente.
-4. El paso "Build with Gradle" (construir con Gradle) ejecuta el script contenedor `gradlew` para asegurar que tu código se cree, las pruebas pasen y se pueda crear un paquete.
+1. The `checkout` step downloads a copy of your repository on the runner.
+2. The `setup-java` step configures the Java 11 JDK by Adoptium.
+3. The "Validate Gradle wrapper" step validates the checksums of Gradle Wrapper JAR files present in the source tree.
+4. The "Build with Gradle" step runs the `gradlew` wrapper script to ensure that your code builds, tests pass, and a package can be created.
 
-Las plantillas de flujo de trabajo predeterminadas son excelentes puntos de inicio cuando creas tu flujo de trabajo de construcción y prueba, y puedes personalizar la plantilla para adaptarla a las necesidades de tu proyecto.
+The default workflow templates are excellent starting points when creating your build and test workflow, and you can customize the template to suit your project’s needs.
 
 {% data reusables.github-actions.example-github-runner %}
 
 {% data reusables.github-actions.java-jvm-architecture %}
 
-## Construir y probar tu código
+## Building and testing your code
 
-Puedes usar los mismos comandos que usas de forma local para construir y probar tu código.
+You can use the same commands that you use locally to build and test your code.
 
-El flujo de trabajo de inicio ejecutará la tarea `build` por defecto. En la configuración de Gradle predeterminada, este comando descargará las dependencias, construirá clases, ejecutará pruebas y empaquetará las clases en su formato distribuible, por ejemplo, un archivo JAR.
+The starter workflow will run the `build` task by default. In the default Gradle configuration, this command will download dependencies, build classes, run tests, and package classes into their distributable format, for example, a JAR file.
 
-Si usas diferentes comandos para construir tu proyecto, o si quieres usar una tarea diferente, puedes especificarlo. Por ejemplo, es posible que desees ejecutar la tarea `package` que está configurada en tu archivo _ci.gradle_.
+If you use different commands to build your project, or you want to use a different task, you can specify those. For example, you may want to run the `package` task that's configured in your _ci.gradle_ file.
 
 {% raw %}
 ```yaml{:copy}
@@ -108,9 +108,9 @@ steps:
 ```
 {% endraw %}
 
-## Almacenar dependencias en caché
+## Caching dependencies
 
-Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes guardar tus dependencias en el caché para acelerar tus ejecuciones de flujo de trabajo. Después de una ejecución exitosa, tu caché de paquete de Gradle local se almacenará en la infraestructura de acciones de GitHub. En las ejecuciones de flujo de trabajo futuras, la caché se restaurará para que las dependencias no necesiten ser descargadas desde los repositorios de paquetes remotos. Puedes guardar las dependencias en caché utilizando simplemente la [acción `setup-java`](https://github.com/marketplace/actions/setup-java-jdk) o puedes utilizar la [Acción `cache`](https://github.com/actions/cache) para tener una configuración personalizada y más avanzada.
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. After a successful run, your local Gradle package cache will be stored on GitHub Actions infrastructure. In future workflow runs, the cache will be restored so that dependencies don't need to be downloaded from remote package repositories. You can cache dependencies simply using the [`setup-java` action](https://github.com/marketplace/actions/setup-java-jdk) or can use [`cache` action](https://github.com/actions/cache) for custom and more advanced configuration. 
 
 {% raw %}
 ```yaml{:copy}
@@ -135,13 +135,13 @@ steps:
 ```
 {% endraw %}
 
-Este flujo de trabajo guardará el contenido del caché de tu paquete local de Gradle, el cual se ubica en los directorios `.gradle/caches` y `.gradle/wrapper` dek directorio de inicio del ejecutor. La clave del caché será el contenido cifrado de los archivos de compilación de gradle (incluyendo las propiedades del archivo de envoltorio (wrapper)), así que cualquier cambio que se realice sobre ellos invalidará el caché.
+This workflow will save the contents of your local Gradle package cache, located in the `.gradle/caches` and `.gradle/wrapper` directories of the runner's home directory. The cache key will be the hashed contents of the gradle build files (including the Gradle wrapper properties file), so any changes to them will invalidate the cache.
 
-## Empaquetar datos de flujo de trabajo como artefactos
+## Packaging workflow data as artifacts
 
-Una vez que tu compilación haya tenido éxito y tus pruebas hayan pasado, es posible que desees cargar los paquetes Java resultantes como un artefacto de construcción. Esto almacenará los paquetes construidos como parte de la ejecución del flujo de trabajo y te permitirá descargarlos. Los artefactos pueden ayudarte a probar y depurar solicitudes de extracción en tu entorno local antes de que se fusionen. Para obtener más información, consulta "[Conservar datos de flujo de trabajo mediante artefactos](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-Por lo general, Gradle creará archivos de salida como JAR, EAR o WAR en el directorio `build/libs`. Puedes cargar los contenidos de ese directorio utilizando la acción `upload-Artifact`.
+Gradle will usually create output files like JARs, EARs, or WARs in the `build/libs` directory. You can upload the contents of that directory using the `upload-artifact` action.
 
 {% raw %}
 ```yaml{:copy}

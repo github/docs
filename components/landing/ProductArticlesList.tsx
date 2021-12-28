@@ -2,11 +2,12 @@ import cx from 'classnames'
 import { useState } from 'react'
 
 import { ChevronDownIcon } from '@primer/octicons-react'
+import { ActionList } from '@primer/components'
 
 import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
 
-const maxArticles = 10
+const maxArticles = 5
 
 export const ProductArticlesList = () => {
   const { currentProductTree } = useMainContext()
@@ -39,27 +40,35 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
         </Link>
       </h4>
 
-      <ul className="list-style-none">
-        {treeNode.childPages.map((childNode, index) => {
-          if (treeNode.childPages[0].page.documentType === 'mapTopic' && childNode.page.hidden) {
-            return null
+      <ActionList
+        {...{ as: 'ul' }}
+        items={treeNode.childPages.map((childNode, index) => {
+          return {
+            renderItem: () => (
+              <ActionList.Item
+                as="li"
+                key={childNode.href + index}
+                className={cx('pl-0', !isShowingMore && index >= maxArticles ? 'd-none' : null)}
+                sx={{
+                  borderRadius: 0,
+                  ':hover': {
+                    borderRadius: 0,
+                  },
+                }}
+              >
+                <Link className="d-block width-full" href={childNode.href}>
+                  {childNode.page.title}
+                  {childNode.page.documentType === 'mapTopic' ? (
+                    <small className="color-fg-muted d-inline-block">
+                      &nbsp;&bull; {childNode.childPages.length} articles
+                    </small>
+                  ) : null}
+                </Link>
+              </ActionList.Item>
+            ),
           }
-
-          return (
-            <li
-              key={childNode.href + index}
-              className={cx('mb-3', !isShowingMore && index >= maxArticles ? 'd-none' : null)}
-            >
-              <Link href={childNode.href}>{childNode.page.title}</Link>
-              {childNode.page.documentType === 'mapTopic' ? (
-                <small className="color-fg-muted d-inline-block">
-                  &nbsp;&bull; {childNode.childPages.length} articles
-                </small>
-              ) : null}
-            </li>
-          )
         })}
-      </ul>
+      ></ActionList>
       {!isShowingMore && treeNode.childPages.length > maxArticles && (
         <button onClick={() => setIsShowingMore(true)} className="btn-link Link--secondary">
           Show {treeNode.childPages.length - maxArticles} more{' '}

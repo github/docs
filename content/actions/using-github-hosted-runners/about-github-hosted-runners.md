@@ -16,10 +16,8 @@ versions:
 shortTitle: GitHub-hosted runners
 ---
 
-{% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About {% data variables.product.prodname_dotcom %}-hosted runners
 
@@ -28,6 +26,8 @@ A {% data variables.product.prodname_dotcom %}-hosted runner is a virtual machin
 When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machine maintenance and upgrades are taken care of for you. You can run workflows directly on the virtual machine or in a Docker container.
 
 You can specify the runner type for each job in a workflow. Each job in a workflow executes in a fresh instance of the virtual machine. All steps in the job execute in the same instance of the virtual machine, allowing the actions in that job to share information using the filesystem.
+
+{% ifversion not ghes %}
 
 {% data reusables.github-actions.runner-app-open-source %}
 
@@ -140,5 +140,7 @@ Actions that run in Docker containers have static directories under the `/github
 
 ## Further reading
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+
+{% endif %}
 
 {% endif %}

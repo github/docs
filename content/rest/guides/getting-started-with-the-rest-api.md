@@ -2,7 +2,7 @@
 title: Getting started with the REST API
 intro: 'Learn the foundations for using the REST API, starting with authentication and some endpoint examples.'
 redirect_from:
-  - /guides/getting-started/
+  - /guides/getting-started
   - /v3/guides/getting-started
 versions:
   fpt: '*'
@@ -65,7 +65,7 @@ Mmmmm, tastes like [JSON][json]. Let's add the `-i` flag to include headers:
 ```shell
 $ curl -i https://api.github.com/users/defunkt
 
-> HTTP/2 200 
+> HTTP/2 200
 > server: GitHub.com
 > date: Thu, 08 Jul 2021 07:04:08 GMT
 > content-type: application/json; charset=utf-8
@@ -230,7 +230,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 In the same way, we can [view repositories for the authenticated user][user repos api]:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
@@ -248,9 +248,10 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 The information returned from these calls will depend on which scopes our token has when we authenticate:
 
-{% ifversion not ghae %}
-* A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on github.com.{% endif %}
-* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion not ghae %}public{% else %}internal{% endif %} and private repositories we have access to see on {% data variables.product.product_location %}.
+{%- ifversion fpt or ghec or ghes %}
+* A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on {% data variables.product.product_location %}.
+{%- endif %}
+* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories we have access to see on {% data variables.product.product_location %}.
 
 As the [docs][repos-api] indicate, these methods take a `type` parameter that
 can filter the repositories returned based on what type of access the user has
@@ -273,7 +274,7 @@ Fetching information for existing repositories is a common use case, but the
 we need to `POST` some JSON containing the details and configuration options.
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     -d '{ \
         "name": "blog", \
         "auto_init": true, \
@@ -319,7 +320,7 @@ Just like github.com, the API provides a few methods to view issues for the
 authenticated user. To [see all your issues][get issues api], call `GET /issues`:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
@@ -327,7 +328,7 @@ To get only the [issues under one of your {% data variables.product.product_name
 /orgs/<org>/issues`:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -369,7 +370,7 @@ body to the `/issues` path underneath the repository in which we want to create
 the issue:
 
 ```shell
-$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
+$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \

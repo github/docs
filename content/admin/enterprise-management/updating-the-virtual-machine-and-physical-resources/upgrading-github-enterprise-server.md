@@ -3,15 +3,15 @@ title: Upgrading GitHub Enterprise Server
 intro: 'Upgrade {% data variables.product.prodname_ghe_server %} to get the latest features and security updates.'
 redirect_from:
   - /enterprise/admin/installation/upgrading-github-enterprise-server
-  - /enterprise/admin/articles/upgrading-to-the-latest-release/
-  - /enterprise/admin/articles/migrations-and-upgrades/
-  - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine/
-  - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases/
-  - /enterprise/admin/articles/upgrading-older-installations/
-  - /enterprise/admin/hidden/upgrading-older-installations/
-  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program/
-  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch/
-  - /enterprise/admin/guides/installation/upgrading-github-enterprise/
+  - /enterprise/admin/articles/upgrading-to-the-latest-release
+  - /enterprise/admin/articles/migrations-and-upgrades
+  - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine
+  - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases
+  - /enterprise/admin/articles/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch
+  - /enterprise/admin/guides/installation/upgrading-github-enterprise
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
   - /admin/enterprise-management/upgrading-github-enterprise-server
 versions:
@@ -22,9 +22,12 @@ topics:
   - Upgrades
 shortTitle: Upgrading GHES
 ---
+
+{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
+
 ## Preparing to upgrade
 
-1. Determine an upgrade strategy and choose a version to upgrade to. For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)."
+1. Determine an upgrade strategy and choose a version to upgrade to. For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)" and refer to the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
 3. Create a fresh backup of your primary instance with the {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README.md file](https://github.com/github/backup-utils#readme).
 4. If you are upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users. If you are using a hotpatch, maintenance mode is not required.
 
@@ -212,11 +215,8 @@ Appliances configured for high-availability and geo-replication use replica inst
 
    {% endnote %}
 
-   If `ghe-repl-status` didn't return `OK`, follow the steps below to manually start the replication.
-
-   1. On the replica instance, run `ghe-repl-setup <primary-instance-ip>` again.
-   {% data reusables.enterprise_installation.start-replication %}
-   {% data reusables.enterprise_installation.replication-status %}
+   If `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+   
 6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
 ## Restoring from a failed upgrade

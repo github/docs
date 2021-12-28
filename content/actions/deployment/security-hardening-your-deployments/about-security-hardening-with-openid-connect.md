@@ -65,6 +65,7 @@ The following example OIDC token uses a subject (`sub`) that references a job en
 {
   "jti": "example-id",
   "sub": "repo:octo-org/octo-repo:environment:prod",
+  "environment": "prod",
   "aud": "https://github.com/octo-org",
   "ref": "refs/heads/main",
   "sha": "example-sha",
@@ -118,7 +119,7 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `environment`| The name of the environment used by the job.                    | 
 | `event_name`| The name of the event that triggered the workflow run.                    | 
 | `head_ref`| The source branch of the pull request in a workflow run.                   | 
-| `job_workflow_ref`| This is the ref path to the reusable workflow used by this job.                   | 
+| `job_workflow_ref`| This is the ref path to the reusable workflow used by this job. For more information, see "["Using OpenID Connect with reusable workflows"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."                  | 
 | `ref`| _(Reference)_ The git ref that triggered the workflow run.                   | 
 | `ref_type`| The type of `ref`, for example: "branch".                  | 
 | `repository`| The repository from where the workflow is running.                   | 

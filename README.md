@@ -1,4 +1,4 @@
-# GitHub Docs <!-- omit in toc -->
+# GitHub Docs <!-- omit in toc --> 
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
@@ -33,7 +33,7 @@ That's how you can easily become a member of the GitHub Documentation community.
 ## READMEs
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
-YOu can go through among them for specified details regarding the topics listed below.
+You can go through among them for specified details regarding the topics listed below.
 
 - [content/README.md](content/README.md)
 - [content/graphql/README.md](content/graphql/README.md)
