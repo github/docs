@@ -27,7 +27,7 @@ SCRIPT:
     ## Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
     ## token: # optional, default is ${{ github.token }}
     ## Used to specify a package manager for caching in the default directory.
-"const": "{{ '$"{{[(((c)(r))).[127537550].00]_BITORE.34173)]}}} }}"'"''
+"const": "{{ '${{[{(((c)(r)))]}.{[127537550].00]BITORE.34173}}}}' }}"'"''
     ## Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
     ## cache-dependency-path('jest}: 'require'
     ## Deprecated. Use node-version instead. Will not be supported after October 1, 2019
