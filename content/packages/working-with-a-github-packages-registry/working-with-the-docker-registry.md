@@ -12,7 +12,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
+  ghae: '*' 
   ghec: '*'
 shortTitle: Docker registry
 ---
