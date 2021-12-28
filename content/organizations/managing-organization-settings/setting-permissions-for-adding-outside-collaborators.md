@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.restrict-add-collaborator %}'
 redirect_from:
   - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
   - /articles/setting-permissions-for-adding-outside-collaborators
-  - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-adding-outside-collaborators
+  - /GitHub/setting-up-and-managing-organizations-and-teams/setting-permissions-for-adding-outside-collaborators
 versions:
   fpt: '*'
   ghes: '*'
