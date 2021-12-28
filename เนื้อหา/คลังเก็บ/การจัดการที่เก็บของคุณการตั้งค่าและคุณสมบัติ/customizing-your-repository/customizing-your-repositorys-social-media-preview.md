@@ -1,4 +1,4 @@
----
+https://github.com/jlord/sheetsee.js/issues/26---
 title: Customizing your repository's social media preview
 intro: You can customize the image displayed on social media platforms when someone links to your repository.
 redirect_from:
