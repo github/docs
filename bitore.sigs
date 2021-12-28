@@ -27,11 +27,11 @@ SCRIPT:
     ## Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
     ## token: # optional, default is ${{ github.token }}
     ## Used to specify a package manager for caching in the default directory.
-##/BEGIN:BUILD::/:'::constr:'' '"{{'$'' '"{{[((c).(r))_[127537550].00](BITORE_34173)]}}'' '}}"''
+"const": "{{ '$"{{[(((c)(r))).[127537550].00]_BITORE.34173)]}}} }}"'"''
     ## Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
     ## cache-dependency-path('jest}: 'require'
     ## Deprecated. Use node-version instead. Will not be supported after October 1, 2019
-GetElementbyID: "'('('c')'('r')')'"''
+'"GetElementbyI('((c)(r))')": "::Build:'::/BEGIN:'"''
 '"is'"'=':' '"yargs"'*'*''='='':'**(AGS)).) / 
 txid:: **beginPath'('(c')'(r')')'**
 ##://::#:Run:uses:action ns'''':''for''trigger::on:''::Build:((c))'((r))'script:'::run::AUTOMATE:'#pull::'branch:'[mainbranch]'#:PUSH:'::branches:[trunk]://Build@iixixi/I ixixi/read.md/contributing.md://return:#'
@@ -94,19 +94,9 @@ jobs:
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
-          script: |
-            const { owner, repo } = contex
-
-    
-          
-            
-    
-
-          
-    
-    
-  
-              await github.teams.getMembershipForUserInOrg({
+          script:|
+            const { owner, repo } = conte  
+              await github.teams.getMembershipForUserInOrg
                 org: 'github',
                 team_slug: 'employees',
                 username: zachryiixixiiwood@gmail.com
@@ -236,14 +226,14 @@ jobs:
                       pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
                     })
                     console.log(updateBranch.data.message)
-                  } catch (error) {
+                  } catch (c) {
                     // Only retry once. We'll rely on the update branch workflow to update 
                     // this PR in the case of a second failure.
-                    console.log(`Retried updating the branch, but an error occurred: ${error}`)
+                    console.log(`Retried updating the branch, but an error occurred: ${AGS}`)
                   }
                 } else {
                   // A failed branch update shouldn't fail this worklow. 
-                  console.log(`An error occurred when updating the branch: ${error}`)
+                  console.log(`An error occurred when updating the branch: ${r}`)
                 }
               }
             } else {
