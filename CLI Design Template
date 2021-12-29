@@ -1,0 +1,2416 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://docs.google.com/document/u/0/d/1JIRErIUuJ6fTgabiFYfCH3x91pyHuytbfa0QLnTfXKM/mobilebasic#heading=h.or54sa47ylpg
+Subject: CLI Design Template
+Date: Thu, 25 Nov 2021 16:17:10 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--M9ejPhDDvuFjOG6bhy1QsOGllHBnMeN1oNvd65ZLsM----"
+
+
+------MultipartBoundary--M9ejPhDDvuFjOG6bhy1QsOGllHBnMeN1oNvd65ZLsM----
+Content-Type: text/html
+Content-ID: <frame-DBE10605EC93028C1637E28145EF2D7A@mhtml.blink>
+Content-Transfer-Encoding: binary
+Content-Location: https://docs.google.com/document/u/0/d/1JIRErIUuJ6fTgabiFYfCH3x91pyHuytbfa0QLnTfXKM/mobilebasic#heading=h.or54sa47ylpg
+
+<!DOCTYPE html><html class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-146e3623-ae9c-4f63-bfbb-b6506b4906b8@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-ca50b56c-1dbc-46ba-ac55-d239c6d04b4e@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-c2ef494a-de89-4475-9147-9a1864f8b536@mhtml.blink" /><title>CLI Design Template</title><link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0"><meta name="referrer" content="strict-origin-when-cross-origin"><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head><body><div class="app-container"><div class="doc-container"><div class="doc"><div style="background-color:#000000;padding:72pt 72pt 72pt 72pt;max-width:468pt"><p class="title" id="h.or54sa47ylpg" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:18pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:18pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">CLI Design Template</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="background-color:#ffff00;color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">! Do not edit this template directly. Please make a copy ! </span></p><p style="padding:0;color:#ffffff;font-size:11pt;line-height:1.15;margin-right:0;margin-left:36pt;font-family:&quot;Source Code Pro&quot;;margin-top:0;orphans:2;margin-bottom:0;widows:2;text-align:left"><span>&nbsp;</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">-----</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><h1 id="h.clv35wtcz2mj" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:14pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:14pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Components</span></h1><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><h2 id="h.yu121vkuvksr" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:12pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:12pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Syntax</span></h2><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">[branch]</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#cccccc">(label)</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">owner/repo</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#cccccc;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#cccccc;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><h2 id="h.jdoaed6jpzq4" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:12pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:12pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Prompts</span></h2><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">?</span><span>&nbsp;</span><span style="font-weight:700">Yes/No Prompt </span><span style="color:#00ffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">[y/N]</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#00ffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">?</span><span>&nbsp;</span><span style="font-weight:700">Short text prompt </span><span>(Auto fill)</span></p><h3 id="h.sampz6tj7mh" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:11pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></h3><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">?</span><span>&nbsp;</span><span style="font-weight:700">Long text prompt </span><span style="color:#00ffff">[(e) to launch vim, enter to skip] </span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#00ffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">?</span><span>&nbsp;</span><span style="font-weight:700">Single choice prompt </span><span style="color:#00ffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">[Use arrows to move, type to filter]</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#4a86e8;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&gt; Choice focused</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; Choice </span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; Choice</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">?</span><span>&nbsp;</span><span style="font-weight:700">Multi select prompt </span><span style="color:#00ffff">[Use arrows to move, space to select, type to filter]</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#4a86e8;font-weight:700">&gt;</span><span>&nbsp;</span><span style="color:#00ff00">[x]</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; Choice selected and focused</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span>&nbsp; </span><span style="color:#00ff00">[x]</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; Choice selected</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; [ ] &nbsp;Projects</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; [ ] &nbsp;Milestone</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;color:#ffffff;font-size:11pt;line-height:1.15;margin-right:0;margin-left:36pt;font-family:&quot;Source Code Pro&quot;;margin-top:0;orphans:2;margin-bottom:0;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><h2 id="h.a7evserqx7m1" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:12pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;height:12pt;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:12pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></h2><h2 id="h.ixae31gex8id" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:12pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:12pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">State</span></h2><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">#123</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp;Open issue or pull request</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ff0000">#123</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp;Closed issue pull request</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ff00ff">#123</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp;Merged pull request</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#b7b7b7">#123</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp;Draft pull request</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">‚úì Checks passing</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">‚úì Approved</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffff00;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">- Review requested</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ff0000">+</span><span style="color:#ff0000;font-weight:700">&nbsp;</span><span style="color:#ff0000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Changes requested</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ff0000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">‚úì</span><span style="font-weight:700">&nbsp;</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Success message</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffff00">!</span><span style="font-weight:700">&nbsp;</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Alert</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ff0000">‚úó</span><span style="font-weight:700">&nbsp;</span><span>Error message </span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:italic">(ideal)</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span>error message </span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:italic">(current)</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ff0000">‚úì</span><span style="font-weight:700">&nbsp;</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Item closed</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ff00ff">‚úì</span><span style="font-weight:700">&nbsp;</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Item merged</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><h2 id="h.opejfv6yoexb" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:12pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:12pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Loading spinner</span></h2><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#cccccc">‚£ü Action...</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><h2 id="h.455xzkysu8se" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:12pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:12pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Lists</span></h2><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">$ gh issue list </span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Showing 3 of 222 issues in cli/cli</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">#1360 &nbsp;</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Ability to ski... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; about 2 days ago</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">#1358 &nbsp;</span><span>Provide extra ... &nbsp;</span><span style="color:#b7b7b7">(enhancement) &nbsp; </span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; &nbsp;about 3 days ago</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">#1354 &nbsp;</span><span>Add ability to... &nbsp;</span><span style="color:#b7b7b7">(enhancement, ...</span><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; about 3 days ago</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#00ff00;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><h2 id="h.a7evserqx7m1-1" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:12pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:12pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Detail view</span></h2><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;color:#ffffff;font-size:11pt;line-height:1.15;margin-right:0;margin-left:36pt;font-family:&quot;Source Code Pro&quot;;margin-top:0;orphans:2;margin-bottom:0;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Ability to skip confirmation via a flag</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#00ff00">Open</span><span>&nbsp;‚Ä¢ </span><span style="color:#b7b7b7;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">AliabbasMerchant opened about 2 days ago ‚Ä¢ 1 comment</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;color:#ffffff;font-size:11pt;line-height:1.15;margin-right:0;margin-left:36pt;font-family:&quot;Source Code Pro&quot;;margin-top:0;orphans:2;margin-bottom:0;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">#1330 proposes to add confirmation to risky commands. It is a nice feature to have, but in order to support proper scriptability, we should support a flag (preferably &nbsp;-y , like in most CLIs), to skip asking for confirmation. So for each of the 4 commands mentioned there (and possibly even more in the future), we should add support for the &nbsp;-y &nbsp;flag &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#b7b7b7;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">View this issue on GitHub: https://github.com/cli/cli/issues/1360</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><h2 id="h.tmbj9q9xcs1l" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:12pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:12pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Headers</span></h2><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Creating issue in cli/cli</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Showing 30 of 226 issues in cli/cli</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Relevant pull requests in cli/cli</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">cli/cli</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">GitHub‚Äôs official command line tool</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Default branch is not being prioritized</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ff0000">Closed</span><span>&nbsp;‚Ä¢ </span><span style="color:#cccccc;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">tierninho opened about 6 months ago ‚Ä¢ 1 comment</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><h2 id="h.ipxj0ula125q" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:12pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:12pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Empty states</span></h2><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Current branch</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="font-weight:700">&nbsp; </span><span style="color:#cccccc">There is no pull request associated with</span><span>&nbsp;</span><span style="color:#00ffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">[master]</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Created by you</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="font-weight:700">&nbsp; </span><span style="color:#b7b7b7;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">You have no open pull requests</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Requesting a code review from you</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="font-weight:700">&nbsp; </span><span style="color:#b7b7b7">You have no pull requests to review</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#999999;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">No pull requests match your search in cli/cli</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">No issues match your search in cli/cli</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">There are no open issues in ampinsk/create-test</span></p><p style="padding:0;color:#ffffff;font-size:11pt;line-height:1.15;margin-right:0;margin-left:36pt;font-family:&quot;Source Code Pro&quot;;margin-top:0;orphans:2;margin-bottom:0;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;color:#ffffff;font-size:11pt;line-height:1.15;margin-right:0;margin-left:36pt;font-family:&quot;Source Code Pro&quot;;margin-top:0;orphans:2;margin-bottom:0;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><h2 id="h.23keszpao53i" style="padding:0;margin:0;color:#ffffff;font-weight:700;font-size:12pt;line-height:1.15;page-break-after:avoid;font-family:&quot;Source Code Pro&quot;;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:12pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Help page</span></h2><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">$ gh</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">Work seamlessly with GitHub from the command line. </span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">USAGE</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; gh &lt;command&gt; &lt;subcommand&gt; [flags]</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; Commands are run inside of a GitHub repository.</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">CORE COMMANDS</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; issue: &nbsp; &nbsp; &nbsp; Create and view issues</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; pr: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Create, view, and checkout pull requests</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; repo: &nbsp; &nbsp; &nbsp; &nbsp;Create, clone, fork, and view repositories</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">ADDITIONAL COMMANDS</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; help: &nbsp; &nbsp; &nbsp; &nbsp;Help about any command</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; config: &nbsp; &nbsp; &nbsp;Set and get preferences</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; completion: &nbsp;Generate shell completion scripts</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">FLAGS</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; -h, --help: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Show help for command</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; -v, --version: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Show gh version</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">EXAMPLES</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; $ gh issue create</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; $ gh pr list</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; $ gh repo fork</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="font-weight:700">LEARN MORE</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; Use "gh [command] [subcommand] --help" for more information about a command.</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; Read the manual at &lt;http://cli.github.com/manual&gt;</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">FEEDBACK </span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; Fill out our feedback form &lt;https://forms.gle/umxd3h31c7aMQFKG7&gt;</span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal">&nbsp; Open an issue using ‚Äúgh issue create -R cli/cli‚Äù</span></p><p style="padding:0;color:#ffffff;font-size:11pt;line-height:1.15;margin-right:0;margin-left:36pt;font-family:&quot;Source Code Pro&quot;;margin-top:0;orphans:2;margin-bottom:0;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p><p style="padding:0;margin:0;color:#ffffff;font-size:11pt;font-family:&quot;Source Code Pro&quot;;line-height:1.15;orphans:2;widows:2;height:11pt;text-align:left"><span style="color:#ffffff;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Source Code Pro&quot;;font-style:normal"></span></p></div></div></div></div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google ‡πÅ‡∏õ‡∏•‡∏†‡∏≤‡∏©‡∏≤"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏°‡∏ï‡πâ‡∏ô‡∏â‡∏ö‡∏±‡∏ö</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">‡∏£‡πà‡∏ß‡∏°‡πÉ‡∏´‡πâ‡∏Ñ‡∏≥‡πÅ‡∏õ‡∏•‡∏ó‡∏µ‡πà‡∏î‡∏µ‡∏Å‡∏ß‡πà‡∏≤</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>
+------MultipartBoundary--M9ejPhDDvuFjOG6bhy1QsOGllHBnMeN1oNvd65ZLsM----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-146e3623-ae9c-4f63-bfbb-b6506b4906b8@mhtml.blink
+
+@charset "utf-8";
+
+html { overflow: auto; }
+
+body { margin: 0px; overflow: hidden; overflow-wrap: break-word; }
+
+.app-container { height: 100%; margin-top: 57px; overflow: auto; }
+
+.doc { padding: 20px 12px 0px; position: relative; }
+------MultipartBoundary--M9ejPhDDvuFjOG6bhy1QsOGllHBnMeN1oNvd65ZLsM----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-ca50b56c-1dbc-46ba-ac55-d239c6d04b4e@mhtml.blink
+
+@charset "utf-8";
+
+.docs-ml-noselect { -webkit-user-drag: none; user-select: none; }
+
+.docs-ml-promotion { z-index: 1002; }
+
+.docs-ml-header { z-index: 1; }
+
+.docs-ml-icon { direction: ltr; display: inline-block; text-align: left; overflow: hidden; position: relative; vertical-align: middle; }
+
+.docs-ml-img::before { content: url("//ssl.gstatic.com/docs/common/mobileweb_sprite1.png"); }
+
+.docs-ml-img-container { height: 156px; position: absolute; width: 36px; }
+
+.docs-ml-docs-logo-icon { left: 0px; top: -36px; }
+
+.docs-ml-sheets-logo-icon { left: 0px; top: 0px; }
+
+.docs-ml-slides-logo-icon { left: 0px; top: -96px; }
+
+.docs-ml-arrow-back-icon { left: 0px; top: -132px; }
+
+.docs-ml-edit-icon { left: 0px; top: -72px; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .docs-ml-img { content: url("//ssl.gstatic.com/docs/common/mobileweb_sprite1.png"); }
+  .docs-ml-img-container { height: 156px; position: absolute; width: 36px; }
+  .docs-ml-docs-logo-icon { left: 0px; top: -36px; }
+  .docs-ml-sheets-logo-icon { left: 0px; top: 0px; }
+  .docs-ml-slides-logo-icon { left: 0px; top: -96px; }
+  .docs-ml-arrow-back-icon { left: 0px; top: -132px; }
+  .docs-ml-edit-icon { left: 0px; top: -72px; }
+}
+
+.docs-ml-header { background: rgb(250, 250, 250); border-bottom: 1px solid rgb(203, 203, 203); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px; box-sizing: border-box; font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif; padding: 4px 0px; position: fixed; left: 0px; top: 0px; width: 100%; }
+
+.docs-ml-header-icon { height: 24px; opacity: 0.6; width: 24px; }
+
+.docs-ml-header-icon-container { padding: 12px; }
+
+.docs-ml-header-item { display: inline-block; vertical-align: middle; }
+
+.docs-ml-header-drive-link { padding-left: 4px; }
+
+body[dir="rtl"] .docs-ml-arrow-back-dir { transform: scaleX(-1); }
+
+.docs-ml-header-document-title { box-sizing: border-box; line-height: 24px; padding: 0px 12px; width: calc(100% - 104px); }
+
+.docs-ml-header-document-title-text { font-size: 20px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.docs-ml-header-edit-button { float: right; padding-right: 4px; }
+
+.docs-ml-promotion { background: white; bottom: 0px; box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 12px; font-family: Arial, Helvetica, sans-serif; left: 0px; position: fixed; width: 100%; }
+
+.docs-ml-promotion-off-screen { transform: translateY(100%); }
+
+.docs-ml-promotion-shown { transform: translateY(0px); transition: transform 333ms cubic-bezier(0.4, 0, 0.2, 1) 0s; }
+
+.docs-ml-promotion-dismissed { transform: translateY(100%); box-shadow: none; }
+
+.docs-ml-promotion-no-horizontal-scroll { overflow-x: hidden; }
+
+.docs-ml-promotion-header { display: table; padding: 24px 24px 0px; }
+
+.docs-ml-promotion-app-icon-container { display: table-cell; }
+
+.docs-ml-promotion-app-icon { height: 36px; width: 36px; }
+
+@media (min-width: 600px) {
+  .docs-ml-promotion-app-icon { transform: scale(1.33); }
+}
+
+.docs-ml-promotion-text { display: table-cell; padding-left: 20px; vertical-align: top; }
+
+.docs-ml-promotion-text-heading { color: rgba(0, 0, 0, 0.87); font-size: 16px; font-weight: bold; padding-bottom: 7px; }
+
+.docs-ml-promotion-text-body { color: rgba(0, 0, 0, 0.87); font-size: 14px; }
+
+.docs-ml-promotion-action-row { float: right; margin-top: 6px; padding: 8px 24px; }
+
+.docs-ml-promotion-action-row-desktop { margin-top: 6px; }
+
+.docs-ml-promotion-action-container { display: inline-block; height: 48px; margin: 6px 4px; vertical-align: middle; }
+
+.docs-ml-promotion-action-button { display: inline-block; font-size: 14px; font-weight: 500; padding: 9px 12px; vertical-align: middle; }
+
+.docs-ml-promotion-action-button-wrapper:focus { outline-color: rgb(214, 214, 214); }
+
+.docs-ml-promotion-action-button.docs-ml-promotion-yes-button { background-color: rgb(66, 133, 244); border-radius: 4px; color: rgb(250, 250, 250); border: 1px solid transparent; }
+
+.docs-ml-promotion-action-button.docs-ml-promotion-yes-button:active { background-color: rgb(25, 103, 210); }
+
+.docs-ml-promotion-action-button.docs-ml-promotion-no-button { background-color: rgb(250, 250, 250); color: rgb(95, 99, 104); border-radius: 4px; border: 1px solid rgb(218, 220, 224); }
+
+.docs-ml-promotion-action-button.docs-ml-promotion-no-button:active { background-color: rgb(245, 245, 245); }
+
+.docs-ml-promotion.desktop { text-align: center; }
+
+@media (orientation: portrait) {
+  .docs-ml-promotion.desktop { padding-top: 56px; padding-bottom: 80px; }
+}
+
+@media (orientation: landscape) {
+  .docs-ml-promotion.desktop { padding-top: 36px; padding-bottom: 56px; }
+}
+
+.docs-ml-promotion-heading-desktop { font-family: "Google Sans"; font-size: 18px; font-weight: bold; color: rgb(32, 33, 36); padding-top: 18px; padding-bottom: 10px; line-height: 1.5; max-width: 360px; margin: 0px auto; }
+
+@media (orientation: landscape) {
+  .docs-ml-promotion-heading-desktop { padding-top: 0px; max-width: none; }
+}
+
+.docs-ml-promotion-text-body-desktop { font-size: 14px; line-height: 1.5; color: rgb(95, 99, 104); padding-bottom: 10px; }
+
+.docs-icon.docs-ml-promotion-desktop-icon { height: 40px; width: 40px; transform: scale(2.5); transform-origin: center top; }
+
+.docs-icon-ml-promotion-icon-container-desktop { height: 100px; width: 100px; margin-left: auto; margin-right: auto; }
+
+@media (orientation: landscape) {
+  .docs-icon-ml-promotion-icon-container-desktop { display: inline-block; vertical-align: top; }
+  .docs-ml-promotion-description-desktop { display: inline-block; vertical-align: top; text-align: left; padding-left: 39px; max-width: 645px; }
+}
+
+@media (orientation: landscape) {
+  .docs-ml-promotion-action-row-desktop { margin-left: -8px; }
+}
+
+.docs-ml-promotion-action-row-desktop .docs-ml-promotion-action-container { margin: 6px 8px; font-family: "Google Sans"; }
+
+.docs-ml-promotion-action-row-desktop .docs-ml-promotion-action-button-wrapper:focus { outline: none; }
+
+.docs-ml-promotion-action-button.docs-ml-promotion-yes-button.docs-ml-promotion-app-themed { border-radius: 4px; box-shadow: none; box-sizing: border-box; font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif; font-weight: 500; font-size: 14px; height: 36px; letter-spacing: 0.25px; line-height: 16px; padding: 9px 24px 11px; background: rgb(26, 115, 232); color: rgb(255, 255, 255); border: 1px solid transparent !important; }
+
+.docs-ml-promotion-action-button.docs-ml-promotion-yes-button.docs-ml-promotion-app-themed:active { border-radius: 4px; box-shadow: none; box-sizing: border-box; font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif; font-weight: 500; font-size: 14px; height: 36px; letter-spacing: 0.25px; line-height: 16px; padding: 9px 24px 11px; background: rgb(26, 115, 232); color: rgb(255, 255, 255); border: 1px solid transparent !important; }
+
+.docs-ml-promotion-action-button.docs-ml-promotion-no-button.docs-ml-promotion-app-themed { border-radius: 4px; box-shadow: none; box-sizing: border-box; font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif; font-weight: 500; font-size: 14px; height: 36px; letter-spacing: 0.25px; line-height: 16px; padding: 9px 24px 11px; background: white; color: rgb(26, 115, 232); border: 1px solid rgb(218, 220, 224) !important; }
+
+.docs-ml-promotion-action-button-wrapper:focus .docs-ml-promotion-action-button.docs-ml-promotion-yes-button.docs-ml-promotion-app-themed { border-radius: 4px; box-sizing: border-box; font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif; font-weight: 500; font-size: 14px; height: 36px; letter-spacing: 0.25px; line-height: 16px; padding: 9px 24px 11px; color: rgb(255, 255, 255); background: rgb(80, 148, 237); box-shadow: rgba(66, 133, 244, 0.15) 0px 1px 3px 1px; border: 1px solid transparent !important; }
+
+.docs-ml-promotion-action-button-wrapper:focus .docs-ml-promotion-action-button.docs-ml-promotion-no-button.docs-ml-promotion-app-themed { border-radius: 4px; box-shadow: none; box-sizing: border-box; font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif; font-weight: 500; font-size: 14px; height: 36px; letter-spacing: 0.25px; line-height: 16px; padding: 9px 24px 11px; background: rgb(233, 241, 254); border: 1px solid rgb(193, 216, 251) !important; }
+------MultipartBoundary--M9ejPhDDvuFjOG6bhy1QsOGllHBnMeN1oNvd65ZLsM----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-c2ef494a-de89-4475-9147-9a1864f8b536@mhtml.blink
+
+@charset "utf-8";
+
+@import url("https://themes.googleusercontent.com/fonts/css?kit=mrl8jkM18OlOQN8JLgasDzKqNUtgvZyEWYnccqUX_tNppeEzewNiKPV72LtNC3eN");
+
+ul.lst-kix_qp7vij7fntio-0 { list-style-type: none; }
+
+ul.lst-kix_qp7vij7fntio-1 { list-style-type: none; }
+
+ul.lst-kix_qp7vij7fntio-2 { list-style-type: none; }
+
+ul.lst-kix_qp7vij7fntio-3 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-0.start { counter-reset: lst-ctn-kix_l3ohic6lpkae-0 0; }
+
+ul.lst-kix_qp7vij7fntio-4 { list-style-type: none; }
+
+ul.lst-kix_qp7vij7fntio-5 { list-style-type: none; }
+
+.lst-kix_lxudbwusz4ls-1 > li::before { content: "-  "; }
+
+ul.lst-kix_qp7vij7fntio-6 { list-style-type: none; }
+
+ul.lst-kix_2z9ebaq27aq2-2 { list-style-type: none; }
+
+ul.lst-kix_2z9ebaq27aq2-3 { list-style-type: none; }
+
+ul.lst-kix_2z9ebaq27aq2-4 { list-style-type: none; }
+
+ul.lst-kix_2z9ebaq27aq2-5 { list-style-type: none; }
+
+.lst-kix_lxudbwusz4ls-2 > li::before { content: "-  "; }
+
+ul.lst-kix_2z9ebaq27aq2-6 { list-style-type: none; }
+
+ul.lst-kix_2z9ebaq27aq2-7 { list-style-type: none; }
+
+ul.lst-kix_2z9ebaq27aq2-8 { list-style-type: none; }
+
+.lst-kix_lxudbwusz4ls-3 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-0 > li { counter-increment: lst-ctn-kix_l3ohic6lpkae-0 1; }
+
+.lst-kix_lxudbwusz4ls-4 > li::before { content: "-  "; }
+
+.lst-kix_lxudbwusz4ls-6 > li::before { content: "-  "; }
+
+.lst-kix_lxudbwusz4ls-5 > li::before { content: "-  "; }
+
+.lst-kix_lxudbwusz4ls-8 > li::before { content: "-  "; }
+
+ul.lst-kix_c56k8svj7bdc-0 { list-style-type: none; }
+
+.lst-kix_lxudbwusz4ls-7 > li::before { content: "-  "; }
+
+ul.lst-kix_66wcyhhs9qw7-2 { list-style-type: none; }
+
+ul.lst-kix_66wcyhhs9qw7-1 { list-style-type: none; }
+
+ul.lst-kix_66wcyhhs9qw7-0 { list-style-type: none; }
+
+ol.lst-kix_l1iuxjjqy6vy-2.start { counter-reset: lst-ctn-kix_l1iuxjjqy6vy-2 0; }
+
+.lst-kix_ynzq4waz1fqu-5 > li::before { content: "-  "; }
+
+.lst-kix_cf77e2ghjxvd-4 > li::before { content: "-  "; }
+
+.lst-kix_ynzq4waz1fqu-3 > li::before { content: "-  "; }
+
+.lst-kix_ynzq4waz1fqu-7 > li::before { content: "-  "; }
+
+.lst-kix_ynzq4waz1fqu-4 > li::before { content: "-  "; }
+
+.lst-kix_ynzq4waz1fqu-8 > li::before { content: "-  "; }
+
+.lst-kix_cf77e2ghjxvd-5 > li::before { content: "-  "; }
+
+ul.lst-kix_dasau3xd670t-0 { list-style-type: none; }
+
+ul.lst-kix_dasau3xd670t-1 { list-style-type: none; }
+
+ul.lst-kix_66wcyhhs9qw7-8 { list-style-type: none; }
+
+ul.lst-kix_dasau3xd670t-2 { list-style-type: none; }
+
+ul.lst-kix_66wcyhhs9qw7-7 { list-style-type: none; }
+
+.lst-kix_cf77e2ghjxvd-6 > li::before { content: "-  "; }
+
+.lst-kix_cf77e2ghjxvd-8 > li::before { content: "-  "; }
+
+ul.lst-kix_dasau3xd670t-3 { list-style-type: none; }
+
+ul.lst-kix_66wcyhhs9qw7-6 { list-style-type: none; }
+
+ul.lst-kix_dasau3xd670t-4 { list-style-type: none; }
+
+ul.lst-kix_66wcyhhs9qw7-5 { list-style-type: none; }
+
+.lst-kix_ynzq4waz1fqu-6 > li::before { content: "-  "; }
+
+ul.lst-kix_dasau3xd670t-5 { list-style-type: none; }
+
+ul.lst-kix_66wcyhhs9qw7-4 { list-style-type: none; }
+
+ul.lst-kix_dasau3xd670t-6 { list-style-type: none; }
+
+ul.lst-kix_66wcyhhs9qw7-3 { list-style-type: none; }
+
+.lst-kix_cf77e2ghjxvd-7 > li::before { content: "-  "; }
+
+.lst-kix_ynzq4waz1fqu-0 > li::before { content: "-  "; }
+
+.lst-kix_ynzq4waz1fqu-1 > li::before { content: "-  "; }
+
+.lst-kix_ynzq4waz1fqu-2 > li::before { content: "-  "; }
+
+ul.lst-kix_dybf6ochpr2o-0 { list-style-type: none; }
+
+ul.lst-kix_dybf6ochpr2o-2 { list-style-type: none; }
+
+ul.lst-kix_dybf6ochpr2o-1 { list-style-type: none; }
+
+ul.lst-kix_2z9ebaq27aq2-0 { list-style-type: none; }
+
+ul.lst-kix_2z9ebaq27aq2-1 { list-style-type: none; }
+
+ul.lst-kix_dybf6ochpr2o-8 { list-style-type: none; }
+
+ul.lst-kix_qp7vij7fntio-7 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-5.start { counter-reset: lst-ctn-kix_l3ohic6lpkae-5 0; }
+
+ul.lst-kix_dybf6ochpr2o-7 { list-style-type: none; }
+
+ul.lst-kix_qp7vij7fntio-8 { list-style-type: none; }
+
+ul.lst-kix_dybf6ochpr2o-4 { list-style-type: none; }
+
+ul.lst-kix_dybf6ochpr2o-3 { list-style-type: none; }
+
+ul.lst-kix_dybf6ochpr2o-6 { list-style-type: none; }
+
+ul.lst-kix_dybf6ochpr2o-5 { list-style-type: none; }
+
+ul.lst-kix_58340chqu0tm-2 { list-style-type: none; }
+
+ul.lst-kix_58340chqu0tm-1 { list-style-type: none; }
+
+ul.lst-kix_58340chqu0tm-4 { list-style-type: none; }
+
+ul.lst-kix_58340chqu0tm-3 { list-style-type: none; }
+
+ul.lst-kix_58340chqu0tm-0 { list-style-type: none; }
+
+ul.lst-kix_58340chqu0tm-6 { list-style-type: none; }
+
+ul.lst-kix_58340chqu0tm-5 { list-style-type: none; }
+
+ul.lst-kix_58340chqu0tm-8 { list-style-type: none; }
+
+ol.lst-kix_l1iuxjjqy6vy-7.start { counter-reset: lst-ctn-kix_l1iuxjjqy6vy-7 0; }
+
+ul.lst-kix_58340chqu0tm-7 { list-style-type: none; }
+
+.lst-kix_jsgq5gv9822e-6 > li::before { content: "-  "; }
+
+.lst-kix_vwovf6yjbg3l-4 > li::before { content: "-  "; }
+
+.lst-kix_jsgq5gv9822e-4 > li::before { content: "-  "; }
+
+.lst-kix_vwovf6yjbg3l-2 > li::before { content: "-  "; }
+
+.lst-kix_g5mo41somw1a-7 > li::before { content: "-  "; }
+
+ul.lst-kix_o1cpwf71luav-2 { list-style-type: none; }
+
+ul.lst-kix_o1cpwf71luav-1 { list-style-type: none; }
+
+.lst-kix_va69msowdete-1 > li::before { content: "-  "; }
+
+ul.lst-kix_o1cpwf71luav-0 { list-style-type: none; }
+
+.lst-kix_bita3zr4awt6-0 > li::before { content: "-  "; }
+
+.lst-kix_bita3zr4awt6-4 > li::before { content: "-  "; }
+
+.lst-kix_g5mo41somw1a-1 > li::before { content: "-  "; }
+
+.lst-kix_g5mo41somw1a-5 > li::before { content: "-  "; }
+
+ul.lst-kix_o1cpwf71luav-6 { list-style-type: none; }
+
+.lst-kix_vwovf6yjbg3l-0 > li::before { content: "-  "; }
+
+ul.lst-kix_o1cpwf71luav-5 { list-style-type: none; }
+
+ul.lst-kix_o1cpwf71luav-4 { list-style-type: none; }
+
+ul.lst-kix_o1cpwf71luav-3 { list-style-type: none; }
+
+ul.lst-kix_o1cpwf71luav-8 { list-style-type: none; }
+
+.lst-kix_bita3zr4awt6-2 > li::before { content: "-  "; }
+
+.lst-kix_jsgq5gv9822e-8 > li::before { content: "-  "; }
+
+ul.lst-kix_o1cpwf71luav-7 { list-style-type: none; }
+
+.lst-kix_g5mo41somw1a-3 > li::before { content: "-  "; }
+
+.lst-kix_bita3zr4awt6-8 > li::before { content: "-  "; }
+
+ul.lst-kix_6xymemg6jx0e-0 { list-style-type: none; }
+
+.lst-kix_6rk6yn1mgjn9-8 > li::before { content: "-  "; }
+
+.lst-kix_va69msowdete-3 > li::before { content: "-  "; }
+
+.lst-kix_bita3zr4awt6-6 > li::before { content: "-  "; }
+
+ul.lst-kix_dasau3xd670t-7 { list-style-type: none; }
+
+ul.lst-kix_6xymemg6jx0e-6 { list-style-type: none; }
+
+ul.lst-kix_dasau3xd670t-8 { list-style-type: none; }
+
+ul.lst-kix_6xymemg6jx0e-5 { list-style-type: none; }
+
+ul.lst-kix_6xymemg6jx0e-8 { list-style-type: none; }
+
+ul.lst-kix_6xymemg6jx0e-7 { list-style-type: none; }
+
+.lst-kix_l1iuxjjqy6vy-6 > li { counter-increment: lst-ctn-kix_l1iuxjjqy6vy-6 1; }
+
+ul.lst-kix_6xymemg6jx0e-2 { list-style-type: none; }
+
+ul.lst-kix_6xymemg6jx0e-1 { list-style-type: none; }
+
+.lst-kix_6rk6yn1mgjn9-6 > li::before { content: "-  "; }
+
+.lst-kix_va69msowdete-5 > li::before { content: "-  "; }
+
+ul.lst-kix_6xymemg6jx0e-4 { list-style-type: none; }
+
+ul.lst-kix_6xymemg6jx0e-3 { list-style-type: none; }
+
+.lst-kix_jsgq5gv9822e-2 > li::before { content: "-  "; }
+
+.lst-kix_vwovf6yjbg3l-8 > li::before { content: "-  "; }
+
+.lst-kix_va69msowdete-7 > li::before { content: "-  "; }
+
+.lst-kix_jsgq5gv9822e-0 > li::before { content: "-  "; }
+
+.lst-kix_vwovf6yjbg3l-6 > li::before { content: "-  "; }
+
+.lst-kix_6rk6yn1mgjn9-4 > li::before { content: "-  "; }
+
+.lst-kix_cf77e2ghjxvd-3 > li::before { content: "-  "; }
+
+.lst-kix_og3f2efxta3l-2 > li::before { content: "-  "; }
+
+ul.lst-kix_vwovf6yjbg3l-2 { list-style-type: none; }
+
+ul.lst-kix_vwovf6yjbg3l-3 { list-style-type: none; }
+
+ul.lst-kix_vwovf6yjbg3l-4 { list-style-type: none; }
+
+ul.lst-kix_vwovf6yjbg3l-5 { list-style-type: none; }
+
+.lst-kix_og3f2efxta3l-0 > li::before { content: "-  "; }
+
+.lst-kix_og3f2efxta3l-4 > li::before { content: "-  "; }
+
+ul.lst-kix_vwovf6yjbg3l-6 { list-style-type: none; }
+
+ul.lst-kix_vwovf6yjbg3l-7 { list-style-type: none; }
+
+.lst-kix_6rk6yn1mgjn9-2 > li::before { content: "-  "; }
+
+.lst-kix_u8suo6oq61s5-0 > li::before { content: "-  "; }
+
+ul.lst-kix_vwovf6yjbg3l-8 { list-style-type: none; }
+
+.lst-kix_cf77e2ghjxvd-1 > li::before { content: "-  "; }
+
+.lst-kix_6rk6yn1mgjn9-0 > li::before { content: "-  "; }
+
+.lst-kix_u8suo6oq61s5-6 > li::before { content: "-  "; }
+
+ul.lst-kix_vwovf6yjbg3l-0 { list-style-type: none; }
+
+ul.lst-kix_vwovf6yjbg3l-1 { list-style-type: none; }
+
+.lst-kix_og3f2efxta3l-8 > li::before { content: "-  "; }
+
+.lst-kix_u8suo6oq61s5-8 > li::before { content: "-  "; }
+
+.lst-kix_og3f2efxta3l-6 > li::before { content: "-  "; }
+
+.lst-kix_8auagn7yd15n-7 > li::before { content: "-  "; }
+
+ul.lst-kix_j87sc7wktzsf-4 { list-style-type: none; }
+
+ul.lst-kix_j87sc7wktzsf-5 { list-style-type: none; }
+
+ul.lst-kix_j87sc7wktzsf-2 { list-style-type: none; }
+
+ul.lst-kix_j87sc7wktzsf-3 { list-style-type: none; }
+
+ul.lst-kix_j87sc7wktzsf-0 { list-style-type: none; }
+
+.lst-kix_8auagn7yd15n-5 > li::before { content: "-  "; }
+
+ul.lst-kix_j87sc7wktzsf-1 { list-style-type: none; }
+
+ul.lst-kix_j87sc7wktzsf-8 { list-style-type: none; }
+
+.lst-kix_u8suo6oq61s5-4 > li::before { content: "-  "; }
+
+ul.lst-kix_j87sc7wktzsf-6 { list-style-type: none; }
+
+ul.lst-kix_j87sc7wktzsf-7 { list-style-type: none; }
+
+.lst-kix_8auagn7yd15n-3 > li::before { content: "-  "; }
+
+.lst-kix_8auagn7yd15n-1 > li::before { content: "-  "; }
+
+.lst-kix_u8suo6oq61s5-2 > li::before { content: "-  "; }
+
+.lst-kix_jkm7t1x96dvm-7 > li::before { content: "-  "; }
+
+ol.lst-kix_l3ohic6lpkae-0 { list-style-type: none; }
+
+ul.lst-kix_va69msowdete-5 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-1 { list-style-type: none; }
+
+.lst-kix_l3ohic6lpkae-1 > li { counter-increment: lst-ctn-kix_l3ohic6lpkae-1 1; }
+
+ul.lst-kix_va69msowdete-6 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-2 { list-style-type: none; }
+
+ul.lst-kix_va69msowdete-3 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-3 { list-style-type: none; }
+
+ul.lst-kix_va69msowdete-4 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-4 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-5 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-6 { list-style-type: none; }
+
+ul.lst-kix_va69msowdete-7 { list-style-type: none; }
+
+.lst-kix_jkm7t1x96dvm-0 > li::before { content: "-  "; }
+
+.lst-kix_jkm7t1x96dvm-8 > li::before { content: "-  "; }
+
+ol.lst-kix_l3ohic6lpkae-7 { list-style-type: none; }
+
+ul.lst-kix_va69msowdete-8 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-8 { list-style-type: none; }
+
+ul.lst-kix_va69msowdete-1 { list-style-type: none; }
+
+ul.lst-kix_va69msowdete-2 { list-style-type: none; }
+
+ul.lst-kix_va69msowdete-0 { list-style-type: none; }
+
+ul.lst-kix_bita3zr4awt6-8 { list-style-type: none; }
+
+ul.lst-kix_bita3zr4awt6-4 { list-style-type: none; }
+
+ul.lst-kix_bita3zr4awt6-5 { list-style-type: none; }
+
+ul.lst-kix_bita3zr4awt6-6 { list-style-type: none; }
+
+ul.lst-kix_bita3zr4awt6-7 { list-style-type: none; }
+
+ul.lst-kix_bita3zr4awt6-0 { list-style-type: none; }
+
+ul.lst-kix_bita3zr4awt6-1 { list-style-type: none; }
+
+ul.lst-kix_bita3zr4awt6-2 { list-style-type: none; }
+
+ul.lst-kix_bita3zr4awt6-3 { list-style-type: none; }
+
+.lst-kix_l1iuxjjqy6vy-0 > li { counter-increment: lst-ctn-kix_l1iuxjjqy6vy-0 1; }
+
+.lst-kix_o1cpwf71luav-7 > li::before { content: "-  "; }
+
+ul.lst-kix_rcwiysalvhdx-7 { list-style-type: none; }
+
+.lst-kix_pvsm4ujzwqcr-5 > li::before { content: "-  "; }
+
+ul.lst-kix_rcwiysalvhdx-8 { list-style-type: none; }
+
+.lst-kix_o1cpwf71luav-3 > li::before { content: "-  "; }
+
+ul.lst-kix_rcwiysalvhdx-3 { list-style-type: none; }
+
+.lst-kix_pvsm4ujzwqcr-4 > li::before { content: "-  "; }
+
+ul.lst-kix_rcwiysalvhdx-4 { list-style-type: none; }
+
+ul.lst-kix_rcwiysalvhdx-5 { list-style-type: none; }
+
+.lst-kix_o1cpwf71luav-4 > li::before { content: "-  "; }
+
+ul.lst-kix_rcwiysalvhdx-6 { list-style-type: none; }
+
+ul.lst-kix_rcwiysalvhdx-0 { list-style-type: none; }
+
+ul.lst-kix_rcwiysalvhdx-1 { list-style-type: none; }
+
+ul.lst-kix_rcwiysalvhdx-2 { list-style-type: none; }
+
+.lst-kix_qv2mdohb0bgb-1 > li::before { content: "-  "; }
+
+.lst-kix_732s12hmoaoz-4 > li { counter-increment: lst-ctn-kix_732s12hmoaoz-4 1; }
+
+.lst-kix_l1iuxjjqy6vy-7 > li { counter-increment: lst-ctn-kix_l1iuxjjqy6vy-7 1; }
+
+.lst-kix_pvsm4ujzwqcr-8 > li::before { content: "-  "; }
+
+.lst-kix_qv2mdohb0bgb-2 > li::before { content: "-  "; }
+
+.lst-kix_o1cpwf71luav-8 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-8 > li { counter-increment: lst-ctn-kix_l3ohic6lpkae-8 1; }
+
+.lst-kix_pvsm4ujzwqcr-1 > li::before { content: "-  "; }
+
+.lst-kix_o1cpwf71luav-0 > li::before { content: "-  "; }
+
+.lst-kix_jkm7t1x96dvm-3 > li::before { content: "-  "; }
+
+.lst-kix_u15hg3it5hfb-2 > li::before { content: "-  "; }
+
+.lst-kix_u15hg3it5hfb-1 > li::before { content: "-  "; }
+
+.lst-kix_pvsm4ujzwqcr-0 > li::before { content: "-  "; }
+
+.lst-kix_jkm7t1x96dvm-4 > li::before { content: "-  "; }
+
+.lst-kix_jsgq5gv9822e-5 > li::before { content: "-  "; }
+
+.lst-kix_vwovf6yjbg3l-3 > li::before { content: "-  "; }
+
+.lst-kix_g5mo41somw1a-8 > li::before { content: "-  "; }
+
+.lst-kix_732s12hmoaoz-6 > li { counter-increment: lst-ctn-kix_732s12hmoaoz-6 1; }
+
+.lst-kix_a05kosnpqx7k-4 > li::before { content: "-  "; }
+
+.lst-kix_u15hg3it5hfb-5 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-1 > li::before { content: "" counter(lst-ctn-kix_l3ohic6lpkae-1, lower-latin) ". "; }
+
+.lst-kix_bita3zr4awt6-1 > li::before { content: "-  "; }
+
+.lst-kix_732s12hmoaoz-5 > li::before { content: "" counter(lst-ctn-kix_732s12hmoaoz-5, lower-roman) ". "; }
+
+.lst-kix_g5mo41somw1a-0 > li::before { content: "-  "; }
+
+.lst-kix_66wcyhhs9qw7-5 > li::before { content: "‚ñ†  "; }
+
+.lst-kix_va69msowdete-0 > li::before { content: "-  "; }
+
+ul.lst-kix_nf5nwedx64jy-0 { list-style-type: none; }
+
+.lst-kix_g5mo41somw1a-4 > li::before { content: "-  "; }
+
+.lst-kix_a05kosnpqx7k-0 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-5 > li::before { content: "" counter(lst-ctn-kix_l3ohic6lpkae-5, lower-roman) ". "; }
+
+ul.lst-kix_s62eb3z61un6-4 { list-style-type: none; }
+
+ul.lst-kix_nf5nwedx64jy-7 { list-style-type: none; }
+
+ul.lst-kix_s62eb3z61un6-5 { list-style-type: none; }
+
+ul.lst-kix_nf5nwedx64jy-8 { list-style-type: none; }
+
+ul.lst-kix_s62eb3z61un6-2 { list-style-type: none; }
+
+ul.lst-kix_nf5nwedx64jy-5 { list-style-type: none; }
+
+ul.lst-kix_s62eb3z61un6-3 { list-style-type: none; }
+
+ul.lst-kix_nf5nwedx64jy-6 { list-style-type: none; }
+
+ul.lst-kix_s62eb3z61un6-8 { list-style-type: none; }
+
+ul.lst-kix_nf5nwedx64jy-3 { list-style-type: none; }
+
+.lst-kix_qv2mdohb0bgb-5 > li::before { content: "-  "; }
+
+ul.lst-kix_nf5nwedx64jy-4 { list-style-type: none; }
+
+ul.lst-kix_s62eb3z61un6-6 { list-style-type: none; }
+
+.lst-kix_732s12hmoaoz-1 > li::before { content: "" counter(lst-ctn-kix_732s12hmoaoz-1, lower-latin) ". "; }
+
+ul.lst-kix_nf5nwedx64jy-1 { list-style-type: none; }
+
+ul.lst-kix_s62eb3z61un6-7 { list-style-type: none; }
+
+ul.lst-kix_nf5nwedx64jy-2 { list-style-type: none; }
+
+.lst-kix_bita3zr4awt6-5 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-6 > li { counter-increment: lst-ctn-kix_l3ohic6lpkae-6 1; }
+
+.lst-kix_6rk6yn1mgjn9-7 > li::before { content: "-  "; }
+
+.lst-kix_va69msowdete-4 > li::before { content: "-  "; }
+
+.lst-kix_6rk6yn1mgjn9-3 > li::before { content: "-  "; }
+
+.lst-kix_va69msowdete-8 > li::before { content: "-  "; }
+
+.lst-kix_jsgq5gv9822e-1 > li::before { content: "-  "; }
+
+.lst-kix_vwovf6yjbg3l-7 > li::before { content: "-  "; }
+
+ul.lst-kix_s62eb3z61un6-0 { list-style-type: none; }
+
+.lst-kix_a05kosnpqx7k-8 > li::before { content: "-  "; }
+
+ul.lst-kix_s62eb3z61un6-1 { list-style-type: none; }
+
+ul.lst-kix_mg29t5vr2xgi-0 { list-style-type: none; }
+
+ul.lst-kix_mg29t5vr2xgi-2 { list-style-type: none; }
+
+.lst-kix_og3f2efxta3l-3 > li::before { content: "-  "; }
+
+ul.lst-kix_mg29t5vr2xgi-1 { list-style-type: none; }
+
+ul.lst-kix_mg29t5vr2xgi-8 { list-style-type: none; }
+
+ul.lst-kix_mg29t5vr2xgi-7 { list-style-type: none; }
+
+.lst-kix_cf77e2ghjxvd-0 > li::before { content: "-  "; }
+
+.lst-kix_u8suo6oq61s5-5 > li::before { content: "-  "; }
+
+ul.lst-kix_mg29t5vr2xgi-4 { list-style-type: none; }
+
+ul.lst-kix_mg29t5vr2xgi-3 { list-style-type: none; }
+
+ul.lst-kix_mg29t5vr2xgi-6 { list-style-type: none; }
+
+ul.lst-kix_mg29t5vr2xgi-5 { list-style-type: none; }
+
+ul.lst-kix_c56k8svj7bdc-2 { list-style-type: none; }
+
+ul.lst-kix_c56k8svj7bdc-1 { list-style-type: none; }
+
+ul.lst-kix_c56k8svj7bdc-4 { list-style-type: none; }
+
+ul.lst-kix_c56k8svj7bdc-3 { list-style-type: none; }
+
+ul.lst-kix_c56k8svj7bdc-6 { list-style-type: none; }
+
+ul.lst-kix_c56k8svj7bdc-5 { list-style-type: none; }
+
+ul.lst-kix_c56k8svj7bdc-8 { list-style-type: none; }
+
+ul.lst-kix_c56k8svj7bdc-7 { list-style-type: none; }
+
+.lst-kix_og3f2efxta3l-7 > li::before { content: "-  "; }
+
+.lst-kix_lxudbwusz4ls-0 > li::before { content: "-  "; }
+
+.lst-kix_8auagn7yd15n-6 > li::before { content: "-  "; }
+
+.lst-kix_66wcyhhs9qw7-1 > li::before { content: "‚óã  "; }
+
+.lst-kix_u8suo6oq61s5-1 > li::before { content: "-  "; }
+
+.lst-kix_8auagn7yd15n-2 > li::before { content: "-  "; }
+
+.lst-kix_i59p5ofrcjmr-5 > li::before { content: "-  "; }
+
+.lst-kix_i59p5ofrcjmr-2 > li::before { content: "-  "; }
+
+.lst-kix_hdwfi6gtwzvs-6 > li::before { content: "-  "; }
+
+.lst-kix_i59p5ofrcjmr-3 > li::before { content: "-  "; }
+
+ul.lst-kix_8auagn7yd15n-6 { list-style-type: none; }
+
+ol.lst-kix_732s12hmoaoz-7 { list-style-type: none; }
+
+ul.lst-kix_8auagn7yd15n-5 { list-style-type: none; }
+
+ol.lst-kix_732s12hmoaoz-8 { list-style-type: none; }
+
+ul.lst-kix_8auagn7yd15n-8 { list-style-type: none; }
+
+.lst-kix_hdwfi6gtwzvs-1 > li::before { content: "-  "; }
+
+.lst-kix_hdwfi6gtwzvs-3 > li::before { content: "-  "; }
+
+ul.lst-kix_8auagn7yd15n-7 { list-style-type: none; }
+
+.lst-kix_hdwfi6gtwzvs-4 > li::before { content: "-  "; }
+
+.lst-kix_ocpmi4wo35dj-8 > li::before { content: "-  "; }
+
+ul.lst-kix_8auagn7yd15n-0 { list-style-type: none; }
+
+ul.lst-kix_8auagn7yd15n-2 { list-style-type: none; }
+
+ul.lst-kix_8auagn7yd15n-1 { list-style-type: none; }
+
+ul.lst-kix_8auagn7yd15n-4 { list-style-type: none; }
+
+ul.lst-kix_8auagn7yd15n-3 { list-style-type: none; }
+
+.lst-kix_i59p5ofrcjmr-8 > li::before { content: "-  "; }
+
+.lst-kix_ocpmi4wo35dj-1 > li::before { content: "-  "; }
+
+.lst-kix_ocpmi4wo35dj-0 > li::before { content: "-  "; }
+
+.lst-kix_c56k8svj7bdc-4 > li::before { content: "-  "; }
+
+ol.lst-kix_732s12hmoaoz-0 { list-style-type: none; }
+
+.lst-kix_ocpmi4wo35dj-6 > li::before { content: "-  "; }
+
+ol.lst-kix_732s12hmoaoz-1 { list-style-type: none; }
+
+ol.lst-kix_732s12hmoaoz-2 { list-style-type: none; }
+
+.lst-kix_c56k8svj7bdc-7 > li::before { content: "-  "; }
+
+ol.lst-kix_732s12hmoaoz-3 { list-style-type: none; }
+
+ol.lst-kix_732s12hmoaoz-4 { list-style-type: none; }
+
+ol.lst-kix_732s12hmoaoz-5 { list-style-type: none; }
+
+.lst-kix_58340chqu0tm-1 > li::before { content: "-  "; }
+
+ol.lst-kix_732s12hmoaoz-6 { list-style-type: none; }
+
+.lst-kix_58340chqu0tm-6 > li::before { content: "-  "; }
+
+.lst-kix_58340chqu0tm-7 > li::before { content: "-  "; }
+
+.lst-kix_c56k8svj7bdc-1 > li::before { content: "-  "; }
+
+.lst-kix_58340chqu0tm-4 > li::before { content: "-  "; }
+
+.lst-kix_ocpmi4wo35dj-3 > li::before { content: "-  "; }
+
+.lst-kix_j87sc7wktzsf-5 > li::before { content: "-  "; }
+
+.lst-kix_l1iuxjjqy6vy-5 > li::before { content: "(" counter(lst-ctn-kix_l1iuxjjqy6vy-5, lower-latin) ") "; }
+
+.lst-kix_c56k8svj7bdc-2 > li::before { content: "-  "; }
+
+.lst-kix_i59p5ofrcjmr-0 > li::before { content: "-  "; }
+
+.lst-kix_732s12hmoaoz-3 > li { counter-increment: lst-ctn-kix_732s12hmoaoz-3 1; }
+
+.lst-kix_l1iuxjjqy6vy-6 > li::before { content: "(" counter(lst-ctn-kix_l1iuxjjqy6vy-6, lower-roman) ") "; }
+
+.lst-kix_j87sc7wktzsf-4 > li::before { content: "-  "; }
+
+.lst-kix_j87sc7wktzsf-2 > li::before { content: "-  "; }
+
+.lst-kix_rcwiysalvhdx-0 > li::before { content: "-  "; }
+
+ul.lst-kix_18gg1dt4g03l-0 { list-style-type: none; }
+
+.lst-kix_l1iuxjjqy6vy-8 > li::before { content: "(" counter(lst-ctn-kix_l1iuxjjqy6vy-8, lower-roman) ") "; }
+
+ul.lst-kix_18gg1dt4g03l-2 { list-style-type: none; }
+
+ul.lst-kix_18gg1dt4g03l-1 { list-style-type: none; }
+
+ul.lst-kix_18gg1dt4g03l-4 { list-style-type: none; }
+
+ul.lst-kix_18gg1dt4g03l-3 { list-style-type: none; }
+
+.lst-kix_mg29t5vr2xgi-8 > li::before { content: "-  "; }
+
+.lst-kix_2z9ebaq27aq2-7 > li::before { content: "-  "; }
+
+.lst-kix_l1iuxjjqy6vy-1 > li { counter-increment: lst-ctn-kix_l1iuxjjqy6vy-1 1; }
+
+.lst-kix_mg29t5vr2xgi-5 > li::before { content: "-  "; }
+
+.lst-kix_mg29t5vr2xgi-0 > li::before { content: "-  "; }
+
+.lst-kix_mg29t5vr2xgi-2 > li::before { content: "-  "; }
+
+.lst-kix_mg29t5vr2xgi-3 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-2 > li { counter-increment: lst-ctn-kix_l3ohic6lpkae-2 1; }
+
+.lst-kix_l1iuxjjqy6vy-5 > li { counter-increment: lst-ctn-kix_l1iuxjjqy6vy-5 1; }
+
+.lst-kix_a05kosnpqx7k-5 > li::before { content: "-  "; }
+
+.lst-kix_a05kosnpqx7k-7 > li::before { content: "-  "; }
+
+ul.lst-kix_ocpmi4wo35dj-2 { list-style-type: none; }
+
+ul.lst-kix_ocpmi4wo35dj-1 { list-style-type: none; }
+
+ul.lst-kix_ocpmi4wo35dj-4 { list-style-type: none; }
+
+.lst-kix_u15hg3it5hfb-4 > li::before { content: "-  "; }
+
+ul.lst-kix_ocpmi4wo35dj-3 { list-style-type: none; }
+
+ul.lst-kix_ocpmi4wo35dj-0 { list-style-type: none; }
+
+.lst-kix_r82yyo7prpr4-1 > li::before { content: "-  "; }
+
+.lst-kix_732s12hmoaoz-6 > li::before { content: "" counter(lst-ctn-kix_732s12hmoaoz-6) ". "; }
+
+.lst-kix_732s12hmoaoz-8 > li::before { content: "" counter(lst-ctn-kix_732s12hmoaoz-8, lower-roman) ". "; }
+
+.lst-kix_26o7qbgpd47e-7 > li::before { content: "-  "; }
+
+.lst-kix_l1iuxjjqy6vy-4 > li { counter-increment: lst-ctn-kix_l1iuxjjqy6vy-4 1; }
+
+.lst-kix_732s12hmoaoz-7 > li { counter-increment: lst-ctn-kix_732s12hmoaoz-7 1; }
+
+.lst-kix_66wcyhhs9qw7-8 > li::before { content: "‚ñ†  "; }
+
+.lst-kix_l3ohic6lpkae-6 > li::before { content: "" counter(lst-ctn-kix_l3ohic6lpkae-6) ". "; }
+
+.lst-kix_66wcyhhs9qw7-6 > li::before { content: "‚óè  "; }
+
+.lst-kix_26o7qbgpd47e-5 > li::before { content: "-  "; }
+
+ul.lst-kix_o88pnnr65qge-6 { list-style-type: none; }
+
+.lst-kix_2z9ebaq27aq2-1 > li::before { content: "-  "; }
+
+.lst-kix_qv2mdohb0bgb-8 > li::before { content: "-  "; }
+
+ul.lst-kix_o88pnnr65qge-7 { list-style-type: none; }
+
+.lst-kix_l3ohic6lpkae-8 > li::before { content: "" counter(lst-ctn-kix_l3ohic6lpkae-8, lower-roman) ". "; }
+
+ul.lst-kix_o88pnnr65qge-8 { list-style-type: none; }
+
+.lst-kix_732s12hmoaoz-0 > li::before { content: "" counter(lst-ctn-kix_732s12hmoaoz-0) ". "; }
+
+ul.lst-kix_o88pnnr65qge-2 { list-style-type: none; }
+
+ul.lst-kix_o88pnnr65qge-3 { list-style-type: none; }
+
+ul.lst-kix_o88pnnr65qge-4 { list-style-type: none; }
+
+ul.lst-kix_o88pnnr65qge-5 { list-style-type: none; }
+
+.lst-kix_qv2mdohb0bgb-6 > li::before { content: "-  "; }
+
+ul.lst-kix_18gg1dt4g03l-6 { list-style-type: none; }
+
+ul.lst-kix_18gg1dt4g03l-5 { list-style-type: none; }
+
+ul.lst-kix_18gg1dt4g03l-8 { list-style-type: none; }
+
+ul.lst-kix_18gg1dt4g03l-7 { list-style-type: none; }
+
+ul.lst-kix_ocpmi4wo35dj-6 { list-style-type: none; }
+
+ul.lst-kix_ocpmi4wo35dj-5 { list-style-type: none; }
+
+ul.lst-kix_ocpmi4wo35dj-8 { list-style-type: none; }
+
+ol.lst-kix_732s12hmoaoz-6.start { counter-reset: lst-ctn-kix_732s12hmoaoz-6 0; }
+
+ul.lst-kix_ocpmi4wo35dj-7 { list-style-type: none; }
+
+ul.lst-kix_26o7qbgpd47e-7 { list-style-type: none; }
+
+ul.lst-kix_26o7qbgpd47e-8 { list-style-type: none; }
+
+ul.lst-kix_26o7qbgpd47e-5 { list-style-type: none; }
+
+ul.lst-kix_26o7qbgpd47e-6 { list-style-type: none; }
+
+.lst-kix_j87sc7wktzsf-7 > li::before { content: "-  "; }
+
+.lst-kix_l1iuxjjqy6vy-3 > li::before { content: "" counter(lst-ctn-kix_l1iuxjjqy6vy-3, lower-latin) ") "; }
+
+ul.lst-kix_26o7qbgpd47e-0 { list-style-type: none; }
+
+.lst-kix_rcwiysalvhdx-8 > li::before { content: "-  "; }
+
+ul.lst-kix_26o7qbgpd47e-3 { list-style-type: none; }
+
+ul.lst-kix_26o7qbgpd47e-4 { list-style-type: none; }
+
+.lst-kix_rcwiysalvhdx-6 > li::before { content: "-  "; }
+
+ul.lst-kix_26o7qbgpd47e-1 { list-style-type: none; }
+
+ul.lst-kix_26o7qbgpd47e-2 { list-style-type: none; }
+
+ul.lst-kix_og3f2efxta3l-1 { list-style-type: none; }
+
+ul.lst-kix_og3f2efxta3l-2 { list-style-type: none; }
+
+ul.lst-kix_og3f2efxta3l-0 { list-style-type: none; }
+
+ul.lst-kix_og3f2efxta3l-5 { list-style-type: none; }
+
+ul.lst-kix_og3f2efxta3l-6 { list-style-type: none; }
+
+ul.lst-kix_og3f2efxta3l-3 { list-style-type: none; }
+
+ul.lst-kix_o88pnnr65qge-0 { list-style-type: none; }
+
+ul.lst-kix_og3f2efxta3l-4 { list-style-type: none; }
+
+ul.lst-kix_o88pnnr65qge-1 { list-style-type: none; }
+
+ul.lst-kix_og3f2efxta3l-7 { list-style-type: none; }
+
+ul.lst-kix_og3f2efxta3l-8 { list-style-type: none; }
+
+ul.lst-kix_u8suo6oq61s5-7 { list-style-type: none; }
+
+ul.lst-kix_u8suo6oq61s5-6 { list-style-type: none; }
+
+.lst-kix_9unlnimxammq-5 > li::before { content: "-  "; }
+
+ul.lst-kix_u8suo6oq61s5-8 { list-style-type: none; }
+
+ol.lst-kix_732s12hmoaoz-8.start { counter-reset: lst-ctn-kix_732s12hmoaoz-8 0; }
+
+.lst-kix_spjbm9ywrnyk-7 > li::before { content: "-  "; }
+
+.lst-kix_nf5nwedx64jy-8 > li::before { content: "-  "; }
+
+.lst-kix_9unlnimxammq-7 > li::before { content: "-  "; }
+
+.lst-kix_7047i4ke9cfk-4 > li::before { content: "-  "; }
+
+ul.lst-kix_9bjmmpi8bfz5-8 { list-style-type: none; }
+
+ul.lst-kix_9bjmmpi8bfz5-7 { list-style-type: none; }
+
+ul.lst-kix_9bjmmpi8bfz5-6 { list-style-type: none; }
+
+.lst-kix_7047i4ke9cfk-6 > li::before { content: "-  "; }
+
+ul.lst-kix_9bjmmpi8bfz5-5 { list-style-type: none; }
+
+ul.lst-kix_9bjmmpi8bfz5-4 { list-style-type: none; }
+
+.lst-kix_66wcyhhs9qw7-0 > li::before { content: "‚óè  "; }
+
+ul.lst-kix_u8suo6oq61s5-1 { list-style-type: none; }
+
+.lst-kix_nf5nwedx64jy-6 > li::before { content: "-  "; }
+
+ul.lst-kix_u8suo6oq61s5-0 { list-style-type: none; }
+
+ul.lst-kix_u8suo6oq61s5-3 { list-style-type: none; }
+
+ul.lst-kix_u8suo6oq61s5-2 { list-style-type: none; }
+
+ul.lst-kix_u8suo6oq61s5-5 { list-style-type: none; }
+
+ul.lst-kix_u8suo6oq61s5-4 { list-style-type: none; }
+
+.lst-kix_732s12hmoaoz-0 > li { counter-increment: lst-ctn-kix_732s12hmoaoz-0 1; }
+
+.lst-kix_s62eb3z61un6-7 > li::before { content: "-  "; }
+
+ul.lst-kix_jsgq5gv9822e-1 { list-style-type: none; }
+
+ul.lst-kix_jsgq5gv9822e-0 { list-style-type: none; }
+
+ul.lst-kix_jsgq5gv9822e-3 { list-style-type: none; }
+
+.lst-kix_jkm7t1x96dvm-6 > li::before { content: "-  "; }
+
+ul.lst-kix_jsgq5gv9822e-2 { list-style-type: none; }
+
+ul.lst-kix_jsgq5gv9822e-5 { list-style-type: none; }
+
+ul.lst-kix_9bjmmpi8bfz5-3 { list-style-type: none; }
+
+ul.lst-kix_jsgq5gv9822e-4 { list-style-type: none; }
+
+ul.lst-kix_9bjmmpi8bfz5-2 { list-style-type: none; }
+
+ul.lst-kix_jsgq5gv9822e-7 { list-style-type: none; }
+
+ul.lst-kix_9bjmmpi8bfz5-1 { list-style-type: none; }
+
+.lst-kix_nf5nwedx64jy-0 > li::before { content: "-  "; }
+
+ul.lst-kix_jsgq5gv9822e-6 { list-style-type: none; }
+
+ul.lst-kix_9bjmmpi8bfz5-0 { list-style-type: none; }
+
+.lst-kix_jkm7t1x96dvm-1 > li::before { content: "-  "; }
+
+ul.lst-kix_jsgq5gv9822e-8 { list-style-type: none; }
+
+.lst-kix_spjbm9ywrnyk-2 > li::before { content: "-  "; }
+
+ul.lst-kix_tam5pc4fjmsm-4 { list-style-type: none; }
+
+ul.lst-kix_tam5pc4fjmsm-5 { list-style-type: none; }
+
+ul.lst-kix_tam5pc4fjmsm-2 { list-style-type: none; }
+
+ul.lst-kix_tam5pc4fjmsm-3 { list-style-type: none; }
+
+ul.lst-kix_tam5pc4fjmsm-8 { list-style-type: none; }
+
+ul.lst-kix_tam5pc4fjmsm-6 { list-style-type: none; }
+
+ul.lst-kix_tam5pc4fjmsm-7 { list-style-type: none; }
+
+ul.lst-kix_tam5pc4fjmsm-0 { list-style-type: none; }
+
+ul.lst-kix_tam5pc4fjmsm-1 { list-style-type: none; }
+
+ol.lst-kix_732s12hmoaoz-4.start { counter-reset: lst-ctn-kix_732s12hmoaoz-4 0; }
+
+.lst-kix_o1cpwf71luav-6 > li::before { content: "-  "; }
+
+.lst-kix_qv2mdohb0bgb-0 > li::before { content: "-  "; }
+
+.lst-kix_5lbknll0sxtt-7 > li::before { content: "-  "; }
+
+.lst-kix_qv2mdohb0bgb-3 > li::before { content: "-  "; }
+
+.lst-kix_pvsm4ujzwqcr-7 > li::before { content: "-  "; }
+
+.lst-kix_5lbknll0sxtt-2 > li::before { content: "-  "; }
+
+.lst-kix_dybf6ochpr2o-3 > li::before { content: "-  "; }
+
+ol.lst-kix_732s12hmoaoz-5.start { counter-reset: lst-ctn-kix_732s12hmoaoz-5 0; }
+
+.lst-kix_pvsm4ujzwqcr-2 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-0 > li::before { content: "" counter(lst-ctn-kix_l3ohic6lpkae-0) ". "; }
+
+.lst-kix_l3ohic6lpkae-5 > li { counter-increment: lst-ctn-kix_l3ohic6lpkae-5 1; }
+
+.lst-kix_18gg1dt4g03l-2 > li::before { content: "-  "; }
+
+.lst-kix_s62eb3z61un6-4 > li::before { content: "-  "; }
+
+.lst-kix_o1cpwf71luav-1 > li::before { content: "-  "; }
+
+.lst-kix_dybf6ochpr2o-6 > li::before { content: "-  "; }
+
+.lst-kix_r82yyo7prpr4-6 > li::before { content: "-  "; }
+
+.lst-kix_u15hg3it5hfb-7 > li::before { content: "-  "; }
+
+.lst-kix_jsgq5gv9822e-7 > li::before { content: "-  "; }
+
+.lst-kix_a05kosnpqx7k-2 > li::before { content: "-  "; }
+
+.lst-kix_vwovf6yjbg3l-1 > li::before { content: "-  "; }
+
+.lst-kix_g5mo41somw1a-6 > li::before { content: "-  "; }
+
+.lst-kix_18gg1dt4g03l-5 > li::before { content: "-  "; }
+
+.lst-kix_66wcyhhs9qw7-3 > li::before { content: "‚óè  "; }
+
+.lst-kix_bita3zr4awt6-3 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-3 > li::before { content: "" counter(lst-ctn-kix_l3ohic6lpkae-3) ". "; }
+
+ol.lst-kix_732s12hmoaoz-3.start { counter-reset: lst-ctn-kix_732s12hmoaoz-3 0; }
+
+.lst-kix_2z9ebaq27aq2-4 > li::before { content: "-  "; }
+
+.lst-kix_26o7qbgpd47e-2 > li::before { content: "-  "; }
+
+.lst-kix_va69msowdete-2 > li::before { content: "-  "; }
+
+.lst-kix_732s12hmoaoz-3 > li::before { content: "" counter(lst-ctn-kix_732s12hmoaoz-3) ". "; }
+
+ol.lst-kix_732s12hmoaoz-0.start { counter-reset: lst-ctn-kix_732s12hmoaoz-0 0; }
+
+.lst-kix_l1iuxjjqy6vy-8 > li { counter-increment: lst-ctn-kix_l1iuxjjqy6vy-8 1; }
+
+ul.lst-kix_r82yyo7prpr4-1 { list-style-type: none; }
+
+.lst-kix_rcwiysalvhdx-3 > li::before { content: "-  "; }
+
+ul.lst-kix_r82yyo7prpr4-2 { list-style-type: none; }
+
+ul.lst-kix_r82yyo7prpr4-3 { list-style-type: none; }
+
+ul.lst-kix_r82yyo7prpr4-4 { list-style-type: none; }
+
+.lst-kix_vd1sp3y3prhj-2 > li::before { content: "-  "; }
+
+ul.lst-kix_r82yyo7prpr4-0 { list-style-type: none; }
+
+.lst-kix_l1iuxjjqy6vy-0 > li::before { content: "" counter(lst-ctn-kix_l1iuxjjqy6vy-0, upper-roman) ". "; }
+
+.lst-kix_6rk6yn1mgjn9-1 > li::before { content: "-  "; }
+
+.lst-kix_9unlnimxammq-2 > li::before { content: "-  "; }
+
+.lst-kix_og3f2efxta3l-5 > li::before { content: "-  "; }
+
+.lst-kix_qp7vij7fntio-7 > li::before { content: "-  "; }
+
+.lst-kix_7047i4ke9cfk-1 > li::before { content: "-  "; }
+
+.lst-kix_8auagn7yd15n-4 > li::before { content: "-  "; }
+
+ol.lst-kix_732s12hmoaoz-1.start { counter-reset: lst-ctn-kix_732s12hmoaoz-1 0; }
+
+.lst-kix_o88pnnr65qge-3 > li::before { content: "-  "; }
+
+.lst-kix_nf5nwedx64jy-3 > li::before { content: "-  "; }
+
+.lst-kix_u8suo6oq61s5-3 > li::before { content: "-  "; }
+
+.lst-kix_9bjmmpi8bfz5-4 > li::before { content: "-  "; }
+
+ul.lst-kix_r82yyo7prpr4-5 { list-style-type: none; }
+
+ul.lst-kix_r82yyo7prpr4-6 { list-style-type: none; }
+
+.lst-kix_ulkib94s8lbb-4 > li::before { content: "-  "; }
+
+ul.lst-kix_r82yyo7prpr4-7 { list-style-type: none; }
+
+ul.lst-kix_r82yyo7prpr4-8 { list-style-type: none; }
+
+.lst-kix_dasau3xd670t-8 > li::before { content: "-  "; }
+
+ol.lst-kix_732s12hmoaoz-2.start { counter-reset: lst-ctn-kix_732s12hmoaoz-2 0; }
+
+.lst-kix_dasau3xd670t-5 > li::before { content: "-  "; }
+
+.lst-kix_tam5pc4fjmsm-1 > li::before { content: "-  "; }
+
+.lst-kix_dasau3xd670t-4 > li::before { content: "-  "; }
+
+.lst-kix_tam5pc4fjmsm-0 > li::before { content: "-  "; }
+
+.lst-kix_dasau3xd670t-3 > li::before { content: "-  "; }
+
+.lst-kix_tam5pc4fjmsm-4 > li::before { content: "-  "; }
+
+.lst-kix_tam5pc4fjmsm-6 > li::before { content: "-  "; }
+
+.lst-kix_732s12hmoaoz-1 > li { counter-increment: lst-ctn-kix_732s12hmoaoz-1 1; }
+
+.lst-kix_tam5pc4fjmsm-5 > li::before { content: "-  "; }
+
+.lst-kix_dasau3xd670t-6 > li::before { content: "-  "; }
+
+.lst-kix_tam5pc4fjmsm-2 > li::before { content: "-  "; }
+
+.lst-kix_dasau3xd670t-7 > li::before { content: "-  "; }
+
+.lst-kix_tam5pc4fjmsm-3 > li::before { content: "-  "; }
+
+.lst-kix_tam5pc4fjmsm-8 > li::before { content: "-  "; }
+
+.lst-kix_tam5pc4fjmsm-7 > li::before { content: "-  "; }
+
+.lst-kix_x1c6tx3ypzi5-3 > li::before { content: "‚óè  "; }
+
+.lst-kix_qp7vij7fntio-1 > li::before { content: "-  "; }
+
+.lst-kix_qp7vij7fntio-3 > li::before { content: "-  "; }
+
+.lst-kix_x1c6tx3ypzi5-1 > li::before { content: "‚óã  "; }
+
+.lst-kix_x1c6tx3ypzi5-2 > li::before { content: "‚ñ†  "; }
+
+.lst-kix_qp7vij7fntio-2 > li::before { content: "-  "; }
+
+.lst-kix_x1c6tx3ypzi5-0 > li::before { content: "‚óè  "; }
+
+.lst-kix_qp7vij7fntio-0 > li::before { content: "-  "; }
+
+ul.lst-kix_cf77e2ghjxvd-7 { list-style-type: none; }
+
+ul.lst-kix_cf77e2ghjxvd-6 { list-style-type: none; }
+
+ul.lst-kix_cf77e2ghjxvd-5 { list-style-type: none; }
+
+ul.lst-kix_cf77e2ghjxvd-4 { list-style-type: none; }
+
+ul.lst-kix_cf77e2ghjxvd-8 { list-style-type: none; }
+
+.lst-kix_x1c6tx3ypzi5-4 > li::before { content: "‚óã  "; }
+
+ul.lst-kix_vd1sp3y3prhj-8 { list-style-type: none; }
+
+.lst-kix_x1c6tx3ypzi5-5 > li::before { content: "‚ñ†  "; }
+
+.lst-kix_x1c6tx3ypzi5-6 > li::before { content: "‚óè  "; }
+
+ul.lst-kix_vd1sp3y3prhj-4 { list-style-type: none; }
+
+.lst-kix_x1c6tx3ypzi5-7 > li::before { content: "‚óã  "; }
+
+.lst-kix_x1c6tx3ypzi5-8 > li::before { content: "‚ñ†  "; }
+
+ul.lst-kix_vd1sp3y3prhj-5 { list-style-type: none; }
+
+ul.lst-kix_vd1sp3y3prhj-6 { list-style-type: none; }
+
+ul.lst-kix_vd1sp3y3prhj-7 { list-style-type: none; }
+
+ul.lst-kix_vd1sp3y3prhj-0 { list-style-type: none; }
+
+ul.lst-kix_cf77e2ghjxvd-3 { list-style-type: none; }
+
+ul.lst-kix_vd1sp3y3prhj-1 { list-style-type: none; }
+
+ul.lst-kix_cf77e2ghjxvd-2 { list-style-type: none; }
+
+ul.lst-kix_vd1sp3y3prhj-2 { list-style-type: none; }
+
+ul.lst-kix_cf77e2ghjxvd-1 { list-style-type: none; }
+
+ul.lst-kix_vd1sp3y3prhj-3 { list-style-type: none; }
+
+ul.lst-kix_cf77e2ghjxvd-0 { list-style-type: none; }
+
+.lst-kix_6xymemg6jx0e-3 > li::before { content: "-  "; }
+
+.lst-kix_6xymemg6jx0e-5 > li::before { content: "-  "; }
+
+.lst-kix_6xymemg6jx0e-4 > li::before { content: "-  "; }
+
+.lst-kix_6xymemg6jx0e-8 > li::before { content: "-  "; }
+
+.lst-kix_6xymemg6jx0e-7 > li::before { content: "-  "; }
+
+.lst-kix_6xymemg6jx0e-6 > li::before { content: "-  "; }
+
+ul.lst-kix_spjbm9ywrnyk-8 { list-style-type: none; }
+
+ul.lst-kix_spjbm9ywrnyk-4 { list-style-type: none; }
+
+ul.lst-kix_spjbm9ywrnyk-5 { list-style-type: none; }
+
+ul.lst-kix_spjbm9ywrnyk-6 { list-style-type: none; }
+
+ul.lst-kix_spjbm9ywrnyk-7 { list-style-type: none; }
+
+.lst-kix_18gg1dt4g03l-6 > li::before { content: "-  "; }
+
+.lst-kix_o88pnnr65qge-4 > li::before { content: "-  "; }
+
+.lst-kix_o88pnnr65qge-6 > li::before { content: "-  "; }
+
+ul.lst-kix_spjbm9ywrnyk-0 { list-style-type: none; }
+
+ul.lst-kix_spjbm9ywrnyk-1 { list-style-type: none; }
+
+ul.lst-kix_spjbm9ywrnyk-2 { list-style-type: none; }
+
+.lst-kix_o88pnnr65qge-8 > li::before { content: "-  "; }
+
+ul.lst-kix_spjbm9ywrnyk-3 { list-style-type: none; }
+
+.lst-kix_6xymemg6jx0e-1 > li::before { content: "-  "; }
+
+.lst-kix_18gg1dt4g03l-8 > li::before { content: "-  "; }
+
+.lst-kix_vd1sp3y3prhj-3 > li::before { content: "-  "; }
+
+.lst-kix_vd1sp3y3prhj-7 > li::before { content: "-  "; }
+
+ul.lst-kix_9unlnimxammq-3 { list-style-type: none; }
+
+ul.lst-kix_9unlnimxammq-4 { list-style-type: none; }
+
+ul.lst-kix_9unlnimxammq-1 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-2.start { counter-reset: lst-ctn-kix_l3ohic6lpkae-2 0; }
+
+ul.lst-kix_9unlnimxammq-2 { list-style-type: none; }
+
+ul.lst-kix_9unlnimxammq-7 { list-style-type: none; }
+
+ul.lst-kix_9unlnimxammq-8 { list-style-type: none; }
+
+ul.lst-kix_9unlnimxammq-5 { list-style-type: none; }
+
+ul.lst-kix_9unlnimxammq-6 { list-style-type: none; }
+
+.lst-kix_vd1sp3y3prhj-5 > li::before { content: "-  "; }
+
+.lst-kix_qp7vij7fntio-4 > li::before { content: "-  "; }
+
+.lst-kix_9bjmmpi8bfz5-1 > li::before { content: "-  "; }
+
+ul.lst-kix_9unlnimxammq-0 { list-style-type: none; }
+
+.lst-kix_qp7vij7fntio-6 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-4 > li { counter-increment: lst-ctn-kix_l3ohic6lpkae-4 1; }
+
+ol.lst-kix_732s12hmoaoz-7.start { counter-reset: lst-ctn-kix_732s12hmoaoz-7 0; }
+
+.lst-kix_qp7vij7fntio-8 > li::before { content: "-  "; }
+
+.lst-kix_ulkib94s8lbb-7 > li::before { content: "-  "; }
+
+ol.lst-kix_l3ohic6lpkae-3.start { counter-reset: lst-ctn-kix_l3ohic6lpkae-3 0; }
+
+.lst-kix_9bjmmpi8bfz5-7 > li::before { content: "-  "; }
+
+.lst-kix_ulkib94s8lbb-5 > li::before { content: "-  "; }
+
+ul.lst-kix_lxudbwusz4ls-0 { list-style-type: none; }
+
+.lst-kix_o88pnnr65qge-2 > li::before { content: "-  "; }
+
+ul.lst-kix_lxudbwusz4ls-1 { list-style-type: none; }
+
+ul.lst-kix_lxudbwusz4ls-6 { list-style-type: none; }
+
+.lst-kix_732s12hmoaoz-8 > li { counter-increment: lst-ctn-kix_732s12hmoaoz-8 1; }
+
+ul.lst-kix_lxudbwusz4ls-7 { list-style-type: none; }
+
+ul.lst-kix_lxudbwusz4ls-8 { list-style-type: none; }
+
+.lst-kix_dasau3xd670t-0 > li::before { content: "-  "; }
+
+.lst-kix_dasau3xd670t-2 > li::before { content: "-  "; }
+
+ol.lst-kix_l1iuxjjqy6vy-4.start { counter-reset: lst-ctn-kix_l1iuxjjqy6vy-4 0; }
+
+ul.lst-kix_lxudbwusz4ls-2 { list-style-type: none; }
+
+.lst-kix_9bjmmpi8bfz5-3 > li::before { content: "-  "; }
+
+.lst-kix_ulkib94s8lbb-1 > li::before { content: "-  "; }
+
+ul.lst-kix_lxudbwusz4ls-3 { list-style-type: none; }
+
+ul.lst-kix_lxudbwusz4ls-4 { list-style-type: none; }
+
+ul.lst-kix_lxudbwusz4ls-5 { list-style-type: none; }
+
+.lst-kix_9bjmmpi8bfz5-5 > li::before { content: "-  "; }
+
+.lst-kix_ulkib94s8lbb-3 > li::before { content: "-  "; }
+
+.lst-kix_o88pnnr65qge-0 > li::before { content: "-  "; }
+
+.lst-kix_vd1sp3y3prhj-1 > li::before { content: "-  "; }
+
+.lst-kix_nf5nwedx64jy-1 > li::before { content: "-  "; }
+
+ul.lst-kix_hdwfi6gtwzvs-1 { list-style-type: none; }
+
+ul.lst-kix_hdwfi6gtwzvs-0 { list-style-type: none; }
+
+ul.lst-kix_hdwfi6gtwzvs-3 { list-style-type: none; }
+
+ul.lst-kix_hdwfi6gtwzvs-2 { list-style-type: none; }
+
+.lst-kix_spjbm9ywrnyk-4 > li::before { content: "-  "; }
+
+.lst-kix_dybf6ochpr2o-0 > li::before { content: "-  "; }
+
+ul.lst-kix_hdwfi6gtwzvs-8 { list-style-type: none; }
+
+ul.lst-kix_hdwfi6gtwzvs-5 { list-style-type: none; }
+
+ul.lst-kix_hdwfi6gtwzvs-4 { list-style-type: none; }
+
+.lst-kix_spjbm9ywrnyk-5 > li::before { content: "-  "; }
+
+ul.lst-kix_hdwfi6gtwzvs-7 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-8.start { counter-reset: lst-ctn-kix_l3ohic6lpkae-8 0; }
+
+ul.lst-kix_hdwfi6gtwzvs-6 { list-style-type: none; }
+
+ul.lst-kix_u15hg3it5hfb-4 { list-style-type: none; }
+
+ul.lst-kix_u15hg3it5hfb-5 { list-style-type: none; }
+
+ul.lst-kix_u15hg3it5hfb-6 { list-style-type: none; }
+
+ul.lst-kix_u15hg3it5hfb-7 { list-style-type: none; }
+
+ul.lst-kix_u15hg3it5hfb-8 { list-style-type: none; }
+
+ul.lst-kix_u15hg3it5hfb-0 { list-style-type: none; }
+
+ul.lst-kix_u15hg3it5hfb-1 { list-style-type: none; }
+
+.lst-kix_spjbm9ywrnyk-1 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-3 > li { counter-increment: lst-ctn-kix_l3ohic6lpkae-3 1; }
+
+ul.lst-kix_u15hg3it5hfb-2 { list-style-type: none; }
+
+ul.lst-kix_u15hg3it5hfb-3 { list-style-type: none; }
+
+.lst-kix_spjbm9ywrnyk-0 > li::before { content: "-  "; }
+
+ol.lst-kix_l1iuxjjqy6vy-0.start { counter-reset: lst-ctn-kix_l1iuxjjqy6vy-0 0; }
+
+ul.lst-kix_ynzq4waz1fqu-1 { list-style-type: none; }
+
+ul.lst-kix_ynzq4waz1fqu-0 { list-style-type: none; }
+
+ul.lst-kix_ynzq4waz1fqu-3 { list-style-type: none; }
+
+ul.lst-kix_ynzq4waz1fqu-2 { list-style-type: none; }
+
+.lst-kix_5lbknll0sxtt-8 > li::before { content: "-  "; }
+
+ul.lst-kix_ynzq4waz1fqu-5 { list-style-type: none; }
+
+ul.lst-kix_ynzq4waz1fqu-4 { list-style-type: none; }
+
+ul.lst-kix_ynzq4waz1fqu-7 { list-style-type: none; }
+
+ul.lst-kix_ynzq4waz1fqu-6 { list-style-type: none; }
+
+ul.lst-kix_ynzq4waz1fqu-8 { list-style-type: none; }
+
+.lst-kix_5lbknll0sxtt-5 > li::before { content: "-  "; }
+
+.lst-kix_dybf6ochpr2o-4 > li::before { content: "-  "; }
+
+.lst-kix_5lbknll0sxtt-0 > li::before { content: "-  "; }
+
+.lst-kix_5lbknll0sxtt-4 > li::before { content: "-  "; }
+
+.lst-kix_dybf6ochpr2o-1 > li::before { content: "-  "; }
+
+.lst-kix_dybf6ochpr2o-5 > li::before { content: "-  "; }
+
+.lst-kix_r82yyo7prpr4-8 > li::before { content: "-  "; }
+
+.lst-kix_r82yyo7prpr4-3 > li::before { content: "-  "; }
+
+.lst-kix_18gg1dt4g03l-4 > li::before { content: "-  "; }
+
+.lst-kix_5lbknll0sxtt-1 > li::before { content: "-  "; }
+
+.lst-kix_s62eb3z61un6-1 > li::before { content: "-  "; }
+
+.lst-kix_s62eb3z61un6-2 > li::before { content: "-  "; }
+
+.lst-kix_18gg1dt4g03l-3 > li::before { content: "-  "; }
+
+.lst-kix_dybf6ochpr2o-8 > li::before { content: "-  "; }
+
+.lst-kix_r82yyo7prpr4-4 > li::before { content: "-  "; }
+
+.lst-kix_s62eb3z61un6-5 > li::before { content: "-  "; }
+
+.lst-kix_s62eb3z61un6-6 > li::before { content: "-  "; }
+
+.lst-kix_r82yyo7prpr4-7 > li::before { content: "-  "; }
+
+.lst-kix_18gg1dt4g03l-0 > li::before { content: "-  "; }
+
+.lst-kix_o88pnnr65qge-5 > li::before { content: "-  "; }
+
+.lst-kix_26o7qbgpd47e-8 > li::before { content: "-  "; }
+
+.lst-kix_18gg1dt4g03l-7 > li::before { content: "-  "; }
+
+.lst-kix_r82yyo7prpr4-0 > li::before { content: "-  "; }
+
+.lst-kix_26o7qbgpd47e-4 > li::before { content: "-  "; }
+
+.lst-kix_6xymemg6jx0e-2 > li::before { content: "-  "; }
+
+ul.lst-kix_x1c6tx3ypzi5-0 { list-style-type: none; }
+
+.lst-kix_26o7qbgpd47e-0 > li::before { content: "-  "; }
+
+ul.lst-kix_x1c6tx3ypzi5-4 { list-style-type: none; }
+
+.lst-kix_2z9ebaq27aq2-2 > li::before { content: "-  "; }
+
+ul.lst-kix_x1c6tx3ypzi5-3 { list-style-type: none; }
+
+ul.lst-kix_x1c6tx3ypzi5-2 { list-style-type: none; }
+
+ul.lst-kix_x1c6tx3ypzi5-1 { list-style-type: none; }
+
+ol.lst-kix_l3ohic6lpkae-7.start { counter-reset: lst-ctn-kix_l3ohic6lpkae-7 0; }
+
+ul.lst-kix_x1c6tx3ypzi5-8 { list-style-type: none; }
+
+ul.lst-kix_x1c6tx3ypzi5-7 { list-style-type: none; }
+
+ul.lst-kix_x1c6tx3ypzi5-6 { list-style-type: none; }
+
+ul.lst-kix_x1c6tx3ypzi5-5 { list-style-type: none; }
+
+ul.lst-kix_qv2mdohb0bgb-3 { list-style-type: none; }
+
+ul.lst-kix_qv2mdohb0bgb-4 { list-style-type: none; }
+
+ul.lst-kix_qv2mdohb0bgb-5 { list-style-type: none; }
+
+ul.lst-kix_qv2mdohb0bgb-6 { list-style-type: none; }
+
+.lst-kix_vd1sp3y3prhj-4 > li::before { content: "-  "; }
+
+.lst-kix_j87sc7wktzsf-8 > li::before { content: "-  "; }
+
+.lst-kix_rcwiysalvhdx-5 > li::before { content: "-  "; }
+
+ul.lst-kix_qv2mdohb0bgb-0 { list-style-type: none; }
+
+ul.lst-kix_qv2mdohb0bgb-1 { list-style-type: none; }
+
+.lst-kix_l1iuxjjqy6vy-2 > li { counter-increment: lst-ctn-kix_l1iuxjjqy6vy-2 1; }
+
+ul.lst-kix_qv2mdohb0bgb-2 { list-style-type: none; }
+
+.lst-kix_l1iuxjjqy6vy-2 > li::before { content: "" counter(lst-ctn-kix_l1iuxjjqy6vy-2) ". "; }
+
+.lst-kix_qp7vij7fntio-5 > li::before { content: "-  "; }
+
+ul.lst-kix_qv2mdohb0bgb-7 { list-style-type: none; }
+
+ul.lst-kix_qv2mdohb0bgb-8 { list-style-type: none; }
+
+.lst-kix_9unlnimxammq-0 > li::before { content: "-  "; }
+
+ul.lst-kix_pvsm4ujzwqcr-8 { list-style-type: none; }
+
+ul.lst-kix_pvsm4ujzwqcr-7 { list-style-type: none; }
+
+.lst-kix_vd1sp3y3prhj-8 > li::before { content: "-  "; }
+
+ul.lst-kix_pvsm4ujzwqcr-0 { list-style-type: none; }
+
+.lst-kix_spjbm9ywrnyk-8 > li::before { content: "-  "; }
+
+.lst-kix_ulkib94s8lbb-6 > li::before { content: "-  "; }
+
+ul.lst-kix_pvsm4ujzwqcr-2 { list-style-type: none; }
+
+ul.lst-kix_pvsm4ujzwqcr-1 { list-style-type: none; }
+
+ul.lst-kix_pvsm4ujzwqcr-4 { list-style-type: none; }
+
+.lst-kix_7047i4ke9cfk-3 > li::before { content: "-  "; }
+
+.lst-kix_9unlnimxammq-4 > li::before { content: "-  "; }
+
+ul.lst-kix_pvsm4ujzwqcr-3 { list-style-type: none; }
+
+.lst-kix_9unlnimxammq-8 > li::before { content: "-  "; }
+
+ul.lst-kix_pvsm4ujzwqcr-6 { list-style-type: none; }
+
+ul.lst-kix_pvsm4ujzwqcr-5 { list-style-type: none; }
+
+.lst-kix_o88pnnr65qge-1 > li::before { content: "-  "; }
+
+.lst-kix_9bjmmpi8bfz5-2 > li::before { content: "-  "; }
+
+.lst-kix_7047i4ke9cfk-7 > li::before { content: "-  "; }
+
+.lst-kix_ulkib94s8lbb-2 > li::before { content: "-  "; }
+
+.lst-kix_vd1sp3y3prhj-0 > li::before { content: "-  "; }
+
+.lst-kix_nf5nwedx64jy-5 > li::before { content: "-  "; }
+
+.lst-kix_9bjmmpi8bfz5-6 > li::before { content: "-  "; }
+
+.lst-kix_i59p5ofrcjmr-7 > li::before { content: "-  "; }
+
+.lst-kix_hdwfi6gtwzvs-8 > li::before { content: "-  "; }
+
+.lst-kix_i59p5ofrcjmr-6 > li::before { content: "-  "; }
+
+.lst-kix_hdwfi6gtwzvs-5 > li::before { content: "-  "; }
+
+.lst-kix_hdwfi6gtwzvs-7 > li::before { content: "-  "; }
+
+.lst-kix_i59p5ofrcjmr-4 > li::before { content: "-  "; }
+
+ul.lst-kix_i59p5ofrcjmr-7 { list-style-type: none; }
+
+.lst-kix_hdwfi6gtwzvs-2 > li::before { content: "-  "; }
+
+ul.lst-kix_i59p5ofrcjmr-6 { list-style-type: none; }
+
+ul.lst-kix_i59p5ofrcjmr-5 { list-style-type: none; }
+
+ul.lst-kix_i59p5ofrcjmr-4 { list-style-type: none; }
+
+.lst-kix_hdwfi6gtwzvs-0 > li::before { content: "-  "; }
+
+ol.lst-kix_l1iuxjjqy6vy-8.start { counter-reset: lst-ctn-kix_l1iuxjjqy6vy-8 0; }
+
+ul.lst-kix_i59p5ofrcjmr-8 { list-style-type: none; }
+
+ul.lst-kix_i59p5ofrcjmr-3 { list-style-type: none; }
+
+ul.lst-kix_i59p5ofrcjmr-2 { list-style-type: none; }
+
+ul.lst-kix_i59p5ofrcjmr-1 { list-style-type: none; }
+
+ul.lst-kix_i59p5ofrcjmr-0 { list-style-type: none; }
+
+.lst-kix_ocpmi4wo35dj-2 > li::before { content: "-  "; }
+
+.lst-kix_c56k8svj7bdc-3 > li::before { content: "-  "; }
+
+.lst-kix_c56k8svj7bdc-5 > li::before { content: "-  "; }
+
+.lst-kix_ocpmi4wo35dj-4 > li::before { content: "-  "; }
+
+.lst-kix_c56k8svj7bdc-8 > li::before { content: "-  "; }
+
+.lst-kix_58340chqu0tm-2 > li::before { content: "-  "; }
+
+.lst-kix_ocpmi4wo35dj-5 > li::before { content: "-  "; }
+
+.lst-kix_58340chqu0tm-0 > li::before { content: "-  "; }
+
+.lst-kix_ocpmi4wo35dj-7 > li::before { content: "-  "; }
+
+.lst-kix_c56k8svj7bdc-6 > li::before { content: "-  "; }
+
+.lst-kix_58340chqu0tm-3 > li::before { content: "-  "; }
+
+.lst-kix_c56k8svj7bdc-0 > li::before { content: "-  "; }
+
+.lst-kix_i59p5ofrcjmr-1 > li::before { content: "-  "; }
+
+.lst-kix_rcwiysalvhdx-2 > li::before { content: "-  "; }
+
+.lst-kix_58340chqu0tm-5 > li::before { content: "-  "; }
+
+ul.lst-kix_jkm7t1x96dvm-1 { list-style-type: none; }
+
+ul.lst-kix_jkm7t1x96dvm-2 { list-style-type: none; }
+
+ul.lst-kix_jkm7t1x96dvm-0 { list-style-type: none; }
+
+.lst-kix_rcwiysalvhdx-1 > li::before { content: "-  "; }
+
+.lst-kix_j87sc7wktzsf-3 > li::before { content: "-  "; }
+
+.lst-kix_l1iuxjjqy6vy-7 > li::before { content: "(" counter(lst-ctn-kix_l1iuxjjqy6vy-7, lower-latin) ") "; }
+
+ol.lst-kix_l3ohic6lpkae-6.start { counter-reset: lst-ctn-kix_l3ohic6lpkae-6 0; }
+
+.lst-kix_j87sc7wktzsf-1 > li::before { content: "-  "; }
+
+.lst-kix_2z9ebaq27aq2-8 > li::before { content: "-  "; }
+
+.lst-kix_mg29t5vr2xgi-6 > li::before { content: "-  "; }
+
+.lst-kix_j87sc7wktzsf-0 > li::before { content: "-  "; }
+
+.lst-kix_2z9ebaq27aq2-6 > li::before { content: "-  "; }
+
+.lst-kix_mg29t5vr2xgi-7 > li::before { content: "-  "; }
+
+.lst-kix_mg29t5vr2xgi-4 > li::before { content: "-  "; }
+
+ul.lst-kix_jkm7t1x96dvm-7 { list-style-type: none; }
+
+ul.lst-kix_jkm7t1x96dvm-8 { list-style-type: none; }
+
+ul.lst-kix_jkm7t1x96dvm-5 { list-style-type: none; }
+
+ul.lst-kix_jkm7t1x96dvm-6 { list-style-type: none; }
+
+ul.lst-kix_jkm7t1x96dvm-3 { list-style-type: none; }
+
+ul.lst-kix_jkm7t1x96dvm-4 { list-style-type: none; }
+
+ol.lst-kix_l1iuxjjqy6vy-1.start { counter-reset: lst-ctn-kix_l1iuxjjqy6vy-1 0; }
+
+.lst-kix_mg29t5vr2xgi-1 > li::before { content: "-  "; }
+
+ol.lst-kix_l3ohic6lpkae-4.start { counter-reset: lst-ctn-kix_l3ohic6lpkae-4 0; }
+
+.lst-kix_u15hg3it5hfb-6 > li::before { content: "-  "; }
+
+.lst-kix_u15hg3it5hfb-8 > li::before { content: "-  "; }
+
+.lst-kix_a05kosnpqx7k-3 > li::before { content: "-  "; }
+
+.lst-kix_66wcyhhs9qw7-4 > li::before { content: "‚óã  "; }
+
+.lst-kix_l3ohic6lpkae-2 > li::before { content: "" counter(lst-ctn-kix_l3ohic6lpkae-2, lower-roman) ". "; }
+
+.lst-kix_732s12hmoaoz-4 > li::before { content: "" counter(lst-ctn-kix_732s12hmoaoz-4, lower-latin) ". "; }
+
+.lst-kix_26o7qbgpd47e-3 > li::before { content: "-  "; }
+
+.lst-kix_a05kosnpqx7k-1 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-4 > li::before { content: "" counter(lst-ctn-kix_l3ohic6lpkae-4, lower-latin) ". "; }
+
+.lst-kix_7047i4ke9cfk-0 > li::before { content: "-  "; }
+
+.lst-kix_2z9ebaq27aq2-3 > li::before { content: "-  "; }
+
+ol.lst-kix_l1iuxjjqy6vy-6.start { counter-reset: lst-ctn-kix_l1iuxjjqy6vy-6 0; }
+
+.lst-kix_732s12hmoaoz-2 > li::before { content: "" counter(lst-ctn-kix_732s12hmoaoz-2, lower-roman) ". "; }
+
+.lst-kix_2z9ebaq27aq2-5 > li::before { content: "-  "; }
+
+.lst-kix_26o7qbgpd47e-1 > li::before { content: "-  "; }
+
+ol.lst-kix_l3ohic6lpkae-1.start { counter-reset: lst-ctn-kix_l3ohic6lpkae-1 0; }
+
+.lst-kix_rcwiysalvhdx-4 > li::before { content: "-  "; }
+
+.lst-kix_l1iuxjjqy6vy-1 > li::before { content: "" counter(lst-ctn-kix_l1iuxjjqy6vy-1, upper-latin) ". "; }
+
+ol.lst-kix_l1iuxjjqy6vy-3.start { counter-reset: lst-ctn-kix_l1iuxjjqy6vy-3 0; }
+
+.lst-kix_9unlnimxammq-1 > li::before { content: "-  "; }
+
+.lst-kix_9unlnimxammq-3 > li::before { content: "-  "; }
+
+.lst-kix_7047i4ke9cfk-2 > li::before { content: "-  "; }
+
+.lst-kix_66wcyhhs9qw7-2 > li::before { content: "‚ñ†  "; }
+
+.lst-kix_nf5nwedx64jy-2 > li::before { content: "-  "; }
+
+.lst-kix_nf5nwedx64jy-4 > li::before { content: "-  "; }
+
+.lst-kix_732s12hmoaoz-2 > li { counter-increment: lst-ctn-kix_732s12hmoaoz-2 1; }
+
+.lst-kix_7047i4ke9cfk-8 > li::before { content: "-  "; }
+
+.lst-kix_s62eb3z61un6-8 > li::before { content: "-  "; }
+
+ol.lst-kix_l1iuxjjqy6vy-5.start { counter-reset: lst-ctn-kix_l1iuxjjqy6vy-5 0; }
+
+.lst-kix_s62eb3z61un6-0 > li::before { content: "-  "; }
+
+.lst-kix_spjbm9ywrnyk-3 > li::before { content: "-  "; }
+
+.lst-kix_spjbm9ywrnyk-6 > li::before { content: "-  "; }
+
+ul.lst-kix_7047i4ke9cfk-1 { list-style-type: none; }
+
+ul.lst-kix_7047i4ke9cfk-2 { list-style-type: none; }
+
+ul.lst-kix_7047i4ke9cfk-3 { list-style-type: none; }
+
+ul.lst-kix_7047i4ke9cfk-4 { list-style-type: none; }
+
+ul.lst-kix_7047i4ke9cfk-5 { list-style-type: none; }
+
+ul.lst-kix_7047i4ke9cfk-6 { list-style-type: none; }
+
+ul.lst-kix_7047i4ke9cfk-7 { list-style-type: none; }
+
+ul.lst-kix_7047i4ke9cfk-8 { list-style-type: none; }
+
+.lst-kix_o1cpwf71luav-5 > li::before { content: "-  "; }
+
+.lst-kix_pvsm4ujzwqcr-3 > li::before { content: "-  "; }
+
+ul.lst-kix_5lbknll0sxtt-0 { list-style-type: none; }
+
+ul.lst-kix_5lbknll0sxtt-1 { list-style-type: none; }
+
+ul.lst-kix_5lbknll0sxtt-2 { list-style-type: none; }
+
+.lst-kix_pvsm4ujzwqcr-6 > li::before { content: "-  "; }
+
+.lst-kix_qv2mdohb0bgb-4 > li::before { content: "-  "; }
+
+ul.lst-kix_5lbknll0sxtt-3 { list-style-type: none; }
+
+ul.lst-kix_5lbknll0sxtt-4 { list-style-type: none; }
+
+ul.lst-kix_5lbknll0sxtt-5 { list-style-type: none; }
+
+.lst-kix_5lbknll0sxtt-6 > li::before { content: "-  "; }
+
+ul.lst-kix_5lbknll0sxtt-6 { list-style-type: none; }
+
+ul.lst-kix_5lbknll0sxtt-7 { list-style-type: none; }
+
+ul.lst-kix_5lbknll0sxtt-8 { list-style-type: none; }
+
+ul.lst-kix_7047i4ke9cfk-0 { list-style-type: none; }
+
+.lst-kix_5lbknll0sxtt-3 > li::before { content: "-  "; }
+
+.lst-kix_dybf6ochpr2o-2 > li::before { content: "-  "; }
+
+.lst-kix_r82yyo7prpr4-2 > li::before { content: "-  "; }
+
+.lst-kix_u15hg3it5hfb-0 > li::before { content: "-  "; }
+
+.lst-kix_s62eb3z61un6-3 > li::before { content: "-  "; }
+
+.lst-kix_o1cpwf71luav-2 > li::before { content: "-  "; }
+
+.lst-kix_jkm7t1x96dvm-2 > li::before { content: "-  "; }
+
+.lst-kix_dybf6ochpr2o-7 > li::before { content: "-  "; }
+
+.lst-kix_r82yyo7prpr4-5 > li::before { content: "-  "; }
+
+.lst-kix_18gg1dt4g03l-1 > li::before { content: "-  "; }
+
+.lst-kix_jkm7t1x96dvm-5 > li::before { content: "-  "; }
+
+.lst-kix_a05kosnpqx7k-6 > li::before { content: "-  "; }
+
+ul.lst-kix_ulkib94s8lbb-6 { list-style-type: none; }
+
+ul.lst-kix_ulkib94s8lbb-7 { list-style-type: none; }
+
+ul.lst-kix_ulkib94s8lbb-8 { list-style-type: none; }
+
+.lst-kix_vwovf6yjbg3l-5 > li::before { content: "-  "; }
+
+ul.lst-kix_ulkib94s8lbb-2 { list-style-type: none; }
+
+ul.lst-kix_ulkib94s8lbb-3 { list-style-type: none; }
+
+ul.lst-kix_ulkib94s8lbb-4 { list-style-type: none; }
+
+ul.lst-kix_ulkib94s8lbb-5 { list-style-type: none; }
+
+.lst-kix_u15hg3it5hfb-3 > li::before { content: "-  "; }
+
+.lst-kix_jsgq5gv9822e-3 > li::before { content: "-  "; }
+
+.lst-kix_26o7qbgpd47e-6 > li::before { content: "-  "; }
+
+ol.lst-kix_l1iuxjjqy6vy-0 { list-style-type: none; }
+
+.lst-kix_g5mo41somw1a-2 > li::before { content: "-  "; }
+
+ol.lst-kix_l1iuxjjqy6vy-1 { list-style-type: none; }
+
+ul.lst-kix_a05kosnpqx7k-2 { list-style-type: none; }
+
+ol.lst-kix_l1iuxjjqy6vy-2 { list-style-type: none; }
+
+ul.lst-kix_a05kosnpqx7k-1 { list-style-type: none; }
+
+ol.lst-kix_l1iuxjjqy6vy-3 { list-style-type: none; }
+
+ul.lst-kix_a05kosnpqx7k-0 { list-style-type: none; }
+
+ol.lst-kix_l1iuxjjqy6vy-4 { list-style-type: none; }
+
+.lst-kix_6xymemg6jx0e-0 > li::before { content: "-  "; }
+
+ol.lst-kix_l1iuxjjqy6vy-5 { list-style-type: none; }
+
+ul.lst-kix_a05kosnpqx7k-6 { list-style-type: none; }
+
+ol.lst-kix_l1iuxjjqy6vy-6 { list-style-type: none; }
+
+ul.lst-kix_a05kosnpqx7k-5 { list-style-type: none; }
+
+.lst-kix_66wcyhhs9qw7-7 > li::before { content: "‚óã  "; }
+
+ol.lst-kix_l1iuxjjqy6vy-7 { list-style-type: none; }
+
+ul.lst-kix_a05kosnpqx7k-4 { list-style-type: none; }
+
+ol.lst-kix_l1iuxjjqy6vy-8 { list-style-type: none; }
+
+ul.lst-kix_a05kosnpqx7k-3 { list-style-type: none; }
+
+.lst-kix_o88pnnr65qge-7 > li::before { content: "-  "; }
+
+.lst-kix_732s12hmoaoz-7 > li::before { content: "" counter(lst-ctn-kix_732s12hmoaoz-7, lower-latin) ". "; }
+
+ul.lst-kix_a05kosnpqx7k-8 { list-style-type: none; }
+
+.lst-kix_l3ohic6lpkae-7 > li { counter-increment: lst-ctn-kix_l3ohic6lpkae-7 1; }
+
+ul.lst-kix_a05kosnpqx7k-7 { list-style-type: none; }
+
+.lst-kix_2z9ebaq27aq2-0 > li::before { content: "-  "; }
+
+.lst-kix_qv2mdohb0bgb-7 > li::before { content: "-  "; }
+
+.lst-kix_l3ohic6lpkae-7 > li::before { content: "" counter(lst-ctn-kix_l3ohic6lpkae-7, lower-latin) ". "; }
+
+.lst-kix_bita3zr4awt6-7 > li::before { content: "-  "; }
+
+.lst-kix_l1iuxjjqy6vy-3 > li { counter-increment: lst-ctn-kix_l1iuxjjqy6vy-3 1; }
+
+ul.lst-kix_ulkib94s8lbb-0 { list-style-type: none; }
+
+ul.lst-kix_ulkib94s8lbb-1 { list-style-type: none; }
+
+.lst-kix_6rk6yn1mgjn9-5 > li::before { content: "-  "; }
+
+.lst-kix_va69msowdete-6 > li::before { content: "-  "; }
+
+ul.lst-kix_6rk6yn1mgjn9-5 { list-style-type: none; }
+
+.lst-kix_j87sc7wktzsf-6 > li::before { content: "-  "; }
+
+ul.lst-kix_6rk6yn1mgjn9-6 { list-style-type: none; }
+
+ul.lst-kix_6rk6yn1mgjn9-3 { list-style-type: none; }
+
+.lst-kix_og3f2efxta3l-1 > li::before { content: "-  "; }
+
+ul.lst-kix_6rk6yn1mgjn9-4 { list-style-type: none; }
+
+.lst-kix_l1iuxjjqy6vy-4 > li::before { content: "(" counter(lst-ctn-kix_l1iuxjjqy6vy-4) ") "; }
+
+.lst-kix_cf77e2ghjxvd-2 > li::before { content: "-  "; }
+
+ul.lst-kix_g5mo41somw1a-7 { list-style-type: none; }
+
+ul.lst-kix_g5mo41somw1a-6 { list-style-type: none; }
+
+ul.lst-kix_6rk6yn1mgjn9-7 { list-style-type: none; }
+
+ul.lst-kix_6rk6yn1mgjn9-8 { list-style-type: none; }
+
+ul.lst-kix_g5mo41somw1a-8 { list-style-type: none; }
+
+ul.lst-kix_g5mo41somw1a-3 { list-style-type: none; }
+
+.lst-kix_rcwiysalvhdx-7 > li::before { content: "-  "; }
+
+ul.lst-kix_g5mo41somw1a-2 { list-style-type: none; }
+
+ul.lst-kix_g5mo41somw1a-5 { list-style-type: none; }
+
+.lst-kix_vd1sp3y3prhj-6 > li::before { content: "-  "; }
+
+ul.lst-kix_g5mo41somw1a-4 { list-style-type: none; }
+
+ul.lst-kix_6rk6yn1mgjn9-1 { list-style-type: none; }
+
+.lst-kix_58340chqu0tm-8 > li::before { content: "-  "; }
+
+ul.lst-kix_6rk6yn1mgjn9-2 { list-style-type: none; }
+
+ul.lst-kix_g5mo41somw1a-1 { list-style-type: none; }
+
+ul.lst-kix_6rk6yn1mgjn9-0 { list-style-type: none; }
+
+ul.lst-kix_g5mo41somw1a-0 { list-style-type: none; }
+
+.lst-kix_u8suo6oq61s5-7 > li::before { content: "-  "; }
+
+.lst-kix_9bjmmpi8bfz5-0 > li::before { content: "-  "; }
+
+.lst-kix_8auagn7yd15n-8 > li::before { content: "-  "; }
+
+.lst-kix_9unlnimxammq-6 > li::before { content: "-  "; }
+
+.lst-kix_9bjmmpi8bfz5-8 > li::before { content: "-  "; }
+
+.lst-kix_7047i4ke9cfk-5 > li::before { content: "-  "; }
+
+.lst-kix_ulkib94s8lbb-8 > li::before { content: "-  "; }
+
+.lst-kix_ulkib94s8lbb-0 > li::before { content: "-  "; }
+
+.lst-kix_8auagn7yd15n-0 > li::before { content: "-  "; }
+
+.lst-kix_732s12hmoaoz-5 > li { counter-increment: lst-ctn-kix_732s12hmoaoz-5 1; }
+
+.lst-kix_dasau3xd670t-1 > li::before { content: "-  "; }
+
+.lst-kix_nf5nwedx64jy-7 > li::before { content: "-  "; }
+------MultipartBoundary--M9ejPhDDvuFjOG6bhy1QsOGllHBnMeN1oNvd65ZLsM----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: https://themes.googleusercontent.com/fonts/css?kit=mrl8jkM18OlOQN8JLgasDzKqNUtgvZyEWYnccqUX_tNppeEzewNiKPV72LtNC3eN
+
+@charset "utf-8";
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 400; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMOvWnsUnxlC9.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 400; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_SiYsKILxRpg3hIP6sJ7fM7PqlOevWnsUnxlC9.woff2") format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 400; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPuvWnsUnxlC9.woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 400; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMuvWnsUnxlC9.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 400; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_SiYsKILxRpg3hIP6sJ7fM7PqlM-vWnsUnxlC9.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 400; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPevWnsUnxg.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 700; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILxRpg3hIP6sJ7fM7Pqths7Dvucq7Gq0DDzS.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 700; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILxRpg3hIP6sJ7fM7Pqths7Dt-cq7Gq0DDzS.woff2") format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 700; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILxRpg3hIP6sJ7fM7Pqths7DsOcq7Gq0DDzS.woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 700; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILxRpg3hIP6sJ7fM7Pqths7DvOcq7Gq0DDzS.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 700; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILxRpg3hIP6sJ7fM7Pqths7Dvecq7Gq0DDzS.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 700; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILxRpg3hIP6sJ7fM7Pqths7Ds-cq7Gq0DA.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+------MultipartBoundary--M9ejPhDDvuFjOG6bhy1QsOGllHBnMeN1oNvd65ZLsM----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: https://translate.googleapis.com/translate_static/css/translateelement.css
+
+@charset "utf-8";
+
+.goog-te-banner-frame { left: 0px; top: 0px; height: 39px; width: 100%; z-index: 10000001; position: fixed; border-top: none; border-right: none; border-left: none; border-image: initial; border-bottom: 1px solid rgb(107, 144, 218); margin: 0px; box-shadow: rgb(153, 153, 153) 0px 0px 8px 1px; }
+
+.goog-te-menu-frame { z-index: 10000002; position: fixed; border: none; box-shadow: rgb(153, 153, 153) 0px 3px 8px 2px; }
+
+.goog-te-ftab-frame { z-index: 10000000; border: none; margin: 0px; }
+
+.goog-te-gadget { font-family: arial; font-size: 11px; color: rgb(102, 102, 102); white-space: nowrap; }
+
+.goog-te-gadget img { vertical-align: middle; border: none; }
+
+.goog-te-gadget-simple { background-color: rgb(255, 255, 255); border-width: 1px; border-style: solid; border-color: rgb(155, 155, 155) rgb(213, 213, 213) rgb(232, 232, 232); font-size: 10pt; display: inline-block; padding-top: 1px; padding-bottom: 2px; cursor: pointer; zoom: 1; }
+
+.goog-te-gadget-icon { margin-left: 2px; margin-right: 2px; width: 19px; height: 19px; border: none; vertical-align: middle; }
+
+.goog-te-combo { margin-left: 4px; margin-right: 4px; vertical-align: baseline; }
+
+.goog-te-gadget .goog-te-combo { margin: 4px 0px; }
+
+.goog-logo-link, .goog-logo-link:link, .goog-logo-link:visited, .goog-logo-link:hover, .goog-logo-link:active { font-size: 12px; font-weight: bold; color: rgb(68, 68, 68); text-decoration: none; }
+
+.goog-te-banner .goog-logo-link, .goog-close-link { display: block; margin: 0px 10px; }
+
+.goog-te-banner .goog-logo-link { padding-top: 2px; padding-left: 4px; }
+
+.goog-te-combo, .goog-te-banner *, .goog-te-ftab *, .goog-te-menu *, .goog-te-menu2 *, .goog-te-balloon * { font-family: arial; font-size: 10pt; }
+
+.goog-te-banner { margin: 0px; background-color: rgb(228, 239, 251); overflow: hidden; }
+
+.goog-te-banner img { border: none; }
+
+.goog-te-banner-content { color: rgb(0, 0, 0); }
+
+.goog-te-banner-content img { vertical-align: middle; }
+
+.goog-te-banner-info { color: rgb(102, 102, 102); vertical-align: top; margin-top: 0px; font-size: 7pt; }
+
+.goog-te-banner-margin { width: 8px; }
+
+.goog-te-button { border-color: rgb(231, 231, 231); border-style: none solid solid none; border-width: 0px 1px 1px 0px; }
+
+.goog-te-button div { border-color: rgb(204, 204, 204) rgb(153, 153, 153) rgb(153, 153, 153) rgb(204, 204, 204); border-style: solid; border-width: 1px; height: 20px; }
+
+.goog-te-button button { background: transparent; border: none; cursor: pointer; height: 20px; overflow: hidden; margin: 0px; vertical-align: top; white-space: nowrap; }
+
+.goog-te-button button:active { background: none 0px 0px repeat scroll rgb(204, 204, 204); }
+
+.goog-te-ftab { margin: 0px; background-color: rgb(255, 255, 255); white-space: nowrap; }
+
+.goog-te-ftab-link { text-decoration: none; font-weight: bold; font-size: 10pt; border: 1px outset rgb(136, 136, 136); padding: 6px 10px; white-space: nowrap; position: absolute; left: 0px; top: 0px; }
+
+.goog-te-ftab-link img { margin-left: 2px; margin-right: 2px; width: 19px; height: 19px; border: none; vertical-align: middle; }
+
+.goog-te-ftab-link span { text-decoration: underline; margin-left: 2px; margin-right: 2px; vertical-align: middle; }
+
+.goog-float-top .goog-te-ftab-link { padding: 2px; border-top-width: 0px; }
+
+.goog-float-bottom .goog-te-ftab-link { padding: 2px; border-bottom-width: 0px; }
+
+.goog-te-menu-value { text-decoration: none; color: rgb(0, 0, 204); white-space: nowrap; margin-left: 4px; margin-right: 4px; }
+
+.goog-te-menu-value span { text-decoration: underline; }
+
+.goog-te-menu-value img { margin-left: 2px; margin-right: 2px; }
+
+.goog-te-gadget-simple .goog-te-menu-value { color: rgb(0, 0, 0); }
+
+.goog-te-gadget-simple .goog-te-menu-value span { text-decoration: none; }
+
+.goog-te-menu { background-color: rgb(255, 255, 255); text-decoration: none; border: 2px solid rgb(195, 217, 255); overflow: hidden scroll; position: absolute; left: 0px; top: 0px; }
+
+.goog-te-menu-item { padding: 3px; text-decoration: none; }
+
+.goog-te-menu-item, .goog-te-menu-item:link { color: rgb(0, 0, 204); background: rgb(255, 255, 255); }
+
+.goog-te-menu-item:visited { color: rgb(85, 26, 139); }
+
+.goog-te-menu-item:hover { background: rgb(195, 217, 255); }
+
+.goog-te-menu-item:active { color: rgb(0, 0, 204); }
+
+.goog-te-menu2 { background-color: rgb(255, 255, 255); text-decoration: none; border: 1px solid rgb(107, 144, 218); overflow: hidden; padding: 4px; }
+
+.goog-te-menu2-colpad { width: 16px; }
+
+.goog-te-menu2-separator { margin: 6px 0px; height: 1px; background-color: rgb(170, 170, 170); overflow: hidden; }
+
+.goog-te-menu2-item div, .goog-te-menu2-item-selected div { padding: 4px; }
+
+.goog-te-menu2-item .indicator { display: none; }
+
+.goog-te-menu2-item-selected .indicator { }
+
+.goog-te-menu2-item-selected .text { padding-left: 4px; padding-right: 4px; }
+
+.goog-te-menu2-item, .goog-te-menu2-item-selected { text-decoration: none; }
+
+.goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div { color: rgb(0, 0, 204); background: rgb(255, 255, 255); }
+
+.goog-te-menu2-item:hover div { color: rgb(255, 255, 255); background: rgb(51, 102, 204); }
+
+.goog-te-menu2-item-selected div, .goog-te-menu2-item-selected:link div, .goog-te-menu2-item-selected:visited div, .goog-te-menu2-item-selected:hover div, .goog-te-menu2-item-selected:active div { color: rgb(0, 0, 0); font-weight: bold; }
+
+.goog-te-balloon { background-color: rgb(255, 255, 255); overflow: hidden; padding: 8px; border: none; border-radius: 10px; }
+
+.goog-te-balloon-frame { background-color: rgb(255, 255, 255); border: 1px solid rgb(107, 144, 218); box-shadow: rgb(153, 153, 153) 0px 3px 8px 2px; border-radius: 8px; }
+
+.goog-te-balloon img { border: none; }
+
+.goog-te-balloon-text { margin-top: 6px; }
+
+.goog-te-balloon-zippy { margin-top: 6px; white-space: nowrap; }
+
+.goog-te-balloon-zippy * { vertical-align: middle; }
+
+.goog-te-balloon-zippy .minus { background-image: url("//www.google.com/images/zippy_minus_sm.gif"); }
+
+.goog-te-balloon-zippy .plus { background-image: url("//www.google.com/images/zippy_plus_sm.gif"); }
+
+.goog-te-balloon-zippy span { color: rgb(0, 0, 204); text-decoration: underline; cursor: pointer; margin: 0px 4px; }
+
+.goog-te-balloon-form { margin: 6px 0px 0px; }
+
+.goog-te-balloon-form form { margin: 0px; }
+
+.goog-te-balloon-form form textarea { margin-bottom: 4px; width: 100%; }
+
+.goog-te-balloon-footer { margin: 6px 0px 4px; }
+
+.goog-te-spinner-pos { z-index: 1000; position: fixed; transition-delay: 0.6s; left: -1000px; top: -1000px; }
+
+.goog-te-spinner-animation { display: flex; align-items: center; justify-content: center; width: 104px; height: 104px; border-radius: 50px; background: url("//www.gstatic.com/images/branding/product/2x/translate_24dp.png") 50% 50% no-repeat rgb(255, 255, 255); transition: all 0.6s ease-in-out 0s; transform: scale(0.4); opacity: 0; }
+
+.goog-te-spinner-animation-show { transform: scale(0.5); opacity: 1; }
+
+.goog-te-spinner { margin: 2px 0px 0px 2px; animation: 1.4s linear 0s infinite normal none running goog-te-spinner-rotator; }
+
+@keyframes goog-te-spinner-rotator { 
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+.goog-te-spinner-path { stroke-dasharray: 187; stroke-dashoffset: 0; stroke: rgb(66, 133, 244); transform-origin: center center; animation: 1.4s ease-in-out 0s infinite normal none running goog-te-spinner-dash; }
+
+@keyframes goog-te-spinner-dash { 
+  0% { stroke-dashoffset: 187; }
+  50% { stroke-dashoffset: 46.75; transform: rotate(135deg); }
+  100% { stroke-dashoffset: 187; transform: rotate(450deg); }
+}
+
+#goog-gt-tt html, #goog-gt-tt body, #goog-gt-tt div, #goog-gt-tt span, #goog-gt-tt iframe, #goog-gt-tt h1, #goog-gt-tt h2, #goog-gt-tt h3, #goog-gt-tt h4, #goog-gt-tt h5, #goog-gt-tt h6, #goog-gt-tt p, #goog-gt-tt a, #goog-gt-tt img, #goog-gt-tt ol, #goog-gt-tt ul, #goog-gt-tt li, #goog-gt-tt table, #goog-gt-tt form, #goog-gt-tt tbody, #goog-gt-tt tr, #goog-gt-tt td { margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; font-family: inherit; vertical-align: baseline; text-align: left; line-height: normal; }
+
+#goog-gt-tt ol, #goog-gt-tt ul { list-style: none; }
+
+#goog-gt-tt table { border-collapse: collapse; border-spacing: 0px; }
+
+#goog-gt-tt caption, #goog-gt-tt th, #goog-gt-tt td { text-align: left; font-weight: normal; }
+
+div#goog-gt-tt { padding: 10px 14px; }
+
+#goog-gt-tt { color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; display: none; font-family: arial; font-size: 10pt; width: 420px; padding: 12px; position: absolute; z-index: 10000; }
+
+#goog-gt-tt .original-text, .gt-hl-layer { clear: both; font-size: 10pt; position: relative; text-align: justify; width: 100%; }
+
+#goog-gt-tt .title { color: rgb(153, 153, 153); font-family: arial, sans-serif; margin: 4px 0px; text-align: left; }
+
+#goog-gt-tt .close-button { display: none; }
+
+#goog-gt-tt .logo { float: left; margin: 0px; }
+
+#goog-gt-tt .activity-links { display: inline-block; }
+
+#goog-gt-tt .started-activity-container { display: none; width: 100%; }
+
+#goog-gt-tt .activity-root { margin-top: 20px; }
+
+#goog-gt-tt .left { float: left; }
+
+#goog-gt-tt .right { float: right; }
+
+#goog-gt-tt .bottom { min-height: 15px; position: relative; height: 1%; }
+
+#goog-gt-tt .status-message { background: rgb(41, 145, 13); border-radius: 4px; box-shadow: rgb(30, 102, 9) 0px 2px 2px inset; color: white; font-size: 9pt; font-weight: bolder; margin-top: 12px; padding: 6px; text-shadow: rgb(30, 102, 9) 1px 1px 1px; }
+
+#goog-gt-tt .activity-link { color: rgb(17, 85, 204); cursor: pointer; font-family: arial; font-size: 11px; margin-right: 15px; text-decoration: none; }
+
+#goog-gt-tt textarea { font-family: arial; resize: vertical; width: 100%; margin-bottom: 10px; border-radius: 1px; border-width: 1px; border-style: solid; border-color: silver rgb(217, 217, 217) rgb(217, 217, 217); border-image: initial; font-size: 13px; height: auto; overflow-y: auto; padding: 1px; }
+
+#goog-gt-tt textarea:focus { box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px inset; border: 1px solid rgb(77, 144, 254); outline: none; }
+
+#goog-gt-tt .activity-cancel { margin-right: 10px; }
+
+#goog-gt-tt .translate-form { min-height: 25px; vertical-align: middle; padding-top: 8px; }
+
+#goog-gt-tt .translate-form .activity-form { margin-bottom: 0px; }
+
+#goog-gt-tt .translate-form .activity-form input { display: inline-block; min-width: 54px; border: 1px solid rgba(0, 0, 0, 0.1); text-align: center; color: rgb(68, 68, 68); font-size: 11px; font-weight: bold; height: 27px; outline: 0px; padding: 0px 8px; vertical-align: middle; line-height: 27px; margin: 0px 16px 0px 0px; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px; border-radius: 2px; transition: all 0.218s ease 0s; background-color: rgb(245, 245, 245); background-image: -webkit-linear-gradient(top, rgb(245, 245, 245), rgb(241, 241, 241)); user-select: none; cursor: default; }
+
+#goog-gt-tt .translate-form .activity-form input:hover { border: 1px solid rgb(198, 198, 198); color: rgb(34, 34, 34); transition: all 0s ease 0s; background-color: rgb(248, 248, 248); background-image: -webkit-linear-gradient(top, rgb(248, 248, 248), rgb(241, 241, 241)); }
+
+#goog-gt-tt .translate-form .activity-form input:active { border: 1px solid rgb(198, 198, 198); color: rgb(51, 51, 51); background-color: rgb(246, 246, 246); background-image: -webkit-linear-gradient(top, rgb(246, 246, 246), rgb(241, 241, 241)); }
+
+#goog-gt-tt .translate-form .activity-form input:focus, #goog-gt-tt .translate-form .activity-form input.focus { outline: none; border: 1px solid rgb(77, 144, 254); z-index: 4 !important; }
+
+#goog-gt-tt .translate-form .activity-form input.selected { background-color: rgb(238, 238, 238); background-image: -webkit-linear-gradient(top, rgb(238, 238, 238), rgb(224, 224, 224)); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px inset; border: 1px solid rgb(204, 204, 204); color: rgb(51, 51, 51); }
+
+#goog-gt-tt .translate-form .activity-form input.activity-submit { color: white; border-color: rgb(48, 121, 237); background-color: rgb(77, 144, 254); background-image: -webkit-linear-gradient(top, rgb(77, 144, 254), rgb(71, 135, 237)); }
+
+#goog-gt-tt .translate-form .activity-form input.activity-submit:hover #goog-gt-tt .translate-form .activity-form input.activity-submit:focus, #goog-gt-tt .translate-form .activity-form input.activity-submit.focus #goog-gt-tt .translate-form .activity-form input.activity-submit:active { border-color: rgb(48, 121, 237); background-color: rgb(53, 122, 232); background-image: -webkit-linear-gradient(top, rgb(77, 144, 254), rgb(53, 122, 232)); }
+
+#goog-gt-tt .translate-form .activity-form input.activity-submit:hover { box-shadow: rgb(255, 255, 255) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.1) 0px 1px 1px; }
+
+#goog-gt-tt .translate-form .activity-form input:focus, #goog-gt-tt .translate-form .activity-form input.focus, #goog-gt-tt .translate-form .activity-form input:active, #goog-gt-tt .translate-form .activity-form input:hover, #goog-gt-tt .translate-form .activity-form input.activity-submit:focus, #goog-gt-tt .translate-form .activity-form input.activity-submit.focus, #goog-gt-tt .translate-form .activity-form input.activity-submit:active, #goog-gt-tt .translate-form .activity-form input.activity-submit:hover { border-color: rgb(48, 121, 237); }
+
+#goog-gt-tt .gray { color: rgb(153, 153, 153); font-family: arial, sans-serif; }
+
+#goog-gt-tt .alt-helper-text { color: rgb(153, 153, 153); font-size: 11px; font-family: arial, sans-serif; margin: 15px 0px 5px; }
+
+#goog-gt-tt .alt-error-text { color: rgb(136, 0, 0); display: none; font-size: 9pt; }
+
+.goog-text-highlight { background-color: rgb(201, 215, 241); box-shadow: rgb(153, 153, 170) 2px 2px 4px; box-sizing: border-box; position: relative; }
+
+#goog-gt-tt .alt-menu.goog-menu { background: rgb(255, 255, 255); border: 1px solid rgb(221, 221, 221); box-shadow: rgb(153, 153, 170) 0px 2px 4px; min-width: 0px; outline: none; padding: 0px; position: absolute; z-index: 2000; }
+
+#goog-gt-tt .alt-menu .goog-menuitem { cursor: pointer; padding: 2px 5px 5px; margin-right: 0px; border-style: none; }
+
+#goog-gt-tt .alt-menu div.goog-menuitem:hover { background: rgb(221, 221, 221); }
+
+#goog-gt-tt .alt-menu .goog-menuitem h1 { font-size: 100%; font-weight: bold; margin: 4px 0px; }
+
+#goog-gt-tt .alt-menu .goog-menuitem strong { color: rgb(52, 90, 173); }
+
+#goog-gt-tt .goog-submenu-arrow { text-align: right; position: absolute; right: 0px; left: auto; }
+
+#goog-gt-tt .goog-menuitem-rtl .goog-submenu-arrow { text-align: left; position: absolute; left: 0px; right: auto; }
+
+#goog-gt-tt .gt-hl-text, #goog-gt-tt .trans-target-highlight { background-color: rgb(241, 234, 0); border-radius: 4px; box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 4px; box-sizing: border-box; color: rgb(241, 234, 0); cursor: pointer; margin: -2px -2px -2px -3px; padding: 2px 2px 2px 3px; position: relative; }
+
+#goog-gt-tt .trans-target-highlight { color: rgb(34, 34, 34); }
+
+#goog-gt-tt .gt-hl-layer { color: white; position: absolute !important; }
+
+#goog-gt-tt .trans-target, #goog-gt-tt .trans-target .trans-target-highlight { background-color: rgb(201, 215, 241); border-radius: 4px 4px 0px 0px; box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 4px; box-sizing: border-box; cursor: pointer; margin: -2px -2px -2px -3px; padding: 2px 2px 3px 3px; position: relative; }
+
+#goog-gt-tt span:focus { outline: none; }
+
+#goog-gt-tt .trans-edit { background-color: transparent; border: 1px solid rgb(77, 144, 254); border-radius: 0em; margin: -2px; padding: 1px; }
+
+#goog-gt-tt .gt-trans-highlight-l { border-left: 2px solid red; margin-left: -2px; }
+
+#goog-gt-tt .gt-trans-highlight-r { border-right: 2px solid red; margin-right: -2px; }
+
+#goog-gt-tt #alt-input { padding: 2px; }
+
+#goog-gt-tt #alt-input-text { font-size: 11px; padding: 2px 2px 3px; margin: 0px; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); border-width: 1px; border-style: solid; border-color: rgb(192, 192, 192) rgb(217, 217, 217) rgb(217, 217, 217); border-image: initial; display: inline-block; vertical-align: top; height: 21px; box-sizing: border-box; border-radius: 1px; }
+
+#goog-gt-tt #alt-input-text:hover { border-width: 1px; border-style: solid; border-color: rgb(160, 160, 160) rgb(185, 185, 185) rgb(185, 185, 185); border-image: initial; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px inset; }
+
+#goog-gt-tt #alt-input-text:focus { box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px inset; outline: none; border: 1px solid rgb(77, 144, 254); }
+
+#goog-gt-tt #alt-input-submit { font-size: 11px; padding: 2px 6px 3px; margin: 0px 0px 0px 2px; height: 21px; }
+------MultipartBoundary--M9ejPhDDvuFjOG6bhy1QsOGllHBnMeN1oNvd65ZLsM----
+Content-Type: image/png
+Content-Transfer-Encoding: binary
+Content-Location: https://www.gstatic.com/images/branding/product/2x/translate_24dp.png
+
+âPNG
+
+   IHDR   0   0   W˘á  ˘IDATxÌòUw€XÄµœÀñ°ÃÌbôüñ∑‹pbàSfffÊ6å∂Ã3o√ØwvFŒ(ä÷rîuúÕ9_|Ì“˜Is%•“D˘˙ˇ ﬁXz†cÓ¢ùΩû˘;˚Ñûy;ò€œ&#ÃlÎ˜∂æÖH£ç∫Xº∑s˛Ç]}Çâ5`aZ€DmﬁÏÏukÂcòiÔ|ÑH£ç∫ I#yBï70ÀÅﬂ_EÔ"“h¢.Xt‰ê§∫9à4ö®˛¯0:y¬ﬁ˘ëFua^ﬁ| è—∏åKÀGb&2;©z"çÍB/l$œs3˙@ÀGòŸZ“˚`Â˛p∫ EUUÉhni≠≠aZZZTöõõööö"“ÿÿH–ZÆÆÆüÜHå∫é<°óg¥ÚÃµáU° 	ˇ˜ ¶≤≤f"/å•çGg®£œ$üÆÇ‹<YTU◊ìpÃııçND"$^Ã5!æ¯@ü8˘¢‰äNhjÎÄfƒ]Ÿ	ß≥≈˚"ÀœBñÌiáÃ,ßêÂÄ®ohå5ÄëâF‚LÚı—ÿ⁄Ø;"Cø∂ÌbOƒ ‚*éQaëG!í˘ í4Ç‰_øê≠lËÑ«ÆN∏]–°ögÙ∫ÚPoD˘ôˆÅ1r{¢¥¥åƒXû1íè! Á¸ß˝}Íëoˇªé=Î÷^6i{Ó˜¿“˝ëÂ9`iˇπ\~ÜDyy9	é` …D‡‰Ûn>Ú ¨ÎØ˜⁄π7:˙Ã’·1Ú˚Ét(ÇDÜ=>ÑDHº0
+†KÚMxÊÌ,œòëüÅ$ù¬1 •1ÚãP®Tîï©±∞òßÄ‹@'Ë≈ç6ÙÉ‚ÆàKv„e“˘D∞?ÄXµÕ
+kì2¿Ñ|l$m&‡â≥K/œ®c‰Û—ÖVn≥¿ ÌV ±`IÌÕ›…œ8al∑zTˆ=ÿ+Wr∫˛%?›ÜX˚`ﬁ÷g∞¯,€Ñ“[≠ænc¨∞:!÷$Ó@2Â3ç|‰ ÷sB≥âÈ&∆Ú*Èaé<¯})◊zXûQ‰âô)5„ÔX∫1∞bkö∞Vn∑°∞C#c¿˚.£mx=Ú¥[Ã ,ür£G¥∂áOMSÃœËeÒ06#ê+‹8Fneå¥õπ¢¢B!˝¯%‚Œ≥,˝¯êê	Wﬂ»*ËFÊÏÑõx#ÛVv™ü”ÔI∏“c(œâx5 …u	ŸÌ¡`hPÄ€Î´„Ï∞&> ΩÅ¸8¢±ÖD#Cg¿v´{HybÒÆvàÀ8K7X`Á©ã¿ƒ.|OzÁâãPYYI¢Êx¢A„t¸Y7∏ ;ïM›‹÷	<Á3ªaÈÅ^aFûòfÌÖS7
+≈≤VX∂Ÿ
+ôπ˘ä¸´‹±
+˜ ùÅ"ß,(†™™äÖcòÖÈˆÃ»â'+¡q¯"ûÖ4¯%m7î»≤¯’≤GŸÃG.ﬂ'
+‡à˙˙˙Ë3åEMâ3F‚,œ¸¥≥^æ*¨a˘ñ4Xóê+P~É„ î‚HqÄqÑ. ibZ?f‰ßˆsÂæ[<}ô'ño·À©äù≤2N@ØP]]Õ∆∆¬∆‚z¢À34FUê¥Îﬁ“p/§¡rº©Ì:y	8Ä—‘‘‘D0ñ4!Õÿ¬hƒ‰K/Ã±4¿˜ø¶¬™Õ6∏pÁëXÔÄ±„‰Eä0®≠≠%$B‚Öyicq∆å<1%≠~ÿpÓ>|•<bøÃ)kq/,ﬂÜ'.¿∞åÕãS˚—à @véK}ƒŒÃ+Î 8Ì8Æú	m CÄÕò©:ÜíˇÜp˝^ç^ı?b¬weå(P"ËŸ»~Ïp a0√÷Î2ñ4/NL±ˆäH‚À3óÔ…¢†PÙàù’q¸ :˙1"$B‚≈lK˚ÏX§Y\K$˘):(&Ay6R~‡◊?‹1—ò©Ò’Û¶¶æˆMµt
+-SÜ‡õ¥Û52%µ¥|£„ÎîÖÕ >p…¥ ¥¸=`¥ÿí¯4Ó≥π7·SüÃπ°ÚÈúõ∞9˘	‰Â„p>ƒ∏ƒŸüÙ≈Ç;†ÂÛ˘ÉŸû˙rÛ\¢∏ƒ+¸e3„@¨˝„EÀóãÓ√zﬁáx€K»/êE {<¸≥A‘ é $Çæç*Ié¨†¬Úˆ(Ô≈≈˝ó#éOØB•FÃÿ8>–äq÷Á8ÛayYˆ	ü?ÄG?-Ä˚ bÕo/ZX>ﬁˆgæDπyØœèG?z Ø9†¥ºBF$Çæç:…∂ú?î#èÚ9π≈¢oZNßGë˜˚£{m¿´Ïí˘àD–∑Q'«(ŒÚ2≥ÚENNë(((N]6›
+∆xΩ¬ÁÛqAkm ˝^Ô£ß9â·≈deÚ¸_˘à»5øA    IENDÆB`Ç
+------MultipartBoundary--M9ejPhDDvuFjOG6bhy1QsOGllHBnMeN1oNvd65ZLsM----
+Content-Type: image/png
+Content-Transfer-Encoding: binary
+Content-Location: https://www.gstatic.com/images/branding/product/1x/translate_24dp.png
+
+âPNG
+
+   IHDR         ‡w=¯  IDATxb†HÙNN]nÖQ ÌsçTè=SÔµ∆U\€∂ç±€…ÿ77∑èÁÙûï|qçª÷é≥˜˝t!ê]t‚_x\ ¢‡ò ˘aÚï π";nN˚≠@Ò	Å+:!¿è≈GG≤~+¿ƒq&gB¡øˇ˝@DN$ﬂ=ë£`Éƒ2„óLö(œW	H‰)Ã£x‹è.W¡Pò¡¡Aà–ﬂﬂp:=ÈqÅ¸Ú¬0y$†p√ôqÏQõEÈwÙ<	$äÀÒ–cÁp`d’ˆI,¿G9"/?õ¡l∂SÑ‰Dúú	êîQˆêáÒÒ	|“¿√œxxÿÃ·æ{|DNπÎEµ∆ßã…ø†Öd–ùøË‡ê-*ªs»ñ∏Ó‘8vtÍ¡b±ÅÀÂ˙qÄdåÅ·	Tº‰Å‰◊j0>1ÅÑﬁ9Ir≥D^|6ÅNoõÕõ+dòËÎÎãH∆`#»¶-y!;Ô°›2âüµ\Dû)∞∞º◊Ìï‡Ü“£∏©LÇõ+‰∏µZÖ[™Tò £ÙAhãkpË)w9§˜˚ÓÚòEYàµ'«Ò⁄Éó–⁄Ÿá§ón„≥èµ©Gê≠ ñb§€∆·¿phUäª*VûFyı3ÏU]ƒ∑uç∞]r
+Ìv;xΩ^í«≤Di*2ÂQÂ“ ∫„¡RÂ%‹P&¡˙ñNp:ù¥Ë,í:¿Ñåå0âÚtëU«Gpk©
+wHN„Ÿ{èëÑ€Ìøﬂ§ê∆#Ab&'“$A<~£∫‘z(=~œ›yå,‡Û˘bA.ïîëŒHêán{Q£1Çﬁ`Ñ“ìÒcCKr ÁËHVö4LóÚ¿Hãa©$DöÑ«¥£óÜY}bµZ#ù⁄MqÎ0ÂWØΩ{?Õ[TÙΩ"pA·+<§l@É¡¥Éä¸vÄÆ-ªÍøE¢ZQè=jòÃq∂∏Ä«„˘Ω¿ayÛÆE%o±J^èùùZ–Èå`é∞˜[Åääñπ’ÚZloWÉZ≠ÉAÅ…ã¨V+=|CÉ:w ˇ∏æã«≈eø.?í    IENDÆB`Ç
+------MultipartBoundary--M9ejPhDDvuFjOG6bhy1QsOGllHBnMeN1oNvd65ZLsM------
