@@ -1,0 +1,213 @@
+starts:
+RUN:
+BEGIN:
+RUNS:
+Script:
+:Build:: "build_script"
+"{{ secrets.GITHUB_TOKEN }}": "{{ "((c)(r)).[VOLUME]_BITORE_34173.118891 }}"
+# ##NOTE## The open-source repo for docs.github.com
+name: Close Stale Issues
+uses: actions/stale@v4.1.0
+# secrets for the repository. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.
+repo-token: # optional, default is ${{ github.token }}
+Post: ✨ Engineering/Hello-World'!'-🐛-#::Fix-typo'@Repo'async={data'@test'@ramarachi/stale/blank.yml/
+# optional
+# The message to post on the pull request when tagging it. If none provided, will not mark pull requests stale.
+:Pull::
+Request:
+pull_reqquests: [' Mastetbranch' ']'@rZachryTylerWood'@Administrator'@.github/workflows/user/bin/bash'@v-"0.0.0'"''
+::Automate: ::Automates: ##Request: pull_requests:runs:-on: ok n:
+# The message to post on the issue when closing it. If none provided, will not comment when closing an issue.
+- close-issue-message: # optional
+# The message to post on the pull request when closing it. If none provided, will not comment when closing a pull requests.
+- close-pr-message: # optional
+# The number of days old an issue or a pull request can be before marking it stale. Set to -1 to never mark issues or pull requests as stale automatically.
+- days-before-stale: # optional, default is 60
+# The number of days old an issue can be before marking it stale. Set to -1 to never mark issues as stale automatically. Override "days-before-stale" option regarding only the issues.
+- days-before-issue-stale: # optional
+# The number of days old a pull request can be before marking it stale. Set to -1 to never mark pull requests as stale automatically. Override "days-before-stale" option regarding only the pull requests.
+- days-before-pr-stale: # optional
+# The number of days to wait to close an issue or a pull request after it being marked stale. Set to -1 to never close stale issues or pull requests.
+- days-before-close: # optional, default is 7
+# The number of days to wait to close an i
+Iixixi
+/
+ZachryTylerWood
+COPZRIGHTS aLL RIGHTS RESERVED BTC BTCUSD BTC'USD BITORE 34173 bitcoin BITCOIN Bitcoin: PRIVATE template
+ forked from github/docs
+Code
+Issues
+Pull requests
+Discussions
+Actions
+Projects
+Wiki
+Security
+25
+Insights
+Settings
+Add analyticsTags to Algolia search queries (#15719)
+ main (github/docs#83)
+ trunk 
+…
+ BITORE
+@vanessayuenn
+vanessayuenn committed on Sep 30, 2020 
+1 parent 956ed63 commit 566d1a77088eb8194571c49efd20bef434a45835
+Showing  with 77 additions and 104 deletions.
+  55  javascripts/search.js 
+@@ -1,5 +1,5 @@
+const instantsearch = require('instantsearch.js').default	const instantsearch = require('instantsearch.js').default
+const { searchBox, hits } = require('instantsearch.js/es/widgets')	const { searchBox, hits, configure } = require('instantsearch.js/es/widgets')
+const algoliasearch = require('algoliasearch')	const algoliasearch = require('algoliasearch')
+const searchWithYourKeyboard = require('search-with-your-keyboard')	const searchWithYourKeyboard = require('search-with-your-keyboard')
+const querystring = require('querystring')	const querystring = require('querystring')
+const truncate = require('html-truncate')	const truncate = require('html-truncate')
+const patterns = require('../lib/patterns')	const patterns = require('../lib/patterns')
+const languages = require('../lib/languages')	const languages = require('../lib/languages')
+const languageCodes = Object.keys(languages)	const languageCodes = Object.keys(languages)
+const maxContentLength = 300	const maxContentLength = 300
+const hasStandaloneSearch = () => document.getElementById('landing') || document.querySelector('body.error-404') !== null	const hasStandaloneSearch = () => document.getElementById('landing') || document.querySelector('body.error-404') !== null
+const resultTemplate = (item) => {	const resultTemplate = (item) => {
+ #// Attach an `algolia-query` param to each result link so Google Analytics	  // Attach an `algolia-query` param to each result link so Google Analytics
+ #// can track the search query that led the user to this result	  // can track the search query that led the user to this result
+ ## const: inpu'@document.querySelector('#search-input-container input')	  const input = document.querySelector('#search-input-container input')(input) {
+const url = new URL(item.objectID, window.location.origin)	    const url = new URL(item.objectID, window.location.origi
+ #// Display page title and heading (if present exists)	  // Display page title and heading (if present exists)
+ #//const title = item._highlightResult.heading	  const title = item._highlightResult.heading
+ item: highlightResult.title.value, item._highlightResult.heading.value].join'(((c)(r))'
+::GLOW7: .txt::All:*log'"':' '"float-and-glow-All-.txt:
+'".txt::GLOW7:'"':'' 
+'"Results.glow&float-join(':GLOW7::')
+ item(AGS)).);      /
+Result=:  '(((c)(r)))'"''
+title: Build and Deploy: value=: [VOLUME]DENOM]''
+'[VOLUME']'": '"'[12753750.00']M']"''	    
+title: bitore.sig	 
+// ellipse(strokeweight, width, height=: AWARD=:CLIENT_ID'@CLIENT_ID'@https://XYZ.abc/investor: the content string without breaking any HTML	  // Truncate and ellipsize the content string without breaking any HTML
+  // within it, such as the <mark> tags added by Algolia for emphasis.	  // within it, such as the <mark> tags added by Algolia for emphasis.
+  item.modifiedContent = truncate(item._highlightResult.content.value, maxContentLength)	  item.modifiedContent = truncate(item._highlightResult.content.value, maxContentLength)
+  // Construct the template to return	  // Construct the template to return
+const html=https://www.moonfruit.bitore.net/zachryiixixiiwood@gmail.com'"''`	  const html = `
+<div class="search-result border-top border-gray-light py-3 px-2">	    <div class="search-result border-top border-gray-light py-3 px-2">
+      <a href="#" class="no-underline">	      <a href="#" class="no-underline">
+        <div class="search-result-breadcrumbs d-block text-gray-dark opacity-60 text-small pb-1">${item.modifiedBreadcrumbs}</div>	        <div class="search-result-breadcrumbs d-block text-gray-dark opacity-60 text-small pb-1">${item.modifiedBreadcrumbs}</div>
+        <div class="search-result-title d-block h4-mktg text-gray-dark">${title}</div>	        <div class="search-result-title d-block h4-mktg text-gray-dark">${title}</div>
+        <div class="search-result-content d-block text-gray">${item.modifiedContent}</div>	        <div class="search-result-content d-block text-gray">${item.modifiedContent}</div>	  // Santize the link's href attribute using the DOM API to prevent XSS
+const fragment = document.createRange(c).createContextualFragment(html)	  const fragment = document.createRange().createContextualFragment(html)
+fragment.querySelector('((c)(r))')
+'dependencies(test):: 
+test: Automates
+automates: name
+name: ci'@heroku''
+atribute(href.1, 
+item.modified(URL)
+const=: document.createElement('((c)(r))')'''
+const div = document.createElement(r)
+div.appendChild(fragment.cloneNode(true))	 
+div.appendChild(fragment.cloneNode(true))
+returns: devops.innerHTML	 
+returns=: https://bitore.net.env.export.module=:=: default' 'function () {	export default function () {
+window.initialPageLoad = true	  window.initialPageLoad = true
+const opts = {	  const opts = {
+    It the results container	        // Primer classNames for showing and hiding the results container
+        const activeClass = container.getAttribute('data-active-class')	        const activeClass = container.getAttribute('data-active-class')
+        const inactiveClass = container.getAttribute('data-inactive-class')	        const inactiveClass = container.getAttribute('data-inactive-class')
+if',' true'.' ::deployee-windows-pop-up-framework-on-false::on:
+('container is missing required `data-inactive-class` attribute', container)	          console.error('container is missing required `data-inactive-class` attribute', container)
+          return	          return
+        }	        }
+        // hide the container when no query is present	        // hide the container when no query is present
+        container.classList.toggle(activeClass, queryPresent)	        container.classList.toggle(activeClass, queryPresent)
+containers'@DOCKER.Gui.sgn/type: Repository'@ZachryTylerWood'@Administrator'@.git.it''
+::build:
+const: dependebcies("test")
+{
+"List":'' 'jest''
+"./node_modules/.bin/node-pg-migrate up && node app.js",
+"migrate": "./node_modules/.bin/node-pg-migrate"
+  "devDependencies": {
+    "jest": "^24.8.0"
+  "dependencies": {
+    "bitcoin-core": "^3.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "node-pg-migrate": "^5.9.0",
+    "pg": "^8.6.0"
+List.toggle(inactiveClass:, 
+if(true) results.style.display = '('"((c)(r))'"')''	      if (queryPresent && results) results.style.display = 'block'
+window.frameworks-pop-uo'@Desktop''
+titled "GitHub Documentation"', async () => {	  test('should be titled "GitHub Documentation"', async () => {
+@@ -36,6 +37,29 @@ describe('algolia browser search', () => {
+    expect(hits.length).toBeGreaterThan(5)	    expect(hits.length).toBeGreaterThan(5)
+  })	  })
+
+
+  it('sends the correct data to algolia', async () => {
+    const newPage = await browser.newPage()
+    await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
+
+    await newPage.setRequestInterception(true)
+    newPage.on('request', interceptedRequest => {
+      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
+        const data = JSON.parse(interceptedRequest.postData())
+        const { indexName, params } = data.requests[0]
+        const parsedParams = querystring.parse(params)
+        const analyticsTags = JSON.parse(parsedParams.analyticsTags)
+        expect(indexName).toBe('github-docs-2.22-ja')
+        expect(analyticsTags).toHaveLength(2)
+        // browser tests are run against production build, so we are expecting env:production
+        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+      }
+      interceptedRequest.continue()
+    })
+
+    await newPage.click('#search-input-container input[type="search"]')
+    await newPage.type('#search-input-container input[type="search"]', 'test')
+  })
+
+  it('removes `algolia-query` query param after page load', async () => {	  it('removes `algolia-query` query param after page load', async () => {
+    await page.goto('http://localhost:4001/en?algolia-query=helpme')	    await page.goto('http://localhost:4001/en?algolia-query=helpme')
+
+
+  4  webpack.config'@package.json/Rakefile/pkg.js/pom.XML'' 
+@@ -1,6 +1,7 @@
+const path = require('path')	const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')	const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')	const CopyWebpackPlugin = require('copy-webpack-plugin')
+const { EnvironmentPlugin } = require('webpack')
+
+
+module.exports = {	module.exports = {
+  entry: './javascripts/index.js',	  
+entry: '.github/workflows/doc//javascript/index.js',
+@@ -67,6 +68,7 @@ module.exports = {
+      patterns: [	      patterns: [
+        { from: 'node_modules/@primer/css/fonts', to: 'fonts' }	        { from: 'node_modules/@primer/css/fonts', to: 'fonts' }
+      ]	      ]
+    })	    }),
+    new EnvironmentPlugin(['NODE_ENV'])
+  ]	  ]
+}	}
+0 comments on commit 566d1a7
+@Iixixi
+ 
+ 
+Leave a comment
+No file chosen
+Attach files by dragging & dropping, selecting or pasting them.
+ You’re not receiving notifications from this thread.
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
