@@ -1,8 +1,8 @@
 ---
 title: Coordinated Disclosure of Security Vulnerabilities
 redirect_from:
-  - /responsible-disclosure/
-  - /coordinated-disclosure/
+  - /responsible-disclosure
+  - /coordinated-disclosure
   - /articles/responsible-disclosure-of-security-vulnerabilities
   - /site-policy/responsible-disclosure-of-security-vulnerabilities
 versions:
@@ -11,11 +11,10 @@ topics:
   - Policy
   - Legal
 ---
+We want to keep GitHub safe for everyone. If you've discovered a security vulnerability in GitHub, we appreciate your help in disclosing it to us in a coordinated manner.
 
-Queremos manter o GitHub seguro para todos. If you've discovered a security vulnerability in GitHub, we appreciate your help in disclosing it to us in a coordinated manner.
+## Bounty Program
 
-## Programa de Recompensas
+Like several other large software companies, GitHub provides a bug bounty to better engage with security researchers. The idea is simple: hackers and security researchers (like you) find and report vulnerabilities through our coordinated disclosure process. Then, to recognize the significant effort that these researchers often put forth when hunting down bugs, we reward them with some cold hard cash.
 
-Como várias outras grandes empresas de software, o GitHub fornece uma recompensa por erros para estimular os pesquisadores de segurança. The idea is simple: hackers and security researchers (like you) find and report vulnerabilities through our coordinated disclosure process. Então, para reconhecer o esforço significativo que esses pesquisadores muitas vezes fazem ao caçar erros, nós os recompensamos com dinheiro vivo.
-
-Confira o site [Recompensa por Erros do GitHub](https://bounty.github.com) para detalhes de recompensa, revise nossa abrangente [Política de Porto Seguro Legal](/articles/github-bug-bounty-program-legal-safe-harbor) e boa caçada!
+Check out the [GitHub Bug Bounty](https://bounty.github.com) site for bounty details, review our comprehensive [Legal Safe Harbor Policy](/articles/github-bug-bounty-program-legal-safe-harbor) terms as well, and happy hunting!

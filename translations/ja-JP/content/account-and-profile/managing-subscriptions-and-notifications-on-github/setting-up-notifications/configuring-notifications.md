@@ -3,16 +3,16 @@ title: Configuring notifications
 intro: 'Choose the type of activity on {% data variables.product.prodname_dotcom %} that you want to receive notifications for and how you want these updates delivered.'
 redirect_from:
   - /articles/about-web-notifications
-  - /format-of-notification-emails/
-  - /articles/configuring-notification-emails/
-  - /articles/about-notification-emails/
+  - /format-of-notification-emails
+  - /articles/configuring-notification-emails
+  - /articles/about-notification-emails
   - /articles/about-email-notifications
   - /articles/accessing-your-notifications
-  - /articles/configuring-notification-delivery-methods/
-  - /articles/managing-notification-delivery-methods/
-  - /articles/managing-notification-emails-for-organizations/
+  - /articles/configuring-notification-delivery-methods
+  - /articles/managing-notification-delivery-methods
+  - /articles/managing-notification-emails-for-organizations
   - /articles/choosing-the-delivery-method-for-your-notifications
-  - /articles/choosing-the-types-of-notifications-you-receive/
+  - /articles/choosing-the-types-of-notifications-you-receive
   - /github/managing-subscriptions-and-notifications-on-github/configuring-notifications
   - /github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications
 versions:
@@ -54,7 +54,7 @@ The notifications inbox on {% data variables.product.product_location %}{% ifver
   - Group notifications in your inbox by repository or date to get a quick overview with less context switching
 
 {% ifversion fpt or ghes or ghec %}
-In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub for mobile](#managing-your-notification-settings-with-github-for-mobile)" or "[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
+In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub Mobile](#managing-your-notification-settings-with-github-mobile)" or "[GitHub Mobile](/get-started/using-github/github-mobile)."
 {% endif %}
 
 ### Benefits of using an email client for notifications
@@ -76,7 +76,7 @@ To see repositories that you're watching, go to your [watching page](https://git
 {% endif %}
 You can configure notifications for a repository on the repository page, or on your watching page.{% ifversion ghes < 3.1 %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
 ### About custom notifications
 You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events ({% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository.
@@ -160,7 +160,7 @@ If "Automatically watch repositories" is disabled, then you will not automatical
 
 ## Configuring your watch settings for an individual repository
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) {% else %}new releases{% endif %}, or completely ignore an individual repository.
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt or ghes > 3.0 or ghae or ghec %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) {% else %}new releases{% endif %}, or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 2. In the upper-right corner, select the "Watch" drop-down menu to click a watch option.

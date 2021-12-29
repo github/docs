@@ -4,14 +4,13 @@ intro: You can skip workflow runs triggered by the `push` and `pull_request` eve
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: ghae-next
+  ghae: '*'
   ghec: '*'
 shortTitle: Skip workflow runs
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Workflows that would otherwise be triggered using `on: push` or `on: pull_request` won't be triggered if you add any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
 

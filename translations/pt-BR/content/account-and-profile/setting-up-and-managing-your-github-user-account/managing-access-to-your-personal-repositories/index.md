@@ -1,9 +1,9 @@
 ---
-title: Gerenciar acessos aos seus repositórios pessoais
-intro: Você pode conceder acesso de colaborador a pessoas nos repositórios pertencentes à sua conta pessoal.
+title: Managing access to your personal repositories
+intro: You can give people collaborator access to repositories owned by your personal account.
 redirect_from:
-  - /categories/101/articles/
-  - /categories/managing-repository-collaborators/
+  - /categories/101/articles
+  - /categories/managing-repository-collaborators
   - /articles/managing-access-to-your-personal-repositories
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories
 product: '{% data reusables.gated-features.user-repo-collaborators %}'
@@ -20,6 +20,6 @@ children:
   - /removing-a-collaborator-from-a-personal-repository
   - /removing-yourself-from-a-collaborators-repository
   - /maintaining-ownership-continuity-of-your-user-accounts-repositories
-shortTitle: Acesso aos seus repositórios
+shortTitle: Access to your repositories
 ---
 

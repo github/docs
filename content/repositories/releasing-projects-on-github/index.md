@@ -2,8 +2,8 @@
 title: Releasing projects on GitHub
 intro: 'You can create a release to package software, release notes, and binary files for other people to download.'
 redirect_from:
-  - /categories/85/articles/
-  - /categories/releases/
+  - /categories/85/articles
+  - /categories/releases
   - /github/administering-a-repository/releasing-projects-on-github
 versions:
   fpt: '*'

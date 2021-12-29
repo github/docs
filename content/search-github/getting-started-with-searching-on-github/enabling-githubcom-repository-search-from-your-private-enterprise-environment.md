@@ -3,16 +3,16 @@ title: Enabling GitHub.com repository search from your private enterprise enviro
 shortTitle: Search GitHub.com from enterprise
 intro: 'You can connect your personal accounts on {% data variables.product.prodname_dotcom_the_website %} and your private {% data variables.product.prodname_enterprise %} environment to search for content in certain {% data variables.product.prodname_dotcom_the_website %} repositories{% ifversion fpt or ghec %} from your private environment{% else %} from {% data variables.product.product_name %}{% endif %}.'
 redirect_from:
-  - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-account/
-  - /articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account/
-  - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-server-account/
+  - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-account
+  - /articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account
+  - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-server-account
   - /articles/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
@@ -25,8 +25,8 @@ You can search for designated private repositories on {% data variables.product.
 ## Prerequisites
 
 - An enterprise owner for {% ifversion fpt or ghec %}your private {% data variables.product.prodname_enterprise %} environment{% else %}{% data variables.product.product_name %}{% endif %} must enable {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_unified_search %} for private repositories. For more information, see the following.{% ifversion fpt or ghes or ghec %}
-  - "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/{% ifversion ghes %}{{ currentVersion }}{% else %}enterprise-server@latest{% endif %}/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% ifversion ghae-next %}<!-- Add fpt and ghae version when toggling feature flag -->
-  - "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/github-ae@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_managed %} documentation
+  - "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/{% ifversion ghes %}{{ currentVersion }}{% else %}enterprise-server@latest{% endif %}/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)"{% ifversion fpt or ghec %} in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% endif %}{% ifversion fpt or ghec or ghae %}
+  - "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/github-ae@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)"{% ifversion fpt or ghec %} in the {% data variables.product.prodname_ghe_managed %} documentation{% endif %}
 {% endif %}
 
 - You must already have access to the private repositories and connect your account {% ifversion fpt or ghec %}in your private {% data variables.product.prodname_enterprise %} environment{% else %}on {% data variables.product.product_name %}{% endif %} with your account on {% data variables.product.prodname_dotcom_the_website %}. For more information about the repositories you can search, see "[About searching on GitHub](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)."
@@ -39,8 +39,8 @@ For more information, see the following.
 
 | Your enterprise environment | More information |
 | :- | :- |
-| {% data variables.product.prodname_ghe_server %} | "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from your private enterprise environment](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment#enabling-githubcom-repository-search-from-github-enterprise-server)" |{% ifversion ghae-next %}<!-- Condition is within an fpt block; remove condition entirely when toggling feature flag -->
-| {% data variables.product.prodname_ghe_managed %} | "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from your private enterprise environment](/github-ae@latest//search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment#enabling-githubcom-repository-search-from-github-ae)" |{% endif %}
+| {% data variables.product.prodname_ghe_server %} | "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from your private enterprise environment](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment#enabling-githubcom-repository-search-from-github-enterprise-server)" |
+| {% data variables.product.prodname_ghe_managed %} | "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from your private enterprise environment](/github-ae@latest//search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment#enabling-githubcom-repository-search-from-github-ae)" |
 
 {% elsif ghes or ghae %}
 

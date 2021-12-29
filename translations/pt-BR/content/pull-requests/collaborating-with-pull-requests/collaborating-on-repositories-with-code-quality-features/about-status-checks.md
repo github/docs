@@ -1,9 +1,9 @@
 ---
-title: Sobre verificações de status
-intro: As verificações de status permitem que você saiba se seus commits atendem às condições definidas para o repositório com o qual está contribuindo.
+title: About status checks
+intro: Status checks let you know if your commits meet the conditions set for the repository you're contributing to.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
-  - /articles/about-statuses/
+  - /articles/about-statuses
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
   - /github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
@@ -15,62 +15,61 @@ versions:
 topics:
   - Pull requests
 ---
+Status checks are based on external processes, such as continuous integration builds, which run for each push you make to a repository. You can see the *pending*, *passing*, or *failing* state of status checks next to individual commits in your pull request.
 
-As verificações de status se baseiam em processos externos, como compilações de integração contínua, que são executados para cada push que você faz em um repositório. Você pode ver o estado de *pendência*, *aprovação* ou *falha* das verificações de status ao lado de commits individuais em sua pull request.
+![List of commits and statuses](/assets/images/help/pull_requests/commit-list-statuses.png)
 
-![Lista de commits e status](/assets/images/help/pull_requests/commit-list-statuses.png)
+Anyone with write permissions to a repository can set the state for any status check in the repository.
 
-Qualquer pessoa com permissão de gravação em um repositório pode configurar o estado de qualquer verificação de status no repositório.
-
-É possível ver o estado geral do último commit em um branch na página de branches do seu repositório ou na lista de pull requests do seu repositório.
+You can see the overall state of the last commit to a branch on your repository's branches page or in your repository's list of pull requests.
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-## Tipos de verificação de status no {% data variables.product.product_name %}
+## Types of status checks on {% data variables.product.product_name %}
 
-Há dois tipos de verificação de status no {% data variables.product.product_name %}:
+There are two types of status checks on {% data variables.product.product_name %}:
 
-- Verificações
-- Status
+- Checks
+- Statuses
 
-As _Verificações_ são diferentes dos _status_ na medida que fornecem anotações de linha, mensagens mais detalhadas e só estão disponíveis para uso com {% data variables.product.prodname_github_apps %}.
+_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
-Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)" e "[Status](/rest/reference/repos#statuses)".
+Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/repos#statuses)."
 
-## Verificações
+## Checks
 
-Quando _verificações_ são configuradas em um repositório, as pull requests apresentam uma guia **Checks** (Verificações), onde é possível exibir o resultado detalhado da compilação de verificações de status e executar novamente as verificações com falha.
+When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from status checks and rerun failed checks.
 
-![Verificações de status em uma pull request](/assets/images/help/pull_requests/checks.png)
+![Status checks within a pull request](/assets/images/help/pull_requests/checks.png)
 
 {% note %}
 
-**Observação:** A aba **Verificações** só é preenchida para pull requests se você configurar _verificações_, não _status_, para o repositório.
+**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _statuses_, for the repository.
 
 {% endnote %}
 
-Quando uma linha específica em um commit causar a falha de uma verificação, você verá detalhes sobre a falha, o aviso ou a advertência ao lado do código relevante na guia **Files** (Arquivos) da pull request.
+When a specific line in a commit causes a check to fail, you will see details about the failure, warning, or notice next to the relevant code in the **Files** tab of the pull request.
 
-![Detalhes de uma verificação de status](/assets/images/help/pull_requests/checks-detailed.png)
+![Details of a status check](/assets/images/help/pull_requests/checks-detailed.png)
 
-Você pode navegar entre os resumos das verificações de vários commits em uma pull request usando o menu suspenso do commit na guia **Conversation** (Conversa).
+You can navigate between the checks summaries for various commits in a pull request, using the commit drop-down menu under the **Conversation** tab.
 
-![Resumos de verificação para diferentes commits em um menu suspenso](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
+![Check summaries for different commits in a drop-down menu](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
 
-### Ignorar e solicitar verificações para commits individuais
+### Skipping and requesting checks for individual commits
 
-Quando um repositório é definido para solicitar verificações por pushes automaticamente, você pode optar por ignorar as verificações para um commit individual do qual fez push. Quando um repositório _não_ é definido para solicitar verificações por pushes automaticamente, você pode solicitar verificações para um commit individual do qual fez push. Para obter mais informações sobre essas configurações, consulte "[Conjuntos de verificações](/rest/reference/checks#update-repository-preferences-for-check-suites)".
+When a repository is set to automatically request checks for pushes, you can choose to skip checks for an individual commit you push. When a repository is _not_ set to  automatically request checks for pushes, you can request checks for an individual commit you push. For more information on these settings, see "[Check Suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
 
-Para ignorar ou solicitar verificações para seu commit, adicione uma das seguintes linhas de trailer ao fim da mensagem do commit:
+To skip or request checks for your commit, add one of the following trailer lines to the end of your commit message:
 
-- Para _ignorar verificações_ para um commit, digite a mensagem do commit e uma descrição breve e significativa das alterações. Após a descrição do commit, antes da cotação de fechamento, adicione duas linhas vazias seguidas de `skip-checks: true`:
+- To _skip checks_ for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
   ```shell
   $ git commit -m "Update README
   >
   >
   skip-checks: true"
   ```
-- Para _solicitar_ verificações para um commit, digite a mensagem do commit e uma descrição breve e significativa das alterações. Após a descrição do commit, antes da cotação de fechamento, adicione duas linhas vazias seguidas de `request-checks: true`:
+- To _request_ checks for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
   ```shell
   $ git commit -m "Refactor usability tests
   >

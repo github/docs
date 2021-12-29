@@ -6,7 +6,7 @@
 {% elsif ghec or ghes or ghae %}
 1. Navigate to where your self-hosted runner groups are located:
    * **In an organization**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.{% ifversion ghec %}
-   * **If using an enterprise account**: navigate to your enterprise account by visiting `https://github.com/enterprises/ENTERPRISE-NAME`, replacing `ENTERPRISE-NAME` with your enterprise account's name.{% elsif ghes or ghae %}
+   * **If using an enterprise account**: navigate to your enterprise account by clicking your profile photo in the top-right corner of {% data variables.product.prodname_dotcom_the_website %}, then clicking **Your enterprises**, then clicking the enterprise.{% elsif ghes or ghae %}
    * **Enterpriseレベルのランナーを使っている場合**:
      1. 任意のページの右上で {% octicon "rocket" aria-label="The rocket ship" %} をクリックします。
      2. 左のサイドバーで**Enterprise overview（Enterpriseの概要）**をクリックしてください。
