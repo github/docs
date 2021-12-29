@@ -1,8 +1,8 @@
 ---
-title: 发起提案，请求改进项目
-intro: 在添加更改到主题分支或复刻后，您可以打开拉取请求，要求协作者或仓库管理员审查您的更改，然后将其合并到项目中。
+title: Proposing changes to your work with pull requests
+intro: 'After you add changes to a topic branch or fork, you can open a pull request to ask your collaborators or the repository administrator to review your changes before merging them into the project.'
 redirect_from:
-  - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/
+  - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests
   - /articles/proposing-changes-to-your-work-with-pull-requests
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests
 versions:
@@ -24,6 +24,5 @@ children:
   - /requesting-a-pull-request-review
   - /changing-the-base-branch-of-a-pull-request
   - /committing-changes-to-a-pull-request-branch-created-from-a-fork
-shortTitle: 提议更改
+shortTitle: Propose changes
 ---
-
