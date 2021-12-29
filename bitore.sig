@@ -26,7 +26,7 @@
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [4000],
+	"forwardPorts": [4999, 8333],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "npm ci && npm run build",
