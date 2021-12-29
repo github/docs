@@ -40,9 +40,16 @@ If you don't need to work with files locally, {% data variables.product.product_
 ## Setting up Git
 
 1. [Download and install the latest version of Git](https://git-scm.com/downloads).
-    <br />Please Note: If you are using a ChromeOS device additional set up is required.
-    <br /> 1. Install Termux from the Google Play Store on your Chrome OS device.
-    <br /> 2. Use the command `apt install git`, and then type `y` when prompted. 
+
+{% note %}
+
+**Note**: If you are using a Chrome OS device, additional set up is required:
+
+1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
+2. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted. 
+
+{% endnote %}
+
 2. [Set your username in Git](/github/getting-started-with-github/setting-your-username-in-git).
 3. [Set your commit email address in Git](/articles/setting-your-commit-email-address).
 
