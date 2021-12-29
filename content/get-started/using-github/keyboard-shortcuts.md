@@ -32,7 +32,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 |<kbd>S</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 |<kbd>G</kbd> <kbd>N</kbd> | Go to your notifications. For more information, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 |<kbd>Esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
-{% if command-palette %}|<kbd>Ctrl</kbd>+<kbd>K</kbd> or <kbd>Command</kbd>+<kbd>K</kbd> | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+{% if command-palette %}|<kbd>Command</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## Repositories
 
@@ -51,23 +51,23 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | Keyboard shortcut | Description
 |-----------|------------{% ifversion fpt or ghec %}
 |<kbd>.</kbd> | Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
-|<kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd> | Inserts Markdown formatting for bolding text
-|<kbd>Ctrl</kbd>+<kbd>I</kbd> or <kbd>Command</kbd>+<kbd>I</kbd> | Inserts Markdown formatting for italicizing text
-|<kbd>Ctrl</kbd>+<kbd>K</kbd> or <kbd>Command</kbd>+<kbd>K</kbd> | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
-|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> | Inserts Markdown formatting for an ordered list
-|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> | Inserts Markdown formatting for an unordered list
-|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> | Inserts Markdown formatting for a quote{% endif %}
+|<kbd>Command</kbd>+<kbd>B</kbd> or <kbd>Ctrl</kbd>+<kbd>B</kbd> | Inserts Markdown formatting for bolding text
+|<kbd>Command</kbd>+<kbd>I</kbd> or <kbd>Ctrl</kbd>+<kbd>I</kbd> | Inserts Markdown formatting for italicizing text
+|<kbd>Command</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> | Inserts Markdown formatting for an ordered list
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> | Inserts Markdown formatting for an unordered list
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> | Inserts Markdown formatting for a quote{% endif %}
 |<kbd>E</kbd> | Open source code file in the **Edit file** tab
-|<kbd>Ctrl</kbd>+<kbd>F</kbd> or <kbd>Command</kbd>+<kbd>F</kbd> | Start searching in file editor
-|<kbd>Ctrl</kbd>+<kbd>G</kbd> or <kbd>Command</kbd>+<kbd>G</kbd> | Find next
-|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> | Find previous
-|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> | Replace
-|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> | Replace all
+|<kbd>Command</kbd>+<kbd>F</kbd> or <kbd>Ctrl</kbd>+<kbd>F</kbd> | Start searching in file editor
+|<kbd>Command</kbd>+<kbd>G</kbd> or <kbd>Ctrl</kbd>+<kbd>G</kbd> | Find next
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> | Find previous
+|<kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Replace
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | Replace all
 |<kbd>Alt</kbd>+<kbd>G</kbd> | Jump to line
-|<kbd>Ctrl</kbd>+<kbd>Z</kbd> or <kbd>Command</kbd>+<kbd>Z</kbd> | Undo
-|<kbd>Ctrl</kbd>+<kbd>Y</kbd> or <kbd>Command</kbd>+<kbd>Y</kbd> | Redo
+|<kbd>Command</kbd>+<kbd>Z</kbd> or <kbd>Ctrl</kbd>+<kbd>Z</kbd> | Undo
+|<kbd>Command</kbd>+<kbd>Y</kbd> or <kbd>Ctrl</kbd>+<kbd>Y</kbd> | Redo
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> | Toggles between the **Edit file** and **Preview changes** tabs
-|<kbd>Ctrl</kbd>+<kbd>S</kbd> or <kbd>Command</kbd>+<kbd>S</kbd> | Write a commit message
+|<kbd>Command</kbd>+<kbd>S</kbd> or <kbd>Ctrl</kbd>+<kbd>S</kbd> | Write a commit message
 
 For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).
 
@@ -87,17 +87,17 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd> | Inserts Markdown formatting for bolding text
-|<kbd>Ctrl</kbd>+<kbd>I</kbd> or <kbd>Command</kbd>+<kbd>I</kbd> | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-|<kbd>Ctrl</kbd>+<kbd>E</kbd> or <kbd>Command</kbd>+<kbd>E</kbd> | Inserts Markdown formatting for code or a command within a line{% endif %}
-|<kbd>Ctrl</kbd>+<kbd>K</kbd> or <kbd>Command</kbd>+<kbd>K</kbd> | Inserts Markdown formatting for creating a link
-|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>| Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> | Inserts Markdown formatting for an ordered list
-|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> | Inserts Markdown formatting for an unordered list{% endif %}
+|<kbd>Command</kbd>+<kbd>B</kbd> or <kbd>Ctrl</kbd>+<kbd>B</kbd> | Inserts Markdown formatting for bolding text
+|<kbd>Command</kbd>+<kbd>I</kbd> or <kbd>Ctrl</kbd>+<kbd>I</kbd> | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
+|<kbd>Command</kbd>+<kbd>E</kbd> or <kbd>Ctrl</kbd>+<kbd>E</kbd> | Inserts Markdown formatting for code or a command within a line{% endif %}
+|<kbd>Command</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> | Inserts Markdown formatting for creating a link
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> | Inserts Markdown formatting for an ordered list
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> | Inserts Markdown formatting for an unordered list{% endif %}
 |<kbd>Ctrl</kbd>+<kbd>Enter</kbd> | Submits a comment
 |<kbd>Ctrl</kbd>+<kbd>.</kbd> and then <kbd>Ctrl</kbd>+<kbd>[saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see "[About saved replies](/articles/about-saved-replies)."{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
-|<kbd>Ctrl</kbd>+<kbd>G</kbd> or <kbd>Command</kbd>+<kbd>G</kbd> | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
+|<kbd>Command</kbd>+<kbd>G</kbd> or <kbd>Ctrl</kbd>+<kbd>G</kbd> | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
 |<kbd>R</kbd> | Quote the selected text in your reply. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)." |
 
 ## Issue and pull request lists
@@ -105,7 +105,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>C</kbd> | Create an issue
-|<kbd>Ctrl</kbd>+<kbd>/</kbd> or <kbd>Command</kbd>+<kbd>/</kbd> | Focus your cursor on the issues or pull requests search bar. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."||
+|<kbd>Command</kbd>+<kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>/</kbd> | Focus your cursor on the issues or pull requests search bar. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."||
 |<kbd>U</kbd> | Filter by author
 |<kbd>L</kbd> | Filter by or edit labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
 |<kbd>Alt</kbd> and click | While filtering by labels, exclude labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
