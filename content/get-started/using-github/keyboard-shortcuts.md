@@ -30,44 +30,44 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>s</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
-|<kbd>g</kbd>+<kbd>n</kbd> | Go to your notifications. For more information, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+|<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 |<kbd>esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
-{% if command-palette %}|<kbd>control</kbd>+<kbd>k</kbd> or <kbd>command</kbd>+<kbd>k</kbd> | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>alt</kbd>+<kbd>k</kbd> or <kbd>⌘</kbd>+<kbd>option</kbd>+<kbd>k</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+{% if command-palette %}|<kbd>Ctrl</kbd>+<kbd>k</kbd> or <kbd>command</kbd>+<kbd>k</kbd> | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>k</kbd> or <kbd>command</kbd>+<kbd>option</kbd>+<kbd>k</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## Repositories
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>g</kbd>+<kbd>c</kbd> | Go to the **Code** tab
-|<kbd>g</kbd>+<kbd>i</kbd> | Go to the **Issues** tab. For more information, see "[About issues](/articles/about-issues)."
-|<kbd>g</kbd>+<kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
-|<kbd>g</kbd>+<kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
-|<kbd>g</kbd>+<kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
-|<kbd>g</kbd>+<kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt or ghec %}
-|<kbd>g</kbd>+<kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
+|<kbd>g</kbd> <kbd>c</kbd> | Go to the **Code** tab
+|<kbd>g</kbd> <kbd>i</kbd> | Go to the **Issues** tab. For more information, see "[About issues](/articles/about-issues)."
+|<kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
+|<kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
+|<kbd>g</kbd> <kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
+|<kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt or ghec %}
+|<kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
 ## Source code editing
 
 | Keyboard shortcut | Description
 |-----------|------------{% ifversion fpt or ghec %}
 |<kbd>.</kbd> | Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
-|<kbd>control</kbd>+<kbd>b</kbd> or <kbd>command</kbd>+<kbd>b</kbd> | Inserts Markdown formatting for bolding text
-|<kbd>control</kbd>+<kbd>i</kbd> or <kbd>command</kbd>+<kbd>i</kbd> | Inserts Markdown formatting for italicizing text
-|<kbd>control</kbd>+<kbd>k</kbd> or <kbd>command</kbd>+<kbd>k</kbd> | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
-|<kbd>control</kbd>+<kbd>shift</kbd>+<kbd>7</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>7</kbd> | Inserts Markdown formatting for an ordered list
-|<kbd>control</kbd>+<kbd>shift</kbd>+<kbd>8</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>8</kbd> | Inserts Markdown formatting for an unordered list
-|<kbd>control</kbd>+<kbd>shift</kbd>+<kbd>.</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>.</kbd> | Inserts Markdown formatting for a quote{% endif %}
+|<kbd>Ctrl</kbd>+<kbd>b</kbd> or <kbd>command</kbd>+<kbd>b</kbd> | Inserts Markdown formatting for bolding text
+|<kbd>Ctrl</kbd>+<kbd>i</kbd> or <kbd>command</kbd>+<kbd>i</kbd> | Inserts Markdown formatting for italicizing text
+|<kbd>Ctrl</kbd>+<kbd>k</kbd> or <kbd>command</kbd>+<kbd>k</kbd> | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
+|<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>7</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>7</kbd> | Inserts Markdown formatting for an ordered list
+|<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>8</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>8</kbd> | Inserts Markdown formatting for an unordered list
+|<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>.</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>.</kbd> | Inserts Markdown formatting for a quote{% endif %}
 |<kbd>e</kbd> | Open source code file in the **Edit file** tab
-|<kbd>control</kbd>+<kbd>f</kbd> or <kbd>command</kbd>+<kbd>f</kbd> | Start searching in file editor
-|<kbd>control</kbd>+<kbd>g</kbd> or <kbd>command</kbd>+<kbd>g</kbd> | Find next
-|<kbd>control</kbd>+<kbd>shift</kbd>+<kbd>g</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>g</kbd> | Find previous
-|<kbd>control</kbd>+<kbd>shift</kbd>+<kbd>f</kbd> or <kbd>command</kbd>+<kbd>option</kbd>+<kbd>f</kbd> | Replace
-|<kbd>control</kbd>+<kbd>shift</kbd>+<kbd>r</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>option</kbd>+<kbd>f</kbd> | Replace all
-|<kbd>alt</kbd>+<kbd>g</kbd> | Jump to line
-|<kbd>control</kbd>+<kbd>z</kbd> or <kbd>command</kbd>+<kbd>z</kbd> | Undo
-|<kbd>control</kbd>+<kbd>y</kbd> or <kbd>command</kbd>+<kbd>y</kbd> | Redo
+|<kbd>Ctrl</kbd>+<kbd>f</kbd> or <kbd>command</kbd>+<kbd>f</kbd> | Start searching in file editor
+|<kbd>Ctrl</kbd>+<kbd>g</kbd> or <kbd>command</kbd>+<kbd>g</kbd> | Find next
+|<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>g</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>g</kbd> | Find previous
+|<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>f</kbd> or <kbd>command</kbd>+<kbd>option</kbd>+<kbd>f</kbd> | Replace
+|<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>r</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>option</kbd>+<kbd>f</kbd> | Replace all
+|<kbd>Alt</kbd>+<kbd>g</kbd> | Jump to line
+|<kbd>Ctrl</kbd>+<kbd>z</kbd> or <kbd>command</kbd>+<kbd>z</kbd> | Undo
+|<kbd>Ctrl</kbd>+<kbd>y</kbd> or <kbd>command</kbd>+<kbd>y</kbd> | Redo
 |<kbd>command</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> | Toggles between the **Edit file** and **Preview changes** tabs
-|<kbd>control</kbd>+<kbd>s</kbd> or <kbd>command</kbd>+<kbd>s</kbd> | Write a commit message
+|<kbd>Ctrl</kbd>+<kbd>s</kbd> or <kbd>command</kbd>+<kbd>s</kbd> | Write a commit message
 
 For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).
 
@@ -87,17 +87,17 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>control</kbd>+<kbd>b</kbd> or <kbd>command</kbd>+<kbd>b</kbd> | Inserts Markdown formatting for bolding text
-|<kbd>control</kbd>+<kbd>i</kbd> or <kbd>command</kbd>+<kbd>i</kbd> | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-|<kbd>control</kbd>+<kbd>e</kbd> or <kbd>command</kbd>+<kbd>e</kbd> | Inserts Markdown formatting for code or a command within a line{% endif %}
-|<kbd>control</kbd>+<kbd>k</kbd> or <kbd>command</kbd>+<kbd>k</kbd> | Inserts Markdown formatting for creating a link
-|<kbd>control</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>| Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-|<kbd>control</kbd>+<kbd>shift</kbd>+<kbd>7</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>7</kbd> | Inserts Markdown formatting for an ordered list
-|<kbd>control</kbd>+<kbd>shift</kbd>+<kbd>8</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>8</kbd> | Inserts Markdown formatting for an unordered list{% endif %}
-|<kbd>control</kbd>+<kbd>enter</kbd> | Submits a comment
-|<kbd>control</kbd>+<kbd>.</kbd> and then <kbd>control</kbd>+<kbd>[saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see "[About saved replies](/articles/about-saved-replies)."{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-|<kbd>control</kbd>+<kbd>shift</kbd>+<kbd>.</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>.</kbd> | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
-|<kbd>control</kbd>+<kbd>g</kbd> or <kbd>command</kbd>+<kbd>g</kbd> | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
+|<kbd>Ctrl</kbd>+<kbd>b</kbd> or <kbd>command</kbd>+<kbd>b</kbd> | Inserts Markdown formatting for bolding text
+|<kbd>Ctrl</kbd>+<kbd>i</kbd> or <kbd>command</kbd>+<kbd>i</kbd> | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
+|<kbd>Ctrl</kbd>+<kbd>e</kbd> or <kbd>command</kbd>+<kbd>e</kbd> | Inserts Markdown formatting for code or a command within a line{% endif %}
+|<kbd>Ctrl</kbd>+<kbd>k</kbd> or <kbd>command</kbd>+<kbd>k</kbd> | Inserts Markdown formatting for creating a link
+|<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>| Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+|<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>7</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>7</kbd> | Inserts Markdown formatting for an ordered list
+|<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>8</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>8</kbd> | Inserts Markdown formatting for an unordered list{% endif %}
+|<kbd>Ctrl</kbd>+<kbd>enter</kbd> | Submits a comment
+|<kbd>Ctrl</kbd>+<kbd>.</kbd> and then <kbd>Ctrl</kbd>+<kbd>[saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see "[About saved replies](/articles/about-saved-replies)."{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+|<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>.</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>.</kbd> | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
+|<kbd>Ctrl</kbd>+<kbd>g</kbd> or <kbd>command</kbd>+<kbd>g</kbd> | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
 |<kbd>r</kbd> | Quote the selected text in your reply. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)." |
 
 ## Issue and pull request lists
@@ -105,7 +105,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>c</kbd> | Create an issue
-|<kbd>control</kbd>+<kbd>/</kbd> or <kbd>command</kbd>+<kbd>/</kbd> | Focus your cursor on the issues or pull requests search bar. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."||
+|<kbd>Ctrl</kbd>+<kbd>/</kbd> or <kbd>command</kbd>+<kbd>/</kbd> | Focus your cursor on the issues or pull requests search bar. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."||
 |<kbd>u</kbd> | Filter by author
 |<kbd>l</kbd> | Filter by or edit labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
 |<kbd>alt</kbd> and click | While filtering by labels, exclude labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
@@ -120,10 +120,10 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>m</kbd> | Set a milestone. For more information, see "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests/)."
 |<kbd>l</kbd> | Apply a label. For more information, see "[Applying labels to issues and pull requests](/articles/applying-labels-to-issues-and-pull-requests/)."
 |<kbd>a</kbd> | Set an assignee. For more information, see "[Assigning issues and pull requests to other {% data variables.product.company_short %} users](/articles/assigning-issues-and-pull-requests-to-other-github-users/)."
-|<kbd>cmd</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> or <kbd>control</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> | Toggles between the **Write** and **Preview** tabs{% ifversion fpt or ghec %}
-|<kbd>alt</kbd> and click | When creating an issue from a task list, open the new issue form in the current tab by holding <kbd>alt</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+|<kbd>command</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> or <kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> | Toggles between the **Write** and **Preview** tabs{% ifversion fpt or ghec %}
+|<kbd>Alt</kbd> and click | When creating an issue from a task list, open the new issue form in the current tab by holding <kbd>alt</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
 |<kbd>shift</kbd> and click | When creating an issue from a task list, open the new issue form in a new tab by holding <kbd>shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
-|<kbd>command</kbd> or <kbd>control</kbd>+<kbd>shift</kbd> and click | When creating an issue from a task list, open the new issue form in the new window by holding <kbd>command</kbd> or <kbd>control</kbd>+<kbd>shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."{% endif %}
+|<kbd>command</kbd> or <kbd>Ctrl</kbd>+<kbd>shift</kbd> and click | When creating an issue from a task list, open the new issue form in the new window by holding <kbd>command</kbd> or <kbd>Ctrl</kbd>+<kbd>shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."{% endif %}
 
 ## Changes in pull requests
 
@@ -133,8 +133,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>t</kbd> | Open the list of changed files in the pull request
 |<kbd>j</kbd> | Move selection down in the list
 |<kbd>k</kbd> | Move selection up in the list
-|<kbd>cmd</kbd>+<kbd>shift</kbd>+<kbd>enter </kbd> | Add a single comment on a pull request diff |
-|<kbd>alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>alt</kbd> and clicking **Show outdated** or **Hide outdated**.|{% ifversion fpt or ghes or ghae or ghec %}
+|<kbd>command</kbd>+<kbd>shift</kbd>+<kbd>enter </kbd> | Add a single comment on a pull request diff |
+|<kbd>Alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.|{% ifversion fpt or ghes or ghae or ghec %}
 |Click, then <kbd>shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|{% endif %}
 
 ## Project boards
@@ -147,9 +147,9 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>escape</kbd> | Cancel the move in progress
 |<kbd>enter</kbd> | Complete the move in progress
 |<kbd>←</kbd> or <kbd>h</kbd> | Move column to the left
-|<kbd>command</kbd>+<kbd>←</kbd> or <kbd>command</kbd>+<kbd>h</kbd> or <kbd>control</kbd>+<kbd>←</kbd> or <kbd>control</kbd>+<kbd>h</kbd> | Move column to the leftmost position
+|<kbd>command</kbd>+<kbd>←</kbd> or <kbd>command</kbd>+<kbd>h</kbd> or <kbd>Ctrl</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>h</kbd> | Move column to the leftmost position
 |<kbd>→</kbd> or <kbd>l</kbd> | Move column to the right
-|<kbd>command</kbd>+<kbd>→</kbd> or <kbd>command</kbd>+<kbd>l</kbd> or <kbd>control</kbd>+<kbd>→</kbd> or <kbd>control</kbd>+<kbd>l</kbd> | Move column to the rightmost position
+|<kbd>command</kbd>+<kbd>→</kbd> or <kbd>command</kbd>+<kbd>l</kbd> or <kbd>Ctrl</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>l</kbd> | Move column to the rightmost position
 
 ### Moving a card
 
@@ -159,17 +159,17 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>escape</kbd> | Cancel the move in progress
 |<kbd>enter</kbd> | Complete the move in progress
 |<kbd>↓</kbd> or <kbd>j</kbd> | Move card down
-|<kbd>command</kbd>+<kbd>↓</kbd> or <kbd>command</kbd>+<kbd>j</kbd> or <kbd>control</kbd>+<kbd>↓</kbd> or <kbd>control</kbd>+<kbd>j</kbd> | Move card to the bottom of the column
+|<kbd>command</kbd>+<kbd>↓</kbd> or <kbd>command</kbd>+<kbd>j</kbd> or <kbd>Ctrl</kbd>+<kbd>↓</kbd> or <kbd>Ctrl</kbd>+<kbd>j</kbd> | Move card to the bottom of the column
 |<kbd>↑</kbd> or <kbd>k</kbd> | Move card up
-|<kbd>command</kbd>+<kbd>↑</kbd> or <kbd>command</kbd>+<kbd>k</kbd> or <kbd>control</kbd>+<kbd>↑</kbd> or <kbd>control</kbd>+<kbd>k</kbd> | Move card to the top of the column
+|<kbd>command</kbd>+<kbd>↑</kbd> or <kbd>command</kbd>+<kbd>k</kbd> or <kbd>Ctrl</kbd>+<kbd>↑</kbd> or <kbd>Ctrl</kbd>+<kbd>k</kbd> | Move card to the top of the column
 |<kbd>←</kbd> or <kbd>h</kbd> | Move card to the bottom of the column on the left
 |<kbd>shift</kbd>+<kbd>←</kbd> or <kbd>shift</kbd>+<kbd>h</kbd> | Move card to the top of the column on the left
-|<kbd>command</kbd>+<kbd>←</kbd> or <kbd>command</kbd>+<kbd>h</kbd> or <kbd>control</kbd>+<kbd>←</kbd> or <kbd>control</kbd>+<kbd>h</kbd> | Move card to the bottom of the leftmost column
-|<kbd>command</kbd>+<kbd>shift</kbd>+<kbd>←</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>h</kbd> or <kbd>control</kbd>+<kbd>shift</kbd>+<kbd>←</kbd> or <kbd>control</kbd>+<kbd>shift</kbd>+<kbd>h</kbd> | Move card to the top of the leftmost column
+|<kbd>command</kbd>+<kbd>←</kbd> or <kbd>command</kbd>+<kbd>h</kbd> or <kbd>Ctrl</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>h</kbd> | Move card to the bottom of the leftmost column
+|<kbd>command</kbd>+<kbd>shift</kbd>+<kbd>←</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>h</kbd> or <kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>h</kbd> | Move card to the top of the leftmost column
 |<kbd>→</kbd> | Move card to the bottom of the column on the right
 |<kbd>shift</kbd>+<kbd>→</kbd> or <kbd>shift</kbd>+<kbd>l</kbd> | Move card to the top of the column on the right
-|<kbd>command</kbd>+<kbd>→</kbd> or <kbd>command</kbd>+<kbd>l</kbd> or <kbd>control</kbd>+<kbd>→</kbd> or <kbd>control</kbd>+<kbd>l</kbd> | Move card to the bottom of the rightmost column
-|<kbd>command</kbd>+<kbd>shift</kbd>+<kbd>→</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>l</kbd> or <kbd>control</kbd>+<kbd>shift</kbd>+<kbd>→</kbd> or <kbd>control</kbd>+<kbd>shift</kbd>+<kbd>l</kbd> | Move card to the bottom of the rightmost column
+|<kbd>command</kbd>+<kbd>→</kbd> or <kbd>command</kbd>+<kbd>l</kbd> or <kbd>Ctrl</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>l</kbd> | Move card to the bottom of the rightmost column
+|<kbd>command</kbd>+<kbd>shift</kbd>+<kbd>→</kbd> or <kbd>command</kbd>+<kbd>shift</kbd>+<kbd>l</kbd> or <kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>l</kbd> | Move card to the bottom of the rightmost column
 
 ### Previewing a card
 
@@ -182,7 +182,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>command</kbd>+<kbd>space </kbd> or <kbd>control</kbd>+<kbd>space</kbd> | In the workflow editor, get suggestions for your workflow file.
+|<kbd>command</kbd>+<kbd>space </kbd> or <kbd>Ctrl</kbd>+<kbd>space</kbd> | In the workflow editor, get suggestions for your workflow file.
 |<kbd>g</kbd>+<kbd>f</kbd> | Go to the workflow file
 |<kbd>shift</kbd>+<kbd>t</kbd> or <kbd>T</kbd> | Toggle timestamps in logs
 |<kbd>shift</kbd>+<kbd>f</kbd> or <kbd>F</kbd> | Toggle full-screen logs
