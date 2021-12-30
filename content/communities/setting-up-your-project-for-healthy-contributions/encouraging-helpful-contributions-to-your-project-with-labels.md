@@ -27,3 +27,4 @@ You can apply the `good first issue` label to issues in your public repository s
 
 - "[About labels](/articles/about-labels)"
 - "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories)"
+README.md https://github.com/github/hub/issues,https://github.com/rbenv/ruby-build/wiki,git@github.com,release-notes.txt,build.log,https://github.com/github/hub/pull/134,hub.host,prepared-message.md,release-notes.txt,https://github.com/xoebus/hub/commit/177eeb8,https://github.com/github/hub/pull/134
