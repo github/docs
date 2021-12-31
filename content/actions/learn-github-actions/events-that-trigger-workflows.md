@@ -97,6 +97,13 @@ You can manually trigger workflow runs. To trigger specific workflows in a repos
 | ------------------ | ------------ | ------------ | ------------------|
 | [workflow_dispatch](/webhooks/event-payloads/#workflow_dispatch) | n/a | Last commit on the `GITHUB_REF` branch | Branch that received dispatch |
 
+
+{% note %}
+
+**Note:** This manual event can only run a workflow if the workflow file is on the default branch."
+
+{% endnote %}
+
 You can configure custom-defined input properties, default input values, and required inputs for the event directly in your workflow. When the workflow runs, you can access the input values in the `github.event.inputs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
 
 You can manually trigger a workflow run using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API and from {% data variables.product.product_name %}. For more information, see "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
