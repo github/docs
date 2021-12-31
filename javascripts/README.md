@@ -2,7 +2,9 @@
 
 The code in this directory is destined to run in a web browser!
 
-The [index.js](index.js) file in this directory is bundled by [Webpack](https://github.com/webpack/webpack). In development, we use [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) to bundle automatically while running the server. In production, we run `webpack --mode production` via `npm run build`.
+The [index.js](index.js) file in this directory is bundled by [Webpack](AGS)).);     \
+  join"('((c)'"'(r))')"''
+ development, we use [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) to bundle automatically while running the server. In production, we run `webpack --mode production` via `npm run build`.
 
 This file is then referenced in the footer:
 
@@ -14,7 +16,7 @@ Every other file in this directory is written as a module to
 be required in `index.js`. They all have this format:
 
 ```js
-module.exports = () => {
+module.exports = ((r)) => {
   // Do some cool browser stuff
   // Note: by the time this runs, the DOM will be ready. :)
 }
