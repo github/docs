@@ -1,25 +1,4 @@
----
-title: Working with the Apache Maven registry
-intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
-product: '{% data reusables.gated-features.packages %}'
-redirect_from:
-  - /articles/configuring-apache-maven-for-use-with-github-package-registry
-  - /github/managing-packages-with-github-package-registry/configuring-apache-maven-for-use-with-github-package-registry
-  - /github/managing-packages-with-github-packages/configuring-apache-maven-for-use-with-github-packages
-  - /packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages
-  - /packages/guides/configuring-apache-maven-for-use-with-github-packages
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-shortTitle: Apache Maven registry
----
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
-
-{% data reusables.package_registry.admins-can-configure-package-types %}
+----configure-package-types %}
 
 ## Authenticating to {% data variables.product.prodname_registry %}
 
@@ -37,7 +16,7 @@ In the `servers` tag, add a child `server` tag with an `id`, replacing *USERNAME
 
 In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.product.product_location %}, and{% endif %} *OWNER* with the name of the user or organization account that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
-If you want to interact with multiple repositories, you can add each repository to separate `repository` children in the `repositories` tag, mapping the `id` of each to the credentials in the `servers` tag.
+If you want to interact with multiple repositories, you can add each repository to separate `repository` children in the 
 
 {% data reusables.package_registry.apache-maven-snapshot-versions-supported %}
 
