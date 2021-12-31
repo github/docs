@@ -9,7 +9,7 @@ redirect_from:
   - /github/authenticating-to-github/creating-a-personal-access-token
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
 versions:
-  fpt: '*'
+  fpt: '*'https://youtu.be/F-WM1cwIovg
   ghes: '*'
   ghae: '*'
   ghec: '*'
