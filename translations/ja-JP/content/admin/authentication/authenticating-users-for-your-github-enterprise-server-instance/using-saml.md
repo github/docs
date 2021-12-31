@@ -1,12 +1,12 @@
 ---
-title: SAMLの利用
+title: Using SAML
 redirect_from:
-  - /enterprise/admin/articles/configuring-saml-authentication/
-  - /enterprise/admin/articles/about-saml-authentication/
+  - /enterprise/admin/articles/configuring-saml-authentication
+  - /enterprise/admin/articles/about-saml-authentication
   - /enterprise/admin/user-management/using-saml
   - /enterprise/admin/authentication/using-saml
   - /admin/authentication/using-saml
-intro: 'SAML は認証と認可のための XML ベースの標準です。 {% data variables.product.prodname_ghe_server %} は、内部的な SAML アイデンティティプロバイダ (IdP) とサービスプロバイダ (SP) として動作できます。'
+intro: 'SAML is an XML-based standard for authentication and authorization. {% data variables.product.prodname_ghe_server %} can act as a service provider (SP) with your internal SAML identity provider (IdP).'
 versions:
   ghes: '*'
 type: how_to
@@ -17,31 +17,30 @@ topics:
   - Identity
   - SSO
 ---
-
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-## サポートされているSAMLサービス
+## Supported SAML services
 
 {% data reusables.saml.saml-supported-idps %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-## SAMLでのユーザ名についての考慮
+## Username considerations with SAML
 
-各{% data variables.product.prodname_ghe_server %}ユーザ名は、SAMLの応答で次のアサーションのいずれかによって決定され、優先順位で並べられます。
+Each {% data variables.product.prodname_ghe_server %} username is determined by one of the following assertions in the SAML response, ordered by priority:
 
-- カスタムユーザ名属性 (定義済みかつ存在する場合)
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`アサーション (存在する場合)
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`アサーション (存在する場合)
-- `NameID`要素
+- The custom username attribute, if defined and present
+- An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` assertion, if present
+- An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` assertion, if present
+- The `NameID` element
 
-`NameID`要素は、他の属性が存在する場合でも必須です。
+The `NameID` element is required even if other attributes are present.
 
-`NameID` と {% data variables.product.prodname_ghe_server %} ユーザ名の間にマッピングが作成されるため、`NameID` は永続的で一意でなければならず、ユーザのライフサイクルにおいて変更にさらされないようにする必要があります。
+A mapping is created between the `NameID` and the {% data variables.product.prodname_ghe_server %} username, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% note %}
 
-**注釈**: ユーザの `NameID` が IdP で変更された場合、ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインしようとすると、エラーメッセージが表示されます。 {% ifversion ghes %} ユーザのアクセスを復元するには、ユーザアカウントの `NameID` マッピングを更新する必要があります。 詳しい情報については、「[ユーザの SAML `NameID` を更新する](#updating-a-users-saml-nameid)」を参照してください。{% else %} 詳しい情報については、「[エラー: '別のユーザーがすでにアカウントを所有しています'](#error-another-user-already-owns-the-account)」を参照してください。{% endif %}
+**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign in to your {% data variables.product.prodname_ghe_server %} instance. {% ifversion ghes %}To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %} For more information, see "[Error: 'Another user already owns the account'](#error-another-user-already-owns-the-account)."{% endif %}
 
 {% endnote %}
 
@@ -52,75 +51,97 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-## SAMLのメタデータ
+## SAML metadata
 
-{% data variables.product.prodname_ghe_server %} インスタンスのサービスプロバイダメタデータは、`http(s)://[hostname]/saml/metadata` にあります。
+Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
-アイデンティティプロバイダを手動で設定するなら、Assertion Consumer Service (ACS) URLは`http(s)://[hostname]/saml/consume`です。 これは`urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`バインディングを利用します。
+To configure your identity provider manually, the Assertion Consumer Service (ACS) URL is `http(s)://[hostname]/saml/consume`. It uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
 
-## SAMLの属性
+## SAML attributes
 
-以下の属性が利用できます。 `administrator`属性以外の属性の名前は[Management Console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/)で変更できます。
+These attributes are available. You can change the attribute names in the [management console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/), with the exception of the `administrator` attribute.
 
-| デフォルトの属性名       | 種類 | 説明                                                                                                                          |
-| --------------- | -- | --------------------------------------------------------------------------------------------------------------------------- |
-| `NameID`        | 必須 | 永続ユーザ識別子。 任意の名前識別子の形式を使用できます。 どの代替アサーションも指定しない場合、{% data variables.product.prodname_ghe_server %}ユーザ名には`NameID`要素が使用されます。 |
-| `administrator` | 任意 | この値が 'true' であれば、ユーザは自動的に管理者に昇格します。 他の値、あるいは値が存在しない場合は、ユーザは通常のユーザアカウントに降格します。                                               |
-| `ユーザ名`          | 任意 | {% data variables.product.prodname_ghe_server %} のユーザ名                                                                    |
-| `full_name`     | 任意 | ユーザのプロフィールページに表示されるユーザ名です。 ユーザはプロビジョニング後に名前を変更できます。                                                                         |
-| `emails`        | 任意 | ユーザのメールアドレス。 複数指定することができます。                                                                                                 |
-| `public_keys`   | 任意 | ユーザの公開 SSH キー。 複数指定することができます。                                                                                               |
-| `gpg_keys`      | 任意 | ユーザの GPG キー。 複数指定することができます。                                                                                                 |
+| Default attribute name  | Type     | Description |
+|-----------------|----------|-------------|
+| `NameID` | Required | A persistent user identifier. Any persistent name identifier format may be used. The `NameID` element will be used for a {% data variables.product.prodname_ghe_server %} username unless one of the alternative assertions is provided. |
+| `administrator` | Optional | When the value is 'true', the user will automatically be promoted as an administrator. Any other value or a non-existent value will demote the user to a normal user account. |
+| `username` | Optional | The {% data variables.product.prodname_ghe_server %} username. |
+| `full_name`     | Optional | The name of the user displayed on their profile page. Users may change their names after provisioning. |
+| `emails`        | Optional | The email addresses for the user. More than one can be specified. |
+| `public_keys`   | Optional | The public SSH keys for the user. More than one can be specified. |
+| `gpg_keys`   | Optional | The GPG keys for the user. More than one can be specified.  |
 
-## SAMLの設定
+To specify more than one value for an attribute, use multiple `<saml2:AttributeValue>` elements.
+
+```
+<saml2:Attribute FriendlyName="public_keys" Name="urn:oid:1.2.840.113549.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+    <saml2:AttributeValue>ssh-rsa LONG KEY</saml2:AttributeValue>
+    <saml2:AttributeValue>ssh-rsa LONG KEY 2</saml2:AttributeValue>
+</saml2:Attribute>
+```
+
+## Configuring SAML settings
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-3. **SAML**を選択してください。 ![SAML認証](/assets/images/enterprise/management-console/auth-select-saml.png)
-4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![SAML ビルトイン認証の選択チェックボックス](/assets/images/enterprise/management-console/saml-built-in-authentication.png)
-5. オプションで、未承諾応答SSOを有効化する場合は [**IdP initiated SSO**] を選択します。 デフォルトでは、{% data variables.product.prodname_ghe_server %}は未承認アイデンティティプロバイダ (IdP) 起点のリクエストに対して、IdPへの`AuthnRequest`返信で応答します。 ![SAML idP SSO](/assets/images/enterprise/management-console/saml-idp-sso.png)
+3. Select **SAML**.
+![SAML authentication](/assets/images/enterprise/management-console/auth-select-saml.png)
+4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Select SAML built-in authentication checkbox](/assets/images/enterprise/management-console/saml-built-in-authentication.png)
+5. Optionally, to enable unsolicited response SSO, select **IdP initiated SSO**. By default, {% data variables.product.prodname_ghe_server %} will reply to an unsolicited Identity Provider (IdP) initiated request with an `AuthnRequest` back to the IdP.
+![SAML idP SSO](/assets/images/enterprise/management-console/saml-idp-sso.png)
 
   {% tip %}
 
-  **ノート**：この値は**選択しない**でおくことをおすすめします。 この機能を有効にするのは、SAMLの実装がサービスプロバイダ起点のSSOをサポートしないまれな場合と、{% data variables.contact.enterprise_support %}によって推奨された場合**だけ**にすべきです。
+  **Note**: We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
 
   {% endtip %}
 
-5. {% data variables.product.product_location %} 上のユーザの管理者権限を SAML プロバイダに決めさせたく**ない**場合、[**Disable administrator demotion/promotion**] を選択します。 ![SAMLの無効化の管理者設定](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-6. **Single sign-on URL（シングルサインオンURL）**フィールドに、使用するIdpのシングルサインオンのリクエストのためのHTTPあるいはHTTPSエンドポイントを入力してください。 この値はIdpの設定によって決まります。 ホストが内部のネットワークからしか利用できない場合、[{% data variables.product.product_location %}を内部ネームサーバーを利用するように設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/)する必要があるかもしれません。 ![SAML認証](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-7. または、[**Issuer**] フィールドに、SAML の発行者の名前を入力します。 これは、{% data variables.product.product_location %} へ送信されるメッセージの真正性を検証します。 ![SAML発行者](/assets/images/enterprise/management-console/saml-issuer.png)
-8. [**Signature Method**] および [**Digest Method**] ドロップダウンメニューで、SAML の発行者が {% data variables.product.product_location %} からのリクエストの整合性の検証に使うハッシュアルゴリズムを選択します。 ** Name Identifier Format（Name Identifier形式）**ドロップダウンメニューから形式を指定してください。 ![SAML方式](/assets/images/enterprise/management-console/saml-method.png)
-9. [**Verification certificate**] の下で、[**Choose File**] をクリックし、IdP からの SAML のレスポンスを検証するための証明書を選択してください。 ![SAML認証](/assets/images/enterprise/management-console/saml-verification-cert.png)
-10. 必要に応じてSAMLの属性名はIdPに合わせて修正してください。あるいはデフォルト名をそのまま受け付けてください。 ![SAMLの属性名](/assets/images/enterprise/management-console/saml-attributes.png)
+5. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location %}.
+![SAML disable admin configuration](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/).
+![SAML authentication](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location %}.
+![SAML issuer](/assets/images/enterprise/management-console/saml-issuer.png)
+8. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location %}. Specify the format with the **Name Identifier Format** drop-down menu.
+![SAML method](/assets/images/enterprise/management-console/saml-method.png)
+9. Under **Verification certificate**, click **Choose File** and choose a certificate to validate SAML responses from the IdP.
+![SAML authentication](/assets/images/enterprise/management-console/saml-verification-cert.png)
+10. Modify the SAML attribute names to match your IdP if needed, or accept the default names.
+ ![SAML attribute names](/assets/images/enterprise/management-console/saml-attributes.png)
 
 {% ifversion ghes %}
 
-## {{ site.data.variables.product.product_location_enterprise }}へのアクセスの削除
+## Updating a user's SAML `NameID`
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. **SAML**を選択してください。 ![サイト管理者設定の "All users" サイドバー項目](/assets/images/enterprise/site-admin-settings/all-users.png)
-3. ユーザーのリストで、`NameID` マッピングを更新するユーザ名をクリックします。 ![インスタンスユーザアカウントのリストにあるユーザ名](/assets/images/enterprise/site-admin-settings/all-users-click-username.png)
+2. In the left sidebar, click **All users**.
+  !["All users" sidebar item in site administrator settings](/assets/images/enterprise/site-admin-settings/all-users.png)
+3. In the list of users, click the username you'd like to update the `NameID` mapping for.
+  ![Username in list of instance user accounts](/assets/images/enterprise/site-admin-settings/all-users-click-username.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
-5. [Update SAML NameID] の右にある [**Edit**] アイコンをクリックします。 ![SAML認証](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
-6. [NameID] フィールドに、ユーザの新しい `NameID` を入力します。 ![入力済みの NameID を含むモーダルダイアログの "NameID" フィールド](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
-7. [**Update NameID**] をクリックします。 ![モーダル内の更新された NameID 値の下の "Update NameID" ボタン](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
+5. To the right of "Update SAML NameID", click **Edit** .
+  !["Edit" button under "SAML authentication" and to the right of "Update SAML NameID"](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
+6. In the "NameID" field, type the new `NameID` for the user.
+  !["NameID" field in modal dialog with NameID typed](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
+7. Click **Update NameID**.
+  !["Update NameID" button under updated NameID value within modal](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
 
 {% endif %}
 
-## {% data variables.product.product_location %}へのアクセスの削除
+## Revoking access to {% data variables.product.product_location %}
 
-アイデンティティプロバイダからユーザを削除したなら、そのユーザを手動でサスペンドもしなければなりません。 そうしなければ、そのユーザはアクセストークンあるいはSSHキーを使って引き続き認証を受けることができてしまいます。 詳しい情報については[ユーザのサスペンドとサスペンドの解除](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)を参照してください。
+If you remove a user from your identity provider, you must also manually suspend them. Otherwise, they'll continue to be able to authenticate using access tokens or SSH keys. For more information, see "[Suspending and unsuspending users](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
 
-## レスポンスメッセージについての要求
+## Response message requirements
 
-レスポンスメッセージは以下の要求を満たさなければなりません。
+The response message must fulfill the following requirements:
 
-- `<Destination>`要素はルートレスポンスドキュメントで指定されていなければならず、ACS URLに一致する必要があります。ただし、これはルートレスポンスドキュメントに署名がある場合のみです。 アサーションに署名がある場合は無視されます。
-- `<AudienceRestriction>`要素の一部として、`<Audience>`要素は常に指定する必要があります。 `<AudienceRestriction>`要素の一部として、`<Audience>`要素は常に指定する必要があります。 これは、`https://ghe.corp.example.com`というような、{% data variables.product.prodname_ghe_server %}インスタンスへのURLです。
-- レスポンス中での各アサーションは、電子署名で保護されていなければ**なりません**。 これは、個々の`<Assertion>`要素に署名するか、`<Response>`要素を署名するかすることによって行います。
-- `<Subject>`要素の一部として`<NameID>`要素を指定する必要があります。 任意の名前識別子の形式を使用できます。
-- `Recipient` 属性は存在しなければならず、ACS URL に設定されなければなりません。 例:
+- The `<Destination>` element must be provided on the root response document and match the ACS URL only when the root response document is signed. If the assertion is signed, it will be ignored.
+- The `<Audience>` element must always be provided as part of the `<AudienceRestriction>` element. It must match the `EntityId` for {% data variables.product.prodname_ghe_server %}. This is the URL to the {% data variables.product.prodname_ghe_server %} instance, such as `https://ghe.corp.example.com`.
+- Each assertion in the response **must** be protected by a digital signature. This can be accomplished by signing each individual `<Assertion>` element or by signing the `<Response>` element.
+- A `<NameID>` element must be provided as part of the `<Subject>` element. Any persistent name identifier format may be used.
+- The `Recipient` attribute must be present and set to the ACS URL. For example:
 
 ```xml
 <samlp:Response ...>
@@ -140,23 +161,23 @@ topics:
 </samlp:Response>
 ```
 
-## SAML認証
+## Troubleshooting SAML authentication
 
-{% data variables.product.prodname_ghe_server %} は、認証ログの _/var/log/github/auth.log_ で失敗した SAML 認証のエラーメッセージをログに記録します。 SAML レスポンス要件の詳細については、「[レスポンスメッセージの要件](#response-message-requirements)」を参照してください。
+{% data variables.product.prodname_ghe_server %} logs error messages for failed SAML authentication in the authentication log at  _/var/log/github/auth.log_. For more information about SAML response requirements, see "[Response message requirements](#response-message-requirements)."
 
-### エラー:「別のユーザがすでにアカウントを所有しています」
+### Error: "Another user already owns the account"
 
-ユーザが SAML 認証を使用して初めて {% data variables.product.prodname_ghe_server %} にサインインすると、{% data variables.product.prodname_ghe_server %} はインスタンスにユーザアカウントを作成し、SAML `NameID` をアカウントにマップします。
+When a user signs in to {% data variables.product.prodname_ghe_server %} for the first time with SAML authentication, {% data variables.product.prodname_ghe_server %} creates a user account on the instance and maps the SAML `NameID` to the account.
 
-ユーザが再度サインインすると、{% data variables.product.prodname_ghe_server %} はアカウントの `NameID` マッピングを IdP のレスポンスと比較します。 IdP のレスポンスの `NameID` が、{% data variables.product.prodname_ghe_server %} がユーザに対して想定している `NameID` とマッチしなくなると、サインインは失敗します。 ユーザには次のメッセージが表示されます。
+When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` mapping to the IdP's response. If the `NameID` in the IdP's response no longer matches the `NameID` that {% data variables.product.prodname_ghe_server %} expects for the user, the sign-in will fail. The user will see the following message.
 
-> 別のユーザが既にアカウントを所有しています。 管理者に認証ログを確認するようご依頼ください。
+> Another user already owns the account. Please have your administrator check the authentication log.
 
-このメッセージは通常、その人のユーザ名またはメールアドレスが IdP で変更されたということを示します。 {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} のユーザアカウントの `NameID` マッピングが IdP のユーザの `NameID` とマッチすることを確認します。 詳しい情報については、「[ユーザの SAML `NameID` の更新](#updating-a-users-saml-nameid)」を参照してください。{% else %} `NameID` マッピングの更新については、{% data variables.contact.contact_ent_support %} にお問い合わせください。{% endif %}
+The message typically indicates that the person's username or email address has changed on the IdP. {% ifversion ghes %}Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %}For help updating the `NameID` mapping, contact {% data variables.contact.contact_ent_support %}.{% endif %}
 
-### SAMLレスポンスが署名されていなかった場合、あるいは署名が内容とマッチしなかった場合、authログに以下のエラーメッセージが残されます。
+### Error: Recipient in SAML response was blank or not valid
 
-`Recipient`がACS URLと一致しなかった場合、authログに以下のエラーメッセージが残されます。
+If the `Recipient` does not match the ACS URL for your {% data variables.product.prodname_ghe_server %} instance, one of the following two error messages will appear in the authentication log when a user attempts to authenticate.
 
 ```
 Recipient in the SAML response must not be blank.
@@ -166,24 +187,24 @@ Recipient in the SAML response must not be blank.
 Recipient in the SAML response was not valid.
 ```
 
-IdP の `Recipient` の値を、{% data variables.product.prodname_ghe_server %} インスタンスの完全な ACS URL に設定してください。 例: `https://ghe.corp.example.com/saml/consume`
+Ensure that you set the value for `Recipient` on your IdP to the full ACS URL for your {% data variables.product.prodname_ghe_server %} instance. For example, `https://ghe.corp.example.com/saml/consume`.
 
-### エラー:「SAML レスポンスが署名されていないか、変更されています」
+### Error: "SAML Response is not signed or has been modified"
 
-IdP が SAML レスポンスに署名しない場合、または署名が内容と一致しない場合、次のエラーメッセージが認証ログに表示されます。
+If your IdP does not sign the SAML response, or the signature does not match the contents, the following error message will appear in the authentication log.
 
 ```
 SAML Response is not signed or has been modified.
 ```
 
-IdP で {% data variables.product.prodname_ghe_server %} アプリケーションの署名済みアサーションを設定していることを確認してください。
+Ensure that you configure signed assertions for the {% data variables.product.prodname_ghe_server %} application on your IdP.
 
-### エラー:「Audience が無効です」または「アサーションが見つかりません」
+### Error: "Audience is invalid" or "No assertion found"
 
-IdP のレスポンスに `Audience` の値がないか、または正しくない場合、次のエラーメッセージが認証ログに表示されます。
+If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
 
 ```shell
 Audience is invalid. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
 ```
 
-IdP の `Audience` の値を、{% data variables.product.prodname_ghe_server %} インスタンスの `EntityId` に設定してください。これは、{% data variables.product.prodname_ghe_server %} インスタンスへの完全な URL です。 例: `https://ghe.corp.example.com`
+Ensure that you set the value for `Audience` on your IdP to the `EntityId` for your {% data variables.product.prodname_ghe_server %} instance, which is the full URL to your {% data variables.product.prodname_ghe_server %} instance. For example, `https://ghe.corp.example.com`.

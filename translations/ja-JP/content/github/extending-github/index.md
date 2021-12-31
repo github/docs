@@ -1,8 +1,8 @@
 ---
-title: GitHub を拡張する
+title: Extending GitHub
 redirect_from:
-  - /categories/86/articles/
-  - /categories/automation/
+  - /categories/86/articles
+  - /categories/automation
   - /categories/extending-github
 versions:
   fpt: '*'

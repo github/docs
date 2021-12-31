@@ -37,6 +37,17 @@ deploy_to_the_cloud:
     - /actions/deployment/deploying-to-amazon-elastic-container-service
     - /actions/deployment/deploying-to-azure-app-service
     - /actions/deployment/deploying-to-google-kubernetes-engine
+adopting_github_actions_for_your_enterprise:
+  title: 'Adoptar GitHub Actions para tu empresa'
+  description: 'Aprende cómo planear y hacer una implementación de {% data variables.product.prodname_actions %} en tu empresa.'
+  guides:
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae
+    - /actions/security-guides/security-hardening-for-github-actions
 hosting_your_own_runners:
   title: 'Hospeda tus propios ejecutores'
   description: 'Puedes crear ejecutores autohospedados para ejecutar flujos de trabajo en un entorno altamente personalizable.'

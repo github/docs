@@ -114,7 +114,13 @@ If you are the owner of both a {% data variables.product.product_name %} instanc
 
 ## Part 6: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
 Your enterprise members can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need when setting up and managing {% data variables.product.product_location %} with {% data variables.product.prodname_dotcom %} Enterprise Support.
-### 1. Learning with {% data variables.product.prodname_learning %}
+
+### 1. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
+
+You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_server %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+
+### 2. Learning with {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab-enterprise %}
-### 2. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
+
+### 3. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
 {% data reusables.getting-started.contact-support-enterprise %}

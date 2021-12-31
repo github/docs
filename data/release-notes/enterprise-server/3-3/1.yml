@@ -1,0 +1,15 @@
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '**CRITICAL:** A remote code execution vulnerability in the Log4j library, identified as [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228), affected all versions of {% data variables.product.prodname_ghe_server %} prior to 3.3.1. The Log4j library is used in an open source service running on the {% data variables.product.prodname_ghe_server %} instance. This vulnerability was fixed in {% data variables.product.prodname_ghe_server %} versions 3.0.22, 3.1.14, 3.2.6, and 3.3.1.  For more information, please see [this post](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/) on the GitHub Blog.'
+    - '**December 17, 2021 update**: The fixes in place for this release also mitigate [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046), which was published after this release. No additional upgrade for {% data variables.product.prodname_ghe_server %} is required to mitigate both CVE-2021-44228 and CVE-2021-45046.'
+  known_issues:
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    

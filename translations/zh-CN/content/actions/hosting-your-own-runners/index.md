@@ -1,9 +1,15 @@
 ---
-title: 托管您自己的运行器
-intro: 您可以创建自托管的运行器，在一个可高度自定义的环境中运行工作流程。
+title: Hosting your own runners
+intro: You can create self-hosted runners to run workflows in a highly customizable environment.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners
   - /actions/automating-your-workflow-with-github-actions/hosting-your-own-runners
+  - /actions/using-github-hosted-runners/about-ae-hosted-runners
+  - /actions/using-github-hosted-runners/adding-ae-hosted-runners
+  - /actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow
+  - /actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners
+  - /actions/using-github-hosted-runners/using-groups-to-manage-access-to-ae-hosted-runners
+  - /actions/using-github-hosted-runners/creating-custom-images
 versions:
   fpt: '*'
   ghes: '*'
@@ -21,8 +27,6 @@ children:
   - /monitoring-and-troubleshooting-self-hosted-runners
   - /removing-self-hosted-runners
 ---
-
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}

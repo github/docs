@@ -4,6 +4,91 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `ProjectNextOrderField` was added",
+          "Type `RoleInOrganization` was added",
+          "Type `UpdateOrganizationAllowPrivateRepositoryForkingSettingInput` was added",
+          "Type `UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload` was added",
+          "Argument `viewerOrganizationRole: RoleInOrganization` added to field `Enterprise.organizations`",
+          "`Issue` object implements `ProjectNextOwner` interface",
+          "Field `projectNext` was added to object type `Issue`",
+          "Field `projectsNext` was added to object type `Issue`",
+          "Field `updateOrganizationAllowPrivateRepositoryForkingSetting` was added to object type `Mutation`",
+          "Field `membersCanForkPrivateRepositories` was added to object type `Organization`",
+          "Argument `query: String` added to field `Organization.projectsNext`",
+          "Argument `sortBy: ProjectNextOrderField` added to field `Organization.projectsNext`",
+          "Argument `query: String` added to field `ProjectNextOwner.projectsNext`",
+          "Argument `sortBy: ProjectNextOrderField` added to field `ProjectNextOwner.projectsNext`",
+          "`PullRequest` object implements `ProjectNextOwner` interface",
+          "Field `projectNext` was added to object type `PullRequest`",
+          "Field `projectsNext` was added to object type `PullRequest`",
+          "Argument `query: String` added to field `User.projectsNext`",
+          "Argument `sortBy: ProjectNextOrderField` added to field `User.projectsNext`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `ConvertedToDiscussionEvent` was added",
+          "Member `ConvertedToDiscussionEvent` was added to Union type `IssueTimelineItems`",
+          "Enum value 'CONVERTED_TO_DISCUSSION_EVENT` was added to enum `IssueTimelineItemsItemType'",
+          "Member `ConvertedToDiscussionEvent` was added to Union type `PullRequestTimelineItems`",
+          "Enum value 'CONVERTED_TO_DISCUSSION_EVENT` was added to enum `PullRequestTimelineItemsItemType'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Argument `filterByAssignable: Boolean` added to field `Repository.discussionCategories`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `BranchActorAllowanceActor` was added",
+          "Type `BypassPullRequestAllowance` was added",
+          "Type `BypassPullRequestAllowanceConnection` was added",
+          "Type `BypassPullRequestAllowanceEdge` was added",
+          "Type `ContentAttachment` was removed",
+          "Type `ContentReference` was removed",
+          "Type `CreateContentAttachmentInput` was removed",
+          "Type `CreateContentAttachmentPayload` was removed",
+          "Field `bypassPullRequestAllowances` was added to object type `BranchProtectionRule`",
+          "Input field `bypassPullRequestActorIds` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Field `createContentAttachment` was removed from object type `Mutation`",
+          "Input field `bypassPullRequestActorIds` was added to input object type `UpdateBranchProtectionRuleInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `RequiredStatusCheckDescription` was added",
           "Type `RequiredStatusCheckInput` was added",
           "Field `requiredStatusChecks` was added to object type `BranchProtectionRule`",

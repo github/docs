@@ -33,6 +33,9 @@ on:
   schedule:
     - cron: '53 0/8 * * *' # Run every eight hours at 53 minutes past the hour
 
+permissions:
+  contents: none
+
 env:
   FREEZE: ${{ secrets.FREEZE }}
 
@@ -48,12 +51,12 @@ jobs:
           exit 1 # prevents further steps from running
       # Check out internal docs repository
       - name: checkout
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           token: ${{ secrets.DOCS_BOT_FR }}
 
       - name: Setup Node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: 16.13.x
           cache: npm
@@ -61,12 +64,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Cache nextjs build
+        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+
       - name: Run build scripts
         run: npm run build
 
       - name: Update search indexes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION: ${{ github.event.inputs.version }}
           LANGUAGE: ${{ github.event.inputs.language }}
         run: npm run sync-search

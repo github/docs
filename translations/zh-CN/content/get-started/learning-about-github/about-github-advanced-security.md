@@ -1,6 +1,6 @@
 ---
-title: 关于 GitHub 高级安全
-intro: '{% data variables.product.prodname_dotcom %} 允许客户在 {% data variables.product.prodname_advanced_security %} 许可下使用额外的安全功能。{% ifversion fpt or ghec %} 这些功能也已对 {% data variables.product.prodname_dotcom_the_website %} 上的公共仓库启用。{% endif %}'
+title: About GitHub Advanced Security
+intro: '{% data variables.product.prodname_dotcom %} makes extra security features available to customers under an {% data variables.product.prodname_advanced_security %} license.{% ifversion fpt or ghec %} These features are also enabled for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   fpt: '*'
@@ -14,26 +14,25 @@ redirect_from:
   - /github/getting-started-with-github/learning-about-github/about-github-advanced-security
 shortTitle: GitHub Advanced Security
 ---
+## About {% data variables.product.prodname_GH_advanced_security %}
 
-## 关于 {% data variables.product.prodname_GH_advanced_security %}
-
-{% data variables.product.prodname_dotcom %} 有许多功能可帮助您改进和维护代码的质量。 其中一些包含在所有计划中{% ifversion not ghae %}，如依赖关系图和 {% data variables.product.prodname_dependabot_alerts %}{% endif %}。 其他功能需要 {% data variables.product.prodname_GH_advanced_security %} 许可才能在 {% data variables.product.prodname_dotcom_the_website %} 公共仓库以外的仓库上运行。
+{% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans{% ifversion not ghae %}, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Other security features require a license for {% data variables.product.prodname_GH_advanced_security %} to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% ifversion fpt or ghes > 3.0 or ghec %}For more information about purchasing {% data variables.product.prodname_GH_advanced_security %}, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghae %}There is no charge for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_ghe_managed %} during the beta release.{% endif %}
 
-## 关于 {% data variables.product.prodname_advanced_security %} 功能
+## About {% data variables.product.prodname_advanced_security %} features
 
-{% data variables.product.prodname_GH_advanced_security %} 许可提供以下额外功能：
+A {% data variables.product.prodname_GH_advanced_security %} license provides the following additional features:
 
-- **{% data variables.product.prodname_code_scanning_capc %}** - 搜索代码中潜在的安全漏洞和编码错误。 更多信息请参阅“[关于 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
+- **{% data variables.product.prodname_code_scanning_capc %}** - Search for potential security vulnerabilities and coding errors in your code. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
 
-- **{% data variables.product.prodname_secret_scanning_caps %}** - 检测已检入仓库的密码（例如密钥和令牌）。 更多信息请参阅“[关于 {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)”。
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into the repository. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)."
 
 {% ifversion fpt or ghes > 3.1 or ghec or ghae-issue-4864 %}
-- **依赖项审查** - 在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
+- **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 {% endif %}
 
-有关正在开发中的 {% data variables.product.prodname_advanced_security %} 功能，请参阅“[{% data variables.product.prodname_dotcom %} 公开路线图](https://github.com/github/roadmap)”。 关于所有安全功能的概述，请参阅“[{% data variables.product.prodname_dotcom %} 安全功能](/code-security/getting-started/github-security-features)”。
+For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 
 {% ifversion ghes or ghec %}
 
@@ -46,33 +45,33 @@ To review the rollout phases we recommended in more detail, see "[Deploying {% d
 {% endif %}
 
 {% ifversion ghes or ghae %}
-## 在 {% data variables.product.product_name %} 上启用 {% data variables.product.prodname_advanced_security %} 功能
+## Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.product_name %}
 
 {% ifversion ghes %}
-站点管理员必须为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_advanced_security %}，您才能使用这些功能。 更多信息请参阅“[配置高级安全功能](/admin/configuration/configuring-advanced-security-features)”。
+The site administrator must enable {% data variables.product.prodname_advanced_security %} for {% data variables.product.product_location %} before you can use these features. For more information, see "[Configuring Advanced Security features](/admin/configuration/configuring-advanced-security-features)."
 {% endif %}
 
-设置系统后，您可以在组织或仓库级别启用和禁用这些功能。 更多信息请参阅“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”或“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。
+Once your system is set up, you can enable and disable these features at the organization or repository level. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
 
 {% endif %}
 
 {% ifversion not ghae %}
-## 在 {% data variables.product.prodname_dotcom_the_website %} 上启用 {% data variables.product.prodname_advanced_security %} 功能
+## Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.prodname_dotcom_the_website %}
 
-对于 {% data variables.product.prodname_dotcom_the_website %} 上的公共仓库，这些功能是永久性的，仅当您更改项目的可见性使代码不再公开时才会禁用。
+For public repositories on {% data variables.product.prodname_dotcom_the_website %}, these features are permanently on and can only be disabled if you change the visibility of the project so that the code is no longer public.
 
-对于其他仓库，一旦您拥有企业帐户的许可，就可以在组织或仓库级别启用和禁用这些功能。 {% ifversion fpt or ghes > 3.0 or ghec %}For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
+For other repositories, once you have a license for your enterprise account, you can enable and disable these features at the organization or repository level. {% ifversion fpt or ghes > 3.0 or ghec %}For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
-如果您有企业帐户，则整个企业的许可使用情况将显示在您的企业许可页面上。 更多信息请参阅“[查看 {% data variables.product.prodname_GH_advanced_security %} 使用情况](/billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage)”。
+If you have an enterprise account, license use for the entire enterprise is shown on your enterprise license page. For more information, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.0 or ghae-next  %}
+{% ifversion ghec or ghes > 3.0 or ghae  %}
 
-## 延伸阅读
+## Further reading
 
 - "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise account](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)"
 

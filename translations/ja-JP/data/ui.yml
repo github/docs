@@ -14,8 +14,7 @@ header:
     ghes_release_notes_upgrade_release_only: '📣 これはEnterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。'
     ghes_release_notes_upgrade_patch_and_release: '📣 これはこのリリースシリーズの<a href="#{{ latestPatch }}">最新パッチリリース</a>ではなく、これはEnterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。'
 release_notes:
-  banner_text_current: これらの変更は、次の1週間に渡って展開されます。
-  banner_text_past: これらの変更は、次の週の間にEnterpriseに展開されます：
+  banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: お困りですか？
   placeholder: トピックや製品などの検索
@@ -30,6 +29,7 @@ toc:
   popular: 人気
   guides: ガイド
   whats_new: 更新情報
+  videos: 動画
 pages:
   article_version: 'Article version'
   miniToc: 'ここには以下の内容があります:'
@@ -53,7 +53,7 @@ survey:
   optional: 任意
   required: 必須
   email_placeholder: email@example.com
-  email_label: さらに質問がある場合、ご連絡差し上げてもよいでしょうか？
+  email_label: If we can contact you with more questions, please enter your email address
   send: 送信
   feedback: ありがとうございます！フィードバックをいただきました。
   not_support: 返信が必要な場合は、サポートにお問い合わせください。
@@ -150,7 +150,7 @@ product_landing:
   upgrade_from: アップグレード元
   browse_all_docs: すべてのドキュメントの参照
   explore_release_notes: リリースノートを調べる
-product_sublanding:
+product_guides:
   start: 開始
   start_path: 開始パス
   learning_paths: '{{ productMap[currentProduct].name }}の学習パス'

@@ -29,7 +29,8 @@ describe('siteTree', () => {
   })
 
   describe('localized titles', () => {
-    test('titles for categories', () => {
+    // skipped because it has rendering errors. See translations/log/ja-resets.csv
+    test.skip('titles for categories', () => {
       const japaneseTitle =
         siteTree.ja[nonEnterpriseDefaultVersion].childPages[0].childPages[0].page.title
       expect(typeof japaneseTitle).toBe('string')
