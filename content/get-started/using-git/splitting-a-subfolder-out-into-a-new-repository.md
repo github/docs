@@ -73,7 +73,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
 
 9. Set up a new remote URL for your new repository using the existing remote name and the remote repository URL you copied in step 7.
    ```shell
-   git remote set-url origin https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git
+   git remote add origin https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git
    ```
 
 10. Verify that the remote URL has changed with your new repository name.
