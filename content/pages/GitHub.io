@@ -1,4 +1,4 @@
----
+git config --global --list //[pachara161248.GitHub.io.txt](https://github.com/github/docs/files/7797710/pachara161248.GitHub.io.txt)
 title: GitHub Pages Documentation
 shortTitle: GitHub Pages
 intro: 'You can create a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
@@ -17,10 +17,11 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - Pages
-children:
+  - Pages pachara161248.GitHub.io
+children:pachara161248
   - /quickstart
   - /getting-started-with-github-pages
   - /setting-up-a-github-pages-site-with-jekyll
   - /configuring-a-custom-domain-for-your-github-pages-site
----
+git config --global credential.helper store //
+pachara147258369@gmail.com
