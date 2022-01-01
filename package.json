@@ -12,7 +12,7 @@
     "@github/failbot": "0.8.0",
     "@hapi/accept": "^5.0.2",
     "@primer/components": "^32.1.0",
-    "@primer/css": "^18.2.0",
+    "@primer/css": "^19.1.1",
     "@primer/octicons": "^16.1.1",
     "@primer/octicons-react": "^16.1.1",
     "@react-aria/ssr": "^3.1.0",
