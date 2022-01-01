@@ -34,7 +34,6 @@ The following scopes are recommended:
 ```
 user{% ifversion not ghae %}
 public_repo{% endif %}
-repo
 repo_deployment
 repo:status
 read:repo_hook
