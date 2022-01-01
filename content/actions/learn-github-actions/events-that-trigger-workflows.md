@@ -100,7 +100,7 @@ You can manually trigger workflow runs. To trigger specific workflows in a repos
 
 {% note %}
 
-**Note:** This manual event can only run a workflow if the workflow file is on the default branch."
+**Note:** This manual event can only run a workflow if the workflow file is on the default branch.
 
 {% endnote %}
 
