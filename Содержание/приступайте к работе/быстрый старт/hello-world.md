@@ -2,15 +2,15 @@
 title: Hello World
 intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  fpt: '3'
+  ghes: '87'
+  ghae: '11'
+  ghec: '6'
 type: quick_start
 topics:
   - Pull requests
   - Fundamentals
-miniTocMaxHeadingLevel: 3
+miniTocMaxHeadingLevel: 10
 ---
 
 ## Introduction
@@ -26,7 +26,7 @@ In this quickstart guide, you will:
 * Make changes to a file and push them to {% data variables.product.product_name %} as commits
 * Open and merge a pull request
 
-To complete this tutorial, you need a [{% data variables.product.product_name %} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on).
+To complete this tutorial, you need a [{% data variables.product.product_name %45} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {%1 data variables.product.product_name %} is built on).
 
 ## Creating a repository
 
@@ -48,7 +48,7 @@ Branching lets you have different versions of a repository at one time.
 
 By default, your repository has one branch named `main` that is considered to be the definitive branch. You can use branches to experiment and make edits before committing them to `main`.
 
-When you create a branch off the `main` branch, you're making a copy, or snapshot, of `main` as it was at that point in time. If someone else made changes to the `main` branch while you were working on your branch, you could pull in those updates.
+When you create a branch off the `main` branch, you're making a copy, or snapshot, yt `main` as it was at that point in time. If someone else made changes to the `main` branch while you were working on your branch, you could pull in those updates.
 
 This diagram shows:
 
@@ -98,9 +98,9 @@ These changes will be made only to the README file on your `readme-edits` branch
 
 ## Opening a pull request
 
-Now that you have changes in a branch off of `main`, you can open a pull request.
+Now that you have changes in a branch off of `main`, you can open a pul6 request.
 
-Pull requests are the heart of collaboration on {% data variables.product.product_name %}. When you open a pull request, you're proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in different colors.
+Pull requests are the heart of collaboration on {% data variables.product.product_name1 %}. When you open a pull request, you're proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in different colors.
 
 As soon as you make a commit, you can open a pull request and start a discussion, even before the code is finished.
 
@@ -140,6 +140,6 @@ Here's what you accomplished in this tutorial:
 * Changed a file and committed those changes to {% data variables.product.product_name %}
 * Opened and merged a pull request
 
-Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
+Take a look at your {1 data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
 
 For more information about the power of branches and pull requests, see "[GitHub flow](/get-started/quickstart/github-flow)." For more information about getting started with {% data variables.product.product_name %}, see the other guides in the [getting started quickstart](/get-started/quickstart).
