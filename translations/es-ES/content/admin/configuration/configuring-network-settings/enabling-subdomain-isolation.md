@@ -24,29 +24,23 @@ El aislamiento de subdominio mitiga las vulnerabilidades del estilo cross-site s
 
 Cuando el aislamiento de subdominio está habilitado, {% data variables.product.prodname_ghe_server %} reemplaza varias rutas con subdominios. Después de haber habilitado el aislamiento de subdominios, los intentos para acceder a las rutas anteriores para encontrar algo del contenido que proporcionaron los usuarios, tal como `http(s)://HOSTNAME/raw/`, podría devolver errores de tipo `404`.
 
-{% ifversion ghes = 2.22 %}
-Para utilizar Docker con {% data variables.product.prodname_registry %}, también debes habilitar el aislamiento de los subdominios. Para obtener más información, consulta la sección "[Trabajar con el registro de Docker](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)".
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% endif %}
-| Ruta sin aislamiento de subdominio                                                                                                                                                                              | Ruta con aislamiento de subdominio                                 |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| `http(s)://HOSTNAME/assets/`                                                                                                                                                                                    | `http(s)://assets.HOSTNAME/`                                       |
-| `http(s)://HOSTNAME/avatars/`                                                                                                                                                                                   | `http(s)://avatars.HOSTNAME/`                                      |
-| `http(s)://HOSTNAME/codeload/`                                                                                                                                                                                  | `http(s)://codeload.HOSTNAME/`                                     |
-| `http(s)://HOSTNAME/gist/`                                                                                                                                                                                      | `http(s)://gist.HOSTNAME/`                                         |
-| `http(s)://HOSTNAME/media/`                                                                                                                                                                                     | `http(s)://media.HOSTNAME/`                                        |
-| `http(s)://HOSTNAME/pages/`                                                                                                                                                                                     | `http(s)://pages.HOSTNAME/`                                        |
-| `http(s)://HOSTNAME/raw/`                                                                                                                                                                                       | `http(s)://raw.HOSTNAME/`                                          |
-| `http(s)://HOSTNAME/render/`                                                                                                                                                                                    | `http(s)://render.HOSTNAME/`                                       |
-| `http(s)://HOSTNAME/reply/`                                                                                                                                                                                     | `http(s)://reply.HOSTNAME/`                                        |
-| `http(s)://HOSTNAME/uploads/`                                                                                                                                                                                   | `http(s)://uploads.HOSTNAME/`     |{% ifversion ghes = 2.22 %}
-| N/A, Docker, en conjunto con el {% data variables.product.prodname_registry %} no funcionará con el aislamiento de subdominios inhabilitado para el {% data variables.product.prodname_registry %} 2.22 beta. | `http(s)://docker.HOSTNAME/` |{% endif %}                          |{% ifversion ghes > 2.22 %}
-| `https://HOSTNAME/_registry/docker/`                                                                                                                                                                            | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes > 2.22 %}
-| `https://HOSTNAME/_registry/npm/`                                                                                                                                                                               | `https://npm.HOSTNAME/`                                            |
-| `https://HOSTNAME/_registry/rubygems/`                                                                                                                                                                          | `https://rubygems.HOSTNAME/`                                       |
-| `https://HOSTNAME/_registry/maven/`                                                                                                                                                                             | `https://maven.HOSTNAME/`                                          |
-| `https://HOSTNAME/_registry/nuget/`                                                                                                                                                                             | `https://nuget.HOSTNAME/`{% endif %}
+| Ruta sin aislamiento de subdominio     | Ruta con aislamiento de subdominio                          |
+| -------------------------------------- | ----------------------------------------------------------- |
+| `http(s)://HOSTNAME/assets/`           | `http(s)://assets.HOSTNAME/`                                |
+| `http(s)://HOSTNAME/avatars/`          | `http(s)://avatars.HOSTNAME/`                               |
+| `http(s)://HOSTNAME/codeload/`         | `http(s)://codeload.HOSTNAME/`                              |
+| `http(s)://HOSTNAME/gist/`             | `http(s)://gist.HOSTNAME/`                                  |
+| `http(s)://HOSTNAME/media/`            | `http(s)://media.HOSTNAME/`                                 |
+| `http(s)://HOSTNAME/pages/`            | `http(s)://pages.HOSTNAME/`                                 |
+| `http(s)://HOSTNAME/raw/`              | `http(s)://raw.HOSTNAME/`                                   |
+| `http(s)://HOSTNAME/render/`           | `http(s)://render.HOSTNAME/`                                |
+| `http(s)://HOSTNAME/reply/`            | `http(s)://reply.HOSTNAME/`                                 |
+| `http(s)://HOSTNAME/uploads/`          | `http(s)://uploads.HOSTNAME/`                               |{% ifversion ghes %}
+| `https://HOSTNAME/_registry/docker/`   | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
+| `https://HOSTNAME/_registry/npm/`      | `https://npm.HOSTNAME/`                                     |
+| `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`                                |
+| `https://HOSTNAME/_registry/maven/`    | `https://maven.HOSTNAME/`                                   |
+| `https://HOSTNAME/_registry/nuget/`    | `https://nuget.HOSTNAME/`{% endif %}
 
 ## Prerrequisitos
 

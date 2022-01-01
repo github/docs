@@ -19,7 +19,7 @@ sections:
     - Os utilitários de backup podem acionar e-mails desnecessários para administradores
     - As configurações incorretas de pacotes estão sendo exibidas na página de visualização dos integrantes da organização
     - Após remover-se como um Proprietário da Empresa, você será redirecionado para uma página 404. A operação é bem-sucedida.
-    - '`ghe-config-apply` occasionally fails with `ERROR: Failure waiting for nomad jobs to apply` until the Nomad job queue is cleared. This currently requires as admin to delete `/etc/nomad-jobs/queue`.'
+    - 'Ocasionalmente, o `ghe-config-apply` falha com uma mensagem de `ERROR: Failure waiting for nomad jobs to apply` até que a fila de trabalho do Nomad seja esvaziada. De modo geral, isso exige que um administrador apague `/etc/nomad-jobs/queue`.'
     - Ao configurar um nó de múltiplas réplicas, o status da réplica pode ser sincronizado incorretamente.
     - Os clientes que tentarem restaurar um backup 3.0 em uma nova instância não deverão pré-configurar a instância, pois isso pode gerar um estado ruim para logins de usuário. Recomendamos restaurar uma instância nova e não configurada.
     - Os candidatos da versão 3.0 do GitHub Enterprise Server ainda não estão disponíveis no marketplace do Azure. Para testar a versão de candidatos em ambientes de stage, inicie uma instância 2.21 ou 2.22 e, em seguida, atualize-a com o pacote de atualização do Azure na página de download.

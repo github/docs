@@ -29,8 +29,8 @@ You can indicate emphasis with bold, italic, or strikethrough text in comment fi
 
 | Style | Syntax | Keyboard shortcut | Example | Output |
 | --- | --- | --- | --- | --- |
-| Bold | `** **` or `__ __` | command/control + b | `**This is bold text**` | **This is bold text** |
-| Italic | `* *` or `_ _` | command/control + i | `*This text is italicized*` | *This text is italicized* |
+| Bold | `** **` or `__ __`| command/control + b | `**This is bold text**` | **This is bold text** |
+| Italic | `* *` or `_ _`     | command/control + i | `*This text is italicized*` | *This text is italicized* |
 | Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
 | Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
 | All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
@@ -55,7 +55,7 @@ Text that is not a quote
 
 ## Quoting code
 
-You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted.{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %} You can also press the `command` or `Ctrl` + `e` keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
+You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} You can also press the `command` or `Ctrl` + `e` keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
 
 ```markdown
 Use `git status` to list all new or modified files that haven't yet been committed.
@@ -80,7 +80,7 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 ## Links
 
-You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}
+You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
 `This site was built using [GitHub Pages](https://pages.github.com/).`
 
@@ -134,6 +134,18 @@ Here are some examples for using relative links to display an image.
 
 For more information, see "[Relative Links](#relative-links)."
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
+### Specifying the theme an image is shown to
+
+You can specify the theme an image is displayed to by appending `#gh-dark-mode-only` or `#gh-light-mode-only` to the end of an image URL, in Markdown.
+
+We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
+
+| Context | URL |
+|--------|--------|
+| Dark Theme | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
+| Light Theme | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)` |
+{% endif %}
 
 ## Lists
 
@@ -230,6 +242,7 @@ For more information, see "[Autolinked references and URLs](/articles/autolinked
 
 {% data reusables.repositories.autolink-references %}
 
+{% ifversion ghes < 3.4 %}
 ## Content attachments
 
 Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
@@ -240,7 +253,7 @@ To see content attachments, you must have a {% data variables.product.prodname_g
 
 Content attachments will not be displayed for URLs that are part of a markdown link.
 
-For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."
+For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."{% endif %}
 
 ## Uploading assets
 
@@ -262,7 +275,7 @@ For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](
 
 You can create a new paragraph by leaving a blank line between lines of text.
 
-{% ifversion fpt or ghae-next or ghes > 3.3 or ghec %}
+{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:

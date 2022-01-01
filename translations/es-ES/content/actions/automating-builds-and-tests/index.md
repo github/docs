@@ -1,11 +1,12 @@
 ---
-title: Compilaciones automáticas y pruebas
-shortTitle: Compila y prueba
-intro: 'Puedes compilar y hacer pruebas automáticamente en tus proyectos con {% data variables.product.prodname_actions %}.'
+title: Automating builds and tests
+shortTitle: Build and test
+intro: 'You can automatically build and test your projects with {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /actions/building-and-testing-code-with-continuous-integration
   - /actions/language-and-framework-guides

@@ -1,5 +1,6 @@
 ---
 title: Activity
+intro: 'The Activity API allows you to list events and feeds and manage notifications, starring, and watching for the authenticated user.'
 redirect_from:
   - /v3/activity
 versions:

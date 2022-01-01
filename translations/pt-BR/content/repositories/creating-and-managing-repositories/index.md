@@ -1,6 +1,6 @@
 ---
-title: Creating and managing repositories
-intro: 'You can create a repository on {% data variables.product.product_name %} to store and collaborate on your project''s files, then manage the repository''s name and location.'
+title: Criando e gerenciando repositórios
+intro: 'É possível criar um repositório no {% data variables.product.product_name %} para armazenar e colaborar nos arquivos do projeto e, em seguida, gerenciar o nome e localização do repositório.'
 redirect_from:
   - /articles/creating-a-repository-on-github
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 children:
@@ -23,6 +24,6 @@ children:
   - /transferring-a-repository
   - /deleting-a-repository
   - /restoring-a-deleted-repository
-shortTitle: Create & manage repositories
+shortTitle: Criar & gerenciar repositórios
 ---
 

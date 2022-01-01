@@ -8,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: GitHub Appマネージャーの削除
 ---
 
-{% data variables.product.prodname_github_app %} マネージャー権限に関する詳しい情報については「[Organization の権限レベル](/articles/permission-levels-for-an-organization#github-app-managers)」を参照してください。
+For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
 
 ## Organization 全体で {% data variables.product.prodname_github_app %} マネージャーの権限を削除する
 
@@ -32,7 +33,7 @@ shortTitle: GitHub Appマネージャーの削除
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. [App managers] の下で、{% data variables.product.prodname_github_app %} マネージャー権限を削除する個人のユーザ名を探し、 [**Revoke**] をクリックします。 ![{% data variables.product.prodname_github_app %} マネージャー権限の削除](/assets/images/help/organizations/github-app-manager-revoke-permissions-individual-app.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 参考リンク
 
 - 「[{% data variables.product.prodname_dotcom %} Marketplaceについて](/articles/about-github-marketplace/)」

@@ -1,9 +1,9 @@
 ---
 title: 批准复刻中的工作流程运行
 intro: 当外部贡献者第一次向公共仓库提交拉取请求时，拥有写入权限的维护者可能必须批准任何工作流程运行。
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 批准公共复刻运行
 ---
 
@@ -11,7 +11,7 @@ shortTitle: 批准公共复刻运行
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
-You can configure workflow approval requirements for a [repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks), [organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks), or [enterprise](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account#configuring-required-approval-for-workflows-from-public-forks).
+您可以配置[仓库](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks)、[组织](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks)或 [企业](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise)的工作流程审批要求。
 
 已等待批准超过 30 天的工作流程运行将自动删除。
 

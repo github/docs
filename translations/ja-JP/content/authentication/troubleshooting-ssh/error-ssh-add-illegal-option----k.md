@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: 'ssh-add: illegal option -- K'
@@ -22,7 +23,7 @@ shortTitle: 'ssh-add: illegal option -- K'
 SSH プライベートキーを ssh-agent に追加するには、`ssh-add` の Apple のバージョンへのパスを指定できます:
 
 ```shell
-  $ /usr/bin/ssh-add -K ~/.ssh/id_rsa
+  $ /usr/bin/ssh-add -K ~/.ssh/id_ed25519
 ```
 
 {% note %}

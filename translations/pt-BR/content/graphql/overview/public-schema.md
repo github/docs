@@ -5,6 +5,7 @@ redirect_from:
   - /v4/public_schema
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -15,7 +16,7 @@ Você pode [realizar a introspecção](/graphql/guides/introduction-to-graphql#d
 
 Como alternativa, você pode fazer o download da versão mais recente do esquema público aqui:
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 [{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs.graphql`](/public/schema.docs.graphql)
 

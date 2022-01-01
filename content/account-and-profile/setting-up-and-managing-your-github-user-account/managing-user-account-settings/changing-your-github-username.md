@@ -2,10 +2,10 @@
 title: Changing your GitHub username
 intro: 'You can change the username for your account on {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %} if your instance uses built-in authentication{% endif %}.'
 redirect_from:
-  - /articles/how-to-change-your-username/
-  - /articles/changing-your-github-user-name/
-  - /articles/renaming-a-user/
-  - /articles/what-happens-when-i-change-my-username/
+  - /articles/how-to-change-your-username
+  - /articles/changing-your-github-user-name
+  - /articles/renaming-a-user
+  - /articles/what-happens-when-i-change-my-username
   - /articles/changing-your-github-username
   - /github/setting-up-and-managing-your-github-user-account/changing-your-github-username
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username
@@ -88,5 +88,5 @@ After changing your username, links to your previous profile page, such as `http
 
 ## Further reading
 
-- "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
+- "[Why are my commits linked to the wrong user?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
 - "[{% data variables.product.prodname_dotcom %} Username Policy](/free-pro-team@latest/github/site-policy/github-username-policy)"{% endif %}

@@ -10,14 +10,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Issueの移譲
 ---
 
-他のリポジトリにオープン Issue を移譲するには、Issue のあるリポジトリおよびその Issue の移譲先のリポジトリの書き込み権限が必要です。 詳細は「[Organization のためのリポジトリの権限レベル](/articles/repository-permission-levels-for-an-organization)」を参照してください。
+To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-同じユーザまたは Organization アカウントが所有するリポジトリ間においてのみ、Issue を移譲できます。 {% ifversion fpt or ghes %}プライベートリポジトリからパブリックリポジトリへIssueを移譲することはできません。{% endif %}
+同じユーザまたは Organization アカウントが所有するリポジトリ間においてのみ、Issue を移譲できます。 {% ifversion fpt or ghes or ghec %}プライベートリポジトリからパブリックリポジトリへIssueを移譲することはできません。{% endif %}
 
 Issueを委譲する場合、コメントとアサインされた人は保持されます。 Issue のラベルとマイルストーンは保持されません。 このIssueは、ユーザー所有または組織全体のプロジェクトボードにとどまり、リポジトリのプロジェクトボードから削除されます。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。
 
@@ -54,4 +55,4 @@ gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}own
 
 - 「[Issue について](/articles/about-issues)」
 - 「[セキュリティログをレビューする](/articles/reviewing-your-security-log)」
-- 「[Organization の Audit log をレビューする](/articles/reviewing-the-audit-log-for-your-organization)」
+- 「[Organization の Audit log をレビューする](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)」

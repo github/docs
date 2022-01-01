@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Criar um modelo de PR
@@ -17,9 +18,9 @@ Para obter mais informações, consulte "[Sobre modelos de problema e pull reque
 
 Você pode criar um subdiretório *PULL_REQUEST_TEMPLATE/* em qualquer uma das pastas compatíveis para conter vários modelos de pull request, bem como usar o parâmetro de consulta `template` para especificar o modelo que preencherá o texto da pull request. Para obter mais informações, consulte "[Sobre automação de problemas e pull requests com parâmetros de consulta](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)".
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-Você pode criar modelos de pull request padrão para sua organização{% ifversion fpt or ghes %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar modelos de pull request padrão para sua organização{% ifversion fpt or ghes or ghec %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

@@ -7,11 +7,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
 
-Hay dos versiones estables de la API de GitHub: la [API de REST](/rest) y la [API de GraphQL](/graphql). Cuando utilizas la API de REST, te exhortamos a que [solicites la v3 a través del encabezado de `Accept`](/v3/media/#request-specific-version). Para obtener más información sobre cómo utilizar la API de GraphQL, consulta los [documentos de la v4](/graphql).
+Hay dos versiones estables de la API de GitHub: la [API de REST](/rest) y la [API de GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Cuando utilizas la API de REST, te exhortamos a que [solicites la v3 a través del encabezado de `Accept`](/v3/media/#request-specific-version). Para obtener más información sobre cómo utilizar la API de GraphQL, consulta los [documentos de la v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql).
 
 ## Versiones obsoletas
 

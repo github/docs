@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Projects
@@ -28,6 +29,7 @@ topics:
 - タスクの複雑さを追跡する数値フィールド
 - タスクの優先度が低、中、高なのかを追跡するための単一選択フィールド
 - クイックノートを追跡するテキストフィールド
+- an iteration field to plan work week-by-week
 
 ### 様々な観点からプロジェクトを見る
 
@@ -45,17 +47,17 @@ topics:
 
 詳しい情報については「[プロジェクトのビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)」を参照してください。
 
-### コマンドパレットでの作業
+### Working with the project command palette
 
-コマンドパレットを使って、素早くビューを変更したり、フィールドを追加したりできます。 コマンドパレットは、カスタムキーボードショートカットを覚えておかなくてもいいようにガイドしてくれます。 詳しい情報については「[プロジェクトのビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)」を参照してください。
+You can use the project command palette to quickly change views or add fields. コマンドパレットは、カスタムキーボードショートカットを覚えておかなくてもいいようにガイドしてくれます。 詳しい情報については「[プロジェクトのビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)」を参照してください。
 
 ### プロジェクト管理タスクの自動化
 
-GraphQL API及び{% data variables.product.prodname_actions %}を使って、ルーチンのプロジェクト管理タスクを自動化できます。 詳しい情報については「[APIを使ったプロジェクトの管理](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)」及び「[プロジェクトの自動化](/issues/trying-out-the-new-projects-experience/automating-projects)」を参照してください。
+Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done." You can also use the GraphQL API and {% data variables.product.prodname_actions %} to automate routine project management tasks. For more information, see "[Automating projects](/issues/trying-out-the-new-projects-experience/automating-projects)" and "[Using the API to manage projects](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)."
 
 ## プロジェクト（ベータ）と非ベータのプロジェクトの比較
 
-プロジェクト（ベータ）は、カスタマイズ可能な新しいバージョンのプロジェクトです。 プロジェクト（ベータ）は、現在限定数のベータユーザだけが利用可能です。 非ベータバージョンのプロジェクトは、すべてのユーザが利用できます。 ベータについて学ぶには、[{% data variables.product.prodname_github_issues %}](https://github.com/features/issues)を参照してください。 非ベータバージョンのプロジェクトについてさらに学ぶには、「[プロジェクトボードでの作業の整理](/issues/organizing-your-work-with-project-boards)」を参照してください。
+プロジェクト（ベータ）は、カスタマイズ可能な新しいバージョンのプロジェクトです。 非ベータバージョンのプロジェクトについてさらに学ぶには、「[プロジェクトボードでの作業の整理](/issues/organizing-your-work-with-project-boards)」を参照してください。
 
 ## フィードバックを送る
 

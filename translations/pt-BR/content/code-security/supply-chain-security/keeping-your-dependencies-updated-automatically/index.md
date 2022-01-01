@@ -5,6 +5,8 @@ redirect_from:
   - /github/administering-a-repository/keeping-your-dependencies-updated-automatically
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 topics:
   - Repositories
   - Dependabot
@@ -14,7 +16,7 @@ topics:
 children:
   - /about-dependabot-version-updates
   - /upgrading-from-dependabotcom-to-github-native-dependabot
-  - /enabling-and-disabling-version-updates
+  - /enabling-and-disabling-dependabot-version-updates
   - /listing-dependencies-configured-for-version-updates
   - /managing-pull-requests-for-dependency-updates
   - /automating-dependabot-with-github-actions
@@ -25,3 +27,4 @@ children:
 shortTitle: Atualização automática de dependências
 ---
 
+{% data reusables.dependabot.beta-security-and-version-updates %}

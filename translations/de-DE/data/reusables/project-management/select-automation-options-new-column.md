@@ -1,1 +1,0 @@
-1. Wählen Sie die Workflow-Automatisierungen aus, die Sie für die Spalte konfigurieren möchten. ![Liste der Optionen für die Automatisierung der Spalte](/assets/images/help/projects/select-automation-options-new-column.png)

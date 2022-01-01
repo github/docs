@@ -3,6 +3,7 @@ title: 上位コントリビューターにより高い権限を付与する
 intro: リポジトリ管理者は、コミュニティメンバーをモデレータおよびメンテナに昇格させることができます。
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Grant higher permissions
 ---
 

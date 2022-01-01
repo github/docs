@@ -4,6 +4,7 @@ intro: 'Dicas para obter a melhor ajuda do suporte para {% data variables.produc
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces

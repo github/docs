@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,7 +21,7 @@ shortTitle: Unauthorized access
 
 - アクセスするときパスワード以外の手段も要求されるように、[2 要素認証を有効化](/articles/about-two-factor-authentication)します。
 - [SSH キー](/articles/reviewing-your-ssh-keys)、[デプロイキー](/articles/reviewing-your-deploy-keys)、および[許可されたインテグレーション](/articles/reviewing-your-authorized-integrations)をレビューして、SSH および Applications の設定で権限のない、または見覚えのないアクセスを削除します。
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - [すべてのメールアドレスを検証](/articles/verifying-your-email-address)します。 攻撃者があなたのアカウントにメールアドレスを追加していた場合、予想外のパスワードリセットの実行を許してしまう可能性があります。
 {% endif %}
 - [アカウントのセキュリティログをレビュー](/github/authenticating-to-github/reviewing-your-security-log)します。 これで、リポジトリに対する各種の設定について概要がわかります。 たとえば、プライベートリポジトリがパブリックに変更されていないか、リポジトリが移譲されていないかを確認できます。

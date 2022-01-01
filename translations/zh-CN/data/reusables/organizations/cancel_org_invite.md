@@ -1,3 +1,3 @@
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 您可以在用户接受之前随时[编辑或取消邀请](/articles/canceling-or-editing-an-invitation-to-join-your-organization)。
 {% endif %}

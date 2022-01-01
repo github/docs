@@ -8,12 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 children:
   - /about-merge-methods-on-github
   - /configuring-commit-squashing-for-pull-requests
   - /configuring-commit-rebasing-for-pull-requests
+  - /using-a-merge-queue
   - /managing-auto-merge-for-pull-requests-in-your-repository
   - /managing-the-automatic-deletion-of-branches
 shortTitle: 配置 PR 合并

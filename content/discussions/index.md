@@ -29,8 +29,8 @@ layout: product-landing
 versions:
   fpt: '*'
   ghec: '*'
-communityRedirect: 
-  name: 'Provide GitHub Feedback'
+communityRedirect:
+  name: Provide GitHub Feedback
   href: 'https://github.com/github/feedback/discussions/categories/discussions-feedback'
 children:
   - /quickstart

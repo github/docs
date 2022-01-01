@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   triage_pulls:
-    if: ${{ github.repository != 'github/docs-internal' }}
+    if: ${{ github.repository == 'github/docs' }}
     runs-on: ubuntu-latest
 
     steps:

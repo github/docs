@@ -9,7 +9,7 @@ redirect_from:
   - /code-security/secure-coding/integrating-with-code-scanning/about-integration-with-code-scanning
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: overview

@@ -1,7 +1,7 @@
 ---
 title: Be social
 redirect_from:
-  - /be-social/
+  - /be-social
   - /articles/be-social
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
@@ -49,7 +49,7 @@ Click **Watch** at the top of a repository to watch it.
 
 ### Creating pull requests
 
- You may want to contribute to another person's project, whether to add features or to fix bugs. After making changes, let the original author know by sending a pull request. For more information, see "[About pull requests](/articles/about-pull-requests)."
+ You may want to contribute to another person's project, whether to add features or to fix bugs. After making changes, let the original author know by sending a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
  ![Pull request button](/assets/images/help/repository/repo-actions-pullrequest.png)
 

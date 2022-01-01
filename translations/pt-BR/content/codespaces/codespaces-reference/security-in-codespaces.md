@@ -4,6 +4,7 @@ intro: 'Visão geral da arquitetura de segurança de {% data variables.product.p
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Security
@@ -56,6 +57,8 @@ Se você precisar permitir acesso externo a serviços em execução em um codesp
 Se você precisar conectar-se a um serviço (como um servidor web de desenvolvimento) em execução no seu codespace, você poderá configurar o encaminhamento de portas para tornar o serviço disponível na internet.
 
 **Portas encaminhadas em particular**: Podem ser acessadas na internet, mas somente o criador do codespace pode acessá-las, após efetuar a autenticação em {% data variables.product.product_name %}.
+
+**Portas encaminhadas publicamente dentro da sua organização**: podem ser acessdas na internet mas apenas por integrantes da mesma organização como o espaço, depois de efetuar a autenticação em {% data variables.product.product_name %}.
 
 **portas encaminhadas publicamente**: Podem ser acessadas na internet, e qualquer pessoa na internet pode acessá-las. Não é necessária autenticação para acessar portas públicas encaminhadas.
 

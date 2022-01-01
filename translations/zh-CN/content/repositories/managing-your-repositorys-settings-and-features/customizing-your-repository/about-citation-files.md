@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '>=3.3'
   ghae: issue-4651
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -70,11 +71,21 @@ When you add a `CITATION.cff` file to the default branch of your repository, it 
 
 If you would prefer the {% data variables.product.prodname_dotcom %} citation information to link to another resource such as a research article, then you can use the `preferred-citation` override in CFF with the following types.
 
-| Resource         | 类型                 |
-| ---------------- | ------------------ |
-| Research article | `article`          |
-| Conference paper | `conference-paper` |
-| Book             | `book`             |
+| Resource                          | CFF type                                                                                             | BibTeX type      | APA annotation      |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------- | ------------------- |
+| Journal article/paper             | `article`                                                                                            | `@article`       |                     |
+| Book                              | `book`                                                                                               | `@book`          |                     |
+| Booklet (bound but not published) | `pamphlet`                                                                                           | `@booklet`       |                     |
+| Conference article/paper          | `conference-paper`                                                                                   | `@inproceedings` | [Conference paper]  |
+| Conference proceedings            | `conference`, `proceedings`                                                                          | `@proceedings`   |                     |
+| Data set                          | `data`, `database`                                                                                   | `@misc`          | [Data set]          |
+| Magazine article                  | `magazine-article`                                                                                   | `@article`       |                     |
+| Manual                            | `manual`                                                                                             | `@manual`        |                     |
+| Misc/generic/other                | `generic`, any other CFF type                                                                        | `@misc`          |                     |
+| Newspaper article                 | `newspaper-article`                                                                                  | `@article`       |                     |
+| Software                          | `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software`      | [Computer software] |
+| Report/technical report           | `report`                                                                                             | `@techreport`    |                     |
+| Unpublished                       | `unpublished`                                                                                        | `@unpublished`   |                     |
 
 Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
 
@@ -141,7 +152,7 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 
 ## Citing a dataset
 
-If your repository contains a dataset, you can set `type: dataset` in your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
+If your repository contains a dataset, you can set `type: dataset` at the top level of your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
 
 ## Other citation files
 
@@ -158,7 +169,7 @@ CITATIONS.bib
 CITATION.md
 CITATIONS.md
 
-# CITATION files for R packages are typically found at inst/CITATION 
+# CITATION files for R packages are typically found at inst/CITATION
 inst/CITATION
 ```
 

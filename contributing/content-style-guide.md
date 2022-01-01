@@ -48,6 +48,19 @@ Keep lines in code samples to about 60 characters, to avoid requiring readers to
 Within code blocks:
 - Do not use markup before the command output.
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
+- If your code example includes `{` or `}` that should render, wrap that section in `{% raw %}` `{% endraw %}` to disable Liquid processing for that section.
+  - **Use**:
+
+    ```
+    GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+    ```
+
+  - **Avoid**:
+ 
+    ```
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    ```
+
 
 ### Commands
 
@@ -115,7 +128,7 @@ To orient readers and help them understand if the section is relevant to them, i
 
 ### Alt text
 
-Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Accessibility guidelines for images and videos](https://review.docs.microsoft.com/en-us/help/contribute/contribute-accessibility-multimedia)” in the Microsoft Docs Contributor Guide.
+Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Accessibility guidelines for images and videos](https://review.docs.microsoft.com/en-us/help/contribute/contribute-accessibility-multimedia)” in the Microsoft Docs Contributor Guide. Note that you'll need to be logged on to your Microsoft account to be able access this Microsoft resource.
 
 ### Filenames
 
@@ -157,6 +170,60 @@ More resources for learning about inclusive and accessible language and style:
 - [Readability Guidelines](https://readabilityguidelines.co.uk/)
 - [Conscious Style Guide](https://consciousstyleguide.com/)
 
+## Keyboard shortcuts
+
+For presenting keyboard shortcuts, follow the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/keys-keyboard-shortcuts), **except for the following differences**:
+
+- Use the HTML `<kbd>` tag for each individual key.
+
+  - **Use:** `<kbd>Command</kbd>+<kbd>B</kbd>`
+  - **Avoid:** `Command+B`
+- Use full words instead of symbols for Apple modifier keys.
+
+  - **Use:** `Command`
+  - **Avoid:** `⌘`
+- Use symbols for keys of special character, not full words.
+
+  - **Use:** `.`, `,`, and `→`.
+  - **Avoid:** `Period`, `Comma`, and `Right arrow`.
+
+### Usage highlights
+
+Below are some usage highlights for how we present keyboard shortcuts in our documentation:
+
+- The basic syntax is to show keys with `+` between key combinations, without any spaces.
+
+  - **Use:** `<kbd>Command</kbd>+<kbd>B</kbd>`, which is rendered as <kbd>Command</kbd>+<kbd>B</kbd>.
+  - **Avoid:** `<kbd>Command</kbd> + <kbd>B</kbd>` or `<kbd>Command + B</kbd>` which are  rendered as <kbd>Command</kbd> + <kbd>B</kbd> or <kbd>Command + B</kbd>.
+- Always capitalize letter keys for general references and keyboard shortcuts.
+
+  - **Use:** <kbd>Command</kbd>+<kbd>B</kbd>
+  - **Avoid:** <kbd>Command</kbd>+<kbd>b</kbd>.
+- Use the correct modifier keys for the each operating system.
+
+  **Note:** Windows and Linux have <kbd>Ctrl</kbd> abbreviated, whereas on Mac it is spelled in full: <kbd>Control</kbd>.
+
+  - For Windows and Linux:
+  
+    - **Use:** <kbd>Ctrl</kbd>, <kbd>Alt</kbd>.
+    - **Avoid:** <kbd>Control</kbd>
+  - For Mac:
+  
+    - **Use:** <kbd>Command</kbd>, <kbd>Option</kbd>, <kbd>Control</kbd>.
+    - **Avoid:** <kbd>Cmd</kbd>, <kbd>⌘</kbd>, <kbd>Opt</kbd>, <kbd>⌥</kbd>, <kbd>Ctrl</kbd>, <kbd>⌃</kbd>
+- Don't confuse key combinations with keys in a sequence.
+
+  - <kbd>Command</kbd>+<kbd>B</kbd> indicates that the user should hold down the <kbd>Command</kbd> key and press the <kbd>B</kbd> key.
+  - <kbd>G</kbd> <kbd>I</kbd> indicates that the user should press the <kbd>G</kbd> key, then press the <kbd>I</kbd> key.
+- When describing a keyboard shortcut for multiple operating systems, append the operating system in brackets after the shortcut. Describe the Mac shortcut first, then Windows/Linux.
+
+  - **Use:** `<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)`, presented as:
+  
+     <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows / Linux)
+  - **Avoid:** `<kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>`, presented as:
+
+    <kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>
+
 ## Linebreaks
 
 For plain text, use linebreaks to separate paragraphs in the source (two consecutive linebreaks), rather than to create visual space in the source. Avoid unneeded linebreaks, especially in lists.
@@ -172,6 +239,30 @@ For accessibility and readability, avoid inline or midsentence links.
 - **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.     
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
+
+### Links between versions
+
+Sometimes, you need to link from one version of GitHub Docs to another. For example, the Free, Pro, & Team version of "[Managing the publication of GitHub Pages sites for your organization](https://docs.github.com/en/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the Enterprise Cloud version of the same article like this:
+
+>You can choose to allow or disallow the publication of GitHub Pages sites.
+>
+>Organizations that use GitHub Enterprise Cloud can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
+
+To link to a different article in a different version, use this format:
+
+> For more information, see "[ARTICLE TITLE]()" in the VERSION documentation.
+
+To link to the same article in a different version, use this format:
+
+> For more information, see [the VERSION documentation]().
+
+To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/admin/overview/about-enterprise-accounts`).
+
+### Links to learning paths
+
+Use this format to link to a learning path.
+
+> For more information, follow the "[LEARNING PATH TITLE]()" learning path.
 
 ### Links to external resources
 
@@ -357,10 +448,10 @@ Format checkbox names in bold and omit the word “checkbox.” To describe choo
 - **Use:** Select **Enable for all new repositories**.
 - **Avoid:** Check the “Enable for all new repositories” checkbox.
 
-### Drop-down menus
+### Dropdown menus
 
-Format drop-down menus in regular text and format clickable items within a menu in bold. Select drop-down menus (regardless of whether the menu name is a word or an octicon), and click their menu items.
-- **Use:** Select the Backup email addresses drop-down menu and click **Only allow primary email**.
+Format dropdown menus in bold and format clickable items within a menu in bold. Select dropdown menus (regardless of whether the menu name is a word or an octicon), and click their menu items.
+- **Use:** Select the **Backup email addresses** dropdown menu and click **Only allow primary email**.
 
 ### Dynamic text
 

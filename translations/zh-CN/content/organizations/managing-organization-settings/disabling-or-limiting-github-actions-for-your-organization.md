@@ -1,84 +1,70 @@
 ---
-title: 禁用或限制组织的 GitHub Actions
-intro: 组织所有者可禁用、启用和限制组织的 GitHub Actions。
+title: Disabling or limiting GitHub Actions for your organization
+intro: 'Organization owners can disable, enable, and limit GitHub Actions for an organization.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 禁用或限制操作
+shortTitle: Disable or limit actions
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 关于组织的 {% data variables.product.prodname_actions %} 权限
+## About {% data variables.product.prodname_actions %} permissions for your organization
 
-{% data reusables.github-actions.disabling-github-actions %} 有关 {% data variables.product.prodname_actions %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)”。
+{% data reusables.github-actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
 
-您可以对组织中的所有仓库启用 {% data variables.product.prodname_actions %}。 {% data reusables.github-actions.enabled-actions-description %} 您可以对组织中的所有仓库禁用 {% data variables.product.prodname_actions %}。 {% data reusables.github-actions.disabled-actions-description %}
+You can enable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.github-actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.github-actions.disabled-actions-description %}
 
-此外，您可以对组织中的所有仓库启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作。 {% data reusables.github-actions.enabled-local-github-actions %}
+Alternatively, you can enable {% data variables.product.prodname_actions %} for all repositories in your organization but limit the actions a workflow can run. {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% ifversion ghes < 3.0 %}
+## Managing {% data variables.product.prodname_actions %} permissions for your organization
 
-## 管理组织的 {% data variables.product.prodname_actions %} 权限
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. 在 **Local and third-party Actions（本地和第三方操作）**下，选择一个选项。 ![启用、禁用或限制此组织的操作](/assets/images/help/repository/enable-org-actions.png)
-1. 单击 **Save（保存）**。
-
-{% endif %}
-
-{% ifversion fpt or ghes > 2.22 or ghae-next %}
-
-## 管理组织的 {% data variables.product.prodname_actions %} 权限
-
-您可以禁用组织的所有工作流程，或者设置策略来配置哪些操作可用于组织中。
+You can disable all workflows for an organization or set a policy that configures which actions can be used in an organization.
 
 {% data reusables.actions.actions-use-policy-settings %}
 
 {% note %}
 
-**注：**如果您的组织由具有覆盖策略的企业管理，您可能无法管理这些设置。 更多信息请参阅{% ifversion fpt %}“[在企业帐户中实施 {% data variables.product.prodname_actions %} 策略](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)”。{% else %}“[实施企业的 {% data variables.product.prodname_actions %} 策略](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)”。{% endif %}
+**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
 
 {% endnote %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. 在 **Policies（策略）**下，选择一个选项。 ![设置此组织的操作策略](/assets/images/help/organizations/actions-policy.png)
-1. 单击 **Save（保存）**。
+1. Under **Policies**, select an option.
+  ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
+1. Click **Save**.
 
-## 允许特定操作运行
+## Allowing specific actions to run
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. 在 **Policies（策略）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。
-   {%- ifversion ghes %}
-   ![添加操作到允许列表](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
+   {%- ifversion ghes > 3.0 %}
+   ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
-   ![添加操作到允许列表](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
+   ![Add actions to allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
    {%- endif %}
-1. 单击 **Save（保存）**。
+1. Click **Save**.
 
-{% endif %}
-
-{% ifversion fpt %}
-## 配置公共复刻工作流程所需的批准
+{% ifversion fpt or ghec %}
+## Configuring required approval for workflows from public forks
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
-You can configure this behavior for an organization using the procedure below. 修改此设置会覆盖企业级别的配置集。
+You can configure this behavior for an organization using the procedure below. Modifying this setting overrides the configuration set at the enterprise level.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -88,12 +74,12 @@ You can configure this behavior for an organization using the procedure below. �
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
-## 为私有仓库复刻启用工作流程
+{% ifversion fpt or ghes or ghec %}
+## Enabling workflows for private repository forks
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-### 为组织配置私有复刻策略
+### Configuring the private fork policy for an organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -101,21 +87,22 @@ You can configure this behavior for an organization using the procedure below. �
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
-## 为您的组织设置 `GITHUB_TOKENN` 的权限
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+## Setting the permissions of the `GITHUB_TOKEN` for your organization
 
 {% data reusables.github-actions.workflow-permissions-intro %}
 
-您可以在组织或仓库的设置中为 `GITHUB_TOKEN` 设置默认权限。 如果您在组织设置中选择受限制的选项为默认值，则在您的组织内仓库的设置中，自动选择相同的选项，允许选项也会被禁用。 如果您的组织属于 {% data variables.product.prodname_enterprise %} 帐户，并且在企业设置中选择了更受限制的默认值，则您将无法在组织设置中选择更宽松的默认值。
+You can set the default permissions for the `GITHUB_TOKEN` in the settings for your organization or your repositories. If you choose the restricted option as the default in your organization settings, the same option is auto-selected in the settings for repositories within your organization, and the permissive option is disabled. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and the more restricted default has been selected in the enterprise settings, you won't be able to choose the more permissive default in your organization settings.
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
-### 配置默认 `GITHUB_TOKENN` 权限
+### Configuring the default `GITHUB_TOKEN` permissions
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. 在 **Workflow permissions（工作流程权限）**下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。 ![为此组织设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-organization.png)
-1. 单击 **Save（保存）**以应用设置。
+1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+  ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
+1. Click **Save** to apply the settings.
 {% endif %}

@@ -12,7 +12,11 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+  - Projects
+  - Issues
+  - Project management
 shortTitle: Configure automation
+type: how_to
 ---
 {% data reusables.projects.project_boards_old %}
 

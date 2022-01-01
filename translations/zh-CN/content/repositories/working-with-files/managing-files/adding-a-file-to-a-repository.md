@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: 添加文件
@@ -39,7 +40,7 @@ shortTitle: 添加文件
 
 ## 使用命令行提交文件到仓库
 
-您可以使用命令行将现有文件上传到 {% data variables.product.product_name %} 仓库。
+You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} using the command line.
 
 {% tip %}
 

@@ -1,12 +1,12 @@
 ---
-title: ワークフロー実行の通知
+title: Notifications for workflow runs
 intro: You can subscribe to notifications about workflow runs that you trigger.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: 通知
+  ghec: '*'
+shortTitle: Notifications
 ---
 
 {% data reusables.actions.enterprise-beta %}

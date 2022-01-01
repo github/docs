@@ -9,12 +9,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Organization membership
 ---
 
-Organization のオーナーに招待してもらい、メンバー、支払いマネージャー、あるいはオーナーとして、その Organization に加わることができます。 Organization のオーナーあるいはリポジトリの管理権限を持つメンバーは、あなたを外部コラボレーターとして 1 つ以上のリポジトリでコラボレーションするよう招待できます。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
+Organization のオーナーに招待してもらい、メンバー、支払いマネージャー、あるいはオーナーとして、その Organization に加わることができます。 Organization のオーナーあるいはリポジトリの管理権限を持つメンバーは、あなたを外部コラボレーターとして 1 つ以上のリポジトリでコラボレーションするよう招待できます。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 プロフィールページ上でメンバーになっている Organization には、アクセスできます。 詳細は「[Organization にアクセスする](/articles/accessing-an-organization)」を参照してください。
 
@@ -38,9 +39,9 @@ Organization への参加の招待を受諾すると、Organization のオーナ
 
 デフォルトでは、Organization のメンバーシップの可視性は「プライベート」に設定されています。 プロフィール上の個々の Organization のメンバーシップは、「パブリック」にすることができます。 詳しい情報については、「[Organization のメンバーシップの公開/非公開](/articles/publicizing-or-hiding-organization-membership)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-Organization が Enterprise アカウントに属している場合、あなたは自動的に Enterprise アカウントのメンバーになっており、Enterprise アカウントのオーナーから見えます。 詳細は「[Enterprise アカウントについて](/articles/about-enterprise-accounts)」を参照してください。
+Organization が Enterprise アカウントに属している場合、あなたは自動的に Enterprise アカウントのメンバーになっており、Enterprise アカウントのオーナーから見えます。 詳細は「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
 
 {% endif %}
 

@@ -1,12 +1,12 @@
 ---
-title: Notificaciones para ejecuciones de flujo de trabajo
+title: Notifications for workflow runs
 intro: You can subscribe to notifications about workflow runs that you trigger.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Notificaciones
+  ghec: '*'
+shortTitle: Notifications
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import ReactDomServer from 'react-dom/server'
 import { BumpLink, BumpLinkPropsT } from 'components/ui/BumpLink/BumpLink'
 import { Callout, CalloutPropsT } from 'components/ui/Callout/Callout'
@@ -9,11 +9,7 @@ import {
 } from 'components/ui/MarkdownContent/MarkdownContent'
 import { ScrollButton, ScrollButtonPropsT } from 'components/ui/ScrollButton/ScrollButton'
 import { TruncateLines, TruncateLinesPropsT } from 'components/ui/TruncateLines/TruncateLines'
-
-type GenericProps = {
-  children?: string | ReactNode
-  className?: string
-}
+import { Picker, PickerPropsT } from 'components/ui/Picker/Picker'
 
 const markdownExample = (
   <>
@@ -89,18 +85,6 @@ const markdownExample = (
 // Trying to keep these alphabetical order
 const stories = [
   {
-    name: 'BtnPrimaryMatte', // {component.name} gets optimized away
-    component: ({ children, className }: GenericProps) => {
-      return <button className={className}>{children}</button>
-    },
-    variants: [
-      {
-        children: 'Primary button in blue',
-        className: 'btn btn-primary-matte btn-large f4',
-      },
-    ],
-  },
-  {
     name: 'BumpLink',
     component: BumpLink,
     variants: [
@@ -114,7 +98,7 @@ const stories = [
         as: 'div',
         title: 'Think as div',
         href: 'http://example.com',
-        className: 'color-bg-warning',
+        className: 'color-bg-attention',
       } as BumpLinkPropsT,
     ],
   },
@@ -133,7 +117,7 @@ const stories = [
     component: Lead,
     variants: [
       { children: 'Lead by example' } as LeadPropsT,
-      { children: 'Lead by blue', className: 'color-bg-info' } as LeadPropsT,
+      { children: 'Lead by blue', className: 'color-bg-accent' } as LeadPropsT,
       {
         children: (
           <>
@@ -149,6 +133,29 @@ const stories = [
     variants: [{ children: markdownExample } as MarkdownContentPropsT],
   },
   {
+    name: 'Picker',
+    component: Picker,
+    variants: [
+      {
+        defaultText: 'Choose color',
+        options: [
+          { text: 'Red', item: <span>Red</span> },
+          { text: 'Green', item: <span>Green</span> },
+          { text: 'Blue', item: <span>Blue</span> },
+        ],
+      } as PickerPropsT,
+      {
+        defaultText: 'Choose color',
+        variant: 'inline',
+        options: [
+          { text: 'Red', item: <span>Red</span> },
+          { text: 'Green', item: <span>Green</span> },
+          { text: 'Blue', item: <span>Blue</span> },
+        ],
+      } as PickerPropsT,
+    ],
+  },
+  {
     name: 'ScrollButton',
     component: ScrollButton,
     variants: [{ className: '', ariaLabel: 'Scroll to top' } as ScrollButtonPropsT],
@@ -162,7 +169,7 @@ const stories = [
         maxLines: 2,
         children:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        className: 'color-bg-secondary',
+        className: 'color-bg-subtle',
       } as TruncateLinesPropsT,
     ],
   },
@@ -172,7 +179,7 @@ function displayProps(props: Object) {
   const xprops = Object.fromEntries(
     Object.entries(props).map(([key, value]) => [
       key,
-      key === 'children' ? ReactDomServer.renderToString(value) : value,
+      React.isValidElement(value) ? ReactDomServer.renderToString(value) : value,
     ])
   )
   return JSON.stringify(xprops, null, 2)
@@ -184,9 +191,9 @@ export default function Storybook() {
       <h1>GitHub Docs Storybook</h1>
       <Lead>This page lists React components unique to the GitHub docs.</Lead>
       <div className="my-4 d-lg-flex flex-items-start">
-        <nav className="menu col-12 col-lg-3 mr-4 color-bg-secondary position-lg-sticky top-0">
+        <nav className="menu col-12 col-lg-3 mr-4 color-bg-subtle position-lg-sticky top-0">
           {stories.map(({ name }) => (
-            <a className="menu-item" href={`#${name}`}>
+            <a key={name} className="menu-item" href={`#${name}`}>
               {name}
             </a>
           ))}
@@ -194,13 +201,13 @@ export default function Storybook() {
         <div className="col-12 col-lg-9">
           {stories.map(({ name, component, variants }) => (
             <div id={name} key={name} className="mb-8">
-              <h2 className="position-sticky top-0 color-bg-primary border-bottom z-2">{name}</h2>
+              <h2 className="position-sticky top-0 color-bg-default border-bottom z-2">{name}</h2>
               {variants.map((props) => (
                 <div className="my-4" key={JSON.stringify(props)}>
                   {/* @ts-ignore */}
                   {React.createElement(component, props)}
                   <pre
-                    className="mt-2 p-2 color-bg-tertiary border rounded-2"
+                    className="mt-2 p-2 color-bg-subtle border rounded-2"
                     style={{ whiteSpace: 'pre-wrap' }}
                   >
                     {displayProps(props)}

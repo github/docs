@@ -4,7 +4,7 @@ shortTitle: Guides
 product: '{% data reusables.gated-features.codespaces %}'
 intro: Learn how to make the most of GitHub
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghec: '*'
@@ -22,6 +22,7 @@ includeGuides:
   - /codespaces/developing-in-codespaces/deleting-a-codespace
   - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace
   - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
+  - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
   - /codespaces/developing-in-codespaces/using-source-control-in-your-codespace
   - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
   - /codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace

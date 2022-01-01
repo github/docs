@@ -6,26 +6,27 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 権限について
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 パッケージの権限は、リポジトリスコープかユーザ/Organizationスコープです。
 {% endif %}
 
 ## リポジトリスコープのパッケージの権限
 
-リポジトリスコープのパッケージは、パッケージを所有するリポジトリの権限と可視性を継承します。 リポジトリをスコープとするパッケージは、リポジトリのメインページにアクセスし、ページ右にある**パッケージ**リンクをクリックすれば見つかります。 {% ifversion fpt %}詳しい情報については「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」を参照してください。{% endif %}
+リポジトリスコープのパッケージは、パッケージを所有するリポジトリの権限と可視性を継承します。 リポジトリをスコープとするパッケージは、リポジトリのメインページにアクセスし、ページ右にある**パッケージ**リンクをクリックすれば見つかります。 {% ifversion fpt or ghec %}詳しい情報については「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」を参照してください。{% endif %}
 
 以下の{% data variables.product.prodname_registry %}レジストリは、リポジトリスコープの権限を使います。
 
-  {% ifversion not fpt %}-Dockerレジストリ（`docker.pkg.github.com`）{% endif %}
+  {% ifversion not fpt or ghec %}-Dockerレジストリ（`docker.pkg.github.com`）{% endif %}
   - npmレジストリ
   - RubyGemsレジストリ
   - Apache Mavenレジストリ
   - NuGetレジストリ
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## ユーザ/Organizationスコープのパッケージの詳細な権限
 
 詳細な権限を持つパッケージは、個人ユーザもしくはOrganizationアカウントをスコープとします。 パッケージのアクセス制御と可視性は、パッケージに接続された（あるいはリンクされた）リポジトリは別個に変更できます。
@@ -46,20 +47,20 @@ shortTitle: 権限について
 
 例:
 -  リポジトリからパッケージをダウンロードしてインストールするには、トークンは`read:packages`スコープを持っていなければならず、ユーザアカウントは読み取り権限を持っていなければなりません。
-- {% ifversion fpt or ghes > 3.0 %}{% data variables.product.product_name %}上のパッケージを削除するには、トークンが少なくとも`delete:packages`と`read:packages`のスコープを持っている必要があります。 repoのスコープがあるパッケージでは、`repo`スコープも必要です。{% elsif ghes < 3.1 %}{% data variables.product.product_name %}上の、プライベートパッケージの特定バージョンを削除するには、トークンが`delete:packages`と`repo`スコープを持っている必要があります。 パブリックなパッケージは削除できません。{% elsif ghae %}{% data variables.product.product_name %}上の特定のバージョンを削除するには、`delete:packages`および`repo`スコープを持っている必要があります。{% endif %}詳しい情報については、 「{% ifversion fpt or ghes > 3.0 %}[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[パッケージを削除する](/packages/learn-github-packages/deleting-a-package){% endif %}」を参照してください。
+- {% ifversion fpt or ghes > 3.0 or ghec %}{% data variables.product.product_name %}上のパッケージを削除するには、トークンが少なくとも`delete:packages`と`read:packages`のスコープを持っている必要があります。 repoのスコープがあるパッケージでは、`repo`スコープも必要です。{% elsif ghes < 3.1 %}{% data variables.product.product_name %}上の、プライベートパッケージの特定バージョンを削除するには、トークンが`delete:packages`と`repo`スコープを持っている必要があります。 Public packages cannot be deleted.{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope.{% endif %} For more information, see "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."
 
-| スコープ                                                                                                                                                                                                                                                                                | 説明                                                                   | 必要な権限        |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------ |
-| `read:packages`                                                                                                                                                                                                                                                                     | {% data variables.product.prodname_registry %}からのパッケージのダウンロードとインストール | 読み取り         |
-| `write:packages`                                                                                                                                                                                                                                                                    | {% data variables.product.prodname_registry %}へのパッケージのアップロードと公開      | 書き込み         |
-| `delete:packages`                                                                                                                                                                                                                                                                   |                                                                      |              |
-| {% ifversion fpt or ghes > 3.0 %}{% data variables.product.prodname_registry %}からパッケージを削除する {% elsif ghes < 3.1 %}{% data variables.product.prodname_registry %}からプライベートパッケージの特定バージョンを削除する{% elsif ghae %}{% data variables.product.prodname_registry %}から特定バージョンを削除する{% endif %} |                                                                      |              |
-| 管理                                                                                                                                                                                                                                                                                  |                                                                      |              |
-| `repo`                                                                                                                                                                                                                                                                              | パッケージのアップロードと削除 (`write:packages`または`delete:packages`と併せて)           | 書き込みもしくは読み取り |
+| スコープ                                                                                                                                                                                                                                                                                                                                                           | 説明                                                                   | 必要な権限        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------ |
+| `read:packages`                                                                                                                                                                                                                                                                                                                                                | {% data variables.product.prodname_registry %}からのパッケージのダウンロードとインストール | 読み取り         |
+| `write:packages`                                                                                                                                                                                                                                                                                                                                               | {% data variables.product.prodname_registry %}へのパッケージのアップロードと公開      | 書き込み         |
+| `delete:packages`                                                                                                                                                                                                                                                                                                                                              |                                                                      |              |
+| {% ifversion fpt or ghes > 3.0 or ghec %} Delete packages from {% data variables.product.prodname_registry %} {% elsif ghes < 3.1 %} Delete specified versions of private packages from {% data variables.product.prodname_registry %}{% elsif ghae %} Delete specified versions of packages from {% data variables.product.prodname_registry %} {% endif %} |                                                                      |              |
+| 管理                                                                                                                                                                                                                                                                                                                                                             |                                                                      |              |
+| `repo`                                                                                                                                                                                                                                                                                                                                                         | パッケージのアップロードと削除 (`write:packages`または`delete:packages`と併せて)           | 書き込みもしくは読み取り |
 
 {% data variables.product.prodname_actions %}ワークフローを作成する際には、`GITHUB_TOKEN`を使って{% data variables.product.prodname_registry %}にパッケージを公開してインストールでき、個人アクセストークンを保存して管理する必要はありません。
 
-詳しい情報については以下を参照してください:{% ifversion fpt %}
+For more information, see:{% ifversion fpt or ghec %}
 - 「[パッケージのアクセス制御と可視性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」{% endif %}
 - 「[{% data variables.product.prodname_actions %}でのパッケージの公開とインストール](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)」
 - [個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token/)
@@ -78,7 +79,7 @@ shortTitle: 権限について
 
 {% data variables.product.prodname_actions %}ワークフローで使われる`GITHUB_TOKEN`に関する詳しい情報については「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### コンテナイメージに対する{% data variables.product.prodname_actions %}アクセス
 
 ワークフローがコンテナイメージに確実にアクセスできるようにするには、ワークフローが実行されるリポジトリへの{% data variables.product.prodname_actions %}アクセスを有効化しなければなりません。 この設定は、パッケージの設定ページにあります。 詳しい情報については「[パッケージへのワークフローアクセスの保証](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)」を参照してください。

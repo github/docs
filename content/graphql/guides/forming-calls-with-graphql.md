@@ -6,6 +6,7 @@ redirect_from:
   - /graphql/guides/forming-calls
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

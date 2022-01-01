@@ -3,8 +3,9 @@ title: Gerenciar o nome do branch-padrão para seus repositórios
 intro: 'Você pode definir os novos repositórios para nome do branch-padrão que você criar em {% data variables.product.product_location %}.'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 redirect_from:

@@ -1,6 +1,6 @@
 ---
 title: Mostrar ou ocultar contribuições privadas no perfil
-intro: 'Seu perfil do {% data variables.product.product_name %} mostra um gráfico de contribuições no seu repositório no último ano. Você pode optar por mostrar atividade anonimizada de {% ifversion fpt or ghes %}repositórios privados e internos{% else %}privados{% endif %}{% ifversion fpt or ghes %} além da atividade de repositórios públicos{% endif %}.'
+intro: 'Seu perfil do {% data variables.product.product_name %} mostra um gráfico de contribuições no seu repositório no último ano. Você pode optar por mostrar atividade anonimizada de {% ifversion fpt or ghes or ghec %}repositórios privados e internos{% else %}privados{% endif %}{% ifversion fpt or ghes or ghec %} além da atividade de repositórios públicos{% endif %}.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/publicizing-or-hiding-your-private-contributions-on-your-profile
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: Contribuições privadas
@@ -18,7 +19,7 @@ Se você mostrar suas contribuições privadas, pessoas sem acesso aos repositó
 
 {% note %}
 
-**Observação:** {% ifversion fpt or ghes %}Em {% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, contribuições públicas no seu perfil são visíveis {% ifversion fpt %}para qualquer pessoa que pode acessar {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}apenas para outros usuários de {% data variables.product.product_location%}{% endif %}.{% elsif ghae %}Em {% data variables.product.prodname_ghe_managed %}, apenas outros integrantes da empresa podem ver as contribuições no seu perfil.{% endif %}
+**Observação:** {% ifversion fpt or ghes or ghec %}Em {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, as contribuições públicas no seu perfil são visíveis {% ifversion fpt or ghec %}para qualquer pessoa no mundo que pode acessar {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}apenas para outros usuários de {% data variables.product.product_location%}{% endif %}.{% elsif ghae %}Em {% data variables.product.prodname_ghe_managed %}, apenas outros integrantes da empresa podem ver as contribuições no seu perfil.{% endif %}
 
 {% endnote %}
 

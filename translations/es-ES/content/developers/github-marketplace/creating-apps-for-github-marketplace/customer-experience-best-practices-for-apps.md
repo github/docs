@@ -4,6 +4,7 @@ intro: Lineamientos para crear una app que sea fácil de utilizar y entender.
 shortTitle: Mejores prácticas para la experiencia de los clientes
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 redirect_from:

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -22,11 +23,8 @@ As etiquetas padrão são incluídas em cada repositório novo na organização,
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
-{% else %}
-{% data reusables.organizations.repository-labels %}
-{% endif %}
+
 5. Em "Repository labels" (Etiquetas de repositório), clique em **New label** (Nova etiqueta). ![Botão New label (Nova etiqueta)](/assets/images/help/organizations/new-label-button.png)
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
@@ -37,11 +35,8 @@ As etiquetas padrão são incluídas em cada repositório novo na organização,
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
-{% else %}
-{% data reusables.organizations.repository-labels %}
-{% endif %}
+
 {% data reusables.project-management.edit-label %}
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
@@ -52,11 +47,8 @@ As etiquetas padrão são incluídas em cada repositório novo na organização,
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
-{% else %}
-{% data reusables.organizations.repository-labels %}
-{% endif %}
+
 {% data reusables.project-management.delete-label %}
 {% data reusables.project-management.confirm-label-deletion %}
 

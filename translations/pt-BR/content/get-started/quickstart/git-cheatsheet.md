@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 intro: Esta folha de referência do Git economiza tempo quando você esquecer um comando ou não quiser usar ajuda na CLI.
 ---
 

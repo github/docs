@@ -14,7 +14,7 @@ topics:
 shortTitle: View organization insights
 ---
 
-All members of an organization can view organization insights. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
+All members of an organization can view organization insights. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 You can use organization activity insights to help you better understand how members of your organization are using {% data variables.product.product_name %} to collaborate and work on code. Dependency insights can help you track, report, and act on your organization's open source usage.
 

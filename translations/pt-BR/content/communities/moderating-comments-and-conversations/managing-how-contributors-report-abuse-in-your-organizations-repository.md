@@ -3,6 +3,7 @@ title: Gerenciando como os colaboradores relatam abuso no repositório da sua or
 intro: Você pode permitir que os colaboradores relatem comportamentos disruptivos diretamente aos mantenedores do repositório.
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:

@@ -8,6 +8,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations

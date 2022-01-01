@@ -3,9 +3,9 @@ title: Enabling unified search between your enterprise account and GitHub.com
 shortTitle: Enable unified search
 intro: 'After enabling {% data variables.product.prodname_github_connect %}, you can allow search of {% data variables.product.prodname_dotcom_the_website %} for members of your enterprise on {% data variables.product.product_name %}.'
 redirect_from:
-  - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-and-github-com/
-  - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com/
-  - /enterprise/admin/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-githubcom/
+  - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-and-github-com
+  - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com
+  - /enterprise/admin/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/installation/enabling-unified-search-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom
   - /admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom
@@ -13,7 +13,7 @@ redirect_from:
 permissions: 'Enterprise owners who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified search between {% data variables.product.product_name %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
-  ghae: 'next'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -25,7 +25,9 @@ topics:
 
 When you enable unified search, users can view search results from public and private content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.product.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}.
 
-Users will not be able to search {% data variables.product.product_location %} from {% data variables.product.prodname_dotcom_the_website %}, even if they have access to both environments. Users can only search private repositories you've enabled {% data variables.product.prodname_unified_search %} for and that they have access to in the connected {% data variables.product.prodname_ghe_cloud %} organizations. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)" and "[Enabling private {% data variables.product.prodname_dotcom_the_website %} repository search in your enterprise account](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
+After you enable unified search for {% data variables.product.product_location %}, individual users must also connect their user accounts on {% data variables.product.product_name %} with their user accounts on {% data variables.product.prodname_dotcom_the_website %} in order to see search results from {% data variables.product.prodname_dotcom_the_website %} on {% data variables.product.product_location %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search in your private enterprise account](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
+
+Users will not be able to search {% data variables.product.product_location %} from {% data variables.product.prodname_dotcom_the_website %}, even if they have access to both environments. Users can only search private repositories you've enabled {% data variables.product.prodname_unified_search %} for and that they have access to in the connected {% data variables.product.prodname_ghe_cloud %} organizations. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)."
 
 Searching via the REST and GraphQL APIs does not include {% data variables.product.prodname_dotcom_the_website %} search results. Advanced search and searching for wikis in {% data variables.product.prodname_dotcom_the_website %} are not supported.
 

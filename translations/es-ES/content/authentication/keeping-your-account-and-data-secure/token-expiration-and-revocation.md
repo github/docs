@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -13,7 +14,7 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation
 ---
 
-Cuando un token {% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}venció o {% endif %}se revocó, este ya no se puede utilizar para autenticar las solicitudes de la API y de Git. No es posible restablecer un token revocado o vencido, ya seas tú o la aplicación necesitarán crear un token nuevo.
+Cuando un token {% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}venció o {% endif %}se revocó, ya no puede utilizarse para autenticar solicitudes de Git y de las API. No es posible restablecer un token revocado o vencido, ya seas tú o la aplicación necesitarán crear un token nuevo.
 
 Este artículo te explica las posibles razones por las cuales tu token de {% data variables.product.product_name %} podría revocarse o vencer.
 
@@ -23,13 +24,13 @@ Este artículo te explica las posibles razones por las cuales tu token de {% dat
 
 {% endnote %}
 
-{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}
+{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 ## El token se revocó después de llegar a su fecha de vencimiento
 
 Cuando creas un token de acceso personal, te recomendamos que configures una fecha de vencimiento para este. Al alcanzar la fecha de vencimiento de tu token, este se revocará automáticamente. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## El token se revocó cuando se subió a un repositorio o gist público
 
 Si un token OAuth válido, token de {% data variables.product.prodname_github_app %} o de acceso personal se sube a un repositorio o gist público, este se revocará automáticamente.
@@ -37,7 +38,7 @@ Si un token OAuth válido, token de {% data variables.product.prodname_github_ap
 Los tokens de OAuth y los de acceso personal que se suben a los repositorios y gists públicos solo se revocarán si el token tiene alcances.
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## El token venció debido a la falta de uso
 
 {% data variables.product.product_name %} revocará el token de OAuth o de acceso personal automáticamente cuando no se haya utilizado en un año.
@@ -47,7 +48,7 @@ Los tokens de OAuth y los de acceso personal que se suben a los repositorios y g
 
 Puedes revocar tu autorización de una {% data variables.product.prodname_github_app %} o {% data variables.product.prodname_oauth_app %} desde tus ajustes de cuenta, lo cual revocará cualquier token asociado con la app. Para obtener más información, consulta las secciones "[Revisar tus integraciones autorizadas](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)" y "[Revisar tus aplicaciones autorizadas (OAuth)](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)".
 
-Una vez que se revoca una autorización, cualquier token asociado con la autorización también se revocará. Para volver a autorizar una aplicación, sigue las instrucciones de la aplicación o sitio web tercero para conectarte con tu cuenta de {% data variables.product.product_name %} nuevamente.
+Una vez que se revoca una autorización, cualquier token asociado con la autorización también se revocará. To re-authorize an application, follow the instructions from the third-party application or website to connect your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} again.
 
 ## La {% data variables.product.prodname_oauth_app %} revocó el token
 

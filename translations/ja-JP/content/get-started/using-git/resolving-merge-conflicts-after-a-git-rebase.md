@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Resolve conflicts after rebase
 ---
 
@@ -30,4 +31,4 @@ Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841... Change fake file
 * `git rebase --skip` を実行すれば、コミットを完全に省略できます。 つまり、問題のあるコミットにより引き起された変更はすべて除外されます。 このオプションを選択することはほとんどありません。
 * コンフリクトを解決できます。
 
-[コマンド ラインからマージ コンフリクトを解決するための標準的な手順](/articles/resolving-a-merge-conflict-using-the-command-line)に従うことで、コンフリクトを修正できます。 終了したら、Git がリベースの残りの処理を続けるために、`git rebase --continue` を呼び出す必要があります。
+[コマンド ラインからマージ コンフリクトを解決するための標準的な手順](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)に従うことで、コンフリクトを修正できます。 終了したら、Git がリベースの残りの処理を続けるために、`git rebase --continue` を呼び出す必要があります。

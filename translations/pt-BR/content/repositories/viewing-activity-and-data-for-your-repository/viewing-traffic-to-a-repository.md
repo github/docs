@@ -8,9 +8,10 @@ redirect_from:
   - /github/visualizing-repository-data-with-graphs/accessing-basic-repository-data/viewing-traffic-to-a-repository
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
-shortTitle: View repository traffic
+shortTitle: Ver tráfego do repositório
 ---
 
 A partir dos links indicados nos caminhos especificados, é possível navegar para sites de referência, exceto mecanismos de pesquisa e o {% data variables.product.product_name %} em si. O conteúdo popular tem links para o conteúdo específico que gerou o tráfego.

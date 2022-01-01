@@ -3,6 +3,7 @@ title: Entender la facturación para los Codespaces
 intro: 'Aprende cómo se factura tu uso de {% data variables.product.prodname_codespaces %}.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/about-billing-for-codespaces
   - /codespaces/getting-started-with-codespaces/about-billing-for-codespaces

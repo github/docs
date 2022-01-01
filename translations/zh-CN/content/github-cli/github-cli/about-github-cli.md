@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - CLI
 type: overview
@@ -24,8 +25,7 @@ redirect_from:
 
 ## 安装 {% data variables.product.prodname_cli %}
 
-在 [{% data variables.product.prodname_cli %}
-页面](https://cli.github.com)上查看适用于 macOS、Windows 和 Linux 的 {% data variables.product.prodname_cli %} 安装说明。
+{% data reusables.cli.cli-installation %}
 
 ## 分享反馈
 

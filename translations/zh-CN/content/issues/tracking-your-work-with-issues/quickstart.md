@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Issues
@@ -28,7 +29,7 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.repositories.new_issue %}
-1. 在此示例中，我们将从空白议题开始。 您的仓库可能使用议题模板{% ifversion fpt %} 和议题表单{% endif %} 来鼓励贡献者提供具体信息。 如果您的仓库使用议题模板，请 {% ifversion fpt or ghes %}单击**打开空白议题**{% else %}单击**打开常规议题**{% endif %}。
+1. 在此示例中，我们将从空白议题开始。 您的仓库可能使用议题模板{% ifversion fpt or ghec %} 和议题表单{% endif %} 来鼓励贡献者提供具体信息。 如果您的仓库使用议题模板，请 {% ifversion fpt or ghes or ghec %}单击**打开空白议题**{% else %}单击**打开常规议题**{% endif %}。
 
 ![空白议题](/assets/images/help/issues/blank-issue.png)
 
@@ -70,7 +71,7 @@ topics:
 
 ## 添加议题到项目
 
-您可以将议题添加到现有项目。 {% ifversion fpt %}如果您使用的是项目（测试版），也可以填充项目的元数据。 {% endif %} 有关项目的更多信息，请参阅 {% ifversion fpt %}“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”和{% endif %}“[组织对项目板的使用](/issues/organizing-your-work-with-project-boards)”。
+您可以将议题添加到现有项目。 {% ifversion fpt or ghec %}如果您使用的是项目（测试版），也可以填充项目的元数据。 {% endif %} 有关项目的更多信息，请参阅 {% ifversion fpt or ghec %}“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”和{% endif %}“[组织对项目板的使用](/issues/organizing-your-work-with-project-boards)”。
 
 ![有项目的议题](/assets/images/help/issues/issue-project.png)
 
@@ -96,5 +97,5 @@ topics:
 以下是一些帮助您对 {% data variables.product.prodname_github_issues %} 执行后续操作的有用资源：
 
 - 要了解议题的更多信息，请参阅“[关于议题](/issues/tracking-your-work-with-issues/about-issues)”。
-- 要详细了解项目如何帮助您规划和跟踪，请参阅{% ifversion fpt %}“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”或{% endif %}“[使用项目板组织工作](/issues/organizing-your-work-with-project-boards)”。
-- 要详细了解使用议题模板{% ifversion fpt %} 和议题表单{% endif %} 鼓励贡献者提供具体信息，请参阅“[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)”。
+- 要详细了解项目如何帮助您规划和跟踪，请参阅{% ifversion fpt or ghec %}“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”或{% endif %}“[使用项目板组织工作](/issues/organizing-your-work-with-project-boards)”。
+- 要详细了解使用议题模板{% ifversion fpt or ghec %} 和议题表单{% endif %} 鼓励贡献者提供具体信息，请参阅“[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)”。

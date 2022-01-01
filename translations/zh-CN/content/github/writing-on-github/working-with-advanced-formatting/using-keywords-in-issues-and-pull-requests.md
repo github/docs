@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Issues
   - Pull requests
@@ -12,7 +13,7 @@ topics:
 
 ## 将拉取请求链接到议题
 
-要将拉取请求链接到议题以{% ifversion fpt or ghes or ghae %} 显示正在进行的修复，并且{% endif %} 当有人合并拉取请求时自动关闭议题，请键入以下关键字之一，然后引用议题。 例如 `Closes #10` 或 `Fixes octo-org/octo-repo#100`。
+要将拉取请求链接到议题以{% ifversion fpt or ghes or ghae or ghec %} 显示正在进行的修复，并且{% endif %} 当有人合并拉取请求时自动关闭议题，请键入以下关键字之一，然后引用议题。 例如 `Closes #10` 或 `Fixes octo-org/octo-repo#100`。
 
 * close
 * closes

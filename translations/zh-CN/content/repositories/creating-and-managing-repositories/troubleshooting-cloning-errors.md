@@ -16,6 +16,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -92,7 +93,7 @@ $ git remote -v
 
 ## 错误：未找到仓库
 
-{% ifversion fpt or ghae %}如果您在克隆仓库时看到这个错误，意味着仓库不存在或您没有权限访问它。{% else %}如果您在克隆仓库时看到此错误，意味着仓库不存在、您没有访问权限，或者 {% data variables.product.product_location %} 处于隐私模式。{% endif %} 对此错误有一些解决办法，具体取决于错误原因。
+{% ifversion fpt or ghae or ghec %}如果您在克隆仓库时看到这个错误，意味着仓库不存在或您没有权限访问它。{% else %}如果您在克隆仓库时看到此错误，意味着仓库不存在、您没有访问权限，或者 {% data variables.product.product_location %} 处于隐私模式。{% endif %} 对此错误有一些解决办法，具体取决于错误原因。
 
 ### 检查拼写
 

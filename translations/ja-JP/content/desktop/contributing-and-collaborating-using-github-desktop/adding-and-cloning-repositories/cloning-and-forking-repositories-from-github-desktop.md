@@ -15,7 +15,7 @@ shortTitle: Clone & fork from Desktop
 
 リポジトリのクローンを作成することで、アクセス権を持つ {% data variables.product.product_name %} に任意のリポジトリのローカルコピーを作成できます。 リポジトリを所有している場合、または書き込み権限がある場合は、ローカルとリモートの場所間で同期できます。 詳しい情報については、「[ブランチを同期する](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)」を参照してください。
 
-リポジトリのクローンを作成するときに、{% data variables.product.product_name %} にプッシュした変更は、元のリポジトリに影響します。 元のプロジェクトに影響を与えずに変更を加えるには、リポジトリをフォークして別のコピーを作成します。 プルリクエストを作成して、メンテナがフォークの変更を元のアップストリームリポジトリに組み込むことを提案できます。 詳しい情報については「[フォークについて](/github/collaborating-with-issues-and-pull-requests/about-forks)」を参照してください。
+リポジトリのクローンを作成するときに、{% data variables.product.product_name %} にプッシュした変更は、元のリポジトリに影響します。 元のプロジェクトに影響を与えずに変更を加えるには、リポジトリをフォークして別のコピーを作成します。 プルリクエストを作成して、メンテナがフォークの変更を元のアップストリームリポジトリに組み込むことを提案できます。 詳しい情報については「[フォークについて](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)」を参照してください。
 
 {% data variables.product.prodname_desktop %} を使用して、書き込み権限のないリポジトリのクローンを作成しようとすると、{% data variables.product.prodname_desktop %} によってフォークを自動的に作成するように求められます。 フォークを使用して、元の上流リポジトリに貢献するか、独自のプロジェクトで独立して作業するかを選択できます。 既存のフォークはデフォルトで、上流リポジトリへの変更に貢献します。 この選択はいつでも変更できます。 詳しい情報については、「[フォークの動作を管理する](#managing-fork-behavior)」を参照してください。
 

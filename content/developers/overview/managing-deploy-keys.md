@@ -2,7 +2,7 @@
 title: Managing deploy keys
 intro: Learn different ways to manage SSH keys on your servers when you automate deployment scripts and which way is best for you.
 redirect_from:
-  - /guides/managing-deploy-keys/
+  - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
 versions:
   fpt: '*'
@@ -185,3 +185,7 @@ This means that you cannot automate the creation of accounts. But if you want to
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
+
+## Further reading
+- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+

@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4554
   ghes: '>3.1'
+  ghec: '*'
 topics:
   - Security overview
   - Advanced Security
