@@ -79,7 +79,7 @@
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.0",
     "remark-parse-no-trim": "^8.0.4",
-    "remark-rehype": "^10.0.1",
+    "remark-rehype": "^10.1.0",
     "revalidator": "^0.3.1",
     "rss-parser": "^3.12.0",
     "scroll-anchoring": "^0.1.0",
