@@ -150,7 +150,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   Configures the job to run on the latest version of an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by GitHub. For syntax examples using other runners, see <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">"Workflow syntax for {% data variables.product.prodname_actions %}."</a>
 </td>
 </tr>
-<tr>
+<tr>7
 <td>
 
   ```yaml
