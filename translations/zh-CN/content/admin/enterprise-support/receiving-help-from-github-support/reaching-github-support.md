@@ -1,8 +1,8 @@
 ---
-title: 联系 GitHub Support
-intro: '使用 {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} 或{% endif %}支持门户联系 {% data variables.contact.enterprise_support %}。'
+title: Reaching GitHub Support
+intro: 'Contact {% data variables.contact.enterprise_support %} using the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
 redirect_from:
-  - /enterprise/admin/guides/enterprise-support/reaching-github-enterprise-support/
+  - /enterprise/admin/guides/enterprise-support/reaching-github-enterprise-support
   - /enterprise/admin/enterprise-support/reaching-github-support
   - /admin/enterprise-support/reaching-github-support
 versions:
@@ -12,48 +12,47 @@ topics:
   - Enterprise
   - Support
 ---
+## Using automated ticketing systems
 
-## 使用自动事件单系统
+Though we'll do our best to respond to automated support requests, we typically need more information than an automated ticketing system can give us to solve your issue. Whenever possible, please initiate support requests from a person or machine that {% data variables.contact.enterprise_support %} can interact with. For more information, see "[Preparing to submit a ticket](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)."
 
-尽管我们会尽最大努力响应自动支持请求，但与自动事件单系统能够提供的信息相比，我们通常需要更多信息来解决您的问题。 只要有可能，请通过 {% data variables.contact.enterprise_support %} 可以与之交互的人或机器发起支持请求。 更多信息请参阅“[准备提交事件单](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)”。
-
-## 联系 {% data variables.contact.enterprise_support %}
+## Contacting {% data variables.contact.enterprise_support %}
 
 {% data reusables.support.zendesk-old-tickets %}
 
-{% data variables.contact.enterprise_support %} 客户可以使用 {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} 或 {% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} {% data variables.contact.contact_ae_portal %}{% endif %} 打开支持单。 更多信息请参阅“[提交事件单](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)”。
+{% data variables.contact.enterprise_support %} customers can open a support ticket using the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or the {% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} the {% data variables.contact.contact_ae_portal %}{% endif %}. For more information, see "[Submitting a ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)."
 
 {% ifversion ghes %}
 
-## 联系 {% data variables.contact.premium_support %}
+## Contacting {% data variables.contact.premium_support %}
 
-{% data variables.contact.enterprise_support %} 客户可以使用 {% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} 或 {% data variables.contact.contact_enterprise_portal %} 打开支持事件单。 将其优先级标为 {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %} 或 {% data variables.product.support_ticket_priority_low %}。 更多信息请参阅“[为支持事件单分配优先级](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server#assigning-a-priority-to-a-support-ticket)”和“[提交事件单](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)”。
+{% data variables.contact.enterprise_support %} customers can open a support ticket using the {% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or the {% data variables.contact.contact_enterprise_portal %}. Mark its priority as {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}. For more information, see "[Assigning a priority to a support ticket](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server#assigning-a-priority-to-a-support-ticket)" and "[Submitting a ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)."
 
-### 查看过去的支持事件单
+### Viewing past support tickets
 
-您可以使用 {% data variables.contact.enterprise_portal %} 查看过去的支持事件单。
+You can use the {% data variables.contact.enterprise_portal %} to view past support tickets.
 
-1. 导航到 {% data variables.contact.contact_enterprise_portal %}。
-2. 单击 **My tickets（我的事件单）**。
+1. Navigate to the {% data variables.contact.contact_enterprise_portal %}.
+2. Click **My tickets**.
 
 {% endif %}
-## 联系销售
+## Contacting sales
 
-有关定价、许可、续订、报价、付款和其他相关问题，请联系 {% data variables.contact.contact_enterprise_sales %} 或拨打 [+1 (877) 448-4820](tel:+1-877-448-4820)。
+For pricing, licensing, renewals, quotes, payments, and other related questions, contact {% data variables.contact.contact_enterprise_sales %} or call [+1 (877) 448-4820](tel:+1-877-448-4820).
 
 {% ifversion ghes %}
-## 联系培训
+## Contacting training
 
-要了解有关培训选项（包括自定义培训）的更多信息，请参阅 [{% data variables.product.company_short %} 的培训网站](https://services.github.com/)。
+To learn more about training options, including customized trainings, see [{% data variables.product.company_short %}'s training site](https://services.github.com/).
 
 {% note %}
 
-**注意：**培训包含在 {% data variables.product.premium_plus_support_plan %} 中。 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_server %} 的 {% data variables.contact.premium_support %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)”。
+**Note:** Training is included in the {% data variables.product.premium_plus_support_plan %}. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."
 
 {% endnote %}
 {% endif %}
 
-## 延伸阅读
+## Further reading
 
-- “[关于 {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)”
-- “[关于 {% data variables.product.prodname_ghe_server %} 的 {% data variables.contact.premium_support %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)”。
+- "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"
+- "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."

@@ -5,7 +5,7 @@
 - ユーザインターフェースについては、脆弱な依存関係があった場合に、リポジトリのファイルとコードビューに警告が表示されます（**UI alerts（UIアラート）**オプション）。
 - コマンドラインについては、脆弱な依存関係を伴うプッシュをリポジトリに対して行った場合、コールバックとして警告が表示されます（**Command Line（コマンドライン）**オプション）。
 - インボックスについては、Web通知として表示されます。 A web notification is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**Web** option).{% ifversion not ghae %}
-- {% data variables.product.prodname_mobile %}では、Web通知として表示されます。 For more information, see "[Enabling push notifications with GitHub for mobile](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."{% endif %}
+- {% data variables.product.prodname_mobile %}では、Web通知として表示されます。 For more information, see "[Enabling push notifications with GitHub Mobile](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."{% endif %}
 
 {% note %}
 

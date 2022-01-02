@@ -3,14 +3,14 @@ name: OS Ready for review
 # **What it does**: Adds pull requests and issues in the docs repository to the docs-content review board when the "waiting for review" label is added
 # **Why we have it**: So that contributors in the OS repo can easily get reviews from the docs-content team, and so that writers can see when a PR is ready for review
 # **Who does it impact**: Writers working in the docs repository
-permissions:
-  contents: read
-
 on:
   pull_request_target:
     types: [labeled]
   issues:
     types: [labeled]
+
+permissions:
+  contents: read
 
 jobs:
   request_doc_review:
@@ -44,10 +44,10 @@ jobs:
           exit 1
 
       - name: Check out repo content
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: Setup Node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: 16.x
           cache: npm

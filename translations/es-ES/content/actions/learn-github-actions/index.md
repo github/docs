@@ -1,7 +1,7 @@
 ---
-title: Aprende sobre las GitHub Actions
-shortTitle: Aprende sobre las GitHub Actions
-intro: 'Ya sea que seas nuevo en el uso de {% data variables.product.prodname_actions %} o que te interese aprender sobre todo lo que pueden ofrecer, esta guía te ayudará a utilizar las {% data variables.product.prodname_actions %} para acelerar tus flujos de trabajo de desarrollo de aplicaciones.'
+title: Learn GitHub Actions
+shortTitle: Learn GitHub Actions
+intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
 redirect_from:
   - /articles/about-github-actions
   - /github/automating-your-workflow-with-github-actions/about-github-actions
@@ -46,4 +46,3 @@ children:
   - /usage-limits-billing-and-administration
 ---
 
-{% data reusables.actions.ae-beta %}

@@ -2,8 +2,8 @@
 title: Replacing GitHub Services
 intro: 'If you''re still relying on the deprecated {% data variables.product.prodname_dotcom %} Services, learn how to migrate your service hooks to webhooks.'
 redirect_from:
-  - /guides/replacing-github-services/
-  - /v3/guides/automating-deployments-to-integrators/
+  - /guides/replacing-github-services
+  - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
 versions:
   fpt: '*'

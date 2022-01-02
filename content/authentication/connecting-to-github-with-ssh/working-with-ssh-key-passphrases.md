@@ -2,8 +2,8 @@
 title: Working with SSH key passphrases
 intro: You can secure your SSH keys and configure an authentication agent so that you won't have to reenter your passphrase every time you use your SSH keys.
 redirect_from:
-  - /ssh-key-passphrases/
-  - /working-with-key-passphrases/
+  - /ssh-key-passphrases
+  - /working-with-key-passphrases
   - /articles/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/connecting-to-github-with-ssh/working-with-ssh-key-passphrases

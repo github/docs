@@ -1,6 +1,6 @@
 ---
-title: ユーザーアカウントのリポジトリ権限レベル
-intro: ユーザアカウントが所有するリポジトリには、リポジトリオーナーとコラボレータという 2 つの権限レベルがあります。
+title: Permission levels for a user account repository
+intro: 'A repository owned by a user account has two permission levels: the repository owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository
@@ -14,85 +14,78 @@ topics:
   - Accounts
 shortTitle: Permission user repositories
 ---
+## About permissions levels for a user account repository
 
-## ユーザーアカウントのリポジトリ権限レベルについて
+Repositories owned by user accounts have one owner. Ownership permissions can't be shared with another user account.
 
-ユーザアカウントが所有するリポジトリのオーナーは 1 人です。 所有権の権限を別のユーザアカウントと共有することはできません。
-
-{% data variables.product.product_name %} のユーザをコラボレータとしてリポジトリに{% ifversion fpt or ghec %}招待{% else %}追加{% endif %}することもできます。 詳しい情報については、「[コラボレータを個人リポジトリに招待する](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)」を参照してください。
+You can also {% ifversion fpt or ghec %}invite{% else %}add{% endif %} users on {% data variables.product.product_name %} to your repository as collaborators. For more information, see "[Inviting collaborators to a personal repository](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)."
 
 {% tip %}
 
-**参考:** ユーザアカウントが所有しているリポジトリに対して、より精細なアクセス権が必要な場合には、リポジトリを Organization に移譲することを検討してください。 詳細は「[リポジトリを移譲する](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)」を参照してください。
+**Tip:** If you require more granular access to a repository owned by your user account, consider transferring the repository to an organization. For more information, see "[Transferring a repository](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)."
 
 {% endtip %}
 
-## ユーザアカウントが所有しているリポジトリのオーナーアクセス権
+## Owner access for a repository owned by a user account
 
-リポジトリオーナーは、リポジトリを完全に制御することができます。 コラボレータが実行できるアクションに加えて、リポジトリオーナーは次のアクションを実行できます。
+The repository owner has full control of the repository. In addition to the actions that any collaborator can perform, the repository owner can perform the following actions.
 
-| アクション                                                                                                                          | 詳細情報                                                                                                                                                                                                                                                                     |
-|:------------------------------------------------------------------------------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| {% ifversion fpt or ghec %}コラボレータを招待{% else %}コラボレータを追加{% endif %}                                                             |                                                                                                                                                                                                                                                                          |
-| [個人リポジトリへのコラボレータの招待](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository) |                                                                                                                                                                                                                                                                          |
-| リポジトリの表示変更                                                                                                                     | 「[リポジトリの可視性を設定する](/github/administering-a-repository/setting-repository-visibility)」 |{% ifversion fpt or ghec %}
-| リポジトリとのインタラクションの制限                                                                                                             | 「[リポジトリでのインタラクションを制限する](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」 |{% endif %}{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
-| デフォルトブランチを含むブランチ名の変更                                                                                                           | 「[ブランチ名を変更する](/github/administering-a-repository/renaming-a-branch)」 
-{% endif %}
-| 保護されたブランチで、レビューの承認がなくてもプルリクエストをマージする                                                                                           | [保護されたブランチについて](/github/administering-a-repository/about-protected-branches)                                                                                                                                                                                             |
-| リポジトリを削除する                                                                                                                     | 「[リポジトリを削除する](/github/administering-a-repository/deleting-a-repository)」                                                                                                                                                                                                 |
-| リポジトリのトピックの管理                                                                                                                  | 「[トピックでリポジトリを分類する](/github/administering-a-repository/classifying-your-repository-with-topics)」 |{% ifversion fpt or ghec %}
-| リポジトリのセキュリティおよび分析設定の管理                                                                                                         | 「[リポジトリのセキュリティおよび分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」 |{% endif %}{% ifversion fpt or ghec %}
-| プライベートリポジトリの依存関係グラフの有効化                                                                                                        | 「[リポジトリの依存関係を見る](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)」 |{% endif %}{% ifversion fpt or ghes > 3.0 or ghec %}
-| パッケージの削除および復元                                                                                                                  | 「[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package)」 |{% endif %}{% ifversion ghes = 3.0 or ghae %}
-| パッケージの削除                                                                                                                       | 「[パッケージを削除する](/packages/learn-github-packages/deleting-a-package)」
-{% endif %}
-| リポジトリのソーシャルメディア向けプレビューのカスタマイズ                                                                                                  | 「[リポジトリのソーシャルメディア向けプレビューをカスタマイズする](/github/administering-a-repository/customizing-your-repositorys-social-media-preview)」                                                                                                                                                |
-| リポジトリからのテンプレートの作成                                                                                                              | 「[テンプレートリポジトリを作成する](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)」 |{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-| Control access to {% data variables.product.prodname_dependabot_alerts %} alerts for vulnerable dependencies                 | 「[リポジトリのセキュリティおよび分析設定を管理する](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)」 |{% endif %}{% ifversion fpt or ghec %}
-| リポジトリで {% data variables.product.prodname_dependabot_alerts %} を閉じる                                                          | [リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)                                                                                                                                      |
-| プライベートリポジトリのデータ利用の管理                                                                                                           | 「[プライベートリポジトリのデータ使用設定を管理する](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)」
-{% endif %}
-| リポジトリのコードオーナーを定義する                                                                                                             | 「[コードオーナー'について](/github/creating-cloning-and-archiving-repositories/about-code-owners)」                                                                                                                                                                                  |
-| リポジトリのアーカイブ                                                                                                                    | "[Archiving repositories](/repositories/archiving-a-github-repository/archiving-repositories)" |{% ifversion fpt or ghec %}
-| セキュリティアドバイザリの作成                                                                                                                | 「[{% data variables.product.prodname_security_advisories %} について](/github/managing-security-vulnerabilities/about-github-security-advisories)」                                                                                                                         |
-| スポンサーボタンの表示                                                                                                                    | 「[リポジトリにスポンサーボタンを表示する](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)」 |{% endif %}{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-| プルリクエストの自動マージを許可または禁止                                                                                                          | 「[リポジトリ内のプルリクエストの自動マージを管理する](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)」| {% endif %}
+| Action | More information |
+| :- | :- |
+| {% ifversion fpt or ghec %}Invite collaborators{% else %}Add collaborators{% endif %} | "[Inviting collaborators to a personal repository](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)" |
+| Change the visibility of the repository | "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)" |{% ifversion fpt or ghec %}
+| Limit interactions with the repository | "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)" |{% endif %}{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+| Rename a branch, including the default branch | "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)" |{% endif %}
+| Merge a pull request on a protected branch, even if there are no approving reviews | "[About protected branches](/github/administering-a-repository/about-protected-branches)" |
+| Delete the repository | "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)" |
+| Manage the repository's topics | "[Classifying your repository with topics](/github/administering-a-repository/classifying-your-repository-with-topics)" |{% ifversion fpt or ghec %}
+| Manage security and analysis settings for the repository | "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" |{% endif %}{% ifversion fpt or ghec %}
+| Enable the dependency graph for a private repository | "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)" |{% endif %}{% ifversion fpt or ghes > 3.0 or ghec %}
+| Delete and restore packages | "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" |{% endif %}{% ifversion ghes = 3.0 or ghae %}
+| Delete packages | "[Deleting packages](/packages/learn-github-packages/deleting-a-package)" |{% endif %}
+| Customize the repository's social media preview | "[Customizing your repository's social media preview](/github/administering-a-repository/customizing-your-repositorys-social-media-preview)" |
+| Create a template from the repository | "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)" |{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+| Control access to {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies | "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" |{% endif %}{% ifversion fpt or ghec %}
+| Dismiss {% data variables.product.prodname_dependabot_alerts %} in the repository | "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)" |
+| Manage data use for a private repository | "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)"|{% endif %}
+| Define code owners for the repository | "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)" |
+| Archive the repository | "[Archiving repositories](/repositories/archiving-a-github-repository/archiving-repositories)" |{% ifversion fpt or ghec %}
+| Create security advisories | "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)" |
+| Display a sponsor button | "[Displaying a sponsor button in your repository](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)" |{% endif %}{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
+| Allow or disallow auto-merge for pull requests | "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)" | {% endif %}
 
-## ユーザアカウントが所有しているリポジトリに対するコラボレータアクセス権
+## Collaborator access for a repository owned by a user account
 
-個人リポジトリのコラボレータは、リポジトリのコンテンツをプル（読み取り）したり、リポジトリに変更をプッシュ（書き込み）したりすることができます。
+Collaborators on a personal repository can pull (read) the contents of the repository and push (write) changes to the repository.
 
 {% note %}
 
-**メモ:** プライベートリポジトリでは、リポジトリオーナーはコラボレーターに書き込みアクセスしか付与できません。 コラボレーターが、ユーザアカウントによって所有されているリポジトリに対して「読み取りのみ」アクセス権を持つことはできません。
+**Note:** In a private repository, repository owners can only grant write access to collaborators. Collaborators can't have read-only access to repositories owned by a user account.
 
 {% endnote %}
 
-コラボレータは、次のアクションを実行することもできます。
+Collaborators can also perform the following actions.
 
-| アクション                                       | 詳細情報                                                                                                                                                                                 |
-|:------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| リポジトリのフォーク                                  | 「[フォークについて](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)」 |{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-| デフォルトブランチ以外のブランチ名の変更                        | 「[ブランチ名を変更する](/github/administering-a-repository/renaming-a-branch)」 
-{% endif %}
-| リポジトリ内のコミット、プルリクエスト、Issue に関するコメントの作成、編集、削除 | <ul><li>「[About issues](/github/managing-your-work-on-github/about-issues)」</li><li>"[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"</li><li>"[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"</li></ul>                                                                                                                                                            |
-| リポジトリ内の Issue の作成、割り当て、クローズ、再オープン           | 「[Issue で作業を管理する](/github/managing-your-work-on-github/managing-your-work-with-issues)」                                                                                              |
-| リポジトリ内の Issue とプルリクエストのラベル管理                | 「[Issue とプルリクエストのラベル付け](/github/managing-your-work-on-github/labeling-issues-and-pull-requests)」                                                                                     |
-| リポジトリ内の Issue とプルリクエストのマイルストーン管理            | [Issueやプルリクエストのためのマイルストーンの作成と編集](/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests)                                                  |
-| リポジトリ内の Issue またはプルリクエストを重複としてマーク           | 「[重複した Issue やプルリクエストについて](/github/managing-your-work-on-github/about-duplicate-issues-and-pull-requests)」                                                                           |
-| リポジトリ内のプルリクエストの作成、マージ、クローズ                  | 「[プルリクエストで、作業に対する変更を提案する](/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests)」 |{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-| プルリクエストの自動マージの有効化または無効化                     | 「[プルリクエストを自動的にマージする](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)」{% endif %}
-| リポジトリ内のプルリクエストに提案された変更を適用                   | 「[プルリクエストでのフィードバックを取り込む](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)」                            |
-| リポジトリのフォークからプルリクエストを作成                      | [フォークからプルリクエストを作成する](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)                                                                        |
-| プルリクエストのマージ可能性に影響するプルリクエストについてレビューを送信       | 「[プルリクエストで提案された変更をレビューする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」                          |
-| リポジトリ用のウィキの作成と編集                            | 「[ウィキについて](/communities/documenting-your-project-with-wikis/about-wikis)」                                                                                                            |
-| リポジトリ用のリリースの作成と編集                           | 「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository)」                                                                                            |
-| リポジトリのコードオーナーの定義                            | 「[コードオーナーについて](/articles/about-code-owners)」 |{% ifversion fpt or ghae or ghec %}
-| パッケージの公開、表示、インストール                          | 「[パッケージの公開と管理](/github/managing-packages-with-github-packages/publishing-and-managing-packages)」
-{% endif %}
-| リポジトリでコラボレーターである自身を削除する                     | [コラボレーターのリポジトリから自分を削除する](/github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository)                                                 |
+| Action | More information |
+| :- | :- |
+| Fork the repository | "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)" |{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+| Rename a branch other than the default branch | "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)" |{% endif %}
+| Create, edit, and delete comments on commits, pull requests, and issues in the repository | <ul><li>"[About issues](/github/managing-your-work-on-github/about-issues)"</li><li>"[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"</li><li>"[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"</li></ul> |
+| Create, assign, close, and re-open issues in the repository | "[Managing your work with issues](/github/managing-your-work-on-github/managing-your-work-with-issues)" |
+| Manage labels for issues and pull requests in the repository | "[Labeling issues and pull requests](/github/managing-your-work-on-github/labeling-issues-and-pull-requests)" |
+| Manage milestones for issues and pull requests in the repository | "[Creating and editing milestones for issues and pull requests](/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests)" |
+| Mark an issue or pull request in the repository as a duplicate | "[About duplicate issues and pull requests](/github/managing-your-work-on-github/about-duplicate-issues-and-pull-requests)" |
+| Create, merge, and close pull requests in the repository | "[Proposing changes to your work with pull requests](/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests)" |{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
+| Enable and disable auto-merge for a pull request | "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)"{% endif %}
+| Apply suggested changes to pull requests in the repository |"[Incorporating feedback in your pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)" |
+| Create a pull request from a fork of the repository | "[Creating a pull request from a fork](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)" |
+| Submit a review on a pull request that affects the mergeability of the pull request | "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)" |
+| Create and edit a wiki for the repository | "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)" |
+| Create and edit releases for the repository | "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository)" |
+| Act as a code owner for the repository | "[About code owners](/articles/about-code-owners)" |{% ifversion fpt or ghae or ghec %}
+| Publish, view, or install packages | "[Publishing and managing packages](/github/managing-packages-with-github-packages/publishing-and-managing-packages)" |{% endif %}
+| Remove themselves as collaborators on the repository | "[Removing yourself from a collaborator's repository](/github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository)" |
 
-## 参考リンク
+## Further reading
 
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

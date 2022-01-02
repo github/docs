@@ -26,7 +26,6 @@ shortTitle: GitHub Actions policies
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.ae-beta %}
 
 ## About policies for {% data variables.product.prodname_actions %} in your enterprise
 
@@ -36,13 +35,13 @@ shortTitle: GitHub Actions policies
 
 ## Enforcing a policy to restrict the use of actions in your enterprise
 
-Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para todas las organizaciones en tu empresa, o puedes permitir solo organizaciones específicas. También puedes limitar el uso de acciones públicas para que las personas solo puedan utilizar las acciones locales que existen en tu empresa.
+You can choose to disable {% data variables.product.prodname_actions %} for all organizations in your enterprise, or only allow specific organizations. You can also limit the use of public actions, so that people can only use local actions that exist in your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
-1. Haz clic en **Save ** (guardar).
+1. Click **Save**.
 
 {% ifversion ghec or ghes or ghae %}
 
@@ -53,11 +52,11 @@ Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para tod
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Debajo de **Políticas**, selecciona **Permitir las acciones seleccionadas** y agrega tus acciones requeridas a la lista.
-   {%- ifversion ghes or ghae-issue-5094 %}
-   ![Agregar acciones a la lista de permitidos](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
+   {%- ifversion ghes > 3.0 or ghae-issue-5094 %}
+   ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
-   ![Agregar acciones a la lista de permitidos](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
+   ![Add actions to allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
    {%- endif %}
 {% endif %}
 
@@ -69,8 +68,7 @@ Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para tod
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
@@ -109,20 +107,21 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.1 or ghae-next %}
+{% ifversion ghec or ghes > 3.1 or ghae %}
 
 ## Enforcing a policy for workflow permissions in your enterprise
 
 {% data reusables.github-actions.workflow-permissions-intro %}
 
-Puedes configurar los permisos predeterminados para del `GITHUB_TOKEN` en la configuración de tu empresa, organización o repositorio. Si eliges la opción restringida como lo predeterminado en la configuración de tu empresa, esto previene que puedas elegir más configuraciones permisivas en la configuración de tu organización o repositorio.
+You can set the default permissions for the `GITHUB_TOKEN` in the settings for your enterprise, organizations, or repositories. If you choose the restricted option as the default in your enterprise settings, this prevents the more permissive setting being chosen in the organization or repository settings.
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Debajo de **Permisos del flujo de trabajo**, elige si quieres que el `GITHUB_TOKEN` tenga permisos de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`. ![Configurar los permisos del GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
-1. Da clic en **Guardar** para aplicar la configuración.
+1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+  ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
+1. Click **Save** to apply the settings.
 
 {% endif %}

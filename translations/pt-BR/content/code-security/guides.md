@@ -1,8 +1,8 @@
 ---
-title: Guias para segurança do código
-intro: 'Saiba mais sobre as diferentes maneiras que {% data variables.product.product_name %} pode ajudar você a melhorar a segurança do seu código.'
+title: Guides for code security
+intro: 'Learn about the different ways that {% data variables.product.product_name %} can help you improve your code''s security.'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'

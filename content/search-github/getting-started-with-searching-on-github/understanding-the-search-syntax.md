@@ -2,7 +2,7 @@
 title: Understanding the search syntax
 intro: 'When searching {% data variables.product.product_name %}, you can construct queries that match specific numbers and words.'
 redirect_from:
-  - /articles/search-syntax/
+  - /articles/search-syntax
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/understanding-the-search-syntax

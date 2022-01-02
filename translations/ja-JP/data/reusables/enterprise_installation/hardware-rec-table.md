@@ -22,7 +22,27 @@
 
 {% ifversion ghes %}
 
-インスタンスのユーザに{% data variables.product.prodname_actions %}を有効化する計画なら、ハードウェア、外部ストレージ、ランナーの要件を「[{% data variables.product.prodname_ghe_server %}で{% data variables.product.prodname_actions %}を利用しはじめる](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)」でレビューしてください。
+If you plan to enable {% data variables.product.prodname_actions %} for the users of your instance, more resources are required.
+
+{%- ifversion ghes < 3.2 %}
+
+{% data reusables.actions.hardware-requirements-before %}
+
+{%- endif %}
+
+{%- ifversion ghes = 3.2 %}
+
+{% data reusables.actions.hardware-requirements-3.2 %}
+
+{%- endif %}
+
+{%- ifversion ghes > 3.2 %}
+
+{% data reusables.actions.hardware-requirements-after %}
+
+{%- endif %}
+
+For more information about these requirements, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
 
 {% endif %}
 

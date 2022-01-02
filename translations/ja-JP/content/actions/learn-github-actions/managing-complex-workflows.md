@@ -1,7 +1,7 @@
 ---
-title: 複雑なワークフローを管理する
-shortTitle: 複雑なワークフローを管理する
-intro: 'このガイドでは、シークレット管理、依存ジョブ、キャッシング、ビルドマトリックス、{% ifversion fpt or ghes > 3.0 or ghae or ghec %}環境、{% endif %}ラベルなど、{% data variables.product.prodname_actions %} のより高度な機能を使用する方法を説明します。'
+title: Managing complex workflows
+shortTitle: Managing complex workflows
+intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices,{% ifversion fpt or ghes > 3.0 or ghae or ghec %} environments,{% endif %} and labels.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,17 +14,16 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## 概要
+## Overview
 
 This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you create more complex workflows.
 
-## シークレットを保存する
+## Storing secrets
 
-ワークフローでパスワードや証明書などの機密データを使用する場合は、これらを {% data variables.product.prodname_dotcom %} に _secrets_ として保存すると、ワークフローで環境変数として使用できます。 これは、YAML ワークフローに直接機密値を埋め込むことなく、ワークフローを作成して共有できることを示しています。
+If your workflows use sensitive data, such as passwords or certificates, you can save these in {% data variables.product.prodname_dotcom %} as _secrets_ and then use them in your workflows as environment variables. This means that you will be able to create and share workflows without having to embed sensitive values directly in the YAML workflow.
 
-この例では、既存のシークレットを環境変数として参照し、それをパラメータとしてサンプルコマンドに送信する方法を示しています。
+This example action demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
 
 {% raw %}
 ```yaml
@@ -40,13 +39,13 @@ jobs:
 ```
 {% endraw %}
 
-詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
+For more information, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
 
-## 依存ジョブを作成する
+## Creating dependent jobs
 
-デフォルトでは、ワークフロー内のジョブはすべて同時並行で実行されます。 したがって、別のジョブが完了した後にのみ実行する必要があるジョブがある場合は、`needs` キーワードを使用してこの依存関係を作成できます。 ジョブのうちの 1 つが失敗すると、依存するすべてのジョブがスキップされます。ただし、ジョブを続行する必要がある場合は、[`if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) 条件ステートメントを使用してこれを定義できます。
+By default, the jobs in your workflow all run in parallel at the same time. So if you have a job that must only run after another job has completed, you can use the `needs` keyword to create this dependency. If one of the jobs fails, all dependent jobs are skipped; however, if you need the jobs to continue, you can define this using the [`if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) conditional statement.
 
-この例では、`setup`、`build`、および `test` ジョブが連続して実行され、`build` と `test` は、それらに先行するジョブが正常に完了したかどうかに依存します。
+In this example, the `setup`, `build`, and `test` jobs run in series, with `build` and `test` being dependent on the successful completion of the job that precedes them:
 
 ```yaml
 jobs:
@@ -66,11 +65,11 @@ jobs:
       - run: ./test_server.sh
 ```
 
-詳しい情報については、[`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds) を参照してください。
+For more information, see [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds).
 
-## ビルドマトリックスを使用する
+## Using a build matrix
 
-ワークフローでオペレーティングシステム、プラットフォーム、および言語の複数の組み合わせにわたってテストを実行する場合は、ビルドマトリックスを使用できます。 ビルドマトリックスは、ビルドオプションを配列として受け取る `strategy` キーワードを使用して作成されます。 たとえば、このビルドマトリックスは、異なるバージョンの Node.js を使用して、ジョブを複数回実行します。
+You can use a build matrix if you want your workflow to run tests across multiple combinations of operating systems, platforms, and languages. The build matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this build matrix will run the job multiple times, using different versions of Node.js:
 
 {% raw %}
 ```yaml
@@ -87,14 +86,14 @@ jobs:
 ```
 {% endraw %}
 
-詳しい情報については、[`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix) を参照してください。
+For more information, see [`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
 {% ifversion fpt or ghec %}
-## 依存関係のキャッシング
+## Caching dependencies
 
-{% data variables.product.prodname_dotcom %} ホストランナーは各ジョブの新しい環境として開始されるため、ジョブが依存関係を定期的に再利用する場合は、これらのファイルをキャッシュしてパフォーマンスを向上させることを検討できます。 キャッシュが作成されると、同じリポジトリ内のすべてのワークフローで使用できるようになります。
+{% data variables.product.prodname_dotcom %}-hosted runners are started as fresh environments for each job, so if your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
 
-この例は、`~/.npm` ディレクトリをキャッシュする方法を示しています。
+This example demonstrates how to cache the ` ~/.npm` directory:
 
 {% raw %}
 ```yaml
@@ -113,12 +112,12 @@ jobs:
 ```
 {% endraw %}
 
-詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 {% endif %}
 
-## データベースとサービスコンテナの利用
+## Using databases and service containers
 
-ジョブにデータベースまたはキャッシュサービスが必要な場合は、[`services`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idservices) キーワードを使用して、サービスをホストするための一時コンテナを作成できます。 この例は、ジョブが `services` を使用して `postgres` コンテナを作成し、`node` を使用してサービスに接続する方法を示しています。
+If your job requires a database or cache service, you can use the [`services`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idservices) keyword to create an ephemeral container to host the service; the resulting container is then available to all steps in that job and is removed when the job has completed. This example demonstrates how a job can use `services` to create a `postgres` container, and then use `node` to connect to the service.
 
 ```yaml
 jobs:
@@ -140,24 +139,13 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-詳しい情報については、「[データベースおよびサービスコンテナを使用する](/actions/configuring-and-managing-workflows/using-databases-and-service-containers)」を参照してください。
+For more information, see "[Using databases and service containers](/actions/configuring-and-managing-workflows/using-databases-and-service-containers)."
 
-## ラベルを使用してワークフローを転送する
+## Using labels to route workflows
 
-この機能では、特定のホストランナーにジョブを割り当てることができます。 特定のタイプのランナーがジョブを処理することを確認したい場合は、ラベルを使用してジョブの実行場所を制御できます。 You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.{% endif %}
+This feature helps you assign jobs to a specific hosted runner. If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.{% endif %}
 
-{% ifversion ghae %}
-この例は、ワークフローがラベルを使用して必要なランナーを指定する方法を示しています。
-
-```yaml
-jobs:
-  example-job:
-    runs-on: [AE-runner-for-CI]
-```
-
-詳しい情報については、「[{% data variables.actions.hosted_runner %} でのラベルの利用](/actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners)」を参照してください。
-{% else %}
-この例は、ワークフローがラベルを使用して必要なランナーを指定する方法を示しています。
+This example shows how a workflow can use labels to specify the required runner:
 
 ```yaml
 jobs:
@@ -167,28 +155,32 @@ jobs:
 
 A workflow will only run on a runner that has all the labels in the `runs-on` array. The job will preferentially go to an idle self-hosted runner with the specified labels. If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.
 
-To learn more about self-hosted runner labels, see ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)." To learn more about
-{% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
+To learn more about self-hosted runner labels, see ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+
+{% ifversion fpt or ghes %}
+To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
 {% data reusables.actions.reusable-workflows %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
-## 環境の使用
+## Using environments
 
-保護ルールとシークレットを持つ環境を設定できます。 ワークフロー内の各ジョブは、1つの環境を参照できます。 この環境を参照するとジョブがランナーに送信される前に、環境に設定された保護ルールをパスしなければなりません。 For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+You can configure environments with protection rules and secrets. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 {% endif %}
 
-## ワークフロー テンプレートの使用
+## Using a workflow template
 
 {% data reusables.actions.workflow-template-overview %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. リポジトリに既存のワークフローが既に存在する場合: 左上隅にある [**New workflow（新しいワークフロー）**] をクリックします。 ![新規ワークフローの選択](/assets/images/help/repository/actions-new-workflow.png)
-1. 使いたいテンプレート名の下で、**Set up this workflow（このワークフローをセットアップする）**をクリックしてください。 ![このワークフローを設定します](/assets/images/help/settings/actions-create-starter-workflow.png)
+1. If your repository already has existing workflows: In the upper-left corner, click **New workflow**.
+  ![Create a new workflow](/assets/images/help/repository/actions-new-workflow.png)
+1. Under the name of the template you'd like to use, click **Set up this workflow**.
+  ![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png)
 
-## 次のステップ
+## Next steps
 
 To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows, secrets, and runners with your organization](/actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization)."

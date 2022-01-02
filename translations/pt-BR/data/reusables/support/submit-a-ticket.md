@@ -1,5 +1,5 @@
-1. Select the **Account or organization** drop-down menu and click the name of your enterprise. ![Account field](/assets/images/help/support/account-field.png)
-1. Select the **From** drop-down menu and click the email address you'd like {% data variables.contact.github_support %} to contact. ![Campo Email (E-mail)](/assets/images/help/support/from-field.png)
+1. Select the **Account or organization** drop-down menu and click the name of your enterprise. ![Campo de conta](/assets/images/help/support/account-field.png)
+1. Selecione o menu suspenso **de** e clique no endereço de e-mail que você deseja que {% data variables.contact.github_support %} entre em contato. ![Campo Email (E-mail)](/assets/images/help/support/from-field.png)
 1. Select the **Product** drop-down menu and click **GitHub Enterprise Server (self-hosted)**. ![Product field](/assets/images/help/support/product-field.png)
 1. Select the **Release series** drop-down menu and click the release {% data variables.product.product_location_enterprise %} is running. ![Release field](/assets/images/help/support/release-field.png)
 1. Select the **Priority** drop-down menu and click the appropriate urgency. Para obter mais informações, consulte "[Atribuindo prioridade a um tíquete de suporte](/admin/enterprise-support/overview/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket)". ![Priority field](/assets/images/help/support/priority-field.png)
@@ -7,6 +7,9 @@
     - Escolha **{% data variables.product.support_ticket_priority_high %}** para relatar problemas que afetam as operações de negócios, incluindo {% ifversion fpt or ghec %}removendo dados confidenciais (commits, issues, pull requests, anexos carregados) de suas próprias contas e restaurações da organização{% else %}problemas de desempenho do sistema{% endif %}ou para relatar erros críticos.
     - Escolha **{% data variables.product.support_ticket_priority_normal %}** para {% ifversion fpt or ghec %}solicitar recuperação de conta ou remoção de sinalizador de spam, relatar problemas de login do usuário{% else %}fazer solicitações técnicas, como alterações de configuração e integrações de terceiros{% endif %}e para relatar erros não críticos.
     - Escolha **{% data variables.product.support_ticket_priority_low %}** para fazer perguntas gerais e enviar solicitações para novos recursos, compras, treinamentos ou check-ups do ambiente de segurança de Ti.
+{%- ifversion ghes or ghec %}
+1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback. Select **Request a callback from GitHub Support**, select the country code drop-down menu to choose your country, and enter your phone number. ![Request callback option](/assets/images/help/support/request-callback.png)
+{%- endif %}
 1. Em "Subject" (Assunto), insira um título descritivo para o problema que está ocorrendo. ![Campo Subject (Assunto)](/assets/images/help/support/subject-field.png)
 5. Em "How can we help" (Como podemos ajudar), insira as informações adicionais que ajudarão a equipe de suporte a resolver o problema. As informações úteis podem incluir: ![Campo How can we help (Como podemos ajudar)](/assets/images/help/support/how-can-we-help-field.png)
     - Etapas para reproduzir o problema

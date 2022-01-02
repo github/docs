@@ -1,8 +1,8 @@
 ---
-title: GitHub Support への連絡
-intro: '{% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% data variables.enterprise.management_console %} または {% endif %}GitHub Enterprise サポートページから {% data variables.contact.enterprise_support %} に連絡してください。'
+title: Reaching GitHub Support
+intro: 'Contact {% data variables.contact.enterprise_support %} using the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
 redirect_from:
-  - /enterprise/admin/guides/enterprise-support/reaching-github-enterprise-support/
+  - /enterprise/admin/guides/enterprise-support/reaching-github-enterprise-support
   - /enterprise/admin/enterprise-support/reaching-github-support
   - /admin/enterprise-support/reaching-github-support
 versions:
@@ -12,48 +12,47 @@ topics:
   - Enterprise
   - Support
 ---
+## Using automated ticketing systems
 
-## 自動チケットシステムを使用する
+Though we'll do our best to respond to automated support requests, we typically need more information than an automated ticketing system can give us to solve your issue. Whenever possible, please initiate support requests from a person or machine that {% data variables.contact.enterprise_support %} can interact with. For more information, see "[Preparing to submit a ticket](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)."
 
-自動化されたサポートリクエストへの対応には最善を尽くしますが、問題解決のためには、自動化されたチケットシステムが提供する以上の情報が、通常必要になります。 可能な場合は、{% data variables.contact.enterprise_support %} がやりとりできる方もしくはマシンからサポートリクエストを出してください。 詳しい情報については[チケットのサブミットの準備](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)を参照してください。
-
-## {% data variables.contact.enterprise_support %} への連絡
+## Contacting {% data variables.contact.enterprise_support %}
 
 {% data reusables.support.zendesk-old-tickets %}
 
-{% data variables.contact.enterprise_support %} のお客様は、{% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% data variables.enterprise.management_console %} または {% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} the {% data variables.contact.contact_ae_portal %}サポートチケットをオープンできます{% endif %}。 詳しい情報については[チケットのサブミット](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)を参照してください。
+{% data variables.contact.enterprise_support %} customers can open a support ticket using the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or the {% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} the {% data variables.contact.contact_ae_portal %}{% endif %}. For more information, see "[Submitting a ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)."
 
 {% ifversion ghes %}
 
-## {% data variables.contact.premium_support %} への連絡
+## Contacting {% data variables.contact.premium_support %}
 
-{% data variables.contact.enterprise_support %} のお客様は、{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} あるいは {% data variables.contact.contact_enterprise_portal %} を使ってサポートチケットをオープンできます。 その優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} としてマークします。 詳しい情報については、「[サポートチケットに優先度を割り当てる](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server#assigning-a-priority-to-a-support-ticket)」および「[チケットをサブミットする](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)」を参照してください。
+{% data variables.contact.enterprise_support %} customers can open a support ticket using the {% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or the {% data variables.contact.contact_enterprise_portal %}. Mark its priority as {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}. For more information, see "[Assigning a priority to a support ticket](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server#assigning-a-priority-to-a-support-ticket)" and "[Submitting a ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)."
 
-### 過去のサポートチケットの閲覧
+### Viewing past support tickets
 
-{% data variables.contact.enterprise_portal %} を使って過去のサポートチケットを見ることができます。
+You can use the {% data variables.contact.enterprise_portal %} to view past support tickets.
 
-1. {% data variables.contact.contact_enterprise_portal %} に移動します。
-2. [**My tickets**] をクリックします。
+1. Navigate to the {% data variables.contact.contact_enterprise_portal %}.
+2. Click **My tickets**.
 
 {% endif %}
-## 営業チームへの連絡
+## Contacting sales
 
-価格、ライセンス、更新、見積もり、支払い、およびその他の関連するご質問については、{% data variables.contact.contact_enterprise_sales %} にお問い合わせいただくか、[+1 (877) 448-4820](tel:+1-877-448-4820) にお電話してください。
+For pricing, licensing, renewals, quotes, payments, and other related questions, contact {% data variables.contact.contact_enterprise_sales %} or call [+1 (877) 448-4820](tel:+1-877-448-4820).
 
 {% ifversion ghes %}
-## トレーニングチームへの連絡
+## Contacting training
 
-カスタマイズされたトレーニングを含むトレーニングの選択肢に関する詳しい情報については[{% data variables.product.company_short %}のトレーニングサイト](https://services.github.com/)を参照してください。
+To learn more about training options, including customized trainings, see [{% data variables.product.company_short %}'s training site](https://services.github.com/).
 
 {% note %}
 
-**メモ:** トレーニングは {% data variables.product.premium_plus_support_plan %} に含まれています。 詳細は、「[{% data variables.product.prodname_ghe_server %}の{% data variables.contact.premium_support %}について](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)」を参照してください。
+**Note:** Training is included in the {% data variables.product.premium_plus_support_plan %}. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."
 
 {% endnote %}
 {% endif %}
 
-## 参考リンク
+## Further reading
 
-- [{% data variables.contact.enterprise_support %} について](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)
-- [{% data variables.product.prodname_ghe_server %}の{% data variables.contact.premium_support %}について](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)
+- "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"
+- "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."

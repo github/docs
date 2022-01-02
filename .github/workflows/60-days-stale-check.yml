@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: '40 16 * * *' # Run each day at 16:40 UTC / 8:40 PST
 
+permissions:
+  issues: write
+  pull-requests: write
+
 jobs:
   stale:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
@@ -23,5 +27,5 @@ jobs:
           only-labels: 'engineering,Triaged,Improve existing docs,Core,Ecosystem'
           stale-issue-label: 'stale'
           stale-pr-label: 'stale'
-          exempt-pr-labels: 'never-stale'
+          exempt-pr-labels: 'never-stale,waiting for review'
           exempt-issue-labels: 'never-stale,help wanted,waiting for review'

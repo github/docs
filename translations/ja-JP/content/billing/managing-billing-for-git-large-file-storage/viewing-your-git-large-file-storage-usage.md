@@ -1,10 +1,10 @@
 ---
-title: Git Large File Storage の使用状況を表示する
-intro: 'アカウントの毎月の帯域幅容量と {% data variables.large_files.product_name_short %} の残りの容量を監査できます。'
+title: Viewing your Git Large File Storage usage
+intro: 'You can audit your account''s monthly bandwidth quota and remaining storage for {% data variables.large_files.product_name_short %}.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-git-large-file-storage-usage
-  - /articles/viewing-storage-and-bandwidth-usage-for-a-personal-account/
-  - /articles/viewing-storage-and-bandwidth-usage-for-an-organization/
+  - /articles/viewing-storage-and-bandwidth-usage-for-a-personal-account
+  - /articles/viewing-storage-and-bandwidth-usage-for-an-organization
   - /articles/viewing-your-git-large-file-storage-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage
 versions:
@@ -15,25 +15,24 @@ topics:
   - LFS
   - Organizations
   - User account
-shortTitle: Git LFSの使用状況の表示
+shortTitle: View Git LFS usage
 ---
-
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}
 
-## 個人アカウントのストレージと帯域幅の使用状況を表示する
+## Viewing storage and bandwidth usage for a personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
-## Organization のストレージと帯域幅の使用状況を表示する
+## Viewing storage and bandwidth usage for an organization
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.lfs-data %}
 
-## 参考リンク
+## Further reading
 
-- 「[ストレージと帯域の利用について](/articles/about-storage-and-bandwidth-usage)」
-- 「[{% data variables.large_files.product_name_long %} をアップグレードする](/articles/upgrading-git-large-file-storage/)」
+- "[About storage and bandwidth usage](/articles/about-storage-and-bandwidth-usage)"
+- "[Upgrading {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage/)"

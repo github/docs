@@ -1,10 +1,10 @@
 ---
-title: GitHub Enterprise Cloud 支持
+title: GitHub Enterprise Cloud support
 redirect_from:
-  - /articles/business-plan-support/
-  - /articles/github-business-cloud-support/
+  - /articles/business-plan-support
+  - /articles/github-business-cloud-support
   - /articles/github-enterprise-cloud-support
-intro: '{% data variables.product.prodname_ghe_cloud %} 在您当地时区的周一至周五为优先支持请求提供八小时响应服务。'
+intro: '{% data variables.product.prodname_ghe_cloud %} includes a target eight-hour response time for priority support requests, Monday to Friday in your local time zone.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,40 +15,40 @@ shortTitle: GitHub Enterprise Cloud
 
 {% note %}
 
-**注：**{% data variables.product.prodname_ghe_cloud %} 客户可以注册 {% data variables.contact.premium_support %}。 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.contact.premium_support %}](/articles/about-github-premium-support-for-github-enterprise-cloud)”。
+**Note:** {% data variables.product.prodname_ghe_cloud %} customers can sign up for {% data variables.contact.premium_support %}. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)."
 
 {% endnote %}
 
 {% data reusables.support.zendesk-old-tickets %}
 
-如果您购买了 {% data variables.product.prodname_ghe_cloud %}，或者您是当前订阅了 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.product.prodname_dotcom %} 组织的成员、外部协作者或帐单管理员，则可以提交优先问题。
+You can submit priority questions if you have purchased {% data variables.product.prodname_ghe_cloud %} or if you're a member, outside collaborator, or billing manager of a {% data variables.product.prodname_dotcom %} organization currently subscribed to {% data variables.product.prodname_ghe_cloud %}.
 
-有资格获得优先响应的问题：
-- 包含与无法访问或使用 {% data variables.product.prodname_dotcom %} 的核心版本控制功能相关的问题
-- 包含与帐户安全相关的情况
-- 不包含有关外围设备和功能的问题，例如与 Gist、{% data variables.product.prodname_pages %} 或电子邮件通知相关的问题
-- 只包含与当前使用 {% data variables.product.prodname_ghe_cloud %} 的组织相关的问题
+Questions that qualify for priority responses:
+- Include questions related to your inability to access or use {% data variables.product.prodname_dotcom %}'s core version control functionality
+- Include situations related to your account security
+- Do not include peripheral services and features, such as questions about Gists, {% data variables.product.prodname_pages %}, or email notifications
+- Include questions only about organizations currently using {% data variables.product.prodname_ghe_cloud %}
 
-要获得优先响应，您必须：
-- 通过与目前使用 {% data variables.product.prodname_ghe_cloud %} 的组织关联的经验证电子邮件地址提交问题到 [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic)
-- 为每个优先情况提交新的支持事件单
-- 在您当地时区的周一至周五提交问题
-- 知道将通过电子邮件接收优先问题的响应
-- 与 {% data variables.contact.github_support %} 合作，提供 {% data variables.contact.github_support %} 所要求的所有信息
+To qualify for a priority response, you must:
+- Submit your question to [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic) from a verified email address that's associated with an organization currently using {% data variables.product.prodname_ghe_cloud %}
+- Submit a new support ticket for each individual priority situation
+- Submit your question from Monday-Friday in your local time zone
+- Understand that the response to a priority question will be received via email
+- Cooperate with {% data variables.contact.github_support %} and provide all of the information that {% data variables.contact.github_support %} asks for
 
 {% tip %}
 
-**提示：**在您所在司法管辖区的当地节假日提交的问题不符合优先响应条件。
+**Tip:** Questions do not qualify for a priority response if they are submitted on a local holiday in your jurisdiction.
 
 {% endtip %}
 
-八小时响应服务：
-- 在 {% data variables.contact.github_support %} 收到符合条件的问题时开始
-- 在您提供足够的信息以回答问题之前，响应不会开始，除非您明确指出您没有足够的信息。
-- 不适用于您当地时区的周末或您所在司法管辖区的当地节假日
+The target eight-hour response time:
+- Begins when {% data variables.contact.github_support %} receives your qualifying question
+- Does not begin until you have provided sufficient information to answer the question, unless you specifically indicate that you do not have sufficient information
+- Does not apply on weekends in your local timezone or local holidays in your jurisdiction
 
 {% note %}
 
-**注：**{% data variables.contact.github_support %} 不保证能够解决您的优先问题。 {% data variables.contact.github_support %} 可能会根据对您所提供信息的合理评估，将您的问题从一般问题升级为优先问题或从优先问题降级为一般问题。
+**Note:** {% data variables.contact.github_support %} does not guarantee a resolution to your priority question. {% data variables.contact.github_support %} may escalate or deescalate issues to or from priority question status, based on our reasonable evaluation of the information you give to us.
 
 {% endnote %}

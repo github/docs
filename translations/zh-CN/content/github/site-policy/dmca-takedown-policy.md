@@ -1,10 +1,10 @@
 ---
-title: DMCA 删除政策
+title: DMCA Takedown Policy
 redirect_from:
-  - /dmca/
-  - /dmca-takedown/
-  - /dmca-takedown-policy/
-  - /articles/dmca-takedown/
+  - /dmca
+  - /dmca-takedown
+  - /dmca-takedown-policy
+  - /articles/dmca-takedown
   - /articles/dmca-takedown-policy
 versions:
   fpt: '*'
@@ -13,105 +13,105 @@ topics:
   - Legal
 ---
 
-欢迎阅读 GitHub 的《千禧年数字版权法案》（通常称为 "DMCA"）指南。 本页面并非该法案的综合入门读物。 但是，如果您收到针对您在 GitHub 上所发布内容的 DMCA 删除通知，或者您是要发出此类通知的权利持有者，此页面将有助于您了解该法案以及我们遵守该法案的政策。
+Welcome to GitHub's Guide to the Digital Millennium Copyright Act, commonly known as the "DMCA." This page is not meant as a comprehensive primer to the statute. However, if you've received a DMCA takedown notice targeting content you've posted on GitHub or if you're a rights-holder looking to issue such a notice, this page will hopefully help to demystify the law a bit as well as our policies for complying with it.
 
-（如果只想提交通知，您可以跳到“[G. 提交通告](#g-submitting-notices)。”）
+(If you just want to submit a notice, you can skip to "[G. Submitting Notices](#g-submitting-notices).")
 
-与所有法律事务一样，就您的具体问题或情况咨询专业人员始终是最好的方式。 我们强烈建议您在采取任何可能影响您权利的行动之前这样做。 本指南不是法律意见，也不应作为法律意见。
+As with all legal matters, it is always best to consult with a professional about your specific questions or situation. We strongly encourage you to do so before taking any action that might impact your rights. This guide isn't legal advice and shouldn't be taken as such.
 
-## 什么是 DMCA？
+## What Is the DMCA?
 
-要了解 DMCA 及其制定的一些政策方针，考虑一下它颁布之前的现实情况，或许有助于理解。
+In order to understand the DMCA and some of the policy lines it draws, it's perhaps helpful to consider life before it was enacted.
 
-DMCA 为托管用户生成内容的服务提供商提供了安全港。 仅仅一项侵犯版权的索赔就可能导致高达 150,000 美元的法定赔偿，因此，对用户生成的内容承担责任可能对服务提供商非常不利。 如果面向数以百万计的用户，这种潜在损失将不可估量，可以说，假如没有 DMCA，则 YouTube、Facebook 或 GitHub 等云计算和用户生成内容的网站可能就[不会存在](https://arstechnica.com/tech-policy/2015/04/how-the-dmca-made-youtube/)（或者至少会将部分成本转嫁给用户）。
+The DMCA provides a safe harbor for service providers that host user-generated content. Since even a single claim of copyright infringement can carry statutory damages of up to $150,000, the possibility of being held liable for user-generated content could be very harmful for service providers. With potential damages multiplied across millions of users, cloud-computing and user-generated content sites like YouTube, Facebook, or GitHub probably [never would have existed](https://arstechnica.com/tech-policy/2015/04/how-the-dmca-made-youtube/) without the DMCA (or at least not without passing some of that cost downstream to their users).
 
-DMCA 通过为托管涉嫌侵权用户生成内容的互联网服务提供商建立[版权责任安全港](https://www.copyright.gov/title17/92chap5.html#512)，解决了这一问题。 从本质上讲，只要服务提供商遵守 DMCA 的通知和删除规则，就不会对基于用户生成内容的侵权行为承担责任。 因此，对 GitHub 而言，保持其 DMCA 安全港状态非常重要。
+The DMCA addresses this issue by creating a [copyright liability safe harbor](https://www.copyright.gov/title17/92chap5.html#512) for internet service providers hosting allegedly infringing user-generated content. Essentially, so long as a service provider follows the DMCA's notice-and-takedown rules, it won't be liable for copyright infringement based on user-generated content. Because of this, it is important for GitHub to maintain its DMCA safe-harbor status.
 
-DMCA 还禁止[规避技术措施](https://www.copyright.gov/title17/92chap12.html)，以有效控制访问受版权保护的作品。
+The DMCA also prohibits the [circumvention of technical measures](https://www.copyright.gov/title17/92chap12.html) that effectively control access to works protected by copyright. 
 
-## DMCA 通知概述
+## DMCA Notices In a Nutshell
 
-DMCA 规定了两个简单直接的程序，所有 GitHub 用户都应了解：(i) 版权持有者要求删除内容的[删除通知](/articles/guide-to-submitting-a-dmca-takedown-notice)程序；(ii) 内容被误删时用户要求恢复内容的[反通知](/articles/guide-to-submitting-a-dmca-counter-notice)程序。
+The DMCA provides two simple, straightforward procedures that all GitHub users should know about: (i) a [takedown-notice](/articles/guide-to-submitting-a-dmca-takedown-notice) procedure for copyright holders to request that content be removed; and (ii) a [counter-notice](/articles/guide-to-submitting-a-dmca-counter-notice) procedure for users to get content re-enabled when content is taken down by mistake or misidentification.
 
-DMCA [删除通知](/articles/guide-to-submitting-a-dmca-takedown-notice)供版权所有者用于要求 GitHub 删除他们认为侵权的内容。 如果您是软件设计师或开发者，可能每天都会创建版权内容。 如果其他人以未经授权的方式在 GitHub 上使用您的版权内容，您可以向我们发送 DMCA 删除通知，要求更改或删除侵权内容。
+DMCA [takedown notices](/articles/guide-to-submitting-a-dmca-takedown-notice) are used by copyright owners to ask GitHub to take down content they believe to be infringing. If you are a software designer or developer, you create copyrighted content every day. If someone else is using your copyrighted content in an unauthorized manner on GitHub, you can send us a DMCA takedown notice to request that the infringing content be changed or removed.
 
-另一方面，[反通知](/articles/guide-to-submitting-a-dmca-counter-notice)可用于纠正错误。 发送删除通知的人可能没有版权，或者没有意识到您拥有许可，或者在删除通知中犯了其他错误。 由于 GitHub 往往不知道通知是否有误，因此您可以通过 DMCA 反通知告诉我们并要求我们恢复内容。
+On the other hand, [counter notices](/articles/guide-to-submitting-a-dmca-counter-notice) can be used to correct mistakes. Maybe the person sending the takedown notice does not hold the copyright or did not realize that you have a license or made some other mistake in their takedown notice. Since GitHub usually cannot know if there has been a mistake, the DMCA counter notice allows you to let us know and ask that we put the content back up.
 
-DMCA 通知和删除流程仅适用于有关侵犯版权的投诉。 通过我们 DMCA 流程发送的通知必须指明涉嫌侵权的版权作品。 此流程不能用于其他投诉，如有关涉嫌[商标侵权](/articles/github-trademark-policy/)或[敏感数据](/articles/github-sensitive-data-removal-policy/)的投诉；我们为这些情况另外提供了不同的流程。
+The DMCA notice and takedown process should be used only for complaints about copyright infringement. Notices sent through our DMCA process must identify copyrighted work or works that are allegedly being infringed. The process cannot be used for other complaints, such as complaints about alleged [trademark infringement](/articles/github-trademark-policy/) or [sensitive data](/articles/github-sensitive-data-removal-policy/); we offer separate processes for those situations.
 
-## A. 此流程实际上是如何运作的？
+## A. How Does This Actually Work?
 
-DMCA 框架有点像课堂上传纸条。 版权所有者向 GitHub 提交对某个用户的投诉。 如果书写正确，我们会将该投诉转达给用户。 如果用户对投诉有异议，他们可以回传“纸条”表达异议。 除了确定通知是否符合 DMCA 的最低要求外，GitHub 在此过程中几乎不行使酌处权。 当事方（及其律师）应负责评估其投诉的合理性，并注意，此类通知受伪证处罚条款约束。
+The DMCA framework is a bit like passing notes in class. The copyright owner hands GitHub a complaint about a user. If it's written correctly, we pass the complaint along to the user. If the user disputes the complaint, they can pass a note back saying so. GitHub exercises little discretion in the process other than determining whether the notices meet the minimum requirements of the DMCA. It is up to the parties (and their lawyers) to evaluate the merit of their claims, bearing in mind that notices must be made under penalty of perjury.
 
-以下是此流程的基本步骤。
+Here are the basic steps in the process.
 
-1. **版权所有者调查。**版权所有者务必进行初步调查，以确认 (a) 他们拥有原始作品的版权，以及 (b) GitHub 上的内容未经授权且侵权。 这包括确认该使用不符合[合理使用](https://www.lumendatabase.org/topics/22)的条件。 如果特定使用符合以下条件，可能属于合理使用：只使用少量版权内容、以变换方式使用内容、用于教育目的或以上条件的某些组合。 由于代码本身适合于这些用途，但每个用例都有所不同，因此必须单独考虑。
-> **示例：**Acme Web Company 的一名员工在某个 GitHub 仓库中发现其公司的一些代码。 Acme Web Company 已将其源代码许可给几个受信任的合作伙伴。 在发出删除通知之前，Acme 应认真查看这些许可及其协议，以确认 GitHub 上的代码未在这些授权之列。
+1. **Copyright Owner Investigates.** A copyright owner should always conduct an initial investigation to confirm both (a) that they own the copyright to an original work and (b) that the content on GitHub is unauthorized and infringing. This includes confirming that the use is not protected as [fair use](https://www.lumendatabase.org/topics/22). A particular use may be fair if it only uses a small amount of copyrighted content, uses that content in a transformative way, uses it for educational purposes, or some combination of the above. Because code naturally lends itself to such uses, each use case is different and must be considered separately.
+> **Example:** An employee of Acme Web Company finds some of the company's code in a GitHub repository. Acme Web Company licenses its source code out to several trusted partners. Before sending in a take-down notice, Acme should review those licenses and its agreements to confirm that the code on GitHub is not authorized under any of them.
 
-2. **版权所有者发送通知。**进行调查后，版权所有者编写[删除通知](/articles/guide-to-submitting-a-dmca-takedown-notice)并将其发送到 GitHub。 如果根据法律要求，该删除通知足够详细（如[操作指南](/articles/guide-to-submitting-a-dmca-takedown-notice)中所述），我们会[将该通知发布](#d-transparency)到我们的[公共仓库](https://github.com/github/dmca)中，并将链接传送给受影响的用户。
+2. **Copyright Owner Sends A Notice.** After conducting an investigation, a copyright owner prepares and sends a [takedown notice](/articles/guide-to-submitting-a-dmca-takedown-notice) to GitHub. Assuming the takedown notice is sufficiently detailed according to the statutory requirements (as explained in the [how-to guide](/articles/guide-to-submitting-a-dmca-takedown-notice)), we will [post the notice](#d-transparency) to our [public repository](https://github.com/github/dmca) and pass the link along to the affected user.
 
-3. **GitHub 要求用户进行更改。**如果通知指出仓库或包的整个内容都侵权，我们将跳到步骤 6 并迅速禁用整个仓库或包。 否则，由于 GitHub 无法禁止访问仓库中的特定文件，我们将联系创建该仓库的用户，给他们 1 个工作日左右的时间来删除或修改通知中指定的内容。 如果我们给用户进行更改的机会，我们会通知版权所有者。 由于包是不可变的，如果只有包的一部分侵权，GitHub 将需要禁用整个包，但我们允许在删除侵权部分后恢复。
+3. **GitHub Asks User to Make Changes.** If the notice alleges that the entire contents of a repository infringe, or a package infringes, we will skip to Step 6 and disable the entire repository or package expeditiously. Otherwise, because GitHub cannot disable access to specific files within a repository, we will contact the user who created the repository and give them approximately 1 business day to delete or modify the content specified in the notice. We'll notify the copyright owner if and when we give the user a chance to make changes. Because packages are immutable, if only part of a package is infringing, GitHub would need to disable the entire package, but we permit reinstatement once the infringing portion is removed. 
 
-4. **用户向 GitHub 通知更改。**如果用户选择进行指定的更改，则*必须*在大约 1 个工作日内告知我们。 如果没有，我们将禁用仓库（如步骤 6 所述）。 如果用户通知我们已进行更改，我们将进行核实然后通知版权所有者。
+4. **User Notifies GitHub of Changes.** If the user chooses to make the specified changes, they *must* tell us so within the window of approximately 1 business day. If they don't, we will disable the repository (as described in Step 6). If the user notifies us that they made changes, we will verify that the changes have been made and then notify the copyright owner.
 
-5. **版权所有者修改或撤回通知。**用户进行更改后，版权所有者必须进行审查，如果认为更改不充分，他们可以重申或修改其删除通知。 除非版权所有者联系我们以重申原删除通知或提交修改的通知，否则 GitHub 不会采取任何进一步行动。 如果版权所有者对更改感到满意，他们可以提交正式的撤回声明，或者什么都不做。 静默期超过两周，GitHub 将解释为默示撤回删除通知。
+5. **Copyright Owner Revises or Retracts the Notice.** If the user makes changes, the copyright owner must review them and renew or revise their takedown notice if the changes are insufficient. GitHub will not take any further action unless the copyright owner contacts us to either renew the original takedown notice or submit a revised one. If the copyright owner is satisfied with the changes, they may either submit a formal retraction or else do nothing. GitHub will interpret silence longer than two weeks as an implied retraction of the takedown notice.
 
-6. **GitHub 可能禁止访问内容。**在以下情况下，GitHub 将禁用用户内容：(i) 版权所有者声称对用户整个仓库或包的内容都拥有版权（如步骤 3 所述）；(ii) 用户在获得更改机会后没有进行任何更改（如步骤 4 所述）；或 (iii) 版权所有者在用户有机会进行更改后重申了删除通知。 如果版权所有者选择*修改*通知，我们将回到步骤 2，将修改的通知当作新通知来重复这个流程。
+6. **GitHub May Disable Access to the Content.** GitHub will disable a user's content if: (i) the copyright owner has alleged copyright over the user's entire repository or package (as noted in Step 3); (ii) the user has not made any changes after being given an opportunity to do so (as noted in Step 4); or (iii) the copyright owner has renewed their takedown notice after the user had a chance to make changes. If the copyright owner chooses instead to *revise* the notice, we will go back to Step 2 and repeat the process as if the revised notice were a new notice.
 
-7. **用户可发送反通知。**我们鼓励用户在其内容被禁用后就其选择权咨询律师。 如果用户认为其内容是由于错误或错误指认而被禁用，他们可以向我们发送[反通知](/articles/guide-to-submitting-a-dmca-counter-notice)。 与原通知一样，我们将确保反通知足够详细（如[操作指南](/articles/guide-to-submitting-a-dmca-counter-notice)中所述）。 如果是，我们会将其[发布](#d-transparency)到我们的[公共仓库](https://github.com/github/dmca)，然后向版权所有者发送链接以传达该通知。
+7. **User May Send A Counter Notice.** We encourage users who have had content disabled to consult with a lawyer about their options. If a user believes that their content was disabled as a result of a mistake or misidentification, they may send us a [counter notice](/articles/guide-to-submitting-a-dmca-counter-notice). As with the original notice, we will make sure that the counter notice is sufficiently detailed (as explained in the [how-to guide](/articles/guide-to-submitting-a-dmca-counter-notice)). If it is, we will [post it](#d-transparency) to our [public repository](https://github.com/github/dmca) and pass the notice back to the copyright owner by sending them the link.
 
-8. **版权所有者可提出法律诉讼。**如果版权所有者在收到反通知后，希望继续禁用内容，则他们需要发起法律诉讼，寻求通过法院命令制止用户从事与 GitHub 上的内容相关的侵权活动。 也就是说，用户可能会被起诉。 如果版权所有者在 10-14 天内没有向 GitHub 发出通知（发送向主管法院提交的有效法律投诉的副本），GitHub 将重新启用被禁用的内容。
+8. **Copyright Owner May File a Legal Action.** If a copyright owner wishes to keep the content disabled after receiving a counter notice, they will need to initiate a legal action seeking a court order to restrain the user from engaging in infringing activity relating to the content on GitHub. In other words, you might get sued. If the copyright owner does not give GitHub notice within 10-14 days, by sending a copy of a valid legal complaint filed in a court of competent jurisdiction, GitHub will re-enable the disabled content.
 
-## B. 复刻呢？ （或如何处理复刻？）
+## B. What About Forks? (or What's a Fork?)
 
-GitHub 的最佳功能之一是用户能够“复刻”彼此的仓库。 这意味着什么？ 从本质上讲，这意味着用户可以将 GitHub 上的项目复制到自己的仓库中。 在许可或法律允许的情况下，用户可以对复刻进行更改，然后将其推送到主项目或只保留为自己的项目变体。 每个此类副本都是原仓库的[复刻](/articles/github-glossary#fork)，或者说原仓库也可以称为复刻的“父仓库”。
+One of the best features of GitHub is the ability for users to "fork" one another's repositories. What does that mean? In essence, it means that users can make a copy of a project on GitHub into their own repositories. As the license or the law allows, users can then make changes to that fork to either push back to the main project or just keep as their own variation of a project. Each of these copies is a "[fork](/articles/github-glossary#fork)" of the original repository, which in turn may also be called the "parent" of the fork.
 
-GitHub 在禁用父仓库时*不会*自动禁用复刻。 这是因为复刻属于不同的用户，可能进行了重大更改，也可能获得了许可或者其使用方式符合合理使用原则。 GitHub 不会对复刻进行任何独立调查。 我们希望版权所有者进行这种调查，如果他们认为复刻也侵权，则应在其删除通知中明确包括这些复刻。
+GitHub *will not* automatically disable forks when disabling a parent repository. This is because forks belong to different users, may have been altered in significant ways, and may be licensed or used in a different way that is protected by the fair-use doctrine. GitHub does not conduct any independent investigation into forks. We expect copyright owners to conduct that investigation and, if they believe that the forks are also infringing, expressly include forks in their takedown notice.
 
-在极少数情况下，您可能在正被复刻的完整仓库中指称侵权。 如果您在提交通知时发现该仓库的所有现有复刻涉嫌侵权，我们将在处理通知时处理对该网络中所有复刻的有效索赔。 我们这样做是考虑到所有新建复刻都可能包含相同的内容。 此外，如果所报告的包含涉嫌侵权内容的网络大于一百 (100) 个仓库，从而很难全面审查，并且您在通知中指出：“根据您审查的代表性复刻数量，我相信所有或大多数复刻的侵权程度与父仓库相同”，则我们可能会考虑禁用整个网络。 你的宣誓声明将适用于此声明。
+In rare cases, you may be alleging copyright infringement in a full repository that is actively being forked. If at the time that you submitted your notice, you identified all existing forks of that repository as allegedly infringing, we would process a valid claim against all forks in that network at the time we process the notice. We would do this given the likelihood that all newly created forks would contain the same content. In addition, if the reported network that contains the allegedly infringing content is larger than one hundred (100) repositories and thus would be difficult to review in its entirety, we may consider disabling the entire network if you state in your notice that, "Based on the representative number of forks I have reviewed, I believe that all or most of the forks are infringing to the same extent as the parent repository." Your sworn statement would apply to this statement.
 
-## C. 规避索赔呢？
+## C. What about Circumvention Claims?
 
-DMCA 禁止[规避技术措施](https://www.copyright.gov/title17/92chap12.html)，以有效控制访问受版权保护的作品。 鉴于这些类型的索赔往往技术性很强，GitHub 要求索赔人提供[关于这些索赔的详细信息](/github/site-policy/guide-to-submitting-a-dmca-takedown-notice#complaints-about-anti-circumvention-technology)，我们进行了更广泛的审查。
+The DMCA prohibits the [circumvention of technical measures](https://www.copyright.gov/title17/92chap12.html) that effectively control access to works protected by copyright. Given that these types of claims are often highly technical in nature, GitHub requires claimants to provide [detailed information about these claims](/github/site-policy/guide-to-submitting-a-dmca-takedown-notice#complaints-about-anti-circumvention-technology), and we undertake a more extensive review. 
 
-规避索赔必须包括以下关于技术措施以及被告项目规避这些措施的方式的详细信息。 具体而言，给 GitHub 的通知必须包括详细的说明，描述：
-1. 技术措施是什么；
-2. 它们如何有效控制对受版权保护材料的访问；以及
-3. 被告项目是如何设计来规避他们以前描述的技术保护措施的。
+A circumvention claim must include the following details about the technical measures in place and the manner in which the accused project circumvents them. Specifically, the notice to GitHub must include detailed statements that describe:
+1. What the technical measures are;
+2. How they effectively control access to the copyrighted material; and 
+3. How the accused project is designed to circumvent their previously described technological protection measures.
 
-GitHub 将仔细审查规避索赔，包括技术和法律专家提出的索赔要求。 在技术审查中，我们将设法核实有关技术保护措施的运作方式以及据称项目绕过这些措施的方式的细节。 在法律审查中，我们将设法确保索赔不超出 DMCA 的界限。 如果无法确定索赔是否有效，我们将在开发人员端进行错误检查，并且保留内容。 如果索赔人希望跟进更多细节，我们将重新开始审查进程，以评估经修订的索赔。
+GitHub will review circumvention claims closely, including by both technical and legal experts. In the technical review, we will seek to validate the details about the manner in which the technical protection measures operate and the way the project allegedly circumvents them. In the legal review, we will seek to ensure that the claims do not extend beyond the boundaries of the DMCA. In cases where we are unable to determine whether a claim is valid, we will err on the side of the developer, and leave the content up. If the claimant wishes to follow up with additional detail, we would start the review process again to evaluate the revised claims.
 
-如果我们的专家确定索赔是完整、合法和技术上合法的，我们将联系仓库所有者，让他们有机会对索赔作出回应或更改仓库以避免撤除。 如果他们不回应，我们将尝试再次联系仓库所有者，然后再采取任何进一步的步骤。 换句话说，我们不会在未尝试联系存储库所有者以给他们先回应或更改机会的情况下，根据规避技术的主张直接禁用仓库。 如果我们无法通过先联系仓库所有者来解决问题，即使内容已禁用，如果他们希望有机会对索赔提出异议、向我们提交其他事实或进行更改以恢复内容，我们也始终乐于考虑仓库所有者的回应。 当我们需要禁用内容时，我们将在法律允许的范围内确保仓库所有者能够导出其议题，并提取不包含所谓的规避代码的其他仓库数据。
+Where our experts determine that a claim is complete, legal, and technically legitimate, we will contact the repository owner and give them a chance to respond to the claim or make changes to the repo to avoid a takedown. If they do not respond, we will attempt to contact the repository owner again before taking any further steps. In other words, we will not disable a repository based on a claim of circumvention technology  without attempting to contact a repository owner to give them a chance to respond or make changes first. If we are unable to resolve the issue by reaching out to the repository owner first, we will always be happy to consider a response from the repository owner even after the content has been disabled if they would like an opportunity to dispute the claim, present us with additional facts, or make changes to have the content restored. When we need to disable content, we will ensure that repository owners can export their issues and pull requests and other repository data that do not contain the alleged circumvention code to the extent legally possible.
 
-请注意，我们对规避技术的审查流程不适用于违反我们可接受使用政策限制的内容，禁止共享未经授权的产品许可密钥、生成未经授权的产品许可密钥的软件或绕过产品许可密钥检查的软件。 虽然这些类型的索赔也可能违反 DMCA 关于规避技术的规定，但这些索赔通常很简单，不需要额外的技术和法律审查。 然而，如果索赔并不简单，例如在越狱的情况下，规避技术索赔审查程序将适用。
+Please note, our review process for circumvention technology does not apply to content that would otherwise violate our Acceptable Use Policy restrictions against sharing unauthorized product licensing keys, software for generating unauthorized product licensing keys, or software for bypassing checks for product licensing keys. Although these types of claims may also violate the DMCA provisions on circumvention technology, these are typically straightforward and do not warrant additional technical and legal review. Nonetheless, where a claim is not straightforward, for example in the case of jailbreaks, the circumvention technology claim review process would apply.  
 
-当 GitHub 根据我们的规避技术索赔审查流程处理 DMCA 拆解时，我们将转介仓库所有者通过 [GitHub 的开发人员防御基金](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/)免费获得独立法律咨询。
+When GitHub processes a DMCA takedown under our circumvention technology claim review process, we will offer the repository owner a referral to receive independent legal consultation through [GitHub’s Developer Defense Fund](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/) at no cost to them.
 
-## D. 如果我无意中错过了更改时限怎么办？
+## D. What If I Inadvertently Missed the Window to Make Changes?
 
-我们知道，有许多现实原因导致您无法在我们禁用您的仓库之前提供的大约 1 个工作日时限内进行更改。 可能我们的邮件被标记为垃圾邮件，可能您正在度假，可能您不经常查看电子邮件帐户，或者您只是很忙。 我们理解。 如果您回复我们表示您愿意更改，但因为某些原因错过了第一次机会，我们会重新启用仓库，再次提供大约 1 个工作日的时间让您进行更改。 同样，要在大约 1 个工作日的时限之后让仓库保持启用状态，您必须在完成更改后通知我们，如上文的[步骤 A.4](#a-how-does-this-actually-work) 所述。 请注意，我们只提供这一次额外机会。
+We recognize that there are many valid reasons that you may not be able to make changes within the window of approximately 1 business day we provide before your repository gets disabled. Maybe our message got flagged as spam, maybe you were on vacation, maybe you don't check that email account regularly, or maybe you were just busy. We get it. If you respond to let us know that you would have liked to make the changes, but somehow missed the first opportunity, we will re-enable the repository one additional time for approximately 1 business day to allow you to make the changes. Again, you must notify us that you have made the changes in order to keep the repository enabled after that window of approximately 1 business day, as noted above in [Step A.4](#a-how-does-this-actually-work). Please note that we will only provide this one additional chance.
 
-## E. 透明
+## E. Transparency
 
-我们认为，透明是一种美德。 公众应该知道 GitHub 会删除哪些内容以及原因。 知情的公众可以注意到并发现那些在不透明系统中无法注意到的潜在问题。 我们会在 <https://github.com/github/dmca> 上发布我们收到的任何法律通知（包括原通知、反通知或撤回声明）的删节版。 我们不会公布您的个人联系信息；我们会在发布通知之前删除个人信息（URL 中用户名除外）。 但是我们不会删节通知中的任何其他信息，除非您明确要求我们删除。 以下是一些已发布的[通知](https://github.com/github/dmca/blob/master/2014/2014-05-28-Delicious-Brains.md)和[反通知](https://github.com/github/dmca/blob/master/2014/2014-05-01-Pushwoosh-SDK-counternotice.md)的示例，供您参考。 我们删除内容时，会在其位置发布指向相关通知的链接。
+We believe that transparency is a virtue. The public should know what content is being removed from GitHub and why. An informed public can notice and surface potential issues that would otherwise go unnoticed in an opaque system. We post redacted copies of any legal notices we receive (including original notices, counter notices or retractions) at <https://github.com/github/dmca>. We will not publicly publish your personal contact information; we will remove personal information (except for usernames in URLs) before publishing notices. We will not, however, redact any other information from your notice unless you specifically ask us to. Here are some examples of a published [notice](https://github.com/github/dmca/blob/master/2014/2014-05-28-Delicious-Brains.md) and [counter notice](https://github.com/github/dmca/blob/master/2014/2014-05-01-Pushwoosh-SDK-counternotice.md) for you to see what they look like. When we remove content, we will post a link to the related notice in its place.
 
-另请注意，尽管我们不会公开发布未删节的通知，但我们可能会向权利受影响的任何相关方直接提供相关通知的完整未删节版。
+Please also note that, although we will not publicly publish unredacted notices, we may provide a complete unredacted copy of any notices we receive directly to any party whose rights would be affected by it.
 
-## F. 屡次侵权
+## F. Repeated Infringement
 
-GitHub 的政策是，在适当的情况下，自行决定禁用和终止可能侵犯 GitHub 或其他方的版权或其他知识产权的用户帐户。
+It is the policy of GitHub, in appropriate circumstances and in its sole discretion, to disable and terminate the accounts of users who may infringe upon the copyrights or other intellectual property rights of GitHub or others.
 
-## G. 提交通知
+## G. Submitting Notices
 
-如果您准备提交通知或反通知：
-- [如何提交 DMCA 通知](/articles/guide-to-submitting-a-dmca-takedown-notice)
-- [如何提交 DMCA 反通知](/articles/guide-to-submitting-a-dmca-counter-notice)
+If you are ready to submit a notice or a counter notice:
+- [How to Submit a DMCA Notice](/articles/guide-to-submitting-a-dmca-takedown-notice)
+- [How to Submit a DMCA Counter Notice](/articles/guide-to-submitting-a-dmca-counter-notice)
 
-## 深入了解并发表意见
+## Learn More and Speak Up
 
-在互联网上随便逛一逛，就不难发现有关版权系统，特别是有关 DMCA 的评论和批评。 虽然 GitHub 承认并赞赏 DMCA 在促进在线创新方面发挥的重要作用，但我们认为，版权法或许需要打一两个补丁——如果不推出全新版本的话。 在软件方面，我们不断改进和更新我们的代码。 想想自 1998 年 DMCA 面世以来，技术的变化可谓翻天覆地。 更新这些适用于软件的法律难道不是理所当然的吗？
+If you poke around the Internet, it is not too hard to find commentary and criticism about the copyright system in general and the DMCA in particular. While GitHub acknowledges and appreciates the important role that the DMCA has played in promoting innovation online, we believe that the copyright laws could probably use a patch or two—if not a whole new release. In software, we are constantly improving and updating our code. Think about how much technology has changed since 1998 when the DMCA was written. Doesn't it just make sense to update these laws that apply to software?
 
-我们并不认为存在解答一切的魔方。 但如果您感兴趣，这里有一些学术文章和博客的链接，我们发现其中有不少关于改革的意见和建议：
+We don't presume to have all the answers. But if you are curious, here are a few links to scholarly articles and blog posts we have found with opinions and proposals for reform:
 
 - [Unintended Consequences: Twelve Years Under the DMCA](https://www.eff.org/wp/unintended-consequences-under-dmca) (Electronic Frontier Foundation)
 - [Statutory Damages in Copyright Law: A Remedy in Need of Reform](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1375604) (William & Mary Law Review)
@@ -120,4 +120,4 @@ GitHub 的政策是，在适当的情况下，自行决定禁用和终止可能�
 - [Opportunities for Copyright Reform](https://www.cato-unbound.org/issues/january-2013/opportunities-copyright-reform) (Cato Unbound)
 - [Fair Use Doctrine and the Digital Millennium Copyright Act: Does Fair Use Exist on the Internet Under the DMCA?](https://digitalcommons.law.scu.edu/lawreview/vol42/iss1/6/) (Santa Clara Law Review)
 
-GitHub 不一定支持这些文章中的任何观点。 我们提供链接的目的是鼓励您了解更多信息，形成自己的观点，然后联系您选举的代表（例如[美国 国会](https://www.govtrack.us/congress/members)或[欧盟 议会](https://www.europarl.europa.eu/meps/en/home)的官员），以求实现您认为应该进行的任何更改。
+GitHub doesn't necessarily endorse any of the viewpoints in those articles. We provide the links to encourage you to learn more, form your own opinions, and then reach out to your elected representative(s) (e.g, in the [U.S. Congress](https://www.govtrack.us/congress/members) or [E.U. Parliament](https://www.europarl.europa.eu/meps/en/home)) to seek whatever changes you think should be made.

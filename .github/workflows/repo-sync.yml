@@ -20,6 +20,10 @@ on:
   schedule:
     - cron: '10,40 * * * *' # every 30 minutes
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   close-invalid-repo-sync:
     name: Close invalid Repo Sync PRs
@@ -94,11 +98,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       # Set up npm and run npm ci to run husky to get githooks for LFS
       - name: Setup node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: 16.13.x
           cache: npm
@@ -117,7 +121,6 @@ jobs:
           github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
       - name: Create pull request
-        id: create-pull
         uses: repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
@@ -141,13 +144,6 @@ jobs:
           base: main
           author: Octomerger
           state: open
-
-      - name: Approve pull request
-        if: ${{ steps.find-pull-request.outputs.number }}
-        uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ steps.find-pull-request.outputs.number }}
 
       # Because we get far too much spam ;_;
       - name: Lock conversations
@@ -217,8 +213,40 @@ jobs:
               console.log(`Branch is already up-to-date`)
             }
 
-      - name: Enable GitHub auto-merge
+      - name: Check pull request file count after updating
         if: ${{ steps.find-pull-request.outputs.number }}
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        id: pr-files
+        env:
+          PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
+        with:
+          github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          result-encoding: string
+          script: |
+            const { data: prFiles } = await github.pulls.listFiles({
+              ...context.repo,
+              pull_number: process.env.PR_NUMBER,
+            })
+            core.setOutput('count', (prFiles && prFiles.length || 0).toString())
+
+      # Sometimes after updating the branch, there aren't any remaining files changed.
+      # If not, we should close the PR instead of merging it and triggering deployments.
+      - name: Close the pull request if no files remain
+        if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count == '0' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr close ${{ steps.find-pull-request.outputs.number }} --repo $GITHUB_REPOSITORY
+
+      - name: Approve pull request
+        if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count != '0' }}
+        uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.find-pull-request.outputs.number }}
+
+      - name: Enable GitHub auto-merge
+        if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count != '0' }}
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           AUTOMERGE_PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}

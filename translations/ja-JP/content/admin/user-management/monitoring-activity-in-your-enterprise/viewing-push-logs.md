@@ -1,8 +1,8 @@
 ---
-title: プッシュログの表示
-intro: サイト管理者は、Enterprise 上の任意のリポジトリに対する Git プッシュ操作の一覧を確認することができます。
+title: Viewing push logs
+intro: Site administrators can view a list of Git push operations for any repository on the enterprise.
 redirect_from:
-  - /enterprise/admin/articles/viewing-push-logs/
+  - /enterprise/admin/articles/viewing-push-logs
   - /enterprise/admin/installation/viewing-push-logs
   - /enterprise/admin/user-management/viewing-push-logs
   - /admin/user-management/viewing-push-logs
@@ -16,31 +16,32 @@ topics:
   - Git
   - Logging
 ---
+Push log entries show:
 
-プッシュログの項目には次の情報が含まれています。
+- Who initiated the push
+- Whether it was a force push or not
+- The branch someone pushed to
+- The protocol used to push
+- The originating IP address
+- The Git client used to push
+- The SHA hashes from before and after the operation
 
-- プッシュを開始した人
-- フォースプッシュであったかどうか
-- プッシュされたブランチ
-- プッシュするために使ったプロトコル
-- プッシュ元の IP アドレス
-- プッシュするために使った Git クライアント
-- 操作前と操作後の SHA ハッシュ
+## Viewing a repository's push logs
 
-## リポジトリのプッシュログを表示する
-
-1. サイト管理者として {% data variables.product.prodname_ghe_server %} にサインインします。
-1. リポジトリにアクセスします。
-1. In the upper-right corner of the repository's page, click {% octicon "rocket" aria-label="The rocket ship" %}. ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
+1. Navigate to a repository.
+1. In the upper-right corner of the repository's page, click {% octicon "rocket" aria-label="The rocket ship" %}.
+    ![Rocketship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
-4. 左のサイドバーで、**Push Log（プッシュログ）** をクリックしてください。 ![プッシュログのタブ](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
+4. In the left sidebar, click **Push Log**.
+![Push log tab](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 {% ifversion ghes %}
-## コマンドラインでリポジトリのプッシュログを表示する
+## Viewing a repository's push logs on the command-line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. 適切な Git リポジトリで Audit log ファイルを開いてください。
+1. In the appropriate Git repository, open the audit log file:
   ```shell
-  ghe-repo <em>コードオーナー</em>/<em>リポジトリ</em> -c "less audit_log"
+  ghe-repo <em>owner</em>/<em>repository</em> -c "less audit_log"
   ```
 {% endif %}

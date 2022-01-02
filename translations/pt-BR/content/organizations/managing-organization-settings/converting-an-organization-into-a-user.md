@@ -1,6 +1,6 @@
 ---
-title: Converter uma organização em usuário
-intro: 'Não é possível converter uma organização em uma conta de usuário pessoal, mas você pode criar uma conta de usuário e transferir para ela os repositórios da organização.'
+title: Converting an organization into a user
+intro: 'It''s not possible to convert an organization into a personal user account, but you can create a new user account and transfer the organization''s repositories to it.'
 redirect_from:
   - /articles/converting-an-organization-into-a-user
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-organization-into-a-user
@@ -11,7 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Converter organização em usuário
+shortTitle: Convert organization to user
 ---
 
 {% ifversion fpt or ghec %}
@@ -22,22 +22,22 @@ shortTitle: Converter organização em usuário
 
  {% endnote %}
 
-1. [Inscreva-se](/articles/signing-up-for-a-new-github-account) para uma nova conta de usuário do GitHub.
-2. [Altere a função do usuário para um proprietário](/articles/changing-a-person-s-role-to-owner).
-3. {% data variables.product.signin_link %} na nova conta de usuário.
-4. [Transfira cada repositório da organização](/articles/how-to-transfer-a-repository) para a nova conta de usuário.
+1. [Sign up](/articles/signing-up-for-a-new-github-account) for a new GitHub user account.
+2. [Have the user's role changed to an owner](/articles/changing-a-person-s-role-to-owner).
+3. {% data variables.product.signin_link %} to the new user account.
+4. [Transfer each organization repository](/articles/how-to-transfer-a-repository) to the new user account.
 5. [Rename the organization](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) to make the current username available.
-6. [Renomeie o usuário](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) para o nome da organização.
-7. [Exclua a organização](/organizations/managing-organization-settings/deleting-an-organization-account).
+6. [Rename the user](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) to the organization's name.
+7. [Delete the organization](/organizations/managing-organization-settings/deleting-an-organization-account).
 
 
 {% else %}
 
-1. Inscreva-se para uma nova conta de usuário do GitHub Enterprise GitHub Enterprise.
-2. [Altere a função do usuário para um proprietário](/articles/changing-a-person-s-role-to-owner).
-3. {% data variables.product.signin_link %} na nova conta de usuário.
-4. [Transfira cada repositório da organização](/articles/how-to-transfer-a-repository) para a nova conta de usuário.
-5. [Exclua a organização](/articles/deleting-an-organization-account).
-6. [Renomeie o usuário](/articles/changing-your-github-username) para o nome da organização.
+1. Sign up for a new GitHub Enterprise user account.
+2. [Have the user's role changed to an owner](/articles/changing-a-person-s-role-to-owner).
+3. {% data variables.product.signin_link %} to the new user account.
+4. [Transfer each organization repository](/articles/how-to-transfer-a-repository) to the new user account.
+5. [Delete the organization](/articles/deleting-an-organization-account).
+6. [Rename the user](/articles/changing-your-github-username) to the organization's name.
 
 {% endif %}
