@@ -34,7 +34,7 @@ shortTitle: Create & delete branches
 
 **Note:** If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
-Also, as browsers and their interpretation of current standards can potentially deliver visually different results and you are having issues locating the {% octicon "git-branch" aria-label="The branch icon" %} NUMBER branches icon, try zooming out some. It should show up and become usable as designed.
+Also, as browsers and their interpretation of current standards can potentially deliver visually different results and you are having issues locating the {% octicon "git-branch" aria-label="The branch icon" %} **<em>NUMBER</em> branches** icon, try zooming out some. It should show up and become usable as designed.
 
 {% endnote %}
 
