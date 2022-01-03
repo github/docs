@@ -42,7 +42,7 @@ By default, the restrictions of a branch protection rule don't apply to people w
 For each branch protection rule, you can choose to enable or disable the following settings.
 - [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
 - [Require status checks before merging](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 - [Require conversation resolution before merging](#require-conversation-resolution-before-merging){% endif %}
 - [Require signed commits](#require-signed-commits)
 - [Require linear history](#require-linear-history)
@@ -99,7 +99,7 @@ You can set up required status checks to either be "loose" or "strict." The type
 
 For troubleshooting information, see "[Troubleshooting required status checks](/github/administering-a-repository/troubleshooting-required-status-checks)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Require conversation resolution before merging
 
 Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
@@ -138,6 +138,8 @@ Before you can require a linear commit history, your repository must allow squas
 
 {% data reusables.pull_requests.merge-queue-beta %}
 {% data reusables.pull_requests.merge-queue-overview %}
+ 
+{% data reusables.pull_requests.merge-queue-merging-method %}
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
@@ -157,7 +159,17 @@ You can only give push access to a protected branch to users, teams, or installe
 
 ### Allow force pushes
 
+{% ifversion fpt or ghec %}
+By default, {% data variables.product.product_name %} blocks force pushes on all protected branches. When you enable force pushes to a protected branch, you can choose one of two groups who can force push:
+
+1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
+1. Allow only specific people or teams to force push to the branch.
+
+If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+
+{% else %}
 By default, {% data variables.product.product_name %} blocks force pushes on all protected branches. When you enable force pushes to a protected branch, anyone with at least write permissions to the repository can force push to the branch, including those with admin permissions. If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+{% endif %}
 
 Enabling force pushes will not override any other branch protection rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
 

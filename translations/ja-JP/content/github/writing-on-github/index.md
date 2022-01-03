@@ -1,9 +1,9 @@
 ---
-title: GitHub での執筆
+title: Writing on GitHub
 redirect_from:
-  - /categories/88/articles/
-  - /articles/github-flavored-markdown/
-  - /articles/writing-on-github/
+  - /categories/88/articles
+  - /articles/github-flavored-markdown
+  - /articles/writing-on-github
   - /categories/writing-on-github
 intro: 'You can structure the information shared on {% data variables.product.product_name %} with various formatting options.'
 versions:

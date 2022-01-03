@@ -2,7 +2,7 @@
 title: Duplicating a repository
 intro: 'To maintain a mirror of a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
 redirect_from:
-  - /articles/duplicating-a-repo/
+  - /articles/duplicating-a-repo
   - /articles/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/duplicating-a-repository

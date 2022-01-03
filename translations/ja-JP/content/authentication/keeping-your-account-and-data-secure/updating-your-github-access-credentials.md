@@ -1,9 +1,9 @@
 ---
-title: GitHub アクセス認証情報を更新する
-intro: '{% data variables.product.product_name %} 認証情報は、{% ifversion not ghae %}パスワードだけではなく、{% endif %}{% data variables.product.product_name %} に伝達するのに使うアクセストークン、SSH キーおよびアプリケーション API トークンを含みます。 必要があれば、すべてのアクセス認証情報をリセットできます。'
+title: Updating your GitHub access credentials
+intro: '{% data variables.product.product_name %} credentials include{% ifversion not ghae %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Should you have the need, you can reset all of these access credentials yourself.'
 redirect_from:
-  - /articles/rolling-your-credentials/
-  - /articles/how-can-i-reset-my-password/
+  - /articles/rolling-your-credentials
+  - /articles/how-can-i-reset-my-password
   - /articles/updating-your-github-access-credentials
   - /github/authenticating-to-github/updating-your-github-access-credentials
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/updating-your-github-access-credentials
@@ -17,17 +17,18 @@ topics:
   - Access management
 shortTitle: Update access credentials
 ---
-
 {% ifversion not ghae %}
-## 新しいパスワードをリクエストする
+## Requesting a new password
 
 1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
-2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured. ![パスワードリセットのメールリクエストダイアログ](/assets/images/help/settings/password-recovery-email-request.png)
-3. パスワードをリセットするためのリンクがメールで届きます。 メールを受信してから 3 時間以内に、このリンクをクリックする必要があります。 弊社からメールが届かない場合、スパムフォルダを確認してください。
-4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials. Type your 2FA credentials or one of your 2FA recovery codes and click **Verify**. ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
+2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
+  ![Password reset email request dialog](/assets/images/help/settings/password-recovery-email-request.png)
+3. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
+4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials. Type your 2FA credentials or one of your 2FA recovery codes and click **Verify**.
+  ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
 5. Type a new password, confirm your new password, and click **Change password**. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)."
   {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
-  ![パスワードリカバリボックス](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
+  ![Password recovery box](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}
 
@@ -35,36 +36,36 @@ To avoid losing your password in the future, we suggest using a secure password 
 
 {% endtip %}
 
-## 既存のパスワードを変更する
+## Changing an existing password
 
 {% data reusables.repositories.blocked-passwords %}
 
-1. {% data variables.product.product_name %} への {% data variables.product.signin_link %}
+1. {% data variables.product.signin_link %} to {% data variables.product.product_name %}.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-4. [Change password] の下で、古いパスワード、新しい強靭なパスワードを入力し、新しいパスワードを確認します。 強靭なパスワードを作成するための参考として、「[強靭なパスワードを作成する](/articles/creating-a-strong-password)」を参照してください。
-5. [**Update password**] をクリックします。
+4. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)"
+5. Click **Update password**.
 
 {% tip %}
 
-セキュリティを強化するために、パスワードの変更に加えて 2 要素認証を有効にしてください。 詳細は「[2 要素認証について](/articles/about-two-factor-authentication)」を参照してください。
+For greater security, enable two-factor authentication in addition to changing your password. See [About two-factor authentication](/articles/about-two-factor-authentication) for more details.
 
 {% endtip %}
 {% endif %}
-## アクセストークンを更新する
+## Updating your access tokens
 
-アクセストークンのレビューと削除の方法については、「[許可されたインテグレーションをレビューする](/articles/reviewing-your-authorized-integrations)」を参照してください。 新しいアクセストークンを作成するには、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+See "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-## SSH キーを更新する
+## Updating your SSH keys
 
-SSH キーのレビューおよび削除については「[SSH キーをレビューする](/articles/reviewing-your-ssh-keys)」を参照してください。 新しい SSH キーの生成および追加については、「[SSH キーを生成する](/articles/generating-an-ssh-key)」を参照してください。
+See "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)" for instructions on reviewing and deleting SSH keys. To generate and add new SSH keys, see "[Generating an SSH key](/articles/generating-an-ssh-key)."
 
-## API トークンをリセットする
+## Resetting API tokens
 
-{% data variables.product.product_name %} に登録したアプリケーションがある場合、OAuthトークンのリセットを考えることになります。 詳しい情報については、「[認証をリセットする](/rest/reference/apps#reset-an-authorization)」エンドポイントを参照してください。
+If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the "[Reset an authorization](/rest/reference/apps#reset-an-authorization)" endpoint.
 
 {% ifversion not ghae %}
-## 許可されていないアクセスを防止する
+## Preventing unauthorized access
 
-アカウントを保護し権限のないアクセスを防止するためのさらなるヒントについては、「[許可されていないアクセスを防止する](/articles/preventing-unauthorized-access)」を参照してください。
+For more tips on securing your account and preventing unauthorized access, see "[Preventing unauthorized access](/articles/preventing-unauthorized-access)."
 {% endif %}

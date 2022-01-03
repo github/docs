@@ -5,16 +5,16 @@
 
 export default [
   'actions/cache@c64c572235d810460d0d6876e9c705ad5002b353', // v2.1.6
-  'actions/checkout@1e204e9a9253d643386038d443f96446fa156a97', // v2.3.5
+  'actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579', // v2.4.0
   'actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d', // v4.0.2
   'actions/labeler@5f867a63be70efff62b767459b009290364495eb', // v2.2.0
-  'actions/setup-node@270253e841af726300e85d718a5f606959b2903c', // v2.4.1
+  'actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458', // v2.5.0
   'actions/stale@cdf15f641adb27a71842045a94023bef6945e3aa', // v4.0.0
   'actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074', // v2.2.4
   'alex-page/github-project-automation-plus@bb266ff4dde9242060e2d5418e120a133586d488', // v0.8.1
   'andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90', // v1.0.4
-  'crowdin/github-action@d0622816ed4f4744db27d04374b2cef6867f7bed', // v1.4.1
   'cschleiden/actions-linter@caffd707beda4fc6083926a3dff48444bc7c24aa', // uses github-actions-parser v0.23.0
+  'lee-dohm/close-matching-issues@e9e43aad2fa6f06a058cedfd8fb975fd93b56d8f', // v2.1.0
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911', // v3.0.2
   'dawidd6/action-download-artifact@af92a8455a59214b7b932932f2662fdefbd78126', // v2.15.0
   'dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58',

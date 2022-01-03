@@ -1,12 +1,12 @@
 ---
-title: 应用
-intro: 您可以通过构建自己的应用程序来自动化和简化工作流程。
+title: Apps
+intro: You can automate and streamline your workflow by building your own apps.
 redirect_from:
-  - /early-access/integrations/
-  - /early-access/integrations/authentication/
-  - /early-access/integrations/install-an-integration/
-  - /apps/adding-integrations/
-  - /apps/building-integrations/setting-up-a-new-integration/about-integrations/
+  - /early-access/integrations
+  - /early-access/integrations/authentication
+  - /early-access/integrations/install-an-integration
+  - /apps/adding-integrations
+  - /apps/building-integrations/setting-up-a-new-integration/about-integrations
   - /apps
   - /v3/integrations
 versions:

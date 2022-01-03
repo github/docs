@@ -3,9 +3,9 @@ title: Viewing and managing pending changes to your subscription
 intro: You can view and cancel pending changes to your subscriptions before they take effect on your next billing date.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-and-managing-pending-changes-to-your-subscription
-  - /articles/viewing-and-managing-pending-changes-to-your-personal-account-s-billing-plan/
-  - /articles/viewing-and-managing-pending-changes-to-your-organization-s-billing-plan/
-  - /articles/viewing-and-managing-pending-changes-to-your-billing-plan/
+  - /articles/viewing-and-managing-pending-changes-to-your-personal-account-s-billing-plan
+  - /articles/viewing-and-managing-pending-changes-to-your-organization-s-billing-plan
+  - /articles/viewing-and-managing-pending-changes-to-your-billing-plan
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/viewing-and-managing-pending-changes-to-your-subscription
 versions:

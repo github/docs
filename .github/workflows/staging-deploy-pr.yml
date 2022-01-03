@@ -4,6 +4,8 @@ name: Staging - Deploy PR
 # **Why we have it**: To deploy with high visibility in case of failures.
 # **Who does it impact**: All contributors.
 
+# IT'S CRUCIALLY IMPORTANT THAT THIS WORKFLOW IS ONLY ENABLED IN docs!
+
 on:
   workflow_run:
     workflows:
@@ -34,22 +36,16 @@ env:
   BUILD_ACTIONS_RUN_LOG: https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
 
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump full context for debugging
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
   pr-metadata:
     # This is needed because the workflow we depend on
     # (see on.workflow_run.workflows) might be running from pushes on
     # main. That's because it needs to do that to popular the cache.
-    if: >
-      ${{ github.event.workflow_run.event == 'pull_request' &&
-      github.event.workflow_run.conclusion == 'success' }}
-
+    if: >-
+      ${{
+        github.repository == 'github/docs' &&
+        github.event.workflow_run.event == 'pull_request' &&
+        github.event.workflow_run.conclusion == 'success'
+      }}
     runs-on: ubuntu-latest
     outputs:
       number: ${{ steps.pr.outputs.number }}
@@ -67,6 +63,10 @@ jobs:
           BUILD_ACTIONS_RUN_ID: ${{ env.BUILD_ACTIONS_RUN_ID }}
         with:
           script: |
+
+            // Curious about what version of node you get
+            console.log('Node version:', process.version)
+
             // In order to find out the PR info for a forked repo, we must query
             // the API for more info based on the originating workflow run
             const { BUILD_ACTIONS_RUN_ID } = process.env
@@ -160,8 +160,7 @@ jobs:
     if: >-
       ${{
         needs.pr-metadata.outputs.number != '0' &&
-        github.event.workflow_run.conclusion == 'failure' &&
-        (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+        github.event.workflow_run.conclusion == 'failure'
       }}
     runs-on: ubuntu-latest
     timeout-minutes: 1
@@ -204,8 +203,7 @@ jobs:
     if: >-
       ${{
         needs.pr-metadata.outputs.number != '0' &&
-        github.event.workflow_run.conclusion == 'success' &&
-        (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+        github.event.workflow_run.conclusion == 'success'
       }}
     runs-on: ubuntu-latest
     # This timeout should match or exceed the value of the timeout for Undeploy
@@ -258,7 +256,7 @@ jobs:
   prepare-for-deploy:
     needs: [pr-metadata, check-pr-before-prepare]
     if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
@@ -289,7 +287,7 @@ jobs:
             })
 
       - name: Check out repo's default branch
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
@@ -299,26 +297,14 @@ jobs:
         run: git lfs checkout
 
       - name: Setup node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: 16.13.x
           cache: npm
 
-      # Install any dependencies that are needed for the early access script
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Install temporary dependencies
-        run: npm install --no-save dotenv rimraf
-
       # Install any additional dependencies *before* downloading the build artifact
       - name: Install Heroku client development-only dependency
         run: npm install --no-save heroku-client
-
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Clone early access
-        run: node script/early-access/clone-for-build.js
-        env:
-          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: ${{ needs.pr-metadata.outputs.head_ref }}
 
       # Download the previously built "app.tar"
       - name: Download build artifact
@@ -329,35 +315,8 @@ jobs:
           name: pr_build
           path: ${{ runner.temp }}
 
-      # For security reasons, only extract the tar from docs-internal
-      # This allows us to add search indexes and early access content to the build
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Extract user-changes to temp directory
-        run: |
-          mkdir $RUNNER_TEMP/app
-          tar -x --file=$RUNNER_TEMP/app.tar -C "$RUNNER_TEMP/app/"
-
-      # Move the LFS content into the temp directory in chunks (destructively)
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Move the LFS objects
-        run: |
-          git lfs ls-files --name-only | xargs -n 1 -I {} sh -c 'mkdir -p "$RUNNER_TEMP/app/$(dirname {})"; mv {} "$RUNNER_TEMP/app/$(dirname {})/"'
-
-      # Move the early access content into the temp directory (destructively)
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Move the early access content
-        run: |
-          mv assets/images/early-access "$RUNNER_TEMP/app/assets/images/"
-          mv content/early-access "$RUNNER_TEMP/app/content/"
-          mv data/early-access "$RUNNER_TEMP/app/data/"
-
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Create a gzipped archive (docs-internal)
-        run: tar -cz --file app.tar.gz "$RUNNER_TEMP/app/"
-
-      # gzip the app.tar from github/docs so we're working with the same format
-      - if: ${{ github.repository == 'github/docs' }}
-        name: Create a gzipped archive (docs)
+      # gzip the app.tar to meet Heroku's expected format
+      - name: Create a gzipped archive (docs)
         run: gzip -9 < "$RUNNER_TEMP/app.tar" > app.tar.gz
 
       - name: Create a Heroku build source
@@ -372,8 +331,8 @@ jobs:
             if (owner !== 'github') {
               throw new Error(`Repository owner must be 'github' but was: ${owner}`)
             }
-            if (repo !== 'docs-internal' && repo !== 'docs') {
-              throw new Error(`Repository name must be either 'docs-internal' or 'docs' but was: ${repo}`)
+            if (repo !== 'docs') {
+              throw new Error(`Repository name must be 'docs' but was: ${repo}`)
             }
 
             const Heroku = require('heroku-client')
@@ -462,7 +421,7 @@ jobs:
   deploy:
     needs: [pr-metadata, prepare-for-deploy, check-pr-before-deploy]
     if: ${{ needs.check-pr-before-deploy.outputs.pull_request_state == 'open' }}
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
@@ -471,10 +430,10 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: Check out repo's default branch
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: Setup node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: 16.13.x
           cache: npm
@@ -482,12 +441,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install one-off development-only dependencies
-        run: npm install --no-save --include=optional esm
-
       - name: Deploy
         id: deploy
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
@@ -495,73 +450,17 @@ jobs:
           HYDRO_SECRET: ${{ secrets.HYDRO_SECRET }}
           PR_URL: ${{ needs.pr-metadata.outputs.url }}
           SOURCE_BLOB_URL: ${{ needs.prepare-for-deploy.outputs.source_blob_url }}
+          ALLOWED_POLLING_FAILURES_PER_PHASE: '15'
+          RUN_ID: ${{ github.run_id }}
+        run: .github/actions-scripts/staging-deploy.js
+
+      - name: Create successful commit status
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONTEXT_NAME: ${{ env.CONTEXT_NAME }}
           ACTIONS_RUN_LOG: ${{ env.ACTIONS_RUN_LOG }}
           HEAD_SHA: ${{ needs.pr-metadata.outputs.head_sha }}
-          ALLOWED_POLLING_FAILURES_PER_PHASE: '15'
-        with:
-          script: |
-            const { GITHUB_TOKEN, HEROKU_API_TOKEN } = process.env
-
-            // Exit if GitHub Actions PAT is not found
-            if (!GITHUB_TOKEN) {
-              throw new Error('You must supply a GITHUB_TOKEN environment variable!')
-            }
-
-            // Exit if Heroku API token is not found
-            if (!HEROKU_API_TOKEN) {
-              throw new Error('You must supply a HEROKU_API_TOKEN environment variable!')
-            }
-
-            // Workaround to allow us to load ESM files with `require(...)`
-            const esm = require('esm')
-            require = esm({})
-
-            const { default: parsePrUrl } = require('./script/deployment/parse-pr-url')
-            const { default: getOctokit } = require('./script/helpers/github')
-            const { default: deployToStaging } = require('./script/deployment/deploy-to-staging')
-
-            // This helper uses the `GITHUB_TOKEN` implicitly!
-            // We're using our usual version of Octokit vs. the provided `github`
-            // instance to avoid versioning discrepancies.
-            const octokit = getOctokit()
-
-            try {
-              const { PR_URL, SOURCE_BLOB_URL, CONTEXT_NAME, ACTIONS_RUN_LOG, HEAD_SHA } = process.env
-              const { owner, repo, pullNumber } = parsePrUrl(PR_URL)
-              if (!owner || !repo || !pullNumber) {
-                throw new Error(`'pullRequestUrl' input must match URL format 'https://github.com/github/(docs|docs-internal)/pull/123' but was '${PR_URL}'`)
-              }
-
-              const { data: pullRequest } = await octokit.pulls.get({
-                owner,
-                repo,
-                pull_number: pullNumber
-              })
-
-              await deployToStaging({
-                octokit,
-                pullRequest,
-                forceRebuild: false,
-                // These parameters will ONLY be set by Actions
-                sourceBlobUrl: SOURCE_BLOB_URL,
-                runId: context.runId
-              })
-
-              await github.repos.createCommitStatus({
-                owner,
-                repo,
-                sha: HEAD_SHA,
-                context: CONTEXT_NAME,
-                state: 'success',
-                description: 'Successfully deployed! See logs.',
-                target_url: ACTIONS_RUN_LOG
-              })
-            } catch (error) {
-              console.error(`Failed to deploy to staging: ${error.message}`)
-              console.error(error)
-              throw error
-            }
+        run: .github/actions-scripts/staging-commit-status-success.js
 
       - name: Mark the deployment as inactive if timed out
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d

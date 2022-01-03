@@ -1,9 +1,11 @@
 #!/usr/bin/env node
-import sleep from 'await-sleep'
 import got from 'got'
 import Heroku from 'heroku-client'
 import { setOutput } from '@actions/core'
 import createStagingAppName from './create-staging-app-name.js'
+
+// Equivalent of the 'await-sleep' module without the install
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25

@@ -4,57 +4,41 @@ name: Staging - Build PR
 # **Why we have it**: Because it's not safe to share our deploy secrets with forked repos: https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
 # **Who does it impact**: All contributors.
 
+# IT'S CRUCIALLY IMPORTANT THAT THIS WORKFLOW IS ONLY ENABLED IN docs!
+
 on:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-
-  # This is necessary so that the cached things can be reused between
-  # pull requests.
-  # If we don't let the workflow run on `main` the caching will only
-  # help between multiple runs of the same workflow. By letting
-  # it build on pushes to main too, the cache will be reusable
-  # in other people's PRs too.
-  push:
-    branches:
-      - main
 
 permissions:
   contents: read
 
-# This allows one Build workflow run to interrupt another
+# This allows a subsequently queued workflow run to interrupt previous runs
+# These are different from the concurrency in that here it checks if the
+# whole workflow runs again. The "inner concurrency" is used for
+# undeployments to cleaning up resources.
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label }}'
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump full context for debugging
-        run: |
-          cat << EOF
-          ${{ toJSON(github) }}
-          EOF
-
   build-pr:
-    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    # Important. This whole file is only supposed to run in the PUBLIC repo.
+    if: ${{ github.repository == 'github/docs' }}
+
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 5
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
     concurrency:
-      group: 'PR Staging @ ${{ github.event.pull_request.head.label }}'
+      group: 'PR Staging @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
       cancel-in-progress: true
     steps:
       - name: Check out repo
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       # Make sure only approved files are changed if it's in github/docs
       - name: Check changed files
-        if: ${{ github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger' }}
+        if: ${{ github.event.pull_request.user.login != 'Octomerger' }}
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
         id: filter
         with:
@@ -86,7 +70,7 @@ jobs:
         run: exit 1
 
       - name: Setup node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: 16.13.x
           cache: npm
@@ -102,7 +86,7 @@ jobs:
         uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
         with:
           path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}-${{ hashFiles('.github/workflows/staging-build-pr.yml') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
       - name: Build
         run: npm run build
@@ -116,15 +100,7 @@ jobs:
       - name: Set npm script for Heroku build to noop
         run: npm set-script heroku-postbuild "echo 'Application was pre-built!'"
 
-      - name: Delete heavy things we won't need deployed
-        run: |
-          # The dereferenced file is not used in runtime once the
-          # decorated file has been created from it.
-          rm -fr lib/rest/static/dereferenced
-
       - name: Create an archive
-        # Only bother if this is actually a pull request
-        if: ${{ github.event.pull_request.number }}
         run: |
           tar -c --file=app.tar \
             node_modules/ \
@@ -154,8 +130,6 @@ jobs:
       # We are not willing to trust the rest (e.g. script/) for the remainder
       # of the deployment process.
       - name: Upload build artifact
-        # Only bother if this is actually a pull request
-        if: ${{ github.event.pull_request.number }}
         uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074
         with:
           name: pr_build

@@ -2,7 +2,7 @@
 title: Best practices for integrators
 intro: 'Build an app that reliably interacts with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API and provides the best experience for your users.'
 redirect_from:
-  - /guides/best-practices-for-integrators/
+  - /guides/best-practices-for-integrators
   - /v3/guides/best-practices-for-integrators
 versions:
   fpt: '*'

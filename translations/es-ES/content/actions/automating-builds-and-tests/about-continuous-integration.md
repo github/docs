@@ -1,6 +1,6 @@
 ---
-title: Acerca de la integración continua
-intro: 'Con {% data variables.product.prodname_actions %}, puedes crear flujos de trabajo de integración continua (IC) directamente en tu repositorio de {% data variables.product.prodname_dotcom %}.'
+title: About continuous integration
+intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /articles/about-continuous-integration
   - /github/automating-your-workflow-with-github-actions/about-continuous-integration
@@ -15,47 +15,46 @@ versions:
 type: overview
 topics:
   - CI
-shortTitle: Integración continua
+shortTitle: Continuous integration
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## Acerca de la integración continua
+## About continuous integration
 
-La integración continua (CI) es una práctica de software que requiere la confirmación de código de forma periódica en un repositorio compartido. La confirmación de código con mayor frecuencia detecta errores más rápido y reduce la cantidad de código que un desarrollador necesita depurar al encontrar la fuente de un error. Las actualizaciones frecuentes de código facilitan también la fusión de cambios de diferentes miembros de un equipo de desarrollo de software. Esto es excelente para los desarrolladores, que pueden dedicar más tiempo a escribir código y menos tiempo a depurar errores o resolver conflictos de fusión.
+Continuous integration (CI) is a software practice that requires frequently committing code to a shared repository. Committing code more often detects errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts.
 
-Al confirmar el código en tu repositorio, puedes crear y probar el código continuamente para asegurarte de que la confirmación no introduzca errores. Tus pruebas pueden incluir limpiadores de código (que verifican el formato de estilo), verificaciones de seguridad, cobertura de código, pruebas funcionales y otras verificaciones personalizadas.
+When you commit code to your repository, you can continuously build and test the code to make sure that the commit doesn't introduce errors. Your tests can include code linters (which check style formatting), security checks, code coverage, functional tests, and other custom checks.
 
-Para crear y probar tu código es necesario un servidor. Puedes crear y probar las actualizaciones localmente antes de subir un código a un repositorio o puedes usar un servidor CI que verifique las nuevas confirmaciones de código en un repositorio.
+Building and testing your code requires a server. You can build and test updates locally before pushing code to a repository, or you can use a CI server that checks for new code commits in a repository.
 
-## Acerca de la integración continua utilizando {% data variables.product.prodname_actions %}
+## About continuous integration using {% data variables.product.prodname_actions %}
 
-{% ifversion ghae %}Tener una IC utilizando {% data variables.product.prodname_actions %} ofrece flujos de trabajo que pueden compilar el código en tu repositorio y ejecutar tus pruebas. Los flujos de trabajo pueden ejecutarse en máquinas virtuales que hospede {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Acerca de los {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/about-ae-hosted-runners)".
-{% else %} Tener una IC utilizando {% data variables.product.prodname_actions %} ofrece flujos de trabajo que pueden compilar el código de tu repositorio y ejecutar tus pruebas. Los flujos de trabajo pueden ejecutarse en máquinas virtuales hospedadas en {% data variables.product.prodname_dotcom %}, o en máquinas que hospedes tú mismo. Para obtener más información, consulta las secciones "[Ambientes virtuales para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" y "[Acerca de los ejecutores auto-hospedados](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
+{% ifversion ghae %}CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on runner systems that you host. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+{% else %} CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on {% data variables.product.prodname_dotcom %}-hosted virtual machines, or on machines that you host yourself. For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" and "[About self-hosted runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
 {% endif %}
 
-Puedes configurar tu flujo de trabajo de CI para que se ejecute cuando ocurre un evento {% data variables.product.prodname_dotcom %} (por ejemplo, cuando se sube un nuevo código a tu repositorio), en un horario establecido o cuando se produce un evento externo utilizando el webhook de despacho de repositorio.
+You can configure your CI workflow to run when a {% data variables.product.prodname_dotcom %} event occurs (for example, when new code is pushed to your repository), on a set schedule, or when an external event occurs using the repository dispatch webhook.
 
-{% data variables.product.product_name %} ejecuta tus pruebas de IC y proporciona los resultados de cada prueba en la solicitud de extracción para que puedas ver si el cambio en tu rama introduce un error. Cuando se superan todas las pruebas de CI en un flujo de trabajo, los cambios que subiste están listos para su revisión por parte de un miembro del equipo o para su fusión. Cuando una prueba falla, es posible que uno de tus cambios haya causado la falla.
+{% data variables.product.product_name %} runs your CI tests and provides the results of each test in the pull request, so you can see whether the change in your branch introduces an error. When all CI tests in a workflow pass, the changes you pushed are ready to be reviewed by a team member or merged. When a test fails, one of your changes may have caused the failure.
 
-Cuando configuras la IC en tu repositorio, {% data variables.product.product_name %} analiza el código en el mismo y recomienda flujos de trabajo de IC con base en el lenguaje y marco de trabajo de tu repositorio. Por ejemplo, si utilizas [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} te sugerirá un archivo de plantilla que instala tus paquetes de Node.js y ejecuta tus pruebas. Puedes utilizar la plantilla de flujo de trabajo de IC que {% data variables.product.product_name %} te sugiere, personalizarla, o crear tu propio archivo de flujo de trabajo personalizado para que ejecute tus pruebas de IC.
+When you set up CI in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends CI workflows based on the language and framework in your repository. For example, if you use [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} will suggest a template file that installs your Node.js packages and runs your tests. You can use the CI workflow template suggested by {% data variables.product.product_name %}, customize the suggested template, or create your own custom workflow file to run your CI tests.
 
-![Captura de pantalla de plantillas de integración continua sugeridas](/assets/images/help/repository/ci-with-actions-template-picker.png)
+![Screenshot of suggested continuous integration templates](/assets/images/help/repository/ci-with-actions-template-picker.png)
 
-Adicionalmente a ayudarte a configurar los flujos de trabajo de IC para tu proyecto, puedes utilizar las {% data variables.product.prodname_actions %} para crear flujos de trabajo através de todo el ciclo de vida de desarrollo de software. Por ejemplo, puedes usar acciones para implementar, empaquetar o lanzar tu proyecto. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_actions %}](/articles/about-github-actions)".
+In addition to helping you set up CI workflows for your project, you can use {% data variables.product.prodname_actions %} to create workflows across the full software development life cycle. For example, you can use actions to deploy, package, or release your project. For more information, see "[About {% data variables.product.prodname_actions %}](/articles/about-github-actions)."
 
-Para obtener una definición de términos comunes, consulta "[Conceptos básicos para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)."
+For a definition of common terms, see "[Core concepts for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)."
 
-## Plantillas de flujo de trabajo
+## Workflow templates
 
-{% data variables.product.product_name %} ofrece plantillas de flujo de trabajo de IC para varios lenguajes y marcos de trabajo.
+{% data variables.product.product_name %} offers CI workflow templates for a variety of languages and frameworks.
 
-Busca en la lista completa de plantillas de flujo de trabajo para IC que ofrece {% data variables.product.company_short %} en el repositorio [actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) de {% ifversion fpt or ghec %}{% else %} repositorio `actions/starter-workflows` en {% data variables.product.product_location %}{% endif %}.
+Browse the complete list of CI workflow templates offered by {% data variables.product.company_short %} in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
 
-## Leer más
+## Further reading
 
 {% ifversion fpt or ghec %}
-- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

@@ -14,8 +14,7 @@ header:
     ghes_release_notes_upgrade_release_only: '📣 这不是 Enterprise Server 的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。'
     ghes_release_notes_upgrade_patch_and_release: '📣 这不是此版本系列的<a href="#{{ latestPatch }}">最新修补版</a>，也不是 Enterprise Server 的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。'
 release_notes:
-  banner_text_current: 这些更改将在未来一周内推出。
-  banner_text_past: 这些更改将在下面一周期间部署到企业
+  banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: 需要帮助？
   placeholder: 搜索主题、产品......
@@ -30,6 +29,7 @@ toc:
   popular: 热门
   guides: 指南
   whats_new: 新增内容
+  videos: 视频
 pages:
   article_version: '文章版本'
   miniToc: 本文内容
@@ -53,7 +53,7 @@ survey:
   optional: 可选
   required: 必选
   email_placeholder: email@example.com
-  email_label: 如果有更多问题，我们能联系您吗？
+  email_label: If we can contact you with more questions, please enter your email address
   send: 发送​​
   feedback: 谢谢！我们收到了您的反馈。
   not_support: 如果您需要回复，请联系客服。
@@ -150,7 +150,7 @@ product_landing:
   upgrade_from: 升级自
   browse_all_docs: 浏览所有文档
   explore_release_notes: 浏览发行说明
-product_sublanding:
+product_guides:
   start: 开始
   start_path: 开始路径
   learning_paths: '{{ productMap[currentProduct].name }} 学习路径'

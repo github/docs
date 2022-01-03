@@ -85,8 +85,8 @@ async function run() {
     // - affected docs sets (not considering changes to data/assets)
     let numFiles = 0
     let numChanges = 0
-    let features = new Set([])
-    const files = data.item.files.nodes.forEach((node) => {
+    const features = new Set([])
+    data.item.files.nodes.forEach((node) => {
       numFiles += 1
       numChanges += node.additions
       numChanges += node.deletions

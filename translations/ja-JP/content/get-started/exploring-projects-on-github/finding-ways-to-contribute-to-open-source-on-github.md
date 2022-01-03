@@ -1,12 +1,12 @@
 ---
-title: GitHub でオープンソースにコントリビュートする方法を見つける
-intro: '自分に関連する {% data variables.product.product_location %} のオープンソースプロジェクトにコントリビュートする方法を見つけることができます。'
+title: Finding ways to contribute to open source on GitHub
+intro: 'You can find ways to contribute to open source projects on {% data variables.product.product_location %} that are relevant to you.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
-  - /articles/where-can-i-find-open-source-projects-to-work-on/
-  - /articles/finding-interesting-projects-on-github/
-  - /articles/about-official-github-mirrors/
-  - /articles/about-github-mirrors/
+  - /articles/where-can-i-find-open-source-projects-to-work-on
+  - /articles/finding-interesting-projects-on-github
+  - /articles/about-official-github-mirrors
+  - /articles/about-github-mirrors
   - /articles/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
@@ -18,22 +18,21 @@ topics:
   - Open Source
 shortTitle: Contribute to open source
 ---
+## Discovering relevant projects
 
-## 関連プロジェクトを発見する
+If there's a particular topic that interests you, visit `github.com/topics/<topic>`. For example, if you are interested in machine learning, you can find relevant projects and good first issues by visiting https://github.com/topics/machine-learning. You can browse popular topics by visiting [Topics](https://github.com/topics). You can also search for repositories that match a topic you're interested in. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories#search-by-topic)."
 
-興味のある特定の Topics がある場合は、`github.com/topics/<topic>` にアクセスしてください。 たとえば、機械学習に興味がある場合は、https://github.com/topics/machine-learning にアクセスして、関連するプロジェクトと good first issue を見つけることができます。 [[Topics](https://github.com/topics)] にアクセスすると、人気のある Topics を閲覧できます。 興味のある Topics に一致するリポジトリを検索することもできます。 詳しい情報については[リポジトリの検索](/search-github/searching-on-github/searching-for-repositories#search-by-topic)を参照してください。
+If you've been active on {% data variables.product.product_location %}, you can find personalized recommendations for projects and good first issues based on your past contributions, stars, and other activities in [Explore](https://github.com/explore). You can also sign up for the Explore newsletter to receive emails about opportunities to contribute to {% data variables.product.product_name %} based on your interests. To sign up, see [Explore email newsletter](https://github.com/explore/subscribe).
 
-{% data variables.product.product_location %} で積極的に活動している場合は、[Explore](https://github.com/explore) での過去のコントリビューション、Star、およびその他のアクティビティに基づいて、プロジェクトについての個別の推奨事項と good first issue を見つけることができます。 Explore ニュースレターにサインアップして、あなたの興味に基づいて {% data variables.product.product_name %} にコントリビュートする機会について記載されたメールを受け取ることもできます。 サインアップするには、「[Explore メールニュースレター](https://github.com/explore/subscribe)」を参照してください。
-
-パーソナルダッシュボードの [All activity] セクションで、Watch しているリポジトリやフォローしているユーザについての最新情報を入手できます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
+Keep up with recent activity from repositories you watch and people you follow in the "All activity" section of your personal dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
 {% data reusables.support.ask-and-answer-forum %}
 
-## good first issue を見つける
+## Finding good first issues
 
-作業するプロジェクトが既にわかっている場合は、[`github.com/<owner>/<repository>/contribute`] にアクセスして、そのリポジトリで初心者向けの Issue を見つけることができます。 たとえば、https://github.com/electron/electron/contribute で `electron/electron` に初めてコントリビュートする方法を見つけることができます。
+If you already know what project you want to work on, you can find beginner-friendly issues in that repository by visiting `github.com/<owner>/<repository>/contribute`. For an example, you can find ways to make your first contribution to `electron/electron` at https://github.com/electron/electron/contribute.
 
-## Issue を開くこと
+## Opening an issue
 
 If you encounter a bug in an open source project, check if the bug has already been reported. If the bug has not been reported, you can open an issue to report the bug according to the project's contribution guidelines.
 
@@ -42,7 +41,7 @@ If you encounter a bug in an open source project, check if the bug has already b
 There are a variety of ways that you can contribute to open source projects.
 
 ### Reproducing a reported bug
-You can contribute to an open source project by validating an issue or adding additional context to an existing issue.
+You can contribute to an open source project by validating an issue or adding additional context to an existing issue. 
 
 ### Testing a pull request
 You can contribute to an open source project by merging a pull request into your local copy of the project and testing the changes. Add the outcome of your testing in a comment on the pull request.
@@ -51,7 +50,7 @@ You can contribute to an open source project by merging a pull request into your
 You can contribute to an open source project by adding additional information to existing issues.
 
 
-## 参考リンク
+## Further reading
 
-- [Topics によるリポジトリの分類](/articles/classifying-your-repository-with-topics)
-- 「[Organization ダッシュボードについて](/articles/about-your-organization-dashboard)」
+- "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"
+- "[About your organization dashboard](/articles/about-your-organization-dashboard)"

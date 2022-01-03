@@ -1,6 +1,6 @@
 ---
-title: Xcode 開発用の macOS ランナーに Apple 証明書をインストールする
-intro: '{% data variables.product.prodname_actions %} ランナーに Apple コード署名証明書をインストールすることで、継続的インテグレーション (CI) ワークフロー内で Xcode アプリケーションに署名できます。'
+title: Installing an Apple certificate on macOS runners for Xcode development
+intro: 'You can sign Xcode apps within your continuous integration (CI) workflow by installing an Apple code signing certificate on {% data variables.product.prodname_actions %} runners.'
 redirect_from:
   - /actions/guides/installing-an-apple-certificate-on-macos-runners-for-xcode-development
   - /actions/deployment/installing-an-apple-certificate-on-macos-runners-for-xcode-development
@@ -18,62 +18,61 @@ shortTitle: Sign Xcode applications
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## はじめに
+## Introduction
 
-このガイドでは、Apple コード署名証明書とプロビジョニングプロファイルを {% data variables.product.prodname_actions %} ランナーにインストールする継続的インテグレーション (CI) ワークフローにステップを追加する方法を説明しています。 これにより、Xcode アプリケーションに署名して、Apple App Store に公開したり、テストグループに配布したりできるようになります。
+This guide shows you how to add a step to your continuous integration (CI) workflow that installs an Apple code signing certificate and provisioning profile on {% data variables.product.prodname_actions %} runners. This will allow you to sign your Xcode apps for publishing to the Apple App Store, or distributing it to test groups.
 
-## 必要な環境
+## Prerequisites
 
-YAMLと{% data variables.product.prodname_actions %}の構文に馴染んでいる必要があります。 詳しい情報については、以下を参照してください。
+You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
 
-- 「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」
-- [{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)
+- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
 
-Xcode アプリケーションのビルドと署名について理解しておく必要があります。 詳しい情報については、[Apple 開発者ドキュメント](https://developer.apple.com/documentation/)を参照してください。
+You should have an understanding of Xcode app building and signing. For more information, see the [Apple developer documentation](https://developer.apple.com/documentation/).
 
-## 証明書とプロビジョニングプロファイルのシークレットを作成する
+## Creating secrets for your certificate and provisioning profile
 
-署名プロセスには、証明書とプロビジョニングプロファイルの保存、それらのランナーへの転送、ランナーのキーチェーンへのインポート、およびビルドでの使用が含まれます。
+The signing process involves storing certificates and provisioning profiles, transferring them to the runner, importing them to the runner's keychain, and using them in your build.
 
-ランナーで証明書とプロビジョニングプロファイルを使用するには、{% data variables.product.prodname_dotcom %} シークレットを使用することを強くお勧めします。 シークレットの作成とワークフローでの使用の詳細については、「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
+To use your certificate and provisioning profile on a runner, we strongly recommend that you use {% data variables.product.prodname_dotcom %} secrets. For more information on creating secrets and using them in a workflow, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
-次のアイテムのシークレットをリポジトリまたは Organization に作成します。
+Create secrets in your repository or organization for the following items:
 
-* Apple の署名証明書。
+* Your Apple signing certificate.
 
-  - これは `p12` 証明書ファイルです。 Xcode から署名証明書をエクスポートする方法の詳細については、[Xcode のドキュメント](https://help.apple.com/xcode/mac/current/#/dev154b28f09)を参照してください。
+  - This is your `p12` certificate file. For more information on exporting your signing certificate from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/dev154b28f09).
+  
+  - You should convert your certificate to Base64 when saving it as a secret. In this example, the secret is named `BUILD_CERTIFICATE_BASE64`.
 
-  - 証明書をシークレットとして保存する場合は、証明書を Base64 に変換する必要があります。 この例では、シークレットの名前は `BUILD_CERTIFICATE_BASE64` です。
-
-  - 次のコマンドを使用して、証明書を Base64 に変換し、クリップボードにコピーします。
+  - Use the following command to convert your certificate to Base64 and copy it to your clipboard:
 
     ```shell
     base64 <em>build_certificate</em>.p12 | pbcopy
     ```
-* Apple 署名証明書のパスワード。
-  - この例では、シークレットの名前は `P12_PASSWORD` です。
+* The password for your Apple signing certificate.
+  - In this example, the secret is named `P12_PASSWORD`.
 
-* Apple プロビジョニングプロファイル。
+* Your Apple provisioning profile.
 
-  - Xcode からプロビジョニングプロファイルをエクスポートする方法の詳細については、[Xcode のドキュメント](https://help.apple.com/xcode/mac/current/#/deva899b4fe5)を参照してください。
+  - For more information on exporting your provisioning profile from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/deva899b4fe5).
 
-  - シークレットとして保存する場合は、プロビジョニングプロファイルを Base64 に変換する必要があります。 この例では、シークレットの名前は `BUILD_PROVISION_PROFILE_BASE64` です。
+  - You should convert your provisioning profile to Base64 when saving it as a secret. In this example, the secret is named `BUILD_PROVISION_PROFILE_BASE64`.
 
-  - 次のコマンドを使用して、プロビジョニングプロファイルを Base64 に変換し、クリップボードにコピーします。
-
+  - Use the following command to convert your provisioning profile to Base64 and copy it to your clipboard:
+  
     ```shell
     base64 <em>provisioning_profile.mobileprovision</em> | pbcopy
     ```
 
-* キーチェーンのパスワード。
+* A keychain password.
 
-  - ランナー上に新しいキーチェーンが作成されるため、新しいキーチェーンのパスワードは任意の新しいランダムな文字列にすることができます。 この例では、シークレットの名前は `KEYCHAIN_PASSWORD` です。
+  - A new keychain will be created on the runner, so the password for the new keychain can be any new random string. In this example, the secret is named `KEYCHAIN_PASSWORD`.
 
-## ワークフローにステップを追加する
+## Add a step to your workflow
 
-このワークフロー例には、{% data variables.product.prodname_dotcom %} シークレットから Apple 証明書とプロビジョニングプロファイルをインポートし、それらをランナーにインストールするステップが含まれています。
+This example workflow includes a step that imports the Apple certificate and provisioning profile from the {% data variables.product.prodname_dotcom %} secrets, and installs them on the runner.
 
 {% raw %}
 ```yaml{:copy}
@@ -120,13 +119,13 @@ jobs:
 ```
 {% endraw %}
 
-## セルフホストランナーに必要なクリーンアップ
+## Required clean-up on self-hosted runners
 
-{% data variables.product.prodname_dotcom %} ホストランナーは、ジョブの実行の最後に自動的に破棄される分離された仮想マシンです。 これは、ジョブ中にランナーで使用された証明書とプロビジョニングプロファイルが、ジョブの完了時にランナーとともに破棄されることを意味します。
+{% data variables.product.prodname_dotcom %}-hosted runners are isolated virtual machines that are automatically destroyed at the end of the job execution. This means that the certificates and provisioning profile used on the runner during the job will be destroyed with the runner when the job is completed.
 
-セルフホストランナーでは、ジョブの実行の最後に`$RUNNER_TEMP` ディレクトリがクリーンアップされますが、キーチェーンとプロビジョニングプロファイルがランナーにまだ存在している可能性があります。
+On self-hosted runners, the `$RUNNER_TEMP` directory is cleaned up at the end of the job execution, but the keychain and provisioning profile might still exist on the runner.
 
-セルフホストランナーを使用する場合は、ワークフローに最終ステップを追加して、ジョブの最後にこれらの機密ファイルが確実に削除されるようにする必要があります。 以下のワークフローステップは、これを行う方法の例です。
+If you use self-hosted runners, you should add a final step to your workflow to help ensure that these sensitive files are deleted at the end of the job. The workflow step shown below is an example of how to do this.
 
 {% raw %}
 ```yaml

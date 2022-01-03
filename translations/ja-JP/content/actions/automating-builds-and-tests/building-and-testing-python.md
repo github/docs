@@ -1,6 +1,6 @@
 ---
-title: Python のビルドとテスト
-intro: Pythonプロジェクトのビルドとテストのための継続的インテグレーション（CI）ワークフローを作成できます。
+title: Building and testing Python
+intro: You can create a continuous integration (CI) workflow to build and test your Python project.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-python-with-github-actions
   - /actions/language-and-framework-guides/using-python-with-github-actions
@@ -21,32 +21,32 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## はじめに
+## Introduction
 
-このガイドは、Pythonパッケージのビルド、テスト、公開の方法を紹介します。
+This guide shows you how to build, test, and publish a Python package.
 
-{% ifversion ghae %}{% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
-{% else %} {% data variables.product.prodname_dotcom %} ホストランナーには、Python および PyPy などのソフトウェアがプリインストールされたツールキャッシュがあります。 自分では何もインストールする必要がありません！ 最新のソフトウェアと、Python および PyPy のプリインストールされたバージョンの完全なリストについては、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
+{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-## 必要な環境
+## Prerequisites
 
-YAMLと{% data variables.product.prodname_actions %}の構文に馴染んでいる必要があります。 詳しい情報については、「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」を参照してください。
+You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-Python、PyPy、pipの基本的な理解をしておくことをおすすめします。 詳しい情報については、以下を参照してください。
+We recommend that you have a basic understanding of Python, PyPy, and pip. For more information, see:
 - [Getting started with Python](https://www.python.org/about/gettingstarted/)
 - [PyPy](https://pypy.org/)
 - [Pip package manager](https://pypi.org/project/pip/)
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Pythonワークフローテンプレートでの開始
+## Starting with the Python workflow template
 
-{% data variables.product.prodname_dotcom %}は、ほとんどのPythonプロジェクトで使えるPythonのワークフローテンプレートを提供しています。 このガイドには、テンプレートのカスタマイズに利用できる例が含まれます。 詳しい情報については、「[Python のワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml)」を参照してください。
+{% data variables.product.prodname_dotcom %} provides a Python workflow template that should work for most Python projects. This guide includes examples that you can use to customize the template. For more information, see the [Python workflow template](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
-手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
+To get started quickly, add the template to the `.github/workflows` directory of your repository.
 
 {% raw %}
 ```yaml{:copy}
@@ -77,7 +77,7 @@ jobs:
         run: |
           # stop the build if there are Python syntax errors or undefined names
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          # exit-zero はすべてのエラーを警告として扱う。 GitHub エディタの幅は 127 文字
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest
         run: |
@@ -85,25 +85,25 @@ jobs:
 ```
 {% endraw %}
 
-## Pythonのバージョンの指定
+## Specifying a Python version
 
-{% data variables.product.prodname_dotcom %}ホストランナー上でPythonもしくはPyPyのプリインストールされたバージョンを使うには、`setup-python`アクションを使ってください。 このアクションは各ランナーのツールキャッシュから指定されたバージョンのPythonもしくはPyPyを見つけ、必要なバイナリを`PATH`に追加します。設定されたバイナリは、ジョブでそれ以降永続化されます。 特定のバージョンの Python がツールキャッシュにプリインストールされていない場合、`setup-python` アクションは [`python-versions`](https://github.com/actions/python-versions) リポジトリから適切なバージョンをダウンロードして設定します。
+To use a pre-installed version of Python or PyPy on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `setup-python` action. This action finds a specific version of Python or PyPy from the tools cache on each runner and adds the necessary binaries to `PATH`, which persists for the rest of the job. If a specific version of Python is not pre-installed in the tools cache, the `setup-python` action will download and set up the appropriate version from the [`python-versions`](https://github.com/actions/python-versions) repository.
 
-`setup-action`の利用は、{% data variables.product.prodname_actions %}でPythonを使うための推奨される方法です。 これは、そうすることで様々なランナーや様々なバージョンのPythonで一貫した振る舞いが保証されるためです。 セルフホストランナーを使っている場合は、Pythonをインストールして`PATH`に追加しなければなりません。 詳しい情報については、[`setup-python`アクション](https://github.com/marketplace/actions/setup-python)を参照してください。
+Using the `setup-python` action is the recommended way of using Python with {% data variables.product.prodname_actions %} because it ensures consistent behavior across different runners and different versions of Python. If you are using a self-hosted runner, you must install Python and add it to `PATH`. For more information, see the [`setup-python` action](https://github.com/marketplace/actions/setup-python).
 
-以下の表は、各{% data variables.product.prodname_dotcom %}ホストランナー内でのツールキャッシュの場所です。
+The table below describes the locations for the tools cache in each {% data variables.product.prodname_dotcom %}-hosted runner.
 
-|                    | Ubuntu                          | Mac                                      | Windows                                    |
-| ------------------ | ------------------------------- | ---------------------------------------- | ------------------------------------------ |
-| **ツールキャッシュディレクトリ** | `/opt/hostedtoolcache/*`        | `/Users/runner/hostedtoolcache/*`        | `C:\hostedtoolcache\windows\*`         |
-| **Pythonツールキャッシュ** | `/opt/hostedtoolcache/Python/*` | `/Users/runner/hostedtoolcache/Python/*` | `C:\hostedtoolcache\windows\Python\*` |
-| **PyPyツールキャッシュ**   | `/opt/hostedtoolcache/PyPy/*`   | `/Users/runner/hostedtoolcache/PyPy/*`   | `C:\hostedtoolcache\windows\PyPy\*`   |
+|| Ubuntu | Mac | Windows |
+|------|-------|------|----------|
+|**Tool Cache Directory** |`/opt/hostedtoolcache/*`|`/Users/runner/hostedtoolcache/*`|`C:\hostedtoolcache\windows\*`|
+|**Python Tool Cache**|`/opt/hostedtoolcache/Python/*`|`/Users/runner/hostedtoolcache/Python/*`|`C:\hostedtoolcache\windows\Python\*`|
+|**PyPy Tool Cache**|`/opt/hostedtoolcache/PyPy/*`|`/Users/runner/hostedtoolcache/PyPy/*`|`C:\hostedtoolcache\windows\PyPy\*`|
 
-セルフホストランナーを使用している場合は、`setup-python` アクションを使用して依存関係を管理するようにランナーを設定できます。 詳しい情報については、`setup-python` の README にある「[セルフホストランナーで setup-python を使用する](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner)」を参照してください。
+If you are using a self-hosted runner, you can configure the runner to use the `setup-python` action to manage your dependencies. For more information, see [using setup-python with a self-hosted runner](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner) in the `setup-python` README.
 
-{% data variables.product.prodname_dotcom %}は、セマンティックバージョン構文をサポートしています。 詳しい情報については「[セマンティックバージョンの利用](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)」及び「[セマンティックバージョンの仕様](https://semver.org/)」を参照してください。
+{% data variables.product.prodname_dotcom %} supports semantic versioning syntax. For more information, see "[Using semantic versioning](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)" and the "[Semantic versioning specification](https://semver.org/)."
 
-### Pythonの複数バージョンの利用
+### Using multiple Python versions
 
 {% raw %}
 ```yaml{:copy}
@@ -116,7 +116,7 @@ jobs:
 
     runs-on: ubuntu-latest
     strategy:
-      # python-version内のPyPyのバージョンが利用できる。
+      # You can use PyPy versions in python-version.
       # For example, pypy2 and pypy3
       matrix:
         python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
@@ -133,9 +133,9 @@ jobs:
 ```
 {% endraw %}
 
-### 　特定のバージョンのPythonの利用
+### Using a specific Python version
 
-Pythonの特定バージョンを設定することができます。 たとえば3.8が利用できます。 あるいは、最新のマイナーリリースを取得するためにセマンティックバージョン構文を使うこともできます。 以下の例では、Python 3の最新のマイナーリリースを使います。
+You can configure a specific version of python. For example, 3.8. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
 
 {% raw %}
 ```yaml{:copy}
@@ -153,21 +153,21 @@ jobs:
       - name: Set up Python 3.x
         uses: actions/setup-python@v2
         with:
-          # セマンティックバージョン範囲の構文または Python バージョンの正確なバージョン
+          # Semantic version range syntax or exact version of a Python version
           python-version: '3.x'
           # Optional - x64 or x86 architecture, defaults to x64
           architecture: 'x64'
-      # 現在の Python バージョンを出力してマトリックスをテスト可能
+      # You can test your matrix by printing the current Python version
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
 ```
 {% endraw %}
 
-### バージョンの除外
+### Excluding a version
 
-使用できないPythonのバージョンを指定すると、`setup-python`は`##[error]Version 3.4 with arch x64 not found`といったエラーで失敗します。 このエラーメッセージには、利用できるバージョンが含まれます。
+If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.4 with arch x64 not found`. The error message includes the available versions.
 
-実行したくないPythonの環境があるなら、ワークフロー中で`exclude`キーワードを使うこともできます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)」を参照してください。
+You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)."
 
 {% raw %}
 ```yaml{:copy}
@@ -191,21 +191,21 @@ jobs:
 ```
 {% endraw %}
 
-### デフォルトバージョンのPythonの利用
+### Using the default Python version
 
-依存関係を明示的にしやすくなるので、ワークフロー中で使うPythonのバージョンの設定には`setup-python`を使うことをおすすめします。 `setup-python`を使わない場合、いずれかのシェルで`python`を呼ぶと`PATH`に設定されたデフォルトバージョンのPythonが使われます。 デフォルトバージョンのPythonは、{% data variables.product.prodname_dotcom %}ホストランナーによって様々なので、予想外の変更が生じたり、期待しているよりも古いバージョンが使われたりするかもしれません。
+We recommend using `setup-python` to configure the version of Python used in your workflows because it helps make your dependencies explicit. If you don't use `setup-python`, the default version of Python set in `PATH` is used in any shell when you call `python`. The default version of Python varies between {% data variables.product.prodname_dotcom %}-hosted runners, which may cause unexpected changes or use an older version than expected.
 
-| {% data variables.product.prodname_dotcom %}ホストランナー | 説明                                                                                                                                                                                                               |
-| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ubuntu                                              | Ubuntuランナーでは`/usr/bin/python`及び`/usr/bin/python3`の下に複数バージョンのシステムPythonがあります。 {% data variables.product.prodname_dotcom %}がツールキャッシュにインストールしエチルバージョンに加えて、UbuntuにパッケージングされているバージョンのPythonがあります。                     |
-| Windows                                             | ツールキャッシュにあるPythonのバージョンを除けば、WindowsにはシステムPythonに相当するバージョンは含まれていません。 他のランナーとの一貫した動作を保ち、`setup-python`アクションなしですぐにPythonが使えるようにするため、{% data variables.product.prodname_dotcom %}はツールキャッシュからいくつかのバージョンを`PATH`に追加します。 |
-| macOS                                               | macOSランナーには、ツールキャッシュ内のバージョンに加えて、複数バージョンのシステムPythonがインストールされています。 システムのPythonバージョンは`/usr/local/Cellar/python/*`mディレクトリにあります。                                                                                      |
+| {% data variables.product.prodname_dotcom %}-hosted runner | Description |
+|----|----|
+| Ubuntu | Ubuntu runners have multiple versions of system Python installed under `/usr/bin/python` and `/usr/bin/python3`. The Python versions that come packaged with Ubuntu are in addition to the versions that {% data variables.product.prodname_dotcom %} installs in the tools cache. |
+| Windows | Excluding the versions of Python that are in the tools cache, Windows does not ship with an equivalent version of system Python. To maintain consistent behavior with other runners and to allow Python to be used out-of-the-box without the `setup-python` action, {% data variables.product.prodname_dotcom %} adds a few versions from the tools cache to `PATH`.|
+| macOS | The macOS runners have more than one version of system Python installed, in addition to the versions that are part of the tools cache. The system Python versions are located in the `/usr/local/Cellar/python/*` directory. |
 
-## 依存関係のインストール
+## Installing dependencies
 
-{% data variables.product.prodname_dotcom %}ホストランナーには、パッケージマネージャーのpipがインストールされています。 コードのビルドとテストに先立って、pipを使ってパッケージレジストリのPyPIから依存関係をインストールできます。 たとえば以下のYAMLは`pip`パッケージインストーラーと`setuptools`及び`wheel`パッケージのインストールやアップグレードを行います。
+{% data variables.product.prodname_dotcom %}-hosted runners have the pip package manager installed. You can use pip to install dependencies from the PyPI package registry before building and testing your code. For example, the YAML below installs or upgrades the `pip` package installer and the `setuptools` and `wheel` packages.
 
-{% data variables.product.prodname_dotcom %}ホストランナーを使用する場合、依存関係をキャッシュしてワークフローの実行を高速化することもできます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 {% raw %}
 ```yaml{:copy}
@@ -220,9 +220,9 @@ steps:
 ```
 {% endraw %}
 
-### Requirementsファイル
+### Requirements file
 
-`pip`をアップデートした後、次の典型的なステップは*requirements.txt*からの依存関係のインストールです。 For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
+After you update `pip`, a typical next step is to install dependencies from *requirements.txt*. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
 
 {% raw %}
 ```yaml{:copy}
@@ -239,48 +239,34 @@ steps:
 ```
 {% endraw %}
 
-### 依存関係のキャッシング
+### Caching Dependencies
 
-{% data variables.product.prodname_dotcom %} ホストランナーを使用する場合、一意のキーを使用してpipの依存関係をキャッシュし、[`cache`](https://github.com/marketplace/actions/cache)アクションを使用して将来のワークフローを実行するときに依存関係を復元できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache and restore the dependencies using the [`setup-python` action](https://github.com/actions/setup-python).
 
-ランナーのオペレーティングシステムによって、pipは依存関係を様々な場所にキャッシュします。 キャッシュする必要があるパスは、使用するオペレーティングシステムによって以下のUbuntuの例とは異なるかもしれません。 詳しい情報については、「[Python のキャッシングの例](https://github.com/actions/cache/blob/main/examples.md#python---pip)」を参照してください。
+The following example caches dependencies for pip.
 
-{% raw %}
 ```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
-- name: Setup Python
-  uses: actions/setup-python@v2
+- uses: actions/setup-python@v2
   with:
-    python-version: '3.x'
-- name: Cache pip
-  uses: actions/cache@v2
-  with:
-    # このパスは Ubuntu に固有です
-    path: ~/.cache/pip
-    # 対応する要件ファイルにキャッシュヒットがあるかどうかを確認する
-    key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-    restore-keys: |
-      ${{ runner.os }}-pip-
-      ${{ runner.os }}-
-- name: Install dependencies
-  run: pip install -r requirements.txt
+    python-version: '3.9'
+    cache: 'pip'
+- run: pip install -r requirements.txt
+- run: pip test
 ```
-{% endraw %}
 
-{% note %}
+By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip or `Pipfile.lock` for pipenv) in the whole repository. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching packages dependencies</a>" in the `setup-python` actions README. 
 
-**ノート：** 依存関係の数によっては、依存関係キャッシュを使う方が高速になることがあります。 多くの大きな依存関係を持つプロジェクトでは、ダウンロードに必要な時間を節約できるので、パフォーマンスの向上が見られるでしょう。 依存関係が少ないプロジェクトでは、大きなパフォーマンスの向上は見られないかもしれず、pipがキャッシュされた依存関係をインストールする方法のために、パフォーマンスがやや低下さえするかもしれません。 パフォーマンスはプロジェクトによって異なります。
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example above, depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip) in the `cache` action repository.
 
-{% endnote %}
+## Testing your code
 
-## コードのテスト
+You can use the same commands that you use locally to build and test your code.
 
-ローカルで使うのと同じコマンドを、コードのビルドとテストに使えます。
+### Testing with pytest and pytest-cov
 
-### pytest及びpytest-covでのテスト
-
-以下の例では、`pytest`及び`pytest-cov`をインストールあるいはアップグレードします。 そしてテストが実行され、JUnit形式で出力が行われ、一方でコードカバレッジの結果がCoberturaに出力されます。 詳しい情報については[JUnit](https://junit.org/junit5/)及び[Cobertura](https://cobertura.github.io/cobertura/)を参照してください。
+This example installs or upgrades `pytest` and `pytest-cov`. Tests are then run and output in JUnit format while code coverage results are output in Cobertura. For more information, see [JUnit](https://junit.org/junit5/) and [Cobertura](https://cobertura.github.io/cobertura/).
 
 {% raw %}
 ```yaml{:copy}
@@ -302,9 +288,9 @@ steps:
 ```
 {% endraw %}
 
-### Flake8を使ったコードのlint
+### Using Flake8 to lint code
 
-以下の例は、`flake8`をインストールもしくはアップグレードし、それを使ってすべてのファイルをlintします。 詳しい情報については[Flake8](http://flake8.pycqa.org/en/latest/)を参照してください。
+The following example installs or upgrades `flake8` and uses it to lint all files. For more information, see [Flake8](http://flake8.pycqa.org/en/latest/).
 
 {% raw %}
 ```yaml{:copy}
@@ -328,9 +314,9 @@ steps:
 
 The linting step has `continue-on-error: true` set. This will keep the workflow from failing if the linting step doesn't succeed. Once you've addressed all of the linting errors, you can remove this option so the workflow will catch new issues.
 
-### toxでのテストの実行
+### Running tests with tox
 
-{% data variables.product.prodname_actions %}では、toxでテストを実行し、その処理を複数のジョブに分散できます。 toxを起動する際には、特定のバージョンを指定するのではなく、`-e py`オプションを使って`PATH`中のPythonのバージョンを選択しなければなりません。 詳しい情報については [tox](https://tox.readthedocs.io/en/latest/)を参照してください。
+With {% data variables.product.prodname_actions %}, you can run tests with tox and spread the work across multiple jobs. You'll need to invoke tox using the `-e py` option to choose the version of Python in your `PATH`, rather than specifying a specific version. For more information, see [tox](https://tox.readthedocs.io/en/latest/).
 
 {% raw %}
 ```yaml{:copy}
@@ -360,11 +346,11 @@ jobs:
 ```
 {% endraw %}
 
-## 成果物としてのワークフローのデータのパッケージ化
+## Packaging workflow data as artifacts
 
-ワークフローの完了後に、成果物をアップロードして見ることができます。 たとえば、ログファイル、コアダンプ、テスト結果、スクリーンショットを保存する必要があるかもしれません。 詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
+You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-以下の例は、`upload-artifact`アクションを使って`pytest`の実行によるテスト結果をアーカイブする方法を示しています。 詳しい情報については[`upload-artifact`アクション](https://github.com/actions/upload-artifact)を参照してください。
+The following example demonstrates how you can use the `upload-artifact` action to archive test results from running `pytest`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
 
 {% raw %}
 ```yaml{:copy}
@@ -403,11 +389,11 @@ jobs:
 ```
 {% endraw %}
 
-## パッケージレジストリへの公開
+## Publishing to package registries
 
-You can configure your workflow to publish your Python package to a package registry once your CI tests pass. This section demonstrates how you can use {% data variables.product.prodname_actions %} to upload your package to PyPI each time you [publish a release](/github/administering-a-repository/managing-releases-in-a-repository).
+You can configure your workflow to publish your Python package to a package registry once your CI tests pass. This section demonstrates how you can use {% data variables.product.prodname_actions %} to upload your package to PyPI each time you [publish a release](/github/administering-a-repository/managing-releases-in-a-repository). 
 
-For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. 詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -440,4 +426,4 @@ jobs:
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
 
-テンプレートワークフローに関する詳しい情報については、「[`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml)」を参照してください。
+For more information about the template workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

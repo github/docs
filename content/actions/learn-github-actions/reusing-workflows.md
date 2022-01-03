@@ -15,13 +15,12 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Overview
 
-Rather than copying and pasting from one workflow to another, you can make workflows reusable. You and anyone with access to the reusable workflow can then call the reusable workflow from another workflow. 
+Rather than copying and pasting from one workflow to another, you can make workflows reusable. You and anyone with access to the reusable workflow can then call the reusable workflow from another workflow.
 
-Reusing workflows avoids duplication. This makes workflows easier to maintain and allows you to create new workflows more quickly by building on the work of others, just as you do with actions. Workflow reuse also promotes best practice by helping you to use workflows that are well designed, have already been tested, and have been proved to be effective. Your organization can build up a library of reusable workflows that can be centrally maintained. 
+Reusing workflows avoids duplication. This makes workflows easier to maintain and allows you to create new workflows more quickly by building on the work of others, just as you do with actions. Workflow reuse also promotes best practice by helping you to use workflows that are well designed, have already been tested, and have been proved to be effective. Your organization can build up a library of reusable workflows that can be centrally maintained.
 
 The diagram below shows three build jobs on the left of the diagram. After each of these jobs completes successfully a dependent job called "Deploy" runs. This job calls a reusable workflow that contains three jobs: "Staging", "Review", and "Production." The "Production" deployment job only runs after the "Staging" job has completed successfully. Using a reusable workflow to run deployment jobs allows you to run those jobs for each build without duplicating code in workflows.
 
@@ -33,11 +32,11 @@ If you reuse a workflow from a different repository, any actions in the called w
 
 When a reusable workflow is triggered by a caller workflow, the `github` context is always associated with the caller workflow. The called workflow is automatically granted access to `github.token` and `secrets.GITHUB_TOKEN`. For more information about the `github` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
 
-### Reusable workflows and workflow templates
+### Reusable workflows and starter workflow
 
-Workflow templates allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When people create a new workflow, they can choose a template and some or all of the work of writing the workflow will be done for them. Inside workflow templates, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code. If you use a tag or branch name when referencing the reusable workflow then you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)."
+Starter workflow allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When people create a new workflow, they can choose a starter workflow and some or all of the work of writing the workflow will be done for them. Inside starter workflow, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code. If you use a tag or branch name when referencing the reusable workflow then you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)."
 
-For more information, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."
+For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
 
 ## Access to reusable workflows
 
@@ -49,16 +48,15 @@ A reusable workflow can be used by another workflow if {% ifversion ghes or ghec
 
 ## Using runners
 
+{% ifversion fpt or ghes or ghec %}
+
 ### Using GitHub-hosted runners
 
-{% ifversion fpt or ghes or ghec %}
 The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. Billing for {% data variables.product.prodname_dotcom %}-hosted runners is always associated with the caller. The caller workflow cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
-{% endif %}
-{% ifversion ghae %}
-The assignment of {% data variables.actions.hosted_runner %}s is always evaluated using only the caller's context. Billing for {% data variables.actions.hosted_runner %}s is always associated with the caller. The caller cannot use {% data variables.actions.hosted_runner %}s from the called repository. For more information, see "[About {% data variables.actions.hosted_runner %}s](/github-ae@latest/actions/using-github-hosted-runners/about-ae-hosted-runners)."
-{% endif %}
 
 ### Using self-hosted runners
+
+{% endif %}
 
 Called workflows can access self-hosted runners from caller's context. This means that a called workflow can access self-hosted runners that are:
 * In the caller repository
@@ -69,7 +67,7 @@ Called workflows can access self-hosted runners from caller's context. This mean
 * Reusable workflows can't call other reusable workflows.
 * Reusable workflows stored within a private repository can only be used by workflows within the same repository.
 * Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information about the `env` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)."
-* You can't set the concurrency of a called workflow from the caller workflow. For more information about `jobs.<job_id>.concurrency`, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency)."
+* The `strategy` property is not supported in any job that calls a reusable workflow.
 
 ## Creating a reusable workflow
 
@@ -78,13 +76,13 @@ Reusable workflows are YAML-formatted files, very similar to any other workflow 
 For a workflow to be reusable, the values for `on` must include `workflow_call`:
 
 ```yaml
-on: 
+on:
   workflow_call:
 ```
 
 ### Using inputs and secrets in a reusable workflow
 
-You can define inputs and secrets, which can be passed from the caller workflow and then used within the called workflow. There are three stages to using an input or a secret in a reusable workflow. 
+You can define inputs and secrets, which can be passed from the caller workflow and then used within the called workflow. There are three stages to using an input or a secret in a reusable workflow.
 
 1. In the reusable workflow, use the `inputs` and `secrets` keywords to define inputs or secrets that will be passed from a caller workflow.
    {% raw %}
@@ -113,10 +111,10 @@ You can define inputs and secrets, which can be passed from the caller workflow 
          - uses: ./.github/actions/my-action@v1
            with:
              username: ${{ inputs.username }}
-             token: ${{ secrets.envPAT }}      
+             token: ${{ secrets.envPAT }}
    ```
    {% endraw %}
-   In the example above, `envPAT` is an environment secret that's been added to the `production` environment. This environment is therefore referenced within the job. 
+   In the example above, `envPAT` is an environment secret that's been added to the `production` environment. This environment is therefore referenced within the job.
 
    {% note %}
 
@@ -154,7 +152,7 @@ jobs:
       - uses: ./.github/actions/my-action@v1
         with:
           username: ${{ inputs.username }}
-          token: ${{ secrets.token }}      
+          token: ${{ secrets.token }}
 ```
 {% endraw %}
 
@@ -164,7 +162,7 @@ You call a reusable workflow by using the `uses` keyword. Unlike when you are us
 
 [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 
-You reference reusable workflow files using the syntax: 
+You reference reusable workflow files using the syntax:
 
 `{owner}/{repo}/{path}/{filename}@{ref}`
 
@@ -192,7 +190,7 @@ When you call a reusable workflow, you can only use the following keywords in th
 
    {% note %}
 
-   **Note:** 
+   **Note:**
 
    * If `jobs.<job_id>.permissions` is not specified in the calling job, the called workflow will have the default permissions for the `GITHUB_TOKEN`. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
    * The `GITHUB_TOKEN` permissions passed from the caller workflow can be only downgraded (not elevated) by the called workflow.
@@ -227,7 +225,7 @@ jobs:
 
 ## Using outputs from a reusable workflow
 
-A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow. 
+A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow.
 
 The following reusable workflow has a single job containing two steps. In each of these steps we set a single word as the output: "hello" and "world." In the `outputs` section of the job, we map these step outputs to job outputs called: `output1` and `output2`. In the `on.workflow_call.outputs` section we then define two outputs for the workflow itself, one called `firstword` which we map to `output1`, and one called `secondword` which we map to `output2`.
 
@@ -244,12 +242,12 @@ on:
         value: ${{ jobs.example_job.outputs.output1 }}
       secondword:
         description: "The second output string"
-        value: ${{ jobs.example_job.outputs.output2 }}  
-  
+        value: ${{ jobs.example_job.outputs.output2 }}
+
 jobs:
   example_job:
     name: Generate output
-    runs-on: ubuntu-latest   
+    runs-on: ubuntu-latest
     # Map the job outputs to step outputs
     outputs:
       output1: ${{ steps.step1.outputs.firstword }}

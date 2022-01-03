@@ -1,12 +1,10 @@
 ---
 title: Enforcing SAML single sign-on for your organization
 intro: Organization owners and admins can enforce SAML SSO so that all organization members must authenticate via an identity provider (IdP).
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enforcing-saml-single-sign-on-for-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

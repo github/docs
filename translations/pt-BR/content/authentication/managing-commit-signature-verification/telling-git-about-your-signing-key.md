@@ -1,8 +1,8 @@
 ---
-title: Informar ao Git sobre a chave de assinatura
-intro: 'Para assinar commits localmente, você precisa informar ao Git que há uma chave GPG ou X.509 que você gostaria de usar.'
+title: Telling Git about your signing key
+intro: 'To sign commits locally, you need to inform Git that there''s a GPG or X.509 key you''d like to use.'
 redirect_from:
-  - /articles/telling-git-about-your-gpg-key/
+  - /articles/telling-git-about-your-gpg-key
   - /articles/telling-git-about-your-signing-key
   - /github/authenticating-to-github/telling-git-about-your-signing-key
   - /github/authenticating-to-github/managing-commit-signature-verification/telling-git-about-your-signing-key
@@ -14,33 +14,32 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Informe ao Git sua chave de assinatura
+shortTitle: Tell Git your signing key
 ---
-
 {% mac %}
 
-## Informar ao Git sobre a chave GPG
+## Telling Git about your GPG key
 
-Se você estiver usando uma chave GPG que corresponde à sua identidade do autor do submissão e ao endereço de e-mail verificado associado à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá começar a assinar commits e tags.
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 
-Se você não tiver uma chave GPG que corresponda à identidade do committer, precisará associar um e-mail a uma chave existente. Para obter mais informações, consulte "[Associar e-mail à chave GPG](/articles/associating-an-email-with-your-gpg-key)".
+If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
-Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usada.
+If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. Se você não estiver usando o pacote GPG, execute o comando a seguir no shell do `zsh` para adicionar a chave GPG ao seu arquivo `.zshrc`, se ele existir, ou seu arquivo `.zprofile`:
+1. If you aren't using the GPG suite, run the following command in the `zsh` shell to add the GPG key to your `.zshrc` file, if it exists, or your `.zprofile` file:
   ```shell
   $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi
   ```
-  Como alternativa, se você usar o shall de `bash`, execute este comando:
+  Alternatively, if you use the `bash` shell, run this command:
   ```shell
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
@@ -52,17 +51,17 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 
 {% windows %}
 
-## Informar ao Git sobre a chave GPG
+## Telling Git about your GPG key
 
-Se você estiver usando uma chave GPG que corresponde à sua identidade do autor do submissão e ao endereço de e-mail verificado associado à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá começar a assinar commits e tags.
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 
-Se você não tiver uma chave GPG que corresponda à identidade do committer, precisará associar um e-mail a uma chave existente. Para obter mais informações, consulte "[Associar e-mail à chave GPG](/articles/associating-an-email-with-your-gpg-key)".
+If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
-Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usada.
+If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.list-keys-with-note %}
@@ -75,41 +74,41 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 
 {% linux %}
 
-## Informar ao Git sobre a chave GPG
+## Telling Git about your GPG key
 
-Se você estiver usando uma chave GPG que corresponde à sua identidade do autor do submissão e ao endereço de e-mail verificado associado à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá começar a assinar commits e tags.
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 
-Se você não tiver uma chave GPG que corresponda à identidade do committer, precisará associar um e-mail a uma chave existente. Para obter mais informações, consulte "[Associar e-mail à chave GPG](/articles/associating-an-email-with-your-gpg-key)".
+If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
-Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usada.
+If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. Para adicionar a sua chave GPG ao seu perfil bash, execute o seguinte comando:
+1. To add your GPG key to your bash profile, run the following command:
   ```shell
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
   {% note %}
 
-  **Observação:** se você não tiver `.bash_profile`, este comando adicionará sua chave GPG a `.profile`.
+  **Note:** If you don't have `.bash_profile`, this command adds your GPG key to `.profile`.
 
   {% endnote %}
 
 {% endlinux %}
 
-## Leia mais
+## Further reading
 
-- "[Verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
-- "[Gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)"
-- "[Usar um endereço de e-mail verificado na chave GPG](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adicionar uma nova chave GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
-- "[Associar um e-mail à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)"
-- "[Assinar commits](/articles/signing-commits)"
-- "[Assinar tags](/articles/signing-tags)"
+- "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
+- "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
+- "[Using a verified email address in your GPG key](/articles/using-a-verified-email-address-in-your-gpg-key)"
+- "[Adding a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
+- "[Signing commits](/articles/signing-commits)"
+- "[Signing tags](/articles/signing-tags)"

@@ -1,14 +1,14 @@
 ---
-title: Portas de rede
+title: Network ports
 redirect_from:
-  - /enterprise/admin/articles/configuring-firewalls/
-  - /enterprise/admin/articles/firewall/
-  - /enterprise/admin/guides/installation/network-configuration/
-  - /enterprise/admin/guides/installation/network-ports-to-open/
+  - /enterprise/admin/articles/configuring-firewalls
+  - /enterprise/admin/articles/firewall
+  - /enterprise/admin/guides/installation/network-configuration
+  - /enterprise/admin/guides/installation/network-ports-to-open
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports
-intro: 'Abra as portas de rede seletivamente com base nos serviços que você precisa expor para administradores, usuários finais e suporte por e-mail.'
+intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
 versions:
   ghes: '*'
 type: reference
@@ -18,37 +18,36 @@ topics:
   - Networking
   - Security
 ---
+## Administrative ports
 
-## Portas administrativas
+Some administrative ports are required to configure {% data variables.product.product_location %} and run certain features. Administrative ports are not required for basic application use by end users.
 
-Certas portas administrativas são obrigatórias para configurar a {% data variables.product.product_location %} e executar determinados recursos. Não é preciso haver portas administrativas para os usuários finais aproveitarem os recursos básicos do aplicativo.
+| Port | Service | Description |
+|---|---|---|
+| 8443 | HTTPS | Secure web-based {% data variables.enterprise.management_console %}. Required for basic installation and configuration. |
+| 8080 | HTTP | Plain-text web-based {% data variables.enterprise.management_console %}. Not required unless SSL is disabled manually. |
+| 122 | SSH | Shell access for {% data variables.product.product_location %}. Required to be open to incoming connections between all nodes in a high availability configuration. The default SSH port (22) is dedicated to Git and SSH application network traffic. |
+| 1194/UDP | VPN | Secure replication network tunnel in high availability configuration. Required to be open for communication between all nodes in the configuration.|
+| 123/UDP| NTP | Required for time protocol operation. |
+| 161/UDP | SNMP | Required for network monitoring protocol operation. |
 
-| Porta    | Serviço | Descrição                                                                                                                                                                                                                                                             |
-| -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 8443     | HTTPS   | {% data variables.enterprise.management_console %} seguro na web. Obrigatória para instalação e configuração básicas.                                                                                                                                                 |
-| 8080     | HTTP    | {% data variables.enterprise.management_console %} de texto simples na web. Não é obrigatória, a menos que o SSL seja desativado manualmente.                                                                                                                         |
-| 122      | SSH     | Acesso de shell à {% data variables.product.product_location %}. É obrigatório ficar aberta para conexões de entrada de todos os outros nós em configurações de Alta Disponibilidade. A porta SSH padrão (22) é dedicada ao tráfego de rede de aplicativos Git e SSH. |
-| 1194/UDP | VPN     | Túnel de rede de replicação segura em configurações de Alta Disponibilidade. É obrigatório ficar aberta para todos os outros nós na configuração.                                                                                                                     |
-| 123/UDP  | NTP     | Obrigatória para operações de protocolo de tempo.                                                                                                                                                                                                                     |
-| 161/UDP  | SNMP    | Obrigatória para operações de protocolo de monitoramento de rede.                                                                                                                                                                                                     |
+## Application ports for end users
 
-## Portas de aplicativo para usuários finais
+Application ports provide web application and Git access for end users.
 
-As portas de aplicativo fornecem aplicativos da web e acesso dos usuários finais ao Git.
-
-| Porta | Serviço | Descrição                                                                                                                                                                                                    |
-| ----- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 443   | HTTPS   | Acesso ao aplicativo da web e ao Git por HTTPS.                                                                                                                                                              |
-| 80    | HTTP    | Acesso ao aplicativo da web. Todas as solicitações são redirecionadas para a porta HTTPS quando o SSL está ativado.                                                                                          |
-| 22    | SSH     | Acesso ao Git por SSH. Compatível com operações de clonagem, fetch e push em repositórios públicos e privados.                                                                                               |
-| 9418  | Git     | A porta do protocolo Git é compatível com operações de clonagem e fetch em repositórios públicos com comunicação de rede não criptografada. {% data reusables.enterprise_installation.when-9418-necessary %}
+| Port | Service | Description |
+|---|---|---|
+| 443 | HTTPS | Access to the web application and Git over HTTPS. |
+| 80 | HTTP | Access to the web application. All requests are redirected to the HTTPS port when SSL is enabled. |
+| 22 | SSH | Access to Git over SSH. Supports clone, fetch, and push operations to public and private repositories. |
+| 9418 | Git | Git protocol port supports clone and fetch operations to public repositories with unencrypted network communication. {% data reusables.enterprise_installation.when-9418-necessary %} |
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-## Portas de e-mail
+## Email ports
 
-As portas de e-mail devem estar acessíveis diretamente ou via retransmissão para oferecer suporte de e-mail aos usuários finais.
+Email ports must be accessible directly or via relay for inbound email support for end users.
 
-| Porta | Serviço | Descrição                                   |
-| ----- | ------- | ------------------------------------------- |
-| 25    | SMTP    | Suporte a SMTP com criptografia (STARTTLS). |
+| Port | Service | Description |
+|---|---|---|
+| 25 | SMTP | Support for SMTP with encryption (STARTTLS). |

@@ -1,9 +1,9 @@
 ---
-title: Sobre o suporte Premium do GitHub para o GitHub Enterprise Server
-intro: 'O {% data variables.contact.premium_support %} é uma opção de suporte complementar pago oferecida aos clientes do {% data variables.product.prodname_enterprise %}.'
+title: About GitHub Premium Support for GitHub Enterprise Server
+intro: '{% data variables.contact.premium_support %} is a paid, supplemental support offering for {% data variables.product.prodname_enterprise %} customers.'
 redirect_from:
-  - /enterprise/admin/guides/enterprise-support/about-premium-support-for-github-enterprise/
-  - /enterprise/admin/guides/enterprise-support/about-premium-support/
+  - /enterprise/admin/guides/enterprise-support/about-premium-support-for-github-enterprise
+  - /enterprise/admin/guides/enterprise-support/about-premium-support
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 versions:
@@ -12,30 +12,29 @@ type: overview
 topics:
   - Enterprise
   - Support
-shortTitle: Suporte Premium para GHES
+shortTitle: Premium Support for GHES
 ---
-
 {% note %}
 
-**Notas:**
+**Notes:**
 
-- Os termos do {% data variables.contact.premium_support %} estão sujeitos a alteração sem aviso prévio e entram em vigor a partir de setembro de 2018. Se a sua compra do {% data variables.contact.premium_support %} foi feita antes de 17 de setembro de 2018, seu plano pode ser diferente. Entre em contato com {% data variables.contact.premium_support %} para obter mais detalhes.
+- The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of September 2018. If you purchased {% data variables.contact.premium_support %} prior to September 17, 2018, your plan might be different. Contact {% data variables.contact.premium_support %} for more details.
 
 - {% data reusables.support.data-protection-and-privacy %}
 
-- Este artigo contém os termos do {% data variables.contact.premium_support %} para os clientes do {% data variables.product.prodname_ghe_server %}. Os termos podem ser diferentes para clientes do {% data variables.product.prodname_ghe_cloud %} ou do {% data variables.product.prodname_enterprise %} que compram o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %} juntos. Para obter mais informações, consulte "<a href="/articles/about-github-premium-support-for-github-enterprise-cloud" class="dotcom-only">Sobre o{% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_cloud %}</a>" e "[Sobre o{% data variables.contact.premium_support %} para {% data variables.product.prodname_enterprise %}](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)".
+- This article contains the terms of {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %} customers. The terms may be different for customers of {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_enterprise %} customers who purchase {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} together. For more information, see "<a href="/articles/about-github-premium-support-for-github-enterprise-cloud" class="dotcom-only">About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_cloud %}</a>" and "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_enterprise %}](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)."
 
 {% endnote %}
 
-## Sobre o {% data variables.contact.premium_support %}
+## About {% data variables.contact.premium_support %}
 
-Além de todos os benefícios do {% data variables.contact.enterprise_support %}, o {% data variables.contact.premium_support %} oferece:
-  - Suporte gravado, em inglês, por meio do nosso portal de suporte 24 horas por dia, 7 dais por semana
-  - Suporte por telefone, em inglês, 24 horas por dias, 7 dias por semana
-  - Um Contrato de nível de serviço (SLA, Service Level Agreement) com tempos de resposta inicial garantidos
-  - Acesso a conteúdo premium
-  - Verificação de integridade agendadas
-  - Serviços gerenciados
+In addition to all of the benefits of {% data variables.contact.enterprise_support %}, {% data variables.contact.premium_support %} offers:
+  - Written support, in English, through our support portal 24 hours per day, 7 days per week
+  - Phone support, in English, 24 hours per day, 7 days per week
+  - A Service Level Agreement (SLA) with guaranteed initial response times
+  - Access to premium content
+  - Scheduled health checks
+  - Managed services
 
 {% data reusables.support.about-premium-plans %}
 
@@ -45,25 +44,25 @@ Além de todos os benefícios do {% data variables.contact.enterprise_support %}
 
 {% data reusables.support.contacting-premium-support %}
 
-## Horas de operação
+## Hours of operation
 
-O {% data variables.contact.premium_support %} está disponível 24 horas por dia, 7 dias por semana.  Se a sua compra do {% data variables.contact.premium_support %} foi feita antes de 17 de setembro de 2018, o suporte é limitado nos feriados. Para obter mais informações sobre os feriados do {% data variables.contact.premium_support %}, consulte o calendário em "[Sobre o {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)".
+{% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week.  If you purchased {% data variables.contact.premium_support %} prior to September 17, 2018, support is limited during holidays. For more information on holidays {% data variables.contact.premium_support %} observes, see the holiday schedule at "[About {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)."
 
 {% data reusables.support.service-level-agreement-response-times %}
 
 {% data reusables.enterprise_enterprise_support.installing-releases %}
 
-Você deve instalar a versão mínima compatível do {% data variables.product.prodname_ghe_server %} conforme a seção Versões compatíveis do seu contrato de licença em até 90 dias após o pedido do {% data variables.contact.premium_support %}.
+You must install the minimum supported version of {% data variables.product.prodname_ghe_server %} pursuant to the Supported Releases section of your applicable license agreement within 90 days of placing an order for {% data variables.contact.premium_support %}.
 
-## Atribuindo uma prioridade a um tíquete de suporte
+## Assigning a priority to a support ticket
 
-Ao entrar em contato com {% data variables.contact.premium_support %}, você pode escolher uma das quatro prioridades para o tíquete: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}.
+When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
 {% data reusables.support.ghes-priorities %}
 
-## Resolução e fechamento de tíquete de suporte
+## Resolving and closing support tickets
 
 {% data reusables.support.premium-resolving-and-closing-tickets %}
 

@@ -1,7 +1,7 @@
 ---
-title: 'Compartilhando fluxos de trabalho, segredos e executores com a sua organização'
-shortTitle: Compartilhar fluxos de trabalho com a sua organização
-intro: 'Aprenda como usar recursos da organização para colaborar com a sua equipe, compartilhando modelos de fluxo de trabalho, segredos e executores auto-hospedados.'
+title: 'Sharing workflows, secrets, and runners with your organization'
+shortTitle: Sharing workflows with your organization
+intro: 'Learn how you can use organization features to collaborate with your team, by sharing workflow templates, secrets, and self-hosted runners.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
 versions:
@@ -14,42 +14,41 @@ type: how_to
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## Visão Geral
+## Overview
 
-Se você precisar compartilhar fluxos de trabalho e outros recursos de {% data variables.product.prodname_actions %} com a sua equipe, considere colaborar dentro de uma organização de {% data variables.product.prodname_dotcom %}. Uma organização permite que você armazene e gerencie, centralizadamente, segredos, artefatos e executores auto-hospedados. Você também pode criar modelos de fluxo de trabalho no repositório `.github` e compartilhá-los com outros usuários na sua organização.
+If you need to share workflows and other {% data variables.product.prodname_actions %} features with your team, then consider collaborating within a {% data variables.product.prodname_dotcom %} organization. An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. You can also create workflow templates in the `.github` repository and share them with other users in your organization.
 
-## Usando modelos de fluxo de trabalho
+## Using workflow templates
 
-{% data reusables.actions.workflow-organization-templates %} Para obter mais informações, consulte "[Criando modelos de fluxo de trabalho](/actions/learn-github-actions/creating-workflow-templates)".
+{% data reusables.actions.workflow-organization-templates %} For more information, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."
 
 {% data reusables.actions.reusable-workflows %}
 
-## Compartilhar segredos dentro de uma organização
+## Sharing secrets within an organization
 
-Você pode gerenciar seus segredos centralmente dentro de uma organização e, em seguida, disponibilizá-los para repositórios selecionados. Isso também significa que você pode atualizar um segredo em um único local e fazer com que a alteração seja aplicada em todos os fluxos de trabalho do repositório que usam o segredo.
+You can centrally manage your secrets within an organization, and then make them available to selected repositories. This also means that you can update a secret in one location, and have the change apply to all repository workflows that use the secret.
 
-Ao criar um segredo em uma organização, você pode usar uma política para limitar quais repositórios podem acessar esse segredo. Por exemplo, você pode conceder acesso a todos os repositórios ou limitar o acesso a apenas repositórios privados ou a uma lista específica de repositórios.
+When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.github-actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. Clique em **Novo segredo**.
-1. Digite um nome para o seu segredo na caixa de entrada **Nome**.
-1. Insira o **Valor** para o seu segredo.
-1. Na lista suspensa **Acesso do repositório**, escolha uma política de acesso.
-1. Clique em **Add secret** (Adicionar segredo).
+1. Click **New secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the **Value** for your secret.
+1. From the **Repository access** dropdown list, choose an access policy.
+1. Click **Add secret**.
 
-## Compartilhe executores auto-hospedados dentro de uma organização
+## Share self-hosted runners within an organization
 
-Os administradores da organização podem adicionar seus executores auto-hospedados para grupos e, em seguida, criar políticas que controlam quais repositórios podem acessar o grupo.
+Organization admins can add their self-hosted runners to groups, and then create policies that control which repositories can access the group.
 
-Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
+For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
 
 
-## Próximas etapas
+## Next steps
 
-Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Criar modelos de fluxo de trabalho](/actions/learn-github-actions/creating-workflow-templates)".
+To continue learning about {% data variables.product.prodname_actions %}, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."

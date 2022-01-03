@@ -40,7 +40,7 @@ Protected branch rules that mention a special character, such as `*`, `?`, or `]
 
 To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name.
 
-For more information about each of each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+For more information about each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
 ## Creating a branch protection rule
 
@@ -80,7 +80,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Loose or strict required status checkbox](/assets/images/help/repository/protecting-branch-loose-status.png)
    - Search for status checks, selecting the checks you want to require.
      ![Search interface for available status checks, with list of required checks](/assets/images/help/repository/required-statuses-list.png)
-{%- ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{%- ifversion fpt or ghes > 3.1 or ghae %}
 1. Optionally, select **Require conversation resolution before merging**.
   ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
 {%- endif %}
@@ -104,8 +104,16 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png)
    - Search for and select the people, teams, or apps who will have permission to push to the protected branch.
      ![Branch restriction search](/assets/images/help/repository/restrict-branch-search.png)
-2. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**. For more information about force pushes, see "[Allow force pushes](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)."
+1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
   ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
+{% ifversion fpt or ghec %}
+  Then, choose who can force push to the branch.
+    - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
+    - Select **Specify who can force push** to allow only specific people or teams to force push to the branch. Then, search for and select those people or teams.
+      ![Screenshot of the options to specify who can force push](/assets/images/help/repository/allow-force-pushes-specify-who.png)
+{% endif %}
+
+    For more information about force pushes, see "[Allow force pushes](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)."
 1. Optionally, select **Allow deletions**.
   ![Allow branch deletions option](/assets/images/help/repository/allow-branch-deletions.png)
 1. Click **Create**.
