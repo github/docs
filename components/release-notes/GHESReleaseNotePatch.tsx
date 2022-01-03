@@ -40,7 +40,7 @@ export function GHESReleaseNotePatch({
     >
       <header
         style={{ zIndex: 1 }}
-        className="container-xl position-sticky top-0 color-bg-subtle border-bottom px-3 pt-4 pb-2"
+        className="container-xl color-bg-subtle border-bottom px-3 pt-4 pb-2"
       >
         <div className="d-flex flex-items-center">
           <h2 className="border-bottom-0 m-0 p-0">
@@ -66,7 +66,7 @@ export function GHESReleaseNotePatch({
           )}
         </div>
 
-        <p className="color-fg-muted mt-1">{dayjs(patch.date).format('MMMM, DD, YYYY')}</p>
+        <p className="color-fg-muted mt-1">{dayjs(patch.date).format('MMMM DD, YYYY')}</p>
 
         {patch.version !== latestPatch && currentVersion.currentRelease === latestRelease && (
           <p className="color-fg-muted mt-1">

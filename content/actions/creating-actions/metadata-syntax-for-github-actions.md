@@ -17,7 +17,6 @@ type: reference
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About YAML syntax for {% data variables.product.prodname_actions %}
 
@@ -133,11 +132,15 @@ runs:
 
 For more information on how to use context syntax, see "[Contexts](/actions/learn-github-actions/contexts)."
 
+## `runs`
+
+**Required** Specifies whether this is a JavaScript action, a composite action or a Docker action and how the action is executed.
+
 ## `runs` for JavaScript actions
 
-**Required** Configures the path to the action's code and the application used to execute the code.
+**Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example using Node.js
+### Example using Node.js v12
 
 ```yaml
 runs:
@@ -147,15 +150,18 @@ runs:
 
 ### `runs.using`
 
-**Required** The application used to execute the code specified in [`main`](#runsmain).
+**Required** The runtime used to execute the code specified in [`main`](#runsmain).  
+
+- Use `node12` for Node.js v12.
+- Use `node16` for Node.js v16.
 
 ### `runs.main`
 
-**Required** The file that contains your action code. The application specified in [`using`](#runsusing) executes this file.
+**Required** The file that contains your action code. The runtime specified in [`using`](#runsusing) executes this file.
 
 ### `pre`
 
-**Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The application specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`pre-if`](#pre-if).
+**Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The runtime specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`pre-if`](#pre-if).
 
 In this example, the `pre:` action runs a script called `setup.js`:
 
@@ -181,7 +187,7 @@ In this example, `cleanup.js` only runs on Linux-based runners:
 
 ### `post`
 
-**Optional** Allows you to run a script at the end of a job, once the `main:` action has completed. For example, you can use `post:` to terminate certain processes or remove unneeded files. The application specified with the [`using`](#runsusing) syntax will execute this file.
+**Optional** Allows you to run a script at the end of a job, once the `main:` action has completed. For example, you can use `post:` to terminate certain processes or remove unneeded files. The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
 In this example, the `post:` action runs a script called `cleanup.js`:
 
@@ -207,11 +213,11 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 
 ## `runs` for composite actions
 
-**Required** Configures the path to the composite action, and the application used to execute the code.
+**Required** Configures the path to the composite action.
 
 ### `runs.using`
 
-**Required** To use a composite action, set this to `"composite"`.
+**Required** You must set this value to `'composite'`.
 
 ### `runs.steps`
 
@@ -254,9 +260,9 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 #### `runs.steps[*].shell`
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
-**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Required if `run` is set.
+**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 {% else %}
-**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Required if `run` is set.
+**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 {% endif %}
 
 #### `runs.steps[*].name`
@@ -354,7 +360,7 @@ runs:
 
 **Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`pre-if`](#pre-if).
 
-The application specified with the [`using`](#runsusing) syntax will execute this file.
+The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
 In this example, the `pre-entrypoint:` action runs a script called `setup.sh`:
 

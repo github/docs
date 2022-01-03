@@ -1,8 +1,8 @@
 ---
-title: 创建 OAuth 应用程序
+title: Creating an OAuth App
 intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps
   - /apps/building-oauth-apps/creating-an-oauth-app
   - /developers/apps/creating-an-oauth-app
 versions:
@@ -13,11 +13,10 @@ versions:
 topics:
   - OAuth Apps
 ---
-
 {% ifversion fpt or ghec %}
 {% note %}
 
-  **注意：** {% data reusables.apps.maximum-oauth-apps-allowed %}
+  **Note:** {% data reusables.apps.maximum-oauth-apps-allowed %}
 
 {% endnote %}
 {% endif %}
@@ -25,29 +24,35 @@ topics:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.oauth_apps %}
-4. 单击 **New OAuth App（新建 OAuth 应用程序）**。 ![创建新 OAuth 应用程序的按钮](/assets/images/oauth-apps/oauth_apps_new_app.png)
+4. Click **New OAuth App**.
+![Button to create a new OAuth app](/assets/images/oauth-apps/oauth_apps_new_app.png)
 
   {% note %}
 
-  **注：**如果您以前没有创建过应用程序，该按钮将显示 **Register a new application（注册新应用程序）**。
+  **Note:** If you haven't created an app before, this button will say, **Register a new application**.
 
   {% endnote %}
-6. 在“Application name（应用程序名称）”中，输入应用程序的名称。 ![应用程序名称字段](/assets/images/oauth-apps/oauth_apps_application_name.png)
+6. In "Application name", type the name of your app.
+![Field for the name of your app](/assets/images/oauth-apps/oauth_apps_application_name.png)
 
   {% warning %}
 
-  **警告：**仅在 OAuth 应用程序中使用您认为公开的信息。 创建 OAuth 应用程序时，应避免使用敏感数据（如内部 URL）。
+  **Warning:**  Only use information in your OAuth app that you consider public. Avoid using sensitive data, such as internal URLs, when creating an OAuth App.
 
   {% endwarning %}
 
-7. 在“Homepage URL（主页 URL）”中，输入应用程序网站的完整 URL。 ![应用程序主页 URL 字段](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
-8. （可选）在“Application description（应用程序说明）”中，输入用户将看到的应用程序说明。 ![应用程序说明字段](/assets/images/oauth-apps/oauth_apps_application_description.png)
-9. 在“Authorization callback URL（授权回调 URL）”中，输入应用程序的回调 URL。 ![应用程序的授权回调 URL 字段](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
+7. In "Homepage URL", type the full URL to your app's website.
+![Field for the homepage URL of your app](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
+8. Optionally, in "Application description", type a description of your app that users will see.
+![Field for a description of your app](/assets/images/oauth-apps/oauth_apps_application_description.png)
+9. In "Authorization callback URL", type the callback URL of your app.
+![Field for the authorization callback URL of your app](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
 {% ifversion fpt or ghes > 3.0 or ghec %}
    {% note %}
 
-   **注：**与 {% data variables.product.prodname_github_apps %} 不同，OAuth 应用程序不能有多个回调 URL。
+   **Note:** OAuth Apps cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
 
    {% endnote %}
 {% endif %}
-10. 单击 **Register application（注册应用程序）**。 ![注册应用程序的按钮](/assets/images/oauth-apps/oauth_apps_register_application.png)
+10. Click **Register application**.
+![Button to register an application](/assets/images/oauth-apps/oauth_apps_register_application.png)

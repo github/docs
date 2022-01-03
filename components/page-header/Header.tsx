@@ -95,6 +95,7 @@ export const Header = () => {
                 data-testid="mobile-menu-button"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Navigation Menu"
+                aria-expanded={isMenuOpen ? 'true' : 'false'}
               >
                 {isMenuOpen ? <XIcon size="small" /> : <ThreeBarsIcon size="small" />}
               </button>
@@ -128,6 +129,8 @@ export const Header = () => {
           </div>
         </div>
       </header>
+      {/* Adding Portal Root here for DropdownMenu and ActionList Search Results */}
+      <div id="__primerPortalRoot__" className={cx(styles.portalRoot)} />
     </div>
   )
 }

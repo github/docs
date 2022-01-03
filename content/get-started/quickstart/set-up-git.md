@@ -1,14 +1,14 @@
 ---
 title: Set up Git
 redirect_from:
-  - /git-installation-redirect/
-  - /linux-git-installation/
-  - /linux-set-up-git/
-  - /mac-git-installation/
-  - /mac-set-up-git/
-  - /set-up-git-redirect/
-  - /win-git-installation/
-  - /win-set-up-git/
+  - /git-installation-redirect
+  - /linux-git-installation
+  - /linux-set-up-git
+  - /mac-git-installation
+  - /mac-set-up-git
+  - /set-up-git-redirect
+  - /win-git-installation
+  - /win-set-up-git
   - /articles/set-up-git
   - /github/getting-started-with-github/set-up-git
   - /github/getting-started-with-github/quickstart/set-up-git

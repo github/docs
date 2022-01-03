@@ -1,7 +1,7 @@
 ---
-title: Acerca de los Usuarios Administrados Empresariales
-shortTitle: Acerca de los usuarios administrados
-intro: 'Puedes administrar centralmente la identidad y el acceso para los miembros de tu empresa en {% data variables.product.prodname_dotcom %} desde tu proveedor de identidad.'
+title: About Enterprise Managed Users
+shortTitle: About managed users
+intro: 'You can centrally manage identity and access for your enterprise members on {% data variables.product.prodname_dotcom %} from your identity provider.'
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /early-access/github/articles/get-started-with-managed-users-for-your-enterprise
@@ -16,54 +16,54 @@ topics:
   - SSO
 ---
 
-## Acerca de {% data variables.product.prodname_emus %}
+## About {% data variables.product.prodname_emus %}
 
-Con {% data variables.product.prodname_emus %}, puedes controlar las cuentas de usuario de los miembros de tu empresa a través de tu proveedor de identidad (IdP). Puedes simplificar la autenticación con el inicio de sesión único (SSO) de SAML y aprovisionar, actualizar y desaprovisionar las cuentas de usuario de tus miembros empresariales. Los usuarios que se asignen a la aplicación de {% data variables.product.prodname_emu_idp_application %} en tu IdP se aprovisionarán como cuentas de usuario nuevas en {% data variables.product.prodname_dotcom %} y se agregarán a tu empresa. Tú controlas los nombres de usuario, datos de perfil, membrecía de equipo y acceso al repositorio desde tu IdP.
+With {% data variables.product.prodname_emus %}, you can control the user accounts of your enterprise members through your identity provider (IdP). You can simplify authentication with SAML single sign-on (SSO) and provision, update, and deprovision user accounts for your enterprise members. Users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your IdP are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and added to your enterprise. You control usernames, profile data, team membership, and repository access from your IdP.
 
-En tu IdP, puedes dar a cada {% data variables.product.prodname_managed_user %} el rol de usuario, propietario de la empresa o gerente de facturación. {% data variables.product.prodname_managed_users_caps %} puede ser propietario de organizaciones dentro de tu empresa y puede agregar a otros {% data variables.product.prodname_managed_users %} a las organizaciones y equipos dentro de ella. Para obtener más información, consulta las secciones "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)" y "[Acerca de las organizaciones](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
+In your IdP, you can give each {% data variables.product.prodname_managed_user %} the role of user, enterprise owner, or billing manager. {% data variables.product.prodname_managed_users_caps %} can own organizations within your enterprise and can add other {% data variables.product.prodname_managed_users %} to the organizations and teams within. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)" and "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
 
-También puedes administrar la membrecía de equipo dentro de una organización en tu empresa directamente desde tu IdP, lo cual te permite administrar el acceso al repositorio utilizando grupos en tu IdP. La membrecía de la organización puede administrarse manualmente o actualizarse automáticamente conforme se agreguen {% data variables.product.prodname_managed_users %} a los equipos dentro de dicha organización. Para obtener más información, consulta la sección "[Administrar las membrecías de equipo con los grupos de proveedor de identidades](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
+You can also manage team membership within an organization in your enterprise directly through your IdP, allowing you to manage repository access using groups in your IdP. Organization membership can be managed manually or updated automatically as {% data variables.product.prodname_managed_users %} are added to teams within the organization. For more information, see "[Managing team memberships with identity provider groups](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)."
 
-Puedes otorgar acceso a los {% data variables.product.prodname_managed_users %}, así como la habilidad de contribuir con los repositorios dentro de tu empresa, pero los {% data variables.product.prodname_managed_users %} no pueden crear contenido público ni colaborar con otros usuarios, organizaciones y empresas en el resto de {% data variables.product.prodname_dotcom %}. No se puede invitar a los {% data variables.product.prodname_managed_users %} que se aprovisionaron para tu empresa para que se unan a organizaciones o repositorios fuera de esta, ni se puede invitar a los {% data variables.product.prodname_managed_users %} a otras empresas. Los colaboradores externos no son compatibles con los {% data variables.product.prodname_emus %}.
+You can grant {% data variables.product.prodname_managed_users %} access and the ability to contribute to repositories within your enterprise, but {% data variables.product.prodname_managed_users %} cannot create public content or collaborate with other users, organizations, and enterprises on the rest of {% data variables.product.prodname_dotcom %}. The {% data variables.product.prodname_managed_users %} provisioned for your enterprise cannot be invited to organizations or repositories outside of the enterprise, nor can the {% data variables.product.prodname_managed_users %} be invited to other enterprises. Outside collaborators are not supported by {% data variables.product.prodname_emus %}.
 
-El nombre de usuario de los {% data variables.product.prodname_managed_users %} de tu empresa y su información de perfil, tal como los nombres y direcciones de correo electrónico que se muestran, se configuran mediante tu IdP y no pueden cambiarlos los mismos usuarios. Para obtener más información, consulta la sección "[Nombres de usuario e información de perfil](#usernames-and-profile-information)".
+The usernames of your enterprise's {% data variables.product.prodname_managed_users %} and their profile information, such as display names and email addresses, are set by through your IdP and cannot be changed by the users themselves. For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
 
 {% data reusables.enterprise-accounts.emu-forks %}
 
-Los propietarios de las empresas pueden auditar todas las acciones de los {% data variables.product.prodname_managed_users %} en {% data variables.product.prodname_dotcom %}.
+Enterprise owners can audit all of the {% data variables.product.prodname_managed_users %}' actions on {% data variables.product.prodname_dotcom %}.
 
-Para utilizar los {% data variables.product.prodname_emus %}, necesitas un tipo separado de cuenta empresarial con {% data variables.product.prodname_emus %} habilitados. Para obtener más información sobre cómo crear esta cuenta, consulta la sección "[Acerca de las empresas con usuarios administrados](#about-enterprises-with-managed-users)".
+To use {% data variables.product.prodname_emus %}, you need a separate type of enterprise account with {% data variables.product.prodname_emus %} enabled. For more information about creating this account, see "[About enterprises with managed users](#about-enterprises-with-managed-users)."
 
 
-## Soporte del proveedor de identidad
+## Identity provider support
 
-{% data variables.product.prodname_emus %} es compatible con los siguientes IdP:
+{% data variables.product.prodname_emus %} supports the following IdPs:
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
-## Habilidades y restricciones de los {% data variables.product.prodname_managed_users %}
+## Abilities and restrictions of {% data variables.product.prodname_managed_users %}
 
-Los {% data variables.product.prodname_managed_users_caps %} solo pueden colaborar en los repositorios privados e internos dentro de su empresa y con los repositorios que pertenecen a su cuenta de usuario. Los {% data variables.product.prodname_managed_users_caps %} tienen acceso de solo lectura al resto de la comunidad de {% data variables.product.prodname_dotcom %}.
+{% data variables.product.prodname_managed_users_caps %} can only contribute to private and internal repositories within their enterprise and private repositories owned by their user account. {% data variables.product.prodname_managed_users_caps %} have read-only access to the wider {% data variables.product.prodname_dotcom %} community.
 
-* Los {% data variables.product.prodname_managed_users_caps %} no pueden crear propuestas ni solicitudes de cambios, comentar o agregar reacciones, ni marcar como favoritos u observar o bifurcar repositorios fuera de la empresa.
-* Los {% data variables.product.prodname_managed_users_caps %} no pueden subir código a los repositorios fuera de la empresa.
-* Solo otros miembros de la empresa pueden ver a los {% data variables.product.prodname_managed_users_caps %} y al contenido que estos crean.
-* Los {% data variables.product.prodname_managed_users_caps %} no pueden seguir a usuarios que estén fuera de la empresa.
-* Los {% data variables.product.prodname_managed_users_caps %} no pueden crear gists o comentar en ellos.
-* Los {% data variables.product.prodname_managed_users_caps %} no pueden instalar {% data variables.product.prodname_github_apps %} en sus cuentas de usuario.
-* Otros usuarios de {% data variables.product.prodname_dotcom %} no pueden ver, mencionar o invitar a {% data variables.product.prodname_managed_user %} para colaborar.
-* Los {% data variables.product.prodname_managed_users_caps %} solo pueden ser propietarios de repositorios privados y los {% data variables.product.prodname_managed_users %} solo pueden invitar a otros miembros de la empresa para que colaboren con sus propios repositorios.
-* Solo se pueden crear repositorios internos y privados en las organizaciones que pertenezcan a una {% data variables.product.prodname_emu_enterprise %}, dependiendo de los ajustes de visibilidad del repositorio o empresa.
+* {% data variables.product.prodname_managed_users_caps %} cannot create issues or pull requests in, comment or add reactions to, nor star, watch, or fork repositories outside of the enterprise.
+* {% data variables.product.prodname_managed_users_caps %} can view all public repositories on {% data variables.product.prodname_dotcom_the_website %}, but cannot push code to repositories outside of the enterprise.
+* {% data variables.product.prodname_managed_users_caps %} and the content they create is only visible to other members of the enterprise. 
+* {% data variables.product.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
+* {% data variables.product.prodname_managed_users_caps %} cannot create gists or comment on gists.
+* {% data variables.product.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
+* Other {% data variables.product.prodname_dotcom %} users cannot see, mention, or invite a {% data variables.product.prodname_managed_user %} to collaborate.
+* {% data variables.product.prodname_managed_users_caps %} can only own private repositories and {% data variables.product.prodname_managed_users %} can only invite other enterprise members to collaborate on their owned repositories.
+* Only private and internal repositories can be created in organizations owned by an {% data variables.product.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings. 
 
-## Acerca de las empresas con usuarios administrados
+## About enterprises with managed users
 
-Para utilizar los {% data variables.product.prodname_emus %}, necesitas un tipo separado de cuenta empresarial con {% data variables.product.prodname_emus %} habilitados. Para probar {% data variables.product.prodname_emus %} o para debatir sobre las opciones para migrarte desde tu empresa existente, por favor, contacta al [Equipo de ventas de {% data variables.product.prodname_dotcom %}](https://enterprise.github.com/contact).
+To use {% data variables.product.prodname_emus %}, you need a separate type of enterprise account with {% data variables.product.prodname_emus %} enabled. To try out {% data variables.product.prodname_emus %} or to discuss options for migrating from your existing enterprise, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
-Tu contacto en el equipo de ventas de GitHub trabajará contigo para crear tu {% data variables.product.prodname_emu_enterprise %} nueva. Necesitarás proporcionar la dirección de correo electrónico del usuario que configurará tu empresa y un código corto que se utilizará como el sufijo de los nombres de usuario de los miembros. {% data reusables.enterprise-accounts.emu-shortcode %} Para obtener más información, consulta la sección "[Nombres de usuario e información de perfil](#usernames-and-profile-information)".
+Your contact on the GitHub Sales team will work with you to create your new {% data variables.product.prodname_emu_enterprise %}. You'll need to provide the email address for the user who will set up your enterprise and a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
 
-Después de crear tu empresa, recibirás un mensaje de correo electrónico de {% data variables.product.prodname_dotcom %}, el cual te invitará a elegir una contraseña para tu usuario de configuración de la empresa, quien será el primer propietario de esta. El usuario de configuración solo se utiliza para configurar el inicio de sesión único de SAML y la integración de aprovisionamiento de SCIM para la empresa. Ya no tendrá acceso para administrar la cuenta empresarial una vez que se habilite SAML con éxito.
+After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password. The setup user is only used to configure SAML single sign-on and SCIM provisioning integration for the enterprise. It will no longer have access to administer the enterprise account once SAML is successfully enabled.
 
-El nombre de usuario del usuario de configuración es el código corto de tu empresa con el sufijo `_admin`. Después de que inicies sesión en tu usuario de configuración, puedes comenzar a configurar el SSO de SAML para tu empresa. Para obtener más información, consulta la sección "[Configurar el inicio de sesión único de SAML para los Usuarios Administrados Empresariales](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)".
+The setup user's username is your enterprise's shortcode suffixed with `_admin`. After you log in to your setup user, you can get started by configuring SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
 {% note %}
 
@@ -71,18 +71,18 @@ El nombre de usuario del usuario de configuración es el código corto de tu emp
 
 {% endnote %}
 
-## Autenticarse como una {% data variables.product.prodname_managed_user %}
+## Authenticating as a {% data variables.product.prodname_managed_user %}
 
-Los {% data variables.product.prodname_managed_users_caps %} se deben autenticar mediante su proveedor de identidad.
+{% data variables.product.prodname_managed_users_caps %} must authenticate through their identity provider.
 
-Para autenticarse, los {% data variables.product.prodname_managed_users %} deben visitar su portal de la aplicación de IdP o **https://github.com/enterprises/ENTERPRISE_NAME**, reemplazando **ENTERPRISE_NAME** con el nombre de tu empresa.
+To authenticate, {% data variables.product.prodname_managed_users %} must visit their IdP application portal or **https://github.com/enterprises/ENTERPRISE_NAME**, replacing **ENTERPRISE_NAME** with your enterprise's name.
 
-## Nombres de usuario e información de perfil
+## Usernames and profile information
 
-Cuando se cree tu {% data variables.product.prodname_emu_enterprise %}, elegirás un código corto que se utilizará como el sufijo de los nombres de usuario de los miembros de tu empresa. {% data reusables.enterprise-accounts.emu-shortcode %} El usuario de configuración que configure el SSO de SAML tendrá un nombre de usuario en el formato **@<em>SHORT-CODE</em>_admin**.
+When your {% data variables.product.prodname_emu_enterprise %} is created, you will choose a short code that will be used as the suffix for your enterprise member's usernames. {% data reusables.enterprise-accounts.emu-shortcode %} The setup user who configures SAML SSO has a username in the format of **@<em>SHORT-CODE</em>_admin**.
 
-Cuando aprovisionas un usuario nuevo desde tu proveedor de identidad, el {% data variables.product.prodname_managed_user %} nuevo tendrá un nombre de usuario de {% data variables.product.product_name %} en el formato de **@<em>IDP-USERNAME</em>_<em>SHORT-CODE</em>**. Cuando utilizas Azure Active Directory (Azure AD), el _IDP-USERNAME_ se forma normalizando los caracteres que preceden a `@` en el UPN (Nombre Principal de Usuario) que proporciona Azure AD. Cuando utilizas okta, el _IDP-USERNAME_ es el atributo de nombre de usuario normalizado que proporciona Okta.
+When you provision a new user from your identity provider, the new {% data variables.product.prodname_managed_user %} will have a {% data variables.product.product_name %} username in the format of **@<em>IDP-USERNAME</em>_<em>SHORT-CODE</em>**. When using Azure Active Directory (Azure AD), _IDP-USERNAME_ is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name) provided by Azure AD. When using Okta, _IDP-USERNAME_ is the normalized username attribute provided by Okta.
 
-El nombre de usuario de la cuenta nueva que se aprovisionó en {% data variables.product.product_name %}, incluyendo el guion bajo y código corto, no debe exceder los 39 caracteres.
+The username of the new account provisioned on {% data variables.product.product_name %}, including underscore and short code, must not exceed 39 characters.
 
-El nombre de perfil y dirección de correo electrónico de un {% data variables.product.prodname_managed_user %} también lo proporciona el IdP. Los {% data variables.product.prodname_managed_users_caps %} no pueden cambiar su nombre de perfil ni dirección de correo electrónico en {% data variables.product.prodname_dotcom %}.
+The profile name and email address of a {% data variables.product.prodname_managed_user %} is also provided by the IdP. {% data variables.product.prodname_managed_users_caps %} cannot change their profile name or email address on {% data variables.product.prodname_dotcom %}.

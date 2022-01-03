@@ -1,0 +1,30 @@
+---
+date: '2021-11-23'
+intro: 複数のお客様に影響する重大なバグのため、ダウンロードは無効になりました。修正は次回のパッチで利用可能になります。
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - Running `ghe-repl-start` or `ghe-repl-status` would sometimes return errors connecting to the database when GitHub Actions was enabled.
+    - Pre-receive hooks would fail due to undefined `PATH`.
+    - 'Running `ghe-repl-setup` would return an error: `cannot create directory /data/user/elasticsearch: File exists` if the instance had previously been configured as a replica.'
+    - 'Running `ghe-support-bundle` returned an error: `integer expression expected`.'
+    - 'After setting up a high availability replica, `ghe-repl-status` included an error in the output: `unexpected unclosed action in command`.'
+    - In large cluster environments, the authentication backend could be unavailable on a subset of frontend nodes.
+    - Some critical services may not have been available on backend nodes in GHES Cluster.
+    - The repository permissions to the user returned by the `/repos` API would not return the full list.
+    - The `childTeams` connection on the `Team` object in the GraphQL schema produced incorrect results under some circumstances.
+    - In a high availability configuration, repository maintenance always showed up as failed in stafftools, even when it succeeded.
+    - User defined patterns would not detect secrets in files like `package.json` or `yarn.lock`.
+  changes:
+    - An additional outer layer of `gzip` compression when creating a cluster support bundle with `ghe-cluster-suport-bundle` is now turned off by default. This outer compression can optionally be applied with the `ghe-cluster-suport-bundle -c` command line option.
+    - We have added extra text to the admin console to remind users about the mobile apps' data collection for experience improvement purposes.
+    - The {% data variables.product.prodname_github_connect %} data connection record now includes a list of enabled {% data variables.product.prodname_github_connect %} features. [Updated 2021-12-09]
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

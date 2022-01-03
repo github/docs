@@ -3,7 +3,7 @@ title: Managing your theme settings
 intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses a light or dark mode.'
 versions:
   fpt: '*'
-  ghae: next
+  ghae: '*'
   ghes: '>=3.2'
   ghec: '*'
 topics:

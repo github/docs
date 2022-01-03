@@ -1,19 +1,18 @@
 ---
 title: Connecting your enterprise account to GitHub Enterprise Cloud
 shortTitle: Connect enterprise accounts
-intro: '启用 {% data variables.product.prodname_github_connect %} 后，您可以在 {% data variables.product.product_location %} 与 {% data variables.product.prodname_ghe_cloud %} 之间共用特定的功能和工作流程。'
+intro: 'After you enable {% data variables.product.prodname_github_connect %}, you can share specific features and workflows between {% data variables.product.product_location %} and {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
-  - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-to-github-com/
+  - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-to-github-com
   - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com
-  - /enterprise/admin/developer-workflow/connecting-github-enterprise-server-to-githubcom/
+  - /enterprise/admin/developer-workflow/connecting-github-enterprise-server-to-githubcom
   - /enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud
   - /enterprise/admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
   - /admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
   - /admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/connecting-github-enterprise-server-to-github-enterprise-cloud
-permissions: 'Enterprise owners who are also owners of a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable {% data variables.product.prodname_github_connect %}.'
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -24,60 +23,75 @@ topics:
 
 {% data reusables.github-connect.beta %}
 
-## 关于 {% data variables.product.prodname_github_connect %}
+## About {% data variables.product.prodname_github_connect %}
 
-要启用 {% data variables.product.prodname_github_connect %}，必须在 {% data variables.product.product_location %} 和 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户中配置连接。
+To enable {% data variables.product.prodname_github_connect %}, you must configure the connection in both {% data variables.product.product_location %} and in your {% data variables.product.prodname_ghe_cloud %} organization or enterprise account.
 
 {% ifversion ghes %}
-要配置连接，您的代理配置必须允许连接到 `github.com` 和 `api.github.com`。 更多信息请参阅“[配置出站 Web 代理服务器](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-an-outbound-web-proxy-server)”。
+To configure a connection, your proxy configuration must allow connectivity to `github.com` and `api.github.com`. For more information, see "[Configuring an outbound web proxy server](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-an-outbound-web-proxy-server)."
 {% endif %}
 
-启用 {% data variables.product.prodname_github_connect %} 后，您将能够启用统一搜索和统一贡献等功能。 For more information about all of the features available, see "[Managing connections between your enterprise accounts](/admin/configuration/managing-connections-between-your-enterprise-accounts)."
+After enabling {% data variables.product.prodname_github_connect %}, you will be able to enable features such as unified search and unified contributions. For more information about all of the features available, see "[Managing connections between your enterprise accounts](/admin/configuration/managing-connections-between-your-enterprise-accounts)."
 
-将 {% data variables.product.product_location %} 连接到 {% data variables.product.prodname_ghe_cloud %} 时，{% data variables.product.prodname_dotcom_the_website %} 上会有一条记录存储连接的相关信息：
+When you connect {% data variables.product.product_location %} to {% data variables.product.prodname_ghe_cloud %}, or enable {% data variables.product.prodname_github_connect %} features, a record on {% data variables.product.prodname_dotcom_the_website %} stores information about the connection:
 {% ifversion ghes %}
-- {% data variables.product.prodname_ghe_server %} 许可的公钥部分
-- {% data variables.product.prodname_ghe_server %} 许可的哈希
-- {% data variables.product.prodname_ghe_server %} 许可上的客户名称
+- The public key portion of your {% data variables.product.prodname_ghe_server %} license
+- A hash of your {% data variables.product.prodname_ghe_server %} license
+- The customer name on your {% data variables.product.prodname_ghe_server %} license
 - The version of {% data variables.product.product_location_enterprise %}{% endif %}
-- The hostname of your {% data variables.product.product_name %} instance
-- 连接至 {% data variables.product.product_location %} 的 {% data variables.product.prodname_dotcom_the_website %} 上的组织或企业帐户
-- {% data variables.product.product_location %} 用于向 {% data variables.product.prodname_dotcom_the_website %} 发送请求的身份验证令牌
+- The hostname of {% data variables.product.product_location %}
+- The organization or enterprise account on {% data variables.product.prodname_dotcom_the_website %} that's connected to {% data variables.product.product_location %}
+- The authentication token that's used by {% data variables.product.product_location %} to make requests to {% data variables.product.prodname_dotcom_the_website %}
+- If Transport Layer Security (TLS) is enabled and configured on {% data variables.product.product_location %}{% ifversion ghes %}
+- The {% data variables.product.prodname_github_connect %} features that are enabled on {% data variables.product.product_location %}, and the date and time of enablement{% endif %}
 
-启用 {% data variables.product.prodname_github_connect %} 也可以创建由您的 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户所拥有的 {% data variables.product.prodname_github_app %}。 {% data variables.product.product_name %} 使用 {% data variables.product.prodname_github_app %} 的凭据向 {% data variables.product.prodname_dotcom_the_website %} 发送请求。
+{% data variables.product.prodname_github_connect %} syncs the above connection data between {% data variables.product.product_location %} and {% data variables.product.prodname_ghe_cloud %} weekly, from the day and approximate time that {% data variables.product.prodname_github_connect %} was enabled.
+
+Enabling {% data variables.product.prodname_github_connect %} also creates a {% data variables.product.prodname_github_app %} owned by your {% data variables.product.prodname_ghe_cloud %} organization or enterprise account. {% data variables.product.product_name %} uses the {% data variables.product.prodname_github_app %}'s credentials to make requests to {% data variables.product.prodname_dotcom_the_website %}.
 {% ifversion ghes %}
-{% data variables.product.prodname_ghe_server %} 会存储来自 {% data variables.product.prodname_github_app %} 的凭据。 这些凭据将复制到任何高可用性或集群环境，并存储在任何备份中，包括由 {% data variables.product.prodname_enterprise_backup_utilities %} 创建的快照。
-- 有效期为一小时的身份验证令牌
-- 用于生成新的身份验证令牌的私钥
+{% data variables.product.prodname_ghe_server %} stores credentials from the {% data variables.product.prodname_github_app %}. These credentials will be replicated to any high availability or clustering environments, and stored in any backups, including snapshots created by {% data variables.product.prodname_enterprise_backup_utilities %}.
+- An authentication token, which is valid for one hour
+- A private key, which is used to generate a new authentication token
 {% endif %}
 
-启用 {% data variables.product.prodname_github_connect %} 将不允许 {% data variables.product.prodname_dotcom_the_website %} 用户对 {% data variables.product.product_name %} 进行更改。
+Enabling {% data variables.product.prodname_github_connect %} will not allow {% data variables.product.prodname_dotcom_the_website %} users to make changes to {% data variables.product.product_name %}.
 
-有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/graphql/guides/managing-enterprise-accounts)”。
-## 启用 {% data variables.product.prodname_github_connect %}
+For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)."
+## Enabling {% data variables.product.prodname_github_connect %}
+
+Enterprise owners who are also owners of an organization or enterprise account that uses {% data variables.product.prodname_ghe_cloud %} can enable {% data variables.product.prodname_github_connect %}.
+
+If you're connecting {% data variables.product.product_location %} to an organization on {% data variables.product.prodname_dotcom_the_website %} that is not owned by an enterprise account, you must enable {% data variables.product.prodname_github_connect %} with a personal account on {% data variables.product.prodname_dotcom_the_website %} that is an owner of the organization.
+
+If you're connecting {% data variables.product.product_location %} to an organization on {% data variables.product.prodname_dotcom_the_website %} that is owned by an enterprise account or to an enterprise account itself, you must enable {% data variables.product.prodname_github_connect %} with a personal account on {% data variables.product.prodname_dotcom_the_website %} that is an owner of the enterprise account.
 
 {% ifversion ghes %}
-1. 登录到 {% data variables.product.product_location %} 和 {% data variables.product.prodname_dotcom_the_website %}。
+1. Sign in to {% data variables.product.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
-1. 登录到 {% data variables.product.product_location %} 和 {% data variables.product.prodname_dotcom_the_website %}。
+1. Sign in to {% data variables.product.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
-1. 在“{% data variables.product.prodname_github_connect %} is not enabled yet”下，单击 **Enable {% data variables.product.prodname_github_connect %}**。 By clicking **Enable {% data variables.product.prodname_github_connect %}**, you agree to the "<a href="/github/site-policy/github-terms-for-additional-products-and-features#connect" class="dotcom-only">{% data variables.product.prodname_dotcom %} Terms for Additional Products and Features</a>."
+1. Under "{% data variables.product.prodname_github_connect %} is not enabled yet", click **Enable {% data variables.product.prodname_github_connect %}**. By clicking **Enable {% data variables.product.prodname_github_connect %}**, you agree to the "<a href="/github/site-policy/github-terms-for-additional-products-and-features#connect" class="dotcom-only">{% data variables.product.prodname_dotcom %} Terms for Additional Products and Features</a>."
 {% ifversion ghes %}
-![Enable GitHub Connect button](/assets/images/enterprise/business-accounts/enable-github-connect-button.png){% else %}
-![Enable GitHub Connect button](/assets/images/enterprise/github-ae/enable-github-connect-button.png)
+  ![Enable GitHub Connect button](/assets/images/enterprise/business-accounts/enable-github-connect-button.png){% else %}
+  ![Enable GitHub Connect button](/assets/images/enterprise/github-ae/enable-github-connect-button.png)
 {% endif %}
-1. 在要连接的企业帐户或组织旁，单击 **Connect**。 ![企业帐户或企业旁边的连接按钮](/assets/images/enterprise/business-accounts/choose-enterprise-or-org-connect.png)
+1. Next to the enterprise account or organization you'd like to connect, click **Connect**.
+  ![Connect button next to an enterprise account or business](/assets/images/enterprise/business-accounts/choose-enterprise-or-org-connect.png)
 
-## Disconnecting a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account from your enterprise account
+## Disabling {% data variables.product.prodname_github_connect %}
 
-与 {% data variables.product.prodname_ghe_cloud %} 断开连接后，{% data variables.product.prodname_github_connect %} {% data variables.product.prodname_github_app %} 会从企业帐户或组织中删除，{% data variables.product.product_location %} 上存储的凭据也会删除。
+Enterprise owners can disable {% data variables.product.prodname_github_connect %}.
+
+When you disconnect from {% data variables.product.prodname_ghe_cloud %}, the {% data variables.product.prodname_github_connect %} {% data variables.product.prodname_github_app %} is deleted from your enterprise account or organization and credentials stored on {% data variables.product.product_location %} are deleted.
 
 {% data reusables.enterprise-accounts.access-enterprise %}{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}
-1. 在要断开连接的企业帐户或组织旁，单击 **Disable {% data variables.product.prodname_github_connect %}**。
+1. Next to the enterprise account or organization you'd like to disconnect, click **Disable {% data variables.product.prodname_github_connect %}**.
 {% ifversion ghes %}
-  ![企业帐户或组织名称旁的 Disable GitHub Connect 按钮](/assets/images/enterprise/business-accounts/disable-github-connect-button.png)
-1. 阅读有关断开连接的信息，并单击 **Disable {% data variables.product.prodname_github_connect %}**。 ![包含关于断开连接的警告信息和确认按钮的模式窗口](/assets/images/enterprise/business-accounts/confirm-disable-github-connect.png)
+  ![Disable GitHub Connect button next to an enterprise account or organization name](/assets/images/enterprise/business-accounts/disable-github-connect-button.png)
+1. Read the information about disconnecting and click **Disable {% data variables.product.prodname_github_connect %}**.
+  ![Modal with warning information about disconnecting and confirmation button](/assets/images/enterprise/business-accounts/confirm-disable-github-connect.png)  
 {% else %}
-  ![企业帐户或组织名称旁的 Disable GitHub Connect 按钮](/assets/images/enterprise/github-ae/disable-github-connect-button.png)
-1. 阅读有关断开连接的信息，并单击 **Disable {% data variables.product.prodname_github_connect %}**。 ![包含关于断开连接的警告信息和确认按钮的模式窗口](/assets/images/enterprise/github-ae/confirm-disable-github-connect.png)
+  ![Disable GitHub Connect button next to an enterprise account or organization name](/assets/images/enterprise/github-ae/disable-github-connect-button.png)
+1. Read the information about disconnecting and click **Disable {% data variables.product.prodname_github_connect %}**.
+  ![Modal with warning information about disconnecting and confirmation button](/assets/images/enterprise/github-ae/confirm-disable-github-connect.png)
 {% endif %} 

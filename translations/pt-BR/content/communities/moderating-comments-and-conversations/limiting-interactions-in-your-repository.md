@@ -1,8 +1,8 @@
 ---
-title: Restringir interações no repositório
-intro: É possível aplicar temporariamente um período de atividades limitadas para certos usuários em um repositório público.
+title: Limiting interactions in your repository
+intro: You can temporarily enforce a period of limited activity for certain users on a public repository.
 redirect_from:
-  - /articles/limiting-interactions-with-your-repository/
+  - /articles/limiting-interactions-with-your-repository
   - /articles/limiting-interactions-in-your-repository
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
@@ -11,30 +11,32 @@ versions:
 permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 topics:
   - Community
-shortTitle: Limitar interações no repositório
+shortTitle: Limit interactions in repo
 ---
 
-## Sobre limites temporários de interação
+## About temporary interaction limits
 
 {% data reusables.community.interaction-limits-restrictions %}
 
-{% data reusables.community.interaction-limits-duration %} Após a duração do seu limite, os usuários podem retomar à atividade normal no seu repositório.
+{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your repository.
 
 {% data reusables.community.types-of-interaction-limits %}
 
-Você também pode habilitar limitações de atividade em todos os repositórios pertencentes à sua conta de usuário ou organização. Se o limite de um usuário ou organização estiver habilitado, não será possível limitar a atividade para repositórios individuais pertencentes à conta. Para obter mais informações, consulte "[Limitar interações para a sua conta de usuário](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)" e "[Limitar interações na sua organização](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)".
+You can also enable activity limitations on all repositories owned by your user account or an organization. If a user-wide or organization-wide limit is enabled, you can't limit activity for individual repositories owned by the account. For more information, see "[Limiting interactions for your user account](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)" and "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)."
 
-## Restringir interações no repositório
+## Limiting interactions in your repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Na barra lateral esquerda, clique em **Configurações de moderação**. !["Configurações de moderação" na barra lateral de configurações do repositório](/assets/images/help/repository/repo-settings-moderation-settings.png)
-1. Em "Configurações de moderação", clique em **Limites de interação**. ![Interaction limits (Restrições de interação) em Settings (Configurações) do repositório ](/assets/images/help/repository/repo-settings-interaction-limits.png)
+1. In the left sidebar, click **Moderation settings**.
+  !["Moderation settings" in repository settings sidebar](/assets/images/help/repository/repo-settings-moderation-settings.png)
+1. Under "Moderation settings", click **Interaction limits**.
+  ![Interaction limits in repository settings ](/assets/images/help/repository/repo-settings-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}
-  ![Opções Temporary interaction limit (Restrições de interação temporárias)](/assets/images/help/repository/temporary-interaction-limits-options.png)
+  ![Temporary interaction limit options](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
-## Leia mais
-- "[Denunciar abuso ou spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-- "[Gerenciar o acesso de um indivíduo a um repositório da organização](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Níveis de permissão do repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository)"
+## Further reading
+- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
+- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)"
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

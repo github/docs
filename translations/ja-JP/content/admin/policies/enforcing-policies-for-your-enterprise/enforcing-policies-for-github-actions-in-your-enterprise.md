@@ -26,7 +26,6 @@ shortTitle: GitHub Actions policies
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.ae-beta %}
 
 ## About policies for {% data variables.product.prodname_actions %} in your enterprise
 
@@ -36,13 +35,13 @@ shortTitle: GitHub Actions policies
 
 ## Enforcing a policy to restrict the use of actions in your enterprise
 
-Enterprise 内のすべての Organization に対して {% data variables.product.prodname_actions %} を無効化するか、特定の Organization のみを許可するかを選択できます。 Enterprise にあるローカルのアクションだけ利用できるように、パブリックなアクションの利用を制限することもできます。
+You can choose to disable {% data variables.product.prodname_actions %} for all organizations in your enterprise, or only allow specific organizations. You can also limit the use of public actions, so that people can only use local actions that exist in your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
-1. [**Save**] をクリックします。
+1. Click **Save**.
 
 {% ifversion ghec or ghes or ghae %}
 
@@ -53,11 +52,11 @@ Enterprise 内のすべての Organization に対して {% data variables.produc
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。
-   {%- ifversion ghes or ghae-issue-5094 %}
-   ![許可リストにアクションを追加する](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
+   {%- ifversion ghes > 3.0 or ghae-issue-5094 %}
+   ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
-   ![許可リストにアクションを追加する](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
+   ![Add actions to allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
    {%- endif %}
 {% endif %}
 
@@ -69,8 +68,7 @@ Enterprise 内のすべての Organization に対して {% data variables.produc
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
@@ -109,7 +107,7 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.1 or ghae-next %}
+{% ifversion ghec or ghes > 3.1 or ghae %}
 
 ## Enforcing a policy for workflow permissions in your enterprise
 
@@ -122,7 +120,8 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. [**Workflow permissions**]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。 ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
-1. **Save（保存）**をクリックして、設定を適用してください。
+1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+  ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
+1. Click **Save** to apply the settings.
 
 {% endif %}

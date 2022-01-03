@@ -1,8 +1,8 @@
 ---
-title: コードオーナーについて
-intro: CODEOWNERS ファイルを使い、リポジトリ中のコードに対して責任を負う個人あるいは Team を指定できます。
+title: About code owners
+intro: You can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.
 redirect_from:
-  - /articles/about-codeowners/
+  - /articles/about-codeowners
   - /articles/about-code-owners
   - /github/creating-cloning-and-archiving-repositories/about-code-owners
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners
@@ -15,62 +15,61 @@ versions:
 topics:
   - Repositories
 ---
+People with admin or owner permissions can set up a CODEOWNERS file in a repository.
 
-管理者あるいはオーナー権限を持つ人は、リポジトリ中に CODEOWNERS ファイルをセットアップできます。
+The people you choose as code owners must have write permissions for the repository. When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
-コードオーナーに指定する人は、リポジトリへの書き込み権限を持っていなければなりません。 When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
+## About code owners
 
-## コードオーナーについて
+Code owners are automatically requested for review when someone opens a pull request that modifies code that they own. Code owners are not automatically requested to review draft pull requests. For more information about draft pull requests, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)." When you mark a draft pull request as ready for review, code owners are automatically notified. If you convert a pull request to a draft, people who are already subscribed to notifications are not automatically unsubscribed. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request)."
 
-コードオーナーは、他者が所有するコードを変更するプルリクエストをオープンすると、自動的にレビューをリクエストされます。 コードオーナーはドラフトのプルリクエストのレビューを自動的にリクエストされません。 ドラフトのプルリクエストに関する詳しい情報については「[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)」を参照してください。 コードオーナーはドラフトのプルリクエストのレビューを自動的にリクエストされません。 プルリクエストをドラフトに変換する場合、通知を既にサブスクライブしているユーザは自動的にサブスクライブ解除されません。 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request)」を参照してください。
+When someone with admin or owner permissions has enabled required reviews, they also can optionally require approval from a code owner before the author can merge a pull request in the repository. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
-管理者あるいはオーナー権限を持つ誰かがレビュー必須を有効化した場合、作者がリポジトリ中でプルリクエストをマージできるための条件としてコードオーナーからの承認を必須とすることもできます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)を参照してください。
+If a file has a code owner, you can see who the code owner is before you open a pull request. In the repository, you can browse to the file and hover over {% octicon "shield-lock" aria-label="The edit icon" %}.
 
-ファイルにコードオーナーがいる場合、プルリクエストをオープンする前にコードオーナーを確認できます。 リポジトリで、ファイルを参照して {% octicon "shield-lock" aria-label="The edit icon" %} にカーソルを合わせることができます。
+![Code owner for a file in a repository](/assets/images/help/repository/code-owner-for-a-file.png)
 
-![リポジトリ内のファイルのコードオーナー](/assets/images/help/repository/code-owner-for-a-file.png)
+## CODEOWNERS file location
 
-## CODEOWNERSファイルの場所
+To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the root, `docs/`, or `.github/` directory of the repository, in the branch where you'd like to add the code owners.
 
-CODEOWNERS ファイルを使うためには、コードオーナーを追加したいブランチで、リポジトリのルート、`docs/`、`.github/` のいずれかのディレクトリに `CODEOWNERS` という新しいファイルを作成してください。
+Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
-各CODEOWNERSファイルは、リポジトリ内の単一のブランチにコードオーナーを割り当てます。 したがって、デフォルトブランチのコードベースに `@octo-org/codeowners-team`、`gh-pages` ブランチの {% data variables.product.prodname_pages %} サイトに `@octocat` など、ブランチごとに異なるコードオーナーを割り当てることができます。
+For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
 
-コードオーナーがレビューのリクエストを受け取るためには、CODEOWNERS ファイルがプルリクエストの base ブランチになければなりません。 たとえばリポジトリ中の`gh-pages`ブランチの、*.js*ファイルのコードオーナーとして`@octocat`を割り当てたなら、*.js*に変更を加えるプルリクエストがheadブランチと`gh-pages`の間でオープンされると、`@octocat`はレビューのリクエストを受けることになります。
-
-{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-9273 %}
 ## CODEOWNERS file size
 
 CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
 
-To reduce the size of your CODEOWNERS file, consider using wildcard patterns to consolidate multiple entries into a single entry.
+To reduce the size of your CODEOWNERS file, consider using wildcard patterns to consolidate multiple entries into a single entry. 
 {% endif %}
 
-## CODEOWNERSの構文
+## CODEOWNERS syntax
 
-CODEOWNERS ファイルは、[一部の例外](#syntax-exceptions)を除いて、[gitignore](https://git-scm.com/docs/gitignore#_pattern_format) ファイルで使用されるルールのほとんどに従うパターンを使用します。 パターンの後には1つ以上の{% data variables.product.prodname_dotcom %}のユーザー名あるいはTeam名が続きます。これらの名前には標準の`@username`あるいは`@org/team-name`フォーマットが使われます。 Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. You can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, for example `user@example.com`.
+A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. You can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, for example `user@example.com`.
 
-CODEOWNERS ファイルのいずれかの行に無効な構文が含まれている場合、そのファイルは検出されず、レビューのリクエストには使用されません。
-### CODEOWNERS ファイルの例
+If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
+### Example of a CODEOWNERS file
 ```
-# これはコメントです。
-# 各行はファイルパターンの後に一人以上のオーナーが続きます。
+# This is a comment.
+# Each line is a file pattern followed by one or more owners.
 
-# これらのオーナーは、リポジトリ中のすべてに対する
-# デフォルトのオーナーになります。 後のマッチが優先されないかぎり、
-# 誰かがプルリクエストをオープンすると、
-# @global-owner1と@global-owner2にはレビューがリクエストされます。
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# @global-owner1 and @global-owner2 will be requested for
+# review when someone opens a pull request.
 *       @global-owner1 @global-owner2
 
-# 順序は重要です。最後にマッチしたパターンが最も
-# 高い優先度を持ちます。 誰かがJSファイルだけを変更する
-# プルリクエストをオープンすると、@js-ownerだけにレビューが
-# リクエストされ、グローバルのオーナーにはリクエストされません。
+# Order is important; the last matching pattern takes the most
+# precedence. When someone opens a pull request that only
+# modifies JS files, only @js-owner and not the global
+# owner(s) will be requested for a review.
 *.js    @js-owner
 
-# メールアドレスの方が良ければ、そちらを使うこともできます。 それらは
-# コミット作者のメールの場合と同じようにユーザの
-# ルックアップに使われます。
+# You can also use email addresses if you prefer. They'll be
+# used to look up users just like we do for commit author
+# emails.
 *.go docs@example.com
 
 # Teams can be specified as code owners as well. Teams should
@@ -84,18 +83,18 @@ CODEOWNERS ファイルのいずれかの行に無効な構文が含まれてい
 # subdirectories.
 /build/logs/ @doctocat
 
-# `docs/*`パターンは`docs/getting-started.md`のようなファイルには
-# マッチしますが、それ以上にネストしている
-# `docs/build-app/troubleshooting.md`のようなファイルにはマッチしません。
+# The `docs/*` pattern will match files like
+# `docs/getting-started.md` but not further nested files like
+# `docs/build-app/troubleshooting.md`.
 docs/*  docs@example.com
 
-# この例では、@octocatはリポジトリ中のあらゆる場所にある
-# appsディレクトリ内のすべてのファイルのオーナーになります。
+# In this example, @octocat owns any file in an apps directory
+# anywhere in your repository.
 apps/ @octocat
 
-# この例では、@doctocatはリポジトリのルートにある
-# `/docs` ディレクトリとそのサブディレクトリにある
-# ファイルを所有しています。
+# In this example, @doctocat owns any file in the `/docs`
+# directory in the root of your repository and any of its
+# subdirectories.
 /docs/ @doctocat
 
 # In this example, @octocat owns any file in the `/apps` 
@@ -104,16 +103,16 @@ apps/ @octocat
 /apps/ @octocat
 /apps/github 
 ```
-### 構文の例外
-gitignore ファイルには、CODEOWNERS ファイルでは動作しないいくつかの構文ルールがあります。
+### Syntax exceptions
+There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
 - Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
-- `!` を使用してパターンを否定する
-- `[ ]` を使用して文字範囲を定義する
+- Using `!` to negate a pattern
+- Using `[ ]` to define a character range
 
 ## CODEOWNERS and branch protection
-Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. 詳しい情報については、「[保護されたブランチについて](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)」を参照してください。
+Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[About protected branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." 
 
-### CODEOWNERS ファイルの例
+### Example of a CODEOWNERS file
 ```
 # In this example, any change inside the `/apps` directory
 # will require approval from @doctocat.
@@ -125,18 +124,14 @@ Repository owners can add branch protection rules to ensure that changed code is
 
 # In this example, any change inside the `/apps` directory
 # will require approval from a member of the @example-org/content team.
-# If a member of @example-org/content opens a pull request 
-# with a change inside the `/apps` directory, their approval is implicit.
-# The team is still added as a reviewer but not a required reviewer.
-# Anyone can approve the changes.
 /apps/ @example-org/content-team
 ```
 
 
-## 参考リンク
+## Further reading
 
-- [新しいファイルの作成](/articles/creating-new-files)
-- [個人リポジトリへのコラボレータの招待](/articles/inviting-collaborators-to-a-personal-repository)
-- [Organizationのリポジトリへの個人のアクセスの管理](/articles/managing-an-individual-s-access-to-an-organization-repository)
-- [OrganizationのリポジトリへのTeamのアクセスの管理](/articles/managing-team-access-to-an-organization-repository)
-- [プルリクエストレビューの表示](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)
+- "[Creating new files](/articles/creating-new-files)"
+- "[Inviting collaborators to a personal repository](/articles/inviting-collaborators-to-a-personal-repository)"
+- "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
+- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
+- "[Viewing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"

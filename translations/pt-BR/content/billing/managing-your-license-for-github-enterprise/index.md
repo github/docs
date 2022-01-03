@@ -1,17 +1,17 @@
 ---
-title: Gerenciando a sua licença para o GitHub Enterprise
-shortTitle: Licença do GitHub Enterprise
-intro: '{% data variables.product.prodname_enterprise %} inclui opções de implantação auto-hospedadas. Se você hospedar uma instância de {% data variables.product.prodname_ghe_server %}, você deverá desbloquear a instância com um arquivo de licença. Você pode visualizar, gerenciar e atualizar o arquivo de licença.'
+title: Managing your license for GitHub Enterprise
+shortTitle: GitHub Enterprise license
+intro: '{% data variables.product.prodname_enterprise %} includes both cloud and self-hosted deployment options. If you host a {% data variables.product.prodname_ghe_server %} instance, you must unlock the instance with a license file. You can view, manage, and update the license file.'
 redirect_from:
   - /free-pro-team@latest/billing/managing-your-license-for-github-enterprise
   - /enterprise/admin/installation/managing-your-github-enterprise-license
-  - /enterprise/admin/categories/licenses/
-  - /enterprise/admin/articles/license-files/
-  - /enterprise/admin/installation/about-license-files/
-  - /enterprise/admin/articles/downloading-your-license/
-  - /enterprise/admin/installation/downloading-your-license/
-  - /enterprise/admin/articles/upgrading-your-license/
-  - /enterprise/admin/installation/updating-your-license/
+  - /enterprise/admin/categories/licenses
+  - /enterprise/admin/articles/license-files
+  - /enterprise/admin/installation/about-license-files
+  - /enterprise/admin/articles/downloading-your-license
+  - /enterprise/admin/installation/downloading-your-license
+  - /enterprise/admin/articles/upgrading-your-license
+  - /enterprise/admin/installation/updating-your-license
   - /enterprise/admin/installation/managing-your-github-enterprise-server-license
   - /enterprise/admin/overview/managing-your-github-enterprise-license
 versions:

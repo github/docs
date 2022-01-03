@@ -46,7 +46,6 @@ The events listed in your security log are triggered by your actions. Actions ar
 
 | Category name | Description
 |------------------|-------------------{% ifversion fpt or ghec %}
-| [`account_recovery_token`](#account_recovery_token-category-actions) | Contains all activities related to [adding a recovery token](/articles/configuring-two-factor-authentication-recovery-methods).
 | [`billing`](#billing-category-actions) | Contains all activities related to your billing information.
 | [`codespaces`](#codespaces-category-actions) | Contains all activities related to {% data variables.product.prodname_codespaces %}. For more information, see "[About {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-codespaces)."
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
@@ -76,14 +75,6 @@ The events listed in your security log are triggered by your actions. Actions ar
 An overview of some of the most common actions that are recorded as events in the security log.
 
 {% ifversion fpt or ghec %}
-
-### `account_recovery_token` category actions
-
-| Action | Description
-|------------------|-------------------
-| `confirm` | Triggered when you successfully [store a new token with a recovery provider](/articles/configuring-two-factor-authentication-recovery-methods).
-| `recover` | Triggered when you successfully [redeem an account recovery token](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).
-| `recover_error` | Triggered when a token is used but {% data variables.product.prodname_dotcom %} is not able to validate it.
 
 ### `billing` category actions
 

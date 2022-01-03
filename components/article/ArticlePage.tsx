@@ -69,7 +69,7 @@ export const ArticlePage = () => {
         className={item.platform}
         sx={{ listStyle: 'none', padding: '2px' }}
       >
-        <div className={cx('lh-condensed')}>
+        <div className={cx('lh-condensed d-block width-full')}>
           <div dangerouslySetInnerHTML={{ __html: item.contents }} />
           {item.items && item.items.length > 0 ? (
             <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
