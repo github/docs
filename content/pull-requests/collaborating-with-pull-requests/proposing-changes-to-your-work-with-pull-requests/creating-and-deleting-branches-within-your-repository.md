@@ -34,6 +34,8 @@ shortTitle: Create & delete branches
 
 **Note:** If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
+Also, as browsers and their interpretation of current standards can potentially deliver visually different results and you are having issues locating the {% octicon "git-branch" aria-label="The branch icon" %} icon, try zooming out some. It should show up and become usable as designed.
+
 {% endnote %}
 
 If the branch you want to delete is associated with an open pull request, you must merge or close the pull request before deleting the branch. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)" or "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."
