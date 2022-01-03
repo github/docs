@@ -472,7 +472,53 @@ paths-ignore:
 
 {% endnote %}
 
-For compiled languages, if you want to limit {% data variables.product.prodname_code_scanning %} to specific directories in your project, you must specify appropriate build steps in the workflow. The commands you need to use to exclude a directory from the build will depend on your build system. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
+For compiled languages, if you want to limit {% data variables.product.prodname_code_scanning %} to specific directories in your project, you must specify appropriate build steps in the workflow. The commands you need to use to exclude a directory from the build will depend on your build system. 
+
+For example, if your project tree is 
+
+```text
+thing/
+   src/
+   lib1/
+   lib2/
+```
+
+and your default build command (let's use make)
+
+```sh
+make all
+```
+
+builds
+
+```text
+src/
+lib1/
+lib2/
+```
+
+then the codeql wrapper will intercept all of those and put them into the database. The wrapper command in this case is
+
+```sh
+codeql database create cpp-database --language=cpp --command='make all'
+```
+
+If you run
+
+```sh
+make lib2 
+```
+
+and then
+
+```sh
+codeql database create cpp-database --language=cpp --command='make src lib1'
+```
+
+instead, the codeql build will not build the contents of lib2. Note that for header-only C++ libraries, this won't work because they will be included.
+
+
+For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 
 You can quickly analyze small portions of a monorepo when you modify code in specific directories. You'll need to both exclude directories in your build steps and use the `paths-ignore` and `paths` keywords for [`on.<push|pull_request>`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) in your workflow.
 
