@@ -329,6 +329,8 @@ steps:
     if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
 ```
 
+This is the same as using `if: failure()` in a job step.
+
 #### Example for composite action step
 
 ```yaml
@@ -337,6 +339,8 @@ steps:
   - name: The composite action has failed
     if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
 ```
+
+This is the same as using `if: failure()` in a composite action step.
 
 ## Object filters
 
