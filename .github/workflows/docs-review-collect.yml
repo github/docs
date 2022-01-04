@@ -40,6 +40,3 @@ jobs:
           ORGANIZATION: 'github'
           REPO: 'github'
           REVIEWER: 'docs-reviewers'
-          # This is an educated guess of how many PRs are opened in a day on the github/github repo
-          # If we are missing PRs, either increase this number or increase the frequency at which this script is run
-          NUM_PRS: 100
