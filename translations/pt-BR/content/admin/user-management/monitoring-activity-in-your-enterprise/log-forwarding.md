@@ -2,7 +2,7 @@
 title: Log forwarding
 intro: '{% data variables.product.product_name %} uses `syslog-ng` to forward {% ifversion ghes %}system{% elsif ghae %}Git{% endif %} and application logs to the server you specify.'
 redirect_from:
-  - /enterprise/admin/articles/log-forwarding/
+  - /enterprise/admin/articles/log-forwarding
   - /enterprise/admin/installation/log-forwarding
   - /enterprise/admin/enterprise-management/log-forwarding
   - /admin/enterprise-management/log-forwarding

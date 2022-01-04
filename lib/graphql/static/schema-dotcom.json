@@ -6377,6 +6377,48 @@
       ]
     },
     {
+      "name": "updateOrganizationAllowPrivateRepositoryForkingSetting",
+      "kind": "mutations",
+      "id": "updateorganizationallowprivaterepositoryforkingsetting",
+      "href": "/graphql/reference/mutations#updateorganizationallowprivaterepositoryforkingsetting",
+      "description": "<p>Sets whether private repository forks are enabled for an organization.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateOrganizationAllowPrivateRepositoryForkingSettingInput!",
+          "id": "updateorganizationallowprivaterepositoryforkingsettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateorganizationallowprivaterepositoryforkingsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of updating the allow private repository forking setting.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization with the updated allow private repository forking setting.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateProject",
       "kind": "mutations",
       "id": "updateproject",
@@ -13087,6 +13129,46 @@
       ]
     },
     {
+      "name": "ConvertedToDiscussionEvent",
+      "kind": "objects",
+      "id": "convertedtodiscussionevent",
+      "href": "/graphql/reference/objects#convertedtodiscussionevent",
+      "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "discussion",
+          "description": "<p>The discussion that the issue was converted into.</p>",
+          "type": "Discussion",
+          "id": "discussion",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#discussion"
+        }
+      ]
+    },
+    {
       "name": "CreatedCommitContribution",
       "kind": "objects",
       "id": "createdcommitcontribution",
@@ -17173,6 +17255,16 @@
                 "id": "string",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "viewerOrganizationRole",
+              "description": "<p>The viewer's role in an organization.</p>",
+              "type": {
+                "name": "RoleInOrganization",
+                "id": "roleinorganization",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#roleinorganization"
               }
             }
           ]
@@ -23178,6 +23270,11 @@
           "href": "/graphql/reference/interfaces#node"
         },
         {
+          "name": "ProjectNextOwner",
+          "id": "projectnextowner",
+          "href": "/graphql/reference/interfaces#projectnextowner"
+        },
+        {
           "name": "Reactable",
           "id": "reactable",
           "href": "/graphql/reference/interfaces#reactable"
@@ -23674,6 +23771,97 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "projectNext",
+          "description": "<p>Find a project by project (beta) number.</p>",
+          "type": "ProjectNext",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The project (beta) number.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "projectsNext",
+          "description": "<p>A list of project (beta) items under the owner.</p>",
+          "type": "ProjectNextConnection!",
+          "id": "projectnextconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>A project (beta) to search for under the the owner.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "sortBy",
+              "defaultValue": "TITLE",
+              "description": "<p>How to order the returned projects (beta).</p>",
+              "type": {
+                "name": "ProjectNextOrderField",
+                "id": "projectnextorderfield",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectnextorderfield"
               }
             }
           ]
@@ -33338,6 +33526,14 @@
           ]
         },
         {
+          "name": "membersCanForkPrivateRepositories",
+          "description": "<p>Members can fork private repositories in this organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "membersWithRole",
           "description": "<p>A list of users who are members of this organization.</p>",
           "type": "OrganizationMemberConnection!",
@@ -33725,7 +33921,7 @@
         },
         {
           "name": "projectNext",
-          "description": "<p>Find project by project next number.</p>",
+          "description": "<p>Find a project by project (beta) number.</p>",
           "type": "ProjectNext",
           "id": "projectnext",
           "kind": "objects",
@@ -33733,7 +33929,7 @@
           "arguments": [
             {
               "name": "number",
-              "description": "<p>The project next number.</p>",
+              "description": "<p>The project (beta) number.</p>",
               "type": {
                 "name": "Int!",
                 "id": "int",
@@ -33825,7 +34021,7 @@
         },
         {
           "name": "projectsNext",
-          "description": "<p>A list of project next items under the owner.</p>",
+          "description": "<p>A list of project (beta) items under the owner.</p>",
           "type": "ProjectNextConnection!",
           "id": "projectnextconnection",
           "kind": "objects",
@@ -33869,6 +34065,27 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>A project (beta) to search for under the the owner.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "sortBy",
+              "defaultValue": "TITLE",
+              "description": "<p>How to order the returned projects (beta).</p>",
+              "type": {
+                "name": "ProjectNextOrderField",
+                "id": "projectnextorderfield",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectnextorderfield"
               }
             }
           ]
@@ -38836,6 +39053,11 @@
           "href": "/graphql/reference/interfaces#node"
         },
         {
+          "name": "ProjectNextOwner",
+          "id": "projectnextowner",
+          "href": "/graphql/reference/interfaces#projectnextowner"
+        },
+        {
           "name": "Reactable",
           "id": "reactable",
           "href": "/graphql/reference/interfaces#reactable"
@@ -39825,6 +40047,97 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "projectNext",
+          "description": "<p>Find a project by project (beta) number.</p>",
+          "type": "ProjectNext",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The project (beta) number.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "projectsNext",
+          "description": "<p>A list of project (beta) items under the owner.</p>",
+          "type": "ProjectNextConnection!",
+          "id": "projectnextconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>A project (beta) to search for under the the owner.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "sortBy",
+              "defaultValue": "TITLE",
+              "description": "<p>How to order the returned projects (beta).</p>",
+              "type": {
+                "name": "ProjectNextOrderField",
+                "id": "projectnextorderfield",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectnextorderfield"
               }
             }
           ]
@@ -49042,6 +49355,17 @@
                 "id": "string",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "filterByAssignable",
+              "defaultValue": false,
+              "description": "<p>Filter by categories that are assignable by the viewer.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -60640,7 +60964,7 @@
         },
         {
           "name": "projectNext",
-          "description": "<p>Find project by project next number.</p>",
+          "description": "<p>Find a project by project (beta) number.</p>",
           "type": "ProjectNext",
           "id": "projectnext",
           "kind": "objects",
@@ -60648,7 +60972,7 @@
           "arguments": [
             {
               "name": "number",
-              "description": "<p>The project next number.</p>",
+              "description": "<p>The project (beta) number.</p>",
               "type": {
                 "name": "Int!",
                 "id": "int",
@@ -60740,7 +61064,7 @@
         },
         {
           "name": "projectsNext",
-          "description": "<p>A list of project next items under the owner.</p>",
+          "description": "<p>A list of project (beta) items under the owner.</p>",
           "type": "ProjectNextConnection!",
           "id": "projectnextconnection",
           "kind": "objects",
@@ -60784,6 +61108,27 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>A project (beta) to search for under the the owner.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "sortBy",
+              "defaultValue": "TITLE",
+              "description": "<p>How to order the returned projects (beta).</p>",
+              "type": {
+                "name": "ProjectNextOrderField",
+                "id": "projectnextorderfield",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectnextorderfield"
               }
             }
           ]
@@ -64318,11 +64663,11 @@
       "kind": "interfaces",
       "id": "projectnextowner",
       "href": "/graphql/reference/interfaces#projectnextowner",
-      "description": "<p>Represents an owner of a Project.</p>",
+      "description": "<p>Represents an owner of a project (beta).</p>",
       "fields": [
         {
           "name": "projectNext",
-          "description": "<p>Find project by project next number.</p>",
+          "description": "<p>Find a project by project (beta) number.</p>",
           "type": "ProjectNext",
           "id": "projectnext",
           "kind": "objects",
@@ -64330,7 +64675,7 @@
           "arguments": [
             {
               "name": "number",
-              "description": "<p>The project next number.</p>",
+              "description": "<p>The project (beta) number.</p>",
               "type": {
                 "name": "Int!",
                 "id": "int",
@@ -64342,7 +64687,7 @@
         },
         {
           "name": "projectsNext",
-          "description": "<p>A list of project next items under the owner.</p>",
+          "description": "<p>A list of project (beta) items under the owner.</p>",
           "type": "ProjectNextConnection!",
           "id": "projectnextconnection",
           "kind": "objects",
@@ -64386,6 +64731,27 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>A project (beta) to search for under the the owner.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "sortBy",
+              "defaultValue": "TITLE",
+              "description": "<p>How to order the returned projects (beta).</p>",
+              "type": {
+                "name": "ProjectNextOrderField",
+                "id": "projectnextorderfield",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectnextorderfield"
               }
             }
           ]
@@ -67227,6 +67593,10 @@
           "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+        },
+        {
           "name": "CROSS_REFERENCED_EVENT",
           "description": "<p>Represents a mention made by one issue or pull request to another.</p>"
         },
@@ -68174,6 +68544,31 @@
       ]
     },
     {
+      "name": "ProjectNextOrderField",
+      "kind": "enums",
+      "id": "projectnextorderfield",
+      "href": "/graphql/reference/enums#projectnextorderfield",
+      "description": "<p>Properties by which the return project can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>The project's date and time of creation.</p>"
+        },
+        {
+          "name": "NUMBER",
+          "description": "<p>The project's number.</p>"
+        },
+        {
+          "name": "TITLE",
+          "description": "<p>The project's title.</p>"
+        },
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>The project's date and time of update.</p>"
+        }
+      ]
+    },
+    {
       "name": "ProjectOrderField",
       "kind": "enums",
       "id": "projectorderfield",
@@ -68453,6 +68848,10 @@
         {
           "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
           "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
         },
         {
           "name": "CONVERT_TO_DRAFT_EVENT",
@@ -69190,6 +69589,27 @@
         {
           "name": "WAITING",
           "description": "<p>The check suite or run is in waiting state.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RoleInOrganization",
+      "kind": "enums",
+      "id": "roleinorganization",
+      "href": "/graphql/reference/enums#roleinorganization",
+      "description": "<p>Possible roles a user may have in relation to an organization.</p>",
+      "values": [
+        {
+          "name": "DIRECT_MEMBER",
+          "description": "<p>A user who is a direct member of the organization.</p>"
+        },
+        {
+          "name": "OWNER",
+          "description": "<p>A user with full administrative access to the organization.</p>"
+        },
+        {
+          "name": "UNAFFILIATED",
+          "description": "<p>A user who is unaffiliated with the organization.</p>"
         }
       ]
     },
@@ -70289,6 +70709,11 @@
           "href": "/graphql/reference/objects#convertednotetoissueevent"
         },
         {
+          "name": "ConvertedToDiscussionEvent",
+          "id": "convertedtodiscussionevent",
+          "href": "/graphql/reference/objects#convertedtodiscussionevent"
+        },
+        {
           "name": "CrossReferencedEvent",
           "id": "crossreferencedevent",
           "href": "/graphql/reference/objects#crossreferencedevent"
@@ -71093,6 +71518,11 @@
           "name": "ConvertedNoteToIssueEvent",
           "id": "convertednotetoissueevent",
           "href": "/graphql/reference/objects#convertednotetoissueevent"
+        },
+        {
+          "name": "ConvertedToDiscussionEvent",
+          "id": "convertedtodiscussionevent",
+          "href": "/graphql/reference/objects#convertedtodiscussionevent"
         },
         {
           "name": "CrossReferencedEvent",
@@ -77385,7 +77815,7 @@
       "inputFields": [
         {
           "name": "appId",
-          "description": "<p>The ID of the App that must set the status in order for it to be accepted.</p>",
+          "description": "<p>The ID of the App that must set the status in order for it to be accepted.\nOmit this value to use whichever app has recently been setting this status, or\nuse \"any\" to allow any app to set the status.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -79822,6 +80252,40 @@
           "id": "notificationrestrictionsettingvalue",
           "kind": "enums",
           "href": "/graphql/reference/enums#notificationrestrictionsettingvalue"
+        }
+      ]
+    },
+    {
+      "name": "UpdateOrganizationAllowPrivateRepositoryForkingSettingInput",
+      "kind": "inputObjects",
+      "id": "updateorganizationallowprivaterepositoryforkingsettinginput",
+      "href": "/graphql/reference/input-objects#updateorganizationallowprivaterepositoryforkingsettinginput",
+      "description": "<p>Autogenerated input type of UpdateOrganizationAllowPrivateRepositoryForkingSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "forkingEnabled",
+          "description": "<p>Enable forking of private repositories in the organization?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization on which to set the allow private repository forking setting.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },

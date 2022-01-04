@@ -99,6 +99,8 @@ Because client connections to the cluster come from the load balancer, the clien
 
 We strongly recommend enabling PROXY support for both your instance and the load balancer.
 
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
+
  - For your instance, use this command:
   ```shell
   $ ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply

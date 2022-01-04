@@ -1,45 +1,44 @@
 ---
-title: Gitのサブツリーのマージについて
+title: About Git subtree merges
 redirect_from:
-  - /articles/working-with-subtree-merge/
-  - /subtree-merge/
+  - /articles/working-with-subtree-merge
+  - /subtree-merge
   - /articles/about-git-subtree-merges
   - /github/using-git/about-git-subtree-merges
   - /github/getting-started-with-github/about-git-subtree-merges
   - /github/getting-started-with-github/using-git/about-git-subtree-merges
-intro: 複数のプロジェクトを単一のリポジトリで管理する必要がある場合、*サブツリーマージ*を使ってすべての参照を扱うことができます。
+intro: 'If you need to manage multiple projects within a single repository, you can use a *subtree merge* to handle all the references.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
-
 ## About subtree merges
 
-通常、サブツリーのマージはリポジトリ内にリポジトリを格納するために使われます。 「サブリポジトリ」はメインのリポジトリのフォルダー内に格納されます。
+Typically, a subtree merge is used to contain a repository within a repository. The "subrepository" is stored in a folder of the main repository.
 
-サブツリーマージは、例で説明するのが最も分かりやすいでしょう。 以下のように進めます:
+The best way to explain subtree merges is to show by example. We will:
 
-- プロジェクトを表す`test`という空のリポジトリの作成。
-- `Spoon-Knife`というもう1つのリポジトリをサブツリーとしてマージ。
-- `test`プロジェクトは、そのサブプロジェクトを同じリポジトリの一部であるかのように使う。
-- `Spoon-Knife`からの更新を`test` プロジェクトにフェッチする。
+- Make an empty repository called `test` that represents our project
+- Merge another repository into it as a subtree called `Spoon-Knife`.
+- The `test` project will use that subproject as if it were part of the same repository.
+- Fetch updates from `Spoon-Knife` into our `test` project.
 
-## サブツリーマージのための空のリポジトリのセットアップ
+## Setting up the empty repository for a subtree merge
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. 新しいディレクトリを作成し、そこに移動します。
+2. Create a new directory and navigate to it.
   ```shell
   $ mkdir test
   $ cd test
   ```
-3. 新しい Git リポジトリを初期化します。
+3. Initialize a new Git repository.
   ```shell
   $ git init
   > Initialized empty Git repository in /Users/octocat/tmp/test/.git/
   ```
-4. 新しいファイルを作成してコミットします。
+4. Create and commit a new file.
   ```shell
   $ touch .gitignore
   $ git add .gitignore
@@ -49,9 +48,9 @@ versions:
   >  create mode 100644 .gitignore
   ```
 
-## 新しいリポジトリをサブツリーとして追加
+## Adding a new repository as a subtree
 
-1. 関心のある別個のプロジェクトを指す新しいリモート URL を追加します。
+1. Add a new remote URL pointing to the separate project that we're interested in.
   ```shell
   $ git remote add -f spoon-knife git@github.com:octocat/Spoon-Knife.git
   > Updating spoon-knife
@@ -64,52 +63,52 @@ versions:
   > From git://github.com/octocat/Spoon-Knife
   >  * [new branch]      main     -> Spoon-Knife/main
   ```
-2. `Spoon-Knife` プロジェクトをローカルの Git プロジェクトにマージします。 こうしてもローカルではファイルはまったく変更されませんが、Git は次のステップに備えることになります。
+2. Merge the `Spoon-Knife` project into the local Git project. This doesn't change any of your files locally, but it does prepare Git for the next step.
 
-  Git 2.9 以降を使用している場合:
+  If you're using Git 2.9 or above:
   ```shell
   $ git merge -s ours --no-commit --allow-unrelated-histories spoon-knife/main
   > Automatic merge went well; stopped before committing as requested
   ```
 
-  Git 2.8 以前を使用している場合:
+  If you're using Git 2.8 or below:
   ```shell
   $ git merge -s ours --no-commit spoon-knife/main
   > Automatic merge went well; stopped before committing as requested
   ```
-3. **spoon-knife** というディレクトリを新たに作成し、`Spoon-Knife` プロジェクトの Git の履歴をそこへコピーします。
+3. Create a new directory called **spoon-knife**, and copy the Git history of the `Spoon-Knife` project into it.
   ```shell
   $ git read-tree --prefix=spoon-knife/ -u spoon-knife/main
   ```
-4. 変更をコミットして安全にします。
+4. Commit the changes to keep them safe.
   ```shell
   $ git commit -m "Subtree merged in spoon-knife"
   > [main fe0ca25] Subtree merged in spoon-knife
   ```
 
-ここでは 1 つのサブプロジェクトを追加しただけですが、Git リポジトリには任意の数のサブプロジェクトを取り込むことができます。
+Although we've only added one subproject, any number of subprojects can be incorporated into a Git repository.
 
 {% tip %}
 
-**ヒント**: 将来このリポジトリのクローンを新しく作成した場合、追加したリモートは作成されません。 [`git remote add` コマンド](/github/getting-started-with-github/managing-remote-repositories)を使って、再び追加する必要があります。
+**Tip**: If you create a fresh clone of the repository in the future,  the remotes you've added will not be created for you. You will have to add them again using [the `git remote add` command](/github/getting-started-with-github/managing-remote-repositories).
 
 {% endtip %}
 
-## 更新および変更の同期
+## Synchronizing with updates and changes
 
-サブプロジェクトが追加された場合、そのサブプロジェクトは上流の変更と自動的には同期されません。 以下のコマンドで、サブプロジェクトを更新する必要があります。
+When a subproject is added, it is not automatically kept in sync with the upstream changes. You will need to update the subproject with the following command:
 
 ```shell
 $ git pull -s subtree <em>remotename</em> <em>branchname</em>
 ```
 
-上の例では、以下のようになるでしょう:
+For the example above, this would be:
 
 ```shell
 $ git pull -s subtree spoon-knife main
 ```
 
-## 参考リンク
+## Further reading
 
-- [_Pro Git_ ブックの「高度なマージ」の章](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
-- [サブツリーマージの戦略の使い方](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)
+- [The "Advanced Merging" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
+- "[How to use the subtree merge strategy](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"

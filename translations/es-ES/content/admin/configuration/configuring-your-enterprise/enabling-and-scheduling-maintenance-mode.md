@@ -1,13 +1,13 @@
 ---
-title: Habilitar y programar el modo de mantenimiento
-intro: 'Algunos procedimientos de mantenimiento estándar, como la actualización {% data variables.product.product_location %} o la restauración de copias de seguridad, exigen que la instancia esté sin conexión para el uso normal.'
+title: Enabling and scheduling maintenance mode
+intro: 'Some standard maintenance procedures, such as upgrading {% data variables.product.product_location %} or restoring backups, require the instance to be taken offline for normal use.'
 redirect_from:
-  - /enterprise/admin/maintenance-mode/
-  - /enterprise/admin/categories/maintenance-mode/
-  - /enterprise/admin/articles/maintenance-mode/
-  - /enterprise/admin/articles/enabling-maintenance-mode/
-  - /enterprise/admin/articles/disabling-maintenance-mode/
-  - /enterprise/admin/guides/installation/maintenance-mode/
+  - /enterprise/admin/maintenance-mode
+  - /enterprise/admin/categories/maintenance-mode
+  - /enterprise/admin/articles/maintenance-mode
+  - /enterprise/admin/articles/enabling-maintenance-mode
+  - /enterprise/admin/articles/disabling-maintenance-mode
+  - /enterprise/admin/guides/installation/maintenance-mode
   - /enterprise/admin/installation/enabling-and-scheduling-maintenance-mode
   - /enterprise/admin/configuration/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/enabling-and-scheduling-maintenance-mode
@@ -19,52 +19,55 @@ topics:
   - Fundamentals
   - Maintenance
   - Upgrades
-shortTitle: Configurar el modo de mantenimiento
+shortTitle: Configure maintenance mode
 ---
+## About maintenance mode
 
-## Acerca del modo de mantenimiento
+Some types of operations require that you take {% data variables.product.product_location %} offline and put it into maintenance mode:
+- Upgrading to a new version of {% data variables.product.prodname_ghe_server %}
+- Increasing CPU, memory, or storage resources allocated to the virtual machine
+- Migrating data from one virtual machine to another
+- Restoring data from a {% data variables.product.prodname_enterprise_backup_utilities %} snapshot
+- Troubleshooting certain types of critical application issues
 
-Algunos tipos de operaciones exigen que desconectes tu {% data variables.product.product_location %} y la pongas en modo de mantenimiento:
-- Actualizar a una versión nueva de tu {% data variables.product.prodname_ghe_server %}
-- Aumentar los recursos de CPU, memoria o almacenamiento asignados a la máquina virtual
-- Migrar datos desde una máquina virtual a otra
-- Restaurar datos desde una instantánea de {% data variables.product.prodname_enterprise_backup_utilities %}
-- Solucionar ciertos tipos de problemas críticos de solicitud
+We recommend that you schedule a maintenance window for at least 30 minutes in the future to give users time to prepare. When a maintenance window is scheduled, all users will see a banner when accessing the site.
 
-Recomendamos que programe una ventana de mantenimiento para, al menos, los siguientes 30 minutos para darle a los usuarios tiempo para prepararse. Cuando está programada una ventana de mantenimiento, todos los usuarios verán un mensaje emergente al acceder al sitio.
+![End user banner about scheduled maintenance](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
 
-![Mensaje emergente para el usuario final acerca del mantenimiento programado](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
+When the instance is in maintenance mode, all normal HTTP and Git access is refused. Git fetch, clone, and push operations are also rejected with an error message indicating that the site is temporarily unavailable. GitHub Actions jobs will not be executed. Visiting the site in a browser results in a maintenance page.
 
-Cuando la instancia está en modo de mantenimiento, se rechazan todos los accesos HTTP y Git. Las operaciones de extracción, clonación y subida de Git también se rechazan con un mensaje de error que indica que temporalmente el sitio no se encuentra disponible. No se ejecutarán los jobs de las Github Actions. Al visitar el sitio desde un navegador aparece una página de mantenimiento.
+![The maintenance mode splash screen](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
-![La pantalla de presentación del modo de mantenimiento](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
-
-## Habilitar el modo de mantenimiento de inmediato o programar una ventana de mantenimiento para más tarde
+## Enabling maintenance mode immediately or scheduling a maintenance window for a later time
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. En la parte superior de la {% data variables.enterprise.management_console %}, haz clic en **Mantenimiento**. ![Pestaña de mantenimiento](/assets/images/enterprise/management-console/maintenance-tab.png)
-3. En "Habilitar y Programar", decide si habilitas el modo de mantenimiento de inmediato o programas una ventana de mantenimiento para otro momento.
-    - Para habilitar el modo de mantenimiento de inmediato, usa el menú desplegable y haz clic en **now** (ahora). ![Menú desplegable con la opción para habilitar el modo de mantenimiento ahora seleccionado](/assets/images/enterprise/maintenance/enable-maintenance-mode-now.png)
-    - Para programar una ventana de mantenimiento para otro momento, usa el menú desplegable y haz clic en un horario de inicio. ![Menú desplegable con la opción para programar una ventana de mantenimiento](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
-4. Selecciona **Habilitar el modo de mantenimiento**. ![Casilla de verificación para habilitar o programar el modo de mantenimiento](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
+2. At the top of the {% data variables.enterprise.management_console %}, click **Maintenance**.
+  ![Maintenance tab](/assets/images/enterprise/management-console/maintenance-tab.png)
+3. Under "Enable and schedule", decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
+    - To enable maintenance mode immediately, use the drop-down menu and click **now**.
+    ![Drop-down menu with the option to enable maintenance mode now selected](/assets/images/enterprise/maintenance/enable-maintenance-mode-now.png)
+    - To schedule a maintenance window for a future time, use the drop-down menu and click a start time.
+    ![Drop-down menu with the option to schedule a maintenance window in two hours selected](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
+4. Select **Enable maintenance mode**.
+  ![Checkbox for enabling or scheduling maintenance mode](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Programar el modo de mantenimiento con {% data variables.product.prodname_enterprise_api %}
+## Scheduling maintenance mode with {% data variables.product.prodname_enterprise_api %}
 
-Puedes programar el mantenimiento para horarios o días diferentes con {% data variables.product.prodname_enterprise_api %}. Para obtener más información, consulta la sección "[Consola de Administración](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)".
+You can schedule maintenance for different times or dates with {% data variables.product.prodname_enterprise_api %}. For more information, see "[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
 
-## Habilitar o inhabilitar el modo de mantenimientos para todos los nodos de una agrupación
+## Enabling or disabling maintenance mode for all nodes in a cluster
 
-Con la herramienta `ghe-cluster-maintenance`, puedes configurar o anular la configuración del modo de mantenimiento para cada nodo de una agrupación.
+With the `ghe-cluster-maintenance` utility, you can set or unset maintenance mode for every node in a cluster.
 
 ```shell
 $ ghe-cluster-maintenance -h
-# Muestra opciones
+# Shows options
 $ ghe-cluster-maintenance -q
-# Consulta el modo actual
+# Queries the current mode
 $ ghe-cluster-maintenance -s
-# Configura el modo de mantenimiento
+# Sets maintenance mode
 $ ghe-cluster-maintenance -u
-# Anula la configuración del modo de mantenimiento
+# Unsets maintenance mode
 ```

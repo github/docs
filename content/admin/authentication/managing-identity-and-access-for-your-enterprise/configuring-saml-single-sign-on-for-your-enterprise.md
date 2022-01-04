@@ -2,7 +2,6 @@
 title: Configuring SAML single sign-on for your enterprise
 shortTitle: Configure SAML SSO
 intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghae %}your enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghae %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
-product: '{% data reusables.gated-features.saml-sso %}'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
   ghec: '*'
@@ -87,15 +86,14 @@ For more detailed information about how to enable SAML using Okta, see "[Configu
 
 ## Enabling SAML SSO
 
-{% ifversion ghae %}
-
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
 The following IdPs provide documentation about configuring SAML SSO for {% data variables.product.product_name %}. If your IdP isn't listed, please contact your IdP to request support for {% data variables.product.product_name %}.
 
  | IdP | More information |
  | :- | :- |
- | Azure AD | [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs |
+ | Azure AD | [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs. To configure Azure AD for {% data variables.product.prodname_ghe_managed %}, see "[Configuring authentication and provisioning for your enterprise using Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)."  |
+| Okta (Beta) | To configure Okta for {% data variables.product.prodname_ghe_managed %}, see "[Configuring authentication and provisioning for your enterprise using Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)."|
 
 During initialization for {% data variables.product.product_name %}, you must configure {% data variables.product.product_name %} as a SAML Service Provider (SP) on your IdP. You must enter several unique values on your IdP to configure {% data variables.product.product_name %} as a valid SP.
 
@@ -104,8 +102,6 @@ During initialization for {% data variables.product.product_name %}, you must co
 | SP Entity ID | SP URL | Your top-level URL for {% data variables.product.prodname_ghe_managed %} | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em></code>
 | SP Assertion Consumer Service (ACS) URL | Reply URL | URL where IdP sends SAML responses | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/saml/consume</code> |
 | SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/sso</code> |
-
-{% endif %}
 
 ## Editing the SAML SSO configuration
 
@@ -137,9 +133,9 @@ If the details for your IdP change, you'll need to edit the SAML SSO configurati
 
 {% endif %}
 
-## Disabling SAML SSO
-
 {% ifversion ghae %}
+
+## Disabling SAML SSO
 
 {% warning %}
 

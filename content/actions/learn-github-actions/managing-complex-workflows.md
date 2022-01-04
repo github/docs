@@ -14,7 +14,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Overview
 
@@ -146,17 +145,6 @@ For more information, see "[Using databases and service containers](/actions/con
 
 This feature helps you assign jobs to a specific hosted runner. If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.{% endif %}
 
-{% ifversion ghae %}
-This example shows how a workflow can use labels to specify the required runner:
-
-```yaml
-jobs:
-  example-job:
-    runs-on: [AE-runner-for-CI]
-```
-
-For more information, see ["Using labels with {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners)."
-{% else %}
 This example shows how a workflow can use labels to specify the required runner:
 
 ```yaml
@@ -168,19 +156,21 @@ jobs:
 A workflow will only run on a runner that has all the labels in the `runs-on` array. The job will preferentially go to an idle self-hosted runner with the specified labels. If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.
 
 To learn more about self-hosted runner labels, see ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+
+{% ifversion fpt or ghes %}
 To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
 {% data reusables.actions.reusable-workflows %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
 ## Using environments
 
 You can configure environments with protection rules and secrets. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 {% endif %}
 
-## Using a workflow template
+## Using starter workflows
 
 {% data reusables.actions.workflow-template-overview %}
 
@@ -188,7 +178,7 @@ You can configure environments with protection rules and secrets. Each job in a 
 {% data reusables.repositories.actions-tab %}
 1. If your repository already has existing workflows: In the upper-left corner, click **New workflow**.
   ![Create a new workflow](/assets/images/help/repository/actions-new-workflow.png)
-1. Under the name of the template you'd like to use, click **Set up this workflow**.
+1. Under the name of the starter workflow you'd like to use, click **Set up this workflow**.
   ![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 ## Next steps

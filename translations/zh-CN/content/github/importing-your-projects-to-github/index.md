@@ -1,10 +1,10 @@
 ---
-title: 将项目导入到 GitHub
-intro: '您可以使用多种不同方法将源代码导入到 {% data variables.product.product_name %}。'
-shortTitle: 导入项目
+title: Importing your projects to GitHub
+intro: 'You can import your source code to {% data variables.product.product_name %} using a variety of different methods.'
+shortTitle: Importing your projects
 redirect_from:
-  - /categories/67/articles/
-  - /categories/importing/
+  - /categories/67/articles
+  - /categories/importing
   - /categories/importing-your-projects-to-github
 versions:
   fpt: '*'

@@ -1,10 +1,10 @@
 ---
-title: テンプレートを使用して便利な Issue やプルリクエストを推進する
-shortTitle: Issue および PR テンプレート
-intro: リポジトリメンテナは、コントリビューターが質の高い Issue とプルリクエストを作成できるように、リポジトリにテンプレートを追加できます。
+title: Using templates to encourage useful issues and pull requests
+shortTitle: Issue & PR templates
+intro: Repository maintainers can add templates in a repository to help contributors create high-quality issues and pull requests.
 redirect_from:
   - /github/building-a-strong-community/using-issue-and-pull-request-templates
-  - /articles/using-templates-to-encourage-high-quality-issues-and-pull-requests-in-your-repository/
+  - /articles/using-templates-to-encourage-high-quality-issues-and-pull-requests-in-your-repository
   - /articles/using-issue-and-pull-request-templates
   - /github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests
 versions:
