@@ -1537,6 +1537,31 @@ type BranchProtectionRule implements Node {
   ): BranchProtectionRuleConflictConnection!
 
   """
+  A list of actors able to force push for this branch protection rule.
+  """
+  bypassForcePushAllowances(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): BypassForcePushAllowanceConnection!
+
+  """
   A list of actors able to bypass PRs for this branch protection rule.
   """
   bypassPullRequestAllowances(
@@ -1831,6 +1856,62 @@ type BranchProtectionRuleEdge {
   The item at the end of the edge.
   """
   node: BranchProtectionRule
+}
+
+"""
+A team or user who has the ability to bypass a force push requirement on a protected branch.
+"""
+type BypassForcePushAllowance implements Node {
+  """
+  The actor that can dismiss.
+  """
+  actor: BranchActorAllowanceActor
+
+  """
+  Identifies the branch protection rule associated with the allowed user or team.
+  """
+  branchProtectionRule: BranchProtectionRule
+  id: ID!
+}
+
+"""
+The connection type for BypassForcePushAllowance.
+"""
+type BypassForcePushAllowanceConnection {
+  """
+  A list of edges.
+  """
+  edges: [BypassForcePushAllowanceEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [BypassForcePushAllowance]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type BypassForcePushAllowanceEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: BypassForcePushAllowance
 }
 
 """
@@ -5196,6 +5277,11 @@ input CreateBranchProtectionRuleInput {
   Are force pushes allowed on this branch.
   """
   allowsForcePushes: Boolean
+
+  """
+  A list of User or Team IDs allowed to bypass force push targeting matching branches.
+  """
+  bypassForcePushActorIds: [ID!]
 
   """
   A list of User or Team IDs allowed to bypass pull requests targeting matching branches.
@@ -21879,7 +21965,7 @@ type OrganizationAuditEntryEdge {
 }
 
 """
-The connection type for Organization.
+A list of organizations managed by an enterprise.
 """
 type OrganizationConnection {
   """
@@ -26558,9 +26644,9 @@ type Push implements Node {
   previousSha: GitObjectID
 
   """
-  The user who pushed
+  The actor who pushed
   """
-  pusher: User!
+  pusher: Actor!
 
   """
   The repository that was pushed to
@@ -38062,6 +38148,11 @@ input UpdateBranchProtectionRuleInput {
   The global relay id of the branch protection rule to be updated.
   """
   branchProtectionRuleId: ID! @possibleTypes(concreteTypes: ["BranchProtectionRule"])
+
+  """
+  A list of User or Team IDs allowed to bypass force push targeting matching branches.
+  """
+  bypassForcePushActorIds: [ID!]
 
   """
   A list of User or Team IDs allowed to bypass pull requests targeting matching branches.
