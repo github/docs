@@ -32,6 +32,12 @@ For more information about securing your code at the repository and organization
 
 In the security overview, you can view, sort, and filter alerts to understand the security risks in your organization and in specific repositories. The interface for the security overview is highly clickable, allowing you to investigate specific categories of information, based on qualifiers like repository, alert risk level, alert type, and feature enablement, without the need for filters. You can also apply multiple filters to focus on narrower areas of interest. For example, you can identify private repositories that have a high number of {% data variables.product.prodname_dependabot_alerts %} or repositories that have no {% data variables.product.prodname_code_scanning %} alerts.
 
+{% ifversion ghec or ghes > 3.3 %}
+
+At both the organization and repository-level security overview, there are dedicated views for specific security features, such as secret scanning alerts and code scanning alerts. You can use these views to limit your analysis to the specific set of alerts, and narrow the results further with a range of filters specific to each view. For example, in the secret scanning alert view, you can use the `Secret type` filter to view only secret scanning alerts related to a specific secret, like a GitHub Personal Access Token. At the repository level, you can use the security overview to assess the specific repository's current security status, and configure any additional security features not yet in use on the repository.
+
+{% endif %}
+
 Security managers and members of your organization's AppSec team can use the security overview for both broad and specific analyses of your organization's security status. For example, the overview page can be used to monitor adoption of features by your organization or a specific team as you rollout {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.
 
 ![The security overview for an organization](/assets/images/help/organizations/security-overview.png)
@@ -51,10 +57,3 @@ For each repository in the security overview, you will see icons for each type o
 By default, archived repositories are excluded from the security overview for an organization. You can apply filters to view archived repositories in the security overview. For more information, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
 
 The security overview displays active alerts raised by security features. If there are no alerts in the security overview for a repository, undetected security vulnerabilities or code errors may still exist.
-
-{% ifversion ghec or ghes > 3.3 %}
-## About the alert views
-
-Within the organization-level security overview, there are dedicated views for specific security features, such as secret scanning alerts and code scanning alerts. You can use these views to limit your analysis to the specific set of alerts, and narrow the results further with a range of filters specific to each view. For example, in the secret scanning alert view, you can use the `Secret type` filter to view only secret scanning alerts related to a specific secret, like a GitHub Personal Access Token.
-
-{% endif %}

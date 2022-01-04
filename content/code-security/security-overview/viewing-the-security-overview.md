@@ -40,7 +40,21 @@ Organization owners and security managers can view subsets of alerts for an orga
 2. Optionally, filter the list of alerts. Each view has its own selection of available filters. You can click multiple filters in the drop-down filter menus to narrow your search. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
   ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
 
+## Viewing alerts for a repository
+
+Organization owners and team members with admin privileges for a repository can see the security overview for that repository.
+
+{% data reusables.repositories.navigate-to-repo %}
+1. Under your repository name, click **Security**.
+  ![Repository security tab](/assets/images/help/repository/security-tab.png)
+2. In the security sidebar, select the subset of alerts you want to view.
+  ![Repository view alert subset](/assets/images/help/repository/repo-security-side-panel.png)
+3. Optionally, filter the list of alerts. Each view has its own selection of available filters. You can click multiple filters in the drop-down filter menus to narrow your search. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
+  ![Drop down filter menus in the repository secret scanning alerts view](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
+
 {% endif %}
+
+
 
 ## Viewing the security overview for a team
 
