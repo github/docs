@@ -99,6 +99,10 @@ apps/ @octocat
 # subdirectories.
 /docs/ @doctocat
 
+# In this example, any change inside the `/scripts` directory
+# will require approval from @doctocat or @octocat.
+/scripts/ @doctocat @octocat
+
 # In this example, @octocat owns any file in the `/apps` 
 # directory in the root of your repository except for the `/apps/github` 
 # subdirectory, as its owners are left empty.
@@ -113,21 +117,6 @@ There are some syntax rules for gitignore files that do not work in CODEOWNERS f
 
 ## CODEOWNERS and branch protection
 Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[About protected branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." 
-
-### Example of a CODEOWNERS file
-```
-# In this example, any change inside the `/apps` directory
-# will require approval from @doctocat.
-/apps/ @doctocat
-
-# In this example, any change inside the `/apps` directory
-# will require approval from @doctocat or @octocat.
-/apps/ @doctocat @octocat
-
-# In this example, any change inside the `/apps` directory
-# will require approval from a member of the @example-org/content team.
-/apps/ @example-org/content-team
-```
 
 
 ## Further reading
