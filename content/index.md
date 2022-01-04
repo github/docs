@@ -17,6 +17,7 @@ children:
   - get-started
   - account-and-profile
   - authentication
+  - authorization
   - repositories
   - github
   - admin
