@@ -239,3 +239,9 @@ Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
 Yandex | Yandex.Cloud IAM Cookie | yandex_cloud_iam_cookie{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Yandex.Cloud IAM Token | yandex_cloud_iam_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Dictionary API Key | yandex_dictionary_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Predictor API Key | yandex_predictor_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Translate API Key | yandex_translate_api_key{% endif %}
