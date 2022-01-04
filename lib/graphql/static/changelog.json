@@ -4,6 +4,25 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `BypassForcePushAllowance` was added",
+          "Type `BypassForcePushAllowanceConnection` was added",
+          "Type `BypassForcePushAllowanceEdge` was added",
+          "Field `bypassForcePushAllowances` was added to object type `BranchProtectionRule`",
+          "Input field `bypassForcePushActorIds` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Field `Push.pusher` changed type from `User!` to `Actor!`",
+          "Input field `bypassForcePushActorIds` was added to input object type `UpdateBranchProtectionRuleInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-01-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `ProjectNextOrderField` was added",
           "Type `RoleInOrganization` was added",
           "Type `UpdateOrganizationAllowPrivateRepositoryForkingSettingInput` was added",
