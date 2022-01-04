@@ -16,14 +16,14 @@ on:
       - 'content/github/site-policy/**'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   sync:
     name: Get the latest docs
     if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && github.repository == 'github/docs-internal')
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
       - name: checkout docs-internal
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579

@@ -14,7 +14,7 @@ topics:
   - Teams
 ---
 
-{% data reusables.organizations.about-organizations %}
+{% data reusables.organizations.about-organizations %} For more information about account types, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
 {% data reusables.organizations.organizations_include %} 
 

@@ -5,8 +5,11 @@ name: Ready for docs-content review
 # **Who does it impact**: Writers working in the docs-internal repository
 
 on:
-  pull_request:
+  pull_request_target:
     types: [labeled]
+
+permissions:
+  contents: read
 
 jobs:
   request_doc_review:

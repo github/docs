@@ -1,12 +1,10 @@
 ---
 title: Connecting your identity provider to your organization
 intro: 'To use SAML single sign-on and SCIM, you must connect your identity provider to your {% data variables.product.product_name %} organization.'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

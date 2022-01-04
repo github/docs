@@ -12,8 +12,9 @@
     padding: 0;
     box-shadow: var(--color-shadow-medium);
   }
-  
-  img[src*="https://github.githubassets.com/images/icons/emoji"] {
+
+  img[src*="https://github.githubassets.com/images/icons/emoji"]
+  {
     box-shadow: none;
   }
 }

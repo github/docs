@@ -1,6 +1,6 @@
 ---
-title: Início rápido para projetos (beta)
-intro: 'Experimente a velocidade, flexibilidade e personalização de projetos (beta) criando um projeto neste guia interativo.'
+title: Quickstart for projects (beta)
+intro: 'Experience the speed, flexibility, and customization of projects (beta) by creating a project in this interactive guide.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -13,17 +13,17 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## Introdução
+## Introduction
 
-Este guia demonstra como usar projetos (beta) para planejar e acompanhar o trabalho. Neste guia, você irá criar um novo projeto e adicionar um campo personalizado para acompanhar as prioridades das suas tarefas. Você também aprenderá como criar visualizações salvas que ajudem a comunicar as prioridades e o progresso com seus colaboradores.
+This guide demonstrates how to use projects (beta) to plan and track work. In this guide, you will create a new project and add a custom field to track priorities for your tasks. You'll also learn how to create saved views that help you communicate priorities and progress with your collaborators.
 
-## Pré-requisitos
+## Prerequisites
 
-You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. Para obter mais informações sobre a criação de uma organização, consulte "[Criar uma nova organização a partir do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
+You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
-In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. Para obter mais informações sobre a criação de problemas, consulte "[Criar um problema](/issues/tracking-your-work-with-issues/creating-an-issue)".
+In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."
 
-## Criando um projeto
+## Creating a project
 
 First, create an organization project or a user project.
 
@@ -35,96 +35,98 @@ First, create an organization project or a user project.
 
 {% data reusables.projects.create-user-project %}
 
-## Adicionando problemas ao seu projeto
+## Adding issues to your project
 
-Em seguida, adicione alguns problemas ao seu projeto.
+Next, add a few issues to your project.
 
-Quando seu novo projeto for iniciado, ele irá solicitar que você adicione itens ao seu projeto. Se você perder esta visualização ou desejar adicionar mais problemas posteriormente, coloque seu cursor na linha inferior do projeto, ao lado de {% octicon "plus" aria-label="plus icon" %}.
+When your new project initializes, it prompts you to add items to your project. If you lose this view or want to add more issues later, place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
 
-1. Digite `#`.
-2. Selecione o repositório onde o problema está localizado. Para restringir as opções, você pode começar a digitar parte do nome do repositório.
-3. Selecione o seu problema. Para restringir as opções, você pode começar a digitar uma parte do título do problema.
+1. Type `#`.
+2. Select the repository where your issue is located. To narrow down the options, you can start typing a part of the repository name.
+3. Select your issue. To narrow down the options, you can start typing a part of the issue title.
 
-Repita os passos acima algumas vezes para adicionar vários problemas ao seu projeto.
+Repeat the above steps a few times to add multiple issues to your project.
 
-Para obter mais informações sobre outras formas de adicionar problemas ao seu projeto, ou sobre outros itens que você pode adicionar ao seu projeto, consulte "[Criando um projeto](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)."
+For more information about other ways to add issues to your project, or about other items you can add to your project, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)."
 
-## Criando um campo para monitorar a prioridade
+## Creating a field to track priority
 
-Agora, crie um campo personalizado denominado `Prioridade` para conter os valores: `Alto`, `Médio` ou `Baixo`.
-
-1. {% data reusables.projects.open-command-palette %}
-2. Comece a digitar qualquer parte de "Criar novo campo".
-3. Selecione **Criar novo campo**.
-4. Na janela de pop-up resultante, digite `Prioridade` na caixa de texto.
-5. Na lista de seleção, selecione **Seleção única**.
-6. Adicionar opções para `Alto`, `Médio` e `Baixo`. Você também pode incluir emojis nas suas opções. ![Novo exemplo de campo de seleção única](/assets/images/help/projects/new-single-select-field.png)
-7. Clique em **Salvar**.
-
-Especifique uma prioridade para todos os problemas no seu projeto.
-
-![Prioridades de exemplo](/assets/images/help/projects/priority_example.png)
-
-## Agrupar problemas por prioridade
-
-Em seguida, agrupe todos os itens do seu projeto por prioridade para facilitar o foco nos itens de alta prioridade.
+Now, create a custom field called `Priority` to contain the values: `High`, `Medium`, or `Low`.
 
 1. {% data reusables.projects.open-command-palette %}
-2. Comece a digitar qualquer parte de "Agrupar por".
-3. Selecione **Agrupar por: Prioridade**.
+2. Start typing any part of "Create new field".
+3. Select **Create new field**.
+4. In the resulting pop-up, enter `Priority` in the text box.
+5. In the drop-down, select **Single select**.
+6. Add options for `High`, `Medium`, and `Low`. You can also include emojis in your options.
+   ![New single select field example](/assets/images/help/projects/new-single-select-field.png)
+7. Click **Save**.
 
-Agora, transfira os problemas entre grupos para mudar a sua prioridade.
+Specify a priority for all issues in your project.
 
-1. Escolha um problema.
-2. Arraste e solte o problema em um grupo de prioridade diferente. Ao fazer isso, a prioridade do problema passará a ser a prioridade do seu novo grupo.
+![Example priorities](/assets/images/help/projects/priority_example.png)
 
-![Transferir problemas entre grupos](/assets/images/help/projects/move_between_group.gif)
+## Grouping issues by priority
 
-## Salvando a visualização da prioridade
+Next, group all of the items in your project by priority to make it easier to focus on the high priority items.
 
-Quando você agrupou os seus problemas por prioridade na etapa anterior, seu projeto exibiu um indicador para mostrar que a visualização foi modificada. Salve essas alterações para que os seus colaboradores vejam as tarefas agrupadas por prioridade.
+1. {% data reusables.projects.open-command-palette %}
+2. Start typing any part of "Group by".
+3. Select **Group by: Priority**.
 
-1. Selecione o menu suspenso ao lado do nome da visualização.
-2. Clique em **Save changes** (Salvar alterações).
+Now, move issues between groups to change their priority.
 
-Para indicar o propósito da visão, dê um nome descritivo.
+1. Choose an issue.
+2. Drag and drop the issue into a different priority group. When you do this, the priority of the issue will change to be the priority of its new group.
 
-1. Coloque o cursor no nome atual da visualização, **Visualização 1**.
-2. Substitua o texto existente pelo novo nome, `Prioridades`.
+![Move issue between groups](/assets/images/help/projects/move_between_group.gif)
 
-Você pode compartilhar a URL com seu time para manter todos alinhados com as prioridades do projeto.
+## Saving the priority view
 
-Quando a visualização é salva, qualquer pessoa que abrir o projeto verá a visualização salva. Aqui, você agrupou por prioridade, mas você também pode adicionar outros modificadores como ordenação, filtro ou layout. Em seguida, você criará uma nova exibição com o layout modificado.
+When you grouped your issues by priority in the previous step, your project displayed an indicator to show that the view was modified. Save these changes so that your collaborators will also see the tasks grouped by priority.
+
+1. Select the drop-down menu next to the view name.
+2. Click **Save changes**.
+
+To indicate the purpose of the view, give it a descriptive name.
+
+1. Place your cursor in the current view name, **View 1**.
+2. Replace the existing text with the new name, `Priorities`.
+
+You can share the URL with your team to keep everyone aligned on the project priorities.
+
+When a view is saved, anyone who opens the project will see the saved view. Here, you grouped by priority, but you can also add other modifiers such as sort, filter, or layout. Next, you will create a new view with the layout modified.
 
 ## Adding a board layout
 
-Para ver o progresso dos problemas do seu projeto, você pode alternar para o layout do quadro.
+To view the progress of your project's issues, you can switch to board layout.
 
 The board layout is based on the status field, so specify a status for each issue in your project.
 
-![Status do exemplo](/assets/images/help/projects/status_example.png)
+![Example status](/assets/images/help/projects/status_example.png)
 
-Em seguida, crie uma nova visualização.
+Then, create a new view.
 
-1. Clique em {% octicon "plus" aria-label="the plus icon" %} **Nova Visualização** ao lado da visualização mais à direita.
+1. Click {% octicon "plus" aria-label="the plus icon" %} **New view** next to the rightmost view.
 
-Em seguida, mude para o layout do quadro.
+Next, switch to board layout.
 
 1. {% data reusables.projects.open-command-palette %}
-2. Comece a digitar qualquer parte de "Layout Switch: Board".
-3. Selecione **Mudar layout: Board**. ![Prioridades de exemplo](/assets/images/help/projects/example_board.png)
+2. Start typing any part of "Switch layout: Board".
+3. Select **Switch layout: Board**.
+   ![Example priorities](/assets/images/help/projects/example_board.png)
 
-Quando você alterou o layout, o projeto exibiu um indicador para mostrar que a visualização foi modificada. Salve esta visualização para que você e seus colaboradores possam acessá-la facilmente no futuro.
+When you changed the layout, your project displayed an indicator to show that the view was modified. Save this view so that you and your collaborators can easily access it in the future.
 
-1. Selecione o menu suspenso ao lado do nome da visualização.
-2. Clique em **Save changes** (Salvar alterações).
+1. Select the drop-down menu next to the view name.
+2. Click **Save changes**.
 
-Para indicar o propósito da visão, dê um nome descritivo.
+To indicate the purpose of the view, give it a descriptive name.
 
-1. Coloque o cursor no nome atual da visualização, **Visualização2**.
-2. Substitua o texto existente pelo novo nome, `Progresso`.
+1. Place your cursor in the current view name, **View 2**.
+2. Replace the existing text with the new name, `Progress`.
 
-![Prioridades de exemplo](/assets/images/help/projects/project-view-switch.gif)
+![Example priorities](/assets/images/help/projects/project-view-switch.gif)
 
 ## Configure built-in automation
 
@@ -136,17 +138,17 @@ Finally, add a built in workflow to set the status to **Todo** when an item is a
 4. Next to **Set**, select **Status:Todo**.
 5. Click the **Disabled** toggle to enable the workflow.
 
-## Próximas etapas
+## Next steps
 
-Você pode usar projetos para uma ampla gama de finalidades. Por exemplo:
+You can use projects for a wide range of purposes. For example:
 
-- Acompanhar o trabalho para uma versão
+- Track work for a release
 - Plan a sprint
-- Priorizar um backlog
+- Prioritize a backlog
 
-Aqui estão alguns recursos úteis para dar seus próximos passos com {% data variables.product.prodname_github_issues %}:
+Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_issues %}:
 
-- Para fornecer feedback sobre os projetos (beta) experiência, acesse o [Repositório de comentários GitHub](https://github.com/github/feedback/discussions/categories/issues-feedback).
-- Para saber mais sobre como os projetos podem ajudar você com o planejamento e monitoramento, consulte "[Sobre projetos](/issues/trying-out-the-new-projects-experience/about-projects)".
-- Para saber mais sobre os campos e itens que você pode adicionar ao seu projeto, consulte "[Criar um projeto](/issues/trying-out-the-new-projects-experience/creating-a-project)".
-- Para aprender mais sobre maneiras de exibir as informações que você precisa, consulte "[Personalizar visualizações de projeto](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
+- To provide feedback about the projects (beta) experience, go to the [GitHub feedback repository](https://github.com/github/feedback/discussions/categories/issues-feedback).
+- To learn more about how projects can help you with planning and tracking, see "[About projects](/issues/trying-out-the-new-projects-experience/about-projects)."
+- To learn more about the fields and items you can add to your project, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project)."
+- To learn about more ways to display the information you need, see "[Customizing your project views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."

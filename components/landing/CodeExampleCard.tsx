@@ -30,7 +30,7 @@ export const CodeExampleCard = ({ example }: Props) => {
         </div>
       </div>
       <footer className="border-top p-4 color-fg-muted d-flex flex-items-center">
-        <RepoIcon className="flex-shrink-0" />
+        <RepoIcon aria-label="repository URL" className="flex-shrink-0" />
         <TruncateLines
           as="span"
           maxLines={1}

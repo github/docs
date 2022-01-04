@@ -33,7 +33,10 @@ Versioning for learning tracks is processed at page render time. The code lives 
 
 Liquid conditionals do **not** have to be used for versioning in the YAML file for guides. Only the learning track guides that apply to the current version will be rendered automatically. If there aren't any tracks with guides that belong to the current version, the learning tracks section will not render at all.
 
-Explicit versioning within a product's learning tracks YML data is supported as well. For example:
+Explicit versioning within a product's learning tracks YML data is supported as well. The format and allowed values are the same as the [frontmatter versions property](/content#versions).
+
+For example:
+
 ```
 learning_track_name:
   title: 'Learning track title'
@@ -45,6 +48,7 @@ learning_track_name:
    - /path/to/guide1
    - /path/to/guide2
 ```
+
 If the `versions` property is not included, it's assumed the track is available in all versions.
 
 ## Schema enforcement

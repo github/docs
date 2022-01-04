@@ -8,6 +8,9 @@ on:
   schedule:
     - cron: '10,30,50 * * * *' # every twenty minutes
 
+permissions:
+  contents: read
+
 jobs:
   ping_staging_apps:
     name: Ping
@@ -24,7 +27,5 @@ jobs:
           cache: npm
       - name: npm ci
         run: npm ci
-      - name: npm run build
-        run: npm run build
       - name: Run script
         run: script/ping-staging-apps.js

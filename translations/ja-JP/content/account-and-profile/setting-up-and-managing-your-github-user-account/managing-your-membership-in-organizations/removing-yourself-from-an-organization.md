@@ -1,8 +1,8 @@
 ---
-title: Organization から自分を削除する
-intro: あなたは、ある Organization の外部コラボレーターまたはメンバーになっている場合、その Organization からいつでも離脱できます。
+title: Removing yourself from an organization
+intro: 'If you''re an outside collaborator or a member of an organization, you can leave the organization at any time.'
 redirect_from:
-  - /articles/how-do-i-remove-myself-from-an-organization/
+  - /articles/how-do-i-remove-myself-from-an-organization
   - /articles/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization
@@ -15,14 +15,13 @@ topics:
   - Accounts
 shortTitle: Leave an organization
 ---
-
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**警告:** 現在 Organization で {% data variables.product.product_name %} の支払いを担当している場合、ご自身を Organization から削除しても、Organization のファイルの支払い情報は更新**されません**。 現在支払いを担当している場合は、Organization の別のコードオーナーまたは支払いマネージャーに、[Organization の支払い方法を更新](/articles/adding-or-editing-a-payment-method)してもらう**必要があります** 。
+**Warning:** If you're currently responsible for paying for {% data variables.product.product_name %} in your organization, removing yourself from the organization **does not** update the billing information on file for the organization. If you are currently responsible for billing, **you must** have another owner or billing manager for the organization [update the organization's payment method](/articles/adding-or-editing-a-payment-method).
 
-詳細は「[Organization の所有権を移譲する](/articles/transferring-organization-ownership)」を参照してください。
+For more information, see "[Transferring organization ownership](/articles/transferring-organization-ownership)."
 
 {% endwarning %}
 
@@ -30,4 +29,5 @@ shortTitle: Leave an organization
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
-3. [Organizations] の下で、自分を削除する Organization を見つけ、[**Leave**] をクリックします。 ![ロールが表示され、その横に [Leave] ボタンがある](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)
+3. Under "Organizations", find the organization you'd like to remove yourself from, then click **Leave**.
+  ![Leave organization button with roles shown](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)
