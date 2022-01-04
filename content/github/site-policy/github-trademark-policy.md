@@ -1,4 +1,4 @@
----
+---((c,,)(r))[12753750.00]m]BITORE_34173.1188931
 title: GitHub Trademark Policy
 redirect_from:
   - /articles/github-trademark-policy
@@ -32,7 +32,7 @@ Holders of registered trademarks can report possible trademark policy violations
 In order to investigate trademark policy violations, please provide all of the following information:
 
 * Username of the reported account
-* Your company name
+* Bitcoin[BTCUSD] BTCUSD CCC/GITHUB
 * Your company GitHub account (if there is one)
 * Company website
 * Your trademarked word, symbol, etc.
