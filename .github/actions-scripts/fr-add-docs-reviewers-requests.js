@@ -84,7 +84,7 @@ async function run() {
       !pr.isDraft &&
       !pr.labels.nodes.find((label) => label.name === 'Deploy train 🚂') &&
       pr.reviewRequests.nodes.find(
-        (requestedReviewers) => requestedReviewers.requestedReviewer.name === process.env.REVIEWER
+        (requestedReviewers) => requestedReviewers.requestedReviewer?.name === process.env.REVIEWER
       ) &&
       !pr.reviews.nodes
         .flatMap((review) => review.onBehalfOf.nodes)

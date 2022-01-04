@@ -6,16 +6,16 @@ name: Staging - Build and Deploy PR (fast and private-only)
 
 # This whole workflow is only guaranteed to be secure in the *private
 # repo* and because we repo-sync these files over the to the public one,
-# IT'S CRUCIALLY IMPORTANT THAT THIS WORKFLOW IS ONLY ENABLED IN docs-internal!
+# IT'S IMPORTANT THAT THIS WORKFLOW IS ONLY ENABLED IN docs-internal!
 
 on:
-  # Ideally, we'd like to use 'pull_request' because we can more easily
-  # test changes to this workflow without relying on merges to 'main'.
-  # But this is guaranteed to be safer and won't have the problem of
-  # necessary secrets not being available.
-  # Perhaps some day when we're confident this workflow will always
-  # work in a regular PR, we can switch to that.
-  pull_request_target:
+  # The advantage of 'pull_request' over 'pull_request_target' is that we
+  # can make changes to this file and test them in a pull request, instead
+  # of relying on landing it in 'main' first.
+  # From a security point of view, its arguably safer this way because
+  # unlike 'pull_request_target', these only have secrets if the pull
+  # request creator has permission to access secrets.
+  pull_request:
 
 permissions:
   actions: read

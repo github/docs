@@ -20,9 +20,6 @@ concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
-env:
-  CI: true
-
 jobs:
   test:
     runs-on: windows-latest
