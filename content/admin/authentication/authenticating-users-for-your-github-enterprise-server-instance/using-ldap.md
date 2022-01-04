@@ -1,11 +1,11 @@
 ---
 title: Using LDAP
 redirect_from:
-  - /enterprise/admin/articles/configuring-ldap-authentication/
-  - /enterprise/admin/articles/about-ldap-authentication/
-  - /enterprise/admin/articles/viewing-ldap-users/
-  - /enterprise/admin/hidden/enabling-ldap-sync/
-  - /enterprise/admin/hidden/ldap-sync/
+  - /enterprise/admin/articles/configuring-ldap-authentication
+  - /enterprise/admin/articles/about-ldap-authentication
+  - /enterprise/admin/articles/viewing-ldap-users
+  - /enterprise/admin/hidden/enabling-ldap-sync
+  - /enterprise/admin/hidden/ldap-sync
   - /enterprise/admin/user-management/using-ldap
   - /enterprise/admin/authentication/using-ldap
   - /admin/authentication/using-ldap
@@ -132,7 +132,7 @@ After you enable LDAP sync, a synchronization job will run at the specified time
 
 {% note %}
 
-**Note**: LDAP entries can only be marked as disabled if you use Active Directory and the `userAccountControl` attribute is present and flagged with `ACCOUNTDISABLE`.
+**Note**: LDAP entries can only be marked as disabled if you use Active Directory and the `userAccountControl` attribute is present and flagged with `ACCOUNTDISABLE`. Some variations of Active Directory, such as AD LDS and ADAM, don't support the `userAccountControl` attribute.
 
 {% endnote %}
 

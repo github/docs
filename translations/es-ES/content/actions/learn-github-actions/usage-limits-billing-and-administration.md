@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Billing
@@ -16,7 +15,6 @@ shortTitle: Workflow billing & limits
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About billing for {% data variables.product.prodname_actions %}
 
@@ -65,10 +63,10 @@ Usage limits apply to self-hosted runners. For more information, see "[About sel
 In addition to the usage limits, you must ensure that you use {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/). For more information on {% data variables.product.prodname_actions %}-specific terms, see the [GitHub Additional Product Terms](/free-pro-team@latest/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghec %}
 ## Billing for reusable workflows
 
-If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners{% endif %}{% ifversion ghae %}{% data variables.actions.hosted_runner %}s{% endif %} is always evaluated using only the caller's context. The caller cannot use {% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners{% endif %}{% ifversion ghae %}{% data variables.actions.hosted_runner %}s{% endif %} from the called repository. 
+If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. 
 
 For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}

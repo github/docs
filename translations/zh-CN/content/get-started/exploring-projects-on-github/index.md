@@ -1,12 +1,12 @@
 ---
-title: 在 GitHub 上探索项目
-intro: '在 {% data variables.product.product_name %} 上发现有趣的项目，并与其他人合作为开源做贡献。'
+title: Exploring projects on GitHub
+intro: 'Discover interesting projects on {% data variables.product.product_name %} and contribute to open source by collaborating with other people.'
 redirect_from:
-  - /categories/stars/
-  - /categories/87/articles/
-  - /categories/exploring-projects-on-github/
+  - /categories/stars
+  - /categories/87/articles
+  - /categories/exploring-projects-on-github
   - /articles/exploring-projects-on-github
-  - /github/getting-started-with-github/exploring-projects-on-github/
+  - /github/getting-started-with-github/exploring-projects-on-github
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,6 +18,6 @@ children:
   - /finding-ways-to-contribute-to-open-source-on-github
   - /saving-repositories-with-stars
   - /following-people
-shortTitle: 探索项目
+shortTitle: Explore projects
 ---
 

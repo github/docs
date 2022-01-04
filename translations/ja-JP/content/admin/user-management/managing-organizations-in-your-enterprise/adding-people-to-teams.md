@@ -1,12 +1,12 @@
 ---
-title: Teamへの人の追加
+title: Adding people to teams
 redirect_from:
-  - /enterprise/admin/articles/adding-teams/
-  - /enterprise/admin/articles/adding-or-inviting-people-to-teams/
-  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams/
+  - /enterprise/admin/articles/adding-teams
+  - /enterprise/admin/articles/adding-or-inviting-people-to-teams
+  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams
   - /enterprise/admin/user-management/adding-people-to-teams
   - /admin/user-management/adding-people-to-teams
-intro: 'Team が作成されると、Organization の管理者はユーザを {% data variables.product.product_location %} から Team に追加し、どのリポジトリにアクセスできるようにするかを決定できます。'
+intro: 'Once a team has been created, organization admins can add users from {% data variables.product.product_location %} to the team and determine which repositories they have access to.'
 versions:
   ghes: '*'
 type: how_to
@@ -16,13 +16,12 @@ topics:
   - Teams
   - User account
 ---
+Each team has its own individually defined [access permissions for repositories owned by your organization](/articles/permission-levels-for-an-organization).
 
-各Teamには、それぞれに定義された[Organizatinが所有するリポジトリへのアクセス権限](/articles/permission-levels-for-an-organization)があります。
+- Members with the owner role can add or remove existing organization members from all teams.
+- Members of teams that give admin permissions can only modify team membership and repositories for that team.
 
-- オーナー権限を持つメンバーは、すべてのTeamから既存のOrganizationのメンバーを追加したり削除したりできます。
-- 管理者権限を与えるTeamのメンバーは、TeamのメンバーシップとそのTeamのリポジトリだけを変更できます。
-
-## チームのセットアップ
+## Setting up a team
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -30,8 +29,8 @@ topics:
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
-## TeamのLDAPグループへのマッピング（たとえばLDAP Syncをユーザ認証に使って）
+## Mapping teams to LDAP groups (for instances using LDAP Sync for user authentication)
 
 {% data reusables.enterprise_management_console.badge_indicator %}
 
-LDAPグループに同期されているTeamに新しいメンバーを追加するには、そのユーザをLDAPグループのメンバーとして追加するか、LDAPの管理者に連絡してください。
+To add a new member to a team synced to an LDAP group, add the user as a member of the LDAP group, or contact your LDAP administrator.

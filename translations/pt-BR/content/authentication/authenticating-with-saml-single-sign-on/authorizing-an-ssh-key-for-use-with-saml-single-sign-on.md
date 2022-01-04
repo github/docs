@@ -1,36 +1,36 @@
 ---
-title: Autorizar o uso de uma chave SSH para uso com logon único SAML
-intro: 'Para usar uma chave SSH com uma organização que usa logon único SAML (SSO), primeiramente, você deve autorizar a chave.'
+title: Authorizing an SSH key for use with SAML single sign-on
+intro: 'To use an SSH key with an organization that uses SAML single sign-on (SSO), you must first authorize the key.'
 redirect_from:
-  - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization/
+  - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - SSO
-shortTitle: Chave SSH com SAML
+shortTitle: SSH Key with SAML
 ---
-
-Você pode autorizar uma chave SSH existente ou criar uma e autorizá-la. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+You can authorize an existing SSH key, or create a new SSH key and then authorize it. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 {% data reusables.saml.authorized-creds-info %}
 
 {% note %}
 
-**Observação:** se a autorização da sua chave SSH foi revogada por uma organização, você não poderá reautorizar a mesma chave. Será preciso criar outra chave SSH e autorizá-la. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+**Note:** If your SSH key authorization is revoked by an organization, you will not be able to reauthorize the same key. You will need to create a new SSH key and authorize it. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 {% endnote %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. Ao lado da chave SSH que deseja autorizar, clique em **Enable SSO** (Habilitar SSO) ou **Disable SSO** (Desabilitar SSO). ![Botão de autorização do token SSO](/assets/images/help/settings/ssh-sso-button.png)
-4. Encontre a organização para a qual deseja autorizar a chave SSH.
-5. Clique em **Autorizar**. ![Botão de autorização do token](/assets/images/help/settings/ssh-sso-authorize.png)
+3. Next to the SSH key you'd like to authorize, click **Enable SSO** or **Disable SSO**.
+![SSO token authorize button](/assets/images/help/settings/ssh-sso-button.png)
+4. Find the organization you'd like to authorize the SSH key for.
+5. Click **Authorize**.
+![Token authorize button](/assets/images/help/settings/ssh-sso-authorize.png)
 
-## Leia mais
+## Further reading
 
-- "[Verificar se há chaves SSH existentes](/articles/checking-for-existing-ssh-keys)"
-- "[Sobre a autenticação com logon único SAML](/articles/about-authentication-with-saml-single-sign-on)"
+- "[Checking for existing SSH keys](/articles/checking-for-existing-ssh-keys)"
+- "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)"

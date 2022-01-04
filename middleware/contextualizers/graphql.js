@@ -9,6 +9,9 @@ const prerenderedObjects = readCompressedJsonFileFallback(
 const prerenderedInputObjects = readCompressedJsonFileFallback(
   './lib/graphql/static/prerendered-input-objects.json'
 )
+const prerenderedMutations = readCompressedJsonFileFallback(
+  './lib/graphql/static/prerendered-mutations.json'
+)
 
 const explorerUrl =
   process.env.NODE_ENV === 'production'
@@ -36,6 +39,7 @@ export default function graphqlContext(req, res, next) {
     upcomingChangesForCurrentVersion: upcomingChanges[graphqlVersion],
     prerenderedObjectsForCurrentVersion: prerenderedObjects[graphqlVersion],
     prerenderedInputObjectsForCurrentVersion: prerenderedInputObjects[graphqlVersion],
+    prerenderedMutationsForCurrentVersion: prerenderedMutations[graphqlVersion],
     explorerUrl,
     changelog,
   }

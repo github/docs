@@ -9,6 +9,9 @@ on:
   schedule:
     - cron: '49 14 * * *' # At 14:49 UTC daily
 
+permissions:
+  contents: read
+
 jobs:
   open_enterprise_issue:
     name: Open Enterprise issue

@@ -1,8 +1,7 @@
 ---
-title: Sobre a identidade e gestão de acesso para a sua empresa
-shortTitle: Sobre identidade e gestão de acesso
-intro: 'É possível usar o logon único SAML (SSO) e o Sistema de Gerenciamento de Identidade entre Domínios (SCIM) para gerenciar centralmente o acesso {% ifversion ghec %}a organizações pertencentes à sua empresa em {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% ifversion ghae %}para {% data variables.product.product_location %}{% endif %}.'
-product: '{% data reusables.gated-features.saml-sso %}'
+title: About identity and access management for your enterprise
+shortTitle: About identity and access management
+intro: 'You can use SAML single sign-on (SSO) and System for Cross-domain Identity Management (SCIM) to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% ifversion ghae %}to {% data variables.product.product_location %}{% endif %}.'
 versions:
   ghec: '*'
   ghae: '*'
@@ -20,51 +19,62 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
 ---
-
-## Sobre a identidade e gestão de acesso para a sua empresa
+## About identity and access management for your enterprise
 
 {% ifversion ghec %}
 
-{% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} Para obter mais informações, consulte "[Configurando o logon único SAML para a sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
+{% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
 
-Depois de habilitar o SSO do SAML, dependendo do IdP que você usar, você poderá habilitar as funcionalidades adicionais de gerenciamento de identidade e acesso. {% data reusables.scim.enterprise-account-scim %}
+After you enable SAML SSO, depending on the IdP you use, you may be able to enable additional identity and access management features. {% data reusables.scim.enterprise-account-scim %}
 
-Se você usar o Azure AD como seu IDP, você poderá usar a sincronização de equipe para gerenciar a associação de equipe em cada organização. {% data reusables.identity-and-permissions.about-team-sync %} Para obter mais informações, consulte "[Gerenciar a sincronização de equipes para organizações na sua conta corporativa](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)".
+If you use Azure AD as your IDP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[Managing team synchronization for organizations in your enterprise account](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
-{% data reusables.saml.switching-from-org-to-enterprise %} Para obter mais informações, consulte "[Alterando sua configuração do SAML de uma organização para uma conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)".
+{% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
-## Sobre o {% data variables.product.prodname_emus %}
+## About {% data variables.product.prodname_emus %}
 
 {% data reusables.enterprise-accounts.emu-short-summary %}
 
-A configuração de {% data variables.product.prodname_emus %} para o logon único SAML e provisionamento de usuário envolve seguir um processo diferente do que você faria para uma empresa que não estivesse usando {% data variables.product.prodname_managed_users %}. Se a sua empresa usar {% data variables.product.prodname_emus %}, consute "[Configurando o logon único SAML para usuários gerenciados pela empresa](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)".
+Configuring {% data variables.product.prodname_emus %} for SAML single-sign on and user provisioning involves following a different process than you would for an enterprise that isn't using {% data variables.product.prodname_managed_users %}. If your enterprise uses {% data variables.product.prodname_emus %}, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
-## IdPs compatíveis
+## Supported IdPs
 
-Nós testamos e oferecemos compatibilidade oficial os seguintes IdPs. Para o SSO do SAML, oferecemos suporte limitado a todos os provedores de identidade que implementam o padrão SAML 2.0. Para obter mais informações, consulte a [Wiki do SAML](https://wiki.oasis-open.org/security) no site do OASIS.
+We test and officially support the following IdPs. For SAML SSO, we offer limited support for all identity providers that implement the SAML 2.0 standard. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 
-| IdP                                          |                              SAML                              |                   Sincronização de equipes                    |
-| -------------------------------------------- |:--------------------------------------------------------------:|:-------------------------------------------------------------:|
-| Active Directory Federation Services (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %} |                                                               |
-| Azure Active Directory (Azure AD)            | {% octicon "check-circle-fill" aria-label="The check icon" %}  | {% octicon "check-circle-fill" aria-label="The check icon" %}
-| OneLogin                                     | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
-| PingOne                                      | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
-| Shibboleth                                   | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
+IdP | SAML | Team synchronization | 
+--- | :--: | :-------: |
+Active Directory Federation Services (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %}  | |
+Azure Active Directory (Azure AD) | {% octicon "check-circle-fill" aria-label="The check icon" %}  | {% octicon "check-circle-fill" aria-label="The check icon" %} |
+OneLogin | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
+PingOne | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
+Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
 
 {% elsif ghae %}
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-Após configurar o aplicativo para {% data variables.product.product_name %} no seu IdP, você poderá conceder acesso a {% data variables.product.product_location %}, atribuindo o aplicativo a usuários e grupos no seu IdP. Para obter mais informações sobre o SAML SSO para {% data variables.product.product_name %}, consulte "[Configurar o logon único SAML para a sua empresa](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)".
+After you configure the application for {% data variables.product.product_name %} on your identity provider (IdP), you can provision access to {% data variables.product.product_location %} by assigning the application to users and groups on your IdP. For more information about SAML SSO for {% data variables.product.product_name %}, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)."
 
-{% data reusables.scim.after-you-configure-saml %} Para obter mais informações, consulte "[Configurar provisionamento do usuário para sua empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)".
+{% data reusables.scim.after-you-configure-saml %} For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
 
-Para aprender como configurar tanto o provisionamento de autenticação quanto o usuário para {% data variables.product.product_location %} com seu IdP específico, consulte "[Configurar autenticação e provisionamento com o seu provedor de identidade](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)".
+To learn how to configure both authentication and user provisioning for {% data variables.product.product_location %} with your specific IdP, see "[Configuring authentication and provisioning with your identity provider](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)."
+
+## Supported IdPs
+
+The following IdPs are officially supported for integration with {% data variables.product.prodname_ghe_managed %}.
+
+{% data reusables.saml.okta-ae-sso-beta %}
+
+{% data reusables.github-ae.saml-idp-table %}
+
+## Mapping {% data variables.product.prodname_ghe_managed %} teams to Okta groups
+
+If you use Okta as your IdP, you can map your Okta groups to teams on {% data variables.product.prodname_ghe_managed %}. For more information, see "[Mapping Okta groups to teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
 
 {% endif %}
 
-## Leia mais
+## Further reading
 
-- [Wiki de SAML](https://wiki.oasis-open.org/security) no site OASIS
-- [Sistema para Gerenciamento de Identidade de entre Domínios: Protocolo (RFC 7644)](https://tools.ietf.org/html/rfc7644) no site do IETF{% ifversion ghae %}
-- [Restringindo o tráfego de rede para a sua empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise){% endif %}
+- [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website
+- [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website{% ifversion ghae %}
+- [Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise){% endif %}

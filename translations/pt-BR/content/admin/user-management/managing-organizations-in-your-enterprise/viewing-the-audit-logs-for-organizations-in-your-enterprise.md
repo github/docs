@@ -1,10 +1,10 @@
 ---
-title: Visualizando os logs de auditoria para organizações da sua empresa
-intro: Os proprietários corporativos podem exibir ações agregadas de todas as organizações pertencentes a uma conta corporativa no log de auditoria.
+title: Viewing the audit logs for organizations in your enterprise
+intro: Enterprise owners can view aggregated actions from all of the organizations owned by an enterprise account in its audit log.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
-  - /articles/viewing-the-audit-logs-for-organizations-in-your-business-account/
+  - /articles/viewing-the-audit-logs-for-organizations-in-your-business-account
   - /articles/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
@@ -16,19 +16,20 @@ topics:
   - Enterprise
   - Logging
   - Organizations
-shortTitle: Visualizar logs de auditoria da organização
+shortTitle: View organization audit logs
 ---
+Each audit log entry shows applicable information about an event, such as:
 
-Cada entrada do log de auditoria mostra informações aplicáveis sobre um evento, como:
+- The organization an action was performed in
+- The user who performed the action
+- Which repository an action was performed in
+- The action that was performed
+- Which country the action took place in
+- The date and time the action occurred
 
-- A organização em que foi executada uma ação
-- O usuário que executou a ação
-- Em qual repositório uma ação foi executada
-- A ação que foi executada
-- Em que país a ação foi executada
-- A data e a hora que a ação foi executada
+You can search the audit log for specific events and export audit log data. For more information on searching the audit log and on specific organization events, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
 
-Você pode procurar eventos específicos no log de auditoria e exportar dados do log de auditoria. Para obter mais informações sobre como pesquisar no log de auditoria e sobre eventos de organização específicos, consulte "[Revisar o log de auditoria da organização](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)".
+You can also stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit logs for organizations in your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

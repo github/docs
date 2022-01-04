@@ -1,10 +1,10 @@
 ---
-title: Git Large File Storage をアップグレードする
-intro: '追加のデータパックを購入すると、{% data variables.large_files.product_name_short %} の毎月の帯域幅容量と総ストレージ容量を増やすことができます。'
+title: Upgrading Git Large File Storage
+intro: 'You can purchase additional data packs to increase your monthly bandwidth quota and total storage capacity for {% data variables.large_files.product_name_short %}.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
-  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account/
-  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization/
+  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account
+  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization
   - /articles/upgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
 versions:
@@ -16,10 +16,9 @@ topics:
   - Organizations
   - Upgrades
   - User account
-shortTitle: Git LFSストレージのアップグレード
+shortTitle: Upgrade Git LFS storage
 ---
-
-## 個人アカウント用に追加のストレージと帯域幅を購入する
+## Purchasing additional storage and bandwidth for a personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -27,7 +26,7 @@ shortTitle: Git LFSストレージのアップグレード
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
-## Organization 用に追加のストレージと帯域幅を購入する
+## Purchasing additional storage and bandwidth for an organization
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -36,9 +35,9 @@ shortTitle: Git LFSストレージのアップグレード
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
-## 参考リンク
+## Further reading
 
-- [{% data variables.large_files.product_name_long %} の支払いについて](/articles/about-billing-for-git-large-file-storage)
-- 「[ストレージと帯域の利用について](/articles/about-storage-and-bandwidth-usage)」
-- 「[ {% data variables.large_files.product_name_long %}の利用状況を表示する](/articles/viewing-your-git-large-file-storage-usage)」
-- 「[大きなファイルのバージョン付け](/articles/versioning-large-files)」
+- "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
+- "[About storage and bandwidth usage](/articles/about-storage-and-bandwidth-usage)"
+- "[Viewing your {% data variables.large_files.product_name_long %} usage](/articles/viewing-your-git-large-file-storage-usage)"
+- "[Versioning large files](/articles/versioning-large-files)"

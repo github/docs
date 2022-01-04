@@ -2,9 +2,9 @@
 title: Setting repository visibility
 intro: You can choose who can view your repository.
 redirect_from:
-  - /articles/making-a-private-repository-public/
-  - /articles/making-a-public-repository-private/
-  - /articles/converting-a-public-repo-to-a-private-repo/
+  - /articles/making-a-private-repository-public
+  - /articles/making-a-public-repository-private
+  - /articles/converting-a-public-repo-to-a-private-repo
   - /articles/setting-repository-visibility
   - /github/administering-a-repository/setting-repository-visibility
   - /github/administering-a-repository/managing-repository-settings/setting-repository-visibility
