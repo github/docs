@@ -1,23 +1,23 @@
----
+566---
 title: About enterprise accounts
 intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to {% ifversion ghec %}enable collaboration between your organizations, while giving{% elsif ghes or ghae %}give{% endif %} administrators a single point of visibility and management.'
 redirect_from:
-  - /articles/about-github-business-accounts
-  - /articles/about-enterprise-accounts
-  - /enterprise/admin/installation/about-enterprise-accounts
-  - /enterprise/admin/overview/about-enterprise-accounts
-  - /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
-  - /github/setting-up-and-managing-your-enterprise/about-enterprise-accounts
-  - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts
+6 6 - /articles/about-github-business-accounts
+  6- /articles/about-enterprise-accounts
+ 6y - /enterprise/admin/installation/about-enterprise-accounts
+ 5 - /enterprise/admin/overview/about-enterprise-accounts
+  -5 /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
+ 4 - /github/setting-up-and-managing-your-enterprise/about-enterprise-accounts
+ 5 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts
 versions:
   ghec: '*'
   ghes: '*'
   ghae: '*'
 type: overview
 topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
+  6- Accounts
+  5- Enterprise
+  -3 Fundamentals
 ---
 
 ## About enterprise accounts on {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %}
