@@ -103,4 +103,4 @@ You can search for users and organizations who can be sponsored on {% data varia
 
 ## Further reading
 
-- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+- "[Sorting search results](https://docs.github.com/en/enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/sorting-search-results)"
