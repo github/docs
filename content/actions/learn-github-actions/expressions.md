@@ -12,7 +12,6 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About expressions
 
@@ -267,9 +266,9 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
-## Job status check functions
+## Status check functions
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
+You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
 
 ### success
 
@@ -316,6 +315,32 @@ steps:
   - name: The job has failed
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
+
+### Evaluate Status Explicitly
+
+Instead of using one of the methods above, you can evaluate the status of the job or composite action that is executing the step directly:
+
+#### Example for workflow step
+
+```yaml
+steps:
+  ...
+  - name: The job has failed
+    if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
+```
+
+This is the same as using `if: failure()` in a job step.
+
+#### Example for composite action step
+
+```yaml
+steps:
+  ...
+  - name: The composite action has failed
+    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
+```
+
+This is the same as using `if: failure()` in a composite action step.
 
 ## Object filters
 

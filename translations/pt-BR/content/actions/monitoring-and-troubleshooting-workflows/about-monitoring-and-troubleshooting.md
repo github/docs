@@ -1,73 +1,72 @@
 ---
-title: Sobre monitoramento e solução de problemas
-intro: 'Você pode utilizar as ferramentas em {% data variables.product.prodname_actions %} para monitorar e depurar seus fluxos de trabalho.'
+title: About monitoring and troubleshooting
+intro: 'You can use the tools in {% data variables.product.prodname_actions %} to monitor and debug your workflows.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Sobre monitoramento e solução de problemas
+shortTitle: About monitoring and troubleshooting
 miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## Monitorando seus fluxos de trabalho
+## Monitoring your workflows
 
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
-### Usar o gráfico de visualização
+### Using the visualization graph
 
-Cada execução de fluxo de trabalho gera um gráfico em tempo real que ilustra o progresso da execução. Você pode usar este gráfico para monitorar e depurar fluxos de trabalho. Por exemplo:
+Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug workflows. For example:
 
-   ![Gráfico de fluxo de trabalho](/assets/images/help/images/workflow-graph.png)
+   ![Workflow graph](/assets/images/help/images/workflow-graph.png)
 
-Para obter mais informações, consulte "[Usar o gráfico de visualização](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)".
+For more information, see "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)." 
 
 {% endif %}
 
-### Adicionar um selo de status de fluxo de trabalho
+### Adding a workflow status badge
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-Para obter mais informações, consulte "[Adicionando um selo de status do fluxo de trabalho](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)".
+For more information, see "[Adding a workflow status badge](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)."
 
 {% ifversion fpt or ghec %}
-### Visualizar o tempo de execução do trabalho
+### Viewing job execution time
 
-Para identificar quanto tempo um trabalho levou para ser executado, você pode ver seu tempo de execução. Por exemplo:
+To identify how long a job took to run, you can view its execution time. For example:
 
-   ![Link com informações sobre o tempo faturável e execução](/assets/images/help/repository/view-run-billable-time.png)
+   ![Run and billable time details link](/assets/images/help/repository/view-run-billable-time.png)
 
-Para obter mais informações, consulte "[Visualizar o tempo de execução do trabalho](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)".
+For more information, see "[Viewing job execution time](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)."
 {% endif %}
 
-### Visualizar o histórico de execução do fluxo de trabalho
+### Viewing workflow run history
 
-Você pode visualizar o status de cada trabalho e etapa de um fluxo de trabalho. Por exemplo:
+You can view the status of each job and step in a workflow. For example:
 
-   ![Nome da execução do fluxo de trabalho](/assets/images/help/repository/run-name.png)
+   ![Name of workflow run](/assets/images/help/repository/run-name.png)
 
-Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)".
+For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
 
-## Solucionando problemas dos seus fluxos de trabalho
+## Troubleshooting your workflows
 
-### Usar registros de execução do fluxo de trabalho
+### Using workflow run logs
 
-A execução de cada fluxo de trabalho gera registros de atividade que você pode visualizar, pesquisar e baixar. Por exemplo:
+Each workflow run generates activity logs that you can view, search, and download. For example:
 
-   ![Resultados do fluxo de trabalho do Super linter](/assets/images/help/repository/super-linter-workflow-results-updated-2.png)
+   ![Super linter workflow results](/assets/images/help/repository/super-linter-workflow-results-updated-2.png)
 
-Para obter mais informações, consulte "[Usar registros de execução do fluxo de trabalho](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)".
+For more information, see "[Using workflow run logs](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)."
 
-### Habilitar log de depuração
+### Enabling debug logging
 
-Se os logs do fluxo de trabalho não fornecerem detalhes suficientes para diagnosticar o motivo pelo qual um fluxo de trabalho, um trabalho ou uma etapa não está funcionando como esperado, habilite o log de depuração adicional. Para obter mais informações, consulte "[Habilitar o registro de depuração](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)".
+If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging. For more information, see "[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."
 
-## Monitoramento e resolução de problemas dos executores auto-hospedados
+## Monitoring and troubleshooting self-hosted runners
 
-Se você usar executores auto-hospedados, você poderá ver a atividade deles e diagnosticar problemas comuns.
+If you use self-hosted runners, you can view their activity and diagnose common issues. 
 
-Para obter mais informações, consulte "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."

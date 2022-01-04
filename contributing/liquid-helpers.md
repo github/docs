@@ -8,11 +8,19 @@ Note: If you are an open source contributor, you should not worry about versioni
 
 ## Versioned documentation
 
-We provide versioned documentation for users of GitHub.com, Enterprise Server, and GitHub AE (with more to come). If multiple versions of a Docs site page exist, readers can choose the version from the version picker at the top of the page.
+We provide versioned documentation for users of GitHub.com plans and Enterprise Cloud, Enterprise Server, and GitHub AE. If multiple versions of a page exist on the site, readers can choose the version from the version picker at the top of the page.
 
-### Dotcom
+### GitHub.com
 
-Documentation for Dotcom has one version: the `free-pro-team@latest` version. The short name is `fpt`.
+Documentation for GitHub.com has two possible versions:
+
+#### Free, Pro, or Team plans
+
+For Free, Pro, or Team plans on GitHub.com, use `free-pro-team@latest`. The short name is `fpt`.
+
+#### Enterprise Cloud
+
+For GitHub Enterprise Cloud, use `enterprise-cloud@latest`. The short name is `ghec`.
 
 ### Enterprise Server
 
@@ -22,7 +30,7 @@ The versions are named `enterprise-server@<release>`. The short name is `ghes`. 
 
 ### GitHub AE
 
-Documentation for GitHub AE is similar to Dotcom: we only offer one version of the content for the product, the `github-ae@latest` version. The short name is `ghae`.
+Versioning for GitHub AE uses the `github-ae@latest` version. The short name is `ghae`.
 
 ## Versioning in the YAML frontmatter
 
@@ -34,7 +42,8 @@ If you define multiple products in the `versions` key within a page's YAML front
 
 Important notes:
 
-* Make sure to use `ifversion` and not `if`. A test will fail if an `if` statement is used for versioning.
+* Use `ifversion` for product-based versioning. If you use `if` for product-based versioning, a test will fail.
+* Use `if` for [feature-based versioning](#feature-based-versioning).
 * Make sure to use `elsif` and not `else if`. Liquid does not recognize `else if` and will not render content inside an `else if` block.
 
 ### Comparison operators
@@ -74,17 +83,6 @@ When **at least one** operand must be true for the condition to be true, use the
 
 Do **not** use the operators `&&` or `||`. Liquid does not recognize them, and the content will not render in the intended versions.
 
-### Versioning content for _future_ releases of GitHub AE
+### Feature-based versioning
 
-If your content describes a feature that will be included in the next release of GitHub AE, you can use a placeholder version string, `ghae-next`. Before the next GitHub AE release, we will run a script to replace the placeholder with `ghae`.
-
-For example, you can use this logic for a feature that's shipping on GitHub.com and will also be available in a future update to GitHub AE:
-```
-{% ifversion fpt or ghae-next %}This is a brand new feature, the likes of which have never been seen at this company before!{% endif %}
-```
-After the feature becomes available in GitHub AE and we run the replacement script, this statement will become:
-```
-{% ifversion fpt or ghae %}This is a brand new feature, the likes of which have never been seen at this company before!{% endif %}
-```
-
-`ifversion` tags can also support `ghae-issue-<number>` as an additional way to version content more granularly for upcoming GitHub AE releases.
+You can define an arbitrarily named feature and associate specific product versions with that named feature using feature-based versioning. When you use the named version in a Liquid conditional block, the versions that you associate will apply to the content within the block. If the versioning for the feature changes, you can update one file instead of every individual Liquid tag.. For more information, see [data/features/README.md](/data/features).

@@ -1,10 +1,10 @@
 ---
 title: About remote repositories
 redirect_from:
-  - /articles/working-when-github-goes-down/
-  - /articles/sharing-repositories-without-github/
+  - /articles/working-when-github-goes-down
+  - /articles/sharing-repositories-without-github
   - /articles/about-remote-repositories
-  - /articles/which-url-should-i-use/
+  - /articles/which-url-should-i-use
   - /articles/which-remote-url-should-i-use
   - /github/using-git/which-remote-url-should-i-use
   - /github/using-git/about-remote-repositories
@@ -73,7 +73,7 @@ SSH URLs provide access to a Git repository via SSH, a secure protocol. To use t
 
 When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote repository using SSH URLs, you'll be prompted for a password and must provide your SSH key passphrase. For more information, see "[Working with SSH key passphrases](/github/authenticating-to-github/working-with-ssh-key-passphrases)."
 
-{% ifversion fpt or ghec %}If you are accessing an organization that uses SAML single sign-on (SSO), you must authorize your SSH key to access the organization before you authenticate. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" and "[Authorizing an SSH key for use with SAML single sign-on](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."{% endif %}
+{% ifversion fpt or ghec %}If you are accessing an organization that uses SAML single sign-on (SSO), you must authorize your SSH key to access the organization before you authenticate. For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" and "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 {% tip %}
 

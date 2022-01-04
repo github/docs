@@ -1,6 +1,6 @@
 ---
-title: 通过 GitHub Actions 自动化 Dependabot
-intro: '如何使用 {% data variables.product.prodname_actions %} 来自动执行常见 {% data variables.product.prodname_dependabot %} 相关任务的示例。'
+title: Automating Dependabot with GitHub Actions
+intro: 'Examples of how you can use {% data variables.product.prodname_actions %} to automate common {% data variables.product.prodname_dependabot %} related tasks.'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_actions %} to respond to {% data variables.product.prodname_dependabot %}-created pull requests.'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -22,38 +22,106 @@ shortTitle: Use Dependabot with actions
 {% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## 关于 {% data variables.product.prodname_dependabot %} 与 {% data variables.product.prodname_actions %}
+## About {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %}
 
-{% data variables.product.prodname_dependabot %} 创建拉动请求以保持依赖项的最新状态，并且当创建这些拉取请求时，您可以使用 {% data variables.product.prodname_actions %} 执行自动任务。 例如，获取其他构件、添加标签、运行测试或修改拉取请求。
+{% data variables.product.prodname_dependabot %} creates pull requests to keep your dependencies up to date, and you can use {% data variables.product.prodname_actions %} to perform automated tasks when these pull requests are created. For example, fetch additional artifacts, add labels, run tests, or otherwise modifying the pull request.
 
-## 响应事件
+## Responding to events
 
-{% data variables.product.prodname_dependabot %} 能够在其拉取请求和评论上触发 {% data variables.product.prodname_actions %} 工作流程；然而，由于 ["GitHub Action：Depabot PR 触发的工作流程将使用只读权限运行"](https://github.blog/changelog/2021-02-19-github-actions-workflows-triggered-by-dependabot-prs-will-run-with-read-only-permissions/)，某些事件的处理是不同的。
+{% data variables.product.prodname_dependabot %} is able to trigger {% data variables.product.prodname_actions %} workflows on its pull requests and comments; however, certain events are treated differently.
 
-对于 {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) 使用 `pull_request`、`pull_request_review`、`pull_request_review_comment` 和 `push` 事件发起的工作流程，适用以下限制：
+For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) using the `pull_request`, `pull_request_review`, `pull_request_review_comment`, and `push` events, the following restrictions apply:
 
-- `GITHUB_TOKEN` 具有只读权限。
-- 密码不可访问。
+- {% ifversion ghes = 3.3 %}`GITHUB_TOKEN` has read-only permissions, unless your administrator has removed restrictions.{% else %}`GITHUB_TOKEN` has read-only permissions by default.{% endif %}
+- {% ifversion ghes = 3.3 %}Secrets are inaccessible, unless your administrator has removed restrictions.{% else %}Secrets are populated from {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available.{% endif %}
 
-更多信息请参阅“[保持 GitHub Actions 和工作流程安全：阻止 pwn 请求](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)”。
+For more information, see ["Keeping your GitHub Actions and workflows secure: Preventing pwn requests"](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
 
-{% ifversion ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes > 3.3 %}
+
+### Changing `GITHUB_TOKEN` permissions
+
+By default, {% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} get a `GITHUB_TOKEN` with read-only permissions. You can use the `permissions` key in your workflow to increase the access for the token:
+
+{% raw %}
+
+```yaml
+name: CI
+on: pull_request
+
+# Set the access for individual scopes, or use permissions: write-all
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+  ...
+
+jobs:
+  ...
+```
+
+{% endraw %}
+
+For more information, see "[Modifying the permissions for the GITHUB_TOKEN](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)."
+
+### Accessing secrets
+
+When a {% data variables.product.prodname_dependabot %} event triggers a workflow, the only secrets available to the workflow are {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available. Consequently, you must store any secrets that are used by a workflow triggered by {% data variables.product.prodname_dependabot %} events as {% data variables.product.prodname_dependabot %} secrets. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)".
+
+{% data variables.product.prodname_dependabot %} secrets are added to the `secrets` context and referenced using exactly the same syntax as secrets for {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow)."
+
+If you have a workflow that will be triggered by {% data variables.product.prodname_dependabot %} and also by other actors, the simplest solution is to store the token with the permissions required in an action and in a {% data variables.product.prodname_dependabot %} secret with identical names. Then the workflow can include a single call to these secrets. If the secret for {% data variables.product.prodname_dependabot %} has a different name, use conditions to specify the correct secrets for different actors to use. For examples that use conditions, see "[Common automations](#common-dependabot-automations)" below.
+
+To access a private container registry on AWS with a user name and password, a workflow must include a secret for `username` and `password`. In the example below, when {% data variables.product.prodname_dependabot %} triggers the workflow, the {% data variables.product.prodname_dependabot %} secrets with the names `READONLY_AWS_ACCESS_KEY_ID` and `READONLY_AWS_ACCESS_KEY` are used. If another actor triggers the workflow, the actions secrets with those names are used.
+
+{% raw %}
+
+```yaml
+name: CI
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to private container registry for dependencies
+        uses: docker/login-action@v1
+        with:
+          registry: https://1234567890.dkr.ecr.us-east-1.amazonaws.com
+          username: ${{ secrets.READONLY_AWS_ACCESS_KEY_ID }}
+          password: ${{ secrets.READONLY_AWS_ACCESS_KEY }}
+
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+```
+
+{% endraw %}
+
+{% endif %}
+
+{% ifversion ghes = 3.3 %}
+
 {% note %}
 
 **Note:** Your site administrator can override these restrictions for {% data variables.product.product_location %}. For more information, see "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#troubleshooting-failures-when-dependabot-triggers-existing-workflows)."
 
-If the restrictions are removed, when a workflow is triggered by {% data variables.product.prodname_dependabot %} it will have access to any secrets that are normally available. In addition, workflows triggered by {% data variables.product.prodname_dependabot %} can use the `permissions` term to increase the default scope of the `GITHUB_TOKEN` from read-only access.
+If the restrictions are removed, when a workflow is triggered by {% data variables.product.prodname_dependabot %} it will have access to {% data variables.product.prodname_actions %} secrets and can use the `permissions` term to increase the default scope of the `GITHUB_TOKEN` from read-only access. You can ignore the specific steps in the "Handling `pull_request` events" and "Handling `push` events" sections, as it no longer applies.
 
 {% endnote %}
-{% endif %}
 
-### 处理 `pull_request` 事件
+### Handling `pull_request` events
 
-如果您的工作流程需要访问具有写入权限的密码或 `GITHUB_TOKEN`，则有两个选项：使用 `pull_request_target` 或使用两个单独的工作流程。 我们将在本节中详述使用 `pull_request_target`，以及在 [处理 `push` 事件](#handling-push-events)“中使用下面两个工作流程。
+If your workflow needs access to secrets or a `GITHUB_TOKEN` with write permissions, you have two options: using `pull_request_target`, or using two separate workflows. We will detail using `pull_request_target` in this section, and using two workflows below in "[Handling `push` events](#handling-push-events)."
 
-下面是现在可能失败的 `pull_request` 工作流程的简单示例：
+Below is a simple example of a `pull_request` workflow that might now be failing:
 
 {% raw %}
+
 ```yaml
 ### This workflow now has no secrets and a read-only token
 name: Dependabot Workflow
@@ -68,17 +136,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 ```
+
 {% endraw %}
 
-您可以将 `pull_request` 替换为 `pull_request_target`，这用于复刻中的拉取请求，并明确检出拉取请求 `HEAD`。
+You can replace `pull_request` with `pull_request_target`, which is used for pull requests from forks, and explicitly check out the pull request `HEAD`.
 
 {% warning %}
 
-**警告：**使用 `pull_request_target` 替代 `pull_request` 会使您暴露在不安全的行为中。 我们建议您使用两种工作流程方法，如下面的“[处理 `push` 事件](#handling-push-events)”中所述。
+**Warning:** Using `pull_request_target` as a substitute for `pull_request` exposes you to insecure behavior. We recommend you use the two workflow method, as described below in "[Handling `push` events](#handling-push-events)."
 
 {% endwarning %}
 
 {% raw %}
+
 ```yaml
 ### This workflow has access to secrets and a read-write token
 name: Dependabot Workflow
@@ -99,17 +169,19 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
+
 {% endraw %}
 
-还强烈建议您缩小授予 `GITHUB_TOKEN` 的权限范围，以避免泄露具有不必要特权的令牌。 更多信息请参阅“[`GITHUB_TOKEN`](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token) 的权限”。
+It is also strongly recommended that you downscope the permissions granted to the `GITHUB_TOKEN` in order to avoid leaking a token with more privilege than necessary. For more information, see "[Permissions for the `GITHUB_TOKEN`](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
 
-### 处理 `push` 事件
+### Handling `push` events
 
-因为没有等效于 `push` 事件的 `pull_request_target_` ，因此您必须使用两个工作流程：一个通过上传构件而结束不可信工作流程， 触发第二个下载构件并继续处理的可信任工作流程。
+As there is no `pull_request_target` equivalent for `push` events, you will have to use two workflows: one untrusted workflow that ends by uploading artifacts, which triggers a second trusted workflow that downloads artifacts and continues processing.
 
-第一个工作流程执行任何不信任的工作：
+The first workflow performs any untrusted work:
 
 {% raw %}
+
 ```yaml
 ### This workflow doesn't have access to secrets and has a read-only token
 name: Dependabot Untrusted Workflow
@@ -123,11 +195,13 @@ jobs:
     steps:
       - uses: ...
 ```
+
 {% endraw %}
 
-第二个工作流程在第一个工作流程成功完成后执行受信任的工作：
+The second workflow performs trusted work after the first workflow completes successfully:
 
 {% raw %}
+
 ```yaml
 ### This workflow has access to secrets and a read-write token
 name: Dependabot Trusted Workflow
@@ -147,26 +221,73 @@ jobs:
     steps:
       - uses: ...
 ```
+
 {% endraw %}
 
-### 手动重新运行工作流程
+{% endif %}
 
-您还可以手动重新运行失败的 Dependabot 工作流程，它将以读写令牌运行并访问密码。 在手动重新运行失败的工作流程之前，您应始终检查更新的依赖项，以确保更改不会引入任何恶意或意外行为。
+### Manually re-running a workflow
 
-## 常用 Dependabot 自动化
+You can also manually re-run a failed Dependabot workflow, and it will run with a read-write token and access to secrets. Before manually re-running a failed workflow, you should always check the dependency being updated to ensure that the change doesn't introduce any malicious or unintended behavior.
 
-以下是可以使用 {% data variables.product.prodname_actions %} 自动化的几个常见场景。
+## Common Dependabot automations
 
-### 获取有关拉取请求的元数据
+Here are several common scenarios that can be automated using {% data variables.product.prodname_actions %}.
 
-大量自动化需要了解拉取请求内容的信息：依赖项名称是什么，是否为生产依赖项，以及是否为主要、次要或补丁更新。
+{% ifversion ghes = 3.3 %}
 
-`dependabot/fetch-metadata` 操作为您提供所有这些信息：
+{% note %}
+
+**Note:** If your site administrator has overridden restrictions for {% data variables.product.prodname_dependabot %} on {% data variables.product.product_location %}, you can use `pull_request` instead of `pull_request_target` in the following workflows.
+
+{% endnote %}
+
+{% endif %}
+
+### Fetch metadata about a pull request
+
+A large amount of automation requires knowing information about the contents of the pull request: what the dependency name was, if it's a production dependency, and if it's a major, minor, or patch update.
+
+The `dependabot/fetch-metadata` action provides all that information for you:
+
+{% ifversion ghes = 3.3 %}
 
 {% raw %}
+
 ```yaml
-name: Dependabot auto-label
+name: Dependabot fetch metadata
 on: pull_request_target
+
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: Dependabot metadata
+        id: dependabot-metadata
+        uses: dependabot/fetch-metadata@v1.1.1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      # The following properties are now available:
+      #  - steps.dependabot-metadata.outputs.dependency-names
+      #  - steps.dependabot-metadata.outputs.dependency-type
+      #  - steps.dependabot-metadata.outputs.update-type      
+```
+
+{% endraw %}
+
+{% else %}
+
+{% raw %}
+
+```yaml
+name: Dependabot fetch metadata
+on: pull_request
 
 permissions:
   pull-requests: write
@@ -188,20 +309,58 @@ jobs:
       #  - steps.metadata.outputs.dependency-type
       #  - steps.metadata.outputs.update-type      
 ```
+
 {% endraw %}
 
-更多信息请参阅 [`dependabot/fetch-metadata`](https://github.com/dependabot/fetch-metadata) 仓库。
+{% endif %}
 
-### 标记拉取请求
+For more information, see the [`dependabot/fetch-metadata`](https://github.com/dependabot/fetch-metadata) repository.
 
-如果您有基于 {% data variables.product.prodname_dotcom %} 标签的其他自动化或分类工作流程，则可以配置操作以根据提供的元数据分配标签。
+### Label a pull request
 
-例如，如果您想用标签标记所有生产依赖项更新：
+If you have other automation or triage workflows based on {% data variables.product.prodname_dotcom %} labels, you can configure an action to assign labels based on the metadata provided.
+
+For example, if you want to flag all production dependency updates with a label:
+
+{% ifversion ghes = 3.3 %}
 
 {% raw %}
+
 ```yaml
 name: Dependabot auto-label
 on: pull_request_target
+
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: Dependabot metadata
+        id: dependabot-metadata
+        uses: dependabot/fetch-metadata@v1.1.1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Add a label for all production dependencies
+        if: ${{ steps.dependabot-metadata.outputs.dependency-type == 'direct:production' }}
+        run: gh pr edit "$PR_URL" --add-label "production"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+```
+
+{% endraw %}
+
+{% else %}
+
+{% raw %}
+
+```yaml
+name: Dependabot auto-label
+on: pull_request
 
 permissions:
   pull-requests: write
@@ -224,16 +383,52 @@ jobs:
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
 ```
+
 {% endraw %}
 
-### 批准拉取请求
+{% endif %}
 
-如果您想要自动批准 Dependabot 拉取请求，您可以在工作流程中使用 {% data variables.product.prodname_cli %}：
+### Approve a pull request
+
+If you want to automatically approve Dependabot pull requests, you can use the {% data variables.product.prodname_cli %} in a workflow:
+
+{% ifversion ghes = 3.3 %}
 
 {% raw %}
+
 ```yaml
 name: Dependabot auto-approve
 on: pull_request_target
+
+permissions:
+  pull-requests: write
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: Dependabot metadata
+        id: dependabot-metadata
+        uses: dependabot/fetch-metadata@v1.1.1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Approve a PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+```
+
+{% endraw %}
+
+{% else %}
+
+{% raw %}
+
+```yaml
+name: Dependabot auto-approve
+on: pull_request
 
 permissions:
   pull-requests: write
@@ -254,18 +449,56 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
+
 {% endraw %}
 
-### 在拉取请求上启用自动合并
+{% endif %}
 
-如果您要自动合并拉取请求，可以使用 {% data variables.product.prodname_dotcom %} 的自动合并功能。 这样，当所有所需的测试和批准都成功满足时，拉取请求即可合并。 For more information on auto-merge, see "[Automatically merging a pull request"](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+### Enable auto-merge on a pull request
 
-这是为所有补丁更新启用自动合并到 `my-dependency` 的示例：
+If you want to auto-merge your pull requests, you can use {% data variables.product.prodname_dotcom %}'s auto-merge functionality. This enables the pull request to be merged when all required tests and approvals are successfully met. For more information on auto-merge, see "[Automatically merging a pull request"](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+
+Here is an example of enabling auto-merge for all patch updates to `my-dependency`:
+
+{% ifversion ghes = 3.3 %}
 
 {% raw %}
+
 ```yaml
 name: Dependabot auto-merge
 on: pull_request_target
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: Dependabot metadata
+        id: dependabot-metadata
+        uses: dependabot/fetch-metadata@v1.1.1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Enable auto-merge for Dependabot PRs
+        if: ${{contains(steps.dependabot-metadata.outputs.dependency-names, 'my-dependency') && steps.dependabot-metadata.outputs.update-type == 'version-update:semver-patch'}}
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+```
+
+{% endraw %}
+
+{% else %}
+
+{% raw %}
+
+```yaml
+name: Dependabot auto-merge
+on: pull_request
 
 permissions:
   pull-requests: write
@@ -288,15 +521,29 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
+
 {% endraw %}
 
-## 失败的工作流程运行故障排除
+{% endif %}
 
-如果您的工作流程运行失败，请检查以下情况：
+## Troubleshooting failed workflow runs
 
-- 只有当正确的角色触发工作流程时，才运行工作流程。
-- 您在为 `pull_request` 检出正确的 `ref`。
-- 您没有尝试从 Dependabot 触发的 `pull_request`、`pull_request_review`、`pull_request_review_comment` 或 `push` 事件访问密码。
-- 您没有尝试从 Dependabot 触发的 `pull_request`、`pull_request_review`、`pull_request_review_comment` 或 `push` 事件执行任何 `write` 操作。
+If your workflow run fails, check the following:
 
-有关编写和调试 {% data variables.product.prodname_actions %} 的信息，请参阅“[了解 GitHub Actions](/actions/learn-github-actions)”。
+{% ifversion ghes = 3.3 %}
+
+- You are running the workflow only when the correct actor triggers it.
+- You are checking out the correct `ref` for your `pull_request`.
+- You aren't trying to access secrets from within a Dependabot-triggered `pull_request`, `pull_request_review`, `pull_request_review_comment`, or `push` event.
+- You aren't trying to perform any `write` actions from within a Dependabot-triggered `pull_request`, `pull_request_review`, `pull_request_review_comment`, or `push` event.
+
+{% else %}
+
+- You are running the workflow only when the correct actor triggers it.
+- You are checking out the correct `ref` for your `pull_request`.
+- Your secrets are available in {% data variables.product.prodname_dependabot %} secrets rather than as {% data variables.product.prodname_actions %} secrets.
+- You have a `GITHUB_TOKEN` with the correct permissions.
+
+{% endif %}
+
+For information on writing and debugging {% data variables.product.prodname_actions %}, see "[Learning GitHub Actions](/actions/learn-github-actions)."

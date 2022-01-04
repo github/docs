@@ -2,7 +2,6 @@
 title: About identity and access management for your enterprise
 shortTitle: About identity and access management
 intro: 'You can use SAML single sign-on (SSO) and System for Cross-domain Identity Management (SCIM) to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% ifversion ghae %}to {% data variables.product.product_location %}{% endif %}.'
-product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   ghec: '*'
   ghae: '*'
@@ -54,11 +53,23 @@ Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-After you configure the application for {% data variables.product.product_name %} on your IdP, you can grant access to {% data variables.product.product_location %} by assigning the application to users and groups on your IdP. For more information about SAML SSO for {% data variables.product.product_name %}, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)."
+After you configure the application for {% data variables.product.product_name %} on your identity provider (IdP), you can provision access to {% data variables.product.product_location %} by assigning the application to users and groups on your IdP. For more information about SAML SSO for {% data variables.product.product_name %}, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)."
 
 {% data reusables.scim.after-you-configure-saml %} For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
 
 To learn how to configure both authentication and user provisioning for {% data variables.product.product_location %} with your specific IdP, see "[Configuring authentication and provisioning with your identity provider](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)."
+
+## Supported IdPs
+
+The following IdPs are officially supported for integration with {% data variables.product.prodname_ghe_managed %}.
+
+{% data reusables.saml.okta-ae-sso-beta %}
+
+{% data reusables.github-ae.saml-idp-table %}
+
+## Mapping {% data variables.product.prodname_ghe_managed %} teams to Okta groups
+
+If you use Okta as your IdP, you can map your Okta groups to teams on {% data variables.product.prodname_ghe_managed %}. For more information, see "[Mapping Okta groups to teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
 
 {% endif %}
 

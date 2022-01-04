@@ -1,8 +1,8 @@
 ---
-title: SSHエージェント転送の利用
-intro: サーバーへのデプロイを簡単にするために、SSHエージェント転送をセットアップして、安全にローカルのSSHキーを使うことができます。
+title: Using SSH agent forwarding
+intro: 'To simplify deploying to a server, you can set up SSH agent forwarding to securely use local SSH keys.'
 redirect_from:
-  - /guides/using-ssh-agent-forwarding/
+  - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
 versions:
   fpt: '*'
@@ -11,50 +11,50 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: SSHエージェントのフォワーディング
+shortTitle: SSH agent forwarding
 ---
 
 
 
-SSHエージェント転送を使って、サーバーへのデプロイをシンプルにすることができます。  そうすることで、キー（パスフレーズなしの！）をサーバー上に残さずに、ローカルのSSHキーを使用できます。
+SSH agent forwarding can be used to make deploying to a server simple.  It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server.
 
-{% data variables.product.product_name %}とやりとりするためのSSHキーをセットアップ済みなら、`ssh-agent`には慣れていることでしょう。 これは、バックグラウンドで実行され、キーをメモリにロードした状態にし続けるので、キーを使うたびにパスフレーズを入力する必要がなくなります。 便利なのは、ローカルの`ssh-agent`がサーバー上で動作しているかのように、サーバーからローカルの`ssh-agent`にアクセスさせられることです。 これは、友人のコンピュータをあなたが使えるように、友人のパスワードを友人に入力してもらうように頼むようなものです。
+If you've already set up an SSH key to interact with {% data variables.product.product_name %}, you're probably familiar with `ssh-agent`. It's a program that runs in the background and keeps your key loaded into memory, so that you don't need to enter your passphrase every time you need to use the key. The nifty thing is, you can choose to let servers access your local `ssh-agent` as if they were already running on the server. This is sort of like asking a friend to enter their password so that you can use their computer.
 
-SSHエージェント転送に関するさらに詳細な説明については、[Steve Friedl's Tech Tips guide][tech-tips]をご覧ください。
+Check out [Steve Friedl's Tech Tips guide][tech-tips] for a more detailed explanation of SSH agent forwarding.
 
-## SSHエージェント転送のセットアップ
+## Setting up SSH agent forwarding
 
-SSHキーがセットアップされており、動作していることを確認してください。 まだ確認ができていないなら、[SSHキーの生成ガイド][generating-keys]を利用できます。
+Ensure that your own SSH key is set up and working. You can use [our guide on generating SSH keys][generating-keys] if you've not done this yet.
 
-ローカルのキーが動作しているかは、ターミナルで`ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}`と入力すればテストできます。
+You can test that your local key works by entering `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}` in the terminal:
 
 ```shell
 $ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
-# SSHでgithubに入る
+# Attempt to SSH in to github
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not provide
 > shell access.
 ```
 
-いいスタートを切ることができました。 サーバーへのエージェント転送ができるよう、SSHをセットアップしましょう。
+We're off to a great start. Let's set up SSH to allow agent forwarding to your server.
 
-1. 好きなテキストエディタで`~/.ssh/config`にあるファイルを開いてください。 もしこのファイルがなかったなら、ターミナルで`touch ~/.ssh/config`と入力すれば作成できます。
+1. Using your favorite text editor, open up the file at `~/.ssh/config`. If this file doesn't exist, you can create it by entering `touch ~/.ssh/config` in the terminal.
 
-2. `example.com`のところを使用するサーバーのドメイン名もしくはIPで置き換えて、以下のテキストをこのファイルに入力してください。
-   
+2. Enter the following text into the file, replacing `example.com` with your server's domain name or IP:
+
         Host example.com
           ForwardAgent yes
 
 {% warning %}
 
-**警告:** すべてのSSH接続のこの設定を適用するために、`Host *`のようなワイルドカードを使いたくなるかもしれません。 これはローカルのSSHキーをSSHで入る*すべての*サーバーと共有することになるので、実際には良い考えではありません。 キーに直接アクセスされることはないかもしれませんが、接続が確立されている間はそれらのキーが*あなたのかわりに*使われるかもしれません。 **追加するサーバーは、信用でき、エージェント転送で使おうとしているサーバーのみにすべきです。**
+**Warning:** You may be tempted to use a wildcard like `Host *` to just apply this setting to all SSH connections. That's not really a good idea, as you'd be sharing your local SSH keys with *every* server you SSH into. They won't have direct access to the keys, but they will be able to use them *as you* while the connection is established. **You should only add servers you trust and that you intend to use with agent forwarding.**
 
 {% endwarning %}
 
-## SSHエージェント転送のテスト
+## Testing SSH agent forwarding
 
-エージェント転送がサーバーで動作しているかをテストするには、サーバーにSSHで入ってもう一度`ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}`と実行してみてください。  すべてうまくいっているなら、ローカルでやった場合と同じプロンプトが返ってくるでしょう。
+To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}` once more.  If all is well, you'll get back the same prompt as you did locally.
 
-ローカルのキーが使われているか確信が持てない場合は、サーバー上で`SSH_AUTH_SOCK`変数を調べてみることもできます。
+If you're unsure if your local key is being used, you can also inspect the `SSH_AUTH_SOCK` variable on your server:
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
@@ -62,24 +62,24 @@ $ echo "$SSH_AUTH_SOCK"
 > /tmp/ssh-4hNGMk8AZX/agent.79453
 ```
 
-この変数が設定されていないなら、エージェント転送は動作していないということです。
+If the variable is not set, it means that agent forwarding is not working:
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
-# SSH_AUTH_SOCK変数の出力
+# Print out the SSH_AUTH_SOCK variable
 > <em>[No output]</em>
 $ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
-# SSHでgithubに入る
+# Try to SSH to github
 > Permission denied (publickey).
 ```
 
-## SSHエージェント転送のトラブルシューティング
+## Troubleshooting SSH agent forwarding
 
-以下は、SSHエージェント転送のトラブルシューティングの際に注意すべきことです。
+Here are some things to look out for when troubleshooting SSH agent forwarding.
 
-### コードをのチェックアウトにはSSH URLを使わなければならない
+### You must be using an SSH URL to check out code
 
-SSH転送はHTTP(s) URLでは動作せず、SSH URLでのみ動作します。 サーバー上の*.git/config*ファイルを調べて、URLが以下のようなSSHスタイルのURLになっていることを確認してください。
+SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the *.git/config* file on your server and ensure the URL is an SSH-style URL like below:
 
 ```shell
 [remote "origin"]
@@ -87,18 +87,18 @@ SSH転送はHTTP(s) URLでは動作せず、SSH URLでのみ動作します。 �
   fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
-### SSHキーはローカルで動作していなければならない
+### Your SSH keys must work locally
 
-エージェント転送を通じてキーを動作させるには、まずキーがローカルで動作していなければなりません。 SSHキーをローカルでセットアップするには、[SSHキーの生成ガイド][generating-keys]が役に立つでしょう。
+Before you can make your keys work through agent forwarding, they must work locally first. [Our guide on generating SSH keys][generating-keys] can help you set up your SSH keys locally.
 
-### システムがSSHエージェント転送を許可していなければならない
+### Your system must allow SSH agent forwarding
 
-システム設定でSSHエージェント転送が許可されていないことがあります。 システム設定ファイルが使われているかは、ターミナルで以下のコマンドを入力してみればチェックできます。
+Sometimes, system configurations disallow SSH agent forwarding. You can check if a system configuration file is being used by entering the following command in the terminal:
 
 ```shell
 $ ssh -v <em>example.com</em>
 # Connect to example.com with verbose debug output
-> OpenSSH_5.6p1, OpenSSL 0.9.8r 8 Feb 2011</span>
+> OpenSSH_8.1p1, LibreSSL 2.7.3</span>
 > debug1: Reading configuration data /Users/<em>you</em>/.ssh/config
 > debug1: Applying options for example.com
 > debug1: Reading configuration data /etc/ssh_config
@@ -107,7 +107,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-上の例では、*~/.ssh/config*というファイルがまずロードされ、それから*/etc/ssh_config*が読まれます。  以下のコマンドを実行すれば、そのファイルが設定を上書きしているかを調べることができます。
+In the example above, the file *~/.ssh/config* is loaded first, then */etc/ssh_config* is read.  We can inspect that file to see if it's overriding our options by running the following commands:
 
 ```shell
 $ cat /etc/ssh_config
@@ -117,17 +117,17 @@ $ cat /etc/ssh_config
 >   ForwardAgent no
 ```
 
-この例では、*/etc/ssh_config*ファイルが`ForwardAgent no`と具体的に指定しており、これはエージェント転送をブロックするやり方です。 この行をファイルから削除すれば、エージェント転送は改めて動作するようになります。
+In this example, our */etc/ssh_config* file specifically says `ForwardAgent no`, which is a way to block agent forwarding. Deleting this line from the file should get agent forwarding working once more.
 
-### サーバーはインバウンド接続でSSHエージェント転送を許可していなければならない
+### Your server must allow SSH agent forwarding on inbound connections
 
-エージェント転送は、サーバーでブロックされているかもしれません。 エージェント転送が許可されているかは、サーバーにSSHで入り、`sshd_config`を実行してみれば確認できます。 このコマンドからの出力で、`AllowAgentForwarding`が設定されていることが示されていなければなりません。
+Agent forwarding may also be blocked on your server. You can check that agent forwarding is permitted by SSHing into the server and running `sshd_config`. The output from this command should indicate that `AllowAgentForwarding` is set.
 
-### ローカルの`ssh-agent`が動作していなければならない
+### Your local `ssh-agent` must be running
 
-ほとんどのコンピュータでは、オペレーティングシステムは自動的に`ssh-agent`を起動してくれます。  しかし、Windowsではこれを手動で行わなければなりません。 [Git Bashを開いたときに`ssh-agent`を起動する方法のガイド][autolaunch-ssh-agent]があります。
+On most computers, the operating system automatically launches `ssh-agent` for you.  On Windows, however, you need to do this manually. We have [a guide on how to start `ssh-agent` whenever you open Git Bash][autolaunch-ssh-agent].
 
-コンピュータで`ssh-agent`が動作しているかを確認するには、ターミナルで以下のコマンドを入力してください。
+To verify that `ssh-agent` is running on your computer, type the following command in the terminal:
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
@@ -135,15 +135,15 @@ $ echo "$SSH_AUTH_SOCK"
 > /tmp/launch-kNSlgU/Listeners
 ```
 
-### キーが`ssh-agent`から利用可能でなければならない
+### Your key must be available to `ssh-agent`
 
-`ssh-agent`からキーが見えるかは、以下のコマンドを実行すれば確認できます。
+You can check that your key is visible to `ssh-agent` by running the following command:
 
 ```shell
 ssh-add -L
 ```
 
-このコマンドが識別情報が利用できないと言ってきたなら、キーを追加しなければなりません。
+If the command says that no identity is available, you'll need to add your key:
 
 ```shell
 $ ssh-add <em>yourkey</em>
@@ -151,7 +151,7 @@ $ ssh-add <em>yourkey</em>
 
 {% tip %}
 
-macOSでは、再起動時に`ssh-agent`が起動し直されると、キーは「忘れられて」しまいます。 ただし、以下のコマンドでキーチェーンにSSHキーをインポートできます。
+On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
 
 ```shell
 $ ssh-add -K <em>yourkey</em>
@@ -161,4 +161,5 @@ $ ssh-add -K <em>yourkey</em>
 
 [tech-tips]: http://www.unixwiz.net/techtips/ssh-agent-forwarding.html
 [generating-keys]: /articles/generating-ssh-keys
+[ssh-passphrases]: /ssh-key-passphrases/
 [autolaunch-ssh-agent]: /github/authenticating-to-github/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows

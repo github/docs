@@ -1,7 +1,7 @@
 ---
 title: Managing repository access for your organization's codespaces
 shortTitle: Repository access
-intro: '{% data variables.product.prodname_codespaces %} がアクセスできる Organization 内のリポジトリを管理できます。'
+intro: 'You can manage the repositories in your organization that {% data variables.product.prodname_codespaces %} can access.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access and security for Codespaces for an organization, you must be an organization owner.'
 versions:
@@ -18,16 +18,18 @@ redirect_from:
   - /codespaces/working-with-your-codespace/managing-access-and-security-for-codespaces
 ---
 
-デフォルト設定では、Codespace は作成されたリポジトリにのみアクセスできます。 Organization が所有するリポジトリのアクセスとセキュリティを有効にすると、そのリポジトリ用に作成された Codespaces には、Organization が所有する他のすべてのリポジトリへの読み取りおよび書き込みアクセスがあり、codespace の作者にはアクセス権があります。 If you want to restrict the repositories a codespace can access, you can limit it to either the repository where the codespace was created, or to specific repositories. 信頼するリポジトリに対してのみ、アクセスとセキュリティを有効にしてください。
+By default, a codespace can only access the repository where it was created. When you enable access and security for a repository owned by your organization, any codespaces that are created for that repository will also have read permissions to all other repositories the organization owns and the codespace creator has permissions to access. If you want to restrict the repositories a codespace can access, you can limit it to either the repository where the codespace was created, or to specific repositories. You should only enable access and security for repositories you trust.
 
-Organization 内のどのユーザが {% data variables.product.prodname_codespaces %} を使用できるかを管理するには、「[Organization のユーザ権限を管理する](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)」を参照してください。
+To manage which users in your organization can use {% data variables.product.prodname_codespaces %}, see "[Managing user permissions for your organization](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}
-1. [Access and security] で、あなたの Organization の設定を選択します。 ![信頼するリポジトリを管理するラジオボタン](/assets/images/help/settings/codespaces-org-access-and-security-radio-buttons.png)
-1. [Selected repositories] を選択した場合、ドロップダウンメニューを選択してから、あなたの Organization が所有するその他のリポジトリにアクセスを許可する、リポジトリのコードスペースをクリックします。 その他のリポジトリにコードスペースによるアクセスを許可したい、すべてのリポジトリについて同じ手順を繰り返します。 ![[Selected repositories]ドロップダウンメニュー](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+1. Under "Access and security", select the setting you want for your organization.
+  ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-org-access-and-security-radio-buttons.png)
+1. If you chose "Selected repositories", select the drop-down menu, then click a repository to allow the repository's codespaces to access other repositories owned by your organization. Repeat for all repositories whose codespaces you want to access other repositories.
+    !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
 
-## 参考リンク
+## Further Reading
 
 - "[Managing repository access for your codespaces](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)"

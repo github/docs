@@ -1,13 +1,13 @@
 ---
-title: Permisos de acceso en GitHub
+title: Access permissions on GitHub
 redirect_from:
-  - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
-  - /articles/what-are-the-different-types-of-team-permissions/
-  - /articles/what-are-the-different-access-permissions/
+  - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
+  - /articles/what-are-the-different-types-of-team-permissions
+  - /articles/what-are-the-different-access-permissions
   - /articles/access-permissions-on-github
   - /github/getting-started-with-github/access-permissions-on-github
   - /github/getting-started-with-github/learning-about-github/access-permissions-on-github
-intro: 'Si bien puedes otorgar acceso de lectura/escritura a los colaboradores en un repositorio personal, los miembros de una organización pueden tener más permisos de acceso granular para los repositorios de la organización.'
+intro: 'While you can grant read/write access to collaborators on a personal repository, members of an organization can have more granular access permissions for the organization''s repositories.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,33 +16,32 @@ versions:
 topics:
   - Permissions
   - Accounts
-shortTitle: Acceder a los permisos
+shortTitle: Access permissions
 ---
+## Personal user accounts
 
-## Cuentas de usuarios personales
+A repository owned by a user account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)."
 
-Un repositorio que es propiedad de una cuenta de usuario y tiene dos niveles de permiso: el *propietario del repositorio* y los *colaboradores*. Para obtener más información, consulta "[Niveles de permiso para un repositorio de cuenta de usuario](/articles/permission-levels-for-a-user-account-repository)".
+## Organization accounts
 
-## Cuentas de organización
-
-Los miembros de la organización pueden tener roles de *propietario*{% ifversion fpt or ghec %}, *gerente de facturación*,{% endif %} o *miembro*. Los propietarios tienen acceso administrativo completo a tu organización {% ifversion fpt or ghec %}, mientras que los gerentes de facturación pueden administrar parámetros de facturación{% endif %}. El miembro tiene un rol predeterminado para todos los demás. Puedes administrar los permisos de acceso para múltiples miembros a la vez con equipos. Para obtener más información, consulta:
+Organization members can have *owner*{% ifversion fpt or ghec %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% ifversion fpt or ghec %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
 - "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
-- [Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)"
+- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
-- [Acerca de los equipos](/articles/about-teams)"
+- "[About teams](/articles/about-teams)"
 
 {% ifversion fpt or ghec %}
 
-## Cuentas de empresa
+## Enterprise accounts
 
-Los *propietarios de empresa* tienen máximo poder sobre la cuenta de la empresa y pueden tomar medidas en la cuenta de la empresa. Los *gerentes de facturación* pueden administrar los parámetros de facturación de la cuenta de la empresa. Los miembros y colaboradores externos de las organizaciones que son propiedad de tu cuenta empresarial automáticamente son miembros de la cuenta empresarial, si bien no tienen acceso a la cuenta empresarial en sí o a sus parámetros. Para obtener más información, consulta la sección "[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)".
+*Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account. *Billing managers* can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
 
-Si una empresa utiliza {% data variables.product.prodname_emus %}, los miembros se aprovisionan como cuentas de usuario nuevas en {% data variables.product.prodname_dotcom %} y el proveedor de identidad los administra en su totalidad. Los {% data variables.product.prodname_managed_users %} tienen acceso de solo lectura a los repositorios que no son parte de su empresa y no pueden interactuar con los usuarios que tampoco sean miembros de la empresa. Dentro de las organizaciones que pertenecen a la empresa, se puede otorgar los mismos niveles de acceso granular de los {% data variables.product.prodname_managed_users %} que estén disponibles para las organizaciones normales. For more information, see "[About {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}."{% endif %}
+If an enterprise uses {% data variables.product.prodname_emus %}, members are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and are fully managed by the identity provider. The {% data variables.product.prodname_managed_users %} have read-only access to repositories that are not a part of their enterprise and cannot interact with users that are not also members of the enterprise. Within the organizations owned by the enterprise, the {% data variables.product.prodname_managed_users %} can be granted the same granular access levels available for regular organizations. For more information, see "[About {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}."{% endif %}
 
 {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
-## Leer más
+## Further reading
 
-- [Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/articles/types-of-github-accounts)"
+- "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"

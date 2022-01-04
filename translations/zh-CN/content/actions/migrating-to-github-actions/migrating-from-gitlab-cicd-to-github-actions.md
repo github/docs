@@ -1,6 +1,6 @@
 ---
-title: 从 GitLab CI/CD 迁移到 GitHub Actions
-intro: '{% data variables.product.prodname_actions %} 和 GitLab CI/CD 具有一些相似的配置，这使得迁移到 {% data variables.product.prodname_actions %} 很简单。'
+title: Migrating from GitLab CI/CD to GitHub Actions
+intro: '{% data variables.product.prodname_actions %} and GitLab CI/CD share several configuration similarities, which makes migrating to {% data variables.product.prodname_actions %} relatively straightforward.'
 redirect_from:
   - /actions/learn-github-actions/migrating-from-gitlab-cicd-to-github-actions
 versions:
@@ -14,35 +14,34 @@ topics:
   - Migration
   - CI
   - CD
-shortTitle: 从 GitLab CI/CD 迁移
+shortTitle: Migrate from GitLab CI/CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## 简介
+## Introduction
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都允许您创建能自动构建、测试、发布、发行和部署代码的工作流程。 GitLab CI/CD 和 {% data variables.product.prodname_actions %} 的工作流程配置有一些相似之处：
+GitLab CI/CD and {% data variables.product.prodname_actions %} both allow you to create workflows that automatically build, test, publish, release, and deploy code. GitLab CI/CD and {% data variables.product.prodname_actions %} share some similarities in workflow configuration:
 
-- 工作流程配置文件以 YAML 编写并存储在代码仓库中。
-- 工作流程包括一项或多项作业。
-- 作业包括一个或多个步骤或单个命令。
-- 作业可以在托管或自托管计算机上运行。
+- Workflow configuration files are written in YAML and are stored in the code's repository.
+- Workflows include one or more jobs.
+- Jobs include one or more steps or individual commands.
+- Jobs can run on either managed or self-hosted machines.
 
-存在一些区别，本指南将说明重要区别，以便您将工作流程迁移到 {% data variables.product.prodname_actions %}。
+There are a few differences, and this guide will show you the important differences so that you can migrate your workflow to {% data variables.product.prodname_actions %}.
 
 ## Jobs
 
-GitLab CI/CD 中的作业非常类似于 {% data variables.product.prodname_actions %} 中的作业。 在这两个系统中，作业具有以下特征：
+Jobs in GitLab CI/CD are very similar to jobs in {% data variables.product.prodname_actions %}. In both systems, jobs have the following characteristics:
 
-* 作业包含一系列按顺序运行的步骤或脚本。
-* 作业可在单独的计算机或单独的容器中运行。
-* 默认情况下作业并行运行，但可以配置为按顺序运行。
+* Jobs contain a series of steps or scripts that run sequentially.
+* Jobs can run on separate machines or in separate containers.
+* Jobs run in parallel by default, but can be configured to run sequentially.
 
-可在作业中运行脚本或 shell 命令。 在 GitLab CI/CD 中，使用 `script` 键指定脚本步骤。 在 {% data variables.product.prodname_actions %} 中，所有脚本都使用 `run` 键来指定。
+You can run a script or a shell command in a job. In GitLab CI/CD, script steps are specified using the `script` key. In {% data variables.product.prodname_actions %}, all scripts are specified using the `run` key.
 
-下面是每个系统的语法示例：
+Below is an example of the syntax for each system:
 
 <table class="d-block">
 <tr>
@@ -79,11 +78,11 @@ jobs:
 </tr>
 </table>
 
-## 运行器
+## Runners
 
-运行器是运行作业的机器。 GitLab CI/CD 和 {% data variables.product.prodname_actions %} 提供托管和自托管的运行器变体。 在 GitLab CI/CD 中，`tags` 用于在不同的平台上运行作业，而在 {% data variables.product.prodname_actions %} 中，它使用 `runs-on` 键运行。
+Runners are machines on which the jobs run. Both GitLab CI/CD and {% data variables.product.prodname_actions %} offer managed and self-hosted variants of runners. In GitLab CI/CD, `tags` are used to run jobs on different platforms, while in {% data variables.product.prodname_actions %} it is done with the `runs-on` key.
 
-下面是每个系统的语法示例：
+Below is an example of the syntax for each system:
 
 <table>
 <tr>
@@ -130,13 +129,13 @@ linux_job:
 </tr>
 </table>
 
-更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)”。
+For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
-## Docker 映像
+## Docker images
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都支持在 Docker 映像中运行作业。 在 GitLab CI/CD 中，Docker 映像使用 `image` 键定义，而在 {% data variables.product.prodname_actions %} 中，它使用 `container` 键定义。
+Both GitLab CI/CD and {% data variables.product.prodname_actions %} support running jobs in a Docker image. In GitLab CI/CD, Docker images are defined with an `image` key, while in {% data variables.product.prodname_actions %} it is done with the `container` key.
 
-下面是每个系统的语法示例：
+Below is an example of the syntax for each system:
 
 <table class="d-block">
 <tr>
@@ -168,13 +167,13 @@ jobs:
 </tr>
 </table>
 
-更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)”。
+For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)."
 
-## 条件和表达式语法
+## Condition and expression syntax
 
-GitLab CI/CD 使用 `rules` 确定作业是否在特定条件下运行。 {% data variables.product.prodname_actions %} 使用 `if` 关键字使作业仅在满足条件时才运行。
+GitLab CI/CD uses `rules` to determine if a job will run for a specific condition. {% data variables.product.prodname_actions %} uses the `if` keyword to prevent a job from running unless a condition is met.
 
-下面是每个系统的语法示例：
+Below is an example of the syntax for each system:
 
 <table class="d-block">
 <tr>
@@ -215,11 +214,11 @@ jobs:
 
 For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-## 作业之间的依赖关系
+## Dependencies between Jobs
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 允许您为作业设置依赖项。 在这两个系统中，默认情况下作业并行运行，但 {% data variables.product.prodname_actions %} 中的作业依赖项可以用 `needs` 键明确指定。 GitLab CI/CD 还具有 `stages` 的概念，其中作业分阶段同时运行，但下一阶段将在前一阶段的所有作业完成时开始。 您可以使用 `needs` 键在 {% data variables.product.prodname_actions %} 中重新创建此情景。
+Both GitLab CI/CD and {% data variables.product.prodname_actions %} allow you to set dependencies for a job. In both systems, jobs run in parallel by default, but job dependencies in {% data variables.product.prodname_actions %} can be specified explicitly with the `needs` key. GitLab CI/CD also has a concept of `stages`, where jobs in a stage run concurrently, but the next stage will start when all the jobs in the previous stage have completed. You can recreate this scenario in {% data variables.product.prodname_actions %} with the `needs` key.
 
-下面是每个系统的语法示例： 工作流程首先同时运行两个名为 `build_a` 和 `build_b` 的作业， 当这些作业完成后，另一个名为 `test_ab` 的作业将运行。 最后，`test_ab` 完成后，`depl_ab` 作业运行。
+Below is an example of the syntax for each system. The workflows start with two jobs named `build_a` and `build_b` running in parallel, and when those jobs complete, another job called `test_ab` will run. Finally, when `test_ab` completes, the `deploy_ab` job will run.
 
 <table class="d-block">
 <tr>
@@ -292,25 +291,25 @@ jobs:
 </tr>
 </table>
 
-更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)”。
+For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)."
 
-## 预定工作流程
+## Scheduling workflows
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 允许您以特定的间隔运行工作流程。 在 GitLab CI/CD 中，管道计划使用 UI 配置，而在 {% data variables.product.prodname_actions %} 中，您可以使用 "on" 键在预定的间隔时间触发工作流程。
+Both GitLab CI/CD and {% data variables.product.prodname_actions %} allow you to run workflows at a specific interval. In GitLab CI/CD, pipeline schedules are configured with the UI, while in {% data variables.product.prodname_actions %} you can trigger a workflow on a scheduled interval with the "on" key.
 
-更多信息请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#scheduled-events)”。
+For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#scheduled-events)."
 
-## 变量和机密
+## Variables and secrets
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 支持在管道或工作流程配置文件中设置环境变量，并使用 GitLab 或 {% data variables.product.product_name %} UI 创建密码。
+GitLab CI/CD and {% data variables.product.prodname_actions %} support setting environment variables in the pipeline or workflow configuration file, and creating secrets using the GitLab or {% data variables.product.product_name %} UI.
 
-更多信息请参阅“[环境变量](/actions/reference/environment-variables)”和“[使用加密密码](/actions/reference/encrypted-secrets)”。
+For more information, see "[Environment variables](/actions/reference/environment-variables)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
-## 缓存
+## Caching
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 在配置文件中提供了手动缓存工作流程文件的方法。
+GitLab CI/CD and {% data variables.product.prodname_actions %} provide a method in the configuration file to manually cache workflow files.
 
-下面是每个系统的语法示例：
+Below is an example of the syntax for each system:
 
 <table class="d-block">
 <tr>
@@ -360,13 +359,13 @@ jobs:
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% data variables.product.prodname_actions %} caching is only applicable for repositories hosted on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
-## 构件
+## Artifacts
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都可以上传作业创建的文件和目录作为构件。 在 {% data variables.product.prodname_actions %} 中，构件可用于在多个作业中保留数据。
+Both GitLab CI/CD and {% data variables.product.prodname_actions %} can upload files and directories created by a job as artifacts. In {% data variables.product.prodname_actions %}, artifacts can be used to persist data across multiple jobs.
 
-下面是每个系统的语法示例：
+Below is an example of the syntax for each system:
 
 <table>
 <tr>
@@ -402,15 +401,15 @@ artifacts:
 </tr>
 </table>
 
-更多信息请参阅“[将工作流程存储为构件](/actions/guides/storing-workflow-data-as-artifacts)”。
+For more information, see "[Storing workflow data as artifacts](/actions/guides/storing-workflow-data-as-artifacts)."
 
-## 数据库和服务容器
+## Databases and service containers
 
-这两个系统都允许您包括用于数据库、缓存或其他依赖项的其他容器。
+Both systems enable you to include additional containers for databases, caching, or other dependencies.
 
-在 GitLab CI/CD 中，作业的容器使用 `image` 键指定，而 {% data variables.product.prodname_actions %} 使用 `container` 键指定。 在这两个系统中，使用 `services` 键指定附加服务容器。
+In GitLab CI/CD, a container for the job is specified with the `image` key, while {% data variables.product.prodname_actions %} uses the `container` key. In both systems, additional service containers are specified with the `services` key.
 
-下面是每个系统的语法示例：
+Below is an example of the syntax for each system:
 
 <table class="d-block">
 <tr>
@@ -487,4 +486,4 @@ jobs:
 </tr>
 </table>
 
-更多信息请参阅“[关于服务容器](/actions/guides/about-service-containers)”。
+For more information, see "[About service containers](/actions/guides/about-service-containers)."

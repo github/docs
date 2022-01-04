@@ -14,8 +14,7 @@ header:
     ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
     ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
 release_notes:
-  banner_text_current: These changes will roll out over the next one week.
-  banner_text_past: These changes rolled out to enterprises during the week of
+  banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: Precisa de ajuda?
   placeholder: Pesquisar tópicos, produtos...
@@ -30,6 +29,7 @@ toc:
   popular: Popular
   guides: Guias
   whats_new: O que há de novo
+  videos: Vídeos
 pages:
   article_version: 'Versão do artigo'
   miniToc: Neste artigo
@@ -53,7 +53,7 @@ survey:
   optional: Opcional
   required: Obrigatório
   email_placeholder: email@example.com
-  email_label: Podemos entrar em contato com você em caso de dúvidas?
+  email_label: If we can contact you with more questions, please enter your email address
   send: Enviar
   feedback: Thank you! We received your feedback.
   not_support: If you need a reply, please contact support instead.
@@ -150,7 +150,7 @@ product_landing:
   upgrade_from: Upgrade from
   browse_all_docs: Browse all docs
   explore_release_notes: Explore release notes
-product_sublanding:
+product_guides:
   start: Início
   start_path: Caminho de início
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'

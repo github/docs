@@ -1,6 +1,6 @@
 ---
-title: Utilizar la gráfica de visualización
-intro: Cada ejecución de flujo de trabajo genera una gráfica en tiempo real que ilustra el progreso de la misma. Puedes utilizar esta gráfica para monitorear y depurar los flujos de trabajo.
+title: Using the visualization graph
+intro: Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug workflows.
 redirect_from:
   - /actions/managing-workflow-runs/using-the-visualization-graph
 versions:
@@ -8,18 +8,19 @@ versions:
   ghes: '>=3.1'
   ghae: '*'
   ghec: '*'
-shortTitle: Utiliza la gráfica de visualización
+shortTitle: Use the visualization graph
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 
-1. La gráfica muestra cda job en el flujo de trabajo. Un icono a la izquierda del nombre del job indica el estado del mismo. Las líneas entre los jobs indican las dependencias. ![Gráfica del flujo de trabajo](/assets/images/help/images/workflow-graph.png)
+1. The graph displays each job in the workflow. An icon to the left of the job name indicates the status of the job. Lines between jobs indicate dependencies.
+   ![Workflow graph](/assets/images/help/images/workflow-graph.png)
 
-2. Da clic en un job para ver la bitácora del mismo.![Gráfica del flujo de trabajo](/assets/images/help/images/workflow-graph-job.png)
+2. Click on a job to view the job log.
+   ![Workflow graph](/assets/images/help/images/workflow-graph-job.png)

@@ -2,7 +2,7 @@
 title: Limiting interactions in your repository
 intro: You can temporarily enforce a period of limited activity for certain users on a public repository.
 redirect_from:
-  - /articles/limiting-interactions-with-your-repository/
+  - /articles/limiting-interactions-with-your-repository
   - /articles/limiting-interactions-in-your-repository
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:

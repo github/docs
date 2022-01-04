@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ArrowRightIcon, SearchIcon } from '@primer/octicons-react'
+import { Text } from '@primer/components'
 
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -31,6 +32,16 @@ export const CodeExamples = () => {
   return (
     <div>
       <div className="pr-lg-3 mb-5 mt-3">
+        <Text
+          className="ml-1 mr-2"
+          fontWeight="bold"
+          fontSize={2}
+          as="label"
+          htmlFor="searchCodeExamples"
+          id="searchCodeExamples"
+        >
+          Search code examples:
+        </Text>
         <input
           data-testid="code-examples-input"
           className="input-lg py-2 px-3 col-12 col-lg-8 form-control"
@@ -45,9 +56,9 @@ export const CodeExamples = () => {
       <div className="d-flex flex-wrap gutter">
         {(isSearching ? searchResults : productCodeExamples.slice(0, numVisible)).map((example) => {
           return (
-            <div key={example.href} className="col-12 col-xl-4 col-lg-6 mb-4">
+            <li key={example.href} className="col-12 col-xl-4 col-lg-6 mb-4 list-style-none">
               <CodeExampleCard example={example} />
-            </div>
+            </li>
           )
         })}
       </div>

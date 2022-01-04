@@ -170,7 +170,7 @@ With issue and pull request search terms, you can:
 - Filter issues and pull requests by label: `state:open type:issue label:"bug"`
 - Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 {% tip %}
 
 **Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.

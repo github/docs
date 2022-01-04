@@ -1,14 +1,14 @@
 ---
-title: 管理企业中的组织
+title: Managing organizations in your enterprise
 redirect_from:
-  - /enterprise/admin/articles/adding-users-and-teams/
-  - /enterprise/admin/categories/admin-bootcamp/
+  - /enterprise/admin/articles/adding-users-and-teams
+  - /enterprise/admin/categories/admin-bootcamp
   - /enterprise/admin/user-management/organizations-and-teams
   - /enterprise/admin/user-management/managing-organizations-in-your-enterprise
   - /articles/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account
-intro: '组织适合在您的公司内创建不同的用户组，例如部门或参与相似项目的组。 属于组织的{% ifversion ghae %}内部{% else %}公共和内部{% endif %}仓库可供企业中其他组织中的成员访问，而私有仓库只能供被授予访问权限的组织成员访问。'
+intro: 'Organizations are great for creating distinct groups of users within your company, such as divisions or groups working on similar projects. {% ifversion ghae %}Internal{% else %}Public and internal{% endif %} repositories that belong to an organization are accessible to members of other organizations in the enterprise, while private repositories are inaccessible to anyone but members of the organization that are granted access.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -26,8 +26,8 @@ children:
   - /viewing-the-audit-logs-for-organizations-in-your-enterprise
   - /streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /removing-users-from-teams-and-organizations
+  - /removing-organizations-from-your-enterprise
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
-shortTitle: 管理组织
+shortTitle: Manage organizations
 ---
-

@@ -16,7 +16,6 @@ shortTitle: Add self-hosted runners
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 You can add a self-hosted runner to a repository, an organization, or an enterprise.
 
@@ -81,11 +80,13 @@ You can add self-hosted runners at the organization level, where they can be use
 
 ## Adding a self-hosted runner to an enterprise
 
-You can add self-hosted runners to an enterprise, where they can be assigned to multiple organizations. The organization admins are then able to control which repositories can use it.
+{% ifversion fpt %}If you use {% data variables.product.prodname_ghe_cloud %}, you{% elsif ghec or ghes or ghae %}You{% endif %} can add self-hosted runners to an enterprise, where they can be assigned to multiple organizations. The organization admins are then able to control which repositories can use it. {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise).{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
 
 New runners are assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see "[Managing access to self-hosted runners](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 To add a self-hosted runner to an enterprise account, you must be an enterprise owner. For information about how to add a self-hosted runner with the REST API, see the [Enterprise Administration GitHub Actions APIs](/rest/reference/enterprise-admin#github-actions).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -104,9 +105,11 @@ To add a self-hosted runner at the enterprise level of {% data variables.product
 1. Click **Add new**, then click **New runner**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% endif %}
+{% ifversion ghec or ghae or ghes %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
 {% data reusables.github-actions.self-hosted-runner-public-repo-access %}
+{% endif %}
 
 ### Making enterprise runners available to repositories
 
@@ -115,3 +118,4 @@ By default, runners in an enterprise's "Default" self-hosted runner group are av
 To make an enterprise-level self-hosted runner group available to an organization repository, you might need to change the organization's inherited settings for the runner group to make the runner available to repositories in the organization.
 
 For more information on changing runner group access settings, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
+{% endif %}

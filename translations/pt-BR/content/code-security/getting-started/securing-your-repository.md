@@ -1,6 +1,6 @@
 ---
-title: Proteger o repositório
-intro: 'Você pode usar uma série de funcionalidades de {% data variables.product.prodname_dotcom %} para ajudar a manter seu repositório protegido.'
+title: Securing your repository
+intro: 'You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your repository secure.'
 permissions: Repository administrators and organization owners can configure repository security settings.
 redirect_from:
   - /github/administering-a-repository/about-securing-your-repository
@@ -16,119 +16,119 @@ topics:
   - Dependencies
   - Vulnerabilities
   - Advanced Security
-shortTitle: Proteja seu repositório
+shortTitle: Secure your repository
 ---
 
-## Introdução
-Este guia mostra como configurar as funcionalidades de segurança para um repositório. Você deve ser um administrador ou proprietário da organização do repositório para definir as configurações de segurança para um repositório.
+## Introduction
+This guide shows you how to configure security features for a repository. You must be a repository administrator or organization owner to configure security settings for a repository.
 
-As suas necessidades de segurança são únicas para o seu repositório. Portanto, talvez não seja necessário habilitar todos os recursos para o seu repositório. Para obter mais informações, consulte "[Funcionalidades de segurança de {% data variables.product.prodname_dotcom %}](/code-security/getting-started/github-security-features)".
+Your security needs are unique to your repository, so you may not need to enable every feature for your repository. For more information, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 
-Alguns recursos de segurança estão disponíveis apenas {% ifversion fpt or ghec %}para repositórios públicos e para repositórios privados pertencentes a organizações com {% else %}se você tiver {% endif %}uma licença de {% data variables.product.prodname_advanced_security %}. {% data reusables.advanced-security.more-info-ghas %}
+Some security features are only available {% ifversion fpt or ghec %}for public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
 
-## Fixar um problema no repositório
+## Managing access to your repository
 
-O primeiro passo para proteger um repositório é configurar quem pode ver e modificar o seu código. Para obter mais informações, consulte "[Gerenciar configurações do repositório](/github/administering-a-repository/managing-repository-settings)".
+The first step to securing a repository is to set up who can see and modify your code. For more information, see "[Managing repository settings](/github/administering-a-repository/managing-repository-settings)."
 
-Na página principal do seu repositório, clique em **{% octicon "gear" aria-label="The Settings gear" %}configurações**e, em seguida, desça a barra de rolagem até a "Zona de perigo".
+From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**, then scroll down to the "Danger Zone."
 
-- Para alterar quem pode visualizar seu repositório, clique em **Alterar a visibilidade**. Para obter mais informações, consulte "[Configurar a visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)."{% ifversion fpt or ghec %}
-- Para alterar quem pode acessar o seu repositório e ajustar as permissões, clique em **Gerenciar acesso**. Para obter mais informações, consulte[Gerenciar equipes e pessoas com acesso ao seu repositório](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)".{% endif %}
+- To change who can view your repository, click **Change visibility**. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."{% ifversion fpt or ghec %}
+- To change who can access your repository and adjust permissions, click **Manage access**. For more information, see"[Managing teams and people with access to your repository](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)."{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
-## Definir uma política de segurança
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+## Setting a security policy
 
-1. Na página principal do repositório, clique em **{% octicon "shield" aria-label="The shield symbol" %} Segurança**.
-2. Clique em **Política de segurança**.
-3. Clique em **Start setup** (Iniciar configuração).
-4. Adicione informações sobre versões compatíveis do seu projeto e como relatar vulnerabilidades.
+1. From the main page of your repository, click **{% octicon "shield" aria-label="The shield symbol" %} Security**.
+2. Click **Security policy**.
+3. Click **Start setup**.
+4. Add information about supported versions of your project and how to report vulnerabilities.
 
-Para obter mais informações, consulte "[Adicionar uma política de segurança ao seu repositório](/code-security/getting-started/adding-a-security-policy-to-your-repository)".
+For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
 {% endif %}
 
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-## Gerenciar o gráfico de dependências
+## Managing the dependency graph
 
 {% ifversion fpt or ghec %}
-Depois que você tiver [habilitado o gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph), este será gerado automaticamente para todos os repositórios públicos e você poderá optar por habilitá-lo para repositórios privados.
+Once you have [enabled the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph), it is automatically generated for all public repositories, and you can choose to enable it for private repositories.
 
-1. Na página principal do repositório, clique em **{% octicon "gear" aria-label="The Settings gear" %} Configurações**.
-2. Clique em **Segurança & análise**.
-3. Ao lado do gráfico de dependência, clique em **Habilitar ** ou **Desabilitar**.
+1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %} Settings**.
+2. Click **Security & analysis**.
+3. Next to Dependency graph, click **Enable** or **Disable**.
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
-Para obter mais informações, consulte "[Explorar as dependências de um repositório](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)".
+For more information, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."
 
 {% endif %}
 
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-## Gerenciar {% data variables.product.prodname_dependabot_alerts %}
+## Managing {% data variables.product.prodname_dependabot_alerts %}
 
-{% ifversion fpt or ghec %}por padrão, {% data variables.product.prodname_dotcom %} detecta vulnerabilidades em repositórios públicos e gera {% data variables.product.prodname_dependabot_alerts %}. {% data variables.product.prodname_dependabot_alerts %} também podem ser habilitado para repositórios privados.
+{% ifversion fpt or ghec %}By default, {% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and generates {% data variables.product.prodname_dependabot_alerts %}. {% data variables.product.prodname_dependabot_alerts %} can also be enabled for private repositories.
 
-1. Clique na foto do seu perfil e clique em **Configurações**.
-2. Clique em **Segurança & análise**.
-3. Clique em **Habilitar todos** ao lado de {% data variables.product.prodname_dependabot_alerts %}.
+1. Click your profile photo, then click **Settings**.
+2. Click **Security & analysis**.
+3. Click **Enable all** next to {% data variables.product.prodname_dependabot_alerts %}.
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
-Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies){% ifversion fpt or ghec %}" e[Gerenciar as configurações de segurança e análise da sua conta de usuário](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account){% endif %}."
+For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies){% ifversion fpt or ghec %}" and "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account){% endif %}."
 
 {% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
-## Gerenciando revisão de dependências
+## Managing dependency review
 
-A revisão de dependências permite visualizar alterações de dependência em pull requests antes de serem mescladas nos seus repositórios.
-{%- ifversion fpt %}A revisão de dependência está disponível em todos os repositórios públicos. Para repositórios privados e internos você precisa de uma licença para {% data variables.product.prodname_advanced_security %}. Para habilitar a revisão de dependências em um repositório, habilite o gráfico de dependências e habilite {% data variables.product.prodname_advanced_security %}.
-{%- elsif ghes or ghae %}A revisão de dependência está disponível quando o gráfico de dependências está habilitado para {% data variables.product.product_location %} e você quando você habilita {% data variables.product.prodname_advanced_security %} para o repositório (veja abaixo).{% endif %}
-Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)".
+Dependency review lets you visualize dependency changes in pull requests before they are merged into your repositories. 
+{%- ifversion fpt %}Dependency review is available in all public repositories. For private and internal repositories you require a license for {% data variables.product.prodname_advanced_security %}. To enable dependency review for a repository, enable the dependency graph and enable {% data variables.product.prodname_advanced_security %}. 
+{%- elsif ghes or ghae %}Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and you enable {% data variables.product.prodname_advanced_security %} for the repository (see below).{% endif %}
+For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
 
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
 
-## Gerenciar {% data variables.product.prodname_dependabot_security_updates %}
+## Managing {% data variables.product.prodname_dependabot_security_updates %}
 
-Para qualquer repositório que usar {% data variables.product.prodname_dependabot_alerts %}, você pode habilitar {% data variables.product.prodname_dependabot_security_updates %} para abrir pull requests com atualizações de segurança quando forem detectadas vulnerabilidades.
+For any repository that uses {% data variables.product.prodname_dependabot_alerts %}, you can enable {% data variables.product.prodname_dependabot_security_updates %} to raise pull requests with security updates when vulnerabilities are detected.
 
-1. Na página principal do repositório, clique em **{% octicon "gear" aria-label="The Settings gear" %}Configurações**.
-2. Clique em **Segurança & análise**.
-3. Próximo a {% data variables.product.prodname_dependabot_security_updates %}, clique em **Habilitar**.
+1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**.
+2. Click **Security & analysis**.
+3. Next to {% data variables.product.prodname_dependabot_security_updates %}, click **Enable**.
 
-Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/about-dependabot-security-updates)" e "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/configuring-dependabot-security-updates)".
+For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/about-dependabot-security-updates)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/configuring-dependabot-security-updates)."
 
-## Gerenciar {% data variables.product.prodname_dependabot_version_updates %}
+## Managing {% data variables.product.prodname_dependabot_version_updates %}
 
-Você pode habilitar {% data variables.product.prodname_dependabot %} para aumentar automaticamente os pull requests para manter suas dependências atualizadas. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/about-dependabot-version-updates)".
+You can enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/about-dependabot-version-updates)."
 
-Para habilitar {% data variables.product.prodname_dependabot_version_updates %}, você deve criar um arquivo de configuração *dependabot.yml*. Para obter mais informações, consulte "[Habilitando e desabilitando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
+To enable {% data variables.product.prodname_dependabot_version_updates %}, you must create a *dependabot.yml* configuration file. For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 {% endif %}
 
-## Configurar o {% data variables.product.prodname_code_scanning %};
+## Configuring {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_code_scanning_capc %} está disponível {% ifversion fpt or ghec %}para todos os repositórios públicos e para repositórios privados pertencentes a organizações com {% else %} para repositórios pertencentes a organização se você tiver {% endif %}uma licença {% data variables.product.prodname_advanced_security %}
+{% data variables.product.prodname_code_scanning_capc %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations with {% else %} for organization-owned repositories if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license.
 
-Você pode configurar {% data variables.product.prodname_code_scanning %} para identificar automaticamente vulnerabilidades e erros no código armazenado no seu repositório usando uma ferramenta de {% data variables.product.prodname_codeql_workflow %} ou de terceiros. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)".
+You can set up {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.product.prodname_codeql_workflow %} or third-party tool. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
-## Configurar o {% data variables.product.prodname_secret_scanning %}
-{% data variables.product.prodname_secret_scanning_caps %} está disponível {% ifversion fpt or ghec %}para todos os repositórios públicos e para repositórios privados pertencentes a organizações com {% else %} para repositórios pertencentes a organização, se você tiver {% endif %}uma licença de {% data variables.product.prodname_advanced_security %}.
+## Configuring {% data variables.product.prodname_secret_scanning %}
+{% data variables.product.prodname_secret_scanning_caps %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations with {% else %} for organization-owned repositories if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license.
 
-{% data variables.product.prodname_secret_scanning_caps %} pode ser habilitado para seu repositório por padrão dependendo das configurações da sua organização.
+{% data variables.product.prodname_secret_scanning_caps %} may be enabled for your repository by default depending upon your organization's settings.
 
-1. Na página principal do repositório, clique em **{% octicon "gear" aria-label="The Settings gear" %}Configurações**.
-2. Clique em **Segurança & análise**.
-3. Se {% data variables.product.prodname_GH_advanced_security %} não estiver habilitado, clique em **Habilitar**.
-4. Próximo a {% data variables.product.prodname_secret_scanning_caps %}, clique em **Habilitar**.
+1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**.
+2. Click **Security & analysis**.
+3. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.
+4. Next to {% data variables.product.prodname_secret_scanning_caps %}, click **Enable**. 
 
-## Próximas etapas
-Você pode visualizar e gerenciar alertas de funcionalidades de segurança para resolver dependências e vulnerabilidades no seu código. Para obter mais informações, consulte {% ifversion fpt or ghes or ghec %} "[Visualizar e atualizar as dependências vulneráveis no seu repositório](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),"{% endif %} {% ifversion fpt or ghec or ghes > 3.2 %}"[Gerenciar pull requests para atualizações de dependência](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)," {% endif %}"[Gernciar {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)," e "[Gerenciar alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+## Next steps
+You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes or ghec %} "[Viewing and updating vulnerable dependencies in your repository](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),"{% endif %} {% ifversion fpt or ghec or ghes > 3.2 %}"[Managing pull requests for dependency updates](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)," {% endif %}"[Managing {% data variables.product.prodname_code_scanning %} for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)," and "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
-{% ifversion fpt or ghec %}Se você tiver uma vulnerabilidade de segurança, você poderá criar uma consultoria de segurança para discutir em privado e corrigir a vulnerabilidade. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)" e " "[Criar uma consultoria de segurança](/code-security/security-advisories/creating-a-security-advisory)".
+{% ifversion fpt or ghec %}If you have a security vulnerability, you can create a security advisory to privately discuss and fix the vulnerability. For more information, see "[About {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)" and "[Creating a security advisory](/code-security/security-advisories/creating-a-security-advisory)."
 {% endif %}
