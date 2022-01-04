@@ -141,6 +141,10 @@ Mapbox | Mapbox Secret Access Token | mapbox_secret_access_token{% endif %}
 MessageBird | MessageBird API Key | messagebird_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Meta | Facebook Access Token | facebook_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Midtrans | Midtrans Production Server Key | midtrans_production_server_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Midtrans | Midtrans Sandbox Server Key | midtrans_sandbox_server_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 New Relic | New Relic Personal API Key | new_relic_personal_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -239,3 +243,9 @@ Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
 Yandex | Yandex.Cloud IAM Cookie | yandex_cloud_iam_cookie{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Yandex.Cloud IAM Token | yandex_cloud_iam_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Dictionary API Key | yandex_dictionary_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Predictor API Key | yandex_predictor_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Translate API Key | yandex_translate_api_key{% endif %}
