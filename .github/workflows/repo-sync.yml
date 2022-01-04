@@ -113,7 +113,6 @@ jobs:
         uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          CI: true
         with:
           source_repo: ${{ secrets.SOURCE_REPO }} # https://${access_token}@github.com/github/the-other-repo.git
           source_branch: main
