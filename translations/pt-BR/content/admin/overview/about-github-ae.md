@@ -1,46 +1,41 @@
 ---
-title: Sobre o GitHub AE
-intro: '{% data variables.product.prodname_ghe_managed %} é a forma mais segura e compatível de usar {% data variables.product.prodname_dotcom %}.'
+title: About GitHub AE
+intro: '{% data variables.product.prodname_ghe_managed %} is a security-enhanced and compliant way to use {% data variables.product.prodname_dotcom %} in the cloud.'
 versions:
-  github-ae: '*'
+  ghae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
-### Sobre o {% data variables.product.prodname_ghe_managed %}
+## About {% data variables.product.prodname_ghe_managed %}
 
-{% data reusables.github-ae.github-ae-enables-you %}
+{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} is fully managed, reliable, and scalable, allowing you to accelerate delivery without sacrificing risk management.
 
-{% data variables.product.prodname_ghe_managed %} oferece uma plataforma de desenvolvedor da ideia à produção. Você pode aumentar a velocidade de desenvolvedor, automatizar fluxos de trabalho inteiros, proteger seu código e colaborar na ferramenta favorita de desenvolvedores.
+{% data variables.product.prodname_ghe_managed %} offers one developer platform from idea to production. You can increase development velocity with the tools that teams know and love, while you maintain industry and regulatory compliance with unique security and access controls, workflow automation, and policy enforcement. 
 
-{% data variables.product.prodname_ghe_managed %} confere à sua organização todo o poder de [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise). Com {% data variables.product.prodname_ghe_managed %}, você também pode cumprir as metas de segurança e conformidade com um conjunto de funcionalidades e certificações que colocam você no controle.
+## A highly available and planet-scale cloud
 
-### Uma nuvem de alta disponibilidade e escala planetária
+{% data variables.product.prodname_ghe_managed %} is a fully managed service, hosted in a high availability architecture. {% data variables.product.prodname_ghe_managed %} is hosted globally in a cloud that can scale to support your full development lifecycle without limits. {% data variables.product.prodname_dotcom %} fully manages backups, failover, and disaster recovery, so you never need to worry about your service or data. 
 
-{% data variables.product.prodname_ghe_managed %} é um serviço totalmente gerenciado, hospedado em uma arquitetura de alta disponibilidade. {% data variables.product.prodname_ghe_managed %} está hospedado globalmente em uma nuvem que pode ser escalada para ser compatível com todo o seu ciclo de vida de desenvolvimento sem limites. {% data variables.product.prodname_dotcom %} gerencia totalmente os backups, failover e recuperação de desastres para que você nunca tenha que se preocupar com o seu serviço ou dados.
+## Data residency
 
-### Residência dos dados
+All of your data is stored within the geographic region of your choosing. You can comply with GDPR and global data protection standards by keeping all of your data within your chosen region.
 
-Todos os seus dados são armazenados na região geográfica da sua escolha. Você pode cumprir os padrões de proteção de dados e o RGPD global mantendo todos os seus dados na sua região escolhida.
+## Isolated accounts
 
-### Criptografia conforme as suas condições
+All developer accounts are fully isolated in {% data variables.product.prodname_ghe_managed %}. You can fully control the accounts through your identity provider, with SAML single sign on as mandatory. SCIM enables you to ensure that employees only have access to the resources they should, as defined in your central identity management system. For more information, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)."
 
-Todos os dados do cliente serão criptografados de forma estática e você pode fornecer a sua própria chave de criptografia para criptografar seus dados com base nos termos das suas políticas de criptografia. Você controla sua chave e o acesso a todos os seus dados. Para obter mais informações, consulte "[Configurar a criptografia de dados para sua empresa](/admin/configuration/configuring-data-encryption-for-your-enterprise)".
+## Restricted network access
 
-### Contas isoladas
+Secure access to your enterprise on {% data variables.product.prodname_ghe_managed %} with restricted network access, so that your data can only be accessed from within your network. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)."
 
-Todas as contas de desenvolvedor são completamente isoladas em {% data variables.product.prodname_ghe_managed %}. Você pode controlar totalmente as contas por meio do seu provedor de identidade, com o logon único SAML como obrigatório. O SCIM permite que você garanta que os funcionários só têm acesso aos recursos que deveriam, conforme definido no seu sistema central de gestão de identidades. Para obter mais informações, consulte "[Gerenciar identidade e acesso para sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)".
+## Commercial and government environments
 
-### Acesso restrito às redes
+{% data variables.product.prodname_ghe_managed %} is available in the Azure Government cloud, the trusted cloud for US government agencies and their partners. {% data variables.product.prodname_ghe_managed %} is also available in the commercial cloud, so you can choose the hosting environment that is right for your organization.
 
-Acesso seguro à sua empresa em {% data variables.product.prodname_ghe_managed %} com acesso restrito à rede, para que seus dados possam ser acessados somente de dentro da sua rede. Para obter mais informações, consulte "[Restringir tráfego de rede para a sua empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)".
+## Further reading
 
-### Ambientes comercial e governamental
-
-{% data variables.product.prodname_ghe_managed %} está disponível na nuvem do Azure Government, na nuvem de confiança das agências governamentais dos EUA e seus parceiros. {% data variables.product.prodname_ghe_managed %} também está disponível na nuvem comercial. Portanto, você pode escolher o ambiente de hospedagem correto para a sua organização.
-
-### Suporte Premium Plus
-
-O suporte Premium Plus está disponível para todos os clientes de {% data variables.product.prodname_ghe_managed %} para garantir que você tenha uma experiência de suporte mais rápida e pessoal. Um Gerente de Conta dedicado trabalhará com você para ajudá-lo a obter o máximo proveito de {% data variables.product.prodname_dotcom %}. A nossa equipe de suporte resolverá problemas a qualquer hora do dia, no menor tempo possível.
-
-### Sobre a cobrança do {% data variables.product.prodname_ghe_managed %}
-
-{% data reusables.github-ae.about-billing %} Para obter mais informações, consulte "[Gerenciar a cobrança para a sua empresa](/admin/overview/managing-billing-for-your-enterprise)".
+- "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"
+- "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"

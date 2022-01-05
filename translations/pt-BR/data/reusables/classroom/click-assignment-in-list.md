@@ -1,1 +1,1 @@
-1. In the list of assignments, click the assignment you want to view. ![Assignment in list of assignments for an classroom](/assets/images/help/classroom/click-assignment-in-list.png)
+1. Na lista de atividades, clique na atividade que você deseja visualizar. ![Atividade na lista de atividades para uma sala de aula](/assets/images/help/classroom/click-assignment-in-list.png)

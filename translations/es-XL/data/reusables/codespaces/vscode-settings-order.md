@@ -1,1 +1,0 @@
-Cuando configuras los ajustes de editor para {% data variables.product.prodname_vscode %}, hay tres alcances disponibles: _Espacio de trabajo_, _[Codespaces] Remotos _, y _Usuario_. Si una configuración se define en varios alcances, los ajustes de _espacio de trabajo_ tomarán prioridad, luego los de _[Codespaces] Remotos_, y luego los de _Usuario_.

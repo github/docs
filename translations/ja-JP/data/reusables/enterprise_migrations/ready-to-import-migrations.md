@@ -1,1 +1,1 @@
-1. To prepare the archived migration data for import into a {% data variables.product.prodname_ghe_server %} instance, see "[Preparing to migrate data to your enterprise](/enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
+1. {% data variables.product.prodname_ghe_server %}インスタンスへのアーカイブされた移行データのインポートの準備をするには、「[Enterpriseへのデータ移行の準備](/enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise)」を参照してください。

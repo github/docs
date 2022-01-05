@@ -1,46 +1,41 @@
 ---
-title: GitHub AE について
-intro: '{% data variables.product.prodname_ghe_managed %} は、{% data variables.product.prodname_dotcom %} を使用するための最も安全で準拠した方法です。'
+title: About GitHub AE
+intro: '{% data variables.product.prodname_ghe_managed %} is a security-enhanced and compliant way to use {% data variables.product.prodname_dotcom %} in the cloud.'
 versions:
-  github-ae: '*'
+  ghae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
-### {% data variables.product.prodname_ghe_managed %} について
+## About {% data variables.product.prodname_ghe_managed %}
 
-{% data reusables.github-ae.github-ae-enables-you %}
+{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} is fully managed, reliable, and scalable, allowing you to accelerate delivery without sacrificing risk management.
 
-{% data variables.product.prodname_ghe_managed %} は、アイデアから本番まで1つの開発者プラットフォームを提供します。 開発者の作業を加速させ、ワークフロー全体を自動化し、コードを保護して、開発者のお気に入りのツールでコラボレーションを行うことができます。
+{% data variables.product.prodname_ghe_managed %} offers one developer platform from idea to production. You can increase development velocity with the tools that teams know and love, while you maintain industry and regulatory compliance with unique security and access controls, workflow automation, and policy enforcement. 
 
-{% data variables.product.prodname_ghe_managed %} は、Organization に [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) のすべての機能を提供しています。 {% data variables.product.prodname_ghe_managed %} を使用すると、一連の機能と認定でセキュリティとコンプライアンスの目標を達成することもできます。
+## A highly available and planet-scale cloud
 
-### 高可用性および地球規模のクラウド
+{% data variables.product.prodname_ghe_managed %} is a fully managed service, hosted in a high availability architecture. {% data variables.product.prodname_ghe_managed %} is hosted globally in a cloud that can scale to support your full development lifecycle without limits. {% data variables.product.prodname_dotcom %} fully manages backups, failover, and disaster recovery, so you never need to worry about your service or data. 
 
-{% data variables.product.prodname_ghe_managed %} は、高可用性アーキテクチャでホストされているフルマネージドサービスです。 {% data variables.product.prodname_ghe_managed %} は、クラウドでグローバルにホストされており、無制限に開発ライフサイクル全体をサポートするように拡張できます。 {% data variables.product.prodname_dotcom %} は、バックアップ、フェイルオーバー、およびシステム災害復旧を完全に管理するため、サービスやデータについて心配する必要はありません。
+## Data residency
 
-### データの常駐
+All of your data is stored within the geographic region of your choosing. You can comply with GDPR and global data protection standards by keeping all of your data within your chosen region.
 
-すべてのデータは、ユーザが選択したリージョン内で保存されます。 すべてのデータを選択したリージョン内に保存することで、GDPR およびグローバルデータ保護基準に準拠できます。
+## Isolated accounts
 
-### 指定の条件下での暗号化
+All developer accounts are fully isolated in {% data variables.product.prodname_ghe_managed %}. You can fully control the accounts through your identity provider, with SAML single sign on as mandatory. SCIM enables you to ensure that employees only have access to the resources they should, as defined in your central identity management system. For more information, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)."
 
-すべての顧客データは保存時に暗号化され、暗号化ポリシーに基づいてデータを暗号化するための独自の暗号化キーを提供できます。 キーとすべてのデータへのアクセスを制御できます。 詳しい情報については、「[Enterprise 向けのデータ暗号化を設定する](/admin/configuration/configuring-data-encryption-for-your-enterprise)」を参照してください。
+## Restricted network access
 
-### 分離されたアカウント
+Secure access to your enterprise on {% data variables.product.prodname_ghe_managed %} with restricted network access, so that your data can only be accessed from within your network. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)."
 
-すべての開発者アカウントは、{% data variables.product.prodname_ghe_managed %} 内で完全に分離されています。 SAML シングルサインオンを必須として、アイデンティティプロバイダを介してアカウントを完全に制御できます。 SCIM を使用すると、中央のアイデンティティ管理システムで定義されているように、従業員が必要なリソースにのみアクセスできるようにすることができます。 詳しい情報については、「[Enterprise のアイデンティティとアクセスを管理する](/admin/authentication/managing-identity-and-access-for-your-enterprise)」を参照してください。
+## Commercial and government environments
 
-### 制限付きネットワークアクセス
+{% data variables.product.prodname_ghe_managed %} is available in the Azure Government cloud, the trusted cloud for US government agencies and their partners. {% data variables.product.prodname_ghe_managed %} is also available in the commercial cloud, so you can choose the hosting environment that is right for your organization.
 
-ネットワークアクセスが制限された {% data variables.product.prodname_ghe_managed %} での Enterprise への安全なアクセスにより、データはネットワーク内からのみアクセスできます。 詳しい情報については、「[Enterprise へのネットワークトラフィックを制限する](/admin/configuration/restricting-network-traffic-to-your-enterprise)」を参照してください。
+## Further reading
 
-### 商用および政府環境
-
-{% data variables.product.prodname_ghe_managed %} は、Azure Government クラウドという、米国政府機関とそのパートナー向けの信頼できるクラウドで利用できます。 {% data variables.product.prodname_ghe_managed %} は商用クラウドでも利用できるため、Organization に適したホスティング環境を選択できます。
-
-### Premium Plus サポート
-
-Premium Plus サポートは、すべての {% data variables.product.prodname_ghe_managed %} のお客様にご利用いただけます。これにより、最速かつ最もパーソナルなサポートエクスペリエンスを確実に実現できます。 専任の営業チームがお客様と協力して、{% data variables.product.prodname_dotcom %} を最大限に活用できるよう支援します。 当社のサポートチームは、可能な限り短時間で、いつでも問題を解決します。
-
-### {% data variables.product.prodname_ghe_managed %}の支払いについて
-
-{% data reusables.github-ae.about-billing %} 詳しい情報については、「[Enterprise の支払いを管理する](/admin/overview/managing-billing-for-your-enterprise)」を参照してください。
+- "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"
+- "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"

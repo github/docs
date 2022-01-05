@@ -1,7 +1,7 @@
 
-1. Utiliza el comando `gpg --list-secret-keys --keyid-format LONG` para enumerar las llaves GPG para las cuales tienes tanto una llave pública como privada. Se requiere una llave privada para registrar confirmaciones o etiquetas.
+1. Utiliza el comando `gpg --list-secret-keys --keyid-format=long` para enumerar la forma larga de las llaves GPG para las cuales tienes tanto una llave pública como una privada. Se requiere una llave privada para registrar confirmaciones o etiquetas.
   ```shell
-  $ gpg --list-secret-keys --keyid-format LONG
+  $ gpg --list-secret-keys --keyid-format=long
 ```
   {% note %}
 

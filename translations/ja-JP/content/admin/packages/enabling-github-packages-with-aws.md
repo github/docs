@@ -2,19 +2,26 @@
 title: Enabling GitHub Packages with AWS
 intro: 'Set up {% data variables.product.prodname_registry %} with AWS as your external storage.'
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
+type: tutorial
+topics:
+  - Administrator
+  - Enterprise
+  - Packages
+  - Packages
+shortTitle: Enable Packages with AWS
 ---
 
 {% warning %}
 
-**警告:**
+**Warnings:**
 - It is critical that you configure any restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible to the public internet. For more information, see "[Setting bucket and object access permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)" in the AWS Documentation.
 - We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
-- Make sure to configure the bucket you'll want to use in the future. {% data variables.product.prodname_registry %} の使用開始後にストレージを変更することはお勧めしません。
+- Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
 
-### 必要な環境
+## Prerequisites
 
 Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your AWS storage bucket. To prepare your AWS storage bucket, we recommend consulting the official AWS docs at [AWS Documentation](https://docs.aws.amazon.com/index.html).
 
@@ -27,20 +34,14 @@ Ensure your AWS access key ID and secret have the following permissions:
   - `s3:DeleteObject`
   - `s3:ListBucket`
 
-### Enabling {% data variables.product.prodname_registry %} with AWS external storage
+## Enabling {% data variables.product.prodname_registry %} with AWS external storage
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
-{% if currentVersion == "enterprise-server@2.22" %}
-1. [AWS Service URL] で、バケットのリージョンの S3 エンドポイント URL を入力します。 ![[AWS Service URL] フィールド](/assets/images/enterprise/site-admin-settings/storage-service-url.png)
-1. [AWS S3 Bucket] で、パッケージアーティファクトの保存に使用する S3 バケットの名前を入力します。 ![[AWS S3 Bucket] フィールド](/assets/images/enterprise/site-admin-settings/aws-s3-bucket.png)
-1. [AWS S3 Access Key] で、S3 のアクセスキーを入力します。 ![[AWS S3 Access Key] フィールド](/assets/images/enterprise/site-admin-settings/aws-s3-access-key.png)
-1. [AWS S3 Secret Key] で、S3 の秘密鍵を入力します。 ![[AWS S3 Secret Key] フィールド](/assets/images/enterprise/site-admin-settings/aws-s3-secret-key.png)
-1. [AWS S3 Region] で、S3 のリージョンを入力します。 ![[AWS S3 Region] フィールド](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
-{% endif %}
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+
+{% ifversion ghes %}
 1. Under "Packages Storage", select **Amazon S3** and enter your storage bucket's details:
     - **AWS Service URL:** The service URL for your bucket. For example, if your S3 bucket was created in the `us-west-2 region`, this value should be `https://s3.us-west-2.amazonaws.com`.
 
@@ -55,6 +56,6 @@ Ensure your AWS access key ID and secret have the following permissions:
 {% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-### 次のステップ
+## Next steps
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

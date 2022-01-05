@@ -1,1 +1,1 @@
-1. In your menu bar, click **Branch**, then click **Delete...**. You can also press <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>D</kbd>.
+1. メニューバーで**Branch（ブランチ）**をクリックして、続いて**Delete...（削除...）**をクリックしてください。 <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>D</kbd>を押すこともできます。

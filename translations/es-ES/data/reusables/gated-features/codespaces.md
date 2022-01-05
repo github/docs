@@ -1,1 +1,1 @@
-Codespaces está disponible para las cuentas de usuario que utilicen {% data variables.product.prodname_free_user %} o {% data variables.product.prodname_pro %}. {% data reusables.gated-features.more-info-org-products %}
+Codespaces está disponible para las organizaciones que utilicen {% data variables.product.prodname_team %} o {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info-org-products %}

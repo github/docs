@@ -1,1 +1,0 @@
-To make a person an enterprise owner, you must delegate ownership permission in your IdP. Include the `administrator` attribute in the SAML assertion for the user account on the IdP, with the value of `true`. For more information about enterprise owners, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)."

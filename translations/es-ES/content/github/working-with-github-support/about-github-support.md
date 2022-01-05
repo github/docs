@@ -1,34 +1,39 @@
 ---
-title: Acerca del Soporte de GitHub
-intro: '{% data variables.contact.github_support %} puede ayudarte a solucionar los problemas con los que te encuentres cuando utilices {% data variables.product.prodname_dotcom %}.'
+title: About GitHub Support
+intro: '{% data variables.contact.github_support %} can help you troubleshoot issues you run into while using {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /articles/about-github-support
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - Jobs
 ---
 
-### Acerca de {% data variables.contact.github_support %}
+## About {% data variables.contact.github_support %}
 
-Las opciones de soporte varían dependiendo de tu producto de {% data variables.product.prodname_dotcom_the_website %}. Si cuentas con un producto pagado, puedes contactar a {% data variables.contact.github_support %} en inglés. Tu cuenta también puede incluir {% data variables.contact.premium_support %}.
+Support options vary depending on your {% data variables.product.prodname_dotcom_the_website %} product. If you have any paid product, you can contact {% data variables.contact.github_support %}, in English. Your account may also include {% data variables.contact.premium_support %}.
 
-|                                                    | {% data variables.product.prodname_gcf %} | Soporte estándar | Soporte premium |
-| -------------------------------------------------- | ----------------------------------------- | ---------------- | --------------- |
-| {% data variables.product.prodname_free_user %}  | X                                         |                  |                 |
-| {% data variables.product.prodname_pro %}          | X                                         | X                |                 |
-| {% data variables.product.prodname_team %}         | X                                         | X                |                 |
-| {% data variables.product.prodname_ghe_cloud %}  | X                                         | X                | X               |
-| {% data variables.product.prodname_ghe_server %} | X                                         | X                | X               |
+|  | {% data variables.product.prodname_gcf %} | Standard support | Premium support |
+|----|---------------|-------|---------------|
+| {% data variables.product.prodname_free_user %} | X |  |  |  
+| {% data variables.product.prodname_pro %} | X | X |  |  
+| {% data variables.product.prodname_team %} | X | X |  |
+| {% data variables.product.prodname_ghe_cloud %} | X | X | X |
+| {% data variables.product.prodname_ghe_server %} | X | X | X |
 
-Para ver si actualmente hay algún incidente que afecte los servicios en {% data variables.product.prodname_dotcom %}, o para suscribirse y recibir notificaciones de actualizaciones de estado futuras, visita la [Página de Estado](https://www.githubstatus.com/) de {% data variables.product.prodname_dotcom %}.
+To see if there are currently any incidents affecting services on {% data variables.product.prodname_dotcom %}, or to subscribe and receive notifications of future status updates, visit {% data variables.product.prodname_dotcom %}'s [Status Page](https://www.githubstatus.com/).
 
-### Contactar a {% data variables.contact.github_support %}
+## Contacting {% data variables.contact.github_support %}
 
-Puedes utilizar el {% data variables.contact.community_support_forum %} para buscar temas, hacer preguntas, compartir soluciones e interactuar directamente con {% data variables.contact.community_support %}.
+{% data reusables.support.zendesk-old-tickets %}
 
-Para reportar incidentes de cuenta, seguridad y abuso, o para recibir soporte asistido para una cuenta de pago, visita el {% data variables.contact.contact_support_portal %}. Si eres un administrador de {% data variables.product.prodname_ghe_server %} sin una cuenta de usuario en {% data variables.product.prodname_dotcom_the_website %}, vista el {% data variables.contact.contact_enterprise_portal %}.
+You can use the {% data variables.contact.community_support_forum %} to browse topics, ask questions, share solutions, and interact directly with {% data variables.contact.community_support %}. 
 
-### Otorgar a {% data variables.contact.github_support %} acceso temporal a un repositorio privado
+To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. Email communication from GitHub Support will always be sent from either a `github.com` or `githubsupport.com` address.
 
-Si {% data variables.contact.github_support %} necesita acceder a un repositorio privado para tratar tu solicitud de soporte, el dueño de éste recibirá un correo electrónico con un enlace para aceptar o rechazar el acceso temporal. El propietario tendrá 20 días para aceptar o rechazar la solicitud antes de que ésta caduque. Si el propietario acepta la solicitud, {% data variables.contact.github_support %} tendrá acceso al repositorio por cinco días.
+## Granting {% data variables.contact.github_support %} temporary access to a private repository
 
-{% data variables.contact.github_support %} jamás accederá a tus repositorios privados sin tu consentimiento explícito. Para obtener más información, consulta las [Condiciones de Servicio](/articles/github-terms-of-service#3-access).
+If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days.
+
+{% data variables.contact.github_support %} will never access your private repositories without your explicit consent. For more information, see the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).

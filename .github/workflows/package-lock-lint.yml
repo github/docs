@@ -1,0 +1,51 @@
+name: Package lock lint
+
+# **What it does**: Makes sure package.json and package-lock.json is in sync
+# **Why we have it**: Accidental manual edits of the dependencies directly in package.json
+# **Who does it impact**: Docs engineering/writers/contributors.
+
+on:
+  pull_request:
+    paths:
+      - package.json
+      - package-lock.json
+      - .github/workflows/package-lock-lint.yml
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+
+      - name: Setup Node
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        with:
+          node-version: 16.x
+
+      - name: Run check
+        run: |
+          npm --version
+
+          # From https://docs.npmjs.com/cli/v7/commands/npm-install
+          #
+          #   The --package-lock-only argument will only update the
+          #   package-lock.json, instead of checking node_modules and
+          #   downloading dependencies.
+          #
+          npm install --package-lock-only --ignore-scripts
+
+          # If the package.json (dependencies and devDependencies) is
+          # in correct sync with package-lock.json running the above command
+          # should *not* make an edit to the package-lock.json. I.e.
+          # running `git status` should
+          # say "nothing to commit, working tree clean".
+          git diff --exit-code

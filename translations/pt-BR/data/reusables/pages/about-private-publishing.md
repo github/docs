@@ -1,1 +1,1 @@
-If your project site is published from a private or internal repository owned by an organization using {% data variables.product.prodname_ghe_cloud %}, you can manage access control for the site.
+Se o seu site de projeto for publicado de um repositório privado ou interno pertencente a uma organização que usa {% data variables.product.prodname_ghe_cloud %}, você poderá gerenciar o controle de acesso para o site. In an {% data variables.product.prodname_emu_enterprise %}, all {% data variables.product.prodname_pages %} sites are privately published.

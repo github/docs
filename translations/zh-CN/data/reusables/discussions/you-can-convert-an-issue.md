@@ -1,1 +1,1 @@
-If an issue turns out to be a question or open-ended conversation instead of a work item to track and prioritize, you can convert the issue to a discussion.
+如果议题原来是问题或开放式对话，而不是要跟踪和确定优先级的工作项，则您可以将议题转换为讨论。

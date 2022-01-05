@@ -1,5 +1,5 @@
 {% warning %}
 
-**Advertencia**: El cambiar esta configuración ocasionará que {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_dotcom %}{% endif %} se reinicie. Debes calcular este cambio con cuidado para minimizar el tiempo de inactividad.
+**Advertencia**: El cambiar esta configuración ocasionará que se reinicien los servicios de cara al cliente en {% data variables.product.prodname_ghe_server %}. Debes calcular este cambio cuidadosamente para minimizar el tiempo de inactividad para los usuarios.
 
 {% endwarning %}

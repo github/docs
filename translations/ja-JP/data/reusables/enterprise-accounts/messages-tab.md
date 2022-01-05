@@ -1,1 +1,2 @@
-1. "{% octicon "gear" aria-label="The Settings gear" %} Setteings（設定）"の下で、**Messages（メッセージ）**をクリックしてください。 ![Enterprise設定サイドバー内のメッセージタブ](/assets/images/enterprise/business-accounts/settings-messages-tab.png)
+1. Under **{% octicon "gear" aria-label="The Settings gear" %} Settings**, click **Messages**.
+  ![Messages tab in the enterprise settings sidebar](/assets/images/enterprise/business-accounts/settings-messages-tab.png)

@@ -1,0 +1,14 @@
+---
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '**CRITICAL:** A remote code execution vulnerability in the Log4j library, identified as [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228), affected all versions of {% data variables.product.prodname_ghe_server %} prior to 3.3.1. The Log4j library is used in an open source service running on the {% data variables.product.prodname_ghe_server %} instance. This vulnerability was fixed in {% data variables.product.prodname_ghe_server %} versions 3.0.22, 3.1.14, 3.2.6, and 3.3.1.  For more information, please see [this post](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/) on the GitHub Blog.'
+    - '**December 17, 2021 update**: The fixes in place for this release also mitigate [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046), which was published after this release. No additional upgrade for {% data variables.product.prodname_ghe_server %} is required to mitigate both CVE-2021-44228 and CVE-2021-45046.'
+  known_issues:
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级过程中被删除。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
+    - 当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

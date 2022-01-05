@@ -1,1 +1,1 @@
-A classroom in {% data variables.product.prodname_classroom %} is where teachers and students interact during a course. Teachers can create a student roster for the classroom, then create, assign, review, and grade assignments within the classroom.
+{% data variables.product.prodname_classroom %}内のクラスルームは、教師と学生がコース中に交流する場所です。 教師はクラスルームのための学生名簿を作成し、続いてクラスルーム内で評価課題を作成し、割り当て、レビューできます。

@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
-Additionally,
-{% data variables.product.prodname_dotcom %} can review any dependencies added, updated, or removed in a pull request made against the default branch of a repository, and flag any changes that would introduce a vulnerability into your project. This allows you to spot and deal with vulnerable dependencies before, rather than after, they reach your codebase. 更多信息请参阅“[审查拉取请求中的依赖项更改](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
+此外，
+{% data variables.product.prodname_dotcom %} 可以查看在针对仓库默认分支的拉取请求中添加、更新或删除的任何依赖项，并标记任何将漏洞引入项目的变化。 这允许您在易受攻击的依赖项到达您的代码库之前发现并处理它们，而不是事后处理。 更多信息请参阅“[审查拉取请求中的依赖项更改](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。
 {% endif %}

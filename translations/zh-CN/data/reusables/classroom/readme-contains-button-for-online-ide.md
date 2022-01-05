@@ -1,1 +1,1 @@
-When a student accepts an assignment with an online IDE, the assignment repository will include a _README.md_ file with a special button at the top of the file. The button links the student directly to the workspace in the online IDE.
+当学生接受具有 IDE 的作业时，作业仓库将包括一个 _README.md_ 文件，文件顶部有一个特殊按钮。 该按钮将学生直接链接到 IDE 中的工作空间。

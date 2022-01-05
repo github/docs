@@ -61,6 +61,10 @@
   term: Azure
   description: Plataforma de computação em nuvem da Microsoft.
 - 
+  term: Azure DevOps
+  description: >-
+    Um produto da Microsoft que oferece hospedagem de código-fonte, problemas, pipelines de CI/CD e outros serviços de desenvolvedor. Anteriormente, a versão local era conhecida como Team Foundation Server. A versão hospedada em nuvem era anteriormente conhecida como Visual Studio Team Services.
+- 
   term: repositório bare
   description: >-
     Normalmente, um repositório bare é um diretório nomeado com sufixo .git que não tem cópia local verificada de nenhum dos arquivos sob o controle de revisão. Ou seja, todos os arquivos administrativos e de controle do Git que estariam no subdiretório .git oculto estão presentes diretamente no diretório repositório .git, e nenhum outro arquivo está presente e verificado. Em geral, editores de repositórios públicos disponibilizam repositórios bare.
@@ -225,7 +229,7 @@
 - 
   term: GPG
   description: >-
-    GNU Privacy Guard. Software de criptografia usado para criptografar (e descriptografar) arquivos que tenham dados confidenciais.
+    Guarda de Privacidade do GNU. Software de criptografia que você pode usar para criptografar (e descriptografar) arquivos que contêm dados confidenciais
 - 
   term: chave GPG
   description: Chave de criptografia usada com GPG.
@@ -648,7 +652,7 @@
 - 
   term: Team Foundation Server
   description: >-
-    Produto da Microsoft que oferece gerenciamento de código-fonte e outros serviços de equipe.
+    O antigo nome de um produto da Microsoft que fornece gerenciamento de código-fonte e outros serviços de equipe. Agora é conhecido como Azure DevOps Server.
 - 
   term: Textile
   description: >-
