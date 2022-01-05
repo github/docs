@@ -1,4 +1,4 @@
----
+Masum Hossain ---
 title: Automatic token authentication
 intro: '{% data variables.product.prodname_dotcom %} provides a token that you can use to authenticate on behalf of {% data variables.product.prodname_actions %}.'
 redirect_from:
