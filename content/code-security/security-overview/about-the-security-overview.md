@@ -30,7 +30,7 @@ The security overview indicates whether {% ifversion fpt or ghes > 3.1 or ghec %
 
 For more information about securing your code at the repository and organization levels, see "[Securing your repository](/code-security/getting-started/securing-your-repository)" and "[Securing your organization](/code-security/getting-started/securing-your-organization)."
 
-In the security overview, you can view, sort, and filter alerts to understand the security risks in your organization and in specific repositories. The interface for the security overview is highly clickable, allowing you to investigate specific categories of information, based on qualifiers like repository, alert risk level, alert type, and feature enablement, without the need for filters. You can also apply multiple filters to focus on narrower areas of interest. For example, you can identify private repositories that have a high number of {% data variables.product.prodname_dependabot_alerts %} or repositories that have no {% data variables.product.prodname_code_scanning %} alerts.
+In the security overview, you can view, sort, and filter alerts to understand the security risks in your organization and in specific repositories. The security summary is highly interactive, allowing you to investigate specific categories of information, based on qualifiers like alert risk level, alert type, and feature enablement. You can also apply multiple filters to focus on narrower areas of interest. For example, you can identify private repositories that have a high number of {% data variables.product.prodname_dependabot_alerts %} or repositories that have no {% data variables.product.prodname_code_scanning %} alerts.
 
 {% ifversion ghec or ghes > 3.3 %}
 
