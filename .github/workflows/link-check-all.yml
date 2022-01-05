@@ -46,7 +46,7 @@ jobs:
           output: ' '
       - name: Insight into changed files
         run: |
-          echo ${{ steps.get_diff_files.outputs.files }}
+          echo "${{ steps.get_diff_files.outputs.files }}"
 
       - name: Link check (warnings, changed files)
         run: |
@@ -56,7 +56,7 @@ jobs:
             --check-anchors \
             --check-images \
             --verbose \
-            ${{ steps.get_diff_files.outputs.files }}
+            "${{ steps.get_diff_files.outputs.files }}"
 
       - name: Link check (critical, all files)
         run: |
