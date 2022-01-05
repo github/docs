@@ -78,6 +78,8 @@ git commit
 
 For more information, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
+
 ## Links
 
 You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
