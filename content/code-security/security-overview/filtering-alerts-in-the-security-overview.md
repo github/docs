@@ -76,7 +76,7 @@ The level of risk for a repository is determined by the number and severity of a
 | -------- | -------- |
 | <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
 
-### Sort the list of alerts
+### Sort the list of repositories
 
 | Qualifier | Description |
 | -------- | -------- |
