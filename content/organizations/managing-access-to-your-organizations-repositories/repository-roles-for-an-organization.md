@@ -103,7 +103,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Edit a repository's description | | | | **X** | **X** |{% ifversion fpt or ghae or ghec %}
 | [View and install packages](/packages/publishing-and-managing-packages) | **X** | **X** | **X** | **X** | **X** |
 | [Publish packages](/packages/publishing-and-managing-packages/publishing-a-package) | | | **X** | **X** | **X** |
-| {% ifversion fpt or ghes > 3.0 or ghec %}[Delete and restore packages](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Delete packages](/packages/learn-github-packages/deleting-a-package){% endif %} | | |  |  | **X** | {% endif %}
+| {% ifversion fpt or ghes > 3.0 or ghec or ghae %}[Delete and restore packages](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 %}[Delete packages](/packages/learn-github-packages/deleting-a-package){% endif %} | | |  |  | **X** | {% endif %}
 | Manage [topics](/articles/classifying-your-repository-with-topics) | | | | **X** | **X** |
 | Enable wikis and restrict wiki editors | | | | **X** | **X** |
 | Enable project boards | | | | **X** | **X** |

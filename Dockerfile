@@ -84,6 +84,7 @@ ENV WEB_CONCURRENCY 1
 ENV PORT 4000
 
 # Copy only what's needed to run the server
+COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
 COPY --chown=node:node includes ./includes
 COPY --chown=node:node translations ./translations
