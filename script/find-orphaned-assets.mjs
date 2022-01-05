@@ -12,8 +12,15 @@ import path from 'path'
 import program from 'commander'
 import walk from 'walk-sync'
 
+const EXCEPTIONS = new Set([
+  // These files are dynamically referenced in Search.tsx
+  // so they're referred to as `... search-${iconSize}.svg`
+  'assets/images/octicons/search-16.svg',
+  'assets/images/octicons/search-24.svg',
+])
+
 program
-  .description('Print all images that are in ./assets/ but not found in any markdown')
+  .description('Print all images that are in ./assets/ but not found in any source files')
   .option('-e, --exit', 'Exit script by count of orphans (useful for CI)')
   .option('-v, --verbose', 'Verbose outputs')
   .option('--json', 'Output in JSON format')
@@ -76,18 +83,18 @@ async function main(opts) {
 
   verbose && console.log(`${allImages.size.toLocaleString()} images found in total.`)
 
-  for (const markdownFile of sourceFiles) {
-    const content = fs.readFileSync(markdownFile, 'utf-8')
+  for (const sourceFile of sourceFiles) {
+    const content = fs.readFileSync(sourceFile, 'utf-8')
     for (const imagePath of allImages) {
       const needle = imagePath.split(path.sep).slice(-2).join('/')
-      if (content.includes(needle)) {
+      if (content.includes(needle) || EXCEPTIONS.has(imagePath)) {
         allImages.delete(imagePath)
       }
     }
   }
 
   if (verbose && allImages.size) {
-    console.log('The following files are not mentioned anywhere in any Markdown file')
+    console.log('The following files are not mentioned anywhere in any source file')
   }
   if (json) {
     console.log(JSON.stringify([...allImages], undefined, 2))

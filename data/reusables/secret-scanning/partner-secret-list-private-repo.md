@@ -113,7 +113,9 @@ Google | Google OAuth Client Secret | google_oauth_client_secret{% endif %}
 Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Grafana | Grafana API Key | grafana_api_key{% endif %}
-Hashicorp Terraform | Terraform Cloud / Enterprise API Token | terraform_api_token
+HashiCorp | Terraform Cloud / Enterprise API Token | terraform_api_token
+HashiCorp | HashiCorp Vault Batch Token | hashicorp_vault_batch_token
+HashiCorp | HashiCorp Vault Service Token | hashicorp_vault_service_token
 Hubspot | Hubspot API Key | hubspot_api_key
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Intercom | Intercom Access Token | intercom_access_token{% endif %}
