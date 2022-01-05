@@ -38,7 +38,7 @@ In the security overview, at both the organization and repository-level, there a
 
 {% endif %}
 
-Security managers and members of your organization's AppSec team can use the security overview for both broad and specific analyses of your organization's security status. For example, the overview page can be used to monitor adoption of features by your organization or a specific team as you rollout {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.
+The application security team at your company can use the security overview for both broad and specific analyses of your organization's security status. For example, they can use the overview page to monitor adoption of features by your organization or by a specific team as you rollout {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.
 
 ![The security overview for an organization](/assets/images/help/organizations/security-overview.png)
 
