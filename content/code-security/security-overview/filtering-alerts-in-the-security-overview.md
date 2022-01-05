@@ -17,7 +17,7 @@ topics:
 shortTitle: Filtering alerts
 ---
 
-## Filtering the list of alerts
+## About filtering the security overview
 
 ### Filter by level of risk for repositories
 
@@ -96,11 +96,11 @@ The level of risk for a repository is determined by the number and severity of a
 
 | Qualifier | Description |
 | -------- | -------- |
-| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. |
+| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. For more information, see "[List of supported secrets for private repositories](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories) |
 | `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." |
 
 ### Filter by provider
 
 | Qualifier | Description |
 | -------- | -------- |
-|`provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. |
+|`provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[List of supported secrets for private repositories](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories) |

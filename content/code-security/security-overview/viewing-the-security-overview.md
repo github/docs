@@ -19,8 +19,6 @@ shortTitle: View the security overview
 
 ## Viewing the security overview for an organization
 
-Organization owners and security managers can view the security overview for an organization.
-
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 1. To view aggregate information about alert types, click **Show more**.
@@ -31,8 +29,6 @@ Organization owners and security managers can view the security overview for an 
 
 ## Viewing alerts across your organization
 
-Organization owners and security managers can view subsets of alerts for an organization
-
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 1. In the security sidebar, select the subset of alerts you want to view.
@@ -41,8 +37,6 @@ Organization owners and security managers can view subsets of alerts for an orga
   ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
 
 ## Viewing alerts for a repository
-
-Organization owners and team members with admin privileges for a repository can see the security overview for that repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click **Security**.
@@ -57,8 +51,6 @@ Organization owners and team members with admin privileges for a repository can 
 
 
 ## Viewing the security overview for a team
-
-Members of a team can see the security overview for repositories that the team has admin privileges for.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
