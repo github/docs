@@ -39,7 +39,7 @@ You can connect {% data variables.product.product_location %} to {% data variabl
 
 Only {% data variables.product.company_short %}-reviewed advisories are synchronized. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-### About repository scanning with synchronized data from the {% data variables.product.prodname_advisory_database %}
+### About scanning of repositories with synchronized data from the {% data variables.product.prodname_advisory_database %}
 
 For repositories with {% data variables.product.prodname_dependabot_alerts %} enabled, scanning will be triggered on any push to the default branch that contains a manifest file or lock file. Additionally, when a new vulnerability record is added to the instance, all existing repositories in that instance will be scanned and alerts will be issued for any repository that is vulnerable. For more information, see "[Detection of vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)."
 
