@@ -24,7 +24,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Prerequisites
 
-To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% data variables.product.prodname_dotcom %} account and a repository. For information on how to create an account, see "[Signing up for {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)." For information on how to create a repository, see "[Create a repo](/github/getting-started-with-github/create-a-repo)."{% ifversion fpt or ghec %} For information on how to find an existing repository to contribute to, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+To follow {% data variables.product.prodname_dotcom %} flow, you will need {% data variables.product.prodname_dotcom %} account and a repository. For information on how to create an account, see "[Signing up for {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)." For information on how to create a repository, see "[Create a repo](/github/getting-started-with-github/create-a-repo)."{% ifversion fpt or ghec %} For information on how to find an existing repository to contribute to, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
 ## Following {% data variables.product.prodname_dotcom %} flow
 
