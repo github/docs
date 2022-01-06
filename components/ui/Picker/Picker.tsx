@@ -34,7 +34,7 @@ function PickerSummaryWrapper({ variant, children }: PickerWrapperPropsT) {
   return (
     <>
       {children}
-      <Dropdown.Caret />
+      <ChevronDownIcon size={16} className="arrow ml-md-1" />
     </>
   )
 }
