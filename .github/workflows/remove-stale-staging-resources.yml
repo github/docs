@@ -15,6 +15,7 @@ on:
     - cron: '15,45 * * * *' # every thirty minutes at :15 and :45
 
 permissions:
+  actions: read
   contents: read
   deployments: write
   pull-requests: write
