@@ -19,6 +19,8 @@ shortTitle: Filtering alerts
 
 ## About filtering the security overview
 
+You can use filters in the security overview to narrow your focus based on a range of factors, like alert risk level, alert type and feature enablement. Different filters are available depending on the specific view and whether you analysing at the organization, team or repository level.
+
 ### Filter by level of risk for repositories
 
 The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk.
@@ -35,20 +37,23 @@ The level of risk for a repository is determined by the number and severity of a
 
 | Qualifier | Description |
 | -------- | -------- |
-| <code>code-scanning-alerts:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use &gt and &lt comparison operators. |
-| <code>secret-scanning-alerts:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_secret_scanning %} alerts. This qualifier can use &gt and &lt comparison operators. |
-| <code>dependabot-alerts:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use &gt and &lt comparison operators. |
+| <code>code-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use &gt and &lt comparison operators. |
+| <code>secret-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_secret_scanning %} alerts. This qualifier can use &gt and &lt comparison operators. |
+| <code>dependabot:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use &gt and &lt comparison operators. |
+| <code>dependabot:<em>>=10</em></code> |  |
 
 ### Filter by whether security features are enabled
 
 | Qualifier | Description |
 | -------- | -------- |
-| `enabled:code-scanning` | Display repositories that have {% data variables.product.prodname_code_scanning %} enabled. |
-| `not-enabled:code-scanning` | Display repositories that do not have {% data variables.product.prodname_code_scanning %} enabled. |
-| `enabled:secret-scanning` | Display repositories that have {% data variables.product.prodname_secret_scanning %} enabled. |
-| `not-enabled:secret-scanning` | Display repositories that have {% data variables.product.prodname_secret_scanning %} enabled. |
-| `enabled:dependabot-alerts` | Display repositories that have {% data variables.product.prodname_dependabot_alerts %} enabled. |
-| `not-enabled:dependabot-alerts` | Display repositories that do not have {% data variables.product.prodname_dependabot_alerts %} enabled. |
+| `code-scanning:enabled` | Display repositories that have {% data variables.product.prodname_code_scanning %} enabled. |
+| `code-scanning:not-enabled` | Display repositories that do not have {% data variables.product.prodname_code_scanning %} enabled. |
+| `secret-scanning:enabled` | Display repositories that have {% data variables.product.prodname_secret_scanning %} enabled. |
+| `secret-scanning:not-enabled` | Display repositories that have {% data variables.product.prodname_secret_scanning %} enabled. |
+| `dependabot-alerts:enabled` | Display repositories that have {% data variables.product.prodname_dependabot_alerts %} enabled. |
+| `dependabot-alerts:not-enabled` | Display repositories that do not have {% data variables.product.prodname_dependabot_alerts %} enabled. |
+| `not-enabled:any` | Display repositories with at least one security feature that is not enabled. |
+
 
 ### Filter by repository type
 
@@ -90,7 +95,7 @@ The level of risk for a repository is determined by the number and severity of a
 
 | Qualifier | Description |
 | -------- | -------- |
-| `repository:REPOSITORY-NAME` | Displays alerts for the specified repository. |
+| `repo:REPOSITORY-NAME` | Displays alerts for the specified repository. |
 
 ### Filter by secret types
 
