@@ -33,11 +33,16 @@ For more information about these features, see "[About the dependency graph](/gi
 
 ### About synchronization of data from the {% data variables.product.prodname_advisory_database %}
 
-{% data reusables.repositories.tracks-vulnerabilities %} 
+{% data reusables.repositories.tracks-vulnerabilities %}
 
 You can connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_github_connect %}. Once connected, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. You can also choose to manually sync vulnerability data at any time. No code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
 
 Only {% data variables.product.company_short %}-reviewed advisories are synchronized. {% data reusables.security-advisory.link-browsing-advisory-db %}
+
+### About repository scanning with synchronized data from the {% data variables.product.prodname_advisory_database %}
+
+For repositories with {% data variables.product.prodname_dependabot_alerts %} enabled, scanning will be triggered on any push to the default branch that contains a manifest file or lock file. Additionally, when a new vulnerability record is added to the instance, all existing repositories in that instance will be scanned and alerts will be issued for any repository that is vulnerable. For more information, see "[Detection of vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)."
+
 
 ### About generation of {% data variables.product.prodname_dependabot_alerts %}
 
@@ -54,7 +59,7 @@ For {% data variables.product.product_location %} to detect vulnerable dependenc
 
 {% ifversion ghes %}
 {% ifversion ghes > 3.1 %}
-You can enable the dependency graph via the {% data variables.enterprise.management_console %} or the administrative shell. We recommend you follow the {% data variables.enterprise.management_console %} route unless {% data variables.product.product_location %} uses clustering. 
+You can enable the dependency graph via the {% data variables.enterprise.management_console %} or the administrative shell. We recommend you follow the {% data variables.enterprise.management_console %} route unless {% data variables.product.product_location %} uses clustering.
 
 ### Enabling the dependency graph via the {% data variables.enterprise.management_console %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
@@ -104,7 +109,7 @@ Before enabling {% data variables.product.prodname_dependabot_alerts %} for your
    ![Drop-down menu to enable scanning repositories for vulnerabilities](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png)
 
    {% tip %}
-   
+
    **Tip**: We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of emails. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.
 
    {% endtip %}
