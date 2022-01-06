@@ -13,7 +13,6 @@ import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import compression from 'compression'
-import disableCachingOnSafari from './disable-caching-on-safari.js'
 import {
   setDefaultFastlySurrogateKey,
   setManualFastlySurrogateKey,
@@ -161,7 +160,6 @@ export default function (app) {
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
   app.use(compression())
-  app.use(disableCachingOnSafari)
   app.use(catchBadAcceptLanguage)
 
   // *** Config and context for redirects ***
