@@ -27,39 +27,3 @@ Reviews allow for discussion of proposed changes and help ensure that the change
 
 ![Header of review requesting changes with line comments](/assets/images/help/pull_requests/review-header-with-line-comment.png)
 
-A review has three possible statuses:
-- **Comment**: Submit general feedback without explicitly approving the changes or requesting additional changes.
-- **Approve**: Submit feedback and approve merging the changes proposed in the pull request.
-- **Request changes**: Submit feedback that must be addressed before the pull request can be merged.
-
-![Image of review statuses](/assets/images/help/pull_requests/pull-request-review-statuses.png)
-
-{% data reusables.repositories.request-changes-tips %}
-
-You can view all of the reviews a pull request has received in the Conversation timeline, and you can see reviews by repository owners and collaborators in the pull request's merge box.
-
-![Image of reviews in a merge box](/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png)
-
-{% data reusables.search.requested_reviews_search_tip %}
-
-{% data reusables.pull_requests.resolving-conversations %}
-
-## Re-requesting a review
-
-{% data reusables.pull_requests.re-request-review %}
-
-## Required reviews
-
-{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
-
-{% tip %}
-
-**Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
-
-{% endtip %}
-
-## Further reading
-
-- "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
-- "[Viewing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"
-- "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"
