@@ -40,11 +40,11 @@ We recommend that you have a basic understanding of Java and the Gradle framewor
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Starting with a Gradle workflow template
+## Using the Gradle starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Gradle workflow template that will work for most Gradle-based Java projects. For more information, see the [Gradle workflow template](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
+{% data variables.product.prodname_dotcom %} provides a Gradle starter workflow that will work for most Gradle-based Java projects. For more information, see the [Gradle starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
 
-To get started quickly, you can choose the preconfigured Gradle template when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
+To get started quickly, you can choose the preconfigured Gradle starter workflow when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
 
 You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
@@ -79,7 +79,7 @@ This workflow performs the following steps:
 3. The "Validate Gradle wrapper" step validates the checksums of Gradle Wrapper JAR files present in the source tree.
 4. The "Build with Gradle" step runs the `gradlew` wrapper script to ensure that your code builds, tests pass, and a package can be created.
 
-The default workflow templates are excellent starting points when creating your build and test workflow, and you can customize the template to suit your project’s needs.
+The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
 {% data reusables.github-actions.example-github-runner %}
 
