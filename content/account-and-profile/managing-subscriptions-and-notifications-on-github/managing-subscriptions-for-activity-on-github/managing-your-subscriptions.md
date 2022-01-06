@@ -79,8 +79,13 @@ When you unwatch a repository, you unsubscribe from future updates from that rep
    - Only watch releases for a repository
    - Ignore all notifications for a repository
    {%- endif %}
+<<<<<<< HEAD
 {%- ifversion fpt or ghec %}
 1. Optionally, to unsubscribe from all repositories owned by a given user or organization, select the **Unwatch all** dropdown and click the organization whose repositories you'd like to unsubscribe from. The button to unwatch all repositories is only available if you are watching all notifications, custom notifications or ignoring activity on over 25 repositories.
+=======
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
+3. Optionally, to unsubscribe from all repositories owned by a given user or organization, select the **Unwatch all** dropdown and click the organization whose repositories you'd like to unsubscribe from. The option to unwatch all repositories is only available if you are watching all activity on over 30 repositories. If custom notifications are set up, or if you are only watching participating or @mention activity, the option may not be available.
+>>>>>>> 4a1c28a8bab3890ed47b080ffe6c62eaebfc45d8
 
    ![Unwatch All button](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
 
