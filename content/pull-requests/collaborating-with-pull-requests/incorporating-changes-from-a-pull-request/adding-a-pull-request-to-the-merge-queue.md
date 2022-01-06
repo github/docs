@@ -1,4 +1,4 @@
----
+No---
 title: Adding a pull request to the merge queue
 intro: If merge queues are enabled for the repository, you can add your pull requests to the merge queue once all the required checks have passed. {% data variables.product.product_name %} will merge the pull requests for you.
 versions:
