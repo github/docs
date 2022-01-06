@@ -1,6 +1,6 @@
 ---
-title: Criar e realçar blocos de código
-intro: Compartilhe amostras de código com blocos de código isolados e habilitando o realce da sintaxe.
+title: Creating and highlighting code blocks
+intro: Share samples of code with fenced code blocks and enabling syntax highlighting.
 redirect_from:
   - /articles/creating-and-highlighting-code-blocks
   - /github/writing-on-github/creating-and-highlighting-code-blocks
@@ -9,12 +9,12 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Crie blocos de código
+shortTitle: Create code blocks
 ---
 
-## Blocos de código isolados
+## Fenced code blocks
 
-Você pode criar blocos de código isolados colocando aspas triplas <code>\`\`\`</code> antes e depois do bloco de código. É recomendável colocar uma linha em branco antes e depois dos blocos de código para facilitar a leitura da formação bruta.
+You can create fenced code blocks by placing triple backticks <code>\`\`\`</code> before and after the code block. We recommend placing a blank line before and after code blocks to make the raw formatting easier to read.
 
 <pre>
 ```
@@ -24,48 +24,48 @@ function test() {
 ```
 </pre>
 
-![Bloco de código isolado renderizado](/assets/images/help/writing/fenced-code-block-rendered.png)
+![Rendered fenced code block](/assets/images/help/writing/fenced-code-block-rendered.png)
 
 {% tip %}
 
-**Dica:** para preservar sua formatação em uma lista, certifique-se de recuar blocos de código não isolados em oito espaços.
+**Tip:** To preserve your formatting within a list, make sure to indent non-fenced code blocks by eight spaces.
 
 {% endtip %}
 
-Para mostrar aspas tripas em um bloco de código isolado, envolva-os dentro de aspas quádruplas.
+To display triple backticks in a fenced code block, wrap them inside quadruple backticks.
 
 
 <pre>
 ```` 
 ```
-Look! Você pode ver minhas aspas.
+Look! You can see my backticks.
 ```
 ````
 </pre>
 
-![Código isolado interpretado como um bloco de aspas inversas](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
+![Rendered fenced code with backticks block](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
 
-## Realce de sintaxe
+## Syntax highlighting
 
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
-Você pode adicionar um identificador de linguagem opcional para habilitar o realce de sintaxe no bloco de código isolado.
+You can add an optional language identifier to enable syntax highlighting in your fenced code block.
 
-Por exemplo, para código Ruby do realce de sintaxe:
+For example, to syntax highlight Ruby code:
 
     ```ruby
     require 'redcarpet'
     markdown = Redcarpet.new("Hello World!")
     puts markdown.to_html
-    coloca markdown.to_html
     ```
 
-![Bloco de código renderizado com realce de sintaxe Ruby](/assets/images/help/writing/code-block-syntax-highlighting-rendered.png)
+![Rendered code block with Ruby syntax highlighting](/assets/images/help/writing/code-block-syntax-highlighting-rendered.png)
 
-Usamos [Linguist](https://github.com/github/linguist) para executar a detecção de linguagem e selecionar [gramáticas de terceiros](https://github.com/github/linguist/blob/master/vendor/README.md) para realce de sintaxe. Você pode descobrir quais palavras-chave são válidas no [arquivo YAML de linguagem](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+We use [Linguist](https://github.com/github/linguist) to perform language detection and to select [third-party grammars](https://github.com/github/linguist/blob/master/vendor/README.md) for syntax highlighting. You can find out which keywords are valid in [the languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-## Leia mais
+## Further reading
 
-- [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)
-- "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax)"
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"

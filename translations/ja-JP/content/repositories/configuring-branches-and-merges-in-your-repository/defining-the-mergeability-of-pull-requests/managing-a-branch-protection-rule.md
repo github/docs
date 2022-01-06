@@ -97,15 +97,23 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 
   {% endtip %}
 {%- endif %}
-1. Optionally, select **Include administrators**.
-![Include administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
+1. Optionally, select **Apply the rules above to administrators**.
+![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
 1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    - Select **Restrict who can push to matching branches**.
      ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png)
    - Search for and select the people, teams, or apps who will have permission to push to the protected branch.
      ![Branch restriction search](/assets/images/help/repository/restrict-branch-search.png)
-2. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**. For more information about force pushes, see "[Allow force pushes](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)."
+1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
   ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
+{% ifversion fpt or ghec %}
+  Then, choose who can force push to the branch.
+    - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
+    - Select **Specify who can force push** to allow only specific people or teams to force push to the branch. Then, search for and select those people or teams.
+      ![Screenshot of the options to specify who can force push](/assets/images/help/repository/allow-force-pushes-specify-who.png)
+{% endif %}
+
+    For more information about force pushes, see "[Allow force pushes](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)."
 1. Optionally, select **Allow deletions**.
   ![Allow branch deletions option](/assets/images/help/repository/allow-branch-deletions.png)
 1. Click **Create**.
