@@ -33,6 +33,16 @@ export const Header = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const close = (e: { key: string }) => {
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false)
+      }
+    }
+    window.addEventListener('keydown', close)
+    return () => window.removeEventListener('keydown', close)
+  }, [])
+
   return (
     <div
       className={cx(
@@ -89,7 +99,7 @@ export const Header = () => {
               </Link>
             </div>
 
-            <div>
+            <nav>
               <button
                 className="btn"
                 data-testid="mobile-menu-button"
@@ -99,7 +109,7 @@ export const Header = () => {
               >
                 {isMenuOpen ? <XIcon size="small" /> : <ThreeBarsIcon size="small" />}
               </button>
-            </div>
+            </nav>
           </div>
 
           {/* mobile menu contents */}
