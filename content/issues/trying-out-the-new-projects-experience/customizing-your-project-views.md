@@ -1,185 +1,173 @@
----
-title: Customizing your project (beta) views
-intro: 'Display the information you need by changing the layout, grouping, sorting, and filters in your project.'
-allowTitleToDifferFromFilename: true
-versions:
-  fpt: '*'
-  ghec: '*'
-type: reference
-topics:
-  - Projects
----
+GitHub Docs
+Creating a project (beta)
+In this article
+Creating a project
+Creating an organization project
+Creating a user project
+Adding items to your project
+Creating draft issues
+Issues and pull requests
+Converting draft issues to issues
+Removing items from your project
+Restoring archived items
+Adding fields
+Showing existing fields
+Adding custom fields
+Customizing your views
+Configuring built-in automation
+Learn how to make a project, populate it, and add custom fields.
 
-{% data reusables.projects.projects-beta %}
+Projects are a customizable collection of items that stay up-to-date with GitHub data. Your projects can track issues, pull requests, and ideas that you jot down. You can add custom fields and create views for specific purposes.
 
-## Project command palette
+Note: Projects (beta) is currently in public beta and subject to change.
 
-Use the project command palette to quickly change settings and run commands in your project.
+Creating a project
+Creating an organization project
+On GitHub, navigate to the main page of your organization.
 
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing any part of a command or navigate through the command palette window to find a command. See the next sections for more examples of commands.
+Click  Projects.
 
-## Changing the project layout
+Select the New project drop-down menu and click New project (Beta).
 
-You can view your project as a table or as a board.
+New project
 
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Switch layout".
-3. Choose the required command. For example, **Switch layout: Table**.
-3. Alternatively, click the drop-down menu next to a view name and click **Table** or **Board**.
+Creating a user project
+On any GitHub page, click on your avatar, then select Your projects.
 
-## Showing and hiding fields
+Select the New project drop-down menu and click New project (Beta).
 
-You can show or hide a specific field.
+New project
 
+Adding items to your project
+Your project can track draft issues, issues, and pull requests.
+
+Creating draft issues
+Draft issues are useful to quickly capture ideas.
+
+Place your cursor in the bottom row of the project, next to the .
+Type your idea, then press Enter.
+You can convert draft issues into issues. For more information, see Converting draft issues to issues.
+
+Issues and pull requests
+Paste the URL of an issue or pull request
+Place your cursor in the bottom row of the project, next to the .
+Paste the URL of the issue or pull request.
+Searching for an issue or pull request
+Place your cursor in the bottom row of the project, next to the .
+Enter #.
+Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
+Select the issue or pull request. You can type part of the title to narrow down your options.
+Assigning a project from within an issue or pull request
+Navigate to the issue or pull request that you want to add to a project.
+
+In the side bar, click Projects.
+
+Select the project that you want to add the issue or pull request to.
+
+Optionally, populate the custom fields.
+
+Project sidebar
+
+Converting draft issues to issues
 In table layout:
 
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing the action you want to take ("show" or "hide") or the name of the field.
-3. Choose the required command. For example, **Show: Milestone**.
-4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} to the right of the table. In the drop-down menu that appears, indicate which fields to show or hide. A {% octicon "check" aria-label="check icon" %} indicates which fields are displayed.
-5. Alternatively, click the drop-down menu next to the field name and click **Hide field**.
-
+Click the  on the draft issue that you want to convert.
+Select Convert to issue.
+Select the repository that you want to add the issue to.
+Alternatively, edit the assignee, labels, milestone, or repository fields of the draft issue that you want to convert.
 In board layout:
 
-1. Click the drop-down menu next to the view name.
-2. Under **configuration**, click {% octicon "list-unordered" aria-label="the unordered list icon" %}.
-3. In the menu that's displayed, select fields to add them and deselect fields to remove them from the view.
+Click the  on the draft issue that you want to convert.
+Select Convert to issue.
+Select the repository that you want to add the issue to.
+Removing items from your project
+You can archive an item to keep the context about the item in the project but remove it from the project views. You can delete an item to remove it from the project entirely.
 
-## Reordering fields
+Select the item(s) to archive or delete. To select multiple items, do one of the following:
+cmd + click (Mac) or ctrl + click (Windows/Linux) each item.
+Select an item then shift + arrow-up or shift + arrow-down to select additional items above or below the intitially selected item.
+Select an item then shift + click another item to select all items between the two items.
+Enter cmd + a (Mac) or ctrl + a (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
+To archive all selected items, enter e. To delete all selected items, enter del. Alternatively, select the  (in table layout) or the  (in board layout), then select the desired action.
+You can restore archived items but not deleted items. For more information, see Restoring archived items.
 
-You can change the order of fields.
+Restoring archived items
+To restore an archived item, navigate to the issue or pull request. In the project side bar on the issue or pull request, click Restore for the project that you want to restore the item to. Draft issues cannot be restored.
 
-1. Click the field header.
-2. While clicking, drag the field to the required location.
+Adding fields
+As field values change, they are automatically synced so that your project and the items that it tracks are up-to-date.
 
-## Reordering rows
+Showing existing fields
+Your project tracks up-to-date information about issues and pull requests, including any changes to the title, assignees, labels, milestones, and repository. When your project initializes, "title" and "assignees" are displayed; the other fields are hidden. You can change the visibility of these fields in your project.
 
-In table layout, you can change the order of rows.
+To open the project command palette, press Ctrl+k (Windows and Linux) or Command+k (Mac).
+Start typing "show".
+Select the desired command (for example: "Show: Repository").
+Alternatively, you can do this in the UI:
 
-1. Click the number at the start of the row.
-2. While clicking, drag the row to the required location.
+Click  in the rightmost field header. A drop-down menu with the project fields will appear.
+Show or hide fields
+Select the field(s) that you want to display or hide. A  indicates which fields are displayed.
+Adding custom fields
+You can add custom fields to your project. Custom fields will display on the side bar of issues and pull requests in the project.
 
-## Sorting by field values
+Custom fields can be text, number, date, single select, or iteration:
 
-In table layout, you can sort items by a field value.
+Text: The value can be any text.
+Number: The value must be a number.
+Date: The value must be a date.
+Single select: The value must be selected from a set of specified values.
+Iteration: The value must be selected from a set of date ranges (iterations). Iterations in the past are automatically marked as "completed", and the iteration covering the current date range is marked as "current".
+To open the project command palette, press Ctrl+k (Windows and Linux) or Command+k (Mac). Start typing any part of "Create new field". When "Create new field" displays in the command palette, select it.
+Alternatively, click  in the rightmost field header. A drop-down menu with the project fields will appear. Click New field.
+A popup will appear for you to enter information about the new field.
+New field
+In the text box, enter a name for the new field.
+Select the dropdown menu and click the desired type.
+If you specified Single select as the type, enter the options.
+If you specified Iteration as the type, enter the start date of the first iteration and the duration of the iteration. Three iterations are automatically created, and you can add additional iterations on the project's settings page.
+You can later edit the drop down options for single select and iteration fields.
 
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Sort by" or the name of the field you want to sort by.
-3. Choose the required command. For example, **Sort by: Assignees, asc**.
-4. Alternatively, click the drop-down menu next to the field name that you want to sort by and click **Sort ascending** or **Sort descending**.
+Navigate to your project.
+Click  to access the project settings.
+Under Fields, select the field that you want to edit.
+For single select fields, you can add, delete, or reorder the options.
+For iteration fields, you can add or delete iterations, change iteration names, and change the start date and duration of the iteration.
+Customizing your views
+You can view your project as a table or board, group items by field, filter item, and more. For more information, see "Customizing your project (beta) views."
 
-{% note %}
+Configuring built-in automation
+Projects (beta) includes built-in workflows that you can use to update the Status of items based on certain events. For example, you can automatically set the status to Todo when an item is added to your project or set the status to Done when an issue is closed.
 
-**Note:** When a table is sorted, you cannot manually reorder rows.
+When your project initializes, two workflows are enabled by default: When issues or pull requests in your project are closed, their status is set to Done, and when pull requests in your project are merged, their status is set to Done.
 
-{% endnote %}
+You can enable or disable the built-in workflows for your project.
 
-Follow similar steps to remove a sort.
+In your project, click .
+Under Default workflows, click on the workflow that you want to edit.
+If the workflow can apply to both issues and pull requests, next to When, check the item type(s) that you want to act on.
+Next to Set, choose the value that you want to set the status to.
+If the workflow is disabled, click the toggle next to Disabled to enable the workflow.
+Did this doc help you?
+Privacy policy
+Help us make these docs great!
+All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
 
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Remove sort-by".
-3. Choose **Remove sort-by**.
-4. Alternatively, click the drop-down menu next to the view name and click the menu item that indicates the current sort.
+Or, learn how to contribute.
 
-## Grouping by field values
-
-In the table layout, you can group items by a custom field value. When items are grouped, if you drag an item to a new group, the value of that group is applied. For example, if you group by "Status" and then drag an item with a status of `In progress` to the `Done` group, the status of the item will switch to `Done`.
-
-{% note %}
-
-**Note:** Currently, you cannot group by title, assignees, repository or labels.
-
-{% endnote %}
-
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Group by" or the name of the field you want to group by.
-3. Choose the required command. For example, **Group by: Status**.
-4. Alternatively, click the drop-down menu next to the field name that you want to group by and click **Group by values**.
-
-Follow similar steps to remove a grouping.
-
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Remove group-by".
-3. Choose **Remove group-by**.
-4. Alternatively, click the drop-down menu next to the view name and click the menu item that indicates the current grouping.
-
-## Filtering rows
-
-Click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Start typing the field name and value that you want to filter by. As you type, possible values will appear.
-
-- To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
-- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
-- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
-- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
-- Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
-
-Alternatively, use the command palette.
-
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Filter by" or the name of the field you want to filter by.
-3. Choose the required command. For example, **Filter by Status**.
-4. Enter the value that you want to filter for. For example: "In progress". You can also filter for the absence of specific values (for example, choose "Exclude status" then choose a status) or the absence of all values (for example, "No status").
-
-In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
-
-## Creating a project view
-
-Project views allow you to quickly view specific aspects of your project. Each view is displayed on a separate tab in your project. 
-
-For example, you can have:
-- A view that shows all items not yet started (filter on "Status").
-- A view that shows the workload for each team (group by a custom "Team" field).
-- A view that shows the items with the earliest target ship date (sort by a date field).
-
-To add a new view:
-
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing "New view" (to create a new view) or "Duplicate view" (to duplicate the current view).
-3. Choose the required command.
-4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} **New view** next to the rightmost view.
-5. Alternatively, click the drop-down menu next to a view name and click **Duplicate view**.
-
-The new view is automatically saved.
-
-## Saving changes to a view
-
-When you make changes to a view - for example, sorting, reordering, filtering, or grouping the data in a view - a dot is displayed next to the view name to indicate that there are unsaved changes. 
-
-![Unsaved changes indicator](/assets/images/help/projects/unsaved-changes.png)
-
-If you don't want to save the changes, you can ignore this indicator. No one else will see your changes.
-
-To save the current configuration of the view for all project members:
-1. {% data reusables.projects.open-command-palette %}
-1. Start typing "Save view" or "Save changes to new view".
-1. Choose the required command.
-1. Alternatively, click the drop-down menu next to a view name and click **Save view** or **Save changes to new view**.
-
-## Reordering saved views
-
-To change the order of the tabs that contain your saved views, click and drag a tab to a new location.
-
-The new tab order is automatically saved.
-
-## Renaming a saved view
-
-To rename a view:
-1. Double click the name in the project tab.
-1. Change the name.
-1. Press Enter, or click outside of the tab.
-
-The name change is automatically saved.
-
-## Deleting a saved view
-
-To delete a view:
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Delete view".
-3. Choose the required command.
-4. Alternatively, click the drop-down menu next to a view name and click **Delete view**.
-
-## Further reading
-
-- "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)"
-- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)"
+Still need help?
+Ask the GitHub community
+Contact support
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+Developer API
+Training
+Blog
+About
+Scroll to top
