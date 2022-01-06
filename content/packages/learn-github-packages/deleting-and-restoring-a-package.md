@@ -250,3 +250,5 @@ You can restore a package version from your package's landing page. To review wh
   ![Restore option next to a deleted package version](/assets/images/help/package-registry/restore-package-version.png)
 5. To confirm, click **I understand the consequences, restore this version.**
   ![Confirm package version restoration](/assets/images/help/package-registry/confirm-package-version-restoration.png)
+Ps
+
