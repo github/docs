@@ -28,10 +28,11 @@ export const LanguagePicker = ({ variant }: Props) => {
             <Link href={router.asPath} locale={lang.code}>
               {lang.nativeName ? (
                 <>
-                  {lang.nativeName} ({lang.name})
+                  <span lang={lang.code}>{lang.nativeName}</span> (
+                  <span lang="en">{lang.name}</span>)
                 </>
               ) : (
-                lang.name
+                <span lang={lang.code}>{lang.name}</span>
               )}
             </Link>
           ),
