@@ -36,6 +36,7 @@ translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-gith
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/publicizing-or-hiding-organization-membership.md,rendering error
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization.md,rendering error
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps.md,rendering error
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization.md,rendering error
 translations/ja-JP/content/actions/advanced-guides/caching-dependencies-to-speed-up-workflows.md,rendering error
 translations/ja-JP/content/actions/advanced-guides/storing-workflow-data-as-artifacts.md,rendering error
 translations/ja-JP/content/actions/automating-builds-and-tests/about-continuous-integration.md,rendering error
@@ -97,7 +98,7 @@ translations/ja-JP/content/actions/hosting-your-own-runners/using-self-hosted-ru
 translations/ja-JP/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,rendering error
 translations/ja-JP/content/actions/index.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/contexts.md,rendering error
-translations/ja-JP/content/actions/learn-github-actions/creating-workflow-templates.md,rendering error
+translations/ja-JP/content/actions/learn-github-actions/creating-starter-workflows-for-your-organization.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/environment-variables.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/essential-features-of-github-actions.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/events-that-trigger-workflows.md,rendering error
@@ -109,7 +110,7 @@ translations/ja-JP/content/actions/learn-github-actions/reusing-workflows.md,ren
 translations/ja-JP/content/actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
-translations/ja-JP/content/actions/learn-github-actions/using-workflow-templates.md,rendering error
+translations/ja-JP/content/actions/learn-github-actions/using-starter-workflows.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/workflow-commands-for-github-actions.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/workflow-syntax-for-github-actions.md,rendering error
 translations/ja-JP/content/actions/managing-issues-and-pull-requests/adding-labels-to-issues.md,rendering error
@@ -276,6 +277,7 @@ translations/ja-JP/content/admin/overview/about-github-ae.md,rendering error
 translations/ja-JP/content/admin/overview/about-the-github-enterprise-api.md,rendering error
 translations/ja-JP/content/admin/overview/about-upgrades-to-new-releases.md,rendering error
 translations/ja-JP/content/admin/overview/system-overview.md,rendering error
+translations/ja-JP/content/admin/packages/configuring-package-ecosystem-support-for-your-enterprise.md,rendering error
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-aws.md,rendering error
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-azure-blob-storage.md,rendering error
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-minio.md,rendering error
@@ -448,6 +450,7 @@ translations/ja-JP/content/code-security/supply-chain-security/keeping-your-depe
 translations/ja-JP/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/upgrading-from-dependabotcom-to-github-native-dependabot.md,rendering error
 translations/ja-JP/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies.md,rendering error
 translations/ja-JP/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates.md,rendering error
+translations/ja-JP/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-managing-vulnerable-dependencies.md,rendering error
 translations/ja-JP/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database.md,rendering error
 translations/ja-JP/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates.md,rendering error
 translations/ja-JP/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies.md,rendering error
@@ -466,6 +469,7 @@ translations/ja-JP/content/codespaces/customizing-your-codespace/setting-your-de
 translations/ja-JP/content/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces.md,rendering error
 translations/ja-JP/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,rendering error
 translations/ja-JP/content/codespaces/developing-in-codespaces/creating-a-codespace.md,rendering error
+translations/ja-JP/content/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace.md,rendering error
 translations/ja-JP/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,rendering error
 translations/ja-JP/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,rendering error
 translations/ja-JP/content/codespaces/developing-in-codespaces/index.md,rendering error
@@ -484,6 +488,7 @@ translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/set
 translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,rendering error
 translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces.md,rendering error
 translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces.md,rendering error
+translations/ja-JP/content/codespaces/troubleshooting/troubleshooting-codespaces-clients.md,rendering error
 translations/ja-JP/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/ja-JP/content/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages.md,rendering error
 translations/ja-JP/content/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki.md,rendering error
@@ -603,6 +608,7 @@ translations/ja-JP/content/get-started/getting-started-with-git/updating-credent
 translations/ja-JP/content/get-started/index.md,rendering error
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,Listed in localization-support#489
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,parsing error
+translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,rendering error
 translations/ja-JP/content/get-started/learning-about-github/about-versions-of-github-docs.md,rendering error
 translations/ja-JP/content/get-started/learning-about-github/access-permissions-on-github.md,rendering error
 translations/ja-JP/content/get-started/learning-about-github/githubs-products.md,rendering error
@@ -673,12 +679,15 @@ translations/ja-JP/content/github/working-with-github-support/submitting-a-ticke
 translations/ja-JP/content/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,rendering error
 translations/ja-JP/content/github/writing-on-github/editing-and-sharing-content-with-gists/forking-and-cloning-gists.md,rendering error
 translations/ja-JP/content/github/writing-on-github/editing-and-sharing-content-with-gists/index.md,rendering error
+translations/ja-JP/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github.md,rendering error
 translations/ja-JP/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.md,rendering error
 translations/ja-JP/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/index.md,rendering error
 translations/ja-JP/content/github/writing-on-github/index.md,rendering error
 translations/ja-JP/content/github/writing-on-github/working-with-advanced-formatting/attaching-files.md,rendering error
+translations/ja-JP/content/github/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks.md,rendering error
 translations/ja-JP/content/github/writing-on-github/working-with-advanced-formatting/index.md,rendering error
 translations/ja-JP/content/github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections.md,rendering error
+translations/ja-JP/content/github/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables.md,rendering error
 translations/ja-JP/content/github/writing-on-github/working-with-saved-replies/editing-a-saved-reply.md,rendering error
 translations/ja-JP/content/graphql/guides/index.md,rendering error
 translations/ja-JP/content/graphql/guides/managing-enterprise-accounts.md,rendering error
@@ -692,14 +701,19 @@ translations/ja-JP/content/issues/organizing-your-work-with-project-boards/manag
 translations/ja-JP/content/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board.md,rendering error
 translations/ja-JP/content/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board.md,rendering error
 translations/ja-JP/content/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board.md,rendering error
+translations/ja-JP/content/issues/organizing-your-work-with-project-boards/managing-project-boards/reopening-a-closed-project-board.md,rendering error
 translations/ja-JP/content/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board.md,rendering error
 translations/ja-JP/content/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board.md,rendering error
+translations/ja-JP/content/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/archiving-cards-on-a-project-board.md,rendering error
 translations/ja-JP/content/issues/tracking-your-work-with-issues/about-issues.md,rendering error
+translations/ja-JP/content/issues/tracking-your-work-with-issues/creating-an-issue.md,rendering error
 translations/ja-JP/content/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests.md,rendering error
 translations/ja-JP/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
 translations/ja-JP/content/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project.md,rendering error
+translations/ja-JP/content/issues/trying-out-the-new-projects-experience/creating-a-project.md,rendering error
 translations/ja-JP/content/issues/trying-out-the-new-projects-experience/customizing-your-project-views.md,rendering error
 translations/ja-JP/content/issues/trying-out-the-new-projects-experience/managing-access-to-projects.md,rendering error
+translations/ja-JP/content/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects.md,rendering error
 translations/ja-JP/content/issues/using-labels-and-milestones-to-track-work/about-milestones.md,rendering error
 translations/ja-JP/content/issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests.md,rendering error
 translations/ja-JP/content/issues/using-labels-and-milestones-to-track-work/managing-labels.md,rendering error
@@ -716,6 +730,7 @@ translations/ja-JP/content/organizations/granting-access-to-your-organization-wi
 translations/ja-JP/content/organizations/index.md,rendering error
 translations/ja-JP/content/organizations/keeping-your-organization-secure/index.md,rendering error
 translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization.md,rendering error
+translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization.md,rendering error
 translations/ja-JP/content/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization.md,rendering error
 translations/ja-JP/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,Listed in localization-support#489
 translations/ja-JP/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,rendering error
@@ -737,6 +752,7 @@ translations/ja-JP/content/organizations/managing-organization-settings/setting-
 translations/ja-JP/content/organizations/managing-organization-settings/setting-permissions-for-deleting-or-transferring-repositories.md,rendering error
 translations/ja-JP/content/organizations/managing-organization-settings/transferring-organization-ownership.md,rendering error
 translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,rendering error
+translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization.md,rendering error
 translations/ja-JP/content/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on.md,rendering error
 translations/ja-JP/content/organizations/managing-saml-single-sign-on-for-your-organization/about-scim.md,rendering error
@@ -768,8 +784,10 @@ translations/ja-JP/content/organizations/restricting-access-to-your-organization
 translations/ja-JP/content/organizations/restricting-access-to-your-organizations-data/denying-access-to-a-previously-approved-oauth-app-for-your-organization.md,rendering error
 translations/ja-JP/content/organizations/restricting-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization.md,rendering error
 translations/ja-JP/content/organizations/restricting-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization.md,rendering error
+translations/ja-JP/content/packages/learn-github-packages/about-permissions-for-github-packages.md,rendering error
 translations/ja-JP/content/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility.md,rendering error
 translations/ja-JP/content/packages/learn-github-packages/deleting-a-package.md,rendering error
+translations/ja-JP/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,rendering error
 translations/ja-JP/content/packages/learn-github-packages/installing-a-package.md,rendering error
 translations/ja-JP/content/packages/learn-github-packages/introduction-to-github-packages.md,rendering error
 translations/ja-JP/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,rendering error
@@ -791,6 +809,7 @@ translations/ja-JP/content/pages/getting-started-with-github-pages/configuring-a
 translations/ja-JP/content/pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site.md,rendering error
 translations/ja-JP/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md,rendering error
 translations/ja-JP/content/pages/getting-started-with-github-pages/index.md,rendering error
+translations/ja-JP/content/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https.md,rendering error
 translations/ja-JP/content/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site.md,rendering error
 translations/ja-JP/content/pages/getting-started-with-github-pages/using-submodules-with-github-pages.md,rendering error
 translations/ja-JP/content/pages/index.md,rendering error
@@ -819,9 +838,11 @@ translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/propos
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request.md,rendering error
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository.md,rendering error
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/index.md,rendering error
+translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request.md,rendering error
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request.md,rendering error
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request.md,rendering error
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/index.md,rendering error
+translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request.md,rendering error
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request.md,rendering error
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks.md,rendering error
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/working-with-forks/index.md,rendering error
