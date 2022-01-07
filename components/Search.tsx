@@ -209,35 +209,38 @@ export function Search({
     <div data-testid="search" aria-hidden="true">
       <div className="position-relative z-2">
         <form role="search" className="width-full d-flex" noValidate onSubmit={onFormSubmit}>
-          <input
-            data-testid="site-search-input"
-            ref={inputRef}
-            className={cx(
-              styles.searchInput,
-              iconSize === 24 && 'form-control px-6 f4',
-              iconSize === 16 && 'form-control px-5 f4',
-              variant === 'compact' && 'py-2',
-              variant === 'expanded' && 'py-3',
-              isHeaderSearch && styles.searchInputHeader,
-              !isHeaderSearch && 'width-full',
-              isHeaderSearch && query && styles.searchInputExpanded,
-              isHeaderSearch && query && 'position-absolute top-0 right-0'
-            )}
-            style={{
-              background: `var(--color-canvas-default) url("/assets/images/octicons/search-${iconSize}.svg") no-repeat ${
-                iconSize === 24 ? '12px' : '6px'
-              }`,
-            }}
-            type="search"
-            placeholder={t`placeholder`}
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="off"
-            spellCheck="false"
-            maxLength={512}
-            onChange={onSearch}
-            value={localQuery}
-          />
+          <label className="text-normal width-full">
+            <span className="visually-hidden">{t`placeholder`}</span>
+            <input
+              data-testid="site-search-input"
+              ref={inputRef}
+              className={cx(
+                styles.searchInput,
+                iconSize === 24 && 'form-control px-6 f4',
+                iconSize === 16 && 'form-control px-5 f4',
+                variant === 'compact' && 'py-2',
+                variant === 'expanded' && 'py-3',
+                isHeaderSearch && styles.searchInputHeader,
+                !isHeaderSearch && 'width-full',
+                isHeaderSearch && query && styles.searchInputExpanded,
+                isHeaderSearch && query && 'position-absolute top-0 right-0'
+              )}
+              style={{
+                background: `var(--color-canvas-default) url("/assets/images/octicons/search-${iconSize}.svg") no-repeat ${
+                  iconSize === 24 ? '12px' : '6px'
+                }`,
+              }}
+              type="search"
+              placeholder={t`placeholder`}
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
+              maxLength={512}
+              onChange={onSearch}
+              value={localQuery}
+            />
+          </label>
           <button className="d-none" type="submit" title="Submit the search query." hidden />
         </form>
       </div>
