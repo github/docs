@@ -87,7 +87,7 @@ childGroups:
     - organizations
     - admin
   - name: Community
-    octicon: 'GlobeIcon'
+    octicon: 'GlobalIcon'
     children:
     - communities
     - sponsors
