@@ -88,10 +88,6 @@ export default async function renderPage(req, res, next) {
   const { page } = context
   const path = req.pagePath || req.path
 
-  if (path.startsWith('/storybook')) {
-    return nextHandleRequest(req, res)
-  }
-
   // render a 404 page
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && context.redirectNotFound) {

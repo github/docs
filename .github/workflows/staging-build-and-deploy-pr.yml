@@ -25,9 +25,6 @@ permissions:
   statuses: write
 
 # This allows a subsequently queued workflow run to interrupt previous runs
-# These are different from the concurrency in that here it checks if the
-# whole workflow runs again. The "inner concurrency" is used for
-# undeployments to cleaning up resources.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
@@ -44,11 +41,7 @@ jobs:
     runs-on: self-hosted
 
     timeout-minutes: 5
-    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
-    # progress for this PR branch.
-    concurrency:
-      group: 'PR Staging @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
-      cancel-in-progress: true
+
     steps:
       - name: Check out repo
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
@@ -84,15 +77,6 @@ jobs:
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: ${{ github.event.pull_request.head.sha }}
-
-      - name: Check that the PR isn't blocking deploys
-        # We can't use ${{...}} on this if statement because of this bug
-        # https://github.com/cschleiden/actions-linter/issues/114
-        if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'automated-block-deploy')
-        run: |
-          echo "The PR appears to have the label 'automated-block-deploy'"
-          echo "Will not proceed to deploy the PR."
-          exit 2
 
       - name: Create a Heroku build source
         id: build-source

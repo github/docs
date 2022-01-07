@@ -140,11 +140,11 @@ For more information on how to use context syntax, see "[Contexts](/actions/lear
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example using Node.js v12
+### Example using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'main.js'
 ```
 
@@ -152,8 +152,8 @@ runs:
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).  
 
-- Use `node12` for Node.js v12.
-- Use `node16` for Node.js v16.
+- Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+- Use `node16` for Node.js v16.{% endif %}
 
 ### `runs.main`
 
@@ -167,7 +167,7 @@ In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -194,7 +194,7 @@ In this example, the `post:` action runs a script called `cleanup.js`:
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
   post: 'cleanup.js'
 ```

@@ -1,6 +1,6 @@
 ---
-title: プロジェクトボード上のカードのアーカイブ
-intro: プロジェクトボードのカードをアーカイブすることにより、プロジェクトの過去の経過を失うことなくワークフローを整理できます。
+title: Archiving cards on a project board
+intro: You can archive project board cards to declutter your workflow without losing the historical context of a project.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/archiving-cards-on-a-project-board
   - /articles/archiving-cards-on-a-project-board
@@ -12,20 +12,23 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: ボード上のカードのアーカイブ
+shortTitle: Archive cards on board
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-プロジェクトボードの自動化は、アーカイブされたプロジェクトボードのカードには適用されません。 たとえばプロジェクトボードのアーカイブで Issue をクローズしたとしても、アーカイブされたカードは自動的に "Done" 列には移動しません。 プロジェクトボードアーカイブからカードをリストアすると、そのカードはアーカイブされたときに置かれていた列に戻ります。
+Automation in your project board does not apply to archived project board cards. For example, if you close an issue in a project board's archive, the archived card does not automatically move to the "Done" column. When you restore a card from the project board archive, the card will return to the column where it was archived.
 
-## プロジェクトボード上のカードのアーカイブ
+## Archiving cards on a project board
 
-1. プロジェクトボードで、アーカイブしたいカードを見つけて {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックします。 ![プロジェクトボードカードの編集オプションのリスト](/assets/images/help/projects/select-archiving-options-project-board-card.png)
-2. [**Archive**] をクリックします。 ![メニューからのアーカイブオプションの選択](/assets/images/help/projects/archive-project-board-card.png)
+1. In a project board, find the card you want to archive, then click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+![List of options for editing a project board card](/assets/images/help/projects/select-archiving-options-project-board-card.png)
+2. Click **Archive**.
+![Select archive option from menu](/assets/images/help/projects/archive-project-board-card.png)
 
-## サイドバーからのプロジェクトボード上のカードのリストア
+## Restoring cards on a project board from the sidebar
 
 {% data reusables.project-management.click-menu %}
-2. {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、続いて [** View archive**] をクリックします。 ![メニューからのアーカイブの表示オプションの選択](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
-3. アーカイブを解除するプロジェクトボードの上で [**Restore**] をクリックします。 ![プロジェクトボードカードのリストアの選択](/assets/images/help/projects/restore-card.png)
+2. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **View archive**.
+  ![Select view archive option from menu](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
+3. Above the project board card you want to unarchive, click **Restore**.
+  ![Select restore project board card](/assets/images/help/projects/restore-card.png)

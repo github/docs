@@ -70,7 +70,7 @@ Name | Description
 &emsp;`read:discussion` | Allows read access for team discussions.{% ifversion fpt or ghae or ghec %}
 **`write:packages`** | Grants access to upload or publish a package in {% data variables.product.prodname_registry %}. For more information, see "[Publishing a package](/github/managing-packages-with-github-packages/publishing-a-package)".
 **`read:packages`** | Grants access to download or install packages from {% data variables.product.prodname_registry %}. For more information, see "[Installing a package](/github/managing-packages-with-github-packages/installing-a-package)".
-**`delete:packages`** | Grants access to delete packages from {% data variables.product.prodname_registry %}. For more information, see "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."{% endif %}
+**`delete:packages`** | Grants access to delete packages from {% data variables.product.prodname_registry %}. For more information, see "{% ifversion fpt or ghes > 3.0 or ghec or ghae %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."{% endif %}
 **`admin:gpg_key`** | Fully manage GPG keys.
 &emsp;`write:gpg_key`| Create, list, and view details for GPG keys.
 &emsp;`read:gpg_key`| List and view details for GPG keys.{% ifversion fpt or ghec %}
