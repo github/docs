@@ -54,13 +54,13 @@ jobs:
         run: npm ci --include=optional
 
       - name: Cache nextjs build
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
       - name: Cache lib/redirects/.redirects-cache_en_ja.json
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: lib/redirects/.redirects-cache_en_ja.json
           key: ${{ runner.os }}-redirects-cache-${{ hashFiles('.github/workflows/browser-test.yml') }}
