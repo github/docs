@@ -87,7 +87,7 @@
     "slash": "^4.0.0",
     "strip-html-comments": "^1.0.0",
     "styled-components": "^5.3.3",
-    "swr": "1.1.0",
+    "swr": "1.1.2",
     "throng": "^5.0.0",
     "ts-dedent": "^2.2.0",
     "unified": "^10.1.0",
