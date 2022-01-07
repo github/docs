@@ -67,3 +67,4 @@ If your organization has a paid per-user subscription, an unused license must be
 ## Further reading
 
 - "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
+.
