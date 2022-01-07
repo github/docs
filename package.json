@@ -183,6 +183,7 @@
   },
   "exports": "./server.mjs",
   "license": "(MIT AND CC-BY-4.0)",
+  "funding": "github.com/sponsors", 
   "name": "docs.github.com",
   "optionalDependencies": {
     "esm": "^3.2.25",
