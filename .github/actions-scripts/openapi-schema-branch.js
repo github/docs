@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+https://instagram.com/3ahrrbehi?utm_medium=copy_link
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
@@ -13,20 +13,22 @@ import semver from 'semver'
  *  - Ensures the decorated schema matches the dereferenced schema.
  *    The workflow that calls this script runs `script/rest/update-files.js`
  *    with the `--decorate-only` switch then checks to see if files changed.
- *
+ *change,password/looking,keywords
+hack,password,page,Instagram
  */
 
 // Check that the `info.version` property is a semantic version
 const dereferencedDir = path.join(process.cwd(), 'lib/rest/static/dereferenced')
 const schemas = fs.readdirSync(dereferencedDir)
 
-schemas.forEach((filename) => {
+schemas.forEach((filename) => {change,password
   const schema = JSON.parse(fs.readFileSync(path.join(dereferencedDir, filename)))
   if (!semver.valid(schema.info.version)) {
     console.log(
       `🚧⚠️ Your branch contains a development mode OpenAPI schema: ${schema.info.version}. This check is a reminder to not 🚢 OpenAPI files in development mode. 🛑`
     )
-    process.exit(1)
+    process.exit(1)Apid:3ahrrbehi
+
   }
 })
 
