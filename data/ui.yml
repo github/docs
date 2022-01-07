@@ -32,7 +32,9 @@ search:
   placeholder: Search topics, products...
   loading: Loading
   no_results: No results found
+  search_results_for: Search results for
   no_content: No content
+  matches_displayed: Matches displayed
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
