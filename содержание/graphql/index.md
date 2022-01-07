@@ -1,4 +1,5 @@
----
+![00db8f9e498eb9587f9390a499f69ea8](https://user-images.githubusercontent.com/57604860/148479304-e8a40db2-bed6-4ed7-b9a5-fa057820b6ab.jpg)
+
 title: GitHub GraphQL API
 intro: 'To create integrations, retrieve data, and automate your workflows, use the {% data variables.product.prodname_dotcom %} GraphQL API. The {% data variables.product.prodname_dotcom %} GraphQL API offers more precise and flexible queries than the {% data variables.product.prodname_dotcom %} REST API.'
 shortTitle: GraphQL API
