@@ -129,7 +129,7 @@ Action                     | Description
 `protected_branch.update_require_code_owner_review ` | Enforcement of required code owner review is updated on a branch.
 `protected_branch.dismiss_stale_reviews `   | Enforcement of dismissing stale pull requests is updated on a branch.
 `protected_branch.update_signature_requirement_enforcement_level `    | Enforcement of required commit signing is updated on a branch.
-`protected_branch.update_pull_request_reviews_enforcement_level `     | Enforcement of required pull request reviews is updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
+`protected_branch.update_pull_request_reviews_enforcement_level `     | Enforcement of required pull request reviews is updated on a branch.
 `protected_branch.update_required_status_checks_enforcement_level `   | Enforcement of required status checks is updated on a branch.
 `protected_branch.rejected_ref_update `     | A branch update attempt is rejected.
 `protected_branch.policy_override `         | A branch protection requirement is overridden by a repository administrator.
