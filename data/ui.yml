@@ -68,6 +68,7 @@ survey:
   required: Required
   email_placeholder: email@example.com
   email_label: If we can contact you with more questions, please enter your email address
+  email_validation: Please enter a valid email address
   send: Send
   feedback: Thank you! We received your feedback.
   not_support: If you need a reply, please contact support instead.

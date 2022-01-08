@@ -17,6 +17,7 @@ export const Survey = () => {
   const { asPath } = useRouter()
   const { t } = useTranslation('survey')
   const [state, setState] = useState<ViewState>(ViewState.START)
+  const [isEmailError, setIsEmailError] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
 
   useEffect(() => {
@@ -33,10 +34,24 @@ export const Survey = () => {
     }
   }
 
+  function handleEmailInputChange() {
+    const emailRegex = /[^@\s.][^@\s]*@\[?[a-z0-9.-]+\]?/i
+    const surveyEmail = getFormData()?.get('survey-email')?.toString()
+
+    if (surveyEmail?.length === 0 || surveyEmail?.match(emailRegex)) {
+      setIsEmailError(false)
+    } else {
+      setIsEmailError(true)
+    }
+  }
+
   function submit(evt: React.FormEvent) {
     evt.preventDefault()
     trackEvent(getFormData())
-    setState(ViewState.END)
+    if (!isEmailError) {
+      setState(ViewState.END)
+      setIsEmailError(false)
+    }
   }
 
   function getFormData() {
@@ -104,7 +119,7 @@ export const Survey = () => {
               id="survey-comment"
             ></textarea>
           </p>
-          <p>
+          <div className={cx('form-group', isEmailError ? 'warn' : '')}>
             <label className="d-block mb-1 f6" htmlFor="survey-email">
               {t`email_label`}
               <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
@@ -115,18 +130,29 @@ export const Survey = () => {
               name="survey-email"
               id="survey-email"
               placeholder={t`email_placeholder`}
+              onChange={handleEmailInputChange}
+              aria-invalid={isEmailError}
+              {...(isEmailError ? { 'aria-describedby': 'email-input-validation' } : {})}
             />
-            <span className="f6 color-fg-muted">{t`not_support`}</span>
-          </p>
+            {isEmailError && (
+              <p className="note warning" id="email-input-validation">
+                {t`email_validation`}
+              </p>
+            )}
+          </div>
+          <span className="f6 color-fg-muted">{t`not_support`}</span>
           <div className="d-flex flex-justify-end flex-items-center mt-3">
             <button
               type="button"
               className="btn btn-sm btn-invisible mr-3"
-              onClick={() => setState(ViewState.START)}
+              onClick={() => {
+                setState(ViewState.START)
+                setIsEmailError(false)
+              }}
             >
               Cancel
             </button>
-            <button type="submit" className="btn btn-sm">
+            <button disabled={isEmailError} type="submit" className="btn btn-sm">
               {t`send`}
             </button>
           </div>
