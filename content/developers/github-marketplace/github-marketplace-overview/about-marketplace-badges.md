@@ -6,6 +6,7 @@ redirect_from:
   - /developers/github-marketplace/about-marketplace-badges
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 ## For GitHub Apps
 

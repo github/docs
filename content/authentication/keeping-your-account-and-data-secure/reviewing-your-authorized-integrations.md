@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -31,6 +32,6 @@ shortTitle: Authorized integrations
    ![List of authorized {% data variables.product.prodname_github_app %}](/assets/images/help/settings/revoke-github-app.png)
 
 ## Further reading
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[About integrations](/articles/about-integrations)"{% endif %}
 - "[Reviewing your authorized applications (OAuth)](/articles/reviewing-your-authorized-applications-oauth)"

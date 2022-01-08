@@ -6,6 +6,7 @@ redirect_from:
 intro: '{% data variables.product.product_name %} 使用您的仓库数据来将您连接到相关工具、人员、项目和信息。'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Policy
   - Legal
@@ -20,7 +21,7 @@ shortTitle: GitHub 对您的数据的使用
 
 {% data reusables.user_settings.export-data %} 更多信息请参阅“[请求个人帐户数据的存档](/articles/requesting-an-archive-of-your-personal-account-s-data)”。
 
-如果您选择使用私人仓库的数据，我们将继续按照[服务条款](/articles/github-terms-of-service/)，将您的私人数据、源代码或商业秘密视为机密和私密。 我们了解的信息只来自汇总的数据。 更多信息请参阅“[管理私有仓库的数据使用设置](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)”。
+如果您选择使用私人仓库的数据，我们将继续按照[服务条款](/free-pro-team@latest/github/site-policy/github-terms-of-service)，将您的私人数据、源代码或商业秘密视为机密和私密。 我们了解的信息只来自汇总的数据。 更多信息请参阅“[管理私有仓库的数据使用设置](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)”。
 
 我们会在 [{% data variables.product.prodname_dotcom %} 博客](https://github.com/blog)中宣布使用元数据或汇总数据的重要新功能。
 
@@ -34,6 +35,6 @@ shortTitle: GitHub 对您的数据的使用
 
 ## 隐私和数据共享
 
-私有仓库数据由电脑扫描，{% data variables.product.product_name %} 员工不能查看。 除了我们[服务条款](/articles/github-terms-of-service/#3-access)中所述的内容之外，绝不会有人查看私有仓库的内容。
+私有仓库数据由电脑扫描，{% data variables.product.product_name %} 员工不能查看。 除了我们[服务条款](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access)中所述的内容之外，绝不会有人查看私有仓库的内容。
 
 您的个别人员或仓库数据不会与第三方共享。 我们可能与合作伙伴共享分析后获得的汇总数据。

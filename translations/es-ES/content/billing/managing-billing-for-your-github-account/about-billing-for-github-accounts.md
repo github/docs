@@ -1,6 +1,6 @@
 ---
 title: Acerca de la facturación para las cuentas de GitHub
-intro: '{% data variables.product.product_name %} ofrece productos gratuitos y pagos para cada programador o equipo.'
+intro: '{% data variables.product.company_short %} ofrece productos gratuitos y pagos para cada programador o equipo.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
   - /articles/what-is-the-total-cost-of-using-an-organization-account/
@@ -14,6 +14,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-billing-for-github-accounts
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Accounts
@@ -23,7 +24,7 @@ topics:
 shortTitle: Acerca de la facturación
 ---
 
-Para obtener más información sobre los productos disponibles para tu cuenta, consulta los productos de"[{% data variables.product.product_name %}](/articles/github-s-products)". Puedes ver los precios y una lista completa de las funciones de cada producto en <{% data variables.product.pricing_url %}>. {% data variables.product.product_name %} no ofrece productos personalizados ni suscripciones.
+Para obtener más información sobre los productos disponibles para tu cuenta, consulta los productos de"[{% data variables.product.prodname_dotcom %}](/articles/github-s-products)". Puedes ver los precios y una lista completa de las funciones de cada producto en <{% data variables.product.pricing_url %}>. {% data variables.product.product_name %} no ofrece productos personalizados ni suscripciones.
 
 Puedes elegir una facturación mensual o anual y puedes actualizar o bajar de categoría tu suscripción en cualquier momento. Para obtener más información, consulta "[Administrar la facturación para tu cuenta de {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)".
 

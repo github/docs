@@ -3,6 +3,7 @@ title: 管理贡献者如何报告组织仓库中的滥用行为
 intro: 您可以允许贡献者直接向仓库维护员报告破坏行为。
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:

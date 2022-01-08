@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ![返信テンプレート](/assets/images/help/settings/saved-replies.png)

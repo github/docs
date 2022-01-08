@@ -5,10 +5,11 @@ intro: '您可以通过在讨论中与项目的维护者沟通，为 {% data var
 permissions: 'People with read access to a repository can start and participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 
-## About collaboration with maintainers using {% data variables.product.prodname_discussions %}
+## 关于使用 {% data variables.product.prodname_discussions %} 与维护者的协作
 
 {% data reusables.discussions.about-discussions %} 如果您使用或参与某个项目，可以发起讨论，以提出建议，并就您的计划、问题、想法和反馈与维护者及社区成员进行互动。 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
@@ -24,7 +25,7 @@ versions:
 
 ## 基本要求
 
-To collaborate with maintainers in discussions, a repository administrator or project maintainer must enable {% data variables.product.prodname_discussions %} for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+要在讨论中与维护者合作，仓库管理员或项目维护者必须为仓库启用 {% data variables.product.prodname_discussions %}。 更多信息请参阅“[为仓库启用或禁用 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
 
 ## 开始讨论
 

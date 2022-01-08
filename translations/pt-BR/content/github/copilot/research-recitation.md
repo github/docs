@@ -132,10 +132,10 @@ Esta pesquisa de duplicação ainda não está integrada à pré-visualização 
 
 <a name="footnote5">5</a>: jaeteekae: [DelayedTwitter](https://github.com/jaeteekae/DelayedTwitter/blob/0a0b03de74c03cfbf36877ffded0cb1312d59642/get_top_twitter_accounts.py#L21) [^](#anchor5)
 
-<a name="footnote6">6</a>: Probably not _too_ many though. I’ve asked some developers to help me label the cases, and everyone was prompted to flag up any uncertainty with their judgement. That happened in only 34 cases, i.e. less than 10%. [^](#anchor6)
+<a name="footnote6">6</a>: Probably not _too_ many though. Pedi a alguns desenvolvedores que me ajudassem a etiquetar os casos e todos foram convidados a sinalizar qualquer incerteza com seu julgamento. Isso aconteceu apenas em 34 casos, ou seja, menos de 10%. [^](#anchor6)
 
-<a name="footnote7">7</a>: In the [public dataset](/assets/images/help/copilot/matched_snippets.csv), I list the part of Copilot's suggestion that was also found in the training set, how often it was found, and a link to an example where it occurs in public code. For privacy reasons, I don't include the not-matched part of the completion or the code context the user had typed (only an indication of its length). [^](#anchor7)
+<a name="footnote7">7</a>: No [conjunto de dados público](/assets/images/help/copilot/matched_snippets.csv), eu listo a parte da sugestão do Copilot que também foi encontrada no conjunto de treinamento, quantas vezes foi encontrada e um link para um exemplo onde ocorre no código público. Por motivos de privacidade, eu não incluo a parte não correspondente da conclusão ou o contexto do código que o usuário digitou (apenas uma indicação do seu comprimento). [^](#anchor7)
 
-<a name="footnote8">8</a>: In fact, since this experiment has been made, {% data variables.product.prodname_dotcom %} Copilot _has_ changed to require a minimum file content. So some of the suggestions flagged here would not have been shown by the current version. [^](#anchor8)
+<a name="footnote8">8</a>: De fato, desde que este experimento foi realizado, o Copiloto de {% data variables.product.prodname_dotcom %} _mudou_ para exigir um conteúdo mínimo de arquivo. Por conseguinte, algumas das sugestões aqui sinalizadas não teriam sido apresentadas pela versão atual. [^](#anchor8)
 
-<a name="footnote9">9</a>: For example jenevans33: [CS8803-1](https://github.com/jenevans33/CS8803-1/blob/eca1bbc27ca6f7355dbc806b2f95964b59381605/src/Final/ekfcode.py#L23) [^](#anchor9)
+<a name="footnote9">9</a>: Por exemplo, jenevans33: [CS8803-1](https://github.com/jenevans33/CS8803-1/blob/eca1bbc27ca6f7355dbc806b2f95964b59381605/src/Final/ekfcode.py#L23) [^](#anchor9)

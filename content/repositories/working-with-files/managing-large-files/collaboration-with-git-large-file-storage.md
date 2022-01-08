@@ -2,7 +2,7 @@
 title: Collaboration with Git Large File Storage
 intro: 'With {% data variables.large_files.product_name_short %} enabled, you''ll be able to fetch, modify, and push large files just as you would expect with any file that Git manages. However, a user that doesn''t have {% data variables.large_files.product_name_short %} will experience a different workflow.'
 redirect_from:
-  - /articles/collaboration-with-large-file-storage/
+  - /articles/collaboration-with-large-file-storage
   - /articles/collaboration-with-git-large-file-storage
   - /github/managing-large-files/collaboration-with-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/collaboration-with-git-large-file-storage
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Collaboration
 ---
 If collaborators on your repository don't have {% data variables.large_files.product_name_short %} installed, they won't have access to the original large file. If they attempt to clone your repository, they will only fetch the pointer files, and won't have access to any of the actual data.
@@ -28,9 +29,9 @@ If collaborators on your repository don't have {% data variables.large_files.pro
 
 For more information about pointer files, see "[About {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)."
 
-To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[Checking out pull requests locally](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."
+To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[Checking out pull requests locally](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Pushing large files to forks
 

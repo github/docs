@@ -1,6 +1,6 @@
 ---
 title: Pesquisar em bifurcações
-intro: 'Por padrão, [forks](/articles/about-forks) não são mostradas nos resultados da pesquisa. Você poderá optar por incluí-las nas pesquisas de repositórios e nas pesquisas de códigos se elas atenderem a determinados critérios.'
+intro: 'By default, [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) are not shown in search results. Você poderá optar por incluí-las nas pesquisas de repositórios e nas pesquisas de códigos se elas atenderem a determinados critérios.'
 redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -28,5 +29,5 @@ O qualificador `fork:true` localiza todos os resultados que correspondem à sua 
 
 ## Leia mais
 
-- "[Sobre bifurcações](/articles/about-forks)"
+- "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[Sobre a pesquisa no GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"

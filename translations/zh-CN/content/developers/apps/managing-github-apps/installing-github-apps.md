@@ -1,6 +1,6 @@
 ---
 title: 安装 GitHub 应用程序
-intro: '当您的应用程序公开时， 任何人都可以使用 {% ifversion fpt %} {% data variables.product.prodname_marketplace %} 或 {% endif %}安装 URL 在其仓库中安装该应用程序。 当您的应用程序为私有时，只有您能将该应用程序安装在您自己的仓库中。'
+intro: '当您的应用程序公开时， 任何人都可以使用 {% ifversion fpt or ghec %} {% data variables.product.prodname_marketplace %} 或 {% endif %}安装 URL 在其仓库中安装该应用程序。 当您的应用程序为私有时，只有您能将该应用程序安装在您自己的仓库中。'
 redirect_from:
   - /apps/installing-github-apps
   - /developers/apps/installing-github-apps
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
@@ -28,7 +29,7 @@ topics:
 4. 将应用程序安装在所有仓库或所选仓库中。 ![应用程序安装权限](/assets/images/install_permissions.png)
 5. 安装后，您将在所选帐户上看到应用程序的配置选项。 您可以在这里进行更改，或重复前面的步骤将应用程序安装到其他帐户上。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 在 GitHub Marketplace 中提供您的应用程序
 
 您可以在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 中提供应用程序的付费或免费版本，用户可以在其中搜索您的应用程序并查看其详细信息。 {% data variables.product.prodname_marketplace %} 在订单完成后会自动安装 GitHub 应用程序。

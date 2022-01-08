@@ -4,14 +4,14 @@ sections:
   security_fixes:
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
-    - 'Custom pre-receive hooks could lead to an error like `error: object directory /data/user/repositories/0/nw/12/34/56/7890/network.git/objects does not exist; check .git/objects/info/alternates`.'
-    - Unauthenticated HTTP proxy for the pages containers build was not supported for any users that use HTTP proxies.
-    - A significant number of 503 errors were logged every time a user visited a repository''s `/settings` page if the dependency graph was not enabled.
-    - Internal repositories were only returned when a user had affiliations with the repository through a team or through collaborator status, or queried with the `?type=internal` parameter.
-    - Failed background jobs had unlimited retries which could cause large queue depths.
-    - A significant number of 503 errors were being created if the scheduled job to sync vulnerabilities with GitHub.com attempted to run when dependency graph was not enabled and content analysis was enabled.
+    - 'Os hooks pre-receive personalizados podem gerar um erro como `error: object directory /data/user/repositories/0/nw/12/34/56/7890/network.git/objects does not exist; check .git/objects/info/alternates`.'
+    - O Proxy de HTTP não autenticado para a compilação de páginas não era compatível com usuários que usam o proxy HTTP.
+    - Um número significativo de erros 503 foram registrados toda vez que um usuário visitou a página `/settings` de um repositório se o gráfico de dependência não estava habilitado.
+    - Os repositórios internos só foram retornados quando o usuário tinha afiliações com o repositório por meio de uma equipe ou por meio do status de colaborador, ou consultado o parâmetro `?type=internal`.
+    - Os trabalhos em segundo plano falharam tiveram tentativas ilimitadas que poderiam causar grandes filas muito grandes.
+    - Um número significativo de erros de 503 estavam sendo criados se o trabalho programado para sincronizar vulnerabilidades com o GitHub tentasse executar quando o gráfico de dependência não foi habilitado e a análise de conteúdo foi habilitada.
   changes:
-    - The logs for `babeld` now include a `cmd` field for HTTP ref advertisement requests instead of only including it during the negotiation requests.
+    - Os registros para `babeld` agora incluem um campo `cmd` para solicitações de publicidade de ref de HTTP em vez de apenas incluí-lo durante as solicitações de negociação.
   known_issues:
     - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.
@@ -19,4 +19,4 @@ sections:
     - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
     - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
     - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

@@ -4,6 +4,7 @@ intro: '特定の言語のセットアップや構成など、{% data variables.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 children:
   - /quickstart
   - /deep-dive

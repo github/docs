@@ -10,6 +10,7 @@ redirect_from:
   - /developers/github-marketplace/receiving-payment-for-app-purchases
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Recibir pagos
@@ -23,6 +24,6 @@ Para las transacciones que se realicen antes del 1 de enero de 2021, {% data var
 
 {% note %}
 
-**Nota:** Para obtener más detalles de los precios y condiciones de pago actuales, consulta la sección "[acuerdo de desarrollador de {% data variables.product.prodname_marketplace %}](/github/site-policy/github-marketplace-developer-agreement)".
+**Nota:** Para obtener más detalles de los precios y condiciones de pago actuales, consulta la sección "[acuerdo de desarrollador de {% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)".
 
 {% endnote %}

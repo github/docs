@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -40,5 +41,5 @@ children:
 shortTitle: Organizationの設定の管理
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% endif %}

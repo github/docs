@@ -9,6 +9,7 @@ redirect_from:
   - /developers/github-marketplace/handling-new-purchases-and-free-trials
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Compras nuevas & periodos de prueba gratuitos

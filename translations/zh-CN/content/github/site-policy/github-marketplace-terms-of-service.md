@@ -47,7 +47,7 @@ Marketplace 由 GitHub 提供，受
 
 **计费计划；不退款。**付款计划取决于您在创建 GitHub 帐户时所选择的付款计划（例如免费、每月、每年）。 对于每月或每年付款计划，Marketplace 购买分别按月或按年预先计费，并且不可退款。 对于只使用部分服务、降级使用或未使用的月数，将不予退款，也没有积分补偿；但是，服务将在已付费的计费周期内保持有效。 如果要取消开发者产品服务，您可以通过屏幕顶部全局导航栏中的 Settings（设置）来取消。
 
-If you would have a question, concern, or dispute regarding your billing, please contact [GitHub Support](https://support.github.com/contact?tags=docs-policy).
+如果您对帐单有任何疑问、疑虑或异议，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-policy)。
 
 
 
@@ -107,4 +107,4 @@ GitHub.com 会不时检查远程服务器（由 GitHub 或第三方托管）上�
 
 6. **GitHub 政策的许可。**这些 Marketplace 条款的许可采用[知识共享零许可](https://creativecommons.org/publicdomain/zero/1.0/)原则。 更多信息请参阅我们的[站点政策仓库](https://github.com/github/site-policy#license)。
 
-7. **联系我们。**对 Marketplace 条款有疑问吗？ [Contact us](https://support.github.com/contact?tags=docs-policy).
+7. **联系我们。**对 Marketplace 条款有疑问吗？ [联系我们](https://support.github.com/contact?tags=docs-policy)。

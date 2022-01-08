@@ -2,7 +2,7 @@
 title: Advanced configuration and troubleshooting
 intro: 'Configure high availability for {% data variables.product.prodname_actions %}, and troubleshoot {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}.'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 topics:
   - Enterprise
 children:

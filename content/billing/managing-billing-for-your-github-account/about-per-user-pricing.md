@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-per-user-pricing
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Licensing

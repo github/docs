@@ -4,6 +4,7 @@ intro: 指导您创建易于使用和理解的应用程序。
 shortTitle: 客户体验最佳实践
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 redirect_from:

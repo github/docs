@@ -9,12 +9,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: 组织成员资格
 ---
 
-组织所有者可邀请您作为成员、帐单管理员或所有者加入其组织。 组织所有者或者对仓库具有管理员权限的成员可邀请您作为外部协作者，协作处理一个或多个仓库。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
+组织所有者可邀请您作为成员、帐单管理员或所有者加入其组织。 组织所有者或者对仓库具有管理员权限的成员可邀请您作为外部协作者，协作处理一个或多个仓库。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 您可以在个人资料页面上访问您是其成员的组织。 更多信息请参阅“[访问组织](/articles/accessing-an-organization)”。
 
@@ -38,9 +39,9 @@ shortTitle: 组织成员资格
 
 默认情况下，您的组织成员资格可见性会设为私密。 您可以选择在您的个人资料中公开个人组织成员资格。 更多信息请参阅“[公开或隐藏组织成员资格](/articles/publicizing-or-hiding-organization-membership)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-如果您的组织属于某个企业帐户，您会自动成为该企业帐户的成员，企业帐户所有者能够看到您。 更多信息请参阅“[关于企业帐户](/articles/about-enterprise-accounts)”。
+如果您的组织属于某个企业帐户，您会自动成为该企业帐户的成员，企业帐户所有者能够看到您。 更多信息请参阅“[关于企业帐户](/admin/overview/about-enterprise-accounts)”。
 
 {% endif %}
 

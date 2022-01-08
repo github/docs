@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de erros de clonagem
-intro: 'If you''re having trouble cloning a repository, check these common errors.'
+intro: 'Se você tiver problemas para clonar um repositório, verifique estes erros mais comuns.'
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403
   - /articles/error-the-requested-url-returned-error-401
@@ -16,6 +16,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -92,7 +93,7 @@ Se você configurou as chaves SSH previamente, é possível usar a URL clone SSH
 
 ## Erro: repositório não encontrado
 
-{% ifversion fpt or ghae %}Se você vir este erro ao clonar um repositório, significa que o repositório não existe ou que você não tem permissão para acessá-lo.{% else %}Se você vir este erro ao clonar um repositório, significa que o repositório não existe, você não tem permissão para acessá-lo ou {% data variables.product.product_location %} está em modo privado.{% endif %} Existem algumas soluções para este erro, dependendo da causa.
+{% ifversion fpt or ghae or ghec %}Se você vir este erro ao clonar um repositório, significa que o repositório não existe ou que você não tem permissão para acessá-lo.{% else %}Se você vir este erro ao clonar um repositório, significa que o repositório não existe, você não tem permissão para acessá-lo ou {% data variables.product.product_location %} está em modo privado.{% endif %} Existem algumas soluções para este erro, dependendo da causa.
 
 ### Verifique a ortografia
 

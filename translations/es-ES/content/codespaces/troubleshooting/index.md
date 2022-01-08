@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 intro: 'Estas guías te proporcionan información para solucionar los problemas de los {% data variables.product.prodname_codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /codespaces/codespaces-reference/troubleshooting-your-codespace
   - /github/developing-online-with-github-codespaces/troubleshooting-your-codespace

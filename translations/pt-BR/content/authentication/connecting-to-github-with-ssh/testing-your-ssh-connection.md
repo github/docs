@@ -1,6 +1,6 @@
 ---
 title: Testar a conexão SSH
-intro: 'Depois de configurar a chave SSH e adicioná-la à sua conta do {% data variables.product.product_name %}, você pode testar a conexão.'
+intro: 'Depois de configurar sua chave SSH e adicioná-la à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá testar a sua conexão.'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Teste sua conexão SSH
@@ -36,7 +37,7 @@ Quando você testar a conexão, precisará autenticar essa ação usando sua sen
   > Tem certeza de que deseja continuar com a conexão (sim/não)?
   ```
 
-3. Verifique se a impressão digital na mensagem em que você vê correspondências com {% ifversion fpt %}[{% data variables.product.prodname_dotcom %} é da chave pública de RSA de](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} é da chave pública da sua empresa{% endif %}. Se isso acontecer, digite `sim`:
+3. Verifique se a impressão digital na mensagem em que você vê correspondências com {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} é da chave pública de RSA de](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} é da chave pública da sua empresa{% endif %}. Se isso acontecer, digite `sim`:
   ```shell
   > Olá, <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

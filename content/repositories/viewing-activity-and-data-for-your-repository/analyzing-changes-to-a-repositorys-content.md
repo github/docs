@@ -1,6 +1,6 @@
 ---
 title: Analyzing changes to a repository's content
-intro: "You can see the changes to the content of a repository by analyzing the repository's commits, commit frequency, and content additions and deletions."
+intro: 'You can see the changes to the content of a repository by analyzing the repository''s commits, commit frequency, and content additions and deletions.'
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/visualizing-additions-and-deletions-to-content-in-a-repository
@@ -17,6 +17,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Analyze changes
@@ -45,7 +46,7 @@ The bottom graph shows the average number of commits by day of the week for the 
 
 The code frequency graph displays the content additions and deletions for each week in a repository's history.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![Code frequency graph](/assets/images/help/graphs/repo_code_frequency_graph_dotcom.png)
 

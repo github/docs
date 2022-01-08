@@ -9,9 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Projects
+  - Issues
+  - Project management
 shortTitle: 配置自动化
+type: how_to
 ---
 
 {% data reusables.projects.project_boards_old %}

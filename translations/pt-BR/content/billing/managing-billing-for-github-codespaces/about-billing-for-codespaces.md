@@ -5,6 +5,7 @@ intro: 'Veja os preços e como gerenciar a cobrança de {% data variables.produc
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
@@ -18,7 +19,14 @@ O uso de {% data variables.product.prodname_codespaces %} é cobrado para todas 
 
 O uso de {% data variables.product.prodname_codespaces %} é cobrado de acordo com as unidades de medida na tabela a seguir:
 
- Produto              | SKU      | Unidade de medida | Preço | | ------------------- | -------- | --------------- | ----- | | Codespaces Compute  |  2 núcleos  | 1 hora          | US$ 0,18 | |                     |  4 núcleos  | 1 hora          | US$ 0,36 | |                     |  8 núcleos  | 1 hora          | US$ 0,72 | |                     |  16 núcleos | 1 hora          | US$ 1,44 | |                     |  32 núcleos | 1 hora          | US$ 2,88 | | Codespaces Storage  |  Armazenamento | 1 GB por mês      | US$ 0,07 |
+| Produto                     | SKU           | Unidade de medida | Preço  |
+| --------------------------- | ------------- | ----------------- | ------ |
+| Cálculo de codespace        | 2 núcleos     | 1 hora            | $ 0,18 |
+|                             | 4 núcleos     | 1 hora            | $ 0,36 |
+|                             | 8 núcleos     | 1 hora            | $ 0,72 |
+|                             | 16 núcleos    | 1 hora            | $ 1,44 |
+|                             | 32 núcleos    | 1 hora            | $ 2,88 |
+| Armazenamento de codespaces | Armazenamento | 1 GB por mês      | $ 0,07 |
 
 ## Sobre a cobrança do {% data variables.product.prodname_codespaces %}
 
@@ -26,7 +34,9 @@ O uso de {% data variables.product.prodname_codespaces %} é cobrado de acordo c
 
 Se uso de {% data variables.product.prodname_codespaces %} compartilha a data de cobrança, o método de pagamento e o recibo que já existem para sua conta. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o seu ID de assinatura do Azure à sua conta corporativa para habilitar e pagar o uso de {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
+{% ifversion ghec %}
+Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o seu ID de assinatura do Azure à sua conta corporativa para habilitar e pagar o uso de {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
+{% endif %}
 
 {% data reusables.dotcom_billing.pricing_cal %}
 

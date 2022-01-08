@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -70,6 +71,7 @@ Manage [projects](/rest/reference/projects).
 **Announced:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/)
 **Update:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Commit search
 
@@ -77,6 +79,8 @@ Manage [projects](/rest/reference/projects).
 
 **Custom media type:** `cloak-preview`
 **Announced:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
+{% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Repository topics
 
@@ -84,7 +88,7 @@ View a list of [repository topics](/articles/about-topics/) in [calls](/rest/ref
 
 **Custom media type:** `mercy-preview`
 **Announced:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Codes of conduct
@@ -106,6 +110,7 @@ Enables [global webhooks](/rest/reference/enterprise-admin#global-webhooks/) for
 
 {% endif %}
 
+{% ifversion ghes < 3.3 %}
 
 ## Require signed commits
 
@@ -113,7 +118,7 @@ You can now use the API to manage the setting for [requiring signed commits on p
 
 **Custom media type:** `zzzax-preview`
 **Announced:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Require multiple approving reviews
@@ -125,14 +130,6 @@ You can now [require multiple approving reviews](/rest/reference/repos#branches)
 
 {% endif %}
 
-{% ifversion ghes < 3.0 %}
-## Check runs and check suites API
-
-Allows a GitHub App to run external checks on a repository's code. See the [Check runs](/rest/reference/checks#runs) and [Check suites](/rest/reference/checks#suites) APIs for more details.
-
-**Custom media type:** `antiope-preview`
-**Announced:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
-{% endif %}
 
 {% ifversion ghes %}
 
@@ -154,7 +151,7 @@ The REST API responses for [issue events](/rest/reference/issues#events) and [is
 **Announced:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## GitHub App Manifests
 
@@ -168,7 +165,7 @@ GitHub App Manifests allow people to create preconfigured GitHub Apps. See "[Cre
 
 ## Deployment statuses
 
-You can now update the `environment` of a [deployment status](/rest/reference/repos#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
+You can now update the `environment` of a [deployment status](/rest/reference/deployments#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
 
 **Custom media type:** `flash-preview`
 **Announced:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
@@ -186,6 +183,7 @@ You can now configure whether organization members can create repositories and w
 
 {% endif %}
 
+{% ifversion ghes < 3.4 %}
 ## Content attachments
 
 You can now provide more information in GitHub for URLs that link to registered domains by using the {% data variables.product.prodname_unfurls %} API. See "[Using content attachments](/apps/using-content-attachments/)" for more details.
@@ -193,7 +191,8 @@ You can now provide more information in GitHub for URLs that link to registered 
 **Custom media types:** `corsair-preview`
 **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
-{% ifversion ghes < 3.3 %}
+{% endif %}
+{% ifversion ghae or ghes < 3.3 %}
 
 ## Enable and disable Pages
 
@@ -225,6 +224,7 @@ You can use a new endpoint to [update a pull request branch](/rest/reference/pul
 **Announced:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Create and use repository templates
 
@@ -232,7 +232,7 @@ You can use a new endpoint to [Create a repository using a template](/rest/refer
 
 **Custom media types:** `baptiste-preview`
 **Announced:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## New visibility parameter for the Repositories API

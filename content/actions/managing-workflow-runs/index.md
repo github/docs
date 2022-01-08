@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /manually-running-a-workflow
   - /re-running-workflows-and-jobs

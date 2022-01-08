@@ -1,13 +1,14 @@
 ---
-title: Sharing workflows, secrets, and runners with your organization
+title: 'Sharing workflows, secrets, and runners with your organization'
 shortTitle: Sharing workflows with your organization
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing workflow templates, secrets, and self-hosted runners.'
+intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflow, secrets, and self-hosted runners.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 ---
 
@@ -16,11 +17,11 @@ type: how_to
 
 ## Overview
 
-If you need to share workflows and other {% data variables.product.prodname_actions %} features with your team, then consider collaborating within a {% data variables.product.prodname_dotcom %} organization. An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. You can also create workflow templates in the `.github` repository and share them with other users in your organization.
+If you need to share workflows and other {% data variables.product.prodname_actions %} features with your team, then consider collaborating within a {% data variables.product.prodname_dotcom %} organization. An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. You can also create starter workflow in the `.github` repository and share them with other users in your organization.
 
-## Using workflow templates
+## Using starter workflows
 
-{% data reusables.actions.workflow-organization-templates %} For more information, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."
+{% data reusables.actions.workflow-organization-templates %} For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
 
 {% data reusables.actions.reusable-workflows %}
 
@@ -50,4 +51,4 @@ For more information, see "[Managing access to self-hosted runners using groups]
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."

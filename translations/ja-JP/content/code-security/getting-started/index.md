@@ -4,8 +4,9 @@ shortTitle: はじめましょう
 intro: '{% data variables.product.product_name %}のコードセキュリティの紹介'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
   - Dependencies

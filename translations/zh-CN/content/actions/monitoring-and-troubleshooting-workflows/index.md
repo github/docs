@@ -1,6 +1,6 @@
 ---
 title: Monitoring and troubleshooting workflows
-shortTitle: 监控和故障排除
+shortTitle: Monitor & troubleshoot
 intro: 'You can view the status and results of each step in your workflow, debug a failed workflow, search and download logs, and view billable job execution minutes.'
 redirect_from:
   - /articles/viewing-your-repository-s-workflows
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /about-monitoring-and-troubleshooting
   - /using-the-visualization-graph
@@ -19,6 +20,5 @@ children:
   - /enabling-debug-logging
   - /notifications-for-workflow-runs
 ---
-
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}

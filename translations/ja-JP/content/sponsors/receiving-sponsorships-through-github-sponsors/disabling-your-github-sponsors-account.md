@@ -3,6 +3,7 @@ title: GitHub Sponsors アカウントを無効にする
 intro: '今後 {% data variables.product.prodname_sponsors %} に参加しない場合は、{% data variables.product.prodname_sponsors %} アカウントを無効にすることができます。'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source

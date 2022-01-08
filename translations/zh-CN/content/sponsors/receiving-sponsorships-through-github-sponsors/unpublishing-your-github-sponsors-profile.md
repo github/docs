@@ -3,6 +3,7 @@ title: 取消发布您的 GitHub Sponsors 个人资料
 intro: '如果您没有任何赞助者，您可以取消发布您的 {% data variables.product.prodname_sponsors %} 个人资料。'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source

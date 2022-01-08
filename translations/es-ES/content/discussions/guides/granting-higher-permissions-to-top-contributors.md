@@ -3,6 +3,7 @@ title: Otorgar permisos superiores a los contribuyentes principales
 intro: Los administradores de repositorio pueden promover a cualquier miembro de la comunidad para que sea un moderador o un mantenedor.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Otorgar permisos mayores
 ---
 

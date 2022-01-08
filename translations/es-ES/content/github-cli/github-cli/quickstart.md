@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - CLI
 type: overview
@@ -25,7 +26,7 @@ shortTitle: Inicio Rápido
   gh auth login
   ```
 
-  {% ifversion not fpt %}
+  {% ifversion not fpt or ghec %}
   Para autenticarte en {% data variables.product.product_location %}, utiliza el marcador `--hostname`.
 
   ```shell

@@ -1,12 +1,13 @@
 ---
 title: Markdown
-intro: The Markdown API enables you to render a markdown document as an HTML page or as raw text.
+intro: Markdown API 可让您渲染 markdown 文档作为 HTML 页面或原始文本。
 redirect_from:
   - /v3/markdown
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

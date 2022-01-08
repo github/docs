@@ -5,6 +5,7 @@ redirect_from:
   - /v4/guides/using-the-explorer
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -13,7 +14,7 @@ topics:
 
 ## 关于 GraphQL Explorer
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 [GraphQL Explorer](/graphql/overview/explorer) 是 [GraphiQL](https://github.com/graphql/graphiql) -“浏览器内的图形交互式 GraphQL IDE”- 的实例。
 

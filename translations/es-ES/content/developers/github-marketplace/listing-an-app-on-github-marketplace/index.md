@@ -12,6 +12,7 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 children:

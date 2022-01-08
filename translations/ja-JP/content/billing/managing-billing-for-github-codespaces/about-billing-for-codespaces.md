@@ -5,6 +5,7 @@ intro: 'View pricing and see how to manage {% data variables.product.prodname_co
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
@@ -18,7 +19,14 @@ topics:
 
 {% data variables.product.prodname_codespaces %} usage is billed according to the units of measure in the following table:
 
- Product              | SKU      | Unit of measure | Price | | ------------------- | -------- | --------------- | ----- | | Codespaces Compute  |  2 core  | 1 hour          | $0.18 | |                     |  4 core  | 1 hour          | $0.36 | |                     |  8 core  | 1 hour          | $0.72 | |                     |  16 core | 1 hour          | $1.44 | |                     |  32 core | 1 hour          | $2.88 | | Codespaces Storage  |  Storage | 1 GB-month      | $0.07 |
+| 製品                 | SKU   | Unit of measure | Price |
+| ------------------ | ----- | --------------- | ----- |
+| Codespaces Compute | 2コア   | 1 hour          | $0.18 |
+|                    | 4コア   | 1 hour          | $0.36 |
+|                    | 8コア   | 1 hour          | $0.72 |
+|                    | 16コア  | 1 hour          | $1.44 |
+|                    | 32コア  | 1 hour          | $2.88 |
+| Codespaces Storage | ストレージ | 1 GB-month      | $0.07 |
 
 ## {% data variables.product.prodname_codespaces %}の支払いについて
 
@@ -26,7 +34,9 @@ topics:
 
 {% data variables.product.prodname_codespaces %} の利用については、アカウントの既存の請求日、支払い方法、領収書が共有されます。 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
+{% ifversion ghec %}
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
+{% endif %}
 
 {% data reusables.dotcom_billing.pricing_cal %}
 

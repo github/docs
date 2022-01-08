@@ -4,6 +4,7 @@ intro: '{% data variables.product.product_name %} について学び、{% ifvers
 redirect_from:
   - /enterprise/admin/overview
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 children:
@@ -13,6 +14,7 @@ children:
   - /about-enterprise-accounts
   - /system-overview
   - /about-the-github-enterprise-api
+  - /creating-an-enterprise-account
 ---
 
 詳しい情報または {% data variables.product.prodname_enterprise %} の購入については [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) を参照してください。

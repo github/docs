@@ -4,6 +4,7 @@ intro: 'Você pode categorizar, destacar e transferir ou excluir as discussões 
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Gerenciar discussões
 ---
 

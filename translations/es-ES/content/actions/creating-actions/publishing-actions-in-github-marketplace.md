@@ -1,13 +1,13 @@
 ---
 title: Publicar acciones en GitHub Marketplace
 intro: 'Puedes publicar acciones en {% data variables.product.prodname_marketplace %} y compartir acciones que has creado con la comunidad de {% data variables.product.prodname_dotcom %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 shortTitle: Publicar en GitHub Marketplace
 ---

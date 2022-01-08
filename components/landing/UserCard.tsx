@@ -8,7 +8,7 @@ type Props = {
 export const UserCard = ({ user, href }: Props) => {
   return (
     <a
-      className="Box d-flex height-full color-shadow-medium hover-shadow-large no-underline color-text-primary p-4"
+      className="Box d-flex height-full color-shadow-medium hover-shadow-large no-underline color-fg-default p-4"
       href={href || `https://github.com/${user.username}`}
     >
       <div className="flex-shrink-0 mr-3">
@@ -20,7 +20,7 @@ export const UserCard = ({ user, href }: Props) => {
       </div>
       <div className="flex-auto">
         <h4>{user.username}</h4>
-        <p className="mt-1 color-text-tertiary">{user.description}</p>
+        <p className="mt-1 color-fg-muted">{user.description}</p>
       </div>
     </a>
   )

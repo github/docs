@@ -3,6 +3,7 @@ title: Managing spending limits for Codespaces
 intro: 'You can set a spending limit for {% data variables.product.prodname_codespaces %} usage.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
@@ -22,8 +23,10 @@ Once you've reached your spending limit, your organization or repository will no
 
 For more information about pricing for {% data variables.product.prodname_codespaces %} usage, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
 
+{% ifversion ghec %}
 ## Using your Azure Subscription
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+{% endif %}
 
 ## Managing the spending limit for {% data variables.product.prodname_codespaces %} for your organization
 

@@ -2,11 +2,11 @@
 title: About repository languages
 intro: The files and directories within a repository determine the languages that make up the repository. You can view a repository's languages to get a quick overview of the repository.
 redirect_from:
-  - /articles/my-repository-is-marked-as-the-wrong-language/
-  - /articles/why-isn-t-my-favorite-language-recognized/
-  - /articles/my-repo-is-marked-as-the-wrong-language/
-  - /articles/why-isn-t-sql-recognized-as-a-language/
-  - /articles/why-isn-t-my-favorite-language-recognized-by-github/
+  - /articles/my-repository-is-marked-as-the-wrong-language
+  - /articles/why-isn-t-my-favorite-language-recognized
+  - /articles/my-repo-is-marked-as-the-wrong-language
+  - /articles/why-isn-t-sql-recognized-as-a-language
+  - /articles/why-isn-t-my-favorite-language-recognized-by-github
   - /articles/about-repository-languages
   - /github/creating-cloning-and-archiving-repositories/about-repository-languages
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repository-languages
@@ -14,6 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Repository languages

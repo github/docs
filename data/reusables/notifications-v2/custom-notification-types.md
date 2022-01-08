@@ -2,4 +2,4 @@
 issues, pulls requests, releases, security alerts, or discussions
 {%- else %}issues, pull requests, releases, or discussions
 {% endif %}
-<!-- `else1` statement probably not picked up by GHES 3.1 deprecation script. Will need to review here -->
+<!-- `else` statement probably not picked up by GHES 3.1 deprecation script. Will need to review here -->

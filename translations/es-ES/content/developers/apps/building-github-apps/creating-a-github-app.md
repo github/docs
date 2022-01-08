@@ -10,13 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
 
-{% ifversion fpt %}Para aprender cómo utilizar los manifiestos de las GitHub Apps, lo cual permite a las personas crear GitHub Apps preconfiguradas, consulta la sección "[Crear GitHub Apps a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)".{% endif %}
+{% ifversion fpt or ghec %}Para aprender cómo utilizar los manifiestos de las GitHub Apps, lo cual permite a las personas crear GitHub Apps preconfiguradas, consulta la sección "[Crear GitHub Apps a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)".{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **Nota:** {% data reusables.apps.maximum-github-apps-allowed %}
@@ -34,7 +35,7 @@ topics:
 
 1. Opcionalmente, en "Descripción", teclea la descripción de tu app que verán los usuarios. ![Campo para agregar una descripción de tu GitHub App](/assets/images/github-apps/github_apps_description.png)
 1. En "URL de la página principal", teclea la URL completa del sitio web de tu app. ![Campo para la URL de la página de inicio de tu GitHub App](/assets/images/github-apps/github_apps_homepage_url.png)
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 1. En "URL de rellamado", teclea la URL completa a la cual se redirigirá a los usuarios después de que autoricen la instalación. Esta URL se utiliza si tu app necesita identificar y autorizar las solicitudes de usuario a servidor.
 
   Puedes utilizar la opción de **Agregar una URL de rellamado** para proporcionar las URL de rellamado adicionales, con un máximo de 10 de ellas.

@@ -1,6 +1,6 @@
 ---
 title: Seguir pessoas
-intro: 'É possível seguir pessoas em {% data variables.product.product_name %} para receber notificações sobre as atividades delas {% ifversion fpt %} e descobrir projetos nas comunidades em que elas estão inseridas.{% endif %}.'
+intro: 'É possível seguir pessoas em {% data variables.product.product_name %} para receber notificações sobre as atividades delas {% ifversion fpt or ghec %} e descobrir projetos nas comunidades em que elas estão inseridas.{% endif %}.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-follow %}'
 redirect_from:
   - /articles/following-people
@@ -10,13 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profile
 ---
 
 ## Sobre seguidores em {% data variables.product.product_name %}
 
-Ao seguir pessoas, você verá a atividade pública deles na vista de atividades do seu feed de notícias.{% ifversion fpt %} Se alguém que você segue favoritar um repositório público, {% data variables.product.product_name %} poderá recomendar o repositório para você na vista de descoberta do seu feed de notícias.{% endif %}
+Ao seguir pessoas, você verá a atividade pública deles na vista de atividades do seu feed de notícias.{% ifversion fpt or ghec %} Se alguém que você segue favoritar um repositório público, {% data variables.product.product_name %} poderá recomendar o repositório para você na vista de descoberta do seu feed de notícias.{% endif %}
 
 Você pode deixar de seguir alguém, se você não quiser ver suas atividades públicas em {% data variables.product.product_name %}.
 
@@ -62,7 +63,7 @@ Você pode deixar de seguir alguém, se você não quiser ver suas atividades p�
 
 
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Leia mais
 
 - "[Salvar repositórios com estrelas](/articles/saving-repositories-with-stars/)"

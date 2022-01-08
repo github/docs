@@ -1,6 +1,6 @@
 ---
 title: Trabalhar com arquivos que não envolvem código
-intro: '{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats.'
+intro: '{% data variables.product.product_name %} é compatível com a interpretação e diferenciação em uma série de formatos de arquivo que não são de código.'
 redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
@@ -29,6 +29,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Trabalhar com arquivos que não envolvem código
@@ -46,7 +47,7 @@ O {% data variables.product.product_name %} pode exibir diversos formatos comuns
 
 ### Exibir imagens
 
-Você pode procurar e exibir imagens diretamente no repositório do {% data variables.product.product_name %}:
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
 
 ![imagem inline](/assets/images/help/images/view.png)
 
@@ -135,7 +136,7 @@ O GitHub oferece suporte à renderização de dados tabulares na forma de arquiv
 
 ![Arquivo CSV de amostra renderizado](/assets/images/help/repository/rendered_csv.png)
 
-Quando visualizados, os arquivos _.csv_ ou _.tsv_ presentes em um commit para um repositório do {% data variables.product.product_name %} são renderizados como uma tabela interativa completa, com cabeçalhos e numeração da linha. Por padrão, vamos sempre presumir que a primeira linha é a linha de cabeçalho.
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. Por padrão, vamos sempre presumir que a primeira linha é a linha de cabeçalho.
 
 Você pode criar um link para uma linha específica clicando no número da linha ou selecionar várias linhas mantendo a tecla Shift pressionada. Copie e envie a URL para um amigo.
 
@@ -188,7 +189,7 @@ Você pode clicar em {% octicon "file" aria-label="The paper icon" %} para ver a
 
 ![Alterações em prosa renderizada](/assets/images/help/repository/rendered_prose_changes.png)
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
 ### Desabilitando a interpretação do Markdown
 
@@ -224,7 +225,7 @@ Não oferecemos suporte direto a exibições renderizadas de commits para docume
 
 Em geral, as exibições renderizadas de alterações em um documento que contém HTML integrado mostrarão as alterações nos elementos que são compatíveis com a exibição do {% data variables.product.product_name %} do documento. As alterações em documentos que contém HTML integrado devem sempre ser confirmadas nas exibições original e renderizada.
 
-## Mapping geoJSON files on {% data variables.product.prodname_dotcom %}
+## Mapeando arquivos geJSON em {% data variables.product.prodname_dotcom %}
 
 O {% data variables.product.product_name %} é compatível com a renderização de arquivos de mapas geoJSON e topoJSON nos repositórios do {% data variables.product.product_name %}. Simplesmente faça o commit do arquivo como você faria normalmente usando uma extensão `.geojson` ou `.topojson`. Arquivos com a extensão `.json` também são compatíveis, mas somente se o `type` (tipo) for configurado para `FeatureCollection` (Coleção de elementos gráficos), `GeometryCollection` (Coleções geométricas) ou `topology` (topologia). Depois, navegue para o caminho do arquivo geoJSON em GitHub.com.
 
@@ -297,9 +298,9 @@ Ainda pode ser possível renderizar os dados convertendo o arquivo `.geojson` em
 * [Documentação MapBox marcadores de estilo](http://www.mapbox.com/developers/simplestyle/)
 * [Wiki TopoJSON](https://github.com/mbostock/topojson/wiki)
 
-## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
+## Trabalhando com arquivos do Jupyter Notebook no {% data variables.product.prodname_dotcom %}
 
-When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.product.product_location %}, they will render as static HTML files in your repository.
+Ao adicionar arquivos do Jupyter Notebook ou do IPython Notebook com a extensão *.ipynb* em {% data variables.product.product_location %}, eles serão interpretados como arquivos HTML estáticos no seu repositório.
 
 Os recursos interativos do notebook, como plots personalizados de JavaScript, não funcionam no seu repositório no {% data variables.product.product_location %}. Para ver um exemplo, consulte [*Linking e Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 
