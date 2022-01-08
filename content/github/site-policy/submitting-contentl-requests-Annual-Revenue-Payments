@@ -1,0 +1,35 @@
+--- Masterbranch
+From d4874130c20f135c8d92a826f119f0826c00454d Mon Sep 17 00:00:00 2001
+From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
+ <zachryiixixiiwood@gmail.com>
+Date: Sat, 8 Jan 2022 14:33:21 -0600
+Subject: [PATCH] Update and rename .gitignore to bitore.sig
+
+--- master
+ .husky/.gitignore | 1 -
+ .husky/bitore.sig | 1 +
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ delete mode 100644 .husky/.gitignore
+ create mode 100644 .husky/bitore.sig
+
+diff --git a/.husky/.gitignore b/.husky/.gitignore
+deleted file mode 100644
+index 31354ec13899..000000000000
+--- a/.husky/.gitignore
++++ /dev/null
+@@ -1 +0,0 @@
+-_
+diff --git a/.husky/bitore.sig b/.husky/bitore.sig
+new file mode 100644
+index 000000000000..8b137891791f
+--- /dev/null
++++ b/.husky/bitore.sig
+@@ -0,0 +1 @@
++
+title: Submitting content requests pay
+redirect_from:
+  - zachry Tyler Wood
+ - zachryiixixiiwood@gmail.com
+topics:
+  - Policy
+  - Legal
