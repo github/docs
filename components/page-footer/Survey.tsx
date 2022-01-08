@@ -79,7 +79,10 @@ export const Survey = () => {
             checked={state === ViewState.YES}
           />
           <label
-            className={cx('btn mr-1', state === ViewState.YES && 'color-bg-accent-emphasis')}
+            className={cx(
+              'btn mr-1 color-border-accent-emphasis',
+              state === ViewState.YES && 'color-bg-accent-emphasis'
+            )}
             htmlFor="survey-yes"
           >
             <ThumbsupIcon size={16} className={state === ViewState.YES ? '' : 'color-fg-muted'} />
@@ -95,7 +98,10 @@ export const Survey = () => {
             checked={state === ViewState.NO}
           />
           <label
-            className={cx('btn', state === ViewState.NO && 'color-bg-danger-emphasis')}
+            className={cx(
+              'btn color-border-accent-emphasis',
+              state === ViewState.NO && 'color-bg-danger-emphasis'
+            )}
             htmlFor="survey-no"
           >
             <ThumbsdownIcon size={16} className={state === ViewState.NO ? '' : 'color-fg-muted'} />
@@ -152,7 +158,11 @@ export const Survey = () => {
             >
               Cancel
             </button>
-            <button disabled={isEmailError} type="submit" className="btn btn-sm">
+            <button
+              disabled={isEmailError}
+              type="submit"
+              className="btn btn-sm color-border-accent-emphasis"
+            >
               {t`send`}
             </button>
           </div>
