@@ -1,3 +1,4 @@
+![2749A0B6-682C-41A4-8522-50E6081E79AA](https://user-images.githubusercontent.com/97349727/148671404-8f281d8a-0b6a-4c16-bed3-4337e1a3e915.jpeg)
 ---
 title: Scopes for OAuth Apps
 intro: '{% data reusables.shortdesc.understanding_scopes_for_oauth_apps %}'
