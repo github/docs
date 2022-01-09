@@ -1,3 +1,5 @@
+
+
 ---
 title: Restricting repository creation in your organization
 intro: 'To protect your organization''s data, you can configure permissions for creating repositories in your organization.'
