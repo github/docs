@@ -1,5 +1,14 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: sudo: false
+
+language: ruby
+
+rvm:
+  - 2.0.0
+  - 2.1.0
+
+cache: bundler
+script: bundle exec middleman build*logs::All:'@{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
     - /get-started/quickstart/set-up-git
