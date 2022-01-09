@@ -1,59 +1,53 @@
 # javascript
 # ##:run:'uses:'actions:'user:'triggers:'keys:'control:'+'spacebar'to'Automate'run:'trigger:'
-		Jobs:
-		Steps:
-		Command:Build:((c))((R))
-		Type:gemfile
-		name:bitcoin
-		Runs-on:Nodepackage.js
-		Request:
-		Launch:  
-		Bundler:python.js
-		  push:@iixixi/ZachryTylerWood/.github/workflows/
-		    branches:[ mainbranch ]
-		  pull_request:
-		    branches:[ trunk ]
-		job: run steps
+const::: ((c)(r))
+ITEM_ID: Bitcoin[BTC-USD] BTCUSD CCC
+kind: (CCC)
+name:bitcoin
+Runs-on: pkg.js/package.json
+Request:
+Launch:  
+Bundler:python.js
+push:@iixixi/ZachryTylerWood/.github/workflows/
+branches:[ mainbranch ]
+pull_request:
+branches:[ trunk ]
+jobs: run steps
 steps: use:  -
-		automate: results
--	results:"true",
-		-	runs-on:iixixi/bitore/bitcoin©®™✓original/✓latest.json
-		-	steps:uses:actions:checkout@iixixi/iixixi
-		-	uses: actions/checkout@v2
-		-	name: iixixii/✨ Engineering
-		-	 To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-		-	  https://github.com/ruby/setup-ruby#versioning):
-		-	 uses: ruby/setup-ruby@v1
-		      uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
-		      with:
-		      -  ruby-version: 2.6
-		name: Install dependencies
-		bundle: python.js
- install -cd
-		name: Run Tests
-		Package:: : deno.yml
-
-		name:autoupdate branch
-		on:
-		  push:
-		    branches:
-		      [main]
-		jobs:
-		  autoupdate:
-		    name: autoupdate
-		    runs-on: ubuntu-18.04
-		    Jobs:
-		      use: docker://chinthakagodawita/Automate-action:v1
-		        env:
-		          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-		          PR_FILTER: labelled
-		          PR_LABELS: autoupdate
-		          Pull: iixixi/✨Engineering
-		          MERGE_MSG: "iixixi/✨Engineering
-		Construct: package.yaml.json.jpeg.xvlnslmxsnv
- build: Repo-sync
+automate: results
+results:"true",
+runs-on:iixixi/bitore/bitcoin©®™✓original/✓latest.json
+steps: uses: action.js/checksout'@v-0.0.0'@repo-sync'#iixixi/iixixi
+uses: actions/checkout@v2
+name: iixixii/iixixii✨ Engineering
+To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+https://github.com/ruby/setup-ruby#versioning):
+uses: ruby/setup-ruby@v1
+- uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
+- with: ruby-version: 2.6
+name: Install dependencies
+bundle: python.js
+install -cd
+name: Run Tests
+Package:: : deno.yml
+name: autoupdate branch
+push:
+branches: [main]
+jobs: 
+autoupdate:
+name: autoupdate
+run-on: ubuntu-18.04
+Jobs:
+use: docker://chinthakagodawita/Automate-action:v1
+env: GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+PR_FILTER: labels
+PR_LABELS: autoupdate
+Pull: iixixi/✨Engineering
+MERGE_MSG: "iixixi/✨Engineering
+const: package.yaml.json.jpeg.xvlnslmxsnv
+build: Repo-sync
 Bundle-with: flax/ DOCKER.Gui.svg/Repository:type:containers/:rake.i/rust.yarn/API/adk.api.json/pkg.js/package.yaml/pkg.yml
-		Return:#:Run
+Return:' Run''
 		
 		QuickBooks Logo
 		Dear Zachry WooD ,
