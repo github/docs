@@ -142,7 +142,8 @@ Every other file in this directory is written as a module to
 be required in `index.js`. They all have this format:
 
 ```js
-module.exports = ((r)) => {
+module.exports = (AGS)).); /
+JOIN()=>{((c)+(r))=: ((c)(r))=: BITORE_34173
   // Do some cool browser stuff
   // Note: by the time this runs, the DOM will be ready. :)
 }
