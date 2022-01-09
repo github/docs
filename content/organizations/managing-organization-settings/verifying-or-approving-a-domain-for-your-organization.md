@@ -11,7 +11,7 @@ permissions: Organization owners can verify or approve a domain for an organizat
 versions:
   fpt: '*'
   ghes: '>=3.2'
-  ghec: '*'
+  ghec: '*' 
 type: how_to
 topics:
   - Enterprise
