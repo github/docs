@@ -1,20 +1,20 @@
 ---
-title: Inhabilitar el acceso por SSH a git en tu empresa
+title: Disabling Git SSH access on your enterprise
 redirect_from:
-  - /enterprise/admin/hidden/disabling-ssh-access-for-a-user-account/
-  - /enterprise/admin/articles/disabling-ssh-access-for-a-user-account/
-  - /enterprise/admin/hidden/disabling-ssh-access-for-your-appliance/
-  - /enterprise/admin/articles/disabling-ssh-access-for-your-appliance/
-  - /enterprise/admin/hidden/disabling-ssh-access-for-an-organization/
-  - /enterprise/admin/articles/disabling-ssh-access-for-an-organization/
-  - /enterprise/admin/hidden/disabling-ssh-access-to-a-repository/
-  - /enterprise/admin/articles/disabling-ssh-access-to-a-repository/
-  - /enterprise/admin/guides/installation/disabling-git-ssh-access-on-github-enterprise/
+  - /enterprise/admin/hidden/disabling-ssh-access-for-a-user-account
+  - /enterprise/admin/articles/disabling-ssh-access-for-a-user-account
+  - /enterprise/admin/hidden/disabling-ssh-access-for-your-appliance
+  - /enterprise/admin/articles/disabling-ssh-access-for-your-appliance
+  - /enterprise/admin/hidden/disabling-ssh-access-for-an-organization
+  - /enterprise/admin/articles/disabling-ssh-access-for-an-organization
+  - /enterprise/admin/hidden/disabling-ssh-access-to-a-repository
+  - /enterprise/admin/articles/disabling-ssh-access-to-a-repository
+  - /enterprise/admin/guides/installation/disabling-git-ssh-access-on-github-enterprise
   - /enterprise/admin/installation/disabling-git-ssh-access-on-github-enterprise-server
   - /enterprise/admin/user-management/disabling-git-ssh-access-on-github-enterprise-server
   - /admin/user-management/disabling-git-ssh-access-on-github-enterprise-server
   - /admin/user-management/disabling-git-ssh-access-on-your-enterprise
-intro: Puedes prevenir que las personas utilicen git a través de SSH para ciertos repositorios o para todos ellos en tu empresa.
+intro: You can prevent people from using Git over SSH for certain or all repositories on your enterprise.
 versions:
   ghes: '*'
   ghae: '*'
@@ -24,10 +24,9 @@ topics:
   - Policies
   - Security
   - SSH
-shortTitle: Inhabilita SSH para Git
+shortTitle: Disable SSH for Git
 ---
-
-## Inhabilitar el acceso SSH de Git para un repositorio específico
+## Disabling Git SSH access to a specific repository
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}
 
@@ -37,9 +36,10 @@ shortTitle: Inhabilita SSH para Git
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-1. En "Acceso SSH de Git", usa el menú desplegable y haz clic en **Disabled** (Inhabilitado). ![Menú desplegable del acceso SSH de Git con la opción de inhabilitación seleccionada](/assets/images/enterprise/site-admin-settings/git-ssh-access-repository-setting.png)
+1. Under "Git SSH access", use the drop-down menu, and click **Disabled**.
+ ![Git SSH access drop-down menu with disabled option selected](/assets/images/enterprise/site-admin-settings/git-ssh-access-repository-setting.png)
 
-## Inhabilitar el acceso SSH de Git para todos los repositorios que le pertenecen a un usuario o a una organización
+## Disabling Git SSH access to all repositories owned by a user or organization
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
@@ -47,9 +47,10 @@ shortTitle: Inhabilita SSH para Git
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-7. En "Acceso SSH de Git", usa el menú desplegable y haz clic en **Disabled** (Inhabilitado). Luego selecciona **Enforce on all repositories** (Aplicar en todos los repositorios). ![Menú desplegable del acceso SSH de Git con la opción de inhabilitación seleccionada](/assets/images/enterprise/site-admin-settings/git-ssh-access-organization-setting.png)
+7. Under "Git SSH access", use the drop-down menu, and click **Disabled**. Then, select **Enforce on all repositories**.
+ ![Git SSH access drop-down menu with disabled option selected](/assets/images/enterprise/site-admin-settings/git-ssh-access-organization-setting.png)
 
-## Inhabilitar el acceso a Git por SSH para todos los repositorios de tu empresa
+## Disabling Git SSH access to all repositories in your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% ifversion ghes or ghae %}
@@ -58,4 +59,5 @@ shortTitle: Inhabilita SSH para Git
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-7. En "Acceso SSH de Git", usa el menú desplegable y haz clic en **Disabled** (Inhabilitado). Luego selecciona **Enforce on all repositories** (Aplicar en todos los repositorios). ![Menú desplegable del acceso SSH de Git con la opción de inhabilitación seleccionada](/assets/images/enterprise/site-admin-settings/git-ssh-access-appliance-setting.png)
+7. Under "Git SSH access", use the drop-down menu, and click **Disabled**. Then, select **Enforce on all repositories**.
+ ![Git SSH access drop-down menu with disabled option selected](/assets/images/enterprise/site-admin-settings/git-ssh-access-appliance-setting.png)
