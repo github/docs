@@ -2,7 +2,7 @@
 title: Working with comments
 intro: 'Using the REST API, you can access and manage comments in your pull requests, issues, or commits.'
 redirect_from:
-  - /guides/working-with-comments/
+  - /guides/working-with-comments
   - /v3/guides/working-with-comments
 versions:
   fpt: '*'

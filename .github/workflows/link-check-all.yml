@@ -16,6 +16,11 @@ permissions:
   # Needed for the 'trilom/file-changes-action' action
   pull-requests: read
 
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
@@ -41,7 +46,7 @@ jobs:
           output: ' '
       - name: Insight into changed files
         run: |
-          echo ${{ steps.get_diff_files.outputs.files }}
+          echo "${{ steps.get_diff_files.outputs.files }}"
 
       - name: Link check (warnings, changed files)
         run: |
@@ -51,11 +56,10 @@ jobs:
             --check-anchors \
             --check-images \
             --verbose \
-            ${{ steps.get_diff_files.outputs.files }}
+            "${{ steps.get_diff_files.outputs.files }}"
 
       - name: Link check (critical, all files)
         run: |
-
           ./script/rendered-content-link-checker.mjs \
             --language en \
             --exit \

@@ -2,7 +2,7 @@
 title: Getting started with the REST API
 intro: 'Learn the foundations for using the REST API, starting with authentication and some endpoint examples.'
 redirect_from:
-  - /guides/getting-started/
+  - /guides/getting-started
   - /v3/guides/getting-started
 versions:
   fpt: '*'

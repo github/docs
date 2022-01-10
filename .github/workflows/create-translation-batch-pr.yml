@@ -166,6 +166,12 @@ jobs:
           script/i18n/report-reset-files.js --report-type=csv --language=${{ matrix.language }} --log-file=/tmp/batch.log > $csvFile
           git add -f $csvFile && git commit -m "Check in ${{ matrix.language }} CSV report" || echo "Nothing to commit"
 
+      - name: Close existing stale batches
+        uses: lee-dohm/close-matching-issues@e9e43aad2fa6f06a058cedfd8fb975fd93b56d8f
+        with:
+          token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          query: 'type:pr label:translation-batch-${{ matrix.language }}'
+
       - name: Create Pull Request
         env:
           GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}

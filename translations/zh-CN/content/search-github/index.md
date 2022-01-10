@@ -1,9 +1,9 @@
 ---
-title: 在 GitHub 上搜索信息
-intro: 使用不同类型的搜索来查找您想要的信息。
+title: Searching for information on GitHub
+intro: Use different types of searches to find the information you want.
 redirect_from:
-  - /categories/78/articles/
-  - /categories/search/
+  - /categories/78/articles
+  - /categories/search
   - /categories/searching-for-information-on-github
   - /github/searching-for-information-on-github
 versions:
@@ -16,6 +16,6 @@ topics:
 children:
   - /getting-started-with-searching-on-github
   - /searching-on-github
-shortTitle: 在 GitHub 上搜索
+shortTitle: Search on GitHub
 ---
 

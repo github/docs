@@ -3,9 +3,9 @@ title: Enabling GitHub.com repository search from your private enterprise enviro
 shortTitle: Search GitHub.com from enterprise
 intro: 'You can connect your personal accounts on {% data variables.product.prodname_dotcom_the_website %} and your private {% data variables.product.prodname_enterprise %} environment to search for content in certain {% data variables.product.prodname_dotcom_the_website %} repositories{% ifversion fpt or ghec %} from your private environment{% else %} from {% data variables.product.product_name %}{% endif %}.'
 redirect_from:
-  - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-account/
-  - /articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account/
-  - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-server-account/
+  - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-account
+  - /articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account
+  - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-server-account
   - /articles/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-in-github-enterprise-server

@@ -1,6 +1,6 @@
 ---
-title: Jekyll を使用して GitHub Pages サイトを作成する
-intro: '新規または既存のリポジトリ内に、{% data variables.product.prodname_pages %} Jekyll を使用してサイトを作成できます。'
+title: Creating a GitHub Pages site with Jekyll
+intro: 'You can use Jekyll to create a {% data variables.product.prodname_pages %} site in a new or existing repository.'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
@@ -13,20 +13,20 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Jekyllでのサイトの作成
+shortTitle: Create site with Jekyll
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
-## 必要な環境
+## Prerequisites
 
-Jekyll を使用して {% data variables.product.prodname_pages %} サイトを作成する前に、Jekyll と Git をインストールする必要があります。 詳しい情報については、Jekyll ドキュメンテーションの [Installation](https://jekyllrb.com/docs/installation/) および「[Git のセットアップ](/articles/set-up-git)」を参照してください。
+Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[Set up Git](/articles/set-up-git)."
 
 {% data reusables.pages.recommend-bundler %}
 
 {% data reusables.pages.jekyll-install-troubleshooting %}
 
-## サイト用にリポジトリを作成する
+## Creating a repository for your site
 
 {% data reusables.pages.new-or-existing-repo %}
 
@@ -35,67 +35,67 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
 {% data reusables.pages.create-repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 
-## サイトを作成する
+## Creating your site
 
 {% data reusables.pages.must-have-repo-first %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. リポジトリのローカルコピーがまだない場合、サイトのソースファイルを保存したい場所に移動します。_PARENT-FOLDER_ は、リポジトリを保存したいフォルダの名前に置き換えてください。
+1. If you don't already have a local copy of your repository, navigate to the location where you want to store your site's source files, replacing _PARENT-FOLDER_ with the folder you want to contain the folder for your repository.
   ```shell
   $ cd <em>PARENT-FOLDER</em>
   ```
-1. ローカルの Git リポジトリをまだ初期化していない場合は、初期化します。 _REPOSITORY-NAME_ は、リポジトリの名前に置き換えてください。
+1. If you haven't already, initialize a local Git repository, replacing _REPOSITORY-NAME_ with the name of your repository.
   ```shell
   $ git init <em>REPOSITORY-NAME</em>
   > Initialized empty Git repository in /Users/octocat/my-site/.git/
   # Creates a new folder on your computer, initialized as a Git repository
   ```
-  4. ディレクトリをリポジトリに変更します。
+  4. Change directories to the repository.
   ```shell
   $ cd <em>REPOSITORY-NAME</em>
   # Changes the working directory
   ```
 {% data reusables.pages.decide-publishing-source %}
 {% data reusables.pages.navigate-publishing-source %}
-  たとえば、デフォルトブランチの `docs` フォルダからサイトを公開することを選択した場合は、ディレクトリを作成して `docs ` フォルダに変更します。
+  For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.
  ```shell
  $ mkdir docs
  # Creates a new folder called docs
  $ cd docs
  ```
- サイトを `gh-pages` ブランチから公開する場合には、`gh-pages` ブランチを作成してチェックアウトします。
+ If you chose to publish your site from the `gh-pages` branch, create and checkout the `gh-pages` branch.
  ```shell
  $ git checkout --orphan gh-pages
  # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
  ```
-1. 新しい Jekyll サイトを作成するには、`jekyll new` コマンドを使用します。
+1. To create a new Jekyll site, use the `jekyll new` command:
    ```shell
    $ jekyll new --skip-bundle .
    # Creates a Jekyll site in the current directory
    ```
-1. Jekyll が作成した Gemfile を開きます。
-1. `gem "jekyll"` で始まる行の先頭に「#」を追加して行をコメントアウトします。
-1. `# gem "github-pages"` で始まる行を編集して `github-pages` を追加します。 行を次のように変更します。
+1. Open the Gemfile that Jekyll created.
+1. Add "#" to the beginning of the line that starts with `gem "jekyll"` to comment out this line.
+1. Add the `github-pages` gem by editing the line starting with `# gem "github-pages"`. Change this line to:
 
    ```shell
    gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
    ```
 
-   _GITHUB-PAGES-VERSION_ をサポートされている最新バージョンの `github-pages` gem に置き換えます。 このバージョンについては、「[依存関係バージョン](https://pages.github.com/versions/)」を参照してください。
+   Replace _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. You can find this version here: "[Dependency versions](https://pages.github.com/versions/)."
 
-   正しいバージョンの Jekyll は、`github-pages` gem の依存関係としてインストールされます。
-1. Gemfile を保存して閉じます。
+   The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
+1. Save and close the Gemfile.
 1. From the command line, run `bundle install`.
-1. あるいは、`_config.yml`ファイルに必要な編集を加えてください。 これは、リポジトリがサブディレクトリでホストされている場合に相対パスに対して必要です。  詳しい情報については「[サブフォルダを分割して新しいリポジトリにする](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)」を参照してください。
+1. Optionally, make any necessary edits to the `_config.yml` file. This is required for relative paths when the repository is hosted in a subdirectory.  For more information, see "[Splitting a subfolder out into a new repository](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)."
    ```yml
-   domain: my-site.github.io       # HTTPSを強制したいなら、ドメインの先頭でhttpを指定しない。例: example.com
-   url: https://my-site.github.io  # サイトのベースのホスト名とプロトコル。例: http://example.com
-   baseurl: /REPOSITORY-NAME/      # サイトがサブフォルダで提供されるならフォルダ名を置く
+   domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+   url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+   baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder
   ```
-1. 必要に応じて、サイトをローカルでテストします。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
-1. 作業内容を追加してコミットしてください。
+1. Optionally, test your site locally. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
+1. Add and commit your work.
 ```shell
 git add .
 git commit -m 'Initial GitHub pages site with Jekyll'
@@ -108,7 +108,7 @@ $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
 $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</em>.git
 {% endif %}
 ```
-1. リポジトリを {% data variables.product.product_name %} にプッシュします。 _BRANCH_ は、作業を行なっているブランチの名前に置き換えてください。
+1. Push the repository to {% data variables.product.product_name %}, replacing _BRANCH_ with the name of the branch you're working on.
    ```shell
    $ git push -u origin <em>BRANCH</em>
    ```
@@ -119,11 +119,12 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
 {% ifversion fpt or ghec %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
+{% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 
-## 次のステップ
+## Next steps
 
-サイトに新しいページを追加したり、投稿したりするには、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトにコンテンツを追加する](/articles/adding-content-to-your-github-pages-site-using-jekyll)」を参照してください。
+To add a new page or post to your site, see "[Adding content to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-content-to-your-github-pages-site-using-jekyll)."
 
-{% data reusables.pages.add-jekyll-theme %}詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)」を参照してください。
+{% data reusables.pages.add-jekyll-theme %} For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
