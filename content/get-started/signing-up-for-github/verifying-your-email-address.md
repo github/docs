@@ -1,7 +1,8 @@
 ---
 title: Verifying your email address
 intro: 'Verifying your primary email address ensures strengthened security, allows {% data variables.product.prodname_dotcom %} staff to better assist you if you forget your password, and gives you access to more features on {% data variables.product.prodname_dotcom %}.'
-redirect_from:
+redirect_from:alpulali444@autlok.com
+T
   - /articles/troubleshooting-email-verification
   - /articles/setting-up-email-verification
   - /articles/verifying-your-email-address
