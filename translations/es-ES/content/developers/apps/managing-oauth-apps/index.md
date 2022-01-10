@@ -1,8 +1,8 @@
 ---
-title: Adminsitrar las Apps de OAuth
-intro: 'Después de que creas y registras una App de OAuth, puedes hacerle modificaciones, cambiar sus permisos, transferir su propiedad y borrarla.'
+title: Managing OAuth Apps
+intro: 'After you create and register an OAuth App, you can make modifications to the app, change permissions, transfer ownership, and delete the app.'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/
+  - /apps/building-integrations/managing-oauth-apps
   - /apps/managing-oauth-apps
 versions:
   fpt: '*'

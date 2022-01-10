@@ -1,11 +1,11 @@
 ---
 title: Using LDAP
 redirect_from:
-  - /enterprise/admin/articles/configuring-ldap-authentication/
-  - /enterprise/admin/articles/about-ldap-authentication/
-  - /enterprise/admin/articles/viewing-ldap-users/
-  - /enterprise/admin/hidden/enabling-ldap-sync/
-  - /enterprise/admin/hidden/ldap-sync/
+  - /enterprise/admin/articles/configuring-ldap-authentication
+  - /enterprise/admin/articles/about-ldap-authentication
+  - /enterprise/admin/articles/viewing-ldap-users
+  - /enterprise/admin/hidden/enabling-ldap-sync
+  - /enterprise/admin/hidden/ldap-sync
   - /enterprise/admin/user-management/using-ldap
   - /enterprise/admin/authentication/using-ldap
   - /admin/authentication/using-ldap

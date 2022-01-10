@@ -136,7 +136,7 @@ export const ArticlePage = () => {
               )}
               {miniTocItems.length > 1 && (
                 <>
-                  <Heading as="h2" fontSize={1} id="in-this-article" className="mb-1">
+                  <Heading as="h2" id="in-this-article" className="mb-1" sx={{ fontSize: 1 }}>
                     <Link href="#in-this-article">{t('miniToc')}</Link>
                   </Heading>
 
