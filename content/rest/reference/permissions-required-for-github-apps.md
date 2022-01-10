@@ -872,8 +872,8 @@ _Teams_
 - [`DELETE /orgs/:org/actions/secrets/:secret_name`](/rest/reference/actions#delete-an-organization-secret) (:write)
 {% endif %}
 
-{% ifversion fpt or ghec %}
-### Permissions on "dependabot_secrets"
+{% ifversion fpt or ghec or ghes > 3.3%}
+### Permission on "dependabot_secrets"
 - [`GET /repos/:owner/:repo/dependabot/secrets/public-key`](/rest/reference/dependabot#get-a-repository-public-key) (:read)
 - [`GET /repos/:owner/:repo/dependabot/secrets`](/rest/reference/dependabot#list-repository-secrets) (:read)
 - [`GET /repos/:owner/:repo/dependabot/secrets/:secret_name`](/rest/reference/dependabot#get-a-repository-secret) (:read)
