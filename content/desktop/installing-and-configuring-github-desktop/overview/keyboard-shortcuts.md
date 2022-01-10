@@ -52,7 +52,7 @@ GitHub Desktop keyboard shortcuts on macOS
 |<kbd>Command</kbd>+<kbd>B</kbd> | Show all your branches
 |<kbd>Command</kbd>+<kbd>G</kbd> | Go to the commit summary field
 |<kbd>Command</kbd>+<kbd>Enter</kbd> | Commit changes when summary or description field is active
-|<kbd>space</kbd>| Select or deselect all highlighted files
+|<kbd>Space</kbd>| Select or deselect all highlighted files
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>N</kbd> | Create a new branch
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>R</kbd> | Rename the current branch
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>D</kbd> | Delete the current branch
@@ -106,7 +106,7 @@ GitHub Desktop keyboard shortcuts on Windows
 |<kbd>Ctrl</kbd>+<kbd>B</kbd> | Show all your branches
 |<kbd>Ctrl</kbd>+<kbd>G</kbd> | Go to the commit summary field
 |<kbd>Ctrl</kbd>+<kbd>Enter</kbd> | Commit changes when summary or description field is active
-|<kbd>space</kbd>| Select or deselect all highlighted files
+|<kbd>Space</kbd>| Select or deselect all highlighted files
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> | Create a new branch
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | Rename the current branch
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> | Delete the current branch
