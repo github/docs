@@ -1,8 +1,8 @@
 ---
-title: Recibir ayuda desde Soporte de GitHub
-intro: 'Puedes contactar a {% data variables.contact.enterprise_support %} para reportar varios problemas de tu empresa.'
+title: Receiving help from GitHub Support
+intro: 'You can contact {% data variables.contact.enterprise_support %} to report a range of issues for your enterprise.'
 redirect_from:
-  - /enterprise/admin/guides/enterprise-support/receiving-help-from-github-enterprise-support/
+  - /enterprise/admin/guides/enterprise-support/receiving-help-from-github-enterprise-support
   - /enterprise/admin/enterprise-support/receiving-help-from-github-support
 versions:
   ghes: '*'
@@ -14,6 +14,6 @@ children:
   - /preparing-to-submit-a-ticket
   - /submitting-a-ticket
   - /providing-data-to-github-support
-shortTitle: Recibir ayuda de soporte
+shortTitle: Receive help from Support
 ---
 
