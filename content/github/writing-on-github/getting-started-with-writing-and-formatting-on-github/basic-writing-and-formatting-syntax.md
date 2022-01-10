@@ -21,7 +21,7 @@ To create a heading, add one to six `#` symbols before your heading text. The nu
 ###### The smallest heading
 ```
 
-![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
+![Rendered H1, H2, and H6 hea###%lots of room for foldingdings](/assets/images/help/writing/headings-rendered.png)
 
 ## Styling text
 
