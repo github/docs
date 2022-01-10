@@ -11,6 +11,10 @@ on:
   schedule:
     - cron: '39 2 * * 2' # At 02:39 on Tuesday
 
+permissions:
+  contents: write
+  pull-requests: write
+
 # **IMPORTANT:** Do not change the FREEZE environment variable set here!
 # This workflow runs on a recurring basis. To temporarily disable it (e.g.,
 # during a docs deployment freeze), add an Actions Secret to the repo settings

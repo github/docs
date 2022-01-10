@@ -33,7 +33,10 @@ O versionamento para faixas de aprendizagem é processado na página tempo de in
 
 Condicionais líquidas **não** tem que ser usadas para versionamento no arquivo YAML para guias. Apenas os guias do caminho de aprendizagem que se aplicam à versão atual serão processados automaticamente. Se não houver nenhuma faixa com guias que pertençam à versão atual, a seção de faixas de aprendizado não será interpretada.
 
-versionamento explícito dentro das faixas de aprendizado de um produto YML também é compatível. Por exemplo:
+versionamento explícito dentro das faixas de aprendizado de um produto YML também é compatível. O formato e os valores permitidos são os mesmos que [frontmatter versions property](/content#versions).
+
+Por exemplo:
+
 ```
 learning_track_name:
   title: 'Learning track title'
@@ -45,6 +48,7 @@ learning_track_name:
    - /path/to/guide1
    - /path/to/guide2
 ```
+
 Se a propriedade de `versões` não estiver incluída, deduz-se que a faixa está disponível em todas as versões.
 
 ## Aplicação de esquema

@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-import sleep from 'await-sleep'
 import got from 'got'
 import Heroku from 'heroku-client'
 import { setOutput } from '@actions/core'
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25

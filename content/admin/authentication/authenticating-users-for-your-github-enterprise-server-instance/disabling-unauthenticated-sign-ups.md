@@ -1,7 +1,7 @@
 ---
 title: Disabling unauthenticated sign-ups
 redirect_from:
-  - /enterprise/admin/articles/disabling-sign-ups/
+  - /enterprise/admin/articles/disabling-sign-ups
   - /enterprise/admin/user-management/disabling-unauthenticated-sign-ups
   - /enterprise/admin/authentication/disabling-unauthenticated-sign-ups
   - /admin/authentication/disabling-unauthenticated-sign-ups

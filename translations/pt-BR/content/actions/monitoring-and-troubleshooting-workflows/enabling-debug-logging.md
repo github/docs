@@ -1,6 +1,6 @@
 ---
-title: Habilitar log de depuração
-intro: 'Se os logs do fluxo de trabalho não fornecerem detalhes suficientes para diagnosticar o motivo pelo qual um fluxo de trabalho, um trabalho ou uma etapa não está funcionando como esperado, habilite o log de depuração adicional.'
+title: Enabling debug logging
+intro: 'If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging.'
 redirect_from:
   - /actions/managing-workflow-runs/enabling-debug-logging
 versions:
@@ -12,9 +12,8 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-Esses registros adicionais são habilitados pela definição dos segredos no repositório que contém o fluxo de trabalho. Portanto, aplicam-se os mesmos requisitos de permissão:
+These extra logs are enabled by setting secrets in the repository containing the workflow, so the same permissions requirements will apply:
 
 - {% data reusables.github-actions.permissions-statement-secrets-repository %}
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
@@ -23,23 +22,23 @@ Esses registros adicionais são habilitados pela definição dos segredos no rep
 - {% data reusables.github-actions.permissions-statement-secrets-organization %}
 - {% data reusables.github-actions.permissions-statement-secrets-api %}
 
-Para obter mais informações sobre segredos de configuração, consulte "[Criar e usar segredos criptografados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+For more information on setting secrets, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-## Habilitar log de diagnóstico do runner
+## Enabling runner diagnostic logging
 
-O log de diagnóstico do executor fornece arquivos de log adicionais que contêm informações sobre como um executor está executando um trabalho. Dois arquivos de log extras foram adicionados ao arquivo de log:
+Runner diagnostic logging provides additional log files that contain information about how a runner is executing a job. Two extra log files are added to the log archive:
 
-* O log de processo do runner, que inclui informações sobre a coordenação e a configuração de runners para executar trabalhos.
-* O log de processo do worker, que registra em log a execução de um trabalho.
+* The runner process log, which includes information about coordinating and setting up runners to execute jobs.
+* The worker process log, which logs the execution of a job.
 
-1. Para habilitar o log de diagnóstico do runner, defina a seguinte chave secreta no repositório que contém o fluxo de trabalho: `ACTIONS_RUNNER_DEBUG` como `true`.
+1. To enable runner diagnostic logging, set the following secret in the repository that contains the workflow: `ACTIONS_RUNNER_DEBUG` to `true`.
 
-1. Para baixar os logs de diagnóstico do runner, baixe o arquivo de log da execução de fluxo de trabalho. Os logs de diagnóstico do runner ficam na pasta `runner-diagnostic-logs`. Para obter mais informações sobre o download de logs, consulte "[Fazer download de registros](/actions/managing-workflow-runs/using-workflow-run-logs/#downloading-logs)".
+1. To download runner diagnostic logs, download the log archive of the workflow run. The runner diagnostic logs are contained in the `runner-diagnostic-logs` folder. For more information on downloading logs, see "[Downloading logs](/actions/managing-workflow-runs/using-workflow-run-logs/#downloading-logs)."
 
-## Habilitar log de depuração da etapa
+## Enabling step debug logging
 
-O log de depuração da etapa aumenta o detalhamento dos logs de um trabalho durante e depois da execução dele.
+Step debug logging increases the verbosity of a job's logs during and after a job's execution.
 
-1. Para habilitar o log de diagnóstico da etapa, defina a seguinte chave secreta no repositório que contém o fluxo de trabalho: `ACTIONS_STEP_DEBUG` como `true`.
+1. To enable step debug logging, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`.
 
-1. Após a configuração da chave secreta, mais eventos de depuração são exibidos nos logs da etapa. Para obter mais informações, consulte ["Exibir logs para diagnosticar falhas"](/actions/managing-workflow-runs/using-workflow-run-logs/#viewing-logs-to-diagnose-failures).
+1. After setting the secret, more debug events are shown in the step logs. For more information, see ["Viewing logs to diagnose failures"](/actions/managing-workflow-runs/using-workflow-run-logs/#viewing-logs-to-diagnose-failures).

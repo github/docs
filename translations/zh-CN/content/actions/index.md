@@ -1,7 +1,7 @@
 ---
-title: GitHub Actions文档
+title: GitHub Actions Documentation
 shortTitle: GitHub Actions
-intro: '在 {% data variables.product.prodname_actions %} 的仓库中自动化、自定义和执行软件开发工作流程。 您可以发现、创建和共享操作以执行您喜欢的任何作业（包括 CI/CD），并将操作合并到完全自定义的工作流程中。'
+intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
@@ -30,13 +30,12 @@ changelog:
 examples_source: data/product-examples/actions/code-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
-  - /articles/automating-your-workflow-with-github-actions/
-  - /articles/customizing-your-project-with-github-actions/
+  - /articles/automating-your-workflow-with-github-actions
+  - /articles/customizing-your-project-with-github-actions
   - /github/automating-your-workflow-with-github-actions
-  - /actions/automating-your-workflow-with-github-actions/
+  - /actions/automating-your-workflow-with-github-actions
   - /categories/automating-your-workflow-with-github-actions
   - /marketplace/actions
-  - /actions/guides
   - /actions/reference
 layout: product-landing
 versions:
