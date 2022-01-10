@@ -1,5 +1,12 @@
 # Contributor Covenant Code of Conduct
+access: Public
+private originally until i gave vanyessa my script on my semail shining_120@yahoo.com name kaitlyn reese i used to play guys for runescape goldpeices which is what we where making when i made bitcoin on accident by
 
+by zachry tyler wood 
+email : zachryiixixiiwood@gmail.com
+date of birth: 10&15-1994
+SSID: 633-44-1725
+Publish:
 ## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
