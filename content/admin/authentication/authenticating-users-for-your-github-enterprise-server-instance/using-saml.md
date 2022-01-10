@@ -1,14 +1,14 @@
 ---
 title: Using SAML
 redirect_from:
-  - /enterprise/admin/articles/configuring-saml-authentication/
-  - /enterprise/admin/articles/about-saml-authentication/
+  - /enterprise/admin/articles/configuring-saml-authentication
+  - /enterprise/admin/articles/about-saml-authentication
   - /enterprise/admin/user-management/using-saml
   - /enterprise/admin/authentication/using-saml
   - /admin/authentication/using-saml
 intro: 'SAML is an XML-based standard for authentication and authorization. {% data variables.product.prodname_ghe_server %} can act as a service provider (SP) with your internal SAML identity provider (IdP).'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -40,7 +40,7 @@ A mapping is created between the `NameID` and the {% data variables.product.prod
 
 {% note %}
 
-**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign in to your {% data variables.product.prodname_ghe_server %} instance. {% if currentVersion ver_gt "enterprise-server@2.21" %}To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %} For more information, see "[Error: 'Another user already owns the account'](#error-another-user-already-owns-the-account)."{% endif %}
+**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign in to your {% data variables.product.prodname_ghe_server %} instance. {% ifversion ghes %}To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %} For more information, see "[Error: 'Another user already owns the account'](#error-another-user-already-owns-the-account)."{% endif %}
 
 {% endnote %}
 
@@ -70,6 +70,15 @@ These attributes are available. You can change the attribute names in the [manag
 | `emails`        | Optional | The email addresses for the user. More than one can be specified. |
 | `public_keys`   | Optional | The public SSH keys for the user. More than one can be specified. |
 | `gpg_keys`   | Optional | The GPG keys for the user. More than one can be specified.  |
+
+To specify more than one value for an attribute, use multiple `<saml2:AttributeValue>` elements.
+
+```
+<saml2:Attribute FriendlyName="public_keys" Name="urn:oid:1.2.840.113549.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+    <saml2:AttributeValue>ssh-rsa LONG KEY</saml2:AttributeValue>
+    <saml2:AttributeValue>ssh-rsa LONG KEY 2</saml2:AttributeValue>
+</saml2:Attribute>
+```
 
 ## Configuring SAML settings
 
@@ -101,7 +110,7 @@ These attributes are available. You can change the attribute names in the [manag
 10. Modify the SAML attribute names to match your IdP if needed, or accept the default names.
  ![SAML attribute names](/assets/images/enterprise/management-console/saml-attributes.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
 ## Updating a user's SAML `NameID`
 
@@ -164,7 +173,7 @@ When the user signs in again, {% data variables.product.prodname_ghe_server %} c
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 
-The message typically indicates that the person's username or email address has changed on the IdP. {% if currentVersion ver_gt "enterprise-server@2.21" %}Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %}For help updating the `NameID` mapping, contact {% data variables.contact.contact_ent_support %}.{% endif %}
+The message typically indicates that the person's username or email address has changed on the IdP. {% ifversion ghes %}Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %}For help updating the `NameID` mapping, contact {% data variables.contact.contact_ent_support %}.{% endif %}
 
 ### Error: Recipient in SAML response was blank or not valid
 

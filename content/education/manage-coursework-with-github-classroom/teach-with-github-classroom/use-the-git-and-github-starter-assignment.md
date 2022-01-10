@@ -1,17 +1,13 @@
 ---
 title: Use the Git and GitHub starter assignment
-intro: You can use the Git & {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.company_short %} fundamentals.
+intro: 'You can use the Git & {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.company_short %} fundamentals.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+permissions: Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}
 redirect_from:
-- /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
+  - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
+shortTitle: Starter assignment
 ---
-
-{% note %}
-
-**Note:** The Git & {% data variables.product.company_short %} starter assignment is in beta and subject to change.
-
-{% endnote %}
 
 The Git & {% data variables.product.company_short %} starter assignment is a pre-made course that summarizes the basics of Git and {% data variables.product.company_short %} and links students to resources to learn more about specific topics.
 
@@ -45,11 +41,18 @@ The Git & {% data variables.product.company_short %} starter assignment is a pre
 
 Import the starter course into your organization, name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
 
-- [Importing the assignment](#importing-the-assignment)
-- [Naming an assignment](#naming-an-assignment)
-- [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-- [Choosing an assignment type](#choosing-an-assignment-type)
-- [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
+- [Prerequisites](#prerequisites)
+- [Creating the starter assignment](#creating-the-starter-assignment)
+  - [If there are no existing assignments in the classroom](#if-there-are-no-existing-assignments-in-the-classroom)
+  - [If there already are existing assignments in the classroom](#if-there-already-are-existing-assignments-in-the-classroom)
+- [Setting up the basics for an assignment](#setting-up-the-basics-for-an-assignment)
+  - [Importing the assignment](#importing-the-assignment)
+  - [Naming the assignment](#naming-the-assignment)
+  - [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
+  - [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
+- [Inviting students to an assignment](#inviting-students-to-an-assignment)
+- [Next steps](#next-steps)
+- [Further reading](#further-reading)
 
 ### Importing the assignment
 

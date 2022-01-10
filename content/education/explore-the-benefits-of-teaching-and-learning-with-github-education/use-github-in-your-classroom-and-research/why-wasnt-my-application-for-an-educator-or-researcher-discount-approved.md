@@ -4,12 +4,13 @@ intro: Review common reasons that applications for an educator or researcher dis
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
-  - /articles/why-was-my-application-for-an-educator-or-researcher-discount-denied/
+  - /articles/why-was-my-application-for-an-educator-or-researcher-discount-denied
   - /articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved
   - /articles/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Application not approved
 ---
 {% tip %}
 

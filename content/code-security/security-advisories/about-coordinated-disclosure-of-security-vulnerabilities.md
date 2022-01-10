@@ -1,13 +1,15 @@
 ---
 title: About coordinated disclosure of security vulnerabilities
-intro: 'Vulnerability disclosure is a coordinated effort between security reporters and repository maintainers.'
+intro: Vulnerability disclosure is a coordinated effort between security reporters and repository maintainers.
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Security advisories
   - Vulnerabilities
+shortTitle: Coordinated disclosure
 ---
 
 ## About disclosing vulnerabilities in the industry
@@ -34,7 +36,7 @@ As a maintainer, it's good practice to clearly indicate how and where you want t
 
 Maintainers should disclose vulnerabilities in a timely manner. If there is a security vulnerability in your repository, we recommend you:
 - Treat the vulnerability as a security issue rather than a simple bug, both in your response and your disclosure. For example, you'll need to explicitly mention that the issue is a security vulnerability in the release notes.
-- Acknowlege receipt of the vulnerability report as quickly as possible, even if no immediate resources are available for investigation. This sends the message that you are quick to respond and act, and it sets a positive tone for the rest of the interaction between you and the vulnerability reporter.
+- Acknowledge receipt of the vulnerability report as quickly as possible, even if no immediate resources are available for investigation. This sends the message that you are quick to respond and act, and it sets a positive tone for the rest of the interaction between you and the vulnerability reporter.
 - Involve the vulnerability reporter when you verify the impact and veracity of the report. It's likely the vulnerability reporter has already spent time considering the vulnerability in a variety of scenarios, some of which you may have not considered yourself.
 - Remediate the issue in a way that you see fit, taking any concerns and advice provided by the vulnerability reporter into careful consideration. Often the vulnerability reporter will have knowledge of certain corner cases and remediation bypasses that are easy to miss without a security research background.
 - Always acknowledge the vulnerability reporter when you credit the discovery.
@@ -65,5 +67,3 @@ The process for reporting and disclosing vulnerabilities for projects on {% data
 
 
  To get started, see "[Creating a security advisory](/github/managing-security-vulnerabilities/creating-a-security-advisory)."
-
-

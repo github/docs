@@ -2,11 +2,11 @@
 title: GitHub Connect Addendum to the GitHub Enterprise License Agreement
 hidden: true
 redirect_from:
-  - /articles/github-com-connection-addendum-to-the-github-enterprise-license-agreement/
+  - /articles/github-com-connection-addendum-to-the-github-enterprise-license-agreement
   - /articles/github-connect-addendum-to-the-github-enterprise-license-agreement
   - /github/site-policy/github-connect-addendum-to-the-github-enterprise-license-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 _These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._

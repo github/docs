@@ -1,25 +1,25 @@
 ---
 title: Creating a JavaScript action
 intro: 'In this guide, you''ll learn how to build a JavaScript action using the actions toolkit.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/building-actions/creating-a-javascript-action
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
   - JavaScript
+shortTitle: JavaScript action
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -37,9 +37,9 @@ Once you complete this project, you should understand how to build your own Java
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
-1. Download and install Node.js 12.x, which includes npm.
+1. Download and install Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}, which includes npm.
 
-  https://nodejs.org/en/download/current/
+  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 
 1. Create a new public repository on {% data variables.product.product_location %} and call it "hello-world-javascript-action". For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
 
@@ -47,13 +47,13 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 
 1. From your terminal, change directories into your new repository.
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-javascript-action
   ```
 
 1. From your terminal, initialize the directory with npm to generate a `package.json` file.
 
-  ```shell
+  ```shell{:copy}
   npm init -y
   ```
 
@@ -61,7 +61,7 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 
 Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
-```yaml
+```yaml{:copy}
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
@@ -73,7 +73,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 
@@ -91,7 +91,7 @@ The toolkit offers more than the `core` and `github` packages. For more informat
 
 At your terminal, install the actions toolkit `core` and `github` packages.
 
-```shell
+```shell{:copy}
 npm install @actions/core
 npm install @actions/github
 ```
@@ -107,7 +107,7 @@ GitHub Actions provide context information about the webhook event, Git refs, wo
 Add a new file called `index.js`, with the following code.
 
 {% raw %}
-```javascript
+```javascript{:copy}
 const core = require('@actions/core');
 const github = require('@actions/github');
 
@@ -127,7 +127,6 @@ try {
 {% endraw %}
 
 If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
-
 
 ## Creating a README
 
@@ -174,8 +173,7 @@ From your terminal, commit your `action.yml`, `index.js`, `node_modules`, `packa
 
 It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[About actions](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)."
 
-
-```shell
+```shell{:copy}
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1.1
@@ -220,7 +218,7 @@ This example demonstrates how your new public action can be run from within an e
 Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@v1.1` line with your username and the name of the public repository you created above. You can also replace the `who-to-greet` input with your name.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -247,7 +245,7 @@ Copy the workflow code into a `.github/workflows/main.yml` file in your action's
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -270,11 +268,11 @@ jobs:
 ```
 {% endraw %}
 
-From your repository, click the **Actions** tab, and select the latest workflow run. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+From your repository, click the **Actions** tab, and select the latest workflow run. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
+{% elsif ghes %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run.png)

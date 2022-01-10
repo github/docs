@@ -1,22 +1,23 @@
 ---
 title: Suspending and unsuspending users
 redirect_from:
-  - /enterprise/admin/articles/suspending-a-user/
-  - /enterprise/admin/articles/unsuspending-a-user/
-  - /enterprise/admin/articles/viewing-suspended-users/
-  - /enterprise/admin/articles/suspended-users/
-  - /enterprise/admin/articles/suspending-and-unsuspending-users/
+  - /enterprise/admin/articles/suspending-a-user
+  - /enterprise/admin/articles/unsuspending-a-user
+  - /enterprise/admin/articles/viewing-suspended-users
+  - /enterprise/admin/articles/suspended-users
+  - /enterprise/admin/articles/suspending-and-unsuspending-users
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
   - /admin/user-management/suspending-and-unsuspending-users
 intro: 'If a user leaves or moves to a different part of the company, you should remove or modify their ability to access {% data variables.product.product_location %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Enterprise
   - Security
   - User account
+shortTitle: Manage user suspension
 ---
 If employees leave the company, you can suspend their {% data variables.product.prodname_ghe_server %} accounts to open up user licenses in your {% data variables.product.prodname_enterprise %} license while preserving the issues, comments, repositories, gists, and other data they created. Suspended users cannot sign into your instance, nor can they push or pull code.
 

@@ -6,43 +6,34 @@ redirect_from:
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
   - /admin/enterprise-management/creating-a-high-availability-replica
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Create HA replica
 ---
 {% data reusables.enterprise_installation.replica-limit %}
 
 ## Creating a high availability replica
 
 1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see ["Setting up a {% data variables.product.prodname_ghe_server %} instance"](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
-2. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
-3. Set an admin password that matches the password on the primary appliance and continue.
-4. Click **Configure as Replica**.
-![Installation options with link to configure your new instance as a replica](/assets/images/enterprise/management-console/configure-as-replica.png)
-5. Under "Add new SSH key", type your SSH key.
-![Add SSH key](/assets/images/enterprise/management-console/add-ssh-key.png)
-6. Click **Add key**, then click **Continue**.
-6. Connect to the replica appliance's IP address using SSH.
+1. Ensure that both the primary appliance and the new replica appliance can communicate with each other over ports 122/TCP and 1194/UDP. For more information, see "[Network ports](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)."
+1. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
+{% data reusables.enterprise_installation.replica-steps %}
+1. Connect to the replica appliance's IP address using SSH.
   ```shell
   $ ssh -p 122 admin@<em>REPLICA IP</em>
   ```
-7. To generate a key pair for replication, use the `ghe-repl-setup` command with the primary appliance's IP address and copy the public key that it returns.
-  ```shell
-  $ ghe-repl-setup <em>PRIMARY IP</em>
-  ```
+{% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
-9. To verify the connection to the primary and enable replica mode for the new replica, run `ghe-repl-setup` again.
+1. To verify the connection to the primary and enable replica mode for the new replica, run `ghe-repl-setup` again.
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
 {% data reusables.enterprise_installation.replication-command %}
-11. To verify the status of each datastore's replication channel, use the `ghe-repl-status` command.
-  ```shell
-  $ ghe-repl-status
-  ```
+{% data reusables.enterprise_installation.verify-replication-channel %}
 
 ## Creating geo-replication replicas
 

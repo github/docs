@@ -1,15 +1,17 @@
 ---
 title: Best practices for integrators
-intro: 'Build an app that reliably interacts with the {% data variables.product.prodname_dotcom %} API and provides the best experience for your users.'
+intro: 'Build an app that reliably interacts with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API and provides the best experience for your users.'
 redirect_from:
-  - /guides/best-practices-for-integrators/
+  - /guides/best-practices-for-integrators
   - /v3/guides/best-practices-for-integrators
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Integrator best practices
 ---
 
 
@@ -21,17 +23,17 @@ It's very important that you secure [the payloads sent from GitHub][event-types]
 
 There are several steps you can take to secure receipt of payloads delivered by GitHub:
 
-1. Ensure that your receiving server is on an HTTPS connection. By default, GitHub will verify SSL certificates when delivering payloads.{% if currentVersion == "free-pro-team@latest" %}
+1. Ensure that your receiving server is on an HTTPS connection. By default, GitHub will verify SSL certificates when delivering payloads.{% ifversion fpt or ghec %}
 1. You can add [the IP address we use when delivering hooks](/github/authenticating-to-github/about-githubs-ip-addresses) to your server's allow list. To ensure that you're always checking the right IP address, you can [use the `/meta` endpoint](/rest/reference/meta#meta) to find the address we use.{% endif %}
 1. Provide [a secret token](/webhooks/securing/) to ensure payloads are definitely coming from GitHub. By enforcing a secret token, you're ensuring that any data received by your server is absolutely coming from GitHub. Ideally, you should provide a different secret token *per user* of your service. That way, if one token is compromised, no other user would be affected.
 
 ## Favor asynchronous work over synchronous
 
-GitHub expects that integrations respond within {% if currentVersion == "free-pro-team@latest" %}10{% else %}30{% endif %} seconds of receiving the webhook payload. If your service takes longer than that to complete, then GitHub terminates the connection and the payload is lost.
+GitHub expects that integrations respond within {% ifversion fpt or ghec %}10{% else %}30{% endif %} seconds of receiving the webhook payload. If your service takes longer than that to complete, then GitHub terminates the connection and the payload is lost.
 
 Since it's impossible to predict how fast your service will complete, you should do all of "the real work" in a background job. [Resque](https://github.com/resque/resque/) (for Ruby), [RQ](http://python-rq.org/) (for Python), or [RabbitMQ](http://www.rabbitmq.com/) (for Java) are examples of libraries that can handle queuing and processing of background jobs.
 
-Note that even with a background job running, GitHub still expects your server to respond within {% if currentVersion == "free-pro-team@latest" %}ten{% else %}thirty{% endif %} seconds. Your server needs to acknowledge that it received the payload by sending some sort of response. It's critical that your service performs any validations on a payload as soon as possible, so that you can accurately report whether your server will continue with the request or not.
+Note that even with a background job running, GitHub still expects your server to respond within {% ifversion fpt or ghec %}ten{% else %}thirty{% endif %} seconds. Your server needs to acknowledge that it received the payload by sending some sort of response. It's critical that your service performs any validations on a payload as soon as possible, so that you can accurately report whether your server will continue with the request or not.
 
 ## Use appropriate HTTP status codes when responding to GitHub
 
@@ -129,7 +131,7 @@ end
 
 In this example the `closed` action is checked first before calling the `process_closed` method. Any unidentified actions are logged for future reference.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 ## Dealing with rate limits
 
@@ -139,13 +141,13 @@ If you hit a rate limit, it's expected that you back off from making requests an
 
 You can always [check your rate limit status](/rest/reference/rate-limit) at any time. Checking your rate limit incurs no cost against your rate limit.
 
-## Dealing with abuse rate limits
+## Dealing with secondary rate limits
 
-[Abuse rate limits](/rest/overview/resources-in-the-rest-api#abuse-rate-limits) are another way we ensure the API's availability.
+[Secondary rate limits](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) are another way we ensure the API's availability.
 To avoid hitting this limit, you should ensure your application follows the guidelines below.
 
 * Make authenticated requests, or use your application's client ID and secret. Unauthenticated
-  requests are subject to more aggressive abuse rate limiting.
+  requests are subject to more aggressive secondary rate limiting.
 * Make requests for a single user or client ID serially. Do not make requests for a single user
   or client ID concurrently.
 * If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user

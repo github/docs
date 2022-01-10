@@ -7,7 +7,8 @@ redirect_from:
   - /articles/about-github-education-for-educators-and-researchers
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education-for-educators-and-researchers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Educators & researchers
 ---
 {% data reusables.education.about-github-education-link %}
 

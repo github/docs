@@ -1,18 +1,20 @@
 ---
 title: Differences between GitHub Apps and OAuth Apps
-intro: 'Understanding the differences between {% data variables.product.prodname_github_app %}s and {% data variables.product.prodname_oauth_app %}s will help you decide which app you want to create. An {% data variables.product.prodname_oauth_app %} acts as a GitHub user, whereas a {% data variables.product.prodname_github_app %} uses its own identity when installed on an organization or on repositories within an organization.'
+intro: 'Understanding the differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} will help you decide which app you want to create. An {% data variables.product.prodname_oauth_app %} acts as a GitHub user, whereas a {% data variables.product.prodname_github_app %} uses its own identity when installed on an organization or on repositories within an organization.'
 redirect_from:
-  - /early-access/integrations/integrations-vs-oauth-applications/
-  - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type/
+  - /early-access/integrations/integrations-vs-oauth-applications
+  - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type
   - /apps/differences-between-apps
   - /developers/apps/differences-between-github-apps-and-oauth-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
   - OAuth Apps
+shortTitle: GitHub Apps & OAuth Apps
 ---
 ## Who can install GitHub Apps and authorize OAuth Apps?
 
@@ -59,9 +61,9 @@ An _authorized_ OAuth App has access to all of the user's or organization owner'
 | A GitHub App can request an installation access token by using a private key with a JSON web token format out-of-band. | An OAuth app can exchange a request token for an access token after a redirect via a web request. |
 | An installation token identifies the app as the GitHub Apps bot, such as @jenkins-bot. | An access token identifies the app as the user who granted the token to the app, such as @octocat. |
 | Installation tokens expire after a predefined amount of time (currently 1 hour). | OAuth tokens remain active until they're revoked by the customer. |
-| {% data reusables.apps.api-rate-limits-non-ghec %}{% if currentVersion == "free-pro-team@latest" %} Higher rate limits apply for {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Rate limits for GitHub Apps](/developers/apps/rate-limits-for-github-apps)."{% endif %} | OAuth tokens use the user's rate limit of 5,000 requests per hour. |
-| Rate limit increases can be granted both at the GitHub Apps level (affecting all installations) and at the individual installation level. | Rate limit increases are granted per OAuth App. Every token granted to that OAuth App gets the increased limit. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-| {% data variables.product.prodname_github_app %}s can authenticate on behalf of the user, which is called user-to-server requests. The flow to authorize is the same as the OAuth App authorization flow. User-to-server tokens can expire and be renewed with a refresh token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)" and "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)." | The OAuth flow used by {% data variables.product.prodname_oauth_app %}s authorizes an {% data variables.product.prodname_oauth_app %} on behalf of the user. This is the same flow used in {% data variables.product.prodname_github_app %} user-to-server authorization. |{% endif %}
+| {% data reusables.apps.api-rate-limits-non-ghec %}{% ifversion fpt or ghec %} Higher rate limits apply for {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Rate limits for GitHub Apps](/developers/apps/rate-limits-for-github-apps)."{% endif %} | OAuth tokens use the user's rate limit of 5,000 requests per hour. |
+| Rate limit increases can be granted both at the GitHub Apps level (affecting all installations) and at the individual installation level. | Rate limit increases are granted per OAuth App. Every token granted to that OAuth App gets the increased limit. |
+| {% data variables.product.prodname_github_apps %} can authenticate on behalf of the user, which is called user-to-server requests. The flow to authorize is the same as the OAuth App authorization flow. User-to-server tokens can expire and be renewed with a refresh token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)" and "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)." | The OAuth flow used by {% data variables.product.prodname_oauth_apps %} authorizes an {% data variables.product.prodname_oauth_app %} on behalf of the user. This is the same flow used in {% data variables.product.prodname_github_app %} user-to-server authorization. |
 
 ## Requesting permission levels for resources
 
@@ -95,7 +97,7 @@ Unlike OAuth apps, GitHub Apps have targeted permissions that allow them to requ
 
 | GitHub Apps | OAuth Apps |
 | ----- | ----------- |
-| GitHub Apps ask for repository contents permission and use your installation token to authenticate via [HTTP-based Git](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation). | OAuth Apps ask for `write:public_key` scope and [Create a deploy key](/rest/reference/repos#create-a-deploy-key) via the API. You can then use that key to perform Git commands. |
+| GitHub Apps ask for repository contents permission and use your installation token to authenticate via [HTTP-based Git](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation). | OAuth Apps ask for `write:public_key` scope and [Create a deploy key](/rest/reference/deployments#create-a-deploy-key) via the API. You can then use that key to perform Git commands. |
 | The token is used as the HTTP password. | The token is used as the HTTP username. |
 
 ## Machine vs. bot accounts

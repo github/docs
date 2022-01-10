@@ -5,9 +5,7 @@ redirect_from:
   - /apps/using-content-attachments
   - /developers/apps/using-content-attachments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '<3.4'
 topics:
   - GitHub Apps
 ---
@@ -66,16 +64,16 @@ The content attachment flow shows you the relationship between the URL in the is
 
 The `body` parameter can contain markdown:
 
-    ```shell
-    curl -X POST \
-      https://api.github.com/repos/Codertocat/Hello-World/content_references/17/attachments \
-      -H 'Accept: application/vnd.github.corsair-preview+json' \
-      -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
-      -d '{
-    	"title": "[A-1234] Error found in core/models.py file",
-    	"body": "You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\n self.save()"
-    }'
-    ```
+```shell
+curl -X POST \
+  {% data variables.product.api_url_code %}/repos/Codertocat/Hello-World/content_references/17/attachments \
+  -H 'Accept: application/vnd.github.corsair-preview+json' \
+  -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
+  -d '{
+	"title": "[A-1234] Error found in core/models.py file",
+	"body": "You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\n self.save()"
+}'
+```
 
 For more information about creating an installation token, see "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 
@@ -111,7 +109,7 @@ mutation {
 Example cURL:
 
 ```shell
-curl -X "POST" "https://api.github.com/graphql" \
+curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
      -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
      -H 'Accept: application/vnd.github.corsair-preview+json' \
      -H 'Content-Type: application/json; charset=utf-8' \
@@ -120,7 +118,7 @@ curl -X "POST" "https://api.github.com/graphql" \
 }'
 ```
 
-For more information on `node_id`, see "[Using Global Node IDs](/graphql/guides/using-global-node-ids)."
+For more information on `node_id`, see "[Using Global Node IDs]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)."
 
 ## Example using Probot and GitHub App Manifests
 

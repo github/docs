@@ -4,9 +4,10 @@ intro: You can get global node IDs of objects via the REST API and use them in G
 redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

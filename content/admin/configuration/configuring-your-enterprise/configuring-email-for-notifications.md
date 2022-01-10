@@ -2,28 +2,29 @@
 title: Configuring email for notifications
 intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure {% data variables.product.product_location %} to send email notifications for issue, pull request, and commit comments.'
 redirect_from:
-  - /enterprise/admin/guides/installation/email-configuration/
-  - /enterprise/admin/articles/configuring-email/
-  - /enterprise/admin/articles/troubleshooting-email/
-  - /enterprise/admin/articles/email-configuration-and-troubleshooting/
+  - /enterprise/admin/guides/installation/email-configuration
+  - /enterprise/admin/articles/configuring-email
+  - /enterprise/admin/articles/troubleshooting-email
+  - /enterprise/admin/articles/email-configuration-and-troubleshooting
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Notifications
+shortTitle: Configure email notifications
 ---
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 Enterprise owners can configure email for notifications.
 {% endif %}
 ## Configuring SMTP for your enterprise
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 2. At the top of the page, click **Settings**.
@@ -46,7 +47,7 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
     - **URL:** A link to an internal support site. You must include either `http://` or `https://`.
   ![Support email or URL](/assets/images/enterprise/management-console/support-email-url.png)
 8. [Test email delivery](#testing-email-delivery).
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.email-tab %}
@@ -68,7 +69,7 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
   !["Save" button for enterprise support contact configuration](/assets/images/enterprise/configuration/ae-save.png)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## Testing email delivery
 
 1. At the top of the **Email** section, click **Test email settings**.
@@ -97,7 +98,7 @@ If you want to allow email replies to notifications, you must configure your DNS
 1. Ensure that port 25 on the instance is accessible to your SMTP server.
 2. Create an A record that points to `reply.[hostname]`. Depending on your DNS provider and instance host configuration, you may be able to instead create a single A record that points to `*.[hostname]`.
 3. Create an MX record that points to `reply.[hostname]` so that emails to that domain are routed to the instance.
-4. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see {% if currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
+4. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see {% ifversion ghes %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
 
 ## Troubleshooting email delivery
 
@@ -181,8 +182,8 @@ In order to properly process inbound emails, you must configure a valid A Record
 If {% data variables.product.product_location %} is behind a firewall or is being served through an AWS Security Group, make sure port 25 is open to all mail servers that send emails to `reply@reply.[hostname]`.
 
 ### Contact support
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 If you're still unable to resolve the problem, contact {% data variables.contact.contact_ent_support %}. Please attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email to help us troubleshoot your problem.
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 You can contact {% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
 {% endif %}

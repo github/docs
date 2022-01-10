@@ -1,21 +1,20 @@
 ---
-title: Introdução à API
+title: Getting started with the API
 redirect_from:
   - /articles/getting-started-with-the-api
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Get started API
 ---
 
-Para automatizar tarefas comuns, fazer backup dos seus dados ou criar integrações que estendem o {% data variables.product.product_name %}, você poderá usar a API do {% data variables.product.product_name %}.
+To automate common tasks, back up your data, or create integrations that extend {% data variables.product.product_name %}, you can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.
 
-Para obter mais informações sobre a API, consulte a [API REST do GitHub](/rest) e [API do GraphQL do GitHub](/graphql). Também é possível atualizar-se sobre as notícias relacionadas a APIs seguindo o blog do desenvolvedor</a>
-{% data variables.product.prodname_dotcom %}.</p> 
+For more information about the API, see the [GitHub REST API](/rest) and [GitHub GraphQL API]({% ifversion ghec %}/free-pro-team@latest/{% endif %}/graphql). You can also stay current with API-related news by following the [{% data variables.product.prodname_dotcom %} Developer blog](https://developer.github.com/changes/).
 
+## Further reading
 
-
-### Leia mais
-
-- "[Fazer backup de um repositório](/articles/backing-up-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Sobre integrações](/articles/about-integrations)"{% endif %}
+- "[Backing up a repository](/articles/backing-up-a-repository)"{% ifversion fpt or ghec %}
+- "[About integrations](/articles/about-integrations)"{% endif %}

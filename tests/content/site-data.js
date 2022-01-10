@@ -1,19 +1,22 @@
-const fs = require('fs')
-const path = require('path')
-const { get, isPlainObject, has } = require('lodash')
-const flat = require('flat')
-const loadSiteData = require('../../lib/site-data')
-const patterns = require('../../lib/patterns')
-const { liquid } = require('../../lib/render-content')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import { get, isPlainObject, has } from 'lodash-es'
+import flat from 'flat'
+import loadSiteData from '../../lib/site-data.js'
+import patterns from '../../lib/patterns.js'
+import { liquid } from '../../lib/render-content/index.js'
+import walkSync from 'walk-sync'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('siteData module (English)', () => {
   let data
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     data = await loadSiteData()
-    done()
   })
 
-  test('exports an object', async () => {
+  test('makes an object', async () => {
     expect(isPlainObject(data)).toBe(true)
   })
 
@@ -28,7 +31,10 @@ describe('siteData module (English)', () => {
   })
 
   test('includes English reusables', async () => {
-    const reusable = get(data, 'en.site.data.reusables.command_line.switching_directories_procedural')
+    const reusable = get(
+      data,
+      'en.site.data.reusables.command_line.switching_directories_procedural'
+    )
     expect(reusable).toBe('1. Change the current working directory to your local repository.')
   })
 
@@ -43,6 +49,7 @@ describe('siteData module (English)', () => {
   })
 
   // TODO: re-enable once Janky flakyness is resolved
+  // Docs Engineering issue: 964
   test.skip('backfills missing translated site data with English values', async () => {
     const newFile = path.join(__dirname, '../../data/newfile.yml')
     await fs.writeFile(newFile, 'newvalue: bar')
@@ -70,11 +77,15 @@ describe('siteData module (English)', () => {
   })
 
   test('includes markdown files as data', async () => {
-    const reusable = get(data, 'en.site.data.reusables.enterprise_enterprise_support.submit-support-ticket-first-section')
+    const reusable = get(
+      data,
+      'en.site.data.reusables.enterprise_enterprise_support.submit-support-ticket-first-section'
+    )
     expect(typeof reusable).toBe('string')
     expect(reusable.includes('1. ')).toBe(true)
   })
 
+  // Docs Engineering issue: 965
   test.skip('encodes bracketed parentheses to prevent them from becoming links', async () => {
     const reusable = get(data, 'ja.site.data.reusables.organizations.team_name')
     const expectation = `reusable should contain a bracket followed by a space. Actual value: ${reusable}`
@@ -82,10 +93,14 @@ describe('siteData module (English)', () => {
   })
 
   test('warn if any YAML reusables are found', async () => {
-    const reusables = require('walk-sync')(path.join(__dirname, '../../data/reusables'))
+    const reusables = walkSync(path.join(__dirname, '../../data/reusables'))
     expect(reusables.length).toBeGreaterThan(100)
-    const yamlReusables = reusables.filter(filename => filename.endsWith('.yml') || filename.endsWith('.yaml'))
-    const message = `reusables are now written as individual Markdown files. Please migrate the following YAML files to Markdown:\n${yamlReusables.join('\n')}`
+    const yamlReusables = reusables.filter(
+      (filename) => filename.endsWith('.yml') || filename.endsWith('.yaml')
+    )
+    const message = `reusables are now written as individual Markdown files. Please migrate the following YAML files to Markdown:\n${yamlReusables.join(
+      '\n'
+    )}`
     expect(yamlReusables.length, message).toBe(0)
   })
 

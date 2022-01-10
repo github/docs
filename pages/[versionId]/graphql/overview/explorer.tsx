@@ -1,12 +1,8 @@
 import { GetServerSideProps } from 'next'
 
-import {
-  MainContextT,
-  MainContext,
-  getMainContextFromRequest,
-} from 'components/context/MainContext'
-import { Breadcrumbs } from 'components/Breadcrumbs'
+import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import { DefaultLayout } from 'components/DefaultLayout'
+import { useEffect, useRef } from 'react'
 
 type Props = {
   mainContext: MainContextT
@@ -14,38 +10,37 @@ type Props = {
 }
 export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) {
   const { page, airGap } = mainContext
+  const graphiqlRef = useRef<HTMLIFrameElement>(null)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.search) {
+      graphiqlRef.current?.contentWindow?.postMessage(window.location.search, graphqlExplorerUrl)
+    }
+  }, [])
+
   return (
     <MainContext.Provider value={mainContext}>
       <DefaultLayout>
-        <main className="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
-          <article className="markdown-body width-full">
-            <div className="d-lg-flex flex-justify-between">
-              <div className="d-flex flex-items-center breadcrumbs-wrapper">
-                <Breadcrumbs />
-              </div>
-            </div>
+        <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
+          <h1>{page.title}</h1>
+        </div>
 
-            <h1 className="border-bottom-0">{page.title}</h1>
-
-            <div className="mt-2">
-              <div>
-                {airGap ? (
-                  <p>GraphQL explorer is not available on this environment.</p>
-                ) : (
-                  /* eslint-disable-next-line jsx-a11y/iframe-has-title */
-                  <iframe
-                    id="graphiql"
-                    className="graphql-explorer"
-                    scrolling="no"
-                    src={graphqlExplorerUrl}
-                  >
-                    <p>You must have iframes enabled to use this feature.</p>
-                  </iframe>
-                )}
-              </div>
-            </div>
-          </article>
-        </main>
+        <div>
+          {airGap ? (
+            <p>GraphQL explorer is not available on this environment.</p>
+          ) : (
+            /* eslint-disable-next-line jsx-a11y/iframe-has-title */
+            <iframe
+              ref={graphiqlRef}
+              style={{ height: 715 }}
+              className="border width-full"
+              scrolling="no"
+              src={graphqlExplorerUrl}
+            >
+              <p>You must have iframes enabled to use this feature.</p>
+            </iframe>
+          )}
+        </div>
       </DefaultLayout>
     </MainContext.Provider>
   )
@@ -53,10 +48,11 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
+  const res = context.res as any
 
   return {
     props: {
-      mainContext: getMainContextFromRequest(req),
+      mainContext: getMainContext(req, res),
       graphqlExplorerUrl: req.context.graphql.explorerUrl,
     },
   }

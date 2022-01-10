@@ -2,19 +2,23 @@
 title: Using GitHub Enterprise Server with a load balancer
 intro: 'Use a load balancer in front of a single {% data variables.product.prodname_ghe_server %} appliance or a pair of appliances in a High Availability configuration.'
 redirect_from:
-  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer/
+  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
   - Networking
+shortTitle: Use a load balancer
 ---
+
+## About load balancers
+
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
@@ -27,9 +31,13 @@ Because client connections to {% data variables.product.prodname_ghe_server %} c
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
+{% data reusables.enterprise_installation.terminating-tls %}
+
 ### Enabling PROXY protocol support on {% data variables.product.product_location %}
 
-We strongly recommend enabling PROXY protocol support for both your appliance and the load balancer. Use the instructions provided by your vendor to enable the PROXY protocol on your load balancer. For more information, see [the PROXY protocol documentation](http://www.haproxy.org/download/1.6/doc/proxy-protocol.txt).
+We strongly recommend enabling PROXY protocol support for both your appliance and the load balancer. Use the instructions provided by your vendor to enable the PROXY protocol on your load balancer. For more information, see [the PROXY protocol documentation](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
+
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -43,8 +51,6 @@ We strongly recommend enabling PROXY protocol support for both your appliance an
 ### Enabling X-Forwarded-For support on {% data variables.product.product_location %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
-
-{% data reusables.enterprise_installation.terminating-tls %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

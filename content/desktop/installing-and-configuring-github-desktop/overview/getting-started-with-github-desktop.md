@@ -3,9 +3,10 @@ title: Getting started with GitHub Desktop
 intro: 'Learn how to set up, authenticate, and configure {% data variables.product.prodname_desktop %} to allow you to contribute to projects directly from your machine.'
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop
+shortTitle: Get started
 ---
 ## Introduction
 {% data variables.product.prodname_desktop %} is an application that enables you to interact with {% data variables.product.prodname_dotcom %} using a GUI instead of the command line or a web browser. {% data variables.product.prodname_desktop %} encourages you and your team to collaborate using best practices with Git and {% data variables.product.prodname_dotcom %}. You can use {% data variables.product.prodname_desktop %} to complete most Git commands from your desktop with visual confirmation of changes. You can push to, pull from, and clone remote repositories with {% data variables.product.prodname_desktop %}, and use collaborative tools such as attributing commits and creating pull requests.

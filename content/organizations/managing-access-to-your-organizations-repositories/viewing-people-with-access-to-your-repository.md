@@ -5,12 +5,14 @@ redirect_from:
   - /articles/viewing-people-with-access-to-your-repository
   - /github/setting-up-and-managing-organizations-and-teams/viewing-people-with-access-to-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: View people with access
 ---
 
 Administrators can use this information to help off-board people, gather data for compliance, and other general security checkups.
@@ -19,7 +21,7 @@ Administrators can use this information to help off-board people, gather data fo
 
 ## Viewing people with access to your repository
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Note**: You can also see a combined overview of teams and people with access to your repository. For more information, see "[Managing teams and people with access to your repository](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)."

@@ -2,26 +2,38 @@
 title: Managing an individual's access to an organization repository
 intro: You can manage a person's access to a repository owned by your organization.
 redirect_from:
-  - /articles/managing-an-individual-s-access-to-an-organization-repository-early-access-program/
+  - /articles/managing-an-individual-s-access-to-an-organization-repository-early-access-program
   - /articles/managing-an-individual-s-access-to-an-organization-repository
   - /articles/managing-an-individuals-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage individual access
+permissions: People with admin access to a repository can manage access to the repository.
 ---
 
-People with admin permissions can manage the access of organization members and outside collaborators to an organization repository.
-
-## Removing access to repositories
+## About access to organization repositories
 
 When you remove a collaborator from a repository in your organization, the collaborator loses read and write access to the repository. If the repository is private and the collaborator has forked the repository, then their fork is also deleted, but the collaborator will still retain any local clones of your repository.
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
+
+## Giving a person access to a repository
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.organizations.invite-teams-or-people %}
+5. In the search field, start typing the name of the person to invite, then click a name in the list of matches.
+  ![Search field for typing the name of a team or person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
+6. Under "Choose a role", select the repository role to assign the person, then click **Add NAME to REPOSITORY**.
+  ![Selecting permissions for the team or person](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
 ## Managing an individual's access to an organization repository
 
@@ -38,5 +50,5 @@ When you remove a collaborator from a repository in your organization, the colla
 
 ## Further reading
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+{% ifversion fpt or ghec %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

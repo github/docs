@@ -2,21 +2,21 @@
 title: Configuring backups on your appliance
 shortTitle: Configuring backups
 redirect_from:
-  - /enterprise/admin/categories/backups-and-restores/
-  - /enterprise/admin/articles/backup-and-recovery/
-  - /enterprise/admin/articles/backing-up-github-enterprise/
-  - /enterprise/admin/articles/restoring-github-enterprise/
-  - /enterprise/admin/articles/backing-up-repository-data/
-  - /enterprise/admin/articles/restoring-enterprise-data/
-  - /enterprise/admin/articles/restoring-repository-data/
-  - /enterprise/admin/articles/backing-up-enterprise-data/
-  - /enterprise/admin/guides/installation/backups-and-disaster-recovery/
+  - /enterprise/admin/categories/backups-and-restores
+  - /enterprise/admin/articles/backup-and-recovery
+  - /enterprise/admin/articles/backing-up-github-enterprise
+  - /enterprise/admin/articles/restoring-github-enterprise
+  - /enterprise/admin/articles/backing-up-repository-data
+  - /enterprise/admin/articles/restoring-enterprise-data
+  - /enterprise/admin/articles/restoring-repository-data
+  - /enterprise/admin/articles/backing-up-enterprise-data
+  - /enterprise/admin/guides/installation/backups-and-disaster-recovery
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-backups-on-your-appliance
 intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.product.product_location %} by configuring automated backups.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Backups
@@ -64,13 +64,20 @@ More resources may be required depending on your usage, such as user activity an
   ```
 2. Copy the included `backup.config-example` file to `backup.config` and open in an editor.
 3. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
+
+  {% note %}
+
+  **Note:** If your {% data variables.product.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.product.product_location %}.
+
+  {% endnote %}
+
 4. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots.
 5. Open your primary instance's settings page at `https://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
-5. Verify SSH connectivity with {% data variables.product.product_location %} with the `ghe-host-check` command.
+6. Verify SSH connectivity with {% data variables.product.product_location %} with the `ghe-host-check` command.
   ```shell
   $ bin/ghe-host-check		  
   ```		  
-  6. To create an initial full backup, run the `ghe-backup` command.
+  7. To create an initial full backup, run the `ghe-backup` command.
   ```shell
   $ bin/ghe-backup		  
   ```
@@ -87,13 +94,21 @@ If backup attempts overlap, the `ghe-backup` command will abort with an error me
 
 In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.product.product_location %} by provisioning another {% data variables.product.prodname_enterprise %} appliance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} appliance as an authorized SSH key before restoring an appliance.
 
-{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% ifversion ghes %}
 {% note %}
 
 **Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
 
 {% endnote %}
 {% endif %}
+
+{% note %}
+
+**Note:** When performing backup restores to {% data variables.product.product_location %}, the same version supportability rules apply. You can only restore data from at most two feature releases behind.
+
+For example, if you take a backup from GHES 3.0.x, you can restore it into a GHES 3.2.x instance. But, you cannot restore data from a backup of GHES 2.22.x onto 3.2.x, because that would be three jumps between versions (2.22 > 3.0 > 3.1 > 3.2). You would first need to restore onto a 3.1.x instance, and then upgrade to 3.2.x.
+
+{% endnote %}
 
 To restore {% data variables.product.product_location %} from the last successful snapshot, use the `ghe-restore` command. You should see output similar to this:
 

@@ -5,11 +5,13 @@ redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: Form calls with GraphQL
 ---
 
 ## Authenticating with GraphQL
@@ -18,7 +20,7 @@ To communicate with the GraphQL server, you'll need an OAuth token with the righ
 
 Follow the steps in "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. The scopes you require depends on the type of data you're trying to request. For example, select the **User** scopes to request user data. If you need access to repository information, select the appropriate **Repository** scopes.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 To match the behavior of the [GraphQL Explorer](/graphql/guides/using-the-explorer), request the following scopes:
 
@@ -30,7 +32,7 @@ The following scopes are recommended:
 
 
 ```
-user{% if currentVersion != "github-ae@latest" %}
+user{% ifversion not ghae %}
 public_repo{% endif %}
 repo
 repo_deployment
@@ -249,7 +251,7 @@ Looking at the composition line by line:
 
   The `labels` field has the type [`LabelConnection`](/graphql/reference/objects#labelconnection). As with the `issues` object, because `labels` is a connection, we must travel its edges to a connected node: the `label` object. At the node, we can specify the `label` object fields we want to return, in this case, `name`.
 
-You may notice that running this query on the Octocat's {% if currentVersion != "github-ae@latest" %}public{% endif %} `Hello-World` repository won't return many labels. Try running it on one of your own repositories that does use labels, and you'll likely see a difference.
+You may notice that running this query on the Octocat's {% ifversion not ghae %}public{% endif %} `Hello-World` repository won't return many labels. Try running it on one of your own repositories that does use labels, and you'll likely see a difference.
 
 ## Example mutation
 
@@ -409,7 +411,7 @@ For more information on the difference between enums and strings, see the [offic
 
 There is a _lot_ more you can do when forming GraphQL calls. Here are some places to look next:
 
-* [Pagination](https://graphql.github.io/learn/pagination/)
-* [Fragments](https://graphql.github.io/learn/queries/#fragments)
-* [Inline fragments](https://graphql.github.io/learn/queries/#inline-fragments)
-* [Directives](https://graphql.github.io/learn/queries/#directives)
+* [Pagination](https://graphql.org/learn/pagination/)
+* [Fragments](https://graphql.org/learn/queries/#fragments)
+* [Inline fragments](https://graphql.org/learn/queries/#inline-fragments)
+* [Directives](https://graphql.org/learn/queries/#directives)

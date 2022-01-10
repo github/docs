@@ -6,14 +6,14 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts
   - /desktop/installing-and-configuring-github-desktop/keyboard-shortcuts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 {% mac %}
 
 Atajos de teclado de GitHyb Desktop en macOS
 
-### Atajos en todo el sitio
+## Atajos en todo el sitio
 
 | Atajo del teclado                    | Descripción                                                         |
 | ------------------------------------ | ------------------------------------------------------------------- |
@@ -27,7 +27,7 @@ Atajos de teclado de GitHyb Desktop en macOS
 | <kbd>⌘</kbd><kbd>-</kbd>             | Alejar para textos y gráficos más pequeños                          |
 | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>I</kbd> | Alternar herramientas del desarrollador                             |
 
-### Repositorios
+## Repositorios
 
 | Atajo del teclado                    | Descripción                                                                     |
 | ------------------------------------ | ------------------------------------------------------------------------------- |
@@ -44,7 +44,7 @@ Atajos de teclado de GitHyb Desktop en macOS
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>A</kbd> | Abrir el repositorio en tu herramienta de editor preferida                      |
 | <kbd>⌘</kbd><kbd>I</kbd>             | Crear un informe de problemas en {% data variables.product.prodname_dotcom %}
 
-### Ramas
+## Ramas
 
 | Atajo del teclado                    | Descripción                                                                               |
 | ------------------------------------ | ----------------------------------------------------------------------------------------- |
@@ -70,7 +70,7 @@ Atajos de teclado de GitHyb Desktop en macOS
 
 Atajos de teclado de GitHub Desktop en Windows
 
-### Atajos en todo el sitio
+## Atajos en todo el sitio
 
 | Atajo del teclado                           | Descripción                                        |
 | ------------------------------------------- | -------------------------------------------------- |
@@ -81,7 +81,7 @@ Atajos de teclado de GitHub Desktop en Windows
 | <kbd>Ctrl</kbd><kbd>-</kbd>                 | Alejar para textos y gráficos más pequeños         |
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>I</kbd> | Alternar herramientas del desarrollador            |
 
-### Repositorios
+## Repositorios
 
 | Atajo del teclado                           | Descripción                                                                     |
 | ------------------------------------------- | ------------------------------------------------------------------------------- |
@@ -98,7 +98,7 @@ Atajos de teclado de GitHub Desktop en Windows
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>A</kbd> | Abrir el repositorio en tu herramienta de editor preferida                      |
 | <kbd>Ctrl</kbd><kbd>I</kbd>                 | Crear un informe de problemas en {% data variables.product.prodname_dotcom %}
 
-### Ramas
+## Ramas
 
 | Atajo del teclado                           | Descripción                                                                               |
 | ------------------------------------------- | ----------------------------------------------------------------------------------------- |

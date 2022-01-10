@@ -1,17 +1,16 @@
 ---
 title: Publishing actions in GitHub Marketplace
 intro: 'You can publish actions in {% data variables.product.prodname_marketplace %} and share actions you''ve created with the {% data variables.product.prodname_dotcom %} community.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
-  free-pro-team: '*'
-type: 'how_to'
+  fpt: '*'
+  ghec: '*'
+type: how_to
+shortTitle: Publish in GitHub Marketplace
 ---
-
-{% data reusables.actions.ae-beta %}
 
 You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
 
@@ -19,7 +18,7 @@ You must accept the terms of service to publish actions in {% data variables.pro
 
 Before you can publish an action, you'll need to create an action in your repository. For more information, see "[Creating actions](/actions/creating-actions)."
 
-When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
+When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you to tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
 
 Actions are published to {% data variables.product.prodname_marketplace %} immediately and aren't reviewed by {% data variables.product.prodname_dotcom %} as long as they meet these requirements:
 

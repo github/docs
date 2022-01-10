@@ -7,13 +7,13 @@ redirect_from:
   - /articles/about-campus-advisors
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 Professors, teachers and mentors can use the Campus Advisors online training to master Git and {% data variables.product.prodname_dotcom %} and learn best practices for teaching students with {% data variables.product.prodname_dotcom %}.  For more information, see "[Campus Advisors](https://education.github.com/teachers/advisors)."
 
 {% note %}
 
-**Note:** As an instructor, you can't create {% data variables.product.prodname_dotcom %} accounts for your students. Students must create their own {% data variables.product.prodname_dotcom %} accounts.
+**Note:** As an instructor, you can't create accounts on {% data variables.product.product_location %} for your students. Students must create their own accounts on {% data variables.product.product_location %}.
 
 {% endnote %}
 

@@ -6,11 +6,13 @@ redirect_from:
   - /github/building-a-strong-community/creating-a-team-discussion
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-team-discussion
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Crear un debate de equipo
 ---
 
 {% data reusables.organizations.team-discussions-permissions %}Para obtener más información, consulta "[Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions)".
@@ -23,7 +25,7 @@ topics:
 7. También puedes seleccionar si deseas que tu publicación sea privada o pública usando el menú desplegable.![Menú de parámetros de privacidad de los debates del equipo](/assets/images/help/projects/team-discussions-privacy-menu.png)
 8. Da clic en **Comentar**. ![Botón Crear nuevo comentario de los debates del equipo](/assets/images/help/projects/team-discussions-comment-button.png)
 
-### Leer más
+## Leer más
 
   - "[Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions)"
   - "[Editar o eliminar un debate de equipo](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

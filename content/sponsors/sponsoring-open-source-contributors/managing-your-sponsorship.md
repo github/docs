@@ -5,7 +5,8 @@ redirect_from:
   - /articles/managing-your-sponsorship
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Contacting sponsors

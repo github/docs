@@ -1,11 +1,13 @@
 ---
 title: Activity
+intro: 'The Activity API allows you to list events and feeds and manage notifications, starring, and watching for the authenticated user.'
 redirect_from:
   - /v3/activity
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -145,10 +147,11 @@ Reason Name | Description
 `assign` | You were assigned to the issue.
 `author` | You created the thread.
 `comment` | You commented on the thread.
+`ci_activity` | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.
 `invitation` | You accepted an invitation to contribute to the repository.
 `manual` | You subscribed to the thread (via an issue or pull request).
 `mention` | You were specifically **@mentioned** in the content.
-`review_requested` | You, or a team you're a member of, were requested to review a pull request.{% if currentVersion == "free-pro-team@latest" %}
+`review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
 `security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in your repository.{% endif %}
 `state_change` | You changed the thread state (for example, closing an issue or merging a pull request).
 `subscribed` | You're watching the repository.

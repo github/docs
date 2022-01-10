@@ -6,13 +6,14 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
   - /admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
-  enterprise-server: '>2.21'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Configure HA replication
 ---
 ## About high availability replication for clusters
 
@@ -188,12 +189,6 @@ For an example configuration, see "[Example configuration](#example-configuratio
     git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
     ```
 
-12. Enable MySQL to fail over automatically when you fail over to the passive replica nodes.
-
-    ```shell
-    git config -f /data/user/common/cluster.conf cluster.mysql-auto-failover true
-    ```
-
     {% warning %}
 
     **Warning**: Review your cluster configuration file before proceeding.
@@ -245,7 +240,7 @@ The top-level `[cluster]` configuration should look like the following example.
   primary-datacenter = <em>PRIMARY DATACENTER NAME</em>
   mysql-master-replica = <em>HOSTNAME OF PASSIVE MYSQL MASTER</em>
   redis-master-replica = <em>HOSTNAME OF PASSIVE REDIS MASTER</em>
-  mysql-auto-failover = true
+  mysql-auto-failover = false
 ...
 ```
 
@@ -357,7 +352,7 @@ You can stop replication to the passive nodes for your cluster deployment of {% 
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. In the top-level `[cluster]` section, delete the `mysql-auto-failover`, `redis-master-replica`, and `mysql-master-replica` key-value pairs.
+3. In the top-level `[cluster]` section, delete the `redis-master-replica`, and `mysql-master-replica` key-value pairs.
 
 4. Delete each section for a passive node. For passive nodes, `replica` is configured as `enabled`.
 

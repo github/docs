@@ -2,25 +2,27 @@
 title: Traversing with pagination
 intro: Explore how to use pagination to manage your responses with some examples using the Search API.
 redirect_from:
-  - /guides/traversing-with-pagination/
+  - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Traverse with pagination
 ---
 
- 
-
-The {% data variables.product.product_name %} API provides a vast wealth of information for developers to consume.
+The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume.
 Most of the time, you might even find that you're asking for _too much_ information,
-and in order to keep our servers happy, the API will automatically [paginate the requested items][pagination].
+and in order to keep our servers happy, the API will automatically [paginate the requested items](/rest/overview/resources-in-the-rest-api#pagination).
 
-In this guide, we'll make some calls to the {% data variables.product.product_name %} Search API, and iterate over
+In this guide, we'll make some calls to the Search API, and iterate over
 the results using pagination. You can find the complete source code for this project
 in the [platform-samples][platform samples] repository.
+
+{% data reusables.rest-api.dotcom-only-guide-note %}
 
 ## Basics of Pagination
 
@@ -35,12 +37,12 @@ provides items in sets of 100
 [events](/rest/reference/activity#events) won't let you set a maximum for items to receive.
 Be sure to read the documentation on how to handle paginated results for specific endpoints.
 
-Information about pagination is provided in [the Link header](http://tools.ietf.org/html/rfc5988)
+Information about pagination is provided in [the Link header](https://datatracker.ietf.org/doc/html/rfc5988)
 of an API call. For example, let's make a curl request to the search API, to find
 out how many times Mozilla projects use the phrase `addClass`:
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla"
 ```
 
 The `-I` parameter indicates that we only care about the headers, not the actual
@@ -66,7 +68,7 @@ parameter. By default, `page` always starts at `1`. Let's jump ahead to page 14
 and see what happens:
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&page=14"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&page=14"
 ```
 
 Here's the link header once more:
@@ -88,7 +90,7 @@ By passing the `per_page` parameter, you can specify how many items you want
 each page to return, up to 100 items. Let's try asking for 50 items about `addClass`:
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&per_page=50"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
 Notice what it does to the header response:
@@ -261,4 +263,4 @@ puts "The next page link is #{next_page_href}"
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [hypermedia-relations]: https://github.com/octokit/octokit.rb#pagination
-[listing commits]: /rest/reference/repos#list-commits
+[listing commits]: /rest/reference/commits#list-commits

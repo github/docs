@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
   - /admin/configuration/configuring-rate-limits
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -17,7 +17,7 @@ topics:
 
 Enabling rate limits on {% data variables.product.prodname_enterprise_api %} can prevent overuse of resources by individual or unauthenticated users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-config)."
 {% endif %}
 
@@ -29,19 +29,24 @@ You can exempt a list of users from API rate limits using the `ghe-config` utili
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable API Rate Limiting**.
+2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**.
 ![Checkbox for enabling API rate limiting](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
 3. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Enabling abuse rate limits
+## Enabling secondary rate limits
 
-Setting abuse rate limits protects the overall level of service on {% data variables.product.product_location %}.
+Setting secondary rate limits protects the overall level of service on {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
+{% ifversion ghes > 3.1 %}
+2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
+   ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
+{% else %}
 2. Under "Rate Limiting", select **Enable Abuse Rate Limiting**.
-  ![Checkbox for enabling abuse rate limiting](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
+    ![Checkbox for enabling abuse rate limiting](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
+{% endif %}
 3. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 

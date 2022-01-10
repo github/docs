@@ -5,9 +5,11 @@ redirect_from:
   - /articles/viewing-users-who-are-blocked-from-your-organization
   - /github/building-a-strong-community/viewing-users-who-are-blocked-from-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: View blocked users in org
 ---
 
 

@@ -1,10 +1,10 @@
 ---
 title: GitHub Community Guidelines
 redirect_from:
-  - /community-guidelines/
+  - /community-guidelines
   - /articles/github-community-guidelines
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -64,7 +64,7 @@ We are committed to maintaining a community where users are free to express them
    Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on. Behaviors such as repeatedly posting off-topic comments, opening empty or meaningless issues or pull requests, or using any other platform feature in a way that continually disrupts the experience of other users are not allowed. While we encourage maintainers to moderate their own projects on an individual basis, GitHub staff may take further restrictive action against accounts that are engaging in these types of behaviors.
 
 - #### Impersonation
-   You may not seek to mislead others as to your identity by copying another person's avatar, posting content under their email address, using a similar username or otherwise posing as someone else. Impersonation is a form of harassment.
+   You may not impersonate another person by copying their avatar, posting content under their email address, using a similar username or otherwise posing as someone else. Impersonation is a form of harassment.
 
 - #### Doxxing and invasion of privacy 
    Don't post other people's personal information, such as personal, private email addresses, phone numbers, physical addresses, credit card numbers, Social Security/National Identity numbers, or passwords. Depending on the context, such as in the case of intimidation or harassment, we may consider other information, such as photos or videos that were taken or distributed without the subject's consent, to be an invasion of privacy, especially when such material presents a safety risk to the subject.
@@ -110,7 +110,7 @@ Actions we may take in response to an abuse report include but are not limited t
 
 ## Appeal and Reinstatement
 
-In some cases there may be a basis to reverse an action, for example, based on additional information a user provided, or where a user has addressed the violation and agreed to abide by our Acceptable Use Policies moving forward. If you wish to appeal an enforcement action, please contact [support](https://support.github.com/contact).
+In some cases there may be a basis to reverse an action, for example, based on additional information a user provided, or where a user has addressed the violation and agreed to abide by our Acceptable Use Policies moving forward. If you wish to appeal an enforcement action, please contact [support](https://support.github.com/contact?tags=docs-policy).
 
 ## Legal Notices
 

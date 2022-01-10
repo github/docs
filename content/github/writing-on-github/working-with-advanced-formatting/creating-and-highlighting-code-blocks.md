@@ -5,9 +5,11 @@ redirect_from:
   - /articles/creating-and-highlighting-code-blocks
   - /github/writing-on-github/creating-and-highlighting-code-blocks
 versions:
-  free-pro-team: "*"
-  enterprise-server: "*"
-  github-ae: "*"
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Create code blocks
 ---
 
 ## Fenced code blocks
@@ -43,6 +45,7 @@ Look! You can see my backticks.
 
 ![Rendered fenced code with backticks block](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
 
 ## Syntax highlighting
 

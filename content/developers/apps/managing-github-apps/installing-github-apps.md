@@ -1,13 +1,14 @@
 ---
 title: Installing GitHub Apps
-intro: 'When your app is public, anyone can use {% if currentVersion == "free-pro-team@latest" %} the {% data variables.product.prodname_marketplace %} or {% endif %}an installation URL to install the app on their repository. When your app is private, only you can install the app on repositories that you own.'
+intro: 'When your app is public, anyone can use {% ifversion fpt or ghec %} the {% data variables.product.prodname_marketplace %} or {% endif %}an installation URL to install the app on their repository. When your app is private, only you can install the app on repositories that you own.'
 redirect_from:
   - /apps/installing-github-apps
   - /developers/apps/installing-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
@@ -28,7 +29,7 @@ Once you create a private GitHub App, you can install it on one of your org or u
 ![App installation permissions](/assets/images/install_permissions.png)
 5. Once installed, you will see configuration options for the app on your selected account. You can make changes here, or repeat the previous steps to install the app on another account.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 ## Offering your app in the GitHub Marketplace
 
 You can offer a paid or free version of your app in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace), where people can search for and view details about your app. {% data variables.product.prodname_marketplace %} automatically installs a GitHub App when an order is complete.

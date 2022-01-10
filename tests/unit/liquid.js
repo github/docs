@@ -1,7 +1,9 @@
-const { liquid } = require('../../lib/render-content')
-const middleware = require('../../middleware/contextualizers/short-versions')
-const allVersions = require('../../lib/all-versions')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
+import { liquid } from '../../lib/render-content/index.js'
+import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
+import featureVersionsMiddleware from '../../middleware/contextualizers/features.js'
+import { allVersions } from '../../lib/all-versions.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import loadSiteData from '../../lib/site-data.js'
 
 const template = `
   {% if currentVersion ver_gt "enterprise-server@2.13" %}up to date{% endif %}
@@ -11,18 +13,24 @@ const template = `
 const shortVersionsTemplate = `
   {% ifversion fpt %} I am FPT {% endif %}
   {% ifversion ghae %} I am GHAE {% endif %}
+  {% ifversion ghec %} I am GHEC{% endif %}
   {% ifversion ghes %} I am GHES {% endif %}
   {% ifversion ghes = 3.1 %} I am GHES = 3.1 {% endif %}
   {% ifversion ghes > 3.1 %} I am GHES > 3.1 {% endif %}
   {% ifversion ghes < 3.1 %} I am GHES < 3.1 {% endif %}
-  {% ifversion fpt or ghes < 3.0 %} I am FTP or GHES < 3.0 {% endif %}
-  {% ifversion ghes < 3.1 and ghes > 2.22 %} I am 3.0 only {% endif %}
+  {% ifversion fpt or ghes < 3.1 %} I am FTP or GHES < 3.1 {% endif %}
+  {% ifversion ghes < 3.2 and ghes > 3.0 %} I am 3.1 only {% endif %}
 `
 
 const negativeVersionsTemplate = `
   {% ifversion not ghae %} I am not GHAE {% endif %}
+  {% ifversion not ghec %} I am not GHEC {% endif %}
   {% ifversion not ghes %} I am not GHES {% endif %}
   {% ifversion ghes != 3.1 %} I am not GHES 3.1 {% endif %}
+`
+
+const featureVersionsTemplate = `
+  {% if placeholder %} I am placeholder content {% endif %}
 `
 
 describe('liquid template parser', () => {
@@ -66,12 +74,12 @@ describe('liquid template parser', () => {
         currentVersion: 'free-pro-team@latest',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       // We should have TWO results because we are supporting two shortcuts
-      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am FPT I am FTP or GHES < 3.0')
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am FPT I am FTP or GHES < 3.1')
     })
 
     test('GHAE works as expected', async () => {
@@ -79,35 +87,49 @@ describe('liquid template parser', () => {
         currentVersion: 'github-ae@latest',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.trim()).toBe('I am GHAE')
     })
 
-    test('GHES works as expected', async () => {
+    test('GHEC works as expected', async () => {
       req.context = {
-        currentVersion: 'enterprise-server@2.22',
+        currentVersion: 'enterprise-cloud@latest',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
-      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am GHES I am GHES < 3.1 I am FTP or GHES < 3.0')
+      expect(output.trim()).toBe('I am GHEC')
     })
 
-    test('AND statements work as expected', async () => {
+    test('GHES works as expected', async () => {
       req.context = {
         currentVersion: 'enterprise-server@3.0',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
-      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am GHES I am GHES < 3.1 I am 3.0 only')
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
+        'I am GHES I am GHES < 3.1 I am FTP or GHES < 3.1'
+      )
+    })
+
+    test('AND statements work as expected', async () => {
+      req.context = {
+        currentVersion: 'enterprise-server@3.1',
+        page: {},
+        allVersions,
+        enterpriseServerReleases,
+      }
+      await shortVersionsMiddleware(req, null, () => {})
+      const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am GHES I am GHES = 3.1 I am 3.1 only')
     })
 
     test('NOT statements work as expected on versions without numbered releases', async () => {
@@ -115,11 +137,13 @@ describe('liquid template parser', () => {
         currentVersion: 'github-ae@latest',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
-      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHES I am not GHES 3.1')
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
+        'I am not GHEC I am not GHES I am not GHES 3.1'
+      )
     })
 
     test('NOT statements work as expected on versions with numbered releases', async () => {
@@ -127,11 +151,13 @@ describe('liquid template parser', () => {
         currentVersion: 'enterprise-server@3.0',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
-      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHAE I am not GHES 3.1')
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
+        'I am not GHAE I am not GHEC I am not GHES 3.1'
+      )
     })
 
     test('The != operator works as expected', async () => {
@@ -139,11 +165,74 @@ describe('liquid template parser', () => {
         currentVersion: 'enterprise-server@3.1',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
-      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHAE')
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHAE I am not GHEC')
+    })
+  })
+
+  describe('feature versions', () => {
+    // Create a fake req so we can test the feature versions middleware
+    const req = { language: 'en', query: {} }
+
+    let siteData
+    beforeAll(async () => {
+      const allSiteData = await loadSiteData()
+      siteData = allSiteData.en.site
+    })
+
+    test('does not render in FPT because feature is not available in FPT', async () => {
+      req.context = {
+        currentVersion: 'free-pro-team@latest',
+        page: {},
+        allVersions,
+        enterpriseServerReleases,
+        site: siteData,
+      }
+      await featureVersionsMiddleware(req, null, () => {})
+      const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
+      expect(outputFpt.includes('placeholder content')).toBe(false)
+    })
+
+    test('renders in GHES because feature is available in GHES', async () => {
+      req.context = {
+        currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
+        page: {},
+        allVersions,
+        enterpriseServerReleases,
+        site: siteData,
+      }
+      await featureVersionsMiddleware(req, null, () => {})
+      const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
+      expect(outputFpt.includes('placeholder content')).toBe(true)
+    })
+
+    test('renders in GHEC because feature is available in GHEC', async () => {
+      req.context = {
+        currentVersion: 'enterprise-cloud@latest',
+        page: {},
+        allVersions,
+        enterpriseServerReleases,
+        site: siteData,
+      }
+      await featureVersionsMiddleware(req, null, () => {})
+      const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
+      expect(outputFpt.includes('placeholder content')).toBe(true)
+    })
+
+    test('renders in GHAE because feature is available in GHAE', async () => {
+      req.context = {
+        currentVersion: 'github-ae@latest',
+        page: {},
+        allVersions,
+        enterpriseServerReleases,
+        site: siteData,
+      }
+      await featureVersionsMiddleware(req, null, () => {})
+      const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
+      expect(outputFpt.includes('placeholder content')).toBe(true)
     })
   })
 })

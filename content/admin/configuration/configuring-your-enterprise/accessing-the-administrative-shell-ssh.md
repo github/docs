@@ -1,24 +1,25 @@
 ---
 title: Accessing the administrative shell (SSH)
 redirect_from:
-  - /enterprise/admin/articles/ssh-access/
-  - /enterprise/admin/articles/adding-an-ssh-key-for-shell-access/
-  - /enterprise/admin/guides/installation/administrative-shell-ssh-access/
-  - /enterprise/admin/articles/troubleshooting-ssh-permission-denied-publickey/
-  - /enterprise/admin/2.13/articles/troubleshooting-ssh-permission-denied-publickey/
-  - /enterprise/admin/2.14/articles/troubleshooting-ssh-permission-denied-publickey/
-  - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey/
+  - /enterprise/admin/articles/ssh-access
+  - /enterprise/admin/articles/adding-an-ssh-key-for-shell-access
+  - /enterprise/admin/guides/installation/administrative-shell-ssh-access
+  - /enterprise/admin/articles/troubleshooting-ssh-permission-denied-publickey
+  - /enterprise/admin/2.13/articles/troubleshooting-ssh-permission-denied-publickey
+  - /enterprise/admin/2.14/articles/troubleshooting-ssh-permission-denied-publickey
+  - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey
   - /enterprise/admin/installation/accessing-the-administrative-shell-ssh
   - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
   - /admin/configuration/accessing-the-administrative-shell-ssh
 intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - SSH
+shortTitle: Access the admin shell (SSH)
 ---
 ## About administrative shell access
 

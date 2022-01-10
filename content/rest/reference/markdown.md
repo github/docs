@@ -1,11 +1,13 @@
 ---
 title: Markdown
+intro: The Markdown API enables you to render a markdown document as an HTML page or as raw text.
 redirect_from:
   - /v3/markdown
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

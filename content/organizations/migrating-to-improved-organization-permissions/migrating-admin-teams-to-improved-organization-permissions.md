@@ -2,15 +2,17 @@
 title: Migrating admin teams to improved organization permissions
 intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. Members of legacy admin teams automatically retain the ability to create repositories until those teams are migrated to the improved organization permissions model.'
 redirect_from:
-  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions/
+  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions
   - /articles/migrating-admin-teams-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/migrating-admin-teams-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Migrate admin team
 ---
 
 By default, all organization members can create repositories. If you restrict [repository creation permissions](/articles/restricting-repository-creation-in-your-organization) to organization owners, and your organization was created under the legacy organization permissions structure, members of legacy admin teams will still be able to create repositories.
@@ -19,7 +21,7 @@ Legacy admin teams are teams that were created with the admin permission level u
 
 You can remove this ability by migrating your legacy admin teams to the improved organization permissions.
 
-For more information, see "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
+For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% warning %}
 

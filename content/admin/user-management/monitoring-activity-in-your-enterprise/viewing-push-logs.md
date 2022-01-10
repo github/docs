@@ -2,13 +2,13 @@
 title: Viewing push logs
 intro: Site administrators can view a list of Git push operations for any repository on the enterprise.
 redirect_from:
-  - /enterprise/admin/articles/viewing-push-logs/
+  - /enterprise/admin/articles/viewing-push-logs
   - /enterprise/admin/installation/viewing-push-logs
   - /enterprise/admin/user-management/viewing-push-logs
   - /admin/user-management/viewing-push-logs
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -36,7 +36,7 @@ Push log entries show:
 4. In the left sidebar, click **Push Log**.
 ![Push log tab](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## Viewing a repository's push logs on the command-line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}

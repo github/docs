@@ -3,23 +3,24 @@ title: Unlocking a locked account
 intro: Your organization's paid features are locked if your payment is past due because of billing problems.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/unlocking-a-locked-account
-  - /articles/what-happens-if-my-account-is-locked/
-  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-owe-anything-for-previous-time/
-  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-pay-backcharges/
-  - /articles/what-happens-if-my-repository-is-locked/
-  - /articles/unlocking-a-locked-personal-account/
-  - /articles/unlocking-a-locked-organization-account/
+  - /articles/what-happens-if-my-account-is-locked
+  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-owe-anything-for-previous-time
+  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-pay-backcharges
+  - /articles/what-happens-if-my-repository-is-locked
+  - /articles/unlocking-a-locked-personal-account
+  - /articles/unlocking-a-locked-organization-account
   - /articles/unlocking-a-locked-account
-  - /github/setting-up-and-managing-billing-and-payments-on-github/unlocking-a-locked-account
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/unlocking-a-locked-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Accounts
   - Downgrades
   - Organizations
   - User account
+shortTitle: Locked account
 ---
 You can unlock and access your account by updating your organization's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.
 

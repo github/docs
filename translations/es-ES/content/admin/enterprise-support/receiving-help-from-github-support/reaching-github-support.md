@@ -1,58 +1,58 @@
 ---
-title: Obtener soporte de GitHub
-intro: 'Contacta a {% data variables.contact.enterprise_support %} utilizando la {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %}{% data variables.enterprise.management_console %} o {% endif %} el portal de soporte.'
+title: Reaching GitHub Support
+intro: 'Contact {% data variables.contact.enterprise_support %} using the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
 redirect_from:
   - /enterprise/admin/guides/enterprise-support/reaching-github-enterprise-support/
   - /enterprise/admin/enterprise-support/reaching-github-support
   - /admin/enterprise-support/reaching-github-support
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Support
 ---
+## Using automated ticketing systems
 
-### Usar sistemas de tickets automatizado
+Though we'll do our best to respond to automated support requests, we typically need more information than an automated ticketing system can give us to solve your issue. Whenever possible, please initiate support requests from a person or machine that {% data variables.contact.enterprise_support %} can interact with. For more information, see "[Preparing to submit a ticket](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)."
 
-Si bien haremos todo lo mejor por responder a solicitudes de soporte automatizado, habitualmente necesitamos más información que un sistema de tickets automatizado que nos permita resolver tu problema. Siempre que sea posible, inicia las solicitudes de soporte de una persona o una máquina con la que {% data variables.contact.enterprise_support %} pueda interactuar. Para obtener más información, consulta "[Prepararse para enviar un ticket](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)".
+## Contacting {% data variables.contact.enterprise_support %}
 
-### Ponerte en contacto con {% data variables.contact.enterprise_support %}
+{% data reusables.support.zendesk-old-tickets %}
 
-Los clientes de {% data variables.contact.enterprise_support %} pueden abrir un ticket de soporte utilizando la {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %}{% data variables.enterprise.management_console %} o el {% data variables.contact.contact_enterprise_portal %}{% elsif currentVersion == "github-ae@latest" %} el {% data variables.contact.contact_ae_portal %}{% endif %}. Marca la prioridad del ticket como {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, o {% data variables.product.support_ticket_priority_low %}. Para obtener más información, consulta la sección "[Asignar una prioridad al ticket de soporte](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket)" y "[Emitir un ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)".
+{% data variables.contact.enterprise_support %} customers can open a support ticket using the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or the {% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} the {% data variables.contact.contact_ae_portal %}{% endif %}. For more information, see "[Submitting a ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)."
 
-### Ponerte en contacto con {% data variables.contact.enterprise_support %}
+{% ifversion ghes %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-#### Ver tickets de soporte anteriores
+## Contacting {% data variables.contact.premium_support %}
 
-Puedes usar el {% data variables.contact.enterprise_portal %} para ver tickets de soporte anteriores.
+{% data variables.contact.enterprise_support %} customers can open a support ticket using the {% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or the {% data variables.contact.contact_enterprise_portal %}. Mark its priority as {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}. For more information, see "[Assigning a priority to a support ticket](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server#assigning-a-priority-to-a-support-ticket)" and "[Submitting a ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)."
 
-1. Navegar por el {% data variables.contact.contact_enterprise_portal %}.
-2. Da clic en **Mist tickets**. ![Ver los tickets emitidos anteriormente](/assets/images/enterprise/support/view-past-tickets.png)
+### Viewing past support tickets
 
-### Comunicarse con {% data variables.contact.premium_support %}
+You can use the {% data variables.contact.enterprise_portal %} to view past support tickets.
 
-Los clientes de {% data variables.contact.enterprise_support %} pueden abrir un ticket de soporte mediante {% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} o {% data variables.contact.contact_enterprise_portal %}. Marca su prioridad como {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, o {% data variables.product.support_ticket_priority_low %}. Para obtener más información, consulta la sección "[Asignar una prioridad al ticket de soporte](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server#assigning-a-priority-to-a-support-ticket)" y "[Emitir un ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)".
+1. Navigate to the {% data variables.contact.contact_enterprise_portal %}.
+2. Click **My tickets**.
 
 {% endif %}
-### Contacto de ventas
+## Contacting sales
 
-Para las preguntas relacionadas con precios, licenciamiento, renovaciones, cotizaciones, pagos y otras relacionadas, contacta a {% data variables.contact.contact_enterprise_sales %} o llama al [+1 (877) 448-4820](tel:+1-877-448-4820).
+For pricing, licensing, renewals, quotes, payments, and other related questions, contact {% data variables.contact.contact_enterprise_sales %} or call [+1 (877) 448-4820](tel:+1-877-448-4820).
 
-{% if enterpriseServerVersions contains currentVersion %}
-### Contacto de capacitación
+{% ifversion ghes %}
+## Contacting training
 
-Para conocer más sobre las opciones de capacitación, incluida la capacitación personalizada, consulta el sitio de capacitación de [{% data variables.product.company_short %}](https://services.github.com/).
+To learn more about training options, including customized trainings, see [{% data variables.product.company_short %}'s training site](https://services.github.com/).
 
 {% note %}
 
-**Nota:** La capacitación está incluida en el {% data variables.product.premium_plus_support_plan %}. Para obtener más información, consulta "[Acerca de{% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)".
+**Note:** Training is included in the {% data variables.product.premium_plus_support_plan %}. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."
 
 {% endnote %}
 {% endif %}
 
-### Leer más
+## Further reading
 
-- "[Acerca de {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"
-- "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)".
+- "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"
+- "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."

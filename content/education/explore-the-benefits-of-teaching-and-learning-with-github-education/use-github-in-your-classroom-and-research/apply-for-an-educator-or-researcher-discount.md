@@ -4,14 +4,15 @@ intro: 'If you''re an educator or a researcher, you can apply to receive {% data
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
-  - /articles/applying-for-a-classroom-discount/
-  - /articles/applying-for-a-discount-for-your-school-club/
-  - /articles/applying-for-an-academic-research-discount/
-  - /articles/applying-for-a-discount-for-your-first-robotics-team/
+  - /articles/applying-for-a-classroom-discount
+  - /articles/applying-for-a-discount-for-your-school-club
+  - /articles/applying-for-an-academic-research-discount
+  - /articles/applying-for-a-discount-for-your-first-robotics-team
   - /articles/applying-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Apply for a discount
 ---
 ## About educator and researcher discounts
 

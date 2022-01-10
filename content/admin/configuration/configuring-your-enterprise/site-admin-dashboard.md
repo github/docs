@@ -2,12 +2,13 @@
 title: Site admin dashboard
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %}'
 redirect_from:
-  - /enterprise/admin/articles/site-admin-dashboard/
+  - /enterprise/admin/articles/site-admin-dashboard
   - /enterprise/admin/installation/site-admin-dashboard
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+  ghae: '*'
 type: reference
 topics:
   - Enterprise
@@ -16,7 +17,7 @@ topics:
 To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
 ![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes or ghae %}
 
 ## Search
 
@@ -29,11 +30,11 @@ Refer to this section of the site admin dashboard to search for users and reposi
 Refer to this section of the site admin dashboard to check your current {% data variables.product.prodname_enterprise %} license; to search for users and repositories; and to query the [audit log](#audit-log).
 
 {% endif %}
-
+{% ifversion ghes %}
 ## {% data variables.enterprise.management_console %}
 
 Here you can launch the {% data variables.enterprise.management_console %} to manage virtual appliance settings such as the domain, authentication, and SSL.
-
+{% endif %}
 ## Explore
 
 Data for GitHub's [trending page][] is calculated into daily, weekly, and monthly time spans for both repositories and developers. You can see when this data was last cached and queue up new trending calculation jobs from the **Explore** section.
@@ -42,7 +43,7 @@ Data for GitHub's [trending page][] is calculated into daily, weekly, and monthl
 
 ## Audit log
 
-{% data variables.product.prodname_enterprise %} keeps a running log of audited actions that you can query.
+{% data variables.product.product_name %} keeps a running log of audited actions that you can query.
 
 By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[Searching the audit log](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)."
 
@@ -55,8 +56,8 @@ If you need to get information on the users, organizations, and repositories in 
 Specifically, you can download CSV reports that list
 
 - all users
-- all users who have been active within the last month
-- all users who have been inactive for one month or more
+- all active users
+- all [dormant users](/admin/user-management/managing-dormant-users)
 - all users who have been suspended
 - all organizations
 - all repositories
@@ -127,6 +128,7 @@ Key             | Description
 `fork?`         | Whether the repository is a fork
 `deleted?`      | Whether the repository has been deleted
 
+{% ifversion ghes %}
 ## Indexing
 
 GitHub's [code search][] features are powered by [ElasticSearch][]. This section of the site admin dashboard shows you the current status of your ElasticSearch cluster and provides you with several tools to control the behavior of searching and indexing. These tools are split into the following three categories.
@@ -169,8 +171,22 @@ This controls how the [Issues][] index is repaired. You can
 - enable or disable index repair jobs
 - start a new index repair job
 - reset all index repair state
+{% endif %}
+## Reserved logins
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+Certain words are reserved for internal use in {% data variables.product.product_location %}, which means that these words cannot be used as usernames.
+
+For example, the following words are reserved, among others:
+
+- `admin`
+- `enterprise`
+- `login`
+- `staff`
+- `support`
+
+For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
+
+{% ifversion ghes or ghae %}
 
 ## Enterprise overview
 
@@ -188,15 +204,19 @@ This is a list of the repositories on {% data variables.product.product_location
 
 ## All users
 
-Here you can see all of the users on {% data variables.product.product_location %}—, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
 ## Site admins
 
 Here you can see all of the administrators on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
 ## Dormant users
-
+{% ifversion ghes %}
 Here you can see and [suspend](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
+{% endif %}
+{% ifversion ghae %}
+Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
+{% endif %}
 
 - Has existed for longer than the dormancy threshold that's set for {% data variables.product.product_location %}.
 - Has not generated any activity within that time period.

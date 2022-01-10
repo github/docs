@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Actions**{% if currentVersion == "free-pro-team@latest" %}, then click **Runners**{% endif %}.
+1. In the left sidebar, click **Actions**{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, then click **Runners**{% endif %}.

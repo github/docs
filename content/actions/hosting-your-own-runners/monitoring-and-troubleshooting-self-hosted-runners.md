@@ -6,17 +6,18 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'tutorial'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: tutorial
 defaultPlatform: linux
+shortTitle: Monitor & troubleshoot
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Checking the status of a self-hosted runner
 
@@ -24,9 +25,7 @@ defaultPlatform: linux
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. Under {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
-
-    ![Runner list](/assets/images/help/settings/actions-runner-list.png)
+1. Under {% ifversion fpt or ghes > 3.1 or ghae or ghec %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
 
     The status can be one of the following:
 
@@ -54,6 +53,13 @@ For Linux-based self-hosted runners running the application using a service, you
 ```shell
 $ cat ~/actions-runner/.service
 actions.runner.octo-org-octo-repo.runner01.service
+```
+
+If this fails due to the service being installed elsewhere, you can find the service name in the list of running services. For example, on most Linux systems you can use the `systemctl` command:
+
+```shell
+$ systemctl --type=service | grep actions.runner
+actions.runner.octo-org-octo-repo.hostname.service loaded active running GitHub Actions Runner (octo-org-octo-repo.hostname)
 ```
 
 You can use `journalctl` to monitor the real-time activity of the self-hosted runner:

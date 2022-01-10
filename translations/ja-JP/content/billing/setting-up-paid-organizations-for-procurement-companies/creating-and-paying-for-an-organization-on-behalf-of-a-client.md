@@ -4,18 +4,19 @@ intro: 'クライアントの代理で {% data variables.product.prodname_dotcom
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /articles/creating-and-paying-for-an-organization-on-behalf-of-a-client
-  - /github/setting-up-and-managing-billing-and-payments-on-github/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/creating-and-paying-for-an-organization-on-behalf-of-a-client
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - User account
   - Organizations
   - Upgrades
+shortTitle: クライアントの代理
 ---
 
-### 要件
+## 要件
 
 始める前に、以下をご確認ください:
 - 作成する Organization のコードオーナーになるクライアントの {% data variables.product.prodname_dotcom %} ユーザ名
@@ -24,7 +25,7 @@ topics:
 - クライアントが購入したい[製品](/articles/github-s-products)
 - クライアントから Organization 用に購入を依頼された[有料シート](/articles/about-per-user-pricing/)数
 
-### ステップ 1: 個人 {% data variables.product.prodname_dotcom %}アカウントを作成する
+## ステップ 1: 個人 {% data variables.product.prodname_dotcom %}アカウントを作成する
 
 自分の個人アカウントを使用して Organization をセットアップします。 また、将来クライアントのプランを更新または変更するにも、このアカウントにサインインする必要があります。
 
@@ -35,7 +36,7 @@ topics:
 3. 個人アカウント用に {% data variables.product.prodname_free_user %}を選択します。
 4. [**Finish sign up**] をクリックします。
 
-### ステップ 2: Organization を作成する
+## ステップ 2: Organization を作成する
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
@@ -46,7 +47,7 @@ topics:
 {% data reusables.dotcom_billing.owned_by_business %}
 8. [**Next**] をクリックします。
 
-### ステップ 3: Organization を年次支払いプランへ アップグレードする
+## ステップ 3: Organization を年次支払いプランへ アップグレードする
 
 
 {% data reusables.profile.access_org %}
@@ -58,7 +59,7 @@ topics:
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### ステップ 4: Organization の有料シート数をアップグレードする
+## ステップ 4: Organization の有料シート数をアップグレードする
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -67,7 +68,7 @@ topics:
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
 
-### ステップ 5: クライアントを Organization に招待する
+## ステップ 5: クライアントを Organization に招待する
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -77,7 +78,7 @@ topics:
 6. クライアントに *Owner* ロールを選択し、[**Send invitation**] をクリックします。 ![[Owner] ラジオボタンと [Send invitation] ボタン](/assets/images/help/organizations/add-owner-send-invite-reseller.png)
 7. クライアントに Organization への招待メールが届きます。 クライアントが招待を受諾しないと、次のステップに進めません。
 
-### ステップ 6: Organization 所有権をクライアントに移譲する
+## ステップ 6: Organization 所有権をクライアントに移譲する
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -87,13 +88,13 @@ topics:
 6. 左側で、[**Remove from organization**] をクリックします。 ![Organizationボタンからの削除](/assets/images/help/organizations/remove-from-org-button.png)
 7. 選択結果を確認し、[**Remove members**] をクリックします。 ![[Remove members] 確定ボタン](/assets/images/help/organizations/confirm-remove-from-org.png)
 
-### 次のステップ
+## 次のステップ
 
 1. クライアントに連絡し、[Organization の支払いマネージャーとしてあなたを追加](/articles/adding-a-billing-manager-to-your-organization)するよう依頼します。 将来クライアントのプランを更新または変更できるようにするためには、Organization の支払いマネージャーになる必要があります。
 2. 今後課金されないように自分の Organization のクレジットカードを Organization から削除したい場合は、{% data variables.contact.contact_support %} にご連絡ください。
 3. クライアントのプランを更新する時期になった場合は、「[クライアントの有料 Organization を更新する](/articles/renewing-your-client-s-paid-organization)」を参照してください。
 
-### 参考リンク
+## 参考リンク
 
 - 「[購入代行業者のための Organization について](/articles/about-organizations-for-procurement-companies)」
 - [クライアントの有料Organizationのアップグレードあるいはダウングレード](/articles/upgrading-or-downgrading-your-client-s-paid-organization)

@@ -4,13 +4,14 @@ intro: 'If you install a paid app in {% data variables.product.prodname_marketpl
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-marketplace
   - /articles/about-billing-for-github-marketplace
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-marketplace
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Marketplace
+shortTitle: Billing for GitHub Marketplace
 ---
 {% data variables.product.prodname_marketplace %} includes apps with free and paid pricing plans. After you purchase and install an app, you can upgrade, downgrade, or cancel at any time.
 

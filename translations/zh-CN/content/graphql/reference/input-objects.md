@@ -4,14 +4,15 @@ redirect_from:
   - /v4/input_object
   - /v4/reference/input_object
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### 关于输入对象
+## 关于输入对象
 
 [输入对象](https://graphql.github.io/graphql-spec/June2018/#sec-Input-Objects)可描述为“可组合对象”，因为它们包含一组用于定义对象的输入字段。
 

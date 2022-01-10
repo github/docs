@@ -5,11 +5,13 @@ redirect_from:
   - /articles/managing-your-payouts-from-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-payouts-from-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Sponsors payments
   - Open Source
+shortTitle: Manage payouts
 ---
 
 ## About payouts from {% data variables.product.prodname_sponsors %}

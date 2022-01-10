@@ -2,7 +2,7 @@
 title: About GitHub AE
 intro: '{% data variables.product.prodname_ghe_managed %} is a security-enhanced and compliant way to use {% data variables.product.prodname_dotcom %} in the cloud.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: overview
 topics:
   - Enterprise
@@ -23,10 +23,6 @@ topics:
 
 All of your data is stored within the geographic region of your choosing. You can comply with GDPR and global data protection standards by keeping all of your data within your chosen region.
 
-## Encryption on your terms 
-
-All customer data is encrypted at rest. For more information, see "[Configuring data encryption for your enterprise](/admin/configuration/configuring-data-encryption-for-your-enterprise)."
-
 ## Isolated accounts
 
 All developer accounts are fully isolated in {% data variables.product.prodname_ghe_managed %}. You can fully control the accounts through your identity provider, with SAML single sign on as mandatory. SCIM enables you to ensure that employees only have access to the resources they should, as defined in your central identity management system. For more information, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)."
@@ -41,4 +37,5 @@ Secure access to your enterprise on {% data variables.product.prodname_ghe_manag
 
 ## Further reading
 
+- "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"
 - "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"

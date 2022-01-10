@@ -5,11 +5,13 @@ redirect_from:
   - /articles/about-github-sponsors-for-sponsored-developers
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Open Source
   - Fundamentals
+shortTitle: Open source contributors
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}

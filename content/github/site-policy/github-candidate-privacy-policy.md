@@ -1,7 +1,7 @@
 ---
 title: GitHub Candidate Privacy Policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

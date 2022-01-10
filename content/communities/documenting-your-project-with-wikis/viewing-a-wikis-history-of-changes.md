@@ -7,11 +7,13 @@ redirect_from:
   - /articles/viewing-a-wikis-history-of-changes
   - /github/building-a-strong-community/viewing-a-wikis-history-of-changes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: View a history of changes
 ---
 
 ## Viewing wiki history

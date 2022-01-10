@@ -3,15 +3,16 @@ title: Troubleshooting a declined credit card charge
 intro: 'If the credit card you use to pay for {% data variables.product.product_name %} is declined, you can take several steps to ensure that your payments go through and that you are not locked out of your account.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/troubleshooting-a-declined-credit-card-charge
-  - /articles/what-do-i-do-if-my-card-is-declined/
+  - /articles/what-do-i-do-if-my-card-is-declined
   - /articles/troubleshooting-a-declined-credit-card-charge
-  - /github/setting-up-and-managing-billing-and-payments-on-github/troubleshooting-a-declined-credit-card-charge
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/troubleshooting-a-declined-credit-card-charge
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Troubleshooting
+shortTitle: Declined credit card charge
 ---
 If your card is declined, we'll send you an email about why the payment was declined. You'll have a few days to resolve the problem before we try charging you again.
 

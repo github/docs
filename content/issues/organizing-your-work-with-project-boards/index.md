@@ -3,9 +3,10 @@ title: Organizing your work with project boards
 shortTitle: Project boards
 intro: 'Use project boards to manage your work on {% data variables.product.prodname_dotcom %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Issues
   - Projects
@@ -20,3 +21,4 @@ redirect_from:
   - /archiving-cards-on-a-project-board
 ---
 
+{% data reusables.projects.project_boards_old %}

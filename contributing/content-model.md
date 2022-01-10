@@ -36,7 +36,7 @@ Categories are usually organized around a feature or a discrete set of tasks wit
 - Task-based (begins with a gerund)
 - Describes the big-picture purpose or goal of using the feature or product
 - General or high-level enough to scale with future product enhancements
-- Category titles must be 67 characters or shorter
+- Category titles must be 67 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 27 characters
 - Examples
   - [Setting up and managing your GitHub user account](https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account)
   - [Installing GitHub Enterprise](https://docs.github.com/en/enterprise-server@3.0/admin/installation)
@@ -54,7 +54,7 @@ Map topics contain at least three articles. When map topics have more than eight
 - Task-based (begins with a gerund)
 - Describes a more specific task within the larger workflow of the category it’s in
 - General or high-level enough to scale with future additions to the product
-- Map topic titles must be 63 characters or shorter
+- Map topic titles must be 63 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 30 characters
 - Examples
   - [Securing your account with two-factor authentication](https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)
   - [Setting policies for organizations in your enterprise account](https://docs.github.com/en/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account)
@@ -91,7 +91,7 @@ Titles are challenging! Use these general guidelines to help create clear, helpf
   - Titles aren’t overly repetitive––vary the verbs used for procedure or map topic titles when possible
 - Titles are general enough to scale with product changes, reflect all of the content within the article, or include content on multiple products
   - Use: "GitHub's billing plans"
-  - Avoid: “Billing plans for user and organization accounts"
+  - Avoid: "Billing plans for user and organization accounts"
 - Titles use consistent terminology
   - Develop and follow patterns within a category or on similar subjects
 - Titles use terminology from the product itself
@@ -103,9 +103,47 @@ Titles are challenging! Use these general guidelines to help create clear, helpf
   - What specific words do we need to include in the title or intro so that folks don’t mistake it for content about a different product?
 - Think about how the title will look in production
 - Titles have hard limits for length to keep them easy to understand (and easier to render on the site): 
-  - Category titles: 67 characters
-  - Map topic titles: 63 characters
-  - Article titles: 80 characters, 60 if possible
+  - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 27 characters
+  - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 30 characters
+  - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 31 characters, ideally 20-25 characters
+
+### Topics
+
+Topics are used to filter articles and are searchable across the docs site. For some layouts, such as landing pages or guides, people can select which articles are displayed by filtering topics. Use these guidelines to help choose which topics to add to an article's frontmatter. For more information on adding topics to an article see, "[Topics](https://github.com/github/docs/tree/main/content#topics)" and for a list of all allowed topics, see [`allowed-topics`](https://github.com/github/docs/blob/main/data/allowed-topics.js).
+
+#### Topics for all content types
+- All articles should have at least one topic
+- Use nouns as topics
+- Topics help customers meaningfully group content
+  - When possible, use more specific topics that are relevant and not just broad topics. For example, `REST` or `GraphQL` rather than just `API`
+  - Ensure that topics on similar articles are consistent so that people who filter by a topic get all of the relevant articles. For example, all articles about CI should have the `CI` topic plus more specific topics
+  - Avoid ambiguous topics. For example, `Actions` may not be a useful topic within the Actions product since it could refer to the product GitHub Actions or the product element called an action
+- Topics add value beyond and do not replicate the article’s title, type, or category
+  - For example, within the Actions product, `Actions` does not add value since a customer already knows they are looking at Actions docs
+- Use `Fundamentals` for articles related to the core concepts of a product area.
+  - Use: `Fundamentals` in an article like “Introduction to GitHub Actions”
+  - Avoid: `Actions` in an article like "Introduction to GitHub Actions"
+- Commonly-recognized abbreviations can be used, but obscure or ambiguous abbreviations should be avoided
+  - Use: `CI` instead of `Continuous integration`
+  - Avoid: `AS` instead of `Advanced Security`
+- Use the short forms of GitHub product names
+  - Use: `Actions` instead of `GitHub Actions`
+
+#### Checklist for choosing topics
+Consider these questions to help choose topics for an article. Not every article will have a topic for each item in the checklist.
+
+- [ ] What is the feature or product area?
+  - Example: `Enterprise`
+- [ ] Is the article about a sub-feature (unless the product name matches the feature name)?
+  - Example: `Dependabot`
+- [ ] Is the feature part of a restricted program?
+  - Example: `Advanced Security`
+- [ ] What element of the feature or product is the article?
+  - Example: `Organizations`
+- [ ] What is the broad purpose of the article?
+  - Example: `Permissions`
+- [ ] What programming languages, package managers, or ecosystems does the article explicitly address? (Note: only include these topics if it adds value to someone filtering the docs, not just if an article lists supported languages, package managers, or ecosystems.)
+  - Example: `Ruby`
 
 ### Reusing content
 
@@ -132,7 +170,7 @@ Use the [conceptual content template](https://github.com/github/docs/blob/main/c
 - Include next steps for getting started with the feature (whether through further reading links or content within the article itself)
 
 #### Titles for conceptual content
-- Conceptual articles or headers of conceptual sections start with “About [subject]”
+- Conceptual articles or headers of conceptual sections start with "About [subject]”
 - Use a noun to describe the subject
   - Use: "About code scanning"
   - Avoid: "About scanning your code for vulnerabilities"
@@ -181,7 +219,7 @@ Use the [referential content template](https://github.com/github/docs/blob/main/
   - [Billing](https://docs.github.com/en/rest/reference/billing) in the REST API documentation
   - [Mutations](https://docs.github.com/en/graphql/reference/mutations) in the GraphQL API documentation
 - Referential sections within other articles
-  - Supported languages in [GitHub for mobile](https://docs.github.com/en/github/getting-started-with-github/github-for-mobile#supported-languages-for-github-for-mobile)
+  - Supported languages in [GitHub Mobile](https://docs.github.com/en/get-started/using-github/github-mobile#supported-languages-for-github-mobile)
   - Hardware considerations in [Installing GitHub Enterprise Server on AWS](https://docs.github.com/en/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws)
 
 ### Procedural
@@ -210,7 +248,7 @@ Use the [procedural content template](https://github.com/github/docs/blob/main/c
 
 #### Examples of procedural content
 - [Adding information to your receipts](https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/adding-information-to-your-receipts)
-- [Inviting people to manage your enterprise account](https://docs.github.com/en/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)
+- [Inviting people to manage your enterprise account](https://docs.github.com/en/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)
 - [Setting up continuous integration using workflow templates](https://docs.github.com/en/actions/guides/setting-up-continuous-integration-using-workflow-templates)
 
 ### Combining multiple content types
@@ -228,7 +266,7 @@ Often, it's helpful to group information in context to help customers complete a
 #### Title guidelines for articles that combine multiple content types
 - If there's a procedure within the article, use a task-based title that begins with a gerund
 - Titles are general enough to describe the range of information and tasks contained within the article
-- Titles describe the setting being toggled and are agnostic about what setting the reader chooses, e.g., “Setting repository visibility” instead of “Making a private repository public”
+- Titles describe the setting being toggled and are agnostic about what setting the reader chooses, e.g., "Setting repository visibility” instead of "Making a private repository public”
 
 #### Examples of articles that combine multiple content types
 - [Setting repository visibility](https://docs.github.com/en/github/administering-a-repository/setting-repository-visibility)
@@ -291,7 +329,7 @@ Contents of tutorials:
   - Does not include the expected amount of time that it may take users to complete the task - this depends on the experience level of the user and can be demoralizing for beginners
 - Procedural sections
   - Based on the tutorial's audience, the steps can be less explicit and formal than those used in procedural content. You do not have to use existing reusables to form these steps if the audience doesn’t require that level of detail.
-    - Use: “From your profile, click **Settings, and then click **Developer settings**.”
+    - Use: "From your profile, click **Settings, and then click **Developer settings**.”
     - Avoid: In the upper-right corner of any page, click your profile photo, then click **Settings**. In the left sidebar, click **Developer settings**.
   - Link out to other articles or resources rather than replicating them, to avoid interrupting the flow of information in the tutorial.
   - Give visual cues. Use code blocks and screenshots heavily to help reassure users that they're performing the correct actions.
@@ -310,7 +348,7 @@ Contents of tutorials:
 
 #### Title guidelines for tutorials
 - Follow the title guidelines for procedural articles
-- Don’t use “tutorial” or “guide” in the title
+- Don’t use "tutorial” or "guide” in the title
 
 #### Examples of tutorials
 Tutorials:
@@ -366,14 +404,16 @@ The top of every page has an intro that provides context and sets expectations, 
 
 ### Product callout
 
-Use the product callout when a feature is available in specific products only. All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
+Use the product callout when a feature is available in specific products only and that availability cannot be conveyed by versioning alone. For example, if a feature is available for GHEC, GHES, and GHAE, you can version content about the feature for GHEC, GHES, and GHAE only. If a feature is available for Pro, Team, GHEC, GHES, and GHAE (but not Free), use a product callout to convey that availability.
+
+All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
 
 #### How to write a product callout
 - Product callouts follow a strict format, clearly identifying the feature and which products it’s available in. 
-- Product callouts also include a link to “GitHub’s products” and occasionally to another relevant article.
+- Product callouts also include a link to "GitHub’s products” and occasionally to another relevant article.
 - Examples:
-  - [Feature name] is available in [product(s)]. For more information, see “GitHub’s products.”
-  - [Feature name] is available in public repositories with [free product(s), and in public and private repositories with [paid products]. For more information, see “GitHub’s products.”
+  - [Feature name] is available in [product(s)]. For more information, see "GitHub’s products.”
+  - [Feature name] is available in public repositories with [free product(s), and in public and private repositories with [paid products]. For more information, see "GitHub’s products.”
 
 #### Examples of articles with product callouts
 Check the source files and `gated-features` to see how source content is written.
@@ -383,7 +423,7 @@ Check the source files and `gated-features` to see how source content is written
 
 ### Permissions statements
 
-Every procedure includes a permissions statement explaining the roles or permissions needed to take the action described in the procedure, helping customers understand whether they'll be able to complete the task.
+Every procedure includes a permissions statement explaining the role required to take the action described in the procedure, helping customers understand whether they'll be able to complete the task.
 
 Occasionally, it's relevant to mention required permissions in conceptual content, especially in standalone conceptual articles. Make sure to also include a permissions statement in related procedures (or write a longer article combining all of the content).
 
@@ -391,9 +431,11 @@ Occasionally, it's relevant to mention required permissions in conceptual conten
 - When a single set of permissions applies to all procedures in an article, use the [permissions frontmatter](https://github.com/github/docs/tree/main/content#permissions). 
 - When an article contains multiple procedures and different permissions apply, include a separate permissions statement under each relevant header, before each procedure. 
 - Don't include permissions in an article’s intro.
+- Roles exist at different levels. Refer only to the role at the same level as the action. For example, you need admin access to a repository (repository-level role) to configure protected branches. You can get admin access to a repository by being an organization owner (organization-level role), but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned in the permissions statement.
 - Language to use in a permissions statement:
-  - [ROLE] can [ACTION].
-  - People with [ROLE] permissions for [FEATURE] can [ACTION].
+  - [ACCOUNT ROLE] can [ACTION].
+  - People with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
+  - AVOID: [ACCOUNT ROLE] and people with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
 
 #### Examples of permissions statements
 - Article with separate permissions statements for each procedure: [Upgrading your GitHub subscription](https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription)
@@ -449,6 +491,6 @@ Further reading sections highlight additional targeted articles that aren’t al
 #### Title and format for further reading sections
 ```
 ### Further reading
-- “[Article title](article-URL)”
+- "[Article title](article-URL)”
 - [External resource title](external-resource-URL) in External Resource Name
 ```

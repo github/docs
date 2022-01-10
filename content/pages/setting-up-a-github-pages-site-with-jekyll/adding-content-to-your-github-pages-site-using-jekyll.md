@@ -6,11 +6,13 @@ redirect_from:
   - /articles/adding-content-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Add content to Pages site
 ---
 
 People with write permissions for a repository can add content to a {% data variables.product.prodname_pages %} site using Jekyll.

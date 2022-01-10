@@ -1,11 +1,11 @@
 ---
 title: Guide to Submitting a DMCA Takedown Notice
 redirect_from:
-  - /dmca-notice-how-to/
-  - /articles/dmca-notice-how-to/
+  - /dmca-notice-how-to
+  - /articles/dmca-notice-how-to
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

@@ -5,14 +5,16 @@ redirect_from:
   - /articles/preparing-to-require-two-factor-authentication-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/preparing-to-require-two-factor-authentication-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 准备需要 2FA
 ---
 
-如果您的组织中需要 2FA，建议至少提前一周通知{% if currentVersion == "free-pro-team@latest" %}组织成员、外部协作者和帐单管理员{% else %}组织成员和外部协作者{% endif %}。
+如果您的组织中需要 2FA，建议至少提前一周通知{% ifversion fpt or ghec %}组织成员、外部协作者和帐单管理员{% else %}组织成员和外部协作者{% endif %}。
 
 需要对您的组织使用双重身份验证时，不使用 2FA 的成员、外部协作者和帐单管理员（包括自动程序帐户）将从组织中删除，并且失去访问其仓库的权限。 他们还会失去对组织私有仓库的复刻的访问权限。
 

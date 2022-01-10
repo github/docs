@@ -3,20 +3,20 @@ title: GitHub Bug Bounty Program Legal Safe Harbor
 redirect_from:
   - /articles/github-bug-bounty-program-legal-safe-harbor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
 ---
 
 ## Summary
-1. We want you to responsibly disclose through our bug bounty program, and don't want researchers put in fear of legal consequences because of their good faith attempts to comply with our bug bounty policy. We cannot bind any third party, so do not assume this protection extends to any third party. If in doubt, ask us before engaging in any specific action you think _might_ go outside the bounds of our policy.
+1. We want you to coordinate disclosure through our bug bounty program, and don't want researchers put in fear of legal consequences because of their good faith attempts to comply with our bug bounty policy. We cannot bind any third party, so do not assume this protection extends to any third party. If in doubt, ask us before engaging in any specific action you think _might_ go outside the bounds of our policy.
 2. Because both identifying and non-identifying information can put a researcher at risk, we limit what we share with third parties. We may provide non-identifying substantive information from your report to an affected third party, but only after notifying you and receiving a commitment that the third party will not pursue legal action against you. We will only share identifying information (name, email address, phone number, etc.) with a third party if you give your written permission.
 3. If your security research as part of the bug bounty program violates certain restrictions in our site policies, the safe harbor terms permit a limited exemption.
 
 ## 1. Safe Harbor Terms
 
-To encourage research and responsible disclosure of security vulnerabilities, we will not pursue civil or criminal action, or send notice to law enforcement for accidental or good faith violations of this policy. We consider security research and vulnerability disclosure activities conducted consistent with this policy to be “authorized” conduct under the Computer Fraud and Abuse Act, the DMCA, and other applicable computer use laws such as Cal. Penal Code 502(c). We waive any potential DMCA claim against you for circumventing the technological measures we have used to protect the applications in this bug bounty program's scope.
+To encourage research and coordinated disclosure of security vulnerabilities, we will not pursue civil or criminal action, or send notice to law enforcement for accidental or good faith violations of this policy. We consider security research and vulnerability disclosure activities conducted consistent with this policy to be “authorized” conduct under the Computer Fraud and Abuse Act, the DMCA, and other applicable computer use laws such as Cal. Penal Code 502(c). We waive any potential DMCA claim against you for circumventing the technological measures we have used to protect the applications in this bug bounty program's scope.
 
 Please understand that if your security research involves the networks, systems, information, applications, products, or services of a third party (which is not us), we cannot bind that third party, and they may pursue legal action or law enforcement notice. We cannot and do not authorize security research in the name of other entities, and cannot in any way offer to defend, indemnify, or otherwise protect you from any third party action based on your actions.
 

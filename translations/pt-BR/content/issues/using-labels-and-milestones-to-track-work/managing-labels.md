@@ -1,6 +1,7 @@
 ---
-title: Gerenciar etiquetas
-intro: 'Você pode classificar {% if currentVersion == "free-pro-team@latest" %}problemas, pull requests e discussões{% else %}problemas e pull requests{% endif %} criando, editando, aplicando e excluindo etiquetas.'
+title: Managing labels
+intro: 'You can classify {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %} by creating, editing, applying, and deleting labels.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
   - /articles/managing-Labels
@@ -11,7 +12,7 @@ redirect_from:
   - /articles/creating-and-editing-labels-for-issues-and-pull-requests
   - /articles/creating-a-label
   - /github/managing-your-work-on-github/creating-a-label
-  - /articles/customizing-issue-labels/
+  - /articles/customizing-issue-labels
   - /articles/applying-labels-to-issues-and-pull-requests
   - /github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests
   - /articles/editing-a-label
@@ -20,59 +21,68 @@ redirect_from:
   - /github/managing-your-work-on-github/deleting-a-label
   - /github/managing-your-work-on-github/managing-labels
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Project management
+type: how_to
 ---
-  ### Sobre etiquetas
+## About labels
 
-Você pode gerenciar seu trabalho em {% data variables.product.product_name %} criando etiquetas para classificar {% if currentVersion == "free-pro-team@latest" %}problemas, pull requests e discussões{% else %}problemas e pull requests{% endif %}. Você pode aplicar etiquetas no repositório em que foram criadas. Uma vez criada uma etiqueta, você poderá usá-la em qualquer {% if currentVersion == "free-pro-team@latest" %}problema, pull request ou discussão{% else %}problema ou pull request{% endif %} dentro desse repositório.
+You can manage your work on {% data variables.product.product_name %} by creating labels to categorize {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
 
-Qualquer pessoa com acesso de leitura a um repositório pode exibir e pesquisar etiquetas do repositório. Qualquer pessoa com acesso de triagem a um repositório pode aplicar/ignorar etiquetas existentes. Para criar, editar, aplicar ou excluir uma etiqueta, é preciso ter acesso de gravação ao repositório.
+## About default labels
 
-### Sobre as etiquetas padrão
+{% data variables.product.product_name %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository.
 
-O {% data variables.product.product_name %} fornece etiquetas padrão para todos os repositórios novos. Você pode usar essas etiquetas padrão para ajudar com a criação de um fluxo de trabalho padronizado em um repositório.
+Label | Description
+---  | ---
+`bug` | Indicates an unexpected problem or unintended behavior{% ifversion fpt or ghes or ghec %}
+`documentation` | Indicates a need for improvements or additions to documentation{% endif %}
+`duplicate` | Indicates similar {% ifversion fpt or ghec %}issues, pull requests, or discussions{% else %}issues or pull requests{% endif %}
+`enhancement` | Indicates new feature requests
+`good first issue` | Indicates a good issue for first-time contributors
+`help wanted` | Indicates that a maintainer wants help on an issue or pull request
+`invalid` | Indicates that an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} is no longer relevant
+`question` | Indicates that an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} needs more information
+`wontfix` | Indicates that work won't continue on an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}
 
-| Etiqueta           | Descrição                                                                                                                                                                    |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bug`              | Indica um problema inesperado ou um comportamento não intencional{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-| `documentation`    | Indica a necessidade de aprimoramentos ou adições à documentação{% endif %}
-| `duplicate`        | Indica {% if currentVersion == "free-pro-team@latest" %}problemas, pull requests ou discussões{% else %}problemas ou pull requests{% endif %}
-| `enhancement`      | Indica novas solicitações de recurso                                                                                                                                         |
-| `good first issue` | Indica um bom problema para contribuidores principiantes                                                                                                                     |
-| `help wanted`      | Indica que um mantenedor deseja ajudar em um problema ou uma pull request                                                                                                    |
-| `invalid`          | Indica que um {% if currentVersion == "free-pro-team@latest" %}problema, pull request ou discussão{% else %}problema ou pull request{% endif %} já não é relevante           |
-| `question`         | Indica que um {% if currentVersion == "free-pro-team@latest" %}problema, pull request ou discussão{% else %}problema ou pull request{% endif %} precisa de mais informações  |
-| `wontfix`          | Indica que o trabalho não continuará em um {% if currentVersion == "free-pro-team@latest" %}problema, pull request ou discussão{% else %}problema ou pull request{% endif %}
+Default labels are included in every new repository when the repository is created, but you can edit or delete the labels later.
 
-Etiquetas padrão são incluídas em todos os novos repositórios quando criados, mas você pode editar ou excluir as etiquetas posteriormente.
+Issues with the `good first issue` label are used to populate the repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute). 
 
-Problemas com a etiqueta `good first issue` são usados para preencher a página de `contribute` do repositório. Para obter um exemplo da página de `contribuir`, consulte [github/docs/contribua](https://github.com/github/docs/contribute).
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-Os proprietários da organização podem personalizar as etiquetas padrão para repositórios na organização. Para obter mais informações, consulte "[Gerenciar etiquetas padrão nos repositórios da organização](/articles/managing-default-labels-for-repositories-in-your-organization)".
+{% ifversion fpt or ghes or ghec %}
+Organization owners can customize the default labels for repositories in their organization. For more information, see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)."
 {% endif %}
 
-### Criar uma etiqueta
+## Creating a label
+
+Anyone with write access to a repository can create a label.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
-4. À direita do campo de pesquisa, clique em **New label** (Nova etiqueta).
+4. To the right of the search field, click **New label**.
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.create-label %}
 
-### Aplicando uma etiqueta
+## Applying a label
 
-1. Acesse {% if currentVersion == "free-pro-team@latest" %}problema, pull request ou discussão{% else %}problema ou pull request{% endif %}.
-1. Na barra lateral direita, à direita de "Etiquetas", clique em {% octicon "gear" aria-label="The gear icon" %} e, em seguida, clique em uma etiqueta. ![Menu suspenso "Etiquetas"](/assets/images/help/issues/labels-drop-down.png)
+Anyone with triage access to a repository can apply and dismiss labels.
 
-### Editar uma etiqueta
+1. Navigate to the {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}.
+1. In the right sidebar, to the right of "Labels", click {% octicon "gear" aria-label="The gear icon" %}, then click a label.
+  !["Labels" drop-down menu](/assets/images/help/issues/labels-drop-down.png)
+
+## Editing a label
+
+Anyone with write access to a repository can edit existing labels.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -83,16 +93,18 @@ Os proprietários da organização podem personalizar as etiquetas padrão para 
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.save-label %}
 
-### Excluir uma etiqueta
+## Deleting a label
 
-Excluir uma etiqueta removerá a etiqueta dos problemas e pull requests.
+Anyone with write access to a repository can delete existing labels.
+
+Deleting a label will remove the label from issues and pull requests.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
 {% data reusables.project-management.delete-label %}
 
-### Leia mais
-- "[Filtrar problemas e pull requests por etiquetas](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" ou enterpriseServerVersions contém currentVersion %}
-- "[Gerenciar etiquetas padrão para repositórios na organização](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- "[Incentivar contribuições úteis para o seu projeto com etiquetas](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
+## Further reading
+- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
+- "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
+- "[Encouraging helpful contributions to your project with labels](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

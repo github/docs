@@ -1,34 +1,40 @@
 ---
-title: Restringir a criação de repositórios na organização
-intro: 'Para proteger os dados da organização, você pode configurar as permissões de criação de repositórios na organização.'
+title: Restricting repository creation in your organization
+intro: 'To protect your organization''s data, you can configure permissions for creating repositories in your organization.'
 redirect_from:
   - /articles/restricting-repository-creation-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Restrict repository creation
 ---
 
-Você pode escolher se os integrantes podem criar repositórios na sua organização. Se você permitir que os integrantes criem repositórios, você poderá escolher quais tipos de repositórios os integrantes poderão criar.{% if currentVersion == "free-pro-team@latest" %} Para permitir que os integrantes criem apenas repositórios privados, a sua organização deve usar {% data variables.product.prodname_ghe_cloud %}.{% endif %} Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)".
+You can choose whether members can create repositories in your organization. If you allow members to create repositories, you can choose which types of repositories members can create.{% ifversion fpt or ghec %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %}{% ifversion fpt %} For more information, see "[About repositories](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories)" in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
-Os proprietários da organização sempre podem criar qualquer tipo de repositório.
-
-{% if currentVersion == "free-pro-team@latest" %}Os proprietários da empresa{% else %}administradores do site{% endif %} podem restringir as opções disponíveis para você para a política de criação de repositório da sua organização. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" %}"[Aplicar políticas de gerenciamento do repositório na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account).{% else %}"[Restringir a criação do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}
+Organization owners can always create any type of repository.
+{% ifversion ghec or ghae or ghes %}
+{% ifversion ghec or ghae %}Enterprise owners{% elsif ghes %}Site administrators{% endif %} can restrict the options you have available for your organization's repository creation policy.{% ifversion ghec or ghes or ghae %} For more information, see "[Restricting repository creation in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}{% endif %}
 
 {% warning %}
 
-**Aviso**: Essa configuração restringe apenas as opções de visibilidade disponíveis quando os repositórios são criados e não restringe a capacidade de alterar a visibilidade do repositório mais tarde. Para obter mais informações sobre restringir alterações em visibilidades de repositórios existentes, consulte "[Restringindo alterações da visibilidade do repositório na sua organização](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)".
+**Warning**: This setting only restricts the visibility options available when repositories are created and does not restrict the ability to change repository visibility at a later time. For more information about restricting changes to existing repositories' visibilities, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 {% endwarning %}
-
-{% data reusables.organizations.internal-repos-enterprise %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Em "Criação do repositório", selecione uma ou mais opções. ![Opções de criação de repositório](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
-6. Clique em **Salvar**.
+5. Under "Repository creation", select one or more options.
+
+   {%- ifversion ghes or ghec or ghae %}
+   ![Repository creation options](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+   {%- elsif fpt %}
+   ![Repository creation options](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+   {%- endif %}
+6. Click **Save**.

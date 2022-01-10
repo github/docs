@@ -4,12 +4,13 @@ intro: 'Review common reasons that applications for the {% data variables.produc
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
-  - /articles/why-was-my-application-for-a-student-developer-pack-denied/
+  - /articles/why-was-my-application-for-a-student-developer-pack-denied
   - /articles/why-wasn-t-my-application-for-a-student-developer-pack-approved
   - /articles/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Application not approved
 ---
 {% tip %}
 

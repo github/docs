@@ -2,7 +2,7 @@
 title: Cherry-picking a commit
 intro: You can pick a specific commit on one branch and copy the commit to another branch.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/cherry-picking-a-commit
 ---

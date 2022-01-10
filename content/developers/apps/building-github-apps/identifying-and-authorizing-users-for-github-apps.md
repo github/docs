@@ -2,16 +2,18 @@
 title: Identifying and authorizing users for GitHub Apps
 intro: '{% data reusables.shortdesc.identifying_and_authorizing_github_apps %}'
 redirect_from:
-  - /early-access/integrations/user-identification-authorization/
-  - /apps/building-integrations/setting-up-and-registering-github-apps/identifying-users-for-github-apps/
+  - /early-access/integrations/user-identification-authorization
+  - /apps/building-integrations/setting-up-and-registering-github-apps/identifying-users-for-github-apps
   - /apps/building-github-apps/identifying-and-authorizing-users-for-github-apps
   - /developers/apps/identifying-and-authorizing-users-for-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: Identify & authorize users
 ---
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
@@ -23,8 +25,10 @@ When your GitHub App acts on behalf of a user, it performs user-to-server reques
 
 To authorize users for standard apps that run in the browser, use the [web application flow](#web-application-flow).
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
+
 To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
+
 {% endif %}
 
 ## Web application flow
@@ -38,6 +42,7 @@ Using the web application flow, the process to identify users on your site is:
 If you select **Request user authorization (OAuth) during installation** when creating or modifying your app, step 1 will be completed during app installation. For more information, see "[Authorizing users during installation](/apps/installing-github-apps/#authorizing-users-during-installation)."
 
 ### 1. Request a user's GitHub identity
+Direct the user to the following URL in their browser:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
@@ -48,7 +53,7 @@ When your GitHub App specifies a `login` parameter, it prompts users with a spec
 Name | Type | Description
 -----|------|------------
 `client_id` | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app. **Note:** The app ID and client ID are not the same, and are not interchangeable.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
 `login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
 `allow_signup` | `string` | Whether or not unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
@@ -69,9 +74,11 @@ If the user accepts your request, GitHub redirects back to your site with a temp
 
 {% endnote %}
 
-Exchange this `code` for an access token. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
+Exchange this `code` for an access token.  When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
 
-Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."{% endif %}
+Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."
+
+Make a request to the following endpoint to receive an access token:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
@@ -82,32 +89,23 @@ Name | Type | Description
 `client_id` | `string` | **Required.** The  client ID for your GitHub App.
 `client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
 `code` | `string`   | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | The unguessable random string you provided in Step 1.
 
 #### Response
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable expiring user-to-server access tokens.
 
 ```json
 {
-  "access_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "expires_in": 28800,
-  "refresh_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
+  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
   "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
 }
 ```
-{% else %}
-
-By default, the response takes the following form:
-
-    access_token={% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
-
-{% endif %}
 
 ### 3. Your GitHub App accesses the API with the user's access token
 
@@ -122,16 +120,15 @@ For example, in curl you can set the Authorization header like this:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
+
 ## Device flow
 
-{% if currentVersion ver_lt "enterprise-server@3.1" %}
 {% note %}
 
 **Note:** The device flow is in public beta and subject to change.
 
 {% endnote %}
-{% endif %}
 
 The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
 
@@ -141,10 +138,6 @@ For more information about authorizing users using the device flow, see "[Author
 
 ## Check which installation's resources a user can access
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-{% data reusables.pre-release-program.machine-man-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-{% endif %}
 
 Once you have an OAuth token for a user, you can check which installations that user can access.
 
@@ -174,11 +167,11 @@ Because user-level permissions are granted on an individual user basis, you can 
 
 ## User-to-server requests
 
-While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL v4](/graphql) or [REST v3](/rest) endpoints.
+While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) or [REST v3](/rest) endpoints.
 
 ### Supported endpoints
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Actions Runners
 
 * [List runner applications for a repository](/rest/reference/actions#list-runner-applications-for-a-repository)
@@ -212,7 +205,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete an organization secret](/rest/reference/actions#delete-an-organization-secret)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Artifacts
 
 * [List artifacts for a repository](/rest/reference/actions#list-artifacts-for-a-repository)
@@ -246,16 +239,16 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Deployment Statuses
 
-* [List deployment statuses](/rest/reference/repos#list-deployment-statuses)
-* [Create a deployment status](/rest/reference/repos#create-a-deployment-status)
-* [Get a deployment status](/rest/reference/repos#get-a-deployment-status)
+* [List deployment statuses](/rest/reference/deployments#list-deployment-statuses)
+* [Create a deployment status](/rest/reference/deployments#create-a-deployment-status)
+* [Get a deployment status](/rest/reference/deployments#get-a-deployment-status)
 
 #### Deployments
 
-* [List deployments](/rest/reference/repos#list-deployments)
-* [Create a deployment](/rest/reference/repos#create-a-deployment)
-* [Get a deployment](/rest/reference/repos#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-* [Delete a deployment](/rest/reference/repos#delete-a-deployment){% endif %}
+* [List deployments](/rest/reference/deployments#list-deployments)
+* [Create a deployment](/rest/reference/deployments#create-a-deployment)
+* [Get a deployment](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
+* [Delete a deployment](/rest/reference/deployments#delete-a-deployment){% endif %}
 
 #### Events
 
@@ -302,7 +295,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [List repositories accessible to the user access token](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Interaction Limits
 
 * [Get interaction restrictions for an organization](/rest/reference/interactions#get-interaction-restrictions-for-an-organization)
@@ -347,7 +340,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Lock an issue](/rest/reference/issues#lock-an-issue)
 * [Unlock an issue](/rest/reference/issues#unlock-an-issue)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Jobs
 
 * [Get a job for a workflow run](/rest/reference/actions#get-a-job-for-a-workflow-run)
@@ -400,7 +393,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete an organization webhook](/rest/reference/orgs#webhooks/#delete-an-organization-webhook)
 * [Ping an organization webhook](/rest/reference/orgs#webhooks/#ping-an-organization-webhook)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Organization Invitations
 
 * [List pending organization invitations](/rest/reference/orgs#list-pending-organization-invitations)
@@ -427,7 +420,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Convert an organization member to outside collaborator](/rest/reference/orgs#convert-an-organization-member-to-outside-collaborator)
 * [Remove outside collaborator from an organization](/rest/reference/orgs#remove-outside-collaborator-from-an-organization)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 #### Organization Pre Receive Hooks
 
 * [List pre-receive hooks for an organization](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
@@ -436,7 +429,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Remove pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes or ghae or ghec %}
 #### Organization Team Projects
 
 * [List team projects](/rest/reference/teams#list-team-projects)
@@ -452,7 +445,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Add or update team repository permissions](/rest/reference/teams#add-or-update-team-repository-permissions)
 * [Remove a repository from a team](/rest/reference/teams#remove-a-repository-from-a-team)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Organization Team Sync
 
 * [List idp groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
@@ -465,12 +458,9 @@ While most of your API interaction should occur using your server-to-server inst
 * [List teams](/rest/reference/teams#list-teams)
 * [Create a team](/rest/reference/teams#create-a-team)
 * [Get a team by name](/rest/reference/teams#get-a-team-by-name)
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-* [Get a team](/rest/reference/teams#get-a-team)
-{% endif %}
 * [Update a team](/rest/reference/teams#update-a-team)
 * [Delete a team](/rest/reference/teams#delete-a-team)
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 * [List pending team invitations](/rest/reference/teams#list-pending-team-invitations)
 {% endif %}
 * [List team members](/rest/reference/teams#list-team-members)
@@ -491,14 +481,14 @@ While most of your API interaction should occur using your server-to-server inst
 * [List organizations for the authenticated user](/rest/reference/orgs#list-organizations-for-the-authenticated-user)
 * [List organizations for a user](/rest/reference/orgs#list-organizations-for-a-user)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Organizations Credential Authorizations
 
 * [List SAML SSO authorizations for an organization](/rest/reference/orgs#list-saml-sso-authorizations-for-an-organization)
 * [Remove a SAML SSO authorization for an organization](/rest/reference/orgs#remove-a-saml-sso-authorization-for-an-organization)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Organizations Scim
 
 * [List SCIM provisioned identities](/rest/reference/scim#list-scim-provisioned-identities)
@@ -509,7 +499,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete a SCIM user from an organization](/rest/reference/scim#delete-a-scim-user-from-an-organization)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Source Imports
 
 * [Get an import status](/rest/reference/migrations#get-an-import-status)
@@ -592,7 +582,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Reactions
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction){% endif %}
+{% ifversion fpt or ghes or ghae or ghec %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction){% endif %}
 * [List reactions for a commit comment](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Create reaction for a commit comment](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [List reactions for an issue](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -604,7 +594,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List reactions for a team discussion comment](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Create reaction for a team discussion comment](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [List reactions for a team discussion](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
 * [Delete a commit comment reaction](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Delete an issue reaction](/rest/reference/reactions#delete-an-issue-reaction)
 * [Delete a reaction to a commit comment](/rest/reference/reactions#delete-an-issue-comment-reaction)
@@ -619,7 +609,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get a repository](/rest/reference/repos#get-a-repository)
 * [Update a repository](/rest/reference/repos#update-a-repository)
 * [Delete a repository](/rest/reference/repos#delete-a-repository)
-* [Compare two commits](/rest/reference/repos#compare-two-commits)
+* [Compare two commits](/rest/reference/commits#compare-two-commits)
 * [List repository contributors](/rest/reference/repos#list-repository-contributors)
 * [List forks](/rest/reference/repos#list-forks)
 * [Create a fork](/rest/reference/repos#create-a-fork)
@@ -642,7 +632,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Unstar a repository for the authenticated user](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user)
 * [List repositories watched by a user](/rest/reference/activity#list-repositories-watched-by-a-user)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Repository Automated Security Fixes
 
 * [Enable automated security fixes](/rest/reference/repos#enable-automated-security-fixes)
@@ -651,68 +641,68 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Repository Branches
 
-* [List branches](/rest/reference/repos#list-branches)
-* [Get a branch](/rest/reference/repos#get-a-branch)
-* [Get branch protection](/rest/reference/repos#get-branch-protection)
-* [Update branch protection](/rest/reference/repos#update-branch-protection)
-* [Delete branch protection](/rest/reference/repos#delete-branch-protection)
-* [Get admin branch protection](/rest/reference/repos#get-admin-branch-protection)
-* [Set admin branch protection](/rest/reference/repos#set-admin-branch-protection)
-* [Delete admin branch protection](/rest/reference/repos#delete-admin-branch-protection)
-* [Get pull request review protection](/rest/reference/repos#get-pull-request-review-protection)
-* [Update pull request review protection](/rest/reference/repos#update-pull-request-review-protection)
-* [Delete pull request review protection](/rest/reference/repos#delete-pull-request-review-protection)
-* [Get commit signature protection](/rest/reference/repos#get-commit-signature-protection)
-* [Create commit signature protection](/rest/reference/repos#create-commit-signature-protection)
-* [Delete commit signature protection](/rest/reference/repos#delete-commit-signature-protection)
-* [Get status checks protection](/rest/reference/repos#get-status-checks-protection)
-* [Update status check protection](/rest/reference/repos#update-status-check-protection)
-* [Remove status check protection](/rest/reference/repos#remove-status-check-protection)
-* [Get all status check contexts](/rest/reference/repos#get-all-status-check-contexts)
-* [Add status check contexts](/rest/reference/repos#add-status-check-contexts)
-* [Set status check contexts](/rest/reference/repos#set-status-check-contexts)
-* [Remove status check contexts](/rest/reference/repos#remove-status-check-contexts)
-* [Get access restrictions](/rest/reference/repos#get-access-restrictions)
-* [Delete access restrictions](/rest/reference/repos#delete-access-restrictions)
+* [List branches](/rest/reference/branches#list-branches)
+* [Get a branch](/rest/reference/branches#get-a-branch)
+* [Get branch protection](/rest/reference/branches#get-branch-protection)
+* [Update branch protection](/rest/reference/branches#update-branch-protection)
+* [Delete branch protection](/rest/reference/branches#delete-branch-protection)
+* [Get admin branch protection](/rest/reference/branches#get-admin-branch-protection)
+* [Set admin branch protection](/rest/reference/branches#set-admin-branch-protection)
+* [Delete admin branch protection](/rest/reference/branches#delete-admin-branch-protection)
+* [Get pull request review protection](/rest/reference/branches#get-pull-request-review-protection)
+* [Update pull request review protection](/rest/reference/branches#update-pull-request-review-protection)
+* [Delete pull request review protection](/rest/reference/branches#delete-pull-request-review-protection)
+* [Get commit signature protection](/rest/reference/branches#get-commit-signature-protection)
+* [Create commit signature protection](/rest/reference/branches#create-commit-signature-protection)
+* [Delete commit signature protection](/rest/reference/branches#delete-commit-signature-protection)
+* [Get status checks protection](/rest/reference/branches#get-status-checks-protection)
+* [Update status check protection](/rest/reference/branches#update-status-check-protection)
+* [Remove status check protection](/rest/reference/branches#remove-status-check-protection)
+* [Get all status check contexts](/rest/reference/branches#get-all-status-check-contexts)
+* [Add status check contexts](/rest/reference/branches#add-status-check-contexts)
+* [Set status check contexts](/rest/reference/branches#set-status-check-contexts)
+* [Remove status check contexts](/rest/reference/branches#remove-status-check-contexts)
+* [Get access restrictions](/rest/reference/branches#get-access-restrictions)
+* [Delete access restrictions](/rest/reference/branches#delete-access-restrictions)
 * [List teams with access to the protected branch](/rest/reference/repos#list-teams-with-access-to-the-protected-branch)
-* [Add team access restrictions](/rest/reference/repos#add-team-access-restrictions)
-* [Set team access restrictions](/rest/reference/repos#set-team-access-restrictions)
-* [Remove team access restriction](/rest/reference/repos#remove-team-access-restrictions)
+* [Add team access restrictions](/rest/reference/branches#add-team-access-restrictions)
+* [Set team access restrictions](/rest/reference/branches#set-team-access-restrictions)
+* [Remove team access restriction](/rest/reference/branches#remove-team-access-restrictions)
 * [List user restrictions of protected branch](/rest/reference/repos#list-users-with-access-to-the-protected-branch)
-* [Add user access restrictions](/rest/reference/repos#add-user-access-restrictions)
-* [Set user access restrictions](/rest/reference/repos#set-user-access-restrictions)
-* [Remove user access restrictions](/rest/reference/repos#remove-user-access-restrictions)
-* [Merge a branch](/rest/reference/repos#merge-a-branch)
+* [Add user access restrictions](/rest/reference/branches#add-user-access-restrictions)
+* [Set user access restrictions](/rest/reference/branches#set-user-access-restrictions)
+* [Remove user access restrictions](/rest/reference/branches#remove-user-access-restrictions)
+* [Merge a branch](/rest/reference/branches#merge-a-branch)
 
 #### Repository Collaborators
 
-* [List repository collaborators](/rest/reference/repos#list-repository-collaborators)
-* [Check if a user is a repository collaborator](/rest/reference/repos#check-if-a-user-is-a-repository-collaborator)
-* [Add a repository collaborator](/rest/reference/repos#add-a-repository-collaborator)
-* [Remove a repository collaborator](/rest/reference/repos#remove-a-repository-collaborator)
-* [Get repository permissions for a user](/rest/reference/repos#get-repository-permissions-for-a-user)
+* [List repository collaborators](/rest/reference/collaborators#list-repository-collaborators)
+* [Check if a user is a repository collaborator](/rest/reference/collaborators#check-if-a-user-is-a-repository-collaborator)
+* [Add a repository collaborator](/rest/reference/collaborators#add-a-repository-collaborator)
+* [Remove a repository collaborator](/rest/reference/collaborators#remove-a-repository-collaborator)
+* [Get repository permissions for a user](/rest/reference/collaborators#get-repository-permissions-for-a-user)
 
 #### Repository Commit Comments
 
-* [List commit comments for a repository](/rest/reference/repos#list-commit-comments-for-a-repository)
-* [Get a commit comment](/rest/reference/repos#get-a-commit-comment)
-* [Update a commit comment](/rest/reference/repos#update-a-commit-comment)
-* [Delete a commit comment](/rest/reference/repos#delete-a-commit-comment)
-* [List commit comments](/rest/reference/repos#list-commit-comments)
-* [Create a commit comment](/rest/reference/repos#create-a-commit-comment)
+* [List commit comments for a repository](/rest/reference/commits#list-commit-comments-for-a-repository)
+* [Get a commit comment](/rest/reference/commits#get-a-commit-comment)
+* [Update a commit comment](/rest/reference/commits#update-a-commit-comment)
+* [Delete a commit comment](/rest/reference/commits#delete-a-commit-comment)
+* [List commit comments](/rest/reference/commits#list-commit-comments)
+* [Create a commit comment](/rest/reference/commits#create-a-commit-comment)
 
 #### Repository Commits
 
-* [List commits](/rest/reference/repos#list-commits)
-* [Get a commit](/rest/reference/repos#get-a-commit)
-* [List branches for head commit](/rest/reference/repos#list-branches-for-head-commit)
+* [List commits](/rest/reference/commits#list-commits)
+* [Get a commit](/rest/reference/commits#get-a-commit)
+* [List branches for head commit](/rest/reference/commits#list-branches-for-head-commit)
 * [List pull requests associated with commit](/rest/reference/repos#list-pull-requests-associated-with-commit)
 
 #### Repository Community
 
 * [Get the code of conduct for a repository](/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository)
-{% if currentVersion == "free-pro-team@latest" %}
-* [Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)
+{% ifversion fpt or ghec %}
+* [Get community profile metrics](/rest/reference/repository-metrics#get-community-profile-metrics)
 {% endif %}
 
 #### Repository Contents
@@ -724,7 +714,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get a repository README](/rest/reference/repos#get-a-repository-readme)
 * [Get the license for a repository](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes or ghae or ghec %}
 #### Repository Event Dispatches
 
 * [Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)
@@ -732,42 +722,42 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Repository Hooks
 
-* [List repository webhooks](/rest/reference/repos#list-repository-webhooks)
-* [Create a repository webhook](/rest/reference/repos#create-a-repository-webhook)
-* [Get a repository webhook](/rest/reference/repos#get-a-repository-webhook)
-* [Update a repository webhook](/rest/reference/repos#update-a-repository-webhook)
-* [Delete a repository webhook](/rest/reference/repos#delete-a-repository-webhook)
-* [Ping a repository webhook](/rest/reference/repos#ping-a-repository-webhook)
+* [List repository webhooks](/rest/reference/webhooks#list-repository-webhooks)
+* [Create a repository webhook](/rest/reference/webhooks#create-a-repository-webhook)
+* [Get a repository webhook](/rest/reference/webhooks#get-a-repository-webhook)
+* [Update a repository webhook](/rest/reference/webhooks#update-a-repository-webhook)
+* [Delete a repository webhook](/rest/reference/webhooks#delete-a-repository-webhook)
+* [Ping a repository webhook](/rest/reference/webhooks#ping-a-repository-webhook)
 * [Test the push repository webhook](/rest/reference/repos#test-the-push-repository-webhook)
 
 #### Repository Invitations
 
-* [List repository invitations](/rest/reference/repos#list-repository-invitations)
-* [Update a repository invitation](/rest/reference/repos#update-a-repository-invitation)
-* [Delete a repository invitation](/rest/reference/repos#delete-a-repository-invitation)
-* [List repository invitations for the authenticated user](/rest/reference/repos#list-repository-invitations-for-the-authenticated-user)
-* [Accept a repository invitation](/rest/reference/repos#accept-a-repository-invitation)
-* [Decline a repository invitation](/rest/reference/repos#decline-a-repository-invitation)
+* [List repository invitations](/rest/reference/collaborators#list-repository-invitations)
+* [Update a repository invitation](/rest/reference/collaborators#update-a-repository-invitation)
+* [Delete a repository invitation](/rest/reference/collaborators#delete-a-repository-invitation)
+* [List repository invitations for the authenticated user](/rest/reference/collaborators#list-repository-invitations-for-the-authenticated-user)
+* [Accept a repository invitation](/rest/reference/collaborators#accept-a-repository-invitation)
+* [Decline a repository invitation](/rest/reference/collaborators#decline-a-repository-invitation)
 
 #### Repository Keys
 
-* [List deploy keys](/rest/reference/repos#list-deploy-keys)
-* [Create a deploy key](/rest/reference/repos#create-a-deploy-key)
-* [Get a deploy key](/rest/reference/repos#get-a-deploy-key)
-* [Delete a deploy key](/rest/reference/repos#delete-a-deploy-key)
+* [List deploy keys](/rest/reference/deployments#list-deploy-keys)
+* [Create a deploy key](/rest/reference/deployments#create-a-deploy-key)
+* [Get a deploy key](/rest/reference/deployments#get-a-deploy-key)
+* [Delete a deploy key](/rest/reference/deployments#delete-a-deploy-key)
 
 #### Repository Pages
 
-* [Get a GitHub Pages site](/rest/reference/repos#get-a-github-pages-site)
-* [Create a GitHub Pages site](/rest/reference/repos#create-a-github-pages-site)
-* [Update information about a GitHub Pages site](/rest/reference/repos#update-information-about-a-github-pages-site)
-* [Delete a GitHub Pages site](/rest/reference/repos#delete-a-github-pages-site)
-* [List GitHub Pages builds](/rest/reference/repos#list-github-pages-builds)
-* [Request a GitHub Pages build](/rest/reference/repos#request-a-github-pages-build)
-* [Get GitHub Pages build](/rest/reference/repos#get-github-pages-build)
-* [Get latest pages build](/rest/reference/repos#get-latest-pages-build)
+* [Get a GitHub Pages site](/rest/reference/pages#get-a-github-pages-site)
+* [Create a GitHub Pages site](/rest/reference/pages#create-a-github-pages-site)
+* [Update information about a GitHub Pages site](/rest/reference/pages#update-information-about-a-github-pages-site)
+* [Delete a GitHub Pages site](/rest/reference/pages#delete-a-github-pages-site)
+* [List GitHub Pages builds](/rest/reference/pages#list-github-pages-builds)
+* [Request a GitHub Pages build](/rest/reference/pages#request-a-github-pages-build)
+* [Get GitHub Pages build](/rest/reference/pages#get-github-pages-build)
+* [Get latest pages build](/rest/reference/pages#get-latest-pages-build)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 #### Repository Pre Receive Hooks
 
 * [List pre-receive hooks for a repository](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository)
@@ -792,13 +782,13 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Repository Stats
 
-* [Get the weekly commit activity](/rest/reference/repos#get-the-weekly-commit-activity)
-* [Get the last year of commit activity](/rest/reference/repos#get-the-last-year-of-commit-activity)
-* [Get all contributor commit activity](/rest/reference/repos#get-all-contributor-commit-activity)
-* [Get the weekly commit count](/rest/reference/repos#get-the-weekly-commit-count)
-* [Get the hourly commit count for each day](/rest/reference/repos#get-the-hourly-commit-count-for-each-day)
+* [Get the weekly commit activity](/rest/reference/repository-metrics#get-the-weekly-commit-activity)
+* [Get the last year of commit activity](/rest/reference/repository-metrics#get-the-last-year-of-commit-activity)
+* [Get all contributor commit activity](/rest/reference/repository-metrics#get-all-contributor-commit-activity)
+* [Get the weekly commit count](/rest/reference/repository-metrics#get-the-weekly-commit-count)
+* [Get the hourly commit count for each day](/rest/reference/repository-metrics#get-the-hourly-commit-count-for-each-day)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Repository Vulnerability Alerts
 
 * [Enable vulnerability alerts](/rest/reference/repos#enable-vulnerability-alerts)
@@ -822,9 +812,9 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Statuses
 
-* [Get the combined status for a specific reference](/rest/reference/repos#get-the-combined-status-for-a-specific-reference)
-* [List commit statuses for a reference](/rest/reference/repos#list-commit-statuses-for-a-reference)
-* [Create a commit status](/rest/reference/repos#create-a-commit-status)
+* [Get the combined status for a specific reference](/rest/reference/commits#get-the-combined-status-for-a-specific-reference)
+* [List commit statuses for a reference](/rest/reference/commits#list-commit-statuses-for-a-reference)
+* [Create a commit status](/rest/reference/commits#create-a-commit-status)
 
 #### Team Discussions
 
@@ -844,16 +834,16 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get all repository topics](/rest/reference/repos#get-all-repository-topics)
 * [Replace all repository topics](/rest/reference/repos#replace-all-repository-topics)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Traffic
 
-* [Get repository clones](/rest/reference/repos#get-repository-clones)
-* [Get top referral paths](/rest/reference/repos#get-top-referral-paths)
-* [Get top referral sources](/rest/reference/repos#get-top-referral-sources)
-* [Get page views](/rest/reference/repos#get-page-views)
+* [Get repository clones](/rest/reference/repository-metrics#get-repository-clones)
+* [Get top referral paths](/rest/reference/repository-metrics#get-top-referral-paths)
+* [Get top referral sources](/rest/reference/repository-metrics#get-top-referral-sources)
+* [Get page views](/rest/reference/repository-metrics#get-page-views)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### User Blocking
 
 * [List users blocked by the authenticated user](/rest/reference/users#list-users-blocked-by-the-authenticated-user)
@@ -866,10 +856,10 @@ While most of your API interaction should occur using your server-to-server inst
 * [Unblock a user](/rest/reference/users#unblock-a-user)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes or ghec %}
 #### User Emails
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 * [Set primary email visibility for the authenticated user](/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user)
 {% endif %}
 * [List email addresses for the authenticated user](/rest/reference/users#list-email-addresses-for-the-authenticated-user)
@@ -907,13 +897,13 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [Get the authenticated user](/rest/reference/users#get-the-authenticated-user)
 * [List app installations accessible to the user access token](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token)
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 * [List subscriptions for the authenticated user](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 {% endif %}
 * [List users](/rest/reference/users#list-users)
 * [Get a user](/rest/reference/users#get-a-user)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Workflow Runs
 
 * [List workflow runs for a repository](/rest/reference/actions#list-workflow-runs-for-a-repository)
@@ -926,7 +916,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get workflow run usage](/rest/reference/actions#get-workflow-run-usage)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 #### Workflows
 
 * [List repository workflows](/rest/reference/actions#list-repository-workflows)
@@ -934,7 +924,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get workflow usage](/rest/reference/actions#get-workflow-usage)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## Further reading
 

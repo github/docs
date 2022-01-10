@@ -1,98 +1,112 @@
 ---
-title: 使用 GitHub Desktop 创建第一个仓库
-shortTitle: 创建第一个仓库
-intro: '您可以使用 {% data variables.product.prodname_desktop %} 来创建和管理 Git 仓库，而不是使用命令行。'
+title: Creating your first repository using GitHub Desktop
+shortTitle: Creating your first repository
+intro: 'You can use {% data variables.product.prodname_desktop %} to create and manage a Git repository without using the command line.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/creating-your-first-repository-using-github-desktop
   - /desktop/installing-and-configuring-github-desktop/creating-your-first-repository-using-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+## Introduction
+{% data variables.product.prodname_desktop %} extends and simplifies your {% data variables.product.prodname_dotcom_the_website %} workflow, using a visual interface instead of text commands on the command line. By the end of this guide, you'll have used {% data variables.product.prodname_desktop %} to create a repository, make changes to the repository, and publish the changes to {% data variables.product.product_name %}.
 
-### 简介
-{% data variables.product.prodname_desktop %} 可扩展并简化您的 {% data variables.product.prodname_dotcom_the_website %} 工作流程，它使用可视界面，而不是在命令行上使用命令文本。 在本指南结束时，您已经使用 {% data variables.product.prodname_desktop %} 创建仓库，更改仓库，并将更改推送到 {% data variables.product.product_name %}。
+After installing {% data variables.product.prodname_desktop %} and signing into {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} you can create and clone a tutorial repository. The tutorial will introduce the basics of working with Git and {% data variables.product.prodname_dotcom %}, including installing a text editor, creating a branch, making a commit, pushing to {% data variables.product.prodname_dotcom_the_website %}, and opening a pull request. The tutorial is available if you do not have any repositories on {% data variables.product.prodname_desktop %} yet.
 
-安装 {% data variables.product.prodname_desktop %} 并登录 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %} 之后，您可以创建和克隆教程仓库。 本教程将介绍使用 Git 和 {% data variables.product.prodname_dotcom %} 的基础知识，包括文本编辑器、创建分支、进行提交、推送到 {% data variables.product.prodname_dotcom_the_website %}，以及打开拉取请求。 如果您在 {% data variables.product.prodname_desktop %} 上还没有任何仓库，就可以使用本教程。
+We recommend completing the tutorial, but if you want to explore {% data variables.product.prodname_desktop %} by creating a new repository, this guide will walk you through using {% data variables.product.prodname_desktop %} to work on a Git repository.
 
-我们建议完成本教程，但如果您想要通过创建新仓库来探索 {% data variables.product.prodname_desktop %}，本指南将引导您使用 {% data variables.product.prodname_desktop %} 来操作 Git 仓库。
+## Part 1: Installing {% data variables.product.prodname_desktop %} and authenticating your account
+You can install {% data variables.product.prodname_desktop %} on any supported operating system. After you install the app, you will need to sign in and authenticate your account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} before you can create and clone a tutorial repository.
 
-### 第 1 部分：安装 {% data variables.product.prodname_desktop %} 和验证您的帐户
-您可以在任何支持的操作系统上安装 {% data variables.product.prodname_desktop %}。 安装应用后，您需要在 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %} 上登录并验证您的帐户，然后才可创建和克隆教程仓库。
+For more information on installing and authenticating, see "[Setting up {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-up-github-desktop)."
 
-有关安装和身份验证的更多信息，请参阅“[设置 {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-up-github-desktop)”。
+## Part 2: Creating a new repository
+If you do not have any repositories associated with {% data variables.product.prodname_desktop %}, you will see a "Let's get started!" view, where you can choose to create and clone a tutorial repository, clone an existing repository from the Internet, create a new repository, or add an existing repository from your hard drive.
+  ![The Let's get started! screen](/assets/images/help/desktop/lets-get-started.png)
 
-### 第 2 部分：创建新仓库
-如果没有与 {% data variables.product.prodname_desktop %} 关联的任何仓库，则会看到“让我们开始吧！”视图，您可以在其中选择创建和克隆教程仓库、从 Internet 克隆现有仓库、创建新仓库或从硬盘添加现有仓库。 ![让我们开始吧 ！ screen](/assets/images/help/desktop/lets-get-started.png)
+### Creating and cloning a tutorial repository
+We recommend that you create and clone a tutorial repository as your first project to practice using {% data variables.product.prodname_desktop %}.
 
-#### 创建和克隆教程仓库
-我们建议您创建并克隆教程仓库作为第一个项目以练习使用 {% data variables.product.prodname_desktop %}。
+1. Click **Create a tutorial repository and clone it**.
+  ![Create and clone a tutorial repository button](/assets/images/help/desktop/getting-started-guide/create-and-clone-a-tutorial-repository.png)
+2. Follow the prompts in the tutorial to install a text editor, create a branch, edit a file, make a commit, publish to {% data variables.product.prodname_dotcom %}, and open a pull request.
 
-1. 单击 **Create a tutorial repository and clone it（创建教程仓库并克隆它）**。 ![“创建和克隆教程仓库”按钮](/assets/images/help/desktop/getting-started-guide/create-and-clone-a-tutorial-repository.png)
-2. 按照教程中的提示安装文本编辑器、创建分支、 编辑文件、进行提交、发布到 {% data variables.product.prodname_dotcom %} 以及打开拉取请求。
+### Creating a new repository
+If you do not wish to create and clone a tutorial repository, you can create a new repository.
 
-#### 创建新仓库
-如果你不想创建并克隆教程仓库，可以创建一个新的仓库。
+1. Click **Create a New Repository on your Hard Drive...**.
+  ![Create a new repository](/assets/images/help/desktop/getting-started-guide/creating-a-repository.png)
+2. Fill in the fields and select your preferred options.
+  ![Create a repository options](/assets/images/help/desktop/getting-started-guide/create-a-new-repository-options.png)
+   - "Name" defines the name of your repository both locally and on {% data variables.product.product_name %}.
+   - "Description" is an optional field that you can use to provide more information about the purpose of your repository.
+   - "Local path" sets the location of your repository on your computer. By default, {% data variables.product.prodname_desktop %} creates a _GitHub_ folder inside your _Documents_ folder to store your repositories, but you can choose any location on your computer. Your new repository will be a folder inside the chosen location. For example, if you name your repository `Tutorial`, a folder named _Tutorial_ is created inside the folder you selected for your local path. {% data variables.product.prodname_desktop %} remembers your chosen location the next time you create or clone a new repository.
+   - **Initialize this repository with a README** creates an initial commit with a _README.md_ file. READMEs helps people understand the purpose of your project, so we recommend selecting this and filling it out with helpful information. When someone visits your repository on {% data variables.product.product_name %}, the README is the first thing they'll see as they learn about your project. For more information, see "[About READMEs](/articles/about-readmes)."
+   - The **Git ignore** drop-down menu lets you add a custom file to ignore specific files in your local repository that you don't want to store in version control. If there's a specific language or framework that you'll be using, you can select an option from the available list. If you're just getting started, feel free to skip this selection. For more information, see "[Ignoring files](/github/getting-started-with-github/ignoring-files)."
+   - The **License** drop-down menu lets you add an open-source license to a _LICENSE_ file in your repository. You don't need to worry about adding a license right away. For more information about available open-source licenses and how to add them to your repository, see "[Licensing a repository](/articles/licensing-a-repository)."
+3. Click **Create repository**.
 
-1. 单击 **Create a New Repository on your Hard Drive...（在硬盘上创建新仓库...）**。 ![创建新仓库](/assets/images/help/desktop/getting-started-guide/creating-a-repository.png)
-2. 填写字段并选择您的首选项。 ![创建仓库选项](/assets/images/help/desktop/getting-started-guide/create-a-new-repository-options.png)
-   - “Name（名称）”定义仓库在本地以及 {% data variables.product.product_name %} 上的名称。
-   - “Description（说明）”是一个可选字段，可用于提供有关仓库目的的更多信息。
-   - “Local path（本地路径）”设置仓库在计算机上的位置。 默认情况下，{% data variables.product.prodname_desktop %} 会在 _Documents_ 文件夹内创建 _GitHub_ 文件夹，用于存储仓库，但您也可以选择计算机上的任何位置。 您的新仓库将是所选位置内的文件夹。 例如，如果将仓库命名为 `Tutorial`，则会在为本地路径选择的文件夹内创建一个名为 _Tutorial_ 的文件夹。 下次创建或克隆新仓库时，{% data variables.product.prodname_desktop %} 会记住您选择的位置。
-   - **Initialize this repository with a README（使用自述文件初始化此仓库）**创建包含 _README.md_ 文件的初始提交。 自述文件帮助人们了解项目的目的，因此建议选择此选项并加入有用的信息。 当有人访问您在 {% data variables.product.product_name %} 上的仓库时，自述文件是他们了解您的项目时看到的第一项内容。 更多信息请参阅“[关于自述文件](/articles/about-readmes)”。
-   - **Git ignore（Git 忽略）**下拉菜单可让您添加自定义文件，以忽略本地仓库中您不想存储在版本控制中的特定文件。 如有您要使用的特定语言或框架，您可以从可用的列表中选择选项。 如果刚刚开始，尽请跳过此选择。 更多信息请参阅“[忽略文件](/github/getting-started-with-github/ignoring-files)”。
-   - **License（许可证）**下拉菜单可让您将开源许可证添加到仓库中的 _LICENSE_ 文件。 您无需担心要立即添加许可证。 有关可用开源许可证以及如何将它们添加到仓库的更多信息，请参阅“[许可仓库](/articles/licensing-a-repository)”。
-3. 单击 **Create repository（创建仓库）**。
+## Part 3: Exploring {% data variables.product.prodname_desktop %}
+In the file menu at the top of the screen, you can access settings and actions that you can perform in {% data variables.product.prodname_desktop %}. Most actions also have keyboard shortcuts to help you work more efficiently. For a full list of keyboard shortcuts, see "[Keyboard shortcuts](/desktop/getting-started-with-github-desktop/keyboard-shortcuts)."
 
-### 第 3 部分：探索 {% data variables.product.prodname_desktop %}
-在屏幕顶部的文件菜单中，您可以访问在 {% data variables.product.prodname_desktop %} 中可以执行的设置和操作。 大多数操作也有快捷键来帮助您提高工作效率。 有关键盘快捷键的完整列表，请参阅“[键盘快捷键](/desktop/getting-started-with-github-desktop/keyboard-shortcuts)”。
+### The {% data variables.product.prodname_desktop %} menu bar
+At the top of the {% data variables.product.prodname_desktop %} app, you will see a bar that shows the current state of your repository.
+  - **Current repository** shows the name of the repository you're working on. You can click **Current repository** to switch to a different repository in {% data variables.product.prodname_desktop %}.
+  - **Current branch** shows the name of the branch you're working on. You can click **Current branch** to view all the branches in your repository, switch to a different branch, or create a new branch. Once you create pull requests in your repository, you can also view these by clicking on **Current branch**.
+  - **Publish repository** appears because you haven't published your repository to {% data variables.product.product_name %} yet, which you'll do later in the next step. This section of the bar will change based on the status of your current branch and repository. Different context dependent actions will be available that let you exchange data between your local and remote repositories.
 
-#### {% data variables.product.prodname_desktop %} 菜单栏
-在 {% data variables.product.prodname_desktop %} 应用程序的顶部，您将看到一个显示仓库当前状态的栏。
-  - **Current repository（当前仓库）**显示您处理的仓库的名称。 您可以单击 **Current repository（当前仓库）**切换到 {% data variables.product.prodname_desktop %} 中的不同仓库。
-  - **Current branch（当前分支）**显示您处理的分支的名称。 您可以单击 **Current branch（当前分支）**来查看仓库中的所有分支、切换到不同的分支或者创建新分支。 在仓库中创建拉取请求后，也可单击 **Current branch（当前分支）**查看它们。
-  - **Publish repository（发布仓库）**会出现，因为您尚未将仓库发布到 {% data variables.product.product_name %}，下一个步骤才发布。 工具栏的这部分将根据您当前分支和仓库的状态而改变。 不同的上下文相关操作将可以使用，允许您在本地仓库与远程仓库之间交换数据。
+  ![Explore GitHub Desktop](/assets/images/help/desktop/getting-started-guide/explore-github-desktop.png)
 
-  ![探索 GitHub Desktop](/assets/images/help/desktop/getting-started-guide/explore-github-desktop.png)
+### Changes and History
+In the left sidebar, you'll find the **Changes** and **History** views.
+  ![The Changes and History tabs](/assets/images/help/desktop/changes-and-history.png)
 
-#### 更改历史记录
-在左侧边栏中，您会看到 **Changes（更改）**和 **History（历史记录）**视图。 ![Changes（更改）和 History（历史记录）选项卡](/assets/images/help/desktop/changes-and-history.png)
+  - The **Changes** view shows changes you've made to files in your current branch but haven't committed to your local repository. At the bottom, there is a box with "Summary" and "Description" text boxes and a **Commit to BRANCH** button. This is where you'll commit new changes. The **Commit to BRANCH** button is dynamic and will display which branch you're committing your changes to.
+  ![Commit area](/assets/images/help/desktop/getting-started-guide/commit-area.png)
 
-  - **Changes（更改）**视图显示您对当前分支中的文件已经做出但尚未提交到本地仓库的更改。 在底部有“Summary（摘要）”和“Description（说明）”文本框，以及 **Commit to BRANCH（提交到 [分支]）**按钮。 这是提交新更改的位置。 **Commit to BRANCH（提交到 [分支]）**按钮是动态的，将显示您提交更改到哪个分支。 ![提交区域](/assets/images/help/desktop/getting-started-guide/commit-area.png)
+  - The **History** view shows the previous commits on the current branch of your repository. You should see an "Initial commit" that was created by {% data variables.product.prodname_desktop %} when you created your repository. To the right of the commit, depending on the options you selected while creating your repository, you may see _.gitattributes_, _.gitignore_, _LICENSE_, or _README_ files. You can click each file to see a diff for that file, which is the changes made to the file in that commit. The diff only shows the parts of the file that have changed, not the entire contents of the file.
+  ![History view](/assets/images/help/desktop/getting-started-guide/history-view.png)
 
-  - **History（历史记录）**视图显示仓库当前分支上以前的提交。 您应会看到在创建仓库时 {% data variables.product.prodname_desktop %} 所创建的“初始提交”。 在提交的右侧，根据您在创建仓库时选择的选项，可能会看到 _.gitattributes_、_.gitignore_、_LICENSE_ 或 _README_ 文件。 您可以单击每个文件以查看该文件的差异，也就是提交中对该文件的更改。 差异只显示文件已更改的部分，而不显示文件的全部内容。 ![历史记录视图](/assets/images/help/desktop/getting-started-guide/history-view.png)
+## Part 4: Publishing your repository to {% data variables.product.product_name %}
+When you create a new repository, it only exists on your computer and you are the only one who can access the repository. You can publish your repository to {% data variables.product.product_name %} to keep it synchronized across multiple computers and allow other people to access it. To publish your repository, push your local changes to {% data variables.product.product_name %}.
 
-### 第 4 部分：将仓库推送到 {% data variables.product.product_name %}
-创建新仓库时，它仅存在于您的计算机上，您是唯一可以访问该仓库的人。 您可以将仓库发布到 {% data variables.product.product_name %} 以在多台计算机上保持同步，并允许其他人访问它。 要发布仓库，请将本地更改推送到 {% data variables.product.product_name %}。
+1. Click **Publish repository** in the menu bar.
+    ![Publish repository](/assets/images/help/desktop/getting-started-guide/publish-repository.png)
+    - {% data variables.product.prodname_desktop %} automatically fills the "Name" and "Description" fields with the information you entered when you created the repository.
+    - **Keep this code private** lets you control who can view your project. If you leave this option unselected, other users on {% data variables.product.product_name %} will be able to view your code. If you select this option, your code will not be publicly available.
+    - The **Organization** drop-down menu, if present, lets you publish your repository to a specific organization that you belong to on {% data variables.product.product_name %}.
 
-1. 单击菜单栏中的 **Publish repository（发布仓库）**。 ![发布仓库](/assets/images/help/desktop/getting-started-guide/publish-repository.png)
-    - {% data variables.product.prodname_desktop %} 自动使用创建仓库时输入的信息填充“Name（名称）”和“Description（说明）”字段。
-    - **Keep this code private（保持此代码为私有）**可让您控制谁可以查看您的项目。 如果您不选中此选项，{% data variables.product.product_name %} 上的其他用户将能够查看您的代码。 如果选中此选项，您的代码将不会公开。
-    - **Organization（组织）**下拉菜单（如果有）可让您将仓库发布到 {% data variables.product.product_name %} 上您所属的特定组织。
+    ![Publish repository steps](/assets/images/help/desktop/getting-started-guide/publish-repository-steps.png)
+  2. Click the **Publish Repository** button.
+  3. You can access the repository on {% data variables.product.prodname_dotcom_the_website %} from within {% data variables.product.prodname_desktop %}. In the file menu, click **Repository**, then click **View on GitHub**. This will take you directly to the repository in your default browser.
 
-    ![发布仓库步骤](/assets/images/help/desktop/getting-started-guide/publish-repository-steps.png)
-  2. 单击 **Publish Repository（发布仓库）**按钮。
-  3. 您可以从 {% data variables.product.prodname_desktop %} 访问 {% data variables.product.prodname_dotcom_the_website %} 上的仓库。 在文件菜单中，单击 **Repository（仓库）**，然后单击 **View on GitHub（在 GitHub 上查看）**。 这会直接在默认浏览器中打开仓库。
+## Part 5: Making, committing, and pushing changes
+Now that you've created and published your repository, you're ready to make changes to your project and start crafting your first commit to your repository.
 
-### 第 5 部分：进行更改、提交更改和推送更改
-现在，您已经创建并发布仓库，已经准备好对项目进行更改，并开始创建第一个对仓库的提交。
+1. To launch your external editor from within {% data variables.product.prodname_desktop %}, click **Repository**, then click **Open in <em>EDITOR</em>**. For more information, see "[Configuring a default editor](/desktop/getting-started-with-github-desktop/configuring-a-default-editor)."
+  ![Open in editor](/assets/images/help/desktop/getting-started-guide/open-in-editor.png)
 
-1. 要从 {% data variables.product.prodname_desktop %} 启动外部编辑器，请单击 **Repository（仓库）**，然后单击 **Open in <em>EDITOR</em>（在 [编辑器] 中打开）**。 更多信息请参阅“[配置默认编辑器](/desktop/getting-started-with-github-desktop/configuring-a-default-editor)。 ![在编辑器中打开](/assets/images/help/desktop/getting-started-guide/open-in-editor.png)
+2. Make some changes to the _README.md_ file that you previously created. You can add information that describes your project, like what it does and why it is useful. When you are satisfied with your changes, save them in your text editor.
+3. In {% data variables.product.prodname_desktop %}, navigate to the **Changes** view. In the file list, you should see your _README.md_. The checkmark to the left of the _README.md_ file indicates that the changes you've made to the file will be part of the commit you make. In the future, you might make changes to multiple files but only want to commit the changes you've made to some of the files. If you click the checkmark next to a file, that file will not be included in the commit.
+  ![Viewing changes](/assets/images/help/desktop/getting-started-guide/viewing-changes.png)
 
-2. 对以前创建的 _README.md_ 文件做一些更改。 您可以添加描述项目的信息，比如它做什么，以及为什么有用。 当您对更改满意时，请将它们保存在文本编辑器中。
-3. 在 {% data variables.product.prodname_desktop %} 中，导航到 **Changes（更改）**视图。 在文件列表中，您应该会看到 _README.md_。 _README.md_ 文件左边的勾选标记表示您对文件的更改将成为提交的一部分。 以后您可能会更改多个文件，但只想提交对其中部分文件所做的更改。 如果单击文件旁边的复选标记，则该文件不会包含在提交中。 ![查看更改](/assets/images/help/desktop/getting-started-guide/viewing-changes.png)
+4. At the bottom of the **Changes** list, enter a commit message. To the right of your profile picture, type a short description of the commit. Since we're changing the _README.md_ file, "Add information about purpose of project" would be a good commit summary. Below the summary, you'll see a "Description" text field where you can type a longer description of the changes in the commit, which is helpful when looking back at the history of a project and understanding why changes were made. Since you're making a basic update of a _README.md_ file, you can skip the description.
+  ![Commit message](/assets/images/help/desktop/getting-started-guide/commit-message.png)
+5. Click **Commit to BRANCH NAME**. The commit button shows your current branch so you can be sure to commit to the branch you want.
+  ![Commit to branch](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
+6. To push your changes to the remote repository on {% data variables.product.product_name %}, click **Push origin**.
+  ![Push origin](/assets/images/help/desktop/getting-started-guide/push-to-origin.png)
+  - The **Push origin** button is the same one that you clicked to publish your repository to {% data variables.product.product_name %}. This button changes contextually based on where you are at in the Git workflow. It should now say `Push origin` with a `1` next to it, indicating that there is one commit that has not been pushed up to {% data variables.product.product_name %}.
+  - The "origin" in **Push origin** means that you are pushing changes to the remote called `origin`, which in this case is your project's repository on {% data variables.product.prodname_dotcom_the_website %}. Until you push any new commits to {% data variables.product.product_name %}, there will be differences between your project's repository on your computer and your project's repository on {% data variables.product.prodname_dotcom_the_website %}. This allows you to work locally and only push your changes to {% data variables.product.prodname_dotcom_the_website %} when you're ready.
+7. In the window to the right of the **Changes** view, you'll see suggestions for actions you can do next. To open the repository on {% data variables.product.product_name %} in your browser, click **View on {% data variables.product.product_name %}**.
+  ![Available actions](/assets/images/help/desktop/available-actions.png)
+8. In your browser, click **2 commits**. You'll see a list of the commits in this repository on {% data variables.product.product_name %}. The first commit should be the commit you just made in {% data variables.product.prodname_desktop %}.
+  ![Click two commits](/assets/images/help/desktop/getting-started-guide/click-two-commits.png)
 
-4. 在 **Changes（更改）**列表底部，输入提交消息。 在头像右侧，键入提交的简短描述。 由于我们在更改 _README.md_ 文件，因此“添加关于项目目的的信息”将是比较好的提交摘要。 在摘要下方，您会看到“Description（说明）”文本字段，在其中可以键入较长的提交更改描述，这有助于回顾项目的历史记录和了解更改的原因。 由于您是对 _README.md_ 文件做基本的更新，因此可跳过描述。 ![提交消息](/assets/images/help/desktop/getting-started-guide/commit-message.png)
-5. 单击 **Commit to BRANCH NAME（提交到 [分支名称]）**。 提交按钮显示当前分支，因此您可以确保提交到所需的分支。 ![提交到分支](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
-6. 要将更改推送到 {% data variables.product.product_name %} 上的远程仓库，请单击 **Push origin（推送源）**。 ![推送源](/assets/images/help/desktop/getting-started-guide/push-to-origin.png)
-  - **Push origin（推送源）**按钮就是您单击以发布仓库到 {% data variables.product.product_name %} 的按钮。 此按钮根据 Git 工作流程中的上下文而变。 现在改为 `Push origin（推送源）`了，其旁边的 `1` 表示有一个提交尚未推送到 {% data variables.product.product_name %}。
-  - **Push origin（推送源）**中的“源”表示我们将更改推送到名为 `origin` 的远程，在本例中是 {% data variables.product.prodname_dotcom_the_website %} 上的项目仓库。 在推送任何新提交到 {% data variables.product.product_name %} 之前，您的计算机上的项目仓库与 {% data variables.product.prodname_dotcom_the_website %} 上的项目仓库之间存在差异。 这可让您在本地工作，并且仅在准备好后才将更改推送到 {% data variables.product.prodname_dotcom_the_website %}。
-7. 在 **Changes（更改）**视图右边的窗口中，您会看到接下来可以执行的操作提示。 要在浏览器中打开 {% data variables.product.product_name %} 上的仓库，请单击 **View on {% data variables.product.product_name %}（在 GitHub 中查看）**。 ![可用操作](/assets/images/help/desktop/available-actions.png)
-8. 在浏览器中，单击 **2 commits（2 次提交）**。 您会看到 {% data variables.product.product_name %} 上此仓库中的提交列表。 第一个提交应是您刚才在 {% data variables.product.prodname_desktop %} 中的提交。 ![单击两个提交](/assets/images/help/desktop/getting-started-guide/click-two-commits.png)
+## Conclusion
+You've now created a repository, published the repository to {% data variables.product.product_name %}, made a commit, and pushed your changes to {% data variables.product.product_name %}. You can follow this same workflow when contributing to other projects that you create or collaborate on.
 
-### 结论
-您现已创建一个仓库，并且已将仓库发布到 {% data variables.product.product_name %}，进行了提交，并且已将更改推送到 {% data variables.product.product_name %}。 在参与创建或协作的其他项目时，可以遵循这个相同的工作流程。
-
-### 延伸阅读
-- "[开始使用 Git](/github/getting-started-with-github/getting-started-with-git)"
-- "[了解 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
-- "[开始使用 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"
+## Further reading
+- "[Getting started with Git](/github/getting-started-with-github/getting-started-with-git)"
+- "[Learning about {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
+- "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"

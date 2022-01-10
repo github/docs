@@ -6,12 +6,14 @@ redirect_from:
   - /articles/managing-an-individuals-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage individual access
 ---
 
 {% note %}

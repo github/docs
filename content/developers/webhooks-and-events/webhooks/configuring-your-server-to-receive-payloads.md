@@ -5,11 +5,13 @@ redirect_from:
   - /webhooks/configuring
   - /developers/webhooks-and-events/configuring-your-server-to-receive-payloads
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
+shortTitle: Configure server for webhooks
 ---
 Now that our webhook is ready to deliver messages, we'll set up a basic Sinatra server
 to handle incoming payloads.

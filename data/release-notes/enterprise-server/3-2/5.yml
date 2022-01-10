@@ -1,0 +1,25 @@
+date: '2021-12-07'
+sections:
+  security_fixes:
+    - Support bundles could include sensitive files if they met a specific set of conditions. 
+  bugs:
+    - In some cases when Actions was not enabled, `ghe-support-bundle` reported an unexpected message `Unable to find MS SQL container.` 
+    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`. 
+    - A misconfiguration in the Management Console caused scheduling errors. 
+    - Docker would hold log files open after a log rotation. 
+    - Migrations could get stuck due to incorrect handling of `blob_path` values that are not UTF-8 compatible. 
+    - GraphQL requests did not set the GITHUB_USER_IP variable in pre-receive hook environments. 
+    - Pagination links on org audit logs would not persist query parameters. 
+    - During a hotpatch, it was possible for duplicate hashes if a transition ran more than once. 
+  changes:
+    - Clarifies explanation of Actions path-style in documentation. 
+    - Updates support contact URLs to use the current support site, support.github.com. 
+    - Additional troubleshooting provided when running `ghe-mssql-diagnostic`.
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

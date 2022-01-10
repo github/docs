@@ -2,7 +2,7 @@
 title: データの常駐について
 intro: '{% data variables.product.product_name %} は Enterprise のすべての顧客データを保存する地域を選択できます。'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: overview
 topics:
   - Enterprise

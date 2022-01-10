@@ -6,9 +6,10 @@ redirect_from:
   - /github/building-a-strong-community/pinning-a-team-discussion
   - /github/setting-up-and-managing-organizations-and-teams/pinning-a-team-discussion
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---

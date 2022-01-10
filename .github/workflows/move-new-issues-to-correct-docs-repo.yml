@@ -11,6 +11,9 @@ on:
       - transferred
       - reopened
 
+permissions:
+  contents: none
+
 jobs:
   transfer_issue:
     runs-on: ubuntu-latest
@@ -23,7 +26,7 @@ jobs:
           TEAM_ENGINEERING_REPO: ${{ secrets.TEAM_ENGINEERING_REPO }}
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
         with:
-          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           script: |
             const issueNo = context.issue.number
             const owner = 'github'
@@ -48,7 +51,7 @@ jobs:
               owner: owner,
               repo: originalRepo,
               issue_number: issueNo,
-              body: `👋  Moving forward, we're asking that folks create all new Docs issues in the [${process.env.TEAM_ENGINEERING_REPO}](${process.env.TEAM_ENGINEERING_REPO}) repo and all new content issues in [${process.env.TEAM_CONTENT_REPO}](${process.env.TEAM_CONTENT_REPO}). We transferred it for you!`
+              body: `👋  You opened this issue in '${context.repo.repo}'. Moving forward, we're asking that folks create new issues in the following repositories instead:\n- For issues with the docs site, please submit to the [${process.env.TEAM_ENGINEERING_REPO}](/${owner}/${process.env.TEAM_ENGINEERING_REPO}) repo.\n- For all new content issues, please submit to the [${process.env.TEAM_CONTENT_REPO}](/${owner}/${process.env.TEAM_CONTENT_REPO}) repo.\n\nWe will transfer this issue for you!`
             })
 
             // Transfer the issue to the correct repo

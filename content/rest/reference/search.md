@@ -1,11 +1,13 @@
 ---
 title: Search
+intro: 'The {% data variables.product.product_name %} Search API lets you to search for the specific item efficiently.'
 redirect_from:
   - /v3/search
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -56,10 +58,10 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-See "[Searching on GitHub](/articles/searching-on-github/)"
+See "[Searching on GitHub](/search-github/searching-on-github)"
 for a complete list of available qualifiers, their format, and an example of
 how to use them. For information about how to use operators to match specific
-quantities, dates, or to exclude results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax/)."
+quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
 
 ### Limitations on query length
 
@@ -81,7 +83,7 @@ More results might have been found, but also might not.
 
 ### Access errors or missing search results
 
-You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessible Entry` error with a "Validation Failed" message. For example, your search will fail if your query includes `repo:`, `user:`, or `org:` qualifiers that request resources that you don't have access to when you sign in on {% data variables.product.prodname_dotcom %}.
+You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessable Entry` error with a "Validation Failed" message. For example, your search will fail if your query includes `repo:`, `user:`, or `org:` qualifiers that request resources that you don't have access to when you sign in on {% data variables.product.prodname_dotcom %}.
 
 When your search query requests multiple resources, the response will only contain the resources that you have access to and will **not** provide an error message listing the resources that were not returned.
 

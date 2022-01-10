@@ -6,12 +6,14 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/about-github-security-advisories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
+shortTitle: Security advisories
 ---
 
 {% data reusables.repositories.security-advisory-admin-permissions %}

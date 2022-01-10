@@ -1,9 +1,10 @@
 ---
 title: Quickstart for GitHub Educators
-intro: In about 15 minutes, teachers can get started with discounts, training, and tools for {% data variables.product.company_short %}, then create a classroom for the students in a software development course using {% data variables.product.prodname_classroom %}.
+intro: 'In about 15 minutes, teachers can get started with discounts, training, and tools for {% data variables.product.company_short %}, then create a classroom for the students in a software development course using {% data variables.product.prodname_classroom %}.'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Quickstart
 ---
 
 ## Introduction

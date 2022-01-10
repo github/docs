@@ -1,14 +1,14 @@
 ---
 title: Auditing users across your enterprise
-intro: 'The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the past 90 days, including details such as who performed the action, what the action was, and when the action was performed.'
+intro: 'The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the current month and previous six months. The audit log includes details such as who performed the action, what the action was, and when the action was performed.'
 redirect_from:
-  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
+  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,6 +16,7 @@ topics:
   - Organizations
   - Security
   - User account
+shortTitle: Audit users
 ---
 ## Accessing the audit log
 
@@ -45,7 +46,7 @@ The audit log lists the following information about actions made within your ent
 **Notes:**
 
 - While you can't use text to search for audit entries, you can construct search queries using a variety of filters. {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)."
-- To search for events older than 90 days, use the `created` qualifier.
+- Audit records are available for the current month and every day of the previous six months.
 
 {% endwarning %}
 

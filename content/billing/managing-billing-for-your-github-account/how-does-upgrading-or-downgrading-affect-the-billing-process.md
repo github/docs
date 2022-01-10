@@ -4,16 +4,17 @@ intro: 'When you upgrade the subscription for your personal account or organizat
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/how-does-upgrading-or-downgrading-affect-the-billing-process
   - /articles/how-does-upgrading-or-downgrading-affect-the-billing-process
-  - /github/setting-up-and-managing-billing-and-payments-on-github/how-does-upgrading-or-downgrading-affect-the-billing-process
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Fundamentals
   - Organizations
   - Upgrades
   - User account
+shortTitle: Billing process
 ---
 Changes to your paid user account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features, such as {% data variables.large_files.product_name_long %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
 

@@ -3,11 +3,11 @@ title: Configuring collectd
 intro: '{% data variables.product.prodname_enterprise %} can gather data with `collectd` and send it to an external `collectd` server. Among other metrics, we gather a standard set of data such as CPU utilization, memory and disk consumption, network interface traffic and errors, and the VM''s overall load.'
 redirect_from:
   - /enterprise/admin/installation/configuring-collectd
-  - /enterprise/admin/articles/configuring-collectd/
+  - /enterprise/admin/articles/configuring-collectd
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

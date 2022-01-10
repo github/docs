@@ -5,12 +5,14 @@ redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Add a child team
 ---
 
 When you request to add a team as a child, a request is sent to the maintainers of the child team. Once a maintainer of the child team approves your request, the child team is nested under the parent team in your organization's hierarchy.

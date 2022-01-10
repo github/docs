@@ -5,11 +5,13 @@ product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
 versions:
-  free-pro-team: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage allowed IP addresses
 ---
 
 Organization owners can manage allowed IP addresses for an organization.
@@ -24,7 +26,7 @@ You can restrict access to organization assets by configuring an allow list for 
 
 If you set up an allow list you can also choose to automatically add to your allow list any IP addresses configured for {% data variables.product.prodname_github_apps %} that you install in your organization. The creator of a {% data variables.product.prodname_github_app %} can configure an allow list for their application, specifying the IP addresses at which the application runs. By inheriting their allow list into yours, you avoid connection requests from the application being refused. For more information, see "[Allowing access by {% data variables.product.prodname_github_apps %}](#allowing-access-by-github-apps)."
 
-You can also configure allowed IP addresses for the organizations in an enterprise account. For more information, see {% if currentVersion == "github-ae@latest" %}"[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)." {% else %}"[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."{% endif %}
+You can also configure allowed IP addresses for the organizations in an enterprise account. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
 
 ## Adding an allowed IP address
 
@@ -81,12 +83,4 @@ For more information about how to create an allow list for a {% data variables.p
 
 ## Using {% data variables.product.prodname_actions %} with an IP allow list
 
-{% if currentVersion == "github-ae@latest" %}
-
-{% data reusables.github-actions.ip-allow-list-hosted-runners %}
-
-{% else %}
-
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
-
-{% endif %}

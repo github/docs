@@ -2,16 +2,18 @@
 title: Managing team access to an organization repository
 intro: 'You can give a team access to a repository, remove a team''s access to a repository, or change a team''s permission level for a repository.'
 redirect_from:
-  - /articles/managing-team-access-to-an-organization-repository-early-access-program/
+  - /articles/managing-team-access-to-an-organization-repository-early-access-program
   - /articles/managing-team-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage team access
 ---
 
 People with admin access to a repository can manage team access to the repository. Team maintainers can remove a team's access to a repository.
@@ -56,4 +58,4 @@ You can remove a team's access to a repository if the team has direct access to 
 
 ## Further reading
 
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

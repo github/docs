@@ -3,7 +3,7 @@ title: GitHub Sponsors Additional Terms
 redirect_from:
   - /articles/github-sponsors-additional-terms
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -23,7 +23,7 @@ Your participation in the GitHub Sponsors Program (the "Program") is subject to 
 
 "**Sponsorship**" means a payment paid to you through the Program and the Service.
 
-"**Subscription**" means a recurring monthly Sponsorship in exchange for goods, services, or other offers you provide to Sponsors.
+"**Subscription**" means a recurring or one-time Sponsorship in exchange for goods, services, or other offers you provide to Sponsors.
 
 "**Sponsored Developer Payment**" means the net of one hundred percent (100%) of GitHub's gross monthly payments received from Sponsorships and Subscriptions to Sponsored Developer Accounts, plus any applicable Matching Funds, and other proceeds from monetization options that the Sponsored Developer elects to use, as applicable, less any discounts, taxes, fees, amounts that GitHub did not collect or which were refunded or charged back, amounts owed to any third-party in connection with the Program with respect to a Sponsored Developer Account, and other Exclusions as outlined in Section 4.
 
@@ -68,7 +68,7 @@ Eligibility for the GitHub Sponsors Matching Fund is evaluated on a case-by-case
 * GitHub reserves the right to withhold or rescind Matching Fund money and block any user from participation in the GitHub Sponsors Matching Fund for any reason, including but not limited to posting content or projects that GitHub determines are offensive or otherwise objectionable.
 
 #### 2.2.2. Matching Period.
-The matching period begins after GitHub accepts an individual Sponsored Developer Account into GitHub Sponsors and publishes the sponsorship profile for the account. For each individual Sponsored Developer Account eligible for the GitHub Sponsors Matching Fund, GitHub can match community sponsorship up to $5,000 USD total during the Sponsored Developer Account's first 12 months in the Program. The matching period cannot be extended for any reason. During the matching period, GitHub will not charge any fees, so 100% of sponsorships will go to the sponsored developer. In the future, we may charge a nominal processing fee.
+The matching period begins after GitHub accepts an individual Sponsored Developer Account into GitHub Sponsors. For each individual Sponsored Developer Account eligible for the GitHub Sponsors Matching Fund, GitHub can match community sponsorship up to $5,000 USD total during the Sponsored Developer Account's first 12 months in the Program. The matching period cannot be extended for any reason. During the matching period, GitHub will not charge any fees, so 100% of sponsorships will go to the sponsored developer. In the future, we may charge a nominal processing fee.
 
 * If a Sponsorship or Sponsoring Subscription stops for any reason, the associated matching will stop as well. Funds that are charged back to the Sponsor before the Sponsored Developer Payment date are not eligible for matching.
 

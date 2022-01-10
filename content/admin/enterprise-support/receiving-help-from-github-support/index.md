@@ -2,11 +2,11 @@
 title: Receiving help from GitHub Support
 intro: 'You can contact {% data variables.contact.enterprise_support %} to report a range of issues for your enterprise.'
 redirect_from:
-  - /enterprise/admin/guides/enterprise-support/receiving-help-from-github-enterprise-support/
+  - /enterprise/admin/guides/enterprise-support/receiving-help-from-github-enterprise-support
   - /enterprise/admin/enterprise-support/receiving-help-from-github-support
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
@@ -14,5 +14,6 @@ children:
   - /preparing-to-submit-a-ticket
   - /submitting-a-ticket
   - /providing-data-to-github-support
+shortTitle: Receive help from Support
 ---
 

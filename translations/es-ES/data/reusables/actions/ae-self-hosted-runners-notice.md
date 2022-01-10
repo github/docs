@@ -1,9 +1,9 @@
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
+
 {% warning %}
 
-** Advertencia:** Los ejecutores auto-hospedados se encuentran actualmente inhabilitados para {% data variables.product.prodname_ghe_managed %}. Esto es porque {% data variables.product.prodname_ghe_managed %} ofrece garantías para los límites de seguridad, las cuales son incompatibles con la forma en que trabajan los ejecutores auto-hospedados. Sin embargo, en caso de que sí necesites utilizar ejecutores auto-hospedados con {% data variables.product.prodname_ghe_managed %} y entender las implicaciones de seguridad, puedes contactar al soporte de {% data variables.product.prodname_dotcom %} para que hagan una exepción de seguridad que los habilitará.
-
-Si no necesitas ejecutores auto-hospedados, entonces puedes utilizar {% data variables.actions.hosted_runner %} para que ejecuten tus flujos de trabajo. Para obtener más información, consulta la sección "[Acerca de los {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/about-ae-hosted-runners)".
+**Advertencia:** Los ejecutores auto-hospedados son de vida larga y cualquier situación que ponga en riesgo a la máquina que los hospeda podría filtrar secretos o credenciales o habilitar otros ataques. Para obtener más información sobre los riesgos de utilizar ejecutores auto-hospedados, consulta la sección "[Fortalecimiento de seguridad para las {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner)". Para obtener más información sobre la administración del acceso a {% data variables.product.prodname_actions %} para {% data variables.product.product_location %}, consulta la sección "[Requerir políticas de {% data variables.product.prodname_actions %} para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)".
 
 {% endwarning %}
+
 {% endif %}

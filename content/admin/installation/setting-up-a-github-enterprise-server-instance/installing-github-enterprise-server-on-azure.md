@@ -2,13 +2,18 @@
 title: Installing GitHub Enterprise Server on Azure
 intro: 'To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a DS-series instance and use Premium-LRS storage.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
+shortTitle: Install on Azure
 ---
 You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.
 
@@ -28,11 +33,7 @@ Before launching {% data variables.product.product_location %} on Azure, you'll 
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-The {% data variables.product.prodname_ghe_server %} appliance requires a premium storage data disk, and is supported on any Azure VM that supports premium storage. Azure VM types with the `s` suffix support premium storage. For more information, see "[What disk types are available in Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)" and "[Azure premium storage: design for high performance](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)" in the Azure documentation.
-
-{% data variables.product.company_short %} recommends a memory-optimized VM for {% data variables.product.prodname_ghe_server %}. For more information, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)" in the Azure documentation.
-
-{% data variables.product.prodname_ghe_server %} supports any region that supports your VM type. For more information about the supported regions for each VM, see Azure's "[Products available by region](https://azure.microsoft.com/regions/services/)."
+{% data reusables.enterprise_installation.azure-instance-recommendation %}
 
 ## Creating the {% data variables.product.prodname_ghe_server %} virtual machine
 
@@ -61,7 +62,7 @@ The {% data variables.product.prodname_ghe_server %} appliance requires a premiu
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see "[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
+4. Create and attach a new managed data disk to the VM, and configure the size based on your license count. All Azure managed disks created since June 10, 2017 are encrypted at rest by default with Storage Service Encryption (SSE). For more information about the `az vm disk attach` command, see "[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
 
   Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `100`), and a name for the resulting VHD.
 
@@ -99,5 +100,5 @@ The {% data variables.product.prodname_ghe_server %} appliance requires a premiu
   
 ## Further reading
   
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

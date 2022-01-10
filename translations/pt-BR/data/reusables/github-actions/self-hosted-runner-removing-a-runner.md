@@ -1,4 +1,4 @@
-1. Under {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %}, locate the runner in the list. Se o seu runner estiver em um grupo, clique em {% octicon "chevron-down" aria-label="The downwards chevron" %} para expandir a lista.
+1. Em {% ifversion fpt or ghes > 3.1 or ghae or ghec %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, localize o executor na lista. Se o seu runner estiver em um grupo, clique em {% octicon "chevron-down" aria-label="The downwards chevron" %} para expandir a lista.
 1. Clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} ao lado do runner que deseja remover, depois clique em **Remover**.
 
     ![Removendo uma configuração do executor auto-hospedado](/assets/images/help/settings/actions-runner-remove.png)

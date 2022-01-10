@@ -2,15 +2,17 @@
 title: Troubleshooting authorization request errors
 intro: '{% data reusables.shortdesc.troubleshooting_authorization_request_errors_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/troubleshooting-authorization-request-errors/
+  - /apps/building-integrations/managing-oauth-apps/troubleshooting-authorization-request-errors
   - /apps/managing-oauth-apps/troubleshooting-authorization-request-errors
   - /developers/apps/troubleshooting-authorization-request-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: Troubleshoot authorization
 ---
 ## Application suspended
 

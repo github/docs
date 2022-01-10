@@ -1,15 +1,16 @@
 ---
-title: Importar projetos para o GitHub
-intro: 'Você pode importar seu código-fonte para {% data variables.product.product_name %} usando uma série de métodos diferentes.'
-shortTitle: Importar seus projetos
+title: Importing your projects to GitHub
+intro: 'You can import your source code to {% data variables.product.product_name %} using a variety of different methods.'
+shortTitle: Importing your projects
 redirect_from:
-  - /categories/67/articles/
-  - /categories/importing/
+  - /categories/67/articles
+  - /categories/importing
   - /categories/importing-your-projects-to-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - /importing-source-code-to-github
   - /working-with-subversion-on-github

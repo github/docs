@@ -5,7 +5,8 @@ redirect_from:
   - /articles/contacting-your-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/contacting-your-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source

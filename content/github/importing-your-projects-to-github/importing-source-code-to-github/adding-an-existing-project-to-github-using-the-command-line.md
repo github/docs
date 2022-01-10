@@ -2,15 +2,18 @@
 title: Adding an existing project to GitHub using the command line
 intro: 'Putting your existing work on {% data variables.product.product_name %} can let you share and collaborate in lots of great ways.'
 redirect_from:
-  - /articles/add-an-existing-project-to-github/
+  - /articles/add-an-existing-project-to-github
   - /articles/adding-an-existing-project-to-github-using-the-command-line
   - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Add a project locally
 ---
-{% data reusables.repositories.migrating-from-codeplex %}
+
+## About adding existing projects to {% data variables.product.product_name %}
 
 {% tip %}
 
@@ -20,9 +23,34 @@ versions:
 
 {% data reusables.repositories.sensitive-info-warning %}
 
+## Adding a project to {% data variables.product.product_name %} with {% data variables.product.prodname_cli %}
+
+{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.prodname_dotcom %} from your computer's command line. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+
+1. In the command line, navigate to the root directory of your project.
+1. Initialize the local directory as a Git repository.
+
+    ```shell
+    git init -b main
+    ```
+
+1. Stage and commit all the files in your project 
+
+   ```shell
+   git add . && git commit -m "initial commit"
+   ```
+
+1. To create a repository for your project on GitHub, use the `gh repo create` subcommand. When prompted, select **Push an existing local repository to GitHub** and enter the desired name for your repository. If you want your project to belong to an organization instead of your user account, specify the organization name and project name with `organization-name/project-name`.
+ 
+1. Follow the interactive prompts. To add the remote and push the repository, confirm yes when asked to add the remote and push the commits to the current branch.
+
+1. Alternatively, to skip all the prompts, supply the path to the repository with the `--source` flag and pass a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create --source=. --public`. Specify a remote with the `--remote` flag. To push your commits, pass the `--push` flag. For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
+
+## Adding a project to {% data variables.product.product_name %} without {% data variables.product.prodname_cli %}
+
 {% mac %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
+1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
 	![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
@@ -40,7 +68,7 @@ versions:
   $ git commit -m "First commit"
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. At the top of your {% data variables.product.product_name %} repository's Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
+7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In Terminal, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
@@ -77,7 +105,7 @@ versions:
   $ git commit -m "First commit"
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. At the top of your {% data variables.product.product_name %} repository's Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
+7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In the Command prompt, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
@@ -114,7 +142,7 @@ versions:
   $ git commit -m "First commit"
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. At the top of your {% data variables.product.product_name %} repository's Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
+7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In Terminal, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
@@ -133,4 +161,4 @@ versions:
 
 ## Further reading
 
-- "[Adding a file to a repository using the command line](/articles/adding-a-file-to-a-repository-using-the-command-line)"
+- "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"

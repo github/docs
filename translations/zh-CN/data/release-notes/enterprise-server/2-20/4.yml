@@ -16,3 +16,4 @@ sections:
     - '当升级到以前的版本时，背景作业工人可能无法生成，从而阻止基本功能，例如合并拉取请求。（更新时间：2020-04-07）{% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
     - '推送到命令行上的仓库时，不会报告安全警报。（更新时间：2020-06-23）{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
     - '依赖关系图在多个 Redis 节点的集群配置中部署时不会检测依赖项。（更新于 2020-06-30）{% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - '当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。'

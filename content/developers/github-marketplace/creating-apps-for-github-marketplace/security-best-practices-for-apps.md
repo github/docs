@@ -2,13 +2,14 @@
 title: Security best practices for apps
 intro: 'Guidelines for preparing a secure app to share on {% data variables.product.prodname_marketplace %}.'
 redirect_from:
-  - /apps/marketplace/getting-started/security-review-process/
+  - /apps/marketplace/getting-started/security-review-process
   - /marketplace/getting-started/security-review-process
   - /developers/github-marketplace/security-review-process-for-submitted-apps
   - /developers/github-marketplace/security-best-practices-for-apps
 shortTitle: Security best practice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---

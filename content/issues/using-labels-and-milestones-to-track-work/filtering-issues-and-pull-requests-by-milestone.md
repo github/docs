@@ -6,11 +6,13 @@ redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-milestone
   - /github/managing-your-work-on-github/filtering-issues-and-pull-requests-by-milestone
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Filter by milestone
 ---
 {% tip %}
 
@@ -30,8 +32,5 @@ topics:
 
 ## Further reading
 
-- "[Filtering issues and pull requests](/articles/filtering-issues-and-pull-requests)"
-- "[Sorting issues and pull requests](/articles/sorting-issues-and-pull-requests)"
-- "[Using search to filter issues and pull requests](/articles/using-search-to-filter-issues-and-pull-requests)"
-- "[Sharing filters](/articles/sharing-filters)"
+- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
 - "[Filtering cards on a project board](/articles/filtering-cards-on-a-project-board)"

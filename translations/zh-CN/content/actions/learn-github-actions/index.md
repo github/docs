@@ -1,7 +1,7 @@
 ---
-title: 了解 GitHub Actions
-shortTitle: 了解 GitHub Actions
-intro: '无论您是 {% data variables.product.prodname_actions %} 的新用户还是有兴趣学习他们提供的内容，本指南都可帮助您使用 {% data variables.product.prodname_actions %} 来加快应用程序开发工作流程。'
+title: Learn GitHub Actions
+shortTitle: Learn GitHub Actions
+intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
 redirect_from:
   - /articles/about-github-actions
   - /github/automating-your-workflow-with-github-actions/about-github-actions
@@ -10,9 +10,8 @@ redirect_from:
   - /actions/getting-started-with-github-actions/about-github-actions
   - /actions/getting-started-with-github-actions/overview
   - /actions/getting-started-with-github-actions/getting-started-with-github-actions
-  - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax/
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
-  - /articles/creating-a-workflow-with-github-actions/
+  - /articles/creating-a-workflow-with-github-actions
   - /articles/configuring-a-workflow
   - /github/automating-your-workflow-with-github-actions/configuring-a-workflow
   - /actions/automating-your-workflow-with-github-actions/configuring-a-workflow
@@ -24,22 +23,26 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/getting-started-with-github-actions
   - /actions/configuring-and-managing-workflows
   - /articles/getting-started-with-github-actions
-  - /actions/migrating-to-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
-  - /introduction-to-github-actions
+  - /understanding-github-actions
   - /finding-and-customizing-actions
   - /essential-features-of-github-actions
   - /managing-complex-workflows
-  - /sharing-workflows-with-your-organization
-  - /security-hardening-for-github-actions
-  - /migrating-from-azure-pipelines-to-github-actions
-  - /migrating-from-circleci-to-github-actions
-  - /migrating-from-gitlab-cicd-to-github-actions
-  - /migrating-from-jenkins-to-github-actions
-  - /migrating-from-travis-ci-to-github-actions
+  - /sharing-workflows-secrets-and-runners-with-your-organization
+  - /creating-workflow-templates
+  - /using-workflow-templates
+  - /reusing-workflows
+  - /events-that-trigger-workflows
+  - /expressions
+  - /contexts
+  - /workflow-syntax-for-github-actions
+  - /workflow-commands-for-github-actions
+  - /environment-variables
+  - /usage-limits-billing-and-administration
 ---
 

@@ -1,11 +1,13 @@
 ---
 title: Pulls
+intro: 'The Pulls API allows you to list, view, edit, create, and even merge pull requests.'
 redirect_from:
   - /v3/pulls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -27,8 +29,6 @@ These are the supported media types for pull requests.
     application/vnd.github.VERSION.patch
 
 For more information, see "[Custom media types](/rest/overview/media-types)."
-
-<a id="diff-error">
 
 If a diff is corrupt, contact {% data variables.contact.contact_support %}. Include the repository name and pull request ID in your message.
 
@@ -62,7 +62,7 @@ Request, grouped together with a state and optional body comment.
 
 ## Review comments
 
-Pull request review comments are comments on a portion of the unified diff made during a pull request review. Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/git#create-a-commit)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
+Pull request review comments are comments on a portion of the unified diff made during a pull request review. Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/commits#create-a-commit-comment)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
 
 ### Custom media types for pull request review comments
 

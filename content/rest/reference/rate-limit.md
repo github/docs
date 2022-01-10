@@ -1,12 +1,14 @@
 ---
 title: Rate limit
+intro: 'With the Rate Limit API, you can check the current rate limit status of various REST APIs.'
 redirect_from:
   - /v3/rate_limit
   - /v3/rate-limit
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -16,7 +18,7 @@ The REST API overview documentation describes the [rate limit rules](/rest/overv
 
 ### Understanding your rate limit status
 
-The Search API has a [custom rate limit](/rest/reference/search#rate-limit), separate from the rate limit governing the rest of the REST API. The GraphQL API also has a [custom rate limit](/graphql/overview/resource-limitations#rate-limit) that is separate from and calculated differently than rate limits in the REST API.
+The Search API has a [custom rate limit](/rest/reference/search#rate-limit), separate from the rate limit governing the rest of the REST API. The GraphQL API also has a [custom rate limit]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations#rate-limit) that is separate from and calculated differently than rate limits in the REST API.
 
 For these reasons, the Rate Limit API response categorizes your rate limit. Under `resources`, you'll see four
 objects:
@@ -25,7 +27,7 @@ objects:
 
 * The `search` object provides your rate limit status for the [Search API](/rest/reference/search).
 
-* The `graphql` object provides your rate limit status for the [GraphQL API](/graphql).
+* The `graphql` object provides your rate limit status for the [GraphQL API]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql).
 
 * The `integration_manifest` object provides your rate limit status for the [GitHub App Manifest code conversion](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration) endpoint.
 

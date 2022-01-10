@@ -1,35 +1,32 @@
 ---
 title: Managing dormant users
 redirect_from:
-  - /enterprise/admin/articles/dormant-users/
-  - /enterprise/admin/articles/viewing-dormant-users/
-  - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
+  - /enterprise/admin/articles/dormant-users
+  - /enterprise/admin/articles/viewing-dormant-users
+  - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant
   - /enterprise/admin/user-management/managing-dormant-users
   - /admin/user-management/managing-dormant-users
-intro: 'A user account is considered to be dormant if it has not been active for at least a month.{% if enterpriseServerVersions contains currentVersion %} You may choose to suspend dormant users to free up user licenses.{% endif %}'
+intro: '{% data reusables.enterprise-accounts.dormant-user-activity-threshold %}'
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
   - Enterprise
   - Licensing
 ---
-"Activity" includes, but is not limited to:
-- Signing in to {% data variables.product.product_name %}.
-- Commenting on issues and pull requests.
-- Creating, deleting, watching, and starring repositories.
-- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-- Accessing resources by using a personal access token or SSH key.{% endif %}
+{% data reusables.enterprise-accounts.dormant-user-activity %}
 
+{% ifversion ghes or ghae%}
 ## Viewing dormant users
 
-You can view a list of all dormant users who have not been suspended and who are not site administrators.
+{% data reusables.enterprise-accounts.viewing-dormant-users %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 3. In the left sidebar, click **Dormant users**.
-![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% if enterpriseServerVersions contains currentVersion %}
+![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% ifversion ghes %}
 4. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
 ![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
 
@@ -47,11 +44,29 @@ You can view a list of all dormant users who have not been suspended and who are
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. Under "Dormancy threshold", use the drop-down menu, and click the desired dormancy threshold.
 ![The Dormancy threshold drop-down menu](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
+
+{% endif %}
+
+{% ifversion ghec %}
+
+{% data reusables.enterprise-accounts.dormant-user-release-phase %}
+
+{% warning %}
+
+**Note:** During the private beta, ongoing improvements to the report download feature may limit its availability.
+
+{% endwarning %}
+
+## Downloading the dormant users report from your enterprise account
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
+1. To download your Dormant Users (beta) report as a CSV file, under "Other", click {% octicon "download" aria-label="The Download icon" %} **Download**.
+  ![Download button under "Other" on the Compliance page](/assets/images/help/business-accounts/dormant-users-download-button.png)
+
+{% endif %}

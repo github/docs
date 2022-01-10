@@ -1,23 +1,26 @@
 ---
-title: Cambiar la visibilidad de la información de dependencias de la organización
-intro: Puedes permitir que todos los miembros de la organización vean información de dependencias para tu organización o limiten la visualización de los propietarios de la organización.
+title: Changing the visibility of your organization's dependency insights
+intro: You can allow all organization members to view dependency insights for your organization or limit viewing to organization owners.
 product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Change insight visibility
 ---
 
-Los propietarios de la organización pueden establecer limitaciones para ver la información de dependencias de la organización. De manera predeterminada, todos los miembros de una organización pueden ver información de la dependencia de la organización.
+Organization owners can set limitations for viewing organization dependency insights. All members of an organization can view organization dependency insights by default.
 
-Los propietarios de la empresa pueden establecer limitaciones para ver la información de las dependencias de la organización en todas las organizaciones de tu cuenta de empresa. Para obtener más información, consulta "[Hacer cumplir una política sobre las percepciones de la dependencia en tu cuenta de empresa](/articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"
+Enterprise owners can set limitations for viewing organization dependency insights on all organizations in your enterprise account. For more information, see "[Enforcing policies for dependency insights in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. En "Member organization permissions" (Permisos para miembros de la organización), selecciona o quita la marca de selección de **Allow members to view dependency insights** (Permitir que los miembros vean información de dependencias). ![Casilla de verificación para permitir que los miembros vean información](/assets/images/help/organizations/allow-members-to-view-insights.png)
-6. Haz clic en **Save ** (guardar).
+5. Under "Member organization permissions", select or unselect **Allow members to view dependency insights**.
+![Checkbox to allow members to view insights](/assets/images/help/organizations/allow-members-to-view-insights.png)
+6. Click **Save**.

@@ -1,16 +1,16 @@
 ---
 title: Network ports
 redirect_from:
-  - /enterprise/admin/articles/configuring-firewalls/
-  - /enterprise/admin/articles/firewall/
-  - /enterprise/admin/guides/installation/network-configuration/
-  - /enterprise/admin/guides/installation/network-ports-to-open/
+  - /enterprise/admin/articles/configuring-firewalls
+  - /enterprise/admin/articles/firewall
+  - /enterprise/admin/guides/installation/network-configuration
+  - /enterprise/admin/guides/installation/network-ports-to-open
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports
 intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -26,8 +26,8 @@ Some administrative ports are required to configure {% data variables.product.pr
 |---|---|---|
 | 8443 | HTTPS | Secure web-based {% data variables.enterprise.management_console %}. Required for basic installation and configuration. |
 | 8080 | HTTP | Plain-text web-based {% data variables.enterprise.management_console %}. Not required unless SSL is disabled manually. |
-| 122 | SSH | Shell access for {% data variables.product.product_location %}. Required to be open to incoming connections from all other nodes in a High Availability configuration. The default SSH port (22) is dedicated to Git and SSH application network traffic. |
-| 1194/UDP | VPN | Secure replication network tunnel in High Availability configuration. Required to be open to all other nodes in the configuration.|
+| 122 | SSH | Shell access for {% data variables.product.product_location %}. Required to be open to incoming connections between all nodes in a high availability configuration. The default SSH port (22) is dedicated to Git and SSH application network traffic. |
+| 1194/UDP | VPN | Secure replication network tunnel in high availability configuration. Required to be open for communication between all nodes in the configuration.|
 | 123/UDP| NTP | Required for time protocol operation. |
 | 161/UDP | SNMP | Required for network monitoring protocol operation. |
 

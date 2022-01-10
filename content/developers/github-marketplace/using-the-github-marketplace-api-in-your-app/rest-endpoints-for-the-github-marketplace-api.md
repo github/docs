@@ -2,14 +2,16 @@
 title: REST endpoints for the GitHub Marketplace API
 intro: 'To help manage your app on {% data variables.product.prodname_marketplace %}, use these {% data variables.product.prodname_marketplace %} API endpoints.'
 redirect_from:
-  - /apps/marketplace/github-marketplace-api-endpoints/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints/
+  - /apps/marketplace/github-marketplace-api-endpoints
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /developers/github-marketplace/rest-endpoints-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: REST API
 ---
 Here are some useful endpoints available for Marketplace listings:
 

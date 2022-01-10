@@ -6,12 +6,14 @@ redirect_from:
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
   - Collaboration
+shortTitle: Add collaborator to advisory
 ---
 
 People with admin permissions to a security advisory can add collaborators to the security advisory.

@@ -2,13 +2,13 @@
 title: Searching the audit log
 intro: Site administrators can search an extensive list of audited actions on the enterprise.
 redirect_from:
-  - /enterprise/admin/articles/searching-the-audit-log/
+  - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
   - /enterprise/admin/user-management/searching-the-audit-log
   - /admin/user-management/searching-the-audit-log
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing

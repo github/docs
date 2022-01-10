@@ -2,15 +2,17 @@
 title: Viewing metrics for your listing
 intro: 'The {% data variables.product.prodname_marketplace %} Insights page displays metrics for your {% data variables.product.prodname_github_app %}. You can use the metrics to track your {% data variables.product.prodname_github_app %}''s performance and make more informed decisions about pricing, plans, free trials, and how to visualize the effects of marketing campaigns.'
 redirect_from:
-  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/github-marketplace-insights/
+  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/github-marketplace-insights
   - /marketplace/github-marketplace-insights
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: View listing metrics
 ---
 You can view metrics for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.
 

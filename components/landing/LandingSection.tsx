@@ -9,17 +9,20 @@ type Props = {
 }
 export const LandingSection = ({ title, children, className, sectionLink, description }: Props) => {
   return (
-    <div className={cx('container-xl px-3 px-md-6', className)} id={sectionLink}>
+    <div className={cx('container-xl px-3 px-md-6 mt-6', className)} id={sectionLink}>
       {title && (
-        <h2 className={cx('font-mktg h1 color-text-primary', !description ? 'mb-3' : 'mb-4')}>
-          {sectionLink ? <a className="color-unset" href={`#${sectionLink}`}>{title}</a> : title}
+        <h2 className={cx('h1 color-fg-default', !description ? 'mb-3' : 'mb-4')}>
+          {sectionLink ? (
+            <a className="color-unset" href={`#${sectionLink}`}>
+              {title}
+            </a>
+          ) : (
+            title
+          )}
         </h2>
       )}
       {description && (
-        <div
-          className="lead-mktg color-text-secondary f4 description-text"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+        <div className="color-fg-muted f4" dangerouslySetInnerHTML={{ __html: description }} />
       )}
       {children}
     </div>

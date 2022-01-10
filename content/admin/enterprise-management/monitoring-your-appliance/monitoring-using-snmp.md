@@ -3,11 +3,11 @@ title: Monitoring using SNMP
 intro: '{% data variables.product.prodname_enterprise %} provides data on disk usage, CPU utilization, memory usage, and more over SNMP.'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
-  - /enterprise/admin/articles/monitoring-using-snmp/
+  - /enterprise/admin/articles/monitoring-using-snmp
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

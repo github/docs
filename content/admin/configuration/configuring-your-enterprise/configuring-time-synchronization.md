@@ -2,21 +2,22 @@
 title: Configuring time synchronization
 intro: '{% data variables.product.prodname_ghe_server %} automatically synchronizes its clock by connecting to NTP servers. You can set the NTP servers that are used to synchronize the clock, or you can use the default NTP servers.'
 redirect_from:
-  - /enterprise/admin/articles/adjusting-the-clock/
-  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings/
-  - /enterprise/admin/articles/setting-ntp-servers/
-  - /enterprise/admin/categories/time/
+  - /enterprise/admin/articles/adjusting-the-clock
+  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings
+  - /enterprise/admin/articles/setting-ntp-servers
+  - /enterprise/admin/categories/time
   - /enterprise/admin/installation/configuring-time-synchronization
   - /enterprise/admin/configuration/configuring-time-synchronization
   - /admin/configuration/configuring-time-synchronization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure time settings
 ---
 ## Changing the default NTP servers
 

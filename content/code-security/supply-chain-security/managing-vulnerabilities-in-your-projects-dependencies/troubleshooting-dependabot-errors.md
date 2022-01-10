@@ -1,13 +1,15 @@
 ---
 title: Troubleshooting Dependabot errors
 intro: 'Sometimes {% data variables.product.prodname_dependabot %} is unable to raise a pull request to update your dependencies. You can review the error and unblock {% data variables.product.prodname_dependabot %}.'
-shortTitle: Troubleshooting errors
+shortTitle: Troubleshoot errors
 redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors
   - /github/managing-security-vulnerabilities/troubleshooting-dependabot-errors
   - /code-security/supply-chain-security/troubleshooting-dependabot-errors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -19,6 +21,11 @@ topics:
   - Errors
   - Dependencies
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## About {% data variables.product.prodname_dependabot %} errors
 
 {% data reusables.dependabot.pull-request-introduction %}
@@ -45,11 +52,21 @@ If an error blocked {% data variables.product.prodname_dependabot %} from creati
 
 When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem, it posts the error icon on the manifest file. The manifest files that are managed by {% data variables.product.prodname_dependabot %} are listed on the {% data variables.product.prodname_dependabot %} tab. To access this tab, on the **Insights** tab for the repository click **Dependency graph**, and then click the **{% data variables.product.prodname_dependabot %}** tab.
 
-![{% data variables.product.prodname_dependabot %} view showing an error](/assets/images/help/dependabot/dependabot-tab-view-error-beta.png)
+![{% data variables.product.prodname_dependabot %} view showing an error](/assets/images/help/dependabot/dependabot-tab-view-error.png)
+
+{% ifversion fpt or ghec %}
 
 To see the log file for any manifest file, click the **Last checked TIME ago** link. When you display the log file for a manifest that's shown with an error symbol (for example, Maven in the screenshot above), any errors are also displayed.
 
-![{% data variables.product.prodname_dependabot %} version update error and log ](/assets/images/help/dependabot/dependabot-version-update-error-beta.png)
+![{% data variables.product.prodname_dependabot %} version update error and log ](/assets/images/help/dependabot/dependabot-version-update-error.png)
+
+{% else %}
+
+To see the logs for any manifest file, click the **Last checked TIME ago** link, and then click **View logs**.
+
+![{% data variables.product.prodname_dependabot %} version update error and log ](/assets/images/enterprise/3.3/dependabot/dependabot-version-update-error.png)
+
+{% endif %}
 
 ## Understanding {% data variables.product.prodname_dependabot %} errors
 
@@ -61,7 +78,7 @@ Pull requests for security updates act to upgrade a vulnerable dependency to the
 
 Every application that has dependencies has a dependency graph, that is, a directed acyclic graph of every package version that the application directly or indirectly depends on. Every time a dependency is updated, this graph must resolve otherwise the application won't build. When an ecosystem has a deep and complex dependency graph, for example, npm and RubyGems, it is often impossible to upgrade a single dependency without upgrading the whole ecosystem.
 
-The best way to avoid this problem is to stay up to date with the most recently released versions, for example, by enabling version updates. This increases the likelihood that a vulnerability in one dependency can be resolved by a simple upgrade that doesn't break the dependency graph. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)."
+The best way to avoid this problem is to stay up to date with the most recently released versions, for example, by enabling version updates. This increases the likelihood that a vulnerability in one dependency can be resolved by a simple upgrade that doesn't break the dependency graph. For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 ### {% data variables.product.prodname_dependabot %} cannot update to the required version as there is already an open pull request for the latest version
 
@@ -75,7 +92,7 @@ There are two options: you can review the open pull request and merge it as soon
 
 This error is difficult to address. If a version update times out, you could specify the most important dependencies to update using the `allow` parameter or, alternatively, use the `ignore` parameter to exclude some dependencies from updates. Updating your configuration might allow {% data variables.product.prodname_dependabot %} to review the version update and generate the pull request in the time available.
 
-If a security update times out, you can reduce the chances of this happening by keeping the dependencies updated, for example, by enabling version updates. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)."
+If a security update times out, you can reduce the chances of this happening by keeping the dependencies updated, for example, by enabling version updates. For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 ### {% data variables.product.prodname_dependabot %} cannot open any more pull requests
 

@@ -1,11 +1,13 @@
 ---
 title: Projects
+intro: 'The Projects API lets you create, list, update, delete and customize projects in a repository.'
 redirect_from:
   - /v3/projects
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
