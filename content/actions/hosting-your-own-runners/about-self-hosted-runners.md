@@ -52,7 +52,7 @@ For more information about installing and using self-hosted runners, see "[Addin
 
 ## Requirements for self-hosted runner machines
 
-You can use any machine as a self-hosted runner as long at it meets these requirements:
+You can use any machine as a self-hosted runner as long as it meets these requirements:
 
 * You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
 * The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)."
