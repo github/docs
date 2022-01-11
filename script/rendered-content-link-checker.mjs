@@ -16,8 +16,7 @@ import chalk from 'chalk'
 import shortVersions from '../middleware/contextualizers/short-versions.js'
 import contextualize from '../middleware/context.js'
 import { languageKeys } from '../lib/languages.js'
-import { loadPages, loadPageMap, loadUnversionedTree } from '../lib/page-data.js'
-import loadRedirects from '../lib/redirects/precompile.js'
+import warmServer from '../lib/warm-server.js'
 import renderContent from '../lib/render-content/index.js'
 import { deprecated } from '../lib/enterprise-server-releases.js'
 
@@ -74,21 +73,16 @@ main(program.opts(), program.args)
 async function main(opts, files) {
   const { random, language, filter, exit, debug, max, verbose } = opts
 
-  debug && console.time('loadUnversionedTree')
-  const unversionedTree = await loadUnversionedTree()
-  debug && console.timeEnd('loadUnversionedTree')
-
-  debug && console.time('loadPages')
-  const pageList = await loadPages(unversionedTree)
-  debug && console.timeEnd('loadPages')
-
-  debug && console.time('loadPageMap')
-  const pageMap = await loadPageMap(pageList)
-  debug && console.timeEnd('loadPageMap')
-
-  debug && console.time('loadRedirects')
-  const redirects = await loadRedirects(pageList)
-  debug && console.timeEnd('loadRedirects')
+  // Note! The reason we're using `warmServer()` in this script,
+  // even though there's no server involved, is because
+  // the `contextualize()` function calls it.
+  // And because warmServer() is actually idempotent, meaning it's
+  // cheap to call it more than once, it would be expensive to call it
+  // twice unnecessarily.
+  // If we'd manually do the same operations that `warmServer()` does
+  // here (e.g. `loadPageMap()`), we'd end up having to do it all over
+  // again, the next time `contextualize()` is called.
+  const { redirects, pages: pageMap, pageList } = await warmServer()
 
   const languages = language || []
   console.assert(Array.isArray(languages), `${languages} is not an array`)
