@@ -21,28 +21,17 @@ shortTitle: Filtering alerts
 
 You can use filters in the security overview to narrow your focus based on a range of factors, like alert risk level, alert type and feature enablement. Different filters are available depending on the specific view and whether you analysing at the organization, team or repository level.
 
-### Filter by level of risk for repositories
+## Filter by repository
 
-The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk.
-
-| Qualifier | Description |
-| -------- | -------- |
-| `risk:high` | Display repositories that are at high risk. |
-| `risk:medium` | Display repositories that are at medium risk. |
-| `risk:low` | Display repositories that are at low risk. |
-| `risk:unknown` | Display repositories that are at an unknown level of risk. |
-| `risk:clear` | Display repositories that have no detected level of risk. |
-
-### Filter by number of alerts
+Available in all organization-level and team-level views.
 
 | Qualifier | Description |
 | -------- | -------- |
-| <code>code-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use &gt and &lt comparison operators. |
-| <code>secret-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_secret_scanning %} alerts. This qualifier can use &gt and &lt comparison operators. |
-| <code>dependabot:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use &gt and &lt comparison operators. |
-| <code>dependabot:<em>>=10</em></code> |  |
+| `repo:REPOSITORY-NAME` | Displays alerts for the specified repository. |
 
-### Filter by whether security features are enabled
+## Filter by whether security features are enabled
+
+Available in the organization-level and team-level overview.
 
 | Qualifier | Description |
 | -------- | -------- |
@@ -50,12 +39,13 @@ The level of risk for a repository is determined by the number and severity of a
 | `code-scanning:not-enabled` | Display repositories that do not have {% data variables.product.prodname_code_scanning %} enabled. |
 | `secret-scanning:enabled` | Display repositories that have {% data variables.product.prodname_secret_scanning %} enabled. |
 | `secret-scanning:not-enabled` | Display repositories that have {% data variables.product.prodname_secret_scanning %} enabled. |
-| `dependabot-alerts:enabled` | Display repositories that have {% data variables.product.prodname_dependabot_alerts %} enabled. |
-| `dependabot-alerts:not-enabled` | Display repositories that do not have {% data variables.product.prodname_dependabot_alerts %} enabled. |
+| `dependabot:enabled` | Display repositories that have {% data variables.product.prodname_dependabot_alerts %} enabled. |
+| `dependabot:not-enabled` | Display repositories that do not have {% data variables.product.prodname_dependabot_alerts %} enabled. |
 | `not-enabled:any` | Display repositories with at least one security feature that is not enabled. |
 
+## Filter by repository type
 
-### Filter by repository type
+Available in the organization-level and team-level overview.
 
 | Qualifier | Description |
 | -------- | -------- |
@@ -69,42 +59,58 @@ The level of risk for a repository is determined by the number and severity of a
 | `archived:true` | Display archived repositories. |
 | `archived:true` | Display archived repositories. |
 
-### Filter by team
+## Filter by level of risk for repositories
+
+The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk. Available in the organization-level overview.
+
+| Qualifier | Description |
+| -------- | -------- |
+| `risk:high` | Display repositories that are at high risk. |
+| `risk:medium` | Display repositories that are at medium risk. |
+| `risk:low` | Display repositories that are at low risk. |
+| `risk:unknown` | Display repositories that are at an unknown level of risk. |
+| `risk:clear` | Display repositories that have no detected level of risk. |
+
+## Filter by number of alerts
+
+Available in the organization-level overview.
+
+| Qualifier | Description |
+| -------- | -------- |
+| <code>code-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
+| <code>secret-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_secret_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
+| <code>dependabot:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
+
+
+## Filter by team
+
+Available in the organization-level overview.
 
 | Qualifier | Description |
 | -------- | -------- |
 | <code>team:<em>TEAM-NAME</em></code> | Displays repositories that *TEAM-NAME* has admin privileges for. |
 
-### Filter by topic
+## Filter by topic
+
+Available in the organization-level overview.
 
 | Qualifier | Description |
 | -------- | -------- |
 | <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
 
-### Sort the list of repositories
 
-| Qualifier | Description |
-| -------- | -------- |
-| `sort:risk` | Sorts the repositories in your security overview by risk. |
-| `sort:repos` | Sorts the repositories in your security overview alphabetically by name. |
-| `sort:code-scanning-alerts` | Sorts the repositories in your security overview by number of {% data variables.product.prodname_code_scanning %} alerts. |
-| `sort:secret-scanning-alerts` | Sorts the repositories in your security overview by number of {% data variables.product.prodname_secret_scanning %} alerts. |
-| `sort:dependabot-alerts` | Sorts the repositories in your security overview by number of {% data variables.product.prodname_dependabot_alerts %}. |
+## Filter by secret types
 
-### Filter by repository
-
-| Qualifier | Description |
-| -------- | -------- |
-| `repo:REPOSITORY-NAME` | Displays alerts for the specified repository. |
-
-### Filter by secret types
+Available in the secret scanning alert views.
 
 | Qualifier | Description |
 | -------- | -------- |
 | `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. For more information, see "[List of supported secrets for private repositories](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories) |
 | `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." |
 
-### Filter by provider
+## Filter by provider
+
+Available in the secret scanning alert views.
 
 | Qualifier | Description |
 | -------- | -------- |

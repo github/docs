@@ -25,7 +25,7 @@ shortTitle: View the security overview
   ![Show more button](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
 
-{% ifversion ghec or ghes > 3.3 %}
+{% ifversion ghec or ghes > 3.4 %}
 
 ## Viewing alerts across your organization
 
@@ -47,8 +47,6 @@ shortTitle: View the security overview
   ![Drop down filter menus in the repository secret scanning alerts view](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
 
 {% endif %}
-
-
 
 ## Viewing the security overview for a team
 
