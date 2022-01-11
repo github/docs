@@ -2,7 +2,7 @@
 title: Pricing plans for GitHub Marketplace apps
 intro: 'Pricing plans allow you to provide your app with different levels of service or resources. You can offer up to 10 pricing plans in your {% data variables.product.prodname_marketplace %} listing.'
 redirect_from:
-  - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans/
+  - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:
