@@ -123,12 +123,17 @@ async function main(opts, files) {
 function printGlobalCacheHitRatio() {
   const hits = globalCacheHitCount
   const misses = globalCacheMissCount
-  console.log(
-    `Cache hit ratio: ${hits.toLocaleString()} of ${(misses + hits).toLocaleString()} (${(
-      (100 * hits) /
-      (misses + hits)
-    ).toFixed(1)}%)`
-  )
+  // It could be that the files that were tested didn't have a single
+  // link in them. In that case, there's no cache misses or hits at all.
+  // So avoid the division by zero.
+  if (misses + hits) {
+    console.log(
+      `Cache hit ratio: ${hits.toLocaleString()} of ${(misses + hits).toLocaleString()} (${(
+        (100 * hits) /
+        (misses + hits)
+      ).toFixed(1)}%)`
+    )
+  }
 }
 
 function getDurationString(date1, date2) {
