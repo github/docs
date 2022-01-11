@@ -1,6 +1,7 @@
 ---
 title: Enabling the dependency graph and Dependabot alerts on your enterprise account
 intro: 'You can connect {% data variables.product.product_location %} to {% data variables.product.prodname_ghe_cloud %} and enable the dependency graph and  {% data variables.product.prodname_dependabot_alerts %} in repositories in your instance.'
+miniTocMaxHeadingLevel: 3
 shortTitle: Enable dependency analysis
 redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
