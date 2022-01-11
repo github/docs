@@ -42,7 +42,7 @@ Only {% data variables.product.company_short %}-reviewed advisories are synchron
 
 ### About scanning of repositories with synchronized data from the {% data variables.product.prodname_advisory_database %}
 
-For repositories with {% data variables.product.prodname_dependabot_alerts %} enabled, scanning is triggered on any push to the default branch that contains a manifest file or lock file. Additionally, when a new vulnerability record is added to the instance, all existing repositories in that instance are scanned and alerts are issued for any repository that is vulnerable. For more information, see "[Detection of vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)."
+For repositories with {% data variables.product.prodname_dependabot_alerts %} enabled, scanning is triggered on any push to the default branch that contains a manifest file or lock file. Additionally, when a new vulnerability record is added to the instance, {% data variables.product.prodname_ghe_server %} scans all existing repositories in that instance and generates alerts for any repository that is vulnerable. For more information, see "[Detection of vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)."
 
 
 ### About generation of {% data variables.product.prodname_dependabot_alerts %}
