@@ -2,7 +2,7 @@
 title: Building a CI server
 intro: Build your own CI system using the Status API.
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'

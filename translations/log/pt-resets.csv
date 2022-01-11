@@ -33,6 +33,7 @@ translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-gith
 translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/publicizing-or-hiding-organization-membership.md,rendering error
 translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization.md,rendering error
 translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps.md,rendering error
+translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization.md,rendering error
 translations/pt-BR/content/actions/advanced-guides/caching-dependencies-to-speed-up-workflows.md,rendering error
 translations/pt-BR/content/actions/advanced-guides/index.md,rendering error
 translations/pt-BR/content/actions/advanced-guides/storing-workflow-data-as-artifacts.md,rendering error
@@ -97,7 +98,7 @@ translations/pt-BR/content/actions/hosting-your-own-runners/using-self-hosted-ru
 translations/pt-BR/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,rendering error
 translations/pt-BR/content/actions/index.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/contexts.md,rendering error
-translations/pt-BR/content/actions/learn-github-actions/creating-workflow-templates.md,rendering error
+translations/pt-BR/content/actions/learn-github-actions/creating-starter-workflows-for-your-organization.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/environment-variables.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/essential-features-of-github-actions.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/events-that-trigger-workflows.md,rendering error
@@ -110,7 +111,7 @@ translations/pt-BR/content/actions/learn-github-actions/reusing-workflows.md,ren
 translations/pt-BR/content/actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
-translations/pt-BR/content/actions/learn-github-actions/using-workflow-templates.md,rendering error
+translations/pt-BR/content/actions/learn-github-actions/using-starter-workflows.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/workflow-commands-for-github-actions.md,rendering error
 translations/pt-BR/content/actions/learn-github-actions/workflow-syntax-for-github-actions.md,rendering error
 translations/pt-BR/content/actions/managing-issues-and-pull-requests/adding-labels-to-issues.md,rendering error
@@ -269,6 +270,7 @@ translations/pt-BR/content/admin/overview/about-enterprise-accounts.md,rendering
 translations/pt-BR/content/admin/overview/about-github-ae.md,rendering error
 translations/pt-BR/content/admin/overview/about-the-github-enterprise-api.md,rendering error
 translations/pt-BR/content/admin/overview/about-upgrades-to-new-releases.md,rendering error
+translations/pt-BR/content/admin/packages/configuring-package-ecosystem-support-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/packages/getting-started-with-github-packages-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise.md,rendering error
@@ -363,6 +365,7 @@ translations/pt-BR/content/billing/managing-billing-for-git-large-file-storage/i
 translations/pt-BR/content/billing/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,rendering error
+translations/pt-BR/content/billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-github-marketplace-apps/downgrading-the-billing-plan-for-a-github-marketplace-app.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-github-marketplace-apps/index.md,rendering error
@@ -413,6 +416,7 @@ translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scannin
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,rendering error
 translations/pt-BR/content/code-security/getting-started/adding-a-security-policy-to-your-repository.md,rendering error
 translations/pt-BR/content/code-security/getting-started/github-security-features.md,rendering error
+translations/pt-BR/content/code-security/getting-started/securing-your-organization.md,rendering error
 translations/pt-BR/content/code-security/getting-started/securing-your-repository.md,rendering error
 translations/pt-BR/content/code-security/guides.md,rendering error
 translations/pt-BR/content/code-security/secret-scanning/about-secret-scanning.md,rendering error
@@ -441,6 +445,7 @@ translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-ti
 translations/pt-BR/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/connecting-to-a-private-network.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/creating-a-codespace.md,rendering error
+translations/pt-BR/content/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,rendering error
 translations/pt-BR/content/codespaces/developing-in-codespaces/index.md,rendering error
@@ -460,6 +465,7 @@ translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/set
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces.md,rendering error
+translations/pt-BR/content/codespaces/troubleshooting/troubleshooting-codespaces-clients.md,rendering error
 translations/pt-BR/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/pt-BR/content/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages.md,rendering error
 translations/pt-BR/content/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki.md,rendering error
@@ -641,18 +647,22 @@ translations/pt-BR/content/github/site-policy/guide-to-submitting-a-dmca-counter
 translations/pt-BR/content/github/site-policy/guide-to-submitting-a-dmca-takedown-notice.md,rendering error
 translations/pt-BR/content/github/site-policy/guidelines-for-legal-requests-of-user-data.md,rendering error
 translations/pt-BR/content/github/site-policy/index.md,rendering error
+translations/pt-BR/content/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository.md,rendering error
 translations/pt-BR/content/github/working-with-github-support/about-github-premium-support-for-github-enterprise-cloud.md,rendering error
 translations/pt-BR/content/github/working-with-github-support/github-enterprise-cloud-support.md,rendering error
 translations/pt-BR/content/github/working-with-github-support/submitting-a-ticket.md,rendering error
 translations/pt-BR/content/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,rendering error
 translations/pt-BR/content/github/writing-on-github/editing-and-sharing-content-with-gists/forking-and-cloning-gists.md,rendering error
 translations/pt-BR/content/github/writing-on-github/editing-and-sharing-content-with-gists/index.md,rendering error
+translations/pt-BR/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github.md,rendering error
 translations/pt-BR/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.md,rendering error
 translations/pt-BR/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/index.md,rendering error
 translations/pt-BR/content/github/writing-on-github/index.md,rendering error
 translations/pt-BR/content/github/writing-on-github/working-with-advanced-formatting/attaching-files.md,rendering error
+translations/pt-BR/content/github/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks.md,rendering error
 translations/pt-BR/content/github/writing-on-github/working-with-advanced-formatting/index.md,rendering error
 translations/pt-BR/content/github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections.md,rendering error
+translations/pt-BR/content/github/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables.md,rendering error
 translations/pt-BR/content/github/writing-on-github/working-with-saved-replies/editing-a-saved-reply.md,rendering error
 translations/pt-BR/content/graphql/guides/index.md,rendering error
 translations/pt-BR/content/graphql/guides/managing-enterprise-accounts.md,rendering error
@@ -666,8 +676,10 @@ translations/pt-BR/content/issues/organizing-your-work-with-project-boards/manag
 translations/pt-BR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board.md,rendering error
 translations/pt-BR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board.md,rendering error
 translations/pt-BR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board.md,rendering error
+translations/pt-BR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/reopening-a-closed-project-board.md,rendering error
 translations/pt-BR/content/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board.md,rendering error
 translations/pt-BR/content/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board.md,rendering error
+translations/pt-BR/content/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/archiving-cards-on-a-project-board.md,rendering error
 translations/pt-BR/content/issues/tracking-your-work-with-issues/about-issues.md,rendering error
 translations/pt-BR/content/issues/tracking-your-work-with-issues/about-task-lists.md,rendering error
 translations/pt-BR/content/issues/tracking-your-work-with-issues/creating-an-issue.md,rendering error
@@ -700,10 +712,12 @@ translations/pt-BR/content/organizations/granting-access-to-your-organization-wi
 translations/pt-BR/content/organizations/index.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/index.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization.md,rendering error
+translations/pt-BR/content/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,Listed in localization-support#489
 translations/pt-BR/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,parsing error
+translations/pt-BR/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-apps/adding-github-app-managers-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-apps/removing-github-app-managers-from-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization.md,rendering error
@@ -772,6 +786,8 @@ translations/pt-BR/content/organizations/restricting-access-to-your-organization
 translations/pt-BR/content/organizations/restricting-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization.md,rendering error
 translations/pt-BR/content/packages/learn-github-packages/about-permissions-for-github-packages.md,rendering error
 translations/pt-BR/content/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility.md,rendering error
+translations/pt-BR/content/packages/learn-github-packages/deleting-a-package.md,rendering error
+translations/pt-BR/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,rendering error
 translations/pt-BR/content/packages/learn-github-packages/installing-a-package.md,rendering error
 translations/pt-BR/content/packages/learn-github-packages/introduction-to-github-packages.md,rendering error
 translations/pt-BR/content/packages/learn-github-packages/publishing-a-package.md,rendering error
@@ -788,12 +804,14 @@ translations/pt-BR/content/pages/configuring-a-custom-domain-for-your-github-pag
 translations/pt-BR/content/pages/configuring-a-custom-domain-for-your-github-pages-site/index.md,rendering error
 translations/pt-BR/content/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site.md,rendering error
 translations/pt-BR/content/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages.md,rendering error
+translations/pt-BR/content/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages.md,rendering error
 translations/pt-BR/content/pages/getting-started-with-github-pages/about-github-pages.md,rendering error
 translations/pt-BR/content/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser.md,rendering error
 translations/pt-BR/content/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site.md,rendering error
 translations/pt-BR/content/pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site.md,rendering error
 translations/pt-BR/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md,rendering error
 translations/pt-BR/content/pages/getting-started-with-github-pages/index.md,rendering error
+translations/pt-BR/content/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https.md,rendering error
 translations/pt-BR/content/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site.md,rendering error
 translations/pt-BR/content/pages/getting-started-with-github-pages/using-submodules-with-github-pages.md,rendering error
 translations/pt-BR/content/pages/index.md,rendering error
@@ -827,7 +845,9 @@ translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/propos
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/index.md,rendering error
+translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request.md,rendering error
+translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/index.md,rendering error
