@@ -71,7 +71,7 @@ program
 main(program.opts(), program.args)
 
 async function main(opts, files) {
-  const { random, language, filter, exit, debug, max, verbose } = opts
+  const { random, exit, debug, max, verbose } = opts
 
   // Note! The reason we're using `warmServer()` in this script,
   // even though there's no server involved, is because
@@ -83,11 +83,6 @@ async function main(opts, files) {
   // here (e.g. `loadPageMap()`), we'd end up having to do it all over
   // again, the next time `contextualize()` is called.
   const { redirects, pages: pageMap, pageList } = await warmServer()
-
-  const languages = language || []
-  console.assert(Array.isArray(languages), `${languages} is not an array`)
-  const filters = filter || []
-  console.assert(Array.isArray(filters), `${filters} is not an array`)
 
   if (random) {
     shuffle(pageList)
@@ -123,12 +118,17 @@ async function main(opts, files) {
 function printGlobalCacheHitRatio() {
   const hits = globalCacheHitCount
   const misses = globalCacheMissCount
-  console.log(
-    `Cache hit ratio: ${hits.toLocaleString()} of ${(misses + hits).toLocaleString()} (${(
-      (100 * hits) /
-      (misses + hits)
-    ).toFixed(1)}%)`
-  )
+  // It could be that the files that were tested didn't have a single
+  // link in them. In that case, there's no cache misses or hits at all.
+  // So avoid the division by zero.
+  if (misses + hits) {
+    console.log(
+      `Cache hit ratio: ${hits.toLocaleString()} of ${(misses + hits).toLocaleString()} (${(
+        (100 * hits) /
+        (misses + hits)
+      ).toFixed(1)}%)`
+    )
+  }
 }
 
 function getDurationString(date1, date2) {
