@@ -1,7 +1,9 @@
 ---
-title: Repository metrics
+title: Metrics
 intro: 'The repository metrics API allows you to retrieve community profile, statistics, and traffic for your repository.'
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /rest/reference/repository-metrics
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +13,10 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+{% for operation in currentRestOperations %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
+{% endfor %}
 
 {% ifversion fpt or ghec %}
 ## Community
