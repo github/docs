@@ -161,6 +161,8 @@ Notion | Notion Integration Token | notion_integration_token{% endif %}
 Notion | Notion OAuth Client Secret | notion_oauth_client_secret{% endif %}
 npm | npm Access Token | npm_access_token
 NuGet | NuGet API Key | nuget_api_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Octopus Deploy | Octopus Deploy API Key | octopus_deploy_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Onfido | Onfido Live API Token | onfido_live_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
