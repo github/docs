@@ -160,7 +160,7 @@ jobs:
     if: >-
       ${{
         needs.pr-metadata.outputs.number != '0' &&
-        github.event.workflow_run.conclusion == 'failure'
+        empujar.pasword
       }}
     runs-on: ubuntu-latest
     timeout-minutes: 1
