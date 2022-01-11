@@ -1,8 +1,8 @@
 ---
-title: OAuthアプリの作成
+title: Creating an OAuth App
 intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps
   - /apps/building-oauth-apps/creating-an-oauth-app
   - /developers/apps/creating-an-oauth-app
 versions:
@@ -13,11 +13,10 @@ versions:
 topics:
   - OAuth Apps
 ---
-
 {% ifversion fpt or ghec %}
 {% note %}
 
-  **ノート：** {% data reusables.apps.maximum-oauth-apps-allowed %}
+  **Note:** {% data reusables.apps.maximum-oauth-apps-allowed %}
 
 {% endnote %}
 {% endif %}
@@ -25,29 +24,35 @@ topics:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.oauth_apps %}
-4. [**New OAuth App**] をクリックします。 ![新しい OAuth App を作成するボタン](/assets/images/oauth-apps/oauth_apps_new_app.png)
+4. Click **New OAuth App**.
+![Button to create a new OAuth app](/assets/images/oauth-apps/oauth_apps_new_app.png)
 
   {% note %}
 
-  **注釈:** アプリをまだ作成したことがない場合、このボタンに [**Register a new application**] と表示されます。
+  **Note:** If you haven't created an app before, this button will say, **Register a new application**.
 
   {% endnote %}
-6. [Application name] に、アプリケーションの名前を入力します。 ![アプリケーションの名前フィールド](/assets/images/oauth-apps/oauth_apps_application_name.png)
+6. In "Application name", type the name of your app.
+![Field for the name of your app](/assets/images/oauth-apps/oauth_apps_application_name.png)
 
   {% warning %}
 
-  **警告:** 公にしてよいと思われる OAuth App の情報のみを使用します。 OAuth App を作成する場合、内部 URL などの機密データを使用することは避けてください。
+  **Warning:**  Only use information in your OAuth app that you consider public. Avoid using sensitive data, such as internal URLs, when creating an OAuth App.
 
   {% endwarning %}
 
-7. [Homepage URL] に、アプリケーションのウェブサイトの完全な URL を入力します。 ![アプリケーションのホームページ URL フィールド](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
-8. 必要に応じて、ユーザーに表示されるアプリケーションの説明を [Application description] に入力します。 ![アプリケーションの説明フィールド](/assets/images/oauth-apps/oauth_apps_application_description.png)
-9. [Authorization callback URL] に、アプリケーションのコールバック URL を入力します。 ![アプリケーションの認可コールバック URL フィールド](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
+7. In "Homepage URL", type the full URL to your app's website.
+![Field for the homepage URL of your app](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
+8. Optionally, in "Application description", type a description of your app that users will see.
+![Field for a description of your app](/assets/images/oauth-apps/oauth_apps_application_description.png)
+9. In "Authorization callback URL", type the callback URL of your app.
+![Field for the authorization callback URL of your app](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
 {% ifversion fpt or ghes > 3.0 or ghec %}
    {% note %}
 
-   **注釈:** {% data variables.product.prodname_github_apps %} と異なり、OAuth App は複数のコールバック URL を持つことはできません。
+   **Note:** OAuth Apps cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
 
    {% endnote %}
 {% endif %}
-10. **Register application** をクリックする。 ![アプリケーションを登録するボタン](/assets/images/oauth-apps/oauth_apps_register_application.png)
+10. Click **Register application**.
+![Button to register an application](/assets/images/oauth-apps/oauth_apps_register_application.png)

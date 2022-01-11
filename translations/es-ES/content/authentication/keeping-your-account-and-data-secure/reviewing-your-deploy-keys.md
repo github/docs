@@ -1,6 +1,6 @@
 ---
-title: Revisar tus llaves de implementación
-intro: Debes revisar tus llaves de implementación para garantizar que no haya ninguna llave sin autorización (o posiblemente comprometida). También puedes aprobar llaves de implementación existentes que sean válidas.
+title: Reviewing your deploy keys
+intro: You should review deploy keys to ensure that there aren't any unauthorized (or possibly compromised) keys. You can also approve existing deploy keys that are valid.
 redirect_from:
   - /articles/reviewing-your-deploy-keys
   - /github/authenticating-to-github/reviewing-your-deploy-keys
@@ -13,12 +13,16 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Llaves de implementación
+shortTitle: Deploy keys
 ---
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. En la barra lateral izquierda, haz clic en **Deploy keys** (Llaves de implementación). ![Parámetro de llaves de implementación](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
-4. En la página de Llaves de implementación, anota las llaves de implementación asociadas a tu cuenta. Para las que no reconozcas o que estén desactualizadas, haz clic en **Delete** (Eliminar). Si hay llaves de implementación válidas que quieres conservar, haz clic en **Approve** (Aprobar). ![Lista de llaves de implementación](/assets/images/help/settings/settings-deploy-key-review.png)
+3. In the left sidebar, click **Deploy keys**.
+![Deploy keys setting](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
+4. On the Deploy keys page, take note of the deploy keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid deploy keys you'd like to keep, click **Approve**.
+	![Deploy key list](/assets/images/help/settings/settings-deploy-key-review.png)
 
-Para obtener más información, consulta la sección "[Administrar las llaves de despliegue](/guides/managing-deploy-keys)".
+For more information, see "[Managing deploy keys](/guides/managing-deploy-keys)."
+
+## Further reading
+- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

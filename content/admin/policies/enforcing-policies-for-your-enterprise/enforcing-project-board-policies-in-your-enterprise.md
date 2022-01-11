@@ -4,8 +4,8 @@ intro: 'You can enforce policies for projects within your enterprise''s organiza
 permissions: Enterprise owners can enforce policies for project boards in an enterprise.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
-  - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account/
-  - /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account
+  - /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account
   - /articles/enforcing-project-board-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-project-board-policies-in-your-enterprise-account

@@ -1,8 +1,8 @@
 ---
-title: Herramientas de migración de código fuente
-intro: Puedes utilizar herramientas externas para mover tus proyectos a GitHub.
+title: Source code migration tools
+intro: You can use external tools to move your projects to GitHub.
 redirect_from:
-  - /articles/importing-from-subversion/
+  - /articles/importing-from-subversion
   - /articles/source-code-migration-tools
   - /github/importing-your-projects-to-github/source-code-migration-tools
 versions:
@@ -10,49 +10,48 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Herramientas de migración de código
+shortTitle: Code migration tools
 ---
-
 {% ifversion fpt or ghec %}
 
-Te recomendamos utilizar el [Importador de GitHub](/articles/about-github-importer) para importar proyectos de Subversion, Mercurial, Team Foundation Version Control (TFVC) u otro repositorio de Git. También puedes utilizar estas herramientas externas para convertir tus proyectos a Git.
+We recommend using [GitHub Importer](/articles/about-github-importer) to import projects from Subversion, Mercurial, Team Foundation Version Control (TFVC), or another Git repository. You can also use these external tools to convert your project to Git.
 
 {% endif %}
 
-## Importar desde Subversion
+## Importing from Subversion
 
-En un entorno normal de Subversion, se almacenan varios proyectos en un único repositorio raíz. En GitHub, cada uno de estos proyectos generalmente se mapeará a un repositorio de Git separado para una cuenta de usuario o de organización. Sugerimos importar cada parte de tu repositorio de Subversion a un repositorio de GitHub separado si:
+In a typical Subversion environment, multiple projects are stored in a single root repository. On GitHub, each of these projects will usually map to a separate Git repository for a user account or organization. We suggest importing each part of your Subversion repository to a separate GitHub repository if:
 
-* Los colaboradores necesitan revisar o confirmar esa parte del proyecto de forma separada desde las otras partes
-* Deseas que distintas partes tengan sus propios permisos de acceso
+* Collaborators need to check out or commit to that part of the project separately from the other parts
+* You want different parts to have their own access permissions
 
-Recomendamos estas herramientas para convertir repositorio de Subversion a Git:
+We recommend these tools for converting Subversion repositories to Git:
 
 - [`git-svn`](https://git-scm.com/docs/git-svn)
 - [svn2git](https://github.com/nirvdrum/svn2git)
 
-## Importar desde Mercurial
+## Importing from Mercurial
 
-Recomendamos [hg-fast-export](https://github.com/frej/fast-export) para convertir repositorios de Mercurial a Git.
+We recommend [hg-fast-export](https://github.com/frej/fast-export) for converting Mercurial repositories to Git.
 
-## Importar desde TFVC
+## Importing from TFVC
 
-Te recomendamos utilizar [git-tfs](https://github.com/git-tfs/git-tfs) para mover los cambios entre TFVC y Git.
+We recommend [git-tfs](https://github.com/git-tfs/git-tfs) for moving changes between TFVC and Git.
 
-Para obtener más información acerca de migrarse de TFVC (un sistema de control de versiones centralizado) a Git, consulta la sección "[Planea tu migración a Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)" del sitio de documentos de Microsoft.
+For more information about moving from TFVC (a centralized version control system) to Git, see "[Plan your Migration to Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)" from the Microsoft docs site.
 
 {% tip %}
 
-**Sugerencia:** después de haber convertido con éxito tu proyecto a Git, puedes [subirlo a {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**Tip:** After you've successfully converted your project to Git, you can [push it to {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}
 
 {% ifversion fpt or ghec %}
 
-## Leer más
+## Further reading
 
-- "[Acerca del Importador GitHub](/articles/about-github-importer)"
-- "[Importar un repositorio con Importador GitHub](/articles/importing-a-repository-with-github-importer)"
+- "[About GitHub Importer](/articles/about-github-importer)"
+- "[Importing a repository with GitHub Importer](/articles/importing-a-repository-with-github-importer)"
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})
 
 {% endif %}

@@ -2,8 +2,8 @@
 title: Managing projects using Jira
 intro: 'You can integrate Jira with {% data variables.product.prodname_enterprise %} for project management.'
 redirect_from:
-  - /enterprise/admin/guides/installation/project-management-using-jira/
-  - /enterprise/admin/articles/project-management-using-jira/
+  - /enterprise/admin/guides/installation/project-management-using-jira
+  - /enterprise/admin/articles/project-management-using-jira
   - /enterprise/admin/developer-workflow/managing-projects-using-jira
   - /enterprise/admin/developer-workflow/customizing-your-instance-with-integrations
   - /enterprise/admin/user-management/managing-projects-using-jira
@@ -16,10 +16,9 @@ topics:
   - Project management
 shortTitle: Project management with Jira
 ---
-
 ## Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
 
-1. http[s]://[hostname]/login で {% data variables.product.prodname_enterprise %}のアカウントにサインインする。 If already signed in, click on the {% data variables.product.prodname_dotcom %} logo in the top left corner.
+1. Sign into your {% data variables.product.prodname_enterprise %} account at http[s]://[hostname]/login. If already signed in, click on the {% data variables.product.prodname_dotcom %} logo in the top left corner.
 2. Click on your profile icon under the {% data variables.product.prodname_dotcom %} logo and select the organization you would like to connect with Jira.
 
   ![Select an organization](/assets/images/enterprise/orgs-and-teams/profile-select-organization.png)
@@ -36,12 +35,12 @@ shortTitle: Project management with Jira
 
   ![Register new application button](/assets/images/enterprise/orgs-and-teams/register-oauth-application-button.png)
 
-6. アプリケーションの設定を次のように記入する。
+6. Fill in the application settings:
     - In the **Application name** field, type "Jira" or any name you would like to use to identify the Jira instance.
     - In the **Homepage URL** field, type the full URL of your Jira instance.
     - In the **Authorization callback URL** field, type the full URL of your Jira instance.
-7. **Register application** をクリックする。
-8. ページの上部の [**Client ID**] と [**Client Secret**] をメモしてください。 You will need these for configuring your Jira instance.
+7. Click **Register application**.
+8. At the top of the page, note the **Client ID** and **Client Secret**. You will need these for configuring your Jira instance.
 
 ## Jira instance configuration
 
@@ -58,13 +57,13 @@ shortTitle: Project management with Jira
 
   ![Link GitHub account to Jira](/assets/images/enterprise/orgs-and-teams/jira/jira-link-github-account.png)
 
-5. [**Add New Account**] (新規アカウントを追加) モーダルで、{% data variables.product.prodname_enterprise %} の設定を記入してください。
+5. In the **Add New Account** modal, fill in your {% data variables.product.prodname_enterprise %} settings:
     - From the **Host** dropdown menu, choose **{% data variables.product.prodname_enterprise %}**.
-    - **Team or User Account** の欄には、{% data variables.product.prodname_enterprise %}のOrganization、または個人アカウントの名前を入力する。
-    - **OAuth Key** の欄には、{% data variables.product.prodname_enterprise %}のディベロッパーアプリケーションのClient ID を入力する。
-    - **OAuth Secret** の欄には、{% data variables.product.prodname_enterprise %}のデベロッパーアプリケーションの Client Secret を入力する。
+    - In the **Team or User Account** field, type the name of your {% data variables.product.prodname_enterprise %} organization or personal account.
+    - In the **OAuth Key** field, type the Client ID of your {% data variables.product.prodname_enterprise %} developer application.
+    - In the **OAuth Secret** field, type the Client Secret for your {% data variables.product.prodname_enterprise %} developer application.
     - If you don't want to link new repositories owned by your {% data variables.product.prodname_enterprise %} organization or personal account, deselect **Auto Link New Repositories**.
     - If you don't want to enable smart commits, deselect **Enable Smart Commits**.
-    - [**Add**] をクリックします。
-6. {% data variables.product.prodname_enterprise %}に対して与えるアクセス権を確認して、**Authorize application** をクリックする。
-7. 必要であれば、パスワードを入力する。
+    - Click **Add**.
+6. Review the permissions you are granting to your {% data variables.product.prodname_enterprise %} account and click **Authorize application**.
+7. If necessary, type your password to continue.

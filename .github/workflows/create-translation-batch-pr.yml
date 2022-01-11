@@ -11,11 +11,15 @@ name: Create translation Batch Pull Request
 on:
   workflow_dispatch:
   schedule:
-    - cron: '33 18 * * *' # every day at 18:33 UTC at least until automerge is working
+    - cron: '02 17 * * *' # Once a day at 17:02 UTC / 9:02 PST
+
+permissions:
+  contents: write
 
 jobs:
   create-translation-batch:
     name: Create translation batch
+    if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     # A sync's average run time is ~3.2 hours.
     # This sets a maximum execution time of 300 minutes (5 hours) to prevent the workflow from running longer than necessary.
@@ -25,14 +29,22 @@ jobs:
       max-parallel: 1
       matrix:
         include:
-          - language: pt-BR
-            language_code: pt
-          # - language: zh-CN
-          #   language_code: cn
-          # - language: ja-JP
-          #   language_code: ja
-          # - language: es-ES
-          #   language_code: es
+          - language: pt
+            crowdin_language: pt-BR
+            language_dir: translations/pt-BR
+
+          - language: es
+            crowdin_language: es-ES
+            language_dir: translations/es-ES
+
+          - language: cn
+            crowdin_language: zh-CN
+            language_dir: translations/zh-CN
+
+          - language_dir: translations/ja-JP
+            crowdin_language: ja
+            language: ja
+
     steps:
       - name: Set branch name
         id: set-branch
@@ -43,7 +55,7 @@ jobs:
       - run: git config --global user.email "67483024+docubot@users.noreply.github.com"
 
       - name: Checkout
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           fetch-depth: 0
           lfs: true
@@ -53,13 +65,24 @@ jobs:
       - name: Remove unwanted git hooks
         run: rm .git/hooks/post-checkout
 
-      - name: Install Crowdin CLI
+      # https://support.crowdin.com/cli-tool/#debian
+      - name: Download and install the public signing key
+        run: wget -qO - https://artifacts.crowdin.com/repo/GPG-KEY-crowdin | sudo apt-key add -
+      - name: Create the crowdin.list file in the /etc/apt/sources.list.d directory
         run: |
-          wget https://artifacts.crowdin.com/repo/deb/crowdin3.deb -O /tmp/crowdin.deb
-          sudo dpkg -i /tmp/crowdin.deb
+          sudo touch /etc/apt/sources.list.d/crowdin.list
+          echo "deb https://artifacts.crowdin.com/repo/deb/ /" | sudo tee -a /etc/apt/sources.list.d/crowdin.list
+      - name: Install the Crowdin CLI Debian Package
+        run: sudo apt-get update && sudo apt-get install crowdin3
+
+      # Delete empty source files that would be rejected by Crowdin breaking the workflow
+      - name: Remove empty source files
+        run: |
+          find content -type f -empty -delete
+          find data    -type f -empty -delete
 
       - name: Upload files to crowdin
-        run: crowdin upload sources --no-progress --no-colors --verbose --debug '--branch=main' '--config=crowdin.yml'
+        run: crowdin upload sources --delete-obsolete --no-progress --no-colors --verbose --debug '--branch=main' '--config=crowdin.yml'
         env:
           # This is a numeric id, not to be confused with Crowdin API v1 "project identifier" string
           # See "API v2" on https://crowdin.com/project/<your-project>/settings#api
@@ -72,11 +95,11 @@ jobs:
 
       - name: Remove all language translations
         run: |
-          git rm -rf --quiet translations/${{ matrix.language }}/content
-          git rm -rf --quiet translations/${{ matrix.language }}/data
+          git rm -rf --quiet ${{ matrix.language_dir }}/content
+          git rm -rf --quiet ${{ matrix.language_dir }}/data
 
       - name: Download crowdin translations
-        run: crowdin download  --no-progress --no-colors --verbose --debug '--branch=main' '--config=crowdin.yml' --language=${{ matrix.language }}
+        run: crowdin download  --no-progress --no-colors --verbose --debug '--branch=main' '--config=crowdin.yml' --language=${{ matrix.crowdin_language }}
         env:
           # This is a numeric id, not to be confused with Crowdin API v1 "project identifier" string
           # See "API v2" on https://crowdin.com/project/<your-project>/settings#api
@@ -89,52 +112,65 @@ jobs:
 
       - name: Commit crowdin sync
         run: |
-          git add .
+          git add ${{ matrix.language_dir }}
           git commit -m "Add crowdin translations" || echo "Nothing to commit"
 
       - name: 'Setup node'
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: '16'
 
       - run: npm ci
 
-      - name: Reset files with broken liquid tags
-        run: |
-          node script/i18n/reset-files-with-broken-liquid-tags.js --language=${{ matrix.language_code }}
-          git add . && git commit -m "run script/i18n/reset-files-with-broken-liquid-tags.js --language=${{ matrix.language_code }}" || echo "Nothing to commit"
-
-      # step 5 in docs-engineering/crowdin.md using script from docs-internal#22709
-      - name: Reset known broken files
-        run: |
-          node script/i18n/reset-known-broken-translation-files.js
-          git add . && git commit -m "run script/i18n/reset-known-broken-translation-files.js" || echo "Nothing to commit"
-        env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
-
       # step 6 in docs-engineering/crowdin.md
       - name: Homogenize frontmatter
         run: |
           node script/i18n/homogenize-frontmatter.js
-          git add . && git commit -m "Run script/i18n/homogenize-frontmatter.js" || echo "Nothing to commit"
+          git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/homogenize-frontmatter.js" || echo "Nothing to commit"
 
       # step 7 in docs-engineering/crowdin.md
       - name: Fix translation errors
         run: |
           node script/i18n/fix-translation-errors.js
-          git add . && git commit -m "Run script/i18n/fix-translation-errors.js" || echo "Nothing to commit"
+          git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/fix-translation-errors.js" || echo "Nothing to commit"
 
       # step 8a in docs-engineering/crowdin.md
       - name: Check parsing
         run: |
-          node script/i18n/lint-translation-files.js --check parsing
-          git add . && git commit -m "Run script/i18n/lint-translation-files.js --check parsing" || echo "Nothing to commit"
+          node script/i18n/lint-translation-files.js --check parsing | tee -a /tmp/batch.log | cat
+          git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/lint-translation-files.js --check parsing" || echo "Nothing to commit"
 
       # step 8b in docs-engineering/crowdin.md
       - name: Check rendering
         run: |
-          node script/i18n/lint-translation-files.js --check rendering
-          git add . && git commit -m "Run script/i18n/lint-translation-files.js --check rendering" || echo "Nothing to commit"
+          node script/i18n/lint-translation-files.js --check rendering | tee -a /tmp/batch.log | cat
+          git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/lint-translation-files.js --check rendering" || echo "Nothing to commit"
+
+      - name: Reset files with broken liquid tags
+        run: |
+          node script/i18n/reset-files-with-broken-liquid-tags.js --language=${{ matrix.language }} | tee -a /tmp/batch.log | cat
+          git add ${{ matrix.language_dir }} && git commit -m "run script/i18n/reset-files-with-broken-liquid-tags.js --language=${{ matrix.language }}" || echo "Nothing to commit"
+
+      # step 5 in docs-engineering/crowdin.md using script from docs-internal#22709
+      - name: Reset known broken files
+        run: |
+          node script/i18n/reset-known-broken-translation-files.js | tee -a /tmp/batch.log | cat
+          git add ${{ matrix.language_dir }} && git commit -m "run script/i18n/reset-known-broken-translation-files.js" || echo "Nothing to commit"
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+
+      - name: Check in CSV report
+        run: |
+          mkdir -p translations/log
+          csvFile=translations/log/${{ matrix.language }}-resets.csv
+          script/i18n/report-reset-files.js --report-type=csv --language=${{ matrix.language }} --log-file=/tmp/batch.log > $csvFile
+          git add -f $csvFile && git commit -m "Check in ${{ matrix.language }} CSV report" || echo "Nothing to commit"
+
+      - name: Close existing stale batches
+        uses: lee-dohm/close-matching-issues@e9e43aad2fa6f06a058cedfd8fb975fd93b56d8f
+        with:
+          token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          query: 'type:pr label:translation-batch-${{ matrix.language }}'
 
       - name: Create Pull Request
         env:
@@ -142,11 +178,26 @@ jobs:
         # We'll try to create the pull request based on the changes we pushed up in the branch.
         # If there are actually no differences between the branch and `main`, we'll delete it.
         run: |
+          script/i18n/report-reset-files.js --report-type=pull-request-body --language=${{ matrix.language }} --log-file=/tmp/batch.log > /tmp/pr-body.txt
           git push origin ${{ steps.set-branch.outputs.BRANCH_NAME }}
-          gh pr create -t "New translation batch for ${{ matrix.language }}" \
+          gh pr create --title "New translation batch for ${{ matrix.language }}" \
             --base=main \
             --head=${{ steps.set-branch.outputs.BRANCH_NAME }} \
-            -b "New batch for ${{ matrix.language }} created by [this workflow]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)" ||  git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }}
+            --label "translation-batch-${{ matrix.language }}" \
+            --label "translation-batch" \
+            --body-file /tmp/pr-body.txt || git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }}
+
+      - name: Approve PR
+        if: github.ref_name == 'main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+        run: gh pr review --approve || echo "Nothing to approve"
+
+      - name: Set auto-merge
+        if: github.ref_name == 'main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+        run: gh pr merge ${{ steps.set-branch.outputs.BRANCH_NAME }} --auto --squash || echo "Nothing to merge"
 
       # When the maximum execution time is reached for this job, Actions cancels the workflow run.
       # This emits a notification for the first responder to triage.

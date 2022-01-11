@@ -1,6 +1,6 @@
 ---
-title: Subir un archivo SARIF a GitHub
-shortTitle: Cargar un archivo de SARIF
+title: Uploading a SARIF file to GitHub
+shortTitle: Upload a SARIF file
 intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
 permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
@@ -24,50 +24,49 @@ topics:
   - CI
   - SARIF
 ---
-
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 
-## Acerca de la carga de archivos SARIF para {% data variables.product.prodname_code_scanning %}
+## About SARIF file uploads for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_dotcom %} crea alertas de {% data variables.product.prodname_code_scanning %} en un repositorio utilizando información de los archivos de Formato de Intercambio para Resultados de Análisis Estático (SARIF). El archivo SARIF puede generarse desde una herramienta de análisis compatible con SARIF que ejecutes en el mismo flujo de trabajo de {% data variables.product.prodname_actions %} que utilizaste para cargar el archivo. Como alternativa, cuando se genere el archivo como un artefacto fuera de tu repositorio, puedes cargar el archivo SARIF directamente a algún repositorio y utilizar el flujo de trabajo para subir este archivo. Para obtener más información, consulta la sección "[Administrar las alertas de {% data variables.product.prodname_code_scanning %} para tu repositorio](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
+{% data variables.product.prodname_dotcom %} creates {% data variables.product.prodname_code_scanning %} alerts in a repository using information from Static Analysis Results Interchange Format (SARIF) files. SARIF files can be uploaded to a repository using the API or {% data variables.product.prodname_actions %}. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
 
-Puedes generar archivos SARIF utilizando muchas herramientas de prueba de seguridad para análisis estático, incluyendo a {% data variables.product.prodname_codeql %}. Para cargar resultados desde herramientas de terceros debes utilizar el Formato de Intercambio para Resultados de Análisis Estático (SARIF) 2.1.0. Para obtener más información, consulta la sección "[Soporte de SARIF para {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)".
+You can generate SARIF files using many static analysis security testing tools, including {% data variables.product.prodname_codeql %}. The results must use SARIF version 2.1.0. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)."
 
-Puedes cargar los resultados utilizando {% data variables.product.prodname_actions %}, la API del {% data variables.product.prodname_code_scanning %}, {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %} el {% data variables.product.prodname_codeql_cli %}, {% endif %}o el {% data variables.product.prodname_codeql_runner %}. El mejor método de carga dependerá de cómo generas el archivo SARIF, por ejemplo, si utilizas:
+You can upload the results using {% data variables.product.prodname_actions %}, the {% data variables.product.prodname_code_scanning %} API, {% ifversion fpt or ghes > 3.0 or ghae or ghec %}the {% data variables.product.prodname_codeql_cli %}, {% endif %}or the {% data variables.product.prodname_codeql_runner %}. The best upload method will depend on how you generate the SARIF file, for example, if you use:
 
-- {% data variables.product.prodname_actions %} para ejecutar la acción de {% data variables.product.prodname_codeql %}, no hay que hacer nada más. La acción de {% data variables.product.prodname_codeql %} carga el archivo de SARIF automáticamente cuando completa el análisis.
-- "[Administrar una ejecución de flujo de trabajo](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-your-workflow-history)" {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
- - El {% data variables.product.prodname_codeql_cli %} ejecutará el {% data variables.product.prodname_code_scanning %} en tu sistema de IC, puedes utilizar el CLI para cargar resultados a {% data variables.product.prodname_dotcom %} (para obtener más información, consulta la sección "[Instalar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)").{% endif %}
-- {% data variables.product.prodname_dotcom %} mostrará alertas de {% data variables.product.prodname_code_scanning %} desde el archivo SARIF cargado en tu repositorio. Si bloqueas la carga automática, cuando estés listo para cargar los resultados, puedes utilizar el comando `upload` (para obtener más información, consulta la seción "[Ejecutar el {% data variables.product.prodname_codeql_runner %} en tu sistema de IC](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)").
-- Al ser una herramienta que genera resultados como un artefacto fuera de tu repositorio, puedes utilizar la API del {% data variables.product.prodname_code_scanning %} para cargar el archivo (Para encontrar más información, consulta la sección "[Cargar un análisis como datos de SARIF](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)").
+- {% data variables.product.prodname_actions %} to run the {% data variables.product.prodname_codeql %} action, there is no further action required. The {% data variables.product.prodname_codeql %} action uploads the SARIF file automatically when it completes analysis.
+- {% data variables.product.prodname_actions %} to run a SARIF-compatible analysis tool, you could update the workflow to include a final step that uploads the results (see below). {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+ - The {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} in your CI system, you can use the CLI to upload results to {% data variables.product.prodname_dotcom %} (for more information, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)").{% endif %}
+- The {% data variables.product.prodname_codeql_runner %}, to run {% data variables.product.prodname_code_scanning %} in your CI system, by default the runner automatically uploads results to {% data variables.product.prodname_dotcom %} on completion. If you block the automatic upload, when you are ready to upload results you can use the `upload` command (for more information, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)").
+- A tool that generates results as an artifact outside of your repository, you can use the {% data variables.product.prodname_code_scanning %} API to upload the file (for more information, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)").
 
 {% data reusables.code-scanning.not-available %}
 
-## Cargar un análisis de {% data variables.product.prodname_code_scanning %} con {% data variables.product.prodname_actions %}
+## Uploading a {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_actions %}
 
-Para cargar un archivo SARIF de terceros a {% data variables.product.prodname_dotcom %}, necesitarás un flujo de trabajo de {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Aprende sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
+To use {% data variables.product.prodname_actions %} to upload a third-party SARIF file to a repository, you'll need a  workflow. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-Tu flujo de trabajo necesitará utilizar la acción `upload-sarif`, que tiene parámetros de entrada que puedes utilizar para configurar la carga. Tiene parámetros de entrada que puedes utilizar para configurar la carga. El parámetro de entrada principal que utilizarás será `sarif-file`, el cual configura el archivo o directorio de los archivos SARIF a cargar. El directorio o ruta de archivo es relativo a la raíz del repositorio. Para obtener más información, consulta la [acción `upload-sarif`](https://github.com/github/codeql-action/tree/HEAD/upload-sarif).
+Your workflow will need to use the `upload-sarif` action, which is part of the `github/codeql-action` repository. It has input parameters that you can use to configure the upload. The main input parameter you'll use is `sarif-file`, which configures the file or directory of SARIF files to be uploaded. The directory or file path is relative to the root of the repository. For more information see the [`upload-sarif` action](https://github.com/github/codeql-action/tree/HEAD/upload-sarif).
 
-La acción `upload-sarif` puede configurarse para ejecutarse cuando ocurren los eventos `push` y `scheduled`. Para obtener más información acerca de los eventos {% data variables.product.prodname_actions %}, consulta la sección [Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
+The `upload-sarif` action can be configured to run when the `push` and `scheduled` event occur. For more information about {% data variables.product.prodname_actions %}  events, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
-Si tu archivo SARIF no incluye `partialFingerprints`, la acción `upload-sarif` calculará el campo `partialFingerprints` para ti e intentará prevenir las alertas duplicadas. {% data variables.product.prodname_dotcom %} solo puede crear `partialFingerprints` cuando el repositorio contenga tanto el archivo SARIF como el código fuente utilizado en el análisis estático. Para obtener más información acerca de prevenir alertas duplicadas, consulta la sección "[Acerca de la compatibilidad de SARIF con el escaneo de código](/code-security/secure-coding/sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)".
+If your SARIF file doesn't include `partialFingerprints`, the `upload-sarif` action will calculate the `partialFingerprints` field for you and attempt to prevent duplicate alerts. {% data variables.product.prodname_dotcom %} can only create `partialFingerprints` when the repository contains both the SARIF file and the source code used in the static analysis. For more information about preventing duplicate alerts, see "[About SARIF support for code scanning](/code-security/secure-coding/sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)."
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-### Ejemplo de flujo de trabajo para los archivos SARIF generados fuera de un repositorio
+### Example workflow for SARIF files generated outside of a repository
 
-Puedes crear un nuevo flujo de trabajo que cargue archivos SARIF después de que los confirmes en tu repositorio. Esto es útil cuando el archivo SARIF se genera como un artefacto fuera de tu repositorio.
+You can create a new workflow that uploads SARIF files after you commit them to your repository. This is useful when the SARIF file is generated as an artifact outside of your repository.
 
-Este ejemplo de flujo de trabajo se ejecuta cada que las confirmaciones se cargan al repositorio. La acción utiliza la propiedad `partialFingerprints` para determinar si ha habido cambios. Adicionalmente a ejecutarse cuando se cargan las confirmaciones, el flujo de trabajo se programa para su ejecución una vez por semana. Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
+This example workflow runs anytime commits are pushed to the repository. The action uses the `partialFingerprints` property to determine if changes have occurred. In addition to running when commits are pushed, the workflow is scheduled to run once per week. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)." 
 
-Este flujo de trabajo carga el archivo `results.sarif` ubicado en la raíz del repositorio. Para obtener más información acerca de cómo crear un archivo de flujo de trabajo, consulta la sección "[Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
+This workflow uploads the `results.sarif` file located in the root of the repository. For more information about creating a workflow file, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-Como alternativa, puedes modificar este flujo de trabajo para cargar un directorio de archivos SARIF. Por ejemplo, puedes colocar todos los archivos SARIF en un directorio en la raíz de tu repositorio, el cual se llame `sarif-output` y configurar el parámetro de entrada de la acción `sarif_file` como `sarif-output`.
+Alternatively, you could modify this workflow to upload a directory of SARIF files. For example, you could place all SARIF files in a directory in the root of your repository called `sarif-output` and set the action's input parameter `sarif_file` to `sarif-output`.
 
 ```yaml
 name: "Upload SARIF"
@@ -81,7 +80,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       security-events: write{% endif %}
     steps:
@@ -95,13 +94,13 @@ jobs:
           sarif_file: results.sarif
 ```
 
-### Ejemplo de flujo de trabajo que ejecuta la herramienta de análisis ESLint
+### Example workflow that runs the ESLint analysis tool
 
-Si generas tu archivo SARIF de terceros como parte de un flujo de trabajo de integración contínua (IC), puedes agregar la acción `upload-sarif` como un paso después de ejecutar tus pruebas de IC. Si aún no tienes un flujo de trabajo de IC, puedes crearlo utilizando una plantilla de {% data variables.product.prodname_actions %}. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
+If you generate your third-party SARIF file as part of a continuous integration (CI) workflow, you can add the `upload-sarif` action as a step after running your CI tests. If you don't already have a CI workflow, you can create one using a {% data variables.product.prodname_actions %} template. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
 
-Este ejemplo de flujo de trabajo se ejecuta cada que las confirmaciones se cargan al repositorio. La acción utiliza la propiedad `partialFingerprints` para determinar si ha habido cambios. Adicionalmente a ejecutarse cuando se cargan las confirmaciones, el flujo de trabajo se programa para su ejecución una vez por semana. Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
+This example workflow runs anytime commits are pushed to the repository. The action uses the `partialFingerprints` property to determine if changes have occurred. In addition to running when commits are pushed, the workflow is scheduled to run once per week. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)." 
 
-El flujo de trabajo muestra un ejemplo de ejecución de la herramienta de análisis estático ESLint como un paso en un flujo de trabajo. El paso `Run ESLint` ejecuta la herramienta ESLint y da como salida el archivo `results.sarif`. El flujo de trabajo entonces carga el archivo `results.sarif` a {% data variables.product.prodname_dotcom %} utilizando la acción `upload-sarif`. Para obtener más información acerca de cómo crear un archivo de flujo de trabajo, consulta la sección "[Introducción a Github Actions](/actions/learn-github-actions/introduction-to-github-actions)".
+The workflow shows an example of running the ESLint static analysis tool as a step in a workflow. The `Run ESLint` step runs the ESLint tool and outputs the `results.sarif` file. The workflow then uploads the `results.sarif` file to {% data variables.product.prodname_dotcom %} using the `upload-sarif` action. For more information about creating a workflow file, see "[Introduction to GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)."
 
 ```yaml
 name: "ESLint analysis"
@@ -115,7 +114,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       security-events: write{% endif %}
     steps:
@@ -133,10 +132,10 @@ jobs:
           sarif_file: results.sarif
 ```
 
-## Leer más
+## Further reading
 
-- "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)"
-- "[Visualizar tu historial de flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)"{%- ifversion fpt or ghes > 3.0 or ghae-next %}
-- "[Acerca del {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_codeql %} en tu sistema de IC](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)"{% else %}
-- "[Ejecutar un {% data variables.product.prodname_codeql_runner %} en tu sistema de IC](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"{% endif %}
-- "[Cargar un análisis como datos de SARIF](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)"
+- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)"
+- "[Viewing your workflow history](/actions/managing-workflow-runs/viewing-workflow-run-history)"{%- ifversion fpt or ghes > 3.0 or ghae %}
+- "[About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)"{% else %}
+- "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"{% endif %}
+- "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)"

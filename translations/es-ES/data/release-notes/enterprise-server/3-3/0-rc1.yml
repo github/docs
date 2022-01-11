@@ -1,6 +1,6 @@
 date: '2021-11-09'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: "{% note %}\n\n**Note:** If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.\n\n{% endnote %}\n\nFor upgrade instructions, see \"[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server).\"\n"
 sections:
   features:
@@ -55,6 +55,9 @@ sections:
         - 'Managing self-hosted runners at the enterprise level no longer requires using personal access tokens with the `admin:enterprise` scope. You can instead use the new `manage_runners:enterprise` scope to restrict the permissions on your tokens. Tokens with this scope can authenticate to [many REST API endpoints](/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise) to manage your enterprise''s self-hosted runners.'
         - "The audit log now includes additional events for {% data variables.product.prodname_actions %}. Audit log entries are now recorded for the following events:\n\n* A self-hosted runner is registered or removed.\n* A self-hosted runner is added to a runner group, or removed from a runner group.\n* A runner group is created or removed.\n* A workflow run is created or completed.\n* A workflow job is prepared. Importantly, this log includes the list of secrets that were provided to the runner.\n\nFor more information, see \"[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#auditing-github-actions-events).\"\n"
         - 'Performance improvements have been made to {% data variables.product.prodname_actions %}, which may result in higher maximum job concurrency.'
+    - heading: 'Cambios a los GitHub packages'
+      notes:
+        - 'When a repository is deleted, any associated package files are now immediately deleted from your {% data variables.product.prodname_registry %} external storage.'
     - heading: 'Cambios al Dependabot y a la gráfica de Dependencias'
       notes:
         - 'Dependency review is out of beta and is now generally available for {% data variables.product.prodname_GH_advanced_security %} customers. Dependency review provides an easy-to-understand view of dependency changes and their security impact in the "Files changed" tab of pull requests. It informs you of which dependencies were added, removed, or updated, along with vulnerability information. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."'
@@ -91,10 +94,10 @@ sections:
   deprecations:
     - heading: 'Obsoletización de GitHub Enterprise Server 2.22'
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 2.22 was discontinued on September 23, 2021**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 2.22 se descontinuó el 23 de septiembre de 2021**. Esto significa que no se harán lanzamientos de parches, incluso para los problemas de seguridad, después de dicha fecha. Para tener un rendimiento mejor, una seguridad mejorada y cualquier característica nueva, [actualiza a la versión más nueva de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) tan pronto te sea posible.'
     - heading: 'Deprecation of GitHub Enterprise Server 3.0'
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 will be discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 se descontinuará el 16 de febrero de 2022**. Esto significa que no se harán lanzamientos de parche, aún para los problemas de seguridad crítucos, después de esta fecha. Para obtener un rendimiento mejor, una seguridad mejorada y características nuevas, [actualiza a la última versión de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) tan pronto te sea posible.'
     - heading: 'Obsoletización del soporte para XenServer Hypervisor'
       notes:
         - 'Starting with {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer is deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.'

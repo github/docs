@@ -1,6 +1,6 @@
 ---
 title: Enabling the dependency graph and Dependabot alerts on your enterprise account
-intro: 'You can connect {% data variables.product.product_location %} to {% data variables.product.prodname_ghe_cloud %} and enable the dependency graph and {% data variables.product.prodname_dependabot %} alerts in repositories in your instance.'
+intro: 'You can connect {% data variables.product.product_location %} to {% data variables.product.prodname_ghe_cloud %} and enable the dependency graph and  {% data variables.product.prodname_dependabot_alerts %} in repositories in your instance.'
 shortTitle: Enable dependency analysis
 redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
@@ -9,7 +9,7 @@ redirect_from:
   - /admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
-permissions: 'Enterprise owners who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable the dependency graph and {% data variables.product.prodname_dependabot %} alerts on {% data variables.product.product_location %}.'
+permissions: 'Enterprise owners who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable the dependency graph and  {% data variables.product.prodname_dependabot_alerts %} on {% data variables.product.product_location %}.'
 versions:
   ghes: '*'
   ghae: issue-4864
@@ -37,6 +37,8 @@ For more information about these features, see "[About the dependency graph](/gi
 
 You can connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_github_connect %}. Once connected, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. You can also choose to manually sync vulnerability data at any time. No code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
 
+Only {% data variables.product.company_short %}-reviewed advisories are synchronized. {% data reusables.security-advisory.link-browsing-advisory-db %}
+
 ### About generation of {% data variables.product.prodname_dependabot_alerts %}
 
 If you enable vulnerability detection, when {% data variables.product.product_location %} receives information about a vulnerability, it identifies repositories in your instance that use the affected version of the dependency and generates {% data variables.product.prodname_dependabot_alerts %}. You can choose whether or not to notify users automatically about new {% data variables.product.prodname_dependabot_alerts %}.
@@ -46,7 +48,7 @@ If you enable vulnerability detection, when {% data variables.product.product_lo
 ### Prerequisites
 
 For {% data variables.product.product_location %} to detect vulnerable dependencies and generate {% data variables.product.prodname_dependabot_alerts %}:
-- You must connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghae %}This also enables the dependency graph service. {% endif %}{% ifversion ghes or ghae-next %}For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."{% endif %}
+- You must connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghae %}This also enables the dependency graph service. {% endif %}{% ifversion ghes or ghae %}For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."{% endif %}
 {% ifversion ghes %}- You must enable the dependency graph service.{% endif %}
 - You must enable vulnerability scanning.
 
@@ -70,19 +72,23 @@ You can enable the dependency graph via the {% data variables.enterprise.managem
 {% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 1. In the administrative shell, enable the dependency graph on {% data variables.product.product_location %}:
-    ``` shell
-    $ {% ifversion ghes > 3.1 %}ghe-config app.dependency-graph.enabled true{% else %}ghe-config app.github.dependency-graph-enabled true{% endif %}
+    {% ifversion ghes > 3.1 %}```shell
+    ghe-config app.dependency-graph.enabled true
     ```
+    {% else %}```shell
+    ghe-config app.github.dependency-graph-enabled true
+  ghe-config app.github.vulnerability-alerting-and-settings-enabled true
+    ```{% endif %}
    {% note %}
 
    **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
-1. Apply the configuration.
+2. Apply the configuration.
     ```shell
     $ ghe-config-apply
     ```
-1. Return to {% data variables.product.prodname_ghe_server %}.
+3. Return to {% data variables.product.prodname_ghe_server %}.
 {% endif %}
 
 ### Enabling {% data variables.product.prodname_dependabot_alerts %}

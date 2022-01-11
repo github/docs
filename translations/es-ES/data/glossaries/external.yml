@@ -7,10 +7,6 @@
   description: >-
     Un token que se usa en lugar de una contraseña cuando se realizan operaciones Git a través de HTTPS con Git en la línea de comandos o la API. También denominado un token de acceso personal.
 - 
-  term: token de recuperación de cuenta
-  description: >-
-    **Se obsoletizó y se inhabilitará el 1 de diciembre de 2021.** La credencial de autenticación que se almacena como parte de una configuración de recuperación de cuenta llamada Recover Accounts Elswhere que te permite almacenar esta credencial de respaldo.
-- 
   term: Vista previa de API
   description: >-
     Una manera de probar nuevas API y cambiar a métodos API existentes antes de que se vuelvan parte de la API de GitHub oficial.
@@ -181,7 +177,7 @@
 - 
   term: rama predeterminada
   description: >-
-    La rama base para todas las solicitudes de cam bio y confirmaciones de código en un repositorio. Cada repositorio tiene por lo menos una rama, la cual crea Git cuando lo inicializas. La rama principal a menudo se llama {% ifversion ghes < 3.2 %} 'master'{% else %}'main'{% endif %}, y habitualmente es la rama predeterminada.
+    La rama base para todas las solicitudes de cambio y confirmaciones de código en un repositorio. Cada repositorio tiene por lo menos una rama, la cual crea Git cuando lo inicializas. La rama principal a menudo se llama {% ifversion ghes < 3.2 %} 'master'{% else %}'main'{% endif %}, y habitualmente es la rama predeterminada.
 - 
   term: gráfica de dependientes
   description: >-
@@ -396,7 +392,7 @@
   description: >-
     La rama predeterminada en muchos de los repositorios de Git. Predeterminadamente, cuando creas un repositorio de Git nuevo en la línea de comandos, se creará una rama denominada 'master'. Hoy en día, muchas herramientas utilizan un nombre alterno para la rama predeterminada.{% ifversion fpt or ghes > 3.1 or ghae %} Por ejemplo, cuando creas un repositorio nuevo en GitHub, la rama predeterminada se llama 'main'.{% endif %}
 - 
-  term: gráfico de miembros
+  term: gráfica de miembros
   description: Un gráfico del repositorio que muestra todas las bifurcaciones de un repositorio.
 - 
   term: mención
@@ -422,7 +418,7 @@
   description: >-
     Un equipo hijo de un equipo padre. Puedes tener varios equipos hijo (o anidados).
 - 
-  term: gráfica de Red
+  term: gráfica de red
   description: >-
     Un gráfico del repositorio que muestra el historial de la rama de toda la red del repositorio, incluidas las ramas del repositorio raíz y las ramas de las bifurcaciones que contienen confirmaciones de cambios únicas para la red.
 - 
@@ -543,10 +539,10 @@
   description: >-
     Los comentarios de los colaboradores en una solicitud de extracción que aprueban los cambios o solicitan otros cambios antes de fusionar la solicitud de extracción.
 - 
-  term: gráfico de pulso
+  term: gráfica de pulso
   description: Un gráfico del repositorio que te brinda una descripción de la actividad de un repositorio.
 - 
-  term: gráfico de perforado
+  term: gráfica de perforado
   description: >-
     Un gráfico del repositorio que muestra la frecuencia de las actualizaciones para un repositorio en función del día de la semana y la hora del día.
 - 
@@ -571,10 +567,6 @@
   term: rebase
   description: >-
     Volver a aplicar una serie de cambios de una rama a una base diferente y restablecer el HEAD de esa rama al resultado.
-- 
-  term: Recuperar cuentas en otro lugar
-  description: >-
-    **Se obsoletizó y se inhabilitará el 1 de diciembre de 2021.** Permite a los usuarios agregar un factor de seguridad adicional a su cuenta de GitHub en caso de que pierdan acceso a su método de autenticación bifactorial o códigos de recuperación. Los usuarios pueden asociar su cuenta de GitHub con su cuenta de Facebook si almacenan la credencial de autenticación como un token de recuperación de cuenta con Facebook.
 - 
   term: código de recuperación
   description: Un código que te ayuda a volver a tener acceso a tu cuenta de GitHub.
@@ -602,9 +594,9 @@
   description: >-
     Un repositorio es el elemento más básico de GitHub. Son más fáciles de imaginar como la carpeta de un proyecto. Un repositorio contiene todos los archivos del proyecto (incluida la documentación) y almacena el historial de revisión de cada archivo. Los repositorios pueden tener varios colaboradores y pueden ser públicos o privados.
 - 
-  term: repository cache
+  term: caché del repositorio
   description: >-
-    A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
+    Una réplica de solo lectura de los repositorios para tu instancia de GitHub Enterprise Server que se ubica cerca de los equipos y clientes de IC distribuidos.
 - 
   term: gráfico del repositorio
   description: Una representación visual de los datos de tu repositorio.

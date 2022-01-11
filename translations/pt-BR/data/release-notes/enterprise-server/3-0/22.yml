@@ -1,0 +1,14 @@
+---
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '**CRITICAL:** A remote code execution vulnerability in the Log4j library, identified as [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228), affected all versions of {% data variables.product.prodname_ghe_server %} prior to 3.3.1. The Log4j library is used in an open source service running on the {% data variables.product.prodname_ghe_server %} instance. This vulnerability was fixed in {% data variables.product.prodname_ghe_server %} versions 3.0.22, 3.1.14, 3.2.6, and 3.3.1.  For more information, please see [this post](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/) on the GitHub Blog.'
+    - '**December 17, 2021 update**: The fixes in place for this release also mitigate [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046), which was published after this release. No additional upgrade for {% data variables.product.prodname_ghe_server %} is required to mitigate both CVE-2021-44228 and CVE-2021-45046.'
+  known_issues:
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

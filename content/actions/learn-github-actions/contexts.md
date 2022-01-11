@@ -18,7 +18,6 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About contexts
 
@@ -139,9 +138,10 @@ The `runner` context contains information about the runner that is executing the
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `runner.name` | `string` | {% data reusables.actions.runner-name-description %} |
-| `runner.os` | `string` | {% data reusables.actions.runner-os-description %} |
+| `runner.os` | `string` | {% data reusables.actions.runner-os-description %} |{% if actions-runner-arch-envvars %}
+| `runner.arch` | `string` | {% data reusables.actions.runner-arch-description %} |{% endif %}
 | `runner.temp` | `string` | {% data reusables.actions.runner-temp-directory-description %} |
-| `runner.tool_cache` | `string` | {% ifversion ghae %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)." {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}|
+| `runner.tool_cache` | `string` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}|
 
 ### `needs` context
 
@@ -221,7 +221,7 @@ The following table indicates where each context and special function can be use
 
 | Path | Context | Special functions |
 | ---- | ------- | ----------------- |
-| <code>concurrency</code> | <code>github</code> | |
+| <code>concurrency</code> | <code>github, inputs</code> | |
 | <code>env</code> | <code>github, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, inputs</code> | |

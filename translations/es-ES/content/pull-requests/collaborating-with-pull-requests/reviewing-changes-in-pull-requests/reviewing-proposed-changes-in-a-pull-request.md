@@ -30,7 +30,7 @@ You can review changes in a pull request one file at a time. While reviewing the
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
 {% data reusables.repositories.changed-files %}
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
 
    You can change the format of the diff view in this tab by clicking {% octicon "gear" aria-label="The Settings gear" %} and choosing the unified or split view. The choice you make will apply when you view the diff for other pull requests.
 

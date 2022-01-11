@@ -14,9 +14,11 @@ permissions:
   contents: read
   deployments: write
 
+# This allows a subsequently queued workflow run to take priority over
+# previously queued runs but NOT interrupt currently executing runs
 concurrency:
   group: '${{ github.workflow }}'
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
@@ -25,7 +27,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Check out repo
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           persist-credentials: 'false'
           lfs: 'true'
@@ -34,7 +36,7 @@ jobs:
         run: git lfs checkout
 
       - name: Setup node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
         with:
           node-version: 16.13.x
           cache: npm
@@ -51,6 +53,12 @@ jobs:
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: main
+
+      - name: Cache nextjs build
+        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
       - name: Build
         run: npm run build
@@ -129,12 +137,8 @@ jobs:
             -H 'Content-Type:' \
             --data-binary @app.tar.gz
 
-      - name: Install one-off development-only dependencies
-        run: npm install --no-save --include=optional esm
-
       - name: Deploy
         id: deploy
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
@@ -144,56 +148,8 @@ jobs:
           SOURCE_BLOB_URL: ${{ steps.build-source.outputs.download_url }}
           DELAY_FOR_PREBOOT: 'true'
           ALLOWED_POLLING_FAILURES_PER_PHASE: '15'
-        with:
-          script: |
-            const {
-              GITHUB_TOKEN,
-              HEROKU_API_TOKEN,
-              HEROKU_PRODUCTION_APP_NAME,
-              SOURCE_BLOB_URL,
-              DELAY_FOR_PREBOOT
-            } = process.env
-
-            // Exit if GitHub Actions PAT is not found
-            if (!GITHUB_TOKEN) {
-              throw new Error('You must supply a GITHUB_TOKEN environment variable!')
-            }
-
-            // Exit if Heroku API token is not found
-            if (!HEROKU_API_TOKEN) {
-              throw new Error('You must supply a HEROKU_API_TOKEN environment variable!')
-            }
-
-            // Exit if Heroku App name is not found
-            if (!HEROKU_PRODUCTION_APP_NAME) {
-              throw new Error('You must supply a HEROKU_PRODUCTION_APP_NAME environment variable!')
-            }
-
-            // Workaround to allow us to load ESM files with `require(...)`
-            const esm = require('esm')
-            require = esm({})
-
-            const { default: getOctokit } = require('./script/helpers/github')
-            const { default: deployToProduction } = require('./script/deployment/deploy-to-production')
-
-            // This helper uses the `GITHUB_TOKEN` implicitly!
-            // We're using our usual version of Octokit vs. the provided `github`
-            // instance to avoid versioning discrepancies.
-            const octokit = getOctokit()
-
-            try {
-              await deployToProduction({
-                octokit,
-                includeDelayForPreboot: DELAY_FOR_PREBOOT !== 'false',
-                // These parameters will ONLY be set by Actions
-                sourceBlobUrl: SOURCE_BLOB_URL,
-                runId: context.runId
-              })
-            } catch (error) {
-              console.error(`Failed to deploy to production: ${error.message}`)
-              console.error(error)
-              throw error
-            }
+          RUN_ID: ${{ github.run_id }}
+        run: .github/actions-scripts/prod-deploy.js
 
       - name: Mark the deployment as inactive if timed out
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
@@ -227,26 +183,11 @@ jobs:
             console.log('⏲️ Deployment status: error - The deployment timed out...')
 
       - name: Purge Fastly edge cache
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
           FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
           FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
-          FASTLY_SURROGATE_KEY: 'all-the-things'
-        with:
-          script: |
-            // Workaround to allow us to load ESM files with `require(...)`
-            const esm = require('esm')
-            require = esm({})
-
-            const { default: purgeEdgeCache } = require('./script/deployment/purge-edge-cache')
-
-            try {
-              await purgeEdgeCache()
-            } catch (error) {
-              console.error(`Failed to purge the edge cache: ${error.message}`)
-              console.error(error)
-              throw error
-            }
+          FASTLY_SURROGATE_KEY: 'every-deployment'
+        run: .github/actions-scripts/purge-fastly-edge-cache.js
 
       - name: Send Slack notification if workflow failed
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340

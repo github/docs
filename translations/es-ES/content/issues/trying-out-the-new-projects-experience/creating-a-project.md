@@ -1,6 +1,6 @@
 ---
-title: Crear un proyecto (beta)
-intro: 'Aprende cómo crear un proyecto, llénalo y agrega campos personalizados.'
+title: Creating a project (beta)
+intro: 'Learn how to make a project, populate it, and add custom fields.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -11,11 +11,11 @@ topics:
   - Projects
 ---
 
-Los proyectos son una colección personalizable de elementos que se mantienen actualizados con los datos de {% data variables.product.company_short %}. Tus proyectos pueden rastrear propuestas, solicitudes de cambios e ideas que aterrices. Puedes agregar campos personalizados y vistas creativas para propósitos específicos.
+Projects are a customizable collection of items that stay up-to-date with {% data variables.product.company_short %} data. Your projects can track issues, pull requests, and ideas that you jot down. You can add custom fields and create views for specific purposes.
 
 {% data reusables.projects.projects-beta %}
 
-## Crear un proyecto
+## Creating a project
 
 ### Creating an organization project
 
@@ -25,41 +25,41 @@ Los proyectos son una colección personalizable de elementos que se mantienen ac
 
 {% data reusables.projects.create-user-project %}
 
-## Agregar elementos a tu proyecto
+## Adding items to your project
 
-Tu proyecto puede rastrear borradores de propuestas, propuestas, y solicitudes de cambios.
+Your project can track draft issues, issues, and pull requests.
 
-### Crear borradores de propuestas
+### Creating draft issues
 
-Los borradores de propuestas son útiles si quieres capturar ideas rápidamente.
+Draft issues are useful to quickly capture ideas.
 
-1. Coloca tu cursor en la fila inferior del proyecto, junto al {% octicon "plus" aria-label="plus icon" %}.
-2. Teclea tu ida y luego presiona **Enter**.
+1. Place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
+2. Type your idea, then press **Enter**.
 
 You can convert draft issues into issues. For more information, see [Converting draft issues to issues](#converting-draft-issues-to-issues).
 
-### Propuestas y solicitudes de extracción
+### Issues and pull requests
 
-#### Pegar la URL de una propuesta o solicitud de cambios
+#### Paste the URL of an issue or pull request
 
-1. Coloca tu cursor en la fila inferior del proyecto, junto al {% octicon "plus" aria-label="plus icon" %}.
-1. Pega la URL de la propuesta o solicitud de cambios.
+1. Place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
+1. Paste the URL of the issue or pull request.
 
-#### Buscar una propuesta o solicitud de cambios
+#### Searching for an issue or pull request
 
-1. Coloca tu cursor en la fila inferior del proyecto, junto al {% octicon "plus" aria-label="plus icon" %}.
-2. Ingresa `#`.
-3. Selecciona el repositorio en donde se ubica la solicitud de cambios o propuesta. Puedes teclear la parte del nombre de repositorio para reducir tus opciones.
-4. Selecciona la propuesta o solicitud de cambios. Puedes teclear parte del título para reducir tus opciones.
+1. Place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
+2. Enter `#`.
+3. Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
+4. Select the issue or pull request. You can type part of the title to narrow down your options.
 
-#### Asignar un rpoyecto desde dentro de una propuesta o solicitud de cambios
+#### Assigning a project from within an issue or pull request
 
-1. Navega a la propuesta o solicitud de cambios que quieras agregar a un proyecto.
-2. En la barra lateral, haz clic en **Proyectos**.
-3. Selecciona el proyecto al cual quieras agregar la propuesta o solicitud de cambios.
-4. Opcionalmente, llena los campos personalizados.
+1. Navigate to the issue or pull request that you want to add to a project.
+2. In the side bar, click **Projects**.
+3. Select the project that you want to add the issue or pull request to.
+4. Optionally, populate the custom fields.
 
-   ![Barra lateral del proyecto](/assets/images/help/issues/project_side_bar.png)
+   ![Project sidebar](/assets/images/help/issues/project_side_bar.png)
 
 ## Converting draft issues to issues
 
@@ -93,26 +93,27 @@ You can restore archived items but not deleted items. For more information, see 
 
 To restore an archived item, navigate to the issue or pull request. In the project side bar on the issue or pull request, click **Restore** for the project that you want to restore the item to. Draft issues cannot be restored.
 
-## Agregar campos
+## Adding fields
 
-Conforme cambian los valores de los campos, estos se sincronizan automáticamente para que tu proyecto y los elementos que rastrea estén actualizados.
+As field values change, they are automatically synced so that your project and the items that it tracks are up-to-date.
 
-### Mostrar campos existentes
+### Showing existing fields
 
-Tu proyecto rastrea la información actualizada de las propuestas y solicitudes de cambio, incluyendo cualquier cambio al título, asignados, etiquetas, hitos y repositorio. Cuando tu proyecto inicializa, se muestran el "título" y los "asignados"; los otros campos están ocultos. Puedes cambiar la visibilidad de estos campos en tu proyecto.
+Your project tracks up-to-date information about  issues and pull requests, including any changes to the title, assignees, labels, milestones, and repository. When your project initializes, "title" and "assignees" are displayed; the other fields are hidden. You can change the visibility of these fields in your project.
 
 1. {% data reusables.projects.open-command-palette %}
-2. Comienza a teclear "show".
-3. Selecciona el comando deseado (por ejemplo: "Show: Repository").
+2. Start typing "show".
+3. Select the desired command (for example: "Show: Repository").
 
-Como alternativa, puedes hacer esto en la IU:
+Alternatively, you can do this in the UI:
 
-1. Haz clic en {% octicon "plus" aria-label="the plus icon" %} en el encabezado de campo que está hasta la derecha. Aparecerá un menú desplegable con los campos de proyecto. ![Mostrar u ocultar los campos](/assets/images/help/issues/projects_fields_menu.png)
-2. Selecciona el(los) campo(s) que quieras desplegar u ocultar. Un {% octicon "check" aria-label="check icon" %} indica qué campos se muestran.
+1. Click {% octicon "plus" aria-label="the plus icon" %} in the rightmost field header. A drop-down menu with the project fields will appear.
+   ![Show or hide fields](/assets/images/help/issues/projects_fields_menu.png)
+2. Select the field(s) that you want to display or hide. A {% octicon "check" aria-label="check icon" %} indicates which fields are displayed.
 
-### Agregar campos personalizados
+### Adding custom fields
 
-Puedes agregar campos personalizados a tu proyecto. Los campos personalizados se mostrarán en la bara lateral de las propuestas y solicitudes de cambio en el proyecto.
+You can add custom fields to your project. Custom fields will display on the side bar of issues and pull requests in the project.
 
 Custom fields can be text, number, date, single select, or iteration:
 
@@ -122,11 +123,12 @@ Custom fields can be text, number, date, single select, or iteration:
 - Single select: The value must be selected from a set of specified values.
 - Iteration: The value must be selected from a set of date ranges (iterations). Iterations in the past are automatically marked as "completed", and the iteration covering the current date range is marked as "current".
 
-1. {% data reusables.projects.open-command-palette %} Comienza a teclear cualquier parte de "Create new field". Cuando se muestre "Create new field" en la paleta de comandos, selecciónalo.
-2. Como alternativa, haz clic en {% octicon "plus" aria-label="the plus icon" %} en el encabezado de campo que está lo más hacia la derecha. Aparecerá un menú desplegable con los campos de proyecto. Haz clic en **Campo nuevo**.
-3. Se mostrará una ventana emergente para que ingreses la información sobre el campo nuevo. ![Campo nuevo](/assets/images/help/issues/projects_new_field.png)
-4. En la caja de texto, ingresa un nombre para el campo nuevo.
-5. Selecciona el menú desplegable y haz clic en el tipo deseado.
+1. {% data reusables.projects.open-command-palette %} Start typing any part of "Create new field". When "Create new field" displays in the command palette, select it.
+2. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} in the rightmost field header. A drop-down menu with the project fields will appear. Click **New field**.
+3. A popup will appear for you to enter information about the new field.
+   ![New field](/assets/images/help/issues/projects_new_field.png)
+4. In the text box, enter a name for the new field.
+5. Select the dropdown menu and click the desired type.
 6. If you specified **Single select** as the type, enter the options.
 7. If you specified **Iteration** as the type, enter the start date of the first iteration and the duration of the iteration. Three iterations are automatically created, and you can add additional iterations on the project's settings page.
 
@@ -139,7 +141,7 @@ You can later edit the drop down options for single select and iteration fields.
 
 ## Customizing your views
 
-Puedes ver tu proyecto como una tabla o tablero, agrupar los elementos por campo, elemento de filtrado y más. Para obtener más información, consulta la sección "[Personalizar las vistas de tu proyecto (beta)](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
+You can view your project as a table or board, group items by field, filter item, and more. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."
 
 ## Configuring built-in automation
 

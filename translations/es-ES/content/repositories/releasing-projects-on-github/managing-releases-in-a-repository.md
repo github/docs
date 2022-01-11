@@ -3,7 +3,7 @@ title: Managing releases in a repository
 intro: You can create releases to bundle and deliver iterations of a project to users.
 redirect_from:
   - /articles/creating-releases
-  - /articles/listing-and-editing-releases/
+  - /articles/listing-and-editing-releases
   - /articles/editing-and-deleting-releases
   - /articles/managing-releases-in-a-repository
   - /github/administering-a-repository/creating-releases
