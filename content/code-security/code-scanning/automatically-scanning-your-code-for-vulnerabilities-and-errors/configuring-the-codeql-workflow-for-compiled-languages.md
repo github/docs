@@ -135,3 +135,56 @@ For more information about the `if` conditional, see "[Workflow syntax for GitHu
 For more tips and tricks about why `autobuild` won't build your code, see "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
 
 If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
+
+## Excluding directories from the database by customizing the build steps
+
+In some situations, a full build of your project and its dependencies may produce
+a very large CodeQL database.  If those dependencies are not intended for
+analysis, they can be kept out of the CodeQL database by separating their build
+from the main build.  The following example illustrates the idea for a C++
+project using `make`, but the procedure applies to all compiled languages and
+build systems.
+
+If your project tree is 
+
+```text
+thing/
+   src/
+   lib1/
+   lib2/
+```
+
+and your default build command (let's use make)
+
+```sh
+make all
+```
+
+builds
+
+```text
+src/
+lib1/
+lib2/
+```
+
+then the codeql wrapper will intercept all of those and put them into the database. The wrapper command in this case is
+
+```sh
+codeql database create cpp-database --language=cpp --command='make all'
+```
+
+If you run
+
+```sh
+make lib2 
+```
+
+and then
+
+```sh
+codeql database create cpp-database --language=cpp --command='make src lib1'
+```
+
+instead, the codeql build will not build the contents of lib2. Note that for header-only C++ libraries, this won't work because they will be included.
+
