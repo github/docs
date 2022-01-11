@@ -2,8 +2,6 @@
 title: GitHub Command Palette
 intro: 'Use the command palette in {% data variables.product.product_name %} to navigate, search, and run commands directly from your keyboard.'
 versions:
-  fpt: '*'
-  ghec: '*'
   feature: 'command-palette'
 shortTitle: GitHub Command Palette
 ---
@@ -29,10 +27,10 @@ The ability to run commands directly from your keyboard, without navigating thro
 ## Opening the {% data variables.product.prodname_command_palette %}
 
 Open the command palette using one of the following keyboard shortcuts:
-- Windows and Linux: <kbd>Ctrl</kbd><kbd>k</kbd> or <kbd>Ctrl</kbd><kbd>alt</kbd><kbd>k</kbd> 
+- Windows and Linux: <kbd>Ctrl</kbd><kbd>k</kbd> or <kbd>Ctrl</kbd><kbd>alt</kbd><kbd>k</kbd>
 - Mac: <kbd>⌘</kbd><kbd>k</kbd> or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd>
 
-When you open the command palette, it shows your location at the top left and uses it as the scope for suggestions (for example, the `mashed-avocado` organization). 
+When you open the command palette, it shows your location at the top left and uses it as the scope for suggestions (for example, the `mashed-avocado` organization).
 
 ![Command palette launch](/assets/images/help/command-palette/command-palette-launch.png)
 
@@ -46,11 +44,11 @@ When you open the command palette, it shows your location at the top left and us
 
 ## Navigating with the {% data variables.product.prodname_command_palette %}
 
-You can use the command palette to navigate to any page that you have access to on {% data variables.product.product_name %}. 
+You can use the command palette to navigate to any page that you have access to on {% data variables.product.product_name %}.
 
 {% data reusables.command-palette.open-palette %}
 
-2. Start typing the path you want to navigate to. The suggestions in the command palette change to match your text. 
+2. Start typing the path you want to navigate to. The suggestions in the command palette change to match your text.
 
    ![Command palette navigation current scope](/assets/images/help/command-palette/command-palette-navigation-current-scope.png)
 
@@ -64,18 +62,18 @@ You can use the command palette to navigate to any page that you have access to 
 
 ## Searching with the {% data variables.product.prodname_command_palette %}
 
-You can use the command palette to search for anything on {% data variables.product.product_location %}. 
+You can use the command palette to search for anything on {% data variables.product.product_location %}.
 
 {% data reusables.command-palette.open-palette %}
 
 {% data reusables.command-palette.change-scope %}
 
-3. Optionally, use keystrokes to find specific types of resource: 
+3. Optionally, use keystrokes to find specific types of resource:
 
    - <kbd>#</kbd> Search for issues, pull requests, discussions, and projects
    - <kbd>!</kbd> Search for projects
    - <kbd>@</kbd> Search for users, organizations, and repositories
-   - <kbd>/</kbd> Search for files within a repository scope 
+   - <kbd>/</kbd> Search for files within a repository scope
 
    ![Command palette search files](/assets/images/help/command-palette/command-palette-search-files.png)
 
@@ -94,7 +92,7 @@ You can use the command palette to search for anything on {% data variables.prod
 You can use the {% data variables.product.prodname_command_palette %} to run commands. For example, you can create a new repository or issue, or change your theme. When you run a command, the location for its action is determined by either the underlying page or the scope shown in the command palette.
 
 - Pull request and issue commands always run on the underlying page.
-- Higher-level commands, for example, repository commands, run in the scope shown in the command palette. 
+- Higher-level commands, for example, repository commands, run in the scope shown in the command palette.
 
 For a full list of supported commands, see "[{% data variables.product.prodname_command_palette %} reference](#github-command-palette-reference)."
 
@@ -198,7 +196,7 @@ These commands are available only when you open the command palette from an issu
 |`Convert issue to discussion...`|Convert the current issue into a discussion. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
 |`Delete issue...`|Delete the current issue. For more information, see "[Deleting an issue](/issues/tracking-your-work-with-issues/deleting-an-issue)."|
 |`Edit issue body`|Open the main body of the issue ready for editing.
-|`Edit issue title`|Open the title of the issue ready for editing. 
+|`Edit issue title`|Open the title of the issue ready for editing.
 |`Lock issue`|Limit new comments to users with write access to the repository. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
 |`Pin`/`unpin issue`|Change whether or not the issue is shown in the pinned issues section for the repository. For more information, see "[Pinning an issue to your repository](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)."|
 |`Subscribe`/`unscubscribe`|Opt in or out of notifications for changes to this issue. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."

@@ -2,10 +2,10 @@
 title: Making a GitHub App public or private
 intro: '{% data reusables.shortdesc.making-a-github-app-public-or-private %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-github-apps/about-installation-options-for-github-apps/
-  - /apps/building-github-apps/installation-options-for-github-apps/
-  - /apps/building-integrations/managing-github-apps/changing-a-github-app-s-installation-option/
-  - /apps/managing-github-apps/changing-a-github-app-s-installation-option/
+  - /apps/building-integrations/setting-up-and-registering-github-apps/about-installation-options-for-github-apps
+  - /apps/building-github-apps/installation-options-for-github-apps
+  - /apps/building-integrations/managing-github-apps/changing-a-github-app-s-installation-option
+  - /apps/managing-github-apps/changing-a-github-app-s-installation-option
   - /apps/managing-github-apps/making-a-github-app-public-or-private
   - /developers/apps/making-a-github-app-public-or-private
 versions:

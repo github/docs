@@ -1,11 +1,11 @@
 ---
-title: Configurar la sincronización de hora
-intro: '{% data variables.product.prodname_ghe_server %} sincroniza automáticamente el reloj conectándose con los servidores NTP. Puedes establecer los servidores NTP que se utilicen para sincronizar el reloj o puedes usar los servidores NTP predeterminados.'
+title: Configuring time synchronization
+intro: '{% data variables.product.prodname_ghe_server %} automatically synchronizes its clock by connecting to NTP servers. You can set the NTP servers that are used to synchronize the clock, or you can use the default NTP servers.'
 redirect_from:
-  - /enterprise/admin/articles/adjusting-the-clock/
-  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings/
-  - /enterprise/admin/articles/setting-ntp-servers/
-  - /enterprise/admin/categories/time/
+  - /enterprise/admin/articles/adjusting-the-clock
+  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings
+  - /enterprise/admin/articles/setting-ntp-servers
+  - /enterprise/admin/categories/time
   - /enterprise/admin/installation/configuring-time-synchronization
   - /enterprise/admin/configuration/configuring-time-synchronization
   - /admin/configuration/configuring-time-synchronization
@@ -17,31 +17,33 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: Configurar los ajustes de hora
+shortTitle: Configure time settings
 ---
-
-## Cambiar los servidores NTP predeterminados
+## Changing the default NTP servers
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. En la barra lateral izquierda, haz clic en **Time** (Hora). ![El botón de la hora en la barra lateral {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/sidebar-time.png)
-3. En "Servidor NTP principal", escribe el nombre del host del servidor NTP principal. En "Servidor NTP secundario", escribe el nombre del host del servidor NTP secundario. ![Los campos para los servidores NTP principal y secundario en la {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/ntp-servers.png)
-4. Al final de la página, haz clic en **Save settings** (Guardar configuraciones). ![El botón de guardar en la {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/save-settings.png)
-5. Espera a que la configuración se ejecute por completo.
+2. In the left sidebar, click **Time**.
+    ![The Time button in the {% data variables.enterprise.management_console %} sidebar](/assets/images/enterprise/management-console/sidebar-time.png)
+3. Under "Primary NTP server," type the hostname of the primary NTP server. Under "Secondary NTP server," type the hostname of the secondary NTP server.
+    ![The fields for primary and secondary NTP servers in the {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/ntp-servers.png)
+4. At the bottom of the page, click **Save settings**.
+    ![The Save settings button in the {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/save-settings.png)
+5. Wait for the configuration run to complete.
 
-## Corregir un desface de tiempo prolongado
+## Correcting a large time drift
 
-El protocolo NTP corrige permanentemente las pequeñas discrepancias de sincronización de hora. Puedes usar el shell administrativo para sincronizar la hora de inmediato.
+The NTP protocol continuously corrects small time synchronization discrepancies. You can use the administrative shell to synchronize time immediately.
 
 {% note %}
 
-**Notas:**
- - No puedes modificar la zona horaria universal coordinada (UTC).
- - Debes evitar que tu hipervisor trate de configurar el reloj de la máquina virtual. Para obtener más información, consulta la documentación proporcionada por el proveedor de virtualización.
+**Notes:**
+ - You can't modify the Coordinated Universal Time (UTC) zone.
+ - You should prevent your hypervisor from trying to set the virtual machine's clock. For more information, see the documentation provided by the virtualization provider.
 
 {% endnote %}
 
-- Utiliza el comando `chronyc` para sincronizar el servidor con el servidor NTP configurado. Por ejemplo:
+- Use the `chronyc` command to synchronize the server with the configured NTP server. For example:
 
 ```shell
 $ sudo chronyc -a makestep

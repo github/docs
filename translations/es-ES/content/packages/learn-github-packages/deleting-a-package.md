@@ -1,35 +1,38 @@
 ---
-title: Eliminar un paquete
-intro: 'Puedes borrar una versión de un paquete {% ifversion not ghae %}privado{% endif %} público que utilice GraphQL o en {% data variables.product.product_name %}.'
+title: Deleting a package
+intro: 'You can delete a version of a {% ifversion not ghae %}private{% endif %} package using GraphQL or on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   ghes: '>=2.22 <3.1'
-  ghae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% ifversion not ghae %}En este momento, el {% data variables.product.prodname_registry %} en {% data variables.product.product_location %} no es compatible con el borrado de paquetes públicos.{% endif %}
+{% ifversion not ghae %}At this time, {% data variables.product.prodname_registry %} on {% data variables.product.product_location %} does not support deleting public packages.{% endif %}
 
-Solo puedes borrar una versión específica de un paquete {% ifversion not ghae %}privado {% endif %} en {% data variables.product.product_name %} o con la API de GraphQL. Para eliminar un paquete {% ifversion not ghae %}privado {% endif %}completo para que no aparezca en {% data variables.product.product_name %}, primero debes borrar todas las versiones de este.
+You can only delete a specified version of a {% ifversion not ghae %}private {% endif %}package on {% data variables.product.product_name %} or with the GraphQL API. To remove an entire {% ifversion not ghae %}private {% endif %}package from appearing on {% data variables.product.product_name %}, you must delete every version of the package first.
 
-## Borrar una versión de un paquete {% ifversion not ghae %}privado {% endif %} en {% data variables.product.product_name %}
+## Deleting a version of a {% ifversion not ghae %}private {% endif %}package on {% data variables.product.product_name %}
 
-Para borrar una versión de un paquete {% ifversion not ghae %}privado {% endif %}, debes tener permisos administrativos en el repositorio.
+To delete a {% ifversion not ghae %}private {% endif %}package version, you must have admin permissions in the repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
-3. Haz clic en el nombre del paquete que deseas eliminar. ![Nombre del paquete](/assets/images/help/package-registry/select-pkg-cloud.png)
-4. A la derecha, usa el menú desplegable **Edit package (Editar paquete)** y selecciona "Manage versions" (Administrar versiones). ![Nombre del paquete](/assets/images/help/package-registry/manage-versions.png)
-5. A la derecha de la versión que deseas eliminar, haz clic en **Delete (Eliminar)**. ![Botón para eliminar paquete](/assets/images/help/package-registry/delete-package-button.png)
-6. Para confirmar la eliminación, escribe el nombre del paquete y haz clic en **I understand the consequences, delete this version (Comprendo las consecuencias, eliminar esta versión)**. ![Botón para confirmar la eliminación del paquete](/assets/images/help/package-registry/confirm-package-deletion.png)
+3. Click the name of the package that you want to delete.
+  ![Package name](/assets/images/help/package-registry/select-pkg-cloud.png)
+4. On the right, use the **Edit package** drop-down and select "Manage versions".
+  ![Package name](/assets/images/help/package-registry/manage-versions.png)
+5. To the right of the version you want to delete, click **Delete**.
+  ![Delete package button](/assets/images/help/package-registry/delete-package-button.png)
+6. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
+  ![Confirm package deletion button](/assets/images/help/package-registry/confirm-package-deletion.png)
 
-## Borrar una versión de un paquete {% ifversion not ghae %}privado {% endif %}con GraphQL
+## Deleting a version of a {% ifversion not ghae %}private {% endif %}package with GraphQL
 
-Usa la mutación `deletePackageVersion` en la API de GraphQL. Debes usar un token con ámbitos `read:packages`, `delete:packages` y `repo`. Para obtener más información acerca de los tokens, consulta "[Acerca de {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)".
+Use the `deletePackageVersion` mutation in the GraphQL API. You must use a token with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about tokens, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)." 
 
-Aquí hay un comando cURL de ejemplo para eliminar una versión de paquete con el ID de versión del paquete de `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`, mediante un token de acceso personal.
+Here is an example cURL command to delete a package version with the package version ID of `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`, using a personal access token.
 
 ```shell
 curl -X POST \
@@ -39,8 +42,8 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-Para encontrar todos los paquetes {% ifversion not ghae %}privados {% endif %} que publicaste en el {% data variables.product.prodname_registry %} junto con las ID de versión de estos, puedes utilizar la conexión de `packages` a través del objeto `repository`. Necesitarás un token con los ámbitos `read:packages` y `repo`. Necesitarás un token con los ámbitos `read:packages` y `repo`.
+To find all of the {% ifversion not ghae %}private {% endif %}packages you have published to {% data variables.product.prodname_registry %}, along with the version IDs for the packages, you can use the `packages` connection through the `repository` object. You will need a token with the `read:packages` and `repo` scopes. For more information, see the [`packages`](/graphql/reference/objects#repository) connection or the [`PackageOwner`](/graphql/reference/interfaces#packageowner) interface.
 
-Para obtener más información acerca de la mutación `deletePackageVersion`, consulta "[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)".
+For more information about the `deletePackageVersion` mutation, see "[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)."
 
-No puedes eliminar un paquete completo, pero si eliminas todas las versiones de un paquete, dejará de aparecer en {% data variables.product.product_name %}.
+You cannot delete an entire package, but if you delete every version of a package, the package will no longer show on {% data variables.product.product_name %}.
