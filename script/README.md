@@ -460,7 +460,7 @@ Run this script to standardize frontmatter fields in all content files, per the 
 
 ### [`sync-search-indices.js`](sync-search-indices.js)
 
-This script is run on a schedule every four hours to generate searchable data. It can also be run manually. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). For more info see [contributing/search.md](contributing/search.md)
+This script is run on a schedule very four hours to generate searchable data. It can also be run manually. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). For more info see [contributing/search.md](contributing/search.md)
 
 ---
 
