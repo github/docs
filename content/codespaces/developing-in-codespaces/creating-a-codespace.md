@@ -67,8 +67,6 @@ If you would like to create a codespace for a repository owned by your personal 
 
 ## Creating a codespace
 
-{% include tool-switcher %}
-   
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
