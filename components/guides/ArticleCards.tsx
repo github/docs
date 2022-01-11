@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { ArticleGuide, useProductGuidesContext } from 'components/context/ProductGuidesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -15,6 +15,8 @@ export const ArticleCards = () => {
   const [typeFilter, setTypeFilter] = useState<ItemInput | undefined>()
   const [topicFilter, setTopicFilter] = useState<ItemInput | undefined>()
   const [filteredResults, setFilteredResults] = useState<Array<ArticleGuide>>([])
+  const typesRef = useRef<HTMLDivElement>(null)
+  const topicsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setNumVisible(PAGE_SIZE)
@@ -26,6 +28,11 @@ export const ArticleCards = () => {
       })
     )
   }, [typeFilter, topicFilter])
+
+  const clickDropdown = (e: React.RefObject<HTMLDivElement>) => {
+    if (e === typesRef && typesRef.current) typesRef.current.focus()
+    if (e === topicsRef && topicsRef.current) topicsRef.current.focus()
+  }
 
   const isUserFiltering = typeFilter !== undefined || topicFilter !== undefined
 
@@ -48,11 +55,18 @@ export const ArticleCards = () => {
       <label htmlFor="guide-filter-form">{t('filter_instructions')}</label>
       <form name="guide-filter-form" className="mt-2 mb-5 d-flex d-flex">
         <div data-testid="card-filter-types">
-          <label htmlFor="type" className="text-uppercase f6 color-fg-muted d-block">
+          <div
+            onClick={() => clickDropdown(typesRef)}
+            onKeyDown={() => clickDropdown(typesRef)}
+            role="button"
+            tabIndex={0}
+            className="text-uppercase f6 color-fg-muted d-block"
+          >
             {t('filters.type')}
-          </label>
+          </div>
           <DropdownMenu
-            aria-label="guide types"
+            anchorRef={typesRef}
+            aria-label="types"
             data-testid="types-dropdown"
             placeholder={t('filters.all')}
             items={types}
@@ -62,11 +76,18 @@ export const ArticleCards = () => {
         </div>
 
         <div data-testid="card-filter-topics" className="mx-4">
-          <label htmlFor="topic" className="text-uppercase f6 color-fg-muted d-block">
+          <div
+            onClick={() => clickDropdown(topicsRef)}
+            onKeyDown={() => clickDropdown(topicsRef)}
+            role="button"
+            tabIndex={0}
+            className="text-uppercase f6 color-fg-muted d-block"
+          >
             {t('filters.topic')}
-          </label>
+          </div>
           <DropdownMenu
-            aria-label="guide topics"
+            anchorRef={topicsRef}
+            aria-label="topics"
             data-testid="topics-dropdown"
             placeholder={t('filters.all')}
             items={topics}
