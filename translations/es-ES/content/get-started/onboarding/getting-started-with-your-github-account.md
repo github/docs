@@ -182,14 +182,18 @@ For more information, see "[Securing your software supply chain](/code-security/
 ### 2. Interacting with {% data variables.product.prodname_gcf %}
 {% data reusables.support.ask-and-answer-forum %}
 
-### 3. Learning with {% data variables.product.prodname_learning %}
+### 3. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
+
+{% data reusables.docs.you-can-read-docs-for-your-product %}
+
+### 4. Learning with {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab %}
 
 {% ifversion fpt or ghec %}
-### 4. Supporting the open source community
+### 5. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
-### 5. Contacting {% data variables.contact.github_support %}
+### 6. Contacting {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 
 {% ifversion fpt %}

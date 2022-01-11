@@ -20,7 +20,7 @@ You can use a testing framework, run a custom command, write input/output tests,
 
 You can see an overview of which students are passing autograding tests by navigating to the assignment in {% data variables.product.prodname_classroom %}. A green checkmark means that all tests are passing for the student, and a red X means that some or all tests are failing for the student. If you award points for one or more tests, then a bubble shows the score for the tests out of the maximum possible score for the assignment.
 
-![Overview for an assignment with autograding results](/assets/images/help/classroom/autograding-hero.png)
+![Overview for an assignment with autograding results](/assets/images/help/classroom/assignment-individual-hero.png)
 
 ## Grading methods
 

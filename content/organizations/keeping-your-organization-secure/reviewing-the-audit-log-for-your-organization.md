@@ -515,7 +515,6 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 | Action | Description
 |------------------|-------------------
-| `clear` | Triggered when a payment method on file is [removed](/articles/removing-a-payment-method).
 | `create` |  Triggered when a new payment method is added, such as a new credit card or PayPal account.
 | `update` | Triggered when an existing payment method is updated.
 
