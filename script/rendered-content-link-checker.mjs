@@ -71,7 +71,7 @@ program
 main(program.opts(), program.args)
 
 async function main(opts, files) {
-  const { random, exit, debug, max, verbose } = opts
+  const { random, language, filter, exit, debug, max, verbose } = opts
 
   // Note! The reason we're using `warmServer()` in this script,
   // even though there's no server involved, is because
@@ -83,6 +83,11 @@ async function main(opts, files) {
   // here (e.g. `loadPageMap()`), we'd end up having to do it all over
   // again, the next time `contextualize()` is called.
   const { redirects, pages: pageMap, pageList } = await warmServer()
+
+  const languages = language || []
+  console.assert(Array.isArray(languages), `${languages} is not an array`)
+  const filters = filter || []
+  console.assert(Array.isArray(filters), `${filters} is not an array`)
 
   if (random) {
     shuffle(pageList)
