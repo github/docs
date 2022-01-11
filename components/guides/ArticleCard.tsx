@@ -9,7 +9,7 @@ type Props = {
 
 export const ArticleCard = ({ tabIndex, card, typeLabel }: Props) => {
   return (
-    <div
+    <li
       tabIndex={tabIndex}
       data-testid="article-card"
       className="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8"
@@ -38,6 +38,6 @@ export const ArticleCard = ({ tabIndex, card, typeLabel }: Props) => {
           </ul>
         )}
       </a>
-    </div>
+    </li>
   )
 }

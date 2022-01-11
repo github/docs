@@ -17,7 +17,7 @@ export const ArticleCards = () => {
   const [filteredResults, setFilteredResults] = useState<Array<ArticleGuide>>([])
   const typesRef = useRef<HTMLDivElement>(null)
   const topicsRef = useRef<HTMLDivElement>(null)
-  const articleCardRef = useRef<HTMLDivElement>(null)
+  const articleCardRef = useRef<HTMLUListElement>(null)
 
   useEffect(() => {
     setNumVisible(PAGE_SIZE)
@@ -116,7 +116,7 @@ export const ArticleCards = () => {
           : t('guides_found.multiple').replace('{n}', guides.length)}
       </div>
 
-      <div ref={articleCardRef} className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
+      <ul ref={articleCardRef} className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
         {guides.slice(0, numVisible).map((card) => {
           return (
             <ArticleCard
@@ -127,7 +127,7 @@ export const ArticleCards = () => {
             />
           )
         })}
-      </div>
+      </ul>
 
       {guides.length > numVisible && (
         <button
