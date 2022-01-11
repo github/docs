@@ -1,11 +1,11 @@
 ---
-title: Administrar la facturación por las aplicaciones de Mercado GitHub
-shortTitle: Apps de GitHub Marketplace
-intro: 'Puedes actualizar, bajar de categoría, o cancelar aplicaciones {% data variables.product.prodname_marketplace %} en cualquier momento.'
+title: Managing billing for GitHub Marketplace apps
+shortTitle: GitHub Marketplace apps
+intro: 'You can upgrade, downgrade, or cancel {% data variables.product.prodname_marketplace %} apps at any time.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps
-  - /articles/managing-your-personal-account-s-apps/
-  - /articles/managing-your-organization-s-apps/
+  - /articles/managing-your-personal-account-s-apps
+  - /articles/managing-your-organization-s-apps
   - /articles/managing-billing-for-github-marketplace-apps
 versions:
   fpt: '*'

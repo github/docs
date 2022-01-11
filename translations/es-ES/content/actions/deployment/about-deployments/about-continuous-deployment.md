@@ -40,7 +40,7 @@ You can configure your CD workflow to run when a {% data variables.product.produ
 
 {% endif %}
 
-## Workflow templates and third party actions
+## Starter workflows and third party actions
 
 {% data reusables.actions.cd-templates-actions %}
 
