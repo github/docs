@@ -53,7 +53,7 @@ Billing managers **are not** able to:
 {% ifversion ghec %}
 {% note %}
 
-**Note:** If your organization is managed using [Enterprise Accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) you will not be able to invite Billing Managers at the organization level. 
+**Note:** If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 
 {% endnote %}
 {% endif %}

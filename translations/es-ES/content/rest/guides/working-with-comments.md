@@ -2,7 +2,7 @@
 title: Working with comments
 intro: 'Using the REST API, you can access and manage comments in your pull requests, issues, or commits.'
 redirect_from:
-  - /guides/working-with-comments/
+  - /guides/working-with-comments
   - /v3/guides/working-with-comments
 versions:
   fpt: '*'
@@ -126,4 +126,4 @@ on the entire commit.
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [PR Review API]: /rest/reference/pulls#comments
-[commit comment API]: /rest/reference/repos#get-a-commit-comment
+[commit comment API]: /rest/reference/commits#get-a-commit-comment

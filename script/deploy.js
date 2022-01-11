@@ -32,9 +32,6 @@
 //  - Deploy a PR to Staging and DO NOT rebuild the Heroku App:
 //      script/deploy.js --staging https://github.com/github/docs-internal/pull/12345 --no-rebuild
 //
-//  - Undeploy a PR from Staging by deleting the Heroku App:
-//      script/deploy.js --staging https://github.com/github/docs/pull/9876 --destroy
-//
 //  - Deploy the latest from docs-internal `main` to production:
 //      script/deploy.js --production
 //
@@ -47,7 +44,6 @@ import yesno from 'yesno'
 import getOctokit from './helpers/github.js'
 import parsePrUrl from './deployment/parse-pr-url.js'
 import deployToStaging from './deployment/deploy-to-staging.js'
-import undeployFromStaging from './deployment/undeploy-from-staging.js'
 import deployToProduction from './deployment/deploy-to-production.js'
 import purgeEdgeCache from './deployment/purge-edge-cache.js'
 
@@ -81,7 +77,6 @@ program
     '--no-rebuild',
     'Do NOT force a Staging deployment to rebuild the Heroku App from scratch'
   )
-  .option('--destroy', 'Undeploy a Staging deployment by deleting the Heroku App')
   .parse(process.argv)
 
 const opts = program.opts()
@@ -89,7 +84,6 @@ const isProduction = opts.production === true
 const isStaging = has(opts, 'staging')
 const prUrl = opts.staging
 const forceRebuild = !isProduction && opts.rebuild !== false
-const destroy = opts.destroy === true
 
 //
 // Verify CLI options
@@ -112,13 +106,6 @@ if (isProduction && forceRebuild) {
   invalidateAndExit(
     'commander.conflictingArgument',
     `error: cannot specify option '--rebuild' combined with option '${PRODUCTION_FLAG}'`
-  )
-}
-
-if (isProduction && destroy) {
-  invalidateAndExit(
-    'commander.conflictingArgument',
-    `error: cannot specify option '--destroy' combined with option '${PRODUCTION_FLAG}'`
   )
 }
 
@@ -150,7 +137,7 @@ async function deploy() {
   if (isProduction) {
     await deployProduction()
   } else if (isStaging) {
-    await deployStaging({ owner, repo, pullNumber, forceRebuild, destroy })
+    await deployStaging({ owner, repo, pullNumber, forceRebuild })
   }
 }
 
@@ -214,7 +201,7 @@ async function deployProduction() {
   }
 }
 
-async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, destroy = false }) {
+async function deployStaging({ owner, repo, pullNumber, forceRebuild = false }) {
   // Hardcode the Status context name to match Actions
   const CONTEXT_NAME = 'Staging - Deploy PR / deploy (pull_request)'
 
@@ -228,51 +215,41 @@ async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, de
   })
 
   try {
-    if (destroy) {
-      await undeployFromStaging({
-        octokit,
-        pullRequest,
-      })
-    } else {
-      await octokit.repos.createCommitStatus({
-        owner,
-        repo,
-        sha: pullRequest.head.sha,
-        context: CONTEXT_NAME,
-        state: 'pending',
-        description: 'The app is being deployed. See local logs.',
-      })
+    await octokit.repos.createCommitStatus({
+      owner,
+      repo,
+      sha: pullRequest.head.sha,
+      context: CONTEXT_NAME,
+      state: 'pending',
+      description: 'The app is being deployed. See local logs.',
+    })
 
-      await deployToStaging({
-        octokit,
-        pullRequest,
-        forceRebuild,
-      })
+    await deployToStaging({
+      octokit,
+      pullRequest,
+      forceRebuild,
+    })
 
-      await octokit.repos.createCommitStatus({
-        owner,
-        repo,
-        sha: pullRequest.head.sha,
-        context: CONTEXT_NAME,
-        state: 'success',
-        description: 'Successfully deployed! See local logs.',
-      })
-    }
+    await octokit.repos.createCommitStatus({
+      owner,
+      repo,
+      sha: pullRequest.head.sha,
+      context: CONTEXT_NAME,
+      state: 'success',
+      description: 'Successfully deployed! See local logs.',
+    })
   } catch (error) {
-    const action = destroy ? 'undeploy from' : 'deploy to'
-    console.error(`Failed to ${action} staging: ${error.message}`)
+    console.error(`Failed to deploy to staging: ${error.message}`)
     console.error(error)
 
-    if (!destroy) {
-      await octokit.repos.createCommitStatus({
-        owner,
-        repo,
-        sha: pullRequest.head.sha,
-        context: CONTEXT_NAME,
-        state: 'error',
-        description: 'Failed to deploy. See local logs.',
-      })
-    }
+    await octokit.repos.createCommitStatus({
+      owner,
+      repo,
+      sha: pullRequest.head.sha,
+      context: CONTEXT_NAME,
+      state: 'error',
+      description: 'Failed to deploy. See local logs.',
+    })
 
     process.exit(1)
   }
