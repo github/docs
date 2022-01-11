@@ -1,6 +1,6 @@
 ---
 title: Hello World
-intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
+intro: 'Follow this Hello World exercise to get <span class="highlighter highlight-on">start</span>ed with {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -46,15 +46,15 @@ Your `hello-world` repository can be a place where you store ideas, resources, o
 
 Branching lets you have different versions of a repository at one time.
 
-By default, your repository has one branch named `main` that is considered to be the definitive branch. You can use branches to experiment and make edits before committing them to `main`.
+By default, your repository has one branch named `master` that is considered to be the definitive branch. You can use branches to experiment and make edits before committing them to `master`.
 
-When you create a branch off the `main` branch, you're making a copy, or snapshot, of `main` as it was at that point in time. If someone else made changes to the `main` branch while you were working on your branch, you could pull in those updates.
+When you create a branch off the `master` branch, you're making a copy, or snapshot, of `main` as it was at that point in time. If someone else made changes to the `master` branch while you were working on your branch, you could pull in those updates.
 
 This diagram shows:
 
-* The `main` branch
+* The `master` branch
 * A new branch called `feature`
-* The journey that `feature` takes before it's merged into `main`
+* The journey that `feature` takes before it's merged into `master`
 
 ![branching diagram](/assets/images/help/repository/branching.png)
 
@@ -66,23 +66,23 @@ Have you ever saved different versions of a file? Something like:
 
 Branches accomplish similar goals in {% data variables.product.product_name %} repositories.
 
-Here at {% data variables.product.product_name %}, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our `main` (production) branch. When a change is ready, they merge their branch into `main`.
+Here at {% data variables.product.product_name %}, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our `master` (production) branch. When a change is ready, they merge their branch into `master`.
 
 ### Create a branch
 
 1. Click the **Code** tab of your `hello-world` repository.
-2. Click the drop down at the top of the file list that says **main**.
+2. Click the drop down at the top of the file list that says **master**.
    ![Branch menu](/assets/images/help/branch/branch-selection-dropdown.png)
 4. Type a branch name, `readme-edits`, into the text box.
-5. Click **Create branch: readme-edits from main**.
+5. Click **Create branch: readme-edits from master**.
 
 ![Branch menu](/assets/images/help/repository/new-branch.png)
 
-Now you have two branches, `main` and `readme-edits`. Right now, they look exactly the same. Next you'll add changes to the new branch.
+Now you have two branches, `master` and `readme-edits`. Right now, they look exactly the same. Next you'll add changes to the new branch.
 
 ## Making and committing changes
 
-When you created a new branch in the previous step, {% data variables.product.product_name %} brought you to the code page for your new `readme-edits` branch, which is a copy of `main`.
+When you created a new branch in the previous step, {% data variables.product.product_name %} brought you to the code page for your new `readme-edits` branch, which is a copy of `master`.
 
 You can make and save changes to the files in your repository. On {% data variables.product.product_name %}, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes so that other contributors can understand what you’ve done and why.
 
