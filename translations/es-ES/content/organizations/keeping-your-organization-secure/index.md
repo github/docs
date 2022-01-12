@@ -1,6 +1,6 @@
 ---
-title: Keeping your organization secure
-intro: 'Organization owners have several features to help them keep their projects and data secure. If you''re the owner of an organization, you should regularly review your organization''s audit log{% ifversion not ghae %}, member 2FA status,{% endif %} and application settings to ensure that no unauthorized or malicious activity has occurred.'
+title: Mantener segura tu organización
+intro: 'Los propietarios de la organización tienen varias funciones que los ayudan a mantener seguros los proyectos y los datos. Si eres el propietario de una organización, deberás revisar frecuentemente las bitácoras de auditoría de la misma{% ifversion not ghae %}, los estados de 2FA de los miembros,{% endif %} y la configuración de las aplicaciones para garantizar que no haya ocurrido ningún tipo de actividad maliciosa o no autorizada.'
 redirect_from:
   - /articles/preventing-unauthorized-access-to-organization-information
   - /articles/keeping-your-organization-secure
@@ -22,6 +22,6 @@ children:
   - /restricting-email-notifications-for-your-organization
   - /reviewing-the-audit-log-for-your-organization
   - /reviewing-your-organizations-installed-integrations
-shortTitle: Organization security
+shortTitle: Seguridad organizacional
 ---
 

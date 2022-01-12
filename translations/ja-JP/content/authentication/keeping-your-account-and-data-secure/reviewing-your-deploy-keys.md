@@ -1,6 +1,6 @@
 ---
-title: Reviewing your deploy keys
-intro: You should review deploy keys to ensure that there aren't any unauthorized (or possibly compromised) keys. You can also approve existing deploy keys that are valid.
+title: デプロイ キーをレビューする
+intro: デプロイ キーをレビューして、許可されていない (あるいは侵害された可能性のある) キーがないことを確認してください。 有効な既存のデプロイ キーを承認することもできます。
 redirect_from:
   - /articles/reviewing-your-deploy-keys
   - /github/authenticating-to-github/reviewing-your-deploy-keys
@@ -13,16 +13,15 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Deploy keys
+shortTitle: デプロイキー
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. In the left sidebar, click **Deploy keys**.
-![Deploy keys setting](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
-4. On the Deploy keys page, take note of the deploy keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid deploy keys you'd like to keep, click **Approve**.
-	![Deploy key list](/assets/images/help/settings/settings-deploy-key-review.png)
+3. 左サイドバーで [**Deploy keys**] をクリックします。 ![デプロイキーの設定](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
+4. [Deploy keys] ページで、自分のアカウントに関連付けられているデプロイ キーを書き留めます。 覚えていないか古くなっている場合は、[**Delete**] をクリックします。 残しておきたい有効なデプロイ キーがある場合は、[**Approve**] をクリックします。 ![デプロイキーのリスト](/assets/images/help/settings/settings-deploy-key-review.png)
 
-For more information, see "[Managing deploy keys](/guides/managing-deploy-keys)."
+詳しい情報については、「[デプロイキーを管理する](/guides/managing-deploy-keys)」を参照してください。
 
-## Further reading
-- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+## 参考リンク
+- [通知を設定する](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

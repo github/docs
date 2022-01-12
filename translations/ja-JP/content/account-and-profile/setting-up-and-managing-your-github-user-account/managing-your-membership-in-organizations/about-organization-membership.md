@@ -41,7 +41,7 @@ Organization への参加の招待を受諾すると、Organization のオーナ
 
 {% ifversion fpt or ghec %}
 
-Organization が Enterprise アカウントに属している場合、あなたは自動的に Enterprise アカウントのメンバーになっており、Enterprise アカウントのオーナーから見えます。 詳細は「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
+Organization が Enterprise アカウントに属している場合、あなたは自動的に Enterprise アカウントのメンバーになっており、Enterprise アカウントのオーナーから見えます。 For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% endif %}
 

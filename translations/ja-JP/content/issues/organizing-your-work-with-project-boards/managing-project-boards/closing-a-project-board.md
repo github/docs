@@ -1,6 +1,6 @@
 ---
-title: Closing a project board
-intro: 'If you''ve completed all the tasks in a project board or no longer need to use a project board, you can close the project board.'
+title: プロジェクトボードをクローズする
+intro: プロジェクトボードのタスクをすべて完了したか、プロジェクトボードを使う必要がなくなった場合、そのプロジェクトボードをクローズできます。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/closing-a-project-board
   - /articles/closing-a-project
@@ -14,22 +14,21 @@ versions:
 topics:
   - Pull requests
 ---
+
 {% data reusables.projects.project_boards_old %}
 
-When you close a project board, any configured workflow automation will pause by default.
+プロジェクトボードをクローズすると、設定されたワークフローの自動化はデフォルトですべて停止します。
 
-If you reopen a project board, you have the option to *sync* automation, which updates the position of the cards on the board according to the automation settings configured for the board. For more information, see "[Reopening a closed project board](/articles/reopening-a-closed-project-board)" or "[About automation for project boards](/articles/about-automation-for-project-boards)."
+プロジェクトボードを再びオープンする場合、自動化を*同期*するよう設定することができます。それにより、ボードに設定されている自動化設定に従ってボード上のカードのポジションが更新されます。 詳しい情報については、「[クローズされたプロジェクトボードを再びオープンする](/articles/reopening-a-closed-project-board)」や「[プロジェクトボードの自動化について](/articles/about-automation-for-project-boards)」を参照してください。
 
 1. Navigate to the list of project boards in your repository or organization, or owned by your user account.
-2. In the projects list, next to the project board you want to close, click {% octicon "chevron-down" aria-label="The chevron icon" %}.
-![Chevron icon to the right of the project board's name](/assets/images/help/projects/project-list-action-chevron.png)
-3. Click **Close**.
-![Close item in the project board's drop-down menu](/assets/images/help/projects/close-project.png)
+2. プロジェクトリストで、クローズしたいプロジェクトボードの隣にある {% octicon "chevron-down" aria-label="The chevron icon" %}をクリックします。 ![プロジェクトボードの名前の右にある、V 字型のアイコン](/assets/images/help/projects/project-list-action-chevron.png)
+3. [**Close**] をクリックします。 ![プロジェクトボードのドロップダウンメニューにある [Close] アイテム](/assets/images/help/projects/close-project.png)
 
-## Further reading
+## 参考リンク
 
-- "[About project boards](/articles/about-project-boards)"
-- "[Deleting a project board](/articles/deleting-a-project-board)"
-- "[Disabling project boards in a repository](/articles/disabling-project-boards-in-a-repository)"
-- "[Disabling project boards in your organization](/articles/disabling-project-boards-in-your-organization)"
-- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- [プロジェクトボードについて](/articles/about-project-boards)
+- [プロジェクトボードの削除](/articles/deleting-a-project-board)
+- [リポジトリ内のプロジェクトボードを無効化](/articles/disabling-project-boards-in-a-repository)
+- "[Organization 内のプロジェクトボードの無効化](/articles/disabling-project-boards-in-your-organization)"
+- [Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization)

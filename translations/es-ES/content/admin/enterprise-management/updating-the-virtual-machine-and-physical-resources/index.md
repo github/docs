@@ -1,6 +1,6 @@
 ---
-title: Updating the virtual machine and physical resources
-intro: 'Upgrading the virtual software and virtual hardware requires some downtime for your instance, so be sure to plan your upgrade in advance.'
+title: Actualizar la máquina virtual y los recursos físicos
+intro: 'La actualización del software virtual y del hardware virtual requiere algo de tiempo de inactividad para tu instancia, por ello asegúrate de planear tu actualización de antemano.'
 redirect_from:
   - '/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-the-vm'
   - '/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-physical-resources'
@@ -17,6 +17,6 @@ children:
   - /increasing-storage-capacity
   - /increasing-cpu-or-memory-resources
   - /migrating-from-github-enterprise-1110x-to-2123
-shortTitle: Update VM & resources
+shortTitle: Actualizar los recursos & las MV
 ---
 

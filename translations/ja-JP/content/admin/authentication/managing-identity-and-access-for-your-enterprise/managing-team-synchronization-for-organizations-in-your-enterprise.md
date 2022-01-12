@@ -1,7 +1,6 @@
 ---
 title: Managing team synchronization for organizations in your enterprise
 intro: 'アイデンティティプロバイダ (IdP) と {% data variables.product.product_name %} の間のチーム同期を有効にして、Enterprise アカウントが所有する Organization が IdP グループを介してチームメンバーシップを管理できるようにすることができます。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   ghec: '*'

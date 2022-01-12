@@ -1,6 +1,6 @@
 ---
-title: Adding a workflow status badge
-intro: You can display a status badge in your repository to indicate the status of your workflows.
+title: ワークフローステータスバッジを追加する
+intro: リポジトリにステータスバッジを表示して、ワークフローのステータスを示すことができます。
 redirect_from:
   - /actions/managing-workflow-runs/adding-a-workflow-status-badge
 versions:
@@ -16,28 +16,28 @@ shortTitle: Add a status badge
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-You reference the workflow by the name of your workflow file.
+ワークフローファイルの名前でワークフローを参照します。
 
 ```markdown
 ![example workflow]({% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
 ```
-## Using the workflow file name
+## ワークフローファイル名を使用する
 
-This Markdown example adds a status badge for a workflow with the file path `.github/workflows/main.yml`. The `OWNER` of the repository is the `github` organization and the `REPOSITORY` name is `docs`.
+この Markdown の例では、`.github/workflow/main.yml`というファイル パスのワークフローにステータス バッジを追加します 。 リポジトリの `OWNER` は `github` Organization で、`REPOSITORY` 名は `docs` です。
 
 ```markdown
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 ```
 
-## Using the `branch` parameter
+## `branch` パラメータを使用する
 
-This Markdown example adds a status badge for a branch with the name `feature-1`.
+この Markdown の例では、`feature-1`という名前のブランチにステータス バッジを追加します。
 
 ```markdown
 ![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
 ```
 
-## Using the `event` parameter
+## `event` パラメータを使用する
 
 This Markdown example adds a badge that displays the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
 
