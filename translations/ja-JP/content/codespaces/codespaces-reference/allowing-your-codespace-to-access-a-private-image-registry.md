@@ -1,13 +1,13 @@
 ---
-title: Allowing your codespace to access a private image registry
-intro: 'You can use secrets to allow {% data variables.product.prodname_codespaces %} to access a private image registry'
+title: codespace がプライベートイメージレジストリにアクセスできるようにする
+intro: 'シークレットを使用して、{% data variables.product.prodname_codespaces %} がプライベートイメージレジストリにアクセスできるようにすることができます'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Codespaces
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: Private image registry
+shortTitle: プライベートイメージレジストリ
 ---
 
 ## About private image registries and {% data variables.product.prodname_codespaces %}
@@ -32,7 +32,7 @@ By default, when you publish a container image to {% data variables.product.prod
 
 This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.product.prodname_dotcom %} Container Registry using a Personal Access Token (PAT).
 
-If the **Inherit access from repo** option was not selected when the image was published, you can manually add the repository to the published container image's access controls. For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)."
+If the **Inherit access from repo** option was not selected when the image was published, you can manually add the repository to the published container image's access controls. 詳しい情報については「[パッケージのアクセス制御と可視性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)」を参照してください。
 
 ### Accessing an image published to the organization a codespace will be launched in
 
@@ -52,15 +52,15 @@ We recommend publishing images via {% data variables.product.prodname_actions %}
 
 ## Accessing images stored in other container registries
 
-If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. If these secrets are found, {% data variables.product.prodname_codespaces %} will make the registry available inside your codespace.
+If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. これらのシークレットが見つかった場合、{% data variables.product.prodname_codespaces %} はレジストリを codespace 内で使用できるようにします。
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
 - `<*>_CONTAINER_REGISTRY_PASSWORD`
 
-You can store secrets at the user, repository, or organization-level, allowing you to share them securely between different codespaces. When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" and "[Managing encrypted secrets for your repository and organization for Codespaces](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)."
+シークレットは、ユーザ、リポジトリ、または Organization レベルで保存できるため、異なる Codespaces 間で安全に共有できます。 When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. 詳しい情報については、「[Codespaces の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」および「[Codespaces のリポジトリと Organization の暗号化されたシークレットを管理する](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)」を参照してください。
 
-If you are setting the secrets at the user or organization level, make sure to assign those secrets to the repository you'll be creating the codespace in by choosing an access policy from the dropdown list.  
+If you are setting the secrets at the user or organization level, make sure to assign those secrets to the repository you'll be creating the codespace in by choosing an access policy from the dropdown list.
 
 ![Image registry secret example](/assets/images/help/codespaces/secret-repository-access.png)
 

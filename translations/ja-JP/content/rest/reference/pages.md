@@ -1,6 +1,6 @@
 ---
 title: Pages
-intro: 'The GitHub Pages API allows you to interact with GitHub Pages sites and build information.'
+intro: The GitHub Pages API allows you to interact with GitHub Pages sites and build information.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,21 +12,21 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The {% data variables.product.prodname_pages %} API retrieves information about your {% data variables.product.prodname_pages %} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners{% ifversion not ghae %}, even if the websites are public{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
+{% data variables.product.prodname_pages %} API は、{% data variables.product.prodname_pages %} の設定や、ビルドのステータスについての情報を取得します。 サイトとビルドに関する情報は、{% ifversion not ghae %}Webサイトがパブリックの場合であっても{% endif %}認証を受けたユーザだけがアクセスできます。 詳しい情報については、「[{% data variables.product.prodname_pages %} について](/pages/getting-started-with-github-pages/about-github-pages)」を参照してください。
 
-In {% data variables.product.prodname_pages %} API endpoints with a `status` key in their response, the value can be one of:
-* `null`: The site has yet to be built.
-* `queued`: The build has been requested but not yet begun.
-* `building`:The build is in progress.
-* `built`: The site has been built.
-* `errored`: Indicates an error occurred during the build.
+レスポンスに `status` キーを持つ {% data variables.product.prodname_pages %} API エンドポイントにおいては、値は以下のいずれかになります。
+* `null`: サイトはまだビルドされていません。
+* `queued`: ビルドがリクエストされたが、まだ開始していません。
+* `building`: ビルドが進行中です。
+* `built`: サイトがビルドされています。
+* `errored`: ビルド中にエラーが発生したことを示します。
 
-In {% data variables.product.prodname_pages %} API endpoints that  return GitHub Pages site information, the JSON responses include these fields:
-* `html_url`: The absolute URL (including scheme) of the rendered Pages site. For example, `https://username.github.io`.
-* `source`: An object that contains the source branch and directory for the rendered Pages site. This includes:
-   - `branch`: The repository branch used to publish your [site's source files](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
-   - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
+GitHub Pages サイトの情報を返す {% data variables.product.prodname_pages %} API エンドポイントにおいては、JSON のレスポンスには以下が含まれます。
+* `html_url`: レンダリングされた Pages サイトの絶対 URL (スキームを含む) 。 たとえば、`https://username.github.io` などです。
+* `source`: レンダリングされた Pages サイトのソースブランチおよびディレクトリを含むオブジェクト。 これは以下のものが含まれます。
+   - `branch`: [サイトのソースファイル](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)を公開するために使用するリポジトリのブランチ。 たとえば、_main_ or _gh-pages_ などです。
+   - `path`: サイトの公開元のリポジトリディレクトリ。 `/` または `/docs` のどちらかとなります。
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'pages' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
