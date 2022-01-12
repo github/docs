@@ -1,3 +1,4 @@
+![home-sprite](https://user-images.githubusercontent.com/78496768/149096605-38cc5ae7-8c74-451f-8e59-b317dc2ee4dd.png)
 ---
 title: Connecting to GitHub with SSH
 intro: 'You can connect to {% data variables.product.product_name %} using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.'
