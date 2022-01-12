@@ -234,4 +234,4 @@ For example, if you filter on issues assigned to Hubot, and sort on the oldest o
 
 ## Further reading
 
-- "[Searching issues and pull requests](/articles/searching-issues)""
+- "[Searching issues and pull requests](/articles/searching-issues)"

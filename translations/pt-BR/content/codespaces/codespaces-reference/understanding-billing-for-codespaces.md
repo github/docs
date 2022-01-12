@@ -1,6 +1,6 @@
 ---
-title: Entendendo a cobrança para Codespaces
-intro: 'Saiba como seu uso de {% data variables.product.prodname_codespaces %} é cobrado.'
+title: Understanding billing for Codespaces
+intro: 'Learn how your {% data variables.product.prodname_codespaces %} usage is billed.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,44 +13,48 @@ topics:
   - Codespaces
   - Billing
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: Entendendo a cobrança
+shortTitle: Understanding billing
 ---
 
-Este artigo explica como a cobrança funciona para seus codespaces e explica como o gerente de cobrança da sua organização pode ajudar.
+This article explains how billing works for your codespaces, and explains how your organization's billing manager can help.
 
-## Obtendo acesso a {% data variables.product.prodname_codespaces %}
+## Getting access to {% data variables.product.prodname_codespaces %}
 
-O administrador da sua organização pode limitar o uso de {% data variables.product.prodname_codespaces %} para apenas contas de usuário específicas. Para obter acesso, você deverá entrar em contato com o gerente de faturamento. Para obter mais informações, consulte "[Gerenciar acesso e segurança para seus codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)".
+Your organization's administrator might limit {% data variables.product.prodname_codespaces %} usage to only specific user accounts. To get access, you will need to contact your billing manager. For more information, see "[Managing access and security for your codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)."
 
-## Quanto custa usar {% data variables.product.prodname_codespaces %}
+## How much it costs to use {% data variables.product.prodname_codespaces %}
 
-Para ver os preços para uso de {% data variables.product.prodname_codespaces %}, consulte "[Preços de {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)"
+To see the pricing for {% data variables.product.prodname_codespaces %} usage, see "[{% data variables.product.prodname_codespaces %} pricing](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
 
-## Como é feita a cobrança do seu codespace
+## How your codespace usage is billed
 
-A cobrança do seu codespace é feita por minutos de computação e para a quantidade de armazenamento que usa no disco.
+Your codespace is billed for its compute minutes and for the amount of storage it uses on disk.
 
-### Ententendo quais minutos de computação são
-A cobrança do seu codespace é feita pelo número de minutos ativos. Se sua janela de codespace estiver inativa por 30 minutos, ela será desligada automaticamente, e o cálculo da cobrança para o codespace terminará até que você inicie o codespace novamente.
+### Understanding what compute minutes are
+Your codespace is billed for the number of minutes that it's active. If your codespaces window is left idle for 30 minutes, it will automatically shutdown, and compute billing for the codespace will end until you start the codespace again.
 
-### Entender como o armazenamento de código é cobrado
-Para o {% data variables.product.prodname_codespaces %}, o armazenamento é definido para incluir todos os arquivos relacionados ao seu codespace, como o repositório clonado, arquivos de configuração e extensões, entre outros. Este armazenamento é cobrado enquanto seu codespace é fechado. A cobrança de armazenamento de um código termina quando você o exclui manualmente de https://github.com/codespaces.
+### Understanding how codespace storage is billed
+For {% data variables.product.prodname_codespaces %}, storage is defined to include any files relating to your codespace, such as the cloned repository, configuration files, and extensions, among others. This storage is billed while your codespace is shutdown. The storage billing for a codespace ends when you manually delete it from https://github.com/codespaces.
 
-## Como os limites de gastos funcionam
+## How spending limits work
 
-Antes de sua organização poder usar {% data variables.product.prodname_codespaces %}, seu gerente de cobrança deverá definir um limite de gastos. Para obter mais informações, consulte "[Gerenciando limites de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
+Before your organization can use {% data variables.product.prodname_codespaces %}, your billing manager will need to set a spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)." 
 
-## Exportar alterações quando você atingir seu limite de gastos
+## Exporting changes when you have reached your spending limit
 
 {% data reusables.codespaces.exporting-changes %}
 
-## Verificando o uso e limites atuais
-Se você precisar verificar seu limite de uso atual ou de gastos, entre em contato com o gerente de cobrança da sua organização. Para obter mais informações, consulte "[Visualizando o uso dos seus codespaces](/billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage)".
+## Checking your current usage and limits
+If you need to check your current usage or spending limit, contact your organization's billing manager. For more information, see "[Viewing your Codespaces usage](/billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage)."
 
-## Os codespaces podem ser excluídos automaticamente
+## Codespaces can be automatically deleted
 
-Seu código será automaticamente excluído quando você for removido de uma organização ou repositório.
+Your codespace will be automatically deleted when you are removed from an organization or repository.
 
-## Excluindo seus codespaces não utilizados
+## Deleting your unused codespaces
 
-Você pode excluir manualmente os seus codespaces em https://github.com/codespaces e de dentro de {% data variables.product.prodname_vscode %}. Para reduzir o tamanho de um codespace, você pode excluir arquivos manualmente usando o terminal ou de dentro de {% data variables.product.prodname_vscode %}.
+You can manually delete your codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, you can manually delete files using the terminal or from within {% data variables.product.prodname_vscode %}.
+
+## Further reading
+
+- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

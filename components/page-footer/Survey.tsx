@@ -34,6 +34,10 @@ export const Survey = () => {
     }
   }
 
+  // Though we set `type="email"` on the email address input which gives us browser
+  // validation of the field, that has accessibility issues (e.g. some screen
+  // readers won't read the error message) so we need to do manual validation
+  // ourselves.
   function handleEmailInputChange() {
     const emailRegex = /[^@\s.][^@\s]*@\[?[a-z0-9.-]+\]?/i
     const surveyEmail = getFormData()?.get('survey-email')?.toString()

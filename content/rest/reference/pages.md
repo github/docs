@@ -28,5 +28,5 @@ In {% data variables.product.prodname_pages %} API endpoints that  return GitHub
    - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'pages' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
