@@ -1080,4 +1080,4 @@ mutation {
 
 ## 検索
 
-ディスカッションは、トップレベルの`search`フィールドから返されることがあります。 ディスカッションを検索するには、`type`を`DISCUSSION`に指定してください。 `SearchResultItemConnection`型は、返されるディスカッション数を知らせる`discussionCount`フィールドを持ち、`SearchResultItem`共用体には`Discussion`型が追加されます。 詳しい情報については「[クエリ](/graphql/reference/queries#searchresultitemconnection)」及び「[ディスカッションの検索](/github/searching-for-information-on-github/searching-discussions)」を参照してください。
+ディスカッションは、トップレベルの`search`フィールドから返されることがあります。 ディスカッションを検索するには、`type`を`DISCUSSION`に指定してください。 `SearchResultItemConnection`型は、返されるディスカッション数を知らせる`discussionCount`フィールドを持ち、`SearchResultItem`共用体には`Discussion`型が追加されます。 詳しい情報については「[クエリ](/graphql/reference/queries#searchresultitemconnection)」及び「[ディスカッションの検索](/search-github/searching-on-github/searching-discussions)」を参照してください。

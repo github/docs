@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Suspender instalação do aplicativo
@@ -19,7 +20,7 @@ O integrador que possui e mantém um aplicativo GitHub, também chamado de propr
 
 Pessoas que instalaram um aplicativo GitHub, também chamado de proprietários de instalação, só podem suspender ou cancelar a suspensão de um aplicativo GitHub através das configurações de instalação do aplicativo. Os proprietários de instalação não podem usar a API para suspender ou cancelar a suspensão da instalação do aplicativo.
 
-If an installation has been suspended by the {% data variables.product.prodname_github_app %} owner, installation owners cannot unsuspend their installations of the {% data variables.product.prodname_github_app %}. However, installation owners can change other settings, such as repository selection, while the app is suspended.
+Se uma instalação foi suspensa pelo proprietário de {% data variables.product.prodname_github_app %}, os proprietários da instalação não poderão cancelar a suspensão das suas instalações de {% data variables.product.prodname_github_app %}. No entanto, os proprietários de instalação podem alterar outras configurações, como a seleção de repositório, enquanto o aplicativo está suspenso.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

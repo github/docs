@@ -1,3 +1,4 @@
+9. To avoid syncing errors and confirm that your users have SAML enabled and SCIM linked identities, we recommend you audit your organization's users. For more information, see "[Auditing users for missing SCIM metadata](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management#auditing-users-for-missing-scim-metadata)."
 10. To the right of "Provisioning to App", click **Edit**.
   !["Edit" button for Okta application's provisioning options](/assets/images/help/saml/okta-provisioning-to-app-edit-button.png)
 11. To the right of "Create Users", select **Enable**.

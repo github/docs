@@ -1,6 +1,6 @@
 ---
-title: Configurar la compatibilidad del ecosistema de paquetes para tu empresa
-intro: 'Puedes configurar el {% data variables.product.prodname_registry %} para tu empresa si habilitas o inhabilitas globalmente los ecosistemas de paquetes individuales en tu empresa, incluyendo Docker, RubyGems, npm, Apache Maven, Gradle o NuGet. Aprende sobre otros requisitos de configuración para hacer compatibles algunos ecosistemas de paquetes específicos.'
+title: Configuring package ecosystem support for your enterprise
+intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including Docker, RubyGems, npm, Apache Maven, Gradle, or NuGet. Learn about other configuration requirements to support specific package ecosystems.'
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
@@ -10,43 +10,43 @@ type: how_to
 topics:
   - Enterprise
   - Packages
-shortTitle: Configurar los ecosistemas de paquetes
+shortTitle: Configure package ecosystems
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-## Habilitar o inhabilitar los ecosistemas de paquetes individuales
+## Enabling or disabling individual package ecosystems
 
-Para prevenir que los paquetes nuevos se carguen, puedes configurar un ecosistema que hayas habilitado previamente como **Solo lectura**, mientras aún permites que los paquetes existentes se descarguen.
+To prevent new packages from being uploaded, you can set an ecosystem you previously enabled to **Read-Only**, while still allowing existing packages to be downloaded.
 
-{% ifversion ghes = 2.22 %}
-Para utilizar
-el {% data variables.product.prodname_registry %} con Docker, debes tener habilitado el aislamiento de subdominios para tu instancia. Para obtener más información, consulta la sección "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)".
-{% endif %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
-1. Debajo de "Alternación de ecosistema", para cada tipo de paquete, selecciona **Enabled**, **Read-Only**, o **Disabled**. ![Alternación de ecosistemas](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png)
+1. Under "Ecosystem Toggles", for each package type, select **Enabled**, **Read-Only**, or **Disabled**.{% ifversion ghes > 3.1 %}
+  ![Ecosystem toggles](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
+  ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes = 3.0 or ghes > 3.0 %}
-## Conectarse al registro oficial de npm
+## Connecting to the official npm registry
 
-Si habilitaste los paquetes de npm en tu empresa y quieres permitir el acceso tanto al registro oficial de npm como al registro de npm del {% data variables.product.prodname_registry %}, entonces debes realizar algunas configuraciones adicionales.
+If you've enabled npm packages on your enterprise and want to allow access to the official npm registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.
 
-El {% data variables.product.prodname_registry %} utiliza un proxy transparente para el tráfico de red que se conecta al registro oficial de npm en `registry.npmjs.com`. El proxy se habilita predeterminadamente y no puede inhabilitarse.
+{% data variables.product.prodname_registry %} uses a transparent proxy for network traffic that connects to the official npm registry at `registry.npmjs.com`. The proxy is enabled by default and cannot be disabled.
 
-Para permitir las conexiones al registro de npm, deberás configurar las ACLs de red que permitan que {% data variables.product.prodname_ghe_server %} envíe tráfico HTTPS a `registry.npmjs.com` por el puerto 443:
+To allow network connections to the npm registry, you will need to configure network ACLs that allow {% data variables.product.prodname_ghe_server %} to send HTTPS traffic to `registry.npmjs.com`  over port 443:
 
-| Origen                                             | Destino              | Port (Puerto) | Tipo  |
-| -------------------------------------------------- | -------------------- | ------------- | ----- |
-| {% data variables.product.prodname_ghe_server %} | `registry.npmjs.com` | TCP/443       | HTTPS |
+| Source | Destination | Port | Type |
+|---|---|---|---|
+| {% data variables.product.prodname_ghe_server %} | `registry.npmjs.com` | TCP/443 | HTTPS |
 
-Nota que las conexiones a `registry.npmjs.com` atraviesan por la red de Cloudflare y, subsecuentemente, no se conectan a una IP estática única; en vez de esto, se hace una conexión a una dirección IP dentro de los rangos CIDR que se listan aquí: https://www.cloudflare.com/ips/.
+Note that connections to `registry.npmjs.com` traverse through the Cloudflare network, and subsequently do not connect to a single static IP address; instead, a connection is made to an IP address within the CIDR ranges listed here: https://www.cloudflare.com/ips/.
+
+If you wish to enable npm upstream sources, select `Enabled` for `npm upstreaming`.
 
 {% endif %}
 
-## Pasos siguientes
+## Next steps
 
-Como paso siguiente, te recomendamos verificar si necesitas actualizar o cargar un certificado TLS para tu URL de hospedaje de paquetes. Para obtener más información, consulta la sección "[Iniciar con GitHub Packages para tu empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)".
+As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."

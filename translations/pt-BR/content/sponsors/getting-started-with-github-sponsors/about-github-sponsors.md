@@ -6,6 +6,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Open Source
@@ -22,7 +23,7 @@ topics:
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} Para mais informações, consulte "[Configurando o {% data variables.product.prodname_sponsors %} para a sua organização](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
-Quando você se tornar um desenvolvedor patrocinado ou uma organização patrocinada, termos adicionais para o {% data variables.product.prodname_sponsors %} se aplicam. Para obter mais informações, consulte "[Termos Adicionais do GitHub Sponsors [Patrocinadores do GitHub]](/github/site-policy/github-sponsors-additional-terms)."
+Quando você se tornar um desenvolvedor patrocinado ou uma organização patrocinada, termos adicionais para o {% data variables.product.prodname_sponsors %} se aplicam. For more information, see "[GitHub Sponsors Additional Terms](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)."
 
 ## Sobre o {% data variables.product.prodname_matching_fund %}
 
@@ -32,7 +33,7 @@ Quando você se tornar um desenvolvedor patrocinado ou uma organização patroci
 
 {% endnote %}
 
-O {% data variables.product.prodname_matching_fund %} visa beneficiar os membros da comunidade {% data variables.product.prodname_dotcom %} que desenvolvem softwares de código aberto que promovem as [{% data variables.product.prodname_dotcom %}Diretrizes da Comunidade](/github/site-policy/github-community-guidelines). Pagamentos a organizações patrocinadas e pagamentos de organizações não são elegíveis para {% data variables.product.prodname_matching_fund %}.
+The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.prodname_dotcom %} community who develop open source software that promotes the [{% data variables.product.prodname_dotcom %} Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). Pagamentos a organizações patrocinadas e pagamentos de organizações não são elegíveis para {% data variables.product.prodname_matching_fund %}.
 
 Para ser elegível para o {% data variables.product.prodname_matching_fund %}, você deve criar um perfil que atrairá uma comunidade que irá sustentar você a longo prazo. Para obter mais informações sobre criar um perfil forte, consulte "[Editando os detalhes de seu perfil para {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)".
 
@@ -47,6 +48,6 @@ Doações entre desenvolvedores patrocinados não serão correspondidas.
 ## Leia mais
 - "[Patrocinando contribuidores de código aberto](/sponsors/sponsoring-open-source-contributors)"
 - "[Recebendo patrocínio por meio de {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"
-- "[Searching users and organizations based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
-- "[Searching repositories based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
+- "[Pesquisando usuários e organizações com base na capacidade de patrocinar](/github/searching-for-information-on-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
+- "[Pesquisando repositórios baseados na capacidade de patrocinar](/github/searching-for-information-on-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
 - "[Perguntas frequentes com a equipe do {% data variables.product.prodname_sponsors %}](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" no {% data variables.product.prodname_blog %}

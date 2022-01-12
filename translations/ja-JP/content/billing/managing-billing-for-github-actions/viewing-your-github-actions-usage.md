@@ -1,12 +1,12 @@
 ---
 title: GitHub Actions の使用状況を表示する
 intro: '{% data variables.product.prodname_actions %} の利用時間 (分) とストレージの使用状況について詳細を表示できます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/viewing-your-github-actions-usage
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Actions

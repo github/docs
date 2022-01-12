@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: 始めましょう - Checks API
@@ -40,7 +41,7 @@ GitHub Appは、単に合格/不合格の二択ではない、情報量の多い
 
 ![チェック実行のワークフロー](/assets/images/check_runs.png)
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 チェック実行が15日以上にわたり不完全な状態である場合は、チェック実行の`conclusion`が`stale`になり、に状態が
 {% data variables.product.prodname_dotcom %}に{% octicon "issue-reopened" aria-label="The issue-reopened icon" %}でstaleと表示されます。 {% data variables.product.prodname_dotcom %}のみが、チェック実行を`stale`としてマークできます。 チェック実行で出る可能性がある結果についての詳細は、 [`conclusion`パラメータ](/rest/reference/checks#create-a-check-run--parameters)を参照してください。
 {% endif %}

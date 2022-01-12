@@ -3,6 +3,7 @@ title: ユーザアカウントの操作を制限する
 intro: ユーザアカウントが所有するすべてのパブリックリポジトリ内の特定のユーザに対して、一定期間アクティビティ制限を適用することができます。
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: Anyone can limit interactions for their own user account.
 redirect_from:
   - /github/building-a-strong-community/limiting-interactions-for-your-user-account

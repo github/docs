@@ -7,13 +7,14 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 查看组织见解
 ---
 
-组织的所有成员均可查看组织洞察。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
+组织的所有成员均可查看组织洞察。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 您可以使用组织活动洞察来帮助您更好地了解组织成员如何使用 {% data variables.product.product_name %} 进行协作和处理代码。 依赖项洞察可帮助您跟踪、报告和处理组织的开源使用情况。
 
@@ -37,7 +38,7 @@ shortTitle: 查看组织见解
 
 {% note %}
 
-**Note:** Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).
+**注意：** 请确保您启用了[依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)。
 
 {% endnote %}
 
@@ -54,5 +55,5 @@ shortTitle: 查看组织见解
 ## 延伸阅读
  - "[关于组织](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
  - "[探索仓库的依赖项](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
- - “[更改组织依赖项洞察的可见性](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)”
- - "[在企业帐户中实施关于依赖项洞察的策略](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"
+ - “[更改组织依赖项洞察的可见性](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)”{% ifversion ghec %}
+- "[在企业中实施依赖项洞察的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)"{% endif %}

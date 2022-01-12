@@ -1,6 +1,6 @@
 ---
-title: Crear y resaltar bloques de código
-intro: Compartir muestras de código con bloques de código cercados y habilitar el resaltado de la sintaxis
+title: Creating and highlighting code blocks
+intro: Share samples of code with fenced code blocks and enabling syntax highlighting.
 redirect_from:
   - /articles/creating-and-highlighting-code-blocks
   - /github/writing-on-github/creating-and-highlighting-code-blocks
@@ -8,12 +8,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Crear bloques de código
+  ghec: '*'
+shortTitle: Create code blocks
 ---
 
-## Bloques de código cercados
+## Fenced code blocks
 
-Puedes crear bloques de código cercados al colocar comillas simples triples <code>\`\`\`</code> antes y después del bloque de código. Te recomendamos dejar una línea en blanco antes y después de los bloques de código para facilitar la lectura del formato sin procesar.
+You can create fenced code blocks by placing triple backticks <code>\`\`\`</code> before and after the code block. We recommend placing a blank line before and after code blocks to make the raw formatting easier to read.
 
 <pre>
 ```
@@ -23,48 +24,48 @@ function test() {
 ```
 </pre>
 
-![Bloque de código cercado representado](/assets/images/help/writing/fenced-code-block-rendered.png)
+![Rendered fenced code block](/assets/images/help/writing/fenced-code-block-rendered.png)
 
 {% tip %}
 
-**Sugerencia:** Para preservar tu formato en una lista, asegúrate de dejar una sangría de ocho espacios para los bloques de código no cercados.
+**Tip:** To preserve your formatting within a list, make sure to indent non-fenced code blocks by eight spaces.
 
 {% endtip %}
 
-Para mostrar las comillas simples triples en un bloque de código cercado, enciérralas en comillas simples cuádruples.
+To display triple backticks in a fenced code block, wrap them inside quadruple backticks.
 
 
 <pre>
 ```` 
 ```
-Look! Puedes ver mis comillas inversas.
+Look! You can see my backticks.
 ```
 ````
 </pre>
 
-![Código cercado interpretado con un bloque de comillas inversas](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
+![Rendered fenced code with backticks block](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
 
-## Resaltado de la sintaxis
+## Syntax highlighting
 
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
-Puedes agregar un identificador opcional de idioma para habilitar el resaltado de la sintaxis en tu bloque de código cercado.
+You can add an optional language identifier to enable syntax highlighting in your fenced code block.
 
-Por ejemplo, para resaltar la sintaxis del código Ruby:
+For example, to syntax highlight Ruby code:
 
     ```ruby
     require 'redcarpet'
     markdown = Redcarpet.new("Hello World!")
     puts markdown.to_html
-    puts markdown.to_html
     ```
 
-![Bloque de código cercado representado con sintaxis de Ruby resaltada](/assets/images/help/writing/code-block-syntax-highlighting-rendered.png)
+![Rendered code block with Ruby syntax highlighting](/assets/images/help/writing/code-block-syntax-highlighting-rendered.png)
 
-Usamos [Lingüista](https://github.com/github/linguist) para realizar la detección del idioma y seleccionar [gramáticas independientes](https://github.com/github/linguist/blob/master/vendor/README.md) para el resaltado de la sintaxis. Puedes conocer las palabra clave válidas en [el archivo YAML de idiomas](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+We use [Linguist](https://github.com/github/linguist) to perform language detection and to select [third-party grammars](https://github.com/github/linguist/blob/master/vendor/README.md) for syntax highlighting. You can find out which keywords are valid in [the languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-## Leer más
+## Further reading
 
-- [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
-- [Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"

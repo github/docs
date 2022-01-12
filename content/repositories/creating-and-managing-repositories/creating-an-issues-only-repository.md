@@ -2,8 +2,8 @@
 title: Creating an issues-only repository
 intro: '{% data variables.product.product_name %} does not provide issues-only access permissions, but you can accomplish this using a second repository which contains only the issues.'
 redirect_from:
-  - /articles/issues-only-access-permissions/
-  - /articles/is-there-issues-only-access-to-organization-repositories/
+  - /articles/issues-only-access-permissions
+  - /articles/is-there-issues-only-access-to-organization-repositories
   - /articles/creating-an-issues-only-repository
   - /github/creating-cloning-and-archiving-repositories/creating-an-issues-only-repository
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-an-issues-only-repository
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Issues-only repository

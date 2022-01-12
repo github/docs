@@ -4,6 +4,7 @@ intro: 'Overview of the {% data variables.product.prodname_codespaces %} securit
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Security
@@ -13,7 +14,7 @@ shortTitle: Security in Codespaces
 
 ## Overview of codespace security
 
-{% data variables.product.prodname_codespaces %} is designed to be security hardened by default. Consequently, you will need to ensure that your software development practices do not risk reducing the security posture of your codespace.
+{% data variables.product.prodname_codespaces %} is designed to be security hardened by default. Consequently, you will need to ensure that your software development practices do not risk reducing the security posture of your codespace. 
 
 This guide describes the way Codespaces keeps your development environment secure and provides some of the good practices that will help maintain your security as you work. As with any development tool, remember that you should only open and work within repositories you know and trust.
 
@@ -23,7 +24,7 @@ This guide describes the way Codespaces keeps your development environment secur
 
 #### Isolated virtual machines
 
-Each codespace is hosted on its own newly-built virtual machine (VM). Two codespaces are never co-located on the same VM.
+Each codespace is hosted on its own newly-built virtual machine (VM). Two codespaces are never co-located on the same VM. 
 
 Every time you restart a codespace, it's deployed to a new VM with the latest available security updates.
 
@@ -31,16 +32,16 @@ Every time you restart a codespace, it's deployed to a new VM with the latest av
 
 Each codespace has its own isolated virtual network. We use firewalls to block incoming connections from the internet and to prevent codespaces from communicating with each other on internal networks. By default, codespaces are allowed to make outbound connections to the internet.
 
-### Autenticación
+### Authentication
 
-You can connect to a codespace using a web browser or from Visual Studio Code. If you connect from Visual Studio Code, you are prompted to authenticate with {% data variables.product.product_name %}.
+You can connect to a codespace using a web browser or from Visual Studio Code. If you connect from Visual Studio Code, you are prompted to authenticate with {% data variables.product.product_name %}. 
 
 Every time a codespace is created or restarted, it's assigned a new {% data variables.product.company_short %} token with an automatic expiry period. This period allows you to work in the codespace without needing to reauthenticate during a typical working day, but reduces the chance that you will leave a connection open when you stop using the codespace.
 
 The token's scope will vary depending on the access you have to the repository where the codespace was created:
 
 - **If you have write access to the repository**: The token will be scoped for read/write access to the repository.
-- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you attempt to push to a private repo where you only have read access, {% data variables.product.prodname_codespaces %} will prompt you to create a personal fork of the repository. The token will then be updated to have read/write access to the new personal fork.
+- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you attempt to push to a private repo where you only have read access, {% data variables.product.prodname_codespaces %} will prompt you to create a personal fork of the repository. The token will then be updated to have read/write access to the new personal fork. 
 - **If you've enabled your codespace to access other repositories**: When a codespace has been granted [access to other repositories](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces), any codespace created from that repository will have read/write tokens scoped to the source repository. In addition, the tokens will also receive read access to other repositories indicated by the user or organization.
 
 An organization's administrators specify which repositories should be considered trusted. An admin can [choose to trust](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces) none, all, or some of the organization's repositories. A codespace can't have greater permissions to access resources than the person who created it, even if the organization administrator has granted access to all users and all repositories.
@@ -53,9 +54,11 @@ If you need to allow external access to services running on a codespace, you can
 
 ### Port forwarding
 
-If you need to connect to a service (such as a development web server) running within your codespace, you can configure port forwarding to make the service available on the internet.
+If you need to connect to a service (such as a development web server) running within your codespace, you can configure port forwarding to make the service available on the internet. 
 
 **Privately forwarded ports**: Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
+
+**Publicly forwarded ports within your organization**: Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
 
 **Publicly forwarded ports**: Are accessible on the internet, and anyone on the internet can access them. No authentication is needed to access public forwarded ports.
 
@@ -67,14 +70,14 @@ You can use the "Ports" panel to configure a port for public or private access, 
 
 ## Good security practices for your codespaces
 
-Codespaces are designed to be security hardened by default. To help maintain this posture, we recommend that you follow good security practices during your development procedures:
+Codespaces are designed to be security hardened by default. To help maintain this posture, we recommend that you follow good security practices during your development procedures: 
 
 - As with any development tool, remember that you should only open and work within repositories you know and trust.
 - Before you add new dependencies to the codespace, check whether they are well-maintained, and if they release updates to fix any security vulnerabilities found in their code.
 
-### Using secrets to access sensitive information
+### Using secrets to access sensitive information 
 
-Always use encrypted secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME` to see the value of a secret.
+Always use encrypted secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME ` to see the value of a secret.
 
 The secret values are copied to environment variables whenever the codespace is resumed or created, so if you update a secret value while the codespace is running, you’ll need to suspend and resume to pick up the updated value.
 
@@ -90,7 +93,7 @@ When you create a codespace from a PR branch from a fork, the token in the codes
 
 ### Additional good practices
 
-There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_codespaces %}.
+There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_codespaces %}. 
 
 #### Understanding a repository's devcontainer.json file
 
@@ -98,7 +101,7 @@ When creating a codespace, the [devcontainer.json](https://code.visualstudio.com
 
 #### Granting access through features
 
-Certain development features can potentially add risk to your environment. For example, commit signing, secrets injected into environment variables, authenticated registry access, and packages access can all present potential security issues. We recommend that you only grant access to those who need it and adopt a policy of being as restrictive as possible.
+Certain development features can potentially add risk to your environment. For example, commit signing, secrets injected into environment variables, authenticated registry access, and packages access can all present potential security issues. We recommend that you only grant access to those who need it and adopt a policy of being as restrictive as possible. 
 
 #### Using extensions
 

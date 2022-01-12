@@ -7,6 +7,7 @@ redirect_from:
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/countries-where-sms-authentication-is-supported
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Países com suporte para SMS
@@ -124,7 +125,7 @@ Se seu país não estiver nesta lista, isso significa que, no momento, não pode
 <li>Tanzânia</li>
 <li>Togo</li>
 <li>Trinidade e Tobago</li>
-<li>Turkey</li>
+<li>Turquia</li>
 <li>Ilhas Turks e Caicos</li>
 <li>Uganda</li>
 <li>Ucrânia</li>

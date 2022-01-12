@@ -8,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: GitHub Appマネージャーの追加
 ---
 
-{% data variables.product.prodname_github_app %} マネージャー権限に関する詳しい情報については「[Organization の権限レベル](/articles/permission-levels-for-an-organization#github-app-managers)」を参照してください。
+For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
 
 ## Giving someone the ability to manage all {% data variables.product.prodname_github_apps %} owned by the organization
 
@@ -32,7 +33,7 @@ shortTitle: GitHub Appマネージャーの追加
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. [App managers] の下で、そのアプリケーションの GitHub App マネージャーとして指名したい人物のユーザ名を入力し、[**Grant**] をクリックしてください。 ![特定のアプリケーションに {% data variables.product.prodname_github_app %} マネージャーを追加](/assets/images/help/organizations/add-github-app-manager-for-app.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 参考リンク
 
 - 「[{% data variables.product.prodname_dotcom %} Marketplaceについて](/articles/about-github-marketplace/)」

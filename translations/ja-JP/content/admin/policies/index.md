@@ -4,7 +4,9 @@ intro: '{% data variables.product.product_name %} でポリシーを設定する
 redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

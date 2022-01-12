@@ -1,24 +1,24 @@
 ---
-title: Subir de categoría Git Large File Storage
-intro: 'Puedes comprar más paquetes de datos para aumentar tu cuota de banda ancha mensual y la capacidad de almacenamiento total para {% data variables.large_files.product_name_short %}.'
+title: Upgrading Git Large File Storage
+intro: 'You can purchase additional data packs to increase your monthly bandwidth quota and total storage capacity for {% data variables.large_files.product_name_short %}.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
-  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account/
-  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization/
+  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account
+  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization
   - /articles/upgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - LFS
   - Organizations
   - Upgrades
   - User account
-shortTitle: Mejorar el almacenamiento de LFS de Git
+shortTitle: Upgrade Git LFS storage
 ---
-
-## Comprar más almacenamiento y ancho de banda para una cuenta personal
+## Purchasing additional storage and bandwidth for a personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -26,7 +26,7 @@ shortTitle: Mejorar el almacenamiento de LFS de Git
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
-## Comprar más almacenamiento y ancho de banda para una organización
+## Purchasing additional storage and bandwidth for an organization
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -35,9 +35,9 @@ shortTitle: Mejorar el almacenamiento de LFS de Git
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
-## Leer más
+## Further reading
 
-- "[Acerca de la facturación para {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
-- "[Acerca del uso de banda ancha y del almacenamiento](/articles/about-storage-and-bandwidth-usage)"
-- "[Ver tu uso de {% data variables.large_files.product_name_long %}](/articles/viewing-your-git-large-file-storage-usage)"
-- "[Control de versiones de archivos grandes](/articles/versioning-large-files)"
+- "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
+- "[About storage and bandwidth usage](/articles/about-storage-and-bandwidth-usage)"
+- "[Viewing your {% data variables.large_files.product_name_long %} usage](/articles/viewing-your-git-large-file-storage-usage)"
+- "[Versioning large files](/articles/versioning-large-files)"

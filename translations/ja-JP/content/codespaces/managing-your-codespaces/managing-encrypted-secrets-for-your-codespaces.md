@@ -4,6 +4,7 @@ intro: 環境変数を介してコードスペースにアクセスする、ト�
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces
   - /codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces
@@ -73,3 +74,7 @@ shortTitle: 暗号化されたシークレット
 {% data reusables.user_settings.codespaces-tab %}
 1. [Codespaces secrets] で、削除するシークレットの右にある [**Delete**] をクリックします。 ![[Delete] ボタン](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. 警告を読んで、**OK**をクリックしてください。 ![シークレットの削除の確認](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## 参考リンク
+
+- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"

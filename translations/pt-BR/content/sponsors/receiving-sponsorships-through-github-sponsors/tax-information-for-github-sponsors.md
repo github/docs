@@ -6,6 +6,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/tax-information-for-sponsored-developers
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Open Source
@@ -13,9 +14,9 @@ topics:
 shortTitle: Informações fiscais
 ---
 
-## W-9/W-8 tax forms
+## Formulários fiscais W-9/W-8
 
-By law, {% data variables.product.prodname_dotcom %} is required by the U.S. Internal Revenue Service (IRS) to collect tax information from all U.S. and non-U.S. maintainers. These forms are held by {% data variables.product.prodname_dotcom %} and are not required to be submitted to the IRS.
+Por lei, {% data variables.product.prodname_dotcom %} é exigido pelos EUA. Serviço de Receita Interno (IRS) para coletar informações fiscais em todos os EUA. e fora dos EUA. mantenedores. Esses formulários são mantidos por {% data variables.product.prodname_dotcom %} e não têm de ser enviados ao IRS.
 
 ### W-9 (U.S.)
 
@@ -37,6 +38,8 @@ The W-8 BEN and W-8 BEN-E tax forms ask for a "U.S. taxpayer identification numb
 
 If you are not a U.S. citizen or other U.S. person, including a resident alien individual, then you will usually need to provide the "Foreign tax identifying number". This is a tax identification number that your country of residence has issued you.
 
+If your country of residence or billing country is India, then you can use your Permanent Account Number (PAN) as your tax identification number.
+
 {% note %}
 
 **Note:** If your country does not require citizens to have a tax number issued by the government, then you can instead write "not legally required".
@@ -55,6 +58,18 @@ If you are a taxpayer in the United States and earn more than 600 US dollars in 
 O {% data variables.product.prodname_dotcom %} não retém impostos de pagamentos de {% data variables.product.prodname_sponsors %}. Os desenvolvedores patrocinados são responsáveis por avaliar e pagar seus próprios impostos.
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
+
+## Sales tax
+
+GitHub is providing information to assist you in calculating your sales tax obligations. This information is not personalized to your country or tax situation and we recommend you talk to a professional to understand your specific obligations. However, we'd like to provide some high-level information to help you understand the general principles of digital sales tax.
+
+In most countries around the world, sales tax for digital transactions is based on the location of the recipient, not on the seller. For example, if you are a maintainer in the United States and you provide a taxable benefit to a Sponsor in Germany, German sales tax would apply.
+
+Sales tax is generally only applicable when a good or service of value is being provided. Goodwill/general support/undying appreciation is not normally taxable.
+
+In the US, both B2B (business-to-business) and B2C (business-to-consumer) are subject to sales tax.
+
+In the EU and most other countries and regions, B2C sales are subject to sales tax. B2B sales are not subject to tax. C2C and C2B sales where a consumer is not registered for VAT are not taxable.
 
 ## Leia mais
 

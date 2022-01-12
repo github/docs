@@ -4,6 +4,7 @@ intro: '可以向您的 {% data variables.product.prodname_dotcom %} 个人资�
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Profiles
 redirect_from:
@@ -14,7 +15,7 @@ shortTitle: 您的个人资料自述文件
 
 ## 关于您的个人资料自述文件
 
-通过创建个人资料自述文件，您可以与 {% data variables.product.prodname_dotcom %} 上的社区分享有关自己的信息。 {% data variables.product.prodname_dotcom %} 在个人资料页面的顶部显示您的个人资料自述文件。
+通过创建个人资料自述文件，您可以与 {% data variables.product.product_location %} 上的社区分享有关自己的信息。 {% data variables.product.prodname_dotcom %} 在个人资料页面的顶部显示您的个人资料自述文件。
 
 您决定在个人资料自述文件中包含哪些信息，因此您可以完全控制如何在 {% data variables.product.prodname_dotcom %} 上展示自己。 以下是访客可能在您的个人资料自述文件中找到感兴趣、有趣或有用信息的一些示例。
 

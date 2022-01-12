@@ -6,6 +6,7 @@ redirect_from:
   - /developers/github-marketplace/viewing-transactions-for-your-listing
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Visualizar las transacciones del listado
@@ -31,8 +32,8 @@ Puedes visualizar o descargar los datos de las transacciones para dar seguimient
 * **amount_in_cents:** La cantidad de la transacción en centavos. Cuando un valor es menor a la cantidad del plan, el usuario que hizo la mejora y el plan nuevo se prorratean. Un valor de cero indica que el usuario canceló el plan.
 * **renewal_frequency:** La frecuencia de renovación de la suscripción, ya sea `Monthly` o `Yearly`.
 * **marketplace_listing_plan_id:** La `id` del plan de suscripción.
-* **region:** The name of the region present in billing address.
-* **postal_code:** The postal code value present in billing address.
+* **region:** El nombre de la región presente en la dirección de facturación.
+* **postal_code:** El valor de código postal presente en la dirección de facturación.
 
 ![Perspectivas de Marketplace](/assets/images/marketplace/marketplace_transactions.png)
 

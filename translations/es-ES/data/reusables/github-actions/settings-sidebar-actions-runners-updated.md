@@ -1,1 +1,1 @@
-1. In the left sidebar, under "Actions", click **Runners**.
+1. En la barra lateral izquierda, debajo de "Acciones", haz clic en **Ejecutores**.

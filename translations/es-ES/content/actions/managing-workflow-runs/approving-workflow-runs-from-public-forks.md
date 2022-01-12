@@ -1,26 +1,28 @@
 ---
-title: Aprobar ejecuciones de flujo de trabajo desde bifurcaciones públicas
-intro: 'Cuando un contribuyente externo emite una solicitud de cambios a un repositorio público, podría ser que un mantenedor con acceso de escritura tenga que aprobar cualquier ejecución de flujo de trabajo.'
-product: '{% data reusables.gated-features.actions %}'
+title: Approving workflow runs from public forks
+intro: 'When an outside contributor submits a pull request to a public repository, a maintainer with write access may need to approve any workflow runs.'
 versions:
   fpt: '*'
-shortTitle: Aprobar las ejecuciones de una bifurcación pública
+  ghec: '*'
+shortTitle: Approve public fork runs
 ---
 
-## Acerca de las ejecuciones de flujo de trabajo de las bifurcaciones públicas
+## About workflow runs from public forks
 
-{% data reusables.actions.workflow-run-approve-public-fork %} Sin embargo, puedes configurar este comportamiento para un [repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks), [organización](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks), o [empresa](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account#configuring-required-approval-for-workflows-from-public-forks).
+{% data reusables.actions.workflow-run-approve-public-fork %}
 
-Las ejecuciones de flujos de trabajo que hayan estado esperando una aprobación por más de 30 días se borrarán automáticamente.
+You can configure workflow approval requirements for a [repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks), [organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks), or [enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise).
 
-## Aprobar las ejecuciones de flujo de trabajo en una solicitud de cambios de una bifurcación pública
+Workflow runs that have been awaiting approval for more than 30 days are automatically deleted.
 
-Los mantenedores con acceso de escritura en un repositorio pueden utilizar el siguiente procedimiento para revisar y ejecutar flujos de trabajo en las solicitudes de extracción de los contribuyentes que requieran aprobación.
+## Approving workflow runs on a pull request from a public fork
+
+Maintainers with write access to a repository can use the following procedure to review and run workflows on pull requests from contributors that require approval.
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
 {% data reusables.repositories.changed-files %}
-1. Inspecciona los cambios propuestos en la solicitud de cambios y asegúrate de que estés de acuerdo para ejecutar tus flujos de trabajo en la rama de la solicitud de cambios. Debes estar especialmente alerta para notar cualquier cambio propuesto en el directorio `.github/workflows/` que afecte a los archivos de flujo de trabajo.
-1. Si no estás de acuerdo en ejecutar los flujos de trabajo en la rama de la solicitud de cambios, regresa a la {% octicon "comment-discussion" aria-label="The discussion icon" %} pestaña de **Conversación** y, debajo de "Flujo(s) de trabajo esperando aprobación", haz clic en **Aprobar y ejecutar**.
+1. Inspect the proposed changes in the pull request and ensure that you are comfortable running your workflows on the pull request branch. You should be especially alert to any proposed changes in the `.github/workflows/` directory that affect workflow files.
+1. If you are comfortable with running workflows on the pull request branch, return to the {% octicon "comment-discussion" aria-label="The discussion icon" %} **Conversation** tab, and under "Workflow(s) awaiting approval", click **Approve and run**.
 
-   ![Aprueba y ejecuta flujos de trabajo](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)
+   ![Approve and run workflows](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)

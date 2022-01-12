@@ -3,6 +3,7 @@ title: Understanding billing for Codespaces
 intro: 'Learn how your {% data variables.product.prodname_codespaces %} usage is billed.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/about-billing-for-codespaces
   - /codespaces/getting-started-with-codespaces/about-billing-for-codespaces
@@ -37,7 +38,7 @@ For {% data variables.product.prodname_codespaces %}, storage is defined to incl
 
 ## How spending limits work
 
-Before your organization can use {% data variables.product.prodname_codespaces %}, your billing manager will need to set a spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+Before your organization can use {% data variables.product.prodname_codespaces %}, your billing manager will need to set a spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)." 
 
 ## Exporting changes when you have reached your spending limit
 
@@ -53,3 +54,7 @@ Your codespace will be automatically deleted when you are removed from an organi
 ## Deleting your unused codespaces
 
 You can manually delete your codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, you can manually delete files using the terminal or from within {% data variables.product.prodname_vscode %}.
+
+## Further reading
+
+- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

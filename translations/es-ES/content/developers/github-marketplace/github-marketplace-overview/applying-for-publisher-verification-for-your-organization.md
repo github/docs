@@ -3,6 +3,7 @@ title: Solicitar una verificación de publicador para tu organización
 intro: 'Para ofrecer planes de pago para tu app o para incluir una insgnia de marketplace en el listado de tu app, debes completar el proceso de verificación de publicador para tu organización.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 redirect_from:

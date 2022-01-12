@@ -1,24 +1,19 @@
 ---
 title: GitHub
 redirect_from:
-  - /articles/
-  - /common-issues-and-questions/
-  - /troubleshooting-common-issues/
-intro: 适用于软件开发者、设计师和项目经理的文档、指南和帮助主题。 涵盖 Git、拉取请求、问题、wiki、gist 和充分使用 GitHub 进行开发所需的一切。
+  - /articles
+  - /common-issues-and-questions
+  - /troubleshooting-common-issues
+intro: 'Documentation, guides, and help topics for software developers, designers, and project managers. Covers using Git, pull requests, issues, wikis, gists, and everything you need to make the most of GitHub for development.'
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 children:
   - /copilot
-  - /setting-up-and-managing-your-enterprise
   - /writing-on-github
-  - /committing-changes-to-your-project
-  - /collaborating-with-pull-requests
-  - /searching-for-information-on-github
   - /importing-your-projects-to-github
-  - /managing-security-vulnerabilities
-  - /finding-security-vulnerabilities-and-errors-in-your-code
   - /customizing-your-github-workflow
   - /extending-github
   - /working-with-github-support
@@ -26,4 +21,3 @@ children:
   - /site-policy
   - /site-policy-deprecated
 ---
-

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 本地导入仓库
 ---
 
@@ -23,7 +24,7 @@ shortTitle: 本地导入仓库
 - 外部帐户 **extuser**
 - 外部 Git 主机 `https://external-host.com`
 - {% data variables.product.product_name %} 个人用户帐户 **ghuser**
-- {% data variables.product.product_name %} 仓库 **repo.git**
+- {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上名为 **repo.git** 的仓库
 
 {% endtip %}
 
@@ -37,7 +38,7 @@ shortTitle: 本地导入仓库
   ```shell
   $ cd <em>repo.git</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>ghuser</em>/<em>repo.git</em>
-  # Pushes the mirror to the new {% data variables.product.product_name %} repository
+  # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
   ```
 4. 删除临时本地仓库。
   ```shell

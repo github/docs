@@ -5,6 +5,7 @@ intro: '您可以使用审核日志查看与 {% data variables.product.prodname_
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -19,3 +20,7 @@ topics:
 ![包含代码空间信息的审核日志](/assets/images/help/settings/codespaces-audit-log-org.png)
 
 审核日志包含操作执行人、操作内容和执行时间等详细信息。 有关 {% data variables.product.prodname_codespaces %} 操作的信息，请参阅“[{% data variables.product.prodname_codespaces %} 类别操作](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#codespaces-category-actions)”。
+
+## 延伸阅读
+
+- "[查看 {% data variables.product.prodname_codespaces %} 的安全日志](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-codespaces)"

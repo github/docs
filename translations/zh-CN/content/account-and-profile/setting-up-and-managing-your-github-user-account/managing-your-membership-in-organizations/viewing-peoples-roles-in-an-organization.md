@@ -1,6 +1,6 @@
 ---
 title: 查看组织中人员的角色
-intro: '您可以查看组织中人员的列表，并按其角色进行筛选。 有关组织角色的更多信息，请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。'
+intro: '您可以查看组织中人员的列表，并按其角色进行筛选。 For more information on organization roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."'
 redirect_from:
   - /articles/viewing-people-s-roles-in-an-organization
   - /articles/viewing-peoples-roles-in-an-organization
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: 查看组织中的人员

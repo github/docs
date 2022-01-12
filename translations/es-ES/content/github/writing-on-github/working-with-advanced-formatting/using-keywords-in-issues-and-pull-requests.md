@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Issues
   - Pull requests
@@ -12,7 +13,7 @@ topics:
 
 ## Vincular una solicitud de cambios a una propuesta
 
-Para enlazar una solicitud de cambios a una propuesta para{% ifversion fpt or ghes or ghae %} mostrar que una solución se encuentra en progreso y para{% endif %} cerrar la propuesta automáticamente cuando alguien fusiona la solicitud de cambios, teclea alguna de las siguientes palabras clave seguida de una referencia a la propuesta. Por ejemplo, `Closes #10` o `Fixes octo-org/octo-repo#100`.
+Para enlazar una solicitud de cambios a una propuesta para{% ifversion fpt or ghes or ghae or ghec %} mostrar que una solución se encuentra en progreso y para{% endif %} cerrar la propuesta automáticamente cuando alguien fusiona la solicitud de cambios, teclea alguna de las siguientes palabras clave seguida de una referencia a la propuesta. Por ejemplo, `Closes #10` o `Fixes octo-org/octo-repo#100`.
 
 * close
 * closes

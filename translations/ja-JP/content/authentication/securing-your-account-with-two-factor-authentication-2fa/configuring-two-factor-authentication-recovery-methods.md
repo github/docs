@@ -1,112 +1,90 @@
 ---
-title: 2 要素認証リカバリ方法を設定する
-intro: 2 要素認証のクレデンシャルを紛失した場合に備え、アカウントへのアクセスを回復するさまざまな方法を設定できます。
+title: Configuring two-factor authentication recovery methods
+intro: You can set up a variety of recovery methods to access your account if you lose your two-factor authentication credentials.
 redirect_from:
-  - /articles/downloading-your-two-factor-authentication-recovery-codes/
-  - /articles/setting-a-fallback-authentication-number/
-  - /articles/about-recover-accounts-elsewhere/
-  - /articles/adding-a-fallback-authentication-method-with-recover-accounts-elsewhere/
-  - /articles/generating-and-storing-an-account-recovery-token/
+  - /articles/downloading-your-two-factor-authentication-recovery-codes
+  - /articles/setting-a-fallback-authentication-number
+  - /articles/about-recover-accounts-elsewhere
+  - /articles/adding-a-fallback-authentication-method-with-recover-accounts-elsewhere
+  - /articles/generating-and-storing-an-account-recovery-token
   - /articles/configuring-two-factor-authentication-recovery-methods
   - /github/authenticating-to-github/configuring-two-factor-authentication-recovery-methods
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Configure 2FA recovery
 ---
+In addition to securely storing your two-factor authentication recovery codes, we strongly recommend configuring one or more additional recovery methods.
 
-2 要素認証リカバリコードを安全に保管することに加え、別のリカバリ方法を 1 つ以上設定することを強くおすすめします。
+## Downloading your two-factor authentication recovery codes
 
-## 2 要素認証リカバリコードのダウンロード
+{% data reusables.two_fa.about-recovery-codes %} You can also download your recovery codes at any point after enabling two-factor authentication.
 
-{% data reusables.two_fa.about-recovery-codes %}また、2 要素認証の有効化後は、リカバリコードをいつでもダウンロードできます。
-
-アカウントを安全に保つため、リカバリコードを共有や配布しないでください。 以下のような、安全なパスワードマネージャで保存することをおすすめします:
+To keep your account secure, don't share or distribute your recovery codes. We recommend saving them with a secure password manager, such as:
 - [1Password](https://1password.com/)
 - [LastPass](https://lastpass.com/)
 
-新しいリカバリコードを生成するか、2 要素認証を無効化してから再有効化すると、セキュリティ設定にあるリカバリコードが自動的に更新されます。
+If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update.
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
-4. リカバリコードを安全な場所に保存します。 リカバリコードは、アカウントにアクセスできなくなった場合に、再びアクセスするために役立ちます。
-    - リカバリコードをデバイスに保存するには、[**Download**] をクリックします。
-    - リカバリコードのハードコピーを保存するには、[**Print**] をクリックします。
-    - パスワードマネージャーに保存するためにリカバリコードをコピーするには [**Copy**] をクリックします。 ![コードのダウンロード、印刷、コピーのオプションがある、リカバリコードのリスト](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
+4. Save your recovery codes in a safe place. Your recovery codes can help you get back into your account if you lose access.
+    - To save your recovery codes on your device, click **Download**.
+    - To save a hard copy of your recovery codes, click **Print**.
+    - To copy your recovery codes for storage in a password manager, click **Copy**.
+  ![List of recovery codes with option to download, print, or copy the codes](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
 
-## リカバリコードのセットを新しく生成する
+## Generating a new set of recovery codes
 
-アクセス回復のためにリカバリコードを一度使うと、再利用はできません。 16 個のリカバリコードをすべて使った場合は、別のコードのリストを生成できます。 リカバリコードのセットを新しく生成すると、以前生成したコードはすべて無効になります。
+Once you use a recovery code to regain access to your account, it cannot be reused. If you've used all 16 recovery codes, you can generate another list of codes. Generating a new set of recovery codes will invalidate any codes you previously generated.
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
-3. リカバリコードのセットを新しく作成するには、[**Generate new recovery codes**] をクリックします。 ![[Generate new recovery codes] ボタン](/assets/images/help/2fa/generate-new-recovery-codes.png)
+3. To create another batch of recovery codes, click **Generate new recovery codes**.
+	![Generate new recovery codes button](/assets/images/help/2fa/generate-new-recovery-codes.png)
 
-## セキュリティキーを追加の 2 要素認証方式として設定する
+## Configuring a security key as an additional two-factor authentication method
 
-2 要素認証の二次的な方法としてセキュリティキーを設定し、そのセキュリティキーを使ってアカウントへのアクセスを回復することができます。 詳しい情報については、「[2 要素認証を設定する](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)」を参照してください。
+You can set up a security key as a secondary two-factor authentication method, and use the security key to regain access to your account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-## フォールバック認証番号を設定する
+## Setting a fallback authentication number
 
-フォールバックデバイスのために、別の番号を提供できます。 主に使うデバイスにもリカバリコードにもアクセスできなくなった場合、バックアップの SMS 番号でアカウントにアクセスできます。
+You can provide a second number for a fallback device. If you lose access to both your primary device and your recovery codes, a backup SMS number can get you back in to your account.
 
-認証をテキストメッセージから設定しても、TOTP モバイルアプリケーションから設定しても、フォールバック番号を使うことは可能です。
+You can use a fallback number regardless of whether you've configured authentication via text message or TOTP mobile application.
 
 {% warning %}
 
-**警告:** フォールバック番号を使うのは、最後の手段です。 フォールバック認証番号を設定した場合は、別のリカバリ方法も設定するようおすすめします。
-- 悪意のある人が携帯電話会社を攻撃する可能性があるため、SMS 認証にはリスクがあります。
-- SMS メッセージは、米国およびその他特定の国においてのみサポートされています。その一覧については、「[SMS 認証がサポートされている国](/articles/countries-where-sms-authentication-is-supported)」を参照してください。
+**Warning:** Using a fallback number is a last resort. We recommend configuring additional recovery methods if you set a fallback authentication number.
+- Bad actors may attack cell phone carriers, so SMS authentication is risky.
+- SMS messages are only supported for certain countries outside the US; for the list, see "[Countries where SMS authentication is supported](/articles/countries-where-sms-authentication-is-supported)".
 
 {% endwarning %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-3. [Fallback SMS number] の隣にある [**Add**] をクリックします。 ![[Add fallback SMS number] ボタン](/assets/images/help/2fa/add-fallback-sms-number-button.png)
-4. [Fallback SMS number] の下にある [**Add fallback SMS number**] をクリックします。 ![[Add fallback SMS number] テキスト](/assets/images/help/2fa/add_fallback_sms_number_text.png)
-5. 国コードを選択し、携帯電話番号を入力します。 入力した情報が正しいことを確認してから、[**Set fallback**] をクリックします。 ![フォールバック SMS 番号の設定](/assets/images/help/2fa/2fa-fallback-number.png)
+3. Next to "Fallback SMS number", click **Add**.
+![Add fallback SMS number button](/assets/images/help/2fa/add-fallback-sms-number-button.png)
+4. Under "Fallback SMS number", click **Add fallback SMS number**.
+![Add fallback SMS number text](/assets/images/help/2fa/add_fallback_sms_number_text.png)
+5. Select your country code and type your mobile phone number, including the area code. When your information is correct, click **Set fallback**.
+	![Set fallback SMS number](/assets/images/help/2fa/2fa-fallback-number.png)
 
-設定後、バックアップデバイスが確認の SMS を受信します。
-
-## Recovery Accounts Elsewhere でフォールバック認証方式を追加する
-
-アカウントに対して追加の認証クレデンシャルを生成し、パートナーリカバリプロバイダを利用して保存できます。
-
-### Recovery Accounts Elsewhere について
-
-Recover Accounts Elsewhere を使うと、2 要素認証やリカバリコードへのアクセスを失った場合に備えて、あなたの {% data variables.product.product_name %} アカウントにセキュリティ要素を追加できます。
-
-Recovery Accounts Elsewhere を使用して、あなたの {% data variables.product.product_name %}アカウントをあなたの Facebook アカウントに関連付けることができます。 Facebook により、_アカウントリカバリトークン_として、あなたの {% data variables.product.product_name %} アカウントの認証クレデンシャルを保存できます。
-
-2 要素認証方法やリカバリコードにアクセスができなくなったために、{% data variables.product.product_name %} へのアクセスをなくした場合でも、リカバリプロバイダーからアカウントリカバリトークンを取得できます。これはあなたが {% data variables.product.product_name %} アカウントのオーナーであることを証明するのに役立ちます。
-
-トークンを再取得後、{% data variables.contact.contact_support %} はあなたのアカウントで 2 要素認証を無効にできるかもしれません。 その後、アカウントに再びアクセスするため、パスワードを入力またはリセットできます。
-
-アカウントリカバリトークンを生成または取得すると、アカウントの Audit log にイベントが追加されます。 詳細は「[セキュリティログをレビューする](/articles/reviewing-your-security-log)」を参照してください。
-
-### アカウントリカバリトークンを生成、保存する
-
-アカウントリカバリトークンを生成し、パートナーリカバリプロバイダを利用して保存できます。
-
-1. あなたの Facebook アカウントにサインインしてから、{% data variables.product.product_name %} に戻ります。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
-4. 新しいトークンを生成するため、[Recovery tokens] の下にある [**Store new token**] をクリックします。 ![新しいリカバリトークンを保存するボタン](/assets/images/help/settings/store-new-recovery-token.png)
-5. アカウントリカバリトークンに関する情報を読み、[**Connect with https://www.facebook.com**] をクリックします。 ![リカバリトークンを Facebook と関連付けるボタン](/assets/images/help/settings/connect-recovery-token-with-facebook.png)
-6. Facebook にリダイレクト後、Facebook でアカウントリカバリをオンにすることに関する情報を読んでから、[**Save as [_あなたの名前_]**] をクリックします。 (短時間で複数のトークンを保存する場合、最初のトークンを保存した後は、Facebook がこの確認を省略することがあります。) ![アカウントリカバリを有効にするボタンがある Facebook ページ](/assets/images/help/settings/security-turn-on-rae-facebook.png)
+After setup, the backup device will receive a confirmation SMS.
 
 {% endif %}
 
-## 参考リンク
+## Further reading
 
-- [2 要素認証について](/articles/about-two-factor-authentication)
-- [2 要素認証の設定](/articles/configuring-two-factor-authentication)
-- [2 要素認証を使用して {% data variables.product.prodname_dotcom %} にアクセスする](/articles/accessing-github-using-two-factor-authentication)
-- [2FA クレデンシャルをなくした際のアカウントの回復](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)
+- "[About two-factor authentication](/articles/about-two-factor-authentication)"
+- "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"
+- "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/articles/accessing-github-using-two-factor-authentication)"
+- "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"

@@ -1,6 +1,6 @@
 ---
-title: リポジトリのバックアップ
-intro: '{% ifversion ghes or ghae %}Git および {% endif %}API{% ifversion fpt %}またはサードパーティのツール{% endif %}を使用して、リポジトリをバックアップできます。'
+title: Backing up a repository
+intro: 'You can use{% ifversion ghes or ghae %} Git and{% endif %} the API {% ifversion fpt or ghec %}or a third-party tool {% endif %}to back up your repository.'
 redirect_from:
   - /articles/backing-up-a-repository
   - /github/creating-cloning-and-archiving-repositories/backing-up-a-repository
@@ -9,37 +9,37 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
+{% ifversion fpt or ghec %}
 
-{% ifversion fpt %}
-
-リポジトリのアーカイブをダウンロードするには、ユーザあるいは Organization のマイグレーション用の API が利用できます。 詳しい情報については、「[移行](/rest/reference/migrations)」を参照してください。
+To download an archive of your repository, you can use the API for user or organization migrations. For more information, see "[Migrations](/rest/reference/migrations)."
 {% else %}
 
-リポジトリのダウンロードおよびバックアップを手動で実行できます。
+You can download and back up your repositories manually:
 
-- リポジトリの Git データをローカルマシンにダウンロードするには、リポジトリをクローンする必要があります。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
-- また、リポジトリの wiki をダウンロードすることもできます。 詳細は「[ウィキページを追加または編集する](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)」を参照してください。
+- To download a repository's Git data to your local machine, you'll need to clone the repository. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+- You can also download your repository's wiki. For more information, see "[Adding or editing wiki pages](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)."
 
-リポジトリもしくは wiki をクローンすると、プロジェクトのファイルやコミット履歴などの Git のデータだけがダウンロードされます。 {% data variables.product.product_name %}リポジトリの他の要素をローカルマシンにエクスポートするには、弊社の API が利用できます。
+When you clone a repository or wiki, only Git data, such as project files and commit history, is downloaded. You can use our API to export other elements of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to your local machine:
 
-- [問題](/rest/reference/issues#list-issues-for-a-repository)
-- [プルリクエスト](/rest/reference/pulls#list-pull-requests)
-- [フォーク](/rest/reference/repos#list-forks)
-- [コメント](/rest/reference/issues#list-issue-comments-for-a-repository)
-- [マイルストーン](/rest/reference/issues#list-milestones)
-- [ラベル](/rest/reference/issues#list-labels-for-a-repository)
-- [Watcher](/rest/reference/activity#list-watchers)
-- [Starを付けたユーザ](/rest/reference/activity#list-stargazers)
-- [プロジェクト](/rest/reference/projects#list-repository-projects)
+- [Issues](/rest/reference/issues#list-issues-for-a-repository)
+- [Pull requests](/rest/reference/pulls#list-pull-requests)
+- [Forks](/rest/reference/repos#list-forks)
+- [Comments](/rest/reference/issues#list-issue-comments-for-a-repository)
+- [Milestones](/rest/reference/issues#list-milestones)
+- [Labels](/rest/reference/issues#list-labels-for-a-repository)
+- [Watchers](/rest/reference/activity#list-watchers)
+- [Stargazers](/rest/reference/activity#list-stargazers)
+- [Projects](/rest/reference/projects#list-repository-projects)
 {% endif %}
 
-{% ifversion ghes or ghae %}バックアップしたいすべての内容のローカルバージョンができたなら、zipアーカイブを作成して{% else %}アーカイブがダウンロードできたなら{% endif %}外部ハードディスクにコピーするか、[Google Drive](https://www.google.com/drive/)あるいは[ Dropbox](https://www.dropbox.com/)などのクラウドベースのバックアップサービスにアップロードしてください。
+Once you have {% ifversion ghes or ghae %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup or storage service such as [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
-{% ifversion fpt %}
-## サードパーティのバックアップツール
+{% ifversion fpt or ghec %}
+## Third-party backup tools
 
-リポジトリのバックアップを自動化するセルフサービスのツールはたくさんあります。 オプトアウトしておらず、誰でもデータにアクセスできるようにする {% data variables.product.product_name %} 上の_すべての_パブリックリポジトリをアーカイブするアーカイブプロジェクトとは異なり、バックアップツールは_特定の_リポジトリからデータをダウンロードし、新しいブランチまたはディレクトリ内に整理します。 アーカイブプロジェクトの詳細については、「[{% data variables.product.prodname_dotcom %} のコンテンツとデータのアーカイブについて](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。 自動バックアップツールに関する詳しい情報については、[{% data variables.product.prodname_marketplace %} のバックアップユーティリティのカテゴリ](https://github.com/marketplace?category=backup-utilities)を参照してください。
+A number of self-service tools exist that automate backups of repositories. Unlike archival projects, which archive _all_ public repositories on {% data variables.product.product_name %} that have not opted out and make the data accessible to anyone, backup tools will download data from _specific_ repositories and organize it within a new branch or directory. For more information about archival projects, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)." For more information about self-service backup tools, see the [Backup Utilities category on {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=backup-utilities).
 {% endif %}

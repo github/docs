@@ -1,7 +1,6 @@
 import { GetServerSideProps } from 'next'
 
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
-import { Breadcrumbs } from 'components/Breadcrumbs'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { useEffect, useRef } from 'react'
 
@@ -23,8 +22,6 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
     <MainContext.Provider value={mainContext}>
       <DefaultLayout>
         <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
-          <Breadcrumbs />
-
           <h1>{page.title}</h1>
         </div>
 

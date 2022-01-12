@@ -1,10 +1,10 @@
 ---
-title: リポジトリの可視性を設定する
-intro: あなたのリポジトリを誰が表示できるか選択できます。
+title: Setting repository visibility
+intro: You can choose who can view your repository.
 redirect_from:
-  - /articles/making-a-private-repository-public/
-  - /articles/making-a-public-repository-private/
-  - /articles/converting-a-public-repo-to-a-private-repo/
+  - /articles/making-a-private-repository-public
+  - /articles/making-a-public-repository-private
+  - /articles/converting-a-public-repo-to-a-private-repo
   - /articles/setting-repository-visibility
   - /github/administering-a-repository/setting-repository-visibility
   - /github/administering-a-repository/managing-repository-settings/setting-repository-visibility
@@ -12,16 +12,22 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Repository visibility
 ---
+## About repository visibility changes
 
-## リポジトリの可視性の変更について
+Organization owners can restrict the ability to change repository visibility to organization owners only. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
-Organization のオーナーは、リポジトリの可視性を変更する機能を Organization のオーナーのみに制限できます。 詳しい情報については「[Organization 内でリポジトリの可視性の変更を制限する](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)」を参照してください。
+{% ifversion ghec %}
 
-リポジトリの可視性を変更する前に、次の注意点を確認することをお勧めします。
+Members of an {% data variables.product.prodname_emu_enterprise %} can only set the visibility of repositories owned by their user account to private, and repositories in their enterprise's organizations can only be private or internal. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+{% endif %}
+
+We recommend reviewing the following caveats before you change the visibility of a repository.
 
 {% ifversion ghes or ghae %}
 
@@ -37,57 +43,62 @@ Organization のオーナーは、リポジトリの可視性を変更する機�
 
 {% endif %}
 
-### リポジトリをプライベートにする
-{% ifversion fpt or ghes %}
-* {% data variables.product.product_name %} はパブリックリポジトリのパブリックフォークを切り離し、新しいネットワークに追加します。 パブリックフォークはプライベートにはなりません。{% endif %}
-* リポジトリの可視性を内部からプライベートに変更すると、{% data variables.product.prodname_dotcom %}は、新しくプライベートになったリポジトリへのアクセス権限がないユーザに属するフォークを削除します。 {% ifversion fpt or ghes %}フォークの可視性もすべてプライベートになります。{% elsif ghae %}内部リポジトリにフォークがある場合、そのフォークの可視性はすでにプライベートになっています。{% endif %}詳しい情報については、「[リポジトリが削除されたり可視性が変更されたりするとフォークはどうなりますか？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)」を参照してください。{% ifversion fpt %}
-* ユーザアカウントまたは Organization に {% data variables.product.prodname_free_user %} を使用している場合、可視性をプライベートに変更すると、リポジトリで一部の機能が使用できなくなります。 {% data reusables.gated-features.more-info %}{% endif %}
-* Any published {% data variables.product.prodname_pages %} site will be automatically unpublished.{% ifversion fpt %} If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。{% endif %}{% ifversion fpt %}
-* 今後、{% data variables.product.prodname_dotcom %} は {% data variables.product.prodname_archive %} にリポジトリを含まなくなります。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} のコンテンツとデータのアーカイブについて](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。{% endif %}{% ifversion fpt %}
-* リポジトリが {% data variables.product.prodname_advanced_security %} のライセンスを持つ Enterprise の一部である Organization の所有で、かつ予備のシートが十分である場合を除き、{% data variables.product.prodname_code_scanning %} などの {% data variables.product.prodname_GH_advanced_security %} 機能は動作を停止します。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% ifversion ghes %}
-* 匿名の Git 読み取りアクセスは利用できなくなりました。 詳しい情報については、「[リポジトリで匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。{% endif %}
+### Making a repository private
+{% ifversion fpt or ghes or ghec %}
+* {% data variables.product.product_name %} will detach public forks of the public repository and put them into a new network. Public forks are not made private.{% endif %}
+{%- ifversion ghes or ghec or ghae %}
+* If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository. {% ifversion fpt or ghes or ghec %}The visibility of any forks will also change to private.{% elsif ghae %}If the internal repository has any forks, the visibility of the forks is already private.{% endif %} For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
+{%- endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{%- ifversion fpt %}
+* If you're using {% data variables.product.prodname_free_user %} for user accounts or organizations, some features won't be available in the repository after you change the visibility to private. Any published {% data variables.product.prodname_pages %} site will be automatically unpublished. If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+{%- endif %}
 
-### リポジトリをインターナルにする
+{%- ifversion fpt or ghec %}
+* {% data variables.product.prodname_dotcom %} will no longer include the repository in the {% data variables.product.prodname_archive %}. For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
+* {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %}, will stop working{% ifversion ghec %} unless the repository is owned by an organization that is part of an enterprise with a license for {% data variables.product.prodname_advanced_security %} and sufficient spare seats{% endif %}. {% data reusables.advanced-security.more-info-ghas %}
+{%- endif %}
 
-{% note %}
+{%- ifversion ghes %}
+* Anonymous Git read access is no longer available. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
+{%- endif %}
 
-**注釈:** {% data reusables.gated-features.internal-repos %}
+{% ifversion ghes or ghec or ghae %}
 
-{% endnote %}
+### Making a repository internal
 
-* リポジトリのすべてのフォークはリポジトリネットワークに残り、{% data variables.product.product_name %} はルートリポジトリとフォークとの関係を維持します。 詳しい情報については、「[リポジトリが削除されたり可視性が変更されたりするとフォークはどうなりますか？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)」を参照してください。
+* Any forks of the repository will remain in the repository network, and {% data variables.product.product_name %} maintains the relationship between the root repository and the fork. For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
 
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-### リポジトリをパブリックにする
+### Making a repository public
 
-* {% data variables.product.product_name %} はプライベートフォークを切り離し、スタンドアロンのプライベートリポジトリに変換します。 詳しい情報については、「[リポジトリが削除されたり可視性が変更されたりするとフォークはどうなりますか？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)」を参照してください。{% ifversion fpt %}
-* オープンソースプロジェクトの作成の一環として、プライベートリポジトリをパブリックリポジトリに変換する場合は、[オープンソースガイド](http://opensource.guide)を参照して役立つヒントやガイドラインを確認してください。 [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}) でオープンソースプロジェクトの管理方法についての無料コースを受けることもできます。 リポジトリがパブリックになったら、コントリビューターをサポートするための最適な手法にプロジェクトが合致しているかどうかを確認するため、リポジトリのコミュニティプロフィールを表示できます。 詳しい情報については、「[コミュニティプロフィールを表示する](/articles/viewing-your-community-profile)」を参照してください。
-* リポジトリは、{% data variables.product.prodname_GH_advanced_security %} 機能へのアクセスを自動的に獲得します。
+* {% data variables.product.product_name %} will detach private forks and turn them into a standalone private repository. For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)"{% ifversion fpt or ghec %}
+* If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines. You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). Once your repository is public, you can also view your repository's community profile to see whether your project meets best practices for supporting contributors. For more information, see "[Viewing your community profile](/articles/viewing-your-community-profile)."
+* The repository will automatically gain access to {% data variables.product.prodname_GH_advanced_security %} features.
 
 For information about improving repository security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."{% endif %}
 
 {% endif %}
 
-## リポジトリの可視性を変更する
+## Changing a repository's visibility
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. [Danger Zone] の [Change repository visibility] の右側にある [**Change visibility**] をクリックします。 ![[Change visibility] ボタン](/assets/images/help/repository/repo-change-vis.png)
-4. 可視性を選択します。
-{% ifversion fpt %}
-   ![リポジトリの可視性オプションのダイアログ](/assets/images/help/repository/repo-change-select.png){% else %}
-![Dialog of options for repository visibility](/assets/images/enterprise/repos/repo-change-select.png){% endif %}
-5. 正しいリポジトリの可視性を変更していることを確認するには、可視性を変更するリポジトリの名前を入力します。
-6. [**I understand, change repository visibility**] をクリックします。
-{% ifversion fpt %}
-   ![リポジトリの可視性ボタンの変更確認](/assets/images/help/repository/repo-change-confirm.png){% else %}
-![Confirm change of repository visibility button](/assets/images/enterprise/repos/repo-change-confirm.png){% endif %}
+3. Under "Danger Zone", to the right of to "Change repository visibility", click **Change visibility**.
+   ![Change visibility button](/assets/images/help/repository/repo-change-vis.png)
+4. Select a visibility.
+{% ifversion fpt or ghec %}
+   ![Dialog of options for repository visibility](/assets/images/help/repository/repo-change-select.png){% else %}
+   ![Dialog of options for repository visibility](/assets/images/enterprise/repos/repo-change-select.png){% endif %}
+5. To verify that you're changing the correct repository's visibility, type the name of the repository you want to change the visibility of.
+6. Click **I understand, change repository visibility**.
+{% ifversion fpt or ghec %}
+   ![Confirm change of repository visibility button](/assets/images/help/repository/repo-change-confirm.png){% else %}
+   ![Confirm change of repository visibility button](/assets/images/enterprise/repos/repo-change-confirm.png){% endif %}
 
 
-## 参考リンク
+## Further reading
 - "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"

@@ -6,6 +6,7 @@ redirect_from:
 intro: '{% data variables.product.product_name %} usa los datos de tu repositorio para conectarte con información, proyectos, personas y herramientas relevantes.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Policy
   - Legal
@@ -20,7 +21,7 @@ shortTitle: Cómo utiliza tus datos GitHub
 
 {% data reusables.user_settings.export-data %} Para obtener más información, consulta "[Solicitar un archivo de los datos de tu cuenta personal](/articles/requesting-an-archive-of-your-personal-account-s-data)".
 
-Si decides utilizar datos para un repositorio privado, seguiremos tratando tus datos privados, código abierto, o secretos comerciales como confidenciales y privados de acuerdo con nuestras [Condiciones de Servicio](/articles/github-terms-of-service/). La información que obtenemos viene solo de los datos agregados. Para obtener más información, consulta la sección "[Administrar la configuración de uso de datos para tu repositorio privado](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)".
+Si decides utilizar datos para un repositorio privado, seguiremos tratando tus datos privados, código abierto, o secretos comerciales como confidenciales y privados de acuerdo con nuestras [Condiciones de Servicio](/free-pro-team@latest/github/site-policy/github-terms-of-service). La información que obtenemos viene solo de los datos agregados. Para obtener más información, consulta la sección "[Administrar la configuración de uso de datos para tu repositorio privado](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)".
 
 Anunciaremos nuevas funciones sustanciales que usen metadatos o datos agregados en el [{% data variables.product.prodname_dotcom %}blog](https://github.com/blog).
 
@@ -34,6 +35,6 @@ Para detectar posibles vulnerabilidades de seguridad {% data variables.product.p
 
 ## Privacidad y uso compartido de datos
 
-Los datos del repositorio privado se escanean mediante una máquina y nunca es leído por el personal de {% data variables.product.product_name %}. El ojo humano nunca verá los contenidos de tus repositorios privados, a excepción de lo que se describe en nuestros [Términos de servicio](/articles/github-terms-of-service/#3-access).
+Los datos del repositorio privado se escanean mediante una máquina y nunca es leído por el personal de {% data variables.product.product_name %}. El ojo humano nunca verá los contenidos de tus repositorios privados, a excepción de lo que se describe en nuestros [Términos de servicio](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).
 
 Tus datos personales individuales o del repositorio no se compartirán con terceros. Podemos compartir datos agregados obtenidos de nuestro análisis con nuestros socios.

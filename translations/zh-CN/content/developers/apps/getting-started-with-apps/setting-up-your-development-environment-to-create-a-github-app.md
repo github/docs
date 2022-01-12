@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: 开发者环境
@@ -17,7 +18,7 @@ shortTitle: 开发者环境
 
 本指南将演练配置 GitHub 应用程序并在服务器上运行它所需的步骤。 GitHub 应用程序需要一些设置步骤来管理 web 挂钩事件并将 GitHub 上的应用程序注册连接到您的代码。 本指南中的应用程序可用作扩展和构建新 GitHub 应用程序的基础。
 
-在本指南结束之前，您将注册 GitHub 应用程序并设置 web 服务器以接收 web 挂钩事件。 您将学习如何使用名为 Smee 的工具捕获 web 挂钩有效负载，并将它们转发到本地开发环境。 您将在本节中配置的模板应用不会做任何特殊的事情，但它将作为一个框架，支持您使用 API 开始编写应用程序代码或完成其他[快速入门指南](/apps/quickstart-guides/)。 {% ifversion fpt %}您可以在 [GitHub Marketplace](https://github.com/marketplace) 和[使用 GitHub](https://github.com/works-with) 中查看成功的应用程序示例。{% endif %}
+在本指南结束之前，您将注册 GitHub 应用程序并设置 web 服务器以接收 web 挂钩事件。 您将学习如何使用名为 Smee 的工具捕获 web 挂钩有效负载，并将它们转发到本地开发环境。 您将在本节中配置的模板应用不会做任何特殊的事情，但它将作为一个框架，支持您使用 API 开始编写应用程序代码或完成其他[快速入门指南](/apps/quickstart-guides/)。 {% ifversion fpt or ghec %}您可以在 [GitHub Marketplace](https://github.com/marketplace) 和[使用 GitHub](https://github.com/works-with) 中查看成功的应用程序示例。{% endif %}
 
 完成此项目后，您将了解如何验证为 GitHub 应用程序和安装设施，以及这些身份验证方法有何不同。
 

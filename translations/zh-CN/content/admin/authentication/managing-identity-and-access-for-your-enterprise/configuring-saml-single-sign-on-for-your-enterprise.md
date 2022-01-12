@@ -1,10 +1,10 @@
 ---
-title: 为企业配置 SAML 单点登录
-shortTitle: 配置 SAML SSO
-intro: '您可以为企业配置 SAML 单点登录 (SSO)，这允许您使用身份提供程序 (IdP) 集中控制 {% data variables.product.product_location %} 的身份验证。'
-product: '{% data reusables.gated-features.saml-sso %}'
+title: Configuring SAML single sign-on for your enterprise
+shortTitle: Configure SAML SSO
+intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghae %}your enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghae %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
+  ghec: '*'
   ghae: '*'
 type: how_to
 topics:
@@ -15,99 +15,148 @@ topics:
   - SSO
 redirect_from:
   - /admin/authentication/configuring-saml-single-sign-on-for-your-enterprise
+  - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account
 ---
 
-## 关于 SAML SSO
+{% data reusables.enterprise-accounts.emu-saml-note %}
 
-{% ifversion ghae %}
+## About SAML SSO for enterprise accounts
 
-SAML SSO 允许您从 SAML IDP 集中控制和安全访问 {% data variables.product.product_location %}。 当未经身份验证的用户在浏览器中访问 {% data variables.product.product_location %} 时，{% data variables.product.product_name %} 会将用户重定向到您的 SAML IDP 进行身份验证。 在用户使用 IdP 上的帐户成功进行身份验证后，IdP 会将用户重定向回 {% data variables.product.product_location %}。 {% data variables.product.product_name %} 将验证 IdP 的响应，然后授予用户访问权限。
+{% ifversion ghec %}
 
-当用户在 IdP 上成功进行身份验证后，用户对 {% data variables.product.product_location %} 的 SAML 会话将在浏览器中激活 24 小时。 24 小时后，用户必须再次使用您的 IdP 进行身份验证。
+{% data reusables.saml.dotcom-saml-explanation %} For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
+
+{% data reusables.saml.about-saml-enterprise-accounts %}
+
+{% data reusables.saml.about-saml-access-enterprise-account %} For more information, see "[Viewing and managing a user's SAML access to your enterprise account](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
+
+{% data reusables.scim.enterprise-account-scim %}
+
+{% elsif ghae %}
+
+SAML SSO allows you to centrally control and secure access to {% data variables.product.product_location %} from your SAML IdP. When an unauthenticated user visits {% data variables.product.product_location %} in a browser, {% data variables.product.product_name %} will redirect the user to your SAML IdP to authenticate. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.product.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access to the user.
+
+After a user successfully authenticates on your IdP, the user's SAML session for {% data variables.product.product_location %} is active in the browser for 24 hours. After 24 hours, the user must authenticate again with your IdP.
 
 {% data reusables.saml.assert-the-administrator-attribute %}
 
-{% data reusables.scim.after-you-configure-saml %} 更多信息请参阅“[配置企业的用户预配](/admin/authentication/configuring-user-provisioning-for-your-enterprise)”。
+{% data reusables.scim.after-you-configure-saml %} For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
 
 {% endif %}
 
-## 支持的身份提供程序
+## Supported identity providers
 
-{% data variables.product.product_name %} 支持 SAML SSO 与采用 SAML 2.0 标准的 IdP 一起使用。 更多信息请参阅 OASIS 网站上的 [SAML Wiki](https://wiki.oasis-open.org/security)。
+{% data reusables.saml.saml-supported-idps %}
 
-{% data variables.product.company_short %} 已使用以下 IdP 测试 {% data variables.product.product_name %} 的 SAML SSO。
+{% ifversion ghec %}
 
-{% ifversion ghae %}
-- Azure AD
-{% endif %}
+## Enforcing SAML single-sign on for organizations in your enterprise account
 
-## 启用 SAML SSO
+{% note %}
 
-{% ifversion ghae %}
+**Notes:**
+
+- When you enforce SAML SSO for your enterprise, the enterprise configuration will override any existing organization-level SAML configurations. {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+- When you enforce SAML SSO for an organization, {% data variables.product.company_short %} removes any members of the organization that have not authenticated successfully with your SAML IdP. When you require SAML SSO for your enterprise, {% data variables.product.company_short %} does not remove members of the enterprise that have not authenticated successfully with your SAML IdP. The next time a member accesses the enterprise's resources, the member must authenticate with your SAML IdP.
+
+{% endnote %}
+
+For more detailed information about how to enable SAML using Okta, see "[Configuring SAML single sign-on for your enterprise account using Okta](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)."
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "SAML single sign-on", select **Require SAML authentication**.
+  ![Checkbox for enabling SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
+6. In the **Sign on URL** field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
+![Field for the URL that members will be forwarded to when signing in](/assets/images/help/saml/saml_sign_on_url_business.png)
+7. Optionally, in the **Issuer** field, type your SAML issuer URL to verify the authenticity of sent messages.
+![Field for the SAML issuer's name](/assets/images/help/saml/saml_issuer.png)
+8. Under **Public Certificate**, paste a certificate to verify SAML responses.
+![Field for the public certificate from your identity provider](/assets/images/help/saml/saml_public_certificate.png)
+9. To verify the integrity of the requests from your SAML issuer, click {% octicon "pencil" aria-label="The edit icon" %}. Then in the "Signature Method" and "Digest Method" drop-downs, choose the hashing algorithm used by your SAML issuer.
+![Drop-downs for the Signature Method and Digest method hashing algorithms used by your SAML issuer](/assets/images/help/saml/saml_hashing_method.png)
+10. Before enabling SAML SSO for your enterprise, click **Test SAML configuration** to ensure that the information you've entered is correct. ![Button to test SAML configuration before enforcing](/assets/images/help/saml/saml_test.png)
+11. Click **Save**.
+
+{% elsif ghae %}
+
+## Enabling SAML SSO
 
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-以下 IdP 提供有关为 {% data variables.product.product_name %} 配置 SAML SSO 的文档。 如果您的 IdP 未列出，请与您的 IdP 联系，以请求 {% data variables.product.product_name %}。
+The following IdPs provide documentation about configuring SAML SSO for {% data variables.product.product_name %}. If your IdP isn't listed, please contact your IdP to request support for {% data variables.product.product_name %}.
 
- | IdP      | 更多信息                                                                                                                                                                                               |
- |:-------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | Azure AD | [教程： Microsoft 文档中的“与 {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) 的 Azure Active Directory 单点登录 (SSO) 集成” |
+ | IdP | More information |
+ | :- | :- |
+ | Azure AD | [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs. To configure Azure AD for {% data variables.product.prodname_ghe_managed %}, see "[Configuring authentication and provisioning for your enterprise using Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)."  |
+| Okta (Beta) | To configure Okta for {% data variables.product.prodname_ghe_managed %}, see "[Configuring authentication and provisioning for your enterprise using Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)."|
 
-在 {% data variables.product.product_name %} 的初始化期间，您必须在 IdP 上将 {% data variables.product.product_name %} 配置为 SAML 服务提供程序 (SP)。 您必须在 IdP 上输入多个唯一值以将 {% data variables.product.product_name %} 配置为有效的 SP。
+During initialization for {% data variables.product.product_name %}, you must configure {% data variables.product.product_name %} as a SAML Service Provider (SP) on your IdP. You must enter several unique values on your IdP to configure {% data variables.product.product_name %} as a valid SP.
 
-| 值                    | 其他名称   | 描述                                                         | 示例                        |
-|:-------------------- |:------ |:---------------------------------------------------------- |:------------------------- |
-| SP 实体 ID             | SP URL | {% data variables.product.prodname_ghe_managed %} 顶级 URL | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em></code> |
-| SP 断言使用者服务 (ACS) URL | 回复 URL | IdP 发送 SAML 响应的 URL                                        | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/saml/consume</code> |
-| SP 单点登录 (SSO) URL    |        | IdP 开始 SSO 的 URL                                           | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/sso</code> |
+| Value | Other names | Description | Example |
+| :- | :- | :- | :- |
+| SP Entity ID | SP URL | Your top-level URL for {% data variables.product.prodname_ghe_managed %} | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em></code>
+| SP Assertion Consumer Service (ACS) URL | Reply URL | URL where IdP sends SAML responses | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/saml/consume</code> |
+| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/sso</code> |
 
-{% endif %}
+## Editing the SAML SSO configuration
 
-## 编辑 SAML SSO 配置
-
-如果 IdP 的详细信息发生更改，则需要编辑 {% data variables.product.product_location %} 的 SAML SSO 配置。 例如，如果 IdP 的证书过期，您可以编辑公共证书的值。
+If the details for your IdP change, you'll need to edit the SAML SSO configuration for {% data variables.product.product_location %}. For example, if the certificate for your IdP expires, you can edit the value for the public certificate.
 
 {% ifversion ghae %}
 
 {% note %}
 
-**注**：{% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
+**Note**: {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
 
-{% endnote %}
+{% endnote %} 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. 在“SAML single sign-on（SAML 单点登录）”下，键入 IdP 的新详细信息。 ![包含企业 SAML SSO 配置 IdP 详细信息的文本输入字段](/assets/images/help/saml/ae-edit-idp-details.png)
-1. （可选）单击 {% octicon "pencil" aria-label="The edit icon" %} 以配置新的签名或摘要方法。 ![用于更改签名和摘要方法的编辑图标](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest.png)
+1. Under "SAML single sign-on", type the new details for your IdP.
+  ![Text entry fields with IdP details for SAML SSO configuration for an enterprise](/assets/images/help/saml/ae-edit-idp-details.png)
+1. Optionally, click {% octicon "pencil" aria-label="The edit icon" %} to configure a new signature or digest method.
+  ![Edit icon for changing signature and digest method](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest.png)
 
-    - 使用下拉菜单并选择新的签名或摘要方法。 ![用于选择新签名或摘要方法的下拉菜单](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest-drop-down-menus.png)
-1. 为确保输入的信息正确，请单击 **Test SAML configuration（测试 SAML 配置）**。 !["Test SAML configuration（测试 SAML 配置）"按钮](/assets/images/help/saml/ae-edit-idp-details-test-saml-configuration.png)
-1. 单击 **Save（保存）**。 ![用于 SAML SSO 配置的"Save（保存）"按钮](/assets/images/help/saml/ae-edit-idp-details-save.png)
-1. （可选）要自动预配和取消预配 {% data variables.product.product_location %} 的用户帐户，请使用 SCIM 重新配置用户预配。 更多信息请参阅“[配置企业的用户预配](/admin/authentication/configuring-user-provisioning-for-your-enterprise)”。
+    - Use the drop-down menus and choose the new signature or digest method.
+      ![Drop-down menus for choosing a new signature or digest method](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest-drop-down-menus.png)
+1. To ensure that the information you've entered is correct, click **Test SAML configuration**.
+  !["Test SAML configuration" button](/assets/images/help/saml/ae-edit-idp-details-test-saml-configuration.png)
+1. Click **Save**.
+    !["Save" button for SAML SSO configuration](/assets/images/help/saml/ae-edit-idp-details-save.png)
+1. Optionally, to automatically provision and deprovision user accounts for {% data variables.product.product_location %}, reconfigure user provisioning with SCIM. For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
 
 {% endif %}
 
-## 禁用 SAML SSO
-
 {% ifversion ghae %}
+
+## Disabling SAML SSO
 
 {% warning %}
 
-**警告**：如果您对 {% data variables.product.product_location %} 禁用 SAML SSO，则没有现有 SAML SSO 会话的用户无法登录 {% data variables.product.product_location %}。 {% data variables.product.product_location %} 上的 SAML SSO 会话在 24 小时后结束。
+**Warning**: If you disable SAML SSO for {% data variables.product.product_location %}, users without existing SAML SSO sessions cannot sign into {% data variables.product.product_location %}. SAML SSO sessions on {% data variables.product.product_location %} end after 24 hours.
 
 {% endwarning %}
 
 {% note %}
 
-**注**：{% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
+**Note**: {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
 
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. 在“SAML single sign-on”（SAML 单点登录）下，取消选择 **Enable SAML authentication（启用 SAML 身份验证）**。 !["Enable SAML authentication（启用 SAML 身份验证）"的复选框](/assets/images/help/saml/ae-saml-disabled.png)
-1. 要禁用 SAML SSO 并要求使用在初始化期间创建的内置用户帐户登录，请单击“**Save（保存）**”。 ![用于 SAML SSO 配置的"Save（保存）"按钮](/assets/images/help/saml/ae-saml-disabled-save.png)
+1. Under "SAML single sign-on", unselect **Enable SAML authentication**.
+  ![Checkbox for "Enable SAML authentication"](/assets/images/help/saml/ae-saml-disabled.png)
+1. To disable SAML SSO and require signing in with the built-in user account you created during initialization, click **Save**.
+    !["Save" button for SAML SSO configuration](/assets/images/help/saml/ae-saml-disabled-save.png)
+
+{% endif %}
 
 {% endif %}

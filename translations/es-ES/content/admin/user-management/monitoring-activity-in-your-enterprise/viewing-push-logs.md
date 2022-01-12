@@ -1,8 +1,8 @@
 ---
-title: Ver registros de subidas
-intro: Los administradores de sitio pueden ver una lista de operaciones de subida de git para cualquier repositorio en la empresa.
+title: Viewing push logs
+intro: Site administrators can view a list of Git push operations for any repository on the enterprise.
 redirect_from:
-  - /enterprise/admin/articles/viewing-push-logs/
+  - /enterprise/admin/articles/viewing-push-logs
   - /enterprise/admin/installation/viewing-push-logs
   - /enterprise/admin/user-management/viewing-push-logs
   - /admin/user-management/viewing-push-logs
@@ -16,30 +16,31 @@ topics:
   - Git
   - Logging
 ---
+Push log entries show:
 
-Las entradas de registro de subida muestran:
+- Who initiated the push
+- Whether it was a force push or not
+- The branch someone pushed to
+- The protocol used to push
+- The originating IP address
+- The Git client used to push
+- The SHA hashes from before and after the operation
 
-- Quién inició la subida
-- Si fue un empuje forzado o no
-- La rama a la que alguien subió
-- El protocolo utilizado para subir
-- La dirección IP inicial
-- El cliente Git utilizado para subir
-- Los hashes SHA de antes y después de la operación
+## Viewing a repository's push logs
 
-## Ver registros de subida de un repositorio
-
-1. Inicia sesión en {% data variables.product.prodname_ghe_server %} como administrador de sitio.
-1. Navegar a un repositorio.
-1. En la esquina superior derecha de la página del repositorio, haz clic en {% octicon "rocket" aria-label="The rocket ship" %}. ![Ícono de cohete para acceder a las configuraciones de administrador del sitio](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
+1. Navigate to a repository.
+1. In the upper-right corner of the repository's page, click {% octicon "rocket" aria-label="The rocket ship" %}.
+    ![Rocketship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
-4. En la barra lateral izquierda, haz clic en **Push Log (Registro de subida)**. ![Pestaña de registro de subida](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
+4. In the left sidebar, click **Push Log**.
+![Push log tab](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 {% ifversion ghes %}
-## Ver registros de subida de un repositorio en la línea de comando
+## Viewing a repository's push logs on the command-line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. En el repositorio Git adecuado, abre el archivo de registro de auditoría:
+1. In the appropriate Git repository, open the audit log file:
   ```shell
   ghe-repo <em>owner</em>/<em>repository</em> -c "less audit_log"
   ```

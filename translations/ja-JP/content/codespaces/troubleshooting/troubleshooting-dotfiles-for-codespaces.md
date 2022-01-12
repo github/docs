@@ -4,6 +4,7 @@ intro: Troubleshooting steps for common dotfiles issues.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces

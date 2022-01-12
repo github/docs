@@ -5,6 +5,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-updates-from-accounts-your-organization-sponsors
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: Organization owners can manage updates from accounts the organization sponsors.
 topics:
   - Organizations

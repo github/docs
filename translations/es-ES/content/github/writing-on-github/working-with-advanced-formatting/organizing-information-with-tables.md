@@ -1,6 +1,6 @@
 ---
-title: Organizar la información en tablas
-intro: 'Puedes construir tablas para organizar la información en comentarios, propuestas, solicitudes de extracción y wikis.'
+title: Organizing information with tables
+intro: 'You can build tables to organize information in comments, issues, pull requests, and wikis.'
 redirect_from:
   - /articles/organizing-information-with-tables
   - /github/writing-on-github/organizing-information-with-tables
@@ -8,72 +8,74 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Datos organizados con tablas
+  ghec: '*'
+shortTitle: Organized data with tables
 ---
+## Creating a table
 
-## Crear una tabla
-
-Puede crear tablas con barras verticales `|` y guiones `-`. Los guiones se usan para crear el encabezado de cada columna, mientras que las barras verticales separan cada columna. Debes incluir una línea en blanco antes de tu tabla para que se representen correctamente.
+You can create tables with pipes `|` and hyphens `-`. Hyphens are used to create each column's header, while pipes separate each column. You must include a blank line before your table in order for it to correctly render.
 
 ```markdown
 
-| Primer encabezado | Segundo encabezado |
+| First Header  | Second Header |
 | ------------- | ------------- |
-| Contenido de la celda  | Contenido de la celda  |
-| Contenido de la celda  | Contenido de la celda  |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 ```
 
-![Tabla presentada](/assets/images/help/writing/table-basic-rendered.png)
+![Rendered table](/assets/images/help/writing/table-basic-rendered.png)
 
-Las barras verticales en cada lado de la tabla son opcionales.
+The pipes on either end of the table are optional.
 
-Las celdas pueden variar en el ancho y no es necesario que estén perfectamente alineadas dentro de las columnas. Debe haber al menos tres guiones en cada columna de la línea de encabezamiento.
+Cells can vary in width and do not need to be perfectly aligned within columns. There must be at least three hyphens in each column of the header row.
 
 ```markdown
-| Comando | Descripción |
+| Command | Description |
 | --- | --- |
-| git status | Enumera todos los archivos nuevos o modificados |
-| git diff | Muestra las diferencias de archivo que no han sido preparadas |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
 ```
 
-![Tabla presentada con ancho de celda variado](/assets/images/help/writing/table-varied-columns-rendered.png)
+![Rendered table with varied cell width](/assets/images/help/writing/table-varied-columns-rendered.png)
 
-## Formatear el contenido dentro de tu tabla
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
 
-Puedes utilizar [formato](/articles/basic-writing-and-formatting-syntax) como enlaces, bloques de códigos insertados y el estilo de texto dentro de tu tabla:
+## Formatting content within your table
+
+You can use [formatting](/articles/basic-writing-and-formatting-syntax) such as links, inline code blocks, and text styling within your table:
 
 ```markdown
-| Comando | Descripción |
+| Command | Description |
 | --- | --- |
-| `git status` | Enumera todos los archivos *nuevos o modificados* |
-| `git diff` | Muestra las diferencias de archivo que **no han sido** preparadas |
+| `git status` | List all *new or modified* files |
+| `git diff` | Show file differences that **haven't been** staged |
 ```
 
-![Tabla presentada con texto formateado](/assets/images/help/writing/table-inline-formatting-rendered.png)
+![Rendered table with formatted text](/assets/images/help/writing/table-inline-formatting-rendered.png)
 
-Puedes alinear el texto a la izquierda, la derecha o en el centro de una columna al incluir dos puntos `:` a la izquierda, la derecha, o en ambos lados de los guiones dentro de la línea de encabezamiento.
+You can align text to the left, right, or center of a column by including colons `:` to the left, right, or on both sides of the hyphens within the header row.
 
 ```markdown
-| Alineado a la izquierda | Alineado en el centro | Alineado a la derecha |
+| Left-aligned | Center-aligned | Right-aligned |
 | :---         |     :---:      |          ---: |
 | git status   | git status     | git status    |
 | git diff     | git diff       | git diff      |
 ```
 
-![Tabla presentada con alineación de texto a la izquierda, a la derecha o al centro](/assets/images/help/writing/table-aligned-text-rendered.png)
+![Rendered table with left, center, and right text alignment](/assets/images/help/writing/table-aligned-text-rendered.png)
 
-Para incluir una barra vertical `|` como contenido dentro de tu celda, utiliza una `\` antes de la barra:
+To include a pipe `|` as content within your cell, use a `\` before the pipe:
 
 ```markdown
-| Nombre     | Símbolo |
+| Name     | Character |
 | ---      | ---       |
-| Comilla simple | `         |
-| Barra vertical | \|        |
+| Backtick | `         |
+| Pipe     | \|        |
 ```
 
-![Tabla presentada con una barra vertical liberada](/assets/images/help/writing/table-escaped-character-rendered.png)
+![Rendered table with an escaped pipe](/assets/images/help/writing/table-escaped-character-rendered.png)
 
-## Leer más
+## Further reading
 
-- [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
-- [Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"

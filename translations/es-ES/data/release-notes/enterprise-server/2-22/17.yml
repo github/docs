@@ -1,16 +1,16 @@
 date: '2021-07-14'
 sections:
   security_fixes:
-    - '**HIGH:** A path traversal vulnerability was identified in GitHub Enterprise Server that could be exploited when building a GitHub Pages site. User-controlled configuration options used by GitHub Pages were not sufficiently restricted and made it possible to read files on the GitHub Enterprise Server instance. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the GitHub Enterprise Server instance. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.1.3 and has been assigned CVE-2021-22867. This vulnerability was reported via the GitHub Bug Bounty program.'
+    - '**ALTA:** Una vulnerabilidad que atravesaba rutas se identificó en GitHub Enterprise Server, la cual podría aprovecharse al crear un sitio de GitHub Pages. Las opciones de configuración que controla el usuario y que utiliza GitHub Pages no se restringieron suficientemente, lo cual hizo posible que se leyeran archivos en la instancia de GitHub Enterprise Server. Para aprovechar esta vulnerabilidad, el atacante necesitaría permiso para crear y compilar un sitio de GitHub Pages en la instancia de GitHub Enterprise Server. Esta vulnerabilidad afectó a todas las versiones de GitHub Enterprise Server anteriores a la 3.1.3 y se le asignó el CVE-2021-22867. Esta vulnerabilidad se reportó a través del programa de Recompensas por Errores de GitHub.'
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
-    - '`ghe-cluster-config-node-init` would fail during cluster setup if HTTP proxy is enabled.'
-    - 'Collectd would not resolve the forwarding destination hostname after the initial startup.'
-    - 'The job that purged stale deleted repositories could fail to make progress if some of those repositories were protected from deletion by legal holds.'
-    - 'Git pushes could result in a 500 Internal Server Error during the user reconciliation process on instances using LDAP authentication mode.'
-    - 'A significant number of 503 errors were logged every time a user visited a repository''s `/settings` page if the dependency graph was not enabled.'
+    - 'El `ghe-cluster-config-node-init` falló durante la configuración de clúster si se había habilitado el proxy de HTTP.'
+    - 'Collectd no resolvió el nombre de host destino que se estaba reenviando después del inicio principal.'
+    - 'El job que purgó los repositorios inactivos borrados pudo haber fallado en hacer progreso si alguno de estos repositorios estaba protegido contra borrado debido a las retenciones legales.'
+    - 'Las subidas de Git dieron como resultado un Error de Servidor Interno 500 durante el proceso de reconciliación del usuario en las instancias que utilizaban el modo de autenticación de LDAP.'
+    - 'Una cantidad significativa de 503 errores se registró cada que un usuario vistió la página de `/settings` de un repositorio si la gráfica de dependencias no estaba habilitada.'
   changes:
-    - 'Improved the efficiency of config apply by skipping IP allow firewall rules that had not changed, which saved significant time on large clusters.'
+    - 'Se mejoró la eficiencia de la aplicación de configuraciones al omitir las reglas de cortafuegos para permitir IP, las cuales no hubieran cambiado, lo cual ahorró tiempo significativo en los clústeres grandes.'
   known_issues:
     - 'En un GitHub Enterprise Server recién configurado sin usuarios, un atacante pudo crear el primer usuario administrador.'
     - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'

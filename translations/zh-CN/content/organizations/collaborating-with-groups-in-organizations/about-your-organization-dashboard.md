@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -34,7 +35,7 @@ shortTitle: 组织仪表板
 
 在消息馈送的“All activity（所有活动）”部分，您可以查看来自组织中其他团队和仓库的更新。
 
-“All activity（所有活动）”部分显示组织中所有最近的活动，包括您未订阅的仓库中以及您未关注的人员的活动。 更多信息请参阅{% ifversion fpt or ghes or ghae %}“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关注和取消关注仓库](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}”和“[关注人员](/articles/following-people)”。
+“All activity（所有活动）”部分显示组织中所有最近的活动，包括您未订阅的仓库中以及您未关注的人员的活动。 更多信息请参阅{% ifversion fpt or ghes or ghae or ghec %}“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关注和取消关注仓库](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}”和“[关注人员](/articles/following-people)”。
 
 例如，当组织中有人执行以下操作时，组织消息馈送会显示更新：
  - 创建新分支。
@@ -42,7 +43,7 @@ shortTitle: 组织仪表板
  - 提交拉取请求审查评论。
  - 对仓库复刻。
  - 创建 wiki 页面。
- - 推送提交。{% ifversion fpt or ghes %}
+ - 推送提交。{% ifversion fpt or ghes or ghec %}
  - 创建公共仓库。{% endif %}
 
 ## 更多信息

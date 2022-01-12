@@ -1,6 +1,6 @@
 ---
-title: Acerca de escritura y formato en GitHub
-intro: GitHub combina una sintáxis para el texto con formato llamado formato Markdown de GitHub con algunas características de escritura únicas.
+title: About writing and formatting on GitHub
+intro: GitHub combines a syntax for formatting text called GitHub Flavored Markdown with a few unique writing features.
 redirect_from:
   - /articles/about-writing-and-formatting-on-github
   - /github/writing-on-github/about-writing-and-formatting-on-github
@@ -8,24 +8,37 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Escribir & formatear en GitHub
+  ghec: '*'
+shortTitle: Write & format on GitHub
 ---
+[Markdown](http://daringfireball.net/projects/markdown/) is an easy-to-read, easy-to-write syntax for formatting plain text.
 
-[Markdown](http://daringfireball.net/projects/markdown/) es una sintáxis fácil de leer y fácil de escribir para el texto simple con formato.
+We've added some custom functionality to create {% data variables.product.prodname_dotcom %} Flavored Markdown, used to format prose and code across our site.
 
-Le hemos agregado alguna funcionalidad personalizada para crear el formato Markdown de {% data variables.product.prodname_dotcom %}, usado para dar formato a la prosa y al código en todo nuestro sitio.
+You can also interact with other users in pull requests and issues using features like [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), [issue and PR references](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests), and [emoji](/articles/basic-writing-and-formatting-syntax/#using-emoji).
 
-También puedes interactuar con otros usuarios en las solicitudes de extracción y las propuestas, usando funciones como [@menciones](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), [propuesta y referencias PR](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) y [emoji](/articles/basic-writing-and-formatting-syntax/#using-emoji).
+## Text formatting toolbar
 
-## Barra de herramientas de formato de texto
+Every comment field on {% data variables.product.product_name %} contains a text formatting toolbar, allowing you to format your text without learning Markdown syntax. In addition to Markdown formatting like bold and italic styles and creating headers, links, and lists, the toolbar includes {% data variables.product.product_name %}-specific features such as @mentions, task lists, and links to issues and pull requests.
 
-Cada campo de comentario en {% data variables.product.product_name %} contiene una barra de herramientas de formato de texto, lo que te permite dar formato a tu texto sin tener que aprender la sintáxis de Markdown. Además del formato de Markdown como la negrita y la cursiva y crear encabezados, enlaces y listados, la barra de herramientas incluye características específicas de {% data variables.product.product_name %}, como las @menciones, los listados de tareas y los enlaces a propuestas y solicitudes de extracción.
+{% if fixed-width-font-gfm-fields %}
 
-![Barra de herramientas de Markdown](/assets/images/help/writing/markdown-toolbar.gif)
+## Enabling fixed-width fonts in the editor
+ 
+You can enable a fixed-width font in every comment field on {% data variables.product.product_name %}. Each character in a fixed-width, or monospace, font occupies the same horizontal space which can make it easier to edit advanced Markdown structures such as tables and code snippets.
 
-## Leer más
+![Screenshot showing the {% data variables.product.product_name %} comment field with fixed-width fonts enabled](/assets/images/help/writing/fixed-width-example.png)
 
-- [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
-- [Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"
-- "[Trabajar con formato avanzado](/articles/working-with-advanced-formatting)"
-- "[Dominar Markdown](https://guides.github.com/features/mastering-markdown/)"
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.appearance-settings %}
+1. Under "Markdown editor font preference", select **Use a fixed-width (monospace) font when editing Markdown**.
+  ![Screenshot showing the {% data variables.product.product_name %} comment field with fixed width fonts enabled](/assets/images/help/writing/enable-fixed-width.png)
+
+{% endif %}
+
+## Further reading
+
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
+- "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
+- "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)"

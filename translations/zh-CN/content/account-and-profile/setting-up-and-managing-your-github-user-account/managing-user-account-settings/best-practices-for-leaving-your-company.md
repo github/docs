@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/best-practices-for-leaving-your-company
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: 离开您的公司
@@ -16,7 +17,7 @@ shortTitle: 离开您的公司
 
 - 通过[在电子邮件设置中删除公司电子邮件地址](/articles/changing-your-primary-email-address)来取消其验证。 然后，您可以在不验证的情况下重新添加它，以保留与您的帐户相关联的所有相关提交。
 - [将您的主电子邮件地址](/articles/changing-your-primary-email-address)从公司电子邮件地址更改为个人电子邮件地址。
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - [验证新的主电子邮件地址](/articles/verifying-your-email-address)。
 {% endif %}
 - [更改您的 GitHub 用户名](/articles/changing-your-github-username)以删除对公司或组织的任何引用（如有必要）。

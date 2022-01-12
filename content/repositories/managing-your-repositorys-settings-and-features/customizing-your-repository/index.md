@@ -1,10 +1,11 @@
 ---
 title: Customizing your repository
-intro: 'You can choose the way your repository appears by customizing your repository.'
+intro: You can choose the way your repository appears by customizing your repository.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 children:

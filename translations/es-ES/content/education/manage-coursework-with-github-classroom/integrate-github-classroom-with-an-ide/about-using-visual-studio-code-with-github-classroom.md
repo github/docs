@@ -1,44 +1,44 @@
 ---
-title: About using Visual Studio Code with GitHub Classroom
-shortTitle: About using Visual Studio Code
-intro: 'You can configure Visual Studio Code as the preferred editor for assignments in {% data variables.product.prodname_classroom %}.'
+title: Acerca de utilizar visual Studio Code con GitHub Classroom
+shortTitle: Aceca de utilizar Visual Studio Code
+intro: 'Puedes configurar a Visual Studio Code como el editor preferido para las tareas en {% data variables.product.prodname_classroom %}.'
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/about-using-vs-code-with-github-classroom
 ---
 
-## About Visual Studio Code
+## Acerca de Visual Studio Code
 
-Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. With the [GitHub Classroom extension for Visual Studio Code](https://aka.ms/classroom-vscode-ext), students can easily browse, edit, submit, collaborate, and test their Classroom Assignments. For more information about IDEs and {% data variables.product.prodname_classroom %}, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+Visual Studio Code es un editor de código fuente ligero pero podereos, el cual se ejecuta en tu máquina de escritorio y está disponible para Windows, macOS y Linux. Con la [Extensión de GitHub Classroom para Visual Studio Code](https://aka.ms/classroom-vscode-ext), los alumnos pueden buscar, editar, emitir, colaborar y probar sus Tareas de las Aulas fácilmente. Para obtener más información sobre los IDe y {% data variables.product.prodname_classroom %}, consulta la sección "[Integrar {% data variables.product.prodname_classroom %} con un IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)".
 
-### Your student's editor of choice
-The GitHub Classroom integration with Visual Studio Code provides students with an extension pack which contains:
+### El editor predilecto de tus alumnos
+La integración de GitHub Classroom con Visual Studio Code proporciona a los alumnos un paquete de extensiones que contiene:
 
-1. [GitHub Classroom Extension](https://aka.ms/classroom-vscode-ext) with custom abstractions that make it easy for students to navigate getting started.
-2. [Visual Studio Live Share Extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) integrating into a student view for easy access to teaching assistants and classmates for help and collaboration.
-3. [GitHub Pull Request Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) allowing students to see feedback from their instructors within the editor.
+1. [La Extensión de GitHub Classroom](https://aka.ms/classroom-vscode-ext) con abstracciones personalizadas que hacen más fácil que los alumnos naveguen en el inicio.
+2. [La Extgensión de Visual Studio Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) que se integra en una vista de alumnos para dar acceso fácil a los ayudantes para enseñar y a los compañeros de clase para ayudar y colaborar.
+3. [La Extensión de GitHub Pull Request](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) que permite a los alumnos ver la retroalimentación de sus instructores dentro del editor.
 
-### How to launch the assignment in Visual Studio Code
-When creating an assignment, Visual Studio Code can be added as the preferred editor for an assignment. For more details, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+### Cómo lanzar una tarea en Visual Sudio Code
+Cuando creas una tarea, Visual Studio Code puede agregarse como el editor preferido para ella. Para obtener más detalles, consulta la sección "[Integrar a {% data variables.product.prodname_classroom %} con un IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)".
 
-This will include an "Open in Visual Studio Code" badge in all student repositories. This badge handles installing Visual Studio Code, the Classroom extension pack, and opening to the active assignment with one click.
+Esto incluirá una insignia de "Abrir en Visual Studio Code" en todos los repositorios de los alumnos. Esta insignia maneja la instalación de Visual Studio Code, el paquete de extensiones del Aula, y el abrir hacia la tarea activa con un clic.
 
 {% note %}
 
-**Note:** The student must have Git installed on their computer to push code from Visual Studio Code to their repository. This is not automatically installed when clicking the **Open in Visual Studio Code** button. The student can download Git from [here](https://git-scm.com/downloads).
+**Nota:** El alumno debe tener instalado Git en su computadora para subir código desde Visual Studio Code hacia su repositorio. Esto no se instala automáticamente cuando haces clic en el botón de **Abrir en Visual Studio Code**. El alumno puede descargar Git desde [aquí](https://git-scm.com/downloads).
 
 {% endnote %}
 
-### How to use GitHub Classroom extension pack
-The GitHub Classroom extension has two major components: the 'Classrooms' view and the 'Active Assignment' view.
+### Cómo utilizar el paquete de extensión de GitHub Classroom
+La extensión de GitHub Classroom tiene dos componentes principales: la vista de 'Aulas' y la vista de 'Tarea Activa'.
 
-When the student launches the extension for the first time, they are automatically navigated to the Explorer tab in Visual Studio Code, where they can see the "Active Assignment" view alongside the tree-view of files in the repository.
+Cuando un alumno lanza la extensión por primera vez, automáticamente navegan a la pestaña del Explorador en Visual Studio Code, en donde pueden entrar a la vista de "Tarea Activa" junto con la vista de diagrama de árbol de los archivos en el repositorio.
 
-![GitHub Classroom Active Assignment View](/assets/images/help/classroom/vs-code-active-assignment.png)
+![Vista de Tarea Activa de GitHub Classroom](/assets/images/help/classroom/vs-code-active-assignment.png)
 
-The student can push their commits to the latest version of remote, by clicking the **sync changes** button, displayed when hovering over the "Active Assignment" line. This abstracts away source control with Git, allowing instructors to teach Git at their own pace. Synching changes also triggers "Tests" to run if a teacher has configured autograding for their assignment.
+El alumno puede subir sus confirmaciones a la última versión del remoto si hace clic en el botón de **sincronizar cambios** que se muestra cuando pasas el puntero del mouse sobre la línea de "Tarea Activa". Esto abstrae el control del código fuente con Git, permitiendo que los instructores enseñen Git a su propio ritmo. El sincronizar los cambios también activa las "Pruebas" para que se ejecuten si un profesor configuró la autocalificación para la tarea.
 
-The "Group" node under "Active Assignment" will show members of a group, if the assignment is a group project. It will also show the admin members of the repository who can help when a student is stuck. To collaborate on the project, a student can start a Live Share session with anyone in the group node, and they will immediately share the entire context of the repository with them. You can learn more about Live Share and collaborating with it [here](https://docs.microsoft.com/en-us/visualstudio/liveshare/).
+El nodo de "Grupo" bajo la "Tarea Activa" mostrará a los miembros de un grupo si la tarea es un proyecto grupal. También mostrará a los miembros administrativos del repositorio que pueden ayudar cuando un estudiante se atore. Para colaborar en el proyecto, un alumno puede iniciar una sesión de Live Share con cualquiera en el nodo de grupo y compartirán todo el contexto del repositorio con ellos de inmediato. Puedes aprender más sobre Live Share y cómo colaborar con éste [aquí](https://docs.microsoft.com/en-us/visualstudio/liveshare/).
 
-Once a student is done with the assignment, they can also navigate to see other Assignments and Classrooms. These can be found under the GitHub tab.
+Una vez que un alumno termina la tarea, también pueden navegar para ver otras tareas y aulas. Estas se pueden encontrar bajo la pestaña de GitHub.

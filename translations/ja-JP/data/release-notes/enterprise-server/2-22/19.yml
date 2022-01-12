@@ -2,9 +2,9 @@
 date: '2021-08-10'
 sections:
   bugs:
-    - Audit log entries for changes made to "Repository creation" organization settings were inaccurate.
+    - '"Repository creation" Organizationの設定に対する変更の監査ログエントリが不正確でした。'
   changes:
-    - Abuse rate limits are now called Secondary rate limits, since the behavior they limit is not always abusive.
+    - 不正利用レート制限は、セカンダリレート制限と呼ばれるようになりました。これは、これによって制限されるのが必ずしも不正利用とは限らないためです。
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。

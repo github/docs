@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - CLI
 type: overview
@@ -25,7 +26,7 @@ shortTitle: Quickstart
   gh auth login
   ```
 
-  {% ifversion not fpt %}
+  {% ifversion not fpt or ghec %}
   To authenticate to {% data variables.product.product_location %}, use the `--hostname` flag.
 
   ```shell

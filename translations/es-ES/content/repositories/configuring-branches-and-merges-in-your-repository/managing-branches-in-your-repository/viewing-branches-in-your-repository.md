@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Ver ramas
@@ -17,7 +18,7 @@ shortTitle: Ver ramas
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
 3. Utiliza la navegación en la parte superior de la página para ver las listas de ramas específicas:
-    - **Your branches**: In repositories that you have push access to, the **Yours** view shows all branches that you’ve pushed to, excluding the default branch, with the most recent branches first.
+    - **Tus ramas**: En los repositorios a los cuales hayas subido código, la vista de **Tuyos** muestra todas las ramas que has subido, excluyendo la predeterminada, con las ramas más recientes primero.
     - **Ramas activas**: la vista **Active** (Activas) muestra todas las ramas a las que alguien ha confirmado dentro de los últimos tres meses, ordenadas de forma descendente desde las ramas con las confirmaciones más recientes.
     - **Ramas en espera**: la vista **Stale** (En espera) muestra todas las ramas en las que nadie ha confirmado durante los últimos tres meses, ordenadas de forma descendente desde las confirmaciones más antiguas. Utiliza esta lista para determinar [qué ramas eliminar](/articles/creating-and-deleting-branches-within-your-repository).
     - **Todas las ramas**: la vista **All** (Todas) muestra la rama por defecto, seguida por todas las otras ramas ordenadas de forma descendente desde las ramas con las confirmaciones más recientes.

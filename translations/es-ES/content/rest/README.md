@@ -7,4 +7,4 @@
 
   El contenido que se procesa con las etiquetas de `include` se toma del directorio `/lib/rest/static`, el cual se genera automáticamente desde el código abierto de la API en GitHub y no debe editarlo ninguna persona. Para obtener más información, consulta el archivo [`/lib/rest/README.md`](/lib/rest/README.md).
 
-  **We cannot accept changes to content that is rendered by `include` tags. However, you can open an issue describing the changes you would like to see.**
+  **No podemos aceptar cambios al contenido que interpretan las etiquetas de `include`. Sin embargo, puedes abrir una propuesta que describa los cambios que te gustaría ver.**

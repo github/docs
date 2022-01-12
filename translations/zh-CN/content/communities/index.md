@@ -1,7 +1,7 @@
 ---
 title: 建设社区
 shortTitle: 建设社区
-intro: 'Learn best practices for moderating and setting up collaborative, safe, and effective communities using GitHub’s community-tested tools.'
+intro: 使用 GitHub 社区测试过的工具，学习调解和设置协作、安全及有效社区的最佳实践。
 redirect_from:
   - /categories/building-a-strong-community
   - /github/building-a-strong-community
@@ -26,6 +26,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 children:

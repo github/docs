@@ -6,6 +6,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/about-github-importer
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 GitHub Importer is a tool that quickly imports source code repositories, including commits and revision history, to GitHub for you.
 

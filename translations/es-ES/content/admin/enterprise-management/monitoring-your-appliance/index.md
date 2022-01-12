@@ -1,9 +1,9 @@
 ---
-title: Monitorear tu aplicativo
-intro: 'Debido a que el uso {% data variables.product.product_location %} aumenta con el tiempo, se incrementará la utilización de recursos del sistema, como el CPU, la memoria, y el almacenamiento. Puedes configurar una revisión y alertas para que estar al tanto de problemas potenciales antes de que se vuelvan lo suficientemente críticos para impactar de forma negativa en el desempeño de la aplicación o su disponibilidad.'
+title: Monitoring your appliance
+intro: 'As use of {% data variables.product.product_location %} increases over time, the utilization of system resources, like CPU, memory, and storage will also increase. You can configure monitoring and alerting so that you''re aware of potential issues before they become critical enough to negatively impact application performance or availability.'
 redirect_from:
-  - /enterprise/admin/guides/installation/system-resource-monitoring-and-alerting/
-  - /enterprise/admin/guides/installation/monitoring-your-github-enterprise-appliance/
+  - /enterprise/admin/guides/installation/system-resource-monitoring-and-alerting
+  - /enterprise/admin/guides/installation/monitoring-your-github-enterprise-appliance
   - /enterprise/admin/installation/monitoring-your-github-enterprise-server-appliance
   - /enterprise/admin/enterprise-management/monitoring-your-appliance
 versions:

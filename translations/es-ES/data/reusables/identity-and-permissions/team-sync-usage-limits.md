@@ -1,8 +1,8 @@
 ### Límites de uso
 
-There are usage limits for the team synchonization feature.  Exceeding these limits will lead to a degredation in performance and may cause synchronization failures.
+Hay límites de uso para la característica de sincronización de equipos.  El exceder estos límites ocasionará una degradación del rendimiento y podrá causar fallas de sincronización.
 
-- Maximum number of members in a GitHub team: 5,000
-- Maximum number of members in a GitHub organization: 10,000
-- Maximum number of teams in a GitHub organization: 1,500
+- Cantidad máxima de miembros en un equipo de GitHub: 5,000
+- Cantidad máxima de miembros en una organización de GitHub: 10,000
+- Cantidad máxima de equipos en una organización de GitHub: 1,500
 

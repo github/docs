@@ -1,1 +1,0 @@
-1. Dentro de "Información de facturación", haz clic en **Update payment method (Actualizar método de pago)**. ![Botón para actualizar método de pago](/assets/images/help/billing/update_payment_method.png)

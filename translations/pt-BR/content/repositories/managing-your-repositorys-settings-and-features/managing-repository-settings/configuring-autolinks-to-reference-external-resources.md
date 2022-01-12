@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Configurar links automáticos
 ---
 
-Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests, commit messages, and release descriptions to external third-party services.
+Qualquer pessoa com permissões de administrador para um repositório pode configurar referências de autolink para vincular problemas, pull requests, mensagens do commit e descrições de versões para serviços externos de terceiros.
 
 Se você usa o Zendesk para acompanhar tíquetes relatados pelo usuário, por exemplo, é possível fazer referência a um número de tíquete na pull request que você abre para corrigir o problema.
 

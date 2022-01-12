@@ -3,6 +3,7 @@ title: Candidatar-se à verificação de publicador para a sua organização
 intro: 'Para oferecer planos pagos para seu aplicativo ou para incluir um selo no Marketplace no anúncio do seu aplicativo, você deverá concluir o processo de verificação de publicação para a sua organização.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 redirect_from:

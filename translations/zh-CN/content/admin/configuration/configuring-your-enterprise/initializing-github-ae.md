@@ -14,7 +14,7 @@ redirect_from:
 
 在初始化企业之前，必须购买 {% data variables.product.product_name %}。 更多信息请联系 {% data variables.contact.contact_enterprise_sales %}。
 
-{% data reusables.github-ae.initialize-enterprise %} Make sure the information you provide matches the intended enterprise owner's information in the IdP. 有关企业所有者的更多信息，请参阅“[企业中的角色](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)”。
+{% data reusables.github-ae.initialize-enterprise %} 确保您提供的信息与 IdP 中的预期企业所有者信息相匹配。 有关企业所有者的更多信息，请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)”。
 
 {% note %}
 

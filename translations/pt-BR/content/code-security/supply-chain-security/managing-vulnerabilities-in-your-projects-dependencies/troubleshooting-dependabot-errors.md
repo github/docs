@@ -8,6 +8,8 @@ redirect_from:
   - /code-security/supply-chain-security/troubleshooting-dependabot-errors
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -19,6 +21,10 @@ topics:
   - Errors
   - Dependencies
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+
+{% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## Sobre os erros do {% data variables.product.prodname_dependabot %}
 
@@ -46,11 +52,21 @@ Se um erro impediu que {% data variables.product.prodname_dependabot %} criasse 
 
 Quando {% data variables.product.prodname_dependabot %} está impedido de criar um pull request para atualizar uma dependência em um ecossistema, ele posta o ícone de erro no arquivo de manifesto. Os arquivos de manifesto gerenciados por {% data variables.product.prodname_dependabot %} estão listados na aba {% data variables.product.prodname_dependabot %}. Para acessar essa aba, na aba **Insights** para o repositório, clique no **Gráfico de Dependências**, e, em seguida, clique na aba **{% data variables.product.prodname_dependabot %}**.
 
-![vista de {% data variables.product.prodname_dependabot %} que mostra um erro](/assets/images/help/dependabot/dependabot-tab-view-error-beta.png)
+![vista de {% data variables.product.prodname_dependabot %} que mostra um erro](/assets/images/help/dependabot/dependabot-tab-view-error.png)
+
+{% ifversion fpt or ghec %}
 
 Para visualizar o arquivo de registro para qualquer arquivo de manifesto, clique no link **HORA da última verificação**. Ao exibir o arquivo de registro para um manifesto mostrado com um símbolo de erro (por exemplo, Maven, na captura de tela acima), todos os erros também serão exibidos.
 
-![Erro e registro de uma atualização de versão de {% data variables.product.prodname_dependabot %} ](/assets/images/help/dependabot/dependabot-version-update-error-beta.png)
+![Erro e registro de uma atualização de versão de {% data variables.product.prodname_dependabot %} ](/assets/images/help/dependabot/dependabot-version-update-error.png)
+
+{% else %}
+
+Para ver os logs para qualquer arquivo de manifesto, clique no link **Última verificação de TIME** e, em seguida, clique em **Visualizar registros**.
+
+![Erro e registro de uma atualização de versão de {% data variables.product.prodname_dependabot %} ](/assets/images/enterprise/3.3/dependabot/dependabot-version-update-error.png)
+
+{% endif %}
 
 ## Entender os erros de {% data variables.product.prodname_dependabot %}
 
@@ -62,7 +78,7 @@ Pull requests para atualizações de segurança atuam para atualizar uma depend�
 
 Cada aplicativo com dependências tem um gráfico de dependências, ou seja, um gráfico direcionado acíclico de cada versão de pacote da qual o aplicativo depende direta ou indiretamente. Toda vez que uma dependência é atualizada, este gráfico deve ser resolvido. Caso contrário, o aplicativo não será criado. Quando um ecossistema tem um gráfico de dependência profundo e complexo, por exemplo, npm e RubyGems, geralmente é impossível atualizar uma única dependência sem atualizar todo o ecossistema.
 
-A melhor maneira de evitar esse problema é manter-se atualizado com as versões mais recentes, habilitando, por exemplo, as atualizações de versões. Isso aumenta a probabilidade de que uma vulnerabilidade em uma dependência possa ser resolvida por meio de uma atualização simples que não afete o gráfico de dependência. Para obter detalhes, consulte "[Habilitando e desabilitando atualizações da versão](/github/administering-a-repository/enabling-and-disabling-version-updates)."
+A melhor maneira de evitar esse problema é manter-se atualizado com as versões mais recentes, habilitando, por exemplo, as atualizações de versões. Isso aumenta a probabilidade de que uma vulnerabilidade em uma dependência possa ser resolvida por meio de uma atualização simples que não afete o gráfico de dependência. Para obter mais informações, consulte "[Habilitando e desabilitando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
 
 ### {% data variables.product.prodname_dependabot %} não consegue atualizar para a versão necessária, pois já existe um pull request aberto para a última versão
 
@@ -76,7 +92,7 @@ Existem duas opções: você pode revisar o pull request aberto e fazer o merge 
 
 Este erro é difícil de ser corrigido. Se a atualização de uma versão expirar, você poderá especificar as dependências mais importantes para atualizar usando o parâmetro `permitir` ou, como alternativa, você pode usar o parâmetro `ignorar` para excluir algumas dependências de atualizações. Atualizar sua configuração pode permitir que {% data variables.product.prodname_dependabot %} revise a atualização da versão e gere o pull request no tempo disponível.
 
-Se uma atualização de segurança expirar, você pode reduzir as chances de isso acontecer mantendo as dependências atualizadas, por exemplo, habilitando atualizações de versão. Para obter detalhes, consulte "[Habilitando e desabilitando atualizações da versão](/github/administering-a-repository/enabling-and-disabling-version-updates)."
+Se uma atualização de segurança expirar, você pode reduzir as chances de isso acontecer mantendo as dependências atualizadas, por exemplo, habilitando atualizações de versão. Para obter mais informações, consulte "[Habilitando e desabilitando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
 
 ### {% data variables.product.prodname_dependabot %} não consegue abrir mais nenhum pull request
 

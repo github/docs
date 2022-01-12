@@ -4,6 +4,7 @@ intro: '変更が信頼できるソースからのものであることを他の
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -29,6 +30,6 @@ Once you enable GPG verification, it will immediately take effect for all your c
 
 {% note %}
 
-**Note:** Once you have enabled GPG verification for {% data variables.product.prodname_codespaces %}, you also must append `-s` to each commit in order for it to be signed. To do this in {% data variables.product.prodname_vscode %}, ensure the "Git: Enable Commit Signing" option is enabled from the Settings.
+**Note:** Once you have enabled GPG verification for {% data variables.product.prodname_codespaces %}, you also must append `-S` to each commit in order for it to be signed. To do this in {% data variables.product.prodname_vscode %}, ensure the "Git: Enable Commit Signing" option is enabled from the Settings.
 
 {% endnote %}

@@ -1,7 +1,7 @@
 ---
-title: Aprende sobre las GitHub Actions
-shortTitle: Aprende sobre las GitHub Actions
-intro: 'Ya sea que seas nuevo en el uso de {% data variables.product.prodname_actions %} o que te interese aprender sobre todo lo que pueden ofrecer, esta guía te ayudará a utilizar las {% data variables.product.prodname_actions %} para acelerar tus flujos de trabajo de desarrollo de aplicaciones.'
+title: Learn GitHub Actions
+shortTitle: Learn GitHub Actions
+intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
 redirect_from:
   - /articles/about-github-actions
   - /github/automating-your-workflow-with-github-actions/about-github-actions
@@ -11,7 +11,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/overview
   - /actions/getting-started-with-github-actions/getting-started-with-github-actions
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
-  - /articles/creating-a-workflow-with-github-actions/
+  - /articles/creating-a-workflow-with-github-actions
   - /articles/configuring-a-workflow
   - /github/automating-your-workflow-with-github-actions/configuring-a-workflow
   - /actions/automating-your-workflow-with-github-actions/configuring-a-workflow
@@ -27,13 +27,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /understanding-github-actions
   - /finding-and-customizing-actions
   - /essential-features-of-github-actions
   - /managing-complex-workflows
-  - /sharing-workflows-with-your-organization
-  - /using-workflow-templates
+  - /sharing-workflows-secrets-and-runners-with-your-organization
+  - /creating-starter-workflows-for-your-organization
+  - /using-starter-workflows
+  - /reusing-workflows
   - /events-that-trigger-workflows
   - /expressions
   - /contexts

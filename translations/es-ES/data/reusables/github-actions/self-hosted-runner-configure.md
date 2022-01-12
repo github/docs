@@ -1,4 +1,4 @@
-1. Select the operating system image and architecture of your self-hosted runner machine.
+1. La imagen y arquitectura de tu sistema operativo para tu máquina del ejecutor auto-hospedado.
 1. Verás instrucciones que te mostrarán cómo descargar la aplicación del ejecutor e instalarla en tu máquina de ejecutor autoalojado.
 
    Abre un shell en tu máquina de ejecutor autoalojado y ejecuta cada comando del shell en el orden que se muestra.

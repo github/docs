@@ -1,7 +1,7 @@
 ---
-title: Repl.it with GitHub Classroom
-shortTitle: Repl.it with GitHub Classroom
-intro: 'As of July 13 2021, Repl.it integration is no longer available in {% data variables.product.prodname_classroom %}.'
+title: Repl.it con GitHub Classroom
+shortTitle: Repl.it con GitHub Classroom
+intro: 'Desde el 13 de julio de 2021, ya no está disponible la integración con Repl.it en {% data variables.product.prodname_classroom %}.'
 versions:
   fpt: '*'
 redirect_from:
@@ -10,19 +10,19 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-replit-with-github-classroom
 ---
 
-## What’s changing with Repl.it integration
+## Qué está cambiando con la integración de Repl.it
 
-As of July 13 2021, Repl.it integration is no longer available. Here’s what’s changed:
+Desde el 13 de julio de 2021, ya no está disponible la integración con Repl.it. Aquí te mostramos lo que cambió:
 
-- New private and public repls can no longer be created from within GitHub Classroom.
-- Replit Hacker benefits, such as Always On and Boosts, are no longer available for new GitHub Classroom users.
+- Los repls privados y públicos nuevos ya no se podrán crear desde dentro de GitHub Classroom.
+- Los beneficios de Hacker de Replit, tales como los potenciadores de Siempre Encendido, ya no están disponibles para los usuarios nuevos de GitHub Classroom.
 
-## What does this mean for existing assignments?
-Your existing GitHub Classroom repls will remain private forever and you can submit work to GitHub Classroom via these repls until September 30 2021. After September 2021, the Replit icon on the assignment README will no longer work. We suggest you remove the instructions from any README using the integration and let students know that the icon will no longer work.
+## ¿Qué significa esto para las tareas existentes?
+Tus repls existentes de GitHub Classroom se mantendrán privadas por siempre y podrás emitir trabajo a GitHub Classroom a través de ellas hasta el 30 de septiembre de 2021. Después de septiembre de 2021, el icono de Replit en el README de la tarea ya no funcionará. Te sugerimos eliminar las instrucciones de cualquier README utilizando la integración y comunicar a los alumnos que el icono ya no funcionará.
 
-While you can no longer create private repls from within Classroom, you can continue to create private repls in Replit until September 30th.
+Si bien ya no puedes crea repls privados desde dentro de las aulas, puedes seguir creando repls privados en Replit hasta el 30 de septiembre.
 
-We know cloud IDE integrations are important to your classroom and are working hard to bring you more options.
+Sabemos que las integraciones con IDE en la nube son importantes para tu aula y estamos trabajando arduamente para traerte más opciones.
 
 ## Leer más
 

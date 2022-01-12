@@ -28,14 +28,14 @@ Você pode criar mensagens personalizadas que os usuários verão nas páginas d
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-## Creating your account
+## Criando a sua conta
 
-Once your instance has been created, you'll need to create your own admin account.
+Uma vez que sua instância foi criada, você deverá criar a sua própria conta de administrador.
 
 1. Na página "Create Admin Account" (Criar conta de administrador) em `http(s)://[hostname]/join`, defina seu nome de usuário, senha e endereço de e-mail. Em seguida, clique em **Create an account** (Criar conta). ![Criar conta de administrador](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png)
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 
-## Inviting users
+## Convidar usuários
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
@@ -43,10 +43,10 @@ Once your instance has been created, you'll need to create your own admin accoun
 
 {% tip %}
 
-**Tip:** If email for notifications is configured on the appliance, an invite will also be sent to the provided email address.
+**Dica:** Se o e-mail para notificações estiver configurado no dispostivo, um convite também será enviado para o endereço de e-mail fornecido.
 
 {% endtip %}
 
 ## Leia mais
 
-- "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"
+- "[Configurar e-mail para notificações](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"

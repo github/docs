@@ -3,6 +3,7 @@ title: Managing spending limits for Codespaces
 intro: '您可以为 {% data variables.product.prodname_codespaces %} 的使用设置支出限额。'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
@@ -23,8 +24,10 @@ Once you've reached your spending limit, your organization or repository will no
 
 有关 {% data variables.product.prodname_codespaces %} 使用价格的更多信息，请参阅“[关于 {% data variables.product.prodname_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)”。
 
+{% ifversion ghec %}
 ## Using your Azure Subscription
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. 更多信息请参阅“[将 Azure 订阅连接到您的企业](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)”。
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. 更多信息请参阅“[将 Azure 订阅连接到您的企业](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)”。
+{% endif %}
 
 ## 管理组织的 {% data variables.product.prodname_codespaces %} 支出限额
 
@@ -49,7 +52,7 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 ## Exporting changes when you have reached your spending limit
 
 {% data reusables.codespaces.exporting-changes %}
-## Managing usage and spending limit email notifications
+## 管理使用和支出限制电子邮件通知
 
 Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, and 90% of your account's spending limit.
 

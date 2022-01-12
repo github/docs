@@ -6,6 +6,8 @@ redirect_from:
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -15,6 +17,8 @@ topics:
   - Dependencies
 shortTitle: 暗号化されたシークレットの管理
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
 
 ## {% data variables.product.prodname_dependabot %} に対する暗号化されたシークレットについて
 
@@ -79,7 +83,7 @@ Organizationでシークレットを作成する場合、ポリシーを使用�
 
    シークレットの名前が、Dependabot シークレットのページに一覧表示されます。 [**Update**] をクリックすると、シークレットの値やアクセスポリシーを変更できます。 [**Remove**] をクリックすると、シークレットを削除できます。
 
-   ![Organization シークレットの更新または削除](/assets/images/help/dependabot/update-remove-repo-secret.png)
+   ![Organization シークレットの更新または削除](/assets/images/help/dependabot/update-remove-org-secret.png)
 
 ## レジストリのIP許可リストへの{% data variables.product.prodname_dependabot %}の追加
 

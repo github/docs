@@ -12,8 +12,13 @@ on:
   schedule:
     - cron: '50 19 * * *' # once a day at 19:50 UTC / 11:50 PST
 
-env:
-  CI: true
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   test:
@@ -23,22 +28,38 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-group: [content, graphql, meta, rendering, routing, unit, linting]
+        test-group:
+          [
+            content,
+            graphql,
+            meta,
+            rendering,
+            routing,
+            unit,
+            linting,
+            translations,
+          ]
     steps:
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           # Enables cloning the Early Access repo later with the relevant PAT
           persist-credentials: 'false'
 
       - name: Setup node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Cache nextjs build
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Clone early access
@@ -52,6 +73,4 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npx jest tests/${{ matrix.test-group }}/
-        env:
-          NODE_OPTIONS: '--max_old_space_size=8192'
+        run: npm test -- tests/${{ matrix.test-group }}/

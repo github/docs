@@ -4,6 +4,7 @@ intro: 'This article provides troubleshooting steps for common issues you may ex
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces
@@ -13,9 +14,9 @@ shortTitle: Creation and deletion
 ## Creating codespaces
 
 ### No access to create a codespace
-{% data variables.product.prodname_codespaces %} are not available for all repositories. If the “Open with Codespaces” button is missing, {% data variables.product.prodname_codespaces %} may not be available for that repository. Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)".
+{% data variables.product.prodname_codespaces %} are not available for all repositories. If the "Open with Codespaces" button is missing, {% data variables.product.prodname_codespaces %} may not be available for that repository. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)."
 
-If you believe your organization has [enabled {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization), make sure that an organization owner or billing manager has set the spending limit for {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Administrar tu límite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
+If you believe your organization has [enabled {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization), make sure that an organization owner or billing manager has set the spending limit for {% data variables.product.prodname_codespaces %}. For more information, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
 
 ### Codespace does not open when created
 
@@ -33,24 +34,24 @@ The owner of a codespace has full control over it and only they can delete their
 
 ## Container storage
 
-Cuando creas un codespace, este tiene una cantidad de almacenamiento finita y, con el tiempo, podría que necesites liberar espacio. Try running any of the following commands in the {% data variables.product.prodname_codespaces %} terminal to free up storage space.
+When you create a codespace, it has a finite amount of storage and over time it may be necessary for you to free up space. Try running any of the following commands in the {% data variables.product.prodname_codespaces %} terminal to free up storage space.
 
 - Remove packages that are no longer used by using `sudo apt autoremove`.
-- Limpia el caché de apt utilizando `sudo apt clean`.
+- Clean the apt cache by using `sudo apt clean`.
 - See the top 10 largest files in the codespace with`sudo find / -printf '%s %p\n'| sort -nr | head -10`.
 - Delete unneeded files, such as build artifacts and logs.
 
 Some more destructive options:
 
-- Elimina las imágenes de Docker, redes y contenedores sin utilizar con `docker system prune` (adjunta una `-a` si quieres eliminar todas las imágenes, y `--volumes` si quieres eliminar todos los volúmenes).
-- Elimina los archivos no rastreados del árbol de trabajo: `git clean -i`.
+- Remove unused Docker images, networks, and containers by using `docker system prune` (append `-a` if you want to remove all images, and `--volumes` if you want to remove all volumes).
+- Remove untracked files from working tree: `git clean -i`.
 
 ## Configuration
 
 {% data reusables.codespaces.recovery-mode %}
 
 ```
-Este codespace se ejecuta acutalmente en modo de recuperación debido a un error del contenedor.
+This codespace is currently running in recovery mode due to a container error.
 ```
 
-Revisa las bitácoras de creación, actualiza la configuración como lo requieras y ejecuta **Codespaces: Rebuild Container** en la paleta de comandos para volver a intentarlo. For more information, see " [Codespaces logs](/codespaces/troubleshooting/codespaces-logs)" and "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)."
+Review the creation logs, update the configuration as needed, and run **Codespaces: Rebuild Container** in the {% data variables.product.prodname_vscode_command_palette %} to retry. For more information, see " [Codespaces logs](/codespaces/troubleshooting/codespaces-logs)" and "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)."

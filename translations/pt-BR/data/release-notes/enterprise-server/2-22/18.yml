@@ -4,10 +4,10 @@ sections:
   security_fixes:
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
-    - A significant number of 503 errors were being created if the scheduled job to sync vulnerabilities with GitHub.com attempted to run when dependency graph was not enabled and content analysis was enabled.
-    - Unauthenticated HTTP proxy for the pages containers build was not supported for any users that use HTTP proxies.
+    - Um número significativo de erros de 503 estavam sendo criados se o trabalho programado para sincronizar vulnerabilidades com o GitHub tentasse executar quando o gráfico de dependência não foi habilitado e a análise de conteúdo foi habilitada.
+    - O Proxy de HTTP não autenticado para a compilação de páginas não era compatível com usuários que usam o proxy HTTP.
   changes:
-    - The logs for `babeld` now include a `cmd` field for HTTP ref advertisement requests instead of only including it during the negotiation requests.
+    - Os registros para `babeld` agora incluem um campo `cmd` para solicitações de publicidade de ref de HTTP em vez de apenas incluí-lo durante as solicitações de negociação.
   known_issues:
     - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.

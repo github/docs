@@ -1,1 +1,1 @@
-To prevent acceptance or submission of an assignment by students, deselect **Enable assignment invitation URL**. To edit the assignment, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit assignment**.
+To prevent acceptance or submission of an assignment by students, you can change the "Assignment Status" within the "Edit assignment" view. When an assignment is Active, students will be able to accept it using the invitation link. When it is Inactive, this link will no longer be valid.

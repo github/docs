@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 自动链接的引用
 ---
 
@@ -39,7 +40,7 @@ shortTitle: 自动链接的引用
 | `Username/Repository#` 和议题或拉取请求编号          | jlord/sheetsee.js#26                           | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26) |
 | `Organization_name/Repository#` 和议题或拉取请求编号 | github/linguist#4039                           | [github/linguist#4039](https://github.com/github/linguist/pull/4039)   |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 如果您在列表中引用议题、拉取请求或讨论，则引用将展开以显示标题和状态。 有关任务列表的更多信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。
 {% endif %}
 

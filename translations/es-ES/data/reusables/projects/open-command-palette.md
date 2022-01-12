@@ -1,1 +1,1 @@
-Teclea `cmd + k` (Mac) or `ctrl + k` (Windows/Linux) para abrir la paleta de comandos.
+Para abrir la paleta de comandos del proyecto, presiona `Ctrl+k` (Windows y Linux) o `Command+k` (Mac).

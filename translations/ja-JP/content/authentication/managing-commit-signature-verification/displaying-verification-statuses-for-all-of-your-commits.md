@@ -4,6 +4,7 @@ shortTitle: すべてのコミットの検証を表示
 intro: コミット署名検証の警戒モードを有効にして、すべてのコミットとタグに署名検証ステータスのマークを付けることができます。
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management

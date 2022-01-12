@@ -1,24 +1,25 @@
 ---
-title: GitHubのIPアドレスについて
-intro: '{% data variables.product.product_name %}は複数のIPアドレスの範囲からアプリケーションを提供します。この範囲は、APIを通じて取得できます。'
+title: About GitHub's IP addresses
+intro: '{% data variables.product.product_name %} serves applications from multiple IP address ranges, which are available using the API.'
 redirect_from:
-  - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist/
-  - /categories/73/articles/
-  - /categories/administration/
-  - /articles/github-s-ip-addresses/
+  - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist
+  - /categories/73/articles
+  - /categories/administration
+  - /articles/github-s-ip-addresses
   - /articles/about-github-s-ip-addresses
   - /articles/about-githubs-ip-addresses
   - /github/authenticating-to-github/about-githubs-ip-addresses
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/about-githubs-ip-addresses
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
 shortTitle: GitHub's IP addresses
 ---
 
-{% data variables.product.prodname_dotcom %}のIPアドレスのリストは、[メタ](https://api.github.com/meta)APIエンドポイントから取得できます。 詳しい情報については、「[メタ](/rest/reference/meta)」を参照してください。
+You can retrieve a list of {% data variables.product.prodname_dotcom %}'s IP addresses from the [meta](https://api.github.com/meta) API endpoint. For more information, see "[Meta](/rest/reference/meta)."
 
 {% note %}
 
@@ -26,12 +27,14 @@ shortTitle: GitHub's IP addresses
 
 {% endnote %}
 
-これらの範囲は[CIDR表記](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)になっています。 [CIDR / VLSM Supernet Calculator](http://www.subnet-calculator.com/cidr.php)のようなツールを使って、CIDR表記をIPアドレスの範囲に変換できます。
+These IP addresses are used by {% data variables.product.prodname_dotcom %} to serve our content, deliver webhooks, and perform hosted {% data variables.product.prodname_actions %} builds.
 
-We make changes to our IP addresses from time to time. IP アドレスによる許可はお勧めしませんが、これらの IP 範囲を使用する場合は、API を定期的にモニタリングすることを強くお勧めします。
+These ranges are in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You can use an online conversion tool such as this  [CIDR / VLSM Supernet Calculator](http://www.subnet-calculator.com/cidr.php) to convert from CIDR notation to IP address ranges.
 
-アプリケーションが機能するためには、`github.com`のIPの範囲についてTCPポートの22、80、443、9418を許可しなければなりません。
+We make changes to our IP addresses from time to time. We do not recommend allowing by IP address, however if you use these IP ranges we strongly encourage regular monitoring of our API.
 
-## 参考リンク
+For applications to function, you must allow TCP ports 22, 80, 443, and 9418 via our IP ranges for `github.com`.
 
-- [接続の問題のトラブルシューティング](/articles/troubleshooting-connectivity-problems)
+## Further reading
+
+- "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"

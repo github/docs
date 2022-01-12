@@ -7,11 +7,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
 
-GitHub APIには、[REST API](/rest)と[GraphQL API](/graphql)という2つの安定バージョンがあります。 REST APIを使う際には、[`Accept`ヘッダを介してv3をリクエスト](/v3/media/#request-specific-version)することをおすすめします。 GraphQL APIの利用に関する情報については[v4のドキュメント](/graphql)を参照してください。
+GitHub APIには、[REST API](/rest)と[GraphQL API]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)という2つの安定バージョンがあります。 REST APIを使う際には、[`Accept`ヘッダを介してv3をリクエスト](/v3/media/#request-specific-version)することをおすすめします。 GraphQL APIの利用に関する情報については[v4のドキュメント]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)を参照してください。
 
 ## 非推奨のバージョン
 

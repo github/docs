@@ -1,6 +1,6 @@
 ---
-title: Sobre o Suporte do GitHub Enterprise
-intro: '{% data variables.contact.github_support %} pode ajudar você a resolver problemas que surgem em {% data variables.product.product_name %}.'
+title: About GitHub Enterprise Support
+intro: '{% data variables.contact.github_support %} can help you troubleshoot issues that arise on {% data variables.product.product_name %}.'
 redirect_from:
   - /enterprise/admin/enterprise-support/about-github-enterprise-support
   - /admin/enterprise-support/about-github-enterprise-support
@@ -11,79 +11,83 @@ type: overview
 topics:
   - Enterprise
   - Support
-shortTitle: Suporte do GitHub Enterprise
+shortTitle: GitHub Enterprise Support
 ---
-
 {% note %}
 
-**Observação**: {% data reusables.support.data-protection-and-privacy %}
+**Note**: {% data reusables.support.data-protection-and-privacy %}
 
 {% endnote %}
 
-## Sobre o {% data variables.contact.enterprise_support %}
+## About {% data variables.contact.enterprise_support %}
 
-{% data variables.product.product_name %} inclui {% data variables.contact.enterprise_support %} em inglês{% ifversion ghes %} e japonês{% endif %}.
+{% data variables.product.product_name %} includes {% data variables.contact.enterprise_support %} in English{% ifversion ghes %} and Japanese{% endif %}.
 
 {% ifversion ghes %}
-Você pode entrar em contato {% data variables.contact.enterprise_support %} através de {% data variables.contact.contact_enterprise_portal %} para obter ajuda:
- - Instalar e usar o {% data variables.product.product_name %};
- - Identificar e verificar as causas dos erros.
+You can contact {% data variables.contact.enterprise_support %} through {% data variables.contact.contact_enterprise_portal %} for help with:
+ - Installing and using {% data variables.product.product_name %}
+ - Identifying and verifying the causes of suspected errors
 
-Além de todos os benefícios de {% data variables.contact.enterprise_support %}, {% data variables.contact.premium_support %} de suporte para ofertas de {% data variables.product.product_name %}:
-  - Suporte gravado por meio de nosso portal de suporte 24 horas por dias, 7 dias por semana
-  - Suporte por telefone 24 horas por dia, 7 dias por semana
-  - Um Contrato de nível de serviço (SLA, Service Level Agreement) com tempos de resposta inicial garantidos
-  - Customer Reliability Engineers
-  - Acesso a conteúdo premium
-  - Verificação de integridade agendadas
-  - Horas administrativas gerenciadas
+In addition to all of the benefits of {% data variables.contact.enterprise_support %}, {% data variables.contact.premium_support %} support for {% data variables.product.product_name %} offers:
+  - Written support through our support portal 24 hours per day, 7 days per week
+  - Phone support 24 hours per day, 7 days per week
+  - A Service Level Agreement (SLA) with guaranteed initial response times
+  - Customer Reliability Engineers 
+  - Access to premium content
+  - Scheduled health checks
+  - Managed Admin hours
 {% endif %}
 
 {% ifversion ghes %}
-Para obter mais informações, consulte a seção "[Sobre o {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)".
+For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."
 {% endif %}
 
 {% data reusables.support.scope-of-support %}
 
-## Entrar em contato com o {% data variables.contact.enterprise_support %}
-
-Você pode entrar em contato com {% data variables.contact.enterprise_support %} através de {% ifversion ghes %}{% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} o {% data variables.contact.ae_azure_portal %}{% endif %} para relatar problemas por escrito. Para obter mais informações, consulte "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
+## Contacting {% data variables.contact.enterprise_support %}
 
 {% ifversion ghes %}
-## Horas de operação
+{% data reusables.support.zendesk-old-tickets %}
+{% endif %}
 
-### Suporte em inglês
 
-Para problemas não urgentes, oferecemos suporte em inglês 24 horas por dia e 5 dias por semana, exceto nos fins de semana e feriados nacionais dos EUA. feriados. O tempo padrão de resposta é de 24 horas.
+You can contact {% data variables.contact.enterprise_support %} through {% ifversion ghes %}{% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} the {% data variables.contact.ae_azure_portal %}{% endif %} to report issues in writing. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
 
-Para problemas urgentes, estamos disponíveis 24 horas por dia, 7 dias por semana, mesmo durante os feriados nacionais nos EUA. feriados.
+{% ifversion ghes %}
+## Hours of operation
 
-### Suporte em japonês
+### Support in English
 
-Para problemas não urgentes, o suporte em japonês está disponível de segunda-feira à sexta-feira, das 9h às 17h JST, exceto durante os feriados nacionais no Japão. Para problemas urgentes, oferecemos suporte em inglês 24 horas por dia, 7 dias por semana, mesmo durante os feriados nacionais nos EUA. feriados.
+For standard non-urgent issues, we offer support in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays. The standard response time is 24 hours.
 
-Para obter uma lista completa dos EUA. Para ver a lista completa de feriados nacionais dos EUA e do Japão segundo o {% data variables.contact.enterprise_support %}, consulte o "[Calendário de feriados](#holiday-schedules)".
+For urgent issues, we are available 24 hours per day, 7 days per week, even during national U.S. holidays.
 
-## Calendário de feriados
+### Support in Japanese
 
-Para problemas urgentes, fornecemos suporte em inglês 44 horas por dia, 7 dias por semana, incluindo nos EUA. e feriados japoneses.
+For non-urgent issues, support in Japanese is available Monday through Friday from 9:00 AM to 5:00 PM JST, excluding national holidays in Japan. For urgent issues, we offer support in English 24 hours per day, 7 days per week, even during national U.S. holidays.
 
-### Feriados nos Estados Unidos
+For a complete list of U.S. and Japanese national holidays observed by {% data variables.contact.enterprise_support %}, see "[Holiday schedules](#holiday-schedules)."
 
-O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA. O {{ site.data.variables.contact.enterprise_support }} observa os feriados americanos, embora nossa equipe de suporte global esteja disponível para responder tíquetes urgentes.
+## Holiday schedules
+
+For urgent issues, we can help you in English 24 hours per day, 7 days per week, including on U.S. and Japanese holidays.
+
+### Holidays in the United States
+
+{% data variables.contact.enterprise_support %} observes these U.S. holidays, although our global support team is available to answer urgent tickets.
 
 {% data reusables.enterprise_enterprise_support.support-holiday-availability %}
 
-### Feriados no Japão
+### Holidays in Japan
 
-O {% data variables.contact.enterprise_support %} não oferece suporte na língua japonesa no período de 28 de dezembro a 3 de janeiro, nem nos feriados listados em [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
+{% data variables.contact.enterprise_support %} does not provide Japanese-language support on December 28th through January 3rd as well as on the holidays listed in [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
 
 {% data reusables.enterprise_enterprise_support.installing-releases %}
 {% endif %}
 
-## Atribuindo uma prioridade a um tíquete de suporte
+## Assigning a priority to a support ticket
 
-Ao entrar em contato com {% data variables.contact.enterprise_support %}, você pode escolher uma das quatro prioridades para o tíquete: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}.
+When you contact {% data variables.contact.enterprise_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
@@ -93,14 +97,14 @@ Ao entrar em contato com {% data variables.contact.enterprise_support %}, você 
 {% data reusables.support.ghae-priorities %}
 {% endif %}
 
-## Resolução e fechamento de tíquete de suporte
+## Resolving and closing support tickets
 
 {% data reusables.support.enterprise-resolving-and-closing-tickets %}
 
-## Leia mais
+## Further reading
 
 {% ifversion ghes %}
-- Seção 10 sobre suporte no Contrato de Licença de "[{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com/license)"{% endif %}
-- "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)"{% ifversion ghes %}
-- "[Preparar para enviar um tíquete](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)"{% endif %}
-- [Enviar um tíquete](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)
+- Section 10 on Support in the "[{% data variables.product.prodname_ghe_server %} License Agreement](https://enterprise.github.com/license)"{% endif %}
+- "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)"{% ifversion ghes %}
+- "[Preparing to submit a ticket](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)"{% endif %}
+- "[Submitting a ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)"

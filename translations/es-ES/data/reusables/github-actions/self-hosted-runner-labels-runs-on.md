@@ -1,3 +1,5 @@
 Para especificar un ejecutor auto-hospedado para tu trabajo, configura `runs-on` en tu archivo de flujo de trabajo con las etiquetas de dicho ejecutor.
 
-All self-hosted runners have the `self-hosted` label. Using only this label will select any self-hosted runner. To select runners that meet certain criteria, such as operating system or architecture, provide an array of labels that begins with `self-hosted` (this must be listed first) and then includes additional labels as needed.
+Todos los ejecutores auto-hospedados tienen la etiqueta `self-hosted`. El utilizar únicamente esta etiqueta seleccionará cualquier ejecutor auto-hospedado. Para seleccionar los ejecutores que cumplen con ciertos criterios, tales como el sistema operativo o arquitectura, te recomendamos proporcionar un arreglo de etiquetas que comience con `self-hosted` (este se debe listar primero) y que luego incluya etiquetas adicionales conforme lo requieras. Cuando especifiques un arreglo de etiquetas, los jobs se pondrán en cola cuando se trate de ejecutores que tengan todas las etiquetas que especificas.
+
+Aunque la etiqueta de `self-hosted` no se requiere, te recomendamos ampliamente especificarla cuando utilices ejecutores auto-hospedados para garantizar que tu trabajo no especifique algún ejecutor hospedado en {% data variables.product.prodname_dotcom %} futuro o actual por accidente.
