@@ -76,7 +76,7 @@ Committing the workflow file to a branch in your repository triggers the `push` 
    For example, you can see the list of files in your repository:
    ![Example action detail](/assets/images/help/repository/actions-quickstart-log-detail.png)
    
-## More workflow templates
+## More starter workflows
 
 {% data reusables.actions.workflow-template-overview %}
 

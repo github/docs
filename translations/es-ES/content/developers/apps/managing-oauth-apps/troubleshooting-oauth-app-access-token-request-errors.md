@@ -1,8 +1,8 @@
 ---
-title: Solucionar problemas para los errores de solicitud en los tokens de acceso a Apps de OAuth
+title: Troubleshooting OAuth App access token request errors
 intro: '{% data reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors/
+  - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /developers/apps/troubleshooting-oauth-app-access-token-request-errors
 versions:
@@ -12,18 +12,18 @@ versions:
   ghec: '*'
 topics:
   - OAuth Apps
-shortTitle: Solucionar los problemas de la solicitud de token
+shortTitle: Troubleshoot token request
 ---
-
 {% note %}
 
-**Nota:** Estos ejemplos solo muestran respuestas de JSON.
+**Note:** These examples only show JSON responses.
 
 {% endnote %}
 
-## Credenciales de cliente incorrectas
+## Incorrect client credentials
 
-Si la client\_id y/o el client\_secret que pasas son incorrectos, recibirás este error como respuesta.
+If the client\_id and or client\_secret you pass are incorrect you will
+receive this error response.
 
 ```json
 {
@@ -33,11 +33,12 @@ Si la client\_id y/o el client\_secret que pasas son incorrectos, recibirás est
 }
 ```
 
-Para resolver este error, asegúrate de que tienes las credenciales correctas para tu {% data variables.product.prodname_oauth_app %}. Revisa dos veces la `client_id` y el `client_secret` para asegurarte de que sean correctos y de que se pasen correctamente en {% data variables.product.product_name %}.
+To solve this error, make sure you have the correct credentials for your {% data variables.product.prodname_oauth_app %}. Double check the `client_id` and `client_secret` to make sure they are correct and being passed correctly
+to {% data variables.product.product_name %}.
 
-## Redirigir una discordancia de URI
+## Redirect URI mismatch
 
-Si proporcionas una `redirect_uri` que no empate con lo que registraste con tu {% data variables.product.prodname_oauth_app %}, recibirás este mensaje de error:
+If you provide a `redirect_uri` that doesn't match what you've registered with your {% data variables.product.prodname_oauth_app %}, you'll receive this error message:
 
 ```json
 {
@@ -47,9 +48,11 @@ Si proporcionas una `redirect_uri` que no empate con lo que registraste con tu {
 }
 ```
 
-Para corregir este error, puedes ya sea proporcionar una `redirect_uri` que coincida con lo que registraste o dejar este parámetro para utilizar aquél predeterminado que se registró con tu aplicación.
+To correct this error, either provide a `redirect_uri` that matches what
+you registered or leave out this parameter to use the default one
+registered with your application.
 
-## Código de verificación incorrecto
+## Bad verification code
 
 ```json
 {
@@ -60,7 +63,9 @@ Para corregir este error, puedes ya sea proporcionar una `redirect_uri` que coin
 }
 ```
 
-Si el código de verificación que pasaste es incorrecto, está caduco, o no coincide con lo que recibiste en la primera solicitud de autorización, recibirás este error.
+If the verification code you pass is incorrect, expired, or doesn't
+match what you received in the first request for authorization you will
+receive this error.
 
 ```json
 {
@@ -70,4 +75,5 @@ Si el código de verificación que pasaste es incorrecto, está caduco, o no coi
 }
 ```
 
-Para resolver este error, inicia el [proceso de autorización de OAuth nuevamente](/apps/building-oauth-apps/authorizing-oauth-apps/) y obtén un código nuevo.
+To solve this error, start the [OAuth authorization process again](/apps/building-oauth-apps/authorizing-oauth-apps/)
+and get a new code.

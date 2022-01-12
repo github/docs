@@ -1,8 +1,8 @@
 ---
-title: Crear una App de OAuth
+title: Creating an OAuth App
 intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps
   - /apps/building-oauth-apps/creating-an-oauth-app
   - /developers/apps/creating-an-oauth-app
 versions:
@@ -13,11 +13,10 @@ versions:
 topics:
   - OAuth Apps
 ---
-
 {% ifversion fpt or ghec %}
 {% note %}
 
-  **Nota:** {% data reusables.apps.maximum-oauth-apps-allowed %}
+  **Note:** {% data reusables.apps.maximum-oauth-apps-allowed %}
 
 {% endnote %}
 {% endif %}
@@ -25,29 +24,35 @@ topics:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.oauth_apps %}
-4. Da clic en **Nueva App de OAuth**. ![Botón para crear una app de OAuth nueva](/assets/images/oauth-apps/oauth_apps_new_app.png)
+4. Click **New OAuth App**.
+![Button to create a new OAuth app](/assets/images/oauth-apps/oauth_apps_new_app.png)
 
   {% note %}
 
-  **Nota:** si es la primera vez que creas una app, este botón dirá **Registrar una aplicación nueva**.
+  **Note:** If you haven't created an app before, this button will say, **Register a new application**.
 
   {% endnote %}
-6. Teclea el nombre de tu app en "Nombre de la aplicación". ![Campo para el nombre de tu app](/assets/images/oauth-apps/oauth_apps_application_name.png)
+6. In "Application name", type the name of your app.
+![Field for the name of your app](/assets/images/oauth-apps/oauth_apps_application_name.png)
 
   {% warning %}
 
-  **Advertencia** Utiliza solo la información que consideres pública en tu App de OAuth. Evita utilizar datos sensibles, tales como URL internas, cuando crees una App de OAuth.
+  **Warning:**  Only use information in your OAuth app that you consider public. Avoid using sensitive data, such as internal URLs, when creating an OAuth App.
 
   {% endwarning %}
 
-7. En "URL de la página principal", teclea la URL completa del sitio web de tu app. ![Campo para la URL de la página principal de tu app](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
-8. Opcionalmente, en "Descripción de la aplicación", teclea una descripción de tu app para que los usuarios la vean. ![Campo para la descripción de tu app](/assets/images/oauth-apps/oauth_apps_application_description.png)
-9. Teclea la URL de rellamado de tu app en "URL de rellamado para autorización". ![Campo para la URL de rellamado de autorización de tu app](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
+7. In "Homepage URL", type the full URL to your app's website.
+![Field for the homepage URL of your app](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
+8. Optionally, in "Application description", type a description of your app that users will see.
+![Field for a description of your app](/assets/images/oauth-apps/oauth_apps_application_description.png)
+9. In "Authorization callback URL", type the callback URL of your app.
+![Field for the authorization callback URL of your app](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
 {% ifversion fpt or ghes > 3.0 or ghec %}
    {% note %}
 
-   **Nota:** Las apps de OAuth no puede tener URL de rellamado múltiples, a diferencia de las {% data variables.product.prodname_github_apps %}.
+   **Note:** OAuth Apps cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
 
    {% endnote %}
 {% endif %}
-10. Haz clic en **Register application** (Registrar aplicación). ![Botón para registrar una aplicación](/assets/images/oauth-apps/oauth_apps_register_application.png)
+10. Click **Register application**.
+![Button to register an application](/assets/images/oauth-apps/oauth_apps_register_application.png)
