@@ -17,6 +17,8 @@ topics:
 shortTitle: View the security overview
 ---
 
+{% data reusables.security-center.beta %}
+
 ## Viewing the security overview for an organization
 
 {% data reusables.organizations.navigate-to-org %}

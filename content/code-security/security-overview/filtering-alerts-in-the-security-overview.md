@@ -17,6 +17,8 @@ topics:
 shortTitle: Filtering alerts
 ---
 
+{% data reusables.security-center.beta %}
+
 ## About filtering the security overview
 
 You can use filters in the security overview to narrow your focus based on a range of factors, like alert risk level, alert type and feature enablement. Different filters are available depending on the specific view and whether you analysing at the organization, team or repository level.
@@ -97,6 +99,20 @@ Available in the organization-level overview.
 | Qualifier | Description |
 | -------- | -------- |
 | <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
+
+## Filter by severity
+
+All code scanning alerts for into one of the below categories. By clicking into each result, you can see full details of the relevant rule, and the line of code that triggered the alert. Available in the code scanning alert views.
+
+| Qualifier | Description |
+| -------- | -------- |
+|`severity:critical`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as critical.|
+|`severity:high`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as high.|
+|`severity:medium`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as medium.|
+|`severity:low`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as low.|
+|`severity:error`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as errors.|
+|`severity:warning`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings.|
+|`severity:note`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.|
 
 
 ## Filter by secret types
