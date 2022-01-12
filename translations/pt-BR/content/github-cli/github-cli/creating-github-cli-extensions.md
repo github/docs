@@ -1,6 +1,6 @@
 ---
-title: Creating GitHub CLI extensions
-intro: 'Learn how to share new {% data variables.product.prodname_cli %} commands with other users by creating custom extensions for {% data variables.product.prodname_cli %}.'
+title: Criando extensões da CLI do GitHub
+intro: 'Aprenda a compartilhar novos comandos {% data variables.product.prodname_cli %} com outros usuários criando extensões personalizadas para {% data variables.product.prodname_cli %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,77 +10,77 @@ topics:
   - CLI
 ---
 
-## About {% data variables.product.prodname_cli %} extensions
+## Sobre extensões de {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.cli-extensions %} For more information about how to use {% data variables.product.prodname_cli %} extensions, see "[Using {% data variables.product.prodname_cli %} extensions](/github-cli/github-cli/using-github-cli-extensions)."
+{% data reusables.cli.cli-extensions %} Para obter mais informações sobre como usar as extensões de {% data variables.product.prodname_cli %}, consulte "[Usando extensões de {% data variables.product.prodname_cli %}](/github-cli/github-cli/using-github-cli-extensions)".
 
-You need a repository for each extension that you create. The repository name must start with `gh-`. The rest of the repository name is the name of the extension. The repository must have an executable file at its root with the same name as the repository or a set of precompiled binary executables attached to a release.
-
-{% note %}
-
-**Note**: When relying on an executable script, we recommend using a bash script because bash is a widely available interpreter. You may use non-bash scripts, but the user must have the necessary interpreter installed in order to use the extension. If you would prefer to not rely on users having interpreters installed, consider a precompiled extension.
-
-{% endnote %}
-
-## Creating an interpreted extension with `gh extension create`
+É necessário um repositório para cada extensão que você criar. O nome do repositório deve iniciar com `gh-`. O restante do nome do repositório é o nome da extensão. O repositório deve ter um arquivo executável na sua raiz com o mesmo nome que o repositório ou um conjunto de executáveis binários pré-compilados anexados a uma versão.
 
 {% note %}
 
-**Note**: Running `gh extension create` with no arguments will start an interactive wizard.
+**Observação**: Ao confiar em um script executável, recomendamos o uso de um script de bash porque bash é um intérprete amplamente disponível. Você pode usar scripts que não são de bash, mas o usuário deverá ter o intérprete necessário instalado para usar a extensão. Se você preferir não confiar que os usuários têm intérpretes instalados, considere uma extensão pré-compilada.
 
 {% endnote %}
 
-You can use the `gh extension create` command to create a project for your extension, including a bash script that contains some starter code.
+## Criando uma extensão interpretada com `gh extension create`
 
-1. Set up a new extension by using the `gh extension create` subcommand. Replace `EXTENSION-NAME` with the name of your extension.
+{% note %}
+
+**Observação**: A execução `gh extension create` sem argumentos irá iniciar um assistente interativo.
+
+{% endnote %}
+
+Você pode usar o comando `gh extension create` para criar um projeto para sua extensão, incluindo um script de bash que contém um código inicial.
+
+1. Configure uma nova extensão usando a o subcomando `gh extension create`. Substitua `EXTENSION-NAME` pelo nome da sua extensão.
 
     ```shell
     gh extension create <em>EXTENSION-NAME</em>
     ```
 
-1. Follow the printed instructions to finalize and optionally publish your extension.
+1. Siga as instruções impressas para finalizar e, opcionalmente, publicar sua extensão.
 
-## Creating a precompiled extension in Go with `gh extension create`
+## A criação de uma extensão pré-compilada em Go com `gh extension create`
 
-You can use the `--precompiled=go` argument to create a Go-based project for your extension, including Go scaffolding, workflow scaffolding, and starter code.
+Você pode usar o argumento `--precompiled=go` para criar um projeto baseado em Go para sua extensão, incluindo Go scaffolding, scaffolding de fluxo de trabalho e código inicial.
 
-1. Set up a new extension by using the `gh extension create` subcommand. Replace `EXTENSION-NAME` with the name of your extension and specify `--precompiled=go`.
+1. Configure uma nova extensão usando a o subcomando `gh extension create`. Substitua `EXTENSION-NOME` pelo nome da sua extensão e especifique `--precompiled=go`.
 
     ```shell
     gh extension create --precompiled=go <em>EXTENSION-NAME</em>
     ```
 
-1. Follow the printed instructions to finalize and optionally publish your extension.
+1. Siga as instruções impressas para finalizar e, opcionalmente, publicar sua extensão.
 
-## Creating a non-Go precompiled extension with `gh extension create`
+## Criando uma extensão pré-compilada que não é do Go com `gh extension create`
 
-You can use the `--precompiled=other` argument to create a project for your non-Go precompiled extension, including workflow scaffolding.
+Você pode usar o argumento `--precompiled=other` para criar um projeto para sua extensão pré-compilada fora do G8, incluindo o scaffolding do fluxo de trabalho.
 
-1. Set up a new extension by using the `gh extension create` subcommand. Replace `EXTENSION-NAME` with the name of your extension and specify `--precompiled=other`.
+1. Configure uma nova extensão usando a o subcomando `gh extension create`. Substitua `EXTENSION-NOME` pelo nome da sua extensão e especifique `--precompiled=other`.
 
     ```shell
     gh extension create --precompiled=other <em>EXTENSION-NAME</em>
     ```
 
-1. Add some initial code for your extension in your compiled language of choice.
+1. Adicione um código inicial para sua extensão na linguagem compilada escolhida.
 
-1. Fill in `script/build.sh` with code to build your extension to ensure that your extension can be built automatically.
+1. Preencha `script/build.sh` com código para criar sua extensão e garantir que a sua extensão possa ser construída automaticamente.
 
-1. Follow the printed instructions to finalize and optionally publish your extension.
+1. Siga as instruções impressas para finalizar e, opcionalmente, publicar sua extensão.
 
-## Creating an interpreted extension manually
+## Criando uma extensão interpretada manualmente
 
-1. Create a local directory called `gh-EXTENSION-NAME` for your extension. Replace `EXTENSION-NAME` with the name of your extension. For example, `gh-whoami`.
+1. Crie um diretório local denominado `gh-EXTENSION-NAME` para a sua extensão. Substitua `EXTENSION-NAME` pelo nome da sua extensão. Por exemplo, `gh-whoami`.
 
-1. In the directory that you created, add an executable file with the same name as the directory.
+1. No diretório que você criou, adicione um arquivo executável com o mesmo nome do diretório.
 
   {% note %}
 
-  **Note:** Make sure that your file is executable. On Unix, you can execute `chmod +x file_name` in the command line to make `file_name` executable. On Windows, you can run `git init -b main`, `git add file_name`, then `git update-index --chmod=+x file_name`.
+  **Observação:** Certifique-se de que seu arquivo seja executável. No Unix, você pode executar `chmod +x file_name` na linha de comando para tornar `file_name` executável. No Windows, você pode executar `git init -b main`, `git add file_name` e, em seguida, `git update-index --chmod=+x file_name`.
 
   {% endnote %}
 
-1. Write your script in the executable file. For example:
+1. Escreva seu script no arquivo executável. Por exemplo:
 
   ```bash
   #!/usr/bin/env bash
@@ -88,19 +88,19 @@ You can use the `--precompiled=other` argument to create a project for your non-
   exec gh api user --jq '"You are @\(.login) (\(.name))."'
   ```
 
-1. From your directory, install the extension as a local extension.
+1. No seu diretório, instale a extensão como uma extensão local.
 
    ```shell
    gh extension install .
    ```
 
-1. Verify that your extension works. Replace `EXTENSION-NAME` with the name of your extension. For example, `whoami`.
+1. Verifique se sua extensão funciona. Substitua `EXTENSION-NAME` pelo nome da sua extensão. Por exemplo, `whoami`.
 
    ```shell
    gh <em>EXTENSION-NAME</em>
    ```
 
-1. From your directory, create a repository to publish your extension. Replace `EXTENSION-NAME` with the name of your extension.
+1. No seu diretório, crie um repositório para publicar a sua extensão. Substitua `EXTENSION-NAME` pelo nome da sua extensão.
 
    ```shell
    git init -b main
@@ -108,15 +108,23 @@ You can use the `--precompiled=other` argument to create a project for your non-
    gh repo create gh-<em>EXTENSION-NAME</em> --source=. --public --push
    ```
 
-1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)."
+1. Opcionalmente, para ajudar outros usuários a descobrir sua extensão, adicione o tópico do repositório `gh-extension`. Isso fará com que a extensão apareça na página do tópico</a> de
 
-## Tips for writing interpreted {% data variables.product.prodname_cli %} extensions
+`gh-extension`. Para obter mais informações sobre como adicionar um tópico do repositório, consulte "[Classificando seu repositório com tópicos](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)".</p></li> </ol> 
+   
+   
 
-### Handling arguments and flags
+## Dicas para escrever extensões de {% data variables.product.prodname_cli %} interpretadas
 
-All command line arguments following a `gh my-extension-name` command will be passed to the extension script. In a bash script, you can reference arguments with `$1`, `$2`, etc. You can use arguments to take user input or to modify the behavior of the script.
 
-For example, this script handles multiple flags. When the script is called with the `-h` or `--help` flag, the script prints help text instead of continuing execution. When the script is called with the `--name` flag, the script sets the next value after the flag to `name_arg`. When the script is called with the `--verbose` flag, the script prints a different greeting.
+
+### Manipulando argumentos e sinalizadores
+
+Todos os argumentos de linha de comando após um `gh my-extension-name` serão passados para o script da extensão. Em um script de bash, você pode fazer referência a argumentos com `$1`, `$2`, etc. Você pode usar argumentos para inserir o usuário ou modificar o comportamento do script.
+
+Por exemplo, este script manipula vários sinalizadores. Quando o script é chamado com o sinalizador `-h` ou `--help` flag, o script imprime texto ao invés de continuar a execução. Quando o script é chamado com o o sinalizador `--name`, o script define o próximo valor após o sinalizador para `name_arg`. Quando o script é chamado com o sinalizador `--verbose`, o script imprime uma saudação diferente.
+
+
 
 ```bash
 #!/usr/bin/env bash
@@ -152,43 +160,64 @@ else
 fi
 ```
 
-### Calling core commands in non-interactive mode
 
-Some {% data variables.product.prodname_cli %} core commands will prompt the user for input. When scripting with those commands, a prompt is often undesirable. To avoid prompting, supply the necessary information explicitly via arguments.
 
-For example, to create an issue programmatically, specify the title and body:
+
+### Chamar comandos do núcleo em modo não interativo
+
+Alguns comandos principais de {% data variables.product.prodname_cli %} principais pedirão entrada ao usuário. Ao escrever com esses comandos, a instrução é frequentemente indesejável. Para evitar a instrução, forneça a informação necessária explicitamente por meio de argumentos.
+
+Por exemplo, para criar um problema de modo programático, especifique o título e o texto:
+
+
 
 ```shell
 gh issue create --title "My Title" --body "Issue description"
 ```
 
-### Fetching data programatically
 
-Many core commands support the `--json` flag for fetching data programatically. For example, to return a JSON object listing the number, title, and mergeability status of pull requests:
+
+
+### Buscando dados programaticamente
+
+Muitos comandos principais são compatíveis o sinalizador `--json` para obter dados programaticamente. Por exemplo, para retornar um objeto JSON listando o número, título e status de mesclabilidade dos pull requests:
+
+
 
 ```shell
 gh pr list --json number,title,mergeStateStatus
 ```
 
-If there is not a core command to fetch specific data from GitHub, you can use the [`gh api`](https://cli.github.com/manual/gh_api) command to access the GitHub API. For example, to fetch information about the current user:
+
+Se não houver um comando do núcleo para buscar dados específicos do GitHub, você poderá usar o comando [`gh api`](https://cli.github.com/manual/gh_api) para acessar a API do GitHub. Por exemplo, para obter informações sobre o usuário atual:
+
+
 
 ```shell
 gh api user
 ```
 
-All commands that output JSON data also have options to filter that data into something more immediately usable by scripts. For example, to get the current user's name:
+
+Todos os comandos que os dados JSON de saída também têm opções para filtrar esses dados em algo mais imediatamente utilizável por scripts. Por exemplo, para obter o nome do usuário atual:
+
+
 
 ```shell
 gh api user --jq '.name'
 ```
 
-For more information, see [`gh help formatting`](https://cli.github.com/manual/gh_help_formatting).
 
-## Creating a precompiled extension manually
+Para obter mais informações, consulte [`gh help formatting`](https://cli.github.com/manual/gh_help_formatting).
 
-1. Create a local directory called `gh-EXTENSION-NAME` for your extension. Replace `EXTENSION-NAME` with the name of your extension. For example, `gh-whoami`.
 
-1. In the directory you created, add some source code. For example:
+
+## Criando uma extensão pré-compilada manualmente
+
+1. Crie um diretório local denominado `gh-EXTENSION-NAME` para a sua extensão. Substitua `EXTENSION-NAME` pelo nome da sua extensão. Por exemplo, `gh-whoami`.
+
+1. No diretório que você criou, adicione um código-fonte. Por exemplo: 
+   
+   
 
     ```go
     package main
@@ -208,13 +237,19 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
     }
     ```
 
-1. From your directory, install the extension as a local extension.
+
+1. No seu diretório, instale a extensão como uma extensão local. 
+   
+   
 
     ```shell
     gh extension install .
     ```
 
-1. Build your code. For example, with Go, replacing `YOUR-USERNAME` with your GitHub username:
+
+1. Construa o seu código. Por exemplo, com o Go, substituindo `YOUR-USERNAME` pelo seu nome de usuário do GitHub: 
+   
+   
 
     ```shell
     go mod init github.com/<em>YOUR-USERNAME</em>/gh-whoami
@@ -222,19 +257,25 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
     go build
     ```
 
-1. Verify that your extension works. Replace `EXTENSION-NAME` with the name of your extension. For example, `whoami`.
+
+1. Verifique se sua extensão funciona. Substitua `EXTENSION-NAME` pelo nome da sua extensão. Por exemplo, `whoami`. 
+   
+   
 
     ```shell
     gh <em>EXTENSION-NAME</em>
     ```
 
-1. From your directory, create a repository to publish your extension. Replace `EXTENSION-NAME` with the name of your extension.
 
-  {% note %}
-
-  **Note:** Be careful not to commit the binary produced by your compilation step to version control.
-
-  {% endnote %}
+1. No seu diretório, crie um repositório para publicar a sua extensão. Substitua `EXTENSION-NAME` pelo nome da sua extensão.
+   
+   {% note %}
+   
+   **Observação:** Tenha cuidado para não fazer commit do binário produzido pela etapa de compilação para o controle de versão.
+   
+   {% endnote %}
+   
+   
 
     ```shell
     git init -b main
@@ -243,39 +284,42 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
     gh repo create "gh-<em>EXTENSION-NAME</em>"
     ```
 
-1. Create a release to share your precompiled extension with others. Compile for each platform you want to support, attaching each binary to a release as an asset. Binary executables attached to releases must follow a naming convention and have a suffix of <em>OS-ARCHITECTURE\[EXTENSION\]</em>.
 
-  For example, an extension named `whoami` compiled for Windows 64bit would have the name `gh-whoami-windows-amd64.exe` while the same extension compiled for Linux 32bit would have the name `gh-whoami-linux-386`. To see an exhaustive list of OS and architecture combinations recognized by `gh`, see [this source code](https://github.com/cli/cli/blob/14f704fd0da58cc01413ee4ba16f13f27e33d15e/pkg/cmd/extension/manager.go#L696).
+1. Crie uma versão para compartilhar sua extensão pré-compilada com outras pessoas. Faça a compilação para cada plataforma que você deseja suportar, anexando cada binário a uma versão como um ativo. Os executáveis binários anexados às versões devem seguir uma convenção de nomes e ter um sufixo de <em>OS-ARCHITECTURE\[EXTENSION\]</em>.
+   
+   Por exemplo, uma extensão denominada `whoami` compilada para Windows 64bit teria o nome `gh-whoami-windows-amd64.exe` enquanto a mesma extensão compilada para Linux 32bit teria o nome `gh-whoami-linux-386`. Para ver uma lista taxativa de combinações de OS e de arquitetura reconhecidas por `seg`, consulte [este código-fonte](https://github.com/cli/cli/blob/14f704fd0da58cc01413ee4ba16f13f27e33d15e/pkg/cmd/extension/manager.go#L696).
+   
+   {% note %}
+   
+   **Observação:** Para que a sua extensão seja executada corretamente no Windows, seu arquivo de ativo deve ter uma extensão `.exe`. Não é necessária qualquer extensão para outros sistemas operacionais.
+   
+   {% endnote %}
+   
+   As versões podem ser criadas a partir da linha de comando. Por exemplo:
+   
+   ```shell git tag v1.0.0 git push origin v1.0.0 GOOS=windows GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-windows-amd64.exe GOOS=linux GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-linux-amd64 GOOS=darwin GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-darwin-amd64 gh release create v1.0.0 ./*amd64*
 
-  {% note %}
-
-  **Note:** For your extension to run properly on Windows, its asset file must have a `.exe` extension. No extension is needed for other operating systems.
-
-  {% endnote %}
-
-  Releases can be created from the command line. For example:
-
-  ```shell
-  git tag v1.0.0
-  git push origin v1.0.0
-  GOOS=windows GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-windows-amd64.exe
-  GOOS=linux GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-linux-amd64
-  GOOS=darwin GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-darwin-amd64
-  gh release create v1.0.0 ./*amd64*
-
-1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)."
+1. Opcionalmente, para ajudar outros usuários a descobrir sua extensão, adicione o tópico do repositório `gh-extension`. Isso fará com que a extensão apareça na página do tópico</a> de `gh-extension`. Para obter mais informações sobre como adicionar um tópico do repositório, consulte "[Classificando seu repositório com tópicos](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)".</p></li> </ol> 
+   
+   
 
 
-## Tips for writing precompiled {% data variables.product.prodname_cli %} extensions
+## Dicas para escrever extensões de {% data variables.product.prodname_cli %} pré-compiladas
 
-### Automating releases
 
-Consider adding the [gh-extension-precompile](https://github.com/cli/gh-extension-precompile) action to a workflow in your project. This action will automatically produce cross-compiled Go binaries for your extension and supplies build scaffolding for non-Go precompiled extensions.
 
-### Using {% data variables.product.prodname_cli %} features from Go-based extensions
+### Automatizando as versões
 
-Consider using [go-gh](https://github.com/cli/go-gh), a Go library that exposes pieces of `gh` functionality for use in extensions.
+Considere adicionar a ação [gh-extension-precompilar](https://github.com/cli/gh-extension-precompile) ao fluxo de trabalho no seu projeto. This action will automatically produce cross-compiled Go binaries for your extension and supplies build scaffolding for non-Go precompiled extensions.
 
-## Next steps
 
-To see more examples of {% data variables.product.prodname_cli %} extensions, look at [repositories with the `gh-extension` topic](https://github.com/topics/gh-extension).
+
+### Usando funcionalidades de {% data variables.product.prodname_cli %} a partir de extensões do Go
+
+Considere usar [go-gh](https://github.com/cli/go-gh), uma biblioteca do Go que expõe a funcionalidade `gh` para uso em extensões.
+
+
+
+## Próximas etapas
+
+Para ver mais exemplos de extensões {% data variables.product.prodname_cli %}, consulte [repositórios com o tópico de extensão `gh-extension`](https://github.com/topics/gh-extension).

@@ -1,6 +1,6 @@
 ### 在其他操作系统上运行
 
-初学者工作流程模板使用 {% data variables.product.prodname_dotcom %} 托管的 `ubuntu-latest` 运行器将作业配置为在 Linux 上运行。 您可以更改 `runs-on` 键，让您的作业在其他操作系统上运行。 例如，您可以使用 {% data variables.product.prodname_dotcom %} 托管的 Windows 运行器。
+The starter workflow configures jobs to run on Linux, using the {% data variables.product.prodname_dotcom %}-hosted `ubuntu-latest` runners. 您可以更改 `runs-on` 键，让您的作业在其他操作系统上运行。 例如，您可以使用 {% data variables.product.prodname_dotcom %} 托管的 Windows 运行器。
 
 {% raw %}
 ```yaml

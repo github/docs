@@ -1,5 +1,5 @@
 ---
-title: Authenticating with SAML single sign-on
+title: 使用 SAML 单点登录进行身份验证
 intro: 'You can authenticate to {% data variables.product.product_name %} with SAML single sign-on (SSO){% ifversion ghec %} and view your active sessions{% endif %}.'
 redirect_from:
   - /articles/authenticating-to-a-github-organization-with-saml-single-sign-on
@@ -15,6 +15,6 @@ children:
   - /authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /viewing-and-managing-your-active-saml-sessions
-shortTitle: Authenticate with SAML
+shortTitle: 通过 SAML 验证
 ---
 

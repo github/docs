@@ -1,7 +1,7 @@
 ---
-title: Reference
-shortTitle: Reference
-intro: View reference documentation to learn about the resources available in the GitHub REST API.
+title: Referência
+shortTitle: Referência
+intro: Veja documentação de referência para aprender os recursos disponíveis na API REST do GitHub.
 versions:
   fpt: '*'
   ghes: '*'
@@ -53,3 +53,4 @@ children:
   - /webhooks
   - /permissions-required-for-github-apps
 ---
+

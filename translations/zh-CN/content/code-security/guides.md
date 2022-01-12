@@ -1,6 +1,6 @@
 ---
-title: Guides for code security
-intro: 'Learn about the different ways that {% data variables.product.product_name %} can help you improve your code''s security.'
+title: 代码安全指南
+intro: '了解 {% data variables.product.product_name %} 可以帮助您提高代码安全性的不同方式。'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:

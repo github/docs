@@ -1,1 +1,1 @@
-为防止学生接受或提交作业，取消选择 **Enable assignment invitation URL（启用作业邀请 URL）**。 要编辑作业，请单击 {% octicon "pencil" aria-label="The pencil icon" %} **Edit assignment（编辑作业）**。
+To prevent acceptance or submission of an assignment by students, you can change the "Assignment Status" within the "Edit assignment" view. When an assignment is Active, students will be able to accept it using the invitation link. When it is Inactive, this link will no longer be valid.

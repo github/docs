@@ -1,104 +1,104 @@
 ---
-title: Use the Git and GitHub starter assignment
-intro: 'You can use the Git & {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.company_short %} fundamentals.'
+title: Use a atividade do Git e GitHub starter
+intro: 'Você pode usar a atividade inicial do Git & {% data variables.product.company_short %} para dar aos alunos uma visão geral do Git e dos princípios básicos do {% data variables.product.company_short %}.'
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
-shortTitle: Starter assignment
+shortTitle: Atribuição inicial
 ---
 
-The Git & {% data variables.product.company_short %} starter assignment is a pre-made course that summarizes the basics of Git and {% data variables.product.company_short %} and links students to resources to learn more about specific topics.
+A atividade inicial do Git & {% data variables.product.company_short %} é um curso pré-fabricado que resume os conceitos básicos do Git e {% data variables.product.company_short %} e vincula os alunos a recursos para aprender mais sobre tópicos específicos.
 
-## Prerequisites
+## Pré-requisitos
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## Creating the starter assignment
+## Criando a atividade inicial
 
-### If there are no existing assignments in the classroom
+### Se não houver recomendações na sala de aula
 
-1. Sign into {% data variables.product.prodname_classroom_with_url %}.
-2. Navigate to a classroom.
-3. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, click  **Use starter assignment**.
-
-<div class="procedural-image-wrapper">
-  <img alt="Creating your first assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-create-first-assignment.png">
-</div>
-
-### If there already are existing assignments in the classroom
-
-1. Sign into {% data variables.product.prodname_classroom_with_url %}.
-2. Navigate to a classroom.
-3. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, click the link on the blue banner.
+1. Efetue o login em {% data variables.product.prodname_classroom_with_url %}.
+2. Acesse uma sala de aula.
+3. Na aba {% octicon "repo" aria-label="The repo icon" %} **Atividades**, clique em **Usar a atividade inicial**.
 
 <div class="procedural-image-wrapper">
-  <img alt="The 'New assignment' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-new-starter-assignment-button.png">
+  <img alt="Criando sua primeira atividade" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-create-first-assignment.png">
 </div>
 
-## Setting up the basics for an assignment
+### Se já existirem recomendações na sala de aula
 
-Import the starter course into your organization, name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
-
-- [Prerequisites](#prerequisites)
-- [Creating the starter assignment](#creating-the-starter-assignment)
-  - [If there are no existing assignments in the classroom](#if-there-are-no-existing-assignments-in-the-classroom)
-  - [If there already are existing assignments in the classroom](#if-there-already-are-existing-assignments-in-the-classroom)
-- [Setting up the basics for an assignment](#setting-up-the-basics-for-an-assignment)
-  - [Importing the assignment](#importing-the-assignment)
-  - [Naming the assignment](#naming-the-assignment)
-  - [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-  - [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
-- [Inviting students to an assignment](#inviting-students-to-an-assignment)
-- [Next steps](#next-steps)
-- [Further reading](#further-reading)
-
-### Importing the assignment
-
-You first need to import the Git & {% data variables.product.product_name %} starter assignment into your organization.
+1. Efetue o login em {% data variables.product.prodname_classroom_with_url %}.
+2. Acesse uma sala de aula.
+3. Na aba {% octicon "repo" aria-label="The repo icon" %} **Atividades**, clique no link do banner azul.
 
 <div class="procedural-image-wrapper">
-  <img alt="The `Import the assignment` button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-import-starter-assignment.png">
+  <img alt="Botão &quot;Nova atividade&quot;" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-new-starter-assignment-button.png">
 </div>
 
-### Naming the assignment
+## Configurar os fundamentos para uma atividade
 
-For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.product_name %} username. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.product_name %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
+Importe o curso introdutório para a sua organização, nomeie sua atividade, decida se deseja atribuir um prazo e escolha a visibilidade dos repositórios de tarefas.
+
+- [Pré-requisitos](#prerequisites)
+- [Criando a atividade inicial](#creating-the-starter-assignment)
+  - [Se não houver recomendações na sala de aula](#if-there-are-no-existing-assignments-in-the-classroom)
+  - [Se já existirem recomendações na sala de aula](#if-there-already-are-existing-assignments-in-the-classroom)
+- [Configurar os fundamentos para uma atividade](#setting-up-the-basics-for-an-assignment)
+  - [Importando a tarefa](#importing-the-assignment)
+  - [Nomeando a atividade](#naming-the-assignment)
+  - [Atribuir um prazo para uma atividade](#assigning-a-deadline-for-an-assignment)
+  - [Escolher uma visibilidade para repositórios de atividades](#choosing-a-visibility-for-assignment-repositories)
+- [Convidar alunos para uma atividade](#inviting-students-to-an-assignment)
+- [Próximas etapas](#next-steps)
+- [Leia mais](#further-reading)
+
+### Importando a tarefa
+
+Primeiro, você precisa importar a atividade inicial do Git & {% data variables.product.product_name %} para a sua organização.
+
+<div class="procedural-image-wrapper">
+  <img alt="O botão &quot;Importar a atividade&quot;" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-import-starter-assignment.png">
+</div>
+
+### Nomeando a atividade
+
+Para uma atividade individual, {% data variables.product.prodname_classroom %} nomeia os repositórios pelo prefixo do repositório e pelo nome de usuário de {% data variables.product.product_name %} do aluno. Por padrão, o prefixo do repositório é o título da atividade. Por exemplo, se você nomear uma atividade como "assignment-1" e o nome de usuário do aluno em {% data variables.product.product_name %} for @octocat, o nome do repositório de atividade para @octocat será `assignment-1-octocat`.
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### Assigning a deadline for an assignment
+### Atribuir um prazo para uma atividade
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### Choosing a visibility for assignment repositories
+### Escolher uma visibilidade para repositórios de atividades
 
-The repositories for an assignment can be public or private. If you use private repositories, only the student can see the feedback you provide. Under "Repository visibility," select a visibility.
+Os repositórios de uma atividade podem ser públicos ou privados. Se você usar repositórios privados, apenas o aluno poderá ver o feedback que você fornecer. Em "Visibilidade do repositório" selecione uma visibilidade.
 
-When you're done, click **Continue**. {% data variables.product.prodname_classroom %} will create the assignment and bring you to the assignment page.
+Ao terminar, clique em **Continuar**. {% data variables.product.prodname_classroom %} criará a atividade e direcionará você para a página da atividade.
 
 <div class="procedural-image-wrapper">
-  <img alt="'Continue' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-continue-button.png">
+  <img alt="Botão &quot;Continuar&quot;" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-continue-button.png">
 </div>
 
-## Inviting students to an assignment
+## Convidar alunos para uma atividade
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see whether a student has joined the classroom and accepted or submitted an assignment in the **All students** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
+Você pode ver se um aluno juntou-se à sala de aula e aceitou ou enviou uma atividade na aba **Todos os alunos** da atividade. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
-  <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
+  <img alt="Atividade individual" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
 
-The Git & {% data variables.product.company_short %} starter assignment is only available for individual students, not for groups. Once you create the assignment, students can start work on the assignment.
+A atividade inicial do Git & {% data variables.product.company_short %} só está disponível para alunos individuais, não para grupos. Depois de criar a atividade, os alunos poderão começar a trabalhar nela.
 
-## Next steps
+## Próximas etapas
 
-- Make additional assignments customized to your course. For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" and "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+- Faça recomendações adicionais personalizadas para seu curso. Para obter mais informações, consulte "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" e "[Criar uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
 
-## Further reading
+## Leia mais
 
-- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
-- "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
+- "[Use {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquisa](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
+- "[Conecte um sistema de gerenciamento de aprendizagem para {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"

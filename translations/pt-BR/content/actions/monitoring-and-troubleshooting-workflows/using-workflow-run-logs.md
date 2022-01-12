@@ -1,6 +1,6 @@
 ---
-title: Using workflow run logs
-intro: 'You can view, search, and download the logs for each job in a workflow run.'
+title: Usar registros de execução do fluxo de trabalho
+intro: 'Você pode visualizar, pesquisar e fazer download dos logs para cada trabalho em uma execução de fluxo de trabalho.'
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
 versions:
@@ -13,21 +13,21 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-You can see whether a workflow run is in progress or complete from the workflow run page. You must be logged in to a {% data variables.product.prodname_dotcom %} account to view workflow run information, including for public repositories. For more information, see "[Access permissions on GitHub](/articles/access-permissions-on-github)."
+Na página de execução de fluxo de trabalho, você pode verificar se a execução está em andamento ou foi concluída. Você deve estar conectado a uma conta {% data variables.product.prodname_dotcom %} para visualizar as informações da execução do seu fluxo de trabalho, incluindo os repositórios públicos. Para obter mais informações, consulte "[Permissões de acesso no GitHub](/articles/access-permissions-on-github)".
 
-If the run is complete, you can see whether the result was a success, failure, canceled, or neutral. If the run failed, you can view and search the build logs to diagnose the failure and re-run the workflow. You can also view billable job execution minutes, or download logs and build artifacts.
+Se a execução estiver concluída, será possível ver se o resultado teve êxito, se houve falha, se foi cancelado ou se ficou neutro. Em caso de falha, você poderá exibir e pesquisar os logs de criação para diagnosticar a falha e executar o fluxo de trabalho novamente. Você também pode visualizar os minutos da execução do trabalho faturável ou fazer o download dos registros e criar artefatos.
 
-{% data variables.product.prodname_actions %} use the Checks API to output statuses, results, and logs for a workflow. {% data variables.product.prodname_dotcom %} creates a new check suite for each workflow run. The check suite contains a check run for each job in the workflow, and each job includes steps. {% data variables.product.prodname_actions %} are run as a step in a workflow. For more information about the Checks API, see "[Checks](/rest/reference/checks)."
+O {% data variables.product.prodname_actions %} usa a API de Verificação para mostrar os status, resultados e logs de um fluxo de trabalho. O {% data variables.product.prodname_dotcom %} cria um novo conjunto de verificações para cada execução de fluxo de trabalho. O conjunto de verificações contêm uma execução de verificação para cada trabalho no fluxo de trabalho, e cada trabalho inclui etapas. As ações do {% data variables.product.prodname_actions %} são executadas como etapas no fluxo de trabalho. Para obter mais informações sobre a API de verificações, consulte "[Verificações](/rest/reference/checks)".
 
 {% data reusables.github-actions.invalid-workflow-files %}
 
-## Viewing logs to diagnose failures
+## Exibir logs para diagnosticar falhas
 
-If your workflow run fails, you can see which step caused the failure and review the failed step's build logs to troubleshoot. You can see the time it took for each step to run. You can also copy a permalink to a specific line in the log file to share with your team. {% data reusables.repositories.permissions-statement-read %}
+Se houver falha na execução do fluxo de trabalho, você poderá ver qual etapa causou a falha e revisar os logs de criação da etapa com falha para resolver os problemas. Também é possível ver a duração da execução de cada etapa. Além disso, você pode copiar um permalink para determinada linha no arquivo de log a fim de compartilhar com a sua equipe. {% data reusables.repositories.permissions-statement-read %}
 
-In addition to the steps configured in the workflow file, {% data variables.product.prodname_dotcom %} adds two additional steps to each job to set up and complete the job's execution. These steps are logged in the workflow run with the names "Set up job" and "Complete job".
+Além das etapas configuradas no arquivo do fluxo de trabalho, {% data variables.product.prodname_dotcom %} acrescenta duas etapas adicionais a cada trabalho para configurar e concluir a execução do trabalho. Estas etapas estão registradas na execução do fluxo de trabalho com os nomes "Configurar trabalho" e "Concluir trabalho".
 
-For jobs run on {% data variables.product.prodname_dotcom %}-hosted runners, "Set up job" records details of the runner's virtual environment, and includes a link to the list of preinstalled tools that were present on the runner machine.
+Para trabalhos executados em executores hospedados no {% data variables.product.prodname_dotcom %}, "Configurar trabalho" registra os detalhes do ambiente virtual do executor e inclui um link para a lista de ferramentas pré-instaladas que estavam presentes na máquina do executor.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -37,83 +37,83 @@ For jobs run on {% data variables.product.prodname_dotcom %}-hosted runners, "Se
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 {% data reusables.repositories.view-specific-line-superlinter %}
 
-## Searching logs
+## Pesquisar logs
 
-You can search the build logs for a particular step. When you search logs, only expanded steps are included in the results. {% data reusables.repositories.permissions-statement-read %}
+É possível pesquisar os logs de criação em determinadas etapas. Na pesquisa dos logs, somente as etapas expandidas são incluídas nos resultados. {% data reusables.repositories.permissions-statement-read %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-1. In the upper-right corner of the log output, in the **Search logs** search box, type a search query.
+1. No canto superior direito da saída do log, na caixa **Search logs** (Pesquisar logs), digite um termo de consulta.
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-  ![Search box to search logs](/assets/images/help/repository/search-log-box-updated-2.png)
+  ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated-2.png)
 {% else %}
-  ![Search box to search logs](/assets/images/help/repository/search-log-box-updated.png)
+  ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated.png)
 {% endif %}
 
-## Downloading logs
+## Fazer download dos registros
 
-You can download the log files from your workflow run. You can also download a workflow's artifacts. For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)." {% data reusables.repositories.permissions-statement-read %}
+Você pode fazer o download dos arquivos de registro da execução do seu fluxo de trabalho. Você também pode fazer o download dos artefatos de um fluxo de trabalho. Para obter mais informações, consulte "[Dados recorrentes do fluxo de trabalho que usam artefatos](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)". {% data reusables.repositories.permissions-statement-read %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-1. In the upper right corner, click {% ifversion fpt or ghes > 3.0 or ghae or ghec %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
+1. No canto superior direito, clique em {% ifversion fpt or ghes > 3.0 or ghae or ghec %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} e selecione **Fazer download do arquivo de registro**.
   {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-  ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
+  ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
   {% else %}
-  ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated.png)
+  ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated.png)
   {% endif %}
 
-## Deleting logs
+## Excluir registros
 
-You can delete the log files from your workflow run. {% data reusables.repositories.permissions-statement-write %}
+Você pode excluir arquivos de registro da execução do seu fluxo de trabalho. {% data reusables.repositories.permissions-statement-write %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
     {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-    ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
+    ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
     {% else %}
-    ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
+    ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
     {% endif %}
-2. To delete the log files, click the **Delete all logs** button and review the confirmation prompt. 
+2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação.
   {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-  ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated-2.png)
+  ![Excluir todos os registros](/assets/images/help/repository/delete-all-logs-updated-2.png)
   {% else %}
-  ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated.png)
+  ![Excluir todos os registros](/assets/images/help/repository/delete-all-logs-updated.png)
   {% endif %}
-After deleting logs, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
+Após excluir os registros, o botão **Excluir todos os registros** será removido para indicar que nenhum arquivo de registro permaneça na execução do fluxo de trabalho.
 
-## Viewing logs with {% data variables.product.prodname_cli %}
+## Visualizar registros com {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.cli-learn-more %}
 
-To view the log for a specific job, use the `run view` subcommand. Replace `run-id` with the ID of run that you want to view logs for. {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a job from the run. If you don't specify `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run, and then returns another interactive menu for you to choose a job from the run.
+Para visualizar o registro para uma tarefa específica, use o subcomando `executar a vista`. Substitua `run-id` pelo ID da execução que você deseja visualizar os registros. {% data variables.product.prodname_cli %} retorna um menu interativo para você escolher um trabalho a partir da execução. Se você não especificar `run-id`, {% data variables.product.prodname_cli %} irá retornar um menu interativo para você escolher uma execução recente e, em seguida, irá retornar outro menu interativo para você escolher um trabalho da execução.
 
 ```shell
 gh run view <em>run-id</em> --log
 ```
 
-You can also use the `--job` flag to specify a job ID. Replace `job-id` with the ID of the job that you want to view logs for.
+Você também pode usar o sinalizador `--job` para especificar um ID de trabalho. Substitua `job-id` pelo ID do trabalho para o qual você deseja exibir os registros.
 
 ```shell
 gh run view --job <em>job-id</em> --log
 ```
 
-You can use `grep` to search the log. For example, this command will return all log entries that contain the word `error`.
+Você pode usar `grep` para pesquisar o registro. Por exemplo, este comando retornará todas as entradas do registro que contêm a palavra `erro`.
 
 ```shell
 gh run view --job <em>job-id</em> --log | grep error
 ```
 
-To filter the logs for any failed steps, use `--log-failed` instead of `--log`.
+Para filtrar os registros para quaisquer etapas que falharam, use `--log-failed` em vez de `--log`.
 
 ```shell
 gh run view --job <em>job-id</em> --log-failed

@@ -1,7 +1,7 @@
 ---
-title: Configuring the CodeQL workflow for compiled languages
-shortTitle: Configure compiled languages
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.product.prodname_codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors.'
+title: Configurar o fluxo de trabalho do CodeQL para linguagens compiladas
+shortTitle: Configurar linguagens compiladas
+intro: 'Você pode configurar como o {% data variables.product.prodname_dotcom %} usa o {% data variables.product.prodname_codeql_workflow %} para varrer o código escrito em linguagens compiladas para obter vulnerabilidades e erros.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
@@ -26,87 +26,86 @@ topics:
   - C#
   - Java
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-## About the {% data variables.product.prodname_codeql_workflow %} and compiled languages
+## Sobre o {% data variables.product.prodname_codeql_workflow %} e linguagens compiladas
 
-You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.product.prodname_codeql_workflow %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+Você configurou {% data variables.product.prodname_dotcom %} para executar {% data variables.product.prodname_code_scanning %} para o seu repositório, adicionando um fluxo de trabalho de {% data variables.product.prodname_actions %} ao repositório. Para {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, você adiciona o {% data variables.product.prodname_codeql_workflow %}. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)".
 
-{% data reusables.code-scanning.edit-workflow %} 
-For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and  "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+{% data reusables.code-scanning.edit-workflow %}
+Para obter informações gerais sobre a configuração de {% data variables.product.prodname_code_scanning %} e edição de arquivos de fluxo de trabalho, consulte "[Configurar {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" e "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
-##  About autobuild for {% data variables.product.prodname_codeql %}
+## Sobre a autobuild para {% data variables.product.prodname_codeql %}
 
-Code scanning works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository. For the compiled languages C/C++, C#, and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}
+A varredura de código funciona executando consultas contra um ou mais bancos de dados. Cada banco de dados contém uma representação de todo o código em uma linguagem única no seu repositório. Para as linguagens compiladas de C/C++, C#, e Java, o processo de preenchimento deste banco de dados envolve a construção do código e extração de dados. {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
-If your workflow uses a `language` matrix, `autobuild` attempts to build each of the compiled languages listed in the matrix. Without a matrix `autobuild` attempts to build the supported compiled language that has the most source files in the repository. With the exception of Go, analysis of other compiled languages in your repository will fail unless you supply explicit build commands.
+Se o fluxo de trabalho usar uma matriz de `linguagem`, `autobuild` tentará criar cada uma das linguagens compiladas listadas na matriz. Sem uma matriz, `autobuild` tenta criar a linguagem compilada compatível que tem mais arquivos de origem no repositório. Com exceção de Go, a análise de outras linguagens compatíveis no repositório irá falhar, a menos que você forneça comandos de criação explícitos.
 
 {% note %}
 
 {% ifversion ghae %}
-**Note**: {% data reusables.actions.self-hosted-runners-software %}
+**Observação**: {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-**Note**: If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+**Observação**: Se você usa executores auto-hospedados para {% data variables.product.prodname_actions %}, talvez seja necessário instalar um software adicional para usar o processo de `autobuild`. Além disso, se seu repositório precisar de uma versão específica de uma ferramenta de criação, talvez seja necessário instalá-lo manualmente. Para obter mais informações, consulte "[Especificações para executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
 {% endnote %}
 
 ### C/C++
 
-| Supported system type | System name |
-|----|----|
-| Operating system | Windows, macOS, and Linux |
-| Build system | Windows: MSbuild and build scripts<br/>Linux and macOS: Autoconf, Make, CMake, qmake, Meson, Waf, SCons, Linux Kbuild, and build scripts |
+| Tipo de sistema compatível | Nome do sistema                                                                                                                        |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Sistema operacional        | Windows, macOS e Linux                                                                                                                 |
+| Sistema de criação         | Windows: MSbuild e scripts de criação<br/>Linux e macOS: Autoconf, Make, CMake, qmake, Meson, Waf, SCons, Linux Kbuild e scripts |
 
-The behavior of the `autobuild` step varies according to the operating system that the extraction runs on. On Windows, the `autobuild` step attempts to autodetect a suitable build method for C/C++ using the following approach:
+O comportamento da etapa de </code>autobuild` varia de acordo com o sistema operacional em que a extração é executada. No Windows, o <code>autobuild` tenta detectar automaticamente um método de criação adequado para C/C++ usando a seguinte abordagem:
 
-1. Invoke `MSBuild.exe` on the solution (`.sln`) or project (`.vcxproj`) file closest to the root.
-If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
-2. Invoke a script that looks like a build script—_build.bat_, _build.cmd_, _and build.exe_ (in that order).
+1. Invocar `MSBuild.exe` sobre a solução (`.sln`) ou arquivo (`.vcxproj`) de projeto mais próximo da raiz. Se o `autobuild` detectar várias soluções ou arquivos de projeto na mesma profundidade (mais curta) do diretório de nível superior, ele tentará criar todos eles.
+2. Invoca um script que se parece com um script de criação-_build.bat_, _build.cmd_, _e build.exe_ (nessa ordem).
 
-On Linux and macOS, the `autobuild` step reviews the files present in the repository to determine the build system used:
+No Linux e no macOS, a etapa de `autobuild` revisa os arquivos presentes no repositório para determinar o sistema de criação usado:
 
-1. Look for a build system in the root directory.
-2. If none are found, search subdirectories for a unique directory with a build system for C/C++.
-3. Run an appropriate command to configure the system. 
+1. Procure um sistema de criação no diretório-raiz.
+2. Se nenhum for encontrado, procure um diretório único nos subdiretórios com um sistema de criação para C/C++.
+3. Execute um comando apropriado para configurar o sistema.
 
-### C#
+### C
 
-| Supported system type | System name |
-|----|----|
-| Operating system | Windows and Linux |
-| Build system | .NET and MSbuild, as well as build scripts |
+| Tipo de sistema compatível | Nome do sistema                    |
+| -------------------------- | ---------------------------------- |
+| Sistema operacional        | Windows e Linux                    |
+| Sistema de criação         | .NET, MSbuild e scripts de criação |
 
-The `autobuild` process attempts to autodetect a suitable build method for C# using the following approach:
+O processo de `autobuild` tenta detectar automaticamente um método de criação adequado para C# usando a seguinte abordagem:
 
-1. Invoke `dotnet build` on the solution (`.sln`) or project (`.csproj`) file closest to the root.
-2. Invoke `MSbuild` (Linux) or `MSBuild.exe` (Windows) on the solution or project file closest to the root.
-If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
-3. Invoke a script that looks like a build script—_build_ and _build.sh_ (in that order, for Linux) or _build.bat_, _build.cmd_, _and build.exe_ (in that order, for Windows).
+1. Invocar o arquivo `dotnet build` na solução (`.sln`) ou projeto (`.csproj`) mais próximo da raiz.
+2. Invocar `MSbuild` (Linux) ou `MSBuild.exe` (Windows) na solução ou no arquivo do projeto mais próximo da raiz. Se o `autobuild` detectar várias soluções ou arquivos de projeto na mesma profundidade (mais curta) do diretório de nível superior, ele tentará criar todos eles.
+3. Invoca um script que parece um script de criação—_build_ e _build.sh_ (nessa ordem, para o Linux) ou _build.bat_, _build.cmd_, _e build.exe_ (nessa ordem para o Windows).
 
 ### Java
 
-| Supported system type | System name |
-|----|----|
-| Operating system | Windows, macOS, and Linux (no restriction) |
-| Build system | Gradle, Maven and Ant |
+| Tipo de sistema compatível | Nome do sistema                        |
+| -------------------------- | -------------------------------------- |
+| Sistema operacional        | Windows, macOS e Linux (sem restrição) |
+| Sistema de criação         | Gradle, Maven e Ant                    |
 
-The `autobuild` process tries to determine the build system for Java codebases by applying this strategy:
+O processo de `autobuild` tenta determinar o sistema de criação para bases de código do Java aplicando esta estratégia:
 
-1. Search for a build file in the root directory. Check for Gradle then Maven then Ant build files.
-2. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
-3. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
+1. Procurar um arquivo de criação no diretório-raiz. Verifique o arquivos do Gradle, do Maven e, em seguida, do Ant.
+2. Execute o primeiro arquivo de criação encontrado. Se os arquivos do Gradle e do Maven estiverem presentes, será usado o arquivo do Gradle.
+3. Caso contrário, procure arquivos de criação nos subdiretórios diretos do diretório-raiz. Se apenas um subdiretório contiver arquivos de criação, execute o primeiro arquivo identificado nesse subdiretório (usando a mesma preferência de 1). Se mais de um subdiretório conter arquivos de criação, relate um erro.
 
-## Adding build steps for a compiled language
+## Adicionar passos de criação a uma linguagem compilada
 
-{% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)."
+{% data reusables.code-scanning.autobuild-add-build-steps %} Para obter informações sobre como editar o arquivo de fluxo de trabalho, consulte "[Configurar o {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)".
 
-After removing the `autobuild` step, uncomment the `run` step and add build commands that are suitable for your repository. The workflow `run` step runs command-line programs using the operating system's shell. You can modify these commands and add more commands to customize the build process. 
+Depois de remover a etapa de `autobuild`, remova o comentário da etapa `executar` e adicione comandos de criação adequados ao seu repositório. A etapa do fluxo de trabalho `executar` executa programas da linha de comando que usam o shell do sistema operacional. Você pode modificar esses comandos e adicionar mais comandos para personalizar o processo de criação.
 
 ``` yaml
 - run: |
@@ -114,9 +113,9 @@ After removing the `autobuild` step, uncomment the `run` step and add build comm
   make release
 ```
 
-For more information about the `run` keyword, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+Para obter mais informações sobre a palavra-chave `executar`, consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)".
 
-If your repository contains multiple compiled languages, you can specify language-specific build commands. For example, if your repository contains C/C++, C# and Java, and `autobuild` correctly builds C/C++ and C# but fails to build Java, you could use the following configuration in your workflow, after the `init` step. This specifies build steps for Java while still using `autobuild` for C/C++ and C#:
+Se seu repositório contém várias linguagens compiladas, você pode especificar comandos de compilação específicos da linguagem. Por exemplo, se o seu repositório contém C/C++, C# e Java, e o `autobuild` cria C/C++ e C# corretamente mas falha ao criar Java, você poderia utilizar a configuração a seguir no seu fluxo de trabalho, após a etapa `init`. Isto especifica etapas de criação para Java ao mesmo tempo que usa `autobuild` para C/C++ e C#:
 
 ```yaml
 - if: matrix.language == 'cpp' || matrix.language == 'csharp' 
@@ -130,8 +129,8 @@ If your repository contains multiple compiled languages, you can specify languag
     make release
 ```
 
-For more information about the `if` conditional, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif)."
+Para obter mais informações sobre `se` condicional, consulte "[Sintaxe de fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif).
 
-For more tips and tricks about why `autobuild` won't build your code, see "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
+Para obter mais dicas e truques sobre por que o`autobuild` não criará o seu código, consulte[Solução de problemas sobre o fluxo de trabalho do {% data variables.product.prodname_codeql %}](/code-security/secure-coding/troubleshooting-the-codeql-workflow)".
 
-If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
+Se você adicionou etapas de criação manual para linguagens compiladas, mas o {% data variables.product.prodname_code_scanning %} ainda não está funcionando no seu repositório, entre em contato com {% data variables.contact.contact_support %}.

@@ -16,7 +16,7 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 
-## Introduction
+## 简介
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
 
@@ -30,17 +30,17 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% endif %}
 
-## Prerequisites
+## 基本要求
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+在创建 {% data variables.product.prodname_actions %} 工作流程之前，首先需要完成以下设置步骤：
 
 1. Create a target AKS cluster and an Azure Container Registry (ACR). For more information, see "[Quickstart: Deploy an AKS cluster by using the Azure portal - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)" and "[Quickstart - Create registry in portal - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)" in the Azure documentation.
 
 1. Create a secret called `AZURE_CREDENTIALS` to store your Azure credentials. For more information about how to find this information and structure the secret, see [the `Azure/login` action documentation](https://github.com/Azure/login#configure-a-service-principal-with-a-secret).
 
-## Creating the workflow
+## 创建工作流程
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+完成先决条件后，可以继续创建工作流程。
 
 The following example workflow demonstrates how to build and deploy a project to Azure Kubernetes Service when code is pushed to your repository.
 
@@ -87,7 +87,7 @@ jobs:
         inlineScript: |
           az configure --defaults acr={% raw %}${{ env.AZURE_CONTAINER_REGISTRY }}{% endraw %}
           az acr build -t  -t {% raw %}${{ env.REGISTRY_URL }}{% endraw %}/{% raw %}${{ env.PROJECT_NAME }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
-    
+
     - name: Gets K8s context
       uses: azure/aks-set-context@4e5aec273183a197b181314721843e047123d9fa
       with:
@@ -117,10 +117,10 @@ jobs:
           {% raw %}${{ env.PROJECT_NAME }}{% endraw %}
 ```
 
-## Additional resources
+## 其他资源
 
-The following resources may also be useful:
+以下资源也可能有用：
 
-* For the original starter workflow, see [`azure-kubernetes-service.yml `](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* For the original starter workflow, see [`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The actions used to in this workflow are the official Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake), and [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy)actions.
 * For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

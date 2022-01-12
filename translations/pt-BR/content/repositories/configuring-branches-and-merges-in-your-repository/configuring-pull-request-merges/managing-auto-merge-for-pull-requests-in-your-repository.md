@@ -1,6 +1,6 @@
 ---
-title: Managing auto-merge for pull requests in your repository
-intro: You can allow or disallow auto-merge for pull requests in your repository.
+title: Gerenciando merge automático para pull requests no seu repositório
+intro: Você pode permitir ou impedir um merge automático de pull requests em seu repositório.
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
@@ -13,17 +13,17 @@ topics:
 redirect_from:
   - /github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository
   - /github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository
-shortTitle: Manage auto merge
+shortTitle: Gerenciar merge automático
 ---
-## About auto-merge
 
-If you allow auto-merge for pull requests in your repository, people with write permissions can configure individual pull requests in the repository to merge automatically when all merge requirements are met. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}If someone who does not have write permissions pushes changes to a pull request that has auto-merge enabled, auto-merge will be disabled for that pull request. {% endif %}For more information, see "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+## Sobre o merge automático
 
-## Managing auto-merge
+Se você permitir uma merge automático para pull requests no seu repositório, as pessoas com permissões de gravação poderão configurar pull requests individuais no repositório para fazer merge automaticamente quando todos os requisitos de merge forem atendidos. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Se alguém que não tiver permissão de gravação fizer push de um pull request que tenha merge automático habilitado, o merge automático será desabilitado para esse pull request. {% endif %}Para obter mais informações, consulte "[Fazer merge automático de um pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)".
+
+## Gerenciar merge automático
 
 {% data reusables.pull_requests.auto-merge-requires-branch-protection %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under "Merge button", select or deselect **Allow auto-merge**.
-  ![Checkbox to allow or disallow auto-merge](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
+1. Em "Botão de merge", selecione ou desmarque a opção **Permitir merge automático**. ![Caixa de seleção para permitir ou impedir merge automático](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)

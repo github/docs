@@ -1,6 +1,6 @@
 ---
-title: Removing yourself from a collaborator's repository
-intro: 'If you no longer want to be a collaborator on someone else''s repository, you can remove yourself.'
+title: Remover a si mesmo de um repositório de colaborador
+intro: 'Se não desejar mais ser um colaborador no repositório de outro usuário, você poderá remover a si mesmo.'
 redirect_from:
   - /leave-a-collaborative-repo
   - /leave-a-repo
@@ -18,12 +18,10 @@ versions:
 topics:
   - Accounts
   - Repositories
-shortTitle: Remove yourself
+shortTitle: Remover-se
 ---
+
 {% data reusables.user_settings.access_settings %}
-2. In the left sidebar, click **Repositories**.
-  ![Repositories tab](/assets/images/help/settings/settings-sidebar-repositories.png)
-3. Next to the repository you want to leave, click **Leave**.
-  ![Leave button](/assets/images/help/repository/repo-leave.png)
-4. Read the warning carefully, then click "I understand, leave this repository."
-  ![Dialog box warning you to leave](/assets/images/help/repository/repo-leave-confirmation.png)
+2. Na barra lateral esquerda, clique em **Repositories** (Repositórios). ![Guia Repositories (Repositórios)](/assets/images/help/settings/settings-sidebar-repositories.png)
+3. Clique em **Leave** (Sair) ao lado do repositório do qual deseja sair. ![Botão Leave (Sair)](/assets/images/help/repository/repo-leave.png)
+4. Leia o aviso com atenção, depois clique em "I understand, leave this repository" (Eu compreendo, sair deste repositório). ![Caixa de diálogo avisando você para sair](/assets/images/help/repository/repo-leave-confirmation.png)

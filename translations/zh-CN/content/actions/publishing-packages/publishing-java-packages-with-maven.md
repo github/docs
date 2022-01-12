@@ -1,6 +1,6 @@
 ---
-title: Publishing Java packages with Maven
-intro: You can use Maven to publish Java packages to a registry as part of your continuous integration (CI) workflow.
+title: 使用 Maven 发布 Java 包
+intro: 您可以使用 Maven 将 Java 包发布到注册表，作为持续集成 (CI) 工作流程的一部分。
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-maven
   - /actions/guides/publishing-java-packages-with-maven
@@ -15,44 +15,44 @@ topics:
   - Publishing
   - Java
   - Maven
-shortTitle: Java packages with Maven
+shortTitle: 带有 Maven 的 Java 包
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## 简介
 
 {% data reusables.github-actions.publishing-java-packages-intro %}
 
-## Prerequisites
+## 基本要求
 
-We recommend that you have a basic understanding of workflow files and configuration options. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+建议对工作流程文件和配置选项有一个基本了解。 更多信息请参阅“[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
 
-For more information about creating a CI workflow for your Java project with Maven, see "[Building and testing Java with Maven](/actions/language-and-framework-guides/building-and-testing-java-with-maven)."
+有关为使用 Maven 为 Java 项目创建 CI 工作流程的详细信息，请参阅“[使用 Maven 构建和测试用 Java](/actions/language-and-framework-guides/building-and-testing-java-with-maven)”。
 
-You may also find it helpful to have a basic understanding of the following:
+您可能还发现基本了解以下内容是有帮助的：
 
-- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
-- "[Environment variables](/actions/reference/environment-variables)"
-- "[Encrypted secrets](/actions/reference/encrypted-secrets)"
-- "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
+- “[使用 npm 注册表](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)”
+- "[环境变量](/actions/reference/environment-variables)"
+- [加密的密码](/actions/reference/encrypted-secrets)"
+- "[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow)"
 
-## About package configuration
+## 关于包配置
 
-The `groupId` and `artifactId` fields in the _pom.xml_ file create a unique identifier for your package that registries use to link your package to a registry.  For more information see [Guide to uploading artifacts to the Central Repository](http://maven.apache.org/repository/guide-central-repository-upload.html) in the Apache Maven documentation.
+_pom.xml_ 文件中的 `groupId` 和 `artifactId` 字段为包创建唯一标识符，供注册表用来将包链接到注册表。  更多信息请参阅 Apache Maven 文档中的[将构件上传到中心仓库的指南](http://maven.apache.org/repository/guide-central-repository-upload.html)。
 
-The _pom.xml_ file also contains configuration for the distribution management repositories that Maven will deploy packages to. Each repository must have a name and a deployment URL. Authentication for these repositories can be configured in the _.m2/settings.xml_ file in the home directory of the user running Maven.
+_pom.xml_ 文件还包含 Maven 将在其中部署包的分配管理仓库的配置。 每个仓库都必须有名称和部署 URL。 这些仓库的身份验证可在运行 Maven 的用户主目录下的 _.m2/settings.xml_ 文件中配置。
 
-You can use the `setup-java` action to configure the deployment repository as well as authentication for that repository. For more information, see [`setup-java`](https://github.com/actions/setup-java).
+您可以使用 `setup-java` 操作配置部署仓库以及该仓库的身份验证。 更多信息请参阅 [`setup-java`](https://github.com/actions/setup-java)。
 
-## Publishing packages to the Maven Central Repository
+## 将包发布到 Maven 中心仓库
 
-Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to the Maven Central Repository if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
+每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程将包发布到 Maven 中心仓库。 有关 `release` 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#release)”。
 
-In this workflow, you can use the `setup-java` action. This action installs the given version of the JDK into the `PATH`, but it also configures a Maven _settings.xml_ for publishing packages. By default, the settings file will be configured for {% data variables.product.prodname_registry %}, but it can be configured to deploy to another package registry, such as the Maven Central Repository. If you already have a distribution management repository configured in _pom.xml_, then you can specify that `id` during the `setup-java` action invocation.
+在此工作流程中，您可以使用 `setup-java` 操作。 此操作将 JDK 的给定版本安装到 `PATH`，但同时会配置 Maven _settings.xml_ 以发布包。 默认情况下，设置文件将配置用于 {% data variables.product.prodname_registry %}，但可以将其配置为部署到另一个包注册表，如 Maven 中心仓库。 如果您已经在 _pom.xml_ 配置分配管理仓库，则可在 `setup-java` 操作调用期间指定该 `id`。
 
-For example, if you were deploying to the Maven Central Repository through the OSSRH hosting project, your _pom.xml_ could specify a distribution management repository with the `id` of `ossrh`.
+例如，如果您通过 OSSRH 托管项目部署到 Maven 中心仓库，则 _pom.xml_ 可以指定 `id` 为 `ossrh` 的分发管理仓库。
 
 {% raw %}
 ```xml{:copy}
@@ -69,9 +69,9 @@ For example, if you were deploying to the Maven Central Repository through the O
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by specifying the repository management `id` to the `setup-java` action. You’ll also need to provide environment variables that contain the username and password to authenticate to the repository.
+使用此配置，可通过将仓库管理 `id` 指定到 `setup-java` 操作，创建一个将包发布到 Maven 中心仓库的工作流程。 您还需要提供包含用户名和密码的环境变量向仓库验证。
 
-In the deploy step, you’ll need to set the environment variables to the username that you authenticate with to the repository, and to a secret that you’ve configured with the password or token to authenticate with.  For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+在部署步骤中，您需要将环境变量设置为向仓库验证的用户名，以及用密码或令牌配置为进行身份验证的密钥。  更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 
 {% raw %}
@@ -101,25 +101,25 @@ jobs:
 ```
 {% endraw %}
 
-This workflow performs the following steps:
+此工作流程执行以下步骤：
 
-1. Checks out a copy of project's repository.
-1. Sets up the Java JDK, and also configures the Maven _settings.xml_ file to add authentication for the `ossrh` repository using the `MAVEN_USERNAME` and `MAVEN_PASSWORD` environment variables.
+1. 检出项目仓库的副本。
+1. 设置 Java JDK，同时使用 `MAVEN_USERNAME` 和 `MAVEN_PASSWORD` 环境变量配置 Maven _settings.xml_ 文件为 `ossrh` 仓库添加身份验证。
 1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
-## Publishing packages to {% data variables.product.prodname_registry %}
+## 发布包到 {% data variables.product.prodname_registry %}
 
-Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to {% data variables.product.prodname_registry %} if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
+每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程会将包发布到 {% data variables.product.prodname_registry %}。 有关 `release` 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#release)”。
 
-In this workflow, you can use the `setup-java` action. This action installs the given version of the JDK into the `PATH`, and also sets up a Maven _settings.xml_ for publishing the package to {% data variables.product.prodname_registry %}. The generated _settings.xml_ defines authentication for a server with an `id` of `github`, using the `GITHUB_ACTOR` environment variable as the username and the `GITHUB_TOKEN` environment variable as the password. The `GITHUB_TOKEN` environment variable is assigned the value of the special `GITHUB_TOKEN` secret.
+在此工作流程中，您可以使用 `setup-java` 操作。 此操作将给定版本的 JDK 安装到 `PATH`，并且设置 Maven _settings.xml_ 以将包发布到 {% data variables.product.prodname_registry %}。 生成的 _settings.xml_ 定义使用 `github` 的 `id` 向服务器验证，使用 `GITHUB_ACTOR` 环境变量作为用户名，`GITHUB_TOKEN` 环境变量作为密码。 `GITHUB_TOKEN` 环境变量将获分配特殊 `GITHUB_TOKEN` 密钥的值。
 
 {% data reusables.github-actions.github-token-permissions %}
 
-For a Maven-based project, you can make use of these settings by creating a distribution repository in your _pom.xml_ file with an `id` of `github` that points to your {% data variables.product.prodname_registry %} endpoint.
+对于基于 Maven的项目，您可以通过在 _pom.xml_ 文件中创建分发仓库来使用这些设置，该文件以 `github` 的 `id` 指向 {% data variables.product.prodname_registry %} 端点。
 
-For example, if your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _pom.xml_ would look similar to the below example.
+例如，如果组织名为“octocat”且仓库名为“hello-world”，则 _pom.xml_ 中的 {% data variables.product.prodname_registry %} 配置看起来类似于以下示例。
 
 {% raw %}
 ```xml{:copy}
@@ -136,7 +136,7 @@ For example, if your organization is named "octocat" and your repository is name
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by making use of the automatically generated _settings.xml_.
+通过此配置，您可以创建一个工作流程，以使用自动生成的 _settings.xml_ 将包发布到 {% data variables.product.prodname_registry %}。
 
 ```yaml{:copy}
 name: Publish package to GitHub Packages
@@ -161,19 +161,19 @@ jobs:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-This workflow performs the following steps:
+此工作流程执行以下步骤：
 
-1. Checks out a copy of project's repository.
-1. Sets up the Java JDK, and also automatically configures the Maven _settings.xml_ file to add authentication for the `github` Maven repository to use the `GITHUB_TOKEN` environment variable.
+1. 检出项目仓库的副本。
+1. 设置 Java JDK，同时自动配置 Maven _settings.xml_ 文件为 `github` Maven 仓库添加身份验证，以使用 `GITHUB_TOKEN` 环境变量。
 1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
-## Publishing packages to the Maven Central Repository and {% data variables.product.prodname_registry %}
+## 发布包到 Maven 中心仓库和 {% data variables.product.prodname_registry %}
 
-You can publish your packages to both the Maven Central Repository and {% data variables.product.prodname_registry %} by using the `setup-java` action for each registry.
+您可以使用每个注册表的 `setup-node` 操作将包发布到 Maven 中心仓库和 {% data variables.product.prodname_registry %}。
 
-Ensure your _pom.xml_ file includes a distribution management repository for both your {% data variables.product.prodname_dotcom %} repository and your Maven Central Repository provider. For example, if you deploy to the Central Repository through the OSSRH hosting project, you might want to specify it in a distribution management repository with the `id` set to `ossrh`, and you might want to specify {% data variables.product.prodname_registry %} in a distribution management repository with the `id` set to `github`.
+确保 _pom.xml_ 文件包含用于 {% data variables.product.prodname_dotcom %} 仓库和 Maven 中心仓库提供商的分发管理仓库。 例如，如果您通过 OSSRH 托管项目部署到中心仓库，您可能想通过将 `id` 设置为 `ossrh` 在分发管理仓库中指定它，并且想通过将 `id` 设置为 `github` 在分发管理仓库中指定 {% data variables.product.prodname_registry %}。
 
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
@@ -212,14 +212,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-This workflow calls the `setup-java` action twice.  Each time the `setup-java` action runs, it overwrites the Maven _settings.xml_ file for publishing packages.  For authentication to the repository, the _settings.xml_ file references the distribution management repository `id`, and the username and password.
+此工作流程将调用 `setup-java` 操作两次。  每次运行 `setup-java` 操作时，都会覆盖 Maven _settings.xml_ 文件以发布包。  为向仓库验证，_settings.xml_ 文件引用分发管理仓库 `id` 以及用户名和密码。
 
-This workflow performs the following steps:
+此工作流程执行以下步骤：
 
-1. Checks out a copy of project's repository.
-1. Calls `setup-java` the first time. This configures the Maven _settings.xml_ file for the `ossrh` repository, and sets the authentication options to environment variables that are defined in the next step.
+1. 检出项目仓库的副本。
+1. 第一次调用 `setup-java`。 这将为 `ossrh` 仓库配置 Maven _settings.xml_ 文件，并将身份验证选项设置为下一步定义的环境变量。
 1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
-1. Calls `setup-java` the second time. This automatically configures the Maven _settings.xml_ file for {% data variables.product.prodname_registry %}.
+1. 第二次调用 `setup-java`。 这将自动为 {% data variables.product.prodname_registry %} 配置 Maven _settings.xml_ 文件。
 1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。

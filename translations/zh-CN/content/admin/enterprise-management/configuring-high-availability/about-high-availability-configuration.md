@@ -1,6 +1,6 @@
 ---
-title: About high availability configuration
-intro: 'In a high availability configuration, a fully redundant secondary {% data variables.product.prodname_ghe_server %} appliance is kept in sync with the primary appliance through replication of all major datastores.'
+title: 关于高可用性配置
+intro: '在高性能配置中，完全冗余的次级 {% data variables.product.prodname_ghe_server %} 设备通过复制所有主要数据存储与主设备保持同步。'
 redirect_from:
   - /enterprise/admin/installation/about-high-availability-configuration
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
@@ -12,58 +12,59 @@ topics:
   - Enterprise
   - High availability
   - Infrastructure
-shortTitle: About HA configuration
+shortTitle: 关于 HA 配置
 ---
-When you configure high availability, there is an automated setup of one-way, asynchronous replication of all datastores (Git repositories, MySQL, Redis, and Elasticsearch) from the primary to the replica appliance.
 
-{% data variables.product.prodname_ghe_server %} supports an active/passive configuration, where the replica appliance runs as a standby with database services running in replication mode but application services stopped.
+配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。
+
+{% data variables.product.prodname_ghe_server %} 支持主动/被动配置，在这些配置下，副本作为备用设备运行，并且数据库服务在复制模式下运行，但应用程序服务将停止。
 
 {% data reusables.enterprise_installation.replica-limit %}
 
-## Targeted failure scenarios
+## 有针对性的故障场景
 
-Use a high availability configuration for protection against:
+使用高可用性配置防护以下问题：
 
 {% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
-A high availability configuration is not a good solution for:
+高可用性配置不适用于：
 
-  - **Scaling-out**. While you can distribute traffic geographically using geo-replication, the performance of writes is limited to the speed and availability of the primary appliance. For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."{% ifversion ghes > 3.2 %}
+  - **扩展**。 虽然可以使用 Geo-replication 将流量分布在不同地理位置，但写入性能受限于主设备的速度和可用性。 For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."{% ifversion ghes > 3.2 %}
   - **CI/CD load**. If you have a large number of CI clients that are geographically distant from your primary instance, you may benefit from configuring a repository cache. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."{% endif %}
-  - **Backing up your primary appliance**. A high availability replica does not replace off-site backups in your disaster recovery plan. Some forms of data corruption or loss may be replicated immediately from the primary to the replica. To ensure safe rollback to a stable past state, you must perform regular backups with historical snapshots.
-  - **Zero downtime upgrades**. To prevent data loss and split-brain situations in controlled promotion scenarios, place the primary appliance in maintenance mode and wait for all writes to complete before promoting the replica.
+  - **备份主设备**。 高可用性副本不会替代灾难恢复计划中的非现场备份。 某些形式的数据损坏或数据丢失可能会立即从主设备复制到副本。 为确保安全回滚到稳定的过去状态，必须通过历史快照执行定期备份。
+  - **零停机时间升级**。 为避免受控升级场景下出现数据丢失和裂脑的状况，请先将主设备置于维护模式并等待所有写入操作完成，然后再对副本进行升级。
 
-## Network traffic failover strategies
+## 网络流量故障转移策略
 
-During failover, you must separately configure and manage redirecting network traffic from the primary to the replica.
+在故障转移期间，您必须单独配置和管理从主设备到副本的网络流量的重定向。
 
-### DNS failover
+### DNS 故障转移
 
-With DNS failover, use short TTL values in the DNS records that point to the primary {% data variables.product.prodname_ghe_server %} appliance. We recommend a TTL between 60 seconds and five minutes.
+对于 DNS 故障转移，请使用 DNS 记录中指向主 {% data variables.product.prodname_ghe_server %} 设备的短 TTL 值。 建议的 TTL 值范围为 60 秒到 5 分钟。
 
-During failover, you must place the primary into maintenance mode and redirect its DNS records to the replica appliance's IP address. The time needed to redirect traffic from primary to replica will depend on the TTL configuration and time required to update the DNS records.
+在故障转移期间，必须将主设备置于维护模式，并将其 DNS 记录重定向到副本的 IP 地址。 将流量从主设备重新定向到副本所需的时间将取决于 TTL 配置以及更新 DNS 记录所需的时间。
 
-If you are using geo-replication, you must configure Geo DNS to direct traffic to the nearest replica. For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."
+如果您要使用 Geo-replication，则必须配置 Geo DNS，将流量定向到距离最近的副本。 更多信息请参阅“[关于 Geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)”。
 
-### Load balancer
+### 负载均衡器
 
 {% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-During failover, you must place the primary appliance into maintenance mode. You can configure the load balancer to automatically detect when the replica has been promoted to primary, or it may require a manual configuration change. You must manually promote the replica to primary before it will respond to user traffic. For more information, see "[Using {% data variables.product.prodname_ghe_server %} with a load balancer](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
+在故障转移期间，您必须将主设备置于维护模式。 您可以将负载均衡器配置为自动检测副本何时已升级为主设备，或者可能需要手动更改配置。 您必须先将副本手动升级为主设备，随后副本才能对用户流量作出响应。 更多信息请参阅“[结合使用 {% data variables.product.prodname_ghe_server %} 和负载均衡器](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)”。
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
-## Utilities for replication management
+## 用于复制管理的实用程序
 
-To manage replication on {% data variables.product.prodname_ghe_server %}, use these command line utilities by connecting to the replica appliance using SSH.
+要管理 {% data variables.product.prodname_ghe_server %} 上的复制，请使用 SSH 连接到副本，以使用以下命令行实用程序。
 
 ### ghe-repl-setup
 
-The `ghe-repl-setup` command puts a {% data variables.product.prodname_ghe_server %} appliance in replica standby mode.
+`ghe-repl-setup` 命令可将 {% data variables.product.prodname_ghe_server %} 设备置于副本备用模式。
 
- - An encrypted WireGuard VPN tunnel is configured for communication between the two appliances.
- - Database services are configured for replication and started.
- - Application services are disabled. Attempts to access the replica appliance over HTTP, Git, or other supported protocols will result in an "appliance in replica mode" maintenance page or error message.
+ - 配置加密的 WireGuard VPN 隧道以实现两台设备之间的通信。
+ - 配置用于复制的数据库服务并启动。
+ - 禁用应用程序服务。 尝试通过 HTTP、Git 或其他受支持协议访问副本将出现“设备处于副本模式”维护页面或显示错误消息。
 
 ```shell
 admin@169-254-1-2:~$ ghe-repl-setup 169.254.1.1
@@ -77,7 +78,7 @@ Run `ghe-repl-start' to start replicating against the newly configured primary.
 
 ### ghe-repl-start
 
-The `ghe-repl-start` command turns on active replication of all datastores.
+`ghe-repl-start` 命令可以启用所有数据存储的主动复制。
 
 ```shell
 admin@169-254-1-2:~$ ghe-repl-start
@@ -92,7 +93,7 @@ Use `ghe-repl-status' to monitor replication health and progress.
 
 ### ghe-repl-status
 
-The `ghe-repl-status` command returns an `OK`, `WARNING` or `CRITICAL` status for each datastore replication stream. When any of the replication channels are in a `WARNING` state, the command will exit with the code `1`. Similarly, when any of the channels are in a `CRITICAL` state, the command will exit with the code `2`.
+`ghe-repl-status` 命令可以返回各数据存储复制流的 `OK`、`WARNING` 或 `CRITICAL` 状态。 如果有任何复制通道处于 `WARNING` 状态，命令将停止执行并显示代码 `1`。 同样，如果有任何通道处于 `CRITICAL` 状态，命令将停止执行并显示代码 `2`。
 
 ```shell
 admin@169-254-1-2:~$ ghe-repl-status
@@ -103,7 +104,7 @@ OK: git data is in sync (10 repos, 2 wikis, 5 gists)
 OK: pages data is in sync
 ```
 
-The `-v` and `-vv` options give details about each datastore's replication state:
+`-v` 和 `-vv` 选项可以提供关于各数据存储复制状态的详细信息：
 
 ```shell
 $ ghe-repl-status -v
@@ -144,7 +145,7 @@ OK: pages data is in sync
 
 ### ghe-repl-stop
 
-The `ghe-repl-stop` command temporarily disables replication for all datastores and stops the replication services. To resume replication, use the [ghe-repl-start](#ghe-repl-start) command.
+`ghe-repl-stop` 命令可以暂时禁用所有数据存储的复制并停止复制服务。 要恢复复制，请使用 [ghe-repl-start](#ghe-repl-start) 命令。
 
 ```shell
 admin@168-254-1-2:~$ ghe-repl-stop
@@ -158,7 +159,7 @@ Success: replication was stopped for all services.
 
 ### ghe-repl-promote
 
-The `ghe-repl-promote` command disables replication and converts the replica appliance to a primary. The appliance is configured with the same settings as the original primary and all services are enabled.
+`ghe-repl-promote` 命令可以禁用复制并将副本转换为主设备。 设备会配置为使用与原主设备相同的设置，并启用所有服务。
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
@@ -181,9 +182,9 @@ Success: Replica has been promoted to primary and is now accepting requests.
 
 ### ghe-repl-teardown
 
-The `ghe-repl-teardown` command disables replication mode completely, removing the replica configuration.
+`ghe-repl-teardown` 命令可以完全禁用复制模式，并移除副本配置。
 
-## Further reading
+## 延伸阅读
 
-- "[Creating a high availability replica](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)"
+- “[创建高可用性副本](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)”
 - "[Network ports](/admin/configuration/configuring-network-settings/network-ports)"
