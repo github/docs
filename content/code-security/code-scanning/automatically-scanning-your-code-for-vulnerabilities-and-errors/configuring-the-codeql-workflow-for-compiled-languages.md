@@ -138,53 +138,31 @@ If you added manual build steps for compiled languages and {% data variables.pro
 
 ## Excluding directories from the database by customizing the build steps
 
-In some situations, a full build of your project and its dependencies may produce
-a very large CodeQL database.  If those dependencies are not intended for
-analysis, they can be kept out of the CodeQL database by separating their build
-from the main build.  The following example illustrates the idea for a C++
-project using `make`, but the procedure applies to all compiled languages and
-build systems.
+Sometimes you do not want to build and analyze your whole project and its dependencies. You can omit build dependencies from the {% data variables.product.prodname_codeql %} database by separating their build from the main build that's tracked by {% data variables.product.prodname_codeql %}.
 
-If your project tree is 
+### Example
 
-```text
-thing/
-   src/
-   lib1/
-   lib2/
-```
+The following example illustrates this approach for a C++ project that's built using `make`, but the procedure applies to all compiled languages and build systems.
 
-and your default build command (let's use make)
-
-```sh
-make all
-```
-
-builds
-
-```text
-src/
-lib1/
-lib2/
-```
-
-then the codeql wrapper will intercept all of those and put them into the database. The wrapper command in this case is
+Your project tree contains three subdirectories, `src/`, `lib1`, and `lib2` and your default build command, `make all`, builds them all. If you configure the workflow with the default build command, it generates a {% data variables.product.prodname_codeql %} database with the code and dependencies of all three subdirectories.
 
 ```sh
 codeql database create cpp-database --language=cpp --command='make all'
 ```
 
-If you run
+You can omit one of the subdirectories and its dependencies from the {% data variables.product.prodname_codeql %} database by building it before calling the {% data variables.product.prodname_codeql %} CLI.
 
 ```sh
 make lib2 
-```
 
-and then
-
-```sh
 codeql database create cpp-database --language=cpp --command='make src lib1'
 ```
 
-instead, the codeql build will not build the contents of lib2. Note that for header-only C++ libraries, this won't work because they will be included.
+The resulting {% data variables.product.prodname_codeql %} database will contain only code and dependencies from the `src` and `lib1` directories.
+
+{% note %}
+
+**Note:** This approach does not work for header-only C++ libraries.
+
+{% endnote %}
 
