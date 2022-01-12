@@ -1,5 +1,5 @@
 import path from 'path'
-import getRest, { restRepoCategoryExceptions } from '../../lib/rest/index.js'
+import getRest from '../../lib/rest/index.js'
 import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
 
 // Global cache to avoid calling getRest() more than once
@@ -24,15 +24,10 @@ export default async function restContext(req, res, next) {
   if (!req.pagePath.includes('rest/reference')) return next()
 
   // e.g. the `activity` from `/en/rest/reference/activity#events`
-  let category = req.pagePath
+  const category = req.pagePath
     .split('rest/reference')[1]
     .replace(/^\//, '') // remove leading slash
     .split('/')[0]
-
-  // override the category if the category is in the restRepoCategoryExceptions list
-  if (restRepoCategoryExceptions.includes(category)) {
-    category = 'repos'
-  }
 
   // ignore empty strings or bare `/`
   if (!category || category.length < 2) return next()

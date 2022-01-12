@@ -13,7 +13,7 @@ sections:
     - 'An erroneous `jq` error message may have been displayed when running `ghe-config-apply`. {% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
     - 'La recuperación de fallos desde un centro de datos de un clúster primario hacia uno de un clúster secundario fue exitosa, pero recuperarse de los fallos nuevamente hacia el centro de datos del clúster primario original no pudo promover los índices de Elasticsearch. {% comment %} https://github.com/github/github/pull/193180, https://github.com/github/github/pull/192447 {% endcomment %}'
     - 'The Site Admin page for repository self-hosted runners returned an HTTP 500. {% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
-    - 'In some cases, GitHub Enterprise Administrators attempting to view the `Dormant users` page received `502 Bad Gateway` or `504 Gateway Timeout` response. {% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - 'En algunos casos, los Administradores de GitHub Enterprise que intentaron ver la página de `Usuarios inactivos` recibieron una respuesta de tipo `502 Bad Gateway` o `504 Gateway Timeout`. {% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
   changes:
     - 'More effectively delete Webhook logs that fall out of the Webhook log retention window. {% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
   known_issues:

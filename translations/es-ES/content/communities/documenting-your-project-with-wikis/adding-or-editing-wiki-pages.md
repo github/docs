@@ -1,11 +1,11 @@
 ---
-title: Agregar o eliminar páginas wiki
-intro: 'Puedes agregar y editar páginas wiki directamente en {% data variables.product.product_name %} o localmente usando la línea de comando.'
+title: Adding or editing wiki pages
+intro: 'You can add and edit wiki pages directly on {% data variables.product.product_name %} or locally using the command line.'
 redirect_from:
-  - /articles/adding-wiki-pages-via-the-online-interface/
-  - /articles/editing-wiki-pages-via-the-online-interface/
-  - /articles/adding-and-editing-wik-pages-locally/
-  - /articles/adding-and-editing-wiki-pages-locally/
+  - /articles/adding-wiki-pages-via-the-online-interface
+  - /articles/editing-wiki-pages-via-the-online-interface
+  - /articles/adding-and-editing-wik-pages-locally
+  - /articles/adding-and-editing-wiki-pages-locally
   - /articles/adding-or-editing-wiki-pages
   - /github/building-a-strong-community/adding-or-editing-wiki-pages
 product: '{% data reusables.gated-features.wikis %}'
@@ -16,47 +16,55 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: Administrar las páginas de wiki
+shortTitle: Manage wiki pages
 ---
 
-## Agregar páginas wiki
+## Adding wiki pages
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-3. En el ángulo superior derecho de la página, haz clic en **New Page** (Página nueva) ![Botón de la nueva página wiki](/assets/images/help/wiki/wiki_new_page_button.png)
-4. Opcionalmente, para escribir en otro formato diferente a Markdown, usa el menú desplegable del modo Edit (Editar) y haz clic en un formato diferente.![Selección de markup de wiki](/assets/images/help/wiki/wiki_dropdown_markup.gif)
-5. Usa el editor de texto para agregar el contenido de tu página. ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Escribe un mensaje de confirmación que describa el nuevo archivo que agregaste. ![Mensaje de confirmación de la wiki](/assets/images/help/wiki/wiki_commit_message.png)
-7. Para confirmar tus cambios en la wiki, haz clic en **Guardar página**.
+3. In the upper-right corner of the page, click **New Page**.
+  ![Wiki new page button](/assets/images/help/wiki/wiki_new_page_button.png)
+4. Optionally, to write in a format other than Markdown, use the Edit mode drop-down menu, and click a different format.
+  ![Wiki markup selection](/assets/images/help/wiki/wiki_dropdown_markup.gif)
+5. Use the text editor to add your page's content.
+  ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. Type a commit message describing the new file you’re adding.
+  ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
+7. To commit your changes to the wiki, click **Save Page**.
 
-## Editar páginas wiki
+## Editing wiki pages
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-4. Desplázate hasta la página que deseas cambiar con la ayuda de la barra lateral wiki. En el ángulo superior derecho de la página, haz clic en **Edite** (Editar). ![Botón de la página para editar wikis](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Usa el editor de texto para editar el contenido de la página. ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Escribe un mensaje de confirmación que describa tus cambios. ![Mensaje de confirmación de la wiki](/assets/images/help/wiki/wiki_commit_message.png)
-7. Para confirmar tus cambios en la wiki, haz clic en **Guardar página**.
+4. Using the wiki sidebar, navigate to the page you want to change. In the upper-right corner of the page, click **Edit**.
+   ![Wiki edit page button](/assets/images/help/wiki/wiki_edit_page_button.png)
+5. Use the text editor edit the page's content.
+   ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. Type a commit message describing your changes.
+   ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
+7. To commit your changes to the wiki, click **Save Page**.
 
-## Agregar o editar páginas wiki localmente
+## Adding or editing wiki pages locally
 
-Las wikis son parte de los repositorios Gift, de manera que puedes hacer cambios localmente y subirlos a tu repositorio mediante un flujo de trabajo de Git.
+Wikis are part of Git repositories, so you can make changes locally and push them to your repository using a Git workflow.
 
-### Clonar wikis en tu computadora
+### Cloning wikis to your computer
 
-Cada wiki brinda una manera sencilla de clonar sus contenidos en tu computadora. Puedes clonar el repositorio a tu computadora con la URL proporcionada:
+Every wiki provides an easy way to clone its contents down to your computer.
+You can clone the repository to your computer with the provided URL:
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git
-# Clona la wiki localmente
+# Clones the wiki locally
 ```
 
-Una vez que has clonado la wiki, puedes agregar archivos nuevos, editar los existentes y confirmar tus cambios. Tus colaboradores y tú pueden crear ramas cuando trabajen en wikis, pero solo los cambios que se suban a la rama predeterminada estarán productivos y disponibles para tus lectores.
+Once you have cloned the wiki, you can add new files, edit existing ones, and commit your changes. You and your collaborators can create branches when working on wikis, but only changes pushed to the default branch will be made live and available to your readers.
 
-## Acerca de los nombres de archivo wiki
+## About wiki filenames
 
-El nombre de archivo determina el título de tu página wiki, y la extensión del archivo determina cómo se presenta el contenido wiki.
+The filename determines the title of your wiki page, and the file extension determines how your wiki content is rendered.
 
-Las wikis usan [nuestra biblioteca Markup de código abierto](https://github.com/github/markup) para convertir el Markup, y este determina qué convertidor usar para una extensión de archivo. Por ejemplo, si denominas un archivo *foo.md* o *foo.markdown*, wiki usará el convertidor Markdown, mientras que un archivo denominado *foo.textile* usará el convertidor Textile.
+Wikis use [our open-source Markup library](https://github.com/github/markup) to convert the markup, and it determines which converter to use by a file's extension. For example, if you name a file *foo.md* or *foo.markdown*, wiki will use the Markdown converter, while a file named *foo.textile* will use the Textile converter.
 
-No uses los siguientes caracteres en los títulos de tu página wiki: `\ / : * ? " < > |`. Los usuarios en determinados sistemas operativos no podrán trabajar con nombres de archivos que contienen estos caracteres. Asegúrate de escribir tu contenido mediante un idioma de Markup que coincida con la extensión, o tu contenido no se presentará de manera adecuada.
+Don't use the following characters in your wiki page's titles: `\ / : * ? " < > |`. Users on certain operating systems won't be able to work with filenames containing these characters. Be sure to write your content using a markup language that matches the extension, or your content won't render properly.

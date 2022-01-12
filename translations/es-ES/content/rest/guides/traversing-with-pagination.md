@@ -2,7 +2,7 @@
 title: Traversing with pagination
 intro: Explore how to use pagination to manage your responses with some examples using the Search API.
 redirect_from:
-  - /guides/traversing-with-pagination/
+  - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
 versions:
   fpt: '*'
@@ -263,4 +263,4 @@ puts "The next page link is #{next_page_href}"
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [hypermedia-relations]: https://github.com/octokit/octokit.rb#pagination
-[listing commits]: /rest/reference/repos#list-commits
+[listing commits]: /rest/reference/commits#list-commits

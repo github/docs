@@ -1,8 +1,8 @@
 ---
-title: Crear una página 404 personalizada para tu sitio de Páginas de GitHub
-intro: Puedes mostrar una página personalizada de error 404 cuando se intente acceder a páginas que no existen en tu sitio.
+title: Creating a custom 404 page for your GitHub Pages site
+intro: You can display a custom 404 error page when people try to access nonexistent pages on your site.
 redirect_from:
-  - /articles/custom-404-pages/
+  - /articles/custom-404-pages
   - /articles/creating-a-custom-404-page-for-your-github-pages-site
   - /github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
@@ -13,25 +13,26 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Crear una página personalizada de error 404
+shortTitle: Create custom 404 page
 ---
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
 {% data reusables.files.add-file %}
-3. En el campo para el nombre de archivo, escribe `404.html` o `404.md`. ![Campo File name (Nombre de archivo)](/assets/images/help/pages/404-file-name.png)
-4. Si denominaste tu archivo `404.md`, agrega el siguiente texto preliminar de YAML al comienzo del archivo:
+3. In the file name field, type `404.html` or `404.md`.
+  ![File name field](/assets/images/help/pages/404-file-name.png)
+4. If you named your file `404.md`, add the following YAML front matter to the beginning of the file:
   ```yaml
   ---
   permalink: /404.html
   ---
   ```
-5. Debajo del texto preliminar de YAML, si aparece, agrega el contenido que quieras mostrar en tu página 404.
+5. Below the YAML front matter, if present, add the content you want to display on your 404 page.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-## Leer más
+## Further reading
 
-- [Texto preliminar](http://jekyllrb.com/docs/frontmatter) en la documentación de Jekyll
+- [Front matter](http://jekyllrb.com/docs/frontmatter) in the Jekyll documentation
