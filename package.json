@@ -179,7 +179,7 @@
     "yesno": "^0.3.1"
   },
   "engines": {
-    "node": ">= 16.0.0"
+    "node": "16.x"
   },
   "exports": "./server.mjs",
   "license": "(MIT AND CC-BY-4.0)",
