@@ -310,7 +310,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-A project may contain items that a user does not have permission to view. In this case, the response will include redacted item.
+A project may contain items that a user does not have permission to view. In this case, the response will include a redacted item.
 
 ```shell
 {
@@ -373,7 +373,7 @@ The response will contain the node ID of the newly created item.
 }
 ```
 
-If you try add an item that already exists, the existing item ID is returned instead.
+If you try to add an item that already exists, the existing item ID is returned instead.
 
 ### Updating a custom text, number, or date field
 

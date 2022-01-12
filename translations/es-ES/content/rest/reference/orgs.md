@@ -1,6 +1,6 @@
 ---
-title: Organizaciones
-intro: 'La API de Organizaciones te da acceso para controlar y administrar todas tus organizaciones de {% data variables.product.product_name %}.'
+title: Organizations
+intro: 'The Organizations API gives you access to control and manage all your {% data variables.product.product_name %} organizations.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
@@ -19,9 +19,9 @@ miniTocMaxHeadingLevel: 3
 {% endfor %}
 
 {% ifversion fpt or ghec %}
-## Bloquear usuarios
+## Blocking users
 
-El token que se utiliza para autenticar la llamada debe tener el alcance de `admin:org` para poder hacer cualquier llamada de bloqueo para una organización. De lo contrario, la respuesta devolverá un `HTTP 404`.
+The token used to authenticate the call must have the `admin:org` scope in order to make any blocking calls for an organization. Otherwise, the response returns `HTTP 404`.  
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'blocking' %}{% include rest_operation %}{% endif %}
@@ -29,13 +29,13 @@ El token que se utiliza para autenticar la llamada debe tener el alcance de `adm
 
 {% endif %}
 
-## Miembros
+## Members
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'members' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Colaboradores externos
+## Outside collaborators
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'outside-collaborators' %}{% include rest_operation %}{% endif %}
@@ -51,28 +51,28 @@ El token que se utiliza para autenticar la llamada debe tener el alcance de `adm
 
 ## Webhooks
 
-Los webhooks de las organizaciones te permiten recibir cargas útiles de `POST` por HTTP cuando ciertos eventos suceden en una organización. {% data reusables.webhooks.webhooks-rest-api-links %}
+Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. {% data reusables.webhooks.webhooks-rest-api-links %}
 
-Para obtener más información sobre las acciones a las cuales te puedes suscribir, consulta los "[tipos de eventos de {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
+For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
 
-### Alcances & Restricciones
+### Scopes & Restrictions
 
-Todas las acciones en contra de los webhooks de una organización requieren que el usuario autenticado sea un administrador de la organización que se está administrando. Adicionalmente, los tokens de OAuth requieren el alcance `admin:org_hook`. Par aobtener más información, consulta la sección "[Alcances para las Apps de OAuth](/developers/apps/scopes-for-oauth-apps)".
+All actions against organization webhooks require the authenticated user to be an admin of the organization being managed. Additionally, OAuth tokens require the `admin:org_hook` scope. For more information, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps)."
 
-Para porteger los datos sensibles que pueden encontrarse en las configuraciones de los webhooks, también imponemos las siguientes reglas de control de accesos:
+In order to protect sensitive data which may be present in webhook configurations, we also enforce the following access control rules:
 
-- Las aplicaciones de OAuth no pueden listar, ver o editar los webhooks que no crearon ellas mismas.
-- Los usuarios no pueden listar, ver o editar los webhooks que crearon las aplicaciones de OAuth.
+- OAuth applications cannot list, view, or edit webhooks which they did not create.
+- Users cannot list, view, or edit webhooks which were created by OAuth applications.
 
-### Recibir Webhooks
+### Receiving Webhooks
 
-Para que {% data variables.product.product_name %} envíe cargas útiles de webhooks, se necesita que se pueda acceder a tu servidor desde la internet. También sugerimos ampliamente utilizar SSL para que podamos enviar cargas útiles cifradas a través de HTTPS.
+In order for {% data variables.product.product_name %} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
 
-Para encontrar más de las mejores prácticas, [consulta nuestra guía](/guides/best-practices-for-integrators/).
+For more best practices, [see our guide](/guides/best-practices-for-integrators/).
 
-#### Encabezados de Webhook
+#### Webhook headers
 
-{% data variables.product.product_name %} enviará varios encabezados de HTTP para diferenciar los tipos de eventos y los identificadores de las cargas útiles. Consulta la sección de [encabezados de webhook](/webhooks/event-payloads/#delivery-headers) para encontrar más detalles.
+{% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/webhooks/event-payloads/#delivery-headers) for details.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}

@@ -31,8 +31,6 @@ You can also disable and enable a workflow using the REST API. For more informat
 
 ## Disabling a workflow
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -61,8 +59,6 @@ gh workflow disable <em>workflow</em>
 {% endcli %}
 
 ## Enabling a workflow
-
-{% include tool-switcher %}
 
 {% webui %}
 

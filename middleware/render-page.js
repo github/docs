@@ -69,50 +69,24 @@ async function buildRenderedPage(req) {
 async function buildMiniTocItems(req) {
   const { context } = req
   const { page } = context
-  const path = req.pagePath || req.path
 
   // get mini TOC items on articles
   if (!page.showMiniToc) {
     return
   }
 
-  const miniTocItems = getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel)
-
-  // handle special-case prerendered GraphQL objects page
-  if (path.endsWith('graphql/reference/objects')) {
-    // concat the markdown source miniToc items and the prerendered miniToc items
-    return miniTocItems.concat(context.graphql.prerenderedObjectsForCurrentVersion.miniToc)
-  }
-
-  // handle special-case prerendered GraphQL input objects page
-  if (path.endsWith('graphql/reference/input-objects')) {
-    // concat the markdown source miniToc items and the prerendered miniToc items
-    return miniTocItems.concat(context.graphql.prerenderedInputObjectsForCurrentVersion.miniToc)
-  }
-
-  // handle special-case prerendered GraphQL mutations page
-  if (path.endsWith('graphql/reference/mutations')) {
-    // concat the markdown source miniToc items and the prerendered miniToc items
-    return miniTocItems.concat(context.graphql.prerenderedMutationsForCurrentVersion.miniToc)
-  }
-
-  return miniTocItems
+  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel)
 }
 
 // The avergage size of buildRenderedPage() is about 22KB.
 // The median in 7KB. By only caching those larger than 10KB we avoid
 // putting too much into the cache.
 const wrapRenderedPage = cacheOnReq(buildRenderedPage, 10 * 1024)
-// const wrapMiniTocItems = cacheOnReq(buildMiniTocItems)
 
 export default async function renderPage(req, res, next) {
   const { context } = req
   const { page } = context
   const path = req.pagePath || req.path
-
-  if (path.startsWith('/storybook')) {
-    return nextHandleRequest(req, res)
-  }
 
   // render a 404 page
   if (!page) {
