@@ -1,6 +1,6 @@
 ---
-title: Installing an Apple certificate on macOS runners for Xcode development
-intro: 'You can sign Xcode apps within your continuous integration (CI) workflow by installing an Apple code signing certificate on {% data variables.product.prodname_actions %} runners.'
+title: 在用于 Xcode 开发的 macOS 运行器上安装 Apple 证书
+intro: '您可以在 {% data variables.product.prodname_actions %} 运行器上安装 Apple 代码签名证书，以在持续集成 (CI) 工作流程中对 Xcode 应用签名。'
 redirect_from:
   - /actions/guides/installing-an-apple-certificate-on-macos-runners-for-xcode-development
   - /actions/deployment/installing-an-apple-certificate-on-macos-runners-for-xcode-development
@@ -13,66 +13,66 @@ type: tutorial
 topics:
   - CI
   - Xcode
-shortTitle: Sign Xcode applications
+shortTitle: 签名 Xcode 应用程序
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## 简介
 
-This guide shows you how to add a step to your continuous integration (CI) workflow that installs an Apple code signing certificate and provisioning profile on {% data variables.product.prodname_actions %} runners. This will allow you to sign your Xcode apps for publishing to the Apple App Store, or distributing it to test groups.
+本指南显示如何在持续集成 (CI) 工作流程中添加一个步骤，以在 {% data variables.product.prodname_actions %} 运行器上安装 Apple 代码签名证书和预配配置文件。 这将允许您签署您的 Xcode 应用以发布到 Apple App Store 或分发到测试组。
 
-## Prerequisites
+## 基本要求
 
-You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
+您应该熟悉 YAML 和 {% data variables.product.prodname_actions %} 的语法。 更多信息请参阅：
 
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
-- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
+- "[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- "[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
 
-You should have an understanding of Xcode app building and signing. For more information, see the [Apple developer documentation](https://developer.apple.com/documentation/).
+您应该了解 Xcode 应用的构建和签名。 更多信息请参阅 [Apple 开发者文档](https://developer.apple.com/documentation/)。
 
-## Creating secrets for your certificate and provisioning profile
+## 为您的证书和预配配置文件创建密码
 
-The signing process involves storing certificates and provisioning profiles, transferring them to the runner, importing them to the runner's keychain, and using them in your build.
+签名过程包括存储证书和预配配置文件、将它们传输给运行器、将它们导入运行器的密钥链，以及在构建中使用它们。
 
-To use your certificate and provisioning profile on a runner, we strongly recommend that you use {% data variables.product.prodname_dotcom %} secrets. For more information on creating secrets and using them in a workflow, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+要在运行器上使用您的证书和预配配置文件，我们强烈建议您使用 {% data variables.product.prodname_dotcom %} 密码。 有关创建密码和在工作流程中使用它们的更多信息，请参阅“[加密密钥](/actions/reference/encrypted-secrets)”。
 
-Create secrets in your repository or organization for the following items:
+在您的仓库或组织中为下列项目创建密钥：
 
-* Your Apple signing certificate.
+* 您的 Apple 签名证书。
 
-  - This is your `p12` certificate file. For more information on exporting your signing certificate from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/dev154b28f09).
-  
-  - You should convert your certificate to Base64 when saving it as a secret. In this example, the secret is named `BUILD_CERTIFICATE_BASE64`.
+  - 这是您的 `p12` 证书文件。 有关从 Xcode 导出签名证书的更多信息，请参阅 [Xcode 文档](https://help.apple.com/xcode/mac/current/#/dev154b28f09)。
 
-  - Use the following command to convert your certificate to Base64 and copy it to your clipboard:
+  - 当您将证书保存为密钥时，您应该将其转换为 Base64 。 在此示例中，该密钥名为 `BUILD_CERTIFICATE_BASE64`。
+
+  - 使用以下命令将证书转换为 Base64 并将其复制到剪贴板：
 
     ```shell
     base64 <em>build_certificate</em>.p12 | pbcopy
     ```
-* The password for your Apple signing certificate.
-  - In this example, the secret is named `P12_PASSWORD`.
+* 您的 Apple 签名证书的密码。
+  - 在此示例中，该密钥名为 `P12_PASSWORD`。
 
-* Your Apple provisioning profile.
+* 您的 Apple 预配配置文件。
 
-  - For more information on exporting your provisioning profile from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/deva899b4fe5).
+  - 有关从 Xcode 导出预配配置文件的更多信息，请参阅 [Xcode 文档](https://help.apple.com/xcode/mac/current/#/deva899b4fe5)。
 
-  - You should convert your provisioning profile to Base64 when saving it as a secret. In this example, the secret is named `BUILD_PROVISION_PROFILE_BASE64`.
+  - 当您将预配配置文件保存为密钥时，您应该将其转换为 Base64 。 在此示例中，该密钥名为 `BUILD_PROVISION_PROFILE_BASE64`。
 
-  - Use the following command to convert your provisioning profile to Base64 and copy it to your clipboard:
-  
+  - 使用以下命令将预配配置文件转换为 Base64 并将其复制到剪贴板：
+
     ```shell
     base64 <em>provisioning_profile.mobileprovision</em> | pbcopy
     ```
 
-* A keychain password.
+* 密钥链密码。
 
-  - A new keychain will be created on the runner, so the password for the new keychain can be any new random string. In this example, the secret is named `KEYCHAIN_PASSWORD`.
+  - 将在运行器上创建一个新的密钥链，因此新密钥链的密码可以是任何新的随机字符串。 在此示例中，该密钥名为 `KEYCHAIN_PASSWORD`。
 
-## Add a step to your workflow
+## 在工作流程中添加一个步骤
 
-This example workflow includes a step that imports the Apple certificate and provisioning profile from the {% data variables.product.prodname_dotcom %} secrets, and installs them on the runner.
+此示例工作流程包括从 {% data variables.product.prodname_dotcom %} 密钥导入 Apple 证书和配置文件并将其安装在运行器上的步骤。
 
 {% raw %}
 ```yaml{:copy}
@@ -119,13 +119,13 @@ jobs:
 ```
 {% endraw %}
 
-## Required clean-up on self-hosted runners
+## 自托管运行器上的必要清理
 
-{% data variables.product.prodname_dotcom %}-hosted runners are isolated virtual machines that are automatically destroyed at the end of the job execution. This means that the certificates and provisioning profile used on the runner during the job will be destroyed with the runner when the job is completed.
+{% data variables.product.prodname_dotcom %} 托管的运行器是孤立的虚拟机器，在作业执行结束时自动销毁。 这意味着在运行器中使用的证书和预配配置文件将在运行器完成任务后被销毁。
 
-On self-hosted runners, the `$RUNNER_TEMP` directory is cleaned up at the end of the job execution, but the keychain and provisioning profile might still exist on the runner.
+自托管的运行器中，`$RUNNER_TEMP` 目录在任务执行结束时被清除，但在运行器上可能仍然存在密钥链和预配配置文件。
 
-If you use self-hosted runners, you should add a final step to your workflow to help ensure that these sensitive files are deleted at the end of the job. The workflow step shown below is an example of how to do this.
+如果您使用自托管的运行器， 您应该在工作流程中添加最后一步，以帮助确保这些敏感文件在作业结束时被删除。 下面显示的工作流程步骤是如何执行此操作的一个示例。
 
 {% raw %}
 ```yaml

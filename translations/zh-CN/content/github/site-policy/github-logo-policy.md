@@ -1,5 +1,5 @@
 ---
-title: GitHub Logo Policy
+title: GitHub 徽标政策
 redirect_from:
   - /articles/i-m-developing-a-third-party-github-app-what-do-i-need-to-know
   - /articles/using-an-octocat-to-link-to-github-or-your-github-profile
@@ -11,6 +11,6 @@ topics:
   - Legal
 ---
 
-You can add {% data variables.product.prodname_dotcom %} logos to your website or third-party application in some scenarios. For more information and specific guidelines on logo usage, see the [{% data variables.product.prodname_dotcom %} Logos and Usage page](https://github.com/logos).
+在某些情况下，您可以将 {% data variables.product.prodname_dotcom %} 徽标添加到您的网站或第三方应用程序中。 有关徽标使用的更多信息和具体指南，请参阅 [{% data variables.product.prodname_dotcom %} 徽标和使用页面](https://github.com/logos)。
 
-You can also use an octocat as your personal avatar or on your website to link to your {% data variables.product.prodname_dotcom %} account, but not for your company or a product you're building. {% data variables.product.prodname_dotcom %} has an extensive collection of octocats in the [Octodex](https://octodex.github.com/). For more information on using the octocats from the Octodex, see the [Octodex FAQ](https://octodex.github.com/faq/).
+您还可以将章鱼猫用作个人头像或放在网站上作为您的 {% data variables.product.prodname_dotcom %} 帐户的链接，但不能用于您的公司或您构建的产品。 {% data variables.product.prodname_dotcom %} 的 [Octodex](https://octodex.github.com/) 中有千姿百态的章鱼猫。 有关使用 Octodex 中的章鱼猫的更多信息，请参阅 [Octodex 常见问题解答](https://octodex.github.com/faq/)。

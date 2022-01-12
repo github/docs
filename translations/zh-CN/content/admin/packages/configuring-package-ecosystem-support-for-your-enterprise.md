@@ -23,7 +23,10 @@ shortTitle: 配置包生态系统
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
-1. 在“Ecosystem Toggles（生态系统切换）”下，为每个包类型选择 **Enabled（启用）**、**Read-Only（只读）**或 **Disabled（禁用）**。 ![生态系统切换](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png)
+1. 在“Ecosystem Toggles（生态系统切换）”下，为每个包类型选择 **Enabled（启用）**、**Read-Only（只读）**或 **Disabled（禁用）**。
+{% ifversion ghes > 3.1 %}
+  ![生态系统切换](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
+![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes = 3.0 or ghes > 3.0 %}
@@ -40,6 +43,8 @@ shortTitle: 配置包生态系统
 | {% data variables.product.prodname_ghe_server %} | `registry.npmjs.com` | TCP/443 | HTTPS |
 
 请注意，`registry.npmjs.com` 的连接遍历 Cloudflare 网络，但此后不连接至单个静态 IP 地址；而是连接到此处列出的 CIDR 范围内的 IP 地址：https://www.cloudflare.com/ips/。
+
+If you wish to enable npm upstream sources, select `Enabled` for `npm upstreaming`.
 
 {% endif %}
 

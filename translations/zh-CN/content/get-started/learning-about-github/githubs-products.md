@@ -1,6 +1,6 @@
 ---
-title: GitHub's products
-intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
+title: GitHub 的产品
+intro: '{% data variables.product.prodname_dotcom %} 的产品和定价计划概述。'
 redirect_from:
   - /articles/github-s-products
   - /articles/githubs-products
@@ -18,69 +18,70 @@ topics:
   - Desktop
   - Security
 ---
-## About {% data variables.product.prodname_dotcom %}'s products
+
+## 关于 {% data variables.product.prodname_dotcom %} 的产品
 
 {% data variables.product.prodname_dotcom %} offers free and paid products for storing and collaborating on code. Some products apply only to user accounts, while other plans apply only to organization and enterprise accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
-You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
+您可以在 <{% data variables.product.pricing_url %}> 上查看每款产品的价格和完整功能列表。 {% data reusables.products.product-roadmap %}
 
 When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your product. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
-## {% data variables.product.prodname_free_user %} for user accounts
+## 用户帐户的 {% data variables.product.prodname_free_user %}
 
-With {% data variables.product.prodname_free_team %} for user accounts, you can work with unlimited collaborators on unlimited public repositories with a full feature set, and on unlimited private repositories with a limited feature set.
+通过用户帐户的 {% data variables.product.prodname_free_team %}，可与无限的协作者合作处理功能完全的无限公共仓库，或者是功能有限的无限私有仓库，
 
-With {% data variables.product.prodname_free_user %}, your user account includes:
+通过 {% data variables.product.prodname_free_user %}，用户帐户可包含：
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
-- Two-factor authentication enforcement
-- 2,000 {% data variables.product.prodname_actions %} minutes
-- 500MB {% data variables.product.prodname_registry %} storage
+- 双重身份验证
+- 2,000 {% data variables.product.prodname_actions %} 分钟
+- 500MB {% data variables.product.prodname_registry %} 存储空间
 
 ## {% data variables.product.prodname_pro %}
 
-In addition to the features available with {% data variables.product.prodname_free_user %} for user accounts, {% data variables.product.prodname_pro %} includes:
-- {% data variables.contact.github_support %} via email
-- 3,000 {% data variables.product.prodname_actions %} minutes
-- 2GB {% data variables.product.prodname_registry %} storage
-- Advanced tools and insights in private repositories:
-  - Required pull request reviewers
-  - Multiple pull request reviewers
-  - Auto-linked references
+除了可用于用户帐户的 {% data variables.product.prodname_free_user %} 的功能之外，{% data variables.product.prodname_pro %} 还包含：
+- 通过电子邮件提供的 {% data variables.contact.github_support %}
+- 3,000 {% data variables.product.prodname_actions %} 分钟
+- 2GB {% data variables.product.prodname_registry %} 存储空间
+- 私有仓库中的高级工具和洞察力：
+  - 必需拉取请求审查
+  - 多个拉取请求审查者
+  - 自动链接的引用
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - Protected branches
-  - Code owners
-  - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
+  - 受保护分支
+  - 代码所有者
+  - 仓库洞察图：脉冲、贡献者、流量、提交、代码频率、网络和复刻
 
-## {% data variables.product.prodname_free_team %} for organizations
+## 组织的 {% data variables.product.prodname_free_team %}
 
-With {% data variables.product.prodname_free_team %} for organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set.
+通过组织的 {% data variables.product.prodname_free_team %}，可与无限的协作者合作处理功能完全的无限公共仓库，或者是功能有限的无限私有仓库，
 
-In addition to the features available with {% data variables.product.prodname_free_user %} for user accounts, {% data variables.product.prodname_free_team %} for organizations includes:
+除了可用于用户帐户的 {% data variables.product.prodname_free_user %} 的功能之外，组织的 {% data variables.product.prodname_free_team %} 还包含：
 - {% data variables.product.prodname_gcf %}
-- Team discussions
-- Team access controls for managing groups
-- 2,000 {% data variables.product.prodname_actions %} minutes
-- 500MB {% data variables.product.prodname_registry %} storage
+- 团队讨论
+- 用于管理组的团队访问权限控制
+- 2,000 {% data variables.product.prodname_actions %} 分钟
+- 500MB {% data variables.product.prodname_registry %} 存储空间
 
 ## {% data variables.product.prodname_team %}
 
-In addition to the features available with {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %} includes:
-- {% data variables.contact.github_support %} via email
-- 3,000 {% data variables.product.prodname_actions %} minutes
-- 2GB {% data variables.product.prodname_registry %} storage
-- Advanced tools and insights in private repositories:
-  - Required pull request reviewers
-  - Multiple pull request reviewers
+除了可用于组织的 {% data variables.product.prodname_free_team %} 的功能之外，{% data variables.product.prodname_team %} 还包含：
+- 通过电子邮件提供的 {% data variables.contact.github_support %}
+- 3,000 {% data variables.product.prodname_actions %} 分钟
+- 2GB {% data variables.product.prodname_registry %} 存储空间
+- 私有仓库中的高级工具和洞察力：
+  - 必需拉取请求审查
+  - 多个拉取请求审查者
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - Protected branches
-  - Code owners
-  - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
-  - Draft pull requests
-  - Team pull request reviewers
-  - Scheduled reminders
+  - 受保护分支
+  - 代码所有者
+  - 仓库洞察图：脉冲、贡献者、流量、提交、代码频率、网络和复刻
+  - 草稿拉取请求
+  - 团队拉取请求审查
+  - 预定提醒
 {% ifversion fpt or ghec %}
 - The option to enable {% data variables.product.prodname_github_codespaces %}
   - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
@@ -90,25 +91,25 @@ In addition to the features available with {% data variables.product.prodname_fr
 
 ## {% data variables.product.prodname_enterprise %}
 
-{% data variables.product.prodname_enterprise %} includes two deployment options: cloud-hosted and self-hosted.
+{% data variables.product.prodname_enterprise %} 包括两个部署选项：云托管和自托管。
 
-In addition to the features available with {% data variables.product.prodname_team %}, {% data variables.product.prodname_enterprise %} includes:
+除了 {% data variables.product.prodname_team %} 的可用功能之外，{% data variables.product.prodname_enterprise %} 还包括：
 - {% data variables.contact.enterprise_support %}
-- Additional security, compliance, and deployment controls
-- Authentication with SAML single sign-on
-- Access provisioning with SAML or SCIM
+- 更多安全、合规和部署控件
+- SAML 单点登录进行身份验证
+- 使用 SAML 或 SCIM 进行配置
 - {% data variables.product.prodname_github_connect %}
-- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
+- 购买 {% data variables.product.prodname_GH_advanced_security %} 的选项。 更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)”。
 
-{% data variables.product.prodname_ghe_cloud %} also includes:
-- {% data variables.contact.enterprise_support %}. For more information, see "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} support</a>" and "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} Addendum</a>."
-- 50,000 {% data variables.product.prodname_actions %} minutes
-- 50GB {% data variables.product.prodname_registry %} storage
-- Access control for {% data variables.product.prodname_pages %} sites. For more information, see <a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Changing the visibility of your {% data variables.product.prodname_pages %} site</a>"
-- A service level agreement for 99.9% monthly uptime
-- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
-- The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations with an enterprise account. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
+{% data variables.product.prodname_ghe_cloud %} 还包括：
+- {% data variables.contact.enterprise_support %}. 更多信息请参阅“<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 支持</a>”和“<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 附录</a>”。
+- 50,000 {% data variables.product.prodname_actions %} 分钟
+- 50GB {% data variables.product.prodname_registry %} 存储空间
+- {% data variables.product.prodname_pages %} 站点的访问控制。 更多信息请参阅“<a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">更改 {% data variables.product.prodname_pages %} 站点的可见性</a>”
+- 99.9% 月持续运行时间的服务等级协议
+- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
+- 通过企业帐户集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单的选项。 更多信息请参阅“[关于企业帐户](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)”。
 
-You can set up a trial to evaluate {% data variables.product.prodname_ghe_cloud %}. For more information, see "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Setting up a trial of {% data variables.product.prodname_ghe_cloud %}</a>."
+您可以设置试用版来评估 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">设置 {% data variables.product.prodname_ghe_cloud %} 的试用</a>”。
 
-For more information about hosting your own instance of [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com), contact {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
+有关托管理您自己的 [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com) 实例的更多信息，请联系 {% data variables.contact.contact_enterprise_sales %}。 {% data reusables.enterprise_installation.request-a-trial %}

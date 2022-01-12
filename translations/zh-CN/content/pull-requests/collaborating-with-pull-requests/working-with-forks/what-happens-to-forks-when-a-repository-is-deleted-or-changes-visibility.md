@@ -1,6 +1,6 @@
 ---
-title: What happens to forks when a repository is deleted or changes visibility?
-intro: Deleting your repository or changing its visibility affects that repository's forks.
+title: 删除仓库或更改其可见性时，复刻会发生什么变化？
+intro: 删除仓库或更改其可见性会影响仓库的复刻。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
   - /articles/changing-the-visibility-of-a-network
@@ -14,70 +14,71 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Deleted or changes visibility
+shortTitle: 删除或更改可见性
 ---
+
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-## Deleting a private repository
+## 删除私有仓库
 
-When you delete a private repository, all of its private forks are also deleted.
+当您删除私有仓库时，其所有私有复刻也将被删除。
 
 {% ifversion fpt or ghes or ghec %}
 
-## Deleting a public repository
+## 删除公共仓库
 
-When you delete a public repository, one of the existing public forks is chosen to be the new parent repository. All other repositories are forked off of this new parent and subsequent pull requests go to this new parent.
+当您删除公共仓库时，将选择现有的公共复刻之一作为新的父仓库。 所有其他仓库均从这一新的父仓库复刻，并且后续的拉取请求都转到这一新的父仓库。
 
 {% endif %}
 
-## Private forks and permissions
+## 私有复刻和权限
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
 {% ifversion fpt or ghes or ghec %}
 
-## Changing a public repository to a private repository
+## 将公共仓库更改为私有仓库
 
-If a public repository is made private, its public forks are split off into a new network. As with deleting a public repository, one of the existing public forks is chosen to be the new parent repository and all other repositories are forked off of this new parent. Subsequent pull requests go to this new parent.
+如果将公共仓库设为私有，其公共复刻将拆分到新网络中。 与删除公共仓库一样，选择现有的公共分支之一作为新的父仓库，并且所有其他仓库都从这个新的父仓库中复刻。 后续的拉取请求都转到这一新的父仓库。
 
-In other words, a public repository's forks will remain public in their own separate repository network even after the parent repository is made private. This allows the fork owners to continue to work and collaborate without interruption. If public forks were not moved into a separate network in this way, the owners of those forks would need to get the appropriate [access permissions](/articles/access-permissions-on-github) to pull changes from and submit pull requests to the (now private) parent repository—even though they didn't need those permissions before.
+换句话说，即使将父仓库设为私有后，公共仓库的复刻也将在其各自的仓库网络中保持公开。 这样复刻所有者便可继续工作和协作，而不会中断。 如果公共复刻没有通过这种方式移动到单独的网络中，则这些复刻的所有者将需要获得适当的[访问权限](/articles/access-permissions-on-github)以从（现在私有的）父仓库中拉取更改并提交拉取请求 — 即使它们以前不需要这些权限。
 
 {% ifversion ghes or ghae %}
-If a public repository has anonymous Git read access enabled and the repository is made private, all of the repository's forks will lose anonymous Git read access and return to the default disabled setting. If a forked repository is made public, repository administrators can re-enable anonymous Git read access. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
+如果公共仓库启用了匿名 Git 读取权限并且该仓库设为私有，则所有仓库的复刻都将失去匿名 Git 读取权限并恢复为默认的禁用设置。 如果将复刻的仓库设为公共，则仓库管理员可以重新启用 Git 读取权限。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”
 {% endif %}
 
-### Deleting the private repository
+### 删除私有仓库
 
-If a public repository is made private and then deleted, its public forks will continue to exist in a separate network.
+如果将公共仓库设为私有然后删除，其公共复刻将在单独的网络中继续存在。
 
-## Changing a private repository to a public repository
+## 将私有仓库更改为公共仓库
 
-If a private repository is made public, each of its private forks is turned into a standalone private repository and becomes the parent of its own new repository network. Private forks are never automatically made public because they could contain sensitive commits that shouldn't be exposed publicly.
+如果将私有仓库设为公共，则其每个私有复刻都将变为独立的私有仓库并且成为自己新仓库网络的父仓库。 私有复刻绝不会自动设为公共，因为它们可能包含不应公开显示的敏感提交。
 
-### Deleting the public repository
+### 删除公共仓库
 
-If a private repository is made public and then deleted, its private forks will continue to exist as standalone private repositories in separate networks.
+如果将私有仓库设为公共然后删除，其私有复刻将作为单独网络中的独立私有仓库继续存在。
 
 {% endif %}
 
 {% ifversion ghes or ghec or ghae %}
 
-## Changing the visibility of an internal repository
+## 更改内部仓库的可见性
 
 
 
-If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
+如果企业策略允许复刻，则内部仓库的任何复刻都将是私有的。 如果您更改内部仓库的可见性，组织或用户帐户拥有的任何复刻都将保持私有。
 
-### Deleting the internal repository
+### 删除内部仓库
 
-If you change the visibility of an internal repository and then delete the repository, the forks will continue to exist in a separate network.
+如果您更改了内部仓库的可见性，然后删除仓库，复刻将继续存在于单独的网络中。
 
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[Setting repository visibility](/articles/setting-repository-visibility)"
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
-- "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
+- “[设置仓库可见性](/articles/setting-repository-visibility)”
+- "[关于复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[管理仓库的复刻策略](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
+- "[管理组织的复刻策略](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
 - "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"
