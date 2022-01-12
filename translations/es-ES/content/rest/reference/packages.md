@@ -1,6 +1,6 @@
 ---
 title: Packages
-intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
+intro: 'Con la API del {% data variables.product.prodname_registry %}, puedes administrar paquetes para tus repositorios y organizaciones de {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
@@ -10,16 +10,16 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The {% data variables.product.prodname_registry %} API enables you to manage packages using the REST API. To learn more about restoring or deleting packages, see "[Restoring and deleting packages](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+La API de {% data variables.product.prodname_registry %} te permite administrar paquetes utilizando la API de REST. Para aprender más sobre cómo restablecer o borrar paquetes, consulta la sección "[Restablecer y borrar paquetes](/packages/learn-github-packages/deleting-and-restoring-a-package)".
 
-To use this API, you must authenticate using a personal access token. 
-  - To access package metadata, your token must include the `read:packages` scope.
-  - To delete packages and package versions, your token must include the `read:packages` and `delete:packages` scopes.
-  - To restore packages and package versions, your token must include the `read:packages` and `write:packages` scopes.
+Para utilizar esta API, primero tienes que autenticarte utilizando un token de acceso personal.
+  - Para acceder a los metadatos del paquete, tu token debe incluir el alcance `read:packages`.
+  - Para borrar los paquetes y las versiones de paquetes, tu token debe incluir los alcances `read:packages` y `delete:packages`.
+  - Para restablecer los paquetes y sus versiones, tu token debe incluir los alcances de `read:packages` y `write:packages`.
 
-If your `package_type` is `npm`, `maven`, `rubygems`, or `nuget`, then your token must also include the `repo` scope since your package inherits permissions from a {% data variables.product.prodname_dotcom %} repository. If your package is in the {% data variables.product.prodname_container_registry %}, then your `package_type` is `container` and your token does not need the `repo` scope to access or manage this `package_type`. `container` packages offer granular permissions separate from a repository. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)."
+Si tu `package_type` es `npm`, `maven`, `rubygems`, o `nuget`, entonces tu token también debe incluir el alcance `repo`, ya que este hereda los permisos de un repositorio de {% data variables.product.prodname_dotcom %}. Si tu paquete está en el {% data variables.product.prodname_container_registry %}, entonces tu `package_type` es `container` y tu token no necesita el alcance de `repo` para acceder o administrar este `package_type`. Los paquetes de `container` ofrecen permisos granulares separados de un repositorio. Para obtener más información, consulta la sección "[Acerca de los permisos para el {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)".
 
-If you want to use the {% data variables.product.prodname_registry %} API to access resources in an organization with SSO enabled, then you must enable SSO for your personal access token. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Si quieres utilizar la API del {% data variables.product.prodname_registry %} para acceder a los recursos de una organización con el SSO habilitado, entonces debes habilitar el SSO para tu token de acceso personal. Para obtener más información, consulta la sección "[Autorizar un token de acceso personal para utilizarse con el inicio de sesión único de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

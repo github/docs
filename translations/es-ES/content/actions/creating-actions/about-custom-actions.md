@@ -1,6 +1,6 @@
 ---
-title: About custom actions
-intro: 'Actions are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.'
+title: Acercad e las acciones personalizadas
+intro: 'Las acciones son tareas individuales que puedes combinar para crear trabajos y personalizar tu flujo de trabajo. Puedes crear tus propias acciones, o utilizar y personalizar a quellas que comparte la comunidad de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /articles/about-actions
   - /github/automating-your-workflow-with-github-actions/about-actions
@@ -21,151 +21,151 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About custom actions
+## Acercad e las acciones personalizadas
 
-You can create actions by writing custom code that interacts with your repository in any way you'd like, including integrating with {% data variables.product.prodname_dotcom %}'s APIs and any publicly available third-party API. For example, an action can publish npm modules, send SMS alerts when urgent issues are created, or deploy production-ready code.
+Puedes crear acciones por medio de a escritura de un código personalizado que interactúe con tu repositorio de la manera que desees, incluida la integración con las API de {% data variables.product.prodname_dotcom %} y cualquier API de terceros disponible públicamente. Por ejemplo, una acción puede publicar módulos npm, enviar alertas por SMS cuando se crean propuestas urgentes o implementar un código listo para producción.
 
 {% ifversion fpt or ghec %}
-You can write your own actions to use in your workflow or share the actions you build with the {% data variables.product.prodname_dotcom %} community. To share actions you've built, your repository must be public.
+Puedes escribir tus propias acciones para usar en tu flujo de trabajo o compartir las acciones que crees con la comunidad {% data variables.product.prodname_dotcom %}. Para compartir las acciones que creaste, tu repositorio debe ser público.
 {% endif %}
 
-Actions can run directly on a machine or in a Docker container. You can define an action's inputs, outputs, and environment variables.
+Las acciones pueden ejecutarse directamente en una máquina o en un contenedor Docker. Puedes definir las entradas, salidas y variables de entorno de una acción.
 
-## Types of actions
+## Tipos de acciones
 
-You can build Docker container and JavaScript actions. Actions require a metadata file to define the inputs, outputs and main entrypoint for your action. The metadata filename must be either `action.yml` or `action.yaml`. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)."
+Puedes crear acciones de contenedor Docker y JavaScript. Las acciones requieren un archivo de metadatos para definir las entradas, salidas y puntos de entrada para tu acción. El nombre del archivo de metadatos debe ser `action.yml` o `action.yaml`. Para obtener más información, consulta "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)"
 
-| Type | Operating system |
-| ---- | ------------------- |
-| Docker container | Linux |
-| JavaScript | Linux, macOS, Windows |
-| Composite Actions | Linux, macOS, Windows |
+| Tipo                | Sistema operativo     |
+| ------------------- | --------------------- |
+| Contenedor Docker   | Linux                 |
+| JavaScript          | Linux, macOS, Windows |
+| Acciones compuestas | Linux, macOS, Windows |
 
-### Docker container actions
+### Acciones del contenedor Docker
 
-Docker containers package the environment with the {% data variables.product.prodname_actions %} code. This creates a more consistent and reliable unit of work because the consumer of the action does not need to worry about the tools or dependencies.
+Los contenedores Docker empaquetan el entorno con el código de las {% data variables.product.prodname_actions %}. Esto crea una unidad de trabajo más consistente y confiable, ya que el consumidor de la acción no necesita preocuparse por las herramientas o las dependencias.
 
-A Docker container allows you to use specific versions of an operating system, dependencies, tools, and code. For actions that must run in a specific environment configuration, Docker is an ideal option because you can customize the operating system and tools. Because of the latency to build and retrieve the container, Docker container actions are slower than JavaScript actions.
+Un contenedor Docker te permite usar versiones específicas de un sistema operativo, dependencias, herramientas y código. Para las acciones que se deben ejecutar en una configuración de entorno específica, Docker es una opción ideal porque puedes personalizar el sistema operativo y las herramientas. Debido a la latencia para crear y recuperar el contenedor, las acciones del contenedor Docker son más lentas que las acciones de JavaScript.
 
-Docker container actions can only execute on runners with a Linux operating system. {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+Las acciones de contenedor de Docker solo pueden ejecutarse en ejecutores con un sistema operativo Linux. {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
-### JavaScript actions
+### Acciones de JavaScript
 
-JavaScript actions can run directly on a runner machine, and separate the action code from the environment used to run the code. Using a JavaScript action simplifies the action code and executes faster than a Docker container action.
+Las acciones de JavaScript pueden ejecutarse directamente en una máquina del ejecutor y separar el código de acción del entorno utilizado para ejecutar el código. El uso de una acción de JavaScript simplifica el código de acción y se ejecuta más rápido que una acción de contenedor Docker.
 
 {% data reusables.github-actions.pure-javascript %}
 
-If you're developing a Node.js project, the {% data variables.product.prodname_actions %} Toolkit provides packages that you can use in your project to speed up development. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
+Si estás desarrollando un proyecto Node.js, el conjunto de herramientas de las {% data variables.product.prodname_actions %} te ofrece paquetes que puedes usar en tu proyecto para acelerar el desarrollo. Para obtener más información, consulta el repositorio [actions/toolkit](https://github.com/actions/toolkit).
 
-### Composite Actions
+### Acciones compuestas
 
-A _composite_ action allows you to combine multiple workflow steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)".
+Una acción _compuesta_ te permite combinar pasos de flujo de trabajo múltiples dentro de una acción. Por ejemplo, puedes utilizar esta característica para agrupar comandos de ejecución múltiples en una acción y luego tener un flujo de trabajo que ejecute estos comandos agrupados como un paso simple utilizando dicha acción. Para ver un ejemplo, revisa la sección "[Crear una acción compuesta](/actions/creating-actions/creating-a-composite-action)".
 
-## Choosing a location for your action
+## Elegir una ubicación para tu acción
 
-If you're developing an action for other people to use, we recommend keeping the action in its own repository instead of bundling it with other application code. This allows you to version, track, and release the action just like any other software.
+Si estás desarrollando una acción para que otras personas la utilicen, te recomendamos mantener la acción en su propio repositorio en lugar de agruparla con otro código de aplicación. Esto te permite versionar, rastrear y lanzar la acción como cualquier otro software.
 
 {% ifversion fpt or ghec %}
-Storing an action in its own repository makes it easier for the {% data variables.product.prodname_dotcom %} community to discover the action, narrows the scope of the code base for developers fixing issues and extending the action, and decouples the action's versioning from the versioning of other application code.
+Con el almacenamiento de una acción en su propio repositorio es más fácil para la comunidad {% data variables.product.prodname_dotcom %} descubrir la acción, reduce el alcance de la base de código para que los desarrolladores solucionen problemas y extiendan la acción, y desacopla el control de versiones de otro código de aplicación.
 {% endif %}
 
-{% ifversion fpt or ghec %}If you're building an action that you don't plan to make available to the public, you {% else %} You{% endif %} can store the action's files in any location in your repository. If you plan to combine action, workflow, and application code in a single repository, we recommend storing actions in the `.github` directory. For example, `.github/actions/action-a` and `.github/actions/action-b`.
+{% ifversion fpt or ghec %}Si estás creando una acción que no piensas poner disponible públicamente, puedes {% else %} puedes {% endif %} almacenar los archivos de dicha acción en cualquier ubicación de tu repositorio. Si tienes la intención de combinar la acción, el flujo de trabajo y el código de aplicación en un único repositorio, es recomendable que almacenes las acciones en el directorio `.github`. Por ejemplo, `.github/actions/action-a` y `.github/actions/action-b`.
 
-## Compatibility with {% data variables.product.prodname_ghe_server %}
+## Compatibilidad con {% data variables.product.prodname_ghe_server %}
 
-To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URLs. You should instead use environment variables to refer to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API:
+Para garantizar de que tu acción es compatible con {% data variables.product.prodname_ghe_server %}, debes asegurarte de que no utilices ninguna referencia escrita a mano para las URL de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. En vez de esto, deberías utilizar variables de ambiente para referirte a la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}:
 
-- For the REST API, use the `GITHUB_API_URL` environment variable.
-- For GraphQL, use the `GITHUB_GRAPHQL_URL` environment variable.
+- Crear y validar un lanzamiento en una rama de lanzamiento (tal como `release/v1`) antes de crear la etiqueta de lanzamiento (por ejemplo, `v1.0.2`).
+- Para el caso de GraphQL, utiliza la variable de ambiente `GITHUB_GRAPHQL_URL`.
 
-For more information, see "[Default environment variables](/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables)."
+Para obtener más información, consulta la sección "[Variables de ambiente predeterminadas](/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables)."
 
-## Using release management for actions
+## Utilizar la administración de lanzamientos para las acciones
 
-This section explains how you can use release management to distribute updates to your actions in a predictable way.
+Esta sección explica cómo puedes utilizar la administración de lanzamientos para distribuir actualizaciones a tus acciones de forma predecible.
 
-### Good practices for release management
+### Buenas prácticas para la administración de lanzamientos
 
-If you're developing an action for other people to use, we recommend using release management to control how you distribute updates. Users can expect an action's major version to include necessary critical fixes and security patches, while still remaining compatible with their existing workflows. You should consider releasing a new major version whenever your changes affect compatibility.
+Si estás desarrollando una acción para que la utilicen otras personas, te recomendamos utilizar la administración de lanzamientos para controlar cómo distribuyes las actualizaciones. Los usuarios pueden esperar que una versión mayor de una acción incluya correcciones críticas y parches de seguridad necesarios y que se mantenga compatible con los flujos de trabajo existentes. Deberías considerar lanzar una versión mayor cada que tus cambios afecten la compatibilidad.
 
-Under this release management approach, users should not be referencing an action's default branch, as it's likely to contain the latest code and consequently might be unstable. Instead, you can recommend that your users specify a major version when using your action, and only direct them to a more specific version if they encounter issues.
+Bajo este acercamiento de administración de lanzamientos, los usuarios no deberían referenciar una rama predeterminada de una acción, ya que es probable que contenga el código más reciente y, en consecuencia, podría ser inestable. En vez de esto, puedes recomendar a tus usuarios que especifiquen una versión mayor cuando utilicen tu acción, y únicamente dirigirlos a una versión más específica si encuentran algún problema.
 
-To use a specific action version, users can configure their {% data variables.product.prodname_actions %} workflow to target a tag, a commit's SHA, or a branch named for a release.
+Para utilizar una versión específica de la acción, los usuarios pueden configurar su flujo de trabajo de {% data variables.product.prodname_actions %} para apuntar a una etiqueta, el SHA de una confirmación o a una rama denominada para un lanzamiento.
 
-### Using tags for release management
+### Utilizar etiquetas para la administración de lanzamientos
 
-We recommend using tags for actions release management. Using this approach, your users can easily distinguish between major and minor versions:
+Te recomendamos utilizar etiquetas para la administración de lanzamientos de acciones. Al utilizar este acercamiento, tus usuarios pueden distinguir claramente entre las versiones mayores y menores:
 
-- Create and validate a release on a release branch (such as `release/v1`) before creating the release tag (for example, `v1.0.2`).
-- Create a release using semantic versioning. For more information, see "[Creating releases](/articles/creating-releases)."
-- Move the major version tag (such as `v1`, `v2`) to point to the Git ref of the current release. For more information, see "[Git basics - tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)."
-- Introduce a new major version tag (`v2`) for changes that will break existing workflows. For example, changing an action's inputs would be a breaking change.
-- Major versions can be initially released with a `beta` tag to indicate their status, for example, `v2-beta`. The `-beta` tag can then be removed when ready.
+- Crear y validar un lanzamiento en una rama de lanzamiento (tal como `release/v1`) antes de crear la etiqueta de lanzamiento (por ejemplo, `v1.0.2`).
+- Crear un lanzamiento utilizando un versionamiento semántico. Para obtener más información, consulta "[Creating releases](/articles/creating-a-label/) (Crear lanzamientos)".
+- Mover la etiqueta de versión mayor (tal como `v1`, `v2`) para apuntar a la referencia de Git en el lanzamiento actual. Para obtener más información, consulta [Conceptos básicos de Git: etiquetas](https://git-scm.com/book/en/v2/Git-Basics-Tagging)".
+- Introducir una etiqueta de versión mayor (`v2`) para los cambios que modificarán sustancialmente los flujos de trabajo existentes. Por ejemplo, un cambio importante será cambiar las entradas de una acción.
+- Las versiones mayores pueden lanzarse inicialmente con una etiqueta de `beta` para indicar su estado, por ejemplo, `v2-beta`. La etiqueta `-beta` puede eliminarse entonces cuando esté listo.
 
-This example demonstrates how a user can reference a major release tag:
+Este ejemplo ilustra como un usuario puede referenciar una etiqueta de un lanzamiento mayor:
 
 ```yaml
 steps:
     - uses: actions/javascript-action@v1
 ```
 
-This example demonstrates how a user can reference a specific patch release tag:
+Este ejemplo ilustra como un usuario puede referenciar una etiqueta de lanzamiento de un parche específico:
 
 ```yaml
 steps:
     - uses: actions/javascript-action@v1.0.1
 ```
 
-### Using branches for release management
+### Utilizar ramas para la administración de lanzamientos
 
-If you prefer to use branch names for release management, this example demonstrates how to reference a named branch:
+Si prefieres utilizar nombres de rama para la administración de lanzamientos, este ejemplo demuestra como referenciar una rama nombrada:
 
 ```yaml
 steps:
     - uses: actions/javascript-action@v1-beta
 ```
 
-### Using a commit's SHA for release management
+### Utilizar el SHA de las confirmaciones para la administración de lanzamientos
 
-Each Git commit receives a calculated SHA value, which is unique and immutable. Your action's users might prefer to rely on a commit's SHA value, as this approach can be more reliable than specifying a tag, which could be deleted or moved. However, this means that users will not receive further updates made to the action. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}You must use a commit's full SHA value, and not an abbreviated value.{% else %}Using a commit's full SHA value instead of the abbreviated value can help prevent people from using a malicious commit that uses the same abbreviation.{% endif %}
+Cada confirmación de Git recibe un valor calculado de SHA, el cual es único e inmutable. Los usuarios de tus acciones podrían preferir obtener un valor de SHA para la confirmación, ya que este acercamiento puede ser más confiable que especificar una etiqueta, la cual podría borrarse o moverse. Sin embargo, esto significa que los usuarios no recibirán ls actualizaciones posteriores que se hagan a la acción. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Debes utilizar el valor completo del SHA de la confirmación y no el abreviado.{% else %}El utilizar el valor completo del SHA de la confirmación en vez del abreviado ayuda a prevenir que las personas utilicen una confirmación mal intencionada que utiice la misma abreviación.{% endif %}
 
 ```yaml
 steps:
     - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
 ```
 
-## Creating a README file for your action
+## Crear un archivo README para tu acción
 
-We recommend creating a README file to help people learn how to use your action. You can include this information in your `README.md`:
+Si tienes la intención de compartir públicamente tu acción, te recomendamos crear un archivo README para ayudar a las personas a que aprendan a usar tu acción. Puedes incluir esta información en tu `README.md`:
 
-- A detailed description of what the action does
-- Required input and output arguments
-- Optional input and output arguments
-- Secrets the action uses
-- Environment variables the action uses
-- An example of how to use your action in a workflow
+- Una descripción detallada de lo que hace la acción.
+- Argumentos necesarios de entrada y salida.
+- Argumentos opcionales de entrada y salida.
+- Secretos que utiliza la acción.
+- Variables de entorno que utiliza la acción.
+- Un ejemplo de cómo usar tu acción en un flujo de trabajo.
 
-## Comparing {% data variables.product.prodname_actions %} to {% data variables.product.prodname_github_apps %}
+## Comparar {% data variables.product.prodname_actions %} para {% data variables.product.prodname_github_apps %}
 
-{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see "[About apps](/apps/about-apps/)."
+{% data variables.product.prodname_marketplace %} ofrece herramientas para mejorar tu flujo de trabajo. Comprender las diferencias y los beneficios de cada herramienta te permitirá seleccionar la mejor herramienta para tu trabajo. Para obtener más información acerca de la creación de apps, consulta "[Acerca de las apps](/apps/about-apps/)".
 
-### Strengths of GitHub Actions and GitHub Apps
+### Fortalezas de las acciones y las aplicaciones de GitHub
 
-While both {% data variables.product.prodname_actions %} and {% data variables.product.prodname_github_apps %} provide ways to build automation and workflow tools, they each have strengths that make them useful in different ways.
+Si bien tanto las {% data variables.product.prodname_actions %} como las {% data variables.product.prodname_github_apps %} proporcionan formas de crear herramientas de flujo de trabajo y automatización, pueden tener fortalezas que las hagan útiles en formas diferentes.
 
 {% data variables.product.prodname_github_apps %}:
-* Run persistently and can react to events quickly.
-* Work great when persistent data is needed.
-* Work best with API requests that aren't time consuming.
-* Run on a server or compute infrastructure that you provide.
+* Se ejecutan de manera persistente y pueden reaccionar rápidamente a los eventos.
+* Funcionan bien cuando se necesitan datos de manera persistente.
+* Funcionan mejor con las solicitudes de API que no consumen mucho tiempo.
+* Se ejecutan en un servidor o infraestructura de computación que proporciones.
 
 {% data variables.product.prodname_actions %}:
-* Provide automation that can perform continuous integration and continuous deployment.
-* Can run directly on runner machines or in Docker containers.
-* Can include access to a clone of your repository, enabling deployment and publishing tools, code formatters, and command line tools to access your code.
-* Don't require you to deploy code or serve an app.
-* Have a simple interface to create and use secrets, which enables actions to interact with third-party services without needing to store the credentials of the person using the action.
+* Brindan automatización que puede realizar una integración continua y una implementación continua.
+* Pueden ejecutarse directamente en máquinas de ejecutor o en contenedores Docker.
+* Pueden incluir acceso a un clon de tu repositorio, lo que permite que las herramientas de implementación y publicación, los formateadores de código y las herramientas de la línea de comando accedan a tu código.
+* No necesitan que implementas un código o que sirvas una aplicación.
+* Tienen una interfaz simple para crear y usar secretos, que permite que las acciones interactúen con servicios de terceros sin la necesidad de almacenar las credenciales de la persona que utiliza la acción.
 
-## Further reading
+## Leer más
 
-- "[Development tools for {% data variables.product.prodname_actions %}](/articles/development-tools-for-github-actions)"
+- "[Herramientas de desarrollo para {% data variables.product.prodname_actions %}](/articles/development-tools-for-github-actions)"
