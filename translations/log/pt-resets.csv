@@ -182,9 +182,13 @@ translations/pt-BR/content/admin/authentication/configuring-authentication-and-p
 translations/pt-BR/content/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/index.md,rendering error
 translations/pt-BR/content/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams.md,rendering error
 translations/pt-BR/content/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise.md,rendering error
+translations/pt-BR/content/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta.md,rendering error
 translations/pt-BR/content/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-user-provisioning-for-your-enterprise.md,rendering error
+translations/pt-BR/content/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise.md,rendering error
+translations/pt-BR/content/admin/authentication/managing-identity-and-access-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account.md,rendering error
 translations/pt-BR/content/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users.md,rendering error
+translations/pt-BR/content/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users.md,rendering error
 translations/pt-BR/content/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/index.md,rendering error
 translations/pt-BR/content/admin/configuration/configuring-network-settings/configuring-a-hostname.md,rendering error
 translations/pt-BR/content/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server.md,rendering error
@@ -219,6 +223,7 @@ translations/pt-BR/content/admin/configuration/managing-connections-between-your
 translations/pt-BR/content/admin/enterprise-management/configuring-clustering/about-clustering.md,rendering error
 translations/pt-BR/content/admin/enterprise-management/configuring-clustering/cluster-network-configuration.md,rendering error
 translations/pt-BR/content/admin/enterprise-management/configuring-clustering/index.md,rendering error
+translations/pt-BR/content/admin/enterprise-management/configuring-high-availability/about-geo-replication.md,rendering error
 translations/pt-BR/content/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration.md,rendering error
 translations/pt-BR/content/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica.md,rendering error
 translations/pt-BR/content/admin/enterprise-management/configuring-high-availability/index.md,rendering error
@@ -288,6 +293,7 @@ translations/pt-BR/content/admin/user-management/managing-organizations-in-your-
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/index.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/managing-projects-using-jira.md,rendering error
+translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/preventing-users-from-creating-organizations.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account.md,rendering error
@@ -301,10 +307,13 @@ translations/pt-BR/content/admin/user-management/managing-users-in-your-enterpri
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/index.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users.md,rendering error
+translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/rebuilding-contributions-data.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users.md,rendering error
+translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise.md,rendering error
+translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom.md,rendering error
 translations/pt-BR/content/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/user-management/migrating-data-to-and-from-your-enterprise/index.md,rendering error
@@ -365,17 +374,23 @@ translations/pt-BR/content/billing/managing-billing-for-git-large-file-storage/i
 translations/pt-BR/content/billing/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,rendering error
+translations/pt-BR/content/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces.md,rendering error
+translations/pt-BR/content/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-github-marketplace-apps/downgrading-the-billing-plan-for-a-github-marketplace-app.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-github-marketplace-apps/index.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts.md,rendering error
+translations/pt-BR/content/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise.md,rendering error
+translations/pt-BR/content/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-your-github-account/index.md,rendering error
+translations/pt-BR/content/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription.md,rendering error
 translations/pt-BR/content/billing/managing-billing-for-your-github-account/viewing-and-managing-pending-changes-to-your-subscription.md,rendering error
+translations/pt-BR/content/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account.md,rendering error
 translations/pt-BR/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,rendering error
 translations/pt-BR/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/index.md,rendering error
 translations/pt-BR/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise.md,rendering error
@@ -435,6 +450,7 @@ translations/pt-BR/content/code-security/supply-chain-security/managing-vulnerab
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
 translations/pt-BR/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,rendering error
 translations/pt-BR/content/codespaces/codespaces-reference/disaster-recovery-for-codespaces.md,rendering error
+translations/pt-BR/content/codespaces/codespaces-reference/understanding-billing-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/index.md,rendering error
 translations/pt-BR/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,rendering error
@@ -454,17 +470,21 @@ translations/pt-BR/content/codespaces/developing-in-codespaces/using-source-cont
 translations/pt-BR/content/codespaces/getting-started/deep-dive.md,rendering error
 translations/pt-BR/content/codespaces/guides.md,rendering error
 translations/pt-BR/content/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization.md,rendering error
+translations/pt-BR/content/codespaces/managing-codespaces-for-your-organization/index.md,rendering error
 translations/pt-BR/content/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization.md,rendering error
 translations/pt-BR/content/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces.md,rendering error
+translations/pt-BR/content/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types.md,rendering error
 translations/pt-BR/content/codespaces/managing-your-codespaces/index.md,rendering error
 translations/pt-BR/content/codespaces/overview.md,rendering error
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project.md,rendering error
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/index.md,rendering error
+translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines.md,rendering error
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces.md,rendering error
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces.md,rendering error
+translations/pt-BR/content/codespaces/the-githubdev-web-based-editor.md,rendering error
 translations/pt-BR/content/codespaces/troubleshooting/troubleshooting-codespaces-clients.md,rendering error
 translations/pt-BR/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/pt-BR/content/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages.md,rendering error
@@ -482,6 +502,7 @@ translations/pt-BR/content/communities/using-templates-to-encourage-useful-issue
 translations/pt-BR/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository.md,rendering error
 translations/pt-BR/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema.md,rendering error
 translations/pt-BR/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches.md,rendering error
+translations/pt-BR/content/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/squashing-commits.md,rendering error
 translations/pt-BR/content/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request.md,rendering error
 translations/pt-BR/content/desktop/installing-and-configuring-github-desktop/overview/creating-your-first-repository-using-github-desktop.md,rendering error
 translations/pt-BR/content/desktop/installing-and-configuring-github-desktop/overview/keyboard-shortcuts.md,rendering error
@@ -543,6 +564,7 @@ translations/pt-BR/content/developers/overview/managing-deploy-keys.md,rendering
 translations/pt-BR/content/developers/overview/replacing-github-services.md,rendering error
 translations/pt-BR/content/developers/overview/secret-scanning-partner-program.md,rendering error
 translations/pt-BR/content/developers/overview/using-ssh-agent-forwarding.md,rendering error
+translations/pt-BR/content/developers/webhooks-and-events/events/github-event-types.md,rendering error
 translations/pt-BR/content/developers/webhooks-and-events/events/issue-event-types.md,rendering error
 translations/pt-BR/content/developers/webhooks-and-events/webhooks/securing-your-webhooks.md,rendering error
 translations/pt-BR/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
@@ -717,7 +739,6 @@ translations/pt-BR/content/organizations/keeping-your-organization-secure/requir
 translations/pt-BR/content/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,Listed in localization-support#489
 translations/pt-BR/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,parsing error
-translations/pt-BR/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-apps/adding-github-app-managers-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-apps/removing-github-app-managers-from-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization.md,rendering error
@@ -750,6 +771,7 @@ translations/pt-BR/content/organizations/managing-organization-settings/setting-
 translations/pt-BR/content/organizations/managing-organization-settings/setting-permissions-for-deleting-or-transferring-repositories.md,rendering error
 translations/pt-BR/content/organizations/managing-organization-settings/transferring-organization-ownership.md,rendering error
 translations/pt-BR/content/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization.md,rendering error
+translations/pt-BR/content/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-peoples-access-to-your-organization-with-roles/index.md,rendering error
 translations/pt-BR/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
@@ -853,6 +875,7 @@ translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/review
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/index.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks.md,rendering error
+translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/index.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility.md,rendering error
@@ -862,8 +885,12 @@ translations/pt-BR/content/pull-requests/committing-changes-to-your-project/crea
 translations/pt-BR/content/pull-requests/committing-changes-to-your-project/index.md,rendering error
 translations/pt-BR/content/pull-requests/committing-changes-to-your-project/troubleshooting-commits/commit-exists-on-github-but-not-in-my-local-clone.md,rendering error
 translations/pt-BR/content/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user.md,rendering error
+translations/pt-BR/content/pull-requests/index.md,rendering error
 translations/pt-BR/content/repositories/archiving-a-github-repository/archiving-repositories.md,rendering error
+translations/pt-BR/content/repositories/archiving-a-github-repository/backing-up-a-repository.md,rendering error
 translations/pt-BR/content/repositories/archiving-a-github-repository/index.md,rendering error
+translations/pt-BR/content/repositories/archiving-a-github-repository/referencing-and-citing-content.md,rendering error
+translations/pt-BR/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github.md,rendering error
 translations/pt-BR/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository.md,rendering error
 translations/pt-BR/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/using-a-merge-queue.md,rendering error
 translations/pt-BR/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches.md,rendering error
@@ -878,7 +905,9 @@ translations/pt-BR/content/repositories/creating-and-managing-repositories/creat
 translations/pt-BR/content/repositories/creating-and-managing-repositories/creating-an-issues-only-repository.md,rendering error
 translations/pt-BR/content/repositories/creating-and-managing-repositories/deleting-a-repository.md,rendering error
 translations/pt-BR/content/repositories/creating-and-managing-repositories/duplicating-a-repository.md,rendering error
+translations/pt-BR/content/repositories/creating-and-managing-repositories/restoring-a-deleted-repository.md,rendering error
 translations/pt-BR/content/repositories/creating-and-managing-repositories/transferring-a-repository.md,rendering error
+translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-languages.md,rendering error
@@ -924,12 +953,14 @@ translations/pt-BR/content/rest/reference/activity.md,rendering error
 translations/pt-BR/content/rest/reference/branches.md,rendering error
 translations/pt-BR/content/rest/reference/collaborators.md,rendering error
 translations/pt-BR/content/rest/reference/commits.md,rendering error
+translations/pt-BR/content/rest/reference/dependabot.md,rendering error
 translations/pt-BR/content/rest/reference/deployments.md,rendering error
 translations/pt-BR/content/rest/reference/enterprise-admin.md,Listed in localization-support#489
 translations/pt-BR/content/rest/reference/enterprise-admin.md,rendering error
 translations/pt-BR/content/rest/reference/gists.md,Listed in localization-support#489
 translations/pt-BR/content/rest/reference/gists.md,rendering error
 translations/pt-BR/content/rest/reference/index.md,rendering error
+translations/pt-BR/content/rest/reference/metrics.md,rendering error
 translations/pt-BR/content/rest/reference/orgs.md,rendering error
 translations/pt-BR/content/rest/reference/packages.md,rendering error
 translations/pt-BR/content/rest/reference/pages.md,rendering error
@@ -938,7 +969,6 @@ translations/pt-BR/content/rest/reference/pulls.md,rendering error
 translations/pt-BR/content/rest/reference/releases.md,rendering error
 translations/pt-BR/content/rest/reference/repos.md,Listed in localization-support#489
 translations/pt-BR/content/rest/reference/repos.md,rendering error
-translations/pt-BR/content/rest/reference/repository-metrics.md,rendering error
 translations/pt-BR/content/rest/reference/search.md,rendering error
 translations/pt-BR/content/rest/reference/secret-scanning.md,rendering error
 translations/pt-BR/content/rest/reference/teams.md,rendering error
