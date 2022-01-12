@@ -1,12 +1,12 @@
 ---
-title: Agregar personas a los equipos
+title: Adding people to teams
 redirect_from:
-  - /enterprise/admin/articles/adding-teams/
-  - /enterprise/admin/articles/adding-or-inviting-people-to-teams/
-  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams/
+  - /enterprise/admin/articles/adding-teams
+  - /enterprise/admin/articles/adding-or-inviting-people-to-teams
+  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams
   - /enterprise/admin/user-management/adding-people-to-teams
   - /admin/user-management/adding-people-to-teams
-intro: 'Una vez que se ha creado un equipo, los administradores de la organización pueden agregar usuarios desde {% data variables.product.product_location %} al equipo y determinar a qué repositorios tienen acceso.'
+intro: 'Once a team has been created, organization admins can add users from {% data variables.product.product_location %} to the team and determine which repositories they have access to.'
 versions:
   ghes: '*'
 type: how_to
@@ -16,13 +16,12 @@ topics:
   - Teams
   - User account
 ---
+Each team has its own individually defined [access permissions for repositories owned by your organization](/articles/permission-levels-for-an-organization).
 
-Cada equipo tiene sus propios premisos de acceso definidos de manera individual [ para repositorios que le pertenecen a tu organización](/articles/permission-levels-for-an-organization).
+- Members with the owner role can add or remove existing organization members from all teams.
+- Members of teams that give admin permissions can only modify team membership and repositories for that team.
 
-- Los miembros con el rol de propietario pueden agregar o eliminar miembros existentes de la organización de todos los equipos.
-- Los miembros de equipos que dan permisos de administración solo pueden modificar los repositorios y las membresías de equipos para ese equipo.
-
-## Configurar un equipo
+## Setting up a team
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -30,8 +29,8 @@ Cada equipo tiene sus propios premisos de acceso definidos de manera individual 
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
-## Asignar equipos a los grupos LDAP (para instancias que usan la sincronización LDAP para la autenticación de usuario)
+## Mapping teams to LDAP groups (for instances using LDAP Sync for user authentication)
 
 {% data reusables.enterprise_management_console.badge_indicator %}
 
-Para agregar un nuevo miembro a un equipo sincronizado con un grupo LDAP, agrega el usuario como un miembro del grupo LDAP o comunícate con el administrador LDAP.
+To add a new member to a team synced to an LDAP group, add the user as a member of the LDAP group, or contact your LDAP administrator.

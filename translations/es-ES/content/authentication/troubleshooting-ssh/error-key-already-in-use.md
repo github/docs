@@ -1,6 +1,6 @@
 ---
-title: 'Error: La clave ya está en uso'
-intro: 'Este error se produce cuando intentas [agregar una clave](/articles/adding-a-new-ssh-key-to-your-github-account) que ya ha sido agregada a otra cuenta o repositorio.'
+title: 'Error: Key already in use'
+intro: 'This error occurs when you try to [add a key](/articles/adding-a-new-ssh-key-to-your-github-account) that''s already been added to another account or repository.'
 redirect_from:
   - /articles/error-key-already-in-use
   - /github/authenticating-to-github/error-key-already-in-use
@@ -13,10 +13,9 @@ versions:
 topics:
   - SSH
 ---
+## Finding where the key has been used
 
-## Determinar dónde se ha usado la clave
-
-Para determinar dónde se ha usado la clave, abre una terminal y escribe el comando `ssh`. Usa la marca `-i` para obtener la ruta a la clave que deseas verificar:
+To determine where the key has already been used, open a terminal and type the `ssh` command. Use the `-i` flag to provide the path to the key you want to check:
 
 ```shell
 $ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
@@ -25,21 +24,21 @@ $ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock
 > provide shell access.
 ```
 
-The *username* in the response is the account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} that the key is currently attached to. Si la respuesta se parece a "username/repo", la llave se ha vinculado a un repositorio como [*llave de implementación*](/guides/managing-deploy-keys#deploy-keys).
+The *username* in the response is the account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} that the key is currently attached to. If the response looks something like "username/repo", the key has been attached to a repository as a [*deploy key*](/guides/managing-deploy-keys#deploy-keys).
 
 
-Para forzar a SSH a que utilice solo la clave que se proporcionó en la línea de comandos, utiliza `-o` para agregar la opción `IdentitiesOnly=yes`:
+To force SSH to use only the key provided on the command line, use `-o` to add the `IdentitiesOnly=yes` option:
 
 ```shell
 $ ssh -v -o "IdentitiesOnly=yes" -i <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
 ```
 
-## Resolver el problema
+## Fixing the issue
 
-Para resolver el problema, primero elimina la clave de la otra cuenta o repositorio y luego [agrégala a tu cuenta](/articles/adding-a-new-ssh-key-to-your-github-account).
+To resolve the issue, first remove the key from the other account or repository and then [add it to your account](/articles/adding-a-new-ssh-key-to-your-github-account).
 
-Si no tienes permisos para transferir la clave y no puedes comunicarte con un usuario que los tenga, elimina el par de claves y [genera uno nuevo](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+If you don't have permissions to transfer the key, and can't contact a user who does, remove the keypair and [generate a brand new one](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
-## Llaves de implementación
+## Deploy keys
 
-Una vez que una clave se ha vinculado a un repositorio como llave de implementación, no se la puede usar en otro repositorio.  Si se te muestra este error mientras configuras las llaves de despliegue, consulta la sección "[Administrar las llaves de despliegue](/guides/managing-deploy-keys)".
+Once a key has been attached to one repository as a deploy key, it cannot be used on another repository.  If you're running into this error while setting up deploy keys, see "[Managing deploy keys](/guides/managing-deploy-keys)."

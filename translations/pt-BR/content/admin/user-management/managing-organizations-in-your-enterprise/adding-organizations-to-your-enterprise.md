@@ -1,7 +1,6 @@
 ---
 title: Adding organizations to your enterprise
 intro: You can create new organizations or invite existing organizations to manage within your enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /articles/adding-organizations-to-your-enterprise-account
