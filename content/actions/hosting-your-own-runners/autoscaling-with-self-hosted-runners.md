@@ -32,7 +32,7 @@ Each solution has certain specifics that may be important to consider:
 | Runtime | Kubernetes | Linux and Windows VMs |
 | Supported Clouds | Azure, Amazon Web Services, Google Cloud Platform, on-premises | Amazon Web Services |
 | Where runners can be scaled | Enterprise, organization, and repository levels. By runner label and runner group. | Organization and repository levels. By runner label and runner group. |
-| Pull-based autoscaling support | Yes | [Yes](https://github.com/philips-labs/terraform-aws-github-runner#simple-pool) (org-level runners) |
+| How runners can be scaled | Webhook events, Scheduled, Pull-based | Webhook events, Scheduled (org-level runners only) |
 
 ## Using ephemeral runners for autoscaling
 
