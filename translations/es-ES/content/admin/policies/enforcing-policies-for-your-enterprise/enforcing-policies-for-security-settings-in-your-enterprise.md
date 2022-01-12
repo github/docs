@@ -5,8 +5,8 @@ permissions: Enterprise owners can enforce policies for security settings in an 
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /articles/enforcing-security-settings-for-organizations-in-your-business-account/
-  - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-security-settings-for-organizations-in-your-business-account
+  - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account
   - /articles/enforcing-security-settings-in-your-enterprise-account
   - /github/articles/managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account

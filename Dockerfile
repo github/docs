@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.2.0-alpine as base
+FROM node:16-alpine as base
 
 RUN apk add --no-cache make g++ git
 
@@ -21,6 +21,11 @@ COPY .npmrc ./
 COPY package*.json ./
 
 RUN npm ci
+
+# For Next.js v12+
+# This the appropriate necessary extra for node:16-alpine
+# Other options are https://www.npmjs.com/search?q=%40next%2Fswc
+# RUN npm i @next/swc-linux-x64-musl --no-save
 
 
 # ---------------
@@ -54,7 +59,7 @@ RUN npm run build
 # MAIN IMAGE
 # --------------------------------------------------------------------------------
 
-FROM node:16.2.0-alpine as production
+FROM node:16-alpine as production
 
 # Let's make our home
 WORKDIR /usr/src/docs

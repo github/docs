@@ -1,6 +1,6 @@
 ---
-title: Visualizar y administrar el acceso de SAML de un usuario a tu empresa
-intro: 'Puedes ver y revocar la identidad vinculada de un miembro de la empresa, sesiones activas y credenciales autorizadas.'
+title: Viewing and managing a user's SAML access to your enterprise
+intro: 'You can view and revoke an enterprise member''s linked identity, active sessions, and authorized credentials.'
 permissions: Enterprise owners can view and manage a member's SAML access to an organization.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
@@ -12,20 +12,19 @@ versions:
   ghec: '*'
 topics:
   - Enterprise
-shortTitle: Visualizar & administrar el acceso con SAML
+shortTitle: View & manage SAML access
 ---
-
-## Acerca del acceso de SAML a tu cuenta empresarial
+## About SAML access to your enterprise account
 
 When you enable SAML single sign-on for your enterprise account, each enterprise member can link their external identity on your identity provider (IdP) to their existing account on {% data variables.product.product_location %}. {% data reusables.saml.about-saml-access-enterprise-account %}
 
-Si tu empresa utiliza {% data variables.product.prodname_emus %}, tus miembros utilizarán cuentas que se aprovisionen a través de tu IdP. {% data variables.product.prodname_managed_users_caps %} no utilizará su cuenta de usuario existente en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
+If your enterprise is uses {% data variables.product.prodname_emus %}, your members will use accounts provisioned through your IdP. {% data variables.product.prodname_managed_users_caps %} will not use their existing user account on {% data variables.product.product_name %}. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 
-## Visualizar y revocar una identidad vinculada
+## Viewing and revoking a linked identity
 
 {% data reusables.saml.about-linked-identities %}
 
-Si tu empresa utiliza {% data variables.product.prodname_emus %}, no podrás desaprovisionar o eliminar cuentas de usuario desde la empresa en {% data variables.product.product_name %}. Cualquier cambio que necesites hacer a los {% data variables.product.prodname_managed_users %} de tu empresa deberá realizarse mediante tu IdP.
+If your enterprise uses {% data variables.product.prodname_emus %}, you will not be able to deprovision or remove user accounts from the enterprise on {% data variables.product.product_name %}. Any changes you need to make to your enterprise's {% data variables.product.prodname_managed_users %} should be made through your IdP.
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
@@ -37,7 +36,7 @@ Si tu empresa utiliza {% data variables.product.prodname_emus %}, no podrás des
 {% data reusables.saml.revoke-sso-identity %}
 {% data reusables.saml.confirm-revoke-identity %}
 
-## Visualizar y revocar una sesión activa de SAML
+## Viewing and revoking an active SAML session
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -46,7 +45,7 @@ Si tu empresa utiliza {% data variables.product.prodname_emus %}, no podrás des
 {% data reusables.saml.view-saml-sessions %}
 {% data reusables.saml.revoke-saml-session %}
 
-## Visualizar y revocar credenciales autorizadas
+## Viewing and revoking authorized credentials
 
 {% data reusables.saml.about-authorized-credentials %}
 
@@ -58,6 +57,6 @@ Si tu empresa utiliza {% data variables.product.prodname_emus %}, no podrás des
 {% data reusables.saml.revoke-authorized-credentials %}
 {% data reusables.saml.confirm-revoke-credentials %}
 
-## Leer más
+## Further reading
 
-- "[Visualizar y administrar el acceso de SAML de un miembro a tu organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"
+- "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"

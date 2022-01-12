@@ -1,7 +1,6 @@
 ---
 title: Streaming the audit logs for organizations in your enterprise account
 intro: 'You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 miniTocMaxHeadingLevel: 3
 versions:
   ghec: '*'

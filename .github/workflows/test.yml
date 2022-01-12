@@ -66,7 +66,7 @@ jobs:
           echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
 
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -82,7 +82,7 @@ jobs:
           GIT_BRANCH: ${{ github.head_ref || github.ref }}
 
       - name: Cache nextjs build
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -93,4 +93,4 @@ jobs:
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
-        run: npm run test tests/${{ matrix.test-group }}/
+        run: npm test -- tests/${{ matrix.test-group }}/
