@@ -1,12 +1,12 @@
 ---
-title: Configurar tu correo electrónico de facturación
-intro: 'El correo electrónico de facturación de tu cuenta es donde {% data variables.product.product_name %} envía los recibos y otras comunicaciones relacionadas con la facturación.'
+title: Setting your billing email
+intro: 'Your account''s billing email is where {% data variables.product.product_name %} sends receipts and other billing-related communication.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-your-billing-email
-  - /articles/setting-your-personal-account-s-billing-email/
-  - /articles/can-i-change-what-email-address-received-my-github-receipt/
-  - '/articles/how-do-i-change-the-billing-email,setting-your-billing-email/'
-  - /articles/setting-your-organization-s-billing-email/
+  - /articles/setting-your-personal-account-s-billing-email
+  - /articles/can-i-change-what-email-address-received-my-github-receipt
+  - '/articles/how-do-i-change-the-billing-email,setting-your-billing-email'
+  - /articles/setting-your-organization-s-billing-email
   - /articles/setting-your-billing-email
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/setting-your-billing-email
 versions:
@@ -16,51 +16,58 @@ type: how_to
 topics:
   - Organizations
   - User account
-shortTitle: Correo electrónico de facturación
+shortTitle: Billing email
 ---
+## Setting your personal account's billing email
 
-## Configurar el correo electrónico de facturación de tu cuenta personal
+Your personal account's primary email is where {% data variables.product.product_name %} sends receipts and other billing-related communication.
 
-El correo electrónico principal de tu cuenta personal es donde {% data variables.product.product_name %} envía los recibos y otras comunicaciones relacionadas con la facturación.
+Your primary email address is the first email listed in your account email settings.
+We also use your primary email address as our billing email address.
 
-Tu dirección principal de correo electrónico es el primer correo electrónico enumerado en las configuraciones de correo electrónico de tu cuenta. También utilizamos tu dirección principal de correo electrónico como nuestra dirección de correo electrónico de facturación.
+If you'd like to change your billing email, see "[Changing your primary email address](/articles/changing-your-primary-email-address)."
 
-Si deseas cambiar tu correo electrónico de facturación, consulta "[Cambiar tu dirección principal de correo electrónico](/articles/changing-your-primary-email-address)."
+## Setting your organization's billing email
 
-## Configurar el correo electrónico de facturación de tu organización
-
-El correo electrónico de facturación de tu organización es donde {% data variables.product.product_name %} envía los recibos y otras comunicaciones relacionadas con la facturación. La dirección de correo electrónico no necesariamente debe ser única para la cuenta de la organización.
-
-{% data reusables.dotcom_billing.org-billing-perms %}
-
-{% data reusables.organizations.billing-settings %}
-1. Debabjo de "Administración de facturación", a la derecha de la dirección de correo electrónico para facturación, haz clic en **Editar**. ![Correos electrónicos de facturación actuales](/assets/images/help/billing/billing-change-email.png)
-2. Teclea una dirección de correo electrónico válida y luego haz clic en **Actualizar**. ![Cambiar el modo de la dirección de correo electrónico para facturación](/assets/images/help/billing/billing-change-email-modal.png)
-
-## Administrar los destinatarios adicionales para tu correo electrónico de facturación de la organización
-
-Si tienes usuarios que quieran recibir reportes de facturación, puedes agregar sus direcciones de correo electrónico como destinatarios del correo de facturación. Esta característica se encuentra únicamente disponible para las organizaciones que no gestione una empresa.
+Your organization's billing email is where {% data variables.product.product_name %} sends receipts and other billing-related communication. The email address does not need to be unique to the organization account.
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-### Agregar un destinatario para las notificaciones de facturación
+{% data reusables.organizations.billing-settings %}
+1. Under "Billing management", to the right of the billing email address, click **Edit**.
+  ![Current billing emails](/assets/images/help/billing/billing-change-email.png)
+2. Type a valid email address, then click **Update**.
+  ![Change billing email address modal](/assets/images/help/billing/billing-change-email-modal.png)
+
+## Managing additional recipients for your organization's billing email
+
+If you have users that want to receive billing reports, you can add their email addresses as billing email recipients. This feature is only available to organizations that are not managed by an enterprise.
+
+{% data reusables.dotcom_billing.org-billing-perms %}
+
+### Adding a recipient for billing notifications
 
 {% data reusables.organizations.billing-settings %}
-1. Debajo de "Administración de facturación", a la derecha de "Destinatarios de correo electrónico", da clic en **Agregar**. ![Agregar destinatario](/assets/images/help/billing/billing-add-email-recipient.png)
-1. Teclea la dirección de correo electrónico del destinatario y luego da clic en **Agregar**. ![Agregar modal de destinatario](/assets/images/help/billing/billing-add-email-recipient-modal.png)
+1. Under "Billing management", to the right of "Email recipients", click **Add**.
+  ![Add recipient](/assets/images/help/billing/billing-add-email-recipient.png)
+1. Type the email address of the recipient, then click **Add**.
+  ![Add recipient modal](/assets/images/help/billing/billing-add-email-recipient-modal.png)
 
-### Cambiar el destinatario principal de las notificaciones de facturación
+### Changing the primary recipient for billing notifications
 
-Siempre debe existir una dirección designada como el destinatario principal. La dirección con esta designación no puede eliminarse hasta que se seleccione un destinatario primario.
-
-{% data reusables.organizations.billing-settings %}
-1. Debajo de "Administración de facturación", encuentra la dirección de correo electrónico que quieras configurar como el destinatario principal.
-1. A la derecha de la dirección de correo electrónico, utiliza el menú desplegable de "Editar", y da clic en **Marcar como principal**. ![Marcar destinatario principal](/assets/images/help/billing/billing-change-primary-email-recipient.png)
-
-### Eliminar un destinatario de las notificaciones de facturación
+One address must always be designated as the primary recipient. The address with this designation can't be removed until a new primary recipient is selected.
 
 {% data reusables.organizations.billing-settings %}
-1. Debajo de "Destinatarios de correo electrónico", encuentra la dirección de correo electrónico que quieres eliminar.
-1. Para la entrada del usuario en la lista, da clic en **Editar**. ![Editar destinatario](/assets/images/help/billing/billing-edit-email-recipient.png)
-1. A la derecha de la dirección de correo electrónico, utiliza el menú desplegable "Editar" y haz clic en **Eliminar**. ![Eliminar destinatario](/assets/images/help/billing/billing-remove-email-recipient.png)
-1. Revisa el mensaje de confirmación y luego da clic en **Eliminar**.
+1. Under "Billing management", find the email address you want to set as the primary recipient.
+1. To the right of the email address, use the "Edit" drop-down menu, and click **Mark as primary**.
+  ![Mark primary recipient](/assets/images/help/billing/billing-change-primary-email-recipient.png)
+
+### Removing a recipient from billing notifications
+
+{% data reusables.organizations.billing-settings %}
+1. Under "Email recipients", find the email address you want to remove.
+1. For the user's entry in the list, click **Edit**.
+  ![Edit recipient](/assets/images/help/billing/billing-edit-email-recipient.png)
+1. To the right of the email address, use the "Edit" drop-down menu, and click **Remove**.
+  ![Remove recipient](/assets/images/help/billing/billing-remove-email-recipient.png)
+1. Review the confirmation prompt, then click **Remove**.

@@ -3,18 +3,18 @@ title: Downgrading your GitHub subscription
 intro: 'You can downgrade the subscription for any type of account on {% data variables.product.product_location %} at any time.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
-  - /articles/downgrading-your-personal-account-s-billing-plan/
-  - /articles/how-do-i-cancel-my-account/
-  - /articles/downgrading-a-user-account-to-free/
-  - /articles/removing-paid-seats-from-your-organization/
-  - /articles/downgrading-your-organization-s-paid-seats/
-  - /articles/downgrading-your-organization-s-billing-plan/
-  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free/
-  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free/
-  - /articles/downgrading-your-organization-to-free/
-  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan/
-  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan/
-  - /articles/downgrading-your-github-billing-plan/
+  - /articles/downgrading-your-personal-account-s-billing-plan
+  - /articles/how-do-i-cancel-my-account
+  - /articles/downgrading-a-user-account-to-free
+  - /articles/removing-paid-seats-from-your-organization
+  - /articles/downgrading-your-organization-s-paid-seats
+  - /articles/downgrading-your-organization-s-billing-plan
+  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free
+  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free
+  - /articles/downgrading-your-organization-to-free
+  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan
+  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan
+  - /articles/downgrading-your-github-billing-plan
   - /articles/downgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
