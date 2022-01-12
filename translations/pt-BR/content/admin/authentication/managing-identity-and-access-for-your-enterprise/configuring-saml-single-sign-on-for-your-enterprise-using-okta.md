@@ -1,6 +1,6 @@
 ---
-title: Configuring SAML single sign-on for your enterprise using Okta
-intro: 'You can use Security Assertion Markup Language (SAML) single sign-on (SSO) with Okta to automatically manage access to your enterprise account on {% data variables.product.product_name %}.'
+title: Configurar o logon único SAML para a sua empresa usando o Okta
+intro: 'Você pode usar o logon único (SSO) da linguagem de declaração de markup (SAML) com o Okta para gerenciar automaticamente o acesso à sua conta corporativa em {% data variables.product.product_name %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-single-sign-on-for-your-enterprise-account-using-okta
   - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta
@@ -12,68 +12,64 @@ topics:
   - Authentication
   - Enterprise
 type: how_to
-shortTitle: Configure SAML with Okta
+shortTitle: Configurar o SAML com Okta
 ---
+
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 
 {% data reusables.enterprise-accounts.emu-saml-note %}
 
-## About SAML with Okta
+## Sobre o SAML com Okta
 
-You can control access to your enterprise account in {% data variables.product.product_name %} and other web applications from one central interface by configuring the enterprise account to use SAML SSO with Okta, an Identity Provider (IdP).
+Você pode controlar o acesso à conta corporativa no {% data variables.product.product_name %} e em outros aplicativos web, a partir de uma interface central, configurando a conta corporativa para usar SAML SSO com Okta, um provedor de identidade (IdP).
 
-SAML SSO controls and secures access to enterprise account resources like organizations, repositories, issues, and pull requests. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+O SAML SSO controla e protege o acesso a recursos da conta corporativa, como, por exemplo, organizações, repositórios, problemas e pull requests. Para obter mais informações, consulte "[Configurar logon único SAML para a sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
-{% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+{% data reusables.saml.switching-from-org-to-enterprise %} Para obter mais informações, consulte "[Alterando sua configuração do SAML de uma organização para uma conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)".
 
-## Prerequisites
+## Pré-requisitos
 
 {% data reusables.saml.use-classic-ui %}
 
-## Adding the {% data variables.product.prodname_ghe_cloud %} application in Okta
+## Adicionar o aplicativo {% data variables.product.prodname_ghe_cloud %} no Okta
 
 {% data reusables.saml.okta-admin-button %}
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.add-okta-application %}
 {% data reusables.saml.search-ghec-okta %}
-1. Click "{% data variables.product.prodname_ghe_cloud %} - Enterprise Accounts".
-1. Click **Add**.
-1. Optionally, to the right of "Application label", type a descriptive name for the application.
-  ![Application label field](/assets/images/help/saml/okta-application-label.png)
-1. To the right of "{% data variables.product.prodname_dotcom %} Enterprises", type the name of your enterprise account. For example, if your enterprise account's URL is `https://github.com/enterprises/octo-corp`, type `octo-corp`.
-  ![GitHub Enterprises field](/assets/images/help/saml/okta-github-enterprises.png)
-1. Click **Done**.
+1. Clique em "{% data variables.product.prodname_ghe_cloud %} - Contas corporativas".
+1. Clique em **Salvar**.
+1. Opcionalmente, à direita do "Etiqueta do aplicativo", digite um nome descritivo para o aplicativo. ![Campo da etiqueta do aplicativo](/assets/images/help/saml/okta-application-label.png)
+1. À direita da "Empresas de {% data variables.product.prodname_dotcom %}", digite o nome da conta corporativa. Por exemplo, se a URL da conta corporativa for `https://github.com/enterprises/octo-corp`, digite `octo-corp`. ![Campo GitHub Enterprises](/assets/images/help/saml/okta-github-enterprises.png)
+1. Clique em **Cpncluído**.
 
-## Enabling and testing SAML SSO
+## Habilitar e e testar o SAML SSO
 
 {% data reusables.saml.okta-admin-button %}
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.click-enterprise-account-application %}
 {% data reusables.saml.assign-yourself-to-okta %}
 {% data reusables.saml.okta-sign-on-tab %}
-1. To the right of Settings, click **Edit**.
-1. Under "Configured SAML Attributes", to the right of "groups", use the drop-down menu and select **Matches regex**.
-1. To the right of the drop-down menu, type `.*.*`.
-1. Click **Save**.
+1. À direita das configurações, clique em **Editar**.
+1. Em "Atributos de SAML configurados", à direita de "grupos", use o menu suspenso e selecione **Correspondências de regex**.
+1. À direita do menu suspenso, digite `.*.*`.
+1. Clique em **Salvar**.
 {% data reusables.saml.okta-view-setup-instructions %}
-1. Enable SAML for your enterprise account using the information in the setup instructions. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+1. Habilite o SAML para a conta corporativa usando as informações nas instruções de configuração. Para obter mais informações, consulte "[Configurar logon único SAML para a sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
-## Creating groups in Okta
+## Criar grupos no Okta
 
-1. In Okta, create a group to match each organization owned by your enterprise account. The name of each group must match the account name of the organization (not the organization's display name). For example, if the URL of the organization is `https://github.com/octo-org`, name the group `octo-org`.
-1. Assign the application you created for your enterprise account to each group. {% data variables.product.prodname_dotcom %} will receive all `groups` data for each user.
-1. Add users to groups based on the organizations you'd like users to belong to.
+1. No Okta, crie um grupo para corresponder a cada organização pertencente à conta corporativa. O nome de cada grupo deve corresponder ao nome da conta da organização (não ao nome de exibição da organização). Por exemplo, se a URL da organização for `https://github.com/octo-org`, nomeie o grupo `octo-org`.
+1. Atribua o aplicativo que você criou para a sua conta corporativa a cada grupo. {% data variables.product.prodname_dotcom %} receberá todos os `grupos` de dados para cada usuário.
+1. Adicione usuários a grupos baseados nas organizações às quais você deseja que os usuários pertençam.
 
-## Enabling SAML user provisioning
+## Habilitar o SAML usando o provisionamento de usuário
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Under "SAML User Provisioning", select **Enable SAML user provisioning**.
-  ![Checkbox to enable user provisioning with SAML](/assets/images/help/business-accounts/user-provisioning.png)
-1. Click **Save**.
-1. Optionally, enable SAML user deprovisioning.
-   - Select **Enable SAML user deprovisioning**, then click **Save**.
-     ![Checkbox to enable user deprovisioning with SAML](/assets/images/help/business-accounts/saml-deprovisioning.png)
-   - Read the warning, then click **Enable SAML deprovisioning**.
-       ![Enable SAML deprovisioning button](/assets/images/help/business-accounts/saml-deprovisioning-confirm.png)
+1. Em "Provisionamento de usuários de SAML", selecione **Habilitar provisionamento de usuário de SAML**. ![Caixa de seleção que habilita o provisionamento do usuário com SAML](/assets/images/help/business-accounts/user-provisioning.png)
+1. Clique em **Salvar**.
+1. Opcionalmente, habilite o desprovisionamento do usuário de SAML.
+   - Selecione **Habilitar o desprovisionamento do usuário de SAML** e, em seguida, clique em **Salvar**. ![Caixa de seleção que habilita o desprovisionamento de usuário com SAML](/assets/images/help/business-accounts/saml-deprovisioning.png)
+   - Leia o aviso e clique em **Habilitar o desprovisionamento de SAML**. ![Botão para habilitar o desaprovisionamento de usuários de SAML](/assets/images/help/business-accounts/saml-deprovisioning-confirm.png)

@@ -13,7 +13,7 @@ topics:
 product: '{% data reusables.gated-features.codespaces %}'
 ---
 
-## Overview
+## Visão Geral
 
 When you create a codespace for a repository you are typically offered a choice of available machine types. Each machine type has a different level of resources. For more information, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
 
@@ -21,7 +21,7 @@ If your project needs a certain level of compute power, you can configure {% dat
 
 {% note %}
 
-**Important:** Access to some machine types may be restricted at the organization level. Typically this is done to prevent people choosing higher resourced machines that are billed at a higher rate. If your repository is affected by an organization-level policy for machine types you should make sure you don't set a minimum specification that would leave no available machine types for people to choose. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+**Important:** Access to some machine types may be restricted at the organization level. Typically this is done to prevent people choosing higher resourced machines that are billed at a higher rate. If your repository is affected by an organization-level policy for machine types you should make sure you don't set a minimum specification that would leave no available machine types for people to choose. Para obter mais informações, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
 {% endnote %}
 
@@ -39,15 +39,15 @@ If your project needs a certain level of compute power, you can configure {% dat
    ```
 
    You can specify any or all of the options: `cpus`, `memory`, and `storage`.
-   
-   To check the specifications of the {% data variables.product.prodname_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
-   
+
+   To check the specifications of the {% data variables.product.prodname_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
+
 1. Save the file and commit your changes to the required branch of the repository.
 
    Now when you create a codespace for that branch of the repository you will only be able to select machine types that match or exceed the resources you've specified.
 
    ![Dialog box showing a limited choice of machine types](/assets/images/help/codespaces/machine-types-limited-choice.png)
 
-## Further reading
+## Leia mais
 
 - "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project)"

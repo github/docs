@@ -1,6 +1,6 @@
 ---
-title: Handling plan changes
-intro: 'Upgrading or downgrading a {% data variables.product.prodname_marketplace %} app triggers the [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhook with the `changed` action, which kicks off the upgrade or downgrade flow.'
+title: Gerenciar mudanças de plano
+intro: 'Atualizar ou fazer downgrade de um aplicativo do {% data variables.product.prodname_marketplace %} aciona o webook do [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) com a ação `alterado`, que dá início ao fluxo de atualização ou downgrade.'
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans
   - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
@@ -12,54 +12,55 @@ versions:
 topics:
   - Marketplace
 ---
-For more information about upgrading and downgrading as it relates to billing, see "[Integrating with the {% data variables.product.prodname_marketplace %} API](/marketplace/integrating-with-the-github-marketplace-api/)."
 
-## Step 1. Pricing plan change event
+Para obter mais informações sobre atualização e downgrade com relação à cobrança, consulte "[Integração com a API do {% data variables.product.prodname_marketplace %}](/marketplace/integrating-with-the-github-marketplace-api/)".
 
-GitHub send the `marketplace_purchase` webhook with the `changed` action to your app, when a customer makes any of these changes to their {% data variables.product.prodname_marketplace %} order:
-* Upgrades to a more expensive pricing plan or downgrades to a lower priced plan.
-* Adds or removes seats to their existing plan.
-* Changes the billing cycle.
+## Etapa 1. Evento de mudança de plano de preços
 
-GitHub will send the webhook when the change takes effect. For example, when a customer downgrades a plan, GitHub sends the webhook at the end of the customer's billing cycle. GitHub sends a webhook to your app immediately when a customer upgrades their plan to allow them access to the new service right away. If a customer switches from a monthly to a yearly billing cycle, it's considered an upgrade. See "[Billing customers in {% data variables.product.prodname_marketplace %}](/marketplace/selling-your-app/billing-customers-in-github-marketplace/)" to learn more about what actions are considered an upgrade or downgrade.
+O GitHub envia o webhook `marketplace_purchase` com a ação `alterado` para o seu aplicativo, quando um cliente faz qualquer uma dessas alterações no seu pedido do {% data variables.product.prodname_marketplace %}:
+* Faz a atualização para um plano de preços mais caro ou para um plano de preços mais barato.
+* Adiciona ou remove estações para seu plano existente.
+* Altera o ciclo de cobrança.
 
-Read the `effective_date`, `marketplace_purchase`, and `previous_marketplace_purchase` from the `marketplace_purchase` webhook to update the plan's start date and make changes to the customer's billing cycle and pricing plan. See "[{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)" for an example of the `marketplace_purchase` event payload.
+O GitHub enviará o webhook quando a alteração entrar em vigor. Por exemplo, quando um cliente faz o downgrade de um plano, o GitHub envia o webhook no final do ciclo de cobrança do cliente. O GitHub envia um webhook para o seu aplicativo imediatamente quando um cliente atualiza seu plano para permitir que acesse o novo serviço imediatamente. Se um cliente mudar de um ciclo de cobrança mensal para anual, isso é considerado uma atualização. Consulte "[Cobrança de clientes no {% data variables.product.prodname_marketplace %}](/marketplace/selling-your-app/billing-customers-in-github-marketplace/)" para saber mais sobre quais ações são consideradas um atualização ou downgrade.
 
-If your app offers free trials, you'll receive the `marketplace_purchase` webhook with the `changed` action when the free trial expires. If the customer's free trial expires, upgrade the customer to the paid version of the free-trial plan.
+Leia o `effective_date`, `marketplace_purchase` e `precedous_marketplace_purchase` do webhook `marketplace_purchase` para atualizar a data de início do plano e fazer alterações no ciclo de cobrança do cliente e no plano de preços. Consulte "[ eventos de webhook de {% data variables.product.prodname_marketplace %}](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)para obter um exemplo da carga de evento `marketplace_purchase`.
 
-## Step 2. Updating customer accounts
+Se seu aplicativo oferecer testes grátis, você receberá o webhook `marketplace_purchase` com a ação `alterado` quando o teste grátis expirar. Se o teste grátis do cliente expirar, faça a atualização do cliente para a versão paga do plano grátis de teste.
 
-You'll need to update the customer's account information to reflect the billing cycle and pricing plan changes the customer made to their {% data variables.product.prodname_marketplace %} order. Display upgrades to the pricing plan, `seat_count` (for per-unit pricing plans), and billing cycle on your Marketplace app's website or your app's UI when you receive the `changed` action webhook.
+## Etapa 2. Atualizar as contas dos clientes
 
-When a customer downgrades a plan, it's recommended to review whether a customer has exceeded their plan limits and engage with them directly in your UI or by reaching out to them by phone or email.
+Você precisará atualizar as informações da conta do cliente para refletir as alterações no ciclo de cobrança e no plano de preços que o cliente fez em seu pedido do {% data variables.product.prodname_marketplace %}. Exibe as atualizações para o plano de preços, `seat_count` (para planos de preços por unidade) e ciclo de cobrança no site do aplicativo do Marketplace ou na interface do usuário do seu aplicativo quando você receber a ação de webhook `alterado`.
 
-To encourage people to upgrade you can display an upgrade URL in your app's UI. See "[About upgrade URLs](#about-upgrade-urls)" for more details.
+Quando um cliente faz o downgrade de um plano, recomenda-se revisar se o cliente excedeu os limites do seu plano e interagir diretamente com ele na sua interface de usuário ou entrando em contato por telefone ou e-mail.
+
+Para incentivar as pessoas a fazer a atualização, você pode exibir uma URL de upgrade na interface do usuário do seu aplicativo. Consulte "[Sobre as URLs de atualização](#about-upgrade-urls)" para obter mais detalhes.
 
 {% note %}
 
-**Note:** We recommend performing a periodic synchronization using `GET /marketplace_listing/plans/:id/accounts` to ensure your app has the correct plan, billing cycle information, and unit count (for per-unit pricing) for each account.
+**Observação:** Recomendamos executar uma sincronização periódica usando `GET /marketplace_listing/plans/:id/accounts` para garantir que seu aplicativo tenha o plano, as informações do ciclo de cobrança e a contagem de unidades (preço por unidade) corretos para cada conta.
 
 {% endnote %}
 
-## Failed upgrade payments
+## Falha nos pagamentos de atualização
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-## About upgrade URLs
+## Sobre as URLs de atualização
 
-You can redirect users from your app's UI to upgrade on GitHub using an upgrade URL:
+Você pode redirecionar os usuários da interface de usuário do seu aplicativo no GitHub, usando uma URL de atualização:
 
 ```
 https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>
 ```
 
-For example, if you notice that a customer is on a 5 person plan and needs to move to a 10 person plan, you could display a button in your app's UI that says "Here's how to upgrade" or show a banner with a link to the upgrade URL. The upgrade URL takes the customer to your listing plan's upgrade confirmation page.
+Por exemplo, se você notar que um cliente está em um plano de 5 pessoas e precisa passar para um plano de 10 pessoas, você poderia exibir um botão na interface do usuário do seu aplicativo que diz "Aqui está como atualizar" ou exibir um banner com um link para a URL de atualização. A URL atualização leva o cliente para a página de confirmação de confirmação da atualização do seu plano da listagem.
 
-Use the `LISTING_PLAN_NUMBER` for the plan the customer would like to purchase. When you create new pricing plans they receive a `LISTING_PLAN_NUMBER`, which is unique to each plan across your listing, and a `LISTING_PLAN_ID`, which is unique to each plan in the {% data variables.product.prodname_marketplace %}. You can find these numbers when you [List plans](/rest/reference/apps#list-plans), which identifies your listing's pricing plans. Use the `LISTING_PLAN_ID` and the "[List accounts for a plan](/rest/reference/apps#list-accounts-for-a-plan)" endpoint to get the `CUSTOMER_ACCOUNT_ID`.
+Use o `LISTING_PLAN_NUMBER` para o plano que o cliente gostaria de comprar. Ao criar novos planos de preços, eles recebem um `LISTING_PLAN_NUMBER`, que é exclusivo para cada plano na sua listagem, e um `LISTING_PLAN_ID`, que é exclusivo para cada plano no {% data variables.product.prodname_marketplace %}. Você pode encontrar esses números ao [Listar planos](/rest/reference/apps#list-plans), que identifica os seus planos de preços da listagem. Use o `LISTING_PLAN_ID` e "[Listar contas de um plano](/rest/reference/apps#list-accounts-for-a-plan)" para obter o `CUSTOMER_ACCOUNT_ID`.
 
 
 {% note %}
 
-**Note:** If your customer upgrades to additional units (such as seats), you can still send them to the appropriate plan for their purchase, but we are unable to support `unit_count` parameters at this time.
+**Observação:** Se seu cliente atualiza unidades adicionais (como estações), você ainda poderá enviá-las para o plano apropriado para a compra, mas não podemos suportar os parâmetros de `unit_count` neste momento.
 
 {% endnote %}
