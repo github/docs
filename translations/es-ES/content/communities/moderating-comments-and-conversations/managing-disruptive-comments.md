@@ -2,8 +2,8 @@
 title: Administrar comentarios negativos
 intro: 'Puedes {% ifversion fpt or ghec %}ocultar, editar,{% else %}editar{% endif %} o eliminar comentarios sobre reportes de problemas, solicitudes de extracción y confirmaciones.'
 redirect_from:
-  - /articles/editing-a-comment/
-  - /articles/deleting-a-comment/
+  - /articles/editing-a-comment
+  - /articles/deleting-a-comment
   - /articles/managing-disruptive-comments
   - /github/building-a-strong-community/managing-disruptive-comments
 versions:

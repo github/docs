@@ -1,6 +1,6 @@
 ---
-title: Basic writing and formatting syntax
-intro: Create sophisticated formatting for your prose and code on GitHub with simple syntax.
+title: 基本撰写和格式语法
+intro: 使用简单的语法在 GitHub 上为您的散文和代码创建复杂的格式。
 redirect_from:
   - /articles/basic-writing-and-formatting-syntax
   - /github/writing-on-github/basic-writing-and-formatting-syntax
@@ -9,35 +9,36 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Basic formatting syntax
+shortTitle: 基本格式语法
 ---
-## Headings
 
-To create a heading, add one to six `#` symbols before your heading text. The number of `#` you use will determine the size of the heading.
+## 标题
+
+要创建标题，请在标题文本前添加一至六个 `#` 符号。 您使用的 `#` 数量将决定标题的大小。
 
 ```markdown
-# The largest heading
-## The second largest heading
-###### The smallest heading
+# 最大标题
+## 第二大标题
+###### 最小标题
 ```
 
-![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
+![渲染的 H1、H2 和 H6 标题](/assets/images/help/writing/headings-rendered.png)
 
-## Styling text
+## 样式文本
 
-You can indicate emphasis with bold, italic, or strikethrough text in comment fields and `.md` files.  
+您可以在评论字段和 `.md` 文件中以粗体、斜体或删除线的文字表示强调。
 
-| Style | Syntax | Keyboard shortcut | Example | Output |
-| --- | --- | --- | --- | --- |
-| Bold | `** **` or `__ __`| command/control + b | `**This is bold text**` | **This is bold text** |
-| Italic | `* *` or `_ _`     | command/control + i | `*This text is italicized*` | *This text is italicized* |
-| Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
-| Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
-| All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
+| 样式       | 语法                 | 键盘快捷键      | 示例                 | 输出               |
+| -------- | ------------------ | ---------- | ------------------ | ---------------- |
+| 粗体       | `** **` 或 `__ __`  | 命令/控制键 + b | `**这是粗体文本**`       | **这是粗体文本**       |
+| 斜体       | `* *` 或 `_ _`      | 命令/控制键 + i | `*这是斜体文本*`         | *这是斜体文本*         |
+| 删除线      | `~~ ~~`            |            | `~~这是错误文本~~`       | ~~这是错误文本~~       |
+| 粗体和嵌入的斜体 | `** **` 和 `_ _`    |            | `**此文本 _非常_ 重要**`  | **此文本_非常_重要**    |
+| 全部粗体和斜体  | `*** ***`          |            | `***所有这些文本都很重要***` | ***所有这些文本都是斜体*** |
 
-## Quoting text
+## 引用文本
 
-You can quote text with a `>`.
+您可以使用 `>` 来引用文本。
 
 ```markdown
 Text that is not a quote
@@ -45,28 +46,28 @@ Text that is not a quote
 > Text that is a quote
 ```
 
-![Rendered quoted text](/assets/images/help/writing/quoted-text-rendered.png)
+![渲染的引用文本](/assets/images/help/writing/quoted-text-rendered.png)
 
 {% tip %}
 
-**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing `r`. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts/)."
+**提示：**在查看转换时，您可以突出显示文本，然后输入代码 `r`，以自动引用评论中的文本。 您可以单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 和 **Quote reply（引用回复）**引用整个评论。 有关键盘快捷键的更多信息，请参阅“[键盘快捷键](/articles/keyboard-shortcuts/)”。
 
 {% endtip %}
 
-## Quoting code
+## 引用代码
 
-You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} You can also press the `command` or `Ctrl` + `e` keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
+使用单反引号可标注句子中的代码或命令。 倒引号中的文本不会被格式化。{% ifversion fpt or ghae or ghes > 3.1 or ghec %} 您也可以按 `command` 或 `Ctrl` + `e` 键盘快捷键将代码块的倒引号插入到 Markdown 一行中。{% endif %}
 
 ```markdown
-Use `git status` to list all new or modified files that haven't yet been committed.
+使用 `git status` 列出尚未提交的所有新文件或已修改文件。
 ```
 
-![Rendered inline code block](/assets/images/help/writing/inline-code-rendered.png)
+![渲染的内联代码块](/assets/images/help/writing/inline-code-rendered.png)
 
-To format code or text into its own distinct block, use triple backticks.
+要将代码或文本格式化为各自的不同块，请使用三反引号。
 
 <pre>
-Some basic Git commands are:
+一些基本的 Git 命令为：
 ```
 git status
 git add
@@ -74,65 +75,67 @@ git commit
 ```
 </pre>
 
-![Rendered code block](/assets/images/help/writing/code-block-rendered.png)
+![渲染的代码块](/assets/images/help/writing/code-block-rendered.png)
 
-For more information, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
+更多信息请参阅“[创建和突出显示代码块](/articles/creating-and-highlighting-code-blocks)”。
 
-## Links
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
 
-You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+## 链接
 
-`This site was built using [GitHub Pages](https://pages.github.com/).`
+通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
-![Rendered link](/assets/images/help/writing/link-rendered.png)
+`本站点是使用 [GitHub Pages](https://pages.github.com/) 构建的。`
+
+![渲染的链接](/assets/images/help/writing/link-rendered.png)
 
 {% tip %}
 
-**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
+**提示：**当评论中写入了有效 URL 时，{% data variables.product.product_name %} 会自动创建链接。 更多信息请参阅“[自动链接的引用和 URL](/articles/autolinked-references-and-urls)”。
 
 {% endtip %}
 
-## Section links
+## 章节链接
 
 {% data reusables.repositories.section-links %}
 
-## Relative links
+## 相对链接
 
 {% data reusables.repositories.relative-links %}
 
-## Images
+## 图像
 
-You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the link for the image in parentheses `()`.
+您可以通过添加 `!` 并在`[ ]`中包装 alt 文本来显示图像。 然后将图像链接包装在括号 `()` 中。
 
 `![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
-![Rendered Image](/assets/images/help/writing/image-rendered.png)
+![渲染的图像](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} 支持将图像嵌入到您的议题、拉取请求{% ifversion fpt or ghec %}、讨论{% endif %}、评论和 `.md` 文件中。 您可以从仓库显示图像、添加在线图像链接或上传图像。 更多信息请参阅“[上传资产](#uploading-assets)”。
 
 {% tip %}
 
-**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links. 
+**提示：**想要显示仓库中的图像时，应该使用相对链接而不是绝对链接。
 
 {% endtip %}
 
-Here are some examples for using relative links to display an image.
+下面是一些使用相对链接显示图像的示例。
 
-| Context | Relative Link |
-| ------ | -------- |
-| In a `.md` file on the same branch | `/assets/images/electrocat.png` |
-| In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
-| In issues, pull requests and comments of the repository | `../blob/main/assets/images/electrocat.png` |
-| In a `.md` file in another repository | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
-| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+| 上下文                | 相对链接                                                                   |
+| ------------------ | ---------------------------------------------------------------------- |
+| 在同一个分支上的 `.md` 文件中 | `/assets/images/electrocat.png`                                        |
+| 在另一个分支的 `.md` 文件中  | `/../main/assets/images/electrocat.png`                                |
+| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png`                            |
+| 在另一个仓库的 `.md` 文件中  | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
+| 在另一个仓库的议题、拉取请求和评论中 | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
 {% note %}
 
-**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
+**注意**：上表中的最后两个相对链接只有在查看者至少能够读取包含这些图像的私有仓库时，才可用于私有仓库中的图像。
 
 {% endnote %}
 
-For more information, see "[Relative Links](#relative-links)."
+更多信息请参阅“[相对链接](#relative-links)”。
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### Specifying the theme an image is shown to
@@ -141,15 +144,15 @@ You can specify the theme an image is displayed to by appending `#gh-dark-mode-o
 
 We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
 
-| Context | URL |
-|--------|--------|
-| Dark Theme | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
-| Light Theme | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)` |
+| 上下文         | URL                                                                      |
+| ----------- | ------------------------------------------------------------------------ |
+| Dark Theme  | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
+| Light Theme | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
 {% endif %}
 
-## Lists
+## 列表
 
-You can make an unordered list by preceding one or more lines of text with `-` or `*`.
+通过在一行或多行文本前面添加 `-` 或 `*` 可创建无序列表。
 
 ```markdown
 - George Washington
@@ -157,9 +160,9 @@ You can make an unordered list by preceding one or more lines of text with `-` o
 - Thomas Jefferson
 ```
 
-![Rendered unordered list](/assets/images/help/writing/unordered-list-rendered.png)
+![渲染的无序列表](/assets/images/help/writing/unordered-list-rendered.png)
 
-To order your list, precede each line with a number.
+要对列表排序，请在每行前面添加一个编号。
 
 ```markdown
 1. James Madison
@@ -167,118 +170,118 @@ To order your list, precede each line with a number.
 3. John Quincy Adams
 ```
 
-![Rendered ordered list](/assets/images/help/writing/ordered-list-rendered.png)
+![渲染的有序列表](/assets/images/help/writing/ordered-list-rendered.png)
 
-### Nested Lists
+### 嵌套列表
 
-You can create a nested list by indenting one or more list items below another item.
+通过在一个列表项下面缩进一个或多个其他列表项，可创建嵌套列表。
 
-To create a nested list using the web editor on {% data variables.product.product_name %} or a text editor that uses a monospaced font, like [Atom](https://atom.io/), you can align your list visually. Type space characters in front of your nested list item, until the list marker character (`-` or `*`) lies directly below the first character of the text in the item above it.
-
-```markdown
-1. First list item
-   - First nested list item
-     - Second nested list item
-```
-
-![Nested list with alignment highlighted](/assets/images/help/writing/nested-list-alignment.png)
-
-![List with two levels of nested items](/assets/images/help/writing/nested-list-example-1.png)
-
-To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
-
-In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
+要通过 {% data variables.product.product_name %} 上的 web 编辑器或使用等宽字体的文本编辑器（例如 [Atom](https://atom.io/)）创建嵌套列表，您可以直观地对齐列表。 在嵌套列表项的前面键入空格字符，直至列表标记字符（`-` 或 `*`）位于其上方条目中第一个文本字符的正下方。
 
 ```markdown
-100. First list item
-     - First nested list item
+1. 第一个列表项
+   -  第一个嵌套列表项
+     - 第二个嵌套列表项
 ```
 
-![List with a nested list item](/assets/images/help/writing/nested-list-example-3.png)   
+![突出显示对齐的嵌套列表](/assets/images/help/writing/nested-list-alignment.png)
 
-You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
+![含两级嵌套项的列表](/assets/images/help/writing/nested-list-example-1.png)
+
+要在 {% data variables.product.product_name %} 上的评论编辑器中创建嵌套列表（不使用等宽字体），您可以查看嵌套列表正上方的列表项，并计算该条目内容前面的字符数量。 然后在嵌套列表项的前面键入该数量的空格字符。
+
+在此例中，您可以通过缩进嵌套列表项至少五个空格，在列表项 `100. 第一个列表项`的下面添加一个嵌套列表项，因为在`第一个列表项`的前面有五个字符 (`100.`) 。
 
 ```markdown
-100. First list item
-     - First nested list item
-       - Second nested list item
+100. 第一个列表项
+     - 第一个嵌套列表项
 ```
 
-![List with two levels of nested items](/assets/images/help/writing/nested-list-example-2.png)    
+![含一个嵌套列表项的列表](/assets/images/help/writing/nested-list-example-3.png)
 
-For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
+您可以使用相同的方法创建多层级嵌套列表。 例如，由于在第一个嵌套列表项中，嵌套列表项内容`第一个嵌套列表项`之前有七个字符 (`␣␣␣␣␣-␣`)，因此需要将第二个嵌套列表项缩进七个空格。
 
-## Task lists
+```markdown
+100. 第一个列表项
+     - 第一个嵌套列表项
+       - 第二个嵌套列表项
+```
+
+![含两级嵌套项的列表](/assets/images/help/writing/nested-list-example-2.png)
+
+更多示例请参阅 [GitHub Flavored Markdown 规范](https://github.github.com/gfm/#example-265)。
+
+## 任务列表
 
 {% data reusables.repositories.task-list-markdown %}
 
-If a task list item description begins with a parenthesis, you'll need to escape it with `\`:
+如果任务列表项说明以括号开头，则需要使用 `\` 进行规避：
 
-`- [ ] \(Optional) Open a followup issue`
+`- [ ] \(Optional) 打开后续议题`
 
-For more information, see "[About task lists](/articles/about-task-lists)."
+更多信息请参阅“[关于任务列表](/articles/about-task-lists)”。
 
-## Mentioning people and teams
+## 提及人员和团队
 
-You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing `@` plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 `@` 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% ifversion fpt or ghes or ghae or ghec %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
 
-`@github/support What do you think about these updates?`
+`@github/support 您如何看待这些更新？`
 
-![Rendered @mention](/assets/images/help/writing/mention-rendered.png)
+![渲染的 @提及](/assets/images/help/writing/mention-rendered.png)
 
-When you mention a parent team, members of its child teams also receive notifications, simplifying communication with multiple groups of people. For more information, see "[About teams](/articles/about-teams)."
+当您提及父团队时，其子团队的成员也会收到通知，这简化了与多个人员团队的沟通。 更多信息请参阅“[关于团队](/articles/about-teams)”。
 
-Typing an `@` symbol will bring up a list of people or teams on a project. The list filters as you type, so once you find the name of the person or team you are looking for, you can use the arrow keys to select it and press either tab or enter to complete the name. For teams, enter the @organization/team-name and all members of that team will get subscribed to the conversation.
+键入 `@` 符号将显示项目中的人员或团队列表。 列表会在您键入时进行过滤，因此一旦找到所需人员或团队的名称，您可以使用箭头键选择它，然后按 Tab 或 Enter 键以填写名称。 提及团队时，请输入 @组织/团队名称，该团队的所有成员将收到关注对话的提醒。
 
-The autocomplete results are restricted to repository collaborators and any other participants on the thread.
+自动填写结果仅限于仓库协作者和该线程上的任何其他参与者。
 
-## Referencing issues and pull requests
+## 引用议题和拉取请求
 
-You can bring up a list of suggested issues and pull requests within the repository by typing `#`. Type the issue or pull request number or title to filter the list, and then press either tab or enter to complete the highlighted result.
+通过键入 `#` 可显示仓库中建议的议题和拉取请求列表。 键入议题或拉取请求的编号或标题以过滤列表，然后按 Tab 或 Enter 键以填写选中的结果。
 
-For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
+更多信息请参阅“[自动链接的引用和 URL](/articles/autolinked-references-and-urls)”。
 
-## Referencing external resources
+## 引用外部资源
 
 {% data reusables.repositories.autolink-references %}
 
 {% ifversion ghes < 3.4 %}
-## Content attachments
+## 内容附件
 
-Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
+有些 {% data variables.product.prodname_github_apps %} 在 {% data variables.product.product_name %} 中提供链接到其注册域名的 URL 信息。 {% data variables.product.product_name %} 可渲染应用程序在正文或者议题或拉取请求的评论中的 URL 下提供的信息。
 
-![Content attachment](/assets/images/github-apps/content_reference_attachment.png)
+![内容附件](/assets/images/github-apps/content_reference_attachment.png)
 
-To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% ifversion fpt or ghec %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
+要查看内容附件，您必须拥有使用仓库中安装的内容附件 API 的 {% data variables.product.prodname_github_app %}。{% ifversion fpt or ghec %} 更多信息请参阅“[在个人帐户中安装应用程序](/articles/installing-an-app-in-your-personal-account)”和“[在组织中安装应用程序](/articles/installing-an-app-in-your-organization)”。{% endif %}
 
-Content attachments will not be displayed for URLs that are part of a markdown link.
+内容附件不会显示在属于 markdown 链接的 URL 中。
 
 For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."{% endif %}
 
-## Uploading assets
+## 上传资产
 
-You can upload assets like images by dragging and dropping, selecting from a file browser, or pasting. You can upload assets to issues, pull requests, comments, and `.md` files in your repository.
+您可以通过拖放、从文件浏览器中选择或粘贴来上传图像等资产。 您可以将资产上传到议题、拉取请求、评论和仓库中的 `.md` 文件。
 
-## Using emoji
+## 使用表情符号
 
-You can add emoji to your writing by typing `:EMOJICODE:`.
+通过键入 `:EMOJICODE:` 可在您的写作中添加表情符号。
 
-`@octocat :+1: This PR looks great - it's ready to merge! :shipit:`
+`@octocat :+1: 这个 PR 看起来很棒 - 可以合并了！ :shipit:`
 
-![Rendered emoji](/assets/images/help/writing/emoji-rendered.png)
+![渲染的表情符号](/assets/images/help/writing/emoji-rendered.png)
 
-Typing `:` will bring up a list of suggested emoji. The list will filter as you type, so once you find the emoji you're looking for, press **Tab** or **Enter** to complete the highlighted result.
+键入 `:` 将显示建议的表情符号列表。 列表将在您键入时进行过滤，因此一旦找到所需表情符号，请按 **Tab** 或 **Enter** 键以填写选中的结果。
 
-For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
+有关可用表情符号和代码的完整列表，请查看[表情符号备忘清单](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)。
 
-## Paragraphs
+## 段落
 
-You can create a new paragraph by leaving a blank line between lines of text.
+通过在文本行之间留一个空白行，可创建新段落。
 
 {% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
-## Footnotes
+## 脚注
 
-You can add footnotes to your content by using this bracket syntax:
+您可以使用此括号语法为您的内容添加脚注：
 
 ```
 Here is a simple footnote[^1].
@@ -295,46 +298,46 @@ You can also use words, to fit your writing style more closely[^note].
     This footnote also has been made with a different syntax using 4 spaces for new lines.
 ```
 
-The footnote will render like this:
+脚注将呈现如下：
 
-![Rendered footnote](/assets/images/site/rendered-footnote.png)
+![渲染的脚注](/assets/images/site/rendered-footnote.png)
 
 {% tip %}
 
-**Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+**注意**：Markdown 中脚注的位置不会影响该脚注的呈现位置。 您可以在引用脚注后立即写脚注，脚注仍将呈现在 Markdown 的底部。
 
 {% endtip %}
 {% endif %}
 
-## Hiding content with comments
+## 隐藏有评论的内容
 
-You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+您可以通过在 HTML 评论中加入内容来指示 {% data variables.product.product_name %} 隐藏渲染的 Markdown 中的内容。
 
 <pre>
 &lt;!-- This content will not appear in the rendered Markdown --&gt;
 </pre>
 
-## Ignoring Markdown formatting
+## 忽略 Markdown 格式
 
-You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using `\` before the Markdown character.
+通过在 Markdown 字符前面输入 `\`，可告诉 {% data variables.product.product_name %} 忽略（或规避）Markdown 格式。
 
-`Let's rename \*our-new-project\* to \*our-old-project\*.`
+`让我们将 \*our-new-project\* 重命名为 \*our-old-project\*。`
 
-![Rendered escaped character](/assets/images/help/writing/escaped-character-rendered.png)
+![渲染的规避字符](/assets/images/help/writing/escaped-character-rendered.png)
 
-For more information, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
+更多信息请参阅 Daring Fireball 的“[Markdown 语法](https://daringfireball.net/projects/markdown/syntax#backslash)”。
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
-## Disabling Markdown rendering
+## 禁用 Markdown 渲染
 
 {% data reusables.repositories.disabling-markdown-rendering %}
 
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
-- "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)"
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown 规格](https://github.github.com/gfm/)
+- “[关于 GitHub 上的撰写和格式](/articles/about-writing-and-formatting-on-github)”
+- "[使用高级格式](/articles/working-with-advanced-formatting)"
+- "[熟悉 Markdown](https://guides.github.com/features/mastering-markdown/)"

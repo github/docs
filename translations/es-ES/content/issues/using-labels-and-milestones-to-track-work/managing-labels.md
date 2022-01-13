@@ -12,7 +12,7 @@ redirect_from:
   - /articles/creating-and-editing-labels-for-issues-and-pull-requests
   - /articles/creating-a-label
   - /github/managing-your-work-on-github/creating-a-label
-  - /articles/customizing-issue-labels/
+  - /articles/customizing-issue-labels
   - /articles/applying-labels-to-issues-and-pull-requests
   - /github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests
   - /articles/editing-a-label

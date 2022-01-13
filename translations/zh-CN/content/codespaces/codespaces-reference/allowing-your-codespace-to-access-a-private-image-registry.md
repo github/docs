@@ -1,16 +1,16 @@
 ---
-title: Allowing your codespace to access a private image registry
-intro: 'You can use secrets to allow {% data variables.product.prodname_codespaces %} to access a private image registry'
+title: 允许代码空间访问私有映像注册表
+intro: '您可以使用密钥允许 {% data variables.product.prodname_codespaces %} 访问私有映像注册表'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Codespaces
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: Private image registry
+shortTitle: 私有映像注册表
 ---
 
-## About private image registries and {% data variables.product.prodname_codespaces %}
+## 关于私人映像注册表和 {% data variables.product.prodname_codespaces %}
 
 A registry is a secure space for storing, managing, and fetching private container images. You may use one to store one or more devcontainers. There are many examples of registries, such as {% data variables.product.prodname_dotcom %} Container Registry, Azure Container Registry, or DockerHub.
 
@@ -32,7 +32,7 @@ By default, when you publish a container image to {% data variables.product.prod
 
 This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.product.prodname_dotcom %} Container Registry using a Personal Access Token (PAT).
 
-If the **Inherit access from repo** option was not selected when the image was published, you can manually add the repository to the published container image's access controls. For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)."
+If the **Inherit access from repo** option was not selected when the image was published, you can manually add the repository to the published container image's access controls. 更多信息请参阅“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)”。
 
 ### Accessing an image published to the organization a codespace will be launched in
 
@@ -52,21 +52,21 @@ We recommend publishing images via {% data variables.product.prodname_actions %}
 
 ## Accessing images stored in other container registries
 
-If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. If these secrets are found, {% data variables.product.prodname_codespaces %} will make the registry available inside your codespace.
+If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. 如果找到这些密钥，{% data variables.product.prodname_codespaces %} 将在代码空间中提供注册表。
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
 - `<*>_CONTAINER_REGISTRY_PASSWORD`
 
-You can store secrets at the user, repository, or organization-level, allowing you to share them securely between different codespaces. When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" and "[Managing encrypted secrets for your repository and organization for Codespaces](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)."
+您可以在用户、仓库或组织级别存储密钥，从而在不同的代码空间之间安全地共享它们。 当您为私有映像注册表创建一组密钥时，您需要用一致的标识符替换名称中的 “<*>”。 更多信息请参阅“[管理代码空间的加密密码](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)”和“[管理代码空间的仓库和组织加密密码](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)“。
 
-If you are setting the secrets at the user or organization level, make sure to assign those secrets to the repository you'll be creating the codespace in by choosing an access policy from the dropdown list.  
+如果您在用户或组织级别设置机密，请确保将这些机密分配到仓库，您将从下拉列表中选择访问策略来创建代码空间。
 
-![Image registry secret example](/assets/images/help/codespaces/secret-repository-access.png)
+![映像注册表密钥示例](/assets/images/help/codespaces/secret-repository-access.png)
 
-### Example secrets
+### 示例机密
 
-For a private image registry in Azure, you could create the following secrets:
+如果您在 Azure 中拥有私有映像注册表，则可以创建以下机密：
 
 ```
 ACR_CONTAINER_REGISTRY_SERVER = mycompany.azurecr.io
@@ -74,13 +74,13 @@ ACR_CONTAINER_REGISTRY_USER = acr-user-here
 ACR_CONTAINER_REGISTRY_PASSWORD = <PAT>
 ```
 
-For information on common image registries, see "[Common image registry servers](#common-image-registry-servers)." Note that accessing AWS Elastic Container Registry (ECR) is different.
+有关通用映像注册表的信息，请参阅“[通用映像注册表服务器](#common-image-registry-servers)”。 Note that accessing AWS Elastic Container Registry (ECR) is different.
 
-![Image registry secret example](/assets/images/help/settings/codespaces-image-registry-secret-example.png)
+![映像注册表密钥示例](/assets/images/help/settings/codespaces-image-registry-secret-example.png)
 
-Once you've added the secrets, you may need to stop and then start the codespace you are in for the new environment variables to be passed into the container. For more information, see "[Suspending or stopping a codespace](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
+添加机密后，您可能需要停止并启动您所在的代码空间，以便将新的环境变量传递到容器。 更多信息请参阅“[暂停或停止代码空间](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)”。
 
-#### Accessing AWS Elastic Container Registry
+#### 访问 AWS Elastic Container Registry
 
 To access AWS Elastic Container Registry (ECR),  you can provide an AWS access key ID and secret key, and {% data variables.product.prodname_dotcom %}  can retrieve an access token for you and log in on your behalf.
 
@@ -106,9 +106,9 @@ While these secrets can have any name, so long as the `*_CONTAINER_REGISTRY_SERV
 
 For more information, see AWS ECR's "[Private registry authentication documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html)."
 
-### Common image registry servers
+### 通用映像注册表服务器
 
-Some of the common image registry servers are listed below:
+下面列出了一些通用映像注册表服务器：
 
 - [DockerHub](https://docs.docker.com/engine/reference/commandline/info/) - `https://index.docker.io/v1/`
 - [GitHub Container Registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry) - `ghcr.io`

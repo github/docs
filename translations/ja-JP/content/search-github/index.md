@@ -1,5 +1,5 @@
 ---
-title: Searching for information on GitHub
+title: GitHub で情報を検索する
 intro: Use different types of searches to find the information you want.
 redirect_from:
   - /categories/78/articles

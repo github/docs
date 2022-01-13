@@ -1,6 +1,6 @@
 ---
-title: Managing email preferences
-intro: 'You can add or change the email addresses associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. You can also manage emails you receive from {% data variables.product.product_name %}.'
+title: メール プリファレンスの管理
+intro: 'You can add or change the email addresses associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. {% data variables.product.product_name %} から受信するメールを管理することもできます。'
 redirect_from:
   - /categories/managing-email-preferences
   - /articles/managing-email-preferences

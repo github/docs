@@ -1,7 +1,7 @@
 ---
-title: Dockerfile support for GitHub Actions
-shortTitle: Dockerfile support
-intro: 'When creating a `Dockerfile` for a Docker container action, you should be aware of how some Docker instructions interact with GitHub Actions and an action''s metadata file.'
+title: Dockerfile 对 GitHub Actions 的支持
+shortTitle: Dockerfile 支持
+intro: 为 Docker 容器创建 `Dockerfile` 时， 您应该知道一些 Docker 指令如何与 GitHub Actions 及操作的元数据文件交互。
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
@@ -15,53 +15,53 @@ type: reference
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About Dockerfile instructions
+## 关于 Dockerfile 指令
 
-A `Dockerfile` contains instructions and arguments that define the contents and startup behavior of a Docker container. For more information about the instructions Docker supports, see "[Dockerfile reference](https://docs.docker.com/engine/reference/builder/)" in the Docker documentation.
+`Dockerfile` 包含定义 Docker 容器内容和启动行为的指令和参数。 有关 Docker 支持的指令的更多信息，请参阅 Docker 文档中的“[Dockerfile 引用](https://docs.docker.com/engine/reference/builder/)”。
 
-## Dockerfile instructions and overrides
+## Dockerfile 指令和覆盖
 
-Some Docker instructions interact with GitHub Actions, and an action's metadata file can override some Docker instructions. Ensure that you are familiar with how your Dockerfile interacts with {% data variables.product.prodname_actions %} to prevent any unexpected behavior.
+某些 Docker 指令与 GitHub Actions 交互，操作的元数据文件可以覆盖某些 Docker 指令。 确保您熟悉 Dockerfile 如何与 {% data variables.product.prodname_actions %} 交互以防止任何意外行为。
 
 ### USER
 
-Docker actions must be run by the default Docker user (root). Do not use the `USER` instruction in your `Dockerfile`, because you won't be able to access the `GITHUB_WORKSPACE`. For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and [USER reference](https://docs.docker.com/engine/reference/builder/#user) in the Docker documentation.
+Docker 操作必须由默认 Docker 用户 (root) 运行。 不要在 `Dockerfile` 中使用 `USER` 指令，因为您无法访问 `GITHUB_WORKSPACE`。 更多信息请参阅“[使用环境变量](/actions/configuring-and-managing-workflows/using-environment-variables)”和 Docker 文档中的 [USER 引用](https://docs.docker.com/engine/reference/builder/#user)。
 
 ### FROM
 
-The first instruction in the `Dockerfile` must be `FROM`, which selects a Docker base image. For more information, see the [FROM reference](https://docs.docker.com/engine/reference/builder/#from) in the Docker documentation.
+`Dockerfile` 中的第一个指令必须是 `FROM`，它将选择 Docker 基础映像。 更多信息请参阅 Docker 文件中的 [FROM 引用](https://docs.docker.com/engine/reference/builder/#from)。
 
-These are some best practices when setting the `FROM` argument:
+在设置 `FROM` 参数时，下面是一些最佳做法：
 
-- It's recommended to use official Docker images. For example, `python` or `ruby`.
-- Use a version tag if it exists, preferably with a major version. For example, use `node:10` instead of `node:latest`.
-- It's recommended to use Docker images based on the [Debian](https://www.debian.org/) operating system.
+- 建议使用正式的 Docker 映像。 例如 `python` 或 `ruby`。
+- 使用版本标记（如果有），最好使用主要版本。 例如，使用 `node:10` 而不使用 `node:latest`。
+- 建议使用基于 [Debian](https://www.debian.org/) 操作系统的 Docker 映像。
 
 ### WORKDIR
 
-{% data variables.product.product_name %} sets the working directory path in the `GITHUB_WORKSPACE` environment variable. It's recommended to not use the `WORKDIR` instruction in your `Dockerfile`. Before the action executes, {% data variables.product.product_name %} will mount the `GITHUB_WORKSPACE` directory on top of anything that was at that location in the Docker image and set `GITHUB_WORKSPACE` as the working directory. For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and the [WORKDIR reference](https://docs.docker.com/engine/reference/builder/#workdir) in the Docker documentation.
+{% data variables.product.product_name %} 在 `GITHUB_WORKSPACE` 环境变量中设置工作目录路径。 建议不要在 `Dockerfile` 中使用 `WORKDIR` 指令。 在执行操作之前，{% data variables.product.product_name %} 将在 Docker 映像中位于该位置的任何项目上安装 `GITHUB_WORKSPACE` 目录，并将 `GITHUB_WORKSPACE` 设置为工作目录。 更多信息请参阅“[使用环境变量](/actions/configuring-and-managing-workflows/using-environment-variables)”和 Docker 文档中的 [WORKDIR 引用](https://docs.docker.com/engine/reference/builder/#workdir)。
 
 ### ENTRYPOINT
 
-If you define `entrypoint` in an action's metadata file, it will override the `ENTRYPOINT` defined in the `Dockerfile`. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)."
+如果在操作的元数据文件中定义 `entrypoint`，它将覆盖 `Dockerfile` 中定义的 `ENTRYPOINT`。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)”。
 
-The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction. For more information about _exec_ and _shell_ form, see the [ENTRYPOINT reference](https://docs.docker.com/engine/reference/builder/#entrypoint) in the Docker documentation.
+Docker `ENTRYPOINT` 指令有 _shell_ 形式和 _exec_ 形式。 Docker `ENTRYPOINT` 文档建议使用 _exec_ 形式的 `ENTRYPOINT` 指令。 有关 _exec_ 和 _shell_ 形式的更多信息，请参阅 Docker 文档中的 [ENTRYPOINT 参考](https://docs.docker.com/engine/reference/builder/#entrypoint)。
 
-If you configure your container to use the _exec_ form of the `ENTRYPOINT` instruction, the `args` configured in the action's metadata file won't run in a command shell. If the action's `args` contain an environment variable, the variable will not be substituted. For example, using the following _exec_ format will not print the value stored in `$GITHUB_SHA`, but will instead print `"$GITHUB_SHA"`.
+如果您配置容器使用 _exec_ 形式的 `ENTRYPOINT` 指令，在操作元数据文件中配置的 `args` 不会在命令 shell 中运行。 如果操作的 `args` 包含环境变量，不会替换该变量。 例如，使用以下 _exec_ 格式将不会打印存储在 `$GITHUB_SHA` 中的值， 但会打印 `"$GITHUB_SHA"`。
 
 ```dockerfile
 ENTRYPOINT ["echo $GITHUB_SHA"]
 ```
 
- If you want variable substitution, then either use the _shell_ form or execute a shell directly. For example, using the following _exec_ format, you can execute a shell to print the value stored in the `GITHUB_SHA` environment variable.
+ 如果要替代变量，则可使用 _shell_ 形式或直接执行 shell。 例如，使用以下 _exec_ 格式可以执行 shell 来打印存储在 `GITHUB_SHA` 环境变量中的值。
 
 ```dockerfile
 ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
 ```
 
- To supply `args` defined in the action's metadata file to a Docker container that uses the _exec_ form in the `ENTRYPOINT`, we recommend creating a shell script called `entrypoint.sh` that you call from the `ENTRYPOINT` instruction:
+ 要将操作元数据文件中定义的 `args` 提供到在 `ENTRYPOINT` 中使用 _exec_ 形式的 Docker 容器，建议创建一个可从 `ENTRYPOINT` 指令调用、名为 `entrypoint.sh` 的 shell 脚本。
 
-#### Example *Dockerfile*
+#### 示例 *Dockerfile*
 
 ```dockerfile
 # Container image that runs your code
@@ -74,9 +74,9 @@ COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-#### Example *entrypoint.sh* file
+#### 示例 *entrypoint.sh* 文件
 
-Using the example Dockerfile above, {% data variables.product.product_name %} will send the `args` configured in the action's metadata file as arguments to `entrypoint.sh`. Add the `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) at the top of the `entrypoint.sh` file to explicitly use the system's [POSIX](https://en.wikipedia.org/wiki/POSIX)-compliant shell.
+使用上面的 Dockerfile 示例，{% data variables.product.product_name %} 会将在操作元数据文件中配置的 `args` 作为参数发送到 `entrypoint.sh`。 在 `entrypoint.sh` 文件顶部添加 `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))，明确使用系统的 [POSIX](https://en.wikipedia.org/wiki/POSIX) 标准 shell。
 
 ``` sh
 #!/bin/sh
@@ -86,12 +86,12 @@ Using the example Dockerfile above, {% data variables.product.product_name %} wi
 sh -c "echo $*"
 ```
 
-Your code must be executable. Make sure the `entrypoint.sh` file has `execute` permissions before using it in a workflow. You can modify the permission from your terminal using this command:
+您的代码必须是可执行的。 在用于工作流程之前，确保 `entrypoint.sh` 文件有 `execute` 权限。 您可以使用此命令从终端修改权限：
   ``` sh
   chmod +x entrypoint.sh
   ```
 
-When an `ENTRYPOINT` shell script is not executable, you'll receive an error similar to this:
+当 `ENTRYPOINT` shell 脚本不可执行时，您将收到一个类似于以下内容的错误：
 
 ``` sh
 Error response from daemon: OCI runtime create failed: container_linux.go:348: starting container process caused "exec: \"/entrypoint.sh\": permission denied": unknown
@@ -99,12 +99,12 @@ Error response from daemon: OCI runtime create failed: container_linux.go:348: s
 
 ### CMD
 
-If you define `args` in the action's metadata file, `args` will override the `CMD` instruction specified in the `Dockerfile`. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)".
+如果在操作的元数据文件中定义 `args`，`args` 将覆盖 `Dockerfile` 中指定的 `CMD` 指令。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)”。
 
-If you use `CMD` in your `Dockerfile`, follow these guidelines:
+如果在 `Dockerfile` 中使用 `CMD`，请遵循以下指导方针：
 
 {% data reusables.github-actions.dockerfile-guidelines %}
 
-## Supported Linux capabilities
+## 支持的 Linux 功能
 
-{% data variables.product.prodname_actions %} supports the default Linux capabilities that Docker supports. Capabilities can't be added or removed. For more information about the default Linux capabilities that Docker supports, see "[Runtime privilege and Linux capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)" in the Docker documentation. To learn more about Linux capabilities, see "[Overview of Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)" in the Linux man-pages.
+{% data variables.product.prodname_actions %} 支持 Docker 所支持的默认 Linux 功能。 无法添加或删除功能。 有关 Docker 支持的默认 Linux 功能的更多信息，请参阅 Docker 文档中的“[运行时权限和 Linux 功能](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)”。 要详细了解 Linux 功能，请在 Linux 手册页中查看[Linux 功能概述](http://man7.org/linux/man-pages/man7/capabilities.7.html)。

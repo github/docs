@@ -40,13 +40,13 @@ You can configure your CD workflow to run when a {% data variables.product.produ
 
 {% endif %}
 
-## Workflow templates and third party actions
+## Starter workflows and third party actions
 
 {% data reusables.actions.cd-templates-actions %}
 
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
-## Further reading
+## 延伸阅读
 
 - [Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)
 - [Using environments for deployment](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}

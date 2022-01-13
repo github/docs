@@ -39,6 +39,8 @@ shortTitle: 使用表格组织的数据
 
 ![呈现的单元格宽度不同的表格](/assets/images/help/writing/table-varied-columns-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
+
 ## 格式化表格中的内容
 
 您可以在表格中使用[格式](/articles/basic-writing-and-formatting-syntax)，如链接、内联代码块和文本样式：

@@ -1,6 +1,6 @@
 ---
-title: Incorporating changes from a pull request
-intro: 'You can propose changes to your work on {% data variables.product.product_name %} through pull requests. Learn how to create, manage, and merge pull requests.'
+title: プルリクエストから変更を取り込む
+intro: '{% data variables.product.product_name %} での作業に対する変更は、プルリクエストを通じて提案できます。 プルリクエストを作成、管理、マージする方法を学びましょう。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request
   - /articles/incorporating-changes-from-a-pull-request
@@ -21,3 +21,4 @@ children:
   - /reverting-a-pull-request
 shortTitle: Incorporate changes
 ---
+

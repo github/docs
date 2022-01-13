@@ -19,5 +19,11 @@ miniTocMaxHeadingLevel: 3
 {% endnote %}
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'releases' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
+{% endfor %}
+
+## Release assets 
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'assets' %}{% include rest_operation %}{% endif %}
 {% endfor %}

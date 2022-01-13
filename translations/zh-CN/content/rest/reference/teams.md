@@ -1,6 +1,6 @@
 ---
-title: Teams
-intro: 'With the Teams API, you can create and manage teams in your {% data variables.product.product_name %} organization.'
+title: 团队
+intro: '通过团队 API，您可以在您的 {% data variables.product.product_name %} 组织中创建和管理团队。'
 redirect_from:
   - /v3/teams
 versions:
@@ -13,36 +13,36 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-This API is only available to authenticated members of the team's [organization](/rest/reference/orgs). OAuth access tokens require the `read:org` [scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). {% data variables.product.prodname_dotcom %}  generates the team's `slug` from the team `name`.
+此 API 仅适用于团队[组织](/rest/reference/orgs)中经过身份验证的成员。 OAuth 访问令牌需要 `read:org` [scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)。 {% data variables.product.prodname_dotcom %}  从团队 `name` 生成团队的 `slug`。
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Discussions
+## 讨论
 
-The team discussions API allows you to get, create, edit, and delete discussion posts on a team's page. You can use team discussions to have conversations that are not specific to a repository or project. Any member of the team's [organization](/rest/reference/orgs) can create and read public discussion posts. For more details, see "[About team discussions](//organizations/collaborating-with-your-team/about-team-discussions/)." To learn more about commenting on a discussion post, see the [team discussion comments API](/rest/reference/teams#discussion-comments). This API is only available to authenticated members of the team's organization.
+团队讨论 API 允许您获取、创建、编辑和删除团队页面上的讨论帖子。 您可以使用团队讨论进行不特定于存储库或项目的对话。 团队[组织](/rest/reference/orgs)的任何成员都可以创建和阅读公共讨论帖子。 更多信息请参阅“[关于团队讨论](//organizations/collaborating-with-your-team/about-team-discussions/)”。 要详细了解对讨论帖子的评论，请参阅[团队讨论评论 API](/rest/reference/teams#discussion-comments)。 此 API 仅适用于团队组织中经过身份验证的成员。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussions' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Discussion comments
+## 讨论评论
 
-The team discussion comments API allows you to get, create, edit, and delete discussion comments on a [team discussion](/rest/reference/teams#discussions) post. Any member of the team's [organization](/rest/reference/orgs) can create and read comments on a public discussion. For more details, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions/)." This API is only available to authenticated members of the team's organization.
+团队讨论评论 API 允许您在[团队讨论](/rest/reference/teams#discussions)帖子上获取、 创建、编辑和删除讨论评论。 团队[组织](/rest/reference/orgs)的任何成员都可以创建和阅读公共讨论上的评论。 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions/)”。 此 API 仅适用于团队组织中经过身份验证的成员。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussion-comments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Members
+## 成员
 
-This API is only available to authenticated members of the team's organization. OAuth access tokens require the `read:org` [scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+此 API 仅适用于团队组织中经过身份验证的成员。 OAuth 访问令牌需要 `read:org` [scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)。
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "<a href="/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization" class="dotcom-only">Synchronizing teams between your identity provider and GitHub</a>."
+**注：**当您为具有组织身份提供程序 (IdP) 的团队设置了团队同步时，如果尝试使用 API 更改团队的成员身份，则会看到错误。 如果您有权访问 IdP 中的组成员身份，可以通过身份提供程序管理 GitHub 团队成员身份，该提供程序会自动添加和删除组织的成员。 更多信息请参阅“<a href="/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization" class="dotcom-only">在身份提供程序与 GitHub 之间同步团队</a>”。
 
 {% endnote %}
 
@@ -57,12 +57,12 @@ This API is only available to authenticated members of the team's organization. 
 
 The external groups API allows you to view the external identity provider groups that are available to your organization and manage the connection between external groups and teams in your organization.
 
-To use this API, the authenticated user must be a team maintainer or an owner of the organization associated with the team.
+要使用此 API，经过身份验证的用户必须是团队维护员或与团队关联的组织的所有者。
 
 {% ifversion ghec %}
 {% note %}
 
-**Notes:** 
+**注意：**
 
 - The external groups API is only available for organizations that are part of a enterprise using {% data variables.product.prodname_emus %}. For more information, see "[About Enterprise Managed Users](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 - If your organization uses team synchronization, you can use the Team Synchronization API. For more information, see "[Team synchronization API](#team-synchronization)."
@@ -77,15 +77,15 @@ To use this API, the authenticated user must be a team maintainer or an owner of
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-## Team synchronization
+## 团队同步
 
-The Team Synchronization API allows you to manage connections between {% data variables.product.product_name %} teams and external identity provider (IdP) groups. To use this API, the authenticated user must be a team maintainer or an owner of the organization associated with the team. The token you use to authenticate will also need to be authorized for use with your IdP (SSO) provider. For more information, see "<a href="/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on" class="dotcom-only">Authorizing a personal access token for use with a SAML single sign-on organization</a>."
+团队同步 API 允许您管理 {% data variables.product.product_name %} 团队与外部身份提供程序 (IdP) 组之间的连接。 要使用此 API，经过身份验证的用户必须是团队维护员或与团队关联的组织的所有者。 用于身份验证的令牌还需要获得授权才能与 IdP (SSO) 提供程序一起使用。 更多信息请参阅“<a href="/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on" class="dotcom-only">授权个人访问令牌用于 SAML 单点登录组织</a>”。
 
-You can manage GitHub team members through your IdP with team synchronization. Team synchronization must be enabled to use the Team Synchronization API. For more information, see "<a href="/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization" class="dotcom-only">Synchronizing teams between your identity provider and GitHub</a>."
+您可以通过 IdP 通过团队同步管理 GitHub 团队成员。 必须启用团队同步才能使用团队同步 API。 更多信息请参阅“<a href="/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization" class="dotcom-only">在身份提供程序与 GitHub 之间同步团队</a>”。
 
 {% note %}
 
-**Note:** The Team Synchronization API cannot be used with {% data variables.product.prodname_emus %}. To learn more about managing an {% data variables.product.prodname_emu_org %}, see "[External groups API](/enterprise-cloud@latest/rest/reference/teams#external-groups)".
+**注意：** 团队同步 API 不能与 {% data variables.product.prodname_emus %} 一起使用。 To learn more about managing an {% data variables.product.prodname_emu_org %}, see "[External groups API](/enterprise-cloud@latest/rest/reference/teams#external-groups)".
 
 {% endnote %}
 

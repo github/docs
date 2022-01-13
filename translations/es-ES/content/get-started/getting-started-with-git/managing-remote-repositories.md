@@ -1,6 +1,6 @@
 ---
-title: Managing remote repositories
-intro: 'Learn to work with your local repositories on your computer and remote repositories hosted on {% data variables.product.product_name %}.'
+title: Administrar repositorios remotos
+intro: 'Aprende a trabajar con tus repositorios locales en tu computadora y repositorios remotos alojados en {% data variables.product.product_name %}.'
 redirect_from:
   - /categories/18/articles
   - /remotes
@@ -23,17 +23,18 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Manage remote repositories
+shortTitle: Administrar repositorios remotos
 ---
-## Adding a remote repository
 
-To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
+## Agregar un repositorio remoto
 
-The `git remote add` command takes two arguments:
-* A remote name, for example, `origin`
-* A remote URL, for example, `https://{% data variables.command_line.backticks %}/user/repo.git`
+Para agregar un remoto nuevo, utiliza el comando `git remote add` en la terminal, en el directorio en el cual está almacenado tu repositorio.
 
-For example:
+El comando `git remote add` toma dos argumentos:
+* Un nombre remoto, por ejemplo, `origin`
+* Una URL remota, por ejemplo, `https://{% data variables.command_line.backticks %}/user/repo.git`
+
+Por ejemplo:
 
 ```shell
 $ git remote add origin https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
@@ -45,60 +46,60 @@ $ git remote -v
 > origin  https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git (push)
 ```
 
-For more information on which URL to use, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+Para obtener más información sobre qué URL utilizar, consulta la sección "[Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)".
 
-### Troubleshooting: Remote origin already exists
+### Solución de problemas: El origen remoto ya existe
 
-This error means you've tried to add a remote with a name that already exists in your local repository.
+Este error significa que trataste de agregar un remoto con un nombre que ya existe en tu repositorio local.
 
 ```shell
 $ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
 > fatal: remote origin already exists.
 ```
 
-To fix this, you can:
-* Use a different name for the new remote.
-* Rename the existing remote repository before you add the new remote. For more information, see "[Renaming a remote repository](#renaming-a-remote-repository)" below.
-* Delete the existing remote repository before you add the new remote. For more information, see "[Removing a remote repository](#removing-a-remote-repository)" below.
+Para arreglar esto, puedes:
+* Usar un nombre diferente para el nuevo remoto.
+* Renombra el repositorio remoto existente antes de que agregues el remoto nuevo. Para obtener más información, consulta la sección "[Renombrar un repositorio remoto](#renaming-a-remote-repository)" a continuación.
+* Borra el repositorio remoto existente antes de que agregues el remoto nuevo. Para obtener más información, consulta la sección "[Eliminar un repositorio remoto](#removing-a-remote-repository)" a continuación.
 
-## Changing a remote repository's URL
+## Cambiar la URL del repositorio remoto
 
-The `git remote set-url` command changes an existing remote repository URL.
+El comando `git remote set-url` cambia una URL existente de repositorio remoto.
 
 {% tip %}
 
-**Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+**Tip:** Para obtener más información sobre la diferencia entre las URL de HTTPS y SSH, consulta la sección "[Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)".
 
 {% endtip %}
 
-The `git remote set-url` command takes two arguments:
+El comando `git remote set-url` toma dos argumentos:
 
-* An existing remote name. For example, `origin` or `upstream` are two common choices.
-* A new URL for the remote. For example:
-  * If you're updating to use HTTPS, your URL might look like:
+* Un nombre de remoto existente. Por ejemplo, `origin` o `upstream` son dos de las opciones comunes.
+* Una nueva URL para el remoto. Por ejemplo:
+  * Si estás actualizando para usar HTTPS, tu URL puede verse como:
 ```shell
 https://{% data variables.command_line.backticks %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
 ```
-  * If you're updating to use SSH, your URL might look like:
+  * Si estás actualizando para usar SSH, tu URL puede verse como:
 ```shell
 git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
 ```
 
-### Switching remote URLs from SSH to HTTPS
+### Cambiar direcciones URL remotas de SSH a HTTPS
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. List your existing remotes in order to get the name of the remote you want to change.
+2. Cambiar el directorio de trabajo actual en tu proyecto local.
+3. Enumerar tus remotos existentes a fin de obtener el nombre de los remotos que deseas cambiar.
   ```shell
   $ git remote -v
   > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (fetch)
   > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
-4. Change your remote's URL from SSH to HTTPS with the `git remote set-url` command.
+4. Cambiar tu URL remota de SSH a HTTPS con el comando `git remote set-url`.
   ```shell
   $ git remote set-url origin https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
   ```
-5. Verify that the remote URL has changed.
+5. Verificar que la URL remota ha cambiado.
   ```shell
   $ git remote -v
   # Verify new remote URL
@@ -106,25 +107,25 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-The next time you `git fetch`, `git pull`, or `git push` to the remote repository, you'll be asked for your GitHub username and password. {% data reusables.user_settings.password-authentication-deprecation %}
+La próxima vez que ejecutes `git`, `git pull` o `git push` en el repositorio remoto, se te pedirá el nombre de usuario y la contraseña de GitHub. {% data reusables.user_settings.password-authentication-deprecation %}
 
-You can [use a credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
+Puedes [utilizar un ayudante de credenciales](/github/getting-started-with-github/caching-your-github-credentials-in-git) para que Git recuerde tu nombre de usuario y token de acceso personal cada vez que se comunique con GitHub.
 
-### Switching remote URLs from HTTPS to SSH
+### Cambiar las URL remotas de HTTPS a SSH
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. List your existing remotes in order to get the name of the remote you want to change.
+2. Cambiar el directorio de trabajo actual en tu proyecto local.
+3. Enumerar tus remotos existentes a fin de obtener el nombre de los remotos que deseas cambiar.
   ```shell
   $ git remote -v
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (fetch)
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
-4. Change your remote's URL from HTTPS to SSH with the `git remote set-url` command.
+4. Cambiar tu URL remota de HTTPS a SSH con el comando `git remote set-url`.
   ```shell
   $ git remote set-url origin git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
   ```
-5. Verify that the remote URL has changed.
+5. Verificar que la URL remota ha cambiado.
   ```shell
   $ git remote -v
   # Verify new remote URL
@@ -132,106 +133,105 @@ You can [use a credential helper](/github/getting-started-with-github/caching-yo
   > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-### Troubleshooting: No such remote '[name]'
+### Solución de problemas: No existe tal remoto '[name]'
 
-This error means that the remote you tried to change doesn't exist:
+Este error significa que el remoto que trataste de cambiar no existe:
 
 ```shell
 $ git remote set-url sofake https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
 > fatal: No such remote 'sofake'
 ```
 
-Check that you've correctly typed the remote name.
+Comprueba que escribiste correctamente el nombre del remoto.
 
-## Renaming a remote repository
+## Renombrar un repositorio remoto
 
-Use the `git remote rename` command to rename an existing remote.
+Utiliza el comando `git remote rename` para renombrar un remoto existente.
 
-The `git remote rename` command takes two arguments:
-* An existing remote name, for example, `origin`
-* A new name for the remote, for example, `destination`
+El comando `git remote rename` toma dos argumentos:
+* Un nombre de remoto existente, por ejemplo, `origen`
+* Un nombre nuevo para el remoto, por ejemplo, `destino`
 
-## Example
+## Ejemplo
 
-These examples assume you're [cloning using HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), which is recommended.
+Estos ejemplos asumen que estás[clonando con HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), lo cual se recomienda.
 
 ```shell
 $ git remote -v
-# View existing remotes
+# Ver remotos existentes
 > origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
 > origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 
 $ git remote rename origin destination
-# Change remote name from 'origin' to 'destination'
+# Cambiar el nombre del remoto de 'origen' a 'destino'
 
 $ git remote -v
-# Verify remote's new name
+# Verificar el nombre nuevo del remoto
 > destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
 > destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
-### Troubleshooting: Could not rename config section 'remote.[old name]' to 'remote.[new name]'
+### Solución de problemas: No se pudo renombrar la sección de configuración 'remote.[old name]' a 'remote.[new name]'
 
-This error means that the old remote name you typed doesn't exist.
+Este error significa que el nombre remoto antiguo que tecleaste ya no existe.
 
-You can check which remotes currently exist with the `git remote -v` command:
+Puedes verificar los remotos que existen actualmente con el comando `git remote -v`:
 
 ```shell
 $ git remote -v
-# View existing remotes
+# Ver remotos existentes
 > origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
 > origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
-### Troubleshooting: Remote [new name] already exists
+### Solución de problemas: Ya existe el Remoto [new name]
 
-This error means that the remote name you want to use already exists. To solve this, either use a different remote name, or rename the original remote.
+Este error significa que el nombre del remoto que quieres utilizar ya existe. Para resolver esto, puedes ya sea utilizar un nombre diferente para el remoto o renombrar el remoto original.
 
-## Removing a remote repository 
+## Eliminar un repositorio remoto
 
-Use the `git remote rm` command to remove a remote URL from your repository.
+Utiliza el comando `git remote rm` para eliminar una URL remota de tu repositorio.
 
-The `git remote rm` command takes one argument:
-* A remote name, for example, `destination`
+El comando `git remote rm` toma un argumento:
+* El nombre de un remoto, por ejemplo `destination` (destino)
 
-## Example
+## Ejemplo
 
-These examples assume you're [cloning using HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), which is recommended.
+Estos ejemplos asumen que estás[clonando con HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), lo cual se recomienda.
 
 ```shell
 $ git remote -v
-# View current remotes
+# Ver los remotos actuales
 > origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (fetch)
 > origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (push)
 > destination  https://{% data variables.command_line.codeblock %}/<em>FORKER/REPOSITORY</em>.git (fetch)
 > destination  https://{% data variables.command_line.codeblock %}/<em>FORKER/REPOSITORY</em>.git (push)
 
 $ git remote rm destination
-# Remove remote
+# Eliminar remoto
 $ git remote -v
-# Verify it's gone
+# Verificar que se haya ido
 > origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (fetch)
 > origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (push)
 ```
 
 {% warning %}
 
-**Note**: `git remote rm` does not delete the remote repository from the server.  It simply
-removes the remote and its references from your local repository.
+**Nota**: `git remote rm` no elimina el repositorio remoto del servidor.  Simplemente, elimina de tu repositorio local el remoto y sus referencias.
 
 {% endwarning %}
 
-### Troubleshooting: Could not remove config section 'remote.[name]'
+### Solución de problemas: No se pudo eliminar la sección de configuración 'remote.[name]'
 
-This error means that the remote you tried to delete doesn't exist:
+Este error significa que el remoto que trataste de eliminar no existe:
 
 ```shell
 $ git remote rm sofake
-> error: Could not remove config section 'remote.sofake'
+> error: No se pudo eliminar la sección de configuración 'remote.sofake'
 ```
 
-Check that you've correctly typed the remote name.
+Comprueba que escribiste correctamente el nombre del remoto.
 
-## Further reading
+## Leer más
 
-- "[Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
+- "[Trabajar con remotos" desde el libro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)

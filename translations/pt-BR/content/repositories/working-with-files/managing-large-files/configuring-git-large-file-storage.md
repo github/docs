@@ -1,6 +1,6 @@
 ---
-title: Configuring Git Large File Storage
-intro: 'Once [{% data variables.large_files.product_name_short %} is installed](/articles/installing-git-large-file-storage/), you need to associate it with a large file in your repository.'
+title: Configurar o GitLarge File Storage
+intro: 'Assim que o [{% data variables.large_files.product_name_short %} estiver instalado](/articles/installing-git-large-file-storage/), você precisará associá-lo a um arquivo grande no seu repositório.'
 redirect_from:
   - /articles/configuring-large-file-storage
   - /articles/configuring-git-large-file-storage
@@ -11,9 +11,10 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Configure Git LFS
+shortTitle: Configurar o LFS do Git
 ---
-If there are existing files in your repository that you'd like to use {% data variables.product.product_name %} with, you need to first remove them from the repository and then add them to {% data variables.large_files.product_name_short %} locally. For more information, see "[Moving a file in your repository to {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)."
+
+Se houver arquivos no seu repositório com os quais deseja usar o {% data variables.product.product_name %}, você precisará primeiramente removê-los do repositório e, em seguida, adicioná-los ao {% data variables.large_files.product_name_short %} no local. Para obter mais informações, consulte "[Mover um arquivo do repositório para o {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)".
 
 {% data reusables.large_files.resolving-upload-failures %}
 
@@ -21,46 +22,46 @@ If there are existing files in your repository that you'd like to use {% data va
 
 {% tip %}
 
-**Note:** Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. For more information, see "[Configuring Git Large File Storage on GitHub Enterprise Server](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)."
+**Observação:** antes de tentar fazer push de um arquivo grande no {% data variables.product.product_name %}, certifique-se de que habilitou o {% data variables.large_files.product_name_short %} no seu aplicativo. Para obter mais informações, consulte "[Configurar o Git Large File Storage no GitHub Enterprise Server](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)".
 
 {% endtip %}
 
 {% endif %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change your current working directory to an existing repository you'd like to use with {% data variables.large_files.product_name_short %}.
-3. To associate a file type in your repository with {% data variables.large_files.product_name_short %}, enter `git {% data variables.large_files.command_name %} track` followed by the name of the file extension you want to automatically upload to {% data variables.large_files.product_name_short %}.
+2. Altere o diretório de trabalho atual para um repositório existente que deseja usar com o {% data variables.large_files.product_name_short %}.
+3. Para associar um tipo de arquivo no repositório ao {% data variables.large_files.product_name_short %}, digite `git {% data variables.large_files.command_name %} track` seguido pelo nome da extensão do arquivo do qual deseja fazer upload automaticamente no {% data variables.large_files.product_name_short %}.
 
-  For example, to associate a _.psd_ file, enter the following command:
+  Por exemplo, para associar um arquivo _.psd_, digite o seguinte comando:
   ```shell
   $ git {% data variables.large_files.command_name %} track "*.psd"
   > Adding path *.psd
   ```
-  Every file type you want to associate with {% data variables.large_files.product_name_short %} will need to be added with `git {% data variables.large_files.command_name %} track`. This command amends your repository's *.gitattributes* file and associates large files with {% data variables.large_files.product_name_short %}.
+  Cada tipo de arquivo que desejar associar ao {% data variables.large_files.product_name_short %} precisará ser adicionado com `git {% data variables.large_files.command_name %} track`. Esse comando corrige o arquivo *.gitattributes* do repositório e associa arquivos grandes ao {% data variables.large_files.product_name_short %}.
 
   {% tip %}
 
-  **Tip:** We strongly suggest that you commit your local *.gitattributes* file into your repository. Relying on a global *.gitattributes* file associated with {% data variables.large_files.product_name_short %} may cause conflicts when contributing to other Git projects.
+  **Dica:** sugerimos enfaticamente que você faça commit do arquivo *.gitattributes* local no repositório. Depender de um arquivo *.gitattributes* global associado ao {% data variables.large_files.product_name_short %} pode causar conflitos durante a contribuição com outros projetos do Git.
 
   {% endtip %}
 
-4. Add a file to the repository matching the extension you've associated:
+4. Adicione um arquivo ao repositório correspondente à extensão associada:
   ```shell
   $ git add path/to/file.psd
   ```
-5. Commit the file and push it to {% data variables.product.product_name %}:
+5. Faça commit do arquivo e faça push dele no {% data variables.product.product_name %}:
   ```shell
   $ git commit -m "add file.psd"
-  $ git push
+  $ git push origin master
   ```
-  You should see some diagnostic information about your file upload:
+  Você deve ver algumas informações de diagnóstico sobre o upload do arquivo:
   ```shell
   > Sending file.psd
   > 44.74 MB / 81.04 MB  55.21 % 14s
   > 64.74 MB / 81.04 MB  79.21 % 3s
   ```
 
-## Further reading
+## Leia mais
 
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt or ghec %}
-- "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}
+- "[Colaboração com {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt or ghec %}
+- "[Gerenciando {% data variables.large_files.product_name_short %} objetos nos arquivos de seu repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}
