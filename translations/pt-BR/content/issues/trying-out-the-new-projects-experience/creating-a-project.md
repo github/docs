@@ -48,7 +48,7 @@ Você pode converter rascunhos de problemas em problemas. Para obter mais inform
 #### Pesquisando um problema ou pull request
 
 1. Coloque seu cursor na linha inferior do projeto, ao lado do {% octicon "plus" aria-label="plus icon" %}.
-2. Digite `#`.
+2. Digite <kbd>#</kbd>.
 3. Selecione o repositório onde está localizado o pull request ou problema. Você pode digitar parte do nome do repositório para restringir suas opções.
 4. Selecione o problema ou pull request. Você pode digitar parte do título para restringir suas opções.
 
@@ -81,11 +81,11 @@ Layout do quadro:
 Você pode arquivar um item para manter o contexto sobre o item no projeto, mas removê-lo das visualizações do projeto. Você pode excluir um item para removê-lo do projeto completamente.
 
 1. Selecione o(s) item(ns) para arquivar ou excluir. Para selecionar múltiplos itens, siga um dos passos a seguir:
-     - `cmd + click` (Mac) ou `ctrl + clique ` (Windows/Linux) em cada item.
-     - Selecione um item e, em seguida, `shift + setas para cima` ou `shift + seta para baixo` para selecionar itens adicionais acima ou abaixo do item selecionado inicialmente.
-     - Selecione um item e, em seguida, `shift + clique` em outro item para selecionar todos os itens entre os dois itens.
-     - Insira `cmd + um` (Mac) ou `ctrl + a` (Windows/Linux) para selecionar todos os itens em uma coluna em um layout do quadro ou em um layout da tabela.
-2. Para arquivar todos os itens selecionados, digite `e`. Para excluir todos os itens selecionados, digite `del`. Como alternativa, selecione o {% octicon "triangle-down" aria-label="the item menu" %} (no layout de tabela) ou o {% octicon "kebab-horizontal" aria-label="the item menu" %} (no layout do quadro) e, em seguida, selecione a ação desejada.
+     - <kbd>Command</kbd>+Click (Mac) or <kbd>Ctrl</kbd>+Click (Windows/Linux) each item.
+     - Select an item then <kbd>Shift</kbd>+<kbd>↑</kbd> or <kbd>Shift</kbd>+<kbd>↓</kbd> to select additional items above or below the initially selected item.
+     - Select an item then <kbd>Shift</kbd>+Click another item to select all items between the two items.
+     - Enter <kbd>Command</kbd>+<kbd>A</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
+2. To archive all selected items, enter <kbd>E</kbd>. To delete all selected items, enter <kbd>Del</kbd>. Como alternativa, selecione o {% octicon "triangle-down" aria-label="the item menu" %} (no layout de tabela) ou o {% octicon "kebab-horizontal" aria-label="the item menu" %} (no layout do quadro) e, em seguida, selecione a ação desejada.
 
 Você pode restaurar itens arquivados, mas não itens excluídos. Para obter mais informações, consulte [Restaurando itens arquivados](#restoring-archived-items).
 

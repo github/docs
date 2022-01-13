@@ -125,11 +125,11 @@ Retorna `verdadeiro` se a `pesquisa` contiver `item`. Se a `pesquisa` for uma ar
 
 #### Exemplo de uso de array
 
-`contains(github.event.issue.labels.*.name, 'bug')`
+`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
 
 #### Exemplo de uso de string
 
-`contains('Hello world', 'llo')` retorna `true`
+`contains('Hello world', 'llo')` retorna `true`.
 
 ### startsWith
 
@@ -139,7 +139,7 @@ Retorna `true` quando `searchString` começar com `searchValue`. Essa função n
 
 #### Exemplo
 
-`startsWith('Hello world', 'He')` retorna `true`
+`startsWith('Hello world', 'He')` retorna `true`.
 
 ### endsWith
 
@@ -149,7 +149,7 @@ Retorna `true` se `searchString` terminar com `searchValue`. Essa função não 
 
 #### Exemplo
 
-`endsWith('Hello world', 'ld')` retorna `true`
+`endsWith('Hello world', 'ld')` retorna `true`.
 
 ### format
 
@@ -159,19 +159,19 @@ Substitui valores na `string` pela variável `replaceValueN`. As variáveis na `
 
 #### Exemplo
 
-Retorna 'Hello Mona the Octocat'
-
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-#### Exemplo de escape de chaves
+Retorna 'Hello Mona the Octocat'.
 
-Returna '{Hello Mona the Octocat!}'
+#### Exemplo de escape de chaves
 
 {% raw %}
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
+
+Returna '{Hello Mona the Octocat!}'.
 
 ### join
 

@@ -9,11 +9,11 @@ versions:
 shortTitle: Seções colapsadas
 ---
 
-## Creating a collapsed section
+## Criando uma seção recolhida
 
-You can temporarily obscure sections of your Markdown by creating a collapsed section that the reader can choose to expand. For example, when you want to include technical details in an issue comment that may not be relevant or interesting to every reader, you can put those details in a collapsed section.
+Você pode obscurecer temporariamente seções do seu Markdown criando uma seção expandida que o leitor pode optar por expandir. Por exemplo, quando você deseja incluir detalhes técnicos em um comentário do problema que pode não ser relevante ou interessante para todos os leitores, você pode colocar esses detalhes em uma seção recolhida.
 
-Any Markdown within the `<details>` block will be collapsed until the reader clicks {% octicon "triangle-right" aria-label="The right triange icon" %} to expand the details. Within the `<details>` block, use the `<summary>` tag to create a label to the right of {% octicon "triangle-right" aria-label="The right triange icon" %}.
+Qualquer Markdown dentro do bloco `<details>` estará recolhido até que o leitor clique em {% octicon "triangle-right" aria-label="The right triange icon" %} para expandir os detalhes. Dentro do bloco `<details>`, use a tag `<summary>` para criar uma etiqueta à direita de {% octicon "triangle-right" aria-label="The right triange icon" %}.
 
 ```markdown
 <details><summary>CLICK ME</summary>
@@ -27,13 +27,13 @@ Any Markdown within the `<details>` block will be collapsed until the reader cli
 
 </details> ```</p>
 
-The Markdown will be collapsed by default.
+O Markdown irá recolher-se por defeito.
 
-![Rendered collapsed](/assets/images/help/writing/collapsed-section-view.png)
+![Renderizado recolhido](/assets/images/help/writing/collapsed-section-view.png)
 
-After a reader clicks {% octicon "triangle-right" aria-label="The right triange icon" %}, the details are expanded.
+Depois que um leitor clicar em {% octicon "triangle-right" aria-label="The right triange icon" %}, os detalhes serão expandidos.
 
-![Rendered open](/assets/images/help/writing/open-collapsed-section.png)
+![Renderizado aberto](/assets/images/help/writing/open-collapsed-section.png)
 
 ## Leia mais
 

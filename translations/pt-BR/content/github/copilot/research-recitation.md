@@ -22,7 +22,7 @@ Trata-se de uma simplificação excessiva. Muitas sugestões do Copilot de {% da
 
 ![A demonstração de um filme do Copilot](/assets/images/help/copilot/resources_recitation_example_zen.gif)
 
-Aqui, eu direcionei intencionalmente<sup id="anchor4">[4](#footnote4)</sup> o Copilit de {% data variables.product.prodname_dotcom %} para recitar um texto bem conhecido que obviamente sabe de cor. Eu também sei alguns textos de cor. Por exemplo, ainda me lembro de alguns poemas que aprendi na escola. Yet no matter the topic, not once have I been tempted to derail a conversation by falling into iambic tetrameter and waxing about daffodils.
+Aqui, eu direcionei intencionalmente<sup id="anchor4">[4](#footnote4)</sup> o Copilit de {% data variables.product.prodname_dotcom %} para recitar um texto bem conhecido que obviamente sabe de cor. Eu também sei alguns textos de cor. Por exemplo, ainda me lembro de alguns poemas que aprendi na escola. No entanto, não importa o tópico , uma vez me senti tentado a fazer sair de uma conversa, falando de tetrâmetro iâmbico e com emoção sobre os narcisos.
 
 Então isso (ou o equivalente a codificação) é algo que o Copilot de {% data variables.product.prodname_dotcom %} está propenso a fazer? Quantas das suas sugestões são únicas, e com que frequência apenas repetem algum código que ele viu durante o treinamento?
 
@@ -82,7 +82,7 @@ Claro, isso foi medido nos desenvolvedores de {% data variables.product.prodname
 
 Se eu quiser aprender a letra de uma música, terei de ouvir várias vezes. O Copilot de {% data variables.product.prodname_dotcom %} não é diferente: para aprender um trecho de código de cor, deve ver esse trecho muitas vezes. Cada arquivo só é mostrado no Copilot de {% data variables.product.prodname_dotcom %} uma vez. Portanto, o trecho precisa existir em muitos arquivos diferentes no código público.
 
-Dos 41 casos principais que destacamos durante a etiquetagem manual, nenhum aparece em menos de 10 arquivos diferentes. A maioria dos (35 casos) aparecem mais de cem vezes. Once, {% data variables.product.prodname_dotcom %} Copilot suggested starting an empty file with something it had even seen more than a whopping 700,000 different times during training -- that was the GNU General Public License.
+Dos 41 casos principais que destacamos durante a etiquetagem manual, nenhum aparece em menos de 10 arquivos diferentes. A maioria dos (35 casos) aparecem mais de cem vezes. Uma vez, o Copiloto de {% data variables.product.prodname_dotcom %} sugeriu que se iniciasse um arquivo vazio com algo que ele tinha até visto mais do que um trecho de 700.000 vezes diferentes durante o seu treinamento -- era a Licença Pública Geral do GNU.
 
 O gráfico a seguir mostra o número de arquivos correspondentes dos resultados no bucket 5 (uma marca vermelha na parte inferior para cada resultado) em comparação com 2 a 4 buckets. Deixei de fora o balde 1, que, na verdade, não passa de uma mistura de duplicações de 2 a 4 casos de bucket e de duplicações de casos de balde 5. A distribuição inferida é exibida como uma linha vermelha; ela atinge entre 100 e 1000 correspondências.
 
