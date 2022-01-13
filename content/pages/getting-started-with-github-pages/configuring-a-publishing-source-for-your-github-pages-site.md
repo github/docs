@@ -21,7 +21,7 @@ For more information about publishing sources, see "[About {% data variables.pro
 
 ## Choosing a publishing source
 
-Before you configure a publishing source, make sure the branch you want to use as your publishing source already exists in your repository.
+Before you configure a publishing source, make sure  that the branch you want to use as your publishing source already exists in your repository.
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
