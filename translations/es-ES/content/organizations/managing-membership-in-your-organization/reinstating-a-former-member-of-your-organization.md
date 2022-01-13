@@ -1,6 +1,6 @@
 ---
-title: Reinstating a former member of your organization
-intro: 'Organization owners can {% ifversion fpt or ghec %}invite former organization members to rejoin{% else %}add former members to{% endif%} your organization, and choose whether to restore the person''s former role, access permissions, forks, and settings.'
+title: Volver a admitir a un miembro anterior de tu organización
+intro: 'Los propietarios de la organización pueden {% ifversion fpt or ghec %}invitar a miembros anteriores de la organización para volverse a unir a{% else %}agregar a miembros anteriores a{% endif%} tu organización y elegir si quieren restablecer el rol, permisos de acceso, bifurcaciones y configuraciones anteriores de dicha persona.'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/reinstating-a-former-member-of-your-organization
@@ -13,33 +13,33 @@ permissions: Organization owners can reinstate a former member of an organizatio
 topics:
   - Organizations
   - Teams
-shortTitle: Reinstate a member
+shortTitle: Reinstaurar a un miembro
 ---
 
-## About member reinstatement
+## Acerca de la reinstauración de miembros
 
-If you [remove a user from your organization](/articles/removing-a-member-from-your-organization){% ifversion ghae %} or{% else %},{% endif %} [convert an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator){% ifversion not ghae %}, or a user is removed from your organization because you've [required members and outside collaborators to enable two-factor authentication (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+Si [eliminas a un usuario de tu organizción](/articles/removing-a-member-from-your-organization){% ifversion ghae %} o{% else %}{% endif %}[ conviertes a un miembro de la organización en colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator){% ifversion not ghae %} o si un usuario se elimina de tu orgnización porque [requeriste que los miembros y colaboradores externos habilitaran la autenticación bifactorial (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, los privilegios de acceso y las configuraciones del usuario se guardarán durante tres meses. Puedes restablecer los privilegios del usuario si los vuelves a{% ifversion fpt or ghec %}invitar{% else %} agregar{% endif %} a la organización dentro de este periodo de tiempo.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
-When you reinstate a former organization member, you can restore:
- - The user's role in the organization
- - Any private forks of repositories owned by the organization
- - Membership in the organization's teams
- - Previous access and permissions for the organization's repositories
- - Stars for organization repositories
- - Issue assignments in the organization
- - Repository subscriptions (notification settings for watching, not watching, or ignoring a repository's activity)
+Cuando vuelvas a admitir a un miembro antiguo de la organización, puedes restaurar lo siguiente:
+ - El rol del usuario en la organización
+ - Cualquier bifurcación privada de los repositorios que son propiedad de la organización
+ - La membresía a los equipos de la organización
+ - El acceso y los permisos previos para los repositorios de la organización
+ - Las estrellas para los repositorios de la organización
+ - Las asignaciones de propuestas en la organización
+ - Las suscripciones a repositorios (los parámetros de notificaciones para observar, no observar o ignorar la actividad de un repositorio)
 
 {% ifversion ghes %}
-If an organization member was removed from the organization because they did not use two-factor authentication and your organization still requires members to use 2FA, the former member must enable two-factor authentication before you can reinstate their membership.
+Si se eliminó de la organización a un miembro de la organización porque no utilizó la autenticación de dos factores, y tu organización aún requiere que los miembros utilicen la 2FA, el miembro antiguo debe habilitar la autenticación de dos factores antes de que puedas reinstalar su membresía.
 {% endif %}
 
 {% ifversion fpt or ghec %}
-If your organization has a paid per-user subscription, an unused license must be available before you can reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-scim %}
+Si tu organización tiene una suscripción de pago por usuario, debes de contar con una licencia disponible antes de que puedas volver a admitir a algún miembro anterior de la organización. Para obtener más información, consulta "[About per-user pricing](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-scim %}
 {% endif %}
 
-## Reinstating a former member of your organization
+## Volver a admitir a un miembro anterior de tu organización
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -47,23 +47,19 @@ If your organization has a paid per-user subscription, an unused license must be
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}
 {% ifversion fpt or ghec %}
-6. Choose whether to restore that person's previous privileges in the organization or clear their previous privileges and set new access permissions, then click **Invite and reinstate** or **Invite and start fresh**.
-  ![Choose to restore info or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
+6. Decide si quieres restaurar los privilegios antiguos de esa persona en la organización o eliminar sus privilegios antiguos y establecer nuevos permisos de acceso, luego haz clic en **Invite and reinstate** (Invitar y reinstalar) o **Invite and start fresh** (Invitar e iniciar de nuevo). ![Decide si quieres restaurar la información o no](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
 {% else %}
-6. Choose whether to restore that person's previous privileges in the organization or clear their previous privileges and set new access permissions, then click **Add and reinstate** or **Add and start fresh**.
-  ![Choose whether to restore privileges](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
+6. Decide si quieres restaurar los privilegios antiguos de esa persona en la organización o eliminar sus privilegios antiguos y establecer nuevos permisos de acceso, luego haz clic en **Add and reinstate** (Agregar y reinstalar) o **Add and start fresh** (Agregar e iniciar de nuevo). ![Decide si quieres restaurar los privilegios](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
 {% endif %}
 {% ifversion fpt or ghec %}
-7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Send invitation**.
-  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png)
+7. Si eliminaste los privilegios anteriores de un miembro anterior de la organización, elige un rol para el usuario, y, de manera opcional, agrégalo a algunos equipos, luego haz clic en **Enviar invitación**. ![Opciones de rol y equipo y botón para enviar invitación](/assets/images/help/organizations/add-role-send-invitation.png)
 {% else %}
-7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Add member**.
-  ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png)
+7. Si eliminaste los privilegios anteriores de un miembro anterior de la organización, elige un rol para el usuario y, de manera opcional, agrégalo a algunos equipos, luego haz clic en **Agregar miembro**. ![Opciones de rol y equipo y botón para agregar miembros](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% ifversion fpt or ghec %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
-## Further reading
+## Leer más
 
-- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
+- "[Convertir a un miembro de la organización en colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator)"

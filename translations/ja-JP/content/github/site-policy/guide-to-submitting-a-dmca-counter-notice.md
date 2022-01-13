@@ -1,5 +1,5 @@
 ---
-title: Guide to Submitting a DMCA Counter Notice
+title: DMCAカウンター通知の提出ガイド
 redirect_from:
   - /dmca-counter-notice-how-to
   - /articles/dmca-counter-notice-how-to
@@ -11,68 +11,56 @@ topics:
   - Legal
 ---
 
-This guide describes the information that GitHub needs in order to process a counter notice to a DMCA takedown request. If you have more general questions about what the DMCA is or how GitHub processes DMCA takedown requests, please review our [DMCA Takedown Policy](/articles/dmca-takedown-policy).
+このガイドでは、DMCA テイクダウンリクエストに対する異議申し立て通知を処理するために GitHub が必要とする情報について説明します。 DMCA とは何かや、GitHub が DMCA テイクダウンリクエストをどのように処理するかなど、一般的な質問については [DMCA テイクダウンポリシー](/articles/dmca-takedown-policy)をご覧ください。
 
-If you believe your content on GitHub was mistakenly disabled by a DMCA takedown request, you have the right to contest the takedown by submitting a counter notice. If you do, we will wait 10-14 days and then re-enable your content unless the copyright owner initiates a legal action against you before then. Our counter-notice form, set forth below, is consistent with the form suggested by the DMCA statute, which can be found at the U.S. Copyright Office's official website: <https://www.copyright.gov>.
+GitHub のあなたのコンテンツが DMCA テイクダウンリクエストにより誤って無効にされたと思われる場合、異議申し立て通知を提出して削除に異議を申し立てる権利があります。 異議を申し立てた場合、10〜14 日の期間内に著作権所有者があなたに対して法的措置を講じない限り、当社はコンテンツを再度有効にします。 以下に定める当社の異議申し立て通知の形式は、DMCA 法で提案されている形式と一致しています。 これは、米著作権局の公式ウェブサイト（<https://www.copyright.gov>）でご確認いただけます。
 
-As with all legal matters, it is always best to consult with a professional about your specific questions or situation. We strongly encourage you to do so before taking any action that might impact your rights. This guide isn't legal advice and shouldn't be taken as such.
+法律に関わるあらゆる事項と同様、具体的な疑問や状況については専門家に相談するのが常に最善です。 あなたの権利に影響を及ぼす可能性のある行動をとる前に、そうすることを強くお勧めします。 このガイドは法律上の助言ではなく、またそのように解釈されるべきではありません。
 
-## Before You Start
+## はじめる前に
 
-***Tell the Truth.***
-The DMCA requires that you swear to your counter notice *under penalty of perjury*. It is a federal crime to intentionally lie in a sworn declaration. (*See* [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) Submitting false information could also result in civil liability—that is, you could get sued for money damages.
+*** 真実を教えてください。***DMCA では、宣誓を行い、虚偽の申し立てを行った場合には*偽証罪によって罰せられるという条件で*異議申し立て通知を行うことを義務付けています。 宣誓宣言で意図的に虚偽の陳述を行うと連邦犯罪になります。   （[合衆国法典、タイトル 18、セクション 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm) *を参照してください</em>。 ）虚偽の情報を提出すると、民事責任が発生する可能性もあります。 つまり、金銭的損害で訴えられる可能性があります。
 
-***Investigate.***
-Submitting a DMCA counter notice can have real legal consequences. If the complaining party disagrees that their takedown notice was mistaken, they might decide to file a lawsuit against you to keep the content disabled. You should conduct a thorough investigation into the allegations made in the takedown notice and probably talk to a lawyer before submitting a counter notice.
+***調査してください。***DMCA 異議申し立て通知を提出すると、現実的な法的結果が生じる可能性があります。 苦情を申し立てた当事者がテイクダウン通知が間違っていることに同意しない場合、コンテンツを無効にし続けるためにあなたに対して訴訟を起こすことがあります。 あなたは、テイクダウン通知でなされた申し立てを徹底的に調査し、そして異議申し立て通知を提出する前に弁護士に相談するべきでしょう。
 
-***You Must Have a Good Reason to Submit a Counter Notice.***
-In order to file a counter notice, you must have "a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled." ([U.S. Code, Title 17, Section 512(g)](https://www.copyright.gov/title17/92chap5.html#512).) Whether you decide to explain why you believe there was a mistake is up to you and your lawyer, but you *do* need to identify a mistake before you submit a counter notice. In the past, we have received counter notices citing mistakes in the takedown notice such as: the complaining party doesn't have the copyright; I have a license; the code has been released under an open-source license that permits my use; or the complaint doesn't account for the fact that my use is protected by the fair-use doctrine. Of course, there could be other defects with the takedown notice.
+***You Must Have a Good Reason to Submit a Counter Notice.*** In order to file a counter notice, you must have "a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled." ([合衆国 法典、タイトル 17 、セクション 512 (g)](https://www.copyright.gov/title17/92chap5.html#512) を参照してください。) 間違いがあったと考える理由を説明するかどうかはあなたとあなたの弁護士次第ですが、異議申し立て通知を提出する前に*必ず*間違いを特定する必要があります。 過去に当社が受け取った異議申し立て通知で挙げられたテイクダウン通知の間違いとしては、「苦情を申し立てた当事者に著作権がない」、「私はライセンスを持っている」、「コードは、私の使用を許可するオープンソースライセンスの下でリリースされている」、「苦情は、私の使用がフェアユースの原則によって保護されているという事実を考慮していない」などがあります。 もちろん、テイクダウン通知の欠陥には他の内容も考えられます。
 
-***Copyright Laws Are Complicated.***
-Sometimes a takedown notice might allege infringement in a way that seems odd or indirect. Copyright laws are complicated and can lead to some unexpected results. In some cases a takedown notice might allege that your source code infringes because of what it can do after it is compiled and run. For example:
-  - The notice may claim that your software is used to [circumvent access controls](https://www.copyright.gov/title17/92chap12.html) to copyrighted works.
-  - [Sometimes](https://www.copyright.gov/docs/mgm/) distributing software can be copyright infringement, if you induce end users to use the software to infringe copyrighted works.
-  - A copyright complaint might also be based on [non-literal copying](https://en.wikipedia.org/wiki/Substantial_similarity) of design elements in the software, rather than the source code itself — in other words, someone has sent a notice saying they think your *design* looks too similar to theirs.
+***著作権法は複雑です。***テイクダウン通知による侵害の申し立ては、奇妙であったり直接的でないように思える場合があります。 著作権法は複雑であり、予期しない結果を招く可能性があります。 場合によっては、テイクダウン通知では、コンパイルおよび実行後にできることが理由で、あなたのソースコードが著作権を侵害していると申し立てられる場合があります。 例:
+  - 著作物に対する[アクセス制御を迂回](https://www.copyright.gov/title17/92chap12.html)するためにあなたのソフトウェアが使用されていると申し立てられる場合があります。
+  - ソフトウェアを使用して著作物を侵害するようエンドユーザを誘導した場合、ソフトウェアの配布が著作権侵害になる[場合があります](https://www.copyright.gov/docs/mgm/)。
+  - 著作権侵害の申し立てが、ソースコード自体ではなく、ソフトウェアのデザイン要素の[文字通りでない複製](https://en.wikipedia.org/wiki/Substantial_similarity)に基づいている場合もあります。つまり、あなたの*デザイン*が他の誰かのデザインに酷似しているという通知を受け取る場合があります。
 
-These are just a few examples of the complexities of copyright law. Since there are many nuances to the law and some unsettled questions in these types of cases, it is especially important to get professional advice if the infringement allegations do not seem straightforward.
+これらは、著作権法の複雑さを示すほんの一例に過ぎません。 法律には多くの微妙な点があり、上記のようなケースには未解決の疑問が残っているため、侵害の申し立てが簡単ではないと思われる場合は専門家のアドバイスを受けることが特に重要です。
 
-***A Counter Notice Is A Legal Statement.***
-We require you to fill out all fields of a counter notice completely, because a counter notice is a legal statement — not just to us, but to the complaining party. As we mentioned above, if the complaining party wishes to keep the content disabled after receiving a counter notice, they will need to initiate a legal action seeking a court order to restrain you from engaging in infringing activity relating to the content on GitHub. In other words, you might get sued (and you consent to that in the counter notice).
+***異議申し立て通知は法的声明です。***異議申し立て通知は当社に対してだけでなく、苦情を申し立てた当事者に対する法的声明でもあるため、異議申し立て通知を提出する場合はすべてのフィールドを不備なく記入する必要があります。 上述したように、異議申し立て通知を受け取った後も、苦情を申し立てた当事者側が引き続きコンテンツを無効にしたい場合、GitHub のコンテンツに関連する侵害行為にあなたが関与することを差し止める裁判所命令を求めて、法的措置を講じる必要があります。 つまり、あなたは訴えられる可能性があります（また、あなたは異議申し立て通知でこれに同意します）。
 
-***Your Counter Notice Will Be Published.***
-As noted in our [DMCA Takedown Policy](/articles/dmca-takedown-policy#d-transparency), **after redacting personal information,** we publish all complete and actionable counter notices at <https://github.com/github/dmca>. Please also note that, although we will only publicly publish redacted notices, we may provide a complete unredacted copy of any notices we receive directly to any party whose rights would be affected by it. If you are concerned about your privacy, you may have a lawyer or other legal representative file the counter notice on your behalf.
+***あなたの異議申し立て通知は公開されます。***[DMCA テイクダウンポリシー](/articles/dmca-takedown-policy#d-transparency)に記載されているように、当社は、完全かつ法的に有効なすべての異議申し立て通知を、**個人情報を編集した上**、<https://github.com/github/dmca> で公開しています。 また、当社は編集後の通知しか公開しませんが、それによって自身の権利が影響を受ける当事者に対しては、受け取った通知の未編集の完全な写しを直接提供する場合がありますのでご注意ください。 プライバシーが心配な場合は、あなたの代わりに弁護士または他の法定代理人に異議申し立て通知を提出してもらうことができます。
 
-***GitHub Isn't The Judge.***
-GitHub exercises little discretion in this process other than determining whether the notices meet the minimum requirements of the DMCA. It is up to the parties (and their lawyers) to evaluate the merit of their claims, bearing in mind that notices must be made under penalty of perjury.
+***GitHub は裁判官ではありません。***GitHub は、通知が DMCA の最小要件を満たしているかどうかを判断する以外、このプロセスではほとんど裁量権を行使しません。 主張の価値の評価は当事者（およびその弁護士）に委ねられます。なお、通知は偽証罪によって罰せられる対象になることにご注意ください。
 
-***Additional Resources.***
-If you need additional help, there are many self-help resources online. Lumen has an informative set of guides on [copyright](https://www.lumendatabase.org/topics/5) and [DMCA safe harbor](https://www.lumendatabase.org/topics/14). If you are involved with an open-source project in need of legal advice, you can contact the [Software Freedom Law Center](https://www.softwarefreedom.org/about/contact/). And if you think you have a particularly challenging case, non-profit organizations such as the [Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) may also be willing to help directly or refer you to a lawyer.
+***その他のリソース。***さらにサポートが必要な場合は、インターネット上に利用できるリソースが数多く用意されています。 Lumen には、[著作権](https://www.lumendatabase.org/topics/5)と [DMCA セーフハーバー](https://www.lumendatabase.org/topics/14)に関する有益なガイドがあります。 法的助言が必要なオープンソースプロジェクトに関与している場合は、[Software Freedom Law Center](https://www.softwarefreedom.org/about/contact/) に問い合わせることができます。 また、特に困難な事態に直面したと思われる場合は、[Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) などの非営利団体から直接支援を受けたり、弁護士を紹介してもらえる場合もあります。
 
-## Your Counter Notice Must...
+## 異議申し立て通知は...
 
-1. **Include the following statement: "I have read and understand GitHub's Guide to Filing a DMCA Counter Notice."**
-We won't refuse to process an otherwise complete counter notice if you don't include this statement; however, we will know that you haven't read these guidelines and may ask you to go back and do so.
+1. **"I have read and understand GitHub's Guide to Filing a DMCA Counter Notice."（GitHub の DMCA 異議申し立て通知提出ガイドを読んで理解しました。）という文言を含んでいなければなりません。**この文言が含まれていないとしても、異議申し立て通知に不備がなければ当社は処理を拒否しません。ただし、このガイドラインを読んでいないと判断できるため、ガイドラインを読むように求める場合があります。
 
-2. ***Identify the content that was disabled and the location where it appeared.***
-The disabled content should have been identified by URL in the takedown notice. You simply need to copy the URL(s) that you want to challenge.
+2. ***無効にされたコンテンツとそれが表示されていた場所を特定しなければなりません。***無効にされたコンテンツは、テイクダウン通知の URL で特定されているはずです。 このため、すべきことは異議申し立て通知の対象の URL をコピーするだけです。
 
-3. **Provide your contact information.**
-Include your email address, name, telephone number, and physical address.
+3. **あなたの連絡先情報を提供しなければなりません。**メールアドレス、名前、電話番号、住所を記載してください。
 
-4. ***Include the following statement: "I swear, under penalty of perjury, that I have a good-faith belief that the material was removed or disabled as a result of a mistake or misidentification of the material to be removed or disabled."***
-You may also choose to communicate the reasons why you believe there was a mistake or misidentification. If you think of your counter notice as a "note" to the complaining party, this is a chance to explain why they should not take the next step and file a lawsuit in response. This is yet another reason to work with a lawyer when submitting a counter notice.
+4. ***"I swear, under penalty of perjury, that I have a good-faith belief that the material was removed or disabled as a result of a mistake or misidentification of the material to be removed or disabled."（私は、偽証罪の罰則に基づき、削除または無効化の対象の資料の間違いまたは誤認の結果、その資料が削除または無効化されたという誠実な信念を持っていると誓います。）という文言を含んでいなければなりません。***また、間違いや誤認があったと思われる理由を伝えることもできます。 これは、苦情を申し立てている当事者への「通告」として異議申し立て通知を提出する場合、相手が次の手段として訴訟を起こすべきではない理由を説明する機会になります。 これもまた、異議申し立て通知を提出する際に弁護士と協力すべき理由の 1 つです。
 
-5. ***Include the following statement: "I consent to the jurisdiction of Federal District Court for the judicial district in which my address is located (if in the United States, otherwise the Northern District of California where GitHub is located), and I will accept service of process from the person who provided the DMCA notification or an agent of such person."***
+5. ***"I consent to the jurisdiction of Federal District Court for the judicial district in which my address is located (if in the United States, otherwise the Northern District of California where GitHub is located), and I will accept service of process from the person who provided the DMCA notification or an agent of such person."（私は、私の住所がある司法管轄区（米国の場合は GitHub が所在するカリフォルニア州北部地区）の連邦地方裁判所の管轄に同意し、DMCA 通知を提供した人物またはかかる人物の代理人からの令状の送達を受け入れます。）という文言を含んでいなければなりません。***
 
-6. **Include your physical or electronic signature.**
+6. **物理的または電子的な署名を含めてください。**
 
-## How to Submit Your Counter Notice
+## 異議申し立て通知の提出方法
 
-The fastest way to get a response is to enter your information and answer all the questions on our {% data variables.contact.contact_dmca %}.
+{% data variables.contact.contact_dmca %} で情報を入力し、すべての質問に答えることで、最も早く回答を得ることができます。
 
-You can also send an email notification to <copyright@github.com>. You may include an attachment if you like, but please also include a plain-text version of your letter in the body of your message.
+また、<copyright@github.com> にメール通知を送信することもできます。 必要に応じて添付ファイルを含めることもできますが、メッセージの本文には平文版の文書も含めてください。
 
-If you must send your notice by physical mail, you can do that too, but it will take *substantially* longer for us to receive and respond to it—and the 10-14 day waiting period starts from when we *receive* your counter notice. Notices we receive via plain-text email have a much faster turnaround than PDF attachments or physical mail. If you still wish to mail us your notice, our physical address is:
+通知を郵送する必要がある場合は、それも可能ですが、通知の受け取りと応答には*相当な*時間がかかります。具体的には、当社が異議申し立て通知を*受領*してから 10〜14 日お待ちいただくことになります。 当社は、平文のメールで作られた通知の方が、PDF ファイルが添付されている場合や郵送の場合よりもずっと早く回答することができます。 それでも通知を郵送する場合は、当社の住所は次のとおりです。
 
 ```
 GitHub, Inc

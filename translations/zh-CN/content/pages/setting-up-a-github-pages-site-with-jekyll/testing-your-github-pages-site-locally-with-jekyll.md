@@ -1,6 +1,6 @@
 ---
-title: Testing your GitHub Pages site locally with Jekyll
-intro: 'You can build your {% data variables.product.prodname_pages %} site locally to preview and test changes to your site.'
+title: 使用 Jekyll 在本地测试 GitHub Pages 站点
+intro: '您可以在本地构建 {% data variables.product.prodname_pages %} 站点，以预览和测试对站点的更改。'
 redirect_from:
   - /articles/setting-up-your-pages-site-locally-with-jekyll
   - /articles/setting-up-your-github-pages-site-locally-with-jekyll
@@ -14,27 +14,27 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Test site locally with Jekyll
+shortTitle: 使用 Jekyll 本地测试站点
 ---
 
-Anyone with read permissions for a repository can test a {% data variables.product.prodname_pages %} site locally.
+任何拥有仓库读取权限的人都可以在本地测试 {% data variables.product.prodname_pages %} 站点。
 
-## Prerequisites
+## 基本要求
 
-Before you can use Jekyll to test a site, you must:
-  - Install [Jekyll](https://jekyllrb.com/docs/installation/).
-  - Create a Jekyll site. For more information, see "[Creating a {% data variables.product.prodname_pages %} site with Jekyll](/articles/creating-a-github-pages-site-with-jekyll)."
+在使用 Jekyll 测试站点之前，您必须：
+  - 安装 [Jekyll](https://jekyllrb.com/docs/installation/)。
+  - 创建一个 Jekyll 站点。 更多信息请参阅“[使用 Jekyll 创建 {% data variables.product.prodname_pages %} 站点](/articles/creating-a-github-pages-site-with-jekyll)”。
 
 {% data reusables.pages.recommend-bundler %}
 
 {% data reusables.pages.jekyll-install-troubleshooting %}
 
-## Building your site locally
+## 本地构建网站
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
-3. Run `bundle install`.
-3. Run your Jekyll site locally.
+3. 运行 `bundle install`。
+3. 在本地运行您的 Jekyll 站点。
   ```shell
   $ bundle exec jekyll serve
   > Configuration file: /Users/octocat/my-site/_config.yml
@@ -48,17 +48,17 @@ Before you can use Jekyll to test a site, you must:
   >    Server address: http://127.0.0.1:4000/
   >  Server running... press ctrl-c to stop.
   ```
-3. To preview your site, in your web browser, navigate to `http://localhost:4000`.
+3. 要预览站点，请在 web 浏览器中导航到 `http://localhost:4000`。
 
-## Updating the {% data variables.product.prodname_pages %} gem
+## 更新 {% data variables.product.prodname_pages %} gem
 
-Jekyll is an active open source project that is updated frequently. If the `github-pages` gem on your computer is out of date with the `github-pages` gem on the {% data variables.product.prodname_pages %} server, your site may look different when built locally than when published on {% data variables.product.product_name %}. To avoid this, regularly update the `github-pages` gem on your computer.
+Jekyll 是一个活跃的开源项目，经常更新。 如果您计算机上的 `github-pages` gem 版本落后于 {% data variables.product.prodname_pages %} 服务器上的 `github-pages` gem 版本，则您的站点在本地构建时的外观与在 {% data variables.product.product_name %} 上发布时的外观可能不同。 为避免这种情况，请定期更新计算机上的 `github-pages` gem。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Update the `github-pages` gem.
-    - If you installed Bundler, run `bundle update github-pages`.
-    - If you don't have Bundler installed, run `gem update github-pages`.
+2. 更新 `github-pages` gem。
+    - 如果您安装了 Bundler，请运行 `bundle update github-pages`。
+    - 如果未安装 Bundler，则运行 `gem update github-pages`.
 
-## Further reading
+## 延伸阅读
 
-- [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/) in the Jekyll documentation
+- Jekyll 文档中的 [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/)

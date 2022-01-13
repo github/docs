@@ -47,7 +47,7 @@ type: how_to
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-## Filtering issues and pull requests 
+## Filtering issues and pull requests
 
 Issues and pull requests come with a set of default filters you can apply to organize your listings.
 
@@ -124,8 +124,6 @@ You can use advanced filters to search for issues and pull requests that meet sp
 
 ### Searching for issues and pull requests
 
-{% include tool-switcher %}
-
 {% webui %}
 
 The issues and pull requests search bar allows you to define your own custom filters and sort by a wide variety of criteria. You can find the search bar on each repository's **Issues** and **Pull requests** tabs and on your [Issues and Pull requests dashboards](/articles/viewing-all-of-your-issues-and-pull-requests).
@@ -174,7 +172,7 @@ With issue and pull request search terms, you can:
 {% tip %}
 
 **Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
-- To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`. 
+- To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
 - To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
 
 {% endtip %}

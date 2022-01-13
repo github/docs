@@ -1,6 +1,6 @@
 ---
-title: Importing source code to GitHub
-intro: 'You can import repositories to GitHub using {% ifversion fpt %}GitHub Importer, the command line,{% else %}the command line{% endif %} or external migration tools.'
+title: GitHub にソースコードをインポートする
+intro: 'リポジトリは、{% ifversion fpt %}GitHub Importer、コマンドライン、{% else %}コマンドライン{% endif %}、または外部移行ツールを使用して GitHub にインポートできます。'
 redirect_from:
   - /articles/importing-an-external-git-repository
   - /articles/importing-from-bitbucket

@@ -1,6 +1,6 @@
 ---
-title: Inviting collaborators to a personal repository
-intro: 'You can {% ifversion fpt or ghec %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
+title: Convidar colaboradores para um repositório pessoal
+intro: 'Você pode {% ifversion fpt or ghec %}convidar usuários para se tornarem{% else %}adicionar usuários como{% endif %} colaboradores em seu repositório pessoal.'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator
   - /articles/adding-collaborators-to-a-personal-repository
@@ -16,51 +16,46 @@ versions:
 topics:
   - Accounts
   - Repositories
-shortTitle: Invite collaborators
+shortTitle: Convidar colaboradores
 ---
-Repositories owned by an organization can grant more granular access. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)."
+
+Os repositórios de propriedade de uma organização podem conceder mais acesso granular. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
 
 {% data reusables.organizations.org-invite-expiration %}
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you can only invite other members of your enterprise to collaborate with you. {% data reusables.enterprise-accounts.emu-more-info-account %}
+Se você for integrante de um {% data variables.product.prodname_emu_enterprise %}, você só poderá convidar outros integrantes da sua empresa para colaborar com você. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% note %}
 
-**Note:** {% data variables.product.company_short %} limits the number of people who can be invited to a repository within a 24-hour period. If you exceed this limit, either wait 24 hours or create an organization to collaborate with more people.
+**Observação:** o {% data variables.product.company_short %} limita o número de pessoas que podem ser convidadas para um repositório dentro de um período de 24 horas. Se você exceder esse limite, aguarde 24 horas ou crie uma organização para colaborar com mais pessoas.
 
 {% endnote %}
 
 {% endif %}
 
-1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
+1. Pergunte o nome do usuário da pessoa que você está convidando a colaborar.{% ifversion fpt or ghec %} Caso a pessoa não tenha um nome de usuário ainda, deve se inscrever em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Inscrever-se em uma nova conta {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
-1. Click **Invite a collaborator**.
-  !["Invite a collaborator" button](/assets/images/help/repository/invite-a-collaborator-button.png)
-2. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.
-  ![Search field for typing the name of a person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field-user.png)
-3. Click **Add NAME to REPOSITORY**.
-    ![Button to add collaborator](/assets/images/help/repository/add-collaborator-user-repo.png)
+1. Clique em **Convidar um colaborador**. ![Botão "Convidar um colaborador"](/assets/images/help/repository/invite-a-collaborator-button.png)
+2. No campo de pesquisa, comece a digitar o nome da pessoa que deseja convidar e, em seguida, clique em um nome na lista de correspondências. ![Campo de pesquisa para digitar o nome de uma pessoa para convidar para o repositório](/assets/images/help/repository/manage-access-invite-search-field-user.png)
+3. Clique em **Adicionar NOME ao REPOSITÓRIO**. ![Botão para adicionar um colaborador](/assets/images/help/repository/add-collaborator-user-repo.png)
 {% else %}
-5. In the left sidebar, click **Collaborators**.
-![Repository settings sidebar with Collaborators highlighted](/assets/images/help/repository/user-account-repo-settings-collaborators.png)
-6. Under "Collaborators", start typing the collaborator's username.
-7. Select the collaborator's username from the drop-down menu.
-   ![Collaborator list drop-down menu](/assets/images/help/repository/repo-settings-collab-autofill.png)
-8. Click **Add collaborator**.
-   !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
+5. Na barra lateral esquerda, clique em **Collaborators** (Colaboradores). ![Barra lateral Repository settings (Configurações de repositório) com destaque para Collaborators (Colaboradores)](/assets/images/help/repository/user-account-repo-settings-collaborators.png)
+6. Em "Collaborators" (Colaboradores), comece a digitar o nome de usuário do colaborador.
+7. Selecione o nome de usuário do colaborador no menu suspenso. ![Menu suspenso lista Collaborator (Colaborador)](/assets/images/help/repository/repo-settings-collab-autofill.png)
+8. Clique em **Add collaborator** (Adicionar colaborador). ![Botão "Adicionar colaborador"](/assets/images/help/repository/repo-settings-collab-add.png)
 {% endif %}
 {% ifversion fpt or ghec %}
-9. The user will receive an email inviting them to the repository. Once they accept your invitation, they will have collaborator access to your repository.
+9. O usuário receberá um e-mail com o convite para o repositório. Ao aceitar o convite, a pessoa terá acesso de colaborador ao seu repositório.
 {% endif %}
 
-## Further reading
+## Leia mais
 
-- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
-- "[Removing a collaborator from a personal repository](/articles/removing-a-collaborator-from-a-personal-repository)"
-- "[Removing yourself from a collaborator's repository](/articles/removing-yourself-from-a-collaborator-s-repository)"
-- "[Organizing members into teams](/organizations/organizing-members-into-teams)"
+- "[Níveis de permissão para um repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
+- "[Remover um colaborador de um repositório pessoal](/articles/removing-a-collaborator-from-a-personal-repository)"
+- "[Remover a si mesmo de um repositório de colaborador](/articles/removing-yourself-from-a-collaborator-s-repository)"
+- "[Organizar integrantes em equipes](/organizations/organizing-members-into-teams)"

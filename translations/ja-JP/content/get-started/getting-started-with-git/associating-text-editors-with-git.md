@@ -1,6 +1,6 @@
 ---
-title: Associating text editors with Git
-intro: Use a text editor to open and edit your files with Git.
+title: Git とのテキストエディタの関連付け
+intro: テキストエディタを使って Git でファイルを開いたり編集したりしてください。
 redirect_from:
   - /textmate
   - /articles/using-textmate-as-your-default-editor
@@ -16,41 +16,42 @@ versions:
   ghec: '*'
 shortTitle: Associate text editors
 ---
+
 {% mac %}
 
-## Using Atom as your editor
+## エディタとして Atom を使う
 
-1. Install [Atom](https://atom.io/). For more information, see "[Installing Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" in the Atom documentation.
+1. [Atom](https://atom.io/)をインストールします。 詳しい情報については、Atomのドキュメンテーションの「[Atomのインストール](https://flight-manual.atom.io/getting-started/sections/installing-atom/)」を参照してください。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using Visual Studio Code as your editor
+## エディタとして Visual Studio Code を使う
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/) (VS Code). For more information, see "[Setting up Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" in the VS Code documentation.
+1. [Visual Studio Code](https://code.visualstudio.com/) (VS Code) をインストールします。 詳細は、VS Code のドキュメンテーションで「[Visual Studio Code の設定](https://code.visualstudio.com/Docs/setup/setup-overview)」を参照してください。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "code --wait"
  ```
 
-## Using Sublime Text as your editor
+## エディタとして Sublime Text を使う
 
-1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
+1. [Sublime Text](https://www.sublimetext.com/) をインストールします。 詳細は、Sublime Text のドキュメンテーションの「[インストール](https://docs.sublimetext.io/guide/getting-started/installation.html)」を参照してください。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "subl -n -w"
   ```
 
-## Using TextMate as your editor
+## エディタとして TextMate を使う
 
-1. Install [TextMate](https://macromates.com/).
-2. Install TextMate's `mate` shell utility. For more information, see "[mate and rmate](https://macromates.com/blog/2011/mate-and-rmate/)" in the TextMate documentation.
+1. [TextMate](https://macromates.com/) をインストールします。
+2. TextMate の `mate` のシェルユーティリティをインストールします。 詳細は、TextMate のドキュメンテーションで「[mate と rmate](https://macromates.com/blog/2011/mate-and-rmate/)」を参照してください。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-4. Type this command:
+4. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "mate -w"
   ```
@@ -58,38 +59,38 @@ shortTitle: Associate text editors
 
 {% windows %}
 
-## Using Atom as your editor
+## エディタとして Atom を使う
 
-1. Install [Atom](https://atom.io/). For more information, see "[Installing Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" in the Atom documentation.
+1. [Atom](https://atom.io/)をインストールします。 詳しい情報については、Atomのドキュメンテーションの「[Atomのインストール](https://flight-manual.atom.io/getting-started/sections/installing-atom/)」を参照してください。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using Visual Studio Code as your editor
+## エディタとして Visual Studio Code を使う
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/) (VS Code). For more information, see "[Setting up Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" in the VS Code documentation.
+1. [Visual Studio Code](https://code.visualstudio.com/) (VS Code) をインストールします。 詳細は、VS Code のドキュメンテーションで「[Visual Studio Code の設定](https://code.visualstudio.com/Docs/setup/setup-overview)」を参照してください。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "code --wait"
  ```
 
-## Using Sublime Text as your editor
+## エディタとして Sublime Text を使う
 
-1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
+1. [Sublime Text](https://www.sublimetext.com/) をインストールします。 詳細は、Sublime Text のドキュメンテーションの「[インストール](https://docs.sublimetext.io/guide/getting-started/installation.html)」を参照してください。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe' -w"
   ```
 
-## Using Notepad++ as your editor
+## エディタとして Notepad++ を使う
 
-1. Install Notepad++ from https://notepad-plus-plus.org/. For more information, see "[Getting started](https://npp-user-manual.org/docs/getting-started/)" in the Notepad++ documentation.
+1. https://notepad-plus-plus.org/ から Notepad++ をインストールします。 詳細は、Notepad++ のドキュメンテーションで「[Getting started](https://npp-user-manual.org/docs/getting-started/)」を参照してください。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
   ```
@@ -97,29 +98,29 @@ shortTitle: Associate text editors
 
 {% linux %}
 
-## Using Atom as your editor
+## エディタとして Atom を使う
 
-1. Install [Atom](https://atom.io/). For more information, see "[Installing Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" in the Atom documentation.
+1. [Atom](https://atom.io/)をインストールします。 詳しい情報については、Atomのドキュメンテーションの「[Atomのインストール](https://flight-manual.atom.io/getting-started/sections/installing-atom/)」を参照してください。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using Visual Studio Code as your editor
+## エディタとして Visual Studio Code を使う
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/) (VS Code). For more information, see "[Setting up Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" in the VS Code documentation.
+1. [Visual Studio Code](https://code.visualstudio.com/) (VS Code) をインストールします。 詳細は、VS Code のドキュメンテーションで「[Visual Studio Code の設定](https://code.visualstudio.com/Docs/setup/setup-overview)」を参照してください。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "code --wait"
  ```
 
-## Using Sublime Text as your editor
+## エディタとして Sublime Text を使う
 
-1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
+1. [Sublime Text](https://www.sublimetext.com/) をインストールします。 詳細は、Sublime Text のドキュメンテーションの「[インストール](https://docs.sublimetext.io/guide/getting-started/installation.html)」を参照してください。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "subl -n -w"
   ```

@@ -1,6 +1,6 @@
 ---
-title: Working with advanced formatting
-intro: 'Formatting like tables, syntax highlighting, and automatic linking allows you to arrange complex information clearly in your pull requests, issues, and comments.'
+title: 高度なフォーマットを使用して作業する
+intro: テーブルのようなフォーマット、構文の強調表示、および自動リンキングを使用すると、プルリクエスト、Issue、およびコメントに複雑な情報を明確に配置できます。
 redirect_from:
   - /articles/working-with-advanced-formatting
 versions:

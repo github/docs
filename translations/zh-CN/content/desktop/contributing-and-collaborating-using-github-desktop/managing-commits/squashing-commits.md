@@ -16,7 +16,7 @@ versions:
 {% data reusables.desktop.current-branch-menu %}
 2. 在分支列表中，选择包含您要压缩的提交的分支。
 {% data reusables.desktop.history-tab %}
-4. 选择要压缩的提交，并将其放到要合并的提交上。 您可以选择一个提交，也可以使用 <kbd>⌘</kbd> 或 <kbd>Shift</kbd> 选择多个提交。 ![压缩拖放](/assets/images/help/desktop/squash-drag-and-drop.png)
+4. 选择要压缩的提交，并将其放到要合并的提交上。 You can select one commit or select multiple commits using <kbd>Command</kbd> or <kbd>Shift</kbd>. ![压缩拖放](/assets/images/help/desktop/squash-drag-and-drop.png)
 5. 修改新提交的提交消息。 您想要压缩的所选提交消息将预填入 **Summary（摘要）** 和 **Description<（说明）**字段。
 6. 单击 **Squash Commits（压缩提交）**。
 

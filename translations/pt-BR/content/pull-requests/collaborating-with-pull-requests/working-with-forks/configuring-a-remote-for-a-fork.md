@@ -1,6 +1,6 @@
 ---
-title: Configuring a remote for a fork
-intro: 'You must configure a remote that points to the upstream repository in Git to [sync changes you make in a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) with the original repository. This also allows you to sync changes made in the original repository with the fork.'
+title: Configurar remote para bifurcação
+intro: 'Você deve configurar um controle remoto que aponte para o repositório upstream no Git para [sincronizar alterações que você fizer em uma bifurcação](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) com o repositório original. Isso também permite sincronizar alterações feitas no repositório original com a bifurcação.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/configuring-a-remote-for-a-fork
   - /articles/configuring-a-remote-for-a-fork
@@ -13,20 +13,21 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Configure a remote
+shortTitle: Configure um controle remoto
 ---
+
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. List the current configured remote repository for your fork.
+2. Liste o repositório remote configurado no momento para sua bifurcação.
   ```shell
   $ git remote -v
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
-3. Specify a new remote *upstream* repository that will be synced with the fork.
+3. Especifique um novo repositório *upstream* remote que será sincronizado com a bifurcação.
   ```shell
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git
   ```
-4. Verify the new upstream repository you've specified for your fork.
+4. Verifique o novo repositório upstream especificado para a bifurcação.
   ```shell
   $ git remote -v
   > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)

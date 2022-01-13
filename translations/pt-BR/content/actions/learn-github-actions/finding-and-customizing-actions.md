@@ -1,7 +1,7 @@
 ---
-title: Finding and customizing actions
-shortTitle: Finding and customizing actions
-intro: 'Actions are the building blocks that power your workflow. A workflow can contain actions created by the community, or you can create your own actions directly within your application''s repository. This guide will show you how to discover, use, and customize actions.'
+title: Procurar e personalizar ações
+shortTitle: Procurar e personalizar ações
+intro: 'Ações são os blocos de construção que alimentam seu fluxo de trabalho. Um fluxo de trabalho pode conter ações criadas pela comunidade, ou você pode criar suas próprias ações diretamente no repositório do seu aplicativo. Este guia mostrará como descobrir, usar e personalizar ações.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
   - /actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow
@@ -20,92 +20,89 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Overview
+## Visão Geral
 
-The actions you use in your workflow can be defined in:
+As ações que você usa no seu fluxo de trabalho podem ser definidas em:
 
-- A public repository
-- The same repository where your workflow file references the action
-- A published Docker container image on Docker Hub
+- Um repositório público
+- O mesmo repositório onde o arquivo do fluxo de trabalho faz referência à ação
+- Uma imagem publicada do contêiner Docker no Docker Hub
 
-{% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community.{% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category. {% endif %}
+{% data variables.product.prodname_marketplace %} é um local central para você encontrar ações criadas pela comunidade de {% data variables.product.prodname_dotcom %}. {% ifversion fpt or ghec %}[a página de {% data variables.product.prodname_marketplace %} ](https://github.com/marketplace/actions/) permite filtrar ações por categoria. {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
 {% ifversion fpt or ghec %}
 
-## Browsing Marketplace actions in the workflow editor
+## Navegação nas ações do Marketplace no editor de fluxo de trabalho
 
-You can search and browse actions directly in your repository's workflow editor. From the sidebar, you can search for a specific action, view featured actions, and browse featured categories. You can also view the number of stars an action has received from the {% data variables.product.prodname_dotcom %} community.
+Você pode pesquisar ações diretamente no seu editor do seu fluxo de trabalho do repositório. Na barra lateral, você pode pesquisar uma ação específica, visualizar ações em destaque e pesquisar categorias em destaque. Você também pode visualizar o número de estrelas que uma ação recebeu da comunidade {% data variables.product.prodname_dotcom %}.
 
-1. In your repository, browse to the workflow file you want to edit.
-1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="The edit icon" %}.
-   ![Edit workflow file button](/assets/images/help/repository/actions-edit-workflow-file.png)
-1. To the right of the editor, use the {% data variables.product.prodname_marketplace %} sidebar to browse actions. Actions with the {% octicon "verified" aria-label="The verified badge" %} badge indicate {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization.
-   ![Marketplace workflow sidebar](/assets/images/help/repository/actions-marketplace-sidebar.png)
+1. No seu repositório, pesquise o arquivo do fluxo de trabalho que você deseja editar.
+1. No canto superior direito da vista do arquivo, clique em {% octicon "pencil" aria-label="The edit icon" %} para abrir o editor do fluxo de trabalho. ![Edite o botão do arquivo do fluxo de trabalho](/assets/images/help/repository/actions-edit-workflow-file.png)
+1. No lado direito do editor, use a barra lateral {% data variables.product.prodname_marketplace %} para procurar ações. As ações com o selo de {% octicon "verified" aria-label="The verified badge" %} indicam que {% data variables.product.prodname_dotcom %} verificou o criador da ação como uma organização parceira. ![Barra lateral do fluxo de trabalho do Marketplace](/assets/images/help/repository/actions-marketplace-sidebar.png)
 
-## Adding an action to your workflow
+## Adicionar uma ação ao seu fluxo de trabalho
 
-An action's listing page includes the action's version and the workflow syntax required to use the action. To keep your workflow stable even when updates are made to an action, you can reference the version of the action to use by specifying the Git or Docker tag number in your workflow file.
+Uma página de lista de ações incluem a versão da ação e a sintaxe do fluxo de trabalho necessárias para usar a ação. Para manter seu fluxo de trabalho estável mesmo quando atualizações são feitas em uma ação, você pode fazer referência à versão da ação a ser usada especificando o Git ou da tag do Docker no arquivo de fluxo de trabalho.
 
-1. Navigate to the action you want to use in your workflow.
-1. Under "Installation", click {% octicon "clippy" aria-label="The edit icon" %} to copy the workflow syntax.
-   ![View action listing](/assets/images/help/repository/actions-sidebar-detailed-view.png)
-1. Paste the syntax as a new step in your workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
-1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[Using inputs and outputs with an action](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
+1. Navegue para a ação que você deseja usar no seu fluxo de trabalho.
+1. Em "Instalação", clique em {% octicon "clippy" aria-label="The edit icon" %} para copiar a sintaxe do fluxo de trabalho. ![Visualizar lista de ação](/assets/images/help/repository/actions-sidebar-detailed-view.png)
+1. Cole a sintaxe como uma nova etapa no seu fluxo de trabalho. Para obter mais informações, consulte a sintaxe "[ para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
+1. Se a ação exigir que você forneça entradas, defina-as no seu fluxo de trabalho. Para obter informações sobre entradas uma ação pode exigir, consulte "[Usar entradas e saídas com uma ação](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)".
 
 {% data reusables.dependabot.version-updates-for-actions %}
 
 {% endif %}
 
-## Using release management for your custom actions
+## Usar o gerenciamento de versões para suas ações personalizadas
 
-The creators of a community action have the option to use tags, branches, or SHA values to manage releases of the action. Similar to any dependency, you should indicate the version of the action you'd like to use based on your comfort with automatically accepting updates to the action.
+Os criadores de uma ação da comunidade têm a opção de usar tags, branches ou valores do SHA para gerenciar as versçoes da ação. Semelhante a qualquer dependência, você deve indicar a versão da ação que gostaria de usar com para o seu conforto para aceitar automaticamente as atualizações da ação.
 
-You will designate the version of the action in your workflow file. Check the action's documentation for information on their approach to release management, and to see which tag, branch, or SHA value to use.
+Você irá designar a versão da ação no seu arquivo de fluxo de trabalho. Verifique a documentação da ação para informações sobre suas abordagens de gerenciamento de versões e para ver qual tag, branch ou valor de SHA usar.
 
 {% note %}
 
-**Note:** We recommend that you use a SHA value when using third-party actions. For more information, see [Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)
+**Observação:** Recomendamos que você use um valor SHA quando estiver usando ações de terceiros. Para obter mais informações, consulte [Enrijecimento de segurança para o GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)
 
 {% endnote %}
 
-### Using tags
+### Usar tags
 
-Tags are useful for letting you decide when to switch between major and minor versions, but these are more ephemeral and can be moved or deleted by the maintainer. This example demonstrates how to target an action that's been tagged as `v1.0.1`:
+As tags são úteis para permitir que você decida quando alternar entre versões maiores e menores, mas estas são mais efêmeras e podem ser movidas ou excluídas pelo mantenedor. Este exemplo demonstra como direcionar uma ação que foi marcada como `v1.0.1`:
 
 ```yaml
 steps:
   - uses: actions/javascript-action@v1.0.1
 ```
 
-### Using SHAs
+### Usar SHAs
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}You must use a commit's full SHA value, and not an abbreviated value. {% endif %}This example targets an action's SHA:
+Se você precisar de uma versão mais confiável, você deverá usar o valor de SHA associado à versão da ação. Os SHAs são imutáveis e, portanto, mais confiáveis que tags ou branches. No entanto, esta abordagem significa que você não receberá automaticamente atualizações de uma ação, incluindo correções de erros importantes e atualizações de segurança. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Você deve usar o valor completo do SHA de um commit e não um valor abreviado. {% endif %}Este exemplo aponta para o SHA de uma ação:
 
 ```yaml
 steps:
   - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
 ```
 
-### Using branches
+### Usar branches
 
-Specifying a target branch for the action means it will always run the version currently on that branch. This approach can create problems if an update to the branch includes breaking changes. This example targets a branch named `@main`:
+Especificar um branch de destino para a ação significa que ele sempre irá executar a versão atualmente nesse branch. Essa abordagem pode criar problemas se uma atualização do branch incluir mudanças significativas. Este exemplo é direcionado a um branch denominado `@main`:
 
 ```yaml
 steps:
   - uses: actions/javascript-action@main
 ```
 
-For more information, see "[Using release management for actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+Para obter mais informações, consulte "[Usar o gerenciamento de versões para ações](/actions/creating-actions/about-actions#using-release-management-for-actions)".
 
-## Using inputs and outputs with an action
+## Usar entradas e saídas com uma ação
 
-An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
+Uma ação geralmente aceita ou exige entradas e gera saídas que você pode usar. Por exemplo, uma ação pode exigir que você especifique um caminho para um arquivo, o nome de uma etiqueta ou outros dados que usará como parte do processamento da ação.
 
-To see the inputs and outputs of an action, check the `action.yml` or `action.yaml` in the root directory of the repository.
+Para ver as entradas e saídas de uma ação, verifique a `action.yml` ou `action.yaml` no diretório-raiz do repositório.
 
-In this example `action.yml`, the `inputs` keyword defines a required input called `file-path`, and includes a default value that will be used if none is specified. The `outputs` keyword defines an output called `results-file`, which tells you where to locate the results.
+Neste exemplo `action.yml`, a palavra-chave `entradas` define uma entrada obrigatória denominada `file-path` e inclui um valor-padrão que será usado, caso nenhum valor seja especificado. A palavra-chave `saídas` define uma saída denominada `results-file`, que diz onde localizar os resultados.
 
 ```yaml
 name: "Example"
@@ -122,56 +119,57 @@ outputs:
 
 {% ifversion ghae %}
 
-## Using the actions included with {% data variables.product.prodname_ghe_managed %}
+## Usar as ações incluídas com {% data variables.product.prodname_ghe_managed %}
+Por padrão, você pode usar a maior parte das
 
-By default, you can use most of the official {% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[Using actions in {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)."
+ações criadas por {% data variables.product.prodname_dotcom %} em {% data variables.product.prodname_ghe_managed %}. Para obter mais informações, consulte "[Usar as ações em {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)".
 {% endif %}
 
-## Referencing an action in the same repository where a workflow file uses the action
+## Referenciando uma ação no mesmo repositório onde um arquivo de fluxo de trabalho usa a ação
 
-If an action is defined in the same repository where your workflow file uses the action, you can reference the action with either the ‌`{owner}/{repo}@{ref}` or `./path/to/dir` syntax in your workflow file.
+Se uma ação for definida no mesmo repositório onde seu arquivo de fluxo de trabalho usa a ação, você pode referenciar a ação com o`{owner}/{repo}@{ref}` ou `./path/to/dir` sintaxe no seu arquivo de fluxo de trabalho.
 
-Example repository file structure:
+Estrutura de arquivos do repositório de exemplo:
 
 ```
-|-- hello-world (repository)
+|-- Hello-world (repositório)
 |   |__ .github
-|       └── workflows
-|           └── my-first-workflow.yml
-|       └── actions
-|           |__ hello-world-action
-|               └── action.yml
+|       fluxos de trabalho └sadessa
+|           └➤➤ my-first-workflow.yml
+|       ações └➤➤
+|           |__ Hello-world-action
+|               └➤➤ ação.yml
 ```
 
-Example workflow file:
+Arquivo de fluxo de trabalho de exemplo:
 
 ```yaml
-jobs:
-  build:
+empregos:
+  construir:
     runs-on: ubuntu-latest
-    steps:
-      # This step checks out a copy of your repository.
-      - uses: actions/checkout@v2
-      # This step references the directory that contains the action.
-      - uses: ./.github/actions/hello-world-action
+    passos:
+      # Esta etapa confere uma cópia do seu repositório.
+      - usa: ações/checkout@v2
+      # Esta etapa faz referência ao diretório que contém a ação.
+      - usa: ./.github/actions/hello-world-action
 ```
 
-The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)"
+O arquivo `action.yml` é usado para fornecer metadados para a ação. Saiba mais sobre o conteúdo deste arquivo em "[Sintaxe de metadados para o GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)"
 
-## Referencing a container on Docker Hub
+## Referenciando um contêiner no Docker Hub
 
-If an action is defined in a published Docker container image on Docker Hub, you must reference the action with the `docker://{image}:{tag}` syntax in your workflow file. To protect your code and data, we strongly recommend you verify the integrity of the Docker container image from Docker Hub before using it in your workflow.
+Se uma ação for definida em uma imagem de contêiner Docker publicada no Docker Hub, você deve fazer referência à ação com o `docker://{image}:{tag}` sintaxe em seu arquivo de fluxo de trabalho. Para proteger seu código e dados, recomendamos fortemente que verifique a integridade da imagem do contêiner Docker do Docker Hub antes de usá-la em seu fluxo de trabalho.
 
 ```yaml
-jobs:
+empregos:
   my_first_job:
-    steps:
-      - name: My first step
-        uses: docker://alpine:3.8
+    passos:
+      - nome: Meu primeiro passo
+        usa: docker://alpine:3.8
 ```
 
-For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[Creating a Docker container action](/articles/creating-a-docker-container-action)."
+Para ver alguns exemplos de ações do Docker, consulte o [Fluxo de trabalho Docker-image.yml](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) e "[Criar uma ação de contêiner do Docker](/articles/creating-a-docker-container-action)."
 
-## Next steps
+## Próximas etapas
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Essential features of {% data variables.product.prodname_actions %}](/actions/learn-github-actions/essential-features-of-github-actions)."
+Para continuar aprendendo mais sobre {% data variables.product.prodname_actions %}, consulte "[Recursos essenciais de {% data variables.product.prodname_actions %}](/actions/learn-github-actions/essential-features-of-github-actions)".

@@ -1,7 +1,7 @@
 ---
-title: Dockerfile support for GitHub Actions
+title: GitHub ActionsのためのDockerfileサポート
 shortTitle: Dockerfile support
-intro: 'When creating a `Dockerfile` for a Docker container action, you should be aware of how some Docker instructions interact with GitHub Actions and an action''s metadata file.'
+intro: Dockerコンテナアクション用の`Dockerfile`を作成する際には、いくつかのDockerの命令がGitHub Actionsやアクションのメタデータファイルとどのように関わるのかを知っておく必要があります。
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
@@ -15,83 +15,83 @@ type: reference
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About Dockerfile instructions
+## Dockerfileの命令について
 
-A `Dockerfile` contains instructions and arguments that define the contents and startup behavior of a Docker container. For more information about the instructions Docker supports, see "[Dockerfile reference](https://docs.docker.com/engine/reference/builder/)" in the Docker documentation.
+`Dockerfile`には、Dockerコンテナの内容と起動時の動作を定義する命令と引数が含まれています。 Dockerがサポートしている命令に関する詳しい情報については、Dockerのドキュメンテーション中の「[Dockerfile のリファレンス](https://docs.docker.com/engine/reference/builder/)」を参照してください。
 
-## Dockerfile instructions and overrides
+## Dockerfileの命令とオーバーライド
 
-Some Docker instructions interact with GitHub Actions, and an action's metadata file can override some Docker instructions. Ensure that you are familiar with how your Dockerfile interacts with {% data variables.product.prodname_actions %} to prevent any unexpected behavior.
+Dockerの命令の中にはGitHub Actionsと関わるものがあり、アクションのメタデータファイルはDockerの命令のいくつかをオーバーライドできます。 予期しない動作を避けるために、Dockerfileが{% data variables.product.prodname_actions %}とどのように関わるかについて馴染んでおいてください。
 
 ### USER
 
-Docker actions must be run by the default Docker user (root). Do not use the `USER` instruction in your `Dockerfile`, because you won't be able to access the `GITHUB_WORKSPACE`. For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and [USER reference](https://docs.docker.com/engine/reference/builder/#user) in the Docker documentation.
+DockerアクションはデフォルトのDockerユーザ（root）で実行されなければなりません。 `GITHUB_WORKSPACE`にアクセスできなくなってしまうので、`Dockerfile`中では`USER`命令を使わないでください。 詳しい情報については、「[環境変数の利用](/actions/configuring-and-managing-workflows/using-environment-variables)」と、Dockerのドキュメンテーション中の[USERのリファレンス](https://docs.docker.com/engine/reference/builder/#user)を参照してください。
 
 ### FROM
 
-The first instruction in the `Dockerfile` must be `FROM`, which selects a Docker base image. For more information, see the [FROM reference](https://docs.docker.com/engine/reference/builder/#from) in the Docker documentation.
+`Dockerfile`ファイル中の最初の命令は`FROM`でなければなりません。これは、Dockerのベースイメージを選択します。 詳しい情報については、Dockerのドキュメンテーション中の[FROMのリファレンス](https://docs.docker.com/engine/reference/builder/#from)を参照してください。
 
-These are some best practices when setting the `FROM` argument:
+`FROM`引数の設定にはいくつかのベストプラクティスがあります。
 
-- It's recommended to use official Docker images. For example, `python` or `ruby`.
-- Use a version tag if it exists, preferably with a major version. For example, use `node:10` instead of `node:latest`.
-- It's recommended to use Docker images based on the [Debian](https://www.debian.org/) operating system.
+- 公式のDockerイメージを使うことをおすすめします。 たとえば`python`や`ruby`です。
+- バージョンタグが存在する場合は使ってください。メジャーバージョンも含めることが望ましいです。 たとえば`node:latest`よりも`node:10`を使ってください。
+- [Debian](https://www.debian.org/)オペレーティングシステムに基づくDockerイメージを使うことをおすすめします。
 
 ### WORKDIR
 
-{% data variables.product.product_name %} sets the working directory path in the `GITHUB_WORKSPACE` environment variable. It's recommended to not use the `WORKDIR` instruction in your `Dockerfile`. Before the action executes, {% data variables.product.product_name %} will mount the `GITHUB_WORKSPACE` directory on top of anything that was at that location in the Docker image and set `GITHUB_WORKSPACE` as the working directory. For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and the [WORKDIR reference](https://docs.docker.com/engine/reference/builder/#workdir) in the Docker documentation.
+{% data variables.product.product_name %}は、ワーキングディレクトリのパスを環境変数の`GITHUB_WORKSPACE`に設定します。 `Dockerfile`中では`WORKDIR`命令を使わないことをおすすめします。 アクションが実行される前に、{% data variables.product.product_name %}は`GITHUB_WORKSPACE`ディレクトリを、Dockerイメージ内にあったその場所になにがあってもその上にマウントし、`GITHUB_WORKSPACE`をワーキングディレクトリとして設定します。 詳しい情報については「[環境変数の利用](/actions/configuring-and-managing-workflows/using-environment-variables)」と、Dockerのドキュメンテーション中の[WORKDIRのリファレンス](https://docs.docker.com/engine/reference/builder/#workdir)を参照してください。
 
 ### ENTRYPOINT
 
-If you define `entrypoint` in an action's metadata file, it will override the `ENTRYPOINT` defined in the `Dockerfile`. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)."
+アクションのメタデータファイル中で`entrypoint`を定義すると、それは`Dockerfile`中で定義された`ENTRYPOINT`をオーバーライドします。 詳しい情報については「[{% data variables.product.prodname_actions %}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)」を参照してください。
 
-The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction. For more information about _exec_ and _shell_ form, see the [ENTRYPOINT reference](https://docs.docker.com/engine/reference/builder/#entrypoint) in the Docker documentation.
+Dockerの`ENTRYPOINT`命令には、_shell_形式と_exec_形式があります。 Dockerの`ENTRYPOINT`のドキュメンテーションは、`ENTRYPOINT`の_exec_形式を使うことを勧めています。 _exec_および_shell_形式に関する詳しい情報については、Dockerのドキュメンテーション中の[ENTRYPOINTのリファレンス](https://docs.docker.com/engine/reference/builder/#entrypoint)を参照してください。
 
-If you configure your container to use the _exec_ form of the `ENTRYPOINT` instruction, the `args` configured in the action's metadata file won't run in a command shell. If the action's `args` contain an environment variable, the variable will not be substituted. For example, using the following _exec_ format will not print the value stored in `$GITHUB_SHA`, but will instead print `"$GITHUB_SHA"`.
+_exec_形式の`ENTRYPOINT`命令を使うようにコンテナを設定した場合、アクションのメタデータファイル中に設定された`args`はコマンドシェル内では実行されません。 アクションの`args`に環境変数が含まれている場合、その変数は置換されません。 たとえば、以下の_exec_形式は`$GITHUB_SHA`に保存された値を出力せず、代わりに`"$GITHUB_SHA"`を出力します。
 
 ```dockerfile
 ENTRYPOINT ["echo $GITHUB_SHA"]
 ```
 
- If you want variable substitution, then either use the _shell_ form or execute a shell directly. For example, using the following _exec_ format, you can execute a shell to print the value stored in the `GITHUB_SHA` environment variable.
+ 変数の置換をさせたい場合は、_shell_形式を使うか、直接シェルを実行してください。 たとえば、以下の_exec_形式を使えば、シェルを実行して環境変数`GITHUB_SHA`に保存された値を出力できます。
 
 ```dockerfile
 ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
 ```
 
- To supply `args` defined in the action's metadata file to a Docker container that uses the _exec_ form in the `ENTRYPOINT`, we recommend creating a shell script called `entrypoint.sh` that you call from the `ENTRYPOINT` instruction:
+ アクションのメタデータファイルに定義された`args`を、`ENTRYPOINT`中で_exec_形式を使うDockerコンテナに渡すには、`ENTRYPOINT`命令から呼ぶ`entrypoint.sh`というシェルスクリプトを作成することをおすすめします。
 
-#### Example *Dockerfile*
+#### *Dockerfile*の例
 
 ```dockerfile
-# Container image that runs your code
+# コードを実行するコンテナイメージ
 FROM debian:9.5-slim
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
+# アクションのリポジトリからコードをコンテナのファイルシステムパス `/` にコピー
 COPY entrypoint.sh /entrypoint.sh
 
-# Executes `entrypoint.sh` when the Docker container starts up
+# Dockerコンテナの起動時に `entrypoint.sh` を実行
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-#### Example *entrypoint.sh* file
+#### *entrypoint.sh*ファイルの例
 
-Using the example Dockerfile above, {% data variables.product.product_name %} will send the `args` configured in the action's metadata file as arguments to `entrypoint.sh`. Add the `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) at the top of the `entrypoint.sh` file to explicitly use the system's [POSIX](https://en.wikipedia.org/wiki/POSIX)-compliant shell.
+上のDockerfileを使って、{% data variables.product.product_name %}はアクションのメタデータファイルに設定された`args`を、`entrypoint.sh`の引数として送ります。 Add the `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) at the top of the `entrypoint.sh` file to explicitly use the system's [POSIX](https://en.wikipedia.org/wiki/POSIX)-compliant shell.
 
 ``` sh
 #!/bin/sh
 
-# `$*` expands the `args` supplied in an `array` individually
-# or splits `args` in a string separated by whitespace.
+# `$*`は`array`内で渡された`args`を個別に展開するか、
+# 空白で区切られた文字列中の`args`を分割します。
 sh -c "echo $*"
 ```
 
-Your code must be executable. Make sure the `entrypoint.sh` file has `execute` permissions before using it in a workflow. You can modify the permission from your terminal using this command:
+コードは実行可能になっていなければなりません。 `entrypoint.sh`ファイルをワークフロー中で使う前に、`execute`権限が付けられていることを確認してください。 この権限は、ターミナルから以下のコマンドで変更できます。
   ``` sh
   chmod +x entrypoint.sh
   ```
 
-When an `ENTRYPOINT` shell script is not executable, you'll receive an error similar to this:
+`ENTRYPOINT`シェルスクリプトが実行可能ではなかった場合、以下のようなエラーが返されます。
 
 ``` sh
 Error response from daemon: OCI runtime create failed: container_linux.go:348: starting container process caused "exec: \"/entrypoint.sh\": permission denied": unknown
@@ -99,12 +99,12 @@ Error response from daemon: OCI runtime create failed: container_linux.go:348: s
 
 ### CMD
 
-If you define `args` in the action's metadata file, `args` will override the `CMD` instruction specified in the `Dockerfile`. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)".
+アクションのメタデータファイル中で`args`を定義すると、`args`は`Dockerfile`中で指定された`CMD`命令をオーバーライドします。 詳しい情報については「[{% data variables.product.prodname_actions %}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)」を参照してください。
 
-If you use `CMD` in your `Dockerfile`, follow these guidelines:
+`Dockerfile`中で`CMD`を使っているなら、以下のガイドラインに従ってください。
 
 {% data reusables.github-actions.dockerfile-guidelines %}
 
-## Supported Linux capabilities
+## サポートされているLinuxの機能
 
-{% data variables.product.prodname_actions %} supports the default Linux capabilities that Docker supports. Capabilities can't be added or removed. For more information about the default Linux capabilities that Docker supports, see "[Runtime privilege and Linux capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)" in the Docker documentation. To learn more about Linux capabilities, see "[Overview of Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)" in the Linux man-pages.
+{% data variables.product.prodname_actions %}は、DockerがサポートするデフォルトのLinuxの機能をサポートします。 機能の追加や削除はできません。 DockerがサポートするデフォルトのLinuxの機能に関する詳しい情報については、Dockerのドキュメンテーション中の「[ Runtime privilege and Linux capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)」を参照してください。 Linuxの機能についてさらに学ぶには、Linuxのman-pageの"[ Overview of Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)"を参照してください。
