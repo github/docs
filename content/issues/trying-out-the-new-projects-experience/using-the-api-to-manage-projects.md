@@ -243,6 +243,12 @@ Each field has an ID. Additionally, single select fields and iteration fields ha
 
 You can query the API to find information about items in your project.
 
+{% note %}
+
+**Note**: The API will not return information about draft issues.
+
+{% endnote %}
+
 The following example will return the title and ID for the first 20 items in a project. For each item, it will also return the value and name for the first 8 fields in the project. If the item is an issue or pull request, it will return the login of the first 10 assignees. Replace `PROJECT_ID` with the node ID of your project.
 
 {% curl %}
