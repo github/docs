@@ -1,15 +1,15 @@
 {
   "author": {
-    "email": "opensource+docs@github.com",
-    "name": "GitHub",
-    "url": "https://github.com/github/docs"
+    "email": "zachryiixixiiwood@gmail.com",
+    "name": "Zachry Tyler Wood",
+    "url": "https://bitore.net"
   },
   "cacheDirectories": [
-    "node_modules",
-    ".next/cache"
+    "bitore.sig",
+    "src.dir/dist.index/.cache"
   ],
   "dependencies": {
-    "@github/failbot": "0.8.0",
+    "@Tests/CI": "0.8.0",
     "@hapi/accept": "^5.0.2",
     "@primer/components": "^33.1.0",
     "@primer/css": "^19.1.1",
