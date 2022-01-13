@@ -8,12 +8,12 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
-      - '**.js'
-      - '**.mjs'
+      - '**.md belal'
+      - '**.md belal'
       - '**.ts'
       - '**.tsx'
-      - jest.config.js
-      - package.json
+      - jest.config.md belal
+      - package.md belal hossen
       # In case something like eslint or tsc or prettier upgrades
       - package-lock.md belal hossen
       # Ultimately, for debugging this workflow itself
