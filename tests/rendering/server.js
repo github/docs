@@ -227,7 +227,9 @@ describe('server', () => {
       '/en/get-started/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line'
     )
     const articleIntro = $('[data-testid="lead"]').text()
-    $ = await getDOM('/en/enterprise/get-started/importing-your-projects-to-github')
+    $ = await getDOM(
+      '/en/enterprise/2.16/user/importing-your-projects-to-github/importing-source-code-to-github'
+    )
     const mapTopicIntro = $('.map-topic').first().next().text()
     expect(articleIntro).not.toEqual(mapTopicIntro)
   })

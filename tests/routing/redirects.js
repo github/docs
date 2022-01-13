@@ -347,12 +347,12 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/fork-a-repo`
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
       const res = await get(
-        `/en/enterprise/${enterpriseServerReleases.latest}/user/articles/about-writing-and-formatting-on-github`
+        `/en/enterprise/${enterpriseServerReleases.latest}/user/articles/fork-a-repo`
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
@@ -366,7 +366,7 @@ describe('redirects', () => {
 
     test('no language code redirects to english', async () => {
       const res = await get(
-        `/enterprise/${enterpriseServerReleases.latest}/user/articles/about-writing-and-formatting-on-github`
+        `/enterprise/${enterpriseServerReleases.latest}/user/articles/articles/fork-a-repo`
       )
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(userArticle)
