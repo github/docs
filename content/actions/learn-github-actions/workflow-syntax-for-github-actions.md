@@ -35,74 +35,149 @@ The name of your workflow. {% data variables.product.prodname_dotcom %} displays
 
 ## `on.<event_name>.types`
 
-Selects the types of activity that will trigger a workflow run. Most GitHub events are triggered by more than one type of activity.  For example, the event for the release resource is triggered when a release is `published`, `unpublished`, `created`, `edited`, `deleted`, or `prereleased`. The `types` keyword enables you to narrow down activity that causes the workflow to run. When only one activity type triggers a webhook event, the `types` keyword is unnecessary.
+Selects the types of activity that will trigger a workflow run. Most GitHub events are triggered by more than one type of activity.  For example, the `label` is triggered when a label is `created`, `edited`, or `deleted`. The `types` keyword enables you to narrow down activity that causes the workflow to run. When only one activity type triggers a webhook event, the `types` keyword is unnecessary.
 
 You can use an array of event `types`. For more information about each event and their activity types, see "[Events that trigger workflows](/articles/events-that-trigger-workflows#webhook-events)."
 
 ```yaml
-# Trigger the workflow on release activity
 on:
-  release:
-    # Only use the types keyword to narrow down the activity types that will trigger your workflow.
-    types: [published, created, edited]
+  label:
+    types: [created, edited]
 ```
 
-## `on.<push|pull_request>.<branches|tags>`
+## `on.<pull_request|pull_request_target>.<branches|branches-ignore>`
 
-When using the `push` and `pull_request` events, you can configure a workflow to run on specific branches or tags. For a `pull_request` event, only branches and tags on the base are evaluated. If you define only `tags` or only `branches`, the workflow won't run for events affecting the undefined Git ref.
+When using the `pull_request` and `pull_request_target` events, you can configure a workflow to run only for pull requests that target specific branches.
+
+Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow.
+
+If you define both `branches`/`branches-ignore` and [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
+
+The `branches` and `branches-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to escape each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+
+### Example: Including branches
+
+The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event for a pull request targeting:
+
+- A branch named `main` (`refs/heads/main`)
+- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+- A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
+
+```yaml
+on:
+  pull_request:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - main
+      - 'mona/octocat'
+      - 'releases/**'
+```
+
+### Example: Excluding branches
+
+When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event unless the pull request is targeting:
+
+- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+- A branch whose name matches `releases/**-alpha`, like `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+
+```yaml
+on:
+  pull_request:
+    # Sequence of patterns matched against refs/heads
+    branches-ignore:    
+      - 'mona/octocat'
+      - 'releases/**-alpha'
+```
+
+### Example: Including and excluding branches
+
+You cannot use `branches` and `branches-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+
+If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead.
+
+The order that you define patterns matters.
+
+- A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
+- A matching positive pattern after a negative match will include the Git ref again.
+
+The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
+
+```yaml
+on:
+  pull_request:
+    branches:    
+      - 'releases/**'
+      - '!releases/**-alpha'
+```
+
+## `on.<push>.<branches|tags|branches-ignore|tags-ignore>`
+
+When using the `push` event, you can configure a workflow to run on specific branches or tags.
+
+Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow.
+
+Use the `tags` filter when you want to include tag name patterns or when you want to both include and exclude tag names patterns. Use the `tags-ignore` filter when you only want to exclude tag name patterns. You cannot use both the `tags` and `tags-ignore` filters for the same event in a workflow.
+
+If you define only `tags`/`tag-ignore` or only `branches`/`branches-ignore`, the workflow won't run for events affecting the undefined Git ref. If you define neither  `tags`/`tag-ignore` or `branches`/`branches-ignore`, the workflow will run for events affecting either branches or tags. If you define both `branches`/`branches-ignore` and [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
 
 The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch or tag name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
 ### Example: Including branches and tags
 
-The patterns defined in `branches` and `tags` are evaluated against the Git ref's name. For example, defining the pattern `mona/octocat` in `branches` will match the `refs/heads/mona/octocat` Git ref. The pattern `releases/**` will match the `refs/heads/releases/10` Git ref.
+The patterns defined in `branches` and `tags` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `push` event to:
+
+- A branch named `main` (`refs/heads/main`)
+- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+- A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
+- A tag named `v2` (`refs/tags/v2`)
+- A tag whose name starts with `v1.`, like `v1.9.1` (`refs/tags/v1.9.1`)
 
 ```yaml
 on:
   push:
     # Sequence of patterns matched against refs/heads
-    branches:
-      # Push events on main branch
+    branches:    
       - main
-      # Push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # Push events to branches matching refs/heads/releases/10
       - 'releases/**'
     # Sequence of patterns matched against refs/tags
-    tags:
-      - v1             # Push events to v1 tag
-      - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
+    tags:        
+      - v2
+      - v1.*
 ```
 
-### Example: Ignoring branches and tags
+### Example: Excluding branches and tags
 
-Anytime a pattern matches the `branches-ignore` or `tags-ignore` pattern, the workflow will not run. The patterns defined in `branches-ignore` and `tags-ignore` are evaluated against the Git ref's name. For example, defining the pattern `mona/octocat` in `branches` will match the `refs/heads/mona/octocat` Git ref. The pattern `releases/**-alpha` in `branches` will match the `refs/releases/beta/3-alpha` Git ref.
+When a pattern matches the `branches-ignore` or `tags-ignore` pattern, the workflow will not run. The patterns defined in `branches` and `tags` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `push` event, unless the `push` event is to:
+
+- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+- A branch whose name matches `releases/**-alpha`, like `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- A tag named `v2` (`refs/tags/v2`)
+- A tag whose name starts with `v1.`, like `v1.9` (`refs/tags/v1.9`)
 
 ```yaml
 on:
   push:
     # Sequence of patterns matched against refs/heads
-    branches-ignore:
-      # Do not push events to branches matching refs/heads/mona/octocat
+    branches-ignore:    
       - 'mona/octocat'
-      # Do not push events to branches matching refs/heads/releases/beta/3-alpha
       - 'releases/**-alpha'
     # Sequence of patterns matched against refs/tags
-    tags-ignore:
-      - v1.*           # Do not push events to tags v1.0, v1.1, and v1.9
+    tags-ignore:        
+      - v2
+      - v1.*
 ```
 
-### Excluding branches and tags
+### Example: Including and excluding branches and tags
 
-You can use two types of filters to prevent a workflow from running on pushes and pull requests to tags and branches.
-- `branches` or `branches-ignore` - You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow. Use the `branches` filter when you need to filter branches for positive matches and exclude branches. Use the `branches-ignore` filter when you only need to exclude branch names.
-- `tags` or `tags-ignore` - You cannot use both the `tags` and `tags-ignore` filters for the same event in a workflow. Use the `tags` filter when you need to filter tags for positive matches and exclude tags. Use the `tags-ignore` filter when you only need to exclude tag names.
+You can't use `branches` and `branches-ignore` to filter the same event in a single workflow. Similarly, you can't use `tags` and `tags-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch or tag patterns for a single event, use the `branches` or `tags` filter along with the `!` character to indicate which branches or tags should be excluded.
 
-### Example: Using positive and negative patterns
+If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead. Similarly, if you define a tag with the `!` character, you must also define at least one tag without the `!` character. If you only want to exclude tags, use `tags-ignore` instead.
 
-You can exclude `tags` and `branches` using the `!` character. The order that you define patterns matters.
-  - A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
-  - A matching positive pattern after a negative match will include the Git ref again.
+The order that you define patterns matters.
+
+- A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
+- A matching positive pattern after a negative match will include the Git ref again.
 
 The following workflow will run on pushes to `releases/10` or `releases/beta/mona`, but not on `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
 
@@ -114,26 +189,19 @@ on:
       - '!releases/**-alpha'
 ```
 
-## `on.<push|pull_request>.paths`
+## `on.<push|pull_request|pull_request_target>.<paths|paths-ignore>`
 
-When using the `push` and `pull_request` events, you can configure a workflow to run when at least one file does not match `paths-ignore` or at least one modified file matches the configured `paths`. Path filters are not evaluated for pushes to tags.
+When using the `push` and `pull_request` events, you can configure a workflow to run based on what file paths are changed. Path filters are not evaluated for pushes of tags.
 
-The `paths-ignore` and `paths` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+Use the `paths` filter when you want to include file path patterns or when you want to both include and exclude file path patterns. Use the `paths-ignore` filter when you only want to exclude file path patterns. You cannot use both the `paths` and `paths-ignore` filters for the same event in a workflow.
 
-### Example: Ignoring paths
+If you define both `branches`/`branches-ignore` and `paths`, the workflow will only run when both filters are satisfied.
 
-When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} evaluates patterns defined in `paths-ignore` against the path name. A workflow with the following path filter will only run on `push` events that include at least one file outside the `docs` directory at the root of the repository.
-
-```yaml
-on:
-  push:
-    paths-ignore:
-      - 'docs/**'
-```
+The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
 ### Example: Including paths
 
-If at least one path matches a pattern in the `paths` filter, the workflow runs. To trigger a build anytime you push a JavaScript file, you can use a wildcard pattern.
+If at least one path matches a pattern in the `paths` filter, the workflow runs. For example, the following workflow would run anytime you push a JavaScript file (`.js`).
 
 ```yaml
 on:
@@ -142,17 +210,29 @@ on:
       - '**.js'
 ```
 
-### Excluding paths
+### Example: Excluding paths
 
-You can exclude paths using two types of filters. You cannot use both of these filters for the same event in a workflow.
-- `paths-ignore` - Use the `paths-ignore` filter when you only need to exclude path names.
-- `paths` - Use the `paths` filter when you need to filter paths for positive matches and exclude paths.
+When all the path names match patterns in `paths-ignore`, the workflow will not run. If any path names do not match patterns in `paths-ignore`, even if some path names match the patterns, the workflow will run.
 
-### Example: Using positive and negative patterns
+A workflow with the following path filter will only run on `push` events that include at least one file outside the `docs` directory at the root of the repository.
 
-You can exclude `paths` using the `!` character. The order that you define patterns matters:
-  - A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
-  - A matching positive pattern after a negative match will include the path again.
+```yaml
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+```
+
+### Example: Including and excluding paths
+
+You can not use `paths` and `paths-ignore` to filter the same event in a single workflow. If you want to both include and exclude path patterns for a single event, use the `paths` filter along with the `!` character to indicate which paths should be excluded.
+
+If you define a path with the `!` character, you must also define at least one path without the `!` character. If you only want to exclude paths, use `paths-ignore` instead.
+
+The order that you define patterns matters:
+
+- A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
+- A matching positive pattern after a negative match will include the path again.
 
 This example runs anytime the `push` event includes a file in the `sub-project` directory or its subdirectories, unless the file is in the `sub-project/docs` directory. For example, a push that changed `sub-project/index.js` or `sub-project/src/index.js` will trigger a workflow run, but a push changing only `sub-project/docs/readme.md` will not.
 
@@ -289,6 +369,53 @@ A string identifier to associate with the secret.
 
 A boolean specifying whether the secret must be supplied.
 {% endif %}
+
+## `on.workflow_run.<branches|branches-ignore>`
+
+When using the `workflow_run` event, you can specify what branches the triggering workflow must run on in order to trigger your workflow.
+
+The `branches` and `branches-ignore` filters accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+
+For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch whose name starts with `releases/`:
+
+```yaml
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [requested]
+    branches:
+      - 'releases/**'
+```
+
+A workflow with the following trigger will only run when the workflow named `Build` runs on a branch that is not named `canary`:
+
+```yaml
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [requested]
+    branches-ignore:
+      - "canary"
+```
+
+You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+
+The order that you define patterns matters.
+
+- A matching negative pattern (prefixed with `!`) after a positive match will exclude the branch.
+- A matching positive pattern after a negative match will include the branch again.
+
+For example, a workflow with the following trigger will run when the workflow named `Build` runs on a branch that is named `releases/10` or `releases/beta/mona` but will not `releases/10-alpha`, `releases/beta/3-alpha`, or `main`.
+
+```yaml
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [requested]
+    branches:
+      - 'releases/**'
+      - '!releases/**-alpha'
+```
 
 ## `on.workflow_dispatch.inputs`
 
@@ -1541,7 +1668,7 @@ The characters `*`, `[`, and `!` are special characters in YAML. If you start a 
 - **/README.md
 ```
 
-For more information about branch, tag, and path filter syntax, see "[`on.<push|pull_request>.<branches|tags>`](#onpushpull_requestbranchestags)" and "[`on.<push|pull_request>.paths`](#onpushpull_requestpaths)."
+For more information about branch, tag, and path filter syntax, see "[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)", "[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)", and "[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)."
 
 ### Patterns to match branches and tags
 
