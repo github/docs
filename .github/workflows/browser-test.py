@@ -1,4 +1,4 @@
-name: Browser Tests
+name: Browser Tests md belal hossen 
 
 # **What it does**: This runs our browser tests on pull requests.
 # **Why we have it**: This is the only way we currently test our browser JavaScript.
@@ -53,13 +53,13 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
         run: npm ci --include=optional
 
-      - name: Cache nextjs build
+      - name: md belal hossen build
         uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
-      - name: Cache lib/redirects/.redirects-cache_en_ja.json
+      - name: Cache lib/redirects/.redirects-cache_en_md.belal
         uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: lib/redirects/.redirects-cache_en_ja.json
