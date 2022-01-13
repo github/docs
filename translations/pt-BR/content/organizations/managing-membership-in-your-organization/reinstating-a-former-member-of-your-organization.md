@@ -1,6 +1,6 @@
 ---
-title: Reinstating a former member of your organization
-intro: 'Organization owners can {% ifversion fpt or ghec %}invite former organization members to rejoin{% else %}add former members to{% endif%} your organization, and choose whether to restore the person''s former role, access permissions, forks, and settings.'
+title: Restabelecer ex-integrantes da organização
+intro: 'Os proprietários da organização podem {% ifversion fpt or ghec %}convidar ex-integrantes da organização a voltar a juntar-se{% else %}e adicionar ex-integrantes {% endif%} à sua organização e escolher se deseja restaurar a função anterior, as permissões de acesso, as bifurcações e as configurações dessa pessoa.'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/reinstating-a-former-member-of-your-organization
@@ -13,33 +13,33 @@ permissions: Organization owners can reinstate a former member of an organizatio
 topics:
   - Organizations
   - Teams
-shortTitle: Reinstate a member
+shortTitle: Restabelecer um integrante
 ---
 
-## About member reinstatement
+## Sobre a reintegração de integrantes
 
-If you [remove a user from your organization](/articles/removing-a-member-from-your-organization){% ifversion ghae %} or{% else %},{% endif %} [convert an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator){% ifversion not ghae %}, or a user is removed from your organization because you've [required members and outside collaborators to enable two-factor authentication (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+Se você [remover um usuário da sua organização](/articles/removing-a-member-from-your-organization){% ifversion ghae %} ou{% else %},{% endif %} [converter um integrante da organização em um colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator){% ifversion not ghae %}, ou um usuário foi removido da sua organização porque você [pediu aos integrantes e colaboradores externos para habilitar a autenticação de dois fatores (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, os privilégios e configurações do usuário ficarão salvos por três meses. Você poderá restaurar os privilégios do usuário se {% ifversion fpt or ghec %}convidá-lo{% else %}adicioná-lo{% endif %} novamente na organização durante esse período.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
-When you reinstate a former organization member, you can restore:
- - The user's role in the organization
- - Any private forks of repositories owned by the organization
- - Membership in the organization's teams
- - Previous access and permissions for the organization's repositories
- - Stars for organization repositories
- - Issue assignments in the organization
- - Repository subscriptions (notification settings for watching, not watching, or ignoring a repository's activity)
+Ao restabelecer um ex-integrante da organização, você pode restaurar:
+ - A função do usuário na organização
+ - As bifurcações privadas de repositórios de propriedade da organização
+ - A associação nas equipes da organização
+ - Os acessos e permissões anteriores nos repositórios da organização
+ - As estrelas dos repositórios da organização
+ - As atribuições de problemas na organização
+ - As assinaturas do repositório (configurações de notificação para inspecionar, não inspecionar ou ignorar as atividades de um repositório)
 
 {% ifversion ghes %}
-If an organization member was removed from the organization because they did not use two-factor authentication and your organization still requires members to use 2FA, the former member must enable two-factor authentication before you can reinstate their membership.
+Se um integrante foi removido da organização por não usar a autenticação de dois fatores e a organização ainda exigir essa autenticação, o ex-integrante precisará habilitar a autenticação de dois fatores antes de você restabelecer a associação.
 {% endif %}
 
 {% ifversion fpt or ghec %}
-If your organization has a paid per-user subscription, an unused license must be available before you can reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-scim %}
+Se a sua organização tem uma assinatura paga por usuário, uma licença não utilizada deve estar disponível antes de você poder restabelecer um antigo integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-scim %}
 {% endif %}
 
-## Reinstating a former member of your organization
+## Restabelecer ex-integrantes da organização
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -47,23 +47,19 @@ If your organization has a paid per-user subscription, an unused license must be
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}
 {% ifversion fpt or ghec %}
-6. Choose whether to restore that person's previous privileges in the organization or clear their previous privileges and set new access permissions, then click **Invite and reinstate** or **Invite and start fresh**.
-  ![Choose to restore info or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
+6. Escolha se deseja restaurar os privilégios anteriores da pessoa na organização ou apagar os privilégios anteriores e definir novas permissões de acesso, depois clique em **Invite and reinstate** (Convidar e restabelecer) ou em **Invite and start fresh** (Convidar e começar do zero). ![Escolher restaurar as informações ou não](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
 {% else %}
-6. Choose whether to restore that person's previous privileges in the organization or clear their previous privileges and set new access permissions, then click **Add and reinstate** or **Add and start fresh**.
-  ![Choose whether to restore privileges](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
+6. Escolha se deseja restaurar os privilégios anteriores da pessoa na organização ou apagar os privilégios anteriores e definir novas permissões de acesso, depois clique em **Add and reinstate** (Adicionar e restabelecer) ou em **Add and start fresh** (Adicionar e começar do zero). ![Escolher se deseja restaurar os privilégios](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
 {% endif %}
 {% ifversion fpt or ghec %}
-7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Send invitation**.
-  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png)
+7. Se você apagou os privilégios anteriores de um ex-integrante da organização, escolha uma função para o usuário e adicione-o em algumas equipes (opcional), depois clique em **Send invitation** (Enviar convite). ![Opções Role and team (Função e equipe) e botão send invitation (enviar convite)](/assets/images/help/organizations/add-role-send-invitation.png)
 {% else %}
-7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Add member**.
-  ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png)
+7. Se você apagou os privilégios anteriores de um ex-integrante da organização, escolha uma função para o usuário e adicione-o em algumas equipes (opcional), depois clique em **Add member** (Adicionar integrante). ![Opções Role and team (Função e equipe) e botão add member (adicionar integrante)](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% ifversion fpt or ghec %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
-## Further reading
+## Leia mais
 
-- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
+- "[Converter um integrante da organização em colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator)"

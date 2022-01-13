@@ -1,6 +1,6 @@
 ---
-title: Attaching files
-intro: You can convey information by attaching a variety of file types to your issues and pull requests.
+title: Anexando arquivos
+intro: Você pode transmitir informações anexando vários tipos de arquivo aos seus problemas e pull requests.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/file-attachments-on-issues-and-pull-requests
   - /articles/issue-attachments
@@ -17,44 +17,44 @@ topics:
 
 {% warning %}
 
-**Warning:** If you add an image{% ifversion fpt or ghes > 3.1 or ghae or ghec %} or video{% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+**Aviso:** Se você adicionar uma imagem{% ifversion fpt or ghes > 3.1 or ghae or ghec %} ou vídeo{% endif %} a um comentário de pull request ou problema, qualquer um poderá ver a URL anônima sem autenticação, mesmo se o pull request estiver em um repositório privado{% ifversion ghes %} ou se o modo privado estiver habilitado{% endif %}. Para manter arquivos de mídia confidenciais privados, forneça-os a partir de uma rede privada ou servidor que exige autenticação. {% ifversion fpt or ghec %}Para mais informações sobre URLs anônimas, consulte "[Sobre URLs anônimas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
+Para anexar um arquivo a uma conversa sobre um problema ou pull request, arraste-o e solte-o dentro da caixa de comentários. Como alternativa, você pode clicar na barra na parte inferior da caixa de comentários para navegar, selecionar e adicionar um arquivo do seu computador.
 
-![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
+![Selecionar anexos do computador](/assets/images/help/pull_requests/select-bar.png)
 
 {% tip %}
 
-**Tip:** In many browsers, you can copy-and-paste images directly into the box.
+**Dica:** Em muitos navegadores, você pode copiar e colar imagens diretamente na caixa.
 
 {% endtip %}
 
-The maximum file size is:
-- 10MB for images and gifs{% ifversion fpt or ghec %}
-- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
-- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% elsif fpt or ghes > 3.1 or ghae %}
-- 100MB for videos{% endif %}
-- 25MB for all other files
+O tamanho máximo do arquivo é:
+- 10MB para imagens e gifs{% ifversion fpt or ghec %}
+- 10MB para vídeos enviados para um repositório pertencentes a um usuário ou organização em um plano grátis do GitHub
+- 100MB para vídeos enviados para um repositório pertencente a um usuário ou organização em um plano pago do GitHub{% elsif fpt or ghes > 3.1 or ghae %}
+- 100MB para vídeos{% endif %}
+- 25MB para todos os outros arquivos
 
-We support these files:
+Arquivos compatíveis:
 
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-* Log files (*.log*)
-* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
-* Text files (*.txt*)
+* Arquivos log (*.log*)
+* Documentos do Microsoft Word (*.docx*), Powerpoint (*.pptx*), e Excel (*.xlsx*)
+* Arquivos de texto (*.txt*)
 * PDFs (*.pdf*)
 * ZIP (*.zip*, *.gz*){% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-* Video (*.mp4*, *.mov*)
+* Vídeo (*.mp4*, *.mov*)
 
 {% note %}
 
-**Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using h.264 for greatest compatibility.
+**Observação:** A compatibilidade do codec de vídeo é específica do navegador, e é possível que um vídeo que você suba para um navegador não possa ser visualizado em outro navegador. No momento, recomendamos o uso do h.264 para maior compatibilidade.
 
 {% endnote %}
 {% endif %}
 
-![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)
+![Anexos GIF animados](/assets/images/help/pull_requests/dragging_images.gif)

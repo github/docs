@@ -1,14 +1,14 @@
 ---
-title: Managing organizations in your enterprise
+title: Administrar las organizaciones en tu empresa
 redirect_from:
-  - /enterprise/admin/articles/adding-users-and-teams/
-  - /enterprise/admin/categories/admin-bootcamp/
+  - /enterprise/admin/articles/adding-users-and-teams
+  - /enterprise/admin/categories/admin-bootcamp
   - /enterprise/admin/user-management/organizations-and-teams
   - /enterprise/admin/user-management/managing-organizations-in-your-enterprise
   - /articles/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account
-intro: 'Organizations are great for creating distinct groups of users within your company, such as divisions or groups working on similar projects. {% ifversion ghae %}Internal{% else %}Public and internal{% endif %} repositories that belong to an organization are accessible to members of other organizations in the enterprise, while private repositories are inaccessible to anyone but members of the organization that are granted access.'
+intro: 'Las organizaciones son ideales para crear grupos diferentes de usuarios dentro de tu empresa, como divisiones o grupos trabajando en proyectos similares.  Los repositorios {% ifversion ghae %}internos{% else %}Los repositorios públicos e internos{% endif %} que pertenecen a una organización son accesibles para los miembros de otras organizaciones en la empresa, mientras que los repositorios privados no son accesibles para nadie mas que los miembros de la organización que cuenta con este acceso.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -29,5 +29,6 @@ children:
   - /removing-organizations-from-your-enterprise
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
-shortTitle: Manage organizations
+shortTitle: Administrar las organizaciones
 ---
+

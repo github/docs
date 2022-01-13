@@ -1,6 +1,6 @@
 ---
-title: Managing access to your user account's project boards
-intro: 'As a project board owner, you can add or remove a collaborator and customize their permissions to a project board.'
+title: 管理对用户帐户项目板的访问
+intro: 作为项目板所有者，您可以添加或删除协作者，以及自定义他们对项目板的权限。
 redirect_from:
   - /articles/managing-project-boards-in-your-repository-or-organization
   - /articles/managing-access-to-your-user-account-s-project-boards
@@ -14,23 +14,22 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Manage access project boards
+shortTitle: 管理访问项目板
 ---
-A collaborator is a person who has permissions to a project board you own. A collaborator's permissions will default to read access. For more information, see "[Permission levels for user-owned project boards](/articles/permission-levels-for-user-owned-project-boards)."
 
-## Inviting collaborators to a user-owned project board
+协作者是对您拥有的项目板具有访问权限的个人。 协作者的权限默认为读取权限。 更多信息请参阅“[用户项目板的权限级别](/articles/permission-levels-for-user-owned-project-boards)”。
 
-1. Navigate to the project board where you want to add an collaborator.
+## 邀请协作者参加用户拥有的项目板
+
+1. 导航到您要在其中添加协作者的项目板。
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
-5. Under "Search by username, full name or email address", type the collaborator's name, username, or {% data variables.product.prodname_dotcom %} email.
-   ![The Collaborators section with the Octocat's username entered in the search field](/assets/images/help/projects/org-project-collaborators-find-name.png)
+5. 在 "Search by username, full name or email address"（按用户名、全名或电子邮件地址搜索）下，输入协作者的姓名、用户名或 {% data variables.product.prodname_dotcom %} 电子邮件地址。 ![在搜索字段中输入了 Octocat 用户名的协作者部分](/assets/images/help/projects/org-project-collaborators-find-name.png)
 {% data reusables.project-management.add-collaborator %}
-7. The new collaborator has read permissions by default. Optionally, next to the new collaborator's name, use the drop-down menu and choose a different permission level.
-  ![The Collaborators section with the Permissions drop-down menu selected](/assets/images/help/projects/user-project-collaborators-edit-permissions.png)
+7. 新协作者默认具有读取权限。 在新协作者名称旁边，可以选择使用下拉菜单选择不同的权限级别。 ![选择了权限下拉菜单的协作者部分](/assets/images/help/projects/user-project-collaborators-edit-permissions.png)
 
-## Removing a collaborator from a user-owned project board
+## 从用户拥有的项目板删除协作者
 
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}

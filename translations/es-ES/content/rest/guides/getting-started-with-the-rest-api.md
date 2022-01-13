@@ -1,8 +1,8 @@
 ---
-title: Getting started with the REST API
-intro: 'Learn the foundations for using the REST API, starting with authentication and some endpoint examples.'
+title: Iniciar con la API de REST
+intro: 'Aprende las bases para utilizar la API de REST, comenzando con la autenticación y algunos ejemplos de las terminales.'
 redirect_from:
-  - /guides/getting-started/
+  - /guides/getting-started
   - /v3/guides/getting-started
 versions:
   fpt: '*'
@@ -11,28 +11,23 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: Get started - REST API
+shortTitle: Introducción - API de REST
 ---
 
 
-Let's walk through core API concepts as we tackle some everyday use cases.
+Vamos a explicar los conceptos centrales de la API mientras incluímos algunos casos de uso cotidiano.
 
 {% data reusables.rest-api.dotcom-only-guide-note %}
 
-## Overview
+## Resumen
 
-Most applications will use an existing [wrapper library][wrappers] in the language
-of your choice, but it's important to familiarize yourself with the underlying API
-HTTP methods first.
+La mayoría de las aplicaciones utilizan una [biblioteca de seguridad][wrappers] en el lenguaje de programación que escojas, pero es importante que te familiarices con los métodos HTTP básicos de la API primero.
 
-There's no easier way to kick the tires than through [cURL][curl].{% ifversion fpt or ghec %} If you are using
-an alternative client, note that you are required to send a valid
-[User Agent header](/rest/overview/resources-in-the-rest-api#user-agent-required) in your request.{% endif %}
+No hay una forma más fácil de hacerlo que a través de [cURL][curl].{% ifversion fpt or ghec %} Si estás utilizando un cliente alternativo, tioma en cuenta que necesitarás enviar un [encabezado de Agente de Usuario](/rest/overview/resources-in-the-rest-api#user-agent-required) válido en tu solicitud.{% endif %}
 
-### Hello World
+### Hola Mundo
 
-Let's start by testing our setup. Open up a command prompt and enter the
-following command:
+Comencemos por probar nuestra configuración. Abre una instancia de la línea de comandos e ingresa el siguiente comando:
 
 ```shell
 $ curl https://api.github.com/zen
@@ -40,9 +35,9 @@ $ curl https://api.github.com/zen
 > Keep it logically awesome.
 ```
 
-The response will be a random selection from our design philosophies.
+La respuesta será una selección aleatoria de nuestra filosofía de diseño.
 
-Next, let's `GET` [Chris Wanstrath's][defunkt github] [GitHub profile][users api]:
+Posteriormente, vamos a hacer `GET` para el [perfil de GitHub][users api] de [Chris Wanstrath][defunkt github]:
 
 ```shell
 # GET /users/defunkt
@@ -60,7 +55,7 @@ $ curl https://api.github.com/users/defunkt
 > }
 ```
 
-Mmmmm, tastes like [JSON][json]. Let's add the `-i` flag to include headers:
+Mmmm, sabe a [JSON][json]. Vamos a agregar el marcador `-i` para que incluya los encabezados:
 
 ```shell
 $ curl -i https://api.github.com/users/defunkt
@@ -104,75 +99,64 @@ $ curl -i https://api.github.com/users/defunkt
 > }
 ```
 
-There are a few interesting bits in the response headers. As expected, the
-`Content-Type` is `application/json`.
+Hay algunas partes interesantes en los encabezados de la respuesta. Como lo esperábamos, el `Content-Type` es `application/json`.
 
-Any headers beginning with `X-` are custom headers, and are not included in the
-HTTP spec. For example:
+Cualquier encabezado que comience como `X` se refiere a un encabezado personalizado, y no se incluirá en la especificación de HTTPS. Por ejemplo:
 
-* `X-GitHub-Media-Type` has a value of `github.v3`. This lets us know the [media type][media types]
-for the response. Media types have helped us version our output in API v3. We'll
-talk more about that later.
-* Take note of the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers. This
-pair of headers indicate [how many requests a client can make][rate-limiting] in
-a rolling time period (typically an hour) and how many of those requests the
-client has already spent.
+* `X-GitHub-Media-Type` tiene un valor de `github.v3`. Esto nos permite saber el [tipo de medios][media types] para la respuesta. Los tipos de medios nos han ayudado a versionar nuestra salida en la API v3. Hablaremos más sobre esto después.
+* Toma nota de los encabezados `X-RateLimit-Limit` y `X-RateLimit-Remaining`. Este par de encabezados indica [cuántas solicitudes puede hacer un cliente][rate-limiting] en un periodo de tiempo consecutivo (habitualmente una hora) y cuántas de estas solicitudes ha gastado el cliente hasta ahora.
 
-## Authentication
+## Autenticación
 
-Unauthenticated clients can make 60 requests per hour. To get more requests per hour, we'll need to
-_authenticate_. In fact, doing anything interesting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API requires
-[authentication][authentication].
+Los clientes sin autenticar pueden hacer hasta 60 solicitudes por hora. Para obtener más solicitudes por hora, necesitaremos _autenticarnos_. De hecho, para hacer cualquier cosa interesante con la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} se necesita [autenticación][authentication].
 
-### Using personal access tokens
+### Utilizar tokens de acceso personal
 
-The easiest and best way to authenticate with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is by using Basic Authentication [via OAuth tokens](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). OAuth tokens include [personal access tokens][personal token].
+La forma más fácil y mejor de autenticarte con la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} es utilizando la autenticación básica [mediante tokens de OAuth](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). Éstos incluyen [tokens de acceso personal][personal token].
 
-Use a `-u` flag to set your username:
+Utiliza el marcador `-u` para configurar tu nombre de usuario:
 
 ```shell
 $ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
-When prompted, you can enter your OAuth token, but we recommend you set up a variable for it:
+Cuando se te solicite, puedes ingresar tu token de OAuth, pero te recomendamos que configures una variable para éste:
 
-You can use `-u "your_username:$token"` and set up a variable for `token` to avoid leaving your token in shell history, which should be avoided.
+Puedes utilizar `-u "your_username:$token"` y configurar una variable para `token` y así evitar que tu token se quede en el historial del shell, lo cual debes evitar.
 
 ```shell
 $ curl -i -u <em>your_username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
-When authenticating, you should see your rate limit bumped to 5,000 requests an hour, as indicated in the `X-RateLimit-Limit` header. In addition to providing more calls per hour, authentication enables you to read and write private information using the API.
+Cuando te autentiques, debes ver como tu límite de tasa sube hasta 5,000 solicitudes por hora, como se indicó en el encabezado `X-RateLimit-Limit`. Adicionalmente a proporcionar más llamadas por hora, la autenticación te permite leer y escribir información privada utilizando la API.
 
-You can easily [create a **personal access token**][personal token] using your [Personal access tokens settings page][tokens settings]:
+Puedes [crear un**token de acceso personal**][personal token] fácilmente utilizando tu [página de configuración para tokens de acceso personal][tokens settings]:
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
 {% warning %}
 
-To help keep your information secure, we highly recommend setting an expiration for your personal access tokens.
+Para mantener tu información segura, te recomendamos ampliamente que configures un vencimiento para tus tokens de acceso personal.
 
 {% endwarning %}
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-![Personal Token selection](/assets/images/personal_token.png)
+![Selección de token personal](/assets/images/personal_token.png)
 {% endif %}
 
 {% ifversion ghae %}
-![Personal Token selection](/assets/images/help/personal_token_ghae.png)
+![Selección de token personal](/assets/images/help/personal_token_ghae.png)
 {% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
-API requests using an expiring personal access token will return that token's expiration date via the `GitHub-Authentication-Token-Expiration` header. You can use the header in your scripts to provide a warning message when the token is close to its expiration date.
+Las solicitudes de la API que utilicen un token de acceso personal con vencimiento devolverán la fecha de vencimiento de dicho token a través del encabezado de `GitHub-Authentication-Token-Expiration`. Puedes utilizar el encabezado en tus scripts para proporcionar un mensaje de advertencia cuando el token esté próximo a vencer.
 {% endif %}
 
-### Get your own user profile
+### Obtén tu propio perfil de usuario
 
-When properly authenticated, you can take advantage of the permissions
-associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. For example, try getting
-[your own user profile][auth user api]:
+Cuando te autenticas adecuadamente, puedes beneficiarte de los permisos asociados con tu cuenta en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Por ejemplo, intenta obtener
 
 ```shell
 $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.product.api_url_pre %}/user
@@ -189,89 +173,72 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.produc
 > }
 ```
 
-This time, in addition to the same set of public information we
-retrieved for [@defunkt][defunkt github] earlier, you should also see the non-public information for your user profile. For example, you'll see a `plan` object in the response which gives details about the {% data variables.product.product_name %} plan for the account.
+Esta vez, adicionalmente al mismo conjunto de información pública que recuperamos para [@defunkt][defunkt github] anteriormente, también deberías ver la información diferente a la pública para tu perfil de usuario. Por ejemplo, verás un objeto de `plan` en la respuesta, el cual otorga detalles sobre el plan de {% data variables.product.product_name %} que tiene la cuenta.
 
-### Using OAuth tokens for apps
+### Utiilzar tokens de OAuth para las apps
 
-Apps that need to read or write private information using the API on behalf of another user should use [OAuth][oauth].
+Las apps que necesitan leer o escribir información privada utilizando la API en nombre de otro usuario deben utilizar [OAuth][oauth].
 
-OAuth uses _tokens_. Tokens provide two big features:
+OAuth utiliza _tokens_. Los Tokens proporcionan dos características grandes:
 
-* **Revokable access**: users can revoke authorization to third party apps at any time
-* **Limited access**: users can review the specific access that a token
-  will provide before authorizing a third party app
+* **Acceso revocable**: los usuarios pueden revocar la autorización a las apps de terceros en cualquier momento
+* **Acceso limitado**: los usuarios pueden revisar el acceso específico que proporcionará un token antes de autorizar una app de terceros
 
-Tokens should be created via a [web flow][webflow]. An application
-sends users to {% data variables.product.product_name %} to log in. {% data variables.product.product_name %} then presents a dialog
-indicating the name of the app, as well as the level of access the app
-has once it's authorized by the user. After a user authorizes access, {% data variables.product.product_name %}
-redirects the user back to the application:
+Los tokens deben crearse mediante un [flujo web][webflow]. Una aplicación envía a los usuarios a {% data variables.product.product_name %} para que inicien sesión. Entonces, {% data variables.product.product_name %} presenta un diálogo que indica el nombre de la app así como el nivel de acceso que ésta tiene una vez que el usuario la autorice. Después de que un usuario autoriza el acceso, {% data variables.product.product_name %} lo redirecciona de vuelta a la aplicación:
 
-![GitHub's OAuth Prompt](/assets/images/oauth_prompt.png)
+![Diálogo de OAuth de GitHub](/assets/images/oauth_prompt.png)
 
-**Treat OAuth tokens like passwords!** Don't share them with other users or store
-them in insecure places. The tokens in these examples are fake and the names have
-been changed to protect the innocent.
+**¡Trata a los tokens de OAuth como si fueran contraseñas!** No los compartas con otros usuarios ni los almacenes en lugares inseguros. Los tokens en estos ejemplos son falsos y los nombres se cambiaron para proteger a los inocentes.
 
-Now that we've got the hang of making authenticated calls, let's move along to
-the [Repositories API][repos-api].
+Ahora que ya entendimos cómo hacer llamadas autenticadas, vamos a pasar a la [API de repositorios][repos-api].
 
-## Repositories
+## Repositorios
 
-Almost any meaningful use of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API will involve some level of Repository
-information. We can [`GET` repository details][get repo] in the same way we fetched user
-details earlier:
+Casi cualquier uso significativo de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} involucrará algún nivel de información de repositorio. Podemos hacer [`GET` para los detalles de un repositorio][get repo] de la misma forma que recuperamos los detalles del usuario anteriormente:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 ```
 
-In the same way, we can [view repositories for the authenticated user][user repos api]:
+De la misma forma, podemos [ver los repositorios del usuario autenticado][user repos api]:
 
 ```shell
 $ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-Or, we can [list repositories for another user][other user repos api]:
+O podemos [listar los repositorios de otro usuario][other user repos api]:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/users/octocat/repos
 ```
 
-Or, we can [list repositories for an organization][org repos api]:
+O podemos [listar los repositorios de una organización][org repos api]:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 ```
 
-The information returned from these calls will depend on which scopes our token has when we authenticate:
+La información que se devuelve de estas llamadas dependerá de los alcances que tenga nuestrotoken cuando nos autenticamos:
 
 {%- ifversion fpt or ghec or ghes %}
-* A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on {% data variables.product.product_location %}.
+* Un token con [alcance][scopes] de `public_repo` devolverá una respuesta que incluye todos los repositorios públicos que podemos ver en {% data variables.product.product_location %}.
 {%- endif %}
-* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories we have access to see on {% data variables.product.product_location %}.
+* Un token con [alcance][scopes] de `repo` devolverá una respuesta que incluirá a todos los repositorios {% ifversion fpt %}públicos o privados{% elsif ghec or ghes %} públicos, privados o internos{% elsif ghae %} privados o internos{% endif %} a los que se tiene acceso para ver en {% data variables.product.product_location %}.
 
-As the [docs][repos-api] indicate, these methods take a `type` parameter that
-can filter the repositories returned based on what type of access the user has
-for the repository. In this way, we can fetch only directly-owned repositories,
-organization repositories, or repositories the user collaborates on via a team.
+Como indican los [docs][repos-api], estos métodos toman un parámetro de `type` que puede filtrar los repositorios que se regresan con base en el tipo de acceso que el usuario tiene en ellos. De esta forma, podemos obtener los solo los repositorios que nos pertenezcan directamente, repositorios de organizacion o repositorios en los que el usuario colabore a través del equipo.
 
 ```shell
 $ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=owner"
 ```
 
-In this example, we grab only those repositories that octocat owns, not the
-ones on which she collaborates. Note the quoted URL above. Depending on your
-shell setup, cURL sometimes requires a quoted URL or else it ignores the
-query string.
+En este ejemplo, tomamos únicamente los repositorios que pertenecen a octocat, no aquellos en los que ella colabora. Nota la URL que se cita arriba. Dependiendo de tu configuración de shell, cURL a veces requiere una URL citada, o de lo contrario ignora la secuencia de consulta.
 
-### Create a repository
+### Crear un repositorio
 
-Fetching information for existing repositories is a common use case, but the
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API supports creating new repositories as well. To [create a repository][create repo],
-we need to `POST` some JSON containing the details and configuration options.
+Un caso de común de uso es retribuir información para repositorios existentes, pero la
+La API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} también es compatible con crear repositorios nuevos. Para [crear un repositorio][create repo],
+necesitamos hacer `POST` en algunos JSON que contengan los detalles y las opciones de configuración.
 
 ```shell
 $ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
@@ -284,14 +251,11 @@ $ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghe
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-In this minimal example, we create a new private repository for our blog (to be served
-on [GitHub Pages][pages], perhaps). Though the blog {% ifversion not ghae %}will be public{% else %}is accessible to all enterprise members{% endif %}, we've made the repository private. In this single step, we'll also initialize it with a README and a [nanoc][nanoc]-flavored [.gitignore template][gitignore templates].
+En este ejemplo mínimo, creamos un repositorio privado nuevo para nuestro blog (que se servirá en [GitHub Pages][pages], probablemente). Aunque el blog {% ifversion not ghae %}será público{% else %}está disponible para todos los miembros de la empresa{% endif %}, hemos hecho el repositorio privado. En este paso, también lo inicializaremos con un README y con una [plantilla de.gitignored][gitignore templates] enriquecida con [nanoc][nanoc].
 
-The resulting repository will be found at `https://github.com/<your_username>/blog`.
-To create a repository under an organization for which you're
-an owner, just change the API method from `/user/repos` to `/orgs/<org_name>/repos`.
+El repositorio que se obtiene como resultado se puede encontrar en `https://github.com/<your_username>/blog`. Para crear un repositorio bajo una organización para la cual eres propietario, solo cambia el método de la API de `/user/repos` a `/orgs/<org_name>/repos`.
 
-Next, let's fetch our newly created repository:
+Posteriormente vamos a obtener nuestro repositorio recién creado:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
@@ -303,28 +267,20 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 > }
 ```
 
-Oh noes! Where did it go? Since we created the repository as _private_, we need
-to authenticate in order to see it. If you're a grizzled HTTP user, you might
-expect a `403` instead. Since we don't want to leak information about private
-repositories, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API returns a `404` in this case, as if to say "we can
-neither confirm nor deny the existence of this repository."
+¡Oh no! ¿A dónde se fue? Ya que creamos el repositorio como _privado_, necesitamos autenticarnos para poder verlo. Si eres un usuario experimentado en HTTP, tal vez esperes recibir un código `403` en vez de ésto. Ya que no queremos filtrar información sobre los repositorios privados, la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} devolverá un `404` en este caso para decir "no podemos confirmar ni negar la existencia de este repositorio".
 
-## Issues
+## Problemas
 
-The UI for Issues on {% data variables.product.product_name %} aims to provide 'just enough' workflow while
-staying out of your way. With the {% data variables.product.product_name %} [Issues API][issues-api], you can pull
-data out or create issues from other tools to create a workflow that works for
-your team.
+La IU de informe de problemas en {% data variables.product.product_name %} pretende proporcionar suficiente flujo de trabajo mientras evita estorbarte. Con la [API de propuestas][issues-api] de {% data variables.product.product_name %}, puedes extraer datos para crear propuestas desde otras herramientas para crear flujos de trabajo que funcionen para tu equipo.
 
-Just like github.com, the API provides a few methods to view issues for the
-authenticated user. To [see all your issues][get issues api], call `GET /issues`:
+Tal como en github.com, la API proporciona algunos cuantos métodos para ver los informes de problemas para el usuario autenticado. Para [ver todas tus propuestas][get issues api], llama a `GET /issues`:
 
 ```shell
 $ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
-To get only the [issues under one of your {% data variables.product.product_name %} organizations][get issues api], call `GET
+Para obtener únicamente las [propuestas bajo alguna de tus organizaciones de {% data variables.product.product_name %}][get issues api], llama a `GET
 /orgs/<org>/issues`:
 
 ```shell
@@ -332,17 +288,15 @@ $ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghe
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
-We can also get [all the issues under a single repository][repo issues api]:
+También podemos obtener [todas las propuestas que estén bajo un solo repositorio][repo issues api]:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 ```
 
-### Pagination
+### Paginación
 
-A project the size of Rails has thousands of issues. We'll need to [paginate][pagination],
-making multiple API calls to get the data. Let's repeat that last call, this
-time taking note of the response headers:
+Un proyecto con el tamaño de Rails tiene miles de informes de problemas. Necesitaremos [paginar][pagination], haciendo varias llamadas a la API para obtener los datos. Vamos a repetir la última llamada, esta vez tomando nota de los encabezados de respuesta:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
@@ -354,20 +308,13 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 > ...
 ```
 
-The [`Link` header][link-header] provides a way for a response to link to
-external resources, in this case additional pages of data. Since our call found
-more than thirty issues (the default page size), the API tells us where we can
-find the next page and the last page of results.
+El [encabezado de `Link`][link-header] proporciona una respuesta para enlazar a los recursos externos, en este caso, a las páginas de datos adicionales. Ya que nuestra llamada encontró más de treinta informes de problemas (el tamaño predeterminado de página), la API no s dice dónde podemos encontrar la siguiente página y la última página de los resultados.
 
-### Creating an issue
+### Crear una propuesta
 
-Now that we've seen how to paginate lists of issues, let's [create an issue][create issue] from
-the API.
+Ahora que hemos visto cómo paginar las listas de propuestas, vamos a [crear una propuesta][create issue] desde la API.
 
-To create an issue, we need to be authenticated, so we'll pass an
-OAuth token in the header. Also, we'll pass the title, body, and labels in the JSON
-body to the `/issues` path underneath the repository in which we want to create
-the issue:
+Para crear un informe de problemas, necesitamos estar autenticados, así que pasaremos un token de OAuth en el encabezado. También, pasaremos el título, cuerpo, y etiquetas en el cuerpo de JSON a la ruta `/issues` debajo del repositorio en el cual queremos crear el informe de problemas:
 
 ```shell
 $ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
@@ -419,14 +366,11 @@ $    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 > }
 ```
 
-The response gives us a couple of pointers to the newly created issue, both in
-the `Location` response header and the `url` field of the JSON response.
+La respuesta nos entrega un par de sugerencias para el informe de problemas recién creado, tanto en el encabezado de respuesta de `Location` como en el campo de `url` de la respuesta de JSON.
 
-## Conditional requests
+## Solicitudes condicionales
 
-A big part of being a good API citizen is respecting rate limits by caching information that hasn't changed. The API supports [conditional
-requests][conditional-requests] and helps you do the right thing. Consider the
-first call we made to get defunkt's profile:
+Una gran parte de ser un buen ciudadano de la API es respetar los límites de tasa al almacenar información en el caché, la cual no haya cambiado. La API es compatible con las [solicitudes condicionales][conditional-requests] y te ayuda a hacer lo correcto. Considera el primer llamado que hicimos para obtener el perfil de defunkt:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
@@ -435,10 +379,7 @@ $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 > etag: W/"61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"
 ```
 
-In addition to the JSON body, take note of the HTTP status code of `200` and
-the `ETag` header.
-The [ETag][etag] is a fingerprint of the response. If we pass that on subsequent calls,
-we can tell the API to give us the resource again, only if it has changed:
+Además del cuerpo de JSON, toma nota del código de estado HTTP de `200` y del encabezado `ETag`. La [ETag][etag] es una huella digital de la respuesta. Si la pasamos en llamadas subsecuentes, podemos decirle a la API que nos entregue el recurso nuevamente, únicamente si cambió:
 
 ```shell
 $ curl -i -H 'If-None-Match: "61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"' \
@@ -447,24 +388,23 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 > HTTP/2 304
 ```
 
-The `304` status indicates that the resource hasn't changed since the last time
-we asked for it and the response will contain no body. As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
+El estado `304` indica que el recurso no ha cambiado desde la última vez que lo solicitamos y que la respuesta no contendrá ningún cuerpo. Como bonificación, las respuestas `304` no contarán para tu [límite de tasa][rate-limiting].
 
-Woot! Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
+¡Qué! ¡Ahora conoces lo básico de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}!
 
-* Basic & OAuth authentication
-* Fetching and creating repositories and issues
-* Conditional requests
+* Autenticación básica & de OAuth
+* Obtener y crear repositorios e informes de problemas
+* Solicitudes condicionales
 
-Keep learning with the next API guide [Basics of Authentication][auth guide]!
+Sigue aprendiendo con la siguiente guía de la API ¡[Fundamentos de la Autenticación][auth guide]!
 
 [wrappers]: /libraries/
 [curl]: http://curl.haxx.se/
 [media types]: /rest/overview/media-types
 [oauth]: /apps/building-integrations/setting-up-and-registering-oauth-apps/
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
-[create a new authorization API]: /rest/reference/oauth-authorizations#create-a-new-authorization
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
+[repos-api]: /rest/reference/repos
 [repos-api]: /rest/reference/repos
 [pages]: http://pages.github.com
 [nanoc]: http://nanoc.ws/
@@ -473,14 +413,13 @@ Keep learning with the next API guide [Basics of Authentication][auth guide]!
 [link-header]: https://www.w3.org/wiki/LinkHeader
 [conditional-requests]: /rest#conditional-requests
 [rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest#rate-limiting
 [users api]: /rest/reference/users#get-a-user
-[auth user api]: /rest/reference/users#get-the-authenticated-user
+[defunkt github]: https://github.com/defunkt
 [defunkt github]: https://github.com/defunkt
 [json]: http://en.wikipedia.org/wiki/JSON
 [authentication]: /rest#authentication
-[2fa]: /articles/about-two-factor-authentication
-[2fa header]: /rest/overview/other-authentication-methods#working-with-two-factor-authentication
-[oauth section]: /rest/guides/getting-started-with-the-rest-api#oauth
+[personal token]: /articles/creating-an-access-token-for-command-line-use
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [tokens settings]: https://github.com/settings/tokens
 [pagination]: /rest#pagination
@@ -492,6 +431,6 @@ Keep learning with the next API guide [Basics of Authentication][auth guide]!
 [other user repos api]: /rest/reference/repos#list-repositories-for-a-user
 [org repos api]: /rest/reference/repos#list-organization-repositories
 [get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
 [repo issues api]: /rest/reference/issues#list-repository-issues
 [etag]: http://en.wikipedia.org/wiki/HTTP_ETag
-[2fa section]: /rest/guides/getting-started-with-the-rest-api#two-factor-authentication

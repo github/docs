@@ -1,6 +1,6 @@
 ---
-title: Navigating code on GitHub
-intro: 'You can understand the relationships within and across repositories by navigating code directly in {% data variables.product.product_name %}.'
+title: Navegar por códigos no GitHub
+intro: 'Você pode entender as relações de dentro e entre os repositórios navegando por códigos diretamente no {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/navigating-code-on-github
   - /github/managing-files-in-a-repository/navigating-code-on-github
@@ -11,9 +11,10 @@ versions:
 topics:
   - Repositories
 ---
+
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
-## About navigating code on {% data variables.product.prodname_dotcom %}
+## Sobre a navegação do código no {% data variables.product.prodname_dotcom %}
 
 Code navigation helps you to read, navigate, and understand code by showing and linking definitions of a named entity corresponding to a reference to that entity, as well as references corresponding to an entity's definition.
 
@@ -21,17 +22,17 @@ Code navigation helps you to read, navigate, and understand code by showing and 
 
 Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported:
 
-| Language   | search-based code navigation | precise code navigation |
+| Linguagem  | search-based code navigation | precise code navigation |
 |:----------:|:----------------------------:|:-----------------------:|
-| C#         | ✅                           |                         |
-| CodeQL     | ✅                           |                         |
-| Go         | ✅                           |                         |
-| Java       | ✅                           |                         |
-| JavaScript | ✅                           |                         |
-| PHP        | ✅                           |                         |
-| Python     | ✅                           | ✅                      |
-| Ruby       | ✅                           |                         |
-| TypeScript | ✅                           |                         |
+|     C#     |              ✅               |                         |
+|   CodeQL   |              ✅               |                         |
+|     Go     |              ✅               |                         |
+|    Java    |              ✅               |                         |
+| JavaScript |              ✅               |                         |
+|    PHP     |              ✅               |                         |
+|   Python   |              ✅               |            ✅            |
+|    Ruby    |              ✅               |                         |
+| TypeScript |              ✅               |                         |
 
 
 You do not need to configure anything in your repository to enable code navigation. We will automatically extract search-based and precise code navigation information for these supported languages in all repositories and you can switch between the two supported code navigation approaches if your programming language is supported by both.
@@ -44,17 +45,17 @@ To learn more about these approaches, see "[Precise and search-based navigation]
 
 Future releases will add *precise code navigation* for more languages, which is a code navigation approach that can give more accurate results.
 
-## Jumping to the definition of a function or method
+## Pular para a definição de uma função ou método
 
-You can jump to a function or method's definition within the same repository by clicking the function or method call in a file.
+Você pode pular para uma definição de uma função ou método dentro do mesmo repositório, clicando na chamada dessa função ou método em um arquivo.
 
-![Jump-to-definition tab](/assets/images/help/repository/jump-to-definition-tab.png)
+![Aba Jump-to-definition (Pular para a definição)](/assets/images/help/repository/jump-to-definition-tab.png)
 
-## Finding all references of a function or method
+## Localizar todas as referências de uma função ou método
 
-You can find all references for a function or method within the same repository by clicking the function or method call in a file, then clicking the **References** tab.
+Você pode encontrar todas as referências para uma função ou método dentro do mesmo repositório clicando na chamada da função ou método e, em seguida, clicando na aba **Referências**.
 
-![Find all references tab](/assets/images/help/repository/find-all-references-tab.png)
+![Aba Find all references (Localizar todas as referências)](/assets/images/help/repository/find-all-references-tab.png)
 
 ## Precise and search-based navigation
 
@@ -72,5 +73,5 @@ If code navigation is enabled for you but you don't see links to the definitions
 - Code navigation only works for active branches. Push to the branch and try again.
 - Code navigation only works for repositories with fewer than 100,000 files.
 
-## Further reading
-- "[Searching code](/github/searching-for-information-on-github/searching-code)"
+## Leia mais
+- "[Pesquisar código](/github/searching-for-information-on-github/searching-code)"

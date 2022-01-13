@@ -2,8 +2,8 @@
 title: Reemplazar los GitHub Services
 intro: 'Si aún estás dependiendo de los {% data variables.product.prodname_dotcom %} Services obsoletizados, aprende cómomigrar los ganchos de tu servicio a webhooks.'
 redirect_from:
-  - /guides/replacing-github-services/
-  - /v3/guides/automating-deployments-to-integrators/
+  - /guides/replacing-github-services
+  - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
 versions:
   fpt: '*'

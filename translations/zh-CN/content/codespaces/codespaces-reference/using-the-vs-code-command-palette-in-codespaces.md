@@ -23,10 +23,10 @@ redirect_from:
 
 You can access the {% data variables.product.prodname_vscode_command_palette %} in a number of ways.
 
-- `Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)。
+- <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
 
   请注意，此命令是 Firefox 中保留的键盘快捷键。
-- `F1`
+- <kbd>F1</kbd>
 - 从应用程序菜单点击 **View > Command Palette…（查看命令调色板…）**。
 
   ![应用程序菜单](/assets/images/help/codespaces/codespaces-view-menu.png)

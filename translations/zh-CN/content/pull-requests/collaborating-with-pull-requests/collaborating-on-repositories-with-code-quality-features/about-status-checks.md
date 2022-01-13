@@ -1,6 +1,6 @@
 ---
-title: About status checks
-intro: Status checks let you know if your commits meet the conditions set for the repository you're contributing to.
+title: 关于状态检查
+intro: 状态检查用于获知您的提交是否符合为您参与的仓库设置的条件。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
   - /articles/about-statuses
@@ -15,32 +15,33 @@ versions:
 topics:
   - Pull requests
 ---
-Status checks are based on external processes, such as continuous integration builds, which run for each push you make to a repository. You can see the *pending*, *passing*, or *failing* state of status checks next to individual commits in your pull request.
 
-![List of commits and statuses](/assets/images/help/pull_requests/commit-list-statuses.png)
+状态检查基于针对您每次向仓库的推送而运行的外部流程，例如持续集成构建。 您可以在拉取请求的个别提交旁边看到状态检查的*待处理*、*通过*或*失败*状态。
 
-Anyone with write permissions to a repository can set the state for any status check in the repository.
+![提交和状态列表](/assets/images/help/pull_requests/commit-list-statuses.png)
 
-You can see the overall state of the last commit to a branch on your repository's branches page or in your repository's list of pull requests.
+对仓库具有写入权限的任何人都可为仓库中的任何状态检查设置状态。
+
+在仓库的分支页面或仓库的拉取请求列表中，可以查看仓库上次提交的整体状态。
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-## Types of status checks on {% data variables.product.product_name %}
+## {% data variables.product.product_name %} 上的状态检查类型
 
-There are two types of status checks on {% data variables.product.product_name %}:
+{% data variables.product.product_name %} 上的状态检查有两种类型：
 
-- Checks
-- Statuses
+- 检查
+- 状态
 
 _Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
-Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/repos#statuses)."
+组织所有者和能够推送到仓库的用户可使用 {% data variables.product.product_name %} 的 API 创建检查和状态。 更多信息请参阅“[检查](/rest/reference/checks)”和“[状态](/rest/reference/repos#statuses)”。
 
-## Checks
+## 检查
 
-When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from status checks and rerun failed checks.
+在仓库中设置_检查_时，拉取请求会有一个 **Checks（检查）**选项卡，从中可以查看状态检查的详细构建输出和重新运行失败的检查。
 
-![Status checks within a pull request](/assets/images/help/pull_requests/checks.png)
+![拉取请求中的状态检查](/assets/images/help/pull_requests/checks.png)
 
 {% note %}
 
@@ -48,28 +49,28 @@ When _checks_ are set up in a repository, pull requests have a **Checks** tab wh
 
 {% endnote %}
 
-When a specific line in a commit causes a check to fail, you will see details about the failure, warning, or notice next to the relevant code in the **Files** tab of the pull request.
+当提交中的特定行造成检查失败时，您会在拉取请求的 **Files（文件）**选项卡中相关代码旁边看到有关失败、警告或通知的详细信息。
 
-![Details of a status check](/assets/images/help/pull_requests/checks-detailed.png)
+![状态检查详细信息](/assets/images/help/pull_requests/checks-detailed.png)
 
-You can navigate between the checks summaries for various commits in a pull request, using the commit drop-down menu under the **Conversation** tab.
+您可以使用 **Conversation（对话）**选项卡下的提交下拉菜单，浏览拉取请求中不同提交的检查摘要。
 
-![Check summaries for different commits in a drop-down menu](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
+![下拉菜单中不同提交的检查摘要](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
 
-### Skipping and requesting checks for individual commits
+### 跳过和申请个别提交的检查
 
-When a repository is set to automatically request checks for pushes, you can choose to skip checks for an individual commit you push. When a repository is _not_ set to  automatically request checks for pushes, you can request checks for an individual commit you push. For more information on these settings, see "[Check Suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
+当仓库设置为自动申请检查推送时，您可以选择跳过所推送的个别提交的检查。 当仓库_未_设置为自动申请检查推送时，您可以申请检查您推送的个别提交。 有关这些设置的更多信息，请参阅“[检查套件](/rest/reference/checks#update-repository-preferences-for-check-suites)”。
 
-To skip or request checks for your commit, add one of the following trailer lines to the end of your commit message:
+要跳过或申请检查提交，请在提交消息末添加以下尾行之一：
 
-- To _skip checks_ for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
+- 要_跳过检查_提交，请输入提交消息以及简短、有意义的更改描述。 提交说明后，在右引号之前，添加两个空行，后接 `skip-checks: true`：
   ```shell
   $ git commit -m "Update README
   >
   >
   skip-checks: true"
   ```
-- To _request_ checks for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
+- 要_申请检查_提交，请输入提交消息以及简短、有意义的更改描述。 提交说明后，在右引号之前，添加两个空行，后接 `request-checks: true`：
   ```shell
   $ git commit -m "Refactor usability tests
   >

@@ -1,6 +1,6 @@
 ---
-title: Deleting a repository
-intro: You can delete any repository or fork if you're either an organization owner or have admin permissions for the repository or fork. Deleting a forked repository does not delete the upstream repository.
+title: 删除仓库
+intro: 如果您是组织所有者或拥有仓库或复刻的管理员权限，可删除任何仓库或复刻。 删除复刻仓库不会删除上游仓库。
 redirect_from:
   - /delete-a-repo
   - /deleting-a-repo
@@ -15,26 +15,25 @@ versions:
 topics:
   - Repositories
 ---
-{% data reusables.organizations.owners-and-admins-can %} delete an organization repository. If **Allow members to delete or transfer repositories for this organization** has been disabled, only organization owners can delete organization repositories. {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% ifversion not ghae %}Deleting a public repository will not delete any forks of the repository.{% endif %}
+{% data reusables.organizations.owners-and-admins-can %} 删除组织仓库。 如果已禁用 **Allow members to delete or transfer repositories for this organization（允许成员删除或转让此组织的仓库）**，仅组织所有者可删除组织仓库。 {% data reusables.organizations.new-repo-permissions-more-info %}
+
+{% ifversion not ghae %}删除公共仓库不会删除该仓库的任何复刻。{% endif %}
 
 {% warning %}
 
-**Warnings**:
+**警告**：
 
-- Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
+- 删除仓库将**永久**删除发行版附件和团队权限。 此操作**必须**完成。
 - Deleting a private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository will delete all forks of the repository.
 
 {% endwarning %}
 
-Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。 {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-2. Under Danger Zone, click **Delete this repository**.
-   ![Repository deletion button](/assets/images/help/repository/repo-delete.png)
-3. **Read the warnings**.
-4. To verify that you're deleting the correct repository, type the name of the repository you want to delete.
-   ![Deletion labeling](/assets/images/help/repository/repo-delete-confirmation.png)
-5. Click **I understand the consequences, delete this repository**.
+2. 在 Danger Zone（危险区域）下，单击**Delete this repository（删除此仓库）**。 ![仓库删除按钮](/assets/images/help/repository/repo-delete.png)
+3. **阅读警告**。
+4. 如需验证是否正在删除正确的仓库，请输入要删除仓库的名称。 ![删除标签](/assets/images/help/repository/repo-delete-confirmation.png)
+5. 单击 **I understand the consequences, delete this repository（我理解后果，删除此仓库）**。

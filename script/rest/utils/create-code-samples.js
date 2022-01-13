@@ -20,6 +20,15 @@ function createCodeSamples(operation) {
   const serverUrl = operation.serverUrl
 
   const codeSampleParams = { route, serverUrl }
+
+  if (
+    operation.operationId === 'repos/upload-release-asset' &&
+    Object.prototype.hasOwnProperty.call(operation, 'servers') &&
+    serverUrl === 'https://api.github.com'
+  ) {
+    codeSampleParams.serverUrl = operation.servers[0].variables.origin.default
+  }
+
   return [
     { lang: 'Shell', source: toShellExample(codeSampleParams) },
     { lang: 'JavaScript', source: toJsExample(codeSampleParams) },

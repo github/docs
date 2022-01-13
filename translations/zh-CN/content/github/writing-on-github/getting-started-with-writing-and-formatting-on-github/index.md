@@ -1,10 +1,10 @@
 ---
-title: Getting started with writing and formatting on GitHub
+title: 开始在 GitHub 上编写和格式化
 redirect_from:
   - /articles/markdown-basics
   - /articles/things-you-can-do-in-a-text-area-on-github
   - /articles/getting-started-with-writing-and-formatting-on-github
-intro: 'You can use simple features to format your comments and interact with others in issues, pull requests, and wikis on GitHub.'
+intro: 您可以在 GitHub 上使用简单的功能格式化您的评论，与他人交流议题、拉取请求和 wiki。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,6 @@ versions:
 children:
   - /about-writing-and-formatting-on-github
   - /basic-writing-and-formatting-syntax
-shortTitle: Start writing on GitHub
+shortTitle: 开始在 GitHub 上写入
 ---
 

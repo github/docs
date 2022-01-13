@@ -1,5 +1,5 @@
 ---
-title: Identifying and authorizing users for GitHub Apps
+title: GitHub App のユーザの特定と認可
 intro: '{% data reusables.shortdesc.identifying_and_authorizing_github_apps %}'
 redirect_from:
   - /early-access/integrations/user-identification-authorization
@@ -13,88 +13,89 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Identify & authorize users
+shortTitle: ユーザの特定と認可
 ---
+
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
-When your GitHub App acts on behalf of a user, it performs user-to-server requests. These requests must be authorized with a user's access token. User-to-server requests include requesting data for a user, like determining which repositories to display to a particular user. These requests also include actions triggered by a user, like running a build.
+GitHub App がユーザの代わりに動作すると、ユーザからサーバーに対するリクエストを実行します。 こうしたリクエストは、ユーザのアクセストークンで承認される必要があります。 ユーザからサーバーに対するリクエストには、特定のユーザに対してどのリポジトリを表示するか決定するなど、ユーザに対するデータのリクエストが含まれます。 これらのリクエストには、ビルドの実行など、ユーザがトリガーしたアクションも含まれます。
 
 {% data reusables.apps.expiring_user_authorization_tokens %}
 
-## Identifying users on your site
+## サイト上のユーザを特定する
 
-To authorize users for standard apps that run in the browser, use the [web application flow](#web-application-flow).
+ブラウザで動作する標準的なアプリケーションでユーザを認可するには、[Web アプリケーションフロー](#web-application-flow)を利用してください。
 
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
-To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
+CLI ツールや Git 認証情報マネージャーなどの、ブラウザに直接アクセスしないヘッドレスアプリケーションでユーザを認可するには、[デバイスフロー](#device-flow)を利用します。 デバイスフローは、OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) を利用します。
 
 {% endif %}
 
-## Web application flow
+## Web アプリケーションフロー
 
-Using the web application flow, the process to identify users on your site is:
+Web アプリケーションフローを利用して、サイト上のユーザを特定するプロセスは以下の通りです。
 
-1. Users are redirected to request their GitHub identity
-2. Users are redirected back to your site by GitHub
-3. Your GitHub App accesses the API with the user's access token
+1. ユーザはGitHubのアイデンティティをリクエストするためにリダイレクトされます
+2. ユーザはGitHubによってサイトにリダイレクトして戻されます
+3. GitHub Appはユーザのアクセストークンで API にアクセスします
 
-If you select **Request user authorization (OAuth) during installation** when creating or modifying your app, step 1 will be completed during app installation. For more information, see "[Authorizing users during installation](/apps/installing-github-apps/#authorizing-users-during-installation)."
+アプリケーションを作成または変更する際に [**Request user authorization (OAuth) during installation**] を選択した場合、アプリケーションのインストール中にステップ 1 が完了します。 詳しい情報については、「[インストール中のユーザの認可](/apps/installing-github-apps/#authorizing-users-during-installation)」を参照してください。
 
-### 1. Request a user's GitHub identity
-Direct the user to the following URL in their browser:
+### 1. ユーザのGitHubアイデンティティのリクエスト
+ブラウザで次のURLに移動するようユーザに指示します。
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
-When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
+GitHub Appが`login`パラメータを指定すると、ユーザに対して利用できる特定のアカウントでサインインしてアプリケーションを認可するよう求めます。
 
-#### Parameters
+#### パラメータ
 
-Name | Type | Description
------|------|------------
-`client_id` | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app. **Note:** The app ID and client ID are not the same, and are not interchangeable.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
-`state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
-`login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
-`allow_signup` | `string` | Whether or not unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
-
-{% note %}
-
-**Note:** You don't need to provide scopes in your authorization request. Unlike traditional OAuth, the authorization token is limited to the permissions associated with your GitHub App and those of the user.
-
-{% endnote %}
-
-### 2. Users are redirected back to your site by GitHub
-
-If the user accepts your request, GitHub redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. If the states don't match, the request was created by a third party and the process should be aborted.
+| 名前             | 種類       | 説明                                                                                                                                                                                                                                           |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`    | `string` | **必須。**GitHub App のクライアント IDです。 アプリケーションを選択したときに、[GitHub App 設定](https://github.com/settings/apps)に表示されます。 **注釈:** アプリケーション ID とクライアント ID は同一ではなく、お互いを置き換えることはできません。                                                                         |
+| `redirect_uri` | `string` | 認可の後にユーザが送られるアプリケーション中のURL。 これは、GitHub App をセットアップする際に{% ifversion fpt or ghes > 3.0 or ghec %}**コールバック URL** として指定された URL の １つ{% else %}[**User authorization callback URL**] フィールドで指定された URL {% endif %}と一致させる必要があり、他の追加パラメータを含めることはできません。 |
+| `state`        | `string` | これはフォージェリアタックを防ぐためにランダムな文字列を含める必要があり、あらゆる任意のデータを含めることができます。                                                                                                                                                                                  |
+| `login`        | `string` | サインインとアプリケーションの認可に使われるアカウントを指示します。                                                                                                                                                                                                           |
+| `allow_signup` | `string` | OAuthフローの間に、認証されていないユーザに対して{% data variables.product.prodname_dotcom %}へのサインアップの選択肢が提示されるかどうか。 デフォルトは `true` です。 ポリシーでサインアップが禁止されている場合は`false`を使ってください。                                                                                      |
 
 {% note %}
 
-**Note:** If you select **Request user authorization (OAuth) during installation** when creating or modifying your app, GitHub returns a temporary `code` that you will need to exchange for an access token. The `state` parameter is not returned when GitHub initiates the OAuth flow during app installation.
+**注釈:** 認可リクエストにスコープを指定する必要はありません。 従来の OAuth とは異なり、認証トークンはGitHub App に紐付けられた権限およびユーザの権限に限定されます。
 
 {% endnote %}
 
-Exchange this `code` for an access token.  When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
+### 2. ユーザはGitHubによってサイトにリダイレクトして戻されます
 
-Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."
+ユーザがリクエストを受け付けると、GitHub は一時的なコードを `code` パラメータに、そして前のステップで渡された状態を `state` パラメータに入れてリダイレクトさせ、サイトに戻します。 状態が一致しない場合、そのリクエストは第三者が作成したものであり、プロセスを中止する必要があります。
 
-Make a request to the following endpoint to receive an access token:
+{% note %}
+
+**注釈:** アプリケーションを作成または変更する際に [**Request user authorization (OAuth) during installation**] を選択した場合、GitHub はアクセストークンと交換する必要がある一時的な `code` を返します。 アプリケーションのインストール中に GitHub が OAuth フローを開始した場合、`state` パラメータは返されません。
+
+{% endnote %}
+
+この `code` をアクセストークンと交換します。  トークンの期限設定が有効になっている場合、アクセストークンは 8 時間で期限切れとなり、リフレッシュトークンは 6 か月で期限切れとなります。 トークンを更新するたびに、新しいリフレッシュトークンを取得します。 詳しい情報については、「[ユーザからサーバーに対するアクセストークンをリフレッシュする](/developers/apps/refreshing-user-to-server-access-tokens)」を参照してください。
+
+ユーザトークンの期限設定は、現在のところオプション機能であり、変更される可能性があります。 ユーザからサーバーに対するトークンの期限設定にオプトインするには、「[アプリケーションのオプション機能を有効化する](/developers/apps/activating-optional-features-for-apps)」を参照してください。
+
+アクセストークンを受け取るため、次のエンドポイントをリクエストします。
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-#### Parameters
+#### パラメータ
 
-Name | Type | Description
------|------|------------
-`client_id` | `string` | **Required.** The  client ID for your GitHub App.
-`client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
-`code` | `string`   | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
-`state` | `string` | The unguessable random string you provided in Step 1.
+| 名前              | 種類       | 説明                                                                                                                                                                                                                                           |
+| --------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `string` | **必須。**GitHub App のクライアント ID。                                                                                                                                                                                                                |
+| `client_secret` | `string` | **必須。**GitHub App のクライアントシークレット。                                                                                                                                                                                                             |
+| `コード`           | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                                                                                                                                              |
+| `redirect_uri`  | `string` | 認可の後にユーザが送られるアプリケーション中のURL。 これは、GitHub App をセットアップする際に{% ifversion fpt or ghes > 3.0 or ghec %}**コールバック URL** として指定された URL の １つ{% else %}[**User authorization callback URL**] フィールドで指定された URL {% endif %}と一致させる必要があり、他の追加パラメータを含めることはできません。 |
+| `state`         | `string` | ステップ1で提供した推測できないランダムな文字列。                                                                                                                                                                                                                    |
 
-#### Response
+#### レスポンス
 
-By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable expiring user-to-server access tokens.
+デフォルトでは、レスポンスは以下の形式になります。 レスポンスパラメータの `expires_in`、`refresh_token`、`refresh_token_expires_in` は、ユーザからサーバに対するアクセストークンの期限設定を有効にしている場合にのみ返されます。
 
 ```json
 {
@@ -107,14 +108,14 @@ By default, the response takes the following form. The response parameters `expi
 }
 ```
 
-### 3. Your GitHub App accesses the API with the user's access token
+### 3. GitHub Appはユーザのアクセストークンで API にアクセスします
 
-The user's access token allows the GitHub App to make requests to the API on behalf of a user.
+ユーザのアクセストークンを使用すると、GitHub App がユーザの代わりに API にリクエストを発行できます。
 
     Authorization: token OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
-For example, in curl you can set the Authorization header like this:
+たとえば、curlでは以下のようにAuthorizationヘッダを設定できます。
 
 ```shell
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
@@ -122,812 +123,812 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
-## Device flow
+## デバイスフロー
 
 {% note %}
 
-**Note:** The device flow is in public beta and subject to change.
+**注釈:** デバイスフローは現在パブリックベータであり、変更されることがあります。
 
 {% endnote %}
 
-The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
+デバイスフローを使えば、CLIツールやGit認証情報マネージャーなどのヘッドレスアプリケーションのユーザを認可できます。
 
-For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)".
+デバイスフローを使ったユーザの認可については、「[OAuth App の認可](/developers/apps/authorizing-oauth-apps#device-flow)」を参照してください。
 
 {% endif %}
 
-## Check which installation's resources a user can access
+## ユーザがアクセスできるインストールされたリソースの確認
 
 
-Once you have an OAuth token for a user, you can check which installations that user can access.
+ユーザの OAuth トークンを取得したら、そのユーザがアクセスできるインストールされたアプリケーションを確認できます。
 
     Authorization: token OAUTH-TOKEN
     GET /user/installations
 
-You can also check which repositories are accessible to a user for an installation.
+また、インストールされたアプリケーションでユーザがアクセスできるリポジトリも確認できます。
 
     Authorization: token OAUTH-TOKEN
     GET /user/installations/:installation_id/repositories
 
-More details can be found in: [List app installations accessible to the user access token](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token) and [List repositories accessible to the user access token](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token).
+詳細については、[ユーザアクセストークンがアクセスできるインストールされたアプリケーションの一覧表示](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token)および[ユーザアクセストークンがアクセスできるリポジトリの一覧表示](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token)でご確認ください。
 
-## Handling a revoked GitHub App authorization
+## GitHub App の認可の取り消し処理
 
-If a user revokes their authorization of a GitHub App, the app will receive the [`github_app_authorization`](/webhooks/event-payloads/#github_app_authorization) webhook by default. GitHub Apps cannot unsubscribe from this event. {% data reusables.webhooks.authorization_event %}
+ユーザが GitHub App の認可を取り消した場合、アプリケーションはデフォルトで [`github_app_authorization`](/webhooks/event-payloads/#github_app_authorization) webhook を受信します。 GitHub App は、このイベントをサブスクライブ解除できません。 {% data reusables.webhooks.authorization_event %}
 
-## User-level permissions
+## ユーザレベルの権限
 
-You can add user-level permissions to your GitHub App to access user resources, such as user emails, that are granted by individual users as part of the [user authorization flow](#identifying-users-on-your-site). User-level permissions differ from [repository and organization-level permissions](/rest/reference/permissions-required-for-github-apps), which are granted at the time of installation on an organization or user account.
+[ユーザ認可フロー](#identifying-users-on-your-site)の一環として、個々のユーザに付与されたユーザのメールなどのユーザが所有するリソースにアクセスできる、ユーザレベルの権限を GitHub App に付与できます。 ユーザレベルの権限は、Organization またはユーザアカウントにインストールされる際に付与される、[リポジトリおよび Organization レベルの権限](/rest/reference/permissions-required-for-github-apps)とは異なります。
 
-You can select user-level permissions from within your GitHub App's settings in the **User permissions** section of the **Permissions & webhooks** page. For more information on selecting permissions, see "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)."
+ユーザレベルの権限は、[**Permissions & webhooks**] ページの [**User permissions**] セクションにある GitHub App の設定で選択できます。 権限の選択に関する詳しい情報については、「[GitHub Appの権限の編集](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
 
-When a user installs your app on their account, the installation prompt will list the user-level permissions your app is requesting and explain that the app can ask individual users for these permissions.
+ユーザが自分のアカウントにアプリケーションをインストールする時、インストールプロンプトは、アプリケーションがリクエストするユーザレベルの権限を一覧表示し、アプリケーションがこれらの権限を個々のユーザに求めることができるということを説明します。
 
-Because user-level permissions are granted on an individual user basis, you can add them to your existing app without prompting users to upgrade. You will, however, need to send existing users through the user authorization flow to authorize the new permission and get a new user-to-server token for these requests.
+ユーザレベルの権限は個々のユーザに付与されるため、ユーザにアップグレードを促すことなく、既存のアプリケーションに権限を追加できます。 ただし、新しい権限を認可し、ユーザからサーバーに対するトークンを取得するため、ユーザ認可フローを通じて既存のユーザを送信する必要があります。
 
-## User-to-server requests
+## ユーザからサーバーへのリクエスト
 
-While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) or [REST v3](/rest) endpoints.
+While most of your API インタラクションのほとんどは、サーバーからサーバーへのインストールアクセストークンを用いて行われますが、一部のエンドポイントでは、ユーザアクセストークンを使用し、API 経由でアクションを実行できます。 [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) または [REST v3](/rest) エンドポイントを使用して、アプリケーションは次のリクエストを行うことができます。
 
-### Supported endpoints
+### 対応しているエンドポイント
 
 {% ifversion fpt or ghec %}
-#### Actions Runners
+#### Actions ランナー
 
-* [List runner applications for a repository](/rest/reference/actions#list-runner-applications-for-a-repository)
-* [List self-hosted runners for a repository](/rest/reference/actions#list-self-hosted-runners-for-a-repository)
-* [Get a self-hosted runner for a repository](/rest/reference/actions#get-a-self-hosted-runner-for-a-repository)
-* [Delete a self-hosted runner from a repository](/rest/reference/actions#delete-a-self-hosted-runner-from-a-repository)
-* [Create a registration token for a repository](/rest/reference/actions#create-a-registration-token-for-a-repository)
-* [Create a remove token for a repository](/rest/reference/actions#create-a-remove-token-for-a-repository)
-* [List runner applications for an organization](/rest/reference/actions#list-runner-applications-for-an-organization)
-* [List self-hosted runners for an organization](/rest/reference/actions#list-self-hosted-runners-for-an-organization)
-* [Get a self-hosted runner for an organization](/rest/reference/actions#get-a-self-hosted-runner-for-an-organization)
-* [Delete a self-hosted runner from an organization](/rest/reference/actions#delete-a-self-hosted-runner-from-an-organization)
-* [Create a registration token for an organization](/rest/reference/actions#create-a-registration-token-for-an-organization)
-* [Create a remove token for an organization](/rest/reference/actions#create-a-remove-token-for-an-organization)
+* [リポジトリのランナーアプリケーションの一覧表示](/rest/reference/actions#list-runner-applications-for-a-repository)
+* [リポジトリのセルフホストランナーの一覧表示](/rest/reference/actions#list-self-hosted-runners-for-a-repository)
+* [リポジトリのセルフホストランナーの取得](/rest/reference/actions#get-a-self-hosted-runner-for-a-repository)
+* [リポジトリからのセルフホストランナーの削除](/rest/reference/actions#delete-a-self-hosted-runner-from-a-repository)
+* [リポジトリに対する登録トークンの作成](/rest/reference/actions#create-a-registration-token-for-a-repository)
+* [リポジトリに対する削除トークンの作成](/rest/reference/actions#create-a-remove-token-for-a-repository)
+* [Organization のランナーアプリケーションの一覧表示](/rest/reference/actions#list-runner-applications-for-an-organization)
+* [Organizationのセルフホストランナーの一覧表示](/rest/reference/actions#list-self-hosted-runners-for-an-organization)
+* [Organizationのセルフホストランナーの取得](/rest/reference/actions#get-a-self-hosted-runner-for-an-organization)
+* [Organizationのセルフホストランナーの削除](/rest/reference/actions#delete-a-self-hosted-runner-from-an-organization)
+* [Organizationの登録トークンの作成](/rest/reference/actions#create-a-registration-token-for-an-organization)
+* [Organizationの削除トークンの作成](/rest/reference/actions#create-a-remove-token-for-an-organization)
 
-#### Actions Secrets
+#### Actionsのシークレット
 
-* [Get a repository public key](/rest/reference/actions#get-a-repository-public-key)
-* [List repository secrets](/rest/reference/actions#list-repository-secrets)
-* [Get a repository secret](/rest/reference/actions#get-a-repository-secret)
-* [Create or update a repository secret](/rest/reference/actions#create-or-update-a-repository-secret)
-* [Delete a repository secret](/rest/reference/actions#delete-a-repository-secret)
-* [Get an organization public key](/rest/reference/actions#get-an-organization-public-key)
-* [List organization secrets](/rest/reference/actions#list-organization-secrets)
-* [Get an organization secret](/rest/reference/actions#get-an-organization-secret)
-* [Create or update an organization secret](/rest/reference/actions#create-or-update-an-organization-secret)
-* [List selected repositories for an organization secret](/rest/reference/actions#list-selected-repositories-for-an-organization-secret)
-* [Set selected repositories for an organization secret](/rest/reference/actions#set-selected-repositories-for-an-organization-secret)
-* [Add selected repository to an organization secret](/rest/reference/actions#add-selected-repository-to-an-organization-secret)
-* [Remove selected repository from an organization secret](/rest/reference/actions#remove-selected-repository-from-an-organization-secret)
-* [Delete an organization secret](/rest/reference/actions#delete-an-organization-secret)
+* [リポジトリ公開鍵の取得](/rest/reference/actions#get-a-repository-public-key)
+* [リポジトリのシークレットの一覧表示](/rest/reference/actions#list-repository-secrets)
+* [リポジトリのシークレットの取得](/rest/reference/actions#get-a-repository-secret)
+* [リポジトリのシークレットの作成もしくは更新](/rest/reference/actions#create-or-update-a-repository-secret)
+* [リポジトリシークレットの削除](/rest/reference/actions#delete-a-repository-secret)
+* [Organizationの公開鍵の取得](/rest/reference/actions#get-an-organization-public-key)
+* [Organizationのシークレットの一覧表示](/rest/reference/actions#list-organization-secrets)
+* [Organizationのシークレットの取得](/rest/reference/actions#get-an-organization-secret)
+* [Organizationのシークレットの作成もしくは更新](/rest/reference/actions#create-or-update-an-organization-secret)
+* [Organizatinoの選択されたリポジトリのシークレットの一覧表示](/rest/reference/actions#list-selected-repositories-for-an-organization-secret)
+* [Organizationの選択されたリポジトリのシークレットの設定](/rest/reference/actions#set-selected-repositories-for-an-organization-secret)
+* [Organizationの選択されたリポジトリのシークレットの追加](/rest/reference/actions#add-selected-repository-to-an-organization-secret)
+* [Organizationの選択されたリポジトリからのシークレットの削除](/rest/reference/actions#remove-selected-repository-from-an-organization-secret)
+* [Organizationのシークレットの削除](/rest/reference/actions#delete-an-organization-secret)
 {% endif %}
 
 {% ifversion fpt or ghec %}
-#### Artifacts
+#### 成果物
 
-* [List artifacts for a repository](/rest/reference/actions#list-artifacts-for-a-repository)
-* [List workflow run artifacts](/rest/reference/actions#list-workflow-run-artifacts)
-* [Get an artifact](/rest/reference/actions#get-an-artifact)
-* [Delete an artifact](/rest/reference/actions#delete-an-artifact)
-* [Download an artifact](/rest/reference/actions#download-an-artifact)
+* [リポジトリの成果物の一覧表示](/rest/reference/actions#list-artifacts-for-a-repository)
+* [ワークフローの実行の成果物の一覧表示](/rest/reference/actions#list-workflow-run-artifacts)
+* [成果物の取得](/rest/reference/actions#get-an-artifact)
+* [成果物の削除](/rest/reference/actions#delete-an-artifact)
+* [成果物のダウンロード](/rest/reference/actions#download-an-artifact)
 {% endif %}
 
-#### Check Runs
+#### チェックラン
 
-* [Create a check run](/rest/reference/checks#create-a-check-run)
-* [Get a check run](/rest/reference/checks#get-a-check-run)
-* [Update a check run](/rest/reference/checks#update-a-check-run)
-* [List check run annotations](/rest/reference/checks#list-check-run-annotations)
-* [List check runs in a check suite](/rest/reference/checks#list-check-runs-in-a-check-suite)
-* [List check runs for a Git reference](/rest/reference/checks#list-check-runs-for-a-git-reference)
+* [チェックランの作成](/rest/reference/checks#create-a-check-run)
+* [チェックランの取得](/rest/reference/checks#get-a-check-run)
+* [チェックランの更新](/rest/reference/checks#update-a-check-run)
+* [チェックランのアノテーションの一覧表示](/rest/reference/checks#list-check-run-annotations)
+* [チェックスイート中のチェックランの一覧表示](/rest/reference/checks#list-check-runs-in-a-check-suite)
+* [Git参照のチェックランの一覧表示](/rest/reference/checks#list-check-runs-for-a-git-reference)
 
-#### Check Suites
+#### チェックスイート
 
-* [Create a check suite](/rest/reference/checks#create-a-check-suite)
-* [Get a check suite](/rest/reference/checks#get-a-check-suite)
-* [Rerequest a check suite](/rest/reference/checks#rerequest-a-check-suite)
-* [Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites)
-* [List check suites for a Git reference](/rest/reference/checks#list-check-suites-for-a-git-reference)
+* [チェックスイートの作成](/rest/reference/checks#create-a-check-suite)
+* [チェックスイートの取得](/rest/reference/checks#get-a-check-suite)
+* [チェックスイートのリクエスト](/rest/reference/checks#rerequest-a-check-suite)
+* [チェックスイートのリポジトリ環境設定の更新](/rest/reference/checks#update-repository-preferences-for-check-suites)
+* [Git参照のチェックスイートの一覧表示](/rest/reference/checks#list-check-suites-for-a-git-reference)
 
-#### Codes Of Conduct
+#### 行動規範
 
-* [Get all codes of conduct](/rest/reference/codes-of-conduct#get-all-codes-of-conduct)
-* [Get a code of conduct](/rest/reference/codes-of-conduct#get-a-code-of-conduct)
+* [すべての行動規範の取得](/rest/reference/codes-of-conduct#get-all-codes-of-conduct)
+* [行動規範の取得](/rest/reference/codes-of-conduct#get-a-code-of-conduct)
 
-#### Deployment Statuses
+#### デプロイメントステータス
 
-* [List deployment statuses](/rest/reference/deployments#list-deployment-statuses)
-* [Create a deployment status](/rest/reference/deployments#create-a-deployment-status)
-* [Get a deployment status](/rest/reference/deployments#get-a-deployment-status)
+* [デプロイメントステータスの一覧表示](/rest/reference/deployments#list-deployment-statuses)
+* [デプロイメントステータスの作成](/rest/reference/deployments#create-a-deployment-status)
+* [デプロイメントステータスの取得](/rest/reference/deployments#get-a-deployment-status)
 
-#### Deployments
+#### デプロイメント
 
-* [List deployments](/rest/reference/deployments#list-deployments)
-* [Create a deployment](/rest/reference/deployments#create-a-deployment)
+* [デプロイメントの一覧表示](/rest/reference/deployments#list-deployments)
+* [デプロイメントの作成](/rest/reference/deployments#create-a-deployment)
 * [Get a deployment](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [Delete a deployment](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [デプロイメントの削除](/rest/reference/deployments#delete-a-deployment){% endif %}
 
-#### Events
+#### イベント
 
-* [List public events for a network of repositories](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
-* [List public organization events](/rest/reference/activity#list-public-organization-events)
+* [リポジトリのネットワークのパブリックなイベントの一覧表示](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
+* [パブリックなOrganizationのイベントの一覧表示](/rest/reference/activity#list-public-organization-events)
 
-#### Feeds
+#### フィード
 
-* [Get feeds](/rest/reference/activity#get-feeds)
+* [フィードの取得](/rest/reference/activity#get-feeds)
 
-#### Git Blobs
+#### Git Blob
 
-* [Create a blob](/rest/reference/git#create-a-blob)
-* [Get a blob](/rest/reference/git#get-a-blob)
+* [blobの作成](/rest/reference/git#create-a-blob)
+* [blobの取得](/rest/reference/git#get-a-blob)
 
-#### Git Commits
+#### Gitのコミット
 
-* [Create a commit](/rest/reference/git#create-a-commit)
-* [Get a commit](/rest/reference/git#get-a-commit)
+* [コミットの作成](/rest/reference/git#create-a-commit)
+* [コミットの取得](/rest/reference/git#get-a-commit)
 
-#### Git Refs
+#### Git参照
 
-* [Create a reference](/rest/reference/git#create-a-reference)* [Get a reference](/rest/reference/git#get-a-reference)
-* [List matching references](/rest/reference/git#list-matching-references)
-* [Update a reference](/rest/reference/git#update-a-reference)
-* [Delete a reference](/rest/reference/git#delete-a-reference)
+* [参照の作成](/rest/reference/git#create-a-reference)*[参照の取得](/rest/reference/git#get-a-reference)
+* [一致する参照の一覧表示](/rest/reference/git#list-matching-references)
+* [参照の更新](/rest/reference/git#update-a-reference)
+* [参照の削除](/rest/reference/git#delete-a-reference)
 
-#### Git Tags
+#### Gitタグ
 
-* [Create a tag object](/rest/reference/git#create-a-tag-object)
-* [Get a tag](/rest/reference/git#get-a-tag)
+* [タグオブジェクトの作成](/rest/reference/git#create-a-tag-object)
+* [タグの取得](/rest/reference/git#get-a-tag)
 
-#### Git Trees
+#### Gitツリー
 
-* [Create a tree](/rest/reference/git#create-a-tree)
-* [Get a tree](/rest/reference/git#get-a-tree)
+* [ツリーの作成](/rest/reference/git#create-a-tree)
+* [ツリーの取得](/rest/reference/git#get-a-tree)
 
-#### Gitignore Templates
+#### gitignoreテンプレート
 
-* [Get all gitignore templates](/rest/reference/gitignore#get-all-gitignore-templates)
-* [Get a gitignore template](/rest/reference/gitignore#get-a-gitignore-template)
+* [すべてのgitignoreテンプレートの取得](/rest/reference/gitignore#get-all-gitignore-templates)
+* [gitignoreテンプレートの取得](/rest/reference/gitignore#get-a-gitignore-template)
 
-#### Installations
+#### インストール
 
-* [List repositories accessible to the user access token](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token)
-
-{% ifversion fpt or ghec %}
-#### Interaction Limits
-
-* [Get interaction restrictions for an organization](/rest/reference/interactions#get-interaction-restrictions-for-an-organization)
-* [Set interaction restrictions for an organization](/rest/reference/interactions#set-interaction-restrictions-for-an-organization)
-* [Remove interaction restrictions for an organization](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization)
-* [Get interaction restrictions for a repository](/rest/reference/interactions#get-interaction-restrictions-for-a-repository)
-* [Set interaction restrictions for a repository](/rest/reference/interactions#set-interaction-restrictions-for-a-repository)
-* [Remove interaction restrictions for a repository](/rest/reference/interactions#remove-interaction-restrictions-for-a-repository)
-{% endif %}
-
-#### Issue Assignees
-
-* [Add assignees to an issue](/rest/reference/issues#add-assignees-to-an-issue)
-* [Remove assignees from an issue](/rest/reference/issues#remove-assignees-from-an-issue)
-
-#### Issue Comments
-
-* [List issue comments](/rest/reference/issues#list-issue-comments)
-* [Create an issue comment](/rest/reference/issues#create-an-issue-comment)
-* [List issue comments for a repository](/rest/reference/issues#list-issue-comments-for-a-repository)
-* [Get an issue comment](/rest/reference/issues#get-an-issue-comment)
-* [Update an issue comment](/rest/reference/issues#update-an-issue-comment)
-* [Delete an issue comment](/rest/reference/issues#delete-an-issue-comment)
-
-#### Issue Events
-
-* [List issue events](/rest/reference/issues#list-issue-events)
-
-#### Issue Timeline
-
-* [List timeline events for an issue](/rest/reference/issues#list-timeline-events-for-an-issue)
-
-#### Issues
-
-* [List issues assigned to the authenticated user](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)
-* [List assignees](/rest/reference/issues#list-assignees)
-* [Check if a user can be assigned](/rest/reference/issues#check-if-a-user-can-be-assigned)
-* [List repository issues](/rest/reference/issues#list-repository-issues)
-* [Create an issue](/rest/reference/issues#create-an-issue)
-* [Get an issue](/rest/reference/issues#get-an-issue)
-* [Update an issue](/rest/reference/issues#update-an-issue)
-* [Lock an issue](/rest/reference/issues#lock-an-issue)
-* [Unlock an issue](/rest/reference/issues#unlock-an-issue)
+* [ユーザアクセストークンでアクセスできるリポジトリの一覧表示](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token)
 
 {% ifversion fpt or ghec %}
-#### Jobs
+#### インタラクションの制限
 
-* [Get a job for a workflow run](/rest/reference/actions#get-a-job-for-a-workflow-run)
-* [Download job logs for a workflow run](/rest/reference/actions#download-job-logs-for-a-workflow-run)
-* [List jobs for a workflow run](/rest/reference/actions#list-jobs-for-a-workflow-run)
+* [Organizationのインタラクション制限の取得](/rest/reference/interactions#get-interaction-restrictions-for-an-organization)
+* [Organizationのインタラクション制限の設定](/rest/reference/interactions#set-interaction-restrictions-for-an-organization)
+* [Organizationのインタラクション制限の削除](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization)
+* [リポジトリのインタラクション制限の取得](/rest/reference/interactions#get-interaction-restrictions-for-a-repository)
+* [リポジトリのインタラクション制限の設定](/rest/reference/interactions#set-interaction-restrictions-for-a-repository)
+* [リポジトリのインタラクション制限の削除](/rest/reference/interactions#remove-interaction-restrictions-for-a-repository)
 {% endif %}
 
-#### Labels
+#### Issueにアサインされた人
 
-* [List labels for an issue](/rest/reference/issues#list-labels-for-an-issue)
-* [Add labels to an issue](/rest/reference/issues#add-labels-to-an-issue)
-* [Set labels for an issue](/rest/reference/issues#set-labels-for-an-issue)
-* [Remove all labels from an issue](/rest/reference/issues#remove-all-labels-from-an-issue)
-* [Remove a label from an issue](/rest/reference/issues#remove-a-label-from-an-issue)
-* [List labels for a repository](/rest/reference/issues#list-labels-for-a-repository)
-* [Create a label](/rest/reference/issues#create-a-label)
-* [Get a label](/rest/reference/issues#get-a-label)
-* [Update a label](/rest/reference/issues#update-a-label)
-* [Delete a label](/rest/reference/issues#delete-a-label)
-* [Get labels for every issue in a milestone](/rest/reference/issues#list-labels-for-issues-in-a-milestone)
+* [Issueへのアサインされる人の追加](/rest/reference/issues#add-assignees-to-an-issue)
+* [Issueからアサインされた人を削除](/rest/reference/issues#remove-assignees-from-an-issue)
 
-#### Licenses
+#### Issueコメント
 
-* [Get all commonly used licenses](/rest/reference/licenses#get-all-commonly-used-licenses)
-* [Get a license](/rest/reference/licenses#get-a-license)
+* [Issueコメントの一覧表示](/rest/reference/issues#list-issue-comments)
+* [Issueコメントの作成](/rest/reference/issues#create-an-issue-comment)
+* [リポジトリのIssueコメントの一覧表示](/rest/reference/issues#list-issue-comments-for-a-repository)
+* [Issueコメントの取得](/rest/reference/issues#get-an-issue-comment)
+* [Issueコメントの更新](/rest/reference/issues#update-an-issue-comment)
+* [Issueコメントの削除](/rest/reference/issues#delete-an-issue-comment)
+
+#### Issueイベント
+
+* [Issueイベントの一覧表示](/rest/reference/issues#list-issue-events)
+
+#### Issueのタイムライン
+
+* [Issueのタイムラインイベントの一覧表示](/rest/reference/issues#list-timeline-events-for-an-issue)
+
+#### Issue
+
+* [認証されたユーザにアサインされたIssueの一覧表示](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)
+* [アサインされた人の一覧表示](/rest/reference/issues#list-assignees)
+* [ユーザにアサインできるかを確認](/rest/reference/issues#check-if-a-user-can-be-assigned)
+* [リポジトリのIssueの一覧表示](/rest/reference/issues#list-repository-issues)
+* [Issueの作成](/rest/reference/issues#create-an-issue)
+* [Issueの取得](/rest/reference/issues#get-an-issue)
+* [Issueの更新](/rest/reference/issues#update-an-issue)
+* [Issueのロック](/rest/reference/issues#lock-an-issue)
+* [Issueのロック解除](/rest/reference/issues#unlock-an-issue)
+
+{% ifversion fpt or ghec %}
+#### ジョブ
+
+* [ワークフローランのジョブを取得](/rest/reference/actions#get-a-job-for-a-workflow-run)
+* [ワークフローランのジョブのログをダウンロード](/rest/reference/actions#download-job-logs-for-a-workflow-run)
+* [ワークフローランのジョブを一覧表示](/rest/reference/actions#list-jobs-for-a-workflow-run)
+{% endif %}
+
+#### ラベル
+
+* [Issueのラベルを一覧表示](/rest/reference/issues#list-labels-for-an-issue)
+* [Issueにラベルを追加](/rest/reference/issues#add-labels-to-an-issue)
+* [Issueにラベルを設定](/rest/reference/issues#set-labels-for-an-issue)
+* [Issueからすべてのラベルを削除](/rest/reference/issues#remove-all-labels-from-an-issue)
+* [Issueからラベルを削除](/rest/reference/issues#remove-a-label-from-an-issue)
+* [リポジトリのラベルを一覧表示](/rest/reference/issues#list-labels-for-a-repository)
+* [ラベルを作成](/rest/reference/issues#create-a-label)
+* [ラベルの取得](/rest/reference/issues#get-a-label)
+* [ラベルの更新](/rest/reference/issues#update-a-label)
+* [ラベルの削除](/rest/reference/issues#delete-a-label)
+* [マイルストーン中のすべてのIssueのラベルを取得](/rest/reference/issues#list-labels-for-issues-in-a-milestone)
+
+#### ライセンス
+
+* [一般的に使用されるすべてのライセンスを取得](/rest/reference/licenses#get-all-commonly-used-licenses)
+* [ライセンスを取得](/rest/reference/licenses#get-a-license)
 
 #### Markdown
 
-* [Render a Markdown document](/rest/reference/markdown#render-a-markdown-document)
-* [Render a markdown document in raw mode](/rest/reference/markdown#render-a-markdown-document-in-raw-mode)
+* [Markdownドキュメントをレンダリング](/rest/reference/markdown#render-a-markdown-document)
+* [Markdownドキュメントをrawモードでレンダリング](/rest/reference/markdown#render-a-markdown-document-in-raw-mode)
 
-#### Meta
+#### メタ情報
 
-* [Meta](/rest/reference/meta#meta)
+* [メタ情報](/rest/reference/meta#meta)
 
-#### Milestones
+#### マイルストーン
 
-* [List milestones](/rest/reference/issues#list-milestones)
-* [Create a milestone](/rest/reference/issues#create-a-milestone)
-* [Get a milestone](/rest/reference/issues#get-a-milestone)
-* [Update a milestone](/rest/reference/issues#update-a-milestone)
-* [Delete a milestone](/rest/reference/issues#delete-a-milestone)
+* [マイルストーンの一覧表示](/rest/reference/issues#list-milestones)
+* [マイルストーンの作成](/rest/reference/issues#create-a-milestone)
+* [マイルストーンの取得](/rest/reference/issues#create-a-milestone)
+* [マイルストーンの更新](/rest/reference/issues#update-a-milestone)
+* [マイルストーンの削除](/rest/reference/issues#delete-a-milestone)
 
-#### Organization Hooks
+#### Organizationのフック
 
-* [List organization webhooks](/rest/reference/orgs#webhooks/#list-organization-webhooks)
-* [Create an organization webhook](/rest/reference/orgs#webhooks/#create-an-organization-webhook)
-* [Get an organization webhook](/rest/reference/orgs#webhooks/#get-an-organization-webhook)
-* [Update an organization webhook](/rest/reference/orgs#webhooks/#update-an-organization-webhook)
-* [Delete an organization webhook](/rest/reference/orgs#webhooks/#delete-an-organization-webhook)
-* [Ping an organization webhook](/rest/reference/orgs#webhooks/#ping-an-organization-webhook)
+* [Organizationのwebhookの一覧表示](/rest/reference/orgs#webhooks/#list-organization-webhooks)
+* [Organizationのwebhookの作成](/rest/reference/orgs#webhooks/#create-an-organization-webhook)
+* [Organizationのwebhookの取得](/rest/reference/orgs#webhooks/#get-an-organization-webhook)
+* [Organizationのwebhookの更新](/rest/reference/orgs#webhooks/#update-an-organization-webhook)
+* [Organizationのwebhookの削除](/rest/reference/orgs#webhooks/#delete-an-organization-webhook)
+* [Organizationのwebhookのping](/rest/reference/orgs#webhooks/#ping-an-organization-webhook)
 
 {% ifversion fpt or ghec %}
-#### Organization Invitations
+#### Organizationの招待
 
-* [List pending organization invitations](/rest/reference/orgs#list-pending-organization-invitations)
-* [Create an organization invitation](/rest/reference/orgs#create-an-organization-invitation)
-* [List organization invitation teams](/rest/reference/orgs#list-organization-invitation-teams)
+* [保留中のOrganizationの招待の一覧表示](/rest/reference/orgs#list-pending-organization-invitations)
+* [Organizationの招待の作成](/rest/reference/orgs#create-an-organization-invitation)
+* [Organizationの招待Teamの一覧表示](/rest/reference/orgs#list-organization-invitation-teams)
 {% endif %}
 
-#### Organization Members
+#### Organizationのメンバー
 
-* [List organization members](/rest/reference/orgs#list-organization-members)
-* [Check organization membership for a user](/rest/reference/orgs#check-organization-membership-for-a-user)
-* [Remove an organization member](/rest/reference/orgs#remove-an-organization-member)
-* [Get organization membership for a user](/rest/reference/orgs#get-organization-membership-for-a-user)
-* [Set organization membership for a user](/rest/reference/orgs#set-organization-membership-for-a-user)
-* [Remove organization membership for a user](/rest/reference/orgs#remove-organization-membership-for-a-user)
-* [List public organization members](/rest/reference/orgs#list-public-organization-members)
-* [Check public organization membership for a user](/rest/reference/orgs#check-public-organization-membership-for-a-user)
-* [Set public organization membership for the authenticated user](/rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user)
-* [Remove public organization membership for the authenticated user](/rest/reference/orgs#remove-public-organization-membership-for-the-authenticated-user)
+* [Organizationのメンバーの一覧表示](/rest/reference/orgs#list-organization-members)
+* [ユーザのOrganizationのメンバーシップのチェック](/rest/reference/orgs#check-organization-membership-for-a-user)
+* [Organizationのメンバーの削除](/rest/reference/orgs#remove-an-organization-member)
+* [ユーザのOrganizationのメンバーシップの取得](/rest/reference/orgs#get-organization-membership-for-a-user)
+* [ユーザのOrganizationのメンバーシップの設定](/rest/reference/orgs#set-organization-membership-for-a-user)
+* [ユーザのOrganizationのメンバーシップの削除](/rest/reference/orgs#remove-organization-membership-for-a-user)
+* [パブリックなOrganizationのメンバーの一覧表示](/rest/reference/orgs#list-public-organization-members)
+* [ユーザのパブリックなOrganizationのメンバーシップのチェック](/rest/reference/orgs#check-public-organization-membership-for-a-user)
+* [認証されたユーザのパブリックなOrganizationのメンバーシップの設定](/rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user)
+* [認証されたユーザのOrganizationのメンバーシップの削除](/rest/reference/orgs#remove-public-organization-membership-for-the-authenticated-user)
 
-#### Organization Outside Collaborators
+#### Organizationの外部コラボレータ
 
-* [List outside collaborators for an organization](/rest/reference/orgs#list-outside-collaborators-for-an-organization)
-* [Convert an organization member to outside collaborator](/rest/reference/orgs#convert-an-organization-member-to-outside-collaborator)
-* [Remove outside collaborator from an organization](/rest/reference/orgs#remove-outside-collaborator-from-an-organization)
+* [OrganizationのOrganizationの外部コラボレータの一覧表示](/rest/reference/orgs#list-outside-collaborators-for-an-organization)
+* [OrganizationのメンバーからOrganizationの外部コラボレータへの変換](/rest/reference/orgs#convert-an-organization-member-to-outside-collaborator)
+* [OrganizationからのOrganizationの外部コラボレータの削除](/rest/reference/orgs#remove-outside-collaborator-from-an-organization)
 
 {% ifversion ghes %}
-#### Organization Pre Receive Hooks
+#### Organization pre-receive フック
 
-* [List pre-receive hooks for an organization](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
-* [Get a pre-receive hook for an organization](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-an-organization)
-* [Update pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-an-organization)
-* [Remove pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
+* [Organizationのためのpre-receiveフックの一覧表示](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
+* [Organizationのためのpre-receiveフックの取得](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-an-organization)
+* [Organizationのためのpre-receiveフックの強制の更新](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-an-organization)
+* [Organizationのためのpre-receiveフックの強制の削除](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
 {% ifversion fpt or ghes or ghae or ghec %}
-#### Organization Team Projects
+#### OrganizationのTeamのプロジェクト
 
-* [List team projects](/rest/reference/teams#list-team-projects)
-* [Check team permissions for a project](/rest/reference/teams#check-team-permissions-for-a-project)
-* [Add or update team project permissions](/rest/reference/teams#add-or-update-team-project-permissions)
-* [Remove a project from a team](/rest/reference/teams#remove-a-project-from-a-team)
+* [Teamプロジェクトの一覧表示](/rest/reference/teams#list-team-projects)
+* [プロジェクトのTeamの権限のチェック](/rest/reference/teams#check-team-permissions-for-a-project)
+* [Teamのプロジェクト権限の追加あるいは更新](/rest/reference/teams#add-or-update-team-project-permissions)
+* [Teamからのプロジェクトの削除](/rest/reference/teams#remove-a-project-from-a-team)
 {% endif %}
 
-#### Organization Team Repositories
+#### OrganizationのTeamリポジトリ
 
-* [List team repositories](/rest/reference/teams#list-team-repositories)
-* [Check team permissions for a repository](/rest/reference/teams#check-team-permissions-for-a-repository)
-* [Add or update team repository permissions](/rest/reference/teams#add-or-update-team-repository-permissions)
-* [Remove a repository from a team](/rest/reference/teams#remove-a-repository-from-a-team)
+* [Team リポジトリの一覧表示](/rest/reference/teams#list-team-repositories)
+* [リポジトリのTeamの権限のチェック](/rest/reference/teams#check-team-permissions-for-a-repository)
+* [Teamリポジトリ権限の追加あるいは更新](/rest/reference/teams#add-or-update-team-repository-permissions)
+* [Teamからのリポジトリの削除](/rest/reference/teams#remove-a-repository-from-a-team)
 
 {% ifversion fpt or ghec %}
 #### Organization Team Sync
 
-* [List idp groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
-* [Create or update idp group connections](/rest/reference/teams#create-or-update-idp-group-connections)
-* [List IdP groups for an organization](/rest/reference/teams#list-idp-groups-for-an-organization)
+* [Teamのidpグループの一覧表示](/rest/reference/teams#list-idp-groups-for-a-team)
+* [idpグループの接続の作成あるいは更新](/rest/reference/teams#create-or-update-idp-group-connections)
+* [OrganizationのIdpグループの一覧表示](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 
-#### Organization Teams
+#### Organization Team
 
-* [List teams](/rest/reference/teams#list-teams)
-* [Create a team](/rest/reference/teams#create-a-team)
-* [Get a team by name](/rest/reference/teams#get-a-team-by-name)
-* [Update a team](/rest/reference/teams#update-a-team)
-* [Delete a team](/rest/reference/teams#delete-a-team)
+* [Teamの一覧表示](/rest/reference/teams#list-teams)
+* [Teamの作成](/rest/reference/teams#create-a-team)
+* [名前でのTeamの取得](/rest/reference/teams#get-a-team-by-name)
+* [Teamの更新](/rest/reference/teams#update-a-team)
+* [Teamの削除](/rest/reference/teams#delete-a-team)
 {% ifversion fpt or ghec %}
-* [List pending team invitations](/rest/reference/teams#list-pending-team-invitations)
+* [保留中のTeamの招待の一覧表示](/rest/reference/teams#list-pending-team-invitations)
 {% endif %}
-* [List team members](/rest/reference/teams#list-team-members)
-* [Get team membership for a user](/rest/reference/teams#get-team-membership-for-a-user)
-* [Add or update team membership for a user](/rest/reference/teams#add-or-update-team-membership-for-a-user)
-* [Remove team membership for a user](/rest/reference/teams#remove-team-membership-for-a-user)
-* [List child teams](/rest/reference/teams#list-child-teams)
-* [List teams for the authenticated user](/rest/reference/teams#list-teams-for-the-authenticated-user)
+* [Teamメンバーの一覧表示](/rest/reference/teams#list-team-members)
+* [ユーザのTeamメンバーシップの取得](/rest/reference/teams#get-team-membership-for-a-user)
+* [ユーザのTeamメンバーシップの追加あるいは更新](/rest/reference/teams#add-or-update-team-membership-for-a-user)
+* [ユーザのTeamメンバーシップの削除](/rest/reference/teams#remove-team-membership-for-a-user)
+* [子チームの一覧表示](/rest/reference/teams#list-child-teams)
+* [認証されたユーザのTeamの一覧表示](/rest/reference/teams#list-teams-for-the-authenticated-user)
 
-#### Organizations
+#### Organization
 
-* [List organizations](/rest/reference/orgs#list-organizations)
-* [Get an organization](/rest/reference/orgs#get-an-organization)
-* [Update an organization](/rest/reference/orgs#update-an-organization)
-* [List organization memberships for the authenticated user](/rest/reference/orgs#list-organization-memberships-for-the-authenticated-user)
-* [Get an organization membership for the authenticated user](/rest/reference/orgs#get-an-organization-membership-for-the-authenticated-user)
-* [Update an organization membership for the authenticated user](/rest/reference/orgs#update-an-organization-membership-for-the-authenticated-user)
-* [List organizations for the authenticated user](/rest/reference/orgs#list-organizations-for-the-authenticated-user)
-* [List organizations for a user](/rest/reference/orgs#list-organizations-for-a-user)
-
-{% ifversion fpt or ghec %}
-#### Organizations Credential Authorizations
-
-* [List SAML SSO authorizations for an organization](/rest/reference/orgs#list-saml-sso-authorizations-for-an-organization)
-* [Remove a SAML SSO authorization for an organization](/rest/reference/orgs#remove-a-saml-sso-authorization-for-an-organization)
-{% endif %}
+* [Organizationの一覧表示](/rest/reference/orgs#list-organizations)
+* [Organizationの取得](/rest/reference/orgs#list-organizations)
+* [Organizationの更新](/rest/reference/orgs#update-an-organization)
+* [認証されたユーザのOrganizationメンバーシップの一覧表示](/rest/reference/orgs#list-organization-memberships-for-the-authenticated-user)
+* [認証されたユーザのOrganizationメンバーシップの取得](/rest/reference/orgs#get-an-organization-membership-for-the-authenticated-user)
+* [認証されたユーザのOrganizationメンバーシップの更新](/rest/reference/orgs#update-an-organization-membership-for-the-authenticated-user)
+* [認証されたユーザのOrganizationの一覧表示](/rest/reference/orgs#list-organizations-for-the-authenticated-user)
+* [ユーザのOrganizationの一覧表示](/rest/reference/orgs#list-organizations-for-a-user)
 
 {% ifversion fpt or ghec %}
-#### Organizations Scim
+#### Organizationのクレデンシャルの認証
 
-* [List SCIM provisioned identities](/rest/reference/scim#list-scim-provisioned-identities)
-* [Provision and invite a SCIM user](/rest/reference/scim#provision-and-invite-a-scim-user)
-* [Get SCIM provisioning information for a user](/rest/reference/scim#get-scim-provisioning-information-for-a-user)
-* [Set SCIM information for a provisioned user](/rest/reference/scim#set-scim-information-for-a-provisioned-user)
-* [Update an attribute for a SCIM user](/rest/reference/scim#update-an-attribute-for-a-scim-user)
-* [Delete a SCIM user from an organization](/rest/reference/scim#delete-a-scim-user-from-an-organization)
+* [OrganizationのSAML SSO認証の一覧表示](/rest/reference/orgs#list-saml-sso-authorizations-for-an-organization)
+* [OrganizationのSAML SSO認証の削除](/rest/reference/orgs#remove-a-saml-sso-authorization-for-an-organization)
 {% endif %}
 
 {% ifversion fpt or ghec %}
-#### Source Imports
+#### OrganizationのSCIM
 
-* [Get an import status](/rest/reference/migrations#get-an-import-status)
-* [Start an import](/rest/reference/migrations#start-an-import)
-* [Update an import](/rest/reference/migrations#update-an-import)
-* [Cancel an import](/rest/reference/migrations#cancel-an-import)
-* [Get commit authors](/rest/reference/migrations#get-commit-authors)
-* [Map a commit author](/rest/reference/migrations#map-a-commit-author)
-* [Get large files](/rest/reference/migrations#get-large-files)
-* [Update Git LFS preference](/rest/reference/migrations#update-git-lfs-preference)
+* [SCIMでプロビジョニングされたアイデンティティの一覧表示](/rest/reference/scim#list-scim-provisioned-identities)
+* [SCIMユーザのプロビジョニングと招待](/rest/reference/scim#provision-and-invite-a-scim-user)
+* [ユーザのSCIMプロビジョニング情報の取得](/rest/reference/scim#get-scim-provisioning-information-for-a-user)
+* [プロビジョニングされたユーザのSCIM情報の設定](/rest/reference/scim#set-scim-information-for-a-provisioned-user)
+* [SCIMユーザの属性の更新](/rest/reference/scim#update-an-attribute-for-a-scim-user)
+* [OrganizationからのSCIMユーザの削除](/rest/reference/scim#delete-a-scim-user-from-an-organization)
 {% endif %}
 
-#### Project Collaborators
+{% ifversion fpt or ghec %}
+#### ソースのインポート
 
-* [List project collaborators](/rest/reference/projects#list-project-collaborators)
-* [Add project collaborator](/rest/reference/projects#add-project-collaborator)
-* [Remove project collaborator](/rest/reference/projects#remove-project-collaborator)
-* [Get project permission for a user](/rest/reference/projects#get-project-permission-for-a-user)
+* [インポートステータスの取得](/rest/reference/migrations#get-an-import-status)
+* [インポートの開始](/rest/reference/migrations#start-an-import)
+* [インポートの更新](/rest/reference/migrations#update-an-import)
+* [インポートのキャンセル](/rest/reference/migrations#cancel-an-import)
+* [コミット作者の取得](/rest/reference/migrations#get-commit-authors)
+* [コミット作者のマップ](/rest/reference/migrations#map-a-commit-author)
+* [大きなファイルの取得](/rest/reference/migrations#get-large-files)
+* [Git LFS環境設定の更新](/rest/reference/migrations#update-git-lfs-preference)
+{% endif %}
 
-#### Projects
+#### プロジェクトのコラボレータ
 
-* [List organization projects](/rest/reference/projects#list-organization-projects)
-* [Create an organization project](/rest/reference/projects#create-an-organization-project)
-* [Get a project](/rest/reference/projects#get-a-project)
-* [Update a project](/rest/reference/projects#update-a-project)
-* [Delete a project](/rest/reference/projects#delete-a-project)
-* [List project columns](/rest/reference/projects#list-project-columns)
-* [Create a project column](/rest/reference/projects#create-a-project-column)
-* [Get a project column](/rest/reference/projects#get-a-project-column)
-* [Update a project column](/rest/reference/projects#update-a-project-column)
-* [Delete a project column](/rest/reference/projects#delete-a-project-column)
-* [List project cards](/rest/reference/projects#list-project-cards)
-* [Create a project card](/rest/reference/projects#create-a-project-card)
-* [Move a project column](/rest/reference/projects#move-a-project-column)
-* [Get a project card](/rest/reference/projects#get-a-project-card)
-* [Update a project card](/rest/reference/projects#update-a-project-card)
-* [Delete a project card](/rest/reference/projects#delete-a-project-card)
-* [Move a project card](/rest/reference/projects#move-a-project-card)
-* [List repository projects](/rest/reference/projects#list-repository-projects)
-* [Create a repository project](/rest/reference/projects#create-a-repository-project)
+* [プロジェクトのコラボレータの一覧表示](/rest/reference/projects#list-project-collaborators)
+* [プロジェクトのコラボレータの追加](/rest/reference/projects#add-project-collaborator)
+* [プロジェクトのコラボレータの削除](/rest/reference/projects#remove-project-collaborator)
+* [ユーザのプロジェクト権限の取得](/rest/reference/projects#get-project-permission-for-a-user)
 
-#### Pull Comments
+#### プロジェクト
 
-* [List review comments on a pull request](/rest/reference/pulls#list-review-comments-on-a-pull-request)
-* [Create a review comment for a pull request](/rest/reference/pulls#create-a-review-comment-for-a-pull-request)
-* [List review comments in a repository](/rest/reference/pulls#list-review-comments-in-a-repository)
-* [Get a review comment for a pull request](/rest/reference/pulls#get-a-review-comment-for-a-pull-request)
-* [Update a review comment for a pull request](/rest/reference/pulls#update-a-review-comment-for-a-pull-request)
-* [Delete a review comment for a pull request](/rest/reference/pulls#delete-a-review-comment-for-a-pull-request)
+* [Organizationのプロジェクトの一覧表示](/rest/reference/projects#list-organization-projects)
+* [Organizationのプロジェクトの作成](/rest/reference/projects#create-an-organization-project)
+* [プロジェクトの取得](/rest/reference/projects#get-a-project)
+* [プロジェクトの更新](/rest/reference/projects#update-a-project)
+* [プロジェクトの削除](/rest/reference/projects#delete-a-project)
+* [プロジェクトの列の一覧表示](/rest/reference/projects#list-project-columns)
+* [プロジェクトの列の作成](/rest/reference/projects#create-a-project-column)
+* [プロジェクトの列の取得](/rest/reference/projects#get-a-project-column)
+* [プロジェクトの列の更新](/rest/reference/projects#update-a-project-column)
+* [プロジェクトの列の削除](/rest/reference/projects#delete-a-project-column)
+* [プロジェクトカードの一覧表示](/rest/reference/projects#list-project-cards)
+* [プロジェクトカードの作成](/rest/reference/projects#create-a-project-card)
+* [プロジェクトの列の移動](/rest/reference/projects#move-a-project-column)
+* [プロジェクトカードの取得](/rest/reference/projects#get-a-project-card)
+* [プロジェクトカードの更新](/rest/reference/projects#update-a-project-card)
+* [プロジェクトカードの削除](/rest/reference/projects#delete-a-project-card)
+* [プロジェクトカードの移動](/rest/reference/projects#move-a-project-card)
+* [リポジトリプロジェクトの一覧表示](/rest/reference/projects#list-repository-projects)
+* [リポジトリプロジェクトの作成](/rest/reference/projects#create-a-repository-project)
 
-#### Pull Request Review Events
+#### Pull Requestのコメント
 
-* [Dismiss a review for a pull request](/rest/reference/pulls#dismiss-a-review-for-a-pull-request)
-* [Submit a review for a pull request](/rest/reference/pulls#submit-a-review-for-a-pull-request)
+* [Pull Requestのレビューコメントの一覧表示](/rest/reference/pulls#list-review-comments-on-a-pull-request)
+* [Pull Requestのレビューコメントの作成](/rest/reference/pulls#create-a-review-comment-for-a-pull-request)
+* [リポジトリのレビューコメントの一覧表示](/rest/reference/pulls#list-review-comments-in-a-repository)
+* [Pull Requestのレビューコメントの取得](/rest/reference/pulls#get-a-review-comment-for-a-pull-request)
+* [Pull Requestのレビューコメントの更新](/rest/reference/pulls#update-a-review-comment-for-a-pull-request)
+* [Pull Requestのレビューコメントの削除](/rest/reference/pulls#delete-a-review-comment-for-a-pull-request)
 
-#### Pull Request Review Requests
+#### Pull Requestのレビューイベント
 
-* [List requested reviewers for a pull request](/rest/reference/pulls#list-requested-reviewers-for-a-pull-request)
-* [Request reviewers for a pull request](/rest/reference/pulls#request-reviewers-for-a-pull-request)
-* [Remove requested reviewers from a pull request](/rest/reference/pulls#remove-requested-reviewers-from-a-pull-request)
+* [Pull Requestのレビューの却下](/rest/reference/pulls#dismiss-a-review-for-a-pull-request)
+* [Pull Requestのレビューのサブミット](/rest/reference/pulls#submit-a-review-for-a-pull-request)
 
-#### Pull Request Reviews
+#### Pull Requestのレビューのリクエスト
 
-* [List reviews for a pull request](/rest/reference/pulls#list-reviews-for-a-pull-request)
-* [Create a review for a pull request](/rest/reference/pulls#create-a-review-for-a-pull-request)
-* [Get a review for a pull request](/rest/reference/pulls#get-a-review-for-a-pull-request)
-* [Update a review for a pull request](/rest/reference/pulls#update-a-review-for-a-pull-request)
-* [List comments for a pull request review](/rest/reference/pulls#list-comments-for-a-pull-request-review)
+* [Pull Requestのリクエストされたレビューの一覧表示](/rest/reference/pulls#list-requested-reviewers-for-a-pull-request)
+* [Pull Requestのレビュー担当者のリクエスト](/rest/reference/pulls#request-reviewers-for-a-pull-request)
+* [Pull Requestからリクエストされたレビュー担当者を削除](/rest/reference/pulls#remove-requested-reviewers-from-a-pull-request)
+
+#### Pull Requestのレビュー
+
+* [Pull Requestのレビューの一覧表示](/rest/reference/pulls#list-reviews-for-a-pull-request)
+* [Pull Requestのレビューの作成](/rest/reference/pulls#create-a-review-for-a-pull-request)
+* [Pull Requestのレビューの取得](/rest/reference/pulls#get-a-review-for-a-pull-request)
+* [Pull Requestのレビューの更新](/rest/reference/pulls#update-a-review-for-a-pull-request)
+* [Pull Requestレビューのコメントの一覧表示](/rest/reference/pulls#list-comments-for-a-pull-request-review)
 
 #### Pulls
 
-* [List pull requests](/rest/reference/pulls#list-pull-requests)
-* [Create a pull request](/rest/reference/pulls#create-a-pull-request)
-* [Get a pull request](/rest/reference/pulls#get-a-pull-request)
-* [Update a pull request](/rest/reference/pulls#update-a-pull-request)
-* [List commits on a pull request](/rest/reference/pulls#list-commits-on-a-pull-request)
-* [List pull requests files](/rest/reference/pulls#list-pull-requests-files)
-* [Check if a pull request has been merged](/rest/reference/pulls#check-if-a-pull-request-has-been-merged)
-* [Merge a pull request (Merge Button)](/rest/reference/pulls#merge-a-pull-request)
+* [Pull Requestの一覧表示](/rest/reference/pulls#list-pull-requests)
+* [Pull Requestの作成](/rest/reference/pulls#create-a-pull-request)
+* [Pull Requestの取得](/rest/reference/pulls#get-a-pull-request)
+* [Pull Requestの更新](/rest/reference/pulls#update-a-pull-request)
+* [Pull Requestのコミットの一覧表示](/rest/reference/pulls#list-commits-on-a-pull-request)
+* [Pull Requestのファイルの一覧表示](/rest/reference/pulls#list-pull-requests-files)
+* [Pull Requestがマージされたかをチェック](/rest/reference/pulls#check-if-a-pull-request-has-been-merged)
+* [Pull Requestをマージ（マージボタン）](/rest/reference/pulls#merge-a-pull-request)
 
-#### Reactions
+#### リアクション
 
-{% ifversion fpt or ghes or ghae or ghec %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction){% endif %}
-* [List reactions for a commit comment](/rest/reference/reactions#list-reactions-for-a-commit-comment)
-* [Create reaction for a commit comment](/rest/reference/reactions#create-reaction-for-a-commit-comment)
-* [List reactions for an issue](/rest/reference/reactions#list-reactions-for-an-issue)
-* [Create reaction for an issue](/rest/reference/reactions#create-reaction-for-an-issue)
-* [List reactions for an issue comment](/rest/reference/reactions#list-reactions-for-an-issue-comment)
-* [Create reaction for an issue comment](/rest/reference/reactions#create-reaction-for-an-issue-comment)
-* [List reactions for a pull request review comment](/rest/reference/reactions#list-reactions-for-a-pull-request-review-comment)
-* [Create reaction for a pull request review comment](/rest/reference/reactions#create-reaction-for-a-pull-request-review-comment)
-* [List reactions for a team discussion comment](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
-* [Create reaction for a team discussion comment](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
-* [List reactions for a team discussion](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
-* [Delete a commit comment reaction](/rest/reference/reactions#delete-a-commit-comment-reaction)
-* [Delete an issue reaction](/rest/reference/reactions#delete-an-issue-reaction)
-* [Delete a reaction to a commit comment](/rest/reference/reactions#delete-an-issue-comment-reaction)
-* [Delete a pull request comment reaction](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
-* [Delete team discussion reaction](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+{% ifversion fpt or ghes or ghae or ghec %}* [リアクションの削除](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [リアクションの削除](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [コミットコメントへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-a-commit-comment)
+* [コミットコメントへのリアクションの作成](/rest/reference/reactions#create-reaction-for-a-commit-comment)
+* [Issueへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-an-issue)
+* [Issueへのリアクションの作成](/rest/reference/reactions#create-reaction-for-an-issue)
+* [Issueコメントへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-an-issue-comment)
+* [Issueコメントへのリアクションの作成](/rest/reference/reactions#create-reaction-for-an-issue-comment)
+* [Pull Requestのレビューコメントへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-a-pull-request-review-comment)
+* [Pull Requestのレビューコメントへのリアクションの作成](/rest/reference/reactions#create-reaction-for-a-pull-request-review-comment)
+* [Teamディスカッションコメントへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
+* [Teamディスカッションコメントへのリアクションの作成](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
+* [Teamディスカッションへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-a-team-discussion)
+* [Teamディスカッションへのリアクションの作成](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [コミットコメントへのリアクションの削除](/rest/reference/reactions#delete-a-commit-comment-reaction)
+* [Issueへのリアクションの削除](/rest/reference/reactions#delete-an-issue-reaction)
+* [コミットコメントへのリアクションの削除](/rest/reference/reactions#delete-an-issue-comment-reaction)
+* [Pull Requestのコメントへのリアクションの削除](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
+* [Teamディスカッションへのリアクションの削除](/rest/reference/reactions#delete-team-discussion-reaction)
+* [Team ディスカッションのコメントへのリアクションの削除](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
 
-#### Repositories
+#### リポジトリ
 
-* [List organization repositories](/rest/reference/repos#list-organization-repositories)
-* [Create a repository for the authenticated user](/rest/reference/repos#create-a-repository-for-the-authenticated-user)
-* [Get a repository](/rest/reference/repos#get-a-repository)
-* [Update a repository](/rest/reference/repos#update-a-repository)
-* [Delete a repository](/rest/reference/repos#delete-a-repository)
-* [Compare two commits](/rest/reference/commits#compare-two-commits)
-* [List repository contributors](/rest/reference/repos#list-repository-contributors)
-* [List forks](/rest/reference/repos#list-forks)
-* [Create a fork](/rest/reference/repos#create-a-fork)
-* [List repository languages](/rest/reference/repos#list-repository-languages)
-* [List repository tags](/rest/reference/repos#list-repository-tags)
-* [List repository teams](/rest/reference/repos#list-repository-teams)
-* [Transfer a repository](/rest/reference/repos#transfer-a-repository)
-* [List public repositories](/rest/reference/repos#list-public-repositories)
-* [List repositories for the authenticated user](/rest/reference/repos#list-repositories-for-the-authenticated-user)
-* [List repositories for a user](/rest/reference/repos#list-repositories-for-a-user)
-* [Create repository using a repository template](/rest/reference/repos#create-repository-using-a-repository-template)
+* [Organization リポジトリの一覧表示](/rest/reference/repos#list-organization-repositories)
+* [認証されたユーザにリポジトリを作成](/rest/reference/repos#create-a-repository-for-the-authenticated-user)
+* [リポジトリの取得](/rest/reference/repos#get-a-repository)
+* [リポジトリの更新](/rest/reference/repos#update-a-repository)
+* [リポジトリの削除](/rest/reference/repos#delete-a-repository)
+* [2つのコミットの比較](/rest/reference/commits#compare-two-commits)
+* [リポジトリのコントリビューターの一覧表示](/rest/reference/repos#list-repository-contributors)
+* [フォークの一覧表示](/rest/reference/repos#list-forks)
+* [フォークの作成](/rest/reference/repos#create-a-fork)
+* [リポジトリの言語の一覧表示](/rest/reference/repos#list-repository-languages)
+* [リポジトリのタグの一覧表示](/rest/reference/repos#list-repository-tags)
+* [リポジトリのTeamの一覧表示](/rest/reference/repos#list-repository-teams)
+* [リポジトリの移譲](/rest/reference/repos#transfer-a-repository)
+* [パブリックリポジトリの一覧表示](/rest/reference/repos#list-public-repositories)
+* [認証されたユーザのリポジトリの一覧表示](/rest/reference/repos#list-repositories-for-the-authenticated-user)
+* [ユーザのリポジトリの一覧表示](/rest/reference/repos#list-repositories-for-a-user)
+* [リポジトリのテンプレートを使ったリポジトリの作成](/rest/reference/repos#create-repository-using-a-repository-template)
 
-#### Repository Activity
+#### リポジトリのアクティビティ
 
-* [List stargazers](/rest/reference/activity#list-stargazers)
-* [List watchers](/rest/reference/activity#list-watchers)
-* [List repositories starred by a user](/rest/reference/activity#list-repositories-starred-by-a-user)
-* [Check if a repository is starred by the authenticated user](/rest/reference/activity#check-if-a-repository-is-starred-by-the-authenticated-user)
-* [Star a repository for the authenticated user](/rest/reference/activity#star-a-repository-for-the-authenticated-user)
-* [Unstar a repository for the authenticated user](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user)
-* [List repositories watched by a user](/rest/reference/activity#list-repositories-watched-by-a-user)
+* [Starを付けたユーザの一覧表示](/rest/reference/activity#list-stargazers)
+* [Watchしているユーザの一覧表示](/rest/reference/activity#list-watchers)
+* [ユーザがStarしたリポジトリの一覧表示](/rest/reference/activity#list-repositories-starred-by-a-user)
+* [認証されたユーザによってリポジトリがStarされているかをチェック](/rest/reference/activity#check-if-a-repository-is-starred-by-the-authenticated-user)
+* [認証されたユーザのためにリポジトリをStar](/rest/reference/activity#star-a-repository-for-the-authenticated-user)
+* [認証されたユーザのためにリポジトリをStar解除](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user)
+* [ユーザが Watch しているリポジトリの一覧表示](/rest/reference/activity#list-repositories-watched-by-a-user)
 
 {% ifversion fpt or ghec %}
-#### Repository Automated Security Fixes
+#### リポジトリの自動化されたセキュリティ修正
 
-* [Enable automated security fixes](/rest/reference/repos#enable-automated-security-fixes)
-* [Disable automated security fixes](/rest/reference/repos#disable-automated-security-fixes)
+* [自動化されたセキュリティ修正の有効化](/rest/reference/repos#enable-automated-security-fixes)
+* [自動化されたセキュリティ修正の無効化](/rest/reference/repos#disable-automated-security-fixes)
 {% endif %}
 
-#### Repository Branches
+#### リポジトリのブランチ
 
-* [List branches](/rest/reference/branches#list-branches)
-* [Get a branch](/rest/reference/branches#get-a-branch)
-* [Get branch protection](/rest/reference/branches#get-branch-protection)
-* [Update branch protection](/rest/reference/branches#update-branch-protection)
-* [Delete branch protection](/rest/reference/branches#delete-branch-protection)
-* [Get admin branch protection](/rest/reference/branches#get-admin-branch-protection)
-* [Set admin branch protection](/rest/reference/branches#set-admin-branch-protection)
-* [Delete admin branch protection](/rest/reference/branches#delete-admin-branch-protection)
-* [Get pull request review protection](/rest/reference/branches#get-pull-request-review-protection)
-* [Update pull request review protection](/rest/reference/branches#update-pull-request-review-protection)
-* [Delete pull request review protection](/rest/reference/branches#delete-pull-request-review-protection)
-* [Get commit signature protection](/rest/reference/branches#get-commit-signature-protection)
-* [Create commit signature protection](/rest/reference/branches#create-commit-signature-protection)
-* [Delete commit signature protection](/rest/reference/branches#delete-commit-signature-protection)
-* [Get status checks protection](/rest/reference/branches#get-status-checks-protection)
-* [Update status check protection](/rest/reference/branches#update-status-check-protection)
-* [Remove status check protection](/rest/reference/branches#remove-status-check-protection)
-* [Get all status check contexts](/rest/reference/branches#get-all-status-check-contexts)
-* [Add status check contexts](/rest/reference/branches#add-status-check-contexts)
-* [Set status check contexts](/rest/reference/branches#set-status-check-contexts)
-* [Remove status check contexts](/rest/reference/branches#remove-status-check-contexts)
-* [Get access restrictions](/rest/reference/branches#get-access-restrictions)
-* [Delete access restrictions](/rest/reference/branches#delete-access-restrictions)
-* [List teams with access to the protected branch](/rest/reference/repos#list-teams-with-access-to-the-protected-branch)
-* [Add team access restrictions](/rest/reference/branches#add-team-access-restrictions)
-* [Set team access restrictions](/rest/reference/branches#set-team-access-restrictions)
-* [Remove team access restriction](/rest/reference/branches#remove-team-access-restrictions)
-* [List user restrictions of protected branch](/rest/reference/repos#list-users-with-access-to-the-protected-branch)
-* [Add user access restrictions](/rest/reference/branches#add-user-access-restrictions)
-* [Set user access restrictions](/rest/reference/branches#set-user-access-restrictions)
-* [Remove user access restrictions](/rest/reference/branches#remove-user-access-restrictions)
-* [Merge a branch](/rest/reference/branches#merge-a-branch)
+* [ブランチの一覧表示](/rest/reference/branches#list-branches)
+* [ブランチの取得](/rest/reference/branches#get-a-branch)
+* [ブランチの保護の取得](/rest/reference/branches#get-branch-protection)
+* [ブランチの保護の更新](/rest/reference/branches#update-branch-protection)
+* [ブランチの保護の削除](/rest/reference/branches#delete-branch-protection)
+* [管理ブランチの保護の取得](/rest/reference/branches#get-admin-branch-protection)
+* [管理ブランチの保護の設定](/rest/reference/branches#set-admin-branch-protection)
+* [管理ブランチの保護の削除](/rest/reference/branches#delete-admin-branch-protection)
+* [Pull Requestのレビュー保護の取得](/rest/reference/branches#get-pull-request-review-protection)
+* [Pull Requestのレビュー保護の更新](/rest/reference/branches#update-pull-request-review-protection)
+* [Pull Requestのレビュー保護の削除](/rest/reference/branches#delete-pull-request-review-protection)
+* [コミット署名の保護の取得](/rest/reference/branches#get-commit-signature-protection)
+* [コミット署名の保護の作成](/rest/reference/branches#create-commit-signature-protection)
+* [コミット署名の保護の削除](/rest/reference/branches#delete-commit-signature-protection)
+* [ステータスチェックの保護の取得](/rest/reference/branches#get-status-checks-protection)
+* [ステータスチェックの保護の更新](/rest/reference/branches#update-status-check-protection)
+* [ステータスチェックの保護の削除](/rest/reference/branches#remove-status-check-protection)
+* [すべてのステータスチェックのコンテキストの取得](/rest/reference/branches#get-all-status-check-contexts)
+* [ステータスチェックのコンテキストの追加](/rest/reference/branches#add-status-check-contexts)
+* [ステータスチェックのコンテキストの設定](/rest/reference/branches#set-status-check-contexts)
+* [ステータスチェックのコンテキストの削除](/rest/reference/branches#remove-status-check-contexts)
+* [アクセス制限の取得](/rest/reference/branches#get-access-restrictions)
+* [アクセス制限の削除](/rest/reference/branches#delete-access-restrictions)
+* [保護されたブランチへのアクセスを持つTeamの一覧表示](/rest/reference/repos#list-teams-with-access-to-the-protected-branch)
+* [Teamのアクセス制限の追加](/rest/reference/branches#add-team-access-restrictions)
+* [Teamのアクセス制限の設定](/rest/reference/branches#set-team-access-restrictions)
+* [Teamのアクセス制限の削除](/rest/reference/branches#remove-team-access-restrictions)
+* [保護されたブランチのユーザ制限の一覧表示](/rest/reference/repos#list-users-with-access-to-the-protected-branch)
+* [ユーザアクセス制限の追加](/rest/reference/branches#add-user-access-restrictions)
+* [ユーザアクセス制限の設定](/rest/reference/branches#set-user-access-restrictions)
+* [ユーザアクセス制限の削除](/rest/reference/branches#remove-user-access-restrictions)
+* [ブランチのマージ](/rest/reference/branches#merge-a-branch)
 
-#### Repository Collaborators
+#### リポジトリのコラボレータ
 
-* [List repository collaborators](/rest/reference/collaborators#list-repository-collaborators)
-* [Check if a user is a repository collaborator](/rest/reference/collaborators#check-if-a-user-is-a-repository-collaborator)
-* [Add a repository collaborator](/rest/reference/collaborators#add-a-repository-collaborator)
-* [Remove a repository collaborator](/rest/reference/collaborators#remove-a-repository-collaborator)
-* [Get repository permissions for a user](/rest/reference/collaborators#get-repository-permissions-for-a-user)
+* [リポジトリのコラボレータの一覧表示](/rest/reference/collaborators#list-repository-collaborators)
+* [ユーザがリポジトリのコラボレータかをチェック](/rest/reference/collaborators#check-if-a-user-is-a-repository-collaborator)
+* [リポジトリのコラボレータを追加](/rest/reference/collaborators#add-a-repository-collaborator)
+* [リポジトリのコラボレータを削除](/rest/reference/collaborators#remove-a-repository-collaborator)
+* [ユーザのリポジトリの権限を取得](/rest/reference/collaborators#get-repository-permissions-for-a-user)
 
-#### Repository Commit Comments
+#### リポジトリのコミットコメント
 
-* [List commit comments for a repository](/rest/reference/commits#list-commit-comments-for-a-repository)
-* [Get a commit comment](/rest/reference/commits#get-a-commit-comment)
-* [Update a commit comment](/rest/reference/commits#update-a-commit-comment)
-* [Delete a commit comment](/rest/reference/commits#delete-a-commit-comment)
-* [List commit comments](/rest/reference/commits#list-commit-comments)
-* [Create a commit comment](/rest/reference/commits#create-a-commit-comment)
+* [リポジトリのコミットコメントの一覧表示](/rest/reference/commits#list-commit-comments-for-a-repository)
+* [コミットコメントの取得](/rest/reference/commits#get-a-commit-comment)
+* [コミットコメントの更新](/rest/reference/commits#update-a-commit-comment)
+* [コミットコメントの削除](/rest/reference/commits#delete-a-commit-comment)
+* [コミットコメントの一覧表示](/rest/reference/commits#list-commit-comments)
+* [コミットコメントの作成](/rest/reference/commits#create-a-commit-comment)
 
-#### Repository Commits
+#### リポジトリのコミット
 
-* [List commits](/rest/reference/commits#list-commits)
-* [Get a commit](/rest/reference/commits#get-a-commit)
-* [List branches for head commit](/rest/reference/commits#list-branches-for-head-commit)
-* [List pull requests associated with commit](/rest/reference/repos#list-pull-requests-associated-with-commit)
+* [コミットの一覧表示](/rest/reference/commits#list-commits)
+* [コミットの取得](/rest/reference/commits#get-a-commit)
+* [headコミットのブランチの一覧表示](/rest/reference/commits#list-branches-for-head-commit)
+* [コミットの関連づけられたPull Requestの一覧表示](/rest/reference/repos#list-pull-requests-associated-with-commit)
 
-#### Repository Community
+#### リポジトリのコミュニティ
 
-* [Get the code of conduct for a repository](/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository)
+* [リポジトリの行動規範の取得](/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository)
 {% ifversion fpt or ghec %}
-* [Get community profile metrics](/rest/reference/repository-metrics#get-community-profile-metrics)
+* [コミュニティプロフィールのメトリクスの取得](/rest/reference/repository-metrics#get-community-profile-metrics)
 {% endif %}
 
-#### Repository Contents
+#### リポジトリのコンテンツ
 
-* [Download a repository archive](/rest/reference/repos#download-a-repository-archive)
-* [Get repository content](/rest/reference/repos#get-repository-content)
-* [Create or update file contents](/rest/reference/repos#create-or-update-file-contents)
-* [Delete a file](/rest/reference/repos#delete-a-file)
-* [Get a repository README](/rest/reference/repos#get-a-repository-readme)
-* [Get the license for a repository](/rest/reference/licenses#get-the-license-for-a-repository)
+* [リポジトリのアーカイブのダウンロード](/rest/reference/repos#download-a-repository-archive)
+* [リポジトリのコンテンツの取得](/rest/reference/repos#get-repository-content)
+* [ファイルコンテンツの作成もしくは更新](/rest/reference/repos#create-or-update-file-contents)
+* [ファイルの削除](/rest/reference/repos#delete-a-file)
+* [リポジトリのREADMEの取得](/rest/reference/repos#get-a-repository-readme)
+* [リポジトリのライセンスの取得](/rest/reference/licenses#get-the-license-for-a-repository)
 
 {% ifversion fpt or ghes or ghae or ghec %}
-#### Repository Event Dispatches
+#### リポジトリのイベントのディスパッチ
 
-* [Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)
+* [リポジトリディスパッチイベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)
 {% endif %}
 
-#### Repository Hooks
+#### リポジトリのフック
 
-* [List repository webhooks](/rest/reference/webhooks#list-repository-webhooks)
-* [Create a repository webhook](/rest/reference/webhooks#create-a-repository-webhook)
-* [Get a repository webhook](/rest/reference/webhooks#get-a-repository-webhook)
-* [Update a repository webhook](/rest/reference/webhooks#update-a-repository-webhook)
-* [Delete a repository webhook](/rest/reference/webhooks#delete-a-repository-webhook)
-* [Ping a repository webhook](/rest/reference/webhooks#ping-a-repository-webhook)
-* [Test the push repository webhook](/rest/reference/repos#test-the-push-repository-webhook)
+* [リポジトリのwebhookの一覧表示](/rest/reference/webhooks#list-repository-webhooks)
+* [リポジトリのwebhookの作成](/rest/reference/webhooks#create-a-repository-webhook)
+* [リポジトリのwebhookの取得](/rest/reference/webhooks#get-a-repository-webhook)
+* [リポジトリのwebhookの更新](/rest/reference/webhooks#update-a-repository-webhook)
+* [リポジトリのwebhookの削除](/rest/reference/webhooks#delete-a-repository-webhook)
+* [リポジトリのwebhookのping](/rest/reference/webhooks#ping-a-repository-webhook)
+* [プッシュリポジトリのwebhookのテスト](/rest/reference/repos#test-the-push-repository-webhook)
 
-#### Repository Invitations
+#### リポジトリの招待
 
-* [List repository invitations](/rest/reference/collaborators#list-repository-invitations)
-* [Update a repository invitation](/rest/reference/collaborators#update-a-repository-invitation)
-* [Delete a repository invitation](/rest/reference/collaborators#delete-a-repository-invitation)
-* [List repository invitations for the authenticated user](/rest/reference/collaborators#list-repository-invitations-for-the-authenticated-user)
-* [Accept a repository invitation](/rest/reference/collaborators#accept-a-repository-invitation)
-* [Decline a repository invitation](/rest/reference/collaborators#decline-a-repository-invitation)
+* [リポジトリの招待の一覧表示](/rest/reference/collaborators#list-repository-invitations)
+* [リポジトリの招待の更新](/rest/reference/collaborators#update-a-repository-invitation)
+* [リポジトリの招待の削除](/rest/reference/collaborators#delete-a-repository-invitation)
+* [認証を受けたユーザのリポジトリの招待の一覧表示](/rest/reference/collaborators#list-repository-invitations-for-the-authenticated-user)
+* [リポジトリの招待の受諾](/rest/reference/collaborators#accept-a-repository-invitation)
+* [リポジトリの招待の拒否](/rest/reference/collaborators#decline-a-repository-invitation)
 
-#### Repository Keys
+#### リポジトリのキー
 
-* [List deploy keys](/rest/reference/deployments#list-deploy-keys)
-* [Create a deploy key](/rest/reference/deployments#create-a-deploy-key)
-* [Get a deploy key](/rest/reference/deployments#get-a-deploy-key)
-* [Delete a deploy key](/rest/reference/deployments#delete-a-deploy-key)
+* [デプロイキーの一覧表示](/rest/reference/deployments#list-deploy-keys)
+* [デプロイキーの作成](/rest/reference/deployments#create-a-deploy-key)
+* [デプロイキーの取得](/rest/reference/deployments#get-a-deploy-key)
+* [デプロイキーの削除](/rest/reference/deployments#delete-a-deploy-key)
 
-#### Repository Pages
+#### リポジトリのPages
 
-* [Get a GitHub Pages site](/rest/reference/pages#get-a-github-pages-site)
-* [Create a GitHub Pages site](/rest/reference/pages#create-a-github-pages-site)
-* [Update information about a GitHub Pages site](/rest/reference/pages#update-information-about-a-github-pages-site)
-* [Delete a GitHub Pages site](/rest/reference/pages#delete-a-github-pages-site)
-* [List GitHub Pages builds](/rest/reference/pages#list-github-pages-builds)
-* [Request a GitHub Pages build](/rest/reference/pages#request-a-github-pages-build)
-* [Get GitHub Pages build](/rest/reference/pages#get-github-pages-build)
-* [Get latest pages build](/rest/reference/pages#get-latest-pages-build)
+* [GitHub Pagesのサイトの取得](/rest/reference/pages#get-a-github-pages-site)
+* [GitHub Pagesのサイトの作成](/rest/reference/pages#create-a-github-pages-site)
+* [GitHub Pagesのサイトに関する情報の更新](/rest/reference/pages#update-information-about-a-github-pages-site)
+* [GitHub Pagesのサイトの削除](/rest/reference/pages#delete-a-github-pages-site)
+* [GitHub Pagesのビルドの一覧表示](/rest/reference/pages#list-github-pages-builds)
+* [GitHub Pagesのビルドのリクエスト](/rest/reference/pages#request-a-github-pages-build)
+* [GitHub Pagesのビルドの取得](/rest/reference/pages#get-github-pages-build)
+* [最新のPagesのビルドの取得](/rest/reference/pages#get-latest-pages-build)
 
 {% ifversion ghes %}
-#### Repository Pre Receive Hooks
+#### リポジトリ pre-receive フック
 
-* [List pre-receive hooks for a repository](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository)
-* [Get a pre-receive hook for a repository](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-a-repository)
-* [Update pre-receive hook enforcement for a repository](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-a-repository)
-* [Remove pre-receive hook enforcement for a repository](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository)
+* [リポジトリのpre-receiveフックの一覧表示](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository)
+* [リポジトリのpre-receiveフックの取得](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-a-repository)
+* [リポジトリのpre-receiveフックの強制の更新](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-a-repository)
+* [リポジトリのpre-receiveフックの強制の削除](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository)
 {% endif %}
 
-#### Repository Releases
+#### リポジトリのリリース
 
-* [List releases](/rest/reference/repos/#list-releases)
-* [Create a release](/rest/reference/repos/#create-a-release)
-* [Get a release](/rest/reference/repos/#get-a-release)
-* [Update a release](/rest/reference/repos/#update-a-release)
-* [Delete a release](/rest/reference/repos/#delete-a-release)
-* [List release assets](/rest/reference/repos/#list-release-assets)
-* [Get a release asset](/rest/reference/repos/#get-a-release-asset)
-* [Update a release asset](/rest/reference/repos/#update-a-release-asset)
-* [Delete a release asset](/rest/reference/repos/#delete-a-release-asset)
-* [Get the latest release](/rest/reference/repos/#get-the-latest-release)
-* [Get a release by tag name](/rest/reference/repos/#get-a-release-by-tag-name)
+* [リリースの一覧表示](/rest/reference/repos/#list-releases)
+* [リリースの作成](/rest/reference/repos/#create-a-release)
+* [リリースの取得](/rest/reference/repos/#get-a-release)
+* [リリースの更新](/rest/reference/repos/#update-a-release)
+* [リリースの削除](/rest/reference/repos/#delete-a-release)
+* [リリースアセットの一覧表示](/rest/reference/repos/#list-release-assets)
+* [リリースアセットの取得](/rest/reference/repos/#get-a-release-asset)
+* [リリースアセットの更新](/rest/reference/repos/#update-a-release-asset)
+* [リリースアセットの削除](/rest/reference/repos/#delete-a-release-asset)
+* [最新リリースの取得](/rest/reference/repos/#get-the-latest-release)
+* [タグ名によるリリースの取得](/rest/reference/repos/#get-a-release-by-tag-name)
 
-#### Repository Stats
+#### リポジトリ統計
 
-* [Get the weekly commit activity](/rest/reference/repository-metrics#get-the-weekly-commit-activity)
-* [Get the last year of commit activity](/rest/reference/repository-metrics#get-the-last-year-of-commit-activity)
-* [Get all contributor commit activity](/rest/reference/repository-metrics#get-all-contributor-commit-activity)
-* [Get the weekly commit count](/rest/reference/repository-metrics#get-the-weekly-commit-count)
-* [Get the hourly commit count for each day](/rest/reference/repository-metrics#get-the-hourly-commit-count-for-each-day)
+* [週間のコミットアクティビティの取得](/rest/reference/repository-metrics#get-the-weekly-commit-activity)
+* [昨年のコミットアクティビティの取得](/rest/reference/repository-metrics#get-the-last-year-of-commit-activity)
+* [すべてのコントリビューターのコミットアクティビティの取得](/rest/reference/repository-metrics#get-all-contributor-commit-activity)
+* [週間のコミットカウントの取得](/rest/reference/repository-metrics#get-the-weekly-commit-count)
+* [各日の毎時のコミットカウントの取得](/rest/reference/repository-metrics#get-the-hourly-commit-count-for-each-day)
 
 {% ifversion fpt or ghec %}
-#### Repository Vulnerability Alerts
+#### リポジトリ脆弱性アラート
 
-* [Enable vulnerability alerts](/rest/reference/repos#enable-vulnerability-alerts)
-* [Disable vulnerability alerts](/rest/reference/repos#disable-vulnerability-alerts)
+* [脆弱性アラートの有効化](/rest/reference/repos#enable-vulnerability-alerts)
+* [脆弱性アラートの無効化](/rest/reference/repos#disable-vulnerability-alerts)
 {% endif %}
 
-#### Root
+#### ルート
 
-* [Root endpoint](/rest#root-endpoint)
-* [Emojis](/rest/reference/emojis#emojis)
-* [Get rate limit status for the authenticated user](/rest/reference/rate-limit#get-rate-limit-status-for-the-authenticated-user)
+* [ルートエンドポイント](/rest#root-endpoint)
+* [絵文字](/rest/reference/emojis#emojis)
+* [認証を受けたユーザのレート制限のステータスの取得](/rest/reference/rate-limit#get-rate-limit-status-for-the-authenticated-user)
 
-#### Search
+#### 検索
 
-* [Search code](/rest/reference/search#search-code)
-* [Search commits](/rest/reference/search#search-commits)
-* [Search labels](/rest/reference/search#search-labels)
-* [Search repositories](/rest/reference/search#search-repositories)
-* [Search topics](/rest/reference/search#search-topics)
-* [Search users](/rest/reference/search#search-users)
+* [コードの検索](/rest/reference/search#search-code)
+* [コミットの検索](/rest/reference/search#search-commits)
+* [ラベルの検索](/rest/reference/search#search-labels)
+* [リポジトリを検索](/rest/reference/search#search-repositories)
+* [トピックの検索](/rest/reference/search#search-topics)
+* [ユーザの検索](/rest/reference/search#search-users)
 
-#### Statuses
+#### ステータス
 
-* [Get the combined status for a specific reference](/rest/reference/commits#get-the-combined-status-for-a-specific-reference)
-* [List commit statuses for a reference](/rest/reference/commits#list-commit-statuses-for-a-reference)
-* [Create a commit status](/rest/reference/commits#create-a-commit-status)
+* [特定のリファレンスの結合ステータスの取得](/rest/reference/commits#get-the-combined-status-for-a-specific-reference)
+* [リファレンスのコミットステータスの一覧表示](/rest/reference/commits#list-commit-statuses-for-a-reference)
+* [コミットステータスの作成](/rest/reference/commits#create-a-commit-status)
 
-#### Team Discussions
+#### Teamディスカッション
 
-* [List discussions](/rest/reference/teams#list-discussions)
-* [Create a discussion](/rest/reference/teams#create-a-discussion)
-* [Get a discussion](/rest/reference/teams#get-a-discussion)
-* [Update a discussion](/rest/reference/teams#update-a-discussion)
-* [Delete a discussion](/rest/reference/teams#delete-a-discussion)
-* [List discussion comments](/rest/reference/teams#list-discussion-comments)
-* [Create a discussion comment](/rest/reference/teams#create-a-discussion-comment)
-* [Get a discussion comment](/rest/reference/teams#get-a-discussion-comment)
-* [Update a discussion comment](/rest/reference/teams#update-a-discussion-comment)
-* [Delete a discussion comment](/rest/reference/teams#delete-a-discussion-comment)
+* [ディスカッションの一覧表示](/rest/reference/teams#list-discussions)
+* [ディスカッションの作成](/rest/reference/teams#create-a-discussion)
+* [ディスカッションの取得](/rest/reference/teams#get-a-discussion)
+* [ディスカッションの更新](/rest/reference/teams#update-a-discussion)
+* [ディスカッションの削除](/rest/reference/teams#delete-a-discussion)
+* [ディスカッションコメントの一覧表示](/rest/reference/teams#list-discussion-comments)
+* [ディスカッションコメントの作成](/rest/reference/teams#create-a-discussion-comment)
+* [ディスカッションコメントの取得](/rest/reference/teams#get-a-discussion-comment)
+* [ディスカッションコメントの更新](/rest/reference/teams#update-a-discussion-comment)
+* [ディスカッションコメントの削除](/rest/reference/teams#delete-a-discussion-comment)
 
 #### Topics
 
-* [Get all repository topics](/rest/reference/repos#get-all-repository-topics)
-* [Replace all repository topics](/rest/reference/repos#replace-all-repository-topics)
+* [すべてのリポジトリTopicsの取得](/rest/reference/repos#get-all-repository-topics)
+* [すべてのリポジトリTopicsの置き換え](/rest/reference/repos#replace-all-repository-topics)
 
 {% ifversion fpt or ghec %}
-#### Traffic
+#### トラフィック
 
-* [Get repository clones](/rest/reference/repository-metrics#get-repository-clones)
-* [Get top referral paths](/rest/reference/repository-metrics#get-top-referral-paths)
-* [Get top referral sources](/rest/reference/repository-metrics#get-top-referral-sources)
-* [Get page views](/rest/reference/repository-metrics#get-page-views)
+* [リポジトリのクローンの取得](/rest/reference/repository-metrics#get-repository-clones)
+* [上位の参照パスの取得](/rest/reference/repository-metrics#get-top-referral-paths)
+* [上位の参照ソースの取得](/rest/reference/repository-metrics#get-top-referral-sources)
+* [ページビューの取得](/rest/reference/repository-metrics#get-page-views)
 {% endif %}
 
 {% ifversion fpt or ghec %}
-#### User Blocking
+#### ユーザのブロック
 
-* [List users blocked by the authenticated user](/rest/reference/users#list-users-blocked-by-the-authenticated-user)
-* [Check if a user is blocked by the authenticated user](/rest/reference/users#check-if-a-user-is-blocked-by-the-authenticated-user)
-* [List users blocked by an organization](/rest/reference/orgs#list-users-blocked-by-an-organization)
-* [Check if a user is blocked by an organization](/rest/reference/orgs#check-if-a-user-is-blocked-by-an-organization)
-* [Block a user from an organization](/rest/reference/orgs#block-a-user-from-an-organization)
-* [Unblock a user from an organization](/rest/reference/orgs#unblock-a-user-from-an-organization)
-* [Block a user](/rest/reference/users#block-a-user)
-* [Unblock a user](/rest/reference/users#unblock-a-user)
+* [認証されたユーザによってブロックされたユーザの一覧表示](/rest/reference/users#list-users-blocked-by-the-authenticated-user)
+* [認証されたユーザによってユーザがブロックされているかをチェック](/rest/reference/users#check-if-a-user-is-blocked-by-the-authenticated-user)
+* [Organizationによってブロックされたユーザを一覧表示](/rest/reference/orgs#list-users-blocked-by-an-organization)
+* [Organizationによってユーザがブロックされているかをチェック](/rest/reference/orgs#check-if-a-user-is-blocked-by-an-organization)
+* [Organizationからユーザをブロック](/rest/reference/orgs#block-a-user-from-an-organization)
+* [Oraganizationからのユーザのブロックを解除](/rest/reference/orgs#unblock-a-user-from-an-organization)
+* [ユーザをブロック](/rest/reference/users#block-a-user)
+* [ゆーざのブロックを解除](/rest/reference/users#unblock-a-user)
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-#### User Emails
+#### ユーザのメール
 
 {% ifversion fpt or ghec %}
-* [Set primary email visibility for the authenticated user](/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user)
+* [認証されたユーザのプライマリメールの可視性を設定](/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user)
 {% endif %}
-* [List email addresses for the authenticated user](/rest/reference/users#list-email-addresses-for-the-authenticated-user)
-* [Add email address(es)](/rest/reference/users#add-an-email-address-for-the-authenticated-user)
-* [Delete email address(es)](/rest/reference/users#delete-an-email-address-for-the-authenticated-user)
-* [List public email addresses for the authenticated user](/rest/reference/users#list-public-email-addresses-for-the-authenticated-user)
+* [認証されたユーザのメールアドレスの一覧表示](/rest/reference/users#list-email-addresses-for-the-authenticated-user)
+* [メールアドレスの追加](/rest/reference/users#list-email-addresses-for-the-authenticated-user)
+* [メールアドレスの削除](/rest/reference/users#delete-an-email-address-for-the-authenticated-user)
+* [認証されたユーザのパブリックなメールアドレスの一覧表示](/rest/reference/users#list-public-email-addresses-for-the-authenticated-user)
 {% endif %}
 
-#### User Followers
+#### ユーザのフォロワー
 
-* [List followers of a user](/rest/reference/users#list-followers-of-a-user)
-* [List the people a user follows](/rest/reference/users#list-the-people-a-user-follows)
-* [Check if a person is followed by the authenticated user](/rest/reference/users#check-if-a-person-is-followed-by-the-authenticated-user)
-* [Follow a user](/rest/reference/users#follow-a-user)
-* [Unfollow a user](/rest/reference/users#unfollow-a-user)
-* [Check if a user follows another user](/rest/reference/users#check-if-a-user-follows-another-user)
+* [ユーザのフォロワーの一覧表示](/rest/reference/users#list-followers-of-a-user)
+* [ユーザがフォローしている人の一覧表示](/rest/reference/users#list-the-people-a-user-follows)
+* [認証されたユーザによって人がフォローされているかのチェック](/rest/reference/users#check-if-a-person-is-followed-by-the-authenticated-user)
+* [ユーザのフォロー](/rest/reference/users#follow-a-user)
+* [ユーザのフォロー解除](/rest/reference/users#unfollow-a-user)
+* [ユーザが他のユーザにフォローされているかのチェック](/rest/reference/users#check-if-a-user-follows-another-user)
 
-#### User Gpg Keys
+#### ユーザのGPGキー
 
-* [List GPG keys for the authenticated user](/rest/reference/users#list-gpg-keys-for-the-authenticated-user)
-* [Create a GPG key for the authenticated user](/rest/reference/users#create-a-gpg-key-for-the-authenticated-user)
-* [Get a GPG key for the authenticated user](/rest/reference/users#get-a-gpg-key-for-the-authenticated-user)
-* [Delete a GPG key for the authenticated user](/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user)
-* [List gpg keys for a user](/rest/reference/users#list-gpg-keys-for-a-user)
+* [認証されたユーザのGPGキーの一覧表示](/rest/reference/users#list-gpg-keys-for-the-authenticated-user)
+* [認証されたユーザのGPGキーの作成](/rest/reference/users#create-a-gpg-key-for-the-authenticated-user)
+* [認証されたユーザのGPGキーの取得](/rest/reference/users#get-a-gpg-key-for-the-authenticated-user)
+* [認証されたユーザのGPGキーの削除](/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user)
+* [ユーザのGPGキーの一覧表示](/rest/reference/users#list-gpg-keys-for-a-user)
 
-#### User Public Keys
+#### ユーザの公開鍵
 
-* [List public SSH keys for the authenticated user](/rest/reference/users#list-public-ssh-keys-for-the-authenticated-user)
-* [Create a public SSH key for the authenticated user](/rest/reference/users#create-a-public-ssh-key-for-the-authenticated-user)
-* [Get a public SSH key for the authenticated user](/rest/reference/users#get-a-public-ssh-key-for-the-authenticated-user)
-* [Delete a public SSH key for the authenticated user](/rest/reference/users#delete-a-public-ssh-key-for-the-authenticated-user)
-* [List public keys for a user](/rest/reference/users#list-public-keys-for-a-user)
+* [認証されたユーザの公開SSHキーの一覧表示](/rest/reference/users#list-public-ssh-keys-for-the-authenticated-user)
+* [認証されたユーザの公開SSHキーの作成](/rest/reference/users#create-a-public-ssh-key-for-the-authenticated-user)
+* [認証されたユーザの公開SSHキーの取得](/rest/reference/users#get-a-public-ssh-key-for-the-authenticated-user)
+* [認証されたユーザの公開SSHキーの削除](/rest/reference/users#delete-a-public-ssh-key-for-the-authenticated-user)
+* [ユーザの公開鍵の一覧表示](/rest/reference/users#list-public-keys-for-a-user)
 
-#### Users
+#### ユーザ
 
-* [Get the authenticated user](/rest/reference/users#get-the-authenticated-user)
-* [List app installations accessible to the user access token](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token)
+* [認証されたユーザの取得](/rest/reference/users#get-the-authenticated-user)
+* [ユーザアクセストークンでアクセスできるアプリケーションのインストールの一覧表示](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token)
 {% ifversion fpt or ghec %}
-* [List subscriptions for the authenticated user](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
+* [認証されたユーザのサブスクリプションのリスト](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 {% endif %}
-* [List users](/rest/reference/users#list-users)
-* [Get a user](/rest/reference/users#get-a-user)
-
-{% ifversion fpt or ghec %}
-#### Workflow Runs
-
-* [List workflow runs for a repository](/rest/reference/actions#list-workflow-runs-for-a-repository)
-* [Get a workflow run](/rest/reference/actions#get-a-workflow-run)
-* [Cancel a workflow run](/rest/reference/actions#cancel-a-workflow-run)
-* [Download workflow run logs](/rest/reference/actions#download-workflow-run-logs)
-* [Delete workflow run logs](/rest/reference/actions#delete-workflow-run-logs)
-* [Re run a workflow](/rest/reference/actions#re-run-a-workflow)
-* [List workflow runs](/rest/reference/actions#list-workflow-runs)
-* [Get workflow run usage](/rest/reference/actions#get-workflow-run-usage)
-{% endif %}
+* [ユーザの一覧表示](/rest/reference/users#list-users)
+* [ユーザの取得](/rest/reference/users#get-a-user)
 
 {% ifversion fpt or ghec %}
-#### Workflows
+#### ワークフローラン
 
-* [List repository workflows](/rest/reference/actions#list-repository-workflows)
-* [Get a workflow](/rest/reference/actions#get-a-workflow)
-* [Get workflow usage](/rest/reference/actions#get-workflow-usage)
+* [リポジトリのワークフローランの一覧表示](/rest/reference/actions#list-workflow-runs-for-a-repository)
+* [ワークフローランの取得](/rest/reference/actions#get-a-workflow-run)
+* [ワークフローランのキャンセル](/rest/reference/actions#cancel-a-workflow-run)
+* [ワークフローランのログのダウンロード](/rest/reference/actions#download-workflow-run-logs)
+* [ワークフローランのログの削除](/rest/reference/actions#delete-workflow-run-logs)
+* [ワークフローの再実行](/rest/reference/actions#re-run-a-workflow)
+* [ワークフローランの一覧表示](/rest/reference/actions#list-workflow-runs)
+* [ワークフローランの利用状況の取得](/rest/reference/actions#get-workflow-run-usage)
+{% endif %}
+
+{% ifversion fpt or ghec %}
+#### ワークフロー
+
+* [リポジトリワークフローの一覧表示](/rest/reference/actions#list-repository-workflows)
+* [ワークフローの取得](/rest/reference/actions#get-a-workflow)
+* [ワークフロー利用状況の取得](/rest/reference/actions#get-workflow-usage)
 {% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
-## Further reading
+## 参考リンク
 
-- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
+- "[{% data variables.product.prodname_dotcom %} への認証について](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 
 {% endif %}

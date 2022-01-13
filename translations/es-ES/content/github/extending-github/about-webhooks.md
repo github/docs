@@ -1,11 +1,11 @@
 ---
-title: About webhooks
+title: Acerca de webhooks
 redirect_from:
   - /post-receive-hooks
   - /articles/post-receive-hooks
   - /articles/creating-webhooks
   - /articles/about-webhooks
-intro: Webhooks provide a way for notifications to be delivered to an external web server whenever certain actions occur on a repository or organization.
+intro: Los webhooks ofrecen una manera de enviar las notificaciones a un servidor web externo siempre que ciertas acciones ocurran en un repositorio o una organización.
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,17 +15,17 @@ versions:
 
 {% tip %}
 
-**Tip:** {% data reusables.organizations.owners-and-admins-can %} manage webhooks for an organization. {% data reusables.organizations.new-org-permissions-more-info %}
+**Sugerencia:**{% data reusables.organizations.owners-and-admins-can %} administrar webhooks para una organización. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
-Webhooks can be triggered whenever a variety of actions are performed on a repository or an organization. For example, you can configure a webhook to execute whenever:
+Los webhooks se pueden disparar siempre que se realicen una variedad de acciones en un repositorio o una organización. Por ejemplo, puedes configurar tus webhooks para ejecutarse siemrpe que:
 
-* A repository is pushed to
-* A pull request is opened
-* A {% data variables.product.prodname_pages %} site is built
-* A new member is added to a team
+* Se suba a un repositorio.
+* Se abra una solicitud de extracción.
+* Se cree un sitio {% data variables.product.prodname_pages %}.
+* Se agregue un nuevo miembro a un equipo.
 
-Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you can make these webhooks update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server.
+Al utilizar la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, puedes hacer que estos webhooks actualicen un rastreador de propuesta externo, activen compilaciones de IC, actualicen una réplica de respaldo o incluso desplieguen en tu servidor de producción.
 
-To set up a new webhook, you'll need access to an external server and familiarity with the technical procedures involved. For help on building a webhook, including a full list of actions you can associate with, see "[Webhooks](/webhooks)."
+Para configurar un webhook nuevo, necesitarás acceso a un servidor externo y estar familiarizado con los procedimientos técnicos involucrados. Para obtener ayuda para crear un webhook, lo cual incluye un listado completo de las acciones con las que lo puedes asociar, consulta la secicón "[Webhooks](/webhooks)".

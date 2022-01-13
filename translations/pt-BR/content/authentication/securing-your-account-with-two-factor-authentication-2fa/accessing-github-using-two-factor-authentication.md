@@ -1,6 +1,6 @@
 ---
-title: Accessing GitHub using two-factor authentication
-intro: 'With 2FA enabled, you''ll be asked to provide your 2FA authentication code, as well as your password, when you sign in to {% data variables.product.product_name %}.'
+title: Acessar o GitHub usando a autenticação de dois fatores
+intro: 'Com a 2FA habilitada, será solicitado que você forneça seu código de autenticação de 2FA, bem como sua senha, ao iniciar a sessão no {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/providing-your-2fa-security-code
   - /articles/providing-your-2fa-authentication-code
@@ -14,59 +14,60 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: Access GitHub with 2FA
+shortTitle: Acesse o GitHub com 2FA
 ---
-With two-factor authentication enabled, you'll need to provide an authentication code when accessing {% data variables.product.product_name %} through your browser. If you access {% data variables.product.product_name %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)."
 
-## Providing a 2FA code when signing in to the website
+Com a autenticação de dois fatores habilitada, você deverá fornecer um código de autenticação ao acessar {% data variables.product.product_name %} por meio do seu navegador. Se você acessar {% data variables.product.product_name %} usando outros métodos, como, por exemplo, a API ou a linha de comando, você deverá usar uma forma alternativa de autenticação. Para obter mais informações, consulte "[Sobre a autenticação do {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)".
 
-After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% ifversion fpt or ghec %}a text message or{% endif %} your TOTP app.
+## Fornecer um código 2FA ao entrar no site
 
-{% data variables.product.product_name %} will only ask you to provide your 2FA authentication code again if you've logged out, are using a new device, or your session expires.
+Depois de entrar no {% data variables.product.product_name %} usando sua senha, será solicitado que você forneça um código de autenticação de {% ifversion fpt or ghec %}uma mensagem de texto ou{% endif %} do seu app TOTP.
 
-### Generating a code through a TOTP application
+O {% data variables.product.product_name %} solicitará seu código de autenticação 2FA novamente apenas se você se desconectar, for usar um novo dispositivo ou a sessão expirar.
 
-If you chose to set up two-factor authentication using a TOTP application on your smartphone, you can generate an authentication code for {% data variables.product.product_name %} at any time. In most cases, just launching the application will generate a new code. You should refer to your application's documentation for specific instructions.
+### Gerar um código por meio de um aplicativo TOTP
 
-If you delete the mobile application after configuring two-factor authentication, you'll need to provide your recovery code to get access to your account. For more information, see "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
+Se você optar por configurar a autenticação de dois fatores usando um aplicativo TOTP no smartphone, será possível gerar um código de autenticação para o {% data variables.product.product_name %} a qualquer momento. Na maioria das vezes, apenas iniciar o aplicativo gera um novo código. Você deve consultar a documentação do seu aplicativo para obter instruções específicas.
+
+Em caso de exclusão do aplicativo móvel após configuração da autenticação de dois fatores, será preciso fornecer seu código de recuperação para obter acesso à sua conta. Para obter mais informações, consulte "[Recuperar sua conta se você perder as credenciais da autenticação de dois fatores](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
 
 {% ifversion fpt or ghec %}
 
-### Receiving a text message
+### Receber uma mensagem de texto
 
-If you set up two-factor authentication via text messages, {% data variables.product.product_name %} will send you a text message with your authentication code.
+Se você configurar a autenticação de dois fatores por meio de mensagens de texto, o {% data variables.product.product_name %} enviará uma mensagem de texto com seu código de autenticação.
 
 {% endif %}
 
-## Using two-factor authentication with the command line
+## Usar a autenticação de dois fatores com a linha de comando
 
-After you've enabled 2FA, you must use a personal access token or SSH key instead of your password when accessing {% data variables.product.product_name %} on the command line.
+Após habilitação da 2FA, você deverá usar um token de acesso pessoal ou uma chave SSH em vez da senha ao acessar o {% data variables.product.product_name %} na linha de comando.
 
-### Authenticating on the command line using HTTPS
+### Autenticar na linha de comando usando HTTPS
 
-After you've enabled 2FA, you must create a personal access token to use as a password when authenticating to {% data variables.product.product_name %} on the command line using HTTPS URLs.
+Após habilitação da 2FA, você deverá criar um token de acesso pessoal a ser usado como uma senha ao autenticar no {% data variables.product.product_name %} na linha de comando usando URLs HTTPS.
 
-When prompted for a username and password on the command line, use your {% data variables.product.product_name %} username and personal access token. The command line prompt won't specify that you should enter your personal access token when it asks for your password.
+Ao ser solicitado a fornecer um nome de usuário e uma senha na linha de comando, use seu nome de usuário no {% data variables.product.product_name %} e o token de acesso pessoal. O prompt da linha de comando não especificará que você deve inserir seu token de acesso pessoal quando solicitar sua senha.
 
-For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-### Authenticating on the command line using SSH
+### Autenticar na linha de comando usando SSH
 
-Enabling 2FA doesn't change how you authenticate to {% data variables.product.product_name %} on the command line using SSH URLs. For more information about setting up and using an SSH key, see "[Connecting to {% data variables.product.prodname_dotcom %} with SSH](/articles/connecting-to-github-with-ssh/)."
+Habilitar a 2FA não altera como você faz a autenticação no {% data variables.product.product_name %} na linha de comando usando URLs SSH. Para obter mais informações sobre como configurar e usar uma chave SSH, consulte "[Conectar-se ao {% data variables.product.prodname_dotcom %} com SSH](/articles/connecting-to-github-with-ssh/)".
 
-## Using two-factor authentication to access a repository using Subversion
+## Usar a autenticação de dois fatores para acessar um repositório usando o Subversion
 
-When you access a repository via Subversion, you must provide a personal access token instead of entering your password. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+Quando você acessa um repositório via Subversion, é preciso fornecer um token de acesso pessoal no lugar de digitar sua senha. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-## Troubleshooting
+## Solução de Problemas
 
-If you lose access to your two-factor authentication credentials, you can use your recovery codes or another recovery method (if you've set one up) to regain access to your account. For more information, see "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)."
+Em caso de perda de acesso às suas credenciais de autenticação de dois fatores, você poderá usar seus códigos de recuperação ou outro método de recuperação (se houver um configurado) para obter acesso novamente à sua conta. Para obter mais informações, consulte "[Recuperar sua conta se você perder as credenciais da 2FA](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)".
 
-If your authentication fails several times, you may wish to synchronize your phone's clock with your mobile provider. Often, this involves checking the "Set automatically" option on your phone's clock, rather than providing your own time zone.
+Se a autenticação falhar várias vezes, talvez seja conveniente sincronizar o relógio do seu telefone com o provedor móvel. Muitas vezes, isso envolve verificar a opção "Set automatically" (Definir automaticamente) no relógio do seu telefone, em vez de fornecer seu próprio fuso horário.
 
-## Further reading
+## Leia mais
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"
-- "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"
-- "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
+- [Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication)"
+- "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)"
+- "[Configurar métodos de recuperação de autenticação de dois fatores](/articles/configuring-two-factor-authentication-recovery-methods)"
+- "[Recuperar sua conta se você perder as credenciais da autenticação de dois fatores](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
