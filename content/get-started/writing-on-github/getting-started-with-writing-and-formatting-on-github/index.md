@@ -11,8 +11,6 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-  redirect_from:
-    - /github/writing-on-github/getting-started-with-writing-and-formatting-on-github
 children:
   - /about-writing-and-formatting-on-github
   - /basic-writing-and-formatting-syntax
