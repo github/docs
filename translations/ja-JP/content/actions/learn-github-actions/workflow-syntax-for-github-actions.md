@@ -1,7 +1,7 @@
 ---
-title: Workflow syntax for GitHub Actions
-shortTitle: Workflow syntax
-intro: A workflow is a configurable automated process made up of one or more jobs. You must create a YAML file to define your workflow configuration.
+title: GitHub Actionsのワークフロー構文
+shortTitle: ワークフロー構文
+intro: ワークフローは、1つ以上のジョブからなる設定可能な自動化プロセスです。 ワークフローの設定を定義するには、YAMLファイルを作成しなければなりません。
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
@@ -17,27 +17,27 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About YAML syntax for workflows
+## ワークフロー用のYAML構文について
 
-Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file extension. {% data reusables.actions.learn-more-about-yaml %}
+ワークフローファイルはYAML構文を使用し、ファイル拡張子が`.yml`または`.yaml`である必要があります。 {% data reusables.actions.learn-more-about-yaml %}
 
-You must store workflow files in the `.github/workflows` directory of your repository.
+ワークフローファイルは、リポジトリの`.github/workflows`ディレクトリに保存する必要があります。
 
 ## `name`
 
-The name of your workflow. {% data variables.product.prodname_dotcom %} displays the names of your workflows on your repository's actions page. If you omit `name`, {% data variables.product.prodname_dotcom %} sets it to the workflow file path relative to the root of the repository.
+ワークフローの名前。 {% data variables.product.prodname_dotcom %}では、リポジトリのアクションページにワークフローの名前が表示されます。 `name`を省略すると、{% data variables.product.prodname_dotcom %}はリポジトリのルートに対するワークフローファイルの相対パスをその値に設定します。
 
 ## `on`
 
-**Required**. The name of the {% data variables.product.prodname_dotcom %} event that triggers the workflow. You can provide a single event `string`, `array` of events, `array` of event `types`, or an event configuration `map` that schedules a workflow or restricts the execution of a workflow to specific files, tags, or branch changes. For a list of available events, see "[Events that trigger workflows](/articles/events-that-trigger-workflows)."
+**必須**。 ワークフローをトリガーする{% data variables.product.prodname_dotcom %}イベントの名前。 指定できるのは、1つのイベント`string`、複数イベントの`array`、イベント`types`の`array`です。あるいは、ワークフローをスケジュールする、またはワークフロー実行を特定のファイルやタグ、ブランチ変更に限定するイベント設定`map`も指定できます。 使用可能なイベントの一覧は、「[ワークフローをトリガーするイベント](/articles/events-that-trigger-workflows)」を参照してください。
 
 {% data reusables.github-actions.actions-on-examples %}
 
 ## `on.<event_name>.types`
 
-Selects the types of activity that will trigger a workflow run. Most GitHub events are triggered by more than one type of activity.  For example, the event for the release resource is triggered when a release is `published`, `unpublished`, `created`, `edited`, `deleted`, or `prereleased`. The `types` keyword enables you to narrow down activity that causes the workflow to run. When only one activity type triggers a webhook event, the `types` keyword is unnecessary.
+ワークフローの実行をトリガーする特定のアクティビティ。 ほとんどの GitHub イベントは、2 つ以上のアクティビティタイプからトリガーされます。  たとえば、releaseリソースに対するイベントは、release が `published`、`unpublished`、`created`、`edited`、`deleted`、または `prereleased` の場合にトリガーされます。 `types`キーワードを使用すると、ワークフローを実行させるアクティブの範囲を狭くすることができます。 webhook イベントをトリガーするアクティビティタイプが1つだけの場合、`types`キーワードは不要です。
 
-You can use an array of event `types`. For more information about each event and their activity types, see "[Events that trigger workflows](/articles/events-that-trigger-workflows#webhook-events)."
+イベント`types`の配列を使用できます。 各イベントとそのアクティビティタイプの詳細については、「[ワークフローをトリガーするイベント](/articles/events-that-trigger-workflows#webhook-events)」を参照してください。
 
 ```yaml
 # Trigger the workflow on release activity
@@ -49,34 +49,34 @@ on:
 
 ## `on.<push|pull_request>.<branches|tags>`
 
-When using the `push` and `pull_request` events, you can configure a workflow to run on specific branches or tags. For a `pull_request` event, only branches and tags on the base are evaluated. If you define only `tags` or only `branches`, the workflow won't run for events affecting the undefined Git ref.
+`push`および`pull_request`イベントを使用する場合、特定のブランチまたはタグで実行するワークフローを設定できます。 `pull_request`では、ベース上のブランチ及びタグだけが評価されます。 `tags`もしくは`branches`だけを定義すると、定義されていないGit refに影響するイベントに対して、ワークフローが実行されません。
 
 The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch or tag name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
 ### Example: Including branches and tags
 
-The patterns defined in `branches` and `tags` are evaluated against the Git ref's name. For example, defining the pattern `mona/octocat` in `branches` will match the `refs/heads/mona/octocat` Git ref. The pattern `releases/**` will match the `refs/heads/releases/10` Git ref.
+`branches`および`tags`で定義されているパターンは、Git refの名前と照らし合わせて評価されます。 たとえば、`branches`で`mona/octocat`とパターンを定義すると、`refs/heads/mona/octocat`というGit refにマッチします。 `releases/**`というパターンは、`refs/heads/releases/10`というGit refにマッチします。
 
 ```yaml
 on:
   push:
-    # Sequence of patterns matched against refs/heads
+    # refs/heads とマッチするパターンのシークエンス
     branches:    
-      # Push events on main branch
+      # メインブランチのプッシュイベント
       - main
-      # Push events to branches matching refs/heads/mona/octocat
+      # refs/heads/mona/octocat に一致するブランチにイベントをプッシュする
       - 'mona/octocat'
-      # Push events to branches matching refs/heads/releases/10
+      # refs/heads/releases/10 に一致するブランチにイベントをプッシュする
       - 'releases/**'
-    # Sequence of patterns matched against refs/tags
+    # refs/tags とマッチするパターンのシーケンス
     tags:        
-      - v1             # Push events to v1 tag
-      - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
+      - v1             # イベントを v1 タグにプッシュする
+      - v1.*           # イベントを v1.0、v1.1、および v1.9 タグにプッシュする
 ```
 
 ### Example: Ignoring branches and tags
 
-Anytime a pattern matches the `branches-ignore` or `tags-ignore` pattern, the workflow will not run. The patterns defined in `branches-ignore` and `tags-ignore` are evaluated against the Git ref's name. For example, defining the pattern `mona/octocat` in `branches` will match the `refs/heads/mona/octocat` Git ref. The pattern `releases/**-alpha` in `branches` will match the `refs/releases/beta/3-alpha` Git ref.
+パターンが`branches-ignore`または`tags-ignore`とマッチする場合は常に、ワークフローは実行されません。 `branches-ignore`および`tags-ignore`で定義されているパターンは、Git refの名前と照らし合わせて評価されます。 たとえば、`branches`で`mona/octocat`とパターンを定義すると、`refs/heads/mona/octocat`というGit refにマッチします。 `branches`のパターン`releases/**-alpha`は、`refs/releases/beta/3-alpha`というGit refにマッチします。
 
 ```yaml
 on:
@@ -92,19 +92,19 @@ on:
       - v1.*           # Do not push events to tags v1.0, v1.1, and v1.9
 ```
 
-### Excluding branches and tags
+### ブランチとタグを除外する
 
-You can use two types of filters to prevent a workflow from running on pushes and pull requests to tags and branches.
-- `branches` or `branches-ignore` - You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow. Use the `branches` filter when you need to filter branches for positive matches and exclude branches. Use the `branches-ignore` filter when you only need to exclude branch names.
-- `tags` or `tags-ignore` - You cannot use both the `tags` and `tags-ignore` filters for the same event in a workflow. Use the `tags` filter when you need to filter tags for positive matches and exclude tags. Use the `tags-ignore` filter when you only need to exclude tag names.
+タグやブランチへのプッシュおよびプルリクエストでワークフローが実行されることを防ぐために、2 種類のフィルタを使うことができます。
+- `branches` または `branches-ignore` - ワークフロー内の同じイベントに対して、`branches` と `branches-ignore` のフィルタを両方使うことはできません。 肯定のマッチに対してブランチをフィルタし、ブランチを除外する必要がある場合は、`branches` フィルタを使います。 ブランチ名のみを除外する必要がある場合は、`branches-ignore` フィルタを使います。
+- `tags` または `tags-ignore` - ワークフロー内の同じイベントに対して、`tags` と `tags-ignore` のフィルタを両方使うことはできません。 肯定のマッチに対してタグをフィルタし、タグを除外する必要がある場合は、`tags` フィルタを使います。 タグ名のみを除外する必要がある場合は、`tags-ignore` フィルタを使います。
 
 ### Example: Using positive and negative patterns
 
-You can exclude `tags` and `branches` using the `!` character. The order that you define patterns matters.
-  - A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
-  - A matching positive pattern after a negative match will include the Git ref again.
+"`!`" の文字を使うことで、`tags` と `branches` を除外できます。 パターンを定義する順序により、結果に違いが生じます。
+  - 肯定のマッチングパターンの後に否定のマッチングパターン ("`!`" のプレフィクス) を定義すると、Git ref を除外します。
+  - 否定のマッチングパターンの後に肯定のマッチングパターンを定義すると、Git ref を再び含めます。
 
-The following workflow will run on pushes to `releases/10` or `releases/beta/mona`, but not on `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
+以下のワークフローは、`releases/10` や `releases/beta/mona` へのプッシュで実行されますが、`releases/10-alpha` や `releases/beta/3-alpha` へのプッシュでは実行されません。肯定のマッチングパターンの後に、否定のマッチングパターン `!releases/**-alpha` が続いているからです。
 
 ```yaml
 on:
@@ -116,13 +116,13 @@ on:
 
 ## `on.<push|pull_request>.paths`
 
-When using the `push` and `pull_request` events, you can configure a workflow to run when at least one file does not match `paths-ignore` or at least one modified file matches the configured `paths`. Path filters are not evaluated for pushes to tags.
+`push` および `pull_request` イベントを使用する場合、1 つ以上の変更されたファイルが `paths-ignore` にマッチしない場合や、1 つ以上の変更されたファイルが、設定された `paths` にマッチする場合にワークフローを実行するように設定できます。 タグへのプッシュに対して、パスのフィルタは評価されません。
 
-The `paths-ignore` and `paths` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+`paths-ignore` および `paths` キーワードは、`*` と `**` のワイルドカード文字を使って複数のパス名と一致させる glob パターンを受け付けます。 詳しい情報については、「[フィルタパターンのチートシート](#filter-pattern-cheat-sheet)」を参照してください。
 
 ### Example: Ignoring paths
 
-When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} evaluates patterns defined in `paths-ignore` against the path name. A workflow with the following path filter will only run on `push` events that include at least one file outside the `docs` directory at the root of the repository.
+すべてのパス名が `paths-ignore` のパターンと一致する場合、ワークフローは実行されません。 {% data variables.product.prodname_dotcom %} は、`paths-ignore` に定義されているパターンを、パス名に対して評価します。 以下のパスフィルタを持つワークフローは、リポジトリのルートにある `docs`ディレクトリ外のファイルを少なくとも1つ含む`push`イベントでのみ実行されます。
 
 ```yaml
 on:
@@ -133,7 +133,7 @@ on:
 
 ### Example: Including paths
 
-If at least one path matches a pattern in the `paths` filter, the workflow runs. To trigger a build anytime you push a JavaScript file, you can use a wildcard pattern.
+`paths`フィルタのパターンにマッチするパスが1つでもあれば、ワークフローは実行されます。 JavaScriptファイルをプッシュしたときにビルドを走らせるには、ワイルドカードパターンが使えます。
 
 ```yaml
 on:
@@ -142,19 +142,19 @@ on:
       - '**.js'
 ```
 
-### Excluding paths
+### パスの除外
 
-You can exclude paths using two types of filters. You cannot use both of these filters for the same event in a workflow.
-- `paths-ignore` - Use the `paths-ignore` filter when you only need to exclude path names.
-- `paths` - Use the `paths` filter when you need to filter paths for positive matches and exclude paths.
+パスは、2種類のフィルタで除外できます。 これらのフィルタをワークフロー内の同じイベントで両方使うことはできません。
+- `paths-ignore` - パス名を除外する必要だけがある場合には`paths-ignore`フィルタを使ってください。
+- `paths` - 肯定のマッチのパスとパスの除外のフィルタが必要な場合は`paths`フィルタを使ってください。
 
 ### Example: Using positive and negative patterns
 
-You can exclude `paths` using the `!` character. The order that you define patterns matters:
-  - A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
-  - A matching positive pattern after a negative match will include the path again.
+`!`文字を使って、`paths`を除外できます。 パターンを定義する順序により、結果に違いが生じます:
+  - 肯定のマッチの後に否定のマッチングパターン（`!`がプレフィックスされている）を置くと、パスが除外されます。
+  - 否定のマッチングパターンの後に肯定のマッチングパターンを定義すると、パスを再び含めます。
 
-This example runs anytime the `push` event includes a file in the `sub-project` directory or its subdirectories, unless the file is in the `sub-project/docs` directory. For example, a push that changed `sub-project/index.js` or `sub-project/src/index.js` will trigger a workflow run, but a push changing only `sub-project/docs/readme.md` will not.
+この例は、`push`イベントに`sub-project`ディレクトリあるいはそのサブディレクトリ内のファイルが含まれ、そのファイルが`sub-project/docs`ディレクトリ内にあるのでない場合に実行されます。 たとえば`sub-project/index.js`もしくは`sub-project/src/index.js`を変更するプッシュはワークフローを実行させますが、`sub-project/docs/readme.md`だけを変更するプッシュは実行させません。
 
 ```yaml
 on:
@@ -164,7 +164,7 @@ on:
       - '!sub-project/docs/**'
 ```
 
-### Git diff comparisons
+### Git diffの比較
 
 {% note %}
 
@@ -172,16 +172,16 @@ on:
 
 {% endnote %}
 
-The filter determines if a workflow should run by evaluating the changed files and running them against the `paths-ignore` or `paths` list. If there are no files changed, the workflow will not run.
+フィルタは、変更されたファイルを`paths-ignore`あるいは`paths`リストに対して評価することによって、ワークフローを実行すべきか判断します。 ファイルが変更されていない場合、ワークフローは実行されません。
 
-{% data variables.product.prodname_dotcom %} generates the list of changed files using two-dot diffs for pushes and three-dot diffs for pull requests:
-- **Pull requests:** Three-dot diffs are a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
-- **Pushes to existing branches:** A two-dot diff compares the head and base SHAs directly with each other.
-- **Pushes to new branches:** A two-dot diff against the parent of the ancestor of the deepest commit pushed.
+{% data variables.product.prodname_dotcom %}はプッシュに対してはツードットdiff、プルリクエストに対してはスリードットdiffを使って変更されたファイルのリストを生成します。
+- **Pull Request：** スリードットdiffは、トピックブランチの最新バージョンとトピックブランチがベースブランチと最後に同期されたコミットとの比較です。
+- **既存のブランチへのプッシュ：** ツードットdiffは、headとベースのSHAを互いに直接比較します。
+- **新しいブランチへのプッシュ：** 最も深いプッシュの先祖の親に対するツードットdiffです。
 
 Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
 
-For more information, see "[About comparing branches in pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)."
+詳しい情報については「[プルリクエスト中のブランチの比較について](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)」を参照してください。
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call.inputs`
@@ -196,7 +196,7 @@ Within the called workflow, you can use the `inputs` context to refer to an inpu
 
 If a caller workflow passes an input that is not specified in the called workflow, this results in an error.
 
-### Example
+### サンプル
 
 {% raw %}
 ```yaml
@@ -208,7 +208,7 @@ on:
         default: 'john-doe'
         required: false
         type: string
-  
+
 jobs:
   print-username:
     runs-on: ubuntu-latest
@@ -231,7 +231,7 @@ A map of outputs for a called workflow. Called workflow outputs are available to
 
 In the example below, two outputs are defined for this reusable workflow: `workflow_output1` and `workflow_output2`. These are mapped to outputs called `job_output1` and `job_output2`, both from a job called `my_job`.
 
-### Example
+### サンプル
 
 {% raw %}
 ```yaml
@@ -258,7 +258,7 @@ Within the called workflow, you can use the `secrets` context to refer to a secr
 
 If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
 
-### Example
+### サンプル
 
 {% raw %}
 ```yaml
@@ -268,7 +268,7 @@ on:
       access-token:
         description: 'A token passed from the caller workflow'
         required: false
-  
+
 jobs:
   pass-secret-to-action:
     runs-on: ubuntu-latest
@@ -283,7 +283,7 @@ jobs:
 
 ## `on.workflow_call.secrets.<secret_id>`
 
-A string identifier to associate with the secret. 
+A string identifier to associate with the secret.
 
 ## `on.workflow_call.secrets.<secret_id>.required`
 
@@ -294,9 +294,9 @@ A boolean specifying whether the secret must be supplied.
 
 When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
 
-The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
+The triggered workflow receives the inputs in the `github.event.inputs` context. 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts#github-context)」を参照してください。
 
-### Example
+### サンプル
 {% raw %}
 ```yaml
 on: 
@@ -319,7 +319,7 @@ on:
         description: 'Environment to run tests against'
         type: environment
         required: true {% endif %}
-  
+
 jobs:
   print-tag:
     runs-on: ubuntu-latest
@@ -339,16 +339,16 @@ For more information about cron syntax, see "[Events that trigger workflows](/ac
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `permissions`
 
-You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
+`GITHUB_TOKEN` に付与されているデフォルトの権限を変更し、必要に応じてアクセスを追加または削除して、必要最小限のアクセスのみを許可することができます。 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
 
-You can use `permissions` either as a top-level key, to apply to all jobs in the workflow, or within specific jobs. When you add the `permissions` key within a specific job, all actions and run commands within that job that use the `GITHUB_TOKEN` gain the access rights you specify.  For more information, see [`jobs.<job_id>.permissions`](#jobsjob_idpermissions).
+`permissions` は、最上位キーとしてワークフロー内のすべてのジョブに適用するために、または特定のジョブ内で使用できます。 特定のジョブ内に `permissions` キーを追加すると、`GITHUB_TOKEN` を使用するそのジョブ内のすべてのアクションと実行コマンドが、指定したアクセス権を取得します。  詳しい情報については、[`jobs.<job_id>.permissions`](#jobsjob_idpermissions) を参照してください。
 
 {% data reusables.github-actions.github-token-available-permissions %}
 {% data reusables.github-actions.forked-write-permission %}
 
-### Example
+### サンプル
 
-This example shows permissions being set for the `GITHUB_TOKEN` that will apply to all jobs in the workflow. All permissions are granted read access.
+この例は、ワークフロー内のすべてのジョブに適用される `GITHUB_TOKEN` に設定されている権限を示しています。 すべての権限に読み取りアクセスが付与されます。
 
 ```yaml
 name: "My workflow"
@@ -364,11 +364,11 @@ jobs:
 
 ## `env`
 
-A `map` of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+ワークフロー中のすべてのジョブのステップから利用できる環境変数の`map`です。 1つのジョブのステップ、あるいは1つのステップからだけ利用できる環境変数を設定することもできます。 詳しい情報については「[`jobs.<job_id>.env`](#jobsjob_idenv)」及び「[`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)を参照してください。
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### Example
+### サンプル
 
 ```yaml
 env:
@@ -377,17 +377,17 @@ env:
 
 ## `defaults`
 
-A `map` of default settings that will apply to all jobs in the workflow. You can also set default settings that are only available to a job. For more information, see [`jobs.<job_id>.defaults`](#jobsjob_iddefaults).
+デフォルト設定の`map`で、ワークフロー中のすべてのジョブに適用されます。 1つのジョブだけで利用できるデフォルト設定を設定することもできます。 詳しい情報については[`jobs.<job_id>.defaults`](#jobsjob_iddefaults)を参照してください。
 
 {% data reusables.github-actions.defaults-override %}
 
 ## `defaults.run`
 
-You can provide default `shell` and `working-directory` options for all [`run`](#jobsjob_idstepsrun) steps in a workflow. You can also set default settings for `run` that are only available to a job. For more information, see [`jobs.<job_id>.defaults.run`](#jobsjob_iddefaultsrun). You cannot use contexts or expressions in this keyword.
+ワークフロー中のすべての[`run`](#jobsjob_idstepsrun)ステップに対するデフォルトの`shell`及び`working-directory`オプションを提供することができます。 1つのジョブだけで利用できる`run`のデフォルト設定を設定することもできます。 詳しい情報については[`jobs.<job_id>.defaults.run`](#jobsjob_iddefaultsrun)を参照してください。 このキーワード中では、コンテキストや式を使うことはできません。
 
 {% data reusables.github-actions.defaults-override %}
 
-### Example
+### サンプル
 
 ```yaml
 defaults:
@@ -399,28 +399,28 @@ defaults:
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `concurrency`
 
-Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can only use the [`github` context](/actions/learn-github-actions/contexts#github-context). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
+並行処理により、同じ並行処理グループを使用する単一のジョブまたはワークフローのみが一度に実行されます。 並行処理グループには、任意の文字列または式を使用できます。 The expression can only use the [`github` context](/actions/learn-github-actions/contexts#github-context). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-You can also specify `concurrency` at the job level. For more information, see [`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency).
+ジョブレベルで `concurrency` を指定することもできます。 詳しい情報については、[`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency) を参照してください。
 
 {% data reusables.actions.actions-group-concurrency %}
 
 {% endif %}
 ## `jobs`
 
-A workflow run is made up of one or more jobs. Jobs run in parallel by default. To run jobs sequentially, you can define dependencies on other jobs using the `jobs.<job_id>.needs` keyword.
+1つのワークフロー実行は、1つ以上のジョブからなります。 デフォルトでは、ジョブは並行して実行されます。 ジョブを逐次的に実行するには、`jobs.<job_id>.needs`キーワードを使用して他のジョブに対する依存関係を定義します。
 
-Each job runs in a runner environment specified by `runs-on`.
+それぞれのジョブは、`runs-on`で指定されたランナー環境で実行されます。
 
-You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+ワークフローの利用限度内であれば、実行するジョブ数に限度はありません。 For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
-If you need to find the unique identifier of a job running in a workflow run, you can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. For more information, see "[Workflow Jobs](/rest/reference/actions#workflow-jobs)."
+If you need to find the unique identifier of a job running in a workflow run, you can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. 詳しい情報については、「[ワークフロージョブ](/rest/reference/actions#workflow-jobs)」を参照してください。
 
 ## `jobs.<job_id>`
 
-Create an identifier for your job by giving it a unique name. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+Create an identifier for your job by giving it a unique name. `job_id`キーは文字列型で、その値はジョブの設定データのマップとなるものです。 `<job_id>`は、`jobs`オブジェクトごとに一意の文字列に置き換える必要があります。 `<job_id>`は、英字または`_`で始める必要があり、英数字と`-`、`_`しか使用できません。
 
-### Example
+### サンプル
 
 In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
 
@@ -434,11 +434,11 @@ jobs:
 
 ## `jobs.<job_id>.name`
 
-The name of the job displayed on {% data variables.product.prodname_dotcom %}.
+{% data variables.product.prodname_dotcom %}に表示されるジョブの名前。
 
 ## `jobs.<job_id>.needs`
 
-Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional expression that causes the job to continue.
+このジョブの実行前に正常に完了する必要があるジョブを示します。 文字列型または文字列の配列です。 1つのジョブが失敗した場合、失敗したジョブを続行するような条件式を使用していない限り、そのジョブを必要としている他のジョブはすべてスキップされます。
 
 ### Example: Requiring dependent jobs to be successful
 
@@ -451,9 +451,9 @@ jobs:
     needs: [job1, job2]
 ```
 
-In this example, `job1` must complete successfully before `job2` begins, and `job3` waits for both `job1` and `job2` to complete.
+この例では、`job1`が正常に完了してから`job2`が始まり、`job3`は`job1`と`job2`が完了するまで待機します。
 
-The jobs in this example run sequentially:
+つまり、この例のジョブは逐次実行されるということです。
 
 1. `job1`
 2. `job2`
@@ -471,61 +471,61 @@ jobs:
     needs: [job1, job2]
 ```
 
-In this example, `job3` uses the `always()` conditional expression so that it always runs after `job1` and `job2` have completed, regardless of whether they were successful. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+この例では、`job3`は条件式の`always()` を使っているので、`job1`と`job2`が成功したかどうかにかかわらず、それらのジョブが完了したら常に実行されます。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
 
 ## `jobs.<job_id>.runs-on`
 
-**Required**. The type of machine to run the job on. {% ifversion fpt or ghec %}The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.{% endif %} You can provide `runs-on` as a single string or as an array of strings. If you specify an array of strings, your workflow will run on a self-hosted runner whose labels match all of the specified `runs-on` values, if available. If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+**必須**。 ジョブが実行されるマシンの種類。 {% ifversion fpt or ghec %}The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.{% endif %} You can provide `runs-on` as a single string or as an array of strings. If you specify an array of strings, your workflow will run on a self-hosted runner whose labels match all of the specified `runs-on` values, if available. If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
 {% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### {% data variables.product.prodname_dotcom %}-hosted runners
+### {% data variables.product.prodname_dotcom %}ホストランナー
 
-If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
+{% data variables.product.prodname_dotcom %}ホストランナーを使う場合、それぞれのジョブは`runs-on`で指定された仮想環境の新しいインスタンスで実行されます。
 
-Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
+利用可能な{% data variables.product.prodname_dotcom %}ホストランナーの種類は以下のとおりです。
 
 {% data reusables.github-actions.supported-github-runners %}
 
-#### Example
+#### サンプル
 
 ```yaml
 runs-on: ubuntu-latest
 ```
 
-For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+詳しい情報については「[{% data variables.product.prodname_dotcom %}ホストランナーの仮想環境](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
-### Self-hosted runners
+### セルフホストランナー
 {% endif %}
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
 {% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
-#### Example
+#### サンプル
 
 ```yaml
 runs-on: [self-hosted, linux]
 ```
 
-For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
+詳しい情報については「[セルフホストランナーについて](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)」及び「[ワークフロー内でのセルフホストランナーの利用](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)」を参照してください。
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `jobs.<job_id>.permissions`
 
-You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
+`GITHUB_TOKEN` に付与されているデフォルトの権限を変更し、必要に応じてアクセスを追加または削除して、必要最小限のアクセスのみを許可することができます。 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
 
-By specifying the permission within a job definition, you can configure a different set of permissions for the `GITHUB_TOKEN` for each job, if required. Alternatively, you can specify the permissions for all jobs in the workflow. For information on defining permissions at the workflow level, see [`permissions`](#permissions).
+ジョブ定義内で権限を指定することで、必要に応じて、ジョブごとに `GITHUB_TOKEN` に異なる権限のセットを設定できます。 または、ワークフロー内のすべてのジョブの権限を指定することもできます。 ワークフローレベルでの権限の定義については、 [`permissions`](#permissions) を参照してください。
 
 {% data reusables.github-actions.github-token-available-permissions %}
 {% data reusables.github-actions.forked-write-permission %}
 
-### Example
+### サンプル
 
-This example shows permissions being set for the `GITHUB_TOKEN` that will only apply to the job named `stale`. Write access is granted for the `issues` and `pull-requests` scopes. All other scopes will have no access.
+この例では、`stale` という名前のジョブにのみ適用される `GITHUB_TOKEN` に設定されている権限を示しています。 `issues` および `pull-requests` のスコープに対して書き込みアクセスが許可されます。 他のすべてのスコープにはアクセスできません。
 
 ```yaml
 jobs:
@@ -544,18 +544,18 @@ jobs:
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## `jobs.<job_id>.environment`
 
-The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+ジョブが参照する環境。 環境を参照するジョブがランナーに送られる前に、その環境のすべて保護ルールはパスしなければなりません。 For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 
-You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see "[Deployments](/rest/reference/repos#deployments)."
+環境は、環境の`name`だけで、あるいは`name` and `url`を持つenvironmentオブジェクトとして渡すことができます。 デプロイメントAPIでは、このURLは`environment_url`にマップされます。 デプロイメントAPIに関する詳しい情報については「[デプロイメント](/rest/reference/repos#deployments)」を参照してください。
 
-#### Example using a single environment name
+#### 1つの環境名を使う例
 {% raw %}
 ```yaml
 environment: staging_environment
 ```
 {% endraw %}
 
-#### Example using environment name and URL
+#### 環境名とURLを使う例
 
 ```yaml
 environment:
@@ -565,7 +565,7 @@ environment:
 
 The URL can be an expression and can use any context except for the [`secrets` context](/actions/learn-github-actions/contexts#contexts). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-### Example
+### サンプル
 {% raw %}
 ```yaml
 environment:
@@ -580,33 +580,33 @@ environment:
 
 {% note %}
 
-**Note:** When concurrency is specified at the job level, order is not guaranteed for jobs or runs that queue within 5 minutes of each other.
+**注釈:** ジョブレベルで並行処理が指定されている場合、ジョブの順序は保証されないか、互いに 5 分以内にそのキューを実行します。
 
 {% endnote %}
 
-Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can use any context except for the `secrets` context. For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
+並行処理により、同じ並行処理グループを使用する単一のジョブまたはワークフローのみが一度に実行されます。 並行処理グループには、任意の文字列または式を使用できます。 式は、`secrets` コンテキストを除く任意のコンテキストを使用できます。 For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-You can also specify `concurrency` at the workflow level. For more information, see [`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency).
+ワークフローレベルで `concurrency` を指定することもできます。 詳しい情報については、[`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency) を参照してください。
 
 {% data reusables.actions.actions-group-concurrency %}
 
 {% endif %}
 ## `jobs.<job_id>.outputs`
 
-A `map` of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see [`jobs.<job_id>.needs`](#jobsjob_idneeds).
+ジョブからの出力の`map`です。 ジョブの出力は、そのジョブに依存しているすべての下流のジョブから利用できます。 ジョブの依存関係の定義に関する詳しい情報については[`jobs.<job_id>.needs`](#jobsjob_idneeds)を参照してください。
 
-Job outputs are strings, and job outputs containing expressions are evaluated on the runner at the end of each job. Outputs containing secrets are redacted on the runner and not sent to {% data variables.product.prodname_actions %}.
+ジョブの出力は文字列であり、式を含むジョブの出力は、それぞれのジョブの終了時にランナー上で評価されます。 シークレットを含む出力はランナー上で編集され、{% data variables.product.prodname_actions %}には送られません。
 
-To use job outputs in a dependent job, you can use the `needs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#needs-context)."
+依存するジョブでジョブの出力を使いたい場合には、`needs`コンテキストが利用できます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts#needs-context)」を参照してください。
 
-### Example
+### サンプル
 
 {% raw %}
 ```yaml
 jobs:
   job1:
     runs-on: ubuntu-latest
-    # Map a step output to a job output
+    # ステップの出力をジョブの出力にマップする
     outputs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
@@ -625,11 +625,11 @@ jobs:
 
 ## `jobs.<job_id>.env`
 
-A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+ジョブ中のすべてのステップから利用できる環境変数の`map`です。 ワークフロー全体あるいは個別のステップのための環境変数を設定することもできます。 詳しい情報については[`env`](#env)及び[`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)を参照してください。
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### Example
+### サンプル
 
 ```yaml
 jobs:
@@ -640,19 +640,19 @@ jobs:
 
 ## `jobs.<job_id>.defaults`
 
-A `map` of default settings that will apply to all steps in the job. You can also set default settings for the entire workflow. For more information, see [`defaults`](#defaults).
+ジョブ中のすべてのステップに適用されるデフォルト設定の`map`。 ワークフロー全体に対してデフォルト設定を設定することもできます。 詳しい情報については[`defaults`](#defaults)を参照してください。
 
 {% data reusables.github-actions.defaults-override %}
 
 ## `jobs.<job_id>.defaults.run`
 
-Provide default `shell` and `working-directory` to all `run` steps in the job. Context and expression are not allowed in this section.
+ジョブ中のすべての`run`ステップにデフォルトの`shell`と`working-directory`を提供します。 このセクションではコンテキストと式は許されていません。
 
-You can provide default `shell` and `working-directory` options for all [`run`](#jobsjob_idstepsrun) steps in a job. You can also set default settings for `run` for the entire workflow. For more information, see [`jobs.defaults.run`](#defaultsrun). You cannot use contexts or expressions in this keyword.
+ジョブ中のすべての[`run`](#jobsjob_idstepsrun)ステップにデフォルトの`shell`及び`working-directory`を提供できます。 ワークフロー全体について`run`のためのデフォルト設定を設定することもできます。 詳しい情報については[`jobs.defaults.run`](#defaultsrun)を参照してください。 このキーワード中では、コンテキストや式を使うことはできません。
 
 {% data reusables.github-actions.defaults-override %}
 
-### Example
+### サンプル
 
 ```yaml
 jobs:
@@ -666,17 +666,17 @@ jobs:
 
 ## `jobs.<job_id>.if`
 
-You can use the `if` conditional to prevent a job from running unless a condition is met. You can use any supported context and expression to create a conditional.
+条件文の`if`を使って、条件が満たされなければジョブを実行しないようにできます。 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
 {% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 ## `jobs.<job_id>.steps`
 
-A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
+1つのジョブには、`steps` (ステップ) と呼ばれる一連のタスクがあります。 ステップでは、コマンドを実行する、設定タスクを実行する、あるいはリポジトリやパブリックリポジトリ、Dockerレジストリで公開されたアクションを実行することができます。 すべてのステップでアクションを実行するとは限りませんが、すべてのアクションはステップとして実行されます。 各ステップは、ランナー環境のそれ自体のプロセスで実行され、ワークスペースとファイルシステムにアクセスします。 ステップはそれ自体のプロセスで実行されるため、環境変数を変更しても、ステップ間では反映されません。 {% data variables.product.prodname_dotcom %}には、ジョブを設定して完了するステップが組み込まれています。
 
-You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+ワークフローの利用限度内であれば、実行するステップ数に限度はありません。 For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
-### Example
+### サンプル
 
 {% raw %}
 ```yaml
@@ -702,17 +702,17 @@ jobs:
 
 ## `jobs.<job_id>.steps[*].id`
 
-A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+ステップの一意の識別子。 `id`を使って、コンテキストのステップを参照することができます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
 ## `jobs.<job_id>.steps[*].if`
 
-You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
+条件文の`if`を使って、条件が満たされなければステップを実行しないようにできます。 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
 {% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 ### Example: Using contexts
 
- This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
+ このステップは、イベントの種類が`pull_request`でイベントアクションが`unassigned`の場合にのみ実行されます。
 
  ```yaml
 steps:
@@ -723,7 +723,7 @@ steps:
 
 ### Example: Using status check functions
 
-The `my backup step` only runs when the previous step of a job fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+`my backup step`は、ジョブの前のステップが失敗した場合にのみ実行されます。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
 
 ```yaml
 steps:
@@ -736,20 +736,20 @@ steps:
 
 ## `jobs.<job_id>.steps[*].name`
 
-A name for your step to display on {% data variables.product.prodname_dotcom %}.
+{% data variables.product.prodname_dotcom %}で表示されるステップの名前。
 
 ## `jobs.<job_id>.steps[*].uses`
 
-Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
+ジョブでステップの一部として実行されるアクションを選択します。 アクションとは、再利用可能なコードの単位です。 ワークフロー、パブリックリポジトリ、または[公開されているDockerコンテナイメージ](https://hub.docker.com/)と同じリポジトリで定義されているアクションを使用できます。
 
-We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
-- Using the commit SHA of a released action version is the safest for stability and security.
-- Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
-- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+Git ref、SHA、またはDockerタグ番号を指定して、使用しているアクションのバージョンを含めることを強く推奨します。 バージョンを指定しないと、アクションのオーナーがアップデートを公開したときに、ワークフローが中断したり、予期せぬ動作をしたりすることがあります。
+- リリースされたアクションバージョンのコミットSHAを使用するのが、安定性とセキュリティのうえで最も安全です。
+- 特定のメジャーアクションバージョンを使用すると、互換性を維持したまま重要な修正とセキュリティパッチを受け取ることができます。 ワークフローが引き続き動作することも保証できます。
+- アクションのデフォルトブランチを使用すると便利なこともありますが、別のユーザが破壊的変更を加えた新しいメジャーバージョンをリリースすると、ワークフローが動作しなくなる場合があります。
 
-Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
+入力が必要なアクションもあり、入力を[`with`](#jobsjob_idstepswith)キーワードを使って設定する必要があります。 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
 
-Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
+アクションは、JavaScriptのファイルもしくはDockerコンテナです。 使用するアクションがDockerコンテナの場合は、Linux環境で実行する必要があります。 詳細については[`runs-on`](#jobsjob_idruns-on)を参照してください。
 
 ### Example: Using versioned actions
 
@@ -787,7 +787,7 @@ jobs:
 
 `{owner}/{repo}/{path}@{ref}`
 
-A subdirectory in a public {% data variables.product.prodname_dotcom %} repository at a specific branch, ref, or SHA.
+パブリック{% data variables.product.prodname_dotcom %}リポジトリで特定のブランチ、ref、SHAにあるサブディレクトリ。
 
 ```yaml
 jobs:
@@ -801,7 +801,7 @@ jobs:
 
 `./path/to/dir`
 
-The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action.
+ワークフローのリポジトリにあるアクションを含むディレクトリのパス。 アクションを使用する前にリポジトリをチェックアウトする必要があります。
 
 ```yaml
 jobs:
@@ -817,7 +817,7 @@ jobs:
 
 `docker://{image}:{tag}`
 
-A Docker image published on [Docker Hub](https://hub.docker.com/).
+[Docker Hub](https://hub.docker.com/)で公開されているDockerイメージ。
 
 ```yaml
 jobs:
@@ -832,7 +832,7 @@ jobs:
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
+{% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} の Docker イメージ
 
 ```yaml
 jobs:
@@ -846,7 +846,7 @@ jobs:
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in a public registry. This example uses the Google Container Registry at `gcr.io`.
+パブリックレジストリのDockerイメージ。 この例では、`gcr.io` にある Google Container Registry を使用しています。
 
 ```yaml
 jobs:
@@ -858,9 +858,9 @@ jobs:
 
 ### Example: Using an action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as an encrypted secret. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+ワークフローはプライベートリポジトリをチェックアウトし、アクションをローカルで参照する必要があります。 個人アクセストークンを生成し、暗号化されたシークレットとしてトークンを追加します。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」および「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
-Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
+例にある `PERSONAL_ACCESS_TOKEN` をシークレットの名前に置き換えます。
 
 {% raw %}
 ```yaml
@@ -881,20 +881,20 @@ jobs:
 
 ## `jobs.<job_id>.steps[*].run`
 
-Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
+オペレーティングシステムのシェルを使用してコマンドラインプログラムを実行します。 `name`を指定しない場合、ステップ名はデフォルトで`run`コマンドで指定された文字列になります。
 
-Commands run using non-login shells by default. You can choose a different shell and customize the shell used to run commands. For more information, see [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
+コマンドは、デフォルトでは非ログインシェルを使用して実行されます。 別のシェルを選択して、コマンドを実行するシェルをカスタマイズできます。 For more information, see [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
 
-Each `run` keyword represents a new process and shell in the runner environment. When you provide multi-line commands, each line runs in the same shell. For example:
+`run`キーワードは、それぞれがランナー環境での新しいプロセスとシェルです。 複数行のコマンドを指定すると、各行が同じシェルで実行されます。 例:
 
-* A single-line command:
+* 1行のコマンド：
 
   ```yaml
   - name: Install Dependencies
     run: npm install
   ```
 
-* A multi-line command:
+* 複数行のコマンド：
 
   ```yaml
   - name: Clean install dependencies and build
@@ -903,7 +903,7 @@ Each `run` keyword represents a new process and shell in the runner environment.
       npm run build
   ```
 
-Using the `working-directory` keyword, you can specify the working directory of where to run the command.
+`working-directory`キーワードを使えば、コマンドが実行されるワーキングディレクトリを指定できます。
 
 ```yaml
 - name: Clean temp directory
@@ -913,17 +913,17 @@ Using the `working-directory` keyword, you can specify the working directory of 
 
 ## `jobs.<job_id>.steps[*].shell`
 
-You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
+`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルを上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
-| Supported platform | `shell` parameter | Description | Command run internally |
-|--------------------|-------------------|-------------|------------------------|
-| All | `bash` | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used. | `bash --noprofile --norc -eo pipefail {0}` |
-| All | `pwsh` | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `pwsh -command ". '{0}'"` |
-| All | `python` | Executes the python command. | `python {0}` |
-| Linux / macOS | `sh` | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path. | `sh -e {0}` |
-| Windows | `cmd` | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`. | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows | `pwsh` | This is the default shell used on Windows. The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead.| `pwsh -command ". '{0}'"`. |
-| Windows | `powershell` | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command ". '{0}'"`. |
+| サポートされているプラットフォーム | `shell` パラメータ | 説明                                                                                                                                                                                                        | 内部で実行されるコマンド                                    |
+| ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| すべて               | `bash`        | 非Windowsプラットフォームのデフォルトシェルで、`sh`へのフォールバックがあります。 Windowsでbashシェルを指定すると、Windows用Gitに含まれるbashシェルが使用されます。                                                                                                      | `bash --noprofile --norc -eo pipefail {0}`      |
+| すべて               | `pwsh`        | PowerShell Coreです。 {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。                                                                                                                   | `pwsh -command ". '{0}'"`                       |
+| すべて               | `python`      | Pythonのコマンドを実行します。                                                                                                                                                                                        | `python {0}`                                    |
+| Linux / macOS     | `sh`          | 非Windowsプラットフォームにおいてシェルが提供されておらず、パス上で`bash`が見つからなかった場合のフォールバック動作です。                                                                                                                                       | `sh -e {0}`                                     |
+| Windows           | `cmd`         | {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.cmd`を追加し、`{0}`を置き換えます。                                                                                                                           | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows           | `pwsh`        | これはWindowsで使われるデフォルトのシェルです。 PowerShell Coreです。 {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。 セルフホストのWindowsランナーに_PowerShell Core_がインストールされていない場合、その代わりに_PowerShell Desktop_が使われます。 | `pwsh -command ". '{0}'"`.                      |
+| Windows           | `powershell`  | PowerShell Desktop. {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。                                                                                                                  | `powershell -command ". '{0}'"`.                |
 
 ### Example: Running a script using bash
 
@@ -952,7 +952,7 @@ steps:
     shell: pwsh
 ```
 
-### Example: Using PowerShell Desktop to run a script
+### PowerShell Desktopを使用してスクリプトを実行する例
 
 ```yaml
 steps:
@@ -972,11 +972,11 @@ steps:
     shell: python
 ```
 
-### Custom shell
+### カスタムシェル
 
-You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
+`command […options] {0} [..more_options]`を使用すると、テンプレート文字列に`shell`値を設定できます。 {% data variables.product.prodname_dotcom %}は、空白区切りで最初の文字列をコマンドとして解釈し、`{0}`にある一時的なスクリプトのファイル名を挿入します。
 
-For example:
+例:
 
 ```yaml
 steps:
@@ -986,39 +986,39 @@ steps:
     shell: perl {0}
 ```
 
-The command used, `perl` in this example, must be installed on the runner.
+使われるコマンドは（この例では`perl`）は、ランナーにインストールされていなければなりません。
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
 {% elsif fpt or ghec %}
-For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+GitHubホストランナーに含まれるソフトウェアに関する情報については「[GitHubホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners#supported-software)」を参照してください。
 {% endif %}
 
-### Exit codes and error action preference
+### 終了コードとエラーアクションの環境設定
 
-For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
+組み込みのshellキーワードについては、{% data variables.product.prodname_dotcom %}がホストする実行環境で以下のデフォルトが提供されます。 シェルスクリプトを実行する際には、以下のガイドラインを使ってください。
 
 - `bash`/`sh`:
-  - Fail-fast behavior using `set -eo pipefail`: Default for `bash` and built-in `shell`. It is also the default when you don't provide an option on non-Windows platforms.
-  - You can opt out of fail-fast and take full control by providing a template string to the shell options. For example, `bash {0}`.
-  - sh-like shells exit with the exit code of the last command executed in a script, which is also the default behavior for actions. The runner will report the status of the step as fail/succeed based on this exit code.
+  - `set -eo pipefail`を使用したフェイルファースト動作 : `bash`及び組み込みの`shell`のデフォルト。 Windows以外のプラットフォームでオプションを指定しない場合のデフォルトでもあります。
+  - フェイルファーストをオプトアウトし、シェルのオプションにテンプレート文字列を指定して完全に制御することもできます。 たとえば、`bash {0}`とします。
+  - shライクのシェルは、スクリプトで実行された最後のコマンドの終了コードで終了します。これが、アクションのデフォルトの動作でもあります。 runnerは、この終了コードに基づいてステップのステータスを失敗/成功としてレポートします。
 
 - `powershell`/`pwsh`
-  - Fail-fast behavior when possible. For `pwsh` and `powershell` built-in shell, we will prepend `$ErrorActionPreference = 'stop'` to script contents.
-  - We append `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` to powershell scripts so action statuses reflect the script's last exit code.
-  - Users can always opt out by not using the built-in shell, and providing a custom shell option like: `pwsh -File {0}`, or `powershell -Command "& '{0}'"`, depending on need.
+  - 可能な場合のフェイルファースト動作。 `pwsh`および`powershell`の組み込みシェルの場合は、スクリプトの内容の前に`$ErrorActionPreference = 'stop'` が付加されます。
+  - アクションステータスがスクリプトの最後の終了コードを反映するように、PowerShellスクリプトに`if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }`を付加します。
+  - 必要な場合には、組み込みシェルを使用せずに、`pwsh -File {0}`や`powershell -Command "& '{0}'"`などのカスタムシェルを指定すれば、いつでもオプトアウトすることができます。
 
 - `cmd`
-  - There doesn't seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can't actually provide that behavior by default, you need to write this behavior into your script.
-  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
+  - 各エラーコードをチェックしてそれぞれに対応するスクリプトを書く以外、フェイルファースト動作を完全にオプトインする方法はないようです。 デフォルトでその動作を指定することはできないため、この動作はスクリプトに記述する必要があります。
+  - `cmd.exe`は、実行した最後のプログラムのエラーレベルで終了し、runnerにそのエラーコードを返します。 この動作は、これ以前の`sh`および`pwsh`のデフォルト動作と内部的に一貫しており、`cmd.exe`のデフォルトなので、この動作には影響しません。
 
 ## `jobs.<job_id>.steps[*].with`
 
-A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with `INPUT_` and converted to upper case.
+アクションによって定義される入力パラメータの`map`。 各入力パラメータはキー/値ペアです。 入力パラメータは環境変数として設定されます。 変数の前には`INPUT_`が付けられ、大文字に変換されます。
 
-### Example
+### サンプル
 
-Defines the three input parameters (`first_name`, `middle_name`, and `last_name`) defined by the `hello_world` action. These input variables will be accessible to the `hello-world` action as `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME`, and `INPUT_LAST_NAME` environment variables.
+`hello_world`アクションで定義される3つの入力パラメータ (`first_name`、`middle_name`、`last_name`) を定義します。 `hello-world`アクションからは、これらの入力変数は`INPUT_FIRST_NAME`、`INPUT_MIDDLE_NAME`、`INPUT_LAST_NAME`という環境変数としてアクセスできます。
 
 ```yaml
 jobs:
@@ -1034,9 +1034,9 @@ jobs:
 
 ## `jobs.<job_id>.steps[*].with.args`
 
-A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter.
+Dockerコンテナへの入力を定義する`文字列`。 {% data variables.product.prodname_dotcom %}は、コンテナの起動時に`args`をコンテナの`ENTRYPOINT`に渡します。 このパラメータは、`文字列の配列`をサポートしません。
 
-### Example
+### サンプル
 
 {% raw %}
 ```yaml
@@ -1049,17 +1049,17 @@ steps:
 ```
 {% endraw %}
 
-The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:
+`args`は、`Dockerfile`中の`CMD`命令の場所で使われます。 `Dockerfile`中で`CMD`を使うなら、以下の優先順位順のガイドラインを利用してください。
 
-1. Document required arguments in the action's README and omit them from the `CMD` instruction.
-1. Use defaults that allow using the action without specifying any `args`.
-1. If the action exposes a `--help` flag, or something similar, use that as the default to make your action self-documenting.
+1. 必須の引数をアクションのREADME中でドキュメント化し、`CMD`命令から除外してください。
+1. `args`を指定せずにアクションを利用できるよう、デフォルトを使ってください。
+1. アクションが`--help`フラグやそれに類するものを備えている場合は、アクションを自己ドキュメント化するためのデフォルトとして利用してください。
 
 ## `jobs.<job_id>.steps[*].with.entrypoint`
 
-Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
+`Dockerfile`中のDockerの`ENTRYPOINT`をオーバーライドします。あるいは、もしそれが指定されていなかった場合に設定します。 shellやexec形式を持つDockerの`ENTRYPOINT`命令とは異なり、`entrypoint`キーワードは実行する実行可能ファイルを定義する単一の文字列だけを受け付けます。
 
-### Example
+### サンプル
 
 ```yaml
 steps:
@@ -1069,17 +1069,17 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+`entrypoint`キーワードはDockerコンテナアクションで使われることを意図したものですが、入力を定義しないJavaScriptのアクションでも使うことができます。
 
 ## `jobs.<job_id>.steps[*].env`
 
-Sets environment variables for steps to use in the runner environment. You can also set environment variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
+ランナー環境でステップが使う環境変数を設定します。 ワークフロー全体あるいはジョブのための環境変数を設定することもできます。 詳しい情報については「[`env`](#env)」及び「[`jobs.<job_id>.env`](#jobsjob_idenv)」を参照してください。
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Public actions may specify expected environment variables in the README file. If you are setting a secret in an environment variable, you must set secrets using the `secrets` context. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+パブリックなアクションは、READMEファイル中で期待する環境変数を指定できます。 環境変数に秘密情報を設定しようとしている場合、秘密情報は`secrets`コンテキストを使って設定しなければなりません。 For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
 
-### Example
+### サンプル
 
 {% raw %}
 ```yaml
@@ -1094,37 +1094,37 @@ steps:
 
 ## `jobs.<job_id>.steps[*].continue-on-error`
 
-Prevents a job from failing when a step fails. Set to `true` to allow a job to pass when this step fails.
+ステップが失敗してもジョブが失敗にならないようにします。 `true`に設定すれば、このステップが失敗した場合にジョブが次へ進めるようになります。
 
 ## `jobs.<job_id>.steps[*].timeout-minutes`
 
-The maximum number of minutes to run the step before killing the process.
+プロセスがkillされるまでにステップが実行できる最大の分数。
 
 ## `jobs.<job_id>.timeout-minutes`
 
-The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
+{% data variables.product.prodname_dotcom %}で自動的にキャンセルされるまでジョブを実行する最長時間 (分)。 デフォルト: 360
 
 If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
 ## `jobs.<job_id>.strategy`
 
-A strategy creates a build matrix for your jobs. You can define different variations to run each job in.
+Strategy (戦略) によって、ジョブのビルドマトリクスが作成されます。 それぞれのジョブを実行する様々なバリエーションを定義できます。
 
 ## `jobs.<job_id>.strategy.matrix`
 
-You can define a matrix of different job configurations. A matrix allows you to create multiple jobs by performing variable substitution in a single job definition. For example, you can use a matrix to create jobs for more than one supported version of a programming language, operating system, or tool. A matrix reuses the job's configuration and creates a job for each matrix you configure.
+様々なジョブの設定のマトリックスを定義できます。 マトリックスによって、単一のジョブの定義内の変数の置き換えを行い、複数のジョブを作成できるようになります。 たとえば、マトリックスを使って複数のサポートされているバージョンのプログラミング言語、オペレーティングシステム、ツールに対するジョブを作成できます。 マトリックスは、ジョブの設定を再利用し、設定した各マトリクスに対してジョブを作成します。
 
 {% data reusables.github-actions.usage-matrix-limits %}
 
-Each option you define in the `matrix` has a key and value. The keys you define become properties in the `matrix` context and you can reference the property in other areas of your workflow file. For example, if you define the key `os` that contains an array of operating systems, you can use the `matrix.os` property as the value of the `runs-on` keyword to create a job for each operating system. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+`matrix`内で定義した各オプションは、キーと値を持ちます。 定義したキーは`matrix`コンテキスト中の属性となり、ワークフローファイルの他のエリア内のプロパティを参照できます。 たとえば、オペレーティングシステムの配列を含む`os`というキーを定義したなら、`matrix.os`属性を`runs-on`キーワードの値として使い、それぞれのオペレーティングシステムに対するジョブを作成できます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
-The order that you define a `matrix` matters. The first option you define will be the first job that runs in your workflow.
+`matrix`を定義する順序は意味を持ちます。 最初に定義したオプションは、ワークフロー中で最初に実行されるジョブになります。
 
 ### Example: Running multiple versions of Node.js
 
-You can specify a matrix by supplying an array for the configuration options. For example, if the runner supports Node.js versions 10, 12, and 14, you could specify an array of those versions in the `matrix`.
+設定オプションに配列を指定すると、マトリクスを指定できます。 For example, if the runner supports Node.js versions 10, 12, and 14, you could specify an array of those versions in the `matrix`.
 
-This example creates a matrix of three jobs by setting the `node` key to an array of three Node.js versions. To use the matrix, the example sets the `matrix.node` context property as the value of the `setup-node` action's input parameter `node-version`. As a result, three jobs will run, each using a different Node.js version.
+この例では、`node`キーにNode.jsの3つのバージョンの配列を設定することによって、3つのジョブのマトリクスを作成します。 このマトリックスを使用するために、この例では`matrix.node`コンテキスト属性を`setup-node`アクションの入力パラメータである`node-version`に設定しています。 その結果、3 つのジョブが実行され、それぞれが異なるバージョンのNode.js を使用します。
 
 {% raw %}
 ```yaml
@@ -1132,7 +1132,7 @@ strategy:
   matrix:
     node: [10, 12, 14]
 steps:
-  # Configures the node version used on GitHub-hosted runners
+  # GitHub でホストされているランナーで使用されるノードバージョンを設定する
   - uses: actions/setup-node@v2
     with:
       # The Node.js version to configure
@@ -1140,14 +1140,14 @@ steps:
 ```
 {% endraw %}
 
-The `setup-node` action is the recommended way to configure a Node.js version when using {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see the [`setup-node`](https://github.com/actions/setup-node) action.
+{% data variables.product.prodname_dotcom %}ホストランナーを使う場合にNode.jsのバージョンを設定する方法としては、`setup-node`アクションをおすすめします。 詳しい情報については[`setup-node`](https://github.com/actions/setup-node)アクションを参照してください。
 
 ### Example: Running with multiple operating systems
 
-You can create a matrix to run workflows on more than one runner operating system. You can also specify more than one matrix configuration. This example creates a matrix of 6 jobs:
+複数のランナーオペレーティングシステムでワークフローを実行するマトリックスを作成できます。 複数のマトリックス設定を指定することもできます。 この例では、6つのジョブのマトリックスを作成します。
 
-- 2 operating systems specified in the `os` array
-- 3 Node.js versions specified in the `node` array
+- 配列`os`で指定された2つのオペレーティングシステム
+- 配列`node`で指定された3つのバージョンのNode.js
 
 {% data reusables.repositories.actions-matrix-builds-os %}
 
@@ -1167,12 +1167,12 @@ steps:
 
 {% ifversion ghae %}
 For more information about the configuration of self-hosted runners, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
-{% else %}To find supported configuration options for {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+{% else %}{% data variables.product.prodname_dotcom %} ホストランナーでサポートされている設定オプションについては、「[{% data variables.product.prodname_dotcom %} の仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
 {% endif %}
 
 ### Example: Including additional values into combinations
 
-You can add additional configuration options to a build matrix job that already exists. For example, if you want to use a specific version of `npm` when the job that uses `windows-latest` and version 8 of `node` runs, you can use `include` to specify that additional option.
+既存のビルドマトリクスジョブに、設定オプションを追加できます。 For example, if you want to use a specific version of `npm` when the job that uses `windows-latest` and version 8 of `node` runs, you can use `include` to specify that additional option.
 
 {% raw %}
 ```yaml
@@ -1182,8 +1182,8 @@ strategy:
     os: [macos-latest, windows-latest, ubuntu-18.04]
     node: [8, 10, 12, 14]
     include:
-      # includes a new variable of npm with a value of 6
-      # for the matrix leg matching the os and version
+      # osとバージョンに一致するマトリックスレッグの値が
+      # 6 の npm の新しい変数を含む
       - os: windows-latest
         node: 8
         npm: 6
@@ -1192,7 +1192,7 @@ strategy:
 
 ### Example: Including new combinations
 
-You can use `include` to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use `node` version 14 to build on multiple operating systems, but wanted one extra experimental job using node version 15 on Ubuntu, you can use `include` to specify that additional job.
+`include`を使って新しいジョブを追加し、マトリックスを構築できます。 マッチしなかったincludeの設定があれば、マトリックスに追加されます。 For example, if you want to use `node` version 14 to build on multiple operating systems, but wanted one extra experimental job using node version 15 on Ubuntu, you can use `include` to specify that additional job.
 
 {% raw %}
 ```yaml
@@ -1210,7 +1210,7 @@ strategy:
 
 ### Example: Excluding configurations from a matrix
 
-You can remove a specific configurations defined in the build matrix using the `exclude` option. Using `exclude` removes a job defined by the build matrix. The number of jobs is the cross product of the number of operating systems (`os`) included in the arrays you provide, minus any subtractions (`exclude`).
+`exclude` オプションを使って、ビルドマトリクスに定義されている特定の設定を削除できます。 `exclude` を使うと、ビルドマトリクスにより定義されたジョブが削除されます。 ジョブの数は、指定する配列に含まれるオペレーティングシステム (`os`) の外積から、任意の減算 (`exclude`) で引いたものです。
 
 {% raw %}
 ```yaml
@@ -1220,7 +1220,7 @@ strategy:
     os: [macos-latest, windows-latest, ubuntu-18.04]
     node: [8, 10, 12, 14]
     exclude:
-      # excludes node 8 on macOS
+      # macOS のノード 8 を除外する
       - os: macos-latest
         node: 8
 ```
@@ -1228,23 +1228,23 @@ strategy:
 
 {% note %}
 
-**Note:** All `include` combinations are processed after `exclude`. This allows you to use `include` to add back combinations that were previously excluded.
+**ノート:** すべての`include`の組み合わせは、`exclude`の後に処理されます。 このため、`include`を使って以前に除外された組み合わせを追加し直すことができます。
 
 {% endnote %}
 
-#### Using environment variables in a matrix
+#### マトリックスで環境変数を使用する
 
-You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
+それぞれのテストの組み合わせに、`include`キーを使ってカスタムの環境変数を追加できます。 そして、後のステップでそのカスタムの環境変数を参照できます。
 
 {% data reusables.github-actions.matrix-variable-example %}
 
 ## `jobs.<job_id>.strategy.fail-fast`
 
-When set to `true`, {% data variables.product.prodname_dotcom %} cancels all in-progress jobs if any `matrix` job fails. Default: `true`
+`true`に設定すると、いずれかの`matrix`ジョブが失敗した場合に{% data variables.product.prodname_dotcom %}は進行中のジョブをすべてキャンセルします。 デフォルト: `true`
 
 ## `jobs.<job_id>.strategy.max-parallel`
 
-The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. By default, {% data variables.product.prodname_dotcom %} will maximize the number of jobs run in parallel depending on the available runners on {% data variables.product.prodname_dotcom %}-hosted virtual machines.
+`matrix`ジョブ戦略を使用するとき、同時に実行できるジョブの最大数。 デフォルトでは、{% data variables.product.prodname_dotcom %}は{% data variables.product.prodname_dotcom %}がホストしている仮想マシン上で利用できるrunnerに応じてできるかぎりの数のジョブを並列に実行します。
 
 ```yaml
 strategy:
@@ -1253,11 +1253,11 @@ strategy:
 
 ## `jobs.<job_id>.continue-on-error`
 
-Prevents a workflow run from failing when a job fails. Set to `true` to allow a workflow run to pass when this job fails.
+ジョブが失敗した時に、ワークフローの実行が失敗にならないようにします。 `true`に設定すれば、ジョブが失敗した時にワークフローの実行が次へ進めるようになります。
 
 ### Example: Preventing a specific failing matrix job from failing a workflow run
 
-You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
+ジョブマトリックス中の特定のジョブが失敗しても、ワークフローの実行が失敗にならないようにすることができます。 たとえば、`node`が`15`に設定された実験的なジョブが失敗しても、ワークフローの実行を失敗させないようにしたいとしましょう。
 
 {% raw %}
 ```yaml
@@ -1278,11 +1278,11 @@ strategy:
 
 ## `jobs.<job_id>.container`
 
-A container to run any steps in a job that don't already specify a container. If you have steps that use both script and container actions, the container actions will run as sibling containers on the same network with the same volume mounts.
+ジョブの中で、まだコンテナを指定していない手順を実行するコンテナ。 スクリプトアクションとコンテナアクションの両方を使うステップがある場合、コンテナアクションは同じボリュームマウントを使用して、同じネットワーク上にある兄弟コンテナとして実行されます。
 
-If you do not set a `container`, all steps will run directly on the host specified by `runs-on` unless a step refers to an action configured to run in a container.
+`container`を設定しない場合は、コンテナで実行されるよう設定されているアクションを参照しているステップを除くすべてのステップが、`runs-on`で指定したホストで直接実行されます。
 
-### Example
+### サンプル
 
 ```yaml
 jobs:
@@ -1298,7 +1298,7 @@ jobs:
       options: --cpus 1
 ```
 
-When you only specify a container image, you can omit the `image` keyword.
+コンテナイメージのみを指定する場合、`image`は省略できます。
 
 ```yaml
 jobs:
@@ -1308,13 +1308,13 @@ jobs:
 
 ## `jobs.<job_id>.container.image`
 
-The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a  registry name.
+アクションを実行するコンテナとして使用するDockerイメージ。 The value can be the Docker Hub image name or a  registry name.
 
 ## `jobs.<job_id>.container.credentials`
 
 {% data reusables.actions.registry-credentials %}
 
-### Example
+### サンプル
 
 {% raw %}
 ```yaml
@@ -1328,23 +1328,23 @@ container:
 
 ## `jobs.<job_id>.container.env`
 
-Sets a `map` of environment variables in the container.
+コンテナ中の環境変数の`map`を設定します。
 
 ## `jobs.<job_id>.container.ports`
 
-Sets an `array` of ports to expose on the container.
+コンテナで公開するポートの`array`を設定します。
 
 ## `jobs.<job_id>.container.volumes`
 
-Sets an `array` of volumes for the container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.
+使用するコンテナにボリュームの`array`を設定します。 volumes (ボリューム) を使用すると、サービス間で、または1つのジョブのステップ間でデータを共有できます。 指定できるのは、名前付きDockerボリューム、匿名Dockerボリューム、またはホスト上のバインドマウントです。
 
-To specify a volume, you specify the source and destination path:
+ボリュームを指定するには、ソースパスとターゲットパスを指定してください。
 
 `<source>:<destinationPath>`.
 
-The `<source>` is a volume name or an absolute path on the host machine, and `<destinationPath>` is an absolute path in the container.
+`<source>`は、ホストマシン上のボリューム名または絶対パス、`<destinationPath>`はコンテナでの絶対パスです。
 
-### Example
+### サンプル
 
 ```yaml
 volumes:
@@ -1355,7 +1355,7 @@ volumes:
 
 ## `jobs.<job_id>.container.options`
 
-Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
+追加のDockerコンテナリソースのオプション。 オプションの一覧は、「[`docker create`のオプション](https://docs.docker.com/engine/reference/commandline/create/#options)」を参照してください。
 
 {% warning %}
 
@@ -1367,41 +1367,41 @@ Additional Docker container resource options. For a list of options, see "[`dock
 
 {% data reusables.github-actions.docker-container-os-support %}
 
-Used to host service containers for a job in a workflow. Service containers are useful for creating databases or cache services like Redis. The runner  automatically creates a Docker network and manages the life cycle of the service containers.
+ワークフロー中のジョブのためのサービスコンテナをホストするために使われます。 サービスコンテナは、データベースやRedisのようなキャッシュサービスの作成に役立ちます。 ランナーは自動的にDockerネットワークを作成し、サービスコンテナのライフサイクルを管理します。
 
-If you configure your job to run in a container, or your step uses container actions, you don't need to map ports to access the service or action. Docker automatically exposes all ports between containers on the same Docker user-defined bridge network. You can directly reference the service container by its hostname. The hostname is automatically mapped to the label name you configure for the service in the workflow.
+コンテナを実行するようにジョブを設定した場合、あるいはステップがコンテナアクションを使う場合は、サービスもしくはアクションにアクセスするためにポートをマップする必要はありません。 Dockerは自動的に、同じDockerのユーザ定義ブリッジネットワーク上のコンテナ間のすべてのポートを公開します。 サービスコンテナは、ホスト名で直接参照できます。 ホスト名は自動的に、ワークフロー中のサービスに設定したラベル名にマップされます。
 
-If you configure the job to run directly on the runner machine and your step doesn't use a container action, you must map any required Docker service container ports to the Docker host (the runner machine). You can access the service container using localhost and the mapped port.
+ランナーマシン上で直接実行されるようにジョブを設定し、ステップがコンテナアクションを使わないのであれば、必要なDockerサービスコンテナのポートはDockerホスト（ランナーマシン）にマップしなければなりません サービスコンテナには、localhostとマップされたポートを使ってアクセスできます。
 
-For more information about the differences between networking service containers, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers)."
+ネットワーキングサービスコンテナ間の差異に関する詳しい情報については「[サービスコンテナについて](/actions/automating-your-workflow-with-github-actions/about-service-containers)」を参照してください。
 
 ### Example: Using localhost
 
-This example creates two services: nginx and redis. When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
+この例では、nginxとredisという2つのサービスを作成します。 Dockerホストのポートを指定して、コンテナのポートを指定しなかった場合、コンテナのポートは空いているポートにランダムに割り当てられます。 {% data variables.product.prodname_dotcom %}は、割り当てられたコンテナポートを{% raw %}`${{job.services.<service_name>.ports}}`{% endraw %}コンテキストに設定します。 以下の例では、サービスコンテナのポートへは{% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} 及び{% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} コンテキストでアクセスできます。
 
 ```yaml
 services:
   nginx:
     image: nginx
-    # Map port 8080 on the Docker host to port 80 on the nginx container
+    # Dockerホストのポート8080をnginxコンテナのポート80にマップする
     ports:
       - 8080:80
   redis:
     image: redis
-    # Map TCP port 6379 on Docker host to a random free port on the Redis container
+    # Dockerホストのポート6379をRedisコンテナのランダムな空きポートにマップする
     ports:
       - 6379/tcp
 ```
 
 ## `jobs.<job_id>.services.<service_id>.image`
 
-The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a  registry name.
+アクションを実行するサービスコンテナとして使用するDockerイメージ。 The value can be the Docker Hub image name or a  registry name.
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
 
 {% data reusables.actions.registry-credentials %}
 
-### Example
+### サンプル
 
 {% raw %}
 ```yaml
@@ -1421,23 +1421,23 @@ services:
 
 ## `jobs.<job_id>.services.<service_id>.env`
 
-Sets a `map` of environment variables in the service container.
+サービスコンテナ中の環境変数の`map`を設定します。
 
 ## `jobs.<job_id>.services.<service_id>.ports`
 
-Sets an `array` of ports to expose on the service container.
+サービスコンテナで公開するポートの`array`を設定します。
 
 ## `jobs.<job_id>.services.<service_id>.volumes`
 
-Sets an `array` of volumes for the service container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.
+使用するサービスコンテナにボリュームの`array`を設定します。 volumes (ボリューム) を使用すると、サービス間で、または1つのジョブのステップ間でデータを共有できます。 指定できるのは、名前付きDockerボリューム、匿名Dockerボリューム、またはホスト上のバインドマウントです。
 
-To specify a volume, you specify the source and destination path:
+ボリュームを指定するには、ソースパスとターゲットパスを指定してください。
 
 `<source>:<destinationPath>`.
 
-The `<source>` is a volume name or an absolute path on the host machine, and `<destinationPath>` is an absolute path in the container.
+`<source>`は、ホストマシン上のボリューム名または絶対パス、`<destinationPath>`はコンテナでの絶対パスです。
 
-### Example
+### サンプル
 
 ```yaml
 volumes:
@@ -1448,7 +1448,7 @@ volumes:
 
 ## `jobs.<job_id>.services.<service_id>.options`
 
-Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
+追加のDockerコンテナリソースのオプション。 オプションの一覧は、「[`docker create`のオプション](https://docs.docker.com/engine/reference/commandline/create/#options)」を参照してください。
 
 {% warning %}
 
@@ -1459,13 +1459,13 @@ Additional Docker container resource options. For a list of options, see "[`dock
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
 
-The location and version of a reusable workflow file to run as a job. 
+The location and version of a reusable workflow file to run as a job.
 
 `{owner}/{repo}/{path}/{filename}@{ref}`
 
-`{ref}` can be a SHA, a release tag, or a branch name. Using the commit SHA is the safest for stability and security. For more information, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)."
+`{ref}` can be a SHA, a release tag, or a branch name. Using the commit SHA is the safest for stability and security. 詳しい情報については「[GitHub Actionsのためのセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)」を参照してください。
 
-### Example
+### サンプル
 
 {% data reusables.actions.uses-keyword-example %}
 
@@ -1479,7 +1479,7 @@ Any inputs that you pass must match the input specifications defined in the call
 
 Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not be available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
 
-### Example
+### サンプル
 
 ```yaml
 jobs:
@@ -1501,7 +1501,7 @@ When a job is used to call a reusable workflow, you can use `secrets` to provide
 
 Any secrets that you pass must match the names defined in the called workflow.
 
-### Example
+### サンプル
 
 {% raw %}
 ```yaml
@@ -1520,61 +1520,61 @@ A pair consisting of a string identifier for the secret and the value of the sec
 Allowed expression contexts: `github`, `needs`, and `secrets`.
 {% endif %}
 
-## Filter pattern cheat sheet
+## フィルタパターンのチートシート
 
-You can use special characters in path, branch, and tag filters.
+特別なキャラクタをパス、ブランチ、タグフィルタで利用できます。
 
-- `*`: Matches zero or more characters, but does not match the `/` character. For example, `Octo*` matches `Octocat`.
-- `**`: Matches zero or more of any character.
+- `*`ゼロ個以上のキャラクタにマッチしますが、`/`にはマッチしません。 たとえば`Octo*`は`Octocat`にマッチします。
+- `**`ゼロ個以上の任意のキャラクタにマッチします。
 - `?`: Matches zero or one of the preceding character.
-- `+`: Matches one or more of the preceding character.
-- `[]` Matches one character listed in the brackets or included in ranges. Ranges can only include `a-z`, `A-Z`, and `0-9`. For example, the range`[0-9a-z]` matches any digit or lowercase letter. For example, `[CB]at` matches `Cat` or `Bat` and `[1-2]00` matches `100` and `200`.
-- `!`: At the start of a pattern makes it negate previous positive patterns. It has no special meaning if not the first character.
+- `+`: 直前の文字の 1 つ以上に一致します。
+- `[]` 括弧内にリストされた、あるいは範囲に含まれる1つのキャラクタにマッチします。 範囲に含めることができるのは`a-z`、`A-Z`、`0-9`のみです。 たとえば、`[0-9a-z]`という範囲は任意の数字もしくは小文字にマッチします。 たとえば`[CB]at`は`Cat`あるいは`Bat`にマッチし、`[1-2]00`は`100`や`200`にマッチします。
+- `!`: パターンの先頭に置くと、肯定のパターンを否定にします。 先頭のキャラクタではない場合は、特別な意味を持ちません。
 
-The characters `*`, `[`, and `!` are special characters in YAML. If you start a pattern with `*`, `[`, or `!`, you must enclose the pattern in quotes.
+YAMLにおいては、`*`、`[`、`!`は特別なキャラクタです。 パターンを`*`、`[`、`!`で始める場合、そのパターンをクオートで囲まなければなりません。
 
 ```yaml
-# Valid
+# 有効
 - '**/README.md'
 
-# Invalid - creates a parse error that
-# prevents your workflow from running.
+# 無効 - ワークフローの実行を妨げる
+# 解析エラーを作成する
 - **/README.md
 ```
 
-For more information about branch, tag, and path filter syntax, see "[`on.<push|pull_request>.<branches|tags>`](#onpushpull_requestbranchestags)" and "[`on.<push|pull_request>.paths`](#onpushpull_requestpaths)."
+ブランチ、タグ、およびパスフィルタの文法に関する詳しい情報については、「[`on.<push|pull_request>.<branches|tags>`](#onpushpull_requestbranchestags)」および「[`on.<push|pull_request>.paths`](#onpushpull_requestpaths)」を参照してください。
 
-### Patterns to match branches and tags
+### ブランチやタグにマッチするパターン
 
-| Pattern | Description | Example matches |
-|---------|------------------------|---------|
-| `feature/*` | The `*` wildcard matches any character, but does not match slash (`/`). |  `feature/my-branch`<br/><br/>`feature/your-branch` |
-| `feature/**` | The `**` wildcard matches any character including slash (`/`) in branch and tag names. | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
-| `main`<br/><br/>`releases/mona-the-octocat` | Matches the exact name of a branch or tag name. | `main`<br/><br/>`releases/mona-the-octocat` |
-| `'*'` | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | `main`<br/><br/>`releases` |
-| `'**'` | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter. | `all/the/branches`<br/><br/>`every/tag` |
-| `'*feature'` | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature` |
-| `v2*` | Matches branch and tag names that start with `v2`. | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9` |
-| `v[12].[0-9]+.[0-9]+` | Matches all semantic versioning branches and tags with major version 1 or 2 | `v1.10.1`<br/><br/>`v2.0.0` |
+| パターン                                                    | 説明                                                                                             | マッチの例                                                                                                                 |
+| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `feature/*`                                             | ワイルドカードの`*`は任意のキャラクタにマッチしますが、スラッシュ（`/`）にはマッチしません。                                              | `feature/my-branch`<br/><br/>`feature/your-branch`                                                        |
+| `feature/**`                                            | ワイルドカードの`**`は、ブランチ及びタグ名のスラッシュ（`/`）を含む任意のキャラクタにマッチします。                                          | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
+| `main`<br/><br/>`releases/mona-the-octocat` | ブランチあるいはタグ名に完全に一致したときにマッチします。                                                                  | `main`<br/><br/>`releases/mona-the-octocat`                                                               |
+| `'*'`                                                   | スラッシュ（`/`）を含まないすべてのブランチ及びタグ名にマッチします。 `*`はYAMLにおける特別なキャラクタです。 パターンを`*`で始める場合は、クオートを使わなければなりません。 | `main`<br/><br/>`releases`                                                                                |
+| `'**'`                                                  | すべてのブランチ及びタグ名にマッチします。 これは `branches`あるいは`tags`フィルタを使わない場合のデフォルトの動作です。                          | `all/the/branches`<br/><br/>`every/tag`                                                                   |
+| `'*feature'`                                            | `*`はYAMLにおける特別なキャラクタです。 パターンを`*`で始める場合は、クオートを使わなければなりません。                                      | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
+| `v2*`                                                   | `v2`で始めるブランチ及びタグ名にマッチします。                                                                      | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
+| `v[12].[0-9]+.[0-9]+`                                   | メジャーバージョンが1もしくは2のすべてのセマンティックバージョニングブランチとタグにマッチします。                                             | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
-### Patterns to match file paths
+### ファイルパスにマッチするパターン
 
-Path patterns must match the whole path, and start from the repository's root.
+パスパターンはパス全体にマッチしなければならず、リポジトリのルートを出発点とします。
 
-| Pattern | Description of matches | Example matches |
-|---------|------------------------|-----------------|
-| `'*'` | The `*` wildcard matches any character, but does not match slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | `README.md`<br/><br/>`server.rb` |
-| `'*.jsx?'` | The `?` character matches zero or one of the preceding character. | `page.js`<br/><br/>`page.jsx` |
-| `'**'` | The `**` wildcard matches any character including slash (`/`). This is the default behavior when you don't use a `path` filter. | `all/the/files.md` |
-| `'*.js'` | The `*` wildcard matches any character, but does not match slash (`/`). Matches all `.js` files at the root of the repository. | `app.js`<br/><br/>`index.js`
-| `'**.js'` | Matches all `.js` files in the repository. | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js` |
-| `docs/*`  | All files within the root of the `docs` directory, at the root of the repository. | `docs/README.md`<br/><br/>`docs/file.txt` |
-| `docs/**` | Any files in the `/docs` directory at the root of the repository. | `docs/README.md`<br/><br/>`docs/mona/octocat.txt` |
-| `docs/**/*.md` | A file with a `.md` suffix anywhere in the `docs` directory. | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`
-| `'**/docs/**'`   | Any files in a `docs` directory anywhere in the repository. | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`
-| `'**/README.md'` | A README.md file anywhere in the repository. | `README.md`<br/><br/>`js/README.md`
-| `'**/*src/**'` | Any file in a folder with a `src` suffix anywhere in the repository. | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`
-| `'**/*-post.md'` | A file with the suffix `-post.md` anywhere in the repository. | `my-post.md`<br/><br/>`path/their-post.md` |
-| `'**/migrate-*.sql'` | A file with the prefix `migrate-` and suffix `.sql` anywhere in the repository. | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql` |
-| `*.md`<br/><br/>`!README.md` | Using an exclamation mark (`!`) in front of a pattern negates it. When a file matches a pattern and also matches a negative pattern defined later in the file, the file will not be included. | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
-| `*.md`<br/><br/>`!README.md`<br/><br/>`README*` | Patterns are checked sequentially. A pattern that negates a previous pattern will re-include file paths. | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`|
+| パターン                                                                    | マッチの説明                                                                                                      | マッチの例                                                                                                                    |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `'*'`                                                                   | ワイルドカードの`*`は任意のキャラクタにマッチしますが、スラッシュ（`/`）にはマッチしません。 `*`はYAMLにおける特別なキャラクタです。 パターンを`*`で始める場合は、クオートを使わなければなりません。 | `README.md`<br/><br/>`server.rb`                                                                             |
+| `'*.jsx?'`                                                              | `?`はゼロ個以上の先行するキャラクタにマッチします。                                                                                 | `page.js`<br/><br/>`page.jsx`                                                                                |
+| `'**'`                                                                  | ワイルドカードの`**`は、スラッシュ（`/`）を含む任意のキャラクタにマッチします。 これは `path`フィルタを使わない場合のデフォルトの動作です。                               | `all/the/files.md`                                                                                                       |
+| `'*.js'`                                                                | ワイルドカードの`*`は任意のキャラクタにマッチしますが、スラッシュ（`/`）にはマッチしません。 リポジトリのルートにあるすべての`.js`ファイルにマッチします。                         | `app.js`<br/><br/>`index.js`                                                                                 |
+| `'**.js'`                                                               | リポジトリ内のすべての`.js`ファイルにマッチします。                                                                                | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js`                                       |
+| `docs/*`                                                                | リポジトリのルートの`docs`のルートにあるすべてのファイルにマッチします。                                                                     | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
+| `docs/**`                                                               | リポジトリのルートの`docs`内にあるすべてのファイルにマッチします。                                                                        | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
+| `docs/**/*.md`                                                          | `docs`ディレクトリ内にある`.md`というサフィックスを持つファイルにマッチします。                                                               | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
+| `'**/docs/**'`                                                          | リポジトリ内にある`docs`ディレクトリ内のすべてのファイルにマッチします、                                                                     | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`             |
+| `'**/README.md'`                                                        | リポジトリ内にあるREADME.mdファイルにマッチします。                                                                              | `README.md`<br/><br/>`js/README.md`                                                                          |
+| `'**/*src/**'`                                                          | リポジトリ内にある`src`というサフィックスを持つフォルダ内のすべてのファイルにマッチします。                                                            | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
+| `'**/*-post.md'`                                                        | リポジトリ内にある`-post.md`というサフィックスを持つファイルにマッチします。                                                                 | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |
+| `'**/migrate-*.sql'`                                                    | リポジトリ内の`migrate-`というプレフィックスと`.sql`というサフィックスを持つファイルにマッチします。                                                  | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql`             |
+| `*.md`<br/><br/>`!README.md`                                | 感嘆符（`!`）をパターンの前に置くと、そのパターンの否定になります。 あるファイルがあるパターンにマッチし、ファイル中でその後に定義されている否定パターンにマッチした場合、そのファイルは含まれません。       | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
+| `*.md`<br/><br/>`!README.md`<br/><br/>`README*` | パターンは順番にチェックされます。 先行するパターンを否定するパターンで、ファイルパスが再度含まれるようになります。                                                  | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`                                            |

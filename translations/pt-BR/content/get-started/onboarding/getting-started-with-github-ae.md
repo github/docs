@@ -1,83 +1,83 @@
 ---
-title: Getting started with GitHub AE
-intro: 'Get started with setting up and configuring {% data variables.product.product_name %} for {% data variables.product.product_location %}.'
+title: Introdução ao GitHub AE
+intro: 'Comece a configurar {% data variables.product.product_name %} para {% data variables.product.product_location %}.'
 versions:
   ghae: '*'
 ---
 
-This guide will walk you through setting up, configuring, and managing settings for {% data variables.product.product_location %} on {% data variables.product.product_name %} as an enterprise owner.
+Este guia irá ajudar você a configurar e gerenciar as configurações para {% data variables.product.product_location %} em {% data variables.product.product_name %} como proprietário corporativo.
 
-## Part 1: Setting up {% data variables.product.product_name %}
-To get started with {% data variables.product.product_name %}, you can create your enterprise account, initialize {% data variables.product.product_name %}, configure an IP allow list, configure user authentication and provisioning, and manage billing for {% data variables.product.product_location %}.
+## Parte 1: Configurando {% data variables.product.product_name %}
+Para dar os primeiros passos com {% data variables.product.product_name %}, você pode criar a conta corporativa, inicializar {% data variables.product.product_name %}, configurar uma lista de permissões de IP, configurar a autenticação e provisionamento de usuário e gerenciar a cobrança para {% data variables.product.product_location %}.
 
-### 1. Creating your {% data variables.product.product_name %} enterprise account
-You will first need to purchase {% data variables.product.product_name %}. For more information, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
+### 1. Criando sua conta corporativa de {% data variables.product.product_name %}
+Primeiro você precisará comprar {% data variables.product.product_name %}. Para obter mais informações, entre em contato com [a equipe de vendas de {% data variables.product.prodname_dotcom %}](https://enterprise.github.com/contact).
 
 {% data reusables.github-ae.initialize-enterprise %}
 
-### 2. Initializing {% data variables.product.product_name %}
-After {% data variables.product.company_short %} creates the owner account for {% data variables.product.product_location %} on {% data variables.product.product_name %}, you will receive an email to sign in and complete the initialization. During initialization, you, as the enterprise owner, will name {% data variables.product.product_location %}, configure SAML SSO, create policies for all organizations in {% data variables.product.product_location %}, and configure a support contact for your enterprise members. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
+### 2. Inicializando {% data variables.product.product_name %}
+Depois de {% data variables.product.company_short %} criar a conta do proprietário para {% data variables.product.product_location %} em {% data variables.product.product_name %}, você receberá um e-mail para efetuar o login e e concluir a inicialização. Durante a inicialização, você, como o proprietário da empresa, irá nomear {% data variables.product.product_location %}, configurar o SAML SSO, criar políticas para todas as organizações em {% data variables.product.product_location %} e configurar um contato de suporte para os integrantes da empresa. Para obter mais informações, consulte "[Inicializar {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)".
 
-### 3. Restricting network traffic
-You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)."
+### 3. Restringir tráfego de rede
+É possível configurar uma lista de permissões para endereços IP específicos para restringir o acesso a ativos pertencentes a organizações na sua conta corporativa. Para obter mais informações, consulte "[Restringir tráfego de rede para a sua empresa](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)".
 
-### 4. Managing identity and access for {% data variables.product.product_location %}
-You can centrally manage access to {% data variables.product.product_location %} on {% data variables.product.product_name %} from an identity provider (IdP) using SAML single sign-on (SSO) for user authentication and System for Cross-domain Identity Management (SCIM) for user provisioning. Once you configure provisioning, you can assign or unassign users to the application from the IdP, creating or disabling user accounts in the enterprise. For more information, see "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
+### 4. Gerenciando a identidade e o acesso para {% data variables.product.product_location %}
+Você pode gerenciar centralmente o acesso a {% data variables.product.product_location %} em {% data variables.product.product_name %} a partir de um provedor de identidade (IdP) usando o logon único SAML (SSO) para autenticação de usuário e o sistema para gerenciamento de identidade de domínio cruzado (SCIM) para provisionamento de usuários. Depois de configurar o provisionamento, você poderá atribuir ou remover usuários para o aplicativo a partir do IdP, criando ou desabilitando as contas de usuários na empresa. Para obter mais informações, consulte "[Sobre identidade e gerenciamento de acesso para sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)".
 
-### 5. Managing billing for {% data variables.product.product_location %}
-Owners of the subscription for {% data variables.product.product_location %} on {% data variables.product.product_name %} can view billing details for {% data variables.product.product_name %} in the Azure portal. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+### 5. Gerenciando cobrança para {% data variables.product.product_location %}
+Os proprietários da assinatura de {% data variables.product.product_location %} em {% data variables.product.product_name %} podem ver informações de cobrança para {% data variables.product.product_name %} no portal do Azure. Para obter mais informações, consulte "[Gerenciando a cobrança da sua empresa](/admin/overview/managing-billing-for-your-enterprise)".
 
-## Part 2: Organizing and managing enterprise members
-As an enterprise owner for {% data variables.product.product_name %}, you can manage settings on user, repository, team, and organization levels. You can manage members of {% data variables.product.product_location %}, create and manage organizations, set policies for repository management, and create and manage teams.
+## Parte 2: Organização e gestão dos integrantes da empresa
+Como proprietário corporativo de {% data variables.product.product_name %}, você pode gerenciar as configurações nos níveis do usuário, repositório, equipe e organização. Você pode gerenciar os integrantes de {% data variables.product.product_location %}, criar e gerenciar organizações, definir políticas para o gerenciamento do repositório e criar e gerenciar equipes.
 
-### 1. Managing members of {% data variables.product.product_location %}
+### 1. Gerenciando integrantes de {% data variables.product.product_location %}
 {% data reusables.getting-started.managing-enterprise-members %}
 
-### 2. Creating organizations
+### 2. Criar organizações
 {% data reusables.getting-started.creating-organizations %}
 
-### 3. Adding members to organizations
+### 3. Adicionando integrantes a organizações
 {% data reusables.getting-started.adding-members-to-organizations %}
 
-### 4. Creating teams
+### 4. Criar equipes
 {% data reusables.getting-started.creating-teams %}
 
-### 5. Setting organization and repository permission levels
+### 5. Definindo níveis de permissões para a organização e para o repositório
 {% data reusables.getting-started.setting-org-and-repo-permissions %}
 
-### 6. Enforcing repository management policies
+### 6. Aplicando políticas de gerenciamento do repositório
 {% data reusables.getting-started.enforcing-repo-management-policies %}
 
-## Part 3: Building securely
-To increase the security of {% data variables.product.product_location %}, you can monitor {% data variables.product.product_location %} and configure security and analysis features for your organizations.
+## Parte 3: Criando com segurança
+Para aumentar a segurança de {% data variables.product.product_location %}, você pode monitorar {% data variables.product.product_location %} e configurar as funcionalidades de segurança e análise das suas organizações.
 
-### 1. Monitoring {% data variables.product.product_location %}
-You can monitor {% data variables.product.product_location %} with your activity dashboard and audit logging. For more information, see "[Monitoring activity in your enterprise](/admin/user-management/monitoring-activity-in-your-enterprise)."
+### 1. Monitorando {% data variables.product.product_location %}
+Você pode monitorar {% data variables.product.product_location %} com o seu painel de atividade e log de auditoria. Para obter mais informações, consulte "[Atividade de monitoramento na sua empresa](/admin/user-management/monitoring-activity-in-your-enterprise)".
 
-### 2. Configuring security features for your organizations
+### 2. Configurar as funcionalidades de segurança para as suas organizações
 {% data reusables.getting-started.configuring-security-features %}
 
-## Part 4: Customizing and automating work on {% data variables.product.product_location %}
-You can customize and automate work in organizations in {% data variables.product.product_location %} with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_pages %}.
+## Parte 4: Personalizando e automatizando o trabalho em {% data variables.product.product_location %}
+Você pode personalizar e automatizar o trabalho em organizações em {% data variables.product.product_location %} com a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, {% data variables.product.prodname_actions %} e {% data variables.product.prodname_pages %}.
 
-### 1. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 1. Usando a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}
 {% data reusables.getting-started.api %}
 
-### 2. Building {% data variables.product.prodname_actions %}
+### 2. Criando {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-For more information on enabling and configuring {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae)."
+Para obter mais informações sobre como habilitar e configurar {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae)".
 
-### 3. Using {% data variables.product.prodname_pages %}
+### 3. Usar {% data variables.product.prodname_pages %}
 {% data reusables.getting-started.github-pages-enterprise %}
-## Part 5: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
-Your enterprise members can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need with {% data variables.product.prodname_dotcom %} Enterprise Support.
+## Parte 5: Usando o aprendizado de {% data variables.product.prodname_dotcom %} e os recursos de suporte
+Os integrantes da sua empresa podem aprender mais sobre Git e {% data variables.product.prodname_dotcom %} com nossos recursos de aprendizado. e você pode obter o suporte de que precisa com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}.
 
-### 1. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
-You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_managed %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+### 1. Lendo sobre {% data variables.product.product_name %} em {% data variables.product.prodname_docs %}
+Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_ghe_managed %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
-### 2. Learning with {% data variables.product.prodname_learning %}
+### 2. Aprendendo com {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab-enterprise %}
 
-### 3. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
+### 3. Trabalhando com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}
 {% data reusables.getting-started.contact-support-enterprise %}

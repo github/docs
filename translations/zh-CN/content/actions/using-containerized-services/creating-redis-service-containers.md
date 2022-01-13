@@ -1,7 +1,7 @@
 ---
-title: Creating Redis service containers
-shortTitle: Redis service containers
-intro: You can use service containers to create a Redis client in your workflow. This guide shows examples of creating a Redis service for jobs that run in containers or directly on the runner machine.
+title: 创建 Redis 服务容器
+shortTitle: Redis 服务容器
+intro: 您可以使用服务容器在工作流程中创建 Redis 客户端。 本指南举例说明如何为容器中运行或直接在运行器机器上运行的作业创建 Redis 服务。
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-redis-service-containers
   - /actions/configuring-and-managing-workflows/creating-redis-service-containers
@@ -20,22 +20,22 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## 简介
 
-This guide shows you workflow examples that configure a service container using the Docker Hub `redis` image. The workflow runs a script to create a Redis client and populate the client with data. To test that the workflow creates and populates the Redis client, the script prints the client's data to the console.
+本指南演示了使用 Docker Hub `redis` 映像配置服务容器的工作流程示例。 工作流程运行脚本来创建 Redis 客户端并使用数据填充客户端。 要测试工作流程是否创建并填充 Redis 客户端，脚本会将客户端数据打印到控制台。
 
 {% data reusables.github-actions.docker-container-os-support %}
 
-## Prerequisites
+## 基本要求
 
 {% data reusables.github-actions.service-container-prereqs %}
 
-You may also find it helpful to have a basic understanding of YAML, the syntax for {% data variables.product.prodname_actions %}, and Redis. For more information, see:
+你可能还会发现它也有助于基本了解 YAML、{% data variables.product.prodname_actions %} 的语法和 Redis。 更多信息请参阅：
 
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
-- "[Getting Started with Redis](https://redislabs.com/get-started-with-redis/)" in the Redis documentation
+- "[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- Redis 文档中的“[Redis 使用入门](https://redislabs.com/get-started-with-redis/)”
 
-## Running jobs in containers
+## 在容器中运行作业
 
 {% data reusables.github-actions.container-jobs-intro %}
 
@@ -90,7 +90,7 @@ jobs:
 ```
 {% endraw %}
 
-### Configuring the container job
+### 配置容器作业
 
 {% data reusables.github-actions.service-container-host %}
 
@@ -119,7 +119,7 @@ jobs:
           --health-retries 5
 ```
 
-### Configuring the steps
+### 配置步骤
 
 {% data reusables.github-actions.service-template-steps %}
 
@@ -148,11 +148,11 @@ steps:
 
 {% data reusables.github-actions.redis-environment-variables %}
 
-The hostname of the Redis service is the label you configured in your workflow, in this case, `redis`. Because Docker containers on the same user-defined bridge network open all ports by default, you'll be able to access the service container on the default Redis port 6379.
+Redis 服务的主机名是您在工作流程中配置的标签，本例中为 `redis`。 由于同一用户定义的网桥网络上的 Docker 容器默认打开所有端口，因此您将能够访问默认 Redis 端口 6379 上的服务容器。
 
-## Running jobs directly on the runner machine
+## 直接在运行器机器上运行作业
 
-When you run a job directly on the runner machine, you'll need to map the ports on the service container to ports on the Docker host. You can access service containers from the Docker host using `localhost` and the Docker host port number.
+直接在运行器机器上运行作业时，需要将服务容器上的端口映射到 Docker 主机上的端口。 您可以使用 `localhost` 和 Docker 主机端口号从 Docker 主机访问服务容器。
 
 {% data reusables.github-actions.copy-workflow-file %}
 
@@ -207,13 +207,13 @@ jobs:
 ```
 {% endraw %}
 
-### Configuring the runner job
+### 配置运行器作业
 
 {% data reusables.github-actions.service-container-host-runner %}
 
 {% data reusables.github-actions.redis-label-description %}
 
-The workflow maps port 6379 on the Redis service container to the Docker host. For more information about the `ports` keyword, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
+工作流程将 Redis 服务容器上的端口 6379 映射到 Docker 主机。 有关 `ports` 关键字的更多信息，请参阅“[关于服务容器](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)”。
 
 ```yaml{:copy}
 jobs:
@@ -239,7 +239,7 @@ jobs:
           - 6379:6379
 ```
 
-### Configuring the steps
+### 配置步骤
 
 {% data reusables.github-actions.service-template-steps %}
 
@@ -271,11 +271,11 @@ steps:
 
 {% data reusables.github-actions.service-container-localhost %}
 
-## Testing the Redis service container
+## 测试 Redis 服务容器
 
-You can test your workflow using the following script, which creates a Redis client and populates the client with some placeholder data. The script then prints the values stored in the Redis client to the terminal. Your script can use any language you'd like, but this example uses Node.js and the `redis` npm module. For more information, see the [npm redis module](https://www.npmjs.com/package/redis).
+您可以使用以下脚本测试工作流程，该脚本将创建 Redis 客户端，并使用某些占位符数据填充客户端。 然后，脚本将存储在 Redis 客户端中的值打印到终端。 您的脚本可以使用任何您喜欢的语言，但此示例使用 Node.js 和 `redis` npm 模块。 更多信息请参阅 [npm redis 模块](https://www.npmjs.com/package/redis)。
 
-You can modify *client.js* to include any Redis operations needed by your workflow. In this example, the script creates the Redis client instance, adds placeholder data, then retrieves the data.
+您可以修改 *client.js* 以包含工作流程需要的任何 Redis 操作。 在此示例中，脚本创建 Redis 客户端实例、添加占位符数据，然后检索数据。
 
 {% data reusables.github-actions.service-container-add-script %}
 
@@ -313,11 +313,11 @@ redisClient.hkeys("species", function (err, replies) {
 });
 ```
 
-The script creates a new Redis client using the `createClient` method, which accepts a `host` and `port` parameter. The script uses the `REDIS_HOST` and `REDIS_PORT` environment variables to set the client's IP address and port. If `host` and `port` are not defined, the default host is `localhost` and the default port is 6379.
+该脚本使用 `createClient` 方法创建新的 Redis 客户端，接受 `host` 和 `port` 参数。 该脚本使用 `REDIS_HOST` 和 `REDIS_PORT` 环境变量来设置客户端的 IP 地址和端口。 如果未定义 `host` 和 `port`，则默认主机为 `localhost`，默认端口为 6379。
 
-The script uses the `set` and `hset` methods to populate the database with some keys, fields, and values. To confirm that the Redis client contains the data, the script prints the contents of the database to the console log.
+该脚本使用 `set` 和 `hset` 方法，以一些键值、字段和值来填充数据库。 要确认 Redis 客户端是否包含数据，脚本会将数据库的内容打印到控制台日志。
 
-When you run this workflow, you should see the following output in the "Connect to Redis" step confirming you created the Redis client and added data:
+运行此工作流程时，应会在“连接到 Redis”步骤中看到以下输出，确认您创建了 Redis 客户端并添加了数据：
 
 ```
 Reply: OK

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readFile } from 'fs/promises'
 import { get, flatten, isPlainObject } from 'lodash-es'
 import { sentenceCase } from 'change-case'
 import GitHubSlugger from 'github-slugger'
@@ -7,6 +8,9 @@ import renderContent from '../../../lib/render-content/index.js'
 import createCodeSamples from './create-code-samples.js'
 import Ajv from 'ajv'
 import operationSchema from './operation-schema.js'
+const overrideOperations = JSON.parse(
+  await readFile('script/rest/utils/rest-api-overrides.json', 'utf8')
+)
 const slugger = new GitHubSlugger()
 
 // titles that can't be derived by sentence-casing the ID
@@ -26,14 +30,31 @@ export default class Operation {
     this.slug = slugger.slug(this.summary)
 
     // Add category
+
     // workaround for misnamed `code-scanning.` category bug
     // https://github.com/github/rest-api-description/issues/38
     this['x-github'].category = this['x-github'].category.replace('.', '')
-    this.category = this['x-github'].category
+    // A temporary override file allows us to override the category defined in
+    // the openapi schema. Without it, we'd have to update several
+    // @documentation_urls in the github/github code every time we move
+    // an endpoint to a new page.
+    this.category = overrideOperations[this.operationId]
+      ? overrideOperations[this.operationId].category
+      : this['x-github'].category
     this.categoryLabel = categoryTitles[this.category] || sentenceCase(this.category)
 
     // Add subcategory
-    if (this['x-github'].subcategory) {
+
+    // A temporary override file allows us to override the subcategory
+    // defined in the openapi schema. Without it, we'd have to update several
+    // @documentation_urls in the github/github code every time we move
+    // an endpoint to a new page.
+    if (overrideOperations[this.operationId]) {
+      if (overrideOperations[this.operationId].subcategory) {
+        this.subcategory = overrideOperations[this.operationId].subcategory
+        this.subcategoryLabel = sentenceCase(this.subcategory)
+      }
+    } else if (this['x-github'].subcategory) {
       this.subcategory = this['x-github'].subcategory
       this.subcategoryLabel = sentenceCase(this.subcategory)
     }

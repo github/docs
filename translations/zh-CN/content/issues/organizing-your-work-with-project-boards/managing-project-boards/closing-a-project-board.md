@@ -1,6 +1,6 @@
 ---
-title: Closing a project board
-intro: 'If you''ve completed all the tasks in a project board or no longer need to use a project board, you can close the project board.'
+title: 关闭项目板
+intro: 如果您已完成项目板中所有任务或不再需要使用项目板，可以关闭项目板。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/closing-a-project-board
   - /articles/closing-a-project
@@ -14,22 +14,21 @@ versions:
 topics:
   - Pull requests
 ---
+
 {% data reusables.projects.project_boards_old %}
 
-When you close a project board, any configured workflow automation will pause by default.
+关闭项目板时，默认情况下任何已配置的工作流程自动化都会暂停。
 
-If you reopen a project board, you have the option to *sync* automation, which updates the position of the cards on the board according to the automation settings configured for the board. For more information, see "[Reopening a closed project board](/articles/reopening-a-closed-project-board)" or "[About automation for project boards](/articles/about-automation-for-project-boards)."
+如果重新打开项目板，您可以选择*同步*自动化，以便根据为项目板配置的自动化设置来更新板上卡的位置。 更多信息请参阅“[重新打开已关闭的项目板](/articles/reopening-a-closed-project-board)”或“[关于项目板自动化](/articles/about-automation-for-project-boards)”。
 
-1. Navigate to list of project boards in your repository or organization, or owned by your user account.
-2. In the projects list, next to the project board you want to close, click {% octicon "chevron-down" aria-label="The chevron icon" %}.
-![Chevron icon to the right of the project board's name](/assets/images/help/projects/project-list-action-chevron.png)
-3. Click **Close**.
-![Close item in the project board's drop-down menu](/assets/images/help/projects/close-project.png)
+1. Navigate to the list of project boards in your repository or organization, or owned by your user account.
+2. 在项目列表中，在要关闭的项目板旁边单击 {% octicon "chevron-down" aria-label="The chevron icon" %}。 ![项目板名称右边的 V 形图标](/assets/images/help/projects/project-list-action-chevron.png)
+3. 单击 **Close（关闭）**。 ![关闭项目板下拉菜单中的项](/assets/images/help/projects/close-project.png)
 
-## Further reading
+## 延伸阅读
 
-- "[About project boards](/articles/about-project-boards)"
-- "[Deleting a project board](/articles/deleting-a-project-board)"
-- "[Disabling project boards in a repository](/articles/disabling-project-boards-in-a-repository)"
-- "[Disabling project boards in your organization](/articles/disabling-project-boards-in-your-organization)"
-- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- "[关于项目板](/articles/about-project-boards)"
+- “[删除项目板](/articles/deleting-a-project-board)”
+- “[在仓库中禁用项目板](/articles/disabling-project-boards-in-a-repository)”
+- “[在组织中禁用项目板](/articles/disabling-project-boards-in-your-organization)”
+- "[组织的项目板权限](/articles/project-board-permissions-for-an-organization)"

@@ -37,7 +37,7 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
     <div className={cx(className, 'transition-200', show ? 'opacity-100' : 'opacity-0')}>
       <button
         onClick={onClick}
-        className="color-bg-default color-fg-on-emphasis border-0 d-inline-block mr-2 f6"
+        className="color-bg-default color-fg-default border-0 d-inline-block mr-2 f6"
       >
         {t('scroll_to_top')}
       </button>

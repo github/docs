@@ -17,9 +17,7 @@ versions:
 
 ## Re-running all the jobs in a workflow
 
-Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. You can re-run a workflow for up to 30 days after the initial run. 
-
-{% include tool-switcher %}
+El volver a ejecutar un flujo de trabajo utiliza el mismo `GITHUB_SHA` (SHA de confirmación) y `GITHUB_REF` (ref de Git) del evento original que activó la ejecución de flujo de trabajo. You can re-run a workflow for up to 30 days after the initial run.
 
 {% webui %}
 
@@ -28,12 +26,10 @@ Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
-1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**
-    ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
+1. En la esquina superior derecha del flujo de trabajo, utiliza el menú desplegable **Volver a ejecutar jobs** y selecciona **Volver a ejecutar todos los jobs** ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
 {% endif %}
 {% ifversion ghes < 3.3 or ghae %}
-1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**.
-    ![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
+1. En la esquina superior derecha del flujo de trabajo, utiliza el menú desplegable **Volver a ejecutar jobs** y selecciona **Volver a ejecutar todos los jobs**. ![Volver a ejecutar el menú desplegable de verificaciones](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
 {% endif %}
 
 {% endwebui %}
@@ -42,13 +38,13 @@ Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (
 
 {% data reusables.cli.cli-learn-more %}
 
-To re-run a failed workflow run, use the `run rerun` subcommand. Replace `run-id` with the ID of the failed run that you want to re-run.  If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
+Para volver a ejecutar una ejecución de flujo de trabajo fallida, utiliza el subcomando `run rerun`. Reemplaza a `run-id` con la ID de la ejecución fallida que quieres volver a ejecutar.  Si no especificas una `run-id`, {% data variables.product.prodname_cli %} devolverá un menú interactivo para que elijas una ejecución fallida reciente.
 
 ```shell
 gh run rerun <em>run-id</em>
 ```
 
-To view the progress of the workflow run, use the `run watch` subcommand and select the run from the interactive list.
+Para ver el progreso de la ejecución del flujo de trabajo, utiliza el subcomando `run watch` y selecciona la ejecución de la lista interactiva.
 
 ```shell
 gh run watch
@@ -59,14 +55,13 @@ gh run watch
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
 ### Reviewing previous workflow runs
 
-You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see ["Get a workflow run"](/rest/reference/actions#get-a-workflow-run).
+You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. Para obtener más información, consulta la sección "[Obtener una ejecución de flujo de trabajo](/rest/reference/actions#get-a-workflow-run)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Any previous run attempts are shown in the left pane.
-    ![Rerun workflow](/assets/images/help/settings/actions-review-workflow-rerun.png)
+1. Any previous run attempts are shown in the left pane. ![Rerun workflow](/assets/images/help/settings/actions-review-workflow-rerun.png)
 1. Click an entry to view its results.
 
 {% endif %}

@@ -1,7 +1,7 @@
 ---
 title: Migrating your enterprise to GitHub Actions
 shortTitle: Migrate to Actions
-intro: "Learn how to plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider."
+intro: 'Learn how to plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -32,7 +32,7 @@ Before you can migrate to {% data variables.product.prodname_actions %}, you nee
 
 First, create an inventory of the existing build and release workflows within your enterprise, gathering information about which workflows are being actively used and need to migrated and which can be left behind.
 
-Next, learn the differences between your current provider and {% data variables.product.prodname_actions %}. This will help you assess any difficulties in migrating each workflow, and where your enterprise might experience differences in features. For more information, see "[Migrating to {% data variables.product.prodname_actions %}](/actions/migrating-to-github-actions)."
+Next, learn the differences between your current provider and {% data variables.product.prodname_actions %}. This will help you assess any difficulties in migrating each workflow, and where your enterprise might experience differences in features. Para obtener más información, consulta la sección "[Migrarse a las {% data variables.product.prodname_actions %}](/actions/migrating-to-github-actions)".
 
 With this information, you'll be able to determine which workflows you can and want to migrate to {% data variables.product.prodname_actions %}.
 
@@ -60,7 +60,7 @@ Determine the migration approach that will work best for your enterprise. Smalle
 
 We recommend an iterative approach that combines active management with self service. Start with a small group of early adopters that can act as your internal champions. Identify a handful of workflows that are comprehensive enough to represent the breadth of your business. Work with your early adopters to migrate those workflows to {% data variables.product.prodname_actions %}, iterating as needed. This will give other teams confidence that their workflows can be migrated, too.
 
-Then, make {% data variables.product.prodname_actions %} available to your larger organization. Provide resources to help these teams migrate their own workflows to {% data variables.product.prodname_actions %}, and inform the teams when the existing systems will be retired. 
+Then, make {% data variables.product.prodname_actions %} available to your larger organization. Provide resources to help these teams migrate their own workflows to {% data variables.product.prodname_actions %}, and inform the teams when the existing systems will be retired.
 
 Finally, inform any teams that are still using your old systems to complete their migrations within a specific timeframe. You can point to the successes of other teams to reassure them that migration is possible and desirable.
 

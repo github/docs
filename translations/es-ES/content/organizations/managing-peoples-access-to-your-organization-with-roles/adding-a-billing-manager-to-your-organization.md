@@ -53,7 +53,7 @@ Los gerentes de facturación**no** pueden:
 {% ifversion ghec %}
 {% note %}
 
-**Nota:** Si tu organización se administra utilizando [Cuentas empresariales](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) no podrás invitar a los gerentes de facturación a nivel organizacional.
+**Nota:** Si tu organización le pertenece a una cuenta empresarial, no podrás invitar a los gerentes de facturación a nivel de esta. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/admin/overview/about-enterprise-accounts)".
 
 {% endnote %}
 {% endif %}
