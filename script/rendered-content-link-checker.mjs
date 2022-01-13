@@ -119,7 +119,9 @@ async function main(opts, files) {
     if (Array.isArray(fileList) && fileList.length > 0) {
       files = fileList
     } else {
-      throw new InvalidArgumentError('No files found in --list.')
+      // This must be allowed for empty PRs that accompany docs-early-access repo PRs
+      console.warn('No files found in --list. Exiting...')
+      process.exit(0)
     }
   }
 
