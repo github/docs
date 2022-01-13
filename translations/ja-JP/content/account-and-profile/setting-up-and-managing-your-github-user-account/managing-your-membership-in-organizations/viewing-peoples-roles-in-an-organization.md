@@ -1,7 +1,7 @@
 ---
-title: Viewing people's roles in an organization
-intro: 'You can view a list of the people in your organization and filter by their role. For more information on organization roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."'
-permissions: "Organization members can see people's roles in the organization."
+title: Organization の人のロールを表示する
+intro: 'Organization 内の人のリストを表示し、それらのロールでフィルタリングすることができます。 For more information on organization roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."'
+permissions: Organization members can see people's roles in the organization.
 redirect_from:
   - /articles/viewing-people-s-roles-in-an-organization
   - /articles/viewing-peoples-roles-in-an-organization
@@ -22,8 +22,7 @@ shortTitle: View people in an organization
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
-4. You will see a list of the people in your organization. To filter the list by role, click **Role** and select the role you're searching for.
-  ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)
+4. Organization 内の人のリストが表示されます。 ロールでリストをフィルタリングするには、[**Role**] をクリックします。 ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)
 
 {% ifversion fpt %}
 
@@ -44,21 +43,20 @@ You can also view whether an enterprise owner has a specific role in the organiz
 
 {% endnote %}
 
-| **Enterprise role** | **Organization role** | **Organization access or impact** |
-|----|----|----|----|
-| Enterprise owner | Unaffililated or no official organization role | Cannot access organization content or repositories but manages enterprise settings and policies that impact your organization. |
-| Enterprise owner | Organization owner | Able to configure organization settings and manage access to the organization's resources through teams, etc. | 
-| Enterprise owner | Organization member | Able to access organization resources and content, such as repositories, without access to the organization's settings. |
+| **Enterprise role** | **Organization role**                          | **Organization access or impact**                                                                                              |
+| ------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Enterprise オーナー     | Unaffililated or no official organization role | Cannot access organization content or repositories but manages enterprise settings and policies that impact your organization. |
+| Enterprise オーナー     | Organization owner                             | Able to configure organization settings and manage access to the organization's resources through teams, etc.                  |
+| Enterprise オーナー     | Organization member                            | Able to access organization resources and content, such as repositories, without access to the organization's settings.        |
 
 To review all roles in an organization, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)." {% ifversion ghec %} An organization member can also have a custom role for a specific repository. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."{% endif %}
 
-For more information about the enterprise owner role, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)." 
+For more information about the enterprise owner role, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
-4. In the left sidebar, under "Enterprise permissions", click **Enterprise owners**.
-  ![Screenshot of "Enterprise owners" option in sidebar menu](/assets/images/help/organizations/enterprise-owners-sidebar.png)
+4. In the left sidebar, under "Enterprise permissions", click **Enterprise owners**. ![Screenshot of "Enterprise owners" option in sidebar menu](/assets/images/help/organizations/enterprise-owners-sidebar.png)
 5. View the list of the enterprise owners for your enterprise. If the enterprise owner is also a member of your organization, you can see their role in the organization.
 
   ![Screenshot of list of Enterprise owners and their role in the organization](/assets/images/help/organizations/enterprise-owners-list-on-org-page.png)

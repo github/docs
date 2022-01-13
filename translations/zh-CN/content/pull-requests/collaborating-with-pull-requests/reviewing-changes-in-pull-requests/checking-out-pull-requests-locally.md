@@ -25,8 +25,6 @@ shortTitle: 在本地查看 PR
 
 ## 在本地修改活动的拉取请求
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}

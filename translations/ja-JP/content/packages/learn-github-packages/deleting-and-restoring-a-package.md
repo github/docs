@@ -1,6 +1,6 @@
 ---
-title: Deleting and restoring a package
-intro: Learn how to delete or restore a package.
+title: パッケージを削除および復元する
+intro: パッケージの削除と復元の方法を学びます。
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/deleting-a-package
@@ -12,37 +12,37 @@ versions:
   ghes: '>=3.1'
   ghec: '*'
   ghae: '*'
-shortTitle: Delete & restore a package
+shortTitle: パッケージの削除と復元
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-## Package deletion and restoration support on {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %}におけるパッケージの削除および復元のサポート
 
-On {% data variables.product.prodname_dotcom %} if you have the required access, you can delete:
-- an entire private package
-- an entire public package, if there's not more than 5000 downloads of any version of the package
-- a specific version of a private package
-- a specific version of a public package, if the package version doesn't have more than 5000 downloads
+{% data variables.product.prodname_dotcom %}では、必要なアクセス権がある場合、以下を削除できます。
+- プライベートパッケージ全体
+- パッケージの全バージョンでダウンロード数が5000以下の場合、パブリックパッケージ全体
+- プライベートパッケージの特定のバージョン
+- パッケージバージョンのダウンロード数が5000以下の場合、パブリックパッケージの特定のバージョン
 
 {% note %}
 
-**Note:** 
-- You cannot delete a public package if any version of the package has more than 5000 downloads. In this scenario, contact [GitHub support](https://support.github.com/contact?tags=docs-packages) for further assistance.
-- When deleting public packages, be aware that you may break projects that depend on your package.
+**注釈:**
+- パッケージのいずれかのパージョンでダウンロード数が5000を超えている場合は、パブリックパッケージを削除できません。 この場合は、[GitHubサポート](https://support.github.com/contact?tags=docs-packages)までお問い合わせください。
+- パブリックパッケージを削除する場合、そのパッケージに依存するプロジェクトを破壊する可能性があることに注意してください。
 
 {% endnote %}
 
-On {% data variables.product.prodname_dotcom %}, you can also restore an entire package or package version, if:
-- You restore the package within 30 days of its deletion.
-- The same package namespace is still available and not used for a new package.
+{% data variables.product.prodname_dotcom %}では、以下の場合にパッケージ全体またはパッケージバージョンを復元できます。
+- 削除後30日以内にパッケージを復元する。
+- 同一のパッケージ名前空間が使用可能であり、新しいパッケージで使用されていない。
 
 {% ifversion fpt or ghec or ghes %}
-## Packages API support
+## パッケージAPIのサポート
 
 {% ifversion fpt or ghec %}
 
-You can use the REST API to manage your packages. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
+REST APIを使用してパッケージを管理できます。 詳しい情報については、「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」を参照してください。
 
 {% endif %}
 
@@ -50,52 +50,49 @@ For packages that inherit their permissions and access from repositories, you ca
 
 {% endif %}
 
-## Required permissions to delete or restore a package
+## パッケージの削除や復元に必要な権限
 
-For packages that inherit their access permissions from repositories, you can delete a package if you have admin permissions to the repository.
+リポジトリからアクセス権限を継承しているパッケージの場合、そのリポジトリに対する管理者権限がある場合はパッケージを削除できます。
 
-Repository-scoped packages on {% data variables.product.prodname_registry %} include these packages:
+{% data variables.product.prodname_registry %}上でリポジトリのスコープが付いたパッケージには、以下が挙げられます。
 - npm
 - RubyGems
 - maven
 - Gradle
 - NuGet
-{% ifversion not fpt or ghec %}- Docker images at `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %}
+{% ifversion not fpt or ghec %}-`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`にあるDockerイメージ{% endif %}
 
 {% ifversion fpt or ghec %}
 
-To delete a package that has granular permissions separate from a repository, such as container images stored at `https://ghcr.io/OWNER/PACKAGE-NAME`, you must have admin access to the package.
-For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
+`https://ghcr.io/OWNER/PACKAGE-NAME`に保存されたコンテナイメージなど、リポジトリとは別に詳細な権限を持つパッケージを削除する場合は、そのパッケージに対するアクセス権限が必要です。 詳しい情報については「[{% data variables.product.prodname_registry %}の権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
 
 {% endif %}
 
-## Deleting a package version
+## パッケージのバージョンを削除する
 
-### Deleting a version of a repository-scoped package on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %}上でリポジトリのスコープが付いたバージョンを削除する
 
-To delete a version of a repository-scoped package, you must have admin permissions to the repository that owns the package. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+リポジトリのスコープが付いたパッケージのバージョンを削除するには、パッケージを所有するリポジトリの管理者権限が必要です。 詳しい情報については、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
 {% data reusables.package_registry.package-settings-option %}
-5. On the left, click **Manage versions**.
-5. To the right of the version you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Delete version**.
-  ![Delete package version button](/assets/images/help/package-registry/delete-container-package-version.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
-  ![Confirm package deletion button](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
+5. 左にある [**Manage versions**] をクリックします。
+5. 削除するバージョンの右側で、{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックした後、[**Delete version**] を選択します。 ![パッケージバージョンの削除ボタン](/assets/images/help/package-registry/delete-container-package-version.png)
+6. 削除を確認するために、パッケージ名を入力して**I understand the consequences, delete this version（生じることを理解したので、このバージョンを削除してください）**をクリックしてください。 ![パッケージの削除の確認ボタン](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
 
 {% ifversion fpt or ghec or ghes %}
-### Deleting a version of a repository-scoped package with GraphQL
+### GraphQLでリポジトリのスコープが付いたパッケージのバージョンを削除する
 
-For packages that inherit their permissions and access from repositories, you can use the GraphQL to delete a specific package version.
+リポジトリから権限とアクセスを継承しているパッケージの場合、GraphQLを使用して特定のパッケージバージョンを削除できます。
 
 {% ifversion fpt or ghec %}
-For containers or Docker images at `ghcr.io`, GraphQL is not supported but you can use the REST API. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
+For containers or Docker images at `ghcr.io`, GraphQL is not supported but you can use the REST API. 詳しい情報については、「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」を参照してください。
 {% endif %}
 
-Use the `deletePackageVersion` mutation in the GraphQL API. You must use a token with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about tokens, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)."
+GraphQL APIの`deletePackageVersion`ミューテーションを使ってください。 `read:packages`、`delete:packages`、`repo`スコープを持つトークンを使わなければなりません。 トークンに関する詳しい情報については「[{% data variables.product.prodname_registry %}について](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)」を参照してください。
 
-The following example demonstrates how to delete a package version, using a `packageVersionId` of `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`.
+以下の例では、`MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`の`packageVersionId`を使用して、パッケージバージョンを削除する方法を示します。
 
 ```shell
 curl -X POST \
@@ -105,98 +102,86 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-To find all of the private packages you have published to {% data variables.product.prodname_registry %}, along with the version IDs for the packages, you can use the `packages` connection through the `repository` object. You will need a token with the `read:packages` and `repo` scopes. For more information, see the [`packages`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository) connection or the [`PackageOwner`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner) interface.
+To find all of the private packages you have published to {% data variables.product.prodname_registry %}, along with the version IDs for the packages, you can use the `packages` connection through the `repository` object. `read:packages`及び`repo`のスコープを持つトークンが必要です。 For more information, see the [`packages`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository) connection or the [`PackageOwner`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner) interface.
 
 For more information about the `deletePackageVersion` mutation, see "[`deletePackageVersion`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/mutations#deletepackageversion)."
 
-You cannot directly delete an entire package using GraphQL, but if you delete every version of a package, the package will no longer show on {% data variables.product.product_name %}.
+GraphQLを使用してパッケージ全体を直接削除することはできませんが、パッケージのすべてのバージョンを削除すれば、パッケージは{% data variables.product.product_name %}上に表示されなくなります。
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### Deleting a version of a user-scoped package on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %}上でユーザのスコープが付いたパッケージのバージョンを削除する
 
-To delete a specific version of a user-scoped package on {% data variables.product.prodname_dotcom %}, such as for a Docker image at `ghcr.io`, use these steps. To delete an entire package, see "[Deleting an entire user-scoped package on {% data variables.product.prodname_dotcom %}](#deleting-an-entire-user-scoped-package-on-github)."
+`ghcr.io`にあるDockerイメージなどで、 {% data variables.product.prodname_dotcom %}上のユーザのスコープが付いたパッケージの、特定のバージョンを削除するには、以下のステップに従ってください。 パッケージ全体を削除するには、「[{% data variables.product.prodname_dotcom %}上でユーザのスコープが付いたパッケージ全体を削除する](#deleting-an-entire-user-scoped-package-on-github)」を参照してください。
 
-To review who can delete a package version, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+パッケージのバージョンを削除できるユーザを確認するには、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 {% data reusables.package_registry.package-settings-option %}
-5. On the left, click **Manage versions**.
-5. To the right of the version you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Delete version**.
-  ![Delete package version button](/assets/images/help/package-registry/delete-container-package-version.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
-  ![Confirm package deletion button](/assets/images/help/package-registry/confirm-container-package-version-deletion.png)
+5. 左にある [**Manage versions**] をクリックします。
+5. 削除するバージョンの右側で、{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックした後、[**Delete version**] を選択します。 ![パッケージバージョンの削除ボタン](/assets/images/help/package-registry/delete-container-package-version.png)
+6. 削除を確認するために、パッケージ名を入力して**I understand the consequences, delete this version（生じることを理解したので、このバージョンを削除してください）**をクリックしてください。 ![パッケージの削除の確認ボタン](/assets/images/help/package-registry/confirm-container-package-version-deletion.png)
 
 ### Deleting a version of an organization-scoped package on {% data variables.product.prodname_dotcom %}
 
-To delete a specific version of an organization-scoped package on {% data variables.product.prodname_dotcom %}, such as for a Docker image at `ghcr.io`, use these steps.
-To delete an entire package, see "[Deleting an entire organization-scoped package on {% data variables.product.prodname_dotcom %}](#deleting-an-entire-organization-scoped-package-on-github)."
+`ghcr.io`にあるDockerイメージなどで、{% data variables.product.prodname_dotcom %}上のOrganizationのスコープが付いたパッケージの、特定のバージョンを削除するには、以下のステップに従ってください。 パッケージ全体を削除するには、「[{% data variables.product.prodname_dotcom %}上でOrganizationのスコープが付いたパッケージ全体を削除する](#deleting-an-entire-organization-scoped-package-on-github)」を参照してください。
 
 To review who can delete a package version, see "[Required permissions to delete or restore a package](#required-permissions-to-delete-or-restore-a-package)."
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}
-5. On the left, click **Manage versions**.
-5. To the right of the version you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Delete version**.
-  ![Delete package version button](/assets/images/help/package-registry/delete-container-package-version.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
-  ![Confirm package version deletion button](/assets/images/help/package-registry/confirm-container-package-version-deletion.png)
+5. 左にある [**Manage versions**] をクリックします。
+5. 削除するバージョンの右側で、{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックした後、[**Delete version**] を選択します。 ![パッケージバージョンの削除ボタン](/assets/images/help/package-registry/delete-container-package-version.png)
+6. 削除を確認するために、パッケージ名を入力して**I understand the consequences, delete this version（生じることを理解したので、このバージョンを削除してください）**をクリックしてください。 ![パッケージバージョン削除の確認ボタン](/assets/images/help/package-registry/confirm-container-package-version-deletion.png)
 {% endif %}
 
-## Deleting an entire package
+## パッケージ全体を削除する
 
-### Deleting an entire repository-scoped package on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %}上でリポジトリのスコープが付いたパッケージ全体を削除する
 
-To delete an entire repository-scoped package, you must have admin permissions to the repository that owns the package. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+リポジトリのスコープが付いたパッケージ全体を削除するには、パッケージを所有するリポジトリの管理者権限が必要です。 詳しい情報については、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
 {% data reusables.package_registry.package-settings-option %}
-4. Under "Danger Zone", click **Delete this package**.
-5. To confirm, review the confirmation message, enter your package name, and click **I understand, delete this package.**
-  ![Confirm package deletion button](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
+4. [Danger Zone] の下にある [**Delete this package**] をクリックします。
+5. 確認メッセージを読み、パッケージ名を入力してから、[**I understand, delete this package.**] をクリックします。 ![パッケージの削除の確認ボタン](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
 
 {% ifversion fpt or ghec %}
-### Deleting an entire user-scoped package on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %}上でユーザのスコープが付いたパッケージ全体を削除する
 
-To review who can delete a package, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+パッケージを削除できるユーザを確認するには、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 {% data reusables.package_registry.package-settings-option %}
-5. On the left, click **Options**.
-  !["Options" menu option](/assets/images/help/package-registry/options-for-container-settings.png)
-6. Under "Danger zone", click **Delete this package**.
-  ![Delete package version button](/assets/images/help/package-registry/delete-container-package-button.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this package**.
-  ![Confirm package version deletion button](/assets/images/help/package-registry/confirm-container-package-deletion.png)
+5. 左側にある [**Options**] をクリックします。 ![[Options] メニューオプション](/assets/images/help/package-registry/options-for-container-settings.png)
+6. [Danger zone] の下にある [**Delete this package**] をクリックします。 ![パッケージバージョンの削除ボタン](/assets/images/help/package-registry/delete-container-package-button.png)
+6. 削除を確認するために、パッケージ名を入力して [**I understand the consequences, delete this package**] をクリックします。 ![パッケージバージョン削除の確認ボタン](/assets/images/help/package-registry/confirm-container-package-deletion.png)
 
-### Deleting an entire organization-scoped package on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %}上でOrganizationのスコープが付いたパッケージ全体を削除する
 
-To review who can delete a package, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+パッケージを削除できるユーザを確認するには、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}
-5. On the left, click **Options**.
-  !["Options" menu option](/assets/images/help/package-registry/options-for-container-settings.png)
-6. Under "Danger zone", click **Delete this package**.
-  ![Delete package button](/assets/images/help/package-registry/delete-container-package-button.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this package**.
-  ![Confirm package deletion button](/assets/images/help/package-registry/confirm-container-package-deletion.png)
+5. 左側にある [**Options**] をクリックします。 ![[Options] メニューオプション](/assets/images/help/package-registry/options-for-container-settings.png)
+6. [Danger zone] の下にある [**Delete this package**] をクリックします。 ![パッケージの削除ボタン](/assets/images/help/package-registry/delete-container-package-button.png)
+6. 削除を確認するために、パッケージ名を入力して [**I understand the consequences, delete this package**] をクリックします。 ![パッケージの削除の確認ボタン](/assets/images/help/package-registry/confirm-container-package-deletion.png)
 {% endif %}
 
-## Restoring packages
+## パッケージを復元する
 
-You can restore a deleted package or version if:
-- You restore the package within 30 days of its deletion.
-- The same package namespace and version is still available and not reused for a new package.
+以下の場合、削除したパッケージまたはバージョンを復元できます。
+- 削除後30日以内にパッケージを復元する。
+- 同一のパッケージ名前空間がまだ使用可能であり、新しいパッケージで再使用されていない。
 
-For example, if you have a deleted rubygem package named `octo-package` that was scoped to the repo `octo-repo-owner/octo-repo`, then you can only restore the package if the package namespace `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` is still available, and 30 days have not yet passed.
+たとえば、リポジトリ`octo-repo-owner/octo-repo`のスコープが付いていた、`octo-package`という名前のrubygemパッケージを削除した場合、パッケージ名前空間`rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` がまだ使用可能で、かつ30日間が経過していない場合にのみ、そのパッケージを復元できます。
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:
   - For repository-scoped packages: You have admin permissions to the repository that owns the deleted package.{% ifversion fpt or ghec %}
-  - For user-account scoped packages: Your user account owns the deleted package.
+  - ユーザアカウントのスコープが付いたパッケージ: ユーザアカウントが削除したパッケージを所有している。
   - For organization-scoped packages: You have admin permissions to the deleted package in the organization that owns the package.{% endif %}
 {% endif %}
 
@@ -204,49 +189,42 @@ To restore a deleted package, you must also meet one of these permission require
 To delete a package, you must also have admin permissions to the repository that owns the deleted package.
 {% endif %}
 
-For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+詳しい情報については、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
-Once the package is restored, the package will use the same namespace it did before. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.
+パッケージが復元されると、そのパッケージは以前使用していたものと同じ名前空間を使用します。 同一のパッケージ名前空間が使用可能でない場合、パッケージを復元できません。 この場合、削除したパッケージを復元するには、まず削除したパッケージの名前空間を使用する新しいパッケージを削除する必要があります。
 
-### Restoring a package in an organization
+### Organization内のパッケージを復元する
 
  You can restore a deleted package through your organization account settings, as long as the package was in a repository owned by the organizaton{% ifversion fpt or ghec %} or had granular permissions and was scoped to your organization account{% endif %}.
 
-To review who can restore a package in an organization, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+Organizationでパッケージを復元できるユーザを確認するには、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-3. On the left, click **Packages**.
-4. Under "Deleted Packages", next to the package you want to restore, click **Restore**.
-  ![Restore button](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
-5. To confirm, type the name of the package and click **I understand the consequences, restore this package**.
-  ![Restore package confirmation button](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
+3. 左側にある [**Packages**] をクリックします。
+4. [Deleted Packages] の、復元するパッケージの隣にある [**Restore**] をクリックします。 ![リストアボタン](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
+5. 確認のため、パッケージ名を入力して [**I understand the consequences, restore this package**] をクリックします。 ![パッケージ復元の確認ボタン](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
 
 {% ifversion fpt or ghec %}
 
-### Restoring a user-account scoped package
+### ユーザアカウントのスコープが付いたパッケージを復元する
 
-You can restore a deleted package through your user account settings, if the package was in one of your repositories or scoped to your user account. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+パッケージが所有するリポジトリにあったか、ユーザアカウントのスコープが付いていた場合、削除されたパッケージをユーザアカウント設定から復元できます。 詳しい情報については、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
 {% data reusables.user_settings.access_settings %}
-2. On the left, click **Packages**.
-4. Under "Deleted Packages", next to the package you want to restore, click **Restore**.
-  ![Restore button](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
-5. To confirm, type the name of the package and click **I understand the consequences, restore this package**.
-  ![Restore package confirmation button](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
+2. 左側にある [**Packages**] をクリックします。
+4. [Deleted Packages] の、復元するパッケージの隣にある [**Restore**] をクリックします。 ![リストアボタン](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
+5. 確認のため、パッケージ名を入力して [**I understand the consequences, restore this package**] をクリックします。 ![パッケージ復元の確認ボタン](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
 
 {% endif %}
 
-### Restoring a package version
+### パッケージのバージョンを復元する
 
-You can restore a package version from your package's landing page. To review who can restore a package, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+パッケージのランディングページから、パッケージのバージョンを復元できます。 パッケージを復元できるユーザを確認するには、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
-1. Navigate to your package's landing page.
-2. On the right, click **Package settings**.
-2. On the left, click **Manage versions**.
-3. On the top right, use the "Versions" drop-down menu and select **Deleted**.
-  ![Versions drop-down menu showing the deleted option](/assets/images/help/package-registry/versions-drop-down-menu.png)
-4. Next to the deleted package version you want to restore, click **Restore**.
-  ![Restore option next to a deleted package version](/assets/images/help/package-registry/restore-package-version.png)
-5. To confirm, click **I understand the consequences, restore this version.**
-  ![Confirm package version restoration](/assets/images/help/package-registry/confirm-package-version-restoration.png)
+1. パッケージのランディングページに移動します。
+2. 右側にある [**Package settings**] をクリックします。
+2. 左にある [**Manage versions**] をクリックします。
+3. 左上の [Versions] ドロップダウンメニューで、[**Deleted**] を選択します。 ![削除されたバージョンを表示するドロップダウンメニュー](/assets/images/help/package-registry/versions-drop-down-menu.png)
+4. 復元する削除されたパッケージの隣の、[**Restore**] をクリックします。 ![削除されたパッケージのバージョンの隣にある復元オプション](/assets/images/help/package-registry/restore-package-version.png)
+5. 確認のため、[**I understand the consequences, restore this version.**] をクリックします。 ![パッケージバージョン復元の確認](/assets/images/help/package-registry/confirm-package-version-restoration.png)

@@ -1,6 +1,6 @@
 ---
-title: Getting started with GitHub Pages
-intro: 'You can set up a basic {% data variables.product.prodname_pages %} site for yourself, your organization, or your project.'
+title: Comenzar con Páginas de GitHub
+intro: 'Puedes configurar un sitio básico de {% data variables.product.prodname_pages %} para ti, para tu organización o para tu proyecto.'
 redirect_from:
   - /categories/github-pages-basics
   - /articles/additional-customizations-for-github-pages
@@ -24,6 +24,6 @@ children:
   - /securing-your-github-pages-site-with-https
   - /using-submodules-with-github-pages
   - /unpublishing-a-github-pages-site
-shortTitle: Get started
+shortTitle: Empezar
 ---
 

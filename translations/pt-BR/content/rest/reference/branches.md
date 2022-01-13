@@ -1,6 +1,6 @@
 ---
 title: Branches
-intro: 'The branches API allows you to modify branches and their protection settings.'
+intro: The branches API allows you to modify branches and their protection settings.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -16,7 +16,7 @@ miniTocMaxHeadingLevel: 3
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Protected branches
+## Branches protegidos
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'branch-protection' %}{% include rest_operation %}{% endif %}
 {% endfor %}

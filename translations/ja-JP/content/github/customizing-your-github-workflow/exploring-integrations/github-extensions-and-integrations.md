@@ -1,6 +1,6 @@
 ---
-title: GitHub extensions and integrations
-intro: 'Use {% data variables.product.product_name %} extensions to work seamlessly in {% data variables.product.product_name %} repositories within third-party applications.'
+title: GitHub の機能拡張およびインテグレーション
+intro: 'サードパーティアプリケーションの中でシームレスに{% data variables.product.product_name %}リポジトリ内で作業をするために、{% data variables.product.product_name %}機能拡張を使ってください。'
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
@@ -10,42 +10,43 @@ versions:
   ghec: '*'
 shortTitle: Extensions & integrations
 ---
-## Editor tools
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and Visual Studio.
+## エディタツール
+
+Atom、Unity、Visual Studio などのサードパーティのエディタツール内で {% data variables.product.product_name %} リポジトリに接続できます。
 
 ### {% data variables.product.product_name %} for Atom
 
-With the {% data variables.product.product_name %} for Atom extension, you can commit, push, pull, resolve merge conflicts, and more from the Atom editor. For more information, see the official [{% data variables.product.product_name %} for Atom site](https://github.atom.io/).
+{% data variables.product.product_name %} for Atom機能拡張を使うと、Atomエディタからコミット、プッシュ、プル、マージコンフリクトの解決などが行えます。 詳しい情報については公式の[{% data variables.product.product_name %} for Atomサイト](https://github.atom.io/)を参照してください。
 
 ### {% data variables.product.product_name %} for Unity
 
-With the {% data variables.product.product_name %} for Unity editor extension, you can develop on Unity, the open source game development platform, and see your work on {% data variables.product.product_name %}. For more information, see the official Unity editor extension [site](https://unity.github.com/) or the [documentation](https://github.com/github-for-unity/Unity/tree/master/docs).
+{% data variables.product.product_name %} for Unityエディタ機能拡張を使うと、オープンソースのゲーム開発プラットフォームであるUnity上で開発を行い、作業内容を{% data variables.product.product_name %}上で見ることができます。 詳しい情報については公式のUnityエディタ機能拡張[サイト](https://unity.github.com/)あるいは[ドキュメンテーション](https://github.com/github-for-unity/Unity/tree/master/docs)を参照してください。
 
 ### {% data variables.product.product_name %} for Visual Studio
 
-With the {% data variables.product.product_name %} for Visual Studio extension, you can work in {% data variables.product.product_name %} repositories without leaving Visual Studio. For more information, see the official Visual Studio extension [site](https://visualstudio.github.com/) or [documentation](https://github.com/github/VisualStudio/tree/master/docs).
+{% data variables.product.product_name %} for Visual Studio機能拡張を使うと、Visual Studioから離れることなく{% data variables.product.product_name %}リポジトリ内で作業できます。 詳しい情報については、公式のVisual Studio機能拡張の[サイト](https://visualstudio.github.com/)あるいは[ドキュメンテーション](https://github.com/github/VisualStudio/tree/master/docs)を参照してください。
 
 ### {% data variables.product.prodname_dotcom %} for Visual Studio Code
 
-With the {% data variables.product.prodname_dotcom %} for Visual Studio Code extension, you can review and manage {% data variables.product.product_name %} pull requests in Visual Studio Code. For more information, see the official Visual Studio Code extension [site](https://vscode.github.com/) or [documentation](https://github.com/Microsoft/vscode-pull-request-github).
+{% data variables.product.prodname_dotcom %} for Visual Studio Code 機能拡張を使うと、Visual Studio Code の {% data variables.product.product_name %} プルリクエストをレビューおよび管理できます。 詳しい情報については、公式の Visual Studio Code 機能拡張[サイト](https://vscode.github.com/)または[ドキュメンテーション](https://github.com/Microsoft/vscode-pull-request-github)を参照してください。
 
-## Project management tools
+## プロジェクト管理ツール
 
 You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party project management tools, such as Jira.
 
-### Jira Cloud and {% data variables.product.product_name %}.com integration
+### Jira Cloud と {% data variables.product.product_name %}.com の統合
 
-You can integrate Jira Cloud with your personal or organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+Jira Cloud を個人または Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。 詳細については、Marketplace の[Jira 統合アプリケーション](https://github.com/marketplace/jira-software-github)にアクセスしてください。
 
-## Team communication tools
+## チームコミュニケーションツール
 
 You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
 
-### Slack and {% data variables.product.product_name %} integration
+### Slack と {% data variables.product.product_name %} の統合
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, releases, deployment reviews and deployment statuses. You can also perform activities like close or open issues, and provide rich references to issues and pull requests without leaving Slack. For more information, visit the [Slack integration app](https://github.com/marketplace/slack-github) in the marketplace.
+You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, releases, deployment reviews and deployment statuses. You can also perform activities like close or open issues, and provide rich references to issues and pull requests without leaving Slack. 詳細については、Marketplace の[Slack 統合アプリケーション](https://github.com/marketplace/slack-github)にアクセスしてください。
 
-### Microsoft Teams and {% data variables.product.product_name %} integration
+### Microsoft Teams と {% data variables.product.product_name %} の統合
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, deployment reviews and deployment statuses. You can also perform activities like close or open issues, comment on your issues and pull requests, and provide rich references to issues and pull requests without leaving Microsoft Teams. For more information, visit the [Microsoft Teams integration app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.
+You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, deployment reviews and deployment statuses. You can also perform activities like close or open issues, comment on your issues and pull requests, and provide rich references to issues and pull requests without leaving Microsoft Teams. 詳細については、Microsoft AppSource の [Microsoft Teams 統合アプリケーション](https://appsource.microsoft.com/en-us/product/office/WA200002077)にアクセスしてください。

@@ -779,7 +779,7 @@ describe('URLs by language', () => {
   test('heading IDs and links on translated pages are in English', async () => {
     const $ = await getDOM('/ja/github/site-policy/github-terms-of-service')
     expect($.res.statusCode).toBe(200)
-    expect($('h1')[0].children[0].data).toBe('GitHub Terms of Service')
+    expect($('h1')[0].children[0].data).toBe('GitHub利用規約')
     expect($('h2 a[href="#summary"]').length).toBe(1)
   })
 })

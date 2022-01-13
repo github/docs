@@ -1,6 +1,6 @@
 ---
-title: 'Error: Agent admitted failure to sign'
-intro: 'In rare circumstances, connecting to {% data variables.product.product_name %} via SSH on Linux produces the error `"Agent admitted failure to sign using the key"`. Follow these steps to resolve the problem.'
+title: 'Erro: agente com falha ao entrar'
+intro: 'Em raras circunstâncias, a conexão com o {% data variables.product.product_name %} via SSH no Linux produz o erro "Agente com falha ao entrar usando a chave". Siga estas etapas para resolver o problema.'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign
@@ -13,40 +13,41 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Agent failure to sign
+shortTitle: Falha do agente ao assinar
 ---
-When trying to SSH into {% data variables.product.product_location %} on a Linux computer, you may see the following message in your terminal:
+
+Ao tentar se conectar via SSH ao {% data variables.product.product_location %} em um computador Linux, você poderá receber a seguinte mensagem:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
-> Agent admitted failure to sign using the key.
-> debug1: No more authentication methods to try.
-> Permission denied (publickey).
+> Agente com falha ao entrar usando a chave.
+> debug1: Não há mais métodos de autenticação para tentar.
+> Permissão negada (publickey).
 ```
 
-For more details, see <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>this issue report</a>.
+Para ver mais detalhes, consulte <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>este relatório de problemas</a>.
 
-## Resolution
+## Resolução
 
-You should be able to fix this error by loading your keys into your SSH agent with `ssh-add`:
+Para corrigir esse erro, carregue suas chaves no agente SSH com `ssh-add`:
 
 ```shell
-# start the ssh-agent in the background
+# Inicie o ssh-agent em segundo plano
 $ eval "$(ssh-agent -s)"
 > Agent pid 59566
 $ ssh-add
-> Enter passphrase for /home/<em>you</em>/.ssh/id_rsa: <em>[tippy tap]</em>
-> Identity added: /home/<em>you</em>/.ssh/id_rsa (/home/<em>you</em>/.ssh/id_rsa)
+> Insira a frase secreta para /home/<em>you</em>/.ssh/id_rsa: <em>[tippy tap]</em>
+> Identidade adicionadafrase secreta: /home/<em>you</em>/.ssh/id_rsa (/home/<em>you</em>/.ssh/id_rsa)
 ```
 
-If your key does not have the default filename (`/.ssh/id_rsa`), you'll have to pass that path to `ssh-add`:
+Se a chave não tiver o nome de arquivo padrão (`/.ssh/id_rsa`), você precisará passar esse caminho para `ssh-add`:
 
 ```shell
-# start the ssh-agent in the background
+# Inicie o ssh-agent em segundo plano
 $ eval "$(ssh-agent -s)"
 > Agent pid 59566
 $ ssh-add ~/.ssh/my_other_key
-> Enter passphrase for /home/<em>you</em>/.ssh/my_other_key: <em>[tappity tap tap]</em>
-> Identity added: /home/<em>you</em>/.ssh/my_other_key (/home/<em>you</em>/.ssh/my_other_key)
+> Insira a frase secreta para /home/<em>you</em>/.ssh/my_other_key: <em>[tappity tap tap]</em>
+> Identidade adicionada: /home/<em>you</em>/.ssh/my_other_key (/home/<em>you</em>/.ssh/my_other_key)
 ```

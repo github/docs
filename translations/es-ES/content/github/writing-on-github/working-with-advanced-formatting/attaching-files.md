@@ -1,6 +1,6 @@
 ---
-title: Attaching files
-intro: You can convey information by attaching a variety of file types to your issues and pull requests.
+title: Adjuntar archivos
+intro: Puedes transmitir información si adjuntas varios tipos de archivo a tus propuestas y solicitudes de cambio.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/file-attachments-on-issues-and-pull-requests
   - /articles/issue-attachments
@@ -17,44 +17,44 @@ topics:
 
 {% warning %}
 
-**Warning:** If you add an image{% ifversion fpt or ghes > 3.1 or ghae or ghec %} or video{% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+**Advertencia:** Si agregas una imagen {% ifversion fpt or ghes > 3.1 or ghae or ghec %} o video {% endif %} a un comentario de alguna propuesta o solicitud de cambios, cualquiera podrá ver la URL anonimizada sin autenticación, aún si la solicitud de cambios está en un repositorio privado{% ifversion ghes %}, o si se habilita el modo privado{% endif %}. Para mantener privados archivos de medios sensibles, estos se deben servir desde una red o servidor privados que requieran autenticación. {% ifversion fpt or ghec %}Para obtener más información sobre las URL anonimizadas, consulta la sección "[Acerca de las URL anonimizadas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
+Para adjuntar un archivo a una propuesta o una conversación de una solicitud de extracción, arrástralo y suéltalo en el cuadro de comentarios. Como alternativa, puedes dar clic en la barra al final del recuadro de comentarios para buscar, seleccionar y agregar un archivo desde tu ordenador.
 
-![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
+![Seleccionar adjuntos desde el ordenador](/assets/images/help/pull_requests/select-bar.png)
 
 {% tip %}
 
-**Tip:** In many browsers, you can copy-and-paste images directly into the box.
+**Tip:** En varios buscadores, puedes copiar y pegar las imágenes directamente en el campo.
 
 {% endtip %}
 
-The maximum file size is:
-- 10MB for images and gifs{% ifversion fpt or ghec %}
-- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
-- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% elsif fpt or ghes > 3.1 or ghae %}
-- 100MB for videos{% endif %}
-- 25MB for all other files
+El tamaño máximo de archivo es:
+- 10MB de imágenes y gifs{% ifversion fpt or ghec %}
+- 10MB para videos que se suban a un repositorio que pertenezca a un usuario u organización en un plan gratuito de GitHub
+- 100MB para videos que se suban a los repositorios que pertenezcan a un usuario u organización de un plan de pago de GitHub{% elsif fpt or ghes > 3.1 or ghae %}
+- 100MB para videos{% endif %}
+- 25MB para el resto de los archivos
 
-We support these files:
+Archivos compatibles:
 
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-* Log files (*.log*)
-* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
-* Text files (*.txt*)
-* PDFs (*.pdf*)
+* Archivos de registro (*.log*)
+* Documentos de Microsoft Word (*.docx*), Powerpoint (*.pptx*) y Excel (*.xlsx*)
+* Archivos de texto (*.txt*)
+* PDF (*.pdf*)
 * ZIP (*.zip*, *.gz*){% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 * Video (*.mp4*, *.mov*)
 
 {% note %}
 
-**Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using h.264 for greatest compatibility.
+**Nota:** La compatibilidad con los codecs de video es específica del buscador y es posible que un video que cargues en uno de los buscadores no se pueda ver en otro de ellos. Por el momento, recomendamos utilizar h.264 para una mejor compatibilidad.
 
 {% endnote %}
 {% endif %}
 
-![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)
+![GIF animados adjuntos](/assets/images/help/pull_requests/dragging_images.gif)

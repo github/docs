@@ -1,6 +1,6 @@
 ---
-title: About notifications
-intro: 'Notifications provide updates about the activity on {% data variables.product.product_location %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
+title: Acerca de las notificaciones
+intro: 'Las notificaciones proporcionan actualizaciones sobre las actividades de {% data variables.product.product_location %} a las que te hayas suscrito. Puedes utilizar la bandeja de notificaciones para personalizar, clasificar y administrar tus actualizaciones.'
 redirect_from:
   - /articles/notifications
   - /articles/about-notifications
@@ -15,89 +15,90 @@ versions:
 topics:
   - Notifications
 ---
+
 {% ifversion ghes %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
 
-## Notifications and subscriptions
+## Notificaciones y suscripciones
 
-You can choose to receive ongoing updates about specific activity on {% data variables.product.product_location %} through a subscription. Notifications are updates that you receive for specific activity that you are subscribed to.
+Puedes elegir recibir actualizaciones continuas sobre actividades específicas en {% data variables.product.product_location %} mediante una suscripción. Las notificaciones son actualizaciones que recibes por alguna actividad específica a la que te hayas suscrito.
 
-### Subscription options
+### Opciones de suscripción
 
-You can choose to subscribe to notifications for:
-- A conversation in a specific issue, pull request, or gist.
-- All activity in a repository or team discussion.
-- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).{% else %}
-- Releases in a repository.{% endif %}
+Puedes elegir suscribirte a las notificaciones de:
+- Una conversación sobre un informe de problemas, solicitud de extracción o gist específico.
+- Todas las actividades en un repositorio o en un debate de equipo.
+- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+- Repositorio {% data reusables.notifications-v2.custom-notification-types %} (si se habilitó).{% else %}
+- Lanzamientos en un repositorio.{% endif %}
 
-You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository you have access to manually by clicking **Watch**.
+También puedes elegir seguir automáticamente todos los repositorios en los que tienes acceso de escritura, con excepción de sus bifurcaciones. Puedes seguir de cerca manualmente a cualquier otro repositorio al que tengas acceso si das clic en **Seguir**.
 
-If you're no longer interested in a conversation, you can unsubscribe, unwatch, or customize the types of notifications you'll receive in the future. For example, if you no longer want to receive notifications from a particular repository, you can click **Unsubscribe**. For more information, see "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+Si ya no te interesa alguna conversación, te puedes dar de baja, dejar de seguir o personalizar los tipos de notificaciones que recibirás en el futuro. Por ejemplo, si ya no quieres recibir notificaciones de algún repositorio en particular, puedes dar clic en **Darse de baja**. Para obtener más información, consulta la sección "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
 
-### Default subscriptions
+### Suscripciones predeterminadas
 
-In general, you are automatically subscribed to conversations by default when you have:
-- Not disabled automatic watching for repositories or teams you've joined in your notification settings. This setting is enabled by default.
-- Been assigned to an issue or pull request.
-- Opened a pull request, issue, or created a team discussion post.
-- Commented on a thread.
-- Subscribed to a thread manually by clicking **Watch** or **Subscribe**.
-- Had your username @mentioned.
-- Changed the state of a thread, such as by closing an issue or merging a pull request.
-- Had a team you're a member of @mentioned.
+Generalmente, estarás suscrito automática y predeterminadamente a las conversaciones cuando:
+- No has inhabilitado el seguimiento automático a través de tu configuración de notificaciones para los repositorios o equipos a los cuales te has unido. Esta configuración está predeterminadamente habilitada.
+- Te han asignado a un informe de problemas o solicitud de extracción.
+- Has abierto una solicitud de extracción, informe de problemas, o has creado una publicación para que un equipo la debata.
+- Has comentado en un hilo.
+- Te has suscrito a un hilo manualmente dando clic en **Seguir** o **Suscribirse**.
+- Han @mencionado tu nombre de usuario.
+- Has cambiado el estado de un hilo, como cuando cierras un informe de problemas o fusionas una solicitud de extracción.
+- Se ha @mencionado a algún equipo al que pertenezcas.
 
-By default, you also automatically watch all repositories that you create and are owned by your user account.
+También está predeterminado que sigas automáticamente a todos los repositorios que has creado y sean propiedad de tu cuenta de usuario.
 
-To unsubscribe from conversations you're automatically subscribed to, you can change your notification settings or directly unsubscribe or unwatch activity on {% data variables.product.product_location %}. For more information, see "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+Para darte de baja de las conversaciones a las cuales estás suscrito automáticamente, puedes cambiar tu configuración de notificaciones o darte de baja directamente o dejar de seguir la actividad de {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
 
-## Customizing notifications and subscriptions
+## Personalizar notificaciones y suscripciones
 
-You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes or ghec %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
+Puedes elegir ver tus notificaciones a través de la bandeja de entrada de notificaciones en [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes or ghec %} y en la app de {% data variables.product.prodname_mobile %}{% endif %}, a través de tu correo electrónico, o en alguna combinación de estas opciones.
 
-To customize the types of updates you'd like to receive and where to send those updates, configure your notification settings. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)."
+Para personalizar los tipos de actualizaciones que deseas recibir y el lugar a donde quieras que se envíen, modifica tu configuración de notificaciones. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)".
 
-To keep your subscriptions manageable, review your subscriptions and watched repositories and unsubscribe as needed. For more information, see "[Managing subscriptions for activity on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+Para poder seguir administrando tus suscripciones, revisa los repositorios que sigues y las suscripciones que tienes y date de baja de aquellos que ya no quieras seguir. Para obtener más información, consulta la sección "[Administrar suscripciones de actividad en GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".
 
-To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
+Para personalizar la manera en la que deseas recibir actualizaciones para solicitudes de extracción o informes de problemas específicos, puedes configurar tus preferencias dentro de las mismas. Para obtener más información, consulta la sección "[Clasificar una sola notificación](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
 
 {% ifversion fpt or ghes or ghec %}
-You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)."
+Puedes personalizar y programar notificaciones de subida en la app de {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)".
 {% endif %}
 
-## Reasons for receiving notifications
+## Razones para que recibas notificaciones
 
-Your inbox is configured with default filters, which represent the most common reasons that people need to follow-up on their notifications. For more information about inbox filters, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#default-notification-filters)."
+Tu bandeja de entrada se configura con filtros predeterminados que representan las razones más comunes para que la gente necesite dar seguimiento a sus notificaciones. Para obtener más información, consulta la sección "[Administrar las notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#default-notification-filters)".
 
-Your inbox shows the `reasons` you're receiving notifications as a label.
+Tu bandeja de entrada muestra las `reasons` (razones) para que recibas notificaciones a modo de etiqueta.
 
-![Reasons labels in inbox](/assets/images/help/notifications-v2/reasons-as-labels-in-inbox.png)
+![Etiquetas de razones en la bandeja de entrada](/assets/images/help/notifications-v2/reasons-as-labels-in-inbox.png)
 
-You can filter your inbox by the reason you're subscribed to notifications. For example, to only see pull requests where someone requested your review, you can use the `review-requested` query filter.
+Puedes filtrar tu bandeja de entrada por razón por la cual estás suscrito a notificaciones. Por ejemplo, para ver únicamente solicitudes de extracción en donde alguien solicitó tu revisión, puedes utilizar el filtro de búsqueda `review-requested` (revisión solicitada).
 
-![Filter notifications by review requested reason](/assets/images/help/notifications-v2/review-requested-reason.png)
+![Filtrar notificaciones por revisión de la razón solicitada](/assets/images/help/notifications-v2/review-requested-reason.png)
 
-If you've configured notifications to be sent by email and believe you're receiving notifications that don't belong to you, consider troubleshooting with email headers, which show the intended recipient. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)."
+Si configuraste las notificaciones para que se enviaran por correo electrónico y crees que estás recibiendo notificaciones que no te pertenecen, considera dar solución a los problemas especificando el tema en los encabezados de correo electrónico que muestren el receptor al que se pretende llegar. Para obtener más información, consulta la sección "[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)".
 
-## Triaging notifications from your inbox
+## Clasificar las notificaciones de tu bandeja de entrada
 
-To effectively manage your notifications, you can triage your inbox with options to:
-- Remove a notification from the inbox with **Done**. You can review **Done** notifications all in one place by clicking **Done** in the sidebar or by using the query `is:done`.
-- Mark a notification as read or unread.
-- **Save** a notification for later review. **Saved** notifications are flagged in your inbox. You can review **Saved** notifications all in one place in the sidebar by clicking **Saved** or by using the query `is:saved`.
-- Automatically unsubscribe from this notification and future updates from this conversation. Unsubscribing also removes the notification from your inbox. If you unsubscribe from a conversation and someone mentions your username or a team you're on that you're receiving updates for, then you will start to receive notifications from this conversation again.
+Para administrar tus notificaciones de manera efectiva, puedes clasificar tu bandeja de entrada con opciones para:
+- Eliminar una notificación de la bandeja de entrada marcada como **Completada**. Puedes revisar las notificaciones **Completadas** en un mismo lugar dando clic en **Completada** en la barra lateral o utilizando el query `is:done`.
+- Marcar la notificación como leída o no leída.
+- **Guardar** una notificación para su revisión posterior. Las notificaciones **Guardadas** se resaltan en tu bandeja de entrada. Puedes revisar las notificaciones **Guardadas** en un mismo lugar en la barra lateral si das clic en **Guardadas**" o utilizando el query `is:saved`.
+- Darte de baja automáticamente de esta notificación y de las actualizaciones futuras a esta conversación. Darte de baja también elimina la notificación de tu bandeja de entrada. Si te das de baja de una conversación y alguien menciona tu nombre de usuario o el equipo al que perteneces, del cual recibes notificaciones, entonces comenzarás a recibirlas de nuevo para dicha conversación.
 
-From your inbox you can also triage multiple notifications at once. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)."
+También puedes clasificar varias notificaciones al mismo tiempo desde tu bandeja de entrada. Para obtener más información, consulta la sección "[Administrar notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)".
 
-## Customizing your notifications inbox
+## Personalizar tu bandeja de entrada de notificaciones
 
-To focus on a group of notifications in your inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
+Para enfocarte en un grupo de notificaciones en tu bandeja de entrada en {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} o en {% data variables.product.prodname_mobile %}{% endif %}, puedes crear filtros personalizados. Por ejemplo, puedes crear un filtro personalizado para un proyecto de código abierto en el que contribuyes y únicamente ver notificaciones para el repositorio en el que se te mencione. Para obtener más información, consulta la sección "[Administrar notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)". Para ver más ejemplos de cómo personalizar tu flujo de trabajo de clasificaciones, consulta la sección "[Personalizar un flujo de trabajo para clasificar tus notificaciones](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)".
 
-## Notification retention policy
+## Política de retención de notificaciones
 
-Notifications that are not marked as **Saved** are kept for 5 months. Notifications marked as **Saved** are kept indefinitely. If your saved notification is older than 5 months and you unsave it, the notification will disappear from your inbox within a day.
+Las notificaciones que no se marquen como **Guardadas** se mantendrán por 5 meses. Aquellas marcadas como **Guardadas** se mantendrán por tiempo indefinido. Si tu notificación guardada tiene más de 5 meses y la dejas de guardad, ésta desaparecerá de tu bandeja de entrada en un día.
 
-## Feedback and support
+## Retroalimentación y soporte
 
-If you have feedback or feature requests for notifications, use the [feedback form for notifications](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback).
+Si tienes retroalimentación o alguna solicitud de características, utiliza el [formato de retroalimentación para notificaciones](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback).

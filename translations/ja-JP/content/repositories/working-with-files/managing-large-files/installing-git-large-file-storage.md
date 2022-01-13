@@ -1,6 +1,6 @@
 ---
-title: Installing Git Large File Storage
-intro: 'In order to use {% data variables.large_files.product_name_short %}, you''ll need to download and install a new program that''s separate from Git.'
+title: Git Large File Storage をインストールする
+intro: '{% data variables.large_files.product_name_short %} を使用するには、Git とは別の新しいプログラムをダウンロードしてインストールする必要があります。'
 redirect_from:
   - /articles/installing-large-file-storage
   - /articles/installing-git-large-file-storage
@@ -13,104 +13,105 @@ versions:
   ghec: '*'
 shortTitle: Install Git LFS
 ---
+
 {% mac %}
 
-1. Navigate to [git-lfs.github.com](https://git-lfs.github.com) and click **Download**. Alternatively, you can install {% data variables.large_files.product_name_short %} using a package manager:
-    - To use [Homebrew](http://brew.sh/), run `brew install git-lfs`.
-    - To use [MacPorts](https://www.macports.org/), run `port install git-lfs`.
+1. [git-lfs.github.com](https://git-lfs.github.com) に移動し、[**Download**] をクリックします。 または、パッケージ マネージャーを使用すれば {% data variables.large_files.product_name_short %} をインストールできます。
+    - [Homebrew](http://brew.sh/) を使用するには、`brew install git-lfs` を実行します。
+    - [MacPorts](https://www.macports.org/) を使用するには、`port install git-lfs` を実行します。
 
- If you install {% data variables.large_files.product_name_short %} with Homebrew or MacPorts, skip to step six.
+ Homebrew または MacPorts を使用して {% data variables.large_files.product_name_short %} をインストールする場合は、スキップしてステップ 6 まで進んでください。
 
-2. On your computer, locate and unzip the downloaded file.
+2. コンピュータで、ダウンロードしたファイルを探して解凍します。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Change the current working directory into the folder you downloaded and unzipped.
+3. 現在のワーキングディレクトリを、ダウンロードして解凍したフォルダに変更します。
   ```shell
   $ cd ~/Downloads/git-lfs-<em>1.X.X</em>
   ```
  {% note %}
 
- **Note:** The file path you use after `cd` depends on your operating system, Git LFS version you downloaded, and where you saved the {% data variables.large_files.product_name_short %} download.
+ **メモ:** `cd` の後ろに指定するファイル パスは、お使いのオペレーティング システム、ダウンロードした Git LFS のバージョン、{% data variables.large_files.product_name_short %} のダウンロードを保存した場所によって異なります。
 
  {% endnote %}
-4. To install the file, run this command:
+4. ファイルをインストールするには、次のコマンドを実行します:
   ```shell
   $ ./install.sh
   > {% data variables.large_files.product_name_short %} initialized.
   ```
  {% note %}
 
- **Note:** You may have to use `sudo ./install.sh` to install the file.
+ **メモ:** ファイルをインストールするには、 `sudo ./install.sh` を使用しなければならない場合があります。
 
  {% endnote %}
-5. Verify that the installation was successful:
+5. インストールが成功したか検証します。
   ```shell
   $ git {% data variables.large_files.command_name %} install
   > {% data variables.large_files.product_name_short %} initialized.
   ```
-6. If you don't see a message indicating that `git {% data variables.large_files.command_name %} install` was successful, please contact {% data variables.contact.contact_support %}. Be sure to include the name of your operating system.
+6. `git {% data variables.large_files.command_name %} install` が成功したことを示すメッセージが表示されない場合は、{% data variables.contact.contact_support %} に連絡してください。 お使いのオペレーティング システムの名前を必ずお伝えください。
 
 {% endmac %}
 
 {% windows %}
 
-1. Navigate to [git-lfs.github.com](https://git-lfs.github.com) and click **Download**.
+1. [git-lfs.github.com](https://git-lfs.github.com) に移動し、[**Download**] をクリックします。
 
   {% tip %}
 
-  **Tip:** For more information about alternative ways to install {% data variables.large_files.product_name_short %} for Windows, see this [Getting started guide](https://github.com/github/git-lfs#getting-started).
+  **ヒント:** Windows で {% data variables.large_files.product_name_short %} をインストールする別の方法については、[スタートガイド](https://github.com/github/git-lfs#getting-started)を参照してください。
 
   {% endtip %}
-2. On your computer, locate the downloaded file.
-3. Double click on the file called *git-lfs-windows-1.X.X.exe*, where 1.X.X is replaced with the Git LFS version you downloaded. When you open this file Windows will run a setup wizard to install {% data variables.large_files.product_name_short %}.
+2. コンピュータで、ダウンロードしたファイルを見つけます。
+3. *git-lfs-windows-1.X.X.exe* というファイルをダブルクリックします。1.X.X は、ダウンロードした Git LFS のバージョンに置き換えてください。 このファイルを開くと、Windows は {% data variables.large_files.product_name_short %} をインストールするセットアップ ウィザードを実行します。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-5. Verify that the installation was successful:
+5. インストールが成功したか検証します。
   ```shell
   $ git {% data variables.large_files.command_name %} install
   > {% data variables.large_files.product_name_short %} initialized.
   ```
-6. If you don't see a message indicating that `git {% data variables.large_files.command_name %} install` was successful, please contact {% data variables.contact.contact_support %}. Be sure to include the name of your operating system.
+6. `git {% data variables.large_files.command_name %} install` が成功したことを示すメッセージが表示されない場合は、{% data variables.contact.contact_support %} に連絡してください。 お使いのオペレーティング システムの名前を必ずお伝えください。
 
 {% endwindows %}
 
 {% linux %}
 
-1. Navigate to [git-lfs.github.com](https://git-lfs.github.com) and click **Download**.
+1. [git-lfs.github.com](https://git-lfs.github.com) に移動し、[**Download**] をクリックします。
 
   {% tip %}
 
-  **Tip:** For more information about alternative ways to install {% data variables.large_files.product_name_short %} for Linux, see this [Getting started guide](https://github.com/github/git-lfs#getting-started).
+  **ヒント:** Linux で {% data variables.large_files.product_name_short %} をインストールする別の方法については、[スタートガイド](https://github.com/github/git-lfs#getting-started)を参照してください。
 
   {% endtip %}
-2. On your computer, locate and unzip the downloaded file.
+2. コンピュータで、ダウンロードしたファイルを探して解凍します。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Change the current working directory into the folder you downloaded and unzipped.
+3. 現在のワーキングディレクトリを、ダウンロードして解凍したフォルダに変更します。
   ```shell
   $ cd ~/Downloads/git-lfs-<em>1.X.X</em>
   ```
  {% note %}
 
- **Note:** The file path you use after `cd` depends on your operating system, Git LFS version you downloaded, and where you saved the {% data variables.large_files.product_name_short %} download.
+ **メモ:** `cd` の後ろに指定するファイル パスは、お使いのオペレーティング システム、ダウンロードした Git LFS のバージョン、{% data variables.large_files.product_name_short %} のダウンロードを保存した場所によって異なります。
 
  {% endnote %}
-4. To install the file, run this command:
+4. ファイルをインストールするには、次のコマンドを実行します:
   ```shell
   $ ./install.sh
   > {% data variables.large_files.product_name_short %} initialized.
   ```
  {% note %}
 
- **Note:** You may have to use `sudo ./install.sh` to install the file.
+ **メモ:** ファイルをインストールするには、 `sudo ./install.sh` を使用しなければならない場合があります。
 
  {% endnote %}
-5. Verify that the installation was successful:
+5. インストールが成功したか検証します。
   ```shell
   $ git {% data variables.large_files.command_name %} install
   > {% data variables.large_files.product_name_short %} initialized.
   ```
-6. If you don't see a message indicating that `git {% data variables.large_files.command_name %} install` was successful, please contact {% data variables.contact.contact_support %}. Be sure to include the name of your operating system.
+6. `git {% data variables.large_files.command_name %} install` が成功したことを示すメッセージが表示されない場合は、{% data variables.contact.contact_support %} に連絡してください。 お使いのオペレーティング システムの名前を必ずお伝えください。
 
 {% endlinux %}
 
-## Further reading
+## 参考リンク
 
-- "[Configuring {% data variables.large_files.product_name_long %}](/articles/configuring-git-large-file-storage)"
+- 「[{% data variables.large_files.product_name_long %} を構成する](/articles/configuring-git-large-file-storage)」

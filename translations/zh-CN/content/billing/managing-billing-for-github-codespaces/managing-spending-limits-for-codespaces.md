@@ -57,3 +57,8 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, and 90% of your account's spending limit.
 
 You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
+
+## 延伸阅读
+
+- "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

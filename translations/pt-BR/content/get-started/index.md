@@ -1,7 +1,7 @@
 ---
-title: Getting started with GitHub
-shortTitle: Get started
-intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.prodname_dotcom %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
+title: Introdução ao GitHub
+shortTitle: Começar
+intro: 'Aprenda a começar a criar, enviar e manter um software com a {% data variables.product.prodname_dotcom %}. Explore nossos produtos, inscreva-se em uma conta e conecte-se com a maior comunidade de desenvolvimento do mundo.'
 redirect_from:
   - /categories/54/articles
   - /categories/bootcamp
@@ -61,3 +61,4 @@ children:
   - /getting-started-with-git
   - /using-git
 ---
+
