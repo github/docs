@@ -1,6 +1,6 @@
 ---
-title: Removing organization members from a team
-intro: 'People with *owner* or *team maintainer* permissions can remove team members from a team. This may be necessary if a person no longer needs access to a repository the team grants, or if a person is no longer focused on a team''s projects.'
+title: Remover integrantes da organização de uma equipe
+intro: Os usuários com permissões de *proprietário* ou *mantenedor de equipe* podem remover integrantes de uma equipe. Isso pode ser necessário se um usuário não precisar mais acessar um repositório ao qual a equipe tem acesso ou se um usuário deixar de participar dos projetos de uma equipe.
 redirect_from:
   - /articles/removing-organization-members-from-a-team-early-access-program
   - /articles/removing-organization-members-from-a-team
@@ -13,15 +13,13 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Remove members
+shortTitle: Remover integrantes
 ---
 
-{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}  
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
-4. Select the person or people you'd like to remove.
-  ![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)
-5. Above the list of team members, use the drop-down menu and click **Remove from team**.
-  ![Drop-down menu with option to change role](/assets/images/help/teams/bulk-edit-drop-down.png)
+4. Selecione um ou mais integrantes que deseja remover. ![Caixa de seleção ao lado de integrante de organização](/assets/images/help/teams/team-member-check-box.png)
+5. Use o menu suspenso acima da lista de integrantes da equipe e clique em **Remove from team** (Remover da equipe). ![Menu suspenso com opção change role (alterar função)](/assets/images/help/teams/bulk-edit-drop-down.png)

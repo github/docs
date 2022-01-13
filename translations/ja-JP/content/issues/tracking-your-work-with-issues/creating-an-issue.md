@@ -83,7 +83,7 @@ IssueもしくはPull Requestのコメントから、新しいIssueをオープ�
 {% data reusables.repositories.navigate-to-repo %}
 1. Issue で参照したいコードを探します。
     - ファイルのコードに関する Issue を開くには、そのファイルに移動します。
-    - プルリクエストのコードに関する Issue を開くには、そのプルリクエストに移動し、{% octicon "diff" aria-label="The file diff icon" %}[**Files changed**] をクリックします。 次に、コメントに含めたいコードを持っているファイルを探し、[**View**] をクリックします。
+    - プルリクエストのコードに関する Issue を開くには、そのプルリクエストに移動し、{% octicon "diff" aria-label="The file diff icon" %}[**Files changed**] をクリックします。 Then, browse to the file that contains the code you want included in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
 4. コード範囲の左で、{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} をクリックします。 ドロップダウンメニューで、[**Reference in new issue**] をクリックします。 ![選択した行から新しいIssueを開くオプションのある三点メニュー](/assets/images/help/repository/open-new-issue-specific-line.png)
 {% data reusables.repositories.type-issue-title-and-description %}
@@ -131,7 +131,7 @@ Issueをオープンするのにクエリパラメータを利用できます。
 
 クエリパラメータを使うには、同等のアクションを行うための適切な権限を持っていなければなりません。 たとえばクエリパラメータの`labels`を使うには、Issueにラベルを追加する権限を持っていなければなりません。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
+クエリパラメータを使うのに不正なURLを作成したり、適切な権限を持っていなかったりした場合には、そのURLに対して`404 Not Found`エラーページが返されます。 サーバーの限度を超えるURLを作成すると、そのURLは`414 URI Too Long`エラーページを返します。
 
 | クエリパラメータ    | サンプル                                                                                                                                                                                                                                                                                                                                                           |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

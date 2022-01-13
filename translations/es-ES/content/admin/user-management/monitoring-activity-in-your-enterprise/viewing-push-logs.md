@@ -2,7 +2,7 @@
 title: Ver registros de subidas
 intro: Los administradores de sitio pueden ver una lista de operaciones de subida de git para cualquier repositorio en la empresa.
 redirect_from:
-  - /enterprise/admin/articles/viewing-push-logs/
+  - /enterprise/admin/articles/viewing-push-logs
   - /enterprise/admin/installation/viewing-push-logs
   - /enterprise/admin/user-management/viewing-push-logs
   - /admin/user-management/viewing-push-logs

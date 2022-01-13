@@ -1,6 +1,6 @@
 ---
-title: Creating a pre-receive hook script
-intro: Use pre-receive hook scripts to create requirements for accepting or rejecting a push based on the contents.
+title: Criar um script de hook pre-receive
+intro: Use os scripts de hooks pre-receive a fim de criar requisitos para aceitar ou rejeitar um push com base no conteúdo.
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-script
@@ -13,143 +13,144 @@ topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
-shortTitle: Pre-receive hook scripts
+shortTitle: Scripts de hook pre-receive
 ---
-You can see examples of pre-receive hooks for {% data variables.product.prodname_ghe_server %} in the [`github/platform-samples` repository](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
 
-## Writing a pre-receive hook script
-A pre-receive hook script executes in a pre-receive hook environment on {% data variables.product.product_location %}. When you create a pre-receive hook script, consider the available input, output, exit status, and environment variables.
+Veja exemplos de hooks pre-receive para o {% data variables.product.prodname_ghe_server %} no repositório  [`github/platform-samples`](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
 
-### Input (`stdin`)
-After a push occurs and before any refs are updated for the remote repository, the `git-receive-pack` process on {% data variables.product.product_location %} invokes the pre-receive hook script. Standard input for the script, `stdin`, is a string containing a line for each ref to update. Each line contains the old object name for the ref, the new object name for the ref, and the full name of the ref.
+## Gravar um script de hook pre-receive
+Um script de hook pre-receive é executado em um ambiente de hook pre-receive em {% data variables.product.product_location %}. Ao criar um script de hook pre-receive, considere a entrada, saída, estado de saída e variáveis de ambiente disponíveis.
+
+### Entrada (`stdin`)
+Depois que um push ocorrer e antes que qualquer ref seja atualizado para o repositório remoto, o processo `git-receive-pack` em {% data variables.product.product_location %} irá invocar o script de do hook pre-receive. A entrada padrão para o script, `stdin`, é uma string que contém uma linha atualizar cada ref. Cada linha contém o nome antigo do objeto para ref, o novo nome do objeto para o ref e o nome completo do ref.
 
 ```
 <old-value> SP <new-value> SP <ref-name> LF
 ```
 
-This string represents the following arguments.
+Essa frase representa os argumentos a seguir.
 
-| Argument | Description     |
-| :------------- | :------------- |
-| `<old-value>` | Old object name stored in the ref.<br> When you create a new ref, the value is 40 zeroes. |
-| `<new-value>` | New object name to be stored in the ref.<br> When you delete a ref, the value is 40 zeroes. |
-| `<ref-name>`  | The full name of the ref. |
+| Argumento           | Descrição                                                                                         |
+|:------------------- |:------------------------------------------------------------------------------------------------- |
+| `<old-value>` | Nome de objeto antigo armazenado na ref.<br> Ao criar uma nova ref, o valor será 40 zeros.  |
+| `<new-value>` | Novo nome de objeto a ser armazenado na ref.<br> Ao excluir uma ref, o valor será 40 zeros. |
+| `<ref-name>`  | O nome completo da ref.                                                                           |
 
-For more information about `git-receive-pack`, see "[git-receive-pack](https://git-scm.com/docs/git-receive-pack)" in the Git documentation. For more information about refs, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in *Pro Git*.
+Para obter mais informações sobre `git-receive-pack`, consulte "[git-receive-pack](https://git-scm.com/docs/git-receive-pack)" na documentação do Git. Para obter mais informações sobre refs, consulte "[Referências do Git](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" no *Pro Git*.
 
-### Output (`stdout`)
+### Saída (`stdout`)
 
-The standard output for the script, `stdout`, is passed back to the client. Any `echo` statements will be visible to the user on the command line or in the user interface.
+A saída padrão do script, `stdout`, é remetida de volta para o cliente. Qualquer `echo` será visível para o usuário na linha de comando ou na interface do usuário.
 
-### Exit status
+### Status de saída
 
-The exit status of a pre-receive script determines if the push will be accepted.
+O status de saída de um script pre-receive determina se o push será aceito.
 
-| Exit-status value | Action |
-| :- | :- |
-| 0 | The push will be accepted. |
-| non-zero | The push will be rejected. |
+| Valor de status de saída | Ação                   |
+|:------------------------ |:---------------------- |
+| 0                        | O push será aceito.    |
+| Diferente de zero        | O push será rejeitado. |
 
-### Environment variables
+### Variáveis de ambiente
 
-In addition to the standard input for your pre-receive hook script, `stdin`, {% data variables.product.prodname_ghe_server %} makes the following variables available in the Bash environment for your script's execution. For more information about `stdin` for your pre-receive hook script, see "[Input (`stdin`)](#input-stdin)."
+Além da entrada padrão para o seu script do hook pre-receive, `stdin`, {% data variables.product.prodname_ghe_server %} disponibiliza as variáveis a seguir no ambiente Bash para a execução do seu script. Para obter mais informações sobre `stdin` para o seu script de hook de pre-receive, consulte "[Entrada (`stdin`)](#input-stdin)".
 
-Different environment variables are available to your pre-receive hook script depending on what triggers the script to run.
+Diferentes variáveis de ambiente estão disponíveis para o seu script de hook pre-receive dependendo do que acionar o script.
 
-- [Always available](#always-available)
-- [Available for pushes from the web interface or API](#available-for-pushes-from-the-web-interface-or-api)
-- [Available for pull request merges](#available-for-pull-request-merges)
-- [Available for pushes using SSH authentication](#available-for-pushes-using-ssh-authentication)
+- [Sempre disponível](#always-available)
+- [Disponível para pushes a partir da interface web ou API](#available-for-pushes-from-the-web-interface-or-api)
+- [Disponível para merge de pull request](#available-for-pull-request-merges)
+- [Disponível para pushes que usam autenticação SSH](#available-for-pushes-using-ssh-authentication)
 
-#### Always available
+#### Sempre disponível
 
-The following variables are always available in the pre-receive hook environment.
+As seguintes variáveis estão sempre disponíveis no ambiente de do hook pre-receive.
 
-| Variable | Description | Example value |
-| :- | :- | :- |
-|  <pre>$GIT_DIR</pre> | Path to the remote repository on the instance | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
-|  <pre>$GIT_PUSH_OPTION_COUNT</pre> | The number of push options that were sent by the client with `--push-option`. For more information, see "[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)" in the Git documentation. | 1 |
-| <pre>$GIT\_PUSH\_OPTION\_<em>N</em></pre> | Where _N_ is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. For more information about push options, see "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" in the Git documentation. | abcd |{% ifversion ghes %}
-|  <pre>$GIT_USER_AGENT</pre> | User-agent string sent by the Git client that pushed the changes | git/2.0.0{% endif %}
-|  <pre>$GITHUB_REPO_NAME</pre> | Name of the repository being updated in _NAME_/_OWNER_ format | octo-org/hello-enterprise |
-|  <pre>$GITHUB_REPO_PUBLIC</pre> | Boolean representing whether the repository being updated is public | <ul><li>true: Repository's visibility is public</li><li>false: Repository's visibility is private or internal</li></ul>
-|  <pre>$GITHUB_USER_IP</pre> | IP address of client that initiated the push | 192.0.2.1 |
-|  <pre>$GITHUB_USER_LOGIN</pre> | Username for account that initiated the push | octocat |
+| Variável                  | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                      | Valor de exemplo                                                   |
+|:------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------------ |
+| <pre>$GIT_DIR</pre> | Caminho para o repositório remoto na instância                                                                                                                                                                                                                                                                                                                                                                                                 | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
+| <pre>$GIT_PUSH_OPTION_COUNT</pre> | O número de opções de push enviadas pelo cliente com `--push-option`. Para obter mais informações, consulte "[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)" na documentação do Git.                                                                                                                                                                                                         | 1                                                                  |
+| <pre>$GIT\_PUSH\_OPTION\_<em>N</em></pre> | Quando _N_ for um número inteiro a partir de 0, esta variável vai conter a string de opção de push enviada pelo cliente. A primeira opção enviada é armazenada em `GIT_PUSH_OPTION_0`, a segunda opção enviada é armazenada em `GIT_PUSH_OPTION_1`, e assim por diante. Para obter mais informações sobre as opções de push, consulte "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" na documentação do Git. | abcd |{% ifversion ghes %}
+| <pre>$GIT_USER_AGENT</pre> | String de usuário-agente enviada pelo cliente Git que realizou push das alterações                                                                                                                                                                                                                                                                                                                                                             | git/2.0.0{% endif %}
+| <pre>$GITHUB_REPO_NAME</pre> | Nome do repositório que está sendo atualizado no formato _NAME_/_OWNER_                                                                                                                                                                                                                                                                                                                                                                        | octo-org/hello-enterprise                                          |
+| <pre>$GITHUB_REPO_PUBLIC</pre> | Booleano público, que representa se o repositório está sendo atualizado                                                                                                                                                                                                                                                                                                                                                                        | <ul><li>true: A visibilidade do repositório é pública</li><li>false: A visibilidade do repositório é privada ou interna</li></ul>                                          |
+| <pre>$GITHUB_USER_IP</pre> | Endereço IP do cliente que iniciou o push                                                                                                                                                                                                                                                                                                                                                                                                      | 192.0.2.1                                                          |
+| <pre>$GITHUB_USER_LOGIN</pre> | Nome de usuário para a conta que iniciou o push                                                                                                                                                                                                                                                                                                                                                                                                | octocat                                                            |
 
-#### Available for pushes from the web interface or API
+#### Disponível para pushes a partir da interface web ou API
 
-The `$GITHUB_VIA` variable is available in the pre-receive hook environment when the ref update that triggers the hook occurs via either the web interface or the API for {% data variables.product.prodname_ghe_server %}. The value describes the action that updated the ref.
+A variável `$GITHUB_VIA` está disponível no ambiente de pre-receive quando a atualização de ref que aciona o hook por meio da interface da web ou da API para {% data variables.product.prodname_ghe_server %}. O valor descreve a ação que atualizou o ref.
 
-| Value | Action | More information |
-| :- | :- | :- |
-| <pre>auto-merge deployment api</pre> | Automatic merge of the base branch via a deployment created with the API | "[Create a deployment](/rest/reference/deployments#create-a-deployment)" in the REST API documentation |
-| <pre>blob#save</pre> | Change to a file's contents in the web interface | "[Editing files](/repositories/working-with-files/managing-files/editing-files)" |
-| <pre>branch merge api</pre> | Merge of a branch via the API | "[Merge a branch](/rest/reference/branches#merge-a-branch)" in the REST API documentation |
-| <pre>branches page delete button</pre> | Deletion of a branch in the web interface | "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" |
-| <pre>git refs create api</pre> | Creation of a ref via the API | "[Git database](/rest/reference/git#create-a-reference)" in the REST API documentation |
-| <pre>git refs delete api</pre> | Deletion of a ref via the API | "[Git database](/rest/reference/git#delete-a-reference)" in the REST API documentation |
-| <pre>git refs update api</pre> | Update of a ref via the API | "[Git database](/rest/reference/git#update-a-reference)" in the REST API documentation |
-| <pre>git repo contents api</pre> | Change to a file's contents via the API | "[Create or update file contents](/rest/reference/repos#create-or-update-file-contents)" in the REST API documentation |
-| <pre>merge base into head</pre> | Update of the topic branch from the base branch when the base branch requires strict status checks (via **Update branch** in a pull request, for example) | "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" |
-| <pre>pull request branch delete button</pre> | Deletion of a topic branch from a pull request in the web interface | "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)" |
-| <pre>pull request branch undo button</pre> | Restoration of a topic branch from a pull request in the web interface | "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)" |
-| <pre>pull request merge api</pre> | Merge of a pull request via the API | "[Pulls](/rest/reference/pulls#merge-a-pull-request)" in the REST API documentation |
-| <pre>pull request merge button</pre> | Merge of a pull request in the web interface | "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)" |
-| <pre>pull request revert button</pre> | Revert of a pull request | "[Reverting a pull request](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)" |
-| <pre>releases delete button</pre> | Deletion of a release | "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)" |
-| <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | "[Site admin dashboard](/admin/configuration/site-admin-dashboard#repositories)" |
-| <pre>tag create api</pre> | Creation of a tag via the API | "[Git database](/rest/reference/git#create-a-tag-object)" in the REST API documentation |
-| <pre>slumlord (#<em>SHA</em>)</pre> | Commit via Subversion | "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)" |
-| <pre>web branch create</pre> | Creation of a branch via the web interface | "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)" |
+| Valor                      | Ação                                                                                                                                                                      | Mais informações                                                                                                                                                                         |
+|:-------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <pre>auto-merge deployment api</pre>  | Merge automático do branch base através de uma implantação criada com a API                                                                                               | "[Criar uma implantação](/rest/reference/deployments#create-a-deployment)" na documentação da API REST                                                                                   |
+| <pre>blob#save</pre> | Mudar para o conteúdo de um arquivo na interface web                                                                                                                      | "[Editando arquivos](/repositories/working-with-files/managing-files/editing-files)"                                                                                                     |
+| <pre>branch merge api</pre> | Merge de um branch através da API                                                                                                                                         | "[Mesclar um branch](/rest/reference/branches#merge-a-branch)" na documentação da API REST                                                                                               |
+| <pre>branches page delete button</pre> | Exclusão de um branch na interface web                                                                                                                                    | "[Criar e excluir branches dentro do seu repositório](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)"      |
+| <pre>git refs create api</pre> | Criação de um ref através da API                                                                                                                                          | "[Banco de dados Git](/rest/reference/git#create-a-reference)" na documentação da API REST                                                                                               |
+| <pre>git refs delete api</pre> | Exclusão de uma ref através da API                                                                                                                                        | "[Banco de dados Git](/rest/reference/git#delete-a-reference)" na documentação da API REST                                                                                               |
+| <pre>git refs update api</pre> | Atualização de um ref através da API                                                                                                                                      | "[Banco de dados Git](/rest/reference/git#update-a-reference)" na documentação da API REST                                                                                               |
+| <pre>git repo contents api</pre> | Mudança no conteúdo de um arquivo através da API                                                                                                                          | "[Criar ou atualizar o conteúdo do arquivo](/rest/reference/repos#create-or-update-file-contents)" na documentação da API REST                                                           |
+| <pre>merge base into head</pre> | Atualizar o branch de tópico do branch de base quando o branch de base exigir verificações de status rigorosas (via **Atualizar branch** em um pull request, por exemplo) | "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)"                                                          |
+| <pre>pull request branch delete button</pre> | Exclusão de um branch de tópico de um pull request na interface web                                                                                                       | "[Excluindo e restaurando branches em uma pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)" |
+| <pre>pull request branch undo button</pre> | Restauração de um branch de tópico de um pull request na interface web                                                                                                    | "[Excluindo e restaurando branches em uma pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)"                |
+| <pre>pull request merge api</pre> | Merge de um pull request através da API                                                                                                                                   | "[Pulls](/rest/reference/pulls#merge-a-pull-request)" na documentação da API REST                                                                                                        |
+| <pre>pull request merge button</pre> | Merge de um pull request na interface web                                                                                                                                 | "[Fazer merge de uma pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)"                                         |
+| <pre>pull request revert button</pre> | Reverter um pull request                                                                                                                                                  | "[Reverter uma pull request](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)"                                                                              |
+| <pre>releases delete button</pre> | Exclusão de uma versão                                                                                                                                                    | "[Gerenciar versões em um repositório](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)"                                                         |
+| <pre>stafftools branch restore</pre> | Restauração de um branch do painel de administração do site                                                                                                               | "[Painel de administração do site](/admin/configuration/site-admin-dashboard#repositories)"                                                                                              |
+| <pre>tag create api</pre> | Criação de uma tag através da API                                                                                                                                         | "[Banco de dados Git](/rest/reference/git#create-a-tag-object)" na documentação da API REST                                                                                              |
+| <pre>slumlord (#<em>SHA</em>)</pre> | Commit por meio do Subversion                                                                                                                                             | "[Compatibilidade para clientes de Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)"                                   |
+| <pre>web branch create</pre> | Criação de um branch através da interface web                                                                                                                             | "[Criar e excluir branches dentro do seu repositório](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)"      |
 
-#### Available for pull request merges
+#### Disponível para merge de pull request
 
-The following variables are available in the pre-receive hook environment when the push that triggers the hook is a push due to the merge of a pull request.
+As variáveis a seguir estão disponíveis no ambiente de hook pre-receive quando o push que aciona o hook é um push devido ao merge de um pull request.
 
-| Variable | Description | Example value |
-| :- | :- | :- |
-|  <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | Username of account that authored the pull request | octocat |
-|  <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | The name of the pull request's topic branch, in the format `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
-|  <pre>$GITHUB_PULL_REQUEST_BASE</pre> | The name of the pull request's base branch, in the format `USERNAME:BRANCH` | octocat:main |
+| Variável                   | Descrição                                                                | Valor de exemplo             |
+|:-------------------------- |:------------------------------------------------------------------------ |:---------------------------- |
+| <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | Nome de usuário da conta que criou o pull request                        | octocat                      |
+| <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | O nome do branch de tópico do pull request, no formato `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
+| <pre>$GITHUB_PULL_REQUEST_BASE</pre> | O nome do branch de base do pull request no formato `USERNAME:BRANCH`    | octocat:main                 |
 
-#### Available for pushes using SSH authentication
+#### Disponível para pushes que usam autenticação SSH
 
-| Variable | Description | Example value |
-| :- | :- | :- |
-|  <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | The public key fingerprint for the user who pushed the changes | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
+| Variável                   | Descrição                                                                       | Valor de exemplo                                |
+|:-------------------------- |:------------------------------------------------------------------------------- |:----------------------------------------------- |
+| <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | A impressão digital da chave pública para o usuário que fez push das alterações | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
 
-## Setting permissions and pushing a pre-receive hook to {% data variables.product.prodname_ghe_server %}
+## Configurar permissões e fazer push de um hook pre-receive para o {% data variables.product.prodname_ghe_server %}
 
-A pre-receive hook script is contained in a repository on {% data variables.product.product_location %}. A site administrator must take into consideration the repository permissions and ensure that only the appropriate users have access.
+Um script de hook pre-receive está contido em um repositório em {% data variables.product.product_location %}. O administrador do site deve considerar as permissões do repositório e garantir que somente os usuários adequados tenham acesso.
 
-We recommend consolidating hooks to a single repository. If the consolidated hook repository is public, the `README.md` can be used to explain policy enforcements. Also, contributions can be accepted via pull requests. However, pre-receive hooks can only be added from the default branch. For a testing workflow, forks of the repository with configuration should be used.
+Recomendamos consolidar os hooks em um único repositório. Se o repositório consolidado do hook for público, será possível usar `README.md` para explicar a execução das políticas. Além disso, é possível aceitar contribuições via pull request. No entanto, os hooks pre-receive só podem ser adicionados pelo branch padrão. Em fluxos de trabalho de teste, devem ser usados forks do repositório com a devida configuração.
 
-1. For Mac users, ensure the scripts have execute permissions:
+1. Para usuários de Mac, certifique-se de que os scripts tenham estas permissões de execução:
 
    ```shell
    $ sudo chmod +x <em>SCRIPT_FILE.sh</em>
    ```
-   For Windows users, ensure the scripts have execute permissions:
+   Para usuários de Windows, certifique-se de que os scripts tenham estas permissões de execução:
 
    ```shell
    git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
    ```
 
-2. Commit and push to the designated repository for pre-receive hooks on {% data variables.product.product_location %}.
+2. Faça o commit e push para o repositório designado para os hooks pre-receive em {% data variables.product.product_location %}.
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
    $ git push
    ```
 
-3. [Create the pre-receive hook](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
+3. [Crie o hook pre-receive](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) na instância do {% data variables.product.prodname_ghe_server %}.
 
-## Testing pre-receive scripts locally
-You can test a pre-receive hook script locally before you create or update it on {% data variables.product.product_location %}. One method is to create a local Docker environment to act as a remote repository that can execute the pre-receive hook.
+## Testar scripts pre-receive no local
+Você pode testar um script do hook pre-receive localmente antes de criá-lo ou atualizá-lo em {% data variables.product.product_location %}. Uma forma de fazer isso é criar um ambiente Docker local para funcionar como repositório remoto que pode executar o hook pre-receive.
 
 {% data reusables.linux.ensure-docker %}
 
-2. Create a file called `Dockerfile.dev` containing:
+2. Crie um arquivo de nome `Dockerfile.dev` contendo:
 
    ```dockerfile
    FROM gliderlabs/alpine:3.3
@@ -171,7 +172,7 @@ You can test a pre-receive hook script locally before you create or update it on
    CMD ["/usr/sbin/sshd", "-D"]
    ```
 
-3. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
+3. Crie um script pre-receive de teste chamado `always_reject.sh`. Este exemplo de script rejeitará todos os pushes, o que é importante para bloquear um repositório:
 
    ```
    #!/usr/bin/env bash
@@ -180,13 +181,13 @@ You can test a pre-receive hook script locally before you create or update it on
    exit 1
    ```
 
-4. Ensure the `always_reject.sh` scripts has execute permissions:
+4. Certifique-se de que os scripts `always_reject.sh` têm permissões de execução:
 
    ```shell
    $ chmod +x always_reject.sh
    ```
 
-5. From the directory containing `Dockerfile.dev`, build an image:
+5. No diretório contendo `Dockerfile.dev`, crie uma imagem:
 
    ```shell
    $ docker build -f Dockerfile.dev -t pre-receive.dev .
@@ -204,37 +205,37 @@ You can test a pre-receive hook script locally before you create or update it on
    > Generating public/private ed25519 key pair.
    > Your identification has been saved in /home/git/.ssh/id_ed25519.
    > Your public key has been saved in /home/git/.ssh/id_ed25519.pub.
-   ....truncated output....
+   ....saída truncada....
    > Initialized empty Git repository in /home/git/test.git/
    > Successfully built dd8610c24f82
    ```
 
-6. Run a data container that contains a generated SSH key:
+6. Execute um contêiner de dados que contenha uma chave SSH gerada:
 
    ```shell
    $ docker run --name data pre-receive.dev /bin/true
    ```
 
-7. Copy the test pre-receive hook `always_reject.sh` into the data container:
+7. Copie o hook pre-receive de teste `always_reject.sh` no contêiner de dados:
 
    ```shell
    $ docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
    ```
 
-8. Run an application container that runs `sshd` and executes the hook. Take note of the container id that is returned:
+8. Execute um contêiner de aplicativo que execute `sshd` e o hook. Anote o ID do contêiner:
 
    ```shell
    $ docker run -d -p 52311:22 --volumes-from data pre-receive.dev
    > 7f888bc700b8d23405dbcaf039e6c71d486793cad7d8ae4dd184f4a47000bc58
    ```
 
-9. Copy the generated SSH key from the data container to the local machine:
+9. Copie a chave SSH gerada do contêiner de dados para a máquina local:
 
    ```shell
    $ docker cp data:/home/git/.ssh/id_ed25519 .
    ```
 
-10. Modify the remote of a test repository and push to the `test.git` repo within the Docker container. This example uses `git@github.com:octocat/Hello-World.git` but you can use any repository you want. This example assumes your local machine (127.0.0.1) is binding port 52311, but you can use a different IP address if docker is running on a remote machine.
+10. Modifique o remote de um repositório de teste e faça push para o repo `test.git` no contêiner Docker. Este exemplo usa o `git@github.com:octocat/Hello-World.git`, mas você pode usar o repositório da sua preferência. Este exemplo pressupõe que a sua máquina local (127.0.0.1) está vinculando a porta 52311, mas você pode usar outro endereço IP se o docker estiver sendo executado em uma máquina remota.
 
    ```shell
    $ git clone git@github.com:octocat/Hello-World.git
@@ -242,18 +243,18 @@ You can test a pre-receive hook script locally before you create or update it on
    $ git remote add test git@127.0.0.1:test.git
    $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_ed25519" git push -u test main
    > Warning: Permanently added '[192.168.99.100]:52311' (ECDSA) to the list of known hosts.
-   > Counting objects: 7, done.
+   > Contando objetos: 7, concluído.
    > Delta compression using up to 4 threads.
-   > Compressing objects: 100% (3/3), done.
-   > Writing objects: 100% (7/7), 700 bytes | 0 bytes/s, done.
+   > Comprimindo objetos: 100% (3/3), concluído.
+   > Gravando objetos: 100% (7/7), 700 bytes | 0 bytes/s, concluído.
    > Total 7 (delta 0), reused 7 (delta 0)
    > remote: error: rejecting all pushes
    > To git@192.168.99.100:test.git
-   >  ! [remote rejected] main -> main (pre-receive hook declined)
+   >  ! [remote rejected] master -> master (pre-receive hook declined)
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
    ```
 
-   Notice that the push was rejected after executing the pre-receive hook and echoing the output from the script.
+   Observe que o push foi rejeitado após a execução do hook pre-receive e o eco da saída do script.
 
-## Further reading
- - "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the *Pro Git website*
+## Leia mais
+ - "[Personalizar o Git - Um exemplo da aplicação da política do Git](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" no *site do Pro Git*

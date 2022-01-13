@@ -1,6 +1,6 @@
 ---
-title: Adding a workflow status badge
-intro: You can display a status badge in your repository to indicate the status of your workflows.
+title: Agregar una insignia de estado de flujo de trabajo
+intro: Puedes mostrar una insignia de estado en tu repositorio para indicar el estado de tus flujos de trabajo.
 redirect_from:
   - /actions/managing-workflow-runs/adding-a-workflow-status-badge
 versions:
@@ -8,7 +8,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Add a status badge
+shortTitle: Agregar una insignia de estado
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -16,31 +16,31 @@ shortTitle: Add a status badge
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-You reference the workflow by the name of your workflow file.
+Referencias el flujo de trabajo por el nombre de tu archivo de flujo de trabajo.
 
 ```markdown
-![example workflow]({% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
+![flujo de trabajo de ejemplo]({% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
 ```
-## Using the workflow file name
+## Usar el nombre de archivo del flujo de trabajo
 
-This Markdown example adds a status badge for a workflow with the file path `.github/workflows/main.yml`. The `OWNER` of the repository is the `github` organization and the `REPOSITORY` name is `docs`.
+Este ejemplo de Markdown agrega una credencial de estado para un flujo de trabajo con la ruta de archivo `.github/workflows/main.yml`. El `OWNER` del repositorio es la organización `github` y el nombre del `REPOSITORY` es `docs`.
 
 ```markdown
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![flujo de trabajo de ejemplo](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 ```
 
-## Using the `branch` parameter
+## Utilizar el parámetro `branch`
 
-This Markdown example adds a status badge for a branch with the name `feature-1`.
+Este ejemplo de Markdown añade un distintivo de estado para una rama con el nombre `feature-1`.
 
 ```markdown
 ![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
 ```
 
-## Using the `event` parameter
+## Utilizar el parámetro `event`
 
-This Markdown example adds a badge that displays the status of workflow runs triggered by the `pull_request` event.
+This Markdown example adds a badge that displays the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
 
 ```markdown
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
 ```

@@ -1,7 +1,6 @@
 ---
 title: Managing team synchronization for organizations in your enterprise
 intro: 'You can enable team synchronization between an identity provider (IdP) and {% data variables.product.product_name %} to allow organizations owned by your enterprise account to manage team membership through IdP groups.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   ghec: '*'

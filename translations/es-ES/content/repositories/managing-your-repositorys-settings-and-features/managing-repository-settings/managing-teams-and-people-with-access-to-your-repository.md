@@ -1,6 +1,6 @@
 ---
-title: Managing teams and people with access to your repository
-intro: You can see everyone who has access to your repository and adjust permissions.
+title: Gestionar equipos y personas con acceso a tu repositorio
+intro: Puedes ver a todo aquél que ha accedido a tu repositorio y ajustar los permisos.
 permissions: People with admin access to a repository can manage teams and people with access to a repository.
 redirect_from:
   - /github/administering-a-repository/managing-people-and-teams-with-access-to-your-repository
@@ -11,55 +11,50 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Teams & people
+shortTitle: Equipos & personas
 ---
 
-## About access management for repositories
+## Acerca de la administración de accesos para los repositorios
 
-For each repository that you administer on {% data variables.product.prodname_dotcom %}, you can see an overview of every team or person with access to the repository. From the overview, you can also invite new teams or people, change each team or person's role for the repository, or remove access to the repository.
+Puedes ver un resumen de cada equipo o persona con acceso a tu repositorio para todo aquél que administres en {% data variables.product.prodname_dotcom %}. Desde este resumen, también puedes invitar a nuevos equipos o personas, cambiar el rol de cada equipo o persona en el repositorio o eliminar el acceso al mismo.
 
-This overview can help you audit access to your repository, onboard or off-board contractors or employees, and effectively respond to security incidents.
+Este resumen puede ayudarte a auditar el acceso a tu repositorio, incorporar o retirar personal externo o empleados, y responder con efectividad a los incidentes de seguridad.
 
-For more information about repository roles, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Para obtener más información acerca de los roles de los repositorios, consulta las secciones "[Niveles de permiso para un repositorio de la cuenta de un usuario](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" y "[Roles de respositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
-![Access management overview](/assets/images/help/repository/manage-access-overview.png)
+![Resumen de gestión de accesos](/assets/images/help/repository/manage-access-overview.png)
 
-## Filtering the list of teams and people
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
-4. Under "Manage access", in the search field, start typing the name of the team or person you'd like to find.
-  ![Search field for filtering list of teams or people with access](/assets/images/help/repository/manage-access-filter.png)
-
-## Changing permissions for a team or person
+## Filtrar la lista de equipos y personas
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. Under "Manage access", find the team or person whose role you'd like to change, then select the Role drop-down and click a new role.
-  ![Using the "Role" drop-down to select new permissions for a team or person](/assets/images/help/repository/manage-access-role-drop-down.png)
+4. Debajo de "Administrar acceso" en el campo de búsqueda, comienza a teclear el nombre del equipo o persona que quieres encontrar. ![Campo de búsqueda para filtrar la lista de equipos o personas con acceso](/assets/images/help/repository/manage-access-filter.png)
 
-## Inviting a team or person
+## Cambiar permisos para un equipo o persona
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-manage-access %}
+4. Debajo de "Administrar acceso", encuentra al equipo o persona cuyo rol te gustaría cambiar y luego selecciona el menú desplegable del rol y haz clic en un rol nuevo. ![Utilizar el menú desplegable de "Rol" para seleccionar nuevos permisos para un equipo o persona](/assets/images/help/repository/manage-access-role-drop-down.png)
+
+## Invitar a un equipo o persona
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% data reusables.organizations.invite-teams-or-people %}
-5. In the search field, start typing the name of the team or person to invite, then click a name in the list of matches.
-  ![Search field for typing the name of a team or person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
-6. Under "Choose a role", select the repository role to grant to the team or person, then click **Add NAME to REPOSITORY**.
-  ![Selecting permissions for the team or person](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
+5. En el campo de búsqueda, comienza a teclear el nombre del equipo o persona que quieres invitar y da clic en el mismo dentro de la lista de coincidencias. ![Campo de búsqueda para teclear el nombre del equipo o persona que deseas invitar al repositorio](/assets/images/help/repository/manage-access-invite-search-field.png)
+6. Debajo de "Elige un rol", selecciona el rol del repositorio que quieras otorgar al equipo o persona y luego haz clic en **Add NAME to REPOSITORY**. ![Seleccionar los permisos para el equipo o persona](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
-## Removing access for a team or person
+## Eliminar el acceso de un equipo o persona
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. Under "Manage access", find the team or person whose access you'd like to remove, then click {% octicon "trash" aria-label="The trash icon" %}.
-  ![trash icon for removing access](/assets/images/help/repository/manage-access-remove.png)
+4. Debajo de "Administrar acceso", encuentra al equipo o persona de quien quieras eliminar el acceso y da clic{% octicon "trash" aria-label="The trash icon" %}. ![icono de cesto de basura para eliminar el acceso](/assets/images/help/repository/manage-access-remove.png)
 
-## Further reading
+## Leer más
 
-- "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)"
-- "[Setting base permissions for an organization](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)"
+- "[Configurar la visibilidad de un repositorio](/github/administering-a-repository/setting-repository-visibility)"
+- "[Configurar los permisos básicos para una organización](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)"

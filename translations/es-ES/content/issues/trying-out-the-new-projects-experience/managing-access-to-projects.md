@@ -37,7 +37,7 @@ The default base role is `write`, meaning that everyone in the organization can 
 
 ### Managing access for teams and individual members of your organization
 
-You can also add teams, and individual organization members, as collaborators. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+You can also add teams, and individual organization members, as collaborators. Para obtener más información, consulta la sección "[Acerca de los equipos](/organizations/organizing-members-into-teams/about-teams)".
 
 You can only invite an individual user to collaborate on your organization-level project if they are a member of the organization.
 
@@ -66,7 +66,7 @@ You can only invite an individual user to collaborate on your organization-level
 
 {% note %}
 
-This only affects collaborators for your project, not for repositories in your project. To view an item on the project, someone must have the required permissions for the repository that the item belongs to. If your project includes items from a private repository, people who are not collaborators in the repository will not be able to view items from that repository. For more information, see "[Setting repository visibility](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)" and "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+This only affects collaborators for your project, not for repositories in your project. To view an item on the project, someone must have the required permissions for the repository that the item belongs to. If your project includes items from a private repository, people who are not collaborators in the repository will not be able to view items from that repository. Para obtener más información, consulta las secciones "[Configurar la visibilidad de un repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)" y "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)".
 
 {% endnote %}
 

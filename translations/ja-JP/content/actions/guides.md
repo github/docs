@@ -1,6 +1,6 @@
 ---
 title: Guides for GitHub Actions
-intro: 'These guides for {% data variables.product.prodname_actions %} include specific use cases and examples to help you configure workflows.'
+intro: '{% data variables.product.prodname_actions %} のこれらのガイドには、ワークフローの設定に役立つ特定の使用例とサンプルが含まれています。'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:
@@ -20,7 +20,7 @@ includeGuides:
   - /actions/quickstart
   - /actions/learn-github-actions/introduction-to-github-actions
   - /actions/creating-actions/creating-a-docker-container-action
-  - /actions/learn-github-actions/using-workflow-templates
+  - /actions/learn-github-actions/using-starter-workflows
   - /actions/automating-builds-and-tests/building-and-testing-python
   - /actions/automating-builds-and-tests/building-and-testing-nodejs
   - /actions/publishing-packages/about-packaging-with-github-actions

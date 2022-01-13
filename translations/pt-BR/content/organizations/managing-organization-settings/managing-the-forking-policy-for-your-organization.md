@@ -1,6 +1,6 @@
 ---
-title: Managing the forking policy for your organization
-intro: 'You can allow or prevent the forking of any private{% ifversion ghes or ghae or ghec %} and internal{% endif %} repositories owned by your organization.'
+title: Gerenciar a política de bifurcação da sua organização
+intro: 'Você pode permitir ou impedir a bifurcação de qualquer repositório privado{% ifversion ghes or ghae or ghec %} e interno{% endif %} pertencente à sua organização.'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -14,25 +14,25 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Manage forking policy
+shortTitle: Gerenciar política de bifurcação
 ---
 
-By default, new organizations are configured to disallow the forking of private{% ifversion ghes or ghec or ghae %} and internal{% endif %} repositories.
+Por padrão, as novas organizações estão configuradas para não permitir a bifurcação de repositórios privados{% ifversion ghes or ghec or ghae %} e internos{% endif %}.
 
-If you allow forking of private{% ifversion ghes or ghec or ghae %} and internal{% endif %} repositories at the organization level, you can also configure the ability to fork a specific private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository. For more information, see "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
+Se você permitir a bifurcação de repositórios privados{% ifversion ghes or ghec or ghae %} e internos{% endif %} no nível da organização você também poderá configurar a capacidade de bifurcar um repositório privado{% ifversion ghes or ghec or ghae %} ou interno{% endif %}. Para obter mais informações, consulte "[Gerenciar a política de bifurcação do seu repositório](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**.
+1. Em "Bifurcação de repositório", selecione **Permitir bifurcação de repositórios {% ifversion ghec or ghes or ghae %}privados e {% endif %}internos**.
 
    {%- ifversion fpt %}
-   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-fpt.png)
+   ![Caixa de seleção para permitir ou proibir a bifurcação na organização](/assets/images/help/repository/allow-disable-forking-fpt.png)
    {%- elsif ghes or ghec or ghae %}
-   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-organization.png)
+   ![Caixa de seleção para permitir ou proibir a bifurcação na organização](/assets/images/help/repository/allow-disable-forking-organization.png)
    {%- endif %}
-6. Click **Save**.
+6. Clique em **Salvar**.
 
-## Further reading
+## Leia mais
 
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

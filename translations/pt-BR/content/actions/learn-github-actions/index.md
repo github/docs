@@ -1,7 +1,7 @@
 ---
-title: Learn GitHub Actions
-shortTitle: Learn GitHub Actions
-intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
+title: Aprenda o GitHub Actions
+shortTitle: Aprenda o GitHub Actions
+intro: 'Seja você novo em {% data variables.product.prodname_actions %} ou interessado em aprender tudo o que tem a oferecer, este guia ajudará você a usar {% data variables.product.prodname_actions %} para acelerar seus fluxos de trabalho de desenvolvimento de aplicativos.'
 redirect_from:
   - /articles/about-github-actions
   - /github/automating-your-workflow-with-github-actions/about-github-actions
@@ -34,8 +34,8 @@ children:
   - /essential-features-of-github-actions
   - /managing-complex-workflows
   - /sharing-workflows-secrets-and-runners-with-your-organization
-  - /creating-workflow-templates
-  - /using-workflow-templates
+  - /creating-starter-workflows-for-your-organization
+  - /using-starter-workflows
   - /reusing-workflows
   - /events-that-trigger-workflows
   - /expressions

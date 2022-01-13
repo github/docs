@@ -1,7 +1,6 @@
 ---
-title: Inviting people to manage your enterprise
+title: Enterprise を管理するようユーザを招待する
 intro: 'You can {% ifversion ghec %}invite people to become enterprise owners or billing managers for{% elsif ghes %}add enterprise owners to{% endif %} your enterprise account. You can also remove enterprise owners {% ifversion ghec %}or billing managers {% endif %}who no longer need access to the enterprise account.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
@@ -38,7 +37,7 @@ If your enterprise uses {% data variables.product.prodname_emus %}, enterprise o
 
 {% tip %}
 
-**Tip:** For more information on managing users within an organization owned by your enterprise account, see "[Managing membership in your organization](/articles/managing-membership-in-your-organization)" and "[Managing people's access to your organization with roles](/articles/managing-peoples-access-to-your-organization-with-roles)."
+**ヒント:** Enterprise アカウントが所有する Organization 内のユーザを管理する方法に関する詳しい情報については、「[Organization でメンバーシップを管理する](/articles/managing-membership-in-your-organization)」および「[Organization への人々のアクセスをロールで管理する](/articles/managing-peoples-access-to-your-organization-with-roles)」を参照してください。
 
 {% endtip %}
 
@@ -48,33 +47,28 @@ If your enterprise uses {% data variables.product.prodname_emus %}, enterprise o
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. In the left sidebar, click **Administrators**.
-  ![Administrators tab in the left sidebar](/assets/images/help/business-accounts/administrators-tab.png)
+1. 左サイドバーで [**Administrators**] をクリックします。 ![左サイドバーの [Administrators] タブ](/assets/images/help/business-accounts/administrators-tab.png)
 1. Above the list of administrators, click {% ifversion ghec %}**Invite admin**{% elsif ghes %}**Add owner**{% endif %}.
   {% ifversion ghec %}
   !["Invite admin" button above the list of enterprise owners](/assets/images/help/business-accounts/invite-admin-button.png)
   {% elsif ghes %}
   !["Add owner" button above the list of enterprise owners](/assets/images/help/business-accounts/add-owner-button.png)
   {% endif %}
-1. Type the username, full name, or email address of the person you want to invite to become an enterprise administrator, then select the appropriate person from the results.
-  ![Modal box with field to type a person's username, full name, or email address, and Invite button](/assets/images/help/business-accounts/invite-admins-modal-button.png){% ifversion ghec %}
-1. Select **Owner** or **Billing Manager**.
-  ![Modal box with role choices](/assets/images/help/business-accounts/invite-admins-roles.png)
-1. Click **Send Invitation**.
-  ![Send invitation button](/assets/images/help/business-accounts/invite-admins-send-invitation.png){% endif %}{% ifversion ghes %}
-1. Click **Add**.
-  !["Add" button](/assets/images/help/business-accounts/add-administrator-add-button.png){% endif %}
+1. Enterprise 管理者として招待する人のユーザ名、フルネーム、またはメール アドレスを入力して、表示された結果から適切な人を選びます。 ![Modal box with field to type a person's username, full name, or email address, and Invite button](/assets/images/help/business-accounts/invite-admins-modal-button.png){% ifversion ghec %}
+1. [**Owner**] または [**Billing Manager**] を選択します。 ![ロールの選択肢が表示されたモーダルボックス](/assets/images/help/business-accounts/invite-admins-roles.png)
+1. [**Send Invitation**] をクリックします。 ![Send invitation button](/assets/images/help/business-accounts/invite-admins-send-invitation.png){% endif %}{% ifversion ghes %}
+1. [**Add**] をクリックします。 !["Add" button](/assets/images/help/business-accounts/add-administrator-add-button.png){% endif %}
 
-## Removing an enterprise administrator from your enterprise account
+## Enterprise アカウントから Enterprise 管理者を削除する
 
-Only enterprise owners can remove other enterprise administrators from the enterprise account.
+Enterprise アカウントから他の Enterprise 管理者を削除できるのは、Enterprise オーナーだけです。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click **Remove owner**{% ifversion ghec %} or **Remove billing manager**{% endif %}.
   {% ifversion ghec %}
-  ![Settings gear with menu option to remove an enterprise administrator](/assets/images/help/business-accounts/remove-admin.png)
+  ![Enterprise 管理者を削除するためのメニュー オプション付きの設定「歯車」アイコン](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}
-  ![Settings gear with menu option to remove an enterprise administrator](/assets/images/help/business-accounts/ghes-remove-owner.png)
+  ![Enterprise 管理者を削除するためのメニュー オプション付きの設定「歯車」アイコン](/assets/images/help/business-accounts/ghes-remove-owner.png)
   {% endif %}
 1. Read the confirmation, then click **Remove owner**{% ifversion ghec %} or **Remove billing manager**{% endif %}.

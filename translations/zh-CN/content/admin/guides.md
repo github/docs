@@ -1,7 +1,7 @@
 ---
-title: GitHub Enterprise guides
-shortTitle: Guides
-intro: 'Learn how to increase developer productivity and code quality with {% data variables.product.product_name %}.'
+title: GitHub Enterprise 指南
+shortTitle: 指南
+intro: '学习如何通过 {% data variables.product.product_name %} 提高开发人员的工作效率和代码质量。'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:
@@ -13,7 +13,7 @@ learningTracks:
   - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
   - '{% ifversion ghes %}deploy_an_instance{% endif %}'
   - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
-  -  adopting_github_actions_for_your_enterprise
+  - adopting_github_actions_for_your_enterprise
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
