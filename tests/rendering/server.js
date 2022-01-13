@@ -507,10 +507,10 @@ describe('server', () => {
     })
 
     test('dotcom categories on GHE have Enterprise user links', async () => {
-      const $ = await getDOM(`${latestEnterprisePath}/github/writing-on-github`)
+      const $ = await getDOM(`${latestEnterprisePath}/get-started/writing-on-github`)
       expect(
         $(
-          `ul.list-style-circle li a[href="${latestEnterprisePath}/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github"]`
+          `ul.list-style-circle li a[href="${latestEnterprisePath}/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github"]`
         ).length
       ).toBe(1)
     })
@@ -731,10 +731,11 @@ describe('server', () => {
     })
 
     test('adds links to map topics on a category homepage', async () => {
-      const $ = await getDOM('/en/github/importing-your-projects-to-github')
+      const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
       expect(
-        $('a[href="/en/github/importing-your-projects-to-github/importing-source-code-to-github"]')
-          .length
+        $(
+          'a[href="/en/get-started/importing-your-projects-to-github/importing-source-code-to-github"]'
+        ).length
       ).toBe(1)
       expect($('a[href="#managing-user-account-settings"]').length).toBe(0)
     })
