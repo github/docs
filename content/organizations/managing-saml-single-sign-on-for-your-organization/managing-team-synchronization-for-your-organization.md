@@ -46,7 +46,7 @@ You must enable SAML single sign-on for your organization and your supported IdP
 
 You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
 
-Your SAML Settings MUST contain a valid IDP url for `issuer:`. 
+Your SAML settings **must** contain a valid IdP URL for the **Issuer** field. 
 
 ![saml_issuer](https://user-images.githubusercontent.com/11250779/149009838-2e598045-1f20-45d2-ae5e-b76cba7d0eb8.png)
 
