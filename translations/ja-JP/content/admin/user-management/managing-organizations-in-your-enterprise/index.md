@@ -1,5 +1,5 @@
 ---
-title: Managing organizations in your enterprise
+title: Enterprise の Organization を管理する
 redirect_from:
   - /enterprise/admin/articles/adding-users-and-teams
   - /enterprise/admin/categories/admin-bootcamp
@@ -8,7 +8,7 @@ redirect_from:
   - /articles/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account
-intro: 'Organizations are great for creating distinct groups of users within your company, such as divisions or groups working on similar projects. {% ifversion ghae %}Internal{% else %}Public and internal{% endif %} repositories that belong to an organization are accessible to members of other organizations in the enterprise, while private repositories are inaccessible to anyone but members of the organization that are granted access.'
+intro: 'Organizationは企業内で、部署や同様のプロジェクトで作業を行うグループなど、個別のユーザグループを作成する素晴らしい手段です。 {% ifversion ghae %}Internal{% else %}Public and internal{% endif %} repositories that belong to an organization are accessible to members of other organizations in the enterprise, while private repositories are inaccessible to anyone but members of the organization that are granted access.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -31,3 +31,4 @@ children:
   - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
 ---
+

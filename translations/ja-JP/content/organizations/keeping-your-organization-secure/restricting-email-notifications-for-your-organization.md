@@ -4,7 +4,7 @@ intro: Organizationの情報が個人のメールアカウントに漏れてし�
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
-  - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain/
+  - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
   - /articles/restricting-email-notifications-to-an-approved-domain
   - /github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain
   - /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain

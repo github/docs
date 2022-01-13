@@ -32,7 +32,7 @@ shortTitle: 脆弱性のある依存関係
 
 {% data reusables.dependency-review.beta %}
 
-プルリクエストの依存関係のレビューを確認することで、依存関係からコードベースに脆弱性が発生するのを防ぐことができます。 プルリクエストが脆弱性のある依存関係を追加したり、依存関係を脆弱性のあるバージョンに変更した場合、これは依存関係のレビューで強調表示されます。 プルリクエストをマージする前に、依存関係をパッチを適用したバージョンに変更できます。 For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+プルリクエストの依存関係のレビューを確認することで、依存関係からコードベースに脆弱性が発生するのを防ぐことができます。 プルリクエストが脆弱性のある依存関係を追加したり、依存関係を脆弱性のあるバージョンに変更した場合、これは依存関係のレビューで強調表示されます。 プルリクエストをマージする前に、依存関係をパッチを適用したバージョンに変更できます。 詳しい情報については「[依存関係のレビュー](/code-security/supply-chain-security/about-dependency-review)」を参照してください。
 
 ## {% data variables.product.prodname_dependabot_alerts %}
 リポジトリ内の脆弱性のある依存関係を検出すると、{% data variables.product.product_name %} は {% data variables.product.prodname_dependabot_alerts %} を作成できます。 アラートは、リポジトリの [Security] タブに表示されます。 アラートには、プロジェクト内で影響を受けるファイルへのリンクと、修正バージョンに関する情報が含まれています。 {% data variables.product.product_name %} は、通知設定に従って、リポジトリのメンテナにも通知します。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。

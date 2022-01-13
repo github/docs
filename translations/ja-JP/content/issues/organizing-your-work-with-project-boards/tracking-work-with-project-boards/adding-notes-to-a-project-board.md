@@ -3,7 +3,7 @@ title: プロジェクトボードへのノートの追加
 intro: タスクリマインダーとして働くノートや、プロジェクトボードに関連する情報を追加するためのノートをプロジェクトボードに追加できます。
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
-  - /articles/adding-notes-to-a-project/
+  - /articles/adding-notes-to-a-project
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:

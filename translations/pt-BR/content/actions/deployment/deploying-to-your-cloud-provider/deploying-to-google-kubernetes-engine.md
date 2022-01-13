@@ -1,6 +1,6 @@
 ---
-title: Deploying to Google Kubernetes Engine
-intro: You can deploy to Google Kubernetes Engine as part of your continuous deployment (CD) workflows.
+title: Implantar no Google Kubernetes Engine
+intro: Você pode realizar a implantação no Google Kubernetes Engine como parte dos seus fluxos de trabalho de implantação contínua (CD).
 redirect_from:
   - /actions/guides/deploying-to-google-kubernetes-engine
   - /actions/deployment/deploying-to-google-kubernetes-engine
@@ -14,78 +14,78 @@ topics:
   - CD
   - Containers
   - Google Kubernetes Engine
-shortTitle: Deploy to Google Kubernetes Engine
+shortTitle: Implantar no Google Kubernetes Engine
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## Introdução
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when there is a push to the `main` branch.
+Este guia explica como usar {% data variables.product.prodname_actions %} para criar um aplicativo de contêiner e fazer push para o Google Container Registry (GCR) e fazer a implantação para o Google Kubernetes Engine (GKE) quando houver um push no branch `principal`.
 
-GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
+O GKE é um serviço de cluster gerenciado do Kubernetes pelo Google Cloud que pode hospedar suas cargas de trabalho containerizadas na nuvem ou em seu próprio centro de dados. Para obter mais informações, consulte [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %}
+**Observação**: {% data reusables.actions.about-oidc-short-overview %}
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## Pré-requisitos
 
-Before you proceed with creating the workflow, you will need to complete the following steps for your Kubernetes project. This guide assumes the root of your project already has a `Dockerfile` and a Kubernetes Deployment configuration file. For an example, see [google-github-actions](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke).
+Antes de prosseguir com a criação do fluxo de trabalho, você precisará concluir as etapas a seguir para seu projeto do Kubernetes. Este guia assume que a raiz do seu projeto já possui um `arquivo Docker` e um arquivo de configuração de implantação do Kubernetes. Por exemplo, consulte [google-github-actions](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke).
 
-### Creating a GKE cluster
+### Criar um cluster do GKE
 
-To create the GKE cluster, you will first need to authenticate using the `gcloud` CLI. For more information on this step, see the following articles:
+Para criar o cluster do GKE, primeiro você precisará efetuar a autenticação usando o CLI de `gcloud`. Para obter mais informações sobre esta etapa, veja os artigos a seguir:
 - [`gcloud auth login`](https://cloud.google.com/sdk/gcloud/reference/auth/login)
 - [`gcloud` CLI](https://cloud.google.com/sdk/gcloud/reference)
-- [`gcloud` CLI and Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk)
+- [`gcloud` CLI e Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk)
 
-For example:
+Por exemplo:
 
 {% raw %}
 ```bash{:copy}
 $ gcloud container clusters create $GKE_CLUSTER \
-	--project=$GKE_PROJECT \
-	--zone=$GKE_ZONE
+    --project=$GKE_PROJECT \
+    --zone=$GKE_ZONE
 ```
 {% endraw %}
 
-### Enabling the APIs
+### Habilitar as APIs
 
-Enable the Kubernetes Engine and Container Registry APIs. For example:
+Habilitar as APIs do Kubernetes Engine e do Registro de Contêiner. Por exemplo:
 
 {% raw %}
 ```bash{:copy}
 $ gcloud services enable \
-	containerregistry.googleapis.com \
-	container.googleapis.com
+    containerregistry.googleapis.com \
+    container.googleapis.com
 ```
 {% endraw %}
 
-### Configuring a service account and storing its credentials
+### Configurar uma conta de serviço e armazenar as suas credenciais
 
-This procedure demonstrates how to create the service account for your GKE integration. It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded encrypted repository secret named `GKE_SA_KEY`.
+Este procedimento demonstra como criar a conta de serviço para sua integração com o GKE. Ele explica como criar a conta, adicionar funções, recuperar suas chaves, e armazená-las como um segredo de repositório criptografado codificado em base64 denominado `GKE_SA_KEY`.
 
-1. Create a new service account:
+1. Crie uma nova conta de serviço:
   {% raw %}
   ```
   $ gcloud iam service-accounts create $SA_NAME
   ```
   {% endraw %}
-1. Retrieve the email address of the service account you just created:
+1. Recupere o endereço de e-mail da conta de serviço que você acabou de criar:
   {% raw %}
   ```
   $ gcloud iam service-accounts list
   ```
   {% endraw %}
-1. Add roles to the service account. Note: Apply more restrictive roles to suit your requirements.
+1. Adicionar funções à conta de serviço. Observação: Aplique funções mais restritivas para atender aos seus requisitos.
   {% raw %}
   ```
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
@@ -95,40 +95,40 @@ This procedure demonstrates how to create the service account for your GKE integ
     --role=roles/container.clusterViewer
   ```
   {% endraw %}
-1. Download the JSON keyfile for the service account:
+1. Faça o download do arquivo chave do JSON para a conta de serviço:
   {% raw %}
   ```
   $ gcloud iam service-accounts keys create key.json --iam-account=$SA_EMAIL
   ```
   {% endraw %}
-1. Store the service account key as a secret named `GKE_SA_KEY`:
+1. Armazenar a chave da conta de serviço como um segredo denominado `GKE_SA_KEY`:
   {% raw %}
   ```
   $ export GKE_SA_KEY=$(cat key.json | base64)
   ```
   {% endraw %}
-  For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+  Para obter mais informações sobre como armazenar um segredo, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
-### Storing your project name
+### Armazenando o nome do seu projeto
 
-Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Armazene o nome do seu projeto como um segredo denominado `GKE_PROJECT`. Para obter mais informações sobre como armazenar um segredo, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
-### (Optional) Configuring kustomize
-Kustomize is an optional tool used for managing YAML specs. After creating a _kustomization_ file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. For more information, see [kustomize usage](https://github.com/kubernetes-sigs/kustomize#usage).
+### (Opcional) Configurar kustomize
+Kustomize é uma ferramenta opcional usada para gerenciar especificações do YAML. Depois de criar um arquivo do _kustomization_, o fluxo de trabalho abaixo pode ser usado para definir dinamicamente os campos da imagem e adicionar o resultado ao `kubectl`. Para obter mais informações, consulte [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-### (Optional) Configure a deployment environment
+### (Opcional) Configure um ambiente de implantação
 
 {% data reusables.actions.about-environments %}
 {% endif %}
 
-## Creating the workflow
+## Criar o fluxo de trabalho
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+Depois de preencher os pré-requisitos, você pode prosseguir com a criação do fluxo de trabalho.
 
-The following example workflow demonstrates how to build a container image and push it to GCR. It then uses the Kubernetes tools (such as `kubectl` and `kustomize`) to pull the image into the cluster deployment.
+O fluxo de trabalho a seguir mostra como construir uma imagem de contêiner e como carregá-los no GCR. Em seguida, ele usa as ferramentas do Kubernetes (como `kubectl` e `kustomize`) para mover a imagem para a implantação do cluster.
 
-Under the `env` key, change the value of `GKE_CLUSTER` to the name of your cluster, `GKE_ZONE` to your cluster zone, `DEPLOYMENT_NAME` to the name of your deployment, and `IMAGE` to the name of your image.
+Na chave `env`, altere o valor de `GKE_CLUSTER` para o nome do seu cluster, `GKE_ZONE` à sua zona de clustering. `DEPLOYMENT_NAME` ao nome da sua implantação e `IMAGE` ao nome da sua imagem.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -206,11 +206,11 @@ jobs:
         kubectl get services -o wide
 ```
 
-## Additional resources
+## Recursos adicionais
 
-For more information on the tools used in these examples, see the following documentation:
+Para mais informações sobre as ferramentas usadas nesses exemplos, consulte a documentação a seguir:
 
-* For the full starter workflow, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
-* For more starter workflows and accompanying code, see Google's [{% data variables.product.prodname_actions %} example workflows](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/).
-* The Kubernetes YAML customization engine: [Kustomize](https://kustomize.io/).
-* "[Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" in the Google Kubernetes Engine documentation.
+* Para o fluxo de trabalho inicial completo, consulte o [Fluxo de trabalho de "criar e implantar no GKE"](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
+* Para mais fluxos de trabalho iniciais e código de acompanhamento, consulte o [fluxos de trabalho de exemplos de {% data variables.product.prodname_actions %} do Google](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/).
+* Mecanismo de personalização do YAML do Kubernetes: [Kustomize](https://kustomize.io/).
+* "[Implantarum aplicativo web conteinerizado](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" na documentação do Google Kubernetes Engine .

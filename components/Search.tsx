@@ -206,38 +206,41 @@ export function Search({
   )
 
   const SearchInput = (
-    <div data-testid="search" aria-hidden="true">
+    <div data-testid="search">
       <div className="position-relative z-2">
         <form role="search" className="width-full d-flex" noValidate onSubmit={onFormSubmit}>
-          <input
-            data-testid="site-search-input"
-            ref={inputRef}
-            className={cx(
-              styles.searchInput,
-              iconSize === 24 && 'form-control px-6 f4',
-              iconSize === 16 && 'form-control px-5 f4',
-              variant === 'compact' && 'py-2',
-              variant === 'expanded' && 'py-3',
-              isHeaderSearch && styles.searchInputHeader,
-              !isHeaderSearch && 'width-full',
-              isHeaderSearch && query && styles.searchInputExpanded,
-              isHeaderSearch && query && 'position-absolute top-0 right-0'
-            )}
-            style={{
-              background: `var(--color-canvas-default) url("/assets/images/octicons/search-${iconSize}.svg") no-repeat ${
-                iconSize === 24 ? '12px' : '6px'
-              }`,
-            }}
-            type="search"
-            placeholder={t`placeholder`}
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="off"
-            spellCheck="false"
-            maxLength={512}
-            onChange={onSearch}
-            value={localQuery}
-          />
+          <label className="text-normal width-full">
+            <span className="visually-hidden">{t`placeholder`}</span>
+            <input
+              data-testid="site-search-input"
+              ref={inputRef}
+              className={cx(
+                styles.searchInput,
+                iconSize === 24 && 'form-control px-6 f4',
+                iconSize === 16 && 'form-control px-5 f4',
+                variant === 'compact' && 'py-2',
+                variant === 'expanded' && 'py-3',
+                isHeaderSearch && styles.searchInputHeader,
+                !isHeaderSearch && 'width-full',
+                isHeaderSearch && query && styles.searchInputExpanded,
+                isHeaderSearch && query && 'position-absolute top-0 right-0'
+              )}
+              style={{
+                background: `var(--color-canvas-default) url("/assets/images/octicons/search-${iconSize}.svg") no-repeat ${
+                  iconSize === 24 ? '12px' : '6px'
+                }`,
+              }}
+              type="search"
+              placeholder={t`placeholder`}
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
+              maxLength={512}
+              onChange={onSearch}
+              value={localQuery}
+            />
+          </label>
           <button className="d-none" type="submit" title="Submit the search query." hidden />
         </form>
       </div>
@@ -344,23 +347,6 @@ function ShowSearchResults({
   }, [selectedVersion])
 
   if (results) {
-    if (results.length === 0) {
-      // When there results, but exactly 0, it matters if this is the overlay or not.
-      if (isHeaderSearch) {
-        return (
-          <div className="mt-5 px-6">
-            {isLoading ? <span>{t('loading')}...</span> : <span>{t('no_results')}.</span>}
-          </div>
-        )
-      } else {
-        return (
-          <p data-testid="no-search-results" className="d-block mt-4">
-            {t('no_results')}.
-          </p>
-        )
-      }
-    }
-
     const ActionListResults = (
       <div
         data-testid="search-results"
@@ -370,7 +356,7 @@ function ShowSearchResults({
           isHeaderSearch && 'overflow-auto'
         )}
       >
-        <div className="mt-4 pb-4 width-full border-bottom">
+        <div className={cx(styles.versionSearchContainer, 'mt-4 pb-4 width-full border-bottom')}>
           <p className={cx(styles.searchWording, 'f6 ml-4 d-inline-block')}>
             You're searching the <strong>{searchVersion}</strong> version.
           </p>
@@ -386,8 +372,16 @@ function ShowSearchResults({
         </div>
         {/* We might have results AND isLoading. For example, the user typed
         a first word, and is now typing more. */}
-        <p className="d-block ml-4 mt-4">
-          {isLoading ? <span>{t('loading')}...</span> : <span>&nbsp;</span>}
+        {isLoading && (
+          <p className="d-block ml-4 mt-4">
+            <span>{t('loading')}...</span>
+          </p>
+        )}
+        <h1 className="ml-4 f2 mt-4">
+          {t('search_results_for')}: {query}
+        </h1>
+        <p className="ml-4 mb-4 text-normal f5">
+          {t('matches_displayed')}: {results.length === 0 ? t('no_results') : results.length}
         </p>
 
         <ActionList
@@ -418,8 +412,8 @@ function ShowSearchResults({
                             score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
                           </small>
                         )}
-                        <div
-                          className={cx('mt-2 d-block f4 text-semibold')}
+                        <h2
+                          className={cx('mt-2 text-normal f3 d-block')}
                           dangerouslySetInnerHTML={{
                             __html: title,
                           }}
@@ -430,7 +424,7 @@ function ShowSearchResults({
                           dangerouslySetInnerHTML={{ __html: content }}
                         />
                         <div
-                          className={'d-block mt-2 opacity-60 text-small'}
+                          className={'d-block mt-2 opacity-70 text-small'}
                           dangerouslySetInnerHTML={
                             breadcrumbs.length === 0
                               ? { __html: `${title}`.replace(/<\/?[^>]+(>|$)|(\/)/g, '') }

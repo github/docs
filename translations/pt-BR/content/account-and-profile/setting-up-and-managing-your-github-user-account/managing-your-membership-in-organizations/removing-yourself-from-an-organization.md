@@ -1,6 +1,6 @@
 ---
-title: Removing yourself from an organization
-intro: 'If you''re an outside collaborator or a member of an organization, you can leave the organization at any time.'
+title: Remover a si mesmo de uma organização
+intro: 'Se você for um colaborador externo ou um integrante de uma organização, poderá sair da organização a qualquer momento.'
 redirect_from:
   - /articles/how-do-i-remove-myself-from-an-organization
   - /articles/removing-yourself-from-an-organization
@@ -13,15 +13,16 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Leave an organization
+shortTitle: Deixar uma organização
 ---
+
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Warning:** If you're currently responsible for paying for {% data variables.product.product_name %} in your organization, removing yourself from the organization **does not** update the billing information on file for the organization. If you are currently responsible for billing, **you must** have another owner or billing manager for the organization [update the organization's payment method](/articles/adding-or-editing-a-payment-method).
+**Aviso:** se você for responsável por pagar pelo {% data variables.product.product_name %} na organização, remover a si mesmo dela **não** atualizará as informações de cobrança no registro da organização. Se for responsável no momento pela cobrança, você **precisará** que outro proprietário ou gerente de cobrança [atualize a forma de pagamento da organização](/articles/adding-or-editing-a-payment-method).
 
-For more information, see "[Transferring organization ownership](/articles/transferring-organization-ownership)."
+Para obter mais informações, consulte "[Transferir a propriedade da organização](/articles/transferring-organization-ownership)".
 
 {% endwarning %}
 
@@ -29,5 +30,4 @@ For more information, see "[Transferring organization ownership](/articles/trans
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
-3. Under "Organizations", find the organization you'd like to remove yourself from, then click **Leave**.
-  ![Leave organization button with roles shown](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)
+3. Em "Organizations" (Organizações), encontre a organização da qual deseja remover a si mesmo, depois clique em **Leave** (Sair). ![Botão Leave organization (Sair da organização) mostrando as funções](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)

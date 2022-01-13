@@ -32,7 +32,7 @@ const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
 // This helper uses the `GITHUB_TOKEN` implicitly
 const octokit = getOctokit()
 
-const protectedAppNames = ['help-docs', 'help-docs-deployer']
+const protectedAppNames = ['help-docs']
 
 main()
 

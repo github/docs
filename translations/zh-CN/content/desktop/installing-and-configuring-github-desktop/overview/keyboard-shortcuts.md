@@ -2,7 +2,7 @@
 title: 键盘快捷键
 intro: '您可以在 {% data variables.product.prodname_desktop %} 中使用键盘快捷键。'
 redirect_from:
-  - /desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop/
+  - /desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts
   - /desktop/installing-and-configuring-github-desktop/keyboard-shortcuts
 versions:

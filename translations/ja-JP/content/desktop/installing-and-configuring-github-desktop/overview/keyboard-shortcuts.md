@@ -2,7 +2,7 @@
 title: キーボードショートカット
 intro: '{% data variables.product.prodname_desktop %}ではキーボードショートカットを利用できます。'
 redirect_from:
-  - /desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop/
+  - /desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts
   - /desktop/installing-and-configuring-github-desktop/keyboard-shortcuts
 versions:

@@ -13,6 +13,8 @@ header:
     ghes_release_notes_upgrade_patch_only: '📣 これはEnterprise Serverの<a href="#{{ latestPatch }}">最新のパッチリリース</a>ではありません。'
     ghes_release_notes_upgrade_release_only: '📣 これはEnterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。'
     ghes_release_notes_upgrade_patch_and_release: '📣 これはこのリリースシリーズの<a href="#{{ latestPatch }}">最新パッチリリース</a>ではなく、これはEnterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。'
+picker:
+  toggle_picker_list: Toggle picker list
 release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
@@ -20,7 +22,9 @@ search:
   placeholder: トピックや製品などの検索
   loading: ロード中
   no_results: 結果が見つかりませんでした
+  search_results_for: Search results for
   no_content: No content
+  matches_displayed: Matches displayed
 homepage:
   explore_by_product: 製品で調べる
   version_picker: バージョン
@@ -29,6 +33,7 @@ toc:
   popular: 人気
   guides: ガイド
   whats_new: 更新情報
+  videos: 動画
 pages:
   article_version: 'Article version'
   miniToc: 'ここには以下の内容があります:'
@@ -52,7 +57,8 @@ survey:
   optional: 任意
   required: 必須
   email_placeholder: email@example.com
-  email_label: さらに質問がある場合、ご連絡差し上げてもよいでしょうか？
+  email_label: If we can contact you with more questions, please enter your email address
+  email_validation: Please enter a valid email address
   send: 送信
   feedback: ありがとうございます！フィードバックをいただきました。
   not_support: 返信が必要な場合は、サポートにお問い合わせください。

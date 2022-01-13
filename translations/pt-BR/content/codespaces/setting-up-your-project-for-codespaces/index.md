@@ -1,7 +1,7 @@
 ---
-title: 'Setting up your repository for {% data variables.product.prodname_codespaces %}'
+title: 'Configurando seu repositório para {% data variables.product.prodname_codespaces %}'
 allowTitleToDifferFromFilename: true
-intro: 'Learn how to get started with {% data variables.product.prodname_codespaces %}, including set up and configuration for specific languages.'
+intro: 'Aprenda como dar os primeiros passos com {% data variables.product.prodname_codespaces %}, incluindo a configuração para linguagens específicas.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -15,5 +15,6 @@ children:
   - /setting-up-your-dotnet-project-for-codespaces
   - /setting-up-your-java-project-for-codespaces
   - /setting-up-your-python-project-for-codespaces
+  - /setting-a-minimum-specification-for-codespace-machines
 ---
 

@@ -2,8 +2,8 @@
 title: Adicionar um tema ao site do GitHub Pages com o seletor de temas
 intro: 'É possível adicionar um tema ao site do {% data variables.product.prodname_pages %} para personalizar a aparência dele.'
 redirect_from:
-  - /articles/creating-a-github-pages-site-with-the-jekyll-theme-chooser/
-  - /articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser/
+  - /articles/creating-a-github-pages-site-with-the-jekyll-theme-chooser
+  - /articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser
   - /articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
 product: '{% data reusables.gated-features.pages %}'

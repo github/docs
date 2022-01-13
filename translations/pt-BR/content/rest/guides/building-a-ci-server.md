@@ -2,7 +2,7 @@
 title: Criar um servidor de CI
 intro: Crie o seu próprio sistema CI usando a API de status.
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'

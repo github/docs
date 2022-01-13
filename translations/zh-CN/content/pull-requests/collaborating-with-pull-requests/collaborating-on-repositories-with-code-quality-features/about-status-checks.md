@@ -3,7 +3,7 @@ title: 关于状态检查
 intro: 状态检查用于获知您的提交是否符合为您参与的仓库设置的条件。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
-  - /articles/about-statuses/
+  - /articles/about-statuses
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
   - /github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks

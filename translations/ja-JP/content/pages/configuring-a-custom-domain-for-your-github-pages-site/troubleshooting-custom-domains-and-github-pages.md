@@ -2,9 +2,9 @@
 title: カスタムドメインとGitHub Pages のトラブルシューティング
 intro: '{% data variables.product.prodname_pages %} サイトのカスタムドメインまたは HTTPS について、よくあるエラーを確認して Issue を解決することができます。'
 redirect_from:
-  - /articles/my-custom-domain-isn-t-working/
-  - /articles/custom-domain-isn-t-working/
-  - /articles/troubleshooting-custom-domains/
+  - /articles/my-custom-domain-isn-t-working
+  - /articles/custom-domain-isn-t-working
+  - /articles/troubleshooting-custom-domains
   - /articles/troubleshooting-custom-domains-and-github-pages
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'

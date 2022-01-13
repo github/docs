@@ -37,4 +37,5 @@ Acesso seguro à sua empresa em {% data variables.product.prodname_ghe_managed %
 
 ## Leia mais
 
+- "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"
 - "[Recebendo ajuda do suporte de {% data variables.product.company_short %}](/admin/enterprise-support/receiving-help-from-github-support)"

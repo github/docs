@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note:** Your site administrator must set up {% data variables.product.prodname_dependabot %} updates for {% data variables.product.product_location %} before you can use this feature. For more information, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+**Nota:** Tu administrador de sitio debe configurar el {% data variables.product.prodname_dependabot %} para {% data variables.product.product_location %} antes de que puedas utilizar esta característica. For more information, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
 
 {% endnote %}
 

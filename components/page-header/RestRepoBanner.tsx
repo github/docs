@@ -1,3 +1,4 @@
+import React from 'react'
 import { Flash } from '@primer/components'
 import { useRouter } from 'next/router'
 import { Link } from 'components/Link'
@@ -10,7 +11,7 @@ const restDisplayPages = [
   '/rest/reference/pages',
   '/rest/reference/releases',
   '/rest/reference/repos',
-  '/rest/reference/repository-metrics',
+  '/rest/reference/metrics',
   '/rest/reference/webhooks',
 ]
 const restRepoCategoryExceptionsTitles = {
@@ -20,7 +21,7 @@ const restRepoCategoryExceptionsTitles = {
   deployments: 'Deployments',
   pages: 'GitHub Pages',
   releases: 'Releases',
-  'repository-metrics': 'Repository metrics',
+  metrics: 'Metrics',
   webhooks: 'Webhooks',
 }
 
@@ -35,12 +36,12 @@ export const RestRepoBanner = () => {
     keyof typeof restRepoCategoryExceptionsTitles
   >
   const newRestPagesText = pages.map((page, i) => [
-    <>
+    <React.Fragment key={page}>
       <Link href={`/${router.locale}/rest/reference/${page}`}>
         {restRepoCategoryExceptionsTitles[page]}
       </Link>
       {i < pages.length - 1 && ', '}
-    </>,
+    </React.Fragment>,
   ])
 
   return (
