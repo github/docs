@@ -17,7 +17,7 @@ shortTitle: Use merge queue
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-The merge queue creates temporary preparatory branches to validate pull requests against the latest version of the base branch. To ensure that {% data variables.product.prodname_dotcom %} validates these preparatory branches, you may need to update your CI configuration to trigger builds on branch names starting with `gh/readonly/queue/{base_branch}`. 
+The merge queue creates temporary preparatory branches to validate pull requests against the latest version of the base branch. To ensure that {% data variables.product.prodname_dotcom %} validates these preparatory branches, you may need to update your CI configuration to trigger builds on branch names starting with `gh/readonly/queue/{base_branch}`.
 
 For example, with {% data variables.product.prodname_actions %}, adding the following trigger to a workflow will cause the workflow to run when any push is made to a merge queue preparatory branch that targets `main`.
 
@@ -32,7 +32,7 @@ on:
 
 For information about merge methods, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)." For information about the "Require linear history" branch protection setting, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-linear-history)."
 
-{% note %} 
+{% note %}
 
 **Note:** During the beta, there are some limitations when using the merge queue:
 
@@ -48,7 +48,7 @@ Repository administrators can configure merge queues for pull requests targeting
 
 For information about how to enable the merge queue protection setting, see "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
 
-## Further reading
+## 参考リンク
 
 - "[Adding a pull request to the merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue)"
-- "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)"
+- [保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)

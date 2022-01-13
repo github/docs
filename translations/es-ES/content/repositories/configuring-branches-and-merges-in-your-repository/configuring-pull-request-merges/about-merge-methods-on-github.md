@@ -1,6 +1,6 @@
 ---
-title: About merge methods on GitHub
-intro: 'You can allow contributors with push access to your repository to merge their pull requests on {% data variables.product.product_location %} with different merge options or enforce a specific merge method for all of your repository''s pull requests.'
+title: Acerca de los métodos de fusión en GitHub
+intro: 'Puedes permitirle a los colaboradores con acceso de escritura a tu repositorio fusionar sus solicitudes de extracción en {% data variables.product.product_location %} con diferentes opciones de fusión o implementar un método de fusión específico para todas las solicitudes de extracción de tu repositorio.'
 redirect_from:
   - /articles/about-merge-methods-on-github
   - /github/administering-a-repository/about-merge-methods-on-github
@@ -12,14 +12,15 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: About merge methods
+shortTitle: Acerca de los métodos de fusión
 ---
-{% data reusables.pull_requests.configure_pull_request_merges_intro %} You can enforce one type of merge method, such as commit squashing or rebasing, by only enabling the desired method for your repository.
+
+{% data reusables.pull_requests.configure_pull_request_merges_intro %} Puedes implementar un tipo de método de fusión, como el cambio de base o la combinación de confirmaciones, con solo activar el método deseado para tu repositorio.
 
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+**Nota:** Cuando utilices la cola de fusión, ya no podrás elegir el método de fusión, ya que a este lo controla la cola. {% data reusables.pull_requests.merge-queue-references %}
 
 {% endnote %}
 {% endif %}
@@ -27,24 +28,24 @@ shortTitle: About merge methods
 {% data reusables.pull_requests.default_merge_option %}
 
 {% ifversion fpt or ghae or ghes or ghec %}
-The default merge method creates a merge commit. You can prevent anyone from pushing merge commits to a protected branch by enforcing a linear commit history. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-linear-history)."{% endif %}
+El método de fusión predeterminado crea una confirmación de fusión. Puedes impedir que cualquiera suba confirmaciones de fusión en una rama protegida imponiendo un historiar de confirmaciones linear. Para obtener más información, consulta la sección "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-linear-history)".{% endif %}
 
-## Squashing your merge commits
+## Combinar tus confirmaciones de fusión
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
-Before enabling squashing commits, consider these disadvantages:
-- You lose information about when specific changes were originally made and who authored the squashed commits.
-- If you continue working on the head branch of a pull request after squashing and merging, and then create a new pull request between the same branches, commits that you previously squashed and merged will be listed in the new pull request. You may also have conflicts that you have to repeatedly resolve in each successive pull request. For more information, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squashing-and-merging-a-long-running-branch)."
-- Some Git commands that use the "SHA" or "hash" ID may be harder to use since the SHA ID for the original commits is lost. For example, using [`git rerere`](https://git-scm.com/docs/git-rerere) may not be as effective.
+Antes de activar combinar confirmaciones, considera estas desventajas:
+- Se pierde información acerca de cuándo se hicieron originalmente los cambios específicos y quién es el autor de las confirmaciones combinadas.
+- Si sigues trabajando en la rama principal de una solicitud de extracción después de combinar y fusionar, y luego creas una solicitud de extracción nueva entre las mismas ramas, las confirmaciones que ya hayas combinado y fusionado se listarán en la solicitud de extracción nueva. También podrías tener conflictos que tienes que resolver constantemente en cada solicitud de extracción sucesiva. Para obtener más información, consulta "[Acerca de las fusiones de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squashing-and-merging-a-long-running-branch)".
+- Es posible que sea más difícil usar algunos comandos de Git que usan el ID "SHA" o "hash", ya que se pierde el ID SHA para las confirmaciones originales. Por ejemplo, es posible que no sea tan efectivo usar [`git rerere`](https://git-scm.com/docs/git-rerere).
 
-For more information, see "[Configuring commit squashing for pull requests](/articles/configuring-commit-squashing-for-pull-requests)."
+Para obtener más información, consulta "[Configurar la combinación de confirmaciones para las solicitudes de extracción](/articles/configuring-commit-squashing-for-pull-requests)".
 
-## Rebasing and merging your commits
+## Cambiar de base y fusionar tus confirmaciones
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
-Before enabling commit rebasing, consider these disadvantages:
-- Repository contributors may have to rebase on the command line, resolve any conflicts, and force push their changes to the pull request's topic branch (or remote head branch) before they can use the **rebase and merge** option on {% data variables.product.product_location %}. Force pushing must be done carefully so contributors don't overwrite work that others have based their work on. To learn more about when the **Rebase and merge** option is disabled on {% data variables.product.product_location %} and the workflow to re-enable it, see "[About pull request merges](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)."
+Antes de activar cambiar de base las confirmaciones, considera estas desventajas:
+- Es posible que los colaboradores del repositorio tengan que cambiar de base en la línea de comandos, resolver cualquier conflicto y realizar un empuje forzado de sus cambios a la rama de tema de la solicitud de extracción (o rama de encabezado remota) antes de poder usar la opción **cambiar de base y fusionar** en {% data variables.product.product_location %}. El empuje forzado se debe realizar cuidadosamente para que los colaboradores no sobreescriban un trabajo en el que otros se hayan basado. Para conocer más sobre cuando la opción **Cambiar de base y fusionar** está desactivada en {% data variables.product.product_location %} y el flujo de trabajo para volver a activarlo, consulta "[Acerca de las fusiones de solicitudes de extracción](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)".
 
-For more information, see "[Configuring commit rebasing for pull requests](/articles/configuring-commit-rebasing-for-pull-requests)."
+Para obtener más información, consulta [Configurar el cambio de base de las solicitudes de extracción](/articles/configuring-commit-rebasing-for-pull-requests)".

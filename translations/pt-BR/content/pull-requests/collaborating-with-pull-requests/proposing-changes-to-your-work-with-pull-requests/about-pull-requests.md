@@ -1,6 +1,6 @@
 ---
-title: About pull requests
-intro: 'Pull requests let you tell others about changes you''ve pushed to a branch in a repository on {% data variables.product.product_name %}. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.'
+title: Sobre pull requests
+intro: 'As pull requests permitem que você informe outras pessoas sobre as alterações das quais você fez push para um branch em um repositório no {% data variables.product.product_name %}. Depois que uma pull request é aberta, você pode discutir e revisar as possíveis alterações com colaboradores e adicionar commits de acompanhamento antes que as alterações sofram merge no branch base.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
   - /articles/using-pull-requests
@@ -15,29 +15,30 @@ versions:
 topics:
   - Pull requests
 ---
-## About pull requests
+
+## Sobre pull requests
 
 {% note %}
 
-**Note:** When working with pull requests, keep the following in mind:
-* If you're working in the [shared repository model](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models), we recommend that you use a topic branch for your pull request. While you can send pull requests from any branch or commit, with a topic branch you can push follow-up commits if you need to update your proposed changes.
-* When pushing commits to a pull request, don't force push. Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
+**Observação:** ao trabalhar com pull requests, lembre-se do seguinte:
+* Se estiver trabalhando no [modo de repositório compartilhado](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models), é recomendável usar um branch de tópico para sua pull request. Embora você possa enviar pull requests de qualquer branch ou commit, com um branch de tópico, é possível fazer push de commits de acompanhamento caso seja preciso atualizar as alterações propostas.
+* Ao fazer push de commits para uma pull request, não force o push. Faz push forçado das alterações no histórico do repositório e pode corromper o seu pull request. Se outros colaboradores fizerem o branch do projeto antes de um push forçado, este poderá substituir os commits nos quais os colaboradores basearam o seu trabalho.
 
 {% endnote %}
 
-You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
+Você pode criar pull requests no {% data variables.product.prodname_dotcom_the_website %}, com {% data variables.product.prodname_desktop %}, em {% data variables.product.prodname_codespaces %}, em {% data variables.product.prodname_mobile %} e ao usar a CLI do GitHub.
 
-After initializing a pull request, you'll see a review page that shows a high-level overview of the changes between your branch (the compare branch) and the repository's base branch. You can add a summary of the proposed changes, review the changes made by commits, add labels, milestones, and assignees, and @mention individual contributors or teams. For more information, see "[Creating a pull request](/articles/creating-a-pull-request)."
+Após inicialização de uma pull request, você verá uma página de revisão que mostra uma visão geral de alto nível das alterações entre seu branch (o branch de comparação) e o branch base do repositório. É possível adicionar um resumo das alterações propostas, revisar as alterações feitas pelos commits, adicionar etiquetas, marcos e responsáveis, bem como fazer @menção a contribuidores individuais ou equipes. Para obter mais informações, consulte "[Criar uma pull request](/articles/creating-a-pull-request)".
 
-Once you've created a pull request, you can push commits from your topic branch to add them to your existing pull request. These commits will appear in chronological order within your pull request and the changes will be visible in the "Files changed" tab.
+Depois que tiver criado uma pull request, você poderá fazer push dos commits do branch de tópico para adicioná-los à sua pull request existente. Esses commits aparecerão em ordem cronológica na pull request e as alterações estarão visíveis na guia "Files chenged" (Arquivos alterados).
 
-Other contributors can review your proposed changes, add review comments, contribute to the pull request discussion, and even add commits to the pull request.
+Outros contribuidores podem revisar as alterações propostas, adicionar comentários de revisão, contribuir com a discussão da pull request e, até mesmo, adicionar commits à pull request.
 
 {% ifversion fpt or ghec %}
-You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. For more information, see "[Viewing deployment activity for a repository](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)."
+Você pode ver as informações sobre o status da implantação atual do branch e atividades passadas de implantação na guia "Conversa". Para obter mais informações, consulte "[Exibir atividade de implantação para um repositório](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)".
 {% endif %}
 
-After you're happy with the proposed changes, you can merge the pull request. If you're working in a shared repository model, you create a pull request and you, or someone else, will merge your changes from your feature branch into the base branch you specify in your pull request. For more information, see "[Merging a pull request](/articles/merging-a-pull-request)."
+Quando estiver satisfeito com as alterações propostas, você poderá fazer merge da pull request. Se você está trabalhando em um modelo de repositório compartilhado, você cria uma pull request e, você ou outra pessoa, fará a mesclagem de suas alterações do seu branch de recurso no branch base que você especificar na sua pull request. Para obter mais informações, consulte "[Fazer merge de uma pull request](/articles/merging-a-pull-request)".
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
@@ -45,32 +46,32 @@ After you're happy with the proposed changes, you can merge the pull request. If
 
 {% tip %}
 
-**Tips:**
-- To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. For more shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts)."
-- You can squash commits when merging a pull request to gain a more streamlined view of changes. For more information, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+**Dicas:**
+- Para alternar entre as opções de recolhimento e expansão de todos os comentários de revisão desatualizados em uma pull request, mantenha pressionados <span class="platform-mac"><kbd>opção</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> e clique em **Mostrar desatualizados** ou **Ocultar desatualizados**. Para ver mais atalhos, consulte "[Atalhos de teclado](/articles/keyboard-shortcuts)".
+- Você pode combinar commits por squash ao fazer merge de uma pull request para obter uma exibição mais simplificada das alterações. Para obter mais informações, consulte "[Sobre merges da pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)".
 
 {% endtip %}
 
-You can visit your dashboard to quickly find links to recently updated pull requests you're working on or subscribed to. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+É possível acessar seu painel a fim de encontrar rapidamente links para pull requests recentemente atualizadas nas quais você está trabalhando ou nas quais está inscrito. Para obter mais informações, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
 
-## Draft pull requests
+## Pull requests de rascunho
 
 {% data reusables.gated-features.draft-prs %}
 
-When you create a pull request, you can choose to create a pull request that is ready for review or a draft pull request. Draft pull requests cannot be merged, and code owners are not automatically requested to review draft pull requests. For more information about creating a draft pull request, see "[Creating a pull request](/articles/creating-a-pull-request)" and "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
+Ao criar uma pull request, você pode optar por criar uma que já está pronta para revisão ou uma pull request de rascunho. Não é possível fazer merge das pull requests, e os proprietários do código não são solicitados automaticamente a revisar pull requests de rascunho. Para obter mais informações sobre como criar uma pull request de rascunho, consulte "[Criar uma pull request](/articles/creating-a-pull-request)" e "[Criar uma pull request de uma bifurcação](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)".
 
-{% data reusables.pull_requests.mark-ready-review %} You can convert a pull request to a draft at any time. For more information, see "[Changing the stage of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)."
+{% data reusables.pull_requests.mark-ready-review %} Você pode converter uma pull request em rascunho a qualquer momento. Para obter mais informações, consulte "[Alterar o stage de um pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)".
 
-## Differences between commits on compare and pull request pages
+## Diferenças entre commits em páginas de comparação e pull request
 
-The compare and pull request pages use different methods to calculate the diff for changed files:
+As páginas de comparação e pull request usam métodos diferentes para calcular o diff para os arquivos alterados:
 
-- Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
-- Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
+- As páginas de comparação mostram a diferença entre a ponta do ref principal e o ancestral comum atual (ou seja, a base de merge) do ref principal e de base.
+- As páginas de pull request mostram a diferença entre a ponta do ref principal e o ancestral comum do ref principal e de base no momento em que o pull request foi criado. Consequentemente, a base de merge utilizada para a comparação pode ser diferente.
 
-## Further reading
+## Leia mais
 
-- "[Pull request](/articles/github-glossary/#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
-- "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"
-- "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)"
+- "[pull request](/articles/github-glossary/#pull-request)" no glossário do {% data variables.product.prodname_dotcom %}
+- "[Sobre branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- "[Comentando em uma pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"
+- "[Fechar uma pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)"

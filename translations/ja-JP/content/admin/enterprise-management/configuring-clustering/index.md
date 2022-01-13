@@ -1,6 +1,6 @@
 ---
-title: Configuring clustering
-intro: Learn about clustering and differences with high availability.
+title: クラスタリングの設定
+intro: クラスタリングについて、そしてHigh Availabilityとの差異にについて学んでください。
 redirect_from:
   - /enterprise/admin/clustering/setting-up-the-cluster-instances
   - /enterprise/admin/clustering/managing-a-github-enterprise-server-cluster

@@ -1,6 +1,6 @@
 ---
-title: Mapping Okta groups to teams
-intro: 'You can map your Okta groups to teams on {% data variables.product.prodname_ghe_managed %} to automatically add and remove team members.'
+title: Mapeando grupos do Okta com as equipes
+intro: 'Você pode mapear os seus grupos do Okta com as equipes em {% data variables.product.prodname_ghe_managed %} para adicionar e remover automaticamente os integrantes da equipe.'
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.prodname_ghe_managed %}.'
 versions:
   ghae: '*'
@@ -15,83 +15,80 @@ topics:
 
 {% data reusables.saml.okta-ae-sso-beta %}
 
-## About team mapping
+## Sobre o mapeamento de equipe
 
-If you use Okta as your IdP, you can map your Okta group to a team in {% data variables.product.prodname_ghe_managed %}. Members of the Okta group will automatically become members of the mapped {% data variables.product.prodname_ghe_managed %} team. To configure this mapping, you can configure the Okta "GitHub AE" app to push the group and its members to {% data variables.product.prodname_ghe_managed %}. You can then choose which team in {% data variables.product.prodname_ghe_managed %} will be mapped to the Okta group.
+Se você usar o Okta como seu IdP, você poderá mapear seu grupo do Okta com uma equipe em {% data variables.product.prodname_ghe_managed %}. Os integrantes do grupo do Okta irão tornar-se automaticamente integrantes da equipe de {% data variables.product.prodname_ghe_managed %} mapeada. Para configurar este mapeamento, você pode configurar o aplicativo do Okta "GitHub AE" para fazer envio por push do grupo e dos seus integrantes para {% data variables.product.prodname_ghe_managed %}. Em seguida, você pode escolher qual equipe em {% data variables.product.prodname_ghe_managed %} será mapeada com o grupo do Okta.
 
-## Prerequisites
+## Pré-requisitos
 
-You or your Okta administrator must be a Global administrator or a Privileged Role administrator in Okta.
- 
-You must enable SAML single sign-on with Okta. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+Você ou o administrador do Okta deve ser um administrador global ou um administrador de Função Privilegiada no Okta.
 
-You must authenticate to your enterprise account using SAML SSO and Okta. For more information, see "[Authenticating with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on)."
+Você deve habilitar o logon único SAML com o Okta. Para obter mais informações, consulte "[Configurar logon único SAML para a sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
-## Assigning your Okta group to the "GitHub AE" app
+Você deve efetuar a autenticação na sua conta corporativa usando SAML SSO e o Okta. Para obter mais informações, consulte "[Autenticar com logon único de SAML](/github/authenticating-to-github/authenticating-with-saml-single-sign-on)".
 
-1. In the Okta Dashboard, open your group's settings.
-1. Click **Manage Apps**.
-  ![Add group to app](/assets/images/help/saml/okta-ae-group-add-app.png)
+## Atribuindo o seu grupo Okta ao aplicativo "GitHub AE"
 
-1. To the right of "GitHub AE", click **Assign**.
+1. No painel do Okta, abra as configurações do seu grupo.
+1. Clique **Gerenciar aplicativos**. ![Adicionar grupo ao aplicativo](/assets/images/help/saml/okta-ae-group-add-app.png)
 
-  ![Assign app](/assets/images/help/saml/okta-ae-assign-group-to-app.png)
+1. À direita do "GitHub AE", clique em **Atribuir**.
 
-1. Click **Done**.
+  ![Atribuir aplicativo](/assets/images/help/saml/okta-ae-assign-group-to-app.png)
 
-## Pushing the Okta group to {% data variables.product.prodname_ghe_managed %}
+1. Clique em **Cpncluído**.
 
-When you push an Okta group and map the group to a team, all of the group's members will be able to sign in to {% data variables.product.prodname_ghe_managed %}.
+## Fazendo envio por push do grupo do Okta para {% data variables.product.prodname_ghe_managed %}
+
+Ao fazer envio por push de um grupo do Okta e mapear o grupo com uma equipe, todos os integrantes do grupo poderão efetuar o login em {% data variables.product.prodname_ghe_managed %}.
 
 {% data reusables.saml.okta-ae-applications-menu %}
 {% data reusables.saml.okta-ae-configure-app %}
 
-1. Click **Push Groups**.
+1. Clique **Envio por push de grupos**.
 
-  ![Push Groups tab](/assets/images/help/saml/okta-ae-push-groups-tab.png)
+  ![Aba de Grupos Push](/assets/images/help/saml/okta-ae-push-groups-tab.png)
 
-1. Select the Push Groups drop-down menu and click **Find groups by name**.
+1. Selecione o menu suspenso de grupos de push e clique em **Encontrar grupos por nome**.
 
-  ![Add groups button](/assets/images/help/saml/okta-ae-push-groups-add.png)
+  ![Adicionar botão do grupo](/assets/images/help/saml/okta-ae-push-groups-add.png)
 
-1. Type the name of the group to push to {% data variables.product.prodname_ghe_managed %}, then click **Save**.
+1. Digite o nome do grupo para faer envio por push para {% data variables.product.prodname_ghe_managed %}e, em seguida, clique em **Salvar**.
 
-  ![Add group name](/assets/images/help/saml/okta-ae-push-groups-by-name.png)
+  ![Adicionar nome do grupo](/assets/images/help/saml/okta-ae-push-groups-by-name.png)
 
-## Mapping a team to the Okta group
+## Mapeando uma equipe para o grupo do Okta
 
-You can map a team in your enterprise to an Okta group you previously pushed to {% data variables.product.prodname_ghe_managed %}. Members of the Okta group will then automatically becomes members of the {% data variables.product.prodname_ghe_managed %} team. Any subsequent changes to the Okta group's membership are automatically synchronized with the {% data variables.product.prodname_ghe_managed %} team.
+Você pode mapear uma equipe na sua empresa com um grupo do Okta que você enviou por push anteriormente para {% data variables.product.prodname_ghe_managed %}. Os integrantes do grupo doOkta irão tornar-se automaticamente integrantes da equipe de {% data variables.product.prodname_ghe_managed %}. Todas as alterações subsequentes na associação do grupo do Okta serão automaticamente sincronizadas com a equipe de {% data variables.product.prodname_ghe_managed %}.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-6. Under "Identity Provider Group", select the drop-down menu and click an identity provider group.
-    ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
-7. Click **Save changes**.
+6. Em "Grupo de Provedores de identidade", selecione o menu suspenso e clique em um grupo de provedores de identidade. ![Menu suspenso para escolher grupo de provedores de identidade](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
+7. Clique em **Save changes** (Salvar alterações).
 
-## Checking the status of your mapped teams
+## Verificando o status das suas equipes mapeadas
 
-Enterprise owners can use the site admin dashboard to check how Okta groups are mapped to teams on {% data variables.product.prodname_ghe_managed %}.
+Os proprietários de empresas podem usar o painel de administração do site para verificar como os grupos do Okta são mapeados com as equipes em {% data variables.product.prodname_ghe_managed %}.
 
-1. To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
-  ![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. Para acessar o painel, clique em {% octicon "rocket" aria-label="The rocket ship" %} no canto superior direito de qualquer página. ![Ícone de foguete para acessar as configurações de administrador do site](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-1. In the left pane, click **External groups**.
+1. No painel esquerdo, clique em **Grupos externos**.
 
-  ![Add group name](/assets/images/help/saml/okta-ae-site-admin-external-groups.png)
+  ![Adicionar nome do grupo](/assets/images/help/saml/okta-ae-site-admin-external-groups.png)
 
-1. To view more details about a group, in the list of external groups, click on a group.
+1. Para visualizar mais informações sobre um grupo, na lista de grupos externos, clique em um grupo.
 
-  ![List of external groups](/assets/images/help/saml/okta-ae-site-admin-list-groups.png)
+  ![Lista de grupos externos](/assets/images/help/saml/okta-ae-site-admin-list-groups.png)
 
-1. The group's details includes the name of the Okta group, a list of the Okta users that are members of the group, and the corresponding mapped team on {% data variables.product.prodname_ghe_managed %}. 
+1. Os detalhes do grupo incluem o nome do grupo do Okta, uma lista dos usuários do Okta que são integrantes do grupo, e a equipe correspondente mapeada em {% data variables.product.prodname_ghe_managed %}.
 
-  ![List of external groups](/assets/images/help/saml/okta-ae-site-admin-group-details.png)
+  ![Lista de grupos externos](/assets/images/help/saml/okta-ae-site-admin-group-details.png)
 
-## Viewing audit log events for mapped groups
+## Visualizando eventos de log de auditoria para grupos mapeados
 
- To monitor SSO activity for mapped groups, you can review the following events in the {% data variables.product.prodname_ghe_managed %} audit log.
+ Para monitorar a atividade de SSO para grupos mapeados, você pode revisar os seguintes eventos no log de auditoria de {% data variables.product.prodname_ghe_managed %}.
 
 {% data reusables.saml.external-group-audit-events %}
 

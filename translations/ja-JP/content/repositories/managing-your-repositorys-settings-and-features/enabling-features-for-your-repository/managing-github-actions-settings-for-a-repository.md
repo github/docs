@@ -22,50 +22,49 @@ shortTitle: Manage GitHub Actions settings
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About {% data variables.product.prodname_actions %} permissions for your repository
+## リポジトリの {% data variables.product.prodname_actions %} 権限について
 
-{% data reusables.github-actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
+{% data reusables.github-actions.disabling-github-actions %} {% data variables.product.prodname_actions %} の詳細は、「[{% data variables.product.prodname_actions %}について](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。
 
-You can enable {% data variables.product.prodname_actions %} for your repository. {% data reusables.github-actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for your repository altogether. {% data reusables.github-actions.disabled-actions-description %}
+リポジトリで {% data variables.product.prodname_actions %} を有効化できます。 {% data reusables.github-actions.enabled-actions-description %} リポジトリの {% data variables.product.prodname_actions %} を完全に無効化することができます。 {% data reusables.github-actions.disabled-actions-description %}
 
-Alternatively, you can enable {% data variables.product.prodname_actions %} in your repository but limit the actions a workflow can run. {% data reusables.github-actions.enabled-local-github-actions %}
+または、リポジトリで {% data variables.product.prodname_actions %} を有効化して、ワークフローで実行できるアクションを制限することもできます。 {% data reusables.github-actions.enabled-local-github-actions %}
 
-## Managing {% data variables.product.prodname_actions %} permissions for your repository
+## リポジトリの {% data variables.product.prodname_actions %} 権限を管理する
 
-You can disable all workflows for a repository or set a policy that configures which actions can be used in a repository.
+リポジトリに対するワークフローをすべて無効にすることも、リポジトリでどのアクションを使用できるかを設定するポリシーを設定することもできます。
 
 {% data reusables.actions.actions-use-policy-settings %}
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization has an overriding policy or is managed by an enterprise that has overriding policy. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
+**注釈:** Organization に優先ポリシーがあるか、優先ポリシーのある Enterprise アカウントによって管理されている場合、これらの設定を管理できない場合があります。 For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
 
 {% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Under **Actions permissions**, select an option.
-  ![Set actions policy for this organization](/assets/images/help/repository/actions-policy.png)
-1. Click **Save**.
+1. [**Actions permissions**] で、オプションを選択します。 ![この Organization に対するアクションポリシーを設定する](/assets/images/help/repository/actions-policy.png)
+1. [**Save**] をクリックします。
 
-## Allowing specific actions to run
+## 特定のアクションの実行を許可する
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list.
+1. [**Actions permissions**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。
    {%- ifversion ghes > 3.0 %}
-   ![Add actions to allow list](/assets/images/help/repository/actions-policy-allow-list.png)
+   ![許可リストにアクションを追加する](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
-   ![Add actions to allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   ![許可リストにアクションを追加する](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
-2. Click **Save**.
+2. [**Save**] をクリックします。
 
 {% ifversion fpt or ghec %}
-## Configuring required approval for workflows from public forks
+## パブリックフォークからのワークフローに対する必須の承認の設定
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
@@ -79,11 +78,11 @@ You can configure this behavior for a repository using the procedure below. Modi
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-## Enabling workflows for private repository forks
+## プライベートリポジトリのフォークのワークフローを有効にする
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-### Configuring the private fork policy for a repository
+### リポジトリのプライベートフォークポリシーを設定する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -99,14 +98,13 @@ The default permissions can also be configured in the organization settings. If 
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
-### Configuring the default `GITHUB_TOKEN` permissions
+### デフォルトの`GITHUB_TOKEN`権限の設定
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
-  ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository.png)
-1. Click **Save** to apply the settings.
+1. [**Workflow permissions**]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。 ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+1. **Save（保存）**をクリックして、設定を適用してください。
 {% endif %}
 
 {% ifversion ghes > 3.3 or ghae-issue-4757 or ghec %}
@@ -119,23 +117,22 @@ To configure whether workflows in an internal repository can be accessed from ou
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
 1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Under **Access**, choose one of the access settings:
-   ![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png)
+1. Under **Access**, choose one of the access settings: ![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png)
    * **Not accessible** - Workflows in other repositories can't use workflows in this repository.
    * **Accessible from repositories in the '&lt;organization name&gt;' organization** - Workflows in other repositories can use workflows in this repository if they are part of the same organization and their visibility is private or internal.
    * **Accessible from repositories in the '&lt;enterprise name&gt;' enterprise** - Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.
-1. Click **Save** to apply the settings.
+1. **Save（保存）**をクリックして、設定を適用してください。
 {% endif %}
 
 ## Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository
 
-You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository.
+リポジトリ内の {% data variables.product.prodname_actions %} アーティファクトとログの保持期間を設定できます。
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-You can also define a custom retention period for a specific artifact created by a workflow. For more information, see "[Setting the retention period for an artifact](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)."
+ワークフローによって作成された特定のアーティファクトのカスタム保存期間を定義することもできます。 詳しい情報については、「[アーティファクトの保持期間を設定する](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)」を参照してください。
 
-## Setting the retention period for a repository
+## リポジトリの保持期間を設定する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

@@ -1,6 +1,6 @@
 ---
-title: Using the GitHub Marketplace API in your app
-intro: 'Learn how to integrate the {% data variables.product.prodname_marketplace %} API and webhook events into your app for the {% data variables.product.prodname_marketplace %} .'
+title: アプリケーション内でのGitHub marketplace APIの使用
+intro: '{% data variables.product.prodname_marketplace %}用に、アプリケーションに{% data variables.product.prodname_marketplace %} APIとwebhookイベントを統合する方法を学んでください。'
 redirect_from:
   - /apps/marketplace/setting-up-github-marketplace-webhooks
   - /apps/marketplace/integrating-with-the-github-marketplace-api
@@ -17,6 +17,6 @@ children:
   - /handling-new-purchases-and-free-trials
   - /handling-plan-changes
   - /handling-plan-cancellations
-shortTitle: Marketplace API usage
+shortTitle: Marketplace APIの使い方
 ---
 

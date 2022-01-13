@@ -1,7 +1,7 @@
 ---
-title: Caching dependencies to speed up workflows
-shortTitle: Caching dependencies
-intro: 'To make your workflows faster and more efficient, you can create and use caches for dependencies and other commonly reused files.'
+title: 依存関係をキャッシュしてワークフローのスピードを上げる
+shortTitle: 依存関係のキャッシング
+intro: ワークフローを高速化して効率を上げるために、依存関係や広く再利用されるファイルに対するキャッシュを作成して利用できます。
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -15,13 +15,13 @@ topics:
   - Workflows
 ---
 
-## About caching workflow dependencies
+## ワークフローの依存関係のキャッシングについて
 
-Workflow runs often reuse the same outputs or downloaded dependencies from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies.
+ワークフローの実行は、しばしば他の実行と同じ出力あるいはダウンロードされた依存関係を再利用します。 たとえばMaven、Gradle、npm、Yarnといったパッケージ及び依存関係管理ツールは、ダウンロードされた依存関係のローカルキャッシュを保持します。
 
-Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean virtual environment and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, {% data variables.product.prodname_dotcom %} can cache dependencies you frequently use in workflows.
+{% data variables.product.prodname_dotcom %}ホストランナー上のジョブは、クリーンな仮想環境で開始され、依存関係を毎回ダウンロードしなければならず、ネットワークの利用率を増大させ、実行時間が長くなり、コストが高まってしまいます。 これらのファイルの再生成にかかる時間を短縮しやすくするために、{% data variables.product.prodname_dotcom %}はワークフロー内で頻繁に使われる依存関係をキャッシュできます。
 
-To cache dependencies for a job, you'll need to use {% data variables.product.prodname_dotcom %}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache).
+ジョブのために依存関係をキャッシュするには、{% data variables.product.prodname_dotcom %}の`cache`アクションを使わなければなりません。 このアクションは、ユニークなキーで指定されるキャッシュを取得します。 詳しい情報については「[`actions/cache`](https://github.com/actions/cache)」を参照してください。
 
 If you are caching the package managers listed below, consider using the respective setup-* actions, which require almost zero configuration and are easy to use.
 
@@ -54,43 +54,43 @@ If you are caching the package managers listed below, consider using the respect
 
 {% warning %}
 
-**Warning**: We recommend that you don't store any sensitive information in the cache of public repositories. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of the cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.
+**警告**: パブリックリポジトリのキャッシュには、センシティブな情報を保存しないことをおすすめします。 たとえばキャッシュパス内のファイルに保存されたアクセストークンあるいはログインクレデンシャルなどがセンシティブな情報です。 また、`docker login`のようなコマンドラインインターフェース（CLI）プログラムは、アクセスクレデンシャルを設定ファイルに保存することがあります。 読み取りアクセスを持つ人は誰でも、リポジトリにプルリクエストを作成し、キャッシュの内容にアクセスできます。 リポジトリのフォークも、ベースブランチ上にプルリクエストを作成し、ベースブランチ上のキャッシュにアクセスできます。
 
 {% endwarning %}
 
-## Comparing artifacts and dependency caching
+## 成果物の比較と依存関係のキャッシング
 
-Artifacts and caching are similar because they provide the ability to store files on {% data variables.product.prodname_dotcom %}, but each feature offers different use cases and cannot be used interchangeably.
+成果物とキャッシングは、{% data variables.product.prodname_dotcom %}にファイルを保存できるようにするので似ていますが、それぞれの機能のユースケースは異なっており、入れ替えて使うことはできません。
 
-- Use caching when you want to reuse files that don't change often between jobs or workflow runs.
-- Use artifacts when you want to save files produced by a job to view after a workflow has ended. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+- キャッシングは、ジョブやワークフローの実行間で頻繁に変化しないファイルを再利用したいときに使ってください。
+- ジョブによって生成されたファイルをワークフローの終了後に見るために保存したい場合に成果物を使ってください。 詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
 
-## Restrictions for accessing a cache
+## キャッシュへのアクセスについての制限
 
-With `v2` of the `cache` action, you can access the cache in workflows triggered by any event that has a `GITHUB_REF`. If you are using `v1` of the `cache` action, you can only access the cache in workflows triggered by `push` and `pull_request` events, except for the `pull_request` `closed` event. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+`cache` アクションの `v2` を使用すると、`GITHUB_REF` を含むイベントによってトリガーされるワークフローのキャッシュにアクセスできます。 `cache` アクションの `v1` を使用している場合、`pull_request` の `closed` イベントを除いて、`push` イベントと `pull_request` イベントによってトリガーされるワークフローでのみキャッシュにアクセスできます。 詳しい情報については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)」を参照してください。
 
-A workflow can access and restore a cache created in the current branch, the base branch (including base branches of forked repositories), or the default branch (usually `main`). For example, a cache created on the default branch would be accessible from any pull request. Also, if the branch `feature-b` has the base branch `feature-a`, a workflow triggered on `feature-b` would have access to caches created in the default branch (`main`), `feature-a`, and `feature-b`.
+ワークフローは、現在のブランチ、ベースブランチ（フォークされたリポジトリのベースブランチを含む）、またはデフォルトブランチ（通常は `main`）で作成されたキャッシュにアクセスして復元できます。 たとえば、デフォルトブランチで作成されたキャッシュは、どのPull Requestからもアクセスできます。 また、`feature-b` ブランチに `feature-a` ベースブランチがある場合、`feature-b` でトリガーされたワークフローは、デフォルトのブランチ（`main`）、`feature-a`、および `feature-b` で作成されたキャッシュにアクセスできます。
 
-Access restrictions provide cache isolation and security by creating a logical boundary between different branches. For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-b` (with the base `main`).
+Access restrictions provide cache isolation and security by creating a logical boundary between different branches. たとえば、`feature-a` ブランチ（ベース `main` を使用）向けに作成されたキャッシュは、`feature-b` ブランチ（ベース `main` を使用）のPull Requestにアクセスできません。
 
 Multiple workflows within a repository share cache entries. A cache created for a branch within a workflow can be accessed and restored from another workflow for the same repository and branch.
 
-## Using the `cache` action
+## `cache`アクションの利用
 
-The `cache` action will attempt to restore a cache based on the `key` you provide. When the action finds a cache, the action restores the cached files to the `path` you configure.
+`cache`アクションは、提供された`key`に基づいてキャッシュをリストアしようとします。 このアクションは、キャッシュを見つけるとそのキャッシュされたファイルを設定された`path`にリストアします。
 
-If there is no exact match, the action creates a new cache entry if the job completes successfully. The new cache will use the `key` you provided and contains the files in the `path` directory.
+正確なマッチがなければ、ジョブが成功したならこのアクションは新しいキャッシュエントリを作成します。 新しいキャッシュは提供された`key`を使い、`path`ディレクトリ内にファイルを保存します。
 
-You can optionally provide a list of `restore-keys` to use when the `key` doesn't match an existing cache. A list of `restore-keys` is useful when you are restoring a cache from another branch because `restore-keys` can partially match cache keys. For more information about matching `restore-keys`, see "[Matching a cache key](#matching-a-cache-key)."
+既存のキャッシュに`key`がマッチしなかった場合に使われる、`restore-keys`のリストを提供することもできます。 `restore-keys`のリストは、 `restore-keys`がキャッシュキーと部分的にマッチできるので、他のブランチからのキャッシュをリストアする場合に役立ちます。 `restore-keys`のマッチに関する詳しい情報については「[キャッシュキーのマッチ](#matching-a-cache-key)」を参照してください。
 
-For more information, see [`actions/cache`](https://github.com/actions/cache).
+詳しい情報については「[`actions/cache`](https://github.com/actions/cache)」を参照してください。
 
-### Input parameters for the `cache` action
+### `cache` アクションの入力パラメータ
 
-- `key`: **Required** The key created when saving a cache and the key used to search for a cache. Can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.
-- `path`: **Required** The file path on the runner to cache or restore. The path can be an absolute path or relative to the working directory.
-  - Paths can be either directories or single files, and glob patterns are supported.
-  - With `v2` of the `cache` action, you can specify a single path, or you can add multiple paths on separate lines. For example:
+- `key`: **必須** このキーはキャッシュの保存時に作成され、キャッシュの検索に使われます。 変数、コンテキスト値、静的な文字列、関数の任意の組み合わせが使えます。 キーの長さは最大で512文字であり、キーが最大長よりも長いとアクションは失敗します。
+- `path`: **必須** ランナーがキャッシュあるいはリストアをするファイルパス。 このパスは、絶対パスでも、ワーキングディレクトリからの相対パスでもかまいません。
+  - パスはディレクトリまたは単一ファイルのいずれかで、glob パターンがサポートされています。
+  - `cache` アクションの `v2` では、単一のパスを指定することも、別々の行に複数のパスを追加することもできます。 例:
     ```
     - name: Cache Gradle packages
       uses: actions/cache@v2
@@ -99,16 +99,16 @@ For more information, see [`actions/cache`](https://github.com/actions/cache).
           ~/.gradle/caches
           ~/.gradle/wrapper
     ```
-  - With `v1` of the `cache` action, only a single path is supported and it must be a directory. You cannot cache a single file.
-- `restore-keys`: **Optional** An ordered list of alternative keys to use for finding the cache if no cache hit occurred for `key`.
+  - `cache` アクションの `v1` では、単一のパスのみがサポートされ、かつそれがディレクトリである必要があります。 単一のファイルをキャッシュすることはできません。
+- `restore-keys`: **オプション** `key`に対するキャッシュヒットがなかった場合にキャッシュを見つけるために使われる代理キーの順序付きリスト。
 
-### Output parameters for the `cache` action
+### `cache`アクションの出力パラメータ
 
-- `cache-hit`: A boolean value to indicate an exact match was found for the key.
+- `cache-hit`: キーの完全一致が見つかったことを示すブール値。
 
-### Example using the `cache` action
+### `cache` アクションの使用例
 
-This example creates a new cache when the packages in `package-lock.json` file change, or when the runner's operating system changes. The cache key uses contexts and expressions to generate a key that includes the runner's operating system and a SHA-256 hash of the `package-lock.json` file.
+以下の例では、`package-lock.json`ファイル内のパッケージが変更された場合、あるいはランナーのオペレーティングシステムが変更された場合に新しいキャッシュが作成されます。 キャッシュキーはコンテキストと式を使い、ランナーのオペレーティングシステムと`package-lock.json`ファイルのSHA-256ハッシュを含むキーを生成します。
 
 {% raw %}
 ```yaml{:copy}
@@ -128,7 +128,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
+          # npm キャッシュファイルは Linux/macOS の `~/.npm` に保存される
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
@@ -147,23 +147,23 @@ jobs:
 ```
 {% endraw %}
 
-When `key` matches an existing cache, it's called a cache hit, and the action restores the cached files to the `path` directory.
+`key`が既存のキャッシュにマッチした場合はキャッシュヒットと呼ばれ、このアクションはキャッシュされたファイルを`path`ディレクトリにリストアします。
 
-When `key` doesn't match an existing cache, it's called a cache miss, and a new cache is created if the job completes successfully. When a cache miss occurs, the action searches for alternate keys called `restore-keys`.
+`key`が既存のキャッシュにマッチしなかった場合はキャッシュミスと呼ばれ、ジョブが成功して完了したなら新しいキャッシュが作成されます。 キャッシュミスが生じた場合、このアクションは`restore-keys`と呼ばれる代理キーを検索します。
 
-1. If you provide `restore-keys`, the `cache` action sequentially searches for any caches that match the list of `restore-keys`.
-   - When there is an exact match, the action restores the files in the cache to the `path` directory.
-   - If there are no exact matches, the action searches for partial matches of the restore keys. When the action finds a partial match, the most recent cache is restored to the `path` directory.
-1. The `cache` action completes and the next workflow step in the job runs.
-1. If the job completes successfully, the action creates a new cache with the contents of the `path` directory.
+1. `restore-keys`が渡された場合、`cache`アクションは`restore-keys`のリストにマッチするキャッシュを順番に検索します。
+   - 完全なマッチがあった場合、アクションはそのファイルを`path`ディレクトリ中のキャッシュにリストアします。
+   - 完全なマッチがなかった場合、アクションはリストアキーに対する部分一致を検索します。 アクションが部分一致を見つけた場合、最も最近のキャッシュが`path`ディレクトリにリストアされます。
+1. `cache` アクションが完了し、ジョブ内の次のワークフローステップが実行されます。
+1. ジョブが成功して完了したなら、アクションは`path`ディレクトリの内容で新しいキャッシュを作成します。
 
-To cache files in more than one directory, you will need a step that uses the [`cache`](https://github.com/actions/cache) action for each directory. Once you create a cache, you cannot change the contents of an existing cache but you can create a new cache with a new key.
+複数のディレクトリにファイルをキャッシュするには、各ディレクトリごとに[`cache`](https://github.com/actions/cache) アクションを使うステップが必要です。 キャッシュをいったん作成すると、既存のキャッシュの内容を変更することはできませんが、新しいキーで新しいキャッシュを作成することはできます。
 
-### Using contexts to create cache keys
+### コンテキストを使ったキャッシュキーの作成
 
-A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+キャッシュキーには、コンテキスト、関数、リテラル、{% data variables.product.prodname_actions %}がサポートする演算子を含めることができます。 For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-Using expressions to create a `key` allows you to automatically create a new cache when dependencies have changed. For example, you can create a `key` using an expression that calculates the hash of an npm `package-lock.json` file.
+式を使って`key`を作成すれば、依存関係が変化したときに自動的に新しいキャッシュを作成できます。 たとえばnpmの`package-lock.json`ファイルのハッシュを計算する式を使って`key`を作成できます。
 
 {% raw %}
 ```yaml
@@ -171,19 +171,19 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{% data variables.product.prodname_dotcom %} evaluates the expression `hash "package-lock.json"` to derive the final `key`.
+{% data variables.product.prodname_dotcom %}は`hash "package-lock.json"`という式を評価して、最終的な`key`を導出します。
 
 ```yaml
 npm-d5ea0750
 ```
 
-## Matching a cache key
+## キャッシュキーのマッチング
 
-The `cache` action first searches for cache hits for `key` and `restore-keys` in the branch containing the workflow run. If there are no hits in the current branch, the `cache` action searches for `key` and `restore-keys` in the parent branch and upstream branches.
+`cache` アクションは最初に、ワークフロー実行を含むブランチで `key` および `restore-keys` のキャッシュヒットを検索します。 現在のブランチにヒットがない場合、`cache` アクションは、親ブランチと上流のブランチで `key` および `restore-keys` を検索します。
 
-You can provide a list of restore keys to use when there is a cache miss on `key`. You can create multiple restore keys ordered from the most specific to least specific. The `cache` action searches for `restore-keys` in sequential order. When a key doesn't match directly, the action searches for keys prefixed with the restore key. If there are multiple partial matches for a restore key, the action returns the most recently created cache.
+`key`でキャッシュミスがあった場合に使うリストアキーのリストを提供できます。 特定の度合いが強いものから弱いものへ並べて複数のリストアキーを作成できます。 `cache`アクションは順番に`restore-keys`を検索していきます。 キーが直接マッチしなかった場合、アクションはリストアキーでプレフィックスされたキーを検索します。 リストアキーに対して複数の部分一致があった場合、アクションは最も最近に作成されたキャッシュを返します。
 
-### Example using multiple restore keys
+### 複数のリストアキーの利用例
 
 {% raw %}
 ```yaml
@@ -194,7 +194,7 @@ restore-keys: |
 ```
 {% endraw %}
 
-The runner evaluates the expressions, which resolve to these `restore-keys`:
+ランナーは式を評価します。この式は以下のような`restore-keys`になります。
 
 {% raw %}
 ```yaml
@@ -205,13 +205,13 @@ restore-keys: |
 ```
 {% endraw %}
 
-The restore key `npm-foobar-` matches any key that starts with the string `npm-foobar-`. For example, both of the keys `npm-foobar-fd3052de` and `npm-foobar-a9b253ff` match the restore key. The cache with the most recent creation date would be used. The keys in this example are searched in the following order:
+リストアキーの`npm-foobar-`は、`npm-foobar-`という文字列で始まる任意のキーにマッチします。 たとえば`npm-foobar-fd3052de`や`npm-foobar-a9b253ff`というキーはいずれもこのリストアキーにマッチします。 最も最近の期日に作成されたキャッシュが使われます。 この例でのキーは、以下の順序で検索されます。
 
-1. **`npm-foobar-d5ea0750`** matches a specific hash.
-1. **`npm-foobar-`** matches cache keys prefixed with `npm-foobar-`.
-1. **`npm-`** matches any keys prefixed with `npm-`.
+1. **`npm-foobar-d5ea0750`**は特定のハッシュにマッチします。
+1. **`npm-foobar-`**は`npm-foobar-`をプレフィックスとするキャッシュキーにマッチします。
+1. **`npm-`**は`npm-`をプレフィックスとする任意のキーにマッチします。
 
-#### Example of search priority
+#### 検索の優先度の例
 
 ```yaml
 key:
@@ -221,15 +221,15 @@ restore-keys: |
   npm-
 ```
 
-For example, if a pull request contains a `feature` branch (the current scope) and targets the default branch (`main`), the action searches for `key` and `restore-keys` in the following order:
+たとえば、プルリクエストに `feature` ブランチ（現在のスコープ）が含まれ、デフォルトブランチ（`main`）をターゲットにしている場合、アクションは次の順序で `key` と `restore-keys` を検索します。
 
-1. Key `npm-feature-d5ea0750` in the `feature` branch scope
-1. Key `npm-feature-` in the `feature` branch scope
-2. Key `npm-` in the `feature` branch scope
-1. Key `npm-feature-d5ea0750` in the `main` branch scope
-3. Key `npm-feature-` in the `main` branch scope
-4. Key `npm-` in the `main` branch scope
+1. `feature`ブランチのスコープ内で`npm-feature-d5ea0750`というキー
+1. `feature`ブランチのスコープ内で`npm-feature-`というキー
+2. `feature`ブランチのスコープ内で`npm-`というキー
+1. `main` ブランチのスコープ内で `npm-feature-d5ea0750` というキー
+3. `main` ブランチのスコープ内で `npm-feature-` というキー
+4. `main` ブランチのスコープ内で `npm-` というキー
 
-## Usage limits and eviction policy
+## 利用制限と退去のポリシー
 
-{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 10 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 10 GB.
+{% data variables.product.prodname_dotcom %}は、7日間以上アクセスされていないキャッシュエントリを削除します。 保存できるキャッシュ数には上限がありませんが、1つのリポジトリ内のすべてのキャッシュの合計サイズは10GBに制限されます。 この制限を超えた場合、{% data variables.product.prodname_dotcom %}はキャッシュを保存しますが、合計サイズが10GB以下になるまでキャッシュを退去させはじめます。

@@ -2,8 +2,8 @@
 title: Convertir un equipo de Propietarios a los permisos de organización mejorados
 intro: 'Si tu organización fue creada después de septiembre de 2015, tu organización ha mejorado los permisos de la organización por defecto. Las organizaciones creadas antes de septiembre de 2015 pueden necesitar migrar a los antiguos equipos de propietarios y administradores al modelo mejorado de permisos. El "Propietario" ahora tiene un rol administrativo otorgado a los miembros individuales de tu organización. Los miembros de tu equipo de Propietarios heredado automáticamente reciben los privilegios del propietario.'
 redirect_from:
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program/
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions/
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions
   - /articles/converting-an-owners-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-owners-team-to-improved-organization-permissions
 versions:

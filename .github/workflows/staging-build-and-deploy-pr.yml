@@ -55,7 +55,7 @@ jobs:
         run: git lfs checkout
 
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -64,7 +64,7 @@ jobs:
         run: npm ci
 
       - name: Cache nextjs build
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -76,7 +76,7 @@ jobs:
         run: node script/early-access/clone-for-build.js
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: ${{ github.event.pull_request.head.sha }}
+          GIT_BRANCH: ${{ github.head_ref || github.ref }}
 
       - name: Create a Heroku build source
         id: build-source

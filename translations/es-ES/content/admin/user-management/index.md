@@ -3,7 +3,7 @@ title: 'Administrar usuarios, organizaciones y repositorios'
 shortTitle: 'Administrar usuarios, organizaciones y repositorios'
 intro: 'Esta guía describe los métodos de autenticación para los usuarios que inician sesión en tu empresa, cómo crear organizaciones y equipos para acceso a repositorios y colaboraciones, y las mejores prácticas que se sugieren para la seguridad de los usuarios.'
 redirect_from:
-  - /enterprise/admin/categories/user-management/
+  - /enterprise/admin/categories/user-management
   - /enterprise/admin/developer-workflow/using-webhooks-for-continuous-integration
   - /enterprise/admin/migrations
   - /enterprise/admin/clustering
