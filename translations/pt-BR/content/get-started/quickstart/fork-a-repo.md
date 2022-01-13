@@ -54,7 +54,7 @@ Se ainda não o fez, primeiro [configure o Git](/articles/set-up-git). Lembre-se
 
 {% webui %}
 
-Você pode bifurcar um projeto para propor alterações no repositório upstream ou original. Nesse caso, uma boa prática é sincronizar regularmente sua bifurcação com o repositório upstream. Para isso, é necessário usar Git na linha de comando. You can practice setting the upstream repository using the same [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository you just forked.
+Você pode bifurcar um projeto para propor alterações no repositório upstream ou original. Nesse caso, uma boa prática é sincronizar regularmente sua bifurcação com o repositório upstream. Para isso, é necessário usar Git na linha de comando. Você pode praticar configurando o repositório upstream com o mesmo repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) que você acabou de bifurcar.
 
 1. Em {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, acesse o repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
 2. No canto superior direito da página, clique em **Fork** (Bifurcação). ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.jpg)
@@ -133,7 +133,7 @@ gh repo fork <em>repository</em> --clone=true
 
 ## Configurar o Git para sincronizar a bifurcação com o repositório original
 
-When you fork a project in order to propose changes to the original repository, you can configure Git to pull changes from the original, or upstream, repository into the local clone of your fork.
+Ao bifurcar um projeto para propor mudanças no repositório original, é possível configurar o Git para fazer pull de alterações do repositório original ou upstream no clone local de sua bifurcação.
 
 {% webui %}
 
@@ -166,7 +166,7 @@ When you fork a project in order to propose changes to the original repository, 
   > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
 
-Agora é possível manter a bifurcação sincronizada com o repositório upstream usando apenas alguns comandos Git. For more information, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."
+Agora é possível manter a bifurcação sincronizada com o repositório upstream usando apenas alguns comandos Git. Para obter mais informações, consulte "[Sincronizar uma bifurcação](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)".
 
 {% endwebui %}
 
@@ -198,7 +198,7 @@ Você pode fazer alterações em uma bifurcação, incluindo:
 ## Localize outro repositório para bifurcar
 Bifurque um repositório para começar a contribuir com um projeto. {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt or ghec %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+{% ifversion fpt or ghec %}Você pode navegar em [Explorar](https://github.com/explore) para encontrar projetos e começar a contribuir com repositórios de código aberto. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 

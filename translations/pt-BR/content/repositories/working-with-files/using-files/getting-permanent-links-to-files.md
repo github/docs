@@ -33,7 +33,7 @@ refere-se ao repositório `hubot` do GitHub e apresenta a versão atual do branc
 
 A versão de um arquivo no head de um branch pode ser modificada assim que novos commits são feitos. Desta forma, caso você copie a URL normal, os conteúdos dos arquivos podem não ser os mesmos quando outra pessoa olhá-los posteriormente.
 
-## Press <kbd>Y</kbd> to permalink to a file in a specific commit
+## Pressione <kbd>Y</kbd> para criar um permalink para um arquivo em commit específico
 
 Para um link permanente em uma versão específica de um arquivo que você vê, em vez de usar o nome do branch na URL (por exemplo: a parte `master` no exemplo acima), coloque o ID do commit.  Isso vinculará permanentemente a versão exata do arquivo naquele commit.  Por exemplo:
 

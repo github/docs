@@ -26,7 +26,7 @@ Cada campo de comentário no {% data variables.product.product_name %} contém u
 
 ## Habilitando fontes de largura fixa no editor
 
-Você pode habilitar uma fonte de largura fixa em cada campo de comentário em {% data variables.product.product_name %}. Each character in a fixed-width, or monospace, font occupies the same horizontal space which can make it easier to edit advanced Markdown structures such as tables and code snippets.
+Você pode habilitar uma fonte de largura fixa em cada campo de comentário em {% data variables.product.product_name %}. Cada caractere em uma largura fixa, ou em monoespaço, a fonte ocupa o mesmo espaço horizontal que pode facilitar a edição de estruturas avançadas de Markdown, como tabelas e trechos de código.
 
 ![Captura de tela que mostra o campo comentário de {% data variables.product.product_name %} com as fontes de largura fixa habilitadas](/assets/images/help/writing/fixed-width-example.png)
 
