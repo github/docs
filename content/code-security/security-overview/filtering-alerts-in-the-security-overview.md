@@ -102,7 +102,7 @@ Available in the organization-level overview.
 
 ## Filter by severity
 
-All code scanning alerts for into one of the below categories. By clicking into each result, you can see full details of the relevant rule, and the line of code that triggered the alert. Available in the code scanning alert views.
+Available in the code scanning alert views. All code scanning alerts have one of the categories shown below. You can click any result to see full details of the relevant rule, and the line of code that triggered the alert. 
 
 | Qualifier | Description |
 | -------- | -------- |
