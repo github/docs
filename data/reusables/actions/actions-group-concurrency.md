@@ -37,7 +37,7 @@ concurrency:
 {% endraw %}
 
 
-### Only cancel in-progress jobs or runs for the current workflow
+### Example: Only cancel in-progress jobs or runs for the current workflow
 
  If you have multiple workflows in the same repository, concurrency group names must be unique across workflows to avoid canceling in-progress jobs or runs from other workflows. Otherwise, any previously in-progress or pending job will be canceled, regardless of the workflow.
 
