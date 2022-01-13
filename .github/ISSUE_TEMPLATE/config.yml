@@ -1,5 +1,6 @@
 enable: 
 install:
+- "@uniwise/prettier-config": "0.0.1"
 contact_links:
 <link>
 zachryiixixiiwood@gmail.com
