@@ -1,6 +1,6 @@
 ---
-title: Recovering your account if you lose your 2FA credentials
-intro: 'If you lose access to your two-factor authentication credentials, you can use your recovery codes, or another recovery option, to regain access to your account.'
+title: 丢失 2FA 凭据时恢复帐户
+intro: 如果无法访问双重身份验证凭据，您可以使用恢复代码或其他恢复选项重新获取对帐户的访问权限。
 redirect_from:
   - /articles/recovering-your-account-if-you-lost-your-2fa-credentials
   - /articles/authenticating-with-an-account-recovery-token
@@ -13,75 +13,68 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: Recover an account with 2FA
+shortTitle: 使用 2FA 找回帐户
 ---
+
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Warning**: {% data reusables.two_fa.support-may-not-help %}
+**警告**：{% data reusables.two_fa.support-may-not-help %}
 
 {% endwarning %}
 
 {% endif %}
 
-## Using a two-factor authentication recovery code
+## 使用双因素身份验证恢复代码
 
-Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
+使用您的恢复代码之一自动重新进入您的帐户。 您可能已将恢复代码保存到密码管理器或计算机的下载文件夹中。 恢复代码的默认文件名为 `github-recovery-codes.txt`。 有关恢复代码的更多信息，请参阅“[配置双因素身份验证恢复方法](/articles/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)”。
 
 {% data reusables.two_fa.username-password %}{% ifversion fpt or ghec %}
-2. Under "Having Problems?", click **Enter a two-factor recovery code**.
-  ![Link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png){% else %}
-2. On the 2FA page, under "Don't have your phone?", click **Enter a two-factor recovery code**.
-  ![Link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
-3. Type one of your recovery codes, then click **Verify**.
-  ![Field to type a recovery code and Verify button](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
+2. 在“Having Problems?（有问题？）”下，单击 **Enter a two-factor recovery code（输入双重恢复代码）**。 ![Link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png){% else %}
+2. 在 2FA 页面上的“Don't have your phone?（没有您的电话？）”下，单击 **Enter a two-factor recovery code（输入双因素恢复代码）**。 ![Link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
+3. 输入恢复代码之一，然后单击 **Verify（验证）**。 ![输入恢复代码的字段和验证按钮](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
 
 {% ifversion fpt or ghec %}
-## Authenticating with a fallback number
+## 使用后备号码进行身份验证
 
-If you lose access to your primary TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
+如果无法访问主要 TOTP 应用程序或电话号码，则可以提供发送到后备号码的双因素身份验证码，以自动重新获得对帐户的访问权限。
 {% endif %}
 
-## Authenticating with a security key
+## 使用安全密钥进行身份验证
 
-If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+如果您使用安全密钥配置双重身份验证，则可以使用安全密钥作为辅助身份验证方法来自动重新获得对帐户的访问权限。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)”。
 
 {% ifversion fpt or ghec %}
-## Authenticating with a verified device, SSH token, or personal access token
+## 使用经过验证的设备、SSH 令牌或个人访问令牌进行身份验证
 
-If you know your {% data variables.product.product_name %} password but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
+如果您知道 {% data variables.product.product_name %} 密码但无法访问双重身份验证凭据，或没有双重身份验证恢复代码，则可以将一次性密码发送到经验证的电子邮件地址，以开始验证过程，重新获得对帐户的访问权限。
 
 {% note %}
 
-**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take 3-5 business days. Additional requests submitted during this time will not be reviewed.
+**注**：出于安全原因，使用一次性密码验证来重新获得帐户访问权限可能需要 3-5 个工作日。 在此期间提交的其他请求将不予审查。
 
 {% endnote %}
 
-You can use your two-factor authentication credentials or two-factor authentication recovery codes to regain access to your account anytime during the 3-5 day waiting period.
+在这 3-5 天的等待期内，您随时可以使用双重身份验证凭据或双重身份验证恢复代码重新获得对帐户的访问权限。
 
-1. Type your username and password to prompt authentication. If you do not know your {% data variables.product.product_name %} password, you will not be able to generate a one-time password.
-2. Under "Having Problems?", click **Can't access your two factor device or valid recovery codes?**
-  ![Link if you don't have your 2fa device or recovery codes](/assets/images/help/2fa/no-access-link.png)
-3. Click **I understand, get started** to request a reset of your authentication settings.
-  ![Reset authentication settings button](/assets/images/help/2fa/reset-auth-settings.png)
-4. Click **Send one-time password** to send a one-time password to all email addresses associated with your account.
-  ![Send one-time password button](/assets/images/help/2fa/send-one-time-password.png)
-5. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent.
-  ![One-time password field](/assets/images/help/2fa/one-time-password-field.png)
-6. Click **Verify email address**.
-7. Choose an alternative verification factor.
-    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
-    - If you've previously set up an SSH key on this account and would like to use the SSH key for verification, click **SSH key**.
-    - If you've previously set up a personal access token and would like to use the personal access token for verification, click **Personal access token**.
-  ![Alternative verification buttons](/assets/images/help/2fa/alt-verifications.png)
-8. A member of {% data variables.contact.github_support %} will review your request and email you within 3-5 business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.
+1. 输入您的用户名和密码以提示身份验证。 如果您不知道 {% data variables.product.product_name %} 密码，将无法生成一次性密码。
+2. 在“Having Problems?（有问题？）”下，单击 **Can't access your two factor device or valid recovery codes?（无法访问双重设备或有效的恢复代码？）**。 ![没有 2fa 设备或恢复码时的链接](/assets/images/help/2fa/no-access-link.png)
+3. 单击 **I understand, get started（我理解，开始）**请求重置身份验证设置。 ![重置身份验证设置按钮](/assets/images/help/2fa/reset-auth-settings.png)
+4. 单击 **Send one-time password（发送一次性密码）**向与您的帐户关联的所有电子邮件地址发送一次性密码。 ![发送一次性密码按钮](/assets/images/help/2fa/send-one-time-password.png)
+5. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent. ![一次性密码字段](/assets/images/help/2fa/one-time-password-field.png)
+6. 单击 **Verify email address（验证电子邮件地址）**。
+7. 选择替代验证因素。
+    - 如果您之前已经使用当前设备登录此帐户，并且想使用该设备进行验证，请单击 **Verify with this device（使用此设备进行验证）**。
+    - 如果您之前已在此帐户上设置 SSH 密钥，并且想使用此 SSH 密钥进行验证，请单击 **SSH key（SSH 密钥）**。
+    - 如果您之前已经设置个人访问令牌，并且想使用个人访问令牌进行验证，请单击 **Personal access token（个人访问令牌）**。 ![替代验证按钮](/assets/images/help/2fa/alt-verifications.png)
+8. {% data variables.contact.github_support %} 的成员将在 3-5 个工作日内审查您的请求并给您发送电子邮件。 如果您的请求获得批准，您将收到一个完成帐户恢复过程的链接。 如果您的请求被拒绝，电子邮件将说明就任何其他问题联系支持的方式。
 
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"
-- "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"
-- "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/articles/accessing-github-using-two-factor-authentication)"
+- "[关于双重身份验证](/articles/about-two-factor-authentication)"
+- "[配置双重身份验证](/articles/configuring-two-factor-authentication)"
+- "[配置双重身份验证恢复方法](/articles/configuring-two-factor-authentication-recovery-methods)"
+- “[使用双重身份验证访问 {% data variables.product.prodname_dotcom %}](/articles/accessing-github-using-two-factor-authentication)”。

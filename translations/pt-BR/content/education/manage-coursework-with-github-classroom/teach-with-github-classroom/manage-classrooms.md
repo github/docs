@@ -1,7 +1,7 @@
 ---
-title: Manage classrooms
-intro: 'You can create and manage a classroom for each course that you teach using {% data variables.product.prodname_classroom %}.'
-permissions: Organization owners who are admins for a classroom can manage the classroom for an organization. {% data reusables.classroom.classroom-admins-link %}
+title: Gerenciar salas de aula
+intro: 'Você pode criar e gerenciar uma sala de aula para cada curso que você der usando {% data variables.product.prodname_classroom %}.'
+permissions: 'Organization owners who are admins for a classroom can manage the classroom for an organization. {% data reusables.classroom.classroom-admins-link %}'
 versions:
   fpt: '*'
 redirect_from:
@@ -9,116 +9,101 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/manage-classrooms
 ---
 
-## About classrooms
+## Sobre as salas de aula
 
 {% data reusables.classroom.about-classrooms %}
 
-![Classroom](/assets/images/help/classroom/classroom-hero.png)
+![Sala de aula](/assets/images/help/classroom/classroom-hero.png)
 
-## About management of classrooms
+## Sobre o gerenciamento de salas de aula
 
-{% data variables.product.prodname_classroom %} uses organization accounts on {% data variables.product.product_name %} to manage permissions, administration, and security for each classroom that you create. Each organization can have multiple classrooms.
+{% data variables.product.prodname_classroom %} usa contas da organização em {% data variables.product.product_name %} para gerenciar permissões, administração e segurança para cada sala de aula que você criar. Cada organização pode ter várias salas de aula.
 
-After you create a classroom, {% data variables.product.prodname_classroom %} will prompt you to invite teaching assistants (TAs) and admins to the classroom. Each classroom can have one or more admins. Admins can be teachers, TAs, or any other course administrator who you'd like to have control over your classrooms on {% data variables.product.prodname_classroom %}.
+Depois de criar uma sala de aula, {% data variables.product.prodname_classroom %} solicitará que você convide assistentes de ensino (ETI) e administradores para a sala de aula. Cada sala de aula pode ter um ou mais administradores. Os administradores podem ser professores, TAs ou qualquer outro administrador do curso o qual que você gostaria que tivesse controle das suas salas de aula em {% data variables.product.prodname_classroom %}.
 
-Invite TAs and admins to your classroom by inviting the user accounts on {% data variables.product.product_name %} to your organization as organization owners and sharing the URL for your classroom. Organization owners can administer any classroom for the organization. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
+Convide TAs e administradores para a sua sala de aula, convidando as contas de usuário em {% data variables.product.product_name %} para a sua organização como proprietários e compartilhando a URL da sua sala de aula. Os proprietários da organização podem administrar qualquer sala de aula da organização. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" e "[Convidando usuários para participar da sua organização](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
 
-When you're done using a classroom, you can archive the classroom and refer to the classroom, roster, and assignments later, or you can delete the classroom if you no longer need the classroom.
+Ao terminar de usar uma sala de aula, você pode arquivar a sala de aula e consultar a sala de aula, lista, e recomendações posteriormente, ou você pode excluir a sala de aula se não precisar mais dela.
 
-## About classroom rosters
+## Sobre as listas de salas de aula
 
-Each classroom has a roster. A roster is a list of identifiers for the students who participate in your course.
+Cada sala de aula tem uma lista. Uma lista é uma lista de identificadores para os alunos que participam do seu curso.
 
-When you first share the URL for an assignment with a student, the student must sign into {% data variables.product.product_name %} with a user account to link the user account to an identifier for the classroom. After the student links a user account, you can see the associated user account in the roster. You can also see when the student accepts or submits an assignment.
+A primeira vez que você compartilha a URL de uma atividade com um estudante, o aluno precisa efetuar o login em {% data variables.product.product_name %} com uma conta de usuário para vincular a conta do usuário a um identificador da sala de aula. Depois que o aluno vincular uma conta de usuário, você poderá ver a conta de usuário associada na lista. Você também pode ver quando o aluno aceita ou envia uma atividade.
 
-![Classroom roster](/assets/images/help/classroom/roster-hero.png)
+![Lista de salas de aula](/assets/images/help/classroom/roster-hero.png)
 
-## Prerequisites
+## Pré-requisitos
 
-You must have an organization account on {% data variables.product.product_name %} to manage classrooms on {% data variables.product.prodname_classroom %}. For more information, see "[Types of {% data variables.product.company_short %} accounts](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)" and "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+Você precisa ter uma conta de organização em {% data variables.product.product_name %} para gerenciar as salas de aula em {% data variables.product.prodname_classroom %}. Para obter mais informações, consulte "[Tipos de contas de {% data variables.product.company_short %}](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)" e "[Criar uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
-You must authorize the OAuth app for {% data variables.product.prodname_classroom %} for your organization to manage classrooms for your organization account. For more information, see "[Authorizing OAuth Apps](/github/authenticating-to-github/authorizing-oauth-apps)."
+Você deve autorizar o aplicativo OAuth {% data variables.product.prodname_classroom %} para sua organização gerenciar salas de aula para sua conta da organização. Para obter mais informações, consulte "[Autorizar aplicativos OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
 
-## Creating a classroom
+## Criar uma sala de aula
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. Click **New classroom**.
-  !["New classroom" button](/assets/images/help/classroom/click-new-classroom-button.png)
+1. Clique em **Nova sala de aula**. ![Botão "Nova sala de aula"](/assets/images/help/classroom/click-new-classroom-button.png)
 {% data reusables.classroom.guide-create-new-classroom %}
 
-After you create a classroom, you can begin creating assignments for students. For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)," "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," or "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+Depois de criar uma sala de aula, você pode começar a criar atividades para os alunos. Para obter mais informações, consulte "[Use a atividade inicial do Git e {% data variables.product.company_short %}](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment), "[Crie uma tarefa individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" ou "[Crie uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
 
-## Creating a roster for your classroom
+## Criando uma lista para sua sala de aula
 
-You can create a roster of the students who participate in your course.
+Você pode criar uma lista de alunos que participam do seu curso.
 
-If your course already has a roster, you can update the students on the roster or delete the roster. For more information, see "[Adding a student to the roster for your classroom](#adding-students-to-the-roster-for-your-classroom)" or "[Deleting a roster for a classroom](#deleting-a-roster-for-a-classroom)."
-
-{% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-students %}
-1. To connect {% data variables.product.prodname_classroom %} to your LMS and import a roster, click {% octicon "mortar-board" aria-label="The mortar board icon" %} **Import from a learning management system** and follow the instructions. For more information, see "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)."
-    !["Import from a learning management system" button](/assets/images/help/classroom/click-import-from-a-learning-management-system-button.png)
-1. Provide the student identifiers for your roster.
-     - To import a roster by uploading a file containing student identifiers, click **Upload a CSV or text file**.
-     - To create a roster manually, type your student identifiers.
-       ![Text field for typing student identifiers and "Upload a CSV or text file" button](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
-1. Click **Create roster**.
-  !["Create roster" button](/assets/images/help/classroom/click-create-roster-button.png)
-
-## Adding students to the roster for your classroom
-
-Your classroom must have an existing roster to add students to the roster. For more information about creating a roster, see "[Creating a roster for your classroom](#creating-a-roster-for-your-classroom)."
+Se o seu curso já tem uma lista, você pode atualizar os alunos na lista ou excluir a lista. Para mais informações consulte "[Adicionar um aluno à lista de participantes para sua sala de aula](#adding-students-to-the-roster-for-your-classroom)" ou "[Excluir uma lista para uma sala de aula](#deleting-a-roster-for-a-classroom)."
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-students %}
-1. To the right of "Classroom roster", click **Update students**.
-  !["Update students" button to the right of "Classroom roster" heading above list of students](/assets/images/help/classroom/click-update-students-button.png)
-1. Follow the instructions to add students to the roster.
-    - To import students from an LMS, click **Sync from a learning management system**. For more information about importing a roster from an LMS, see "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)."
-    - To manually add students, under "Manually add students", click **Upload a CSV or text file** or type the identifiers for the students, then click **Add roster entries**.
-      ![Modal for choosing method of adding students to classroom](/assets/images/help/classroom/classroom-add-students-to-your-roster.png)
+1. Para conectar {% data variables.product.prodname_classroom %} ao seu LMS e importar uma lista, clique em {% octicon "mortar-board" aria-label="The mortar board icon" %} **Importar de um sistema de gerenciamento de aprendizagem** e siga as instruções. Para obter mais informações, consulte "[Conectar um sistema de gerenciamento de aprendizagem a {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)". ![Botão "Importar de um sistema de gerenciamento de aprendizagem"](/assets/images/help/classroom/click-import-from-a-learning-management-system-button.png)
+1. Forneça os identificadores dos alunos para a sua lista.
+     - Para importar uma lista de participantes fazendo o upload de um arquivo que contém identificadores de alunos, clique no **upload de um arquivo CSV ou texto**.
+     - Para criar uma lista manualmente, digite os identificadores do aluno. ![Campo de texto para digitar identificadores de aluno e botão "Fazer upload de um arquivo CSV ou texto"](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
+1. Clique **Criar lista**. ![Botão "Criar lista"](/assets/images/help/classroom/click-create-roster-button.png)
 
-## Renaming a classroom
+## Adicionar alunos à lista de participantes para sua sala de aula
+
+A sua sala de aula precisa ter uma lista existente para adicionar alunos à lista. Para obter mais informações sobre como criar uma lista, consulte "[Criar uma lista de participantes para sua sala de aula](#creating-a-roster-for-your-classroom)."
+
+{% data reusables.classroom.sign-into-github-classroom %}
+{% data reusables.classroom.click-classroom-in-list %}
+{% data reusables.classroom.click-students %}
+1. À direita do "Lista de sala de aula", clique em **Atualizar alunos**. ![Botão "Atualizar os alunos" à direita de "lista de salas de aula" destacando-se acima da lista de alunos](/assets/images/help/classroom/click-update-students-button.png)
+1. Siga as instruções para adicionar alunos à lista.
+    - Para importar os alunos de um LMS, clique em **Sincronizar a partir de um sistema de gerenciamento de aprendizagem**. Para obter mais informações sobre a importação de uma lista de participantes de um LMS, consulte "[Conectar um sistema de gerenciamento de aprendizagem a {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)".
+    - Para adicionar alunos manualmente, em "Adicionar alunos manualmente", clique em **Enviar um arquivo CSV ou de texto** ou digite os identificadores para os alunos e, em seguida, clique em **Adicionar entradas da lista**. ![Modal para escolher o método de adicionar os alunos à sala de aula](/assets/images/help/classroom/classroom-add-students-to-your-roster.png)
+
+## Renomear uma sala de aula
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-settings %}
-1. Under "Classroom name", type a new name for the classroom.
-  ![Text field under "Classroom name" for typing classroom name](/assets/images/help/classroom/settings-type-classroom-name.png)
-1. Click **Rename classroom**.
-  !["Rename classroom" button](/assets/images/help/classroom/settings-click-rename-classroom-button.png)
+1. Em "Nome da sala de aula", digite um novo nome para a sala de aula. ![Campo de texto em "Nome da sala de aula" para digitar o nome da sala de aula](/assets/images/help/classroom/settings-type-classroom-name.png)
+1. Clique em **Renomear sala de aula**. ![Botão "Renomear sala de aula"](/assets/images/help/classroom/settings-click-rename-classroom-button.png)
 
-## Archiving or unarchiving a classroom
+## Arquivar ou desarquivar uma sala de aula
 
-You can archive a classroom that you no longer use on {% data variables.product.prodname_classroom %}. When you archive a classroom, you can't create new assignments or edit existing assignments for the classroom. Students can't accept invitations to assignments in archived classrooms.
+Você pode arquivar uma sala de aula que você não usa mais em {% data variables.product.prodname_classroom %}. Ao arquivar uma sala de aula, não é possível criar novas atividades ou editar as atividades existentes para a sala de aula. Os alunos não podem aceitar convites para atividades em salas de aula arquivadas.
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. To the right of a classroom's name, select the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} drop-down menu, then click **Archive**.
-  ![Drop-down menu from horizontal kebab icon and "Archive" menu item](/assets/images/help/classroom/use-drop-down-then-click-archive.png)
-1. To unarchive a classroom, to the right of a classroom's name, select the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} drop-down menu, then click **Unarchive**.
-  ![Drop-down menu from horizontal kebab icon and "Unarchive" menu item](/assets/images/help/classroom/use-drop-down-then-click-unarchive.png)
+1. À direita do nome da sala de aula, selecione o menu suspenso {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e, em seguida, clique em **Arquivar**. ![Menu suspenso do ícone do kebab horizontal e item do menu "Arquivo"](/assets/images/help/classroom/use-drop-down-then-click-archive.png)
+1. Para desarquivar uma sala de aula, à direita do nome de uma sala de aula, selecione o menu suspenso {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e, em seguida, clique em **Desarquivar**. ![Menu suspenso do ícone do kebab horizontal e item do menu "Desarquivar"](/assets/images/help/classroom/use-drop-down-then-click-unarchive.png)
 
-## Deleting a roster for a classroom
+## Excluir uma lista de participantes para uma sala de aula
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-students %}
-1. Under "Delete this roster", click **Delete roster**.
-  !["Delete roster" button under "Delete this roster" in "Students" tab for a classroom](/assets/images/help/classroom/students-click-delete-roster-button.png)
-1. Read the warnings, then click **Delete roster**.
-  !["Delete roster" button under "Delete this roster" in "Students" tab for a classroom](/assets/images/help/classroom/students-click-delete-roster-button-in-modal.png)
+1. Em "Excluir esta lista", clique em **Excluir lista**. ![Botão "Excluir lista" em "Excluir esta lista" na aba "Alunos" para uma sala de aula](/assets/images/help/classroom/students-click-delete-roster-button.png)
+1. Leia os avisos e, em seguida, clique em **Excluir lista**. ![Botão "Excluir lista" em "Excluir esta lista" na aba "Alunos" para uma sala de aula](/assets/images/help/classroom/students-click-delete-roster-button-in-modal.png)
 
-## Deleting a classroom
+## Excluir uma sala de aula
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-settings %}
-1. To the right of "Delete this classroom", click **Delete classroom**.
-  !["Delete repository" button](/assets/images/help/classroom/click-delete-classroom-button.png)
-1. **Read the warnings**.
-1. To verify that you're deleting the correct classroom, type the name of the classroom you want to delete.
-  ![Modal for deleting a classroom with warnings and text field for classroom name](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
-1. Click **Delete classroom**.
-  !["Delete classroom" button](/assets/images/help/classroom/delete-classroom-click-delete-classroom-button.png)
+1. À direita de "Excluir essa sala de aula", clique em **Excluir sala de aula**. ![Botão "Excluir repositório"](/assets/images/help/classroom/click-delete-classroom-button.png)
+1. **Leia os avisos**.
+1. Para verificar se você está excluindo a sala de aula correta, digite o nome da sala de aula que você deseja excluir. ![Modal para excluir uma sala de aula com avisos e campo de texto para o nome da sala de aula](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
+1. Clique em **Excluir sala de aula**. ![Botão "Excluir sala de aula"](/assets/images/help/classroom/delete-classroom-click-delete-classroom-button.png)

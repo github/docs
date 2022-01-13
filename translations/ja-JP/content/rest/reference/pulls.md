@@ -1,6 +1,6 @@
 ---
 title: Pulls
-intro: 'The Pulls API allows you to list, view, edit, create, and even merge pull requests.'
+intro: Pulls APIを使うと、Pull Requestのリスト、表示、編集、作成、さらにはマージまでも行えます。
 redirect_from:
   - /v3/pulls
 versions:
@@ -13,13 +13,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The Pull Request API allows you to list, view, edit, create, and even merge pull requests. Comments on pull requests can be managed via the [Issue Comments API](/rest/reference/issues#comments).
+Pull Request API を使用すると、Pull Requestを一覧表示、編集、作成、マージできます。 Pull Requestのコメントは、[Issue Comments API](/rest/reference/issues#comments) で管理できます。
 
-Every pull request is an issue, but not every issue is a pull request. For this reason, "shared" actions for both features, like manipulating assignees, labels and milestones, are provided within [the Issues API](/rest/reference/issues).
+すべてのPull Requestは Issue ですが、すべての Issue がPull Requestというわけではありません。 このため、アサインされた人、ラベル、マイルストーンなどの操作といった、両方の機能で共通するアクションは、[Issues API](/rest/reference/issues) で提供されます。
 
-### Custom media types for pull requests
+### Pull Requestのカスタムメディアタイプ
 
-These are the supported media types for pull requests.
+以下がPull Requestでサポートされているメディアタイプです。
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
@@ -28,60 +28,59 @@ These are the supported media types for pull requests.
     application/vnd.github.VERSION.diff
     application/vnd.github.VERSION.patch
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+詳しい情報については、「[カスタムメディアタイプ](/rest/overview/media-types)」を参照してください。
 
-If a diff is corrupt, contact {% data variables.contact.contact_support %}. Include the repository name and pull request ID in your message.
+diff が破損している場合は、{% data variables.contact.contact_support %} にお問い合わせください。 メッセージにはリポジトリ名とPull Request ID を記載してください。
 
-### Link Relations
+### リンク関係
 
-Pull Requests have these possible link relations:
+Pull Requestには以下のリンク関係が含まれる可能性があります。
 
-Name | Description
------|-----------|
-`self`| The API location of this Pull Request.
-`html`| The HTML location of this Pull Request.
-`issue`| The API location of this Pull Request's [Issue](/rest/reference/issues).
-`comments`| The API location of this Pull Request's [Issue comments](/rest/reference/issues#comments).
-`review_comments`| The API location of this Pull Request's [Review comments](/rest/reference/pulls#comments).
-`review_comment`| The [URL template](/rest#hypermedia) to construct the API location for a [Review comment](/rest/reference/pulls#comments) in this Pull Request's repository.
-`commits`|The API location of this Pull Request's [commits](#list-commits-on-a-pull-request).
-`statuses`| The API location of this Pull Request's [commit statuses](/rest/reference/repos#statuses), which are the statuses of its `head` branch.
+| 名前                | 説明                                                                                                                |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `self`            | Pull Requestの API ロケーション。                                                                                         |
+| `html`            | Pull Requestの HTML ロケーション。                                                                                        |
+| `Issue`           | Pull Requestの [Issue](/rest/reference/issues) の API ロケーション。                                                       |
+| `コメント`            | Pull Requestの [Issue コメント](/rest/reference/issues#comments) の API ロケーション。                                         |
+| `review_comments` | Pull Requestの [レビューコメント](/rest/reference/pulls#comments) の API ロケーション。                                            |
+| `review_comment`  | Pull Requestのリポジトリで、[レビューコメント](/rest/reference/pulls#comments)の API ロケーションを構築するための[URL テンプレート](/rest#hypermedia)。 |
+| `commits`         | Pull Requestの [コミット](#list-commits-on-a-pull-request) の API ロケーション。                                               |
+| `statuses`        | Pull Requestの[コミットステータス](/rest/reference/repos#statuses)、すなわち`head` ブランチのステータスの API ロケーション。                       |
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Reviews
+## レビュー
 
-Pull Request Reviews are groups of Pull Request Review Comments on the Pull
-Request, grouped together with a state and optional body comment.
+Pull Requestレビューは、Pull Request上のPull Requestレビューコメントのグループで、状態とオプションの本文コメントでグループ化されています。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'reviews' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Review comments
+## レビューコメント
 
-Pull request review comments are comments on a portion of the unified diff made during a pull request review. Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/commits#create-a-commit-comment)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
+Pull Requestレビューコメントは、Pull Requestのレビュー中に unified 形式の diff の一部に付けられたコメントです。 コミットコメントおよび Issue コメントは、Pull Requestレビューコメントとは異なります。 コミットコメントはコミットに直接付けるもので、Issue コメントは、unified 形式の diff の一部を参照することなく付けるものです。 詳しい情報については、「[コミットコメントの作成](/rest/reference/commits#create-a-commit-comment)」および「[Issue コメントの作成](/rest/reference/issues#create-an-issue-comment)」を参照してください。
 
-### Custom media types for pull request review comments
+### Pull Requestレビューコメントのカスタムメディアタイプ
 
-These are the supported media types for pull request review comments.
+以下がPull Requestレビューコメントでサポートされているメディアタイプです。
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
     application/vnd.github.VERSION.html+json
     application/vnd.github.VERSION.full+json
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+詳しい情報については、「[カスタムメディアタイプ](/rest/overview/media-types)」を参照してください。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Review requests
+## レビューリクエスト
 
-Pull request authors and repository owners and collaborators can request a pull request review from anyone with write access to the repository. Each requested reviewer will receive a notification asking them to review the pull request.
+Pull Requestの作者、リポジトリのオーナー、およびコラボレータは、リポジトリの書き込みアクセスを持つ人にPull Requestレビューをリクエストできます。 リクエストされたレビュー担当者は、Pull Requestレビューをするようあなたが依頼したという通知を受け取ります。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'review-requests' %}{% include rest_operation %}{% endif %}

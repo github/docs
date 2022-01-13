@@ -1,6 +1,6 @@
 ---
-title: Managing releases in a repository
-intro: You can create releases to bundle and deliver iterations of a project to users.
+title: 管理仓库中的发行版
+intro: 您可以创建要捆绑的发行版，并将项目的迭代交付给用户。
 redirect_from:
   - /articles/creating-releases
   - /articles/listing-and-editing-releases
@@ -18,30 +18,29 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Manage releases
+shortTitle: 管理版本
 ---
+
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
-## About release management
+## 关于发行版管理
 
 You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases.
 
 {% ifversion fpt or ghec %}
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publishing an action in the {% data variables.product.prodname_marketplace %}</a>."
+您也可以在 {% data variables.product.prodname_marketplace %} 中从特定的发行版发布操作。 更多信息请参阅“<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">在 {% data variables.product.prodname_marketplace %} 中发布操作</a>”。
 
-You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+您可以选择是否将 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 对象包含在 {% data variables.product.product_name %} 为每个发行版创建的 ZIP 文件和 tarball 中。 更多信息请参阅“[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)”。
 {% endif %}
 {% endif %}
 
-## Creating a release
-
-{% include tool-switcher %}
+## 创建发行版
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. Click **Draft a new release**.
+3. 单击 **Draft a new release（草拟新发行版）**。
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}![Releases draft button](/assets/images/help/releases/draft-release-button-with-search.png){% else %}![Releases draft button](/assets/images/help/releases/draft_release_button.png){% endif %}
 4. {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}Click **Choose a tag**, type{% else %}Type{% endif %} a version number for your release{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}, and press **Enter**{% endif %}. Alternatively, select an existing tag.
@@ -51,36 +50,32 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
    ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
    {% else %}
-   ![Releases tagged version](/assets/images/enterprise/releases/releases-tag-version.png)
+   ![发行版标记版本](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
 5. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
 
    {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
    {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
-6. Type a title and description for your release.
+6. 键入发行版的标题和说明。
    {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %}
    If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
    {% ifversion fpt or ghec %} Alternatively, you can automatically generate your release notes by clicking **Auto-generate release notes**.
    {% endif %}
-   ![Releases description](/assets/images/help/releases/releases_description_auto.png)
-7. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
-   ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
-8. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
-   ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
+   ![发行版说明](/assets/images/help/releases/releases_description_auto.png)
+7. （可选）要在发行版中包含二进制文件（例如已编译的程序），请在二进制文件框中拖放或手动选择文件。 ![通过发行版提供 DMG](/assets/images/help/releases/releases_adding_binary.gif)
+8. 要通知用户发行版本尚不可用于生产，可能不稳定，请选择 **This is a pre-release（这是预发布）**。 ![将版本标记为预发行版的复选框](/assets/images/help/releases/prerelease_checkbox.png)
 {%- ifversion fpt or ghec %}
-1. Optionally, if {% data variables.product.prodname_discussions %} are enabled in the repository, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
-  ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
+1. Optionally, if {% data variables.product.prodname_discussions %} are enabled in the repository, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion. ![用于创建发行版讨论和下拉菜单以选择类别的复选框](/assets/images/help/releases/create-release-discussion.png)
 {%- endif %}
-9. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
-   ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
+9. 如果您准备推广您的发行版，请单击 **Publish release（发布版本）**。 要在以后处理该发行版，请单击 **Save draft（保存草稿）**。 ![发布版本和草拟发行版按钮](/assets/images/help/releases/release_buttons.png)
 
    {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4972 or ghae-issue-4974 %}
    You can then view your published or draft releases in the releases feed for your repository. For more information, see "[Viewing your repository's releases and tags](/github/administering-a-repository/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
    ![Published release with @mentioned contributors](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-   {% else %} 
+   {% else %}
    ![Published release with @mentioned contributors](/assets/images/help/releases/releases-overview-with-contributors.png)
    {% endif %}
    {%- endif %}
@@ -108,23 +103,18 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 
 {% endcli %}
 
-## Editing a release
-
-{% include tool-switcher %}
+## 编辑发行版
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-3. On the right side of the page, next to the release you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
-  ![Edit a release](/assets/images/help/releases/edit-release-pencil.png)
+3. On the right side of the page, next to the release you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}. ![编辑发行版](/assets/images/help/releases/edit-release-pencil.png)
 {% else %}
-3. On the right side of the page, next to the release you want to edit, click **Edit release**.
-  ![Edit a release](/assets/images/help/releases/edit-release.png)
+3. 在页面右侧要编辑的发行版旁边，单击 **Edit release（编辑发行版）**。 ![编辑发行版](/assets/images/help/releases/edit-release.png)
 {% endif %}
-4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %}
-  ![Update a release](/assets/images/help/releases/update-release.png)
+4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %} ![更新发行版](/assets/images/help/releases/update-release.png)
 
 {% endwebui %}
 
@@ -134,25 +124,19 @@ Releases cannot currently be edited with {% data variables.product.prodname_cli 
 
 {% endcli %}
 
-## Deleting a release
-
-{% include tool-switcher %}
+## 删除发行版
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-3. On the right side of the page, next to the release you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
-  ![Delete a release](/assets/images/help/releases/delete-release-trash.png)
+3. On the right side of the page, next to the release you want to delete, click {% octicon "trash" aria-label="The trash icon" %}. ![删除发行版](/assets/images/help/releases/delete-release-trash.png)
 {% else %}
-3. Click the name of the release you wish to delete.
-  ![Link to view release](/assets/images/help/releases/release-name-link.png)
-4. In the upper-right corner of the page, click **Delete**.
-  ![Delete release button](/assets/images/help/releases/delete-release.png)
+3. 单击要删除的发行版的名称。 ![用于查看发行版的链接](/assets/images/help/releases/release-name-link.png)
+4. 在页面右上角，单击 **Delete（删除）**。 ![删除发行版按钮](/assets/images/help/releases/delete-release.png)
 {% endif %}
-5. Click **Delete this release**.
-  ![Confirm delete release](/assets/images/help/releases/confirm-delete-release.png)
+5. 单击 **Delete this release（删除此发行版）**。 ![确认删除发行版](/assets/images/help/releases/confirm-delete-release.png)
 
 {% endwebui %}
 

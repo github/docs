@@ -1,1 +1,1 @@
-学生による課題の受理または提出を防ぐには、**Enable assignment invitation URL（課題の招待URLの有効化）**の選択を解除してください。 課題を編集するには{% octicon "pencil" aria-label="The pencil icon" %} **Edit assignment（課題の編集）**をクリックしてください。
+To prevent acceptance or submission of an assignment by students, you can change the "Assignment Status" within the "Edit assignment" view. When an assignment is Active, students will be able to accept it using the invitation link. When it is Inactive, this link will no longer be valid.

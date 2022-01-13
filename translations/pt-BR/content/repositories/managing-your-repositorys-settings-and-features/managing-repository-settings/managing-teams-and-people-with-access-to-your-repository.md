@@ -14,13 +14,13 @@ topics:
 shortTitle: Equipes & pessoas
 ---
 
-## About access management for repositories
+## Sobre gerenciamento de acesso para repositórios
 
-Para cada repositório que você administra no {% data variables.product.prodname_dotcom %}, você pode ter uma visão geral de cada equipe ou pessoa com acesso ao repositório. From the overview, you can also invite new teams or people, change each team or person's role for the repository, or remove access to the repository.
+Para cada repositório que você administra no {% data variables.product.prodname_dotcom %}, você pode ter uma visão geral de cada equipe ou pessoa com acesso ao repositório. Na visão geral, você também pode convidar novas equipes ou pessoas, alterar a função de cada equipe ou pessoa para o repositório ou remover o acesso ao repositório.
 
 Esta visão geral pode ajudá-lo a auditar o acesso ao seu repositório, incluir ou excluir funcionários ou colaboradores, e responder efetivamente aos incidentes de segurança.
 
-For more information about repository roles, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Para obter mais informações sobre funções do repositório, consulte "[Níveis de permissão para um repositório de conta de usuário](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" e "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
 ![Acessar visão geral do gerenciamento ](/assets/images/help/repository/manage-access-overview.png)
 
@@ -36,7 +36,7 @@ For more information about repository roles, see "[Permission levels for a user 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. Under "Manage access", find the team or person whose role you'd like to change, then select the Role drop-down and click a new role. ![Usando a "Função" menu suspenso para selecionar novas permissões para uma equipe ou pessoa](/assets/images/help/repository/manage-access-role-drop-down.png)
+4. Em "Gerenciar acesso", encontre a equipe ou pessoa cuja função você gostaria de alterar. Em seguida, selecione a função suspensa e clique em uma nova função. ![Usando a "Função" menu suspenso para selecionar novas permissões para uma equipe ou pessoa](/assets/images/help/repository/manage-access-role-drop-down.png)
 
 ## Convidando uma equipe ou pessoa
 
@@ -45,7 +45,7 @@ For more information about repository roles, see "[Permission levels for a user 
 {% data reusables.repositories.navigate-to-manage-access %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. No campo de busca, comece a digitar o nome da equipe ou pessoa para convidar, depois clique em um nome na lista de correspondências. ![Campo de pesquisa para digitar o nome de uma equipe ou pessoa para convidar ao repositório](/assets/images/help/repository/manage-access-invite-search-field.png)
-6. Under "Choose a role", select the repository role to grant to the team or person, then click **Add NAME to REPOSITORY**. ![Selecionando permissões para a equipe ou pessoa](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
+6. Em "Escolher uma função", selecione o a função do repositório para conceder à equipe ou pessoa. Em seguida, clique em **Adicionar NOME ao REPOSITÓRIO**. ![Selecionando permissões para a equipe ou pessoa](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
 ## Removendo acesso de uma equipe ou pessoa
 

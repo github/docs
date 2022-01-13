@@ -1,7 +1,7 @@
 ---
-title: Learn GitHub Actions
-shortTitle: Learn GitHub Actions
-intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
+title: GitHub Actions について学ぶ
+shortTitle: GitHub Actions について学ぶ
+intro: '{% data variables.product.prodname_actions %} を初めて使用する場合も、そこで提供されているすべての項目を学ぶ場合も、このガイドは、{% data variables.product.prodname_actions %} を使用してアプリケーション開発ワークフローを促進する際に役立ちます。'
 redirect_from:
   - /articles/about-github-actions
   - /github/automating-your-workflow-with-github-actions/about-github-actions
@@ -34,8 +34,8 @@ children:
   - /essential-features-of-github-actions
   - /managing-complex-workflows
   - /sharing-workflows-secrets-and-runners-with-your-organization
-  - /creating-workflow-templates
-  - /using-workflow-templates
+  - /creating-starter-workflows-for-your-organization
+  - /using-starter-workflows
   - /reusing-workflows
   - /events-that-trigger-workflows
   - /expressions

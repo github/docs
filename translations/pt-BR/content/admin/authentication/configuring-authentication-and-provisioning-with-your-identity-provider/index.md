@@ -1,12 +1,12 @@
 ---
-title: Configuring authentication and provisioning with your identity provider
-intro: 'You can configure user authentication and provisioning by integrating with an identity provider (IdP) that supports SAML single sign-on (SSO) and SCIM.'
+title: Configurar a autenticação e provisionamento com seu provedor de identidade
+intro: É possível configurar a autenticação e provisionamento de usuários integrando com um provedor de identidade (IdP) compatível com o logon único SAML (SSO) e SCIM.
 versions:
   ghae: '*'
 children:
   - /configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /configuring-authentication-and-provisioning-for-your-enterprise-using-okta
   - /mapping-okta-groups-to-teams
-shortTitle: Use an IdP for SSO & SCIM
+shortTitle: Use um IdP para SSO & SCIM
 ---
 

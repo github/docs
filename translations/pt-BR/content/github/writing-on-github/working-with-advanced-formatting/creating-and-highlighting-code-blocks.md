@@ -45,6 +45,7 @@ Look! Você pode ver minhas aspas.
 
 ![Código isolado interpretado como um bloco de aspas inversas](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
 
 ## Realce de sintaxe
 

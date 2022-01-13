@@ -1,0 +1,90 @@
+name: Production (Azure) - Build and Deploy
+
+# **What it does**: Builds and deploys the default branch to production
+# **Why we have it**: To enable us to deploy the latest to production whenever necessary rather than relying on PR merges.
+# **Who does it impact**: All contributors.
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+# This allows a subsequently queued workflow run to take priority over
+# previously queued runs but NOT interrupt currently executing runs
+concurrency:
+  group: '${{ github.workflow }}'
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      IMAGE_TAG_BASE: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}
+
+    steps:
+      - name: 'Docker login'
+        uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
+        with:
+          login-server: ${{ secrets.PROD_REGISTRY_SERVER }}
+          username: ${{ secrets.PROD_REGISTRY_USERNAME }}
+          password: ${{ secrets.PROD_REGISTRY_PASSWORD }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
+
+      - name: Check out repo
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        with:
+          ref: ${{ github.sha }}
+          # To prevent issues with cloning early access content later
+          persist-credentials: 'false'
+          lfs: 'true'
+
+      - name: Check out LFS objects
+        run: git lfs checkout
+
+      - name: Setup node
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        with:
+          node-version: 16.13.x
+          cache: npm
+
+      - name: Clone early access
+        run: npm install dotenv && node script/early-access/clone-for-build.js
+        env:
+          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
+          GIT_BRANCH: main
+
+      - name: 'Build and push image'
+        uses: docker/build-push-action@a66e35b9cbcf4ad0ea91ffcaf7bbad63ad9e0229
+        with:
+          context: .
+          push: true
+          target: 'production_early_access'
+          tags: ${{ env.IMAGE_TAG_BASE }}:${{ github.sha }}, ${{ env.IMAGE_TAG_BASE }}:production
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # TODO - enable this when we disable the other production deploy
+      # - name: Purge Fastly edge cache
+      #   env:
+      #     FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
+      #     FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
+      #     FASTLY_SURROGATE_KEY: 'every-deployment'
+      #   run: npm install got && .github/actions-scripts/purge-fastly-edge-cache.js
+
+      - name: Send Slack notification if workflow failed
+        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        if: ${{ failure() }}
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: Production deployment (Azure) failed at commit ${{ github.sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

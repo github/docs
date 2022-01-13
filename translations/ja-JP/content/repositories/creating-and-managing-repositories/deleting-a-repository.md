@@ -1,6 +1,6 @@
 ---
-title: Deleting a repository
-intro: You can delete any repository or fork if you're either an organization owner or have admin permissions for the repository or fork. Deleting a forked repository does not delete the upstream repository.
+title: リポジトリの削除
+intro: Organization のオーナーである場合、あるいはリポジトリまたはフォークに対する管理者権限がある場合、任意のリポジトリまたはフォークを削除できます。 フォークしたリポジトリを削除しても、上流のリポジトリは削除されません。
 redirect_from:
   - /delete-a-repo
   - /deleting-a-repo
@@ -15,26 +15,25 @@ versions:
 topics:
   - Repositories
 ---
-{% data reusables.organizations.owners-and-admins-can %} delete an organization repository. If **Allow members to delete or transfer repositories for this organization** has been disabled, only organization owners can delete organization repositories. {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% ifversion not ghae %}Deleting a public repository will not delete any forks of the repository.{% endif %}
+{% data reusables.organizations.owners-and-admins-can %}Organization のリポジトリを削除できます。 [**Allow members to delete or transfer repositories for this organization**] が無効化されていると、Organization のオーナーだけが Organization のリポジトリを削除できます。 {% data reusables.organizations.new-repo-permissions-more-info %}
+
+{% ifversion not ghae %}パブリックリポジトリを削除しても、リポジトリのフォークは削除されません。{% endif %}
 
 {% warning %}
 
-**Warnings**:
+**警告**:
 
-- Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
+- リポジトリを削除すると、リリースの添付ファイルと Team の権限が**完全に**削除されます。 このアクションは取り消すことが**できません**。
 - Deleting a private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository will delete all forks of the repository.
 
 {% endwarning %}
 
-Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. 詳しい情報については、「[削除されたリポジトリを復元する](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)」を参照してください。 {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-2. Under Danger Zone, click **Delete this repository**.
-   ![Repository deletion button](/assets/images/help/repository/repo-delete.png)
-3. **Read the warnings**.
-4. To verify that you're deleting the correct repository, type the name of the repository you want to delete.
-   ![Deletion labeling](/assets/images/help/repository/repo-delete-confirmation.png)
-5. Click **I understand the consequences, delete this repository**.
+2. [Danger Zone] の [**Delete this repository**] をクリックします。 ![リポジトリの削除ボタン](/assets/images/help/repository/repo-delete.png)
+3. **警告を読みます**。
+4. 削除しようとしているリポジトリに間違いがないことを確認するために、削除対象のリポジトリ名を入力します。 ![削除ラベル](/assets/images/help/repository/repo-delete-confirmation.png)
+5. [**I understand the consequences, delete this repository**] をクリックします。

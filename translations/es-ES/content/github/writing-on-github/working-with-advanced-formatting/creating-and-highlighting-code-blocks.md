@@ -45,6 +45,7 @@ Look! Puedes ver mis comillas inversas.
 
 ![Código cercado interpretado con un bloque de comillas inversas](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
 
 ## Resaltado de la sintaxis
 

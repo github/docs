@@ -11,10 +11,10 @@
 //
 // [end-readme]
 
-import linkinator from 'linkinator'
+import { LinkChecker } from 'linkinator'
 import { deprecated, latest } from '../lib/enterprise-server-releases.js'
 
-const checker = new linkinator.LinkChecker()
+const checker = new LinkChecker()
 const englishRoot = 'http://localhost:4002/en'
 const allowedVersions = ['dotcom', 'enterprise-cloud', 'enterprise-server', 'github-ae']
 
