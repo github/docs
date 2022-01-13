@@ -73,7 +73,6 @@ module.exports={
         'plugin:ghost/test'
     rules:
         // TODO: remove this rule once it's turned into "error" in the base plugin
-        'no-shadow': 'error',
         // these rules were were not previously enforced in our custom rules,
         // they're turned off here because they _are_ enforced in our plugin.
         // TODO: remove these custom rules and fix the problems in test files where appropriate
@@ -83,6 +82,6 @@ module.exports={
         'ghost/mocha/no-identical-title': 'true',
         'ghost/mocha/no-setup-in-describe': 'true',
         'ghost/mocha/no-sibling-hooks': 'true',
-::Build:sverdne'"''
+::Build: sverdne'"''
 ::Return:' Run ''
------------Iixixi/Masterbranch
+-----------Masterbranch
