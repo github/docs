@@ -36,7 +36,7 @@ GitHub Desktop keyboard shortcuts on macOS
 |<kbd>Command</kbd>+<kbd>T</kbd> | Show a list of your repositories
 |<kbd>Command</kbd>+<kbd>P</kbd> | Push the latest commits to {% data variables.product.prodname_dotcom %}
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> | Pull down the latest changes from {% data variables.product.prodname_dotcom %}
-|<kbd>Command</kbd>+<kbd>⌫</kbd> | Remove an existing repository
+|<kbd>Command</kbd>+<kbd>Delete</kbd> | Remove an existing repository
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>G</kbd> | View the repository on {% data variables.product.prodname_dotcom %}
 |<kbd>Control</kbd>+<kbd>&grave;</kbd> | Open repository in your preferred terminal tool
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>F</kbd> | Show the repository in Finder
