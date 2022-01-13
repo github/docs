@@ -76,7 +76,7 @@ jobs:
         run: node script/early-access/clone-for-build.js
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: ${{ github.event.pull_request.head.sha }}
+          GIT_BRANCH: ${{ github.head_ref || github.ref }}
 
       - name: Create a Heroku build source
         id: build-source
