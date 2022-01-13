@@ -140,7 +140,7 @@ describe('header', () => {
   describe('mobile-only product dropdown links', () => {
     test('include github and admin, and emphasize the current product', async () => {
       const $ = await getDOM(
-        '/en/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
+        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
       )
       const github = $('[data-testid=product-picker][data-current-product-path="/github"] summary')
       expect(github.length).toBe(1)
@@ -161,7 +161,7 @@ describe('header', () => {
 
     test('emphasizes the product that corresponds to the current page', async () => {
       const $ = await getDOM(
-        `/en/enterprise-server@${oldestSupported}/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
+        `/en/enterprise-server@${oldestSupported}/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
       )
 
       expect($('[data-testid=product-picker] summary').text()).toBe('GitHub')
