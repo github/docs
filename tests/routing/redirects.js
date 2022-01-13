@@ -347,7 +347,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github`
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
@@ -386,7 +386,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github`
     const redirectFromPath = '/articles/about-writing-and-formatting-on-github'
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
