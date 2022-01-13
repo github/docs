@@ -17,23 +17,23 @@ shortTitle: Composite action
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## はじめに
 
-In this guide, you'll learn about the basic components needed to create and use a packaged composite action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" and then "Goodbye",  or if you provide a custom name, it prints "Hello [who-to-greet]" and then "Goodbye". The action also maps a random number to the `random-number` output variable, and runs a script named `goodbye.sh`.
+In this guide, you'll learn about the basic components needed to create and use a packaged composite action. アクションのパッケージ化に必要なコンポーネントのガイドに焦点を当てるため、アクションのコードの機能は最小限に留めます。 アクションは「Hello World」と「Goodbye」を出力するか、カスタムの名前を指定すると「Hello  [who-to-greet]」と「Goodbye」を出力します。 このアクションは、乱数を `random-number`という出力変数にマップし、 `goodbye.sh`という名前のスクリプトを実行することもします。
 
 Once you complete this project, you should understand how to build your own composite action and test it in a workflow.
 
 {% data reusables.github-actions.context-injection-warning %}
 
-## Prerequisites
+## 必要な環境
 
 Before you begin, you'll create a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
-1. Create a new public repository on {% data variables.product.product_location %}. You can choose any repository name, or use the following `hello-world-composite-action` example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
+1. {% data variables.product.product_location %} に新しいパブリックリポジトリを作成します。 You can choose any repository name, or use the following `hello-world-composite-action` example. これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 詳しい情報については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 
-1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+1. リポジトリをお手元のコンピューターにクローンします。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
 
-1. From your terminal, change directories into your new repository.
+1. ターミナルから、ディレクトリを新しいリポジトリに変更します。
 
   ```shell
   cd hello-world-composite-action
@@ -45,20 +45,20 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
   echo "Goodbye"
   ```
 
-3. From your terminal, make `goodbye.sh` executable.
+3. ターミナルから、`goodbye.sh` を実行可能にします。
 
   ```shell
   chmod +x goodbye.sh
   ```
 
-1. From your terminal, check in your `goodbye.sh` file.
+1. ターミナルから、 `goodbye.sh` ファイルをチェックインします。
   ```shell
   git add goodbye.sh
   git commit -m "Add goodbye script"
   git push
   ```
 
-## Creating an action metadata file
+## アクションのメタデータファイルの作成
 
 1. In the `hello-world-composite-action` repository, create a new file called `action.yml` and add the following example code. For more information about this syntax, see "[`runs` for a composite actions](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)".
 
@@ -88,13 +88,13 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
           shell: bash
     ```
     {% endraw %}
-  This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, and runs the `goodbye.sh` script. It also tells the runner how to execute the composite action.
+  このファイルは`who-to-greet`入力を定義し、ランダムに生成された数値を`random-number`出力変数にマップし、`goodbye.sh`スクリプトを実行します。 It also tells the runner how to execute the composite action.
 
   For more information about managing outputs, see "[`outputs` for a composite action](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
 
-  For more information about how to use `github.action_path`, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+  `github.action_path`の使用方法の詳細については、「[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)」を参照してください。
 
-1. From your terminal, check in your `action.yml` file.
+1. ターミナルから、`action.yml` ファイルをチェックインします。
 
   ```shell
   git add action.yml
@@ -102,18 +102,18 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
   git push
   ```
 
-1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see "[About actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+1. ターミナルから、タグを追加します。 この例では、`v1` というタグを使用しています。 詳しい情報については、「[Actionsについて](/actions/creating-actions/about-actions#using-release-management-for-actions)」を参照してください。
 
   ```shell
   git tag -a -m "Description of this release" v1
   git push --follow-tags
   ```
 
-## Testing out your action in a workflow
+## ワークフローでアクションをテストする
 
-The following workflow code uses the completed hello world action that you made in "[Creating an action metadata file](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)".
+次のワークフローのコードでは、「[Actionsのメタデータファイルの作成](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)」で作成したhello world Actionを使用しています。
 
-Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
+Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -135,4 +135,4 @@ jobs:
 ```
 {% endraw %}
 
-From your repository, click the **Actions** tab, and select the latest workflow run. The output should include: "Hello Mona the Octocat", the result of the "Goodbye" script, and a random number.
+リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 出力には、「Hello Mona the Octocat」、"Goodbye"スクリプトの結果、および乱数が含まれているはずです。

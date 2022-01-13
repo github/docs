@@ -361,7 +361,7 @@ Os detalhes das transferências e, em particular, as categorias de dados pessoai
 
 ##### Cláusula 7
 
-**Docking clause**
+**Cláusula de acoplamento**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
     <li>Uma entidade que não for parte nestas cláusulas pode, com o acordo das partes, aderir a qualquer momento a estas cláusulas. seja como exportador ou importador de dados, preenchendo o Apêndice e assinando o Anexo I.A.</li>
@@ -411,16 +411,16 @@ O processamento pelo importador de dados só ocorrerá durante a duração espec
 
 Quando a transferência envolver dados pessoais que revelem a origem racial ou étnica, opiniões políticas, convicções religiosas ou filosóficas, ou associações sindicais, dados genéticos ou dados biométricos para fins únicos de identificação da pessoa física, dados relativos à saúde ou à vida sexual ou à orientação sexual de uma pessoa, ou dados referentes a condenações criminosas e crimes (doravante “dados confidenciais”), o importador de dados deverá aplicar as restrições específicas e/ou salvaguardas adicionais descritas no Anexo I.B.
 
-**8.8 Onward transfers**
+**8.8 Transferências posteriores**
 
-O importador de dados só divulgará os dados pessoais a terceiros com base em instruções documentadas do exportador de dados. In addition, the data may only be disclosed to a third party located outside the European Union <sup><a href="#EEA">(1)</a></sup> (in the same country as the data importer or in another third country, hereinafter ‘onward transfer’) if the third party is or agrees to be bound by these Clauses, under the appropriate Module, or if:
+O importador de dados só divulgará os dados pessoais a terceiros com base em instruções documentadas do exportador de dados. Além disso, os dados só podem ser divulgados a terceiroz localizados fora da União Europeia <sup><a href="#EEA">(1)</a></sup> (no mesmo país que o importador de dados ou em outro país, doravante referido como "transferência posterior"), caso o terceiro concorde em ser vinculado por essas cláusulas, sob o módulo apropriado ou se:
 
 <ol style="list-style-type:lower-roman" class="no-styling">
-    <li>the onward transfer is to a country benefitting from an adequacy decision pursuant to Article 45 of Regulation (EU) 2016/679 that covers the onward transfer;</li>
+    <li>a transferência posterior for para um país que beneficia de uma decisão de adequação nos termos do artigo 45 do Regulamento (UE) 2016/679 que cobre a transferência posterior;</li>
     <li>de outra forma, a terceira parte assegura as salvaguardas adequadas nos termos dos artigos 46 ou 47 do Regulamentos (UE) 2016/679 no que se refere ao processamento em questão;</li>
-    <li>the onward transfer is necessary for the establishment, exercise or defence of legal claims in the context of specific administrative, regulatory or judicial proceedings; or</li>
-    <li>the onward transfer is necessary in order to protect the vital interests of the data subject or of another natural person.</li></br>
-    Any onward transfer is subject to compliance by the data importer with all the other safeguards under these Clauses, in particular purpose limitation. 
+    <li>a transferência em curso for necessária para o estabelecimento, exercício ou defesa de ações judiciais no contexto de procedimentos administrativos, regulamentares ou judiciais específicos; ou</li>
+    <li>a transferência em curso for necessária para proteger os interesses vitais do titular de dados ou de outra pessoa física.</li></br>
+    Qualquer transferência posterior está sujeita ao cumprimento, por parte do importador de dados, de todas as outras salvaguardas ao abrigo destas alegações, em particular a limitação dos objetivos. 
 </ol>
 
 **8.9 Documentação e conformidade**
@@ -457,14 +457,14 @@ O importador de dados só divulgará os dados pessoais a terceiros com base em i
 
 ##### Cláusula 11
 
-**Redress**
+**Reparação**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
     <li>O importador de dados deve informar aos titulares de dados em um formato transparente e facilmente acessível, por meio de notificação individual ou no seu site, um ponto de contato autorizado para administrar as reclamações. Ele tratará prontamente todas as reclamações que receber de um titular de dados.</li>
     <li>Em caso de disputa entre um titular de dados e uma das Partes no que diz respeito à conformidade com estas Clauses, a Parte irá eforçar-se ao máximo para resolver o problema d forma amigágel e em tempo hábil. As Partes manter-se-ão informadas sobre estes litígios e, sempre que necessário, cooperarão na sua solução.</li>
     <li>Quando o sujeito dos dados invocar um direito beneficiário de terceiros, conforme a Cláusula 3, o importador de dados aceitará a decisão do sujeito dos dados para:</li>
     <ol style="list-style-type:lower-roman" class="no-styling">
-        <li>lodge a complaint with the supervisory authority in the Member State of his/her habitual residence or place of work, or the competent supervisory authority pursuant to Clause 13;</li>
+        <li>apresentar uma queixa junto à autoridade de supervisão no Estado-membro da sua residência ou local de trabalho habitual ou a autoridade supervisora competente nos termos da Cláusula 13;</li>
         <li>consulte a questão para os tribunais competentes no âmbito da Cláusula 18.</li>
     </ol>
     <li>As Partes aceitam que o titular dos dados pode ser representado por uma entidade sem fins lucrativos, organização ou associação nas condições estabelecidas no artigo 80(1) do Regulamento (EU) 2016/679.</li>
@@ -478,61 +478,61 @@ O importador de dados só divulgará os dados pessoais a terceiros com base em i
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
     <li>Cada Parte será responsável pela(s) outra(s) Parte(s) por quaisquer danos causados à(s) outra(s) Parte(s) em razão de violação dessas Cláusulas.</li>
-    <li>The data importer shall be liable to the data subject, and the data subject shall be entitled to receive compensation, for any material or non-material damages the data importer or its sub-processor causes the data subject by breaching the third-party beneficiary rights under these Clauses.</li>
-    <li>Notwithstanding paragraph (b), the data exporter shall be liable to the data subject, and the data subject shall be entitled to receive compensation, for any material or non-material damages the data exporter or the data importer (or its sub-processor) causes the data subject by breaching the third-party beneficiary rights under these Clauses. Isto sem prejuízo da responsabilidade do exportador de dados e, quando o exportador de dados é um processador que atua em nome de um controlador, sem prejuízo da responsabilidade do controlador nos termos do Regulamento (UE) 2016/679 ou do Regulamento (UE) 2018/1725, conforme aplicável.</li>
-    <li>The Parties agree that if the data exporter is held liable under paragraph (c) for damages caused by the data importer (or its sub-processor), it shall be entitled to claim back from the data importer that part of the compensation corresponding to the data importer’s responsibility for the damage.</li>
-    <li>Where more than one Party is responsible for any damage caused to the data subject as a result of a breach of these Clauses, all responsible Parties shall be jointly and severally liable and the data subject is entitled to bring an action in court against any of these Parties.</li>
-    <li>The Parties agree that if one Party is held liable under paragraph (e), it shall be entitled to claim back from the other Party/ies that part of the compensation corresponding to its/their responsibility for the damage.</li>
-    <li>The data importer may not invoke the conduct of a sub-processor to avoid its own liability.</li>
+    <li>O importador de dados será responsável pelo titular de dadose este terá o direito a receber uma compensação por qualquer dano material ou não material que o importador de dados ou seus subprocessadores causarem ao titular de dados que violem os direitos dos beneficiários de terceiros nos termos dessas cláusulas.</li>
+    <li>Não obstante o parágrafo (b), o exportador de dados será responsável pelo titular de dados e este terá direito a receber uma compensação por quaisquer danos materiais ou não materiais que o exportador de dados ou o importador de dados (ou seus subprocessadores) causarem para o titular de dados, que violem os direitos do beneficiário de terceiros nos termos dessas cláusulas. Isto sem prejuízo da responsabilidade do exportador de dados e, quando o exportador de dados é um processador que atua em nome de um controlador, sem prejuízo da responsabilidade do controlador nos termos do Regulamento (UE) 2016/679 ou do Regulamento (UE) 2018/1725, conforme aplicável.</li>
+    <li>As Partes concordam que, se o exportador de dados for considerado responsável nos termos do parágrafo (c) por danos causados pelo importador de dados (ou seu subprocessador), ele terá o direito de solicitar ao importador de dados a parte da compensação correspondente à responsabilidade do importador de dados referentes aos danos.</li>
+    <li>Quando mais de uma Parte for responsável por danos causados ao titular de dados, como resultado de uma violação dessas cláusulas, todas as partes responsáveis serão corresponsáveis, e o titular dos dados terá o direito de interpor uma ação contra qualquer destas partes.</li>
+    <li>As Partes concordam que, se uma das partes for considerada responsável nos termos do parágrafo (e), ela terá o direito de reclamar junto à(s) outra(s) parte(s) essa parte da compensação correspondente à sua responsabilidade pelo dano.</li>
+    <li>O importador de dados não pode invocar a conduta de um subprocessador para eximir-se a sua própria responsabilidade.</li>
 </ol>
 
-##### Clause 13
+##### Cláusula 13
 
-**Supervision**
+**Supervisão**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>[Where the data exporter is established in an EU Member State:] The supervisory authority with responsibility for ensuring compliance by the data exporter with Regulation (EU) 2016/679 as regards the data transfer, as indicated in Annex I.C, shall act as competent supervisory authority. <br/></br>
+    <li>[Onde o exportador de dados é estabelecido em Estado-membro da UE:] A autoridade supervisora responsável pelo cumprimento da regulamentação (UE) 2016/679 relativa à transferência de dados, por parte do exportador de dados, conforme indicado no Anexo I.C, atuará como autoridade supervisora competente. <br/></br>
     [Where the data exporter is not established in an EU Member State, but falls within the territorial scope of application of Regulation (EU) 2016/679 in accordance with its Article 3(2) and has appointed a representative pursuant to Article 27(1) of Regulation (EU) 2016/679:] The supervisory authority of the Member State in which the representative within the meaning of Article 27(1) of Regulation (EU) 2016/679 is established, as indicated in Annex I.C, shall act as competent supervisory authority.</br></br>
     [Where the data exporter is not established in an EU Member State, but falls within the territorial scope of application of Regulation (EU) 2016/679 in accordance with its Article 3(2) without however having to appoint a representative pursuant to Article 27(2) of Regulation (EU) 2016/679:] The supervisory authority of one of the Member States in which the data subjects whose personal data is transferred under these Clauses in relation to the offering of goods or services to them, or whose behaviour is monitored, are located, as indicated in Annex I.C, shall act as competent supervisory authority.</li></br>    
-    <li> The data importer agrees to submit itself to the jurisdiction of and cooperate with the competent supervisory authority in any procedures aimed at ensuring compliance with these Clauses. In particular, the data importer agrees to respond to enquiries, submit to audits and comply with the measures adopted by the supervisory authority, including remedial and compensatory measures. It shall provide the supervisory authority with written confirmation that the necessary actions have been taken.</li>
+    <li> O importador de dados concorda em submeter-se à jurisdição e em cooperar com a autoridade supervisora competente em todos os procedimentos que visem a assegurar o cumprimento destas alegações. Em particular, o importador de dados concorda em responder a dúvidas, submeter-se a auditorias e cumprir as medidas adotadas pelas autoridades de supervisão, incluindo medidas corretivas e compensatórias. Ele dará à autoridade de supervisão uma confirmação escrita de que foram tomadas as medidas necessárias.</li>
 </ol>
 
-#### SECTION III – LOCAL LAWS AND OBLIGATIONS IN CASE OF ACCESS BY PUBLIC AUTHORITIES
+#### SEÇÃO III – LEGISLAÇÃO LOCAL E OBLIGAÇÕES EM CASO DE ACESSO POR AUTORIDADES PÚBLICAS
 
-##### Clause 14
+##### Cláusula 14
 
-**Local laws and practices affecting compliance with the Clauses**
+**Leis e práticas locais que afetam o cumprimento das cláusulas**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The Parties warrant that they have no reason to believe that the laws and practices in the third country of destination applicable to the processing of the personal data by the data importer, including any requirements to disclose personal data or measures authorising access by public authorities, prevent the data importer from fulfilling its obligations under these Clauses. This is based on the understanding that laws and practices that respect the essence of the fundamental rights and freedoms and do not exceed what is necessary and proportionate in a democratic society to safeguard one of the objectives listed in Article 23(1) of Regulation (EU) 2016/679, are not in contradiction with these Clauses.</li>
-    <li>The Parties declare that in providing the warranty in paragraph (a), they have taken due account in particular of the following elements:</li>
+    <li>As Partes garantem que não têm motivos para acreditar que as leis e práticas do país terceiro de destino aplicáveis ao processamento dos dados pessoais pelo importador de dados, incluindo todos os requisitos para divulgar dados pessoais ou medidas que autorizem o acesso por parte das autoridades públicas, impeça o importador de dados de cumprir as suas obrigações nos termos dessas cláusulas. Isso tem por base o entendimento de que as leis e práticas que respeitam a essência dos direitos e liberdades fundamentais e não excedem o necessário e proporcional numa sociedade democrática para salvaguardar um dos objetivos enumerados no artigo 23(1) do Regulamento (UE) 2016/679 não estão em contradição com estas cláusulas.</li>
+    <li>As Partes declaram que, ao fornecer a garantia no parágrafo (a), tiveram devidamente em conta, em particular, os elementos a seguir:</li>
     <ol style="list-style-type:lower-roman" class="no-styling">
-        <li>the specific circumstances of the transfer, including the length of the processing chain, the number of actors involved and the transmission channels used; intended onward transfers; the type of recipient; the purpose of processing; the categories and format of the transferred personal data; the economic sector in which the transfer occurs; the storage location of the data transferred;</li>
-        <li>the laws and practices of the third country of destination– including those requiring the disclosure of data to public authorities or authorising access by such authorities – relevant in light of the specific circumstances of the transfer, and the applicable limitations and safeguards <sup><a href="#safeguards">(3)</a></sup>;</li>
-        <li>any relevant contractual, technical or organisational safeguards put in place to supplement the safeguards under these Clauses, including measures applied during transmission and to the processing of the personal data in the country of destination.</li>
+        <li>as circunstâncias específicas da transferência, incluindo a duração da cadeia de processamento, o número de atores envolvidos e os canais de transmissão utilizados; transferências programadas; tipo de beneficiário; o objetivo de processar; as categorias e o formato dos dados pessoais transferidos; o setor econômico da transferência; o local de armazenamento dos dados transferidos;</li>
+        <li>as leis e práticas do país terceiro de destino – incluindo as que exigem a divulgação de dados às autoridades públicas ou a autorização de acesso por parte dessas autoridades – relevantes à luz das circunstâncias específicas da transferência, bem como as limitações e salvaguardas aplicáveis <sup><a href="#safeguards">(3)</a></sup>;</li>
+        <li>todas as salvaguardas contratuais, técnicas ou organizacionais relevantes em vigor criadas para suplementar as salvaguardas nos termos destas cláusulas, incluindo as medidas aplicadas durante a transmissão e ao processamento dos dados pessoais no país de destino.</li>
     </ol>
-    <li>The data importer warrants that, in carrying out the assessment under paragraph (b), it has made its best efforts to provide the data exporter with relevant information and agrees that it will continue to cooperate with the data exporter in ensuring compliance with these Clauses.</li>
-    <li>The Parties agree to document the assessment under paragraph (b) and make it available to the competent supervisory authority on request.</li>
-    <li>The data importer agrees to notify the data exporter promptly if, after having agreed to these Clauses and for the duration of the contract, it has reason to believe that it is or has become subject to laws or practices not in line with the requirements under paragraph (a), including following a change in the laws of the third country or a measure (such as a disclosure request) indicating an application of such laws in practice that is not in line with the requirements in paragraph (a).</li>
-    <li>Following a notification pursuant to paragraph (e), or if the data exporter otherwise has reason to believe that the data importer can no longer fulfil its obligations under these Clauses, the data exporter shall promptly identify appropriate measures (e.g. technical or organisational measures to ensure security and confidentiality) to be adopted by the data exporter and/or data importer to address the situation. The data exporter shall suspend the data transfer if it considers that no appropriate safeguards for such transfer can be ensured, or if instructed by the competent supervisory authority to do so. In this case, the data exporter shall be entitled to terminate the contract, insofar as it concerns the processing of personal data under these Clauses. If the contract involves more than two Parties, the data exporter may exercise this right to termination only with respect to the relevant Party, unless the Parties have agreed otherwise. Where the contract is terminated pursuant to this Clause, Clause 16(d) and (e) shall apply.</li>
+    <li>O importador de dados garante que, ao realizar a avaliação nos termos do parágrafo (b), fizeram o possível para fornecer informações relevantes ao exportador de dados e concorda que continuará a cooperar com o exportador de dados no sentido de assegurar a conformidade com estas cláusulas.</li>
+    <li>As Partes concordam em documentar a avaliação nos termos do parágrafo (b) e disponibilizá-la para a autoridade de controle competente mediante solicitação.</li>
+    <li>O importador de dados concorda em notificar o exportador de dados prontamente se, após ter concordado com essas cláusulas e durante a duração do contrato, tiver motivos para acreditar que está ou tornou-se sujeito a leis ou práticas que não estão de acordo com os requisitos do parágrafo (a), incluindo uma alteração das leis do país terceiro ou uma medida (como um pedido de divulgação) que indique a aplicação de tais leis, na prática, não está em conformidade com os requisitos do parágrafo (a).</li>
+    <li>Após uma notificação nos termos do parágrafo (e), ou se o exportador de dados tiver motivos para acreditar que o importador de dados não pode continuar cumprindo as suas obrigações nos termos destas cláusulas, o exportador de dados identificará prontamente medidas adequadas (por exemplo, medidas técnicas ou organizacionais para garantir a segurança e a confidencialidade) a serem adotadas pelo exportador de dados e/ou importador de dados para resolver a questão. O exportador de dados deverá suspender a transferência de dados se considerar que não é possível garantir salvaguardas adequadas para essa transferência ou se for instruído pela autoridade de supervisão competente para fazê-lo. Neste caso, o exportador de dados terá o direito de rescindir o contrato, na medida em que diz respeito ao tratamento de dados pessoais nos termos destas cláusulas. Se o contrato envolver mais de duas partes, o exportador de dados poderá exercer este direito de rescisão apenas no que se refere à Parte relevante, a menos que as Partes tenham acordado o contrário. Quando o contrato for rescindido de acordo com esta cláusula, aplicar-se-á a cláusula 16(d) e (e).</li>
 </ol>
 
-##### Clause 15
+##### Cláusula 15
 
-**Obligations of the data importer in case of access by public authorities**
+**Obrigações do importador de dados em caso de acesso por parte das autoridades públicas**
 
-**15.1 Notification**
+**15.1 Notificação**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The data importer agrees to notify the data exporter and, where possible, the data subject promptly (if necessary with the help of the data exporter) if it:</li>
+    <li>O importador de dados concorda em notificar prontamente o exportador de dados e, quando possível, o titular de dados (se necessário, com a ajuda do exportador de dados), se:</li>
     <ol style="list-style-type:lower-roman" class="no-styling">
-        <li>receives a legally binding request from a public authority, including judicial authorities, under the laws of the country of destination for the disclosure of personal data transferred pursuant to these Clauses; such notification shall include information about the personal data requested, the requesting authority, the legal basis for the request and the response provided; or</li>
-        <li>becomes aware of any direct access by public authorities to personal data transferred pursuant to these Clauses in accordance with the laws of the country of destination; such notification shall include all information available to the importer.</li>
+        <li>receber uma solicitação juridicamente vinculativa de uma autoridade pública, incluindo as autoridades judiciais nos termos da legislação do país de destino para divulgação de dados pessoais transferidos nos termos dessas cláusulas. Essa notificação incluirá informações sobre os dados pessoais solicitados, a autoridade solicitante, o funamento jurídico para a solicitação e a resposta fornecida; ou</li>
+        <li>tiver ciência de qualquer acesso direto por parte das autoridades públicas aos dados pessoais transferidos nos termos destas cláusulas, em conformidade com as leis do país de destino. Essa notificação incluirá todas as informações disponíveis para o importador.</li>
     </ol>
-    <li>If the data importer is prohibited from notifying the data exporter and/or the data subject under the laws of the country of destination, the data importer agrees to use its best efforts to obtain a waiver of the prohibition, with a view to communicating as much information as possible, as soon as possible. The data importer agrees to document its best efforts in order to be able to demonstrate them on request of the data exporter.</li>
-    <li>Where permissible under the laws of the country of destination, the data importer agrees to provide the data exporter, at regular intervals for the duration of the contract, with as much relevant information as possible on the requests received (in particular, number of requests, type of data requested, requesting authority/ies, whether requests have been challenged and the outcome of such challenges, etc.). </li>
-    <li>The data importer agrees to preserve the information pursuant to paragraphs (a) to (c) for the duration of the contract and make it available to the competent supervisory authority on request.</li>
-    <li>Paragraphs (a) to (c) are without prejudice to the obligation of the data importer pursuant to Clause 14(e) and Clause 16 to inform the data exporter promptly where it is unable to comply with these Clauses.</li>
+    <li>Se o importador de dados estiver proibido de notificar o exportador de dados e/ou o titular de acordo com as leis do país de destino, o importador de dados concorda em fazer o possível para obter uma derrogação da proibição, com vista a comunicar o máximo de informação possível, o mais rapidamente possível. O importador de dados concorda em documentar os seus melhores esforços, a fim de poder demonstrá-los, mediante solicitação do exportador de dados.</li>
+    <li>Quando permitido de acordo com as leis do país de destino, o importador de dados concorda em fornecer ao exportador de dados, a intervalos regulares durante a duração do contrato, o máximo possível de informações relevantes sobre as solicitações recebidas (em particular, número de pedidos, tipo de dados solicitados, autoridades soliciantes, se as solicitações foram contestadas, o resultado de tais contestações, etc.). </li>
+    <li>O importador de dados concorda em preservar as informações nos termos dos parágrafos (a) a (c) durante a duração do contrato e disponibilizá-las à autoridade de supervisão competente, mediante solicitação.</li>
+    <li>Os parágrafos (a) a (c) não não invalidam a obrigação do importador de dados nos termos da Cláusula 14(e) e da Cláusula 16 de informar prontamente o exportador de dados sempre que este não puder cumprir essas alegações.</li>
 </ol>
 
 **15.2 Revisão da legalidade e minimização de dados**
@@ -602,22 +602,22 @@ Data subjects include the data exporter’s representatives and end-users includ
 
 _Categories of personal data transferred:_
 
-The personal data transferred that is included in e-mail, documents and other data in an electronic form in the context of the Online Services or Professional Services. GitHub acknowledges that, depending on Customer’s use of the Online Service or Professional Services, Customer may elect to include personal data from any of the following categories in the personal data:
-- Basic personal data (for example place of birth, street name and house number (address), postal code, city of residence, country of residence, mobile phone number, first name, last name, initials, email address, gender, date of birth);
-- Authentication data (for example user name, password or PIN code, security question, audit trail);
-- Contact information (for example addresses, email, phone numbers, social media identifiers; emergency contact details);
-- Unique identification numbers and signatures (for example IP addresses, employee number, student number);
-- Pseudonymous identifiers;
-- Photos, video and audio;
-- Internet activity (for example browsing history, search history, reading and viewing activities);
-- Device identification (for example IMEI-number, SIM card number, MAC address);
+Os dados pessoais transferidos incluídos no e-mail, documentos e outros dados de forma electrônica no contexto dos Serviços On-line ou dos Serviços Profissionais. O GitHub reconhece que, dependendo do uso do Cliente do Serviço On-line ou Serviços Profissionais, o Cliente pode optar por incluir dados pessoais de qualquer uma das seguintes categorias nos dados pessoais:
+- Dados pessoais básicos (por exemplo, local de nascimento, nome da rua e número da casa (endereço), código postal, cidade de residência, país de residência, número de celular, nome, sobrenome, iniciais, endereço de e-mail, gênero, data de nascimento);
+- Dados de autenticação (por exemplo, nome de usuário, senha ou código PIN, pergunta de segurança, trilha de auditoria);
+- Informações de contato (por exemplo, endereços, e-mail, números de telefone, identificadores de redes sociais; detalhes de contato de emergência);
+- Números de identificação únicos e assinaturas (por exemplo, endereços IP, número de funcionário, número de aluno);
+- Identificadores de pseudônimos;
+- Fotos, vídeos e áudio;
+- Atividade na internet (por exemplo, histórico de navegação, histórico de pesquisa, atividade de leitura e visualização);
+- Identificação do dispositivo (por exemplo, número IMEI, número do cartão SIM, endereço MAC);
 - Profiling (for example based on observed criminal or anti-social behavior or pseudonymous profiles based on visited URLs, click streams, browsing logs, IP-addresses, domains, apps installed, or profiles based on marketing preferences);
-- Special categories of data as voluntarily provided by data subjects (for example racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health, data concerning a natural person’s sex life or sexual orientation, or data relating to criminal convictions or offences); or
-- Any other personal data identified in Article 4 of the GDPR.
+- Categorias especiais de dados, conforme fornecidas de modo voluntário pelos titulares de dados (por exemplo, raça ou origem étnica, opiniões políticas, crenças religiosas ou filosóficas, associações sindicais, dados genéticos, dados biométricos para a identificação única de uma pessoa natural, dados relativos à saúde dados relativos à vida sexual ou à orientação sexual de uma pessoa física ou a dados relacionados a condenações ou delitos criminosos); ou
+- Todos os outros dados pessoais identificados no artigo 4 do RGPD.
 
-_**Sensitive data** transferred (if applicable) and applied restrictions or safeguards that fully take into consideration the nature of the data and the risks involved, such as for instance strict purpose limitation, access restrictions (including access only for staff having followed specialised training), keeping a record of access to the data, restrictions for onward transfers or additional security measures:_ </br> GitHub does not request or otherwise ask for sensitive data and receives such data only if and when customers or data subjects decide to provide it.
+_**Dados confidenciais** transferidos (se aplicável) e restrições aplicadas ou salvaguardas que levam totalmente em consideração a natureza dos dados e os riscos envolvidos como, por exemplo, limitação estrita de propósito, restrições de acesso (incluindo acesso apenas para funcionários que tenham seguido o treinamento especializado), manutenção de um registro de acesso aos dados restrições para transferências ou medidas de segurança adicionais:_ </br> O GitHub não solicita ou de outra forma pede dados confidenciais e recebe tais dados apenas se e quando clientes ou dados que decidirem fornecê-los.
 
-_**The frequency of the transfer** (e.g. whether the data is transferred on a one-off or continuous basis):_
+_**A frequência da transferência** (por exemplo, se os dados são transferidos de forma única ou contínua):_
 
 Continuous as part of the Online Services or Professional Services.
 
@@ -857,18 +857,18 @@ As partes comprometem-se a não alterar as Cláusulas. Isso não impede que as p
 - Users and other data subjects that are users of data exporter's services;
 - Partners, stakeholders or individuals who actively collaborate, communicate or otherwise interact with employees of the data exporter and/or use communication tools such as apps and websites provided by the data exporter.
 
-**Categories of data**: The personal data transferred that is included in e-mail, documents and other data in an electronic form in the context of the Online Services or Professional Services. GitHub acknowledges that, depending on Customer’s use of the Online Service or Professional Services, Customer may elect to include personal data from any of the following categories in the personal data:
-- Basic personal data (for example place of birth, street name and house number (address), postal code, city of residence, country of residence, mobile phone number, first name, last name, initials, email address, gender, date of birth);
-- Authentication data (for example user name, password or PIN code, security question, audit trail);
-- Contact information (for example addresses, email, phone numbers, social media identifiers; emergency contact details);
-- Unique identification numbers and signatures (for example IP addresses, employee number, student number);
-- Pseudonymous identifiers;
-- Photos, video and audio;
-- Internet activity (for example browsing history, search history, reading and viewing activities);
-- Device identification (for example IMEI-number, SIM card number, MAC address);
+**Categories of data**: The personal data transferred that is included in e-mail, documents and other data in an electronic form in the context of the Online Services or Professional Services. O GitHub reconhece que, dependendo do uso do Cliente do Serviço On-line ou Serviços Profissionais, o Cliente pode optar por incluir dados pessoais de qualquer uma das seguintes categorias nos dados pessoais:
+- Dados pessoais básicos (por exemplo, local de nascimento, nome da rua e número da casa (endereço), código postal, cidade de residência, país de residência, número de celular, nome, sobrenome, iniciais, endereço de e-mail, gênero, data de nascimento);
+- Dados de autenticação (por exemplo, nome de usuário, senha ou código PIN, pergunta de segurança, trilha de auditoria);
+- Informações de contato (por exemplo, endereços, e-mail, números de telefone, identificadores de redes sociais; detalhes de contato de emergência);
+- Números de identificação únicos e assinaturas (por exemplo, endereços IP, número de funcionário, número de aluno);
+- Identificadores de pseudônimos;
+- Fotos, vídeos e áudio;
+- Atividade na internet (por exemplo, histórico de navegação, histórico de pesquisa, atividade de leitura e visualização);
+- Identificação do dispositivo (por exemplo, número IMEI, número do cartão SIM, endereço MAC);
 - Profiling (for example based on observed criminal or anti-social behavior or pseudonymous profiles based on visited URLs, click streams, browsing logs, IP-addresses, domains, apps installed, or profiles based on marketing preferences);
-- Special categories of data as voluntarily provided by data subjects (for example racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health, data concerning a natural person’s sex life or sexual orientation, or data relating to criminal convictions or offences); or
-- Any other personal data identified in Article 4 of the GDPR.
+- Categorias especiais de dados, conforme fornecidas de modo voluntário pelos titulares de dados (por exemplo, raça ou origem étnica, opiniões políticas, crenças religiosas ou filosóficas, associações sindicais, dados genéticos, dados biométricos para a identificação única de uma pessoa natural, dados relativos à saúde dados relativos à vida sexual ou à orientação sexual de uma pessoa física ou a dados relacionados a condenações ou delitos criminosos); ou
+- Todos os outros dados pessoais identificados no artigo 4 do RGPD.
 
 **Processing operations**: The personal data transferred will be subject to the following basic processing activities:
 

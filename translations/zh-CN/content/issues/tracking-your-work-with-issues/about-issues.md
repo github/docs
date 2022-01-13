@@ -1,6 +1,6 @@
 ---
-title: About issues
-intro: 'Use {% data variables.product.prodname_github_issues %} to track ideas, feedback, tasks, or bugs for work on {% data variables.product.company_short %}.'
+title: 关于议题
+intro: '使用 {% data variables.product.prodname_github_issues %} 追踪在 {% data variables.product.company_short %} 上的想法、反馈、任务或缺陷。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-issues
   - /articles/creating-issues
@@ -17,38 +17,39 @@ topics:
   - Issues
   - Project management
 ---
-## Integrated with GitHub
 
-Issues let you track your work on {% data variables.product.company_short %}, where development happens. When you mention an issue in another issue or pull request, the issue's timeline reflects the cross-reference so that you can keep track of related work. To indicate that work is in progress, you can link an issue to a pull request. When the pull request merges, the linked issue automatically closes.
+## 集成 GitHub
 
-## Quickly create issues
+议题让您可以在进行开发的 {% data variables.product.company_short %} 上跟踪您的工作。 当您在议题中提到另一个议题或拉取请求时，该议题的时间表会反映交叉参考，以便你能够跟踪相关的工作。 要表示工作正在进行中，您可以将议题链接到拉取请求。 当拉取请求合并时，链接的议题会自动关闭。
 
-Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow. For example, you can create an issue from a repository,{% ifversion fpt or ghec %} an item in a task list,{% endif %} a note in a project, a comment in an issue or pull request, a specific line of code, or a URL query. You can also create an issue from your platform of choice: through the web UI, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_cli %}, GraphQL and REST APIs, or {% data variables.product.prodname_mobile %}. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)."
+## 快速创建议题
 
-## Track work
+议题可以通过多种方式创建，因此您可以为工作流程选择最方便的方法。 例如，您可以从仓库创建议题、{% ifversion fpt or ghec %} 任务列表中的项目、{% endif %} 项目中的注释、议题或拉取请求中的评论、特定代码行或 URL 查询。 您也可以从选择的平台创建议题：通过 Web 界面、{% data variables.product.prodname_desktop %}、{% data variables.product.prodname_cli %}、GraphQL 和 REST API 或 {% data variables.product.prodname_mobile %}。 更多信息请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)”。
 
-You can organize and prioritize issues with projects. {% ifversion fpt or ghec %}To track issues as part of a larger issue, you can use task lists.{% endif %} To categorize related issues, you can use labels and milestones.
+## 跟踪工作
 
-For more information about projects, see {% ifversion fpt or ghec %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" and {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)." {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}For more information about labels and milestones, see "[Using labels and milestones to track work](/issues/using-labels-and-milestones-to-track-work)."
+您可以通过项目组织议题并排定优先级。 {% ifversion fpt or ghec %}要跟踪作为较大议题一部分的议题，您可以使用任务列表。{% endif %} 要对相关议题进行分类，您可以使用标签和里程碑。
 
-## Stay up to date
+有关项目的更多信息，请参阅 {% ifversion fpt or ghec %}“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”和{% endif %}“[组织对项目板的使用](/issues/organizing-your-work-with-project-boards)”。 {% ifversion fpt or ghec %}有关任务列表的更多信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。 {% endif %}有关标签和里程碑的更多信息，请参阅“[使用标签和里程碑跟踪工作](/issues/using-labels-and-milestones-to-track-work)”。
 
-To stay updated on the most recent comments in an issue, you can subscribe to an issue to receive notifications about the latest comments. To quickly find links to recently updated issues you're subscribed to, visit your dashboard. For more information, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}" and "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+## 保持更新
 
-## Community management
+为保持更新议题中的最新评论，您可以订阅议题以接收关于最新评论的通知。 要快速查找指向您订阅的最新议题的链接，请访问仪表板。 更多信息请参阅 {% ifversion fpt or ghes or ghae or ghec %}“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}”[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”和“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
 
-To help contributors open meaningful issues that provide the information that you need, you can use {% ifversion fpt or ghec %}issue forms and {% endif %}issue templates. For more information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+## 社区管理
 
-{% ifversion fpt or ghec %}To maintain a healthy community, you can report comments that violate {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). For more information, see "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)."{% endif %}
+为了帮助贡献者打开有意义的议题，提供您需要的信息，您可以使用 {% ifversion fpt or ghec %}议题表单和 {% endif %}议题模板。 更多信息请参阅“[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)”。
 
-## Efficient communication
+{% ifversion fpt or ghec %}为了维护健康的社区，您可以报告违反{% data variables.product.prodname_dotcom %}[社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines)的评论。 更多信息请参阅“[报告滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”。{% endif %}
 
-You can @mention collaborators who have access to your repository in an issue to draw their attention to a comment. To link related issues in the same repository, you can type `#` followed by part of the issue title and then clicking the issue that you want to link. To communicate responsibility, you can assign issues. If you find yourself frequently typing the same comment, you can use saved replies.
-{% ifversion fpt or ghec %} For more information, see "[Basic writing and formatting syntax](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" and "[Assigning issues and pull requests to other GitHub users](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)."
+## 高效沟通
 
-## Comparing issues and discussions
+您可以在议题中@提及能访问您的仓库的协作者，以提请他们注意评论。 要将相关议题链接到同一仓库，您可以键入 `#`，后接议题标题的一部分，然后点击要链接的议题。 为了沟通责任，您可以分配议题。 如果您发现自己经常输入相同的评论，可以使用已保存的回复。
+{% ifversion fpt or ghec %} 更多信息请参阅“[基本编写和格式语法](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)”和“[将议题和拉取请求分配到其他 GitHub 用户](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)”。
 
-Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} For guidance on when to use an issue or a discussion, see "[Communicating on GitHub](/github/getting-started-with-github/quickstart/communicating-on-github)."
+## 比较议题和讨论
 
-When a conversation in an issue is better suited for a discussion, you can convert the issue to a discussion.
+Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} 有关何时使用议题或讨论的指导，请参阅“[在 GitHub 上沟通](/github/getting-started-with-github/quickstart/communicating-on-github)”。
+
+当某个议题中的对话更适合讨论时，您可以将议题转换为讨论。
 {% endif %}

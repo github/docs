@@ -1,6 +1,6 @@
 ---
-title: Managing disruptive comments
-intro: 'You can {% ifversion fpt or ghec %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, pull requests, and commits.'
+title: 管理破坏性评论
+intro: '您可以{% ifversion fpt or ghec %}隐藏、编辑、{% else %}编辑{% endif %}或删除对议题、拉取请求和提交的评论。'
 redirect_from:
   - /articles/editing-a-comment
   - /articles/deleting-a-comment
@@ -13,79 +13,72 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: Manage comments
+shortTitle: 管理评论
 ---
 
-## Hiding a comment
+## 隐藏评论
 
-Anyone with write access to a repository can hide comments on issues, pull requests, and commits.
+对仓库具有写入权限的任何人都可以隐藏议题、拉取请求及提交上的评论。
 
-If a comment is off-topic, outdated, or resolved, you may want to hide a comment to keep a discussion focused or make a pull request easier to navigate and review. Hidden comments are minimized but people with read access to the repository can expand them.
+如果评论偏离主题、已过期或已解决，您可能想要隐藏评论，以保持讨论重点或使拉取请求更易于导航和审查。 隐藏的评论已最小化，但对仓库具有读取权限的人员可将其展开。
 
-![Minimized comment](/assets/images/help/repository/hidden-comment.png)
+![最小化的评论](/assets/images/help/repository/hidden-comment.png)
 
-1. Navigate to the comment you'd like to hide.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Hide**.
-  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete options](/assets/images/help/repository/comment-menu.png)
-3. Using the "Choose a reason" drop-down menu, click a reason to hide the comment. Then click, **Hide comment**.
+1. 导航到您要隐藏的评论。
+2. 在评论的右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Hide（隐藏）**。 ![显示编辑、隐藏、删除选项的水平烤肉串图标和评论调解菜单](/assets/images/help/repository/comment-menu.png)
+3. 使用 "Choose a reason"（选择原因）下拉菜单，单击隐藏评论的原因。 然后单击 **Hide comment（隐藏评论）**。
   {% ifversion fpt or ghec %}
-  ![Choose reason for hiding comment drop-down menu](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
+  ![选择隐藏评论的原因下拉菜单](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
   {% else %}
-  ![Choose reason for hiding comment drop-down menu](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
+  ![选择隐藏评论的原因下拉菜单](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
   {% endif %}
 
-## Unhiding a comment
+## 取消隐藏评论
 
-Anyone with write access to a repository can unhide comments on issues, pull requests, and commits.
+对仓库具有写入权限的任何人都可以取消隐藏议题、拉取请求及提交上的评论。
 
-1. Navigate to the comment you'd like to unhide.
-2. In the upper-right corner of the comment, click **{% octicon "fold" aria-label="The fold icon" %} Show comment**.
-   ![Show comment text](/assets/images/help/repository/hidden-comment-show.png)
-3. On the right side of the expanded comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Unhide**.
-   ![The horizontal kebab icon and comment moderation menu showing the edit, unhide, delete options](/assets/images/help/repository/comment-menu-hidden.png)
+1. 导航到您要取消隐藏的评论。
+2. 在评论右上角，单击 **{% octicon "fold" aria-label="The fold icon" %} Show comment（显示评论）**。 ![显示评论文本](/assets/images/help/repository/hidden-comment-show.png)
+3. 在展开的评论右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Unhide（取消隐藏）**。 ![显示编辑、取消隐藏、删除选项的水平烤肉串图标和评论调解菜单](/assets/images/help/repository/comment-menu-hidden.png)
 
-## Editing a comment
+## 编辑评论
 
-Anyone with write access to a repository can edit comments on issues, pull requests, and commits.
+对仓库具有写入权限的任何人都可以编辑议题、拉取请求及提交上的评论。
 
-It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
+编辑评论和删除无助于促进对话以及违反社区行为准则{% ifversion fpt or ghec %} 或 GitHub [社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %} 的内容是明智之举。
 
-When you edit a comment, note the location that the content was removed from and optionally, the reason for removing it.
+编辑评论时，请记下删除的内容所在的位置，也可记下删除的原因。
 
-Anyone with read access to a repository can view a comment's edit history. The **edited** dropdown at the top of the comment contains a history of edits showing the user and timestamp for each edit.
+对仓库具有读取权限的任何人都可查看评论的编辑历史记录。 评论顶部的 **edited（已编辑）**下拉菜单包含编辑历史记录，其中会显示每次编辑的用户和时间戳。
 
-![Comment with added note that content was redacted](/assets/images/help/repository/content-redacted-comment.png)
+![添加了表示内容编辑过的注释的评论](/assets/images/help/repository/content-redacted-comment.png)
 
-Comment authors and anyone with write access to a repository can also delete sensitive information from a comment's edit history. For more information, see "[Tracking changes in a comment](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)."
+评论作者和具有仓库写入权限的任何人也都可以删除评论编辑历史记录中的敏感信息。 更多信息请参阅“[跟踪评论中的更改](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)”。
 
-1. Navigate to the comment you'd like to edit.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**.
-  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete, and report options](/assets/images/help/repository/comment-menu.png)
-3. In the comment window, delete the content you'd like to remove, then type `[REDACTED]` to replace it.
-  ![Comment window with redacted content](/assets/images/help/issues/redacted-content-comment.png)
-4. At the bottom of the comment, type a note indicating that you have edited the comment, and optionally, why you edited the comment.
-  ![Comment window with added note that content was redacted](/assets/images/help/issues/note-content-redacted-comment.png)
-5. Click **Update comment**.
+1. 导航到您要编辑的评论。
+2. 在评论的右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Edit（编辑）**。 ![显示编辑、隐藏、删除和报告选项的水平烤肉串图标和评论调解菜单](/assets/images/help/repository/comment-menu.png)
+3. 在评论窗口中，删除要删除的评论，然后输入 `[REDACTED]` 进行替换。 ![包含编辑过的内容的评论窗口](/assets/images/help/issues/redacted-content-comment.png)
+4. 在评论底部，输入注释，说明您已编辑评论，也可以输入编辑的原因。 ![添加了表示内容编辑过的注释的评论窗口](/assets/images/help/issues/note-content-redacted-comment.png)
+5. 单击 **Update comment（更新评论）**。
 
-## Deleting a comment
+## 删除评论
 
-Anyone with write access to a repository can delete comments on issues, pull requests, and commits. Organization owners, team maintainers, and the comment author can also delete a comment on a team page.
+对仓库具有写入权限的任何人都可以删除议题、拉取请求及提交上的评论。 组织所有者、团队维护员和评论作者也可删除团队页面上的评论。
 
-Deleting a comment is your last resort as a moderator. It's appropriate to delete a comment if the entire comment adds no constructive content to a conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
+删除评论是调解员最后的选择。 如果整个评论没有给对话带来建设性的内容，或者违反社区的行为准则{% ifversion fpt or ghec %} 或 GitHub [社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}，删除评论是明智之举。
 
-Deleting a comment creates a timeline event that is visible to anyone with read access to the repository. However, the username of the person who deleted the comment is only visible to people with write access to the repository. For anyone without write access, the timeline event is anonymized.
+删除评论会创建对仓库具有读取权限的所有人可见的时间表事件。 但评论删除者的用户名只有能够写入仓库的人可见。 对于没有写入权限的任何人，时间表事件会匿名化。
 
-![Anonymized timeline event for a deleted comment](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
+![已删除评论的匿名化时间表事件](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
 
-If a comment contains some constructive content that adds to the conversation in the issue or pull request, you can edit the comment instead.
+如果评论包含一些对议题或拉取请求中的对话有建设性的内容，您可以编辑评论。
 
 {% note %}
 
-**Note:** The initial comment (or body) of an issue or pull request can't be deleted. Instead, you can edit issue and pull request bodies to remove unwanted content.
+**注：**议题或拉取请求的初始评论（或正文）不能删除。 但可以编辑议题和拉取请求正文，以删除不需要的内容。
 
 {% endnote %}
 
-1. Navigate to the comment you'd like to delete.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
-  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete, and report options](/assets/images/help/repository/comment-menu.png)
-3. Optionally, write a comment noting that you deleted a comment and why.
+1. 导航到您要删除的评论。
+2. 在评论的右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Delete（删除）**。 ![显示编辑、隐藏、删除和报告选项的水平烤肉串图标和评论调解菜单](/assets/images/help/repository/comment-menu.png)
+3. 也可以说明您删除了哪些评论，为什么要删除。

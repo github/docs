@@ -1,5 +1,5 @@
 ---
-title: Writing on GitHub
+title: GitHub での執筆
 redirect_from:
   - /categories/88/articles
   - /articles/github-flavored-markdown

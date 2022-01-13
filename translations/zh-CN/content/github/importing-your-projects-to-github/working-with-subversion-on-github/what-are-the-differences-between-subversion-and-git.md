@@ -1,6 +1,6 @@
 ---
-title: What are the differences between Subversion and Git?
-intro: 'Subversion (SVN) repositories are similar to Git repositories, but there are several differences when it comes to the architecture of your projects.'
+title: Subversion 和 Git 有哪些区别？
+intro: Subversion (SVN) 仓库与 Git 仓库类似，但涉及项目架构时有一些区别。
 redirect_from:
   - /articles/what-are-the-differences-between-svn-and-git
   - /articles/what-are-the-differences-between-subversion-and-git
@@ -9,11 +9,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: Subversion & Git differences
+shortTitle: Subversion 与 Git 差异
 ---
-## Directory structure
 
-Each *reference*, or labeled snapshot of a commit, in a project is organized within specific subdirectories, such as `trunk`, `branches`, and `tags`. For example, an SVN project with two features under development might look like this:
+## 目录结构
+
+项目中的每个*引用*或标记的提交快照均在特定子目录中组织，例如 `trunk`、`branches` 和 `tags`。 例如，具有两项正在开发的功能的 SVN 项目可能类似如下：
 
       sample_project/trunk/README.md
       sample_project/trunk/lib/widget.rb
@@ -22,48 +23,48 @@ Each *reference*, or labeled snapshot of a commit, in a project is organized wit
       sample_project/branches/another_new_feature/README.md
       sample_project/branches/another_new_feature/lib/widget.rb
 
-An SVN workflow looks like this:
+SVN 工作流程可能类似如下：
 
-* The `trunk` directory represents the latest stable release of a project.
-* Active feature work is developed within subdirectories under `branches`.
-* When a feature is finished, the feature directory is merged into `trunk` and removed.
+* `trunk` 目录表示项目的最新稳定发行版。
+* 活动功能工作在 `branches` 下的子目录内进行开发。
+* 功能完成后，该功能目录将合并到 `trunk` 中并删除。
 
-Git projects are also stored within a single directory. However, Git obscures the details of its references by storing them in a special *.git* directory. For example, a Git project with two features under development might look like this:
+Git 项目也存储在一个目录中。 不过，Git 通过将其引用存储在一个特殊的 *.git* 目录中来模糊其详细信息。 例如，具有两项正在开发的功能的 Git 项目可能类似如下：
 
       sample_project/.git
       sample_project/README.md
       sample_project/lib/widget.rb
 
-A Git workflow looks like this:
+Git 工作流程可能类似如下：
 
-* A Git repository stores the full history of all of its branches and tags within the *.git* directory.
-* The latest stable release is contained within the default branch.
-* Active feature work is developed in separate branches.
-* When a feature is finished, the feature branch is merged into the default branch and deleted.
+* Git 仓库在 *.git* 目录中存储所有其分支和标记的完整历史记录。
+* 最新稳定发行版包含在默认分支中。
+* 活动功能工作在单独的分支中进行开发。
+* 功能完成后，该功能分支将合并到默认分支中并删除。
 
-Unlike SVN, with Git the directory structure remains the same, but the contents of the files change based on your branch.
+与 SVN 不同的是，使用 Git 时目录结构保持不变，但文件内容会根据您的分支而变化。
 
-## Including subprojects
+## 包括子项目
 
-A *subproject* is a project that's developed and managed somewhere outside of your main project. You typically import a subproject to add some functionality to your project without needing to maintain the code yourself. Whenever the subproject is updated, you can synchronize it with your project to ensure that everything is up-to-date.
+*子项目*是在主项目之外的某个位置开发和管理的项目。 您通常导入子项目以将一些功能添加到您的项目，而无需自行维护代码。 每当子项目更新时，您可以将其与您的项目同步，以确保所有内容都是最新的。
 
-In SVN, a subproject is called an *SVN external*. In Git, it's called a *Git submodule*. Although conceptually similar, Git submodules are not kept up-to-date automatically; you must explicitly ask for a new version to be brought into your project.
+在 SVN 中，子项目称为 *SVN 外部*。 在 Git 中，它称为 *Git 子模块*。 尽管在概念上类似，但 Git 子模块不会自动保持最新状态；您必须明确要求才能将新版本带入您的项目。
 
-For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
+更多信息请参阅 Git 文档中的“[Git 工具子模块](https://git-scm.com/book/en/Git-Tools-Submodules)”。
 
-## Preserving history
+## 保留历史记录
 
-SVN is configured to assume that the history of a project never changes. Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
+SVN 配置为假设项目的历史记录永不更改。 Git 允许您使用 [`git rebase`](/github/getting-started-with-github/about-git-rebase) 等工具修改以前的提交和更改。
 
 {% tip %}
 
-[GitHub supports Subversion clients](/articles/support-for-subversion-clients), which may produce some unexpected results if you're using both Git and SVN on the same project. If you've manipulated Git's commit history, those same commits will always remain within SVN's history. If you accidentally committed some sensitive data, we have [an article that will help you remove it from Git's history](/articles/removing-sensitive-data-from-a-repository).
+[GitHub 支持 Subversion 客户端](/articles/support-for-subversion-clients)，如果您在同一项目内同时使用 Git 和 SVN，可能会产生一些意外的结果。 如果您操纵了 Git 的提交历史记录，这些相同的提交在 SVN 的历史记录中将始终保留。 如果意外提交了一些敏感数据，我们有[一篇文章可帮助您将其从 Git 的历史中删除](/articles/removing-sensitive-data-from-a-repository)。
 
 {% endtip %}
 
-## Further reading
+## 延伸阅读
 
-- "[Subversion properties supported by GitHub](/articles/subversion-properties-supported-by-github)"
-- ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
-- "[Importing source code to GitHub](/articles/importing-source-code-to-github)"
-- "[Source code migration tools](/articles/source-code-migration-tools)"
+- “[GitHub 支持的 Subversion 属性](/articles/subversion-properties-supported-by-github)”
+- [_Git SCM_ 书籍中的“分支与合并”](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
+- “[将源代码导入到 GitHub](/articles/importing-source-code-to-github)”
+- "[源代码迁移工具](/articles/source-code-migration-tools)"

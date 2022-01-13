@@ -1,6 +1,6 @@
 ---
-title: Remembering your GitHub username or email
-intro: 'Are you signing in to {% data variables.product.product_location %} for the first time in a while? If so, welcome back! If you can''t remember your {% data variables.product.product_name %} user account name, you can try these methods for remembering it.'
+title: Recordar tu nombre de usuario o correo electrónico de GitHub
+intro: '¿Vas a iniciar sesión en {% data variables.product.product_location %} por primera vez después de un tiempo? Si es así, ¡bienvenido de nuevo! Si no puedes recordar tu {% data variables.product.product_name %} nombre de la cuenta de usuario, puedes intentar estos métodos para hacerlo.'
 redirect_from:
   - /articles/oh-noes-i-ve-forgotten-my-username-email
   - /articles/oh-noes-i-ve-forgotten-my-username-or-email
@@ -14,62 +14,63 @@ versions:
 topics:
   - Accounts
   - Notifications
-shortTitle: Find your username or email
+shortTitle: Encontrar tu nombre de usurio o correo electrónico
 ---
+
 {% mac %}
 
-## {% data variables.product.prodname_desktop %} users
+## Usuarios {% data variables.product.prodname_desktop %}
 
-1. In the **GitHub Desktop** menu, click **Preferences**.
-2. In the Preferences window, verify the following:
-    - To view your {% data variables.product.product_name %} username, click **Accounts**.
-    - To view your Git email, click **Git**. Note that this email is not guaranteed to be [your primary {% data variables.product.product_name %} email](/articles/changing-your-primary-email-address).
+1. En el menú de **GitHub Desktop** (GitHub Desktop), haz clic en **Preferences** (Preferencias).
+2. En la ventana Preferences (Preferencias), comprueba lo siguiente:
+    - Para ver tu {% data variables.product.product_name %} nombre de usuario, haz clic en **Accounts** (Cuentas).
+    - Para ver tu correo electrónico de Git, haz clic en **Git**. Ten en cuenta que no está garantizado que este correo electrónico sea [tu correo electrónico {% data variables.product.product_name %} principal](/articles/changing-your-primary-email-address).
 
 {% endmac %}
 
 {% windows %}
 
-## {% data variables.product.prodname_desktop %} users
+## Usuarios {% data variables.product.prodname_desktop %}
 
-1. In the **File** menu, click **Options**.
-2. In the Options window, verify the following:
-    - To view your {% data variables.product.product_name %} username, click **Accounts**.
-    - To view your Git email, click **Git**. Note that this email is not guaranteed to be [your primary {% data variables.product.product_name %} email](/articles/changing-your-primary-email-address).
-  
+1. En el menú de **Archivo**, da clic en **Opciones**.
+2. En la ventana Options (Opciones), comprueba lo siguiente:
+    - Para ver tu {% data variables.product.product_name %} nombre de usuario, haz clic en **Accounts** (Cuentas).
+    - Para ver tu correo electrónico de Git, haz clic en **Git**. Ten en cuenta que no está garantizado que este correo electrónico sea [tu correo electrónico {% data variables.product.product_name %} principal](/articles/changing-your-primary-email-address).
+
 {% endwindows %}
 
-## Finding your username in your `user.name` configuration
+## Encontrar tu nombre de usuario en tu configuración `user.name`
 
-During set up, you may have [set your username in Git](/github/getting-started-with-github/setting-your-username-in-git). If so, you can review the value of this configuration setting:
+Durante la configuración, puede que debas [establecer tu nombre de usuario en Git](/github/getting-started-with-github/setting-your-username-in-git). En tal caso, puedes revisar el valor de este parámetro de configuración:
 
 ```shell
 $ git config user.name
-# View the setting
+# Ver el parámetro
 <em>YOUR_USERNAME</em>
 ```
 
-## Finding your username in the URL of remote repositories
+## Encontrar tu nombre de usuario en la URL de repositorios remotos
 
-If you have any local copies of personal repositories you have created or forked, you can check the URL of the remote repository.
+Si tienes alguna copia local de los repositorios personales que has creado o bifurcado, puedes verificar la URL del repositorio remoto.
 
 {% tip %}
 
-**Tip**: This method only works if you have an original repository or your own fork of someone else's repository. If you clone someone else's repository, their username will show instead of yours. Similarly, organization repositories will show the name of the organization instead of a particular user in the remote URL.
+**Sugerencia**: Este método solo funciona si tienes un repositorio original o tu propia bifurcación del repositorio de alguna otra persona. Si clonas el repositorio de alguna otra persona, se mostrará su nombre de usuario en lugar del tuyo. Del mismo modo, los repositorios de la organización mostrarán el nombre de la organización en lugar del de un usuario particular en la URL remota.
 
 {% endtip %}
 
 ```shell
 $ cd <em>YOUR_REPOSITORY</em>
-# Change directories to the initialized Git repository
+# Cambia los directorios para el repositorio de Git inicializado
 $ git remote -v
-origin	https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (fetch)
-origin	https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (push)
+origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (fetch)
+origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (push)
 ```
 
-Your user name is what immediately follows the `https://{% data variables.command_line.backticks %}/`.
+Tu nombre de usuario es lo que le sigue inmediatamente a `https://{% data variables.command_line.backticks %}/`.
 
 {% ifversion fpt or ghec %}
-## Further reading
+## Leer más
 
-- "[Verifying your email address](/articles/verifying-your-email-address)"
+- "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)"
 {% endif %}

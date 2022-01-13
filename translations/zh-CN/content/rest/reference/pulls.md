@@ -1,6 +1,6 @@
 ---
-title: Pulls
-intro: 'The Pulls API allows you to list, view, edit, create, and even merge pull requests.'
+title: 拉取
+intro: 拉取 API 允许您列出、查看、编辑、创建甚至合并拉取请求。
 redirect_from:
   - /v3/pulls
 versions:
@@ -13,13 +13,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The Pull Request API allows you to list, view, edit, create, and even merge pull requests. Comments on pull requests can be managed via the [Issue Comments API](/rest/reference/issues#comments).
+拉取请求 API 允许您列出、查看、编辑、创建甚至合并拉取请求。 可以通过[议题评论 API](/rest/reference/issues#comments) 管理对拉取请求的评论。
 
-Every pull request is an issue, but not every issue is a pull request. For this reason, "shared" actions for both features, like manipulating assignees, labels and milestones, are provided within [the Issues API](/rest/reference/issues).
+每个拉取请求都是一个议题，但并非每个议题都是拉取请求。 因此，在[议题 API](/rest/reference/issues) 中为这两项功能提供了“共享”操作，如操作受理人、标签和里程碑。
 
-### Custom media types for pull requests
+### 拉取请求的自定义媒体类型
 
-These are the supported media types for pull requests.
+以下是拉取请求支持的媒体类型。
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
@@ -28,60 +28,59 @@ These are the supported media types for pull requests.
     application/vnd.github.VERSION.diff
     application/vnd.github.VERSION.patch
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+更多信息请参阅“[自定义媒体类型](/rest/overview/media-types)”。
 
-If a diff is corrupt, contact {% data variables.contact.contact_support %}. Include the repository name and pull request ID in your message.
+如果 diff 损坏，请联系 {% data variables.contact.contact_support %}。 在您的消息中包括仓库名称和拉取请求 ID。
 
-### Link Relations
+### 链接关系
 
-Pull Requests have these possible link relations:
+拉取请求具有以下可能的链接关系：
 
-Name | Description
------|-----------|
-`self`| The API location of this Pull Request.
-`html`| The HTML location of this Pull Request.
-`issue`| The API location of this Pull Request's [Issue](/rest/reference/issues).
-`comments`| The API location of this Pull Request's [Issue comments](/rest/reference/issues#comments).
-`review_comments`| The API location of this Pull Request's [Review comments](/rest/reference/pulls#comments).
-`review_comment`| The [URL template](/rest#hypermedia) to construct the API location for a [Review comment](/rest/reference/pulls#comments) in this Pull Request's repository.
-`commits`|The API location of this Pull Request's [commits](#list-commits-on-a-pull-request).
-`statuses`| The API location of this Pull Request's [commit statuses](/rest/reference/repos#statuses), which are the statuses of its `head` branch.
+| 名称                | 描述                                                                                       |
+| ----------------- | ---------------------------------------------------------------------------------------- |
+| `self`            | 此拉取请求的 API 位置。                                                                           |
+| `html`            | 此拉取请求的 HTML 位置。                                                                          |
+| `议题`              | 此拉取请求的[议题](/rest/reference/issues)的 API 位置。                                              |
+| `comments`        | 此拉取请求的[议题评论](/rest/reference/issues#comments)的 API 位置。                                   |
+| `review_comments` | 此拉取请求的[审查评论](/rest/reference/pulls#comments)的 API 位置。                                    |
+| `review_comment`  | 用于为此拉取请求仓库中的[审查评论](/rest/reference/pulls#comments)构建 API 位置的 [URL 模板](/rest#hypermedia)。 |
+| `commits`         | 此拉取请求的[提交](#list-commits-on-a-pull-request)的 API 位置。                                     |
+| `状态`              | 此拉取请求的[提交状态](/rest/reference/repos#statuses)的 API 位置，即其`头部`分支的状态。                        |
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Reviews
+## 审查
 
-Pull Request Reviews are groups of Pull Request Review Comments on the Pull
-Request, grouped together with a state and optional body comment.
+拉取请求审查是拉取请求上的拉取请求审查评论组，与状态和可选的正文注释一起分组。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'reviews' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Review comments
+## 审查评论
 
-Pull request review comments are comments on a portion of the unified diff made during a pull request review. Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/commits#create-a-commit-comment)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
+拉取请求审查评论是在拉取请求审查期间对统一差异的一部分所发表的评论。 提交评论和议题评论不同于拉取请求审查评论。 将提交评论直接应用于提交，然后应用议题评论而不引用统一差异的一部分。 更多信息请参阅“[创建提交评论](/rest/reference/commits#create-a-commit-comment)”和“[创建议题评论](/rest/reference/issues#create-an-issue-comment)”。
 
-### Custom media types for pull request review comments
+### 拉取请求审查评论的自定义媒体类型
 
-These are the supported media types for pull request review comments.
+以下是拉取请求审查评论支持的媒体类型。
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
     application/vnd.github.VERSION.html+json
     application/vnd.github.VERSION.full+json
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+更多信息请参阅“[自定义媒体类型](/rest/overview/media-types)”。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Review requests
+## 审查请求
 
-Pull request authors and repository owners and collaborators can request a pull request review from anyone with write access to the repository. Each requested reviewer will receive a notification asking them to review the pull request.
+拉取请求作者以及仓库所有者和协作者可以向具有仓库写入权限的任何人请求拉取请求审查。 每个被请求的审查者将收到您要求他们审查拉取请求的通知。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'review-requests' %}{% include rest_operation %}{% endif %}

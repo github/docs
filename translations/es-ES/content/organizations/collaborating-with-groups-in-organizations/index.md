@@ -1,6 +1,6 @@
 ---
-title: Collaborating with groups in organizations
-intro: Groups of people can collaborate across many projects at the same time in organization accounts.
+title: Colaborar con grupos en organizaciones
+intro: Los grupos de personas pueden colaborar en muchos proyectos a la vez en cuentas d ela organización.
 redirect_from:
   - /articles/creating-a-new-organization-account
   - /articles/collaborating-with-groups-in-organizations
@@ -21,6 +21,6 @@ children:
   - /customizing-your-organizations-profile
   - /about-your-organizations-news-feed
   - /viewing-insights-for-your-organization
-shortTitle: Collaborate with groups
+shortTitle: Colaborar con grupos
 ---
 

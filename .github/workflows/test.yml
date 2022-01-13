@@ -93,4 +93,4 @@ jobs:
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
-        run: npm run test tests/${{ matrix.test-group }}/
+        run: npm test -- tests/${{ matrix.test-group }}/

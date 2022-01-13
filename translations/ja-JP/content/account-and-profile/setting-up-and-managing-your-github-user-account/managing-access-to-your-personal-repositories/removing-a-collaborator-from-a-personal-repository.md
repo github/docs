@@ -1,6 +1,6 @@
 ---
-title: Removing a collaborator from a personal repository
-intro: 'When you remove a collaborator from your project, they lose read/write access to your repository. If the repository is private and the person has created a fork, then that fork is also deleted.'
+title: 個人リポジトリからコラボレーターを削除する
+intro: コラボレータをプロジェクトから削除すると、そのコラボレータはリポジトリに対する読み取り/書き込みアクセスを失います。 リポジトリがプライベートであり、その個人がフォークを作成している場合、そのフォークも削除されます。
 redirect_from:
   - /articles/how-do-i-remove-a-collaborator
   - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository
@@ -21,26 +21,24 @@ topics:
   - Repositories
 shortTitle: Remove a collaborator
 ---
-## Deleting forks of private repositories
 
-While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
+## プライベートリポジトリのフォークを削除する
 
-## Removing collaborator permissions from a person contributing to a repository
+コラボレーターが削除される一方でプライベートリポジトリのフォークが削除されると、その個人はリポジトリのローカルクローンをそのまま保持します。
+
+## リポジトリへのコントリビューションがある個人からコラボレーター権限を削除する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. To the right of the collaborator you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
-  ![Button to remove collaborator](/assets/images/help/repository/collaborator-remove.png)
+4. 削除するコラボレーターの右で、{% octicon "trash" aria-label="The trash icon" %} をクリックします。 ![コラボレーターを削除するボタン](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
-3. In the left sidebar, click **Collaborators & teams**.
-  ![Collaborators tab](/assets/images/help/repository/repo-settings-collaborators.png)
-4. Next to the collaborator you want to remove, click the **X** icon.
-  ![Remove link](/assets/images/help/organizations/Collaborator-Remove.png)
+3. 左のサイドバーで、[**Collaborators & teams**] をクリックします。 ![[Collaborators] タブ](/assets/images/help/repository/repo-settings-collaborators.png)
+4. 削除するコラボレーターの横にある [**X**] アイコンをクリックします。 ![削除リンク](/assets/images/help/organizations/Collaborator-Remove.png)
 {% endif %}
 
-## Further reading
+## 参考リンク
 
-- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"
-- "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
+- 「[チームから Organization メンバーを削除する](/articles/removing-organization-members-from-a-team)」
+- [外部のコラボレータを Organization のリポジトリから削除する](/articles/removing-an-outside-collaborator-from-an-organization-repository)

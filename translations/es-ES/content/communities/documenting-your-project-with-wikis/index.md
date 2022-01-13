@@ -1,7 +1,7 @@
 ---
-title: Documenting your project with wikis
-shortTitle: Using wikis
-intro: 'You can use a wiki to share detailed, long-form information about your project.'
+title: Documentar tu proyecto con wikis
+shortTitle: Utilizar wikis
+intro: Puedes usar una wiki para compartir información detallada en forma completa acerca de tu proyecto.
 redirect_from:
   - /categories/49/articles
   - /categories/wiki

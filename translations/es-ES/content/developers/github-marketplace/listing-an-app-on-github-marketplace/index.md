@@ -1,6 +1,6 @@
 ---
-title: Listing an app on GitHub Marketplace
-intro: 'Learn about requirements and best practices for listing your app on {% data variables.product.prodname_marketplace %}.'
+title: Listar una app en GitHub Marketplace
+intro: 'Aprende sobre los requisitos y mejores prácticas para listar tu app en {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace
   - /apps/marketplace/listing-apps-on-github-marketplace
@@ -21,6 +21,6 @@ children:
   - /setting-pricing-plans-for-your-listing
   - /configuring-a-webhook-to-notify-you-of-plan-changes
   - /submitting-your-listing-for-publication
-shortTitle: List an app on the Marketplace
+shortTitle: Listar una app en Marketplace
 ---
 

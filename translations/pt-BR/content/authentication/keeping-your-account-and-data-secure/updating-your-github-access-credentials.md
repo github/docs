@@ -1,6 +1,6 @@
 ---
-title: Updating your GitHub access credentials
-intro: '{% data variables.product.product_name %} credentials include{% ifversion not ghae %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Should you have the need, you can reset all of these access credentials yourself.'
+title: Atualizar credenciais de acesso do GitHub
+intro: 'As credenciais de {% data variables.product.product_name %} incluem{% ifversion not ghae %} não apenas sua senha, mas também{% endif %} os tokens de acesso, Chaves SSH e tokens do aplicativo da API que você usa para se comunicar com {% data variables.product.product_name %}. Se houver necessidade, você mesmo pode redefinir todas essas credenciais de acesso.'
 redirect_from:
   - /articles/rolling-your-credentials
   - /articles/how-can-i-reset-my-password
@@ -15,57 +15,56 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Update access credentials
+shortTitle: Atualizar credenciais de acesso
 ---
-{% ifversion not ghae %}
-## Requesting a new password
 
-1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
-2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
-  ![Password reset email request dialog](/assets/images/help/settings/password-recovery-email-request.png)
-3. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
-4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials. Type your 2FA credentials or one of your 2FA recovery codes and click **Verify**.
-  ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
-5. Type a new password, confirm your new password, and click **Change password**. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)."
+{% ifversion not ghae %}
+## Solicitar uma nova senha
+
+1. Para solicitar uma nova senha, acesse {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
+2. Insira o endereço de e-mail associado à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} e, em seguida, clique em **em Enviar e-mail de redefinição de senha.** O e-mail será enviado para o endereço de e-mail de backup, se você tiver um configurado. ![Caixa de diálogo para solicitar e-mail de redefinição de senha](/assets/images/help/settings/password-recovery-email-request.png)
+3. Nós enviaremos por e-mail um link para você redefinir sua senha. Clique nele em até 3 horas após o recebimento do e-mail. Se você não receber o e-mail com o link, verifique sua pasta de spam.
+4. Se você tiver habilitado a autenticação de dois fatores, será solicitado que você crie suas credenciais de 2FA. Digite as suas credenciais de 2FA ou um de seus códigos de recuperação de 2FA e clique em **Verificar**. ![Instrução de autenticação de dois fatores](/assets/images/help/2fa/2fa-password-reset.png)
+5. Digite uma nova senha, confirme a sua nova senha e clique em **Alterar senha**. Para ajudar a criar uma senha forte, consulte "[Criar uma senha forte](/articles/creating-a-strong-password)".
   {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
-  ![Password recovery box](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
+  ![Caixa para recuperar senha](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}
 
-To avoid losing your password in the future, we suggest using a secure password manager, like [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+Para evitar perder a sua senha no futuro, sugerimos o uso de um gerenciador de senhas seguro, como [LastPass](https://lastpass.com/) ou [1Password](https://1password.com/).
 
 {% endtip %}
 
-## Changing an existing password
+## Alterar uma senha existente
 
 {% data reusables.repositories.blocked-passwords %}
 
-1. {% data variables.product.signin_link %} to {% data variables.product.product_name %}.
+1. {% data variables.product.signin_link %} para o {% data variables.product.product_name %}.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-4. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)"
-5. Click **Update password**.
+4. Em "Change password" (Alterar senha), insira a senha antiga, digite uma nova senha forte e confirme a nova senha. Consulte "[Criar uma senha forte](/articles/creating-a-strong-password)" para obter ajuda sobre esse assunto.
+5. Clique em **Update password** (Atualizar senha).
 
 {% tip %}
 
-For greater security, enable two-factor authentication in addition to changing your password. See [About two-factor authentication](/articles/about-two-factor-authentication) for more details.
+Para maior segurança, além de alterar a senha, habilite também a autenticação de dois fatores. Consulte [Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication) para ver mais detalhes.
 
 {% endtip %}
 {% endif %}
-## Updating your access tokens
+## Atualizar tokens de acesso
 
-See "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+Consulte "[Revisar integrações autorizadas](/articles/reviewing-your-authorized-integrations)" para ver instruções sobre como revisar e excluir tokens de acesso. Para gerar novos tokens de acesso, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-## Updating your SSH keys
+## Atualizar chaves SSH
 
-See "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)" for instructions on reviewing and deleting SSH keys. To generate and add new SSH keys, see "[Generating an SSH key](/articles/generating-an-ssh-key)."
+Consulte "[Revisar as chaves SSH](/articles/reviewing-your-ssh-keys)" para ver instruções sobre como revisar e excluir chaves SSH. Para gerar e adicionar novas chaves SSH, consulte "[Gerar uma chave SSH](/articles/generating-an-ssh-key)".
 
-## Resetting API tokens
+## Redefinir tokens da API
 
-If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the "[Reset an authorization](/rest/reference/apps#reset-an-authorization)" endpoint.
+Se você tiver algum aplicativo registrado no {% data variables.product.product_name %}, talvez precise redefinir os tokens OAuth dele. Para obter mais informações, consulte o ponto de extremidade "[Redefinir uma autorização](/rest/reference/apps#reset-an-authorization)".
 
 {% ifversion not ghae %}
-## Preventing unauthorized access
+## Impedir acesso não autorizado
 
-For more tips on securing your account and preventing unauthorized access, see "[Preventing unauthorized access](/articles/preventing-unauthorized-access)."
+Consulte "[Impedir acesso não autorizado](/articles/preventing-unauthorized-access)" para obter mais dicas sobre como proteger a conta e impedir acesso não autorizado.
 {% endif %}

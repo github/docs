@@ -1,6 +1,6 @@
 ---
-title: Getting started with GitHub Actions for GitHub AE
-shortTitle: Get started
+title: Comenzar con las GitHub Actions para GitHub AE
+shortTitle: Empezar
 intro: 'Learn about configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_managed %}.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
@@ -15,9 +15,9 @@ redirect_from:
 ---
 
 
-## About {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_managed %}
+## Acerca del {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_managed %}
 
-This article explains how site administrators can configure {% data variables.product.prodname_ghe_managed %} to use {% data variables.product.prodname_actions %}.
+Este artículo explica cómo los administradores de sitio pueden habilitar {% data variables.product.prodname_ghe_managed %} para utilizar {% data variables.product.prodname_actions %}.
 
 {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_managed %} by default. To get started using {% data variables.product.prodname_actions %} within your enterprise, you need to manage access permissions for {% data variables.product.prodname_actions %} and add runners to run workflows.
 
@@ -25,12 +25,12 @@ This article explains how site administrators can configure {% data variables.pr
 
 {% data reusables.actions.migrating-enterprise %}
 
-## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
+## Administrar los permisos de acceso para {% data variables.product.prodname_actions %} en tu empresa
 
-You can use policies to manage access to {% data variables.product.prodname_actions %}. For more information, see "[Enforcing GitHub Actions policies for your enterprise](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+Puedes utilizar políticas para administrar el acceso a las {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Requerir las políticas de GitHub Actions para tu empresa](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)".
 
-## Adding runners
+## Agregar ejecutores
 
-You can configure and host servers to run jobs for your enterprise on {% data variables.product.product_name %}. {% data reusables.actions.about-self-hosted-runners %} For more information, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+You can configure and host servers to run jobs for your enterprise on {% data variables.product.product_name %}. {% data reusables.actions.about-self-hosted-runners %} Para obtener más información, consulta "[Alojar tus propios ejecutores](/actions/hosting-your-own-runners)".
 
 {% data reusables.actions.general-security-hardening %}

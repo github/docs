@@ -1,6 +1,6 @@
 ---
-title: Billing customers
-intro: 'Apps on {% data variables.product.prodname_marketplace %} should adhere to GitHub''s billing guidelines and support recommended services. Following our guidelines helps customers navigate the billing process without any surprises.'
+title: Facturar a los clientes
+intro: 'Las apps en {% data variables.product.prodname_marketplace %} deben apegarse a los lineamientos de facturación de GitHub y apoyar a los servicios recomendados. El seguir nuestros lineamientos ayuda a los clientes a navegar en el proceso de facturación sin ninguna sorpresa.'
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace
   - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace
@@ -12,38 +12,39 @@ versions:
 topics:
   - Marketplace
 ---
-## Understanding the billing cycle
 
-Customers can choose a monthly or yearly billing cycle when they purchase your app. All changes customers make to the billing cycle and plan selection will trigger a `marketplace_purchase` event. You can refer to the `marketplace_purchase` webhook payload to see which billing cycle a customer selects and when the next billing date begins (`effective_date`). For more information about webhook payloads, see "[Webhook events for the {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)."
+## Entender el ciclo de facturación
 
-## Providing billing services in your app's UI
+Los clientes pueden escoger un ciclo mensual o anual cuando compran tu app. Todos los cambios que los clientes hagan a los ciclos de facturación y a la selección de plan activaran un evento de `marketplace_purchase`. Puedes referirte a la carga útil del webhook de `marketplace_purchase` para ver qué ciclo de facturación selecciona un usuario y cuándo comienza la siguiente fecha de facturación (`effective_date`). Para obtener más información sobre las cargas útiles de los webhooks, consulta la sección "[Eventos de webhook para la API de {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)".
 
-Customers should be able to perform the following actions from your app's website:
-- Customers should be able to modify or cancel their {% data variables.product.prodname_marketplace %} plans for personal and organizational accounts separately.
+## Proporcionar servicios de facturación en la IU de tu app
+
+Los clientes deberán ser capaces de realizar las siguientes acciones desde el sitio web de tu app:
+- Los clientes podrán modificar o cancelar sus planes de {% data variables.product.prodname_marketplace %} para sus cuentas de organización y personales por separado.
 {% data reusables.marketplace.marketplace-billing-ui-requirements %}
 
-## Billing services for upgrades, downgrades, and cancellations
+## Servicios de facturación para mejoras, decrementos y cancelaciones
 
-Follow these guidelines for upgrades, downgrades, and cancellations to maintain a clear and consistent billing process. For more detailed instructions about the {% data variables.product.prodname_marketplace %} purchase events, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+Sigue estos lineamientos para las mejoras, decrementos y cancelaciones para mantener un proceso de facturación limpio y consistente. Para obtener instrucciones más detalladas sobre los eventos de compra de {% data variables.product.prodname_marketplace %}, consulta la sección "[Utilizar la API de {% data variables.product.prodname_marketplace %} en tu app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
-You can use the `marketplace_purchase` webhook's `effective_date` key to determine when a plan change will occur and periodically synchronize the [List accounts for a plan](/rest/reference/apps#list-accounts-for-a-plan).
+Puedes utilizar la llave de `effective_date` del webhook de `marketplace_purchase` para determinar cuando ocurrirá un cambio de plan y sincronizar la [Lista de cuentas para un plan](/rest/reference/apps#list-accounts-for-a-plan) de vez en cuando.
 
-### Upgrades
+### Actualizaciones
 
-When a customer upgrades their pricing plan or changes their billing cycle from monthly to yearly, you should make the change effective for them immediately. You need to apply a pro-rated discount to the new plan and change the billing cycle.
+Cuando un cliente mejora su plan de precios o cambia su ciclo de facturación de mensual a anual, deberás hacerles el cambio efectivo inmediatamente. Tienes que aplicar un descuento prorrateado para el plan nuevo y cambiar el ciclo de facturación.
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-For information about building upgrade and downgrade workflows into your app, see "[Handling plan changes](/developers/github-marketplace/handling-plan-changes)."
+Para obtener más información sobre cómo crear flujos de trabajo para mejoras y retrocesos en tu app, consulta la sección "[Administrar los cambios de planes](/developers/github-marketplace/handling-plan-changes)".
 
-### Downgrades and cancellations
+### Decrementos y cancelaciones
 
-Downgrades occur when a customer moves to a free plan from a paid plan, selects a plan with a lower cost than their current plan, or changes their billing cycle from yearly to monthly. When downgrades or cancellations occur, you don't need to provide a refund. Instead, the current plan will remain active until the last day of the current billing cycle. The `marketplace_purchase` event will be sent when the new plan takes effect at the beginning of the customer's next billing cycle.
+Los decrementos ocurren cuando un cliente se cambia de un plan pagado a uno gratuito, selecciona un plan con un costo menor al actual, o cambia su ciclo de facturación de anual a mensual. Cuando suceden los decrementos o cancelaciones, no necesitas proporcionar un reembolso. En vez de esto, el plan actual se mantendrá activo hasta el último día del ciclo de facturación actual. El evento `marketplace_purchase` se enviará cuando el nuevo plan entre en vigor al inicio del siguiente ciclo de facturación del cliente.
 
-When a customer cancels a plan, you must:
-- Automatically downgrade them to the free plan, if it exists.
-  
+Cuando un cliente cancela un plan, debes:
+- Degradarlos automáticamente al plan gratuito, si es que existe.
+
   {% data reusables.marketplace.cancellation-clarification %}
-- Enable them to upgrade the plan through GitHub if they would like to continue the plan at a later time.
+- Habilitarlos para mejorar el plan a través de GitHub si es que quisieran continuar con él más adelante.
 
-For information about building cancellation workflows into your app, see "[Handling plan cancellations](/developers/github-marketplace/handling-plan-cancellations)."
+Para obtener más información sobre cómo crear flujos de trabajo de cancelaciones en tu app, consulta la sección "[Administrar cancelaciones de planes](/developers/github-marketplace/handling-plan-cancellations)".

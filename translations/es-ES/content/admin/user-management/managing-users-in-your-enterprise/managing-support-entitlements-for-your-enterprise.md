@@ -1,7 +1,6 @@
 ---
 title: Administrar los derechos de soporte para tu empresa
 intro: Puedes otorgar a los miembros empresariales las capacidades para administrar los tickets de soporte para tu cuenta empresarial.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
 versions:

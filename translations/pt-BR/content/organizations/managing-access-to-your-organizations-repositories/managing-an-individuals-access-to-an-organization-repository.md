@@ -1,6 +1,6 @@
 ---
-title: Managing an individual's access to an organization repository
-intro: You can manage a person's access to a repository owned by your organization.
+title: Gerenciar o acesso de um indivíduo a um repositório da organização
+intro: Você pode gerenciar o acesso de uma pessoa ao repositório de sua organização.
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-repository-early-access-program
   - /articles/managing-an-individual-s-access-to-an-organization-repository
@@ -14,41 +14,36 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Manage individual access
+shortTitle: Gerenciar acesso individual
 permissions: People with admin access to a repository can manage access to the repository.
 ---
 
-## About access to organization repositories
+## Sobre acesso aos repositórios da organização
 
-When you remove a collaborator from a repository in your organization, the collaborator loses read and write access to the repository. If the repository is private and the collaborator has forked the repository, then their fork is also deleted, but the collaborator will still retain any local clones of your repository.
+Ao remover um colaborador de um repositório de sua organização, o colaborador perde os acessos de leitura e gravação no repositório. Caso o repositório seja privado e o colaborador o tenha bifurcado, a bifurcação também é excluída, mas o colaborador ainda manterá quaisquer clones locais de seu repositório.
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-## Giving a person access to a repository
+## Concedendo acesso a uma pessoa a um repositório
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% data reusables.organizations.invite-teams-or-people %}
-5. In the search field, start typing the name of the person to invite, then click a name in the list of matches.
-  ![Search field for typing the name of a team or person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
-6. Under "Choose a role", select the repository role to assign the person, then click **Add NAME to REPOSITORY**.
-  ![Selecting permissions for the team or person](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
+5. No campo de busca, comece a digitar o nome da pessoa para convidar e, em seguida, clique em um nome na lista de correspondências. ![Campo de pesquisa para digitar o nome de uma equipe ou pessoa para convidar ao repositório](/assets/images/help/repository/manage-access-invite-search-field.png)
+6. Em "Escolher uma função ", selecione a função do repositório para atribuir a pessoa e, em seguida, clique em **Adicionar NOME ao REPOSITÓRIO**. ![Selecionando permissões para a equipe ou pessoa](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
-## Managing an individual's access to an organization repository
+## Gerenciar o acesso de um indivíduo a um repositório da organização
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
-4. Click either **Members** or **Outside collaborators** to manage people with different types of access. ![Button to invite members or outside collaborators to an organization](/assets/images/help/organizations/select-outside-collaborators.png)
-5. To the right of the name of the person you'd like to manage, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**.
-  ![The manage access link](/assets/images/help/organizations/member-manage-access.png)
-6. On the "Manage access" page, next to the repository, click **Manage access**.
-![Manage access button for a repository](/assets/images/help/organizations/repository-manage-access.png)
-7. Review the person's access to a given repository, such as whether they're a collaborator or have access to the repository via team membership.
-![Repository access matrix for the user](/assets/images/help/organizations/repository-access-matrix-for-user.png)
+4. Cloque em **Members** (Integrantes) ou **Outside collaborators** (Colaboradores externos) para gerenciar pessoas com tipos diferentes de acessos. ![Botão para invite (convidar) members (colaboradores) ou outside collaborators (colaboradores externos) para uma organização](/assets/images/help/organizations/select-outside-collaborators.png)
+5. À direita do nome do colaborador que deseja remover, use o menu suspenso {% octicon "gear" aria-label="The Settings gear" %} e clique em **Manage** (Gerenciar). ![Link para manage access (gerenciar acesso)](/assets/images/help/organizations/member-manage-access.png)
+6. Na página "Manage access" (Gerenciar acesso), ao lado do repositório clique em **Manage access** (Gerenciar acesso). ![Botão Manage access (Gerenciar acesso) em um repositório](/assets/images/help/organizations/repository-manage-access.png)
+7. Revise o acesso da pessoa em determinado repositório, por exemplo, se a pessoa é um colaborador ou tem acesso ao repositório como integrante de equipe. ![Matriz de acesso a repositório para o usuário](/assets/images/help/organizations/repository-access-matrix-for-user.png)
 
-## Further reading
+## Leia mais
 
-{% ifversion fpt or ghec %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+{% ifversion fpt or ghec %}- "[Restringir interações no repositório](/articles/limiting-interactions-with-your-repository)"{% endif %}
+- "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

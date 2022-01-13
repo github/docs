@@ -1,6 +1,6 @@
 ---
-title: Re-running workflows and jobs
-intro: You can re-run a workflow run up to 30 days after its initial run.
+title: Reexecutando fluxos de trabalho e trabalhos
+intro: Você pode executar novamente a execução do workflow até 30 dias após sua execução inicial.
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -15,11 +15,9 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Re-running all the jobs in a workflow
+## Reexecutar todos os trabalhos em um fluxo de trabalho
 
-Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. You can re-run a workflow for up to 30 days after the initial run. 
-
-{% include tool-switcher %}
+A reexecução de um fluxo de trabalho usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. Você pode executar novamente um fluxo de trabalho por até 30 dias após a execução inicial.
 
 {% webui %}
 
@@ -28,12 +26,10 @@ Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
-1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**
-    ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
+1. No canto superior direito do fluxo de trabalho, use o menu suspenso **Reexecutar trabalhos** e selecione **Reexecutar todos os trabalhos** ![Menu suspenso reexecutar](/assets/images/help/repository/rerun-checks-drop-down.png)
 {% endif %}
 {% ifversion ghes < 3.3 or ghae %}
-1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**.
-    ![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
+1. No canto superior direito do fluxo de trabalho, use o menu suspenso **Reexecutar trabalhos** e selecione **Reexecutar todos os trabalhos**. ![Menu suspenso Re-run checks (Executar verificações novamente)](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
 {% endif %}
 
 {% endwebui %}
@@ -42,13 +38,13 @@ Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (
 
 {% data reusables.cli.cli-learn-more %}
 
-To re-run a failed workflow run, use the `run rerun` subcommand. Replace `run-id` with the ID of the failed run that you want to re-run.  If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
+Para executar novamente um fluxo de trabalho com falha, use o subcomando `executar novamente`. Substitua `run-id` pelo ID da execução com falha que você deseja executar novamente.  Se você não especificar um `run-id`, {% data variables.product.prodname_cli %} irá retornar um menu interativo para você escolher uma execução com falha recente.
 
 ```shell
 gh run rerun <em>run-id</em>
 ```
 
-To view the progress of the workflow run, use the `run watch` subcommand and select the run from the interactive list.
+Para visualizar o progresso da execução do fluxo de trabalho, use o subcomando `executar inspeção` e selecione a execução na lista interativa.
 
 ```shell
 gh run watch
@@ -57,16 +53,15 @@ gh run watch
 {% endcli %}
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
-### Reviewing previous workflow runs
+### Revisando execuções de workflows anteriores
 
-You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see ["Get a workflow run"](/rest/reference/actions#get-a-workflow-run).
+Você pode ver os resultados de suas tentativas anteriores de executar um fluxo de trabalho. Você também pode visualizar execuções de workflows anteriores do fluxo de trabalho usando a API. Para obter mais informações, consulte ["Obter uma execução de workflow"](/rest/reference/actions#get-a-workflow-run).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Any previous run attempts are shown in the left pane.
-    ![Rerun workflow](/assets/images/help/settings/actions-review-workflow-rerun.png)
-1. Click an entry to view its results.
+1. Todas as tentativas anteriores de execução são mostradas no painel esquerdo. ![Reexecutar fluxo de trabalho](/assets/images/help/settings/actions-review-workflow-rerun.png)
+1. Clique em uma entrada para visualizar os resultados.
 
 {% endif %}
