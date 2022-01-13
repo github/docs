@@ -4,7 +4,7 @@
 # https://git-scm.com/docs/gitignore
 
 # Engineering
-*.js @github/docs-engineering
+*.md belal@github/docs-engineering
 *.ts @github/docs-engineering
 *.tsx @github/docs-engineering
 /.github/ @github/docs-engineering
