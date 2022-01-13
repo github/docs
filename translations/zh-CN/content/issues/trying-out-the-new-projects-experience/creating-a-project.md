@@ -48,7 +48,7 @@ You can convert draft issues into issues. For more information, see [Converting 
 #### 搜索议题或拉取请求
 
 1. 将光标放在项目底部一行，{% octicon "plus" aria-label="plus icon" %} 的旁边。
-2. 输入 `#`。
+2. Enter <kbd>#</kbd>.
 3. 选择拉取请求或议题所在的仓库。 您可以输入仓库名称的一部分来缩小选项范围。
 4. 选择议题或拉取请求。 您可以键入标题的一部分以缩小选项范围。
 
@@ -81,11 +81,11 @@ In board layout:
 You can archive an item to keep the context about the item in the project but remove it from the project views. You can delete an item to remove it from the project entirely.
 
 1. Select the item(s) to archive or delete. To select multiple items, do one of the following:
-     - `cmd + click` (Mac) or `ctrl + click` (Windows/Linux) each item.
-     - Select an item then `shift + arrow-up` or `shift + arrow-down` to select additional items above or below the initially selected item.
-     - Select an item then `shift + click` another item to select all items between the two items.
-     - Enter `cmd + a` (Mac) or `ctrl + a` (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
-2. To archive all selected items, enter `e`. To delete all selected items, enter `del`. Alternatively, select the {% octicon "triangle-down" aria-label="the item menu" %} (in table layout) or the {% octicon "kebab-horizontal" aria-label="the item menu" %} (in board layout), then select the desired action.
+     - <kbd>Command</kbd>+Click (Mac) or <kbd>Ctrl</kbd>+Click (Windows/Linux) each item.
+     - Select an item then <kbd>Shift</kbd>+<kbd>↑</kbd> or <kbd>Shift</kbd>+<kbd>↓</kbd> to select additional items above or below the initially selected item.
+     - Select an item then <kbd>Shift</kbd>+Click another item to select all items between the two items.
+     - Enter <kbd>Command</kbd>+<kbd>A</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
+2. To archive all selected items, enter <kbd>E</kbd>. To delete all selected items, enter <kbd>Del</kbd>. Alternatively, select the {% octicon "triangle-down" aria-label="the item menu" %} (in table layout) or the {% octicon "kebab-horizontal" aria-label="the item menu" %} (in board layout), then select the desired action.
 
 You can restore archived items but not deleted items. For more information, see [Restoring archived items](#restoring-archived-items).
 
