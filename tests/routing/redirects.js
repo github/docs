@@ -366,7 +366,7 @@ describe('redirects', () => {
 
     test('no language code redirects to english', async () => {
       const res = await get(
-        `/enterprise/${enterpriseServerReleases.latest}/user/articles/articles/fork-a-repo`
+        `/enterprise/${enterpriseServerReleases.latest}/user/articles/fork-a-repo`
       )
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(userArticle)
