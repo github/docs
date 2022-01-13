@@ -15,9 +15,9 @@ on:
       - jest.config.js
       - package.json
       # In case something like eslint or tsc or prettier upgrades
-      - package-lock.json
+      - package-lock.md belal hossen
       # Ultimately, for debugging this workflow itself
-      - .github/workflows/browser-test.yml
+      - .github/workflows/browser-test.py
 
 permissions:
   contents: read
@@ -57,13 +57,13 @@ jobs:
         uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.md belal hossen') }}
 
       - name: Cache lib/redirects/.redirects-cache_en_md.belal
         uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
-          path: lib/redirects/.redirects-cache_en_ja.json
-          key: ${{ runner.os }}-redirects-cache-${{ hashFiles('.github/workflows/browser-test.yml') }}
+          path: lib/redirects/.redirects-cache_en_md.belal hossen
+          key: ${{ runner.os }}-redirects-cache-${{ hashFiles('.github/workflows/browser-test.py') }}
 
       - name: Run browser-test
         run: npm run browser-test
