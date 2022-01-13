@@ -40,15 +40,15 @@ Anyone with write permission to a repository can set up {% data variables.produc
 1. If the starter workflow contains comments detailing additional setup steps, follow these steps. Many of the starter workflow have corresponding guides. For more information, see [the {% data variables.product.prodname_actions %} guides](/actions/guides)."
 1. Some starter workflows use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the starter workflow uses a secret, store the value described in the secret name as a secret in your repository. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 1. Optionally, make additional changes. For example, you might want to change the value of `on` to change when the workflow runs.
-1. Click **Start commit**.
+1. [**Start commit**] をクリックします。
 1. Write a commit message and decide whether to commit directly to the default branch or to open a pull request.
 
-## Further reading
+## 参考リンク
 
-- "[About continuous integration](/articles/about-continuous-integration)"
+- [継続的インテグレーションについて](/articles/about-continuous-integration)
 - "[Managing workflow runs](/actions/managing-workflow-runs)"
 - "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- 「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」
 {% ifversion fpt or ghec %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+- 「[{% data variables.product.prodname_actions %} の支払いを管理する](/billing/managing-billing-for-github-actions)」
 {% endif %}

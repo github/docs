@@ -1,6 +1,6 @@
 ---
-title: Configuring a package's access control and visibility
-intro: 'Choose who has read, write, or admin access to your container image and the visibility of your container images on {% data variables.product.prodname_dotcom %}.'
+title: 配置包的访问控制和可见性
+intro: '选择谁对容器映像具有读取、写入或管理员访问权限，以及容器映像在 {% data variables.product.prodname_dotcom %} 上的可见性。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images
@@ -8,94 +8,83 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-shortTitle: Access control & visibility
+shortTitle: 访问控制和可见性
 ---
 
-Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of a package separately from the repository that it is connected (or linked) to.
+具有精细权限的包仅限于个人用户或组织帐户。 您可以从与包相连（或链接）的仓库分别更改包的访问控制和可见性。
 
-Currently, you can only use granular permissions with the {% data variables.product.prodname_container_registry %}. Granular permissions are not supported in our other package registries, such as the npm registry.
+目前，您只能对 {% data variables.product.prodname_container_registry %} 使用粒度权限。 粒度权限不支持我们的其他软件包注册表，如 npm 注册表。
 
-For more information about permissions for repository-scoped packages, packages-related scopes for PATs, or managing permissions for your actions workflows, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages)."
+有关仓库作用域的包、与包相关的 PAT 作用域或管理操作工作流程的权限的更多信息，请参阅“[关于 GitHub Packages 的权限](/packages/learn-github-packages/about-permissions-for-github-packages)”。
 
-## Visibility and access permissions for container images
+## 容器映像的可见性和访问权限
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
 
-## Configuring access to container images for your personal account
+## 为个人帐户配置对容器映像的访问
 
-If you have admin permissions to a container image that's owned by a user account, you can assign read, write, or admin roles to other users. For more information about these permission roles, see "[Visibility and access permissions for container images](#visibility-and-access-permissions-for-container-images)."
+如果您对用户帐户拥有的容器映像具有管理员权限，您可以向其他用户分配读取、写入或管理员角色。 有关这些权限角色的更多信息，请参阅“[容器映像的可见性和访问权限](#visibility-and-access-permissions-for-container-images)”。
 
-If your package is private or internal and owned by an organization, then you can only give access to other organization members or teams.
+如果您的软件包是私人或内部的并且由组织拥有，则您只能向其他组织成员或团队授予访问。
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. Teams cannot be given access to a container image owned by a user account.
-  ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
-  ![Container access options](/assets/images/help/package-registry/container-access-control-options.png)
+1. 在软件包设置页面上，单击 **Invite teams or people（邀请团队或人员）**，然后输入名称、用户名或您想要授予访问权限的人员的电子邮件地址。 不能授予团队访问用户帐户拥有的容器映像。 ![容器访问邀请按钮](/assets/images/help/package-registry/container-access-invite.png)
+1. 在用户名或团队名称旁边，使用“Role（角色）”下拉菜单选择所需的权限级别。 ![容器访问选项](/assets/images/help/package-registry/container-access-control-options.png)
 
-The selected users will automatically be given access and don't need to accept an invitation first.
+所选用户将自动被授予访问权限，不需要先接受邀请。
 
-## Configuring access to container images for an organization
+## 为企业配置对容器映像的访问
 
-If you have admin permissions to an organization-owned container image, you can assign read, write, or admin roles to other users and teams. For more information about these permission roles, see "[Visibility and access permissions for container images](#visibility-and-access-permissions-for-container-images)."
+如果您对组织拥有的容器映像具有管理员权限，您可以向其他用户和团队分配读取、写入或管理员角色。 有关这些权限角色的更多信息，请参阅“[容器映像的可见性和访问权限](#visibility-and-access-permissions-for-container-images)”。
 
-If your package is private or internal and owned by an organization, then you can only give access to other organization members or teams.
+如果您的软件包是私人或内部的并且由组织拥有，则您只能向其他组织成员或团队授予访问。
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. You can also enter a team name from the organization to give all team members access.
-  ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
-  ![Container access options](/assets/images/help/package-registry/container-access-control-options.png)
+1. 在软件包设置页面上，单击 **Invite teams or people（邀请团队或人员）**，然后输入名称、用户名或您想要授予访问权限的人员的电子邮件地址。 您还可以从组织输入团队名称，以允许所有团队成员访问。 ![容器访问邀请按钮](/assets/images/help/package-registry/container-access-invite.png)
+1. 在用户名或团队名称旁边，使用“Role（角色）”下拉菜单选择所需的权限级别。 ![容器访问选项](/assets/images/help/package-registry/container-access-control-options.png)
 
-The selected users or teams will automatically be given access and don't need to accept an invitation first.
+所选用户或团队将自动被授予访问权限，不需要先接受邀请。
 
-## Inheriting access for a container image from a repository
+## 从仓库继承容器映像的访问权限
 
-To simplify package management through {% data variables.product.prodname_actions %} workflows, you can enable a container image to inherit the access permissions of a repository by default.
+要通过 {% data variables.product.prodname_actions %} 工作流程简化包管理，您可以让容器映像默认继承仓库的访问权限。
 
-If you inherit the access permissions of the repository where your package's workflows are stored, then you can adjust access to your package through the repository's permissions.
+如果您继承了存储包工作流程的仓库的访问权限，则可以通过仓库的权限调整对包的访问权限。
 
-Once a repository is synced, you can't access the package's granular access settings. To customize the package's permissions through the granular package access settings, you must remove the synced repository first.
+仓库一旦同步，您就无法访问包的精细访问设置。 要通过精细的包访问设置自定义包的权限，您必须先删除同步的仓库。
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-2. Under "Repository source", select **Inherit access from repository (recommended)**.
-  ![Inherit repo access checkbox](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
+2. 在“Repository source（仓库来源）”下，选择 **Inherit access from repository (recommended)（从仓库继承访问权限 [推荐]）**。 ![继承仓库访问权限复选框](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
 
-## Ensuring workflow access to your package
+## 确保工作流程访问您的包
 
-To ensure that a {% data variables.product.prodname_actions %} workflow has access to your package, you must give explicit access to the repository where the workflow is stored.
+为确保 {% data variables.product.prodname_actions %} 工作流程能访问您的包，您必须授予存储工作流程的仓库以明确的访问权限。
 
-The specified repository does not need to be the repository where the source code for the package is kept. You can give multiple repositories workflow access to a package.
+指定的仓库不需要是保存包源代码的仓库。 您可以授予多个仓库工作流程对包的访问权限。
 
 {% note %}
 
-**Note:** Syncing your container image with a repository through the **Actions access** menu option is different than connecting your container to a repository. For more information about linking a repository to your container, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+**注意：**通过 **Actions access（操作访问）**菜单选项同步容器映像与仓库不同于将容器连接到仓库。 有关将仓库链接到容器的更多信息，请参阅“[将仓库连接到包](/packages/learn-github-packages/connecting-a-repository-to-a-package)”。
 
 {% endnote %}
 
-### {% data variables.product.prodname_actions %} access for user-account-owned container images 
+### 用户帐户拥有的容器映像的 {% data variables.product.prodname_actions %} 访问权限
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. To ensure your workflow has access to your container package, you must add the repository where the workflow is stored. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-3. Using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+1. 在左侧边栏中，单击 **Actions access（操作访问）**。 ![左侧菜单中的"Actions access（操作访问）"选项](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+2. 为确保工作流程有权访问容器包，您必须添加存储工作流程的仓库。 单击 **Add repository（添加仓库）**并搜索要添加的仓库。 !["添加仓库"按钮](/assets/images/help/package-registry/add-repository-button.png)
+3. （使用“role（角色）”下拉菜单，选择您希望仓库访问您的容器映像所必须拥有的默认访问权限。 ![授予仓库的权限访问级别](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
-To further customize access to your container image, see "[Configuring access to container images for your personal account](#configuring-access-to-container-images-for-your-personal-account)."
+要进一步自定义对容器映像的访问，请参阅“[配置对个人帐户的容器映像的访问](#configuring-access-to-container-images-for-your-personal-account)”。
 
-### {% data variables.product.prodname_actions %} access for organization-owned container images 
+### 组织拥有的容器映像的 {% data variables.product.prodname_actions %} 访问权限
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-3. Using the "role" drop-down menu, select the default access level that you'd like repository members to have to your container image. Outside collaborators will not be included.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+1. 在左侧边栏中，单击 **Actions access（操作访问）**。 ![左侧菜单中的"Actions access（操作访问）"选项](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+2. 单击 **Add repository（添加仓库）**并搜索要添加的仓库。 !["添加仓库"按钮](/assets/images/help/package-registry/add-repository-button.png)
+3. 使用“role（角色）”下拉菜单，选择您希望仓库成员访问您的容器映像所必须拥有的默认访问权限。 外部协作者将不包括在内。 ![授予仓库的权限访问级别](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
-To further customize access to your container image, see "[Configuring access to container images for an organization](#configuring-access-to-container-images-for-an-organization)."
+要进一步自定义对容器映像的访问，请参阅“[配置对组织的容器映像的访问](#configuring-access-to-container-images-for-an-organization)”。
 
 ## Ensuring {% data variables.product.prodname_codespaces %} access to your package
 
@@ -103,71 +92,68 @@ By default, a codespace can seamlessly access certain packages in the {% data va
 
 Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
 
-The specified repository does not need to be the repository where the source code for the package is kept. You can give codespaces in multiple repositories access to a package.
+指定的仓库不需要是保存包源代码的仓库。 You can give codespaces in multiple repositories access to a package.
 
 Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
 
 1. In the right sidebar, click **Package settings**.
 
    !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
-   
+
 2. Under "Manage Codespaces access", click **Add repository**.
 
-   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
+   !["添加仓库"按钮](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
 
 3. Search for the repository you want to add.
 
-   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-search.png)
-   
+   !["添加仓库"按钮](/assets/images/help/package-registry/manage-codespaces-access-search.png)
+
 4. Repeat for any additional repositories you would like to allow access.
 
 5. If the codespaces for a repository no longer need access to an image, you can remove access.
 
    !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
-## Configuring visibility of container images for your personal account
+## 为个人帐户配置容器映像的可见性
 
-When you first publish a package, the default visibility is private and only you can see the package. You can modify a private or public container image's access by changing the access settings.
+首次发布包时，默认可见性是私有的，只有您才能看到包。 您可以通过更改访问设置来修改私有或公共容器映像的访问权限。
 
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+公共包可以匿名访问，无需身份验证。 包一旦被设为公共，便无法再次将其设为私有。
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the container image visible to anyone, click **Make public**.
+5. 在“Danger Zone（危险区域）”下，选择可见性设置：
+    - 要使容器映像对任何人都可见，请单击“**Make public（设为公共）**”。
     {% warning %}
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+    **警告：**包一旦被设为公共，便无法再次将其设为私有。
 
     {% endwarning %}
-    - To make the container image visible to a custom selection of people, click **Make private**.
-  ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+    - 要使容器映像只对选择的人员可见，请单击“**Make private（设为私有）**”。 ![容器可见性选项](/assets/images/help/package-registry/container-visibility-option.png)
 
-## Container creation visibility for organization members
+## 组织成员的容器创建可见性
 
-You can choose the visibility of containers that organization members can publish by default.
+您可以选择组织成员默认可以发布的容器的可见性。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. On the left, click **Packages**.
-6. Under "Container creation", choose whether you want to enable the creation of public, private, or internal container images.
-    - To enable organization members to create public container images, click **Public**.
-    - To enable organization members to create private container images that are only visible to other organization members, click **Private**. You can further customize the visibility of private container images.
-    - To enable organization members to create internal container images that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the container images will be visible to all enterprise members.
-    ![Visibility options for container images published by organization members](/assets/images/help/package-registry/container-creation-org-settings.png)
+4. 在左侧，单击 **Packages（包）**。
+6. 在“Container creation（容器创建）”下，选择是要启用公共、私有或内部容器映像。
+    - 要让组织成员创建公共容器映像，请单击 **Public（公共）**。
+    - 要让组织成员创建只对其他组织成员可见的私有容器映像，请单击 **Private（私有）**。 您可以进一步自定义私有容器映像的可见性。
+    - To enable organization members to create internal container images that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the container images will be visible to all enterprise members. ![组织成员发布的容器图像的可见性选项](/assets/images/help/package-registry/container-creation-org-settings.png)
 
-## Configuring visibility of container images for an organization
+## 为组织配置容器映像的可见性
 
-When you first publish a package, the default visibility is private and only you can see the package. You can grant users or teams different access roles for your container image through the access settings.
+首次发布包时，默认可见性是私有的，只有您才能看到包。 您可以通过访问设置授予用户或团队对容器映像的不同访问角色。
 
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+公共包可以匿名访问，无需身份验证。 包一旦被设为公共，便无法再次将其设为私有。
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the container image visible to anyone, click **Make public**.
+5. 在“Danger Zone（危险区域）”下，选择可见性设置：
+    - 要使容器映像对任何人都可见，请单击“**Make public（设为公共）**”。
     {% warning %}
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+    **警告：**包一旦被设为公共，便无法再次将其设为私有。
 
     {% endwarning %}
-    - To make the container image visible to a custom selection of people, click **Make private**.
-  ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+    - 要使容器映像只对选择的人员可见，请单击“**Make private（设为私有）**”。 ![容器可见性选项](/assets/images/help/package-registry/container-visibility-option.png)

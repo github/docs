@@ -515,7 +515,6 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 | Action | Description
 |------------------|-------------------
-| `clear` | Triggered when a payment method on file is [removed](/articles/removing-a-payment-method).
 | `create` |  Triggered when a new payment method is added, such as a new credit card or PayPal account.
 | `update` | Triggered when an existing payment method is updated.
 
@@ -550,7 +549,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update_require_code_owner_review ` | Triggered when enforcement of required Code Owner review is updated on a branch.
 | `dismiss_stale_reviews ` | Triggered when enforcement of dismissing stale pull requests is updated on a branch.
 | `update_signature_requirement_enforcement_level ` | Triggered when enforcement of required commit signing is updated on a branch.
-| `update_pull_request_reviews_enforcement_level ` | Triggered when enforcement of required pull request reviews is updated on a branch.
+| `update_pull_request_reviews_enforcement_level ` | Triggered when enforcement of required pull request reviews is updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
 | `update_required_status_checks_enforcement_level ` | Triggered when enforcement of required status checks is updated on a branch.
 | `update_strict_required_status_checks_policy` | Triggered when the requirement for a branch to be up to date before merging is changed.
 | `rejected_ref_update ` | Triggered when a branch update attempt is rejected.

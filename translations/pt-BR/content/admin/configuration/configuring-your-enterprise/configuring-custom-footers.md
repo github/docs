@@ -1,6 +1,6 @@
 ---
-title: Configuring custom footers
-intro: 'You can give users easy access to enterprise-specific links by adding custom footers to {% data variables.product.product_name %}.'
+title: Configurando rodapés personalizados
+intro: 'Você pode facilitar o acesso dos usuários aos links específicos da empresa, adicionando rodapés personalizados a {% data variables.product.product_name %}.'
 versions:
   ghec: '*'
   ghes: '>=3.4'
@@ -8,31 +8,29 @@ type: how_to
 topics:
   - Enterprise
   - Fundamentals
-shortTitle: Configure custom footers
+shortTitle: Configurar rodapés personalizados
 ---
-Enterprise owners can configure {% data variables.product.product_name %} to show custom footers with up to five additional links.
 
-![Custom footer](/assets/images/enterprise/custom-footer/octodemo-footer.png)
+Os proprietários de empresas podem configurar {% data variables.product.product_name %} para mostrar rodapés personalizados com até cinco links adicionais.
 
-The custom footer is displayed above the {% data variables.product.prodname_dotcom %} footer {% ifversion ghes or ghae %}to all users, on all pages of {% data variables.product.product_name %}{% else %}to all enterprise members and collaborators, on all repository and organization pages for repositories and organizations that belong to the enterprise{% endif %}.
+![Rodapé personalizado](/assets/images/enterprise/custom-footer/octodemo-footer.png)
 
-## Configuring custom footers for your enterprise
+O rodapé personalizado é exibido acima do rodapé de {% data variables.product.prodname_dotcom %} {% ifversion ghes or ghae %}para todos os usuários, em todas as páginas de {% data variables.product.product_name %}{% else %}para todos os membros e colaboradores da empresa, em todas as páginas do repositório e da organização para repositórios e organizações que pertencem à empresa{% endif %}.
+
+## Configurar rodapés personalizados para sua empresa
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 
-1. Under "Settings", click **Profile**.
+1. Em "Configurações", clique em **Perfil**.
 {%- ifversion ghec %}
-![Enterprise profile settings](/assets/images/enterprise/custom-footer/enterprise-profile-ghec.png)
+![Configurações do perfil corporativo](/assets/images/enterprise/custom-footer/enterprise-profile-ghec.png)
 {%- else %}
-![Enterprise profile settings](/assets/images/enterprise/custom-footer/enterprise-profile-ghes.png)
+![Configurações do perfil corporativo](/assets/images/enterprise/custom-footer/enterprise-profile-ghes.png)
 {%- endif %}
 
-1. At the top of the Profile section, click **Custom footer**.
-![Custom footer section](/assets/images/enterprise/custom-footer/custom-footer-section.png)
+1. Na parte superior da seção do perfil, clique em **Personalizar rodapé**. ![Seção de rodapé personalizada](/assets/images/enterprise/custom-footer/custom-footer-section.png)
 
-1. Add up to five links in the fields shown.
-![Add footer links](/assets/images/enterprise/custom-footer/add-footer-links.png)
+1. Adicione até cinco links nos campos mostrados. ![Adicionar links de rodapé](/assets/images/enterprise/custom-footer/add-footer-links.png)
 
-1. Click **Update custom footer** to save the content and display the custom footer.
-![Update custom footer](/assets/images/enterprise/custom-footer/update-custom-footer.png)
+1. Clique em **Atualizar o rodapé personalizado** para salvar o conteúdo e exibir o rodapé personalizado. ![Atualizar rodapé personalizado](/assets/images/enterprise/custom-footer/update-custom-footer.png)

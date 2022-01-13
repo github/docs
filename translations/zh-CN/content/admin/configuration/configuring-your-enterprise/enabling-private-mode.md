@@ -1,6 +1,6 @@
 ---
-title: Enabling private mode
-intro: 'In private mode, {% data variables.product.prodname_ghe_server %} requires every user to sign in to access the installation.'
+title: 启用私有模式
+intro: '在私有模式下，{% data variables.product.prodname_ghe_server %} 要求每个用户必须登录才能访问安装。'
 redirect_from:
   - /enterprise/admin/articles/private-mode
   - /enterprise/admin/guides/installation/security
@@ -21,15 +21,15 @@ topics:
   - Privacy
   - Security
 ---
-You must enable private mode if {% data variables.product.product_location %} is publicly accessible over the Internet. In private mode, users cannot anonymously clone repositories over `git://`. If built-in authentication is also enabled, an administrator must invite new users to create an account on the instance. For more information, see "[Using built-in authentication](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)."
+
+如果 {% data variables.product.product_location %} 可通过 Internet 公开访问，您必须启用私有模式。 在私有模式下，用户不能通过 `git://` 匿名克隆仓库。 如果还启用了内置身份验证，管理员必须邀请新用户在实例上创建帐户。 更多信息请参阅“[使用内置身份验证](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)”。
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-With private mode enabled, you can allow unauthenticated Git operations (and anyone with network access to {% data variables.product.product_location %}) to read a public repository's code on your instance with anonymous Git read access enabled. For more information, see "[Allowing admins to enable anonymous Git read access to public repositories](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)."
+启用私有模式后，您可以允许未验证的 Git 操作（以及对 {% data variables.product.product_location %} 具有网络访问权限的任何人）读取已启用匿名 Git 读取权限的实例上的公共仓库代码。 更多信息请参阅“[允许管理员启用对公共仓库的匿名 Git 读取权限](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)”。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-4. Select **Private mode**.
-  ![Checkbox for enabling private mode](/assets/images/enterprise/management-console/private-mode-checkbox.png)
+4. 选择 **Private mode**。 ![启用私有模式的复选框](/assets/images/enterprise/management-console/private-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}

@@ -2,7 +2,7 @@
 title: Atajos del teclado
 intro: 'Puedes usar los atajos de teclado en {% data variables.product.prodname_desktop %}.'
 redirect_from:
-  - /desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop/
+  - /desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts
   - /desktop/installing-and-configuring-github-desktop/keyboard-shortcuts
 versions:
