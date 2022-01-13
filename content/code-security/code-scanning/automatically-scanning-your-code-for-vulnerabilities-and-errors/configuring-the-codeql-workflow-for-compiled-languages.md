@@ -144,7 +144,7 @@ Sometimes you do not want to build and analyze your whole project and its depend
 
 The following example illustrates this approach for a C++ project that's built using `make`, but the procedure applies to all compiled languages and build systems.
 
-Your project tree contains three subdirectories, `src/`, `lib1`, and `lib2` and your default build command, `make all`, builds them all. If you configure the workflow with the default build command, it generates a {% data variables.product.prodname_codeql %} database with the code and dependencies of all three subdirectories.
+Your project tree contains three subdirectories, `src/`, `lib1`, and `lib2` and your default build command, `make all`, builds them all. In the following workflow, the "Autobuild" step will run the default build command and generate a {% data variables.product.prodname_codeql %} database with the code and dependencies of all three subdirectories.
 
 ```yml
     steps:
