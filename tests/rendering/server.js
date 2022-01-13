@@ -741,7 +741,7 @@ describe('server', () => {
     })
 
     test('category page renders with TOC', async () => {
-      const $ = await getDOM('/en/github/writing-on-github')
+      const $ = await getDOM('/en/get-started/writing-on-github')
       expect($('[data-testid=table-of-contents] ul li a').length).toBeGreaterThan(5)
     })
 
