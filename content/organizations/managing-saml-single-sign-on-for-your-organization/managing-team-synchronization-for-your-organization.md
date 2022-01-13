@@ -48,7 +48,7 @@ You must have a linked SAML identity. To create a linked identity, you must auth
 
 Your SAML settings **must** contain a valid IdP URL for the **Issuer** field. 
 
-![saml_issuer](https://user-images.githubusercontent.com/11250779/149009838-2e598045-1f20-45d2-ae5e-b76cba7d0eb8.png)
+![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
 
 
 
