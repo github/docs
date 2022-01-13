@@ -166,7 +166,7 @@ describe('header', () => {
         `/en/enterprise-server@${oldestSupported}/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
       )
 
-      expect($('[data-testid=product-picker] summary').text()).toBe('GitHub')
+      expect($('[data-testid=product-picker] summary').text()).toBe('Get started')
     })
   })
 })
