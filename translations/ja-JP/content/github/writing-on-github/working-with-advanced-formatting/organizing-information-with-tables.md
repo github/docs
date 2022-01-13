@@ -1,6 +1,6 @@
 ---
-title: Organizing information with tables
-intro: 'You can build tables to organize information in comments, issues, pull requests, and wikis.'
+title: 情報を表に編成する
+intro: 表を作成して、コメント、Issue、プルリクエスト、ウィキの情報を編成できます。
 redirect_from:
   - /articles/organizing-information-with-tables
   - /github/writing-on-github/organizing-information-with-tables
@@ -11,23 +11,24 @@ versions:
   ghec: '*'
 shortTitle: Organized data with tables
 ---
-## Creating a table
 
-You can create tables with pipes `|` and hyphens `-`. Hyphens are used to create each column's header, while pipes separate each column. You must include a blank line before your table in order for it to correctly render.
+## 表を作成する
+
+表は、パイプ文字 (`|`) とハイフン (`-`) を使って作成できます。 ハイフンでヘッダを作成し、パイプ文字で各列を分けます。 正しく表示されるように、表の前には空白行を 1 行追加してください。
 
 ```markdown
 
-| First Header  | Second Header |
+| ヘッダ 1 | ヘッダ 2 |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| 内容セル  | 内容セル  |
+| 内容セル  | 内容セル  |
 ```
 
-![Rendered table](/assets/images/help/writing/table-basic-rendered.png)
+![レンダリングされた表](/assets/images/help/writing/table-basic-rendered.png)
 
-The pipes on either end of the table are optional.
+表の両側のパイプ文字はオプションです。
 
-Cells can vary in width and do not need to be perfectly aligned within columns. There must be at least three hyphens in each column of the header row.
+セルの幅は変わるので、列がぴったり一致する必要はありません。 各列のヘッダ行には、ハイフンを 3 つ以上使用してください。
 
 ```markdown
 | Command | Description |
@@ -36,13 +37,13 @@ Cells can vary in width and do not need to be perfectly aligned within columns. 
 | git diff | Show file differences that haven't been staged |
 ```
 
-![Rendered table with varied cell width](/assets/images/help/writing/table-varied-columns-rendered.png)
+![異なるセル幅で表示された表](/assets/images/help/writing/table-varied-columns-rendered.png)
 
 {% data reusables.user_settings.enabling-fixed-width-fonts %}
 
-## Formatting content within your table
+## 表の内容をフォーマットする
 
-You can use [formatting](/articles/basic-writing-and-formatting-syntax) such as links, inline code blocks, and text styling within your table:
+表では、リンク、インラインのコードブロック、テキストスタイルなどの[フォーマット](/articles/basic-writing-and-formatting-syntax)を使用できます。
 
 ```markdown
 | Command | Description |
@@ -51,9 +52,9 @@ You can use [formatting](/articles/basic-writing-and-formatting-syntax) such as 
 | `git diff` | Show file differences that **haven't been** staged |
 ```
 
-![Rendered table with formatted text](/assets/images/help/writing/table-inline-formatting-rendered.png)
+![テキストをフォーマットして表示された表](/assets/images/help/writing/table-inline-formatting-rendered.png)
 
-You can align text to the left, right, or center of a column by including colons `:` to the left, right, or on both sides of the hyphens within the header row.
+ヘッダー行でハイフンの左、右、両側にコロン (`:`) を使うと、列でテキストを左寄せ、右寄せ、センタリングすることができます。
 
 ```markdown
 | Left-aligned | Center-aligned | Right-aligned |
@@ -62,9 +63,9 @@ You can align text to the left, right, or center of a column by including colons
 | git diff     | git diff       | git diff      |
 ```
 
-![Rendered table with left, center, and right text alignment](/assets/images/help/writing/table-aligned-text-rendered.png)
+![テキストを左寄せ、右寄せ、センタリングして表示された表](/assets/images/help/writing/table-aligned-text-rendered.png)
 
-To include a pipe `|` as content within your cell, use a `\` before the pipe:
+セルでパイプ文字 (`|`) を使用するには、パイプ文字の前に `\` を追加します。
 
 ```markdown
 | Name     | Character |
@@ -73,9 +74,9 @@ To include a pipe `|` as content within your cell, use a `\` before the pipe:
 | Pipe     | \|        |
 ```
 
-![Rendered table with an escaped pipe](/assets/images/help/writing/table-escaped-character-rendered.png)
+![パイプ文字をエスケープして表示された表](/assets/images/help/writing/table-escaped-character-rendered.png)
 
-## Further reading
+## 参考リンク
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)
+- [基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)

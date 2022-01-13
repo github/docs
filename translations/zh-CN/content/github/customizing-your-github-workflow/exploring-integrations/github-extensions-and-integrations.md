@@ -1,6 +1,6 @@
 ---
-title: GitHub extensions and integrations
-intro: 'Use {% data variables.product.product_name %} extensions to work seamlessly in {% data variables.product.product_name %} repositories within third-party applications.'
+title: GitHub 扩展和集成
+intro: '通过 {% data variables.product.product_name %} 扩展可在第三方应用程序中无缝使用 {% data variables.product.product_name %} 仓库。'
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
@@ -8,44 +8,45 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-shortTitle: Extensions & integrations
+shortTitle: 扩展和集成
 ---
-## Editor tools
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and Visual Studio.
+## 编辑器工具
+
+您可以在第三方编辑器工具中连接到 {% data variables.product.product_name %} 仓库，例如 Atom、Unity 和 Visual Studio 等工具。
 
 ### {% data variables.product.product_name %} for Atom
 
-With the {% data variables.product.product_name %} for Atom extension, you can commit, push, pull, resolve merge conflicts, and more from the Atom editor. For more information, see the official [{% data variables.product.product_name %} for Atom site](https://github.atom.io/).
+使用 {% data variables.product.product_name %} for Atom 扩展，您可以从 Atom 编辑器中提交、推送、拉取和解决合并冲突等。 更多信息请参阅官方 [{% data variables.product.product_name %} for Atom 站点](https://github.atom.io/)。
 
 ### {% data variables.product.product_name %} for Unity
 
-With the {% data variables.product.product_name %} for Unity editor extension, you can develop on Unity, the open source game development platform, and see your work on {% data variables.product.product_name %}. For more information, see the official Unity editor extension [site](https://unity.github.com/) or the [documentation](https://github.com/github-for-unity/Unity/tree/master/docs).
+使用 {% data variables.product.product_name %} for Unity 编辑器扩展，您可以在开源游戏开发平台 Unity 上进行开发，在 {% data variables.product.product_name %} 查看您的工作。 更多信息请参阅官方 Unity 编辑器扩展[站点](https://unity.github.com/)或[文档](https://github.com/github-for-unity/Unity/tree/master/docs)。
 
 ### {% data variables.product.product_name %} for Visual Studio
 
-With the {% data variables.product.product_name %} for Visual Studio extension, you can work in {% data variables.product.product_name %} repositories without leaving Visual Studio. For more information, see the official Visual Studio extension [site](https://visualstudio.github.com/) or [documentation](https://github.com/github/VisualStudio/tree/master/docs).
+使用 {% data variables.product.product_name %} for Visual Studio 扩展，您可以 Visual Studio 中处理 {% data variables.product.product_name %} 仓库。 更多信息请参阅官方 Visual Studio 扩展[站点](https://visualstudio.github.com/)或[文档](https://github.com/github/VisualStudio/tree/master/docs)。
 
 ### {% data variables.product.prodname_dotcom %} for Visual Studio Code
 
-With the {% data variables.product.prodname_dotcom %} for Visual Studio Code extension, you can review and manage {% data variables.product.product_name %} pull requests in Visual Studio Code. For more information, see the official Visual Studio Code extension [site](https://vscode.github.com/) or [documentation](https://github.com/Microsoft/vscode-pull-request-github).
+使用 {% data variables.product.prodname_dotcom %} for Visual Studio Code 扩展，您可以在 Visual Studio Code 中审查和管理 {% data variables.product.product_name %} 拉取请求。 更多信息请参阅官方 Visual Studio Code 扩展[站点](https://vscode.github.com/)或[文档](https://github.com/Microsoft/vscode-pull-request-github)。
 
-## Project management tools
+## 项目管理工具
 
-You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party project management tools, such as Jira.
+您可以将 {% data variables.product.product_location %} 上的个人或组织帐户与第三方项目管理工具（如 Jira）集成。
 
-### Jira Cloud and {% data variables.product.product_name %}.com integration
+### Jira Cloud 与 {% data variables.product.product_name %}.com 集成
 
-You can integrate Jira Cloud with your personal or organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+您可以将 Jira Cloud 与个人或组织帐户集成，以扫描提交和拉取请求，在任何提及的 Jira 议题中创建相关的元数据和超链接。 更多信息请访问 Marketplace 中的 [Jira 集成应用程序](https://github.com/marketplace/jira-software-github)。
 
-## Team communication tools
+## 团队通信工具
 
-You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
+您可以将 {% data variables.product.product_location %} 上的个人或组织帐户与第三方团队通信工具（如 Slack 或 Microsoft Teams）集成。
 
-### Slack and {% data variables.product.product_name %} integration
+### Slack 与 {% data variables.product.product_name %} 集成
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, releases, deployment reviews and deployment statuses. You can also perform activities like close or open issues, and provide rich references to issues and pull requests without leaving Slack. For more information, visit the [Slack integration app](https://github.com/marketplace/slack-github) in the marketplace.
+您可以订阅仓库或组织，并获得有关议题、拉取请求、提交、发布、部署审查和部署状态的实时更新。 您还可以执行关闭或打开议题等活动，并在不离开 Slack 的情况下提供丰富的议题和拉取请求参考。 更多信息请访问 Marketplace 中的 [Slack 集成应用程序](https://github.com/marketplace/slack-github)。
 
-### Microsoft Teams and {% data variables.product.product_name %} integration
+### Microsoft Teams 与 {% data variables.product.product_name %} 集成
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, deployment reviews and deployment statuses. You can also perform activities like close or open issues, comment on your issues and pull requests, and provide rich references to issues and pull requests without leaving Microsoft Teams. For more information, visit the [Microsoft Teams integration app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.
+您可以订阅仓库或组织，并获得有关议题、拉取请求、提交、部署审查和部署状态的实时更新。 您也可以执行一些活动，如关闭或打开议题、评论您的议题和拉取请求，以及提供丰富的议题和拉取请求引用而不离开 Microsoft Teams。 更多信息请访问 Microsoft AppSource 中的 [Microsoft Teams 集成应用程序](https://appsource.microsoft.com/en-us/product/office/WA200002077)。

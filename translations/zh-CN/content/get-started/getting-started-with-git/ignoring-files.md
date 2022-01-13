@@ -1,5 +1,5 @@
 ---
-title: Ignoring files
+title: 忽略文件
 redirect_from:
   - /git-ignore
   - /ignore-files
@@ -7,60 +7,60 @@ redirect_from:
   - /github/using-git/ignoring-files
   - /github/getting-started-with-github/ignoring-files
   - /github/getting-started-with-github/getting-started-with-git/ignoring-files
-intro: 'You can configure Git to ignore files you don''t want to check in to {% data variables.product.product_name %}.'
+intro: '您可以配置 Git 忽略您不想检入 {% data variables.product.product_name %} 的文件。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
-## Configuring ignored files for a single repository
 
-You can create a *.gitignore* file in your repository's root directory to tell Git which files and directories to ignore when you make a commit.
-To share the ignore rules with other users who clone the repository, commit the *.gitignore* file in to your repository.
+## 为单个仓库配置忽略的文件
 
-GitHub maintains an official list of recommended *.gitignore* files for many popular operating systems, environments, and languages in the `github/gitignore` public repository. You can also use gitignore.io to create a *.gitignore* file for your operating system, programming language, or IDE. For more information, see "[github/gitignore](https://github.com/github/gitignore)" and the "[gitignore.io](https://www.gitignore.io/)" site.
+您可以在仓库的根目录中创建 *.gitignore* 文件，指示 Git 在您进行提交时要忽略哪些文件和目录。 要与克隆仓库的其他用户共享忽略规则，请提交 *.gitignore* 文件到您的仓库。
+
+GitHub 在 `github/gitignore` 公共仓库中维护建议用于许多常用操作系统、环境及语言的 *.gitignore* 文件正式列表。 您也可以使用 gitignore.io 创建 *.gitignore* 文件，以用于操作系统、编程语言或 IDE。 更多信息请参阅“[github/gitignore](https://github.com/github/gitignore)”和“[gitignore.io](https://www.gitignore.io/)”网站。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navigate to the location of your Git repository.
-3. Create a *.gitignore* file for your repository.
+2. 导航到 Git 仓库的位置。
+3. 为仓库创建 *.gitignore* 文件。
    ```shell
    $ touch .gitignore
   ```
 
    If the command succeeds, there will be no output.
-   
-For an example *.gitignore* file, see "[Some common .gitignore configurations](https://gist.github.com/octocat/9257657)" in the Octocat repository.
 
-If you want to ignore a file that is already checked in, you must untrack the file before you add a rule to ignore it. From your terminal, untrack the file.
+例如 *.gitignore* 文件，请参阅 Octocat 仓库中的“[一些常见的 .gitignore 配置](https://gist.github.com/octocat/9257657)”。
+
+如果想要忽略已检入的文件，则必须在添加忽略该文件的规则之前取消跟踪它。 从终端取消跟踪文件。
 
 ```shell
 $ git rm --cached <em>FILENAME</em>
 ```
 
-## Configuring ignored files for all repositories on your computer
+## 为计算机上的所有存储库配置忽略的文件
 
-You can also create a global *.gitignore* file to define a list of rules for ignoring files in every Git repository on your computer. For example, you might create the file at *~/.gitignore_global* and add some rules to it.
+您也可以创建全局 *.gitignore* 文件，以定义忽略计算机上每个 Git 仓库中文件的规则列表。 例如，在 *~/.gitignore_global* 中创建文件并加入一些规则。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Configure Git to use the exclude file *~/.gitignore_global* for all Git repositories.
+2. 配置 Git 对所有 Git 仓库使用排除文件 *~/.gitignore_global*。
   ```shell
   $ git config --global core.excludesfile ~/.gitignore_global
   ```
 
-## Excluding local files without creating a *.gitignore* file
+## 排除本地文件而不创建 *.gitignore* 文件
 
-If you don't want to create a *.gitignore* file to share with others, you can create rules that are not committed with the repository. You can use this technique for locally-generated files that you don't expect other users to generate, such as files created by your editor.
+如果不想创建 *.gitignore* 文件与其他人共享，可以创建不随仓库提交的规则。 您可以对不希望其他用户生成的本地生成文件使用此方法，例如编辑者创建的文件。
 
-Use your favorite text editor to open the file called *.git/info/exclude* within the root of your Git repository. Any rule you add here will not be checked in, and will only ignore files for your local repository.
+使用您常用的文本编辑器打开 Git 仓库根目录中的文件 *.git/info/exclude*。 您在此处添加的任何规则都不会检入，并且只会对您的本地仓库忽略文件。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navigate to the location of your Git repository.
-3. Using your favorite text editor, open the file *.git/info/exclude*.
+2. 导航到 Git 仓库的位置。
+3. 使用您常用的文本编辑器打开文件 *.git/info/exclude*。
 
-## Further Reading
+## 延伸阅读
 
-* [Ignoring files](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring) in the Pro Git book
-* [.gitignore](https://git-scm.com/docs/gitignore) in the man pages for Git
-* [A collection of useful *.gitignore* templates](https://github.com/github/gitignore) in the github/gitignore repository
-* [gitignore.io](https://www.gitignore.io/) site
+* Pro Git 书籍中的[忽略文件](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring)
+* Git 手册页面中的 [.gitignore](https://git-scm.com/docs/gitignore)
+* [github/gitignore 仓库中有用的 *.gitignore* 模板集合](https://github.com/github/gitignore)
+* [gitignore.io](https://www.gitignore.io/) 网站

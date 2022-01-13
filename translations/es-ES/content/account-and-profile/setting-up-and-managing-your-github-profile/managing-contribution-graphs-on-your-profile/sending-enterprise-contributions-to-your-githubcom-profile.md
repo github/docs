@@ -1,6 +1,6 @@
 ---
-title: Sending enterprise contributions to your GitHub.com profile
-intro: 'You can highlight your work on {% data variables.product.prodname_enterprise %} by sending the contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile.'
+title: Enviar contribuciones empresariales a tu perfil de GitHub.com
+intro: 'Puedes resaltar tu trabajo en {% data variables.product.prodname_enterprise %} al enviar los recuentos de contribuciones a tu perfil {% data variables.product.prodname_dotcom_the_website %}.'
 redirect_from:
   - /articles/sending-your-github-enterprise-contributions-to-your-github-com-profile
   - /articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile
@@ -14,49 +14,46 @@ versions:
   ghec: '*'
 topics:
   - Profiles
-shortTitle: Send enterprise contributions
+shortTitle: Enviar contribuciones empresariales
 ---
 
-## About enterprise contributions on your {% data variables.product.prodname_dotcom_the_website %} profile
+## Acerca de las contribuciones empresariales en tu perfil de {% data variables.product.prodname_dotcom_the_website %}
 
-Your {% data variables.product.prodname_dotcom_the_website %} profile shows {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} contribution counts from the past 90 days. {% data reusables.github-connect.sync-frequency %} Contribution counts from {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} are considered private contributions. The commit details will only show the contribution counts and that these contributions were made in a {% data variables.product.prodname_enterprise %} environment outside of {% data variables.product.prodname_dotcom_the_website %}.
+Tu perfil de {% data variables.product.prodname_dotcom_the_website %} muestra el conteo de contribuciones de {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} de los 90 días anteriores. {% data reusables.github-connect.sync-frequency %} Los conteos de contribuciones de {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} se consideran contribuciones privadas. Los detalles de confirmación solo mostrarán los conteos de contribuciones y que estas se hicieron en un ambiente de {% data variables.product.prodname_enterprise %} fuera de {% data variables.product.prodname_dotcom_the_website %}.
 
-You can decide whether to show counts for private contributions on your profile. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile/)."
+Puedes decidir si quieres que se muestren los conteos de las contribuciones privadas en tu perfil. Para obtener más información, consulta "[Publicar u ocultar tus contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile/)."
 
-For more information about how contributions are calculated, see "[Managing contribution graphs on your profile](/articles/managing-contribution-graphs-on-your-profile/)."
+Para obtener más información acerca de cómo se calculan las contribuciones, consulta "[Administrar gráficos de contribuciones en tu perfil](/articles/managing-contribution-graphs-on-your-profile/)."
 
 {% note %}
 
-**Notes:**
-- The connection between your accounts is governed by <a href="/articles/github-privacy-statement/" class="dotcom-only">GitHub's Privacy Statement</a> and users enabling the connection agree to the <a href="/articles/github-terms-of-service/" class="dotcom-only">GitHub's Terms of Service</a>.
+**Notas:**
+- La conexión entre tus cuentas está regulada por la <a href="/articles/github-privacy-statement/" class="dotcom-only">Declaración de privacidad de GitHub</a>, y los usuarios que habilitan la conexión aceptan los Términos de servicio de GitHub<a href="/articles/github-terms-of-service/" class="dotcom-only"></a>.
 
-- Before you can connect your {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} profile to your {% data variables.product.prodname_dotcom_the_website %} profile, your enterprise owner must enable {% data variables.product.prodname_github_connect %} and enable contribution sharing between the environments. For more information, contact your enterprise owner.
+- Antes de que puedas conectar tu perfil de {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} a tu perfil de {% data variables.product.prodname_dotcom_the_website %}, tu empresa debe habilitar {% data variables.product.prodname_github_connect %} y también el compartir contribuciones entre los ambientes. Para obtener más información, contacta a tu propietario de empresa.
 
 {% endnote %}
 
-## Sending your enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile
+## Enviar las contribuciones de tu empresa a tu perfil de {% data variables.product.prodname_dotcom_the_website %}
 
 {% ifversion fpt or ghec %}
 
-- To send enterprise contributions from {% data variables.product.prodname_ghe_server %} to your {% data variables.product.prodname_dotcom_the_website %} profile, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/enterprise-server/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)" in the {% data variables.product.prodname_ghe_server %} documentation.
-- To send enterprise contributions from {% data variables.product.prodname_ghe_managed %} to your {% data variables.product.prodname_dotcom_the_website %} profile, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/github-ae@latest/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)" in the {% data variables.product.prodname_ghe_managed %} documentation.
+- Para enviar contribuciones empresariales desde {% data variables.product.prodname_ghe_server %} a tu perfil de {% data variables.product.prodname_dotcom_the_website %}, consulta la sección "[Enviar contribuciones empresariales a tu perfil de {% data variables.product.prodname_dotcom_the_website %}](/enterprise-server/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)" en la documentación de {% data variables.product.prodname_ghe_server %}.
+- Para enviar contribuciones empresariales desde {% data variables.product.prodname_ghe_managed %} a tu perfil de {% data variables.product.prodname_dotcom_the_website %}, consulta la sección "[Enviar contribuciones empresariales a tu perfil de {% data variables.product.prodname_dotcom_the_website %}](/github-ae@latest/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)" en la documentación de {% data variables.product.prodname_ghe_managed %}.
 
 {% elsif ghes %}
 
-1. Sign in to {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.
-1. On {% data variables.product.prodname_ghe_server %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-   ![Settings icon in the user bar](/assets/images/help/settings/userbar-account-settings.png)
+1. Iniciar sesión en {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_dotcom_the_website %}.
+1. En {% data variables.product.prodname_ghe_server %}, en la esquina superior derecha de cualquier página, haz clic en tu foto de perfil y luego haz clic en **Ajustes**. ![Icono Settings (Parámetros) en la barra de usuario](/assets/images/help/settings/userbar-account-settings.png)
 {% data reusables.github-connect.github-connect-tab-user-settings %}
 {% data reusables.github-connect.connect-dotcom-and-enterprise %}
-1. Review the resources that {% data variables.product.prodname_ghe_server %} will access from your {% data variables.product.prodname_dotcom_the_website %} account, then click **Authorize**.
-   ![Authorize connection between GitHub Enterprise Server and GitHub.com](/assets/images/help/settings/authorize-ghe-to-connect-to-dotcom.png)
+1. Revisa los recursos a los que {% data variables.product.prodname_ghe_server %} accederá desde tu cuenta de {% data variables.product.prodname_dotcom_the_website %}, posteriormente, da clic en **Autorizar**. ![Autorizar conexión entre GitHub Enterprise Server y GitHub.com](/assets/images/help/settings/authorize-ghe-to-connect-to-dotcom.png)
 {% data reusables.github-connect.send-contribution-counts-to-githubcom %}
 
 {% elsif ghae %}
 
-1. Sign in to {% data variables.product.prodname_ghe_managed %} and {% data variables.product.prodname_dotcom_the_website %}.
-1. On {% data variables.product.prodname_ghe_managed %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-   ![Settings icon in the user bar](/assets/images/help/settings/userbar-account-settings.png)
+1. Iniciar sesión en {% data variables.product.prodname_ghe_managed %} y {% data variables.product.prodname_dotcom_the_website %}.
+1. En {% data variables.product.prodname_ghe_managed %}, en la esquina superior derecha de cualquier página, haz clic en tu foto de perfil y luego haz clic en **Ajustes**. ![Icono Settings (Parámetros) en la barra de usuario](/assets/images/help/settings/userbar-account-settings.png)
 {% data reusables.github-connect.github-connect-tab-user-settings %}
 {% data reusables.github-connect.connect-dotcom-and-enterprise %}
 {% data reusables.github-connect.authorize-connection %}

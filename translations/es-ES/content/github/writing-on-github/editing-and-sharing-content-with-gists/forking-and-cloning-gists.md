@@ -1,6 +1,6 @@
 ---
-title: Forking and cloning gists
-intro: 'Gists are actually Git repositories, which means that you can fork or clone any gist, even if you aren''t the original author. You can also view a gist''s full commit history, including diffs.'
+title: Bifurcar y clonar gists
+intro: 'Los gists son en realidad repositorios de Git, lo que significa que puedes bifurcar o clonar cualquier gist, aunque no seas el autor original. También puedes ver el historial completo de confirmaciones de un gist, incluidas las diferencias.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/forking-and-cloning-gists
@@ -11,24 +11,25 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-## Forking gists
 
-Each gist indicates which forks have activity, making it easy to find interesting changes from others.
+## Bifurcar gists
 
-![Gist forks](/assets/images/help/gist/gist_forks.png)
+Cada gist indica qué bifurcaciones tiene actividad, haciéndo más fácil el encontrar cambios interesantes de otras personas.
 
-## Cloning gists
+![Bifurcaciones del gist](/assets/images/help/gist/gist_forks.png)
 
-If you want to make local changes to a gist and push them up to the web, you can clone a gist and make commits the same as you would with any Git repository. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+## Clonar gists
 
-![Gist clone button](/assets/images/help/gist/gist_clone_btn.png)
+Si deseas hacer cambios locales en un gist y subirlos a la web, puedes clonar un gist y hacer confirmaciones de la misma manera que lo harías con cualquier repositorio de Git. Para obtener más información, consulta "[Clonar un repositorio](/articles/cloning-a-repository)".
 
-## Viewing gist commit history
+![Botón Clonar gist](/assets/images/help/gist/gist_clone_btn.png)
 
-To view a gist's full commit history, click the "Revisions" tab at the top of the gist.
+## Ver el historial de confirmaciones de un gist
 
-![Gist revisions tab](/assets/images/help/gist/gist_revisions_tab.png)
+Para ver el historial de confirmaciones completo de un gist, haz clic en la pestaña "Revisiones" en la parte superior de este.
 
-You will see a full commit history for the gist with diffs.
+![Pestaña Revisiones de gist](/assets/images/help/gist/gist_revisions_tab.png)
 
-![Gist revisions page](/assets/images/help/gist/gist_history.png)
+Verás el historial completo de confirmaciones del gist con sus diferencias.
+
+![Página de revisiones de gist](/assets/images/help/gist/gist_history.png)

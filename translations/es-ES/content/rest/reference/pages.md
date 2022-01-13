@@ -1,6 +1,6 @@
 ---
 title: Pages
-intro: 'The GitHub Pages API allows you to interact with GitHub Pages sites and build information.'
+intro: The GitHub Pages API allows you to interact with GitHub Pages sites and build information.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,21 +12,21 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The {% data variables.product.prodname_pages %} API retrieves information about your {% data variables.product.prodname_pages %} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners{% ifversion not ghae %}, even if the websites are public{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
+La API de {% data variables.product.prodname_pages %} recupera información sobre tu configuración de {% data variables.product.prodname_pages %} y sobre los estados de tus compilaciones. Solo los propietarios autenticados pueden acceder a la información sobre el sitio y sobre las compilaciones{% ifversion not ghae %}, incluso si los sitios web son públicos{% endif %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)".
 
-In {% data variables.product.prodname_pages %} API endpoints with a `status` key in their response, the value can be one of:
-* `null`: The site has yet to be built.
-* `queued`: The build has been requested but not yet begun.
-* `building`:The build is in progress.
-* `built`: The site has been built.
-* `errored`: Indicates an error occurred during the build.
+En las terminales de la API de {% data variables.product.prodname_pages %} que llevan una clave de `status` en su respuesta, el valor puede ser uno de entre los siguientes:
+* `null`: El sitio aún tiene que crearse.
+* `queued`: Se solicitó la compilación, pero no ha iniciado.
+* `building`: La compilación está en curso.
+* `built`: Se creó el sitio.
+* `errored`: Indica que ocurrió un error durante la compilación.
 
-In {% data variables.product.prodname_pages %} API endpoints that  return GitHub Pages site information, the JSON responses include these fields:
-* `html_url`: The absolute URL (including scheme) of the rendered Pages site. For example, `https://username.github.io`.
-* `source`: An object that contains the source branch and directory for the rendered Pages site. This includes:
-   - `branch`: The repository branch used to publish your [site's source files](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
-   - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
+En las terminales de la API de {% data variables.product.prodname_pages %} que devulenven información del sitio de GitHub Pages, las respuestas de JSON incluyen estos campos:
+* `html_url`: La URL absoluta (incluyendo el modelo) del sitio de Páginas que se interpretó. Por ejemplo, `https://username.github.io`.
+* `source`: Un objeto que contiene la rama origen y el directorio del sitio de Páginas que se interpretó. Esto incluye:
+   - `branch`: La rama del repositorio que se utilizó para publicar los [archivos de código fuente de tu sitio](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Por ejemplo, _main_ o _gh-pages_.
+   - `path`: El directorio del repositorio desde el cual publica el sitio. Podría ser `/` o `/docs`.
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'pages' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}

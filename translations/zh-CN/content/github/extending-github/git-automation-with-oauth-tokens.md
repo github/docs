@@ -1,48 +1,48 @@
 ---
-title: Git automation with OAuth tokens
+title: 使用 OAuth 令牌实施 Git 自动化
 redirect_from:
   - /articles/git-over-https-using-oauth-token
   - /articles/git-over-http-using-oauth-token
   - /articles/git-automation-with-oauth-tokens
-intro: 'You can use OAuth tokens to interact with {% data variables.product.product_name %} via automated scripts.'
+intro: '你可以使用 OAuth 令牌通过自动化脚本与 {% data variables.product.product_name %} 交互。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Automate with OAuth tokens
+shortTitle: 使用 OAuth 令牌实施自动化
 ---
 
-## Step 1: Get an OAuth token
+## 第 1 步：获取 OAuth 令牌
 
-Create a personal access token on your application settings page. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+在应用程序设置页面上创建个人访问令牌。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
 {% tip %}
 
 {% ifversion fpt or ghec %}
-**Tips:**
-- You must verify your email address before you can create a personal access token. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+**提示：**
+- 您必须先验证您的电子邮件地址才能创建个人访问令牌。 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% else %}
-**Tip:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**提示：**{% data reusables.user_settings.review_oauth_tokens_tip %}
 {% endif %}
 
 {% endtip %}
 
 {% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
-## Step 2: Clone a repository
+## 第 2 步：克隆仓库
 
 {% data reusables.command_line.providing-token-as-password %}
 
-To avoid these prompts, you can use Git password caching. For information, see "[Caching your GitHub credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
+为了避免这些提示，您可以使用 Git 密码缓存。 有关信息请参阅“[在 Git 中缓存 GitHub 凭据](/github/getting-started-with-github/caching-your-github-credentials-in-git)”。
 
 {% warning %}
 
-**Warning**: Tokens have read/write access and should be treated like passwords. If you enter your token into the clone URL when cloning or adding a remote, Git writes it to your _.git/config_ file in plain text, which is a security risk.
+**警告**：令牌具有读取/写入权限，应该被视为密码。 如果您在克隆或添加远程仓库时将令牌输入克隆 URL，Git 会以纯文本格式将其写入 _.git/config_ 文件，这存在安全风险。
 
 {% endwarning %}
 
-## Further reading
+## 延伸阅读
 
-- "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"
+- "[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps)"

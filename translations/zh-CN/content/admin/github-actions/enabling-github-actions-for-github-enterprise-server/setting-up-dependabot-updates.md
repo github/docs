@@ -21,13 +21,13 @@ shortTitle: Set up Dependabot updates
 
 {% endtip %}
 
-## About {% data variables.product.prodname_dependabot %} updates
+## 关于 {% data variables.product.prodname_dependabot %} 更新
 
 When you set up {% data variables.product.prodname_dependabot %} security and version updates for {% data variables.product.product_location %}, users can configure repositories so that their dependencies are updated and kept secure automatically. This is an important step in helping developers create and maintain secure code.
 
 Users can set up {% data variables.product.prodname_dependabot %} to create pull requests to update their dependencies using two features.
 
-- **{% data variables.product.prodname_dependabot_version_updates %}**: Users add a {% data variables.product.prodname_dependabot %} configuration file to the repository to enable {% data variables.product.prodname_dependabot %} to create pull requests when a new version of a tracked dependency is released. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)."
+- **{% data variables.product.prodname_dependabot_version_updates %}**: Users add a {% data variables.product.prodname_dependabot %} configuration file to the repository to enable {% data variables.product.prodname_dependabot %} to create pull requests when a new version of a tracked dependency is released. 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)“。
 - **{% data variables.product.prodname_dependabot_security_updates %}**: Users toggle a repository setting to enable {% data variables.product.prodname_dependabot %} to create pull requests when {% data variables.product.prodname_dotcom %} detects a vulnerability in one of the dependencies of the dependency graph for the repository. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
 
 ## Prerequisites for {% data variables.product.prodname_dependabot %} updates
@@ -71,7 +71,7 @@ If you specify more than 14 concurrent runners on a VM, you must also update the
 
 ### Adding self-hosted runners for {% data variables.product.prodname_dependabot %} updates
 
-1. Provision self-hosted runners, at the repository, organization, or enterprise account level. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+1. Provision self-hosted runners, at the repository, organization, or enterprise account level. 更多信息请参阅“[关于自托管的运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”和“[添加自托管的运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。
 
 2. Set up the self-hosted runners with the requirements described above. For example, on a VM running Ubuntu 20.04 you would:
 

@@ -1,6 +1,6 @@
 ---
-title: Editing a project board
-intro: You can edit the title and description of an existing project board.
+title: Editar un tablero de proyecto
+intro: Puedes editar el título y la descripción de un tablero de proyecto existente.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
   - /articles/editing-a-project
@@ -15,22 +15,22 @@ versions:
 topics:
   - Pull requests
 ---
+
 {% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
-**Tip:** For details on adding, removing, or editing columns in your project board, see "[Creating a project board](/articles/creating-a-project-board)."
+**Sugerencia:** Para conocer detalles sobre cómo agregar, eliminar o editar columnas en tu tablero de proyecto, consulta "[Crear un tablero de proyecto](/articles/creating-a-project-board)".
 
 {% endtip %}
 
-1. Navigate to the project board you want to edit.
+1. Dirígete al tablero de proyecto que deseas editar.
 {% data reusables.project-management.click-menu %}
-{% data reusables.project-management.click-edit-sidebar-menu-project-board %} 
-4. Modify the project board name and description as needed, then click **Save project**.
-![Fields with the project board name and description, and Save project button](/assets/images/help/projects/edit-project-board-save-button.png)
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
+4. Modifica el nombre y la descripción del tablero de proyecto según sea necesario y luego haz clic en **Guardar proyecto**. ![Campos con el nombre y la descripción del tablero de proyecto y botón Guardar proyecto](/assets/images/help/projects/edit-project-board-save-button.png)
 
-## Further reading
+## Leer más
 
-- "[About project boards](/articles/about-project-boards)"
-- "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Deleting a project board](/articles/deleting-a-project-board)"
+- "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
+- "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[Eliminar un tablero de proyecto](/articles/deleting-a-project-board)"
