@@ -1,12 +1,12 @@
 ---
-title: Installing GitHub Enterprise Server on XenServer
-intro: 'To install {% data variables.product.prodname_ghe_server %} on XenServer, you must deploy the {% data variables.product.prodname_ghe_server %} disk image to a XenServer host.'
+title: XenServer で GitHub Enterprise Server をインストールする
+intro: '{% data variables.product.prodname_ghe_server %} を XenServer にインストールするには、{% data variables.product.prodname_ghe_server %} のディスクイメージを XenServer ホストに配備する必要があります。'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-xenserver
   - /enterprise/admin/installation/installing-github-enterprise-server-on-xenserver
   - /admin/installation/installing-github-enterprise-server-on-xenserver
 versions:
-  ghes: '<=3.2'
+  ghes: <=3.2
 type: tutorial
 topics:
   - Administrator
@@ -22,42 +22,42 @@ shortTitle: Install on XenServer
 
 {% endnote %}
 
-## Prerequisites
+## 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must install the XenServer Hypervisor on the machine that will run your {% data variables.product.prodname_ghe_server %} virtual machine (VM). We support versions 6.0 through 7.0.
-- We recommend using the XenCenter Windows Management Console for initial setup. Instructions using the XenCenter Windows Management Console are included below. For more information, see the Citrix guide "[How to Download and Install a New Version of XenCenter](https://support.citrix.com/article/CTX118531)."
+- {% data variables.product.prodname_ghe_server %} の仮想マシン (VM) を実行するマシンに、XenServer Hypervisor をインストールする必要があります。 バージョン 6.0 から 7.0 までをサポートしています。
+- 初期セットアップには、XenCenter Windows Management Consoleを使うことをおすすめします。 以下にXenCenter Windows Management Consoleの使い方を示します。 詳しい情報については、Citrixのガイド"[How to Download and Install a New Version of XenCenter](https://support.citrix.com/article/CTX118531)"を参照してください。
 
-## Hardware considerations
+## ハードウェアについて
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-## Downloading the {% data variables.product.prodname_ghe_server %} image
+## {% data variables.product.prodname_ghe_server %} イメージをダウンロードする
 
 {% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Select {% data variables.product.prodname_dotcom %} On-premises, then click **XenServer (VHD)**.
-5. To download your license file, click **Download license**.
+4. {% data variables.product.prodname_dotcom %}オンプレミスを選択し、続いて**XenServer (VHD)**をクリックしてください。
+5. ライセンスファイルをダウンロードするには**Download license（ライセンスのダウンロード）**をクリックしてください。
 
-## Creating the {% data variables.product.prodname_ghe_server %} instance
+## {% data variables.product.prodname_ghe_server %} インスタンスを作成する
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. In XenCenter, import the {% data variables.product.prodname_ghe_server %} image you downloaded. For instructions, see the XenCenter guide "[Import Disk Images](https://docs.citrix.com/en-us/xencenter/current-release/vms-importdiskimage.html)."
-    - For the "Enable Operating System Fixup" step, select **Don't use Operating System Fixup**.
-    - Leave the VM powered off when you're finished.
-{% data reusables.enterprise_installation.create-attached-storage-volume %} For instructions, see the XenCenter guide "[Add Virtual Disks](https://docs.citrix.com/en-us/xencenter/current-release/vms-storage-addnewdisk.html)."
+1. XenCenter で、ダウンロードした {% data variables.product.prodname_ghe_server %} のイメージをインポートします。 手順については、XenCenter ガイドの「[ディスクイメージをインポートする](https://docs.citrix.com/en-us/xencenter/current-release/vms-importdiskimage.html)」を参照してください。
+    - "Enable Operating System Fixup"のステップでは、**Don't use Operating System Fixup**を選択してください。
+    - 終了したら、VMの電源をオフのままにしておいてください。
+{% data reusables.enterprise_installation.create-attached-storage-volume %} 手順については、XenCenter ガイドの「[仮想ディスクを追加する](https://docs.citrix.com/en-us/xencenter/current-release/vms-storage-addnewdisk.html)」を参照してください。
 
-## Configuring the {% data variables.product.prodname_ghe_server %} instance
+## {% data variables.product.prodname_ghe_server %} インスタンスを設定する
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}詳しい情報については、「[{% data variables.product.prodname_ghe_server %} アプライアンスを設定する](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)」を参照してください。
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-## Further reading
+## 参考リンク
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes %}
+- 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

@@ -1,7 +1,7 @@
 ---
-title: Using GitHub CLI in workflows
-shortTitle: GitHub CLI in workflows
-intro: 'You can script with {% data variables.product.prodname_cli %} in {% data variables.product.prodname_actions %} workflows.'
+title: Usar o GitHub CLI em fluxos de trabalho
+shortTitle: CLI do GitHub em fluxos de trabalho
+intro: 'Você pode fazero script com {% data variables.product.prodname_cli %} em fluxos de trabalho {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /actions/guides/using-github-cli-in-workflows
 versions:
@@ -18,9 +18,9 @@ type: how_to
 
 {% data reusables.cli.cli-learn-more %}
 
-{% data variables.product.prodname_cli %} is preinstalled on all {% data variables.product.prodname_dotcom %}-hosted runners. For each step that uses {% data variables.product.prodname_cli %}, you must set an environment variable called `GITHUB_TOKEN` to a token with the required scopes.
+{% data variables.product.prodname_cli %} está pré-instalado em todos os executores hospedados em {% data variables.product.prodname_dotcom %}. Para cada etapa que usa {% data variables.product.prodname_cli %}, você deve definir uma variável de ambiente denominada `GITHUB_TOKEN` como um token com os escopos necessários.
 
-You can execute any {% data variables.product.prodname_cli %} command. For example, this workflow uses the `gh issue comment` subcommand to add a comment when an issue is opened.
+Você pode executar qualquer comando de {% data variables.product.prodname_cli %}. Por exemplo, este fluxo de trabalho usa o subcomando `gh issue comment` para adicionar um comentário quando um problema é aberto.
 
 ```yaml{:copy}
 name: Comment when opened
@@ -38,7 +38,7 @@ jobs:
           ISSUE: {% raw %}${{ github.event.issue.html_url }}{% endraw %}
 ```
 
-You can also execute API calls through {% data variables.product.prodname_cli %}. For example, this workflow first uses the `gh api` subcommand to query the GraphQL API and parse the result. Then it stores the result in an environment variable that it can access in a later step. In the second step, it uses the `gh issue create` subcommand to create an issue containing the information from the first step.
+Você também pode executar chamadas de API por meio de {% data variables.product.prodname_cli %}. Por exemplo, este fluxo de trabalho usa primeiro o subcomando `gh api` para consultar a API do GraphQL e analisar o resultado. Em seguida, ele armazena o resultado de uma variável de ambiente a qual pode acessar em uma etapa posterior. Na segunda etapa, ele usa o subcomando `gh issue create` para criar um problema que contém as informações da primeira etapa.
 
 ```yaml{:copy}
 name: Report remaining open issues

@@ -1,6 +1,6 @@
 ---
-title: Configuring the self-hosted runner application as a service
-intro: You can configure the self-hosted runner application as a service to automatically start the runner application when the machine starts.
+title: Configurar o aplicativo do executor auto-hospedado como um serviço
+intro: Você pode configurar o aplicativo do executor auto-hospedado como um serviço para que inicie o aplicativo do executor automaticamente quando a máquina for iniciada.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
@@ -10,16 +10,16 @@ versions:
   ghec: '*'
 type: tutorial
 defaultPlatform: linux
-shortTitle: Run runner app on startup
+shortTitle: Executar o executor ao iniciar
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% capture service_first_step %}1. Stop the self-hosted runner application if it is currently running.{% endcapture %}
-{% capture service_non_windows_intro_shell %}On the runner machine, open a shell in the directory where you installed the self-hosted runner application. Use the commands below to install and manage the self-hosted runner service.{% endcapture %}
-{% capture service_nonwindows_intro %}You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service. For more information, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."{% endcapture %}
+{% capture service_first_step %}1. Pare o aplicativo do executor auto-hospedado se estiver em execução no momento.{% endcapture %}
+{% capture service_non_windows_intro_shell %}Na máquina, abra um shell no diretório onde você instalou o aplicativo do executor auto-hospedado. Use os comandos abaixo para instalar e gerenciar o serviço do executor auto-hospedado.{% endcapture %}
+{% capture service_nonwindows_intro %}Você deve adicionar um executor a {% data variables.product.product_name %} antes de poder configurar o aplicativo do executor auto-hospedado um serviço. Para obter mais informações, consulte "[Adicionando executores auto-hospedados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".{% endcapture %}
 {% capture service_win_name %}actions.runner.*{% endcapture %}
 
 
@@ -27,7 +27,7 @@ shortTitle: Run runner app on startup
 
 {{ service_nonwindows_intro }}
 
-For Linux systems that use `systemd`, you can use the `svc.sh` script distributed with the self-hosted runner application to install and manage using the application as a service.
+Para os sistemas Linux que usam o `systemd`, você pode usar o script `svc. h` distribuído com o aplicativo do executor auto-hospedado para instalação e gerenciamento usando o aplicativo como um serviço.
 
 {{ service_non_windows_intro_shell }}
 
@@ -37,13 +37,13 @@ For Linux systems that use `systemd`, you can use the `svc.sh` script distribute
 
 {% note %}
 
-**Note:** Configuring the self-hosted runner application as a service on Windows is part of the application configuration process. If you have already configured the self-hosted runner application but did not choose to configure it as a service, you must remove the runner from {% data variables.product.prodname_dotcom %} and re-configure the application. When you re-configure the application, choose the option to configure the application as a service.
+**Observação:** A configuração do executor auto-hospedado como um serviço no Windows faz parte do processo de configuração do aplicativo. Se você já configurou o aplicativo de executor auto-hospedado, mas não escolheu configurá-lo como um serviço, você deve remover o executor do {% data variables.product.prodname_dotcom %} e reconfigurar o aplicativo. Ao reconfigurar o aplicativo, selecione a opção para configurar o aplicativo como um serviço.
 
-For more information, see "[Removing self-hosted runners](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners)" and "[Adding self-hosted runners](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."
+Para obter mais informações, consulte "[Removendo os executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners)" e "[Adicionando executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".
 
 {% endnote %}
 
-You can manage the runner service in the Windows **Services** application, or you can use PowerShell to run the commands below.
+Você pode gerenciar o serviço do executor no aplicativo **Serviços** do Windows, ou você pode usar o PowerShell para executar os comandos abaixo.
 
 {% endwindows %}
 
@@ -57,10 +57,10 @@ You can manage the runner service in the Windows **Services** application, or yo
 
 {% linux %}
 
-## Installing the service
+## Instalando o serviço
 
 {{ service_first_step }}
-1. Install the service with the following command:
+1. Instale o serviço com o comando a seguir:
 
    ```shell
    sudo ./svc.sh install
@@ -69,19 +69,19 @@ You can manage the runner service in the Windows **Services** application, or yo
 {% endlinux %}
 {% mac %}
 
-## Installing the service
+## Instalando o serviço
 
 {{ service_first_step }}
-1. Install the service with the following command:
+1. Instale o serviço com o comando a seguir:
 
    ```shell
    ./svc.sh install
    ```
 {% endmac %}
 
-## Starting the service
+## Iniciar o serviço
 
-Start the service with the following command:
+Inicie o serviço com o seguinte comando:
 
 {% linux %}
 ```shell
@@ -99,9 +99,9 @@ Start-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-## Checking the status of the service
+## Verificando o status do serviço
 
-Check the status of the service with the following command:
+Verifique o status do serviço com o comando a seguir:
 
 {% linux %}
 ```shell
@@ -119,11 +119,11 @@ Get-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
- For more information on viewing the status of your self-hosted runner, see  "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+ Para obter mais informações sobre a visualização do status de seu executor auto-hospedado, consulte "[Monitoramento e resolução de problemas dos executores auto-hospedados](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)".
 
-## Stopping the service
+## Interromper o serviço
 
-Stop the service with the following command:
+Interrompa o serviço com o comando a seguir:
 
 {% linux %}
 ```shell
@@ -141,10 +141,10 @@ Stop-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-## Uninstalling the service
+## Desinstalando o serviço
 
-1. Stop the service if it is currently running.
-1. Uninstall the service with the following command:
+1. Interrompa o serviço se estiver em execução.
+1. Desinstale o serviço com o comando a seguir:
 
     {% linux %}
     ```shell
@@ -153,7 +153,7 @@ Stop-Service "{{ service_win_name }}"
     {% endlinux %}
     {% windows %}
     ```shell
-    Remove-Service "{{ service_win_name }}"
+    Stop-Service "{{ service_win_name }}"
     ```
     {% endwindows %}
     {% mac %}
@@ -165,16 +165,16 @@ Stop-Service "{{ service_win_name }}"
 
 {% linux %}
 
-## Customizing the self-hosted runner service
+## Personalizar o serviço do executor auto-hospedado
 
-If you don't want to use the above default `systemd` service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `serviced` template at `actions-runner/bin/actions.runner.service.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point.
+Se você não desejar usar a configuração-padrão doserviço do `systemd` acima, você poderá criar um serviço personalizado ou usar o mecanismo de serviço que preferir. Considere usar o template `serviced` em `actions-runner/bin/actions.runner.service.template` como referência. Se você usa um serviço personalizado, o serviço do executor auto-hospedado deve sempre ser acessado usando o ponto de entrada `runsvc.sh`.
 
 {% endlinux %}
 
 {% mac %}
 
-## Customizing the self-hosted runner service
+## Personalizar o serviço do executor auto-hospedado
 
-If you don't want to use the above default launchd service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `plist` template at `actions-runner/bin/actions.runner.plist.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point.
+Se você não desejar usar a configuração-padrão do serviço do launchd acima, você poderá criar um serviço personalizado ou usar o mecanismo de serviço que preferir. Considere usar o modelo `plist` em `actions-runner/bin/actions.runner.plist.template` como referência. Se você usa um serviço personalizado, o serviço do executor auto-hospedado deve sempre ser acessado usando o ponto de entrada `runsvc.sh`.
 
 {% endmac %}

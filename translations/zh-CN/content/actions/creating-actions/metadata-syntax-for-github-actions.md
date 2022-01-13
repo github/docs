@@ -1,7 +1,7 @@
 ---
-title: Metadata syntax for GitHub Actions
-shortTitle: Metadata syntax
-intro: You can create actions to perform tasks in your repository. Actions require a metadata file that uses YAML syntax.
+title: GitHub Actions 的元数据语法
+shortTitle: 元数据语法
+intro: 您可以创建操作来执行仓库中的任务。 操作需要使用 YAML 语法的元数据文件。
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -18,31 +18,31 @@ type: reference
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About YAML syntax for {% data variables.product.prodname_actions %}
+## 关于 {% data variables.product.prodname_actions %} 的 YAML 语法
 
-Docker and JavaScript actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The data in the metadata file defines the inputs, outputs and main entrypoint for your action.
+Docker 和 JavaScript 操作需要元数据文件。 元数据文件名必须是 `action.yml` 或 `action.yaml`。 元数据文件中的数据定义操作的输入、输出和主要进入点。
 
-Action metadata files use YAML syntax. If you're new to YAML, you can read "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+操作元数据文件使用 YAML 语法。 如果您是 YAML 的新用户，请参阅“[五分钟了解 YAML](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)”。
 
 ## `name`
 
-**Required** The name of your action. {% data variables.product.prodname_dotcom %} displays the `name` in the **Actions** tab to help visually identify actions in each job.
+**必要** 操作的名称。 {% data variables.product.prodname_dotcom %} 在 **Actions（操作）**选项卡中显示 `name`，帮助从视觉上识别每项作业中的操作。
 
-## `author`
+## `作者`
 
-**Optional** The name of the action's author.
+**可选** 操作的作者姓名。
 
-## `description`
+## `说明`
 
-**Required** A short description of the action.
+**必要** 操作的简短描述。
 
 ## `inputs`
 
-**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommended using lowercase input ids.
+**可选** 输入参数用于指定操作在运行时预期使用的数据。 {% data variables.product.prodname_dotcom %} 将输入参数存储为环境变量。 大写的输入 ID 在运行时转换为小写。 建议使用小写输入 ID。
 
-### Example
+### 示例
 
-This example configures two inputs: numOctocats and octocatEyeColor. The numOctocats input is not required and will default to a value of '1'. The octocatEyeColor input is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for octocatEyeColor. For more information about the `with` syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)."
+此示例配置两个输入：numOctocats 和 octocatEyeColor。 numOctocats 输入不是必要的，默认值为 '1'。 octocatEyeColor 输入是必要的，没有默认值。 使用此操作的工作流程文件必须使用 `with` 关键词来设置 octocatEyeColor 的输入值。 有关 `with` 语法的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)”。
 
 ```yaml
 inputs:
@@ -55,41 +55,41 @@ inputs:
     required: true
 ```
 
-When you specify an input in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
+在指定工作流程文件中输入或者使用默认输入值时，{% data variables.product.prodname_dotcom %} 将为名称为 `INPUT_<VARIABLE_NAME>` 的输入创建环境变量。 创建的环境变量将输入名称转换为大写，并将空格替换为 `_` 字符。
 
-If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually. 
+如果该操作是使用 [复合](/actions/creating-actions/creating-a-composite-action)编写的，则它不会自动获得 `INPUT_<VARIABLE_NAME>`。 如果不进行转换，您可以手动更改这些输入。
 
-To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[Creating a Docker container action](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)."
+要访问 Docker 容器操作中的环境变量，您必须使用操作元数据文件中的关键字 `args` 传递输入。 有关 Docker 容器操作的操作元数据文件的更多信息，请参阅“[创建 Docker 容器操作](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)”。
 
-For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
+例如，如果工作流程定义了 `numOctocats` 和 `octocatEyeColor` 输入，操作代码可使用 `INPUT_NUMOCTOCATS` 和 `INPUT_OCTOCATEYECOLOR` 环境变量读取输入的值。
 
 ### `inputs.<input_id>`
 
-**Required** A `string` identifier to associate with the input. The value of `<input_id>` is a map of the input's metadata. The `<input_id>` must be a unique identifier within the `inputs` object. The `<input_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+**必要** 要与输入关联的 `string` 识别符。 `<input_id>` 的值是输入元数据的映射。 `<input_id>` 必须是 `inputs` 对象中的唯一识别符。 `<input_id>` 必须以字母或 `_` 开头，并且只能包含字母数字、`-` 或 `_`。
 
 ### `inputs.<input_id>.description`
 
-**Required** A `string` description of the input parameter.
+**必要** 输入参数的 `string` 描述。
 
 ### `inputs.<input_id>.required`
 
-**Required** A `boolean` to indicate whether the action requires the input parameter. Set to `true` when the parameter is required.
+**必要** 表示操作是否需要输入参数的 `boolean`。 当参数为必要时设置为 `true`。
 
 ### `inputs.<input_id>.default`
 
-**Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file.
+**可选** 表示默认值的 `string`。 当工作流程文件中未指定输入参数时使用默认值。
 
 ### `inputs.<input_id>.deprecationMessage`
 
-**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
+**可选** 如果使用输入参数，此 `string` 将记录为警告消息。 您可以使用此警告通知用户输入已被弃用，并提及任何其他替代方式。
 
 ## `outputs`
 
-**Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.  For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
+**可选** 输出参数允许您声明操作所设置的数据。 稍后在工作流程中运行的操作可以使用以前运行操作中的输出数据集。  例如，如果有操作执行两个输入的相加 (x + y = z)，则该操作可能输出总和 (z)，用作其他操作的输入。
 
-If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
+如果不在操作元数据文件中声明输出，您仍然可以设置输出并在工作流程中使用它们。 有关在操作中设置输出的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程命令](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)”。
 
-### Example
+### 示例
 
 ```yaml
 outputs:
@@ -99,19 +99,25 @@ outputs:
 
 ### `outputs.<output_id>`
 
-**Required** A `string` identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the `outputs` object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+**必要** 要与输出关联的 `string` 识别符。 `<output_id>` 的值是输出元数据的映射。 `<output_id>` 必须是 `outputs` 对象中的唯一识别符。 `<output_id>` 必须以字母或 `_` 开头，并且只能包含字母数字、`-` 或 `_`。
 
 ### `outputs.<output_id>.description`
 
-**Required** A `string` description of the output parameter.
+**必要** 输出参数的 `string` 描述。
 
-## `outputs` for composite actions
+## 用于复合操作的 `outputs`
 
-**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), but also includes the `value` token.
+**可选** `outputs` 使用与 `outputs.<output_id>` 及 `outputs.<output_id>.description` 相同的参数（请参阅“用于 {% data variables.product.prodname_actions %}</a> 的
 
-### Example
+`outputs`”），但也包括 `value` 令牌。</p> 
+
+
+
+### 示例
 
 {% raw %}
+
+
 ```yaml
 outputs:
   random-number:
@@ -124,118 +130,176 @@ runs:
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
 ```
+
+
 {% endraw %}
+
+
 
 ### `outputs.<output_id>.value`
 
-**Required** The value that the output parameter will be mapped to. You can set this to a `string` or an expression with context. For example, you can use the `steps` context to set the `value` of an output to the output value of a step.
+**必要** 输出参数将会映射到的值。 您可以使用上下文将此设置为 `string` 或表达式。 例如，您可以使用 `steps` 上下文将输出的 `value` 设置为步骤的输出值。
 
-For more information on how to use context syntax, see "[Contexts](/actions/learn-github-actions/contexts)."
+有关如何使用上下文语法的更多信息，请参阅“[上下文](/actions/learn-github-actions/contexts)”。
+
+
 
 ## `runs`
 
 **Required** Specifies whether this is a JavaScript action, a composite action or a Docker action and how the action is executed.
 
-## `runs` for JavaScript actions
+
+
+## 用于 JavaScript 操作的 `runs`
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example using Node.js v12
+
+
+### Example using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
+
+
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'main.js'
 ```
+
+
+
 
 ### `runs.using`
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).  
 
-- Use `node12` for Node.js v12.
-- Use `node16` for Node.js v16.
+- Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+- Use `node16` for Node.js v16.{% endif %}
+
+
 
 ### `runs.main`
 
-**Required** The file that contains your action code. The runtime specified in [`using`](#runsusing) executes this file.
+**必要** 包含操作代码的文件。 The runtime specified in [`using`](#runsusing) executes this file.
+
+
 
 ### `pre`
 
-**Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The runtime specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`pre-if`](#pre-if).
+**可选** 允许您在 `main:` 操作开始之前，在作业开始时运行脚本。 例如，您可以使用 `pre:` 运行基本要求设置脚本。 The runtime specified with the [`using`](#runsusing) syntax will execute this file. `pre:` 操作始终默认运行，但您可以使用 [`pre-if`](#pre-if) 覆盖该设置。
 
-In this example, the `pre:` action runs a script called `setup.js`:
+在此示例中，`pre:` 操作运行名为 `setup.js` 的脚本：
+
+
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
 ```
 
+
+
+
 ### `pre-if`
 
-**Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`.
-Note that the `step` context is unavailable, as no steps have run yet.
+**可选** 允许您定义 `pre:` 操作执行的条件。 `pre:` 操作仅在满足 `pre-if` 中的条件后运行。 如果未设置，则 `pre-if` 默认使用 `always()`。 In `pre-if`, status check functions evaluate against the job's status, not the action's own status.
 
-In this example, `cleanup.js` only runs on Linux-based runners:
+请注意，`step` 上下文不可用，因为尚未运行任何步骤。
+
+在此示例中，`cleanup.js` 仅在基于 Linux 的运行器上运行：
+
+
 
 ```yaml
   pre: 'cleanup.js'
   pre-if: runner.os == 'linux'
 ```
 
+
+
+
 ### `post`
 
-**Optional** Allows you to run a script at the end of a job, once the `main:` action has completed. For example, you can use `post:` to terminate certain processes or remove unneeded files. The runtime specified with the [`using`](#runsusing) syntax will execute this file.
+**可选** 允许您在 `main:` 操作完成后，在作业结束时运行脚本。 例如，您可以使用 `post:` 终止某些进程或删除不需要的文件。 The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
-In this example, the `post:` action runs a script called `cleanup.js`:
+在此示例中，`post:` 操作会运行名为 `cleanup.js` 的脚本：
+
+
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
   post: 'cleanup.js'
 ```
 
-The `post:` action always runs by default but you can override this using `post-if`.
+
+`post:` 操作始终默认运行，但您可以使用 `post-if` 覆盖该设置。
+
+
 
 ### `post-if`
 
-**Optional** Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`.
+**可选** 允许您定义 `post:` 操作执行的条件。 `post:` 操作仅在满足 `post-if` 中的条件后运行。 如果未设置，则 `post-if` 默认使用 `always()`。 In `post-if`, status check functions evaluate against the job's status, not the action's own status.
 
-For example, this `cleanup.js` will only run on Linux-based runners:
+例如，此 `cleanup.js` 仅在基于 Linux 的运行器上运行：
+
+
 
 ```yaml
   post: 'cleanup.js'
   post-if: runner.os == 'linux'
 ```
 
-## `runs` for composite actions
+
+
+
+## 用于复合操作的 `runs`
 
 **Required** Configures the path to the composite action.
+
+
 
 ### `runs.using`
 
 **Required** You must set this value to `'composite'`.
 
+
+
 ### `runs.steps`
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
-**Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
+
+
+**必要** 您计划在此操作中的步骤。 这些步骤可以是 `run` 步骤或 `uses` 步骤。 
+
 {% else %}
-**Required** The steps that you plan to run in this action.
+
+**必要** 您计划在此操作中的步骤。 
+
 {% endif %}
+
+
 
 #### `runs.steps[*].run`
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
-**Optional** The command you want to run. This can be inline or a script in your action repository:
+
+
+**可选** 您想要运行的命令。 这可以是内联的，也可以是操作仓库中的脚本： 
+
 {% else %}
-**Required** The command you want to run. This can be inline or a script in your action repository:
+
+**必要** 您想要运行的命令。 这可以是内联的，也可以是操作仓库中的脚本： 
+
 {% endif %}
 
 {% raw %}
+
+
 ```yaml
 runs:
   using: "composite"
@@ -243,9 +307,13 @@ runs:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
+
+
 {% endraw %}
 
-Alternatively, you can use `$GITHUB_ACTION_PATH`:
+或者，您也可以使用 `$GITHUB_ACTION_PATH`：
+
+
 
 ```yaml
 runs:
@@ -255,43 +323,101 @@ runs:
       shell: bash
 ```
 
-For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+
+更多信息请参阅“[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
+
+
 
 #### `runs.steps[*].shell`
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
-**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
+
+
+**可选** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)列出的任何 shell。 如果设置了 `run`，则必填。 
+
 {% else %}
-**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
+
+**必要** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)列出的任何 shell。 如果设置了 `run`，则必填。 
+
 {% endif %}
+
+
+
+#### `runs.steps[*].if`
+
+**Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. 您可以使用任何支持上下文和表达式来创建条件。
+
+{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+
+**示例：使用上下文**
+
+此步骤仅在事件类型为 `pull_request` 并且事件操作为 `unassigned` 时运行。
+
+
+
+ ```yaml
+steps:
+  - run: echo This event is a pull request that had an assignee removed.
+    if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
+```
+
+
+**示例：使用状态检查功能**
+
+The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+
+
+
+```yaml
+steps:
+  - name: My first step
+    uses: octo-org/action-name@main
+  - name: My backup step
+    if: {% raw %}${{ failure() }}{% endraw %}
+    uses: actions/heroku@1.0.0
+```
+
+
+
 
 #### `runs.steps[*].name`
 
-**Optional** The name of the composite step.
+**可选** 复合步骤的名称。
+
+
 
 #### `runs.steps[*].id`
 
-**Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+**可选** 步骤的唯一标识符。 您可以使用 `id` 引用上下文中的步骤。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。
+
+
 
 #### `runs.steps[*].env`
 
-**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
+**可选** 设置环境变量的 `map` 仅用于该步骤。 If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
+
+
 
 #### `runs.steps[*].working-directory`
 
-**Optional**  Specifies the working directory where the command is run.
+**可选**  指定命令在其中运行的工作目录。
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+
+
 #### `runs.steps[*].uses`
 
-**Optional**  Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
+**可选**  选择作为作业步骤一部分运行的操作。 操作是一种可重复使用的代码单位。 您可以使用工作流程所在仓库中、公共仓库中或[发布 Docker 容器映像](https://hub.docker.com/)中定义的操作。
 
-We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
-- Using the commit SHA of a released action version is the safest for stability and security.
-- Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
-- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+强烈建议指定 Git ref、SHA 或 Docker 标记编号来包含所用操作的版本。 如果不指定版本，在操作所有者发布更新时可能会中断您的工作流程或造成非预期的行为。
 
-Some actions require inputs that you must set using the [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
+- 使用已发行操作版本的 SHA 对于稳定性和安全性是最安全的。
+- 使用特定主要操作版本可在保持兼容性的同时接收关键修复和安全补丁。 还可确保您的工作流程继续工作。
+- 使用操作的默认分支可能很方便，但如果有人新发布具有突破性更改的主要版本，您的工作流程可能会中断。
+
+有些操作要求必须通过 [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) 关键词设置输入。 请查阅操作的自述文件，确定所需的输入。
+
+
 
 ```yaml
 runs:
@@ -315,9 +441,14 @@ runs:
     - uses: docker://alpine:3.8
 ```
 
+
+
+
 #### `runs.steps[*].with`
 
-**Optional**  A `map` of the input parameters defined by the action. Each input parameter is a key/value pair.  Input parameters are set as environment variables. The variable is prefixed with INPUT_ and converted to upper case.
+**可选** 输入参数的 `map` 由操作定义。 每个输入参数都是一个键/值对。  输入参数被设置为环境变量。 该变量的前缀为 INPUT_，并转换为大写。
+
+
 
 ```yaml
 runs:
@@ -330,13 +461,21 @@ runs:
         middle_name: The
         last_name: Octocat  
 ```
+
+
 {% endif %}
 
-## `runs` for Docker actions
 
-**Required** Configures the image used for the Docker action.
 
-### Example using a Dockerfile in your repository
+## 用于 Docker 操作的 `runs`
+
+**必要** 配置用于 Docker 操作的图像。
+
+
+
+### 在仓库中使用 Dockerfile 的示例
+
+
 
 ```yaml
 runs:
@@ -344,7 +483,12 @@ runs:
   image: 'Dockerfile'
 ```
 
-### Example using public Docker registry container
+
+
+
+### 使用公共 Docker 注册表容器的示例
+
+
 
 ```yaml
 runs:
@@ -352,17 +496,24 @@ runs:
   image: 'docker://debian:stretch-slim'
 ```
 
+
+
+
 ### `runs.using`
 
-**Required** You must set this value to `'docker'`.
+**必要** 必须将此值设置为 `'docker'`。
+
+
 
 ### `pre-entrypoint`
 
-**Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`pre-if`](#pre-if).
+**可选** 允许您在 `entrypoint` 操作开始之前运行脚本。 例如，您可以使用 `pre-entrypoint:` 运行基本要求设置脚本。 {% data variables.product.prodname_actions %} 使用 `docker run` 启动此操作，并在使用同一基本映像的新容器中运行脚本。 这意味着运行时状态与主 `entrypoint` 容器不同，并且必须在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 `pre-entrypoint:` 操作始终默认运行，但您可以使用 [`pre-if`](#pre-if) 覆盖该设置。
 
 The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
-In this example, the `pre-entrypoint:` action runs a script called `setup.sh`:
+在此示例中，`pre-entrypoint:` 操作会运行名为 `setup.sh` 的脚本：
+
+
 
 ```yaml
 runs:
@@ -374,23 +525,34 @@ runs:
   entrypoint: 'main.sh'
 ```
 
+
+
+
 ### `runs.image`
 
-**Required** The Docker image to use as the container to run the action. The value can be the Docker base image name, a local `Dockerfile` in your repository, or a public image in Docker Hub or another registry. To reference a `Dockerfile` local to your repository, the file must be named `Dockerfile` and you must use a path relative to your action metadata file. The `docker` application will execute this file.
+**必要** 要用作容器来运行操作的 Docker 映像。 值可以是 Docker 基本映像名称、仓库中的本地 `Dockerfile`、Docker Hub 中的公共映像或另一个注册表。 要引用仓库本地的 `Dockerfile`，文件必须命名为 `Dockerfile`，并且您必须使用操作元数据文件的相对路径。 `Docker` 应用程序将执行此文件。
+
+
 
 ### `runs.env`
 
-**Optional** Specifies a key/value map of environment variables to set in the container environment.
+**可选** 指定要在容器环境中设置的环境变量的键/值映射。
+
+
 
 ### `runs.entrypoint`
 
-**Optional** Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Use `entrypoint` when the `Dockerfile` does not specify an `ENTRYPOINT` or you want to override the `ENTRYPOINT` instruction. If you omit `entrypoint`, the commands you specify in the Docker `ENTRYPOINT` instruction will execute. The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction.
+**可选** 覆盖 `Dockerfile` 中的 Docker `ENTRYPOINT`，或在未指定时设置它。 当 `Dockerfile` 未指定 `ENTRYPOINT` 或者您想要覆盖 `ENTRYPOINT` 指令时使用 `entrypoint`。 如果您省略 `entrypoint`，您在 Docker `ENTRYPOINT` 指令中指定的命令将执行。 Docker `ENTRYPOINT` 指令有 _shell_ 形式和 _exec_ 形式。 Docker `ENTRYPOINT` 文档建议使用 _exec_ 形式的 `ENTRYPOINT` 指令。
 
-For more information about how the `entrypoint` executes, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)."
+有关 `entrypoint` 如何执行的更多信息，请参阅“[Dockerfile 对 {% data variables.product.prodname_actions %} 的支持](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)”。
+
+
 
 ### `post-entrypoint`
 
-**Optional**  Allows you to run a cleanup script once the `runs.entrypoint` action has completed. {% data variables.product.prodname_actions %} uses `docker run` to launch this action. Because  {% data variables.product.prodname_actions %} runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using [`post-if`](#post-if).
+**可选** 允许您在 `runs.entrypoint` 操作完成后运行清理脚本。 {% data variables.product.prodname_actions %} 使用 `docker run` 来启动此操作。 因为  {% data variables.product.prodname_actions %} 使用同一基本映像在新容器内运行脚本，所以运行时状态与主 `entrypoint` 容器不同。 您可以在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 `post-entrypoint:` 操作始终默认运行，但您可以使用 [`post-if`](#post-if) 覆盖该设置。
+
+
 
 ```yaml
 runs:
@@ -402,21 +564,28 @@ runs:
   post-entrypoint: 'cleanup.sh'
 ```
 
+
+
+
 ### `runs.args`
 
-**Optional** An array of strings that define the inputs for a Docker container. Inputs can include hardcoded strings. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up.
+**可选** 定义 Docker 容器输入的字符串数组。 输入可包含硬编码的字符串。 {% data variables.product.prodname_dotcom %} 在容器启动时将 `args` 传递到容器的 `ENTRYPOINT`。
 
-The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:
+`args` 用来代替 `Dockerfile` 中的 `CMD` 指令。 如果在 `Dockerfile` 中使用 `CMD`，请遵循按偏好顺序排序的指导方针：
 
 {% data reusables.github-actions.dockerfile-guidelines %}
 
-If you need to pass environment variables into an action, make sure your action runs a command shell to perform variable substitution. For example, if your `entrypoint` attribute is set to `"sh -c"`, `args` will be run in a command shell. Alternatively, if your `Dockerfile` uses an `ENTRYPOINT` to run the same command (`"sh -c"`), `args` will execute in a command shell.
+如果需要将环境变量传递到操作中，请确保操作运行命令 shell 以执行变量替换。 例如，如果 `entrypoint` 属性设置为 `"sh -c"`，`args` 将在命令 shell 中运行。 或者，如果 `Dockerfile` 使用 `ENTRYPOINT` 运行同一命令 (`"sh -c"`)，`args` 将在命令 shell 中执行。
 
-For more information about using the `CMD` instruction with {% data variables.product.prodname_actions %}, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)."
+有关将 `CMD` 指令与 {% data variables.product.prodname_actions %} 一起使用的更多信息，请参阅“[Dockerfile 对 {% data variables.product.prodname_actions %} 的支持](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)”。
 
-#### Example
+
+
+#### 示例
 
 {% raw %}
+
+
 ```yaml
 runs:
   using: 'docker'
@@ -426,13 +595,21 @@ runs:
     - 'foo'
     - 'bar'
 ```
+
+
 {% endraw %}
+
+
 
 ## `branding`
 
-You can use a color and [Feather](https://feathericons.com/) icon to create a badge to personalize and distinguish your action. Badges are shown next to your action name in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
+您可以使用颜色和 [Feather](https://feathericons.com/) 图标创建徽章，以个性化和识别操作。 徽章显示在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 中的操作名称旁边。
 
-### Example
+
+
+### 示例
+
+
 
 ```yaml
 branding:
@@ -440,13 +617,18 @@ branding:
   color: 'green'
 ```
 
+
+
+
 ### `branding.color`
 
-The background color of the badge. Can be one of: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple`, or `gray-dark`.
+徽章的背景颜色。 可以是以下之一：`white`、`yellow`、`blue`、`green`、`orange`、`red`、`purple` 或 `gray-dark`。
+
+
 
 ### `branding.icon`
 
-The name of the [Feather](https://feathericons.com/) icon to use.
+要使用的 [Feather](https://feathericons.com/) 图标的名称。
 
 <table>
 <tr>

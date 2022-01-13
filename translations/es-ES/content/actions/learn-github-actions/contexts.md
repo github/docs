@@ -221,7 +221,7 @@ The following table indicates where each context and special function can be use
 
 | Path | Context | Special functions |
 | ---- | ------- | ----------------- |
-| <code>concurrency</code> | <code>github</code> | |
+| <code>concurrency</code> | <code>github, inputs</code> | |
 | <code>env</code> | <code>github, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, inputs</code> | |

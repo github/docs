@@ -1,6 +1,6 @@
 ---
-title: Migrations
-intro: 'The Migration API lets you migrate the repositories and users of your  organization from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}.'
+title: Migraciones
+intro: 'La API de Migración te permite migrar los repositorios y usuarios de tu organización de {% data variables.product.prodname_dotcom_the_website %} a {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /v3/migrations
   - /v3/migration
@@ -17,9 +17,9 @@ miniTocMaxHeadingLevel: 3
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Organization
+## Organización
 
-The Migrations API is only available to authenticated organization owners. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#permission-levels-for-an-organization)" and "[Other authentication methods](/rest/overview/other-authentication-methods)."
+La API de Migraciones solo está disponible para los propietarios autenticados de la organización. Para obtener más información, consulta las secciones "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#permission-levels-for-an-organization)" y "[Otros métodos de autenticación](/rest/overview/other-authentication-methods)".
 
 {% data variables.migrations.organization_migrations_intro %}
 
@@ -27,13 +27,13 @@ The Migrations API is only available to authenticated organization owners. For m
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Source imports
+## Importaciones de Código Fuente
 
 {% data variables.migrations.source_imports_intro %}
 
-A typical source import would start the import and then (optionally) update the authors and/or update the preference for using Git LFS if large files exist in the import. You can also create a webhook that listens for the [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) to find out the status of the import.
+Una importación de código fuente habitual inicia la importación y luego actualiza (opcionalmente) a los autores y/o actualiza las preferencias para utilizar el LFS de Ggit si existen archivos grandes en la importación. También puedes crear un webhook que escuche al [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) para encontrar el estado de la importación.
 
-A more detailed example can be seen in this diagram:
+Se puede ver un ejemplo más detallado en este diagrama:
 
 ```
 +---------+                     +--------+                              +---------------------+
@@ -112,15 +112,15 @@ A more detailed example can be seen in this diagram:
   {% if operation.subcategory == 'source-imports' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## User
+## Usuario
 
-The User migrations API is only available to authenticated account owners. For more information, see "[Other authentication methods](/rest/overview/other-authentication-methods)."
+La API de migraciones de usuario solo está disponible para los propietarios de cuentas autenticadas. Para obtener más información, consulta la sección "[Otros métodos de autenticación](/rest/overview/other-authentication-methods)".
 
-{% data variables.migrations.user_migrations_intro %} For a list of migration data that you can download, see "[Download a user migration archive](#download-a-user-migration-archive)."
+{% data variables.migrations.user_migrations_intro %} Para encontrar una lista descargable de datos de migración, consulta "[Descarga un archivo de migración de usuario](#download-a-user-migration-archive)".
 
-To download an archive, you'll need to start a user migration first. Once the status of the migration is `exported`, you can download the migration.
+Antes de descargar un archivo deberás iniciar la migración del usuario. Una vez que el estado de la migración sea `exported`, podrás descargarla.
 
-Once you've created a migration archive, it will be available to download for seven days. But, you can delete the user migration archive sooner if you'd like. You can unlock your repository when the migration is `exported` to begin using your repository again or delete the repository if you no longer need the source data.
+Ya que hayas creado el archivo de migración, este estará disponible para su descarga por siete días. Pero puedes borrar el archivo de migración del usuario antes si lo prefieres. Puedes desbloquear tu repositorio cuando la migración aparezca como `exported` para comenzar a utilizar tu repositorio nuevamente o borrarlo si ya no necesitas los datos del código fuente.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

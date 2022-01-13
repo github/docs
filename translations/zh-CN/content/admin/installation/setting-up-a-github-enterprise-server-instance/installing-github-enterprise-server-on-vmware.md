@@ -1,6 +1,6 @@
 ---
-title: Installing GitHub Enterprise Server on VMware
-intro: 'To install {% data variables.product.prodname_ghe_server %} on VMware, you must download the VMware vSphere client, and then download and deploy the {% data variables.product.prodname_ghe_server %} software.'
+title: 在 VMware 上安装 GitHub Enterprise Server
+intro: '要在 VMWare 上安装 {% data variables.product.prodname_ghe_server %}，您必须下载 VMWare vSphere 客户端，然后下载并部署 {% data variables.product.prodname_ghe_server %} 软件。'
 redirect_from:
   - /enterprise/admin/articles/getting-started-with-vmware
   - /enterprise/admin/articles/installing-vmware-tools
@@ -16,44 +16,45 @@ topics:
   - Enterprise
   - Infrastructure
   - Set up
-shortTitle: Install on VMware
+shortTitle: 在 VMware 上安装
 ---
-## Prerequisites
+
+## 基本要求
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have a VMware vSphere ESXi Hypervisor, applied to a bare metal machine that will run {% data variables.product.product_location %}s. We support versions 5.5 through 6.7. The ESXi Hypervisor is free and does not include the (optional) vCenter Server. For more information, see [the VMware ESXi documentation](https://www.vmware.com/products/esxi-and-esx.html).
-- You will need access to a vSphere Client. If you have vCenter Server you can use the vSphere Web Client. For more information, see the VMware guide "[Log in to vCenter Server by Using the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)."
+- 您必须为将要运行 {% data variables.product.product_location %} 的裸金属机应用 VMware vSphere ESXi Hypervisor。 我们支持版本 5.5 到 6.7。 ESXi Hypervisor 免费提供，不包含（可选）vCenter Server。 更多信息请参阅 [VMware ESXi 文档](https://www.vmware.com/products/esxi-and-esx.html)。
+- 您将需要访问 vSphere Client。 如果您有 vCenter Server，可以使用 vSphere Web Client。 更多信息请参阅 VMware 指南“[使用 vSphere Web Client 登录 vCenter Server](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)”。
 
-## Hardware considerations
+## 硬件考量因素
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-## Downloading the {% data variables.product.prodname_ghe_server %} image
+## 下载 {% data variables.product.prodname_ghe_server %} 映像
 
 {% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Select {% data variables.product.prodname_dotcom %} On-premises, then click **VMware ESXi/vSphere (OVA)**.
-5. Click **Download for VMware ESXi/vSphere (OVA)**.
+4. 选择 {% data variables.product.prodname_dotcom %} 内部部署，然后单击 **VMware ESXi/vSphere (OVA)**。
+5. 单击 **Download for VMware ESXi/vSphere (OVA)**。
 
-## Creating the {% data variables.product.prodname_ghe_server %} instance
+## 创建 {% data variables.product.prodname_ghe_server %} 实例
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. Using the vSphere Windows Client or the vCenter Web Client, import the {% data variables.product.prodname_ghe_server %} image you downloaded. For instructions, see the VMware guide "[Deploy an OVF or OVA Template](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html)."
-    - When selecting a datastore, choose one with sufficient space to host the VM's disks. For the minimum hardware specifications recommended for your instance size, see "[Hardware considerations](#hardware-considerations)." We recommend thick provisioning with lazy zeroing.
-    - Leave the **Power on after deployment** box unchecked, as you will need to add an attached storage volume for your repository data after provisioning the VM.
-{% data reusables.enterprise_installation.create-attached-storage-volume %} For instructions, see the VMware guide "[Add a New Hard Disk to a Virtual Machine](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-F4917C61-3D24-4DB9-B347-B5722A84368C.html)."
+1. 使用 vSphere Windows Client 或 vCenter Web Client 导入您下载的 {% data variables.product.prodname_ghe_server %} 映像。 有关说明，请参阅 VMware 指南“[部署 OVF 或 OVA 模板](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html)”。
+    - 选择数据存储时，请选择空间足以容纳 VM 磁盘的数据存储。 有关建议为实例使用的最低硬件规格，请参阅“[硬件考量因素](#hardware-considerations)”。 建议采用支持延迟归零的密集预配。
+    - 让 **Power on after deployment** 框保持取消选中状态，因为您需要在配置 VM 后为仓库数据添加连接的存储卷。
+{% data reusables.enterprise_installation.create-attached-storage-volume %} 有关说明，请参阅 VMware 指南“[向虚拟机添加新硬盘](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-F4917C61-3D24-4DB9-B347-B5722A84368C.html)”。
 
-## Configuring the {% data variables.product.prodname_ghe_server %} instance
+## 配置 {% data variables.product.prodname_ghe_server %} 实例
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} 更多信息请参阅“[配置 {% data variables.product.prodname_ghe_server %} 设备](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)”。
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-## Further reading
+## 延伸阅读
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
+- "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

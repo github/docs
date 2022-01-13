@@ -1,5 +1,5 @@
 ---
-title: GitHub Terms for Additional Products and Features
+title: GitHub 其他产品和功能条款
 redirect_from:
   - /github/site-policy/github-additional-product-terms
 versions:
@@ -9,109 +9,109 @@ topics:
   - Legal
 ---
 
-Version Effective Date: August 10, 2021
+版本生效日期：2021 年 8 月 10 日
 
-When you use GitHub, you may be given access to lots of additional products and features ("Additional Products and Features"). Because many of the Additional Products and Features offer different functionality, specific terms for that product or feature may apply in addition to your main agreement with us—the GitHub Terms of Service, GitHub Corporate Terms of Service, GitHub General Terms, or Microsoft volume licensing agreement (each, the "Agreement"). Below, we've listed those products and features, along with the corresponding additional terms that apply to your use of them.
+当您使用 GitHub 时，您可以访问大量额外的产品和功能（“附加产品和功能”）。 由于许多附加产品和特性提供不同的功能，该产品或特性的具体条款可能适用于您与我们的主要协议 - GitHub 服务条款、GitHub 企业服务条款、GitHub 通用条款或 Microsoft 批量许可协议（每个条款均称为“协议”）。 下面，我们列出了这些产品和特性，以及适用于您使用它们的相应附加条款。
 
-By using the Additional Products and Features, you also agree to the applicable GitHub Terms for Additional Products and Features listed below. A violation of these GitHub terms for Additional Product and Features is a violation of the Agreement. Capitalized terms not defined here have the meaning given in the Agreement.
+通过使用附加产品和特性，您也同意下面列出的适用的 GitHub 条款。 违反 GitHub 关于附加产品和特性的条款便是违反协议。 在本文未定义的任何大写术语采用“协议”中的含义。
 
-**For Enterprise users**
-- **GitHub Enterprise Cloud** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, and Pages. 
+**对于企业用户**
+- **GitHub Enterprise Cloud** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, and Pages.
 
-- **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, Pages, and SQL Server Images. 
+- **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, Pages, and SQL Server Images.
 
 - **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, {% ifversion ghae %}Connect, {% endif %}Dependabot Preview, GitHub Enterprise Importer, Packages and Pages.
 
-## Actions
-GitHub Actions enables you to create custom software development lifecycle workflows directly in your GitHub repository. Actions is billed on a usage basis. The [Actions documentation](/actions) includes details, including compute and storage quantities (depending on your Account plan), and how to monitor your Actions minutes usage and set usage limits. 
+## 操作
+GitHub Actions 使您能够直接在您的 GitHub 仓库中创建自定义软件开发生命周期工作流程。 Actions 按使用情况计费。 [Actions 文档](/actions)包含详细信息，包括计算和存储量（取决于您的帐户计划）以及如何监控您的 Actions 分钟使用和设置使用限制。
 
-Actions and any elements of the Actions product or service may not be used in violation of the Agreement, the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions/reference/usage-limits-billing-and-administration). Additionally, regardless of whether an Action is using self-hosted runners, Actions should not be used for:
-- cryptomining;
+对 Actions 和任何 Action 产品或服务元素的使用，不得违反协议、[GitHub 可接受使用政策](/github/site-policy/github-acceptable-use-policies)或 [Actions 文档](/actions/reference/usage-limits-billing-and-administration)规定的 GitHub Actions 服务限制。 Additionally, regardless of whether an Action is using self-hosted runners, Actions should not be used for:
+- 密码破解;
 - disrupting, gaining, or attempting to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
 - the provision of a stand-alone or integrated application or service offering the Actions product or service, or any elements of the Actions product or service, for commercial purposes;
-- any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
-- if using GitHub-hosted runners, any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.
+- 任何给我们的服务器带来负担的活动，如果这种负担与提供给用户的收益不成比例（例如，不要将 Action 用作内容交付网络或作为无服务器应用程序的一部分，但收益低负担也低的 Action 可能没问题）；或
+- 如果使用 GitHub 托管的运行器，与使用 GitHub Actions 的仓库相关的软件项目创建、测试、部署或发布无关的任何其他活动。
 
-In order to prevent violations of these limitations and abuse of GitHub Actions, GitHub may monitor your use of GitHub Actions. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, or the disabling of repositories created to run Actions in a way that violates these Terms.
+为防止违反这些限制和滥用 GitHub Actions，GitHub 可能会监视您对 GitHub Actions 的使用。 滥用 GitHub Actions 可能导致作业终止、使用 GitHub Actions 的权限受到限制，或者禁用以违反这些条款的方式运行 Actions 的仓库。
 
 
 ## Advanced Security
-GitHub makes extra security features available to customers under an Advanced Security license. These features include code scanning, secret scanning, and dependency review. The [Advanced Security documentation](/github/getting-started-with-github/about-github-advanced-security) provides more details.
+GitHub 根据高级安全许可证向客户提供额外的安全功能。 这些功能包括代码扫描、秘密扫描和依赖项审查。 [Advanced Security 文档](/github/getting-started-with-github/about-github-advanced-security)提供更多详细信息。
 
-Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. For GitHub Enterprise Cloud users, some Advanced Security features also require the use of GitHub Actions. 
+Advanced Security 按“唯一提交者”许可。 “唯一提交者”是 GitHub Enterprise、GitHub Enterprise Cloud、GitHub Enterprise Server 或 GitHub AE 的许可用户，他们在过去 90 天内向激活了 GitHub Advanced Security 功能的任意仓库提交过。 您必须为每个唯一提交者获取 GitHub Advanced Security 用户许可。 您只能在由您开发或为您开发的代码库上使用 GitHub Advanced Security。 对于 GitHub Enterprise Cloud 用户，一些高级安全功能也需要使用 GitHub Actions。
 
 ## Advisory Database
-The GitHub Advisory Database allows you to browse or search for vulnerabilities that affect open source projects on GitHub.
+GitHub 咨询数据库允许您浏览或搜索影响 GitHub 上开源项目的漏洞。
 
-_License Grant to Us_
+_向我们授予许可_
 
-We need the legal right to submit your contributions to the GitHub Advisory Database into public domain datasets such as the [National Vulnerability Database](https://nvd.nist.gov/) and to license the GitHub Advisory Database under open terms for use by security researchers, the open source community, industry, and the public. You agree to release your contributions to the GitHub Advisory Database under the [Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/).
+我们需要适当的法律权利，才能将您对 GitHub Advisory Database 的贡献提交到公共域数据集，例如[国家漏洞数据库](https://nvd.nist.gov/)，并在开放的条款下许可 GitHub Advisory Database，以供安全研究人员、开源社区、行业和公众使用。 您需要同意根据[知识共享零许可](https://creativecommons.org/publicdomain/zero/1.0/)原则发布您对 GitHub Advisory Database 的贡献。
 
-_License to the GitHub Advisory Database_
+_GitHub Advisory Database 的许可_
 
-The GitHub Advisory Database is licensed under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/). The attribution term may be fulfilled by linking to the GitHub Advisory Database at <https://github.com/advisories> or to individual GitHub Advisory Database records used, prefixed by <https://github.com/advisories>.
+GitHub Advisory Database 的许可采用[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)原则。 有关署名条款，请参阅 <https://github.com/advisories> 上的 GitHub Advisory Database，或者所使用的单独 GitHub Advisory Database 记录（以 <https://github.com/advisories> 为前缀）。
 
 ## Codespaces
 _Note: The github.dev service, available by pressing `.` on a repo or navigating directly to github.dev, is governed by [GitHub's Beta Terms of service](/github/site-policy/github-terms-of-service#j-beta-previews)._
 
-GitHub Codespaces enables you to develop code directly from your browser using the code within your GitHub repository. Codespaces and any elements of the Codespaces service may not be used in violation of the Agreement or the Acceptable Use Policies. Additionally, Codespaces should not be used for:
-- cryptomining;
-- using our servers to disrupt, or to gain or to attempt to gain unauthorized access to any service, device, data, account or network (other than those authorized by the GitHub Bug Bounty program);
-- the provision of a stand-alone or integrated application or service offering Codespaces or any elements of Codespaces for commercial purposes;
+GitHub Codespaces enables you to develop code directly from your browser using the code within your GitHub repository. Codespaces and any elements of the Codespaces service may not be used in violation of the Agreement or the Acceptable Use Policies. 此外，Codespaces 不得用于：
+- 密码破解;
+- 使用我们的服务器破坏、非授权访问或尝试非授权访问任何服务、设备、数据、帐户或网络（GitHub 漏洞赏金计划授权的活动除外）；
+- 出于商业目的，提供兜售 Codespaces 或任何 Codespaces 元素的独立或集成应用程序或服务；
 - any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Codespaces as a content delivery network, as part of a serverless application, or to host any kind of production-facing application); or
 - any other activity unrelated to the development or testing of the software project associated with the repository where GitHub Codespaces is initiated.
 
-In order to prevent violations of these limitations and abuse of GitHub Codespaces, GitHub may monitor your use of GitHub Codespaces. Misuse of GitHub Codespaces may result in termination of your access to Codespaces, restrictions in your ability to use GitHub Codespaces, or the disabling of repositories created to run Codespaces in a way that violates these Terms.
+为防止违反这些限制和滥用 GitHub Codespaces，GitHub 可能会监视您对 GitHub Codespaces 的使用。 滥用 GitHub Codespaces 可能导致对 Codespaces 的访问终止、使用 GitHub Codespaces 的权限受到限制，或者禁用以违反这些条款的方式运行 Codespaces 的仓库。
 
-Codespaces allows you to load extensions from the Microsoft Visual Studio Marketplace (“Marketplace Extensions”) for use in your development environment, for example, to process the programming languages that your code is written in. Marketplace Extensions are licensed under their own separate terms of use as noted in the Visual Studio Marketplace, and the terms of use located at https://aka.ms/vsmarketplace-ToU. GitHub makes no warranties of any kind in relation to Marketplace Extensions and is not liable for actions of third-party authors of Marketplace Extensions that are granted access to Your Content. Codespaces also allows you to load software into your environment through devcontainer features. Such software is provided under the separate terms of use accompanying it. Your use of any third-party applications is at your sole risk.
+Codespaces allows you to load extensions from the Microsoft Visual Studio Marketplace (“Marketplace Extensions”) for use in your development environment, for example, to process the programming languages that your code is written in. Marketplace Extensions are licensed under their own separate terms of use as noted in the Visual Studio Marketplace, and the terms of use located at https://aka.ms/vsmarketplace-ToU. GitHub makes no warranties of any kind in relation to Marketplace Extensions and is not liable for actions of third-party authors of Marketplace Extensions that are granted access to Your Content. Codespaces also allows you to load software into your environment through devcontainer features. Such software is provided under the separate terms of use accompanying it. 您使用任何第三方应用程序均应自担风险。
 
-The generally available version of Codespaces is not currently available for U.S. government customers. U.S. government customers may continue to use the Codespaces Beta Preview under separate terms. See [Beta Preview terms](/github/site-policy/github-terms-of-service#j-beta-previews).
+Codespaces 的一般版本目前不适用于美国。 政府客户。 美国 government customers may continue to use the Codespaces Beta Preview under separate terms. See [Beta Preview terms](/github/site-policy/github-terms-of-service#j-beta-previews).
 
 ## Connect
-With GitHub Connect, you can share certain features and data between your GitHub Enterprise Server {% ifversion ghae %}or GitHub AE {% endif %}instance and your GitHub Enterprise Cloud organization or enterprise account on GitHub.com. In order to enable GitHub Connect, you must have at least one (1) account on GitHub Enterprise Cloud or GitHub.com, and one (1) licensed instance of GitHub Enterprise Server{% ifversion ghae %} or GitHub AE{% endif %}. Your use of GitHub Enterprise Cloud or GitHub.com through Connect is governed by the terms under which you license GitHub Enterprise Cloud or GitHub.com. Use of Personal Data is governed by the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
+使用 GitHub Connect，您可以在 GitHub Enterprise Server {% ifversion ghae %}或 GitHub AE {% endif %}实例与您的GitHub Enterprise Cloud 组织或 GitHub.com 上的企业帐户之间分享某些功能和数据。 要启用 GitHub Connect，您必须在 GitHub Enterprise Cloud 或 GitHub.com 上至少有一 (1) 个帐户，以及一 (1) 个许可的 GitHub Enterprise Server{% ifversion ghae %} 或 GitHub AE{% endif %} 实例。 您通过 Connect 使用 GitHub Enterprise Cloud 或 GitHub.com 是由您许可 GitHub Enterprise Cloud 或 GitHub.com的条款管理的。 个人数据的使用受 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)管制。
 
 ## GitHub Enterprise Importer
 Importer is a framework for exporting data from other sources to be imported to the GitHub platform. Importer is provided “AS-IS”.
 
 ## Learning Lab
-GitHub Learning Lab offers free interactive courses that are built into GitHub with instant automated feedback and help.
+GitHub Learning Lab 提供已编入GitHub 的免费交互式课程，并提供即时自动反馈和帮助。
 
-*Course Materials.* GitHub owns course materials that it provides and grants you a worldwide, non-exclusive, limited-term, non-transferable, royalty-free license to copy, maintain, use and run such course materials for your internal business purposes associated with Learning Lab use. 
+*课程材料。*GitHub 拥有其提供的任何课程材料，并授予您全球、非独占、有限期、不可转让、免版税的许可，允许您出于与 Learning Lab 使用相关的内部业务目的而复制、维护、使用和运行这些材料。
 
-Open source license terms may apply to portions of source code provided in the course materials. 
+开源许可证条款可能适用于课程材料中提供的源代码部分。
 
-You own course materials that you create and grant GitHub a worldwide, non-exclusive, perpetual, non-transferable, royalty-free license to copy, maintain, use, host, and run such course materials. 
+您创建的课程材料归您所有，但是您授予 GitHub 全球、非独占、永久、不可转让、免版税的许可，允许 GitHub 复制、维护、使用、托管以及在服务上运行这些课程材料。
 
-The use of GitHub course materials and creation and storage of your own course materials do not constitute joint ownership to either party's respective intellectual property.
+您对 GitHub 课程材料的使用以及对自己课程材料的创建和存储并不构成对任一方各自知识产权的共同所有权。
 
-Use of Personal Data is governed by the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
+个人数据的使用受 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)管制。
 
 ## npm
-npm is a software package hosting service that allows you to host your software packages privately or publicly and use packages as dependencies in your projects. npm is the registry of record for the JavaScript ecosystem. The npm public registry is free to use but customers are billed if they want to publish private packages or manage private packages using teams. The [npm documentation](https://docs.npmjs.com/) includes details about the limitation of account types and how to manage [private packages](https://docs.npmjs.com/about-private-packages) and [organizations](https://docs.npmjs.com/organizations). Acceptable use of the npm registry is outlined in the [open-source terms](https://www.npmjs.com/policies/open-source-terms). There are supplementary terms for both the npm [solo](https://www.npmjs.com/policies/solo-plan) and [org](https://www.npmjs.com/policies/orgs-plan) plans. The npm [Terms of Use](https://www.npmjs.com/policies/terms) apply to your use of npm.
+npm 是一种软件包托管服务，允许您私下或公开托管软件包，并将包用作项目中的依赖项。 npm 是 JavaScript 生态系统的记录注册表。 npm 公共注册表可以免费使用，但客户如果想要发布私有包或使用团队管理私有包，则需收取费用。 [npm 文档](https://docs.npmjs.com/) 包含帐户类型限制以及如何管理[私有包](https://docs.npmjs.com/about-private-packages)和[组织](https://docs.npmjs.com/organizations)的详细信息。 [开放源码条款](https://www.npmjs.com/policies/open-source-terms)概述了可接受的 npm 注册表的使用。 npm [solo](https://www.npmjs.com/policies/solo-plan) 和 [org](https://www.npmjs.com/policies/orgs-plan) 计划都有补充条款。 npm [使用条款](https://www.npmjs.com/policies/terms) 适用于您的 npm 使用。
 
 ## Packages
-GitHub Packages is a software package hosting service that allows you to host your software packages privately or publicly and use packages as dependencies in your projects. GitHub Packages is billed on a usage basis. The [Packages documentation](/packages/learn-github-packages/introduction-to-github-packages) includes details, including bandwidth and storage quantities (depending on your Account plan), and how to monitor your Packages usage and set usage limits. Packages bandwidth usage is limited by the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).
+GitHub Packages 是一种软件包托管服务，允许您私下或公开托管软件包，并将包用作项目中的依赖项。 GitHub Packages 按用量计费。 [Packages 文档](/packages/learn-github-packages/introduction-to-github-packages)包含详细信息，包括带宽和存储量（取决于您的帐户计划）以及如何监控您的 Packages 使用和设置使用限制。 Packages 带宽使用受 [GitHub 可接受使用政策](/github/site-policy/github-acceptable-use-policies)限制。
 
-## Pages
+## 页面
 
-Each Account comes with access to the [GitHub Pages static hosting service](/github/working-with-github-pages/about-github-pages). GitHub Pages is intended to host static web pages, but primarily as a showcase for personal and organizational projects. 
+每个帐户都可以访问 [GitHub Pages 静态托管服务](/github/working-with-github-pages/about-github-pages)。 GitHub Pages 旨在托管静态网页，但主要用作个人和组织项目的展示。
 
-GitHub Pages is not intended for or allowed to be used as a free web hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS). Some monetization efforts are permitted on Pages, such as donation buttons and crowdfunding links. 
+GitHub Pages 并非旨在用于或允许用作免费的 Web 托管服务来运行您的在线业务、电子商务站点或主要针对促进商业交易或提供商业软件即服务 (SaaS) 的任何其他网站。 页面上允许一些货币化工作，如捐款按钮和筹款链接。
 
-_Bandwidth and Usage Limits_
+_带宽和使用限制_
 
-GitHub Pages are subject to some specific bandwidth and usage limits, and may not be appropriate for some high-bandwidth uses. Please see our [GitHub Pages limits](/github/working-with-github-pages/about-github-pages) for more information. 
+GitHub Pages 受某些特定带宽和使用限制的约束，可能不适用于某些高带宽用途。 Please see our [GitHub Pages limits](/github/working-with-github-pages/about-github-pages) for more information.
 
-_Prohibited Uses_
+_禁止使用_
 
 GitHub Pages may not be used in violation of the Agreement, the GitHub [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies), or the GitHub Pages service limitations set forth in the [Pages documentation](/pages/getting-started-with-github-pages/about-github-pages#guidelines-for-using-github-pages).
 
-If you have questions about whether your use or intended use falls into these categories, please contact [GitHub Support](https://support.github.com/contact?tags=docs-policy). GitHub reserves the right at all times to reclaim any GitHub subdomain without liability.
+如果您对用途或预期用途是否归入这些类别有疑问，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-policy)。 GitHub 保留随时收回任何 GitHub 子域而不承担任何责任的权利。
 
-## Sponsors Program
+## 赞助计划
 
-GitHub Sponsors allows the developer community to financially support the people and organizations who design, build, and maintain the open source projects they depend on, directly on GitHub. In order to become a Sponsored Developer, you must agree to the [GitHub Sponsors Program Additional Terms](/github/site-policy/github-sponsors-additional-terms).
+GitHub Sponsors 允许开发者社区直接在 GitHub 上为他们设计、构建和维护所需开源项目的人员及组织提供经济支持。 要成为被赞助的开发者，必须同意 [GitHub 赞助计划附加条款](/github/site-policy/github-sponsors-additional-terms)。
 
-## SQL Server Images
+## SQL Server 映像
 
-You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation may disable SQL Server Images at any time.
+您可以下载用于 Linux 文件的 Microsoft SQL Server 标准版容器映像（“SQL Server 映像”）。 当您使用本软件的权利结束时，您必须卸载 SQL Server 映像。 Microsoft Corporation 可随时禁用 SQL Server 映像。

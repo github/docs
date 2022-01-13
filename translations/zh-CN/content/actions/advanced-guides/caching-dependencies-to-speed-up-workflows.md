@@ -1,7 +1,7 @@
 ---
-title: Caching dependencies to speed up workflows
-shortTitle: Caching dependencies
-intro: 'To make your workflows faster and more efficient, you can create and use caches for dependencies and other commonly reused files.'
+title: 缓存依赖项以加快工作流程
+shortTitle: 缓存依赖项
+intro: 为了使工作流程更快、更高效，可以为依赖项及其他经常重复使用的文件创建和使用缓存。
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -15,13 +15,13 @@ topics:
   - Workflows
 ---
 
-## About caching workflow dependencies
+## 关于缓存工作流程依赖项
 
-Workflow runs often reuse the same outputs or downloaded dependencies from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies.
+工作流程运行通常在不同运行之间重新使用相同的输出或下载的依赖项。 例如，Maven、Gradle、npm 和 Yarn 等软件包和依赖项管理工具都会对下载的依赖项保留本地缓存。
 
-Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean virtual environment and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, {% data variables.product.prodname_dotcom %} can cache dependencies you frequently use in workflows.
+{% data variables.product.prodname_dotcom %} 托管的运行器在一个干净的虚拟环境中启动，每次都必须下载依赖项，造成网络利用率提高、运行时间延长和成本增加。 为帮助加快重新创建这些文件，{% data variables.product.prodname_dotcom %} 可以缓存您在工作流程中经常使用的依赖项。
 
-To cache dependencies for a job, you'll need to use {% data variables.product.prodname_dotcom %}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache).
+要缓存作业的依赖项，您需要使用 {% data variables.product.prodname_dotcom %} 的 `cache` 操作。 该操作检索由唯一键标识的缓存。 更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。
 
 If you are caching the package managers listed below, consider using the respective setup-* actions, which require almost zero configuration and are easy to use.
 
@@ -54,43 +54,43 @@ If you are caching the package managers listed below, consider using the respect
 
 {% warning %}
 
-**Warning**: We recommend that you don't store any sensitive information in the cache of public repositories. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of the cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.
+**警告**：建议不要在公共仓库缓存中存储任何敏感信息。 例如，敏感信息可以包括存储在缓存路径的文件中的访问令牌或登录凭据。 此外，命令行接口 (CLI) 程序，例如 `docker login`，可以在配置文件中保存访问凭据。 具有读取访问权限的任何人都可以在仓库上创建拉取请求并访问缓存的内容。 仓库的复刻也可在基本分支上创建拉取请求，并在基本分支上访问缓存。
 
 {% endwarning %}
 
-## Comparing artifacts and dependency caching
+## 比较构件和依赖项缓存
 
-Artifacts and caching are similar because they provide the ability to store files on {% data variables.product.prodname_dotcom %}, but each feature offers different use cases and cannot be used interchangeably.
+构件与缓存类似，因为它们能够在 {% data variables.product.prodname_dotcom %} 上存储文件，但每项功能都提供不同的用例，不能互换使用。
 
-- Use caching when you want to reuse files that don't change often between jobs or workflow runs.
-- Use artifacts when you want to save files produced by a job to view after a workflow has ended. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+- 如果要在作业或工作流程运行之间重复使用不经常更改的文件，请使用缓存。
+- 如果要保存作业生成的文件，以便在工作流程结束后查看，则使用构件。 更多信息请参阅“[使用构件持久化工作流程](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
 
-## Restrictions for accessing a cache
+## 访问缓存的限制
 
-With `v2` of the `cache` action, you can access the cache in workflows triggered by any event that has a `GITHUB_REF`. If you are using `v1` of the `cache` action, you can only access the cache in workflows triggered by `push` and `pull_request` events, except for the `pull_request` `closed` event. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+使用 `cache` 操作的 `v2`，可以访问具有 `GITHUB_REF` 的任何事件所触发的工作流程中的缓存。 如果使用 `cache` 操作的 `v1`，您只能访问由 `push` 和 `pull_request` 事件触发的工作流程中的缓存，`pull_request` `closed` 事件除外。 更多信息请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows)”。
 
-A workflow can access and restore a cache created in the current branch, the base branch (including base branches of forked repositories), or the default branch (usually `main`). For example, a cache created on the default branch would be accessible from any pull request. Also, if the branch `feature-b` has the base branch `feature-a`, a workflow triggered on `feature-b` would have access to caches created in the default branch (`main`), `feature-a`, and `feature-b`.
+工作流程可以访问和还原当前分支、基础分支（包括复刻的仓库的基本分支）或默认分支（通常是 `main`）中创建的缓存 例如，在默认分支上创建的缓存可从任何拉取请求访问。 另外，如果分支 `feature-b` 具有基础分支 `feature-a`，则触发于 `feature-b` 的工作流程可以访问默认分支 (`main`)、`feature-a` 和 `feature-b` 中创建的缓存。
 
-Access restrictions provide cache isolation and security by creating a logical boundary between different branches. For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-b` (with the base `main`).
+访问限制通过在不同分支之间创建逻辑边界来提供缓存隔离和安全。 例如， 为分支 `feature-a`（具有基础分支 `main`）创建的缓存将无法访问分支 `feature-b`（具有基础分支 `main`）的拉取请求。
 
-Multiple workflows within a repository share cache entries. A cache created for a branch within a workflow can be accessed and restored from another workflow for the same repository and branch.
+仓库中的多个工作流程共享缓存条目。 可以从同一仓库和分支的另一个工作流程访问和恢复为工作流程中的分支创建的缓存。
 
-## Using the `cache` action
+## 使用 `cache` 操作
 
-The `cache` action will attempt to restore a cache based on the `key` you provide. When the action finds a cache, the action restores the cached files to the `path` you configure.
+`cache` 操作将尝试恢复基于您提供的 `key` 的缓存。 当操作找到缓存时，该操作会将缓存的文件还原到您配置的 `path`。
 
-If there is no exact match, the action creates a new cache entry if the job completes successfully. The new cache will use the `key` you provided and contains the files in the `path` directory.
+如果没有精确匹配，操作在作业成功完成时将创建一个新的缓存条目。 新缓存将使用您提供的 `key` 并包含 `path` 目录中的文件。
 
-You can optionally provide a list of `restore-keys` to use when the `key` doesn't match an existing cache. A list of `restore-keys` is useful when you are restoring a cache from another branch because `restore-keys` can partially match cache keys. For more information about matching `restore-keys`, see "[Matching a cache key](#matching-a-cache-key)."
+当 `key` 与现有缓存不匹配时，您可以选择性提供要使用的 `restore-keys` 列表。 `restore-keys` 列表很有用，因为 `restore-keys` 可以部分匹配缓存密钥。 有关匹配 `restore-keys` 的更多信息，请参阅“[匹配缓存密钥](#matching-a-cache-key)”。
 
-For more information, see [`actions/cache`](https://github.com/actions/cache).
+更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。
 
-### Input parameters for the `cache` action
+### `cache` 操作的输入参数
 
-- `key`: **Required** The key created when saving a cache and the key used to search for a cache. Can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.
-- `path`: **Required** The file path on the runner to cache or restore. The path can be an absolute path or relative to the working directory.
-  - Paths can be either directories or single files, and glob patterns are supported.
-  - With `v2` of the `cache` action, you can specify a single path, or you can add multiple paths on separate lines. For example:
+- `key`：**必要** 保存缓存时创建的键，以及用于搜索缓存的键。 可以是变量、上下文值、静态字符串和函数的任何组合。 密钥最大长度为 512 个字符，密钥长度超过最大长度将导致操作失败。
+- `path`：**必要** 运行器上缓存或还原的文件路径。 路径可以是绝对路径或相对于工作目录的路径。
+  - 路径可以是目录或单个文件，并且支持 glob 模式。
+  - 使用 `cache` 操作的 `v2`，可以指定单个路径，也可以在单独的行上添加多个路径。 例如：
     ```
     - name: Cache Gradle packages
       uses: actions/cache@v2
@@ -99,16 +99,16 @@ For more information, see [`actions/cache`](https://github.com/actions/cache).
           ~/.gradle/caches
           ~/.gradle/wrapper
     ```
-  - With `v1` of the `cache` action, only a single path is supported and it must be a directory. You cannot cache a single file.
-- `restore-keys`: **Optional** An ordered list of alternative keys to use for finding the cache if no cache hit occurred for `key`.
+  - 对于 `cache` 操作的 `v1`，仅支持单个路径，它必须是一个目录。 您不能缓存单个文件。
+- `restore-keys`：**可选** `key` 没有发生缓存命中时用于查找缓存的其他密钥顺序列表。
 
-### Output parameters for the `cache` action
+### `cache` 操作的输出参数
 
-- `cache-hit`: A boolean value to indicate an exact match was found for the key.
+- `cache-hit`：表示找到了密钥的精确匹配项的布尔值。
 
-### Example using the `cache` action
+### `cache` 操作使用示例
 
-This example creates a new cache when the packages in `package-lock.json` file change, or when the runner's operating system changes. The cache key uses contexts and expressions to generate a key that includes the runner's operating system and a SHA-256 hash of the `package-lock.json` file.
+此示例在 `package-lock.json` 文件中的包更改时，或运行器的操作系统更改时，创建一个新的缓存。 缓存键使用上下文和表达式生成一个键值，其中包括运行器的操作系统和 `package-lock.json` 文件的 SHA-256 哈希。
 
 {% raw %}
 ```yaml{:copy}
@@ -147,23 +147,23 @@ jobs:
 ```
 {% endraw %}
 
-When `key` matches an existing cache, it's called a cache hit, and the action restores the cached files to the `path` directory.
+当 `key` 匹配现有缓存时，被称为缓存命中，并且操作会将缓存的文件还原到 `path` 目录。
 
-When `key` doesn't match an existing cache, it's called a cache miss, and a new cache is created if the job completes successfully. When a cache miss occurs, the action searches for alternate keys called `restore-keys`.
+当 `key` 不匹配现有缓存时，则被称为缓存错过，在作业成功完成时将创建一个新缓存。 发生缓存错过时，操作将搜索称为 `restore-keys` 的替代键值。
 
-1. If you provide `restore-keys`, the `cache` action sequentially searches for any caches that match the list of `restore-keys`.
-   - When there is an exact match, the action restores the files in the cache to the `path` directory.
-   - If there are no exact matches, the action searches for partial matches of the restore keys. When the action finds a partial match, the most recent cache is restored to the `path` directory.
-1. The `cache` action completes and the next workflow step in the job runs.
-1. If the job completes successfully, the action creates a new cache with the contents of the `path` directory.
+1. 如果您提供 `restore-keys`，`cache` 操作将按顺序搜索与 `restore-keys` 列表匹配的任何缓存。
+   - 当精确匹配时，操作会将缓存中的文件恢复至 `path` 目录。
+   - 如果没有精确匹配，操作将会搜索恢复键值的部分匹配。 当操作找到部分匹配时，最近的缓存将恢复到 `path` 目录。
+1. `cache` 操作完成，作业中的下一个工作流程步骤运行。
+1. 如果作业成功完成，则操作将创建一个包含 `path` 目录内容的新缓存。
 
-To cache files in more than one directory, you will need a step that uses the [`cache`](https://github.com/actions/cache) action for each directory. Once you create a cache, you cannot change the contents of an existing cache but you can create a new cache with a new key.
+要在多个目录中缓存文件，您需要一个对每个目录使用 [`cache`](https://github.com/actions/cache) 操作的步骤。 创建缓存后，无法更改现有缓存的内容，但可以使用新键创建新缓存。
 
-### Using contexts to create cache keys
+### 使用上下文创建缓存键
 
-A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+缓存键可以包括 {% data variables.product.prodname_actions %} 支持的任何上下文、函数、文本和运算符。 For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-Using expressions to create a `key` allows you to automatically create a new cache when dependencies have changed. For example, you can create a `key` using an expression that calculates the hash of an npm `package-lock.json` file.
+使用表达式创建 `key` 允许您在依赖项更改时自动创建新缓存。 例如，您可以使用计算 npm `package-lock.json` 文件哈希的表达式创建 `key`。
 
 {% raw %}
 ```yaml
@@ -171,19 +171,19 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{% data variables.product.prodname_dotcom %} evaluates the expression `hash "package-lock.json"` to derive the final `key`.
+{% data variables.product.prodname_dotcom %} 评估表达式 `hash "package-lock.json"` 以派生最终 `key`。
 
 ```yaml
 npm-d5ea0750
 ```
 
-## Matching a cache key
+## 匹配缓存键
 
-The `cache` action first searches for cache hits for `key` and `restore-keys` in the branch containing the workflow run. If there are no hits in the current branch, the `cache` action searches for `key` and `restore-keys` in the parent branch and upstream branches.
+`cache` 操作会先在包含工作流程运行的分支中搜索 `key` 和 `restore-key` 的缓存命中。 如果当前分支中没有命中，`cache` 操作将在父分支和上游分支中搜索 `key` 和 `restore-keys`。
 
-You can provide a list of restore keys to use when there is a cache miss on `key`. You can create multiple restore keys ordered from the most specific to least specific. The `cache` action searches for `restore-keys` in sequential order. When a key doesn't match directly, the action searches for keys prefixed with the restore key. If there are multiple partial matches for a restore key, the action returns the most recently created cache.
+您可以提供一个出现 `key` 缓存错过时使用的恢复键列表。 您可以创建从最具体到最不具体的多个恢复键。 `cache` 操作按顺序搜索 `restore-keys`。 当键不直接匹配时，操作将搜索以恢复键为前缀的键。 如果恢复键值有多个部分匹配项，操作将返回最近创建的缓存。
 
-### Example using multiple restore keys
+### 使用多个恢复键值的示例
 
 {% raw %}
 ```yaml
@@ -194,7 +194,7 @@ restore-keys: |
 ```
 {% endraw %}
 
-The runner evaluates the expressions, which resolve to these `restore-keys`:
+运行器将评估表达式，解析为以下 `restore-keys`：
 
 {% raw %}
 ```yaml
@@ -205,13 +205,13 @@ restore-keys: |
 ```
 {% endraw %}
 
-The restore key `npm-foobar-` matches any key that starts with the string `npm-foobar-`. For example, both of the keys `npm-foobar-fd3052de` and `npm-foobar-a9b253ff` match the restore key. The cache with the most recent creation date would be used. The keys in this example are searched in the following order:
+恢复键值 `npm-foobar-` 与任何以字符串 `npm-foobar-` 开头的键值匹配。 例如，键值 `npm-foobar-fd3052de` 和 `npm-foobar-a9b253ff` 都与恢复键值匹配。 将使用创建日期最新的缓存。 此示例中的键值按以下顺序搜索：
 
-1. **`npm-foobar-d5ea0750`** matches a specific hash.
-1. **`npm-foobar-`** matches cache keys prefixed with `npm-foobar-`.
-1. **`npm-`** matches any keys prefixed with `npm-`.
+1. **`npm-foobar-d5ea0750`** 匹配特定的哈希。
+1. **`npm-foobar-`** 匹配前缀为 `npm-foobar-` 的缓存键值。
+1. **`npm-`** 匹配前缀为 `npm-` 的任何键值。
 
-#### Example of search priority
+#### 搜索优先级示例
 
 ```yaml
 key:
@@ -221,15 +221,15 @@ restore-keys: |
   npm-
 ```
 
-For example, if a pull request contains a `feature` branch (the current scope) and targets the default branch (`main`), the action searches for `key` and `restore-keys` in the following order:
+例如，如果拉取请求包含 `feature` 分支（当前范围）并针对默认分支 (`main`)，操作将按以下顺序搜索 `key` 和 `restore-keys`：
 
-1. Key `npm-feature-d5ea0750` in the `feature` branch scope
-1. Key `npm-feature-` in the `feature` branch scope
-2. Key `npm-` in the `feature` branch scope
-1. Key `npm-feature-d5ea0750` in the `main` branch scope
-3. Key `npm-feature-` in the `main` branch scope
-4. Key `npm-` in the `main` branch scope
+1. `feature` 分支范围中的键值 `npm-feature-d5ea0750`
+1. `feature` 分支范围中的键值 `npm-feature-`
+2. `feature` 分支范围中的键值 `npm-`
+1. `main` 分支范围中的键值 `npm-feature-d5ea0750`
+3. `main` 分支范围中的键值 `npm-feature-`
+4. `main` 分支范围中的键值 `npm`
 
-## Usage limits and eviction policy
+## 使用限制和收回政策
 
-{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 10 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 10 GB.
+{% data variables.product.prodname_dotcom %} 将删除 7 天内未被访问的任何缓存条目。 可以存储的缓存数没有限制，但存储库中所有缓存的总大小限制为 10 GB。 如果超过此限制，{% data variables.product.prodname_dotcom %} 将保存缓存，但会开始收回缓存，直到总大小小于 10 GB。

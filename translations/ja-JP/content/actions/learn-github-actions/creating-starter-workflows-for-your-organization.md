@@ -19,7 +19,7 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Overview
+## 概要
 
 {% data reusables.actions.workflow-organization-templates %}
 
@@ -41,13 +41,13 @@ Starter workflows created by users can only be used to create workflows in publi
 
 This procedure demonstrates how to create a starter workflow and metadata file. The metadata file describes how the starter workflows will be presented to users when they are creating a new workflow.
 
-1. If it doesn't already exist, create a new public repository named `.github` in your organization.
-2. Create a directory named `workflow-templates`.
-3. Create your new workflow file inside the `workflow-templates` directory.
+1. 存在しない場合は、Organization内で`.github`という名前の新しいパブリック リポジトリを作成します。
+2. `workflow-templates`という名前のディレクトリを作成します。
+3. `workflow-templates` ディレクトリ内に新しいワークフローファイルを作成します。
 
-   If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created the placeholder will be automatically replaced with the name of the repository's default branch.
+   リポジトリのデフォルトブランチを参照する必要がある場合は、 `$default-branch` プレースホルダを使用できます。 When a workflow is created the placeholder will be automatically replaced with the name of the repository's default branch.
 
-   For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
+   たとえば、`octo-organization-ci.yml`という名前のこのファイルは、基本的なワークフローを示しています。
 
    ```yaml
    name: Octo Organization CI
@@ -68,7 +68,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
+4. `workflow-templates` ディレクトリ内にメタデータファイルを作成します。 メタデータ ファイルは、ワークフロー ファイルと同じ名前である必要がありますが、 `.yml` 拡張子の代わりに、 `.properties.json`を付ける必要があります。 たとえば`octo-organization-ci.properties.json`という名前のこのファイルには 、`octo-organization-ci.yml`という名前のワークフローファイルのメタデータが含まれています。
    ```yaml
    {
        "name": "Octo Organization Workflow",
@@ -87,13 +87,13 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
    * `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
    * `description` - **Required.** The description of the workflow. This is displayed in the list of available workflows.
    * `iconName` - **Optional.** Specifies an icon for the workflow that's displayed in the list of workflows. The `iconName` must be the name of an SVG file, without the file name extension, stored in the `workflow-templates` directory. For example, an SVG file named `example-icon.svg` is referenced as `example-icon`.
-   * `categories` - **Optional.** Defines the language category of the workflow. When a user views the available starter workflows for a repository, the workflows that match the identified language for the project are featured more prominently. For information on the available language categories, see https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
+   * `categories` - **オプション。** ワークフローの言語カテゴリを定義します。 When a user views the available starter workflows for a repository, the workflows that match the identified language for the project are featured more prominently. 使用可能な言語カテゴリについては、「https://github.com/github/linguist/blob/master/lib/linguist/languages.yml」を参照してください。
    * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
-To add another starter workflow, add your files to the same `workflow-templates` directory. For example:
+To add another starter workflow, add your files to the same `workflow-templates` directory. 例:
 
 ![Workflow files](/assets/images/help/images/workflow-template-files.png)
 
-## Next steps
+## 次のステップ
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Using workflow](/actions/learn-github-actions/using-starter-workflows)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[Using starter workflows](/actions/learn-github-actions/using-starter-workflows)."

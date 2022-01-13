@@ -46,7 +46,7 @@ You can configure your CD workflow to run when a {% data variables.product.produ
 
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
-## Further reading
+## 参考リンク
 
 - [Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)
 - [Using environments for deployment](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}

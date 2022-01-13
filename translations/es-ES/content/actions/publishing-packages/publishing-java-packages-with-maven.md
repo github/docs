@@ -1,6 +1,6 @@
 ---
-title: Publishing Java packages with Maven
-intro: You can use Maven to publish Java packages to a registry as part of your continuous integration (CI) workflow.
+title: Publicar paquetes Java con Maven
+intro: Puedes usar Maven para publicar paquetes Java en un registro como parte de tu flujo de trabajo de integración continua (CI).
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-maven
   - /actions/guides/publishing-java-packages-with-maven
@@ -15,44 +15,44 @@ topics:
   - Publishing
   - Java
   - Maven
-shortTitle: Java packages with Maven
+shortTitle: Paquetes de Java con Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## Introducción
 
 {% data reusables.github-actions.publishing-java-packages-intro %}
 
-## Prerequisites
+## Prerrequisitos
 
-We recommend that you have a basic understanding of workflow files and configuration options. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+Te recomendamos que tengas una comprensión básica de los archivos de flujo de trabajo y las opciones de configuración. Para obtener más información, consulta la sección "[Aprende sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
-For more information about creating a CI workflow for your Java project with Maven, see "[Building and testing Java with Maven](/actions/language-and-framework-guides/building-and-testing-java-with-maven)."
+Para obtener más información acerca de la creación de un flujo de trabajo de CI para tu proyecto Java con Maven, consulta "[Construir y probar Java con Maven](/actions/language-and-framework-guides/building-and-testing-java-with-maven)".
 
-You may also find it helpful to have a basic understanding of the following:
+También puede ser útil tener un entendimiento básico de lo siguiente:
 
-- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
-- "[Environment variables](/actions/reference/environment-variables)"
-- "[Encrypted secrets](/actions/reference/encrypted-secrets)"
-- "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
+- "[Trabajar con el registro de npm](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+- "[Variables de ambiente](/actions/reference/environment-variables)"
+- "[Secretos cifrados](/actions/reference/encrypted-secrets)"
+- "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow)"
 
-## About package configuration
+## Acerca de la configuración del paquete
 
-The `groupId` and `artifactId` fields in the _pom.xml_ file create a unique identifier for your package that registries use to link your package to a registry.  For more information see [Guide to uploading artifacts to the Central Repository](http://maven.apache.org/repository/guide-central-repository-upload.html) in the Apache Maven documentation.
+Los campos `groupld` y `artifactId` del archivo _pom.xml_ crea un identificador único para tu paquete que los registros usan para vincular tu paquete a un registro.  Para obtener más información, consulta [Guía para cargar artefactos en el repositorio central](http://maven.apache.org/repository/guide-central-repository-upload.html) en la documentación de Apache Maven.
 
-The _pom.xml_ file also contains configuration for the distribution management repositories that Maven will deploy packages to. Each repository must have a name and a deployment URL. Authentication for these repositories can be configured in the _.m2/settings.xml_ file in the home directory of the user running Maven.
+El archivo _pom.xml_ también contiene la configuración de los repositorios de administración de distribución en los que Maven implementará los paquetes. Cada repositorio debe tener un nombre y una URL de implementación. La autenticación para estos repositorios se puede configurar en el archivo _.m2/settings.xml_ del directorio de inicio del usuario que ejecuta Maven.
 
-You can use the `setup-java` action to configure the deployment repository as well as authentication for that repository. For more information, see [`setup-java`](https://github.com/actions/setup-java).
+Puedes usar la acción `setup-java` para configurar el repositorio de implementación, así como la autenticación para ese repositorio. Para obtener más información, consulta [`setup-java`](https://github.com/actions/setup-java).
 
-## Publishing packages to the Maven Central Repository
+## Publicar paquetes en el repositorio central de Maven
 
-Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to the Maven Central Repository if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
+Cada vez que creas un lanzamiento nuevo, puedes desencadenar un flujo de trabajo para publicar tu paquete. El flujo de trabajo en el ejemplo a continuación se ejecuta cuando el evento `lanzamiento` desencadena con tipo `creado`. El flujo de trabajo publica el paquete en el repositorio central de Maven si se pasan las pruebas de CI. Para obtener más información acerca del evento `release`, consulta "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows#release)".
 
-In this workflow, you can use the `setup-java` action. This action installs the given version of the JDK into the `PATH`, but it also configures a Maven _settings.xml_ for publishing packages. By default, the settings file will be configured for {% data variables.product.prodname_registry %}, but it can be configured to deploy to another package registry, such as the Maven Central Repository. If you already have a distribution management repository configured in _pom.xml_, then you can specify that `id` during the `setup-java` action invocation.
+En este flujo de trabajo, puedes usar la acicón `setup-java`. Esta acción instala la versión dada del JDK en el `PATH`, pero también configura un Maven _settings.xml_ para publicar paquetes. Por defecto, el archivo de configuraciones se configurará para {% data variables.product.prodname_registry %}, pero se puede configurar para que se implemente en otro registro de paquetes, como el repositorio central de Maven. Si ya tienes un repositorio de administración de distribución configurado en _pom.xml_, puedes especificar que `id` durante la acción de invocación `setup-java`.
 
-For example, if you were deploying to the Maven Central Repository through the OSSRH hosting project, your _pom.xml_ could specify a distribution management repository with the `id` of `ossrh`.
+Por ejemplo, si estás desplegando en el repositorio central de Maven a través del proyecto de alojamiento OSSRH, tu _pom.xml_ podría especificar un repositorio de administración de distribución con el `id` de `ossrh`.
 
 {% raw %}
 ```xml{:copy}
@@ -69,9 +69,9 @@ For example, if you were deploying to the Maven Central Repository through the O
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by specifying the repository management `id` to the `setup-java` action. You’ll also need to provide environment variables that contain the username and password to authenticate to the repository.
+Con esta configuración, puedes crear un flujo de trabajo que publique tu paquete en el repositorio central de Maven especificando la administración del repositorio `id` para la acción `setup-java`. También deberás proporcionar variables de entorno que contengan el nombre de usuario y la contraseña para autenticarse en el repositorio.
 
-In the deploy step, you’ll need to set the environment variables to the username that you authenticate with to the repository, and to a secret that you’ve configured with the password or token to authenticate with.  For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+En el paso de implementación, necesitarás establecer las variables de entorno para el nombre de usuario con el que te autenticaste en el repositorio y para el secreto que hayas configurado con la contraseña o el token con que autenticarse.  Para obtener más información, consulta "[Crear y usar secretos cifrados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 
 {% raw %}
@@ -101,25 +101,25 @@ jobs:
 ```
 {% endraw %}
 
-This workflow performs the following steps:
+Este flujo de trabajo realiza los siguientes pasos:
 
-1. Checks out a copy of project's repository.
-1. Sets up the Java JDK, and also configures the Maven _settings.xml_ file to add authentication for the `ossrh` repository using the `MAVEN_USERNAME` and `MAVEN_PASSWORD` environment variables.
+1. Verifica una copia del repositorio del proyecto.
+1. Configura el JDK de Java y también el archivo _settings. xml_ de Maven para agregarle autenticación al repositorio de `ossrh` utilizando las variables de entorno `MAVEN_USERNAME` y `MAVEN_PASSWORD`.
 1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   Para obtener más información acerca del uso de secretos en tu flujo de trabajo, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-## Publishing packages to {% data variables.product.prodname_registry %}
+## Sube paquetes al {% data variables.product.prodname_registry %}
 
-Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to {% data variables.product.prodname_registry %} if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
+Cada vez que creas un lanzamiento nuevo, puedes desencadenar un flujo de trabajo para publicar tu paquete. El flujo de trabajo en el ejemplo a continuación se ejecuta cuando el evento `lanzamiento` desencadena con tipo `creado`. El flujo de trabajo publica el paquete en el {% data variables.product.prodname_registry %} si se superan las pruebas de CI. Para obtener más información acerca del evento `release`, consulta "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows#release)".
 
-In this workflow, you can use the `setup-java` action. This action installs the given version of the JDK into the `PATH`, and also sets up a Maven _settings.xml_ for publishing the package to {% data variables.product.prodname_registry %}. The generated _settings.xml_ defines authentication for a server with an `id` of `github`, using the `GITHUB_ACTOR` environment variable as the username and the `GITHUB_TOKEN` environment variable as the password. The `GITHUB_TOKEN` environment variable is assigned the value of the special `GITHUB_TOKEN` secret.
+En este flujo de trabajo, puedes usar la acicón `setup-java`. Esta acción instala la versión determinada del JDK en el `PATH` y configura un _settings.xml_ de Maven para publicar el paquete en el {% data variables.product.prodname_registry %}. El _settings.sml_ generado define la autenticación para un servidor con una `id` de `github`, utilizando la variable de entorno `GITHUB_ACTOR` como nombre de usuario y la variable de entorno `GITHUB_TOKEN` como contraseña. Se le asigna el valor del secreto especial `GITHUB_TOKEN` a la variable de ambiente `GITHUB_TOKEN`.
 
 {% data reusables.github-actions.github-token-permissions %}
 
-For a Maven-based project, you can make use of these settings by creating a distribution repository in your _pom.xml_ file with an `id` of `github` that points to your {% data variables.product.prodname_registry %} endpoint.
+Para un proyecto basado en Maven, puedes hacer uso de estas configuraciones creando un repositorio de distribución en tu archivo _pom.xml_ con una `id` de `github` que apunta a tu extremo {% data variables.product.prodname_registry %}.
 
-For example, if your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _pom.xml_ would look similar to the below example.
+Por ejemplo, si tu organización se llama "octocat", y tu repositorio se llama "hello-world", la configuración de {% data variables.product.prodname_registry %} en _pom.xml_ sería parecida al siguiente ejemplo.
 
 {% raw %}
 ```xml{:copy}
@@ -136,7 +136,7 @@ For example, if your organization is named "octocat" and your repository is name
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by making use of the automatically generated _settings.xml_.
+Con esta configuración, puedes crear un flujo de trabajo que publique tu paquete en {% data variables.product.prodname_registry %} haciendo uso del _settings.xml_ generado automáticamente.
 
 ```yaml{:copy}
 name: Publish package to GitHub Packages
@@ -161,19 +161,19 @@ jobs:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-This workflow performs the following steps:
+Este flujo de trabajo realiza los siguientes pasos:
 
-1. Checks out a copy of project's repository.
-1. Sets up the Java JDK, and also automatically configures the Maven _settings.xml_ file to add authentication for the `github` Maven repository to use the `GITHUB_TOKEN` environment variable.
+1. Verifica una copia del repositorio del proyecto.
+1. Configura el JDK de Java y configura automáticamente el archivo _settings.xml_ de Maven para agregar autenticación para que el repositorio `github` de Maven utilice la variable de entorno `GITHUB_TOKEN`.
 1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   Para obtener más información acerca del uso de secretos en tu flujo de trabajo, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-## Publishing packages to the Maven Central Repository and {% data variables.product.prodname_registry %}
+## Publicar paquetes en el repositorio central de Maven y {% data variables.product.prodname_registry %}
 
-You can publish your packages to both the Maven Central Repository and {% data variables.product.prodname_registry %} by using the `setup-java` action for each registry.
+Puedes publicar tus paquetes en el repositorio central de Maven y en el {% data variables.product.prodname_registry %} usando la acción `setup-java` para cada registro.
 
-Ensure your _pom.xml_ file includes a distribution management repository for both your {% data variables.product.prodname_dotcom %} repository and your Maven Central Repository provider. For example, if you deploy to the Central Repository through the OSSRH hosting project, you might want to specify it in a distribution management repository with the `id` set to `ossrh`, and you might want to specify {% data variables.product.prodname_registry %} in a distribution management repository with the `id` set to `github`.
+Asegúrate de que tu archivo _pom.xml_ incluya un repositorio de administración de distribución para tu repositorio de {% data variables.product.prodname_dotcom %} y para tu proveedor de repositorios centrales de Maven. Por ejemplo, si implementas el repositorio central a través del proyecto de alojamiento de OSSRH, es posible que desees especificarlo en un repositorio de administración de distribución con la `id` establecida en `ossrh`, y que desees especificar el {% data variables.product.prodname_registry %} en un repositorio de administración de distribución con la `id` establecida en `github`.
 
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
@@ -212,14 +212,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-This workflow calls the `setup-java` action twice.  Each time the `setup-java` action runs, it overwrites the Maven _settings.xml_ file for publishing packages.  For authentication to the repository, the _settings.xml_ file references the distribution management repository `id`, and the username and password.
+Este flujo de trabajo llama a la acción `setup-java` dos veces.  Cada vez que la acción `setup-java` se ejecuta, sobrescribe el archivo _settings.xml_ de Maven para publicar paquetes.  Para la autenticación en el repositorio, el archivo _settings.xml_ hace referencia a la `id` del repositorio de administración de distribución y al nombre de usuario y contraseña.
 
-This workflow performs the following steps:
+Este flujo de trabajo realiza los siguientes pasos:
 
-1. Checks out a copy of project's repository.
-1. Calls `setup-java` the first time. This configures the Maven _settings.xml_ file for the `ossrh` repository, and sets the authentication options to environment variables that are defined in the next step.
+1. Verifica una copia del repositorio del proyecto.
+1. Llama al `setup-java` la primera vez. Esto configura el archivo _settings.xml_ de Maven para el repositorio `ossrh` y establece las opciones de autenticación en las variables de entorno que se definen en el siguiente paso.
 1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
-1. Calls `setup-java` the second time. This automatically configures the Maven _settings.xml_ file for {% data variables.product.prodname_registry %}.
+1. Llama al `setup-java` la segunda vez. Esto configura automáticamente el archivo _settings.xml_ de Maven para el {% data variables.product.prodname_registry %}.
 1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   Para obtener más información acerca del uso de secretos en tu flujo de trabajo, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".

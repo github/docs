@@ -1,5 +1,5 @@
 ---
-title: Set up Git
+title: 设置 Git
 redirect_from:
   - /git-installation-redirect
   - /linux-git-installation
@@ -12,7 +12,7 @@ redirect_from:
   - /articles/set-up-git
   - /github/getting-started-with-github/set-up-git
   - /github/getting-started-with-github/quickstart/set-up-git
-intro: 'At the heart of {% data variables.product.prodname_dotcom %} is an open source version control system (VCS) called Git. Git is responsible for everything {% data variables.product.prodname_dotcom %}-related that happens locally on your computer.'
+intro: '{% data variables.product.prodname_dotcom %} 的核心是名为 Git 的开源版本控制系统 (VCS) 。 Git 负责在您计算机上本地发生的、与 {% data variables.product.prodname_dotcom %} 有关的所有内容。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -24,28 +24,39 @@ topics:
   - Notifications
   - Accounts
 ---
-## Using Git
 
-To use Git on the command line, you'll need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+## 使用 Git
 
-If you want to work with Git locally, but don't want to use the command line, you can instead download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)."
+要在命令行中使用 Git，您将需要在计算机上下载、安装和配置 Git。 You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. 更多信息请参阅“[关于 {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)”。
 
-If you don't need to work with files locally, {% data variables.product.product_name %} lets you complete many Git-related actions directly in the browser, including:
+如果要在本地使用 Git，但不想使用命令行，您可以下载并安装 [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) 客户端。  更多信息请参阅“[安装和配置 {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)”。
 
-- [Creating a repository](/articles/create-a-repo)
-- [Forking a repository](/articles/fork-a-repo)
-- [Managing files](/repositories/working-with-files/managing-files)
-- [Being social](/articles/be-social)
+如果无需在本地使用文件，{% data variables.product.product_name %} 可让您在浏览器中直接完成许多 Git 相关的操作，包括：
 
-## Setting up Git
+- [创建仓库](/articles/create-a-repo)
+- [复刻仓库](/articles/fork-a-repo)
+- [管理文件](/repositories/working-with-files/managing-files)
+- [社交化](/articles/be-social)
 
-1. [Download and install the latest version of Git](https://git-scm.com/downloads).
-2. [Set your username in Git](/github/getting-started-with-github/setting-your-username-in-git).
-3. [Set your commit email address in Git](/articles/setting-your-commit-email-address).
+## 设置 Git
 
-## Next steps: Authenticating with {% data variables.product.prodname_dotcom %} from Git
+1. [下载并安装最新版本的 Git](https://git-scm.com/downloads)。
 
-When you connect to a {% data variables.product.prodname_dotcom %} repository from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH.
+{% note %}
+
+**Note**: If you are using a Chrome OS device, additional set up is required:
+
+1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
+2. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
+
+{% endnote %}
+
+2. [在 Git 中设置您的用户名](/github/getting-started-with-github/setting-your-username-in-git)。
+3. [在 Git 中设置提交电子邮件地址](/articles/setting-your-commit-email-address)。
+
+## 后续步骤：使用来自 Git 的 {% data variables.product.prodname_dotcom %} 进行身份验证
+
+从 Git 连接到 {% data variables.product.prodname_dotcom %} 仓库时，您将需要使用 HTTPS 或 SSH 通过 {% data variables.product.product_name %} 进行身份验证。
 
 {% note %}
 
@@ -53,20 +64,20 @@ When you connect to a {% data variables.product.prodname_dotcom %} repository fr
 
 {% endnote %}
 
-### Connecting over HTTPS (recommended)
+### 通过 HTTPS 连接（推荐）
 
-If you [clone with HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), you can [cache your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git) using a credential helper.
+如果[使用 HTTPS 克隆](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)，您可以使用凭据小助手[在 Git 中缓存 {% data variables.product.prodname_dotcom %} 凭据](/github/getting-started-with-github/caching-your-github-credentials-in-git)。
 
-### Connecting over SSH
+### 通过 SSH 连接
 
-If you [clone with SSH](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls), you must [generate SSH keys](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) on each computer you use to push or pull from {% data variables.product.product_name %}.
+如果[使用 SSH 克隆](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls)，您必须在用于从 {% data variables.product.product_name %} 推送或拉取的每台计算机上[生成 SSH 密钥](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)。
 
-## Celebrate
+## 祝贺
 
-Congratulations, you now have Git and {% data variables.product.prodname_dotcom %} all set up! You may now choose to create a repository where you can put your projects. This is a great way to back up your code and makes it easy to share the code around the world. For more information see "[Create a repository](/articles/create-a-repo)".
+恭喜。您现在已将 Git 和 {% data variables.product.prodname_dotcom %} 全部设置完毕！ 您现在可以选择创建仓库以放置项目。 这是备份代码的好方法，易于在世界各地分享代码。 更多信息请参阅“[创建仓库](/articles/create-a-repo)”。
 
-You can create a copy of a repository by forking it and propose the changes that you want to see without affecting the upstream repository. For more information see "[Fork a repository](/articles/fork-a-repo)."
+您可以通过复刻创建仓库的副本，并提出您希望看到的更改，而不会影响上游仓库。 更多信息请参阅“[复刻仓库](/articles/fork-a-repo)”。
 
-Each repository on {% data variables.product.prodname_dotcom %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)."
+Each repository on {% data variables.product.prodname_dotcom %} is owned by a person or an organization. 您可以在 {% data variables.product.product_name %} 上连接和关注人员、仓库和组织以与之进行交互。 更多信息请参阅“[社交](/articles/be-social)”。
 
 {% data reusables.support.connect-in-the-forum-bootcamp %}
