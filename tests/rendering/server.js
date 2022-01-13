@@ -747,18 +747,18 @@ describe('server', () => {
 
     test('map topic renders with h2 links to articles', async () => {
       const $ = await getDOM(
-        '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
+        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
       )
       expect(
         $(
-          'a[href="/en/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer"] h2'
+          'a[href="/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer"] h2'
         ).length
       ).toBe(1)
     })
 
     test('map topic renders with one intro for every h2', async () => {
       const $ = await getDOM(
-        '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
+        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
       )
       const $bumpLinks = $('[data-testid=bump-link]')
       expect($bumpLinks.length).toBeGreaterThan(3)
@@ -766,7 +766,7 @@ describe('server', () => {
 
     test('map topic intros are parsed', async () => {
       const $ = await getDOM(
-        '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
+        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
       )
       const $intro = $('[data-testid=bump-link][href*="source-code-migration-tools"] > p')
       expect($intro.length).toBe(1)
@@ -789,7 +789,7 @@ describe('GitHub Enterprise URLs', () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github`)
     expect(
       $(
-        `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/github/writing-on-github"]`
+        `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/writing-on-github"]`
       ).length
     ).toBe(1)
   })
@@ -1074,16 +1074,16 @@ describe('static routes', () => {
 
 describe('index pages', () => {
   const nonEnterpriseOnlyPath =
-    '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
+    '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
 
   test('includes dotcom-only links in dotcom TOC', async () => {
-    const $ = await getDOM('/en/github/importing-your-projects-to-github')
+    const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
     expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(1)
   })
 
   test('excludes dotcom-only from GHE TOC', async () => {
     const $ = await getDOM(
-      `/en/enterprise/${enterpriseServerReleases.latest}/user/github/importing-your-projects-to-github`
+      `/en/enterprise/${enterpriseServerReleases.latest}/user/get-started/importing-your-projects-to-github`
     )
     expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(0)
   })
