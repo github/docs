@@ -1,6 +1,6 @@
 ---
-title: Importing a Git repository using the command line
-intro: '{% ifversion fpt %}If [GitHub Importer](/articles/importing-a-repository-with-github-importer) is not suitable for your purposes, such as if your existing code is hosted on a private network, then we recommend importing using the command line.{% else %}Importing Git projects using the command line is suitable when your existing code is hosted on a private network.{% endif %}'
+title: Importar un repositorio de Git usando la línea de comando
+intro: '{% ifversion fpt %}Si [GitHub Importer](/articles/importing-a-repository-with-github-importer) no se ajusta a tus necesidades, por ejemplo, si tu código existente se hospeda en una red privada, entonces te recomendamos importar utilizando la línea de comandos.{% else %}Importar proyectos de Git utilizando la línea de comandos es adecuado cuando tu código existente se encuentra hospedado en una red privada.{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
   - /github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line
@@ -9,37 +9,38 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Import repo locally
+shortTitle: Importar un repositorio localmente
 ---
-Before you start, make sure you know:
 
-- Your {% data variables.product.product_name %} username
-- The clone URL for the external repository, such as `https://external-host.com/user/repo.git` or `git://external-host.com/user/repo.git` (perhaps with a `user@` in front of the `external-host.com` domain name)
+Antes de comenzar, asegúrate de saber lo siguiente:
+
+- Tu nombre de usuario {% data variables.product.product_name %}
+- La URL del clon del repositorio externo, como `https://external-host.com/user/repo.git` o `git://external-host.com/user/repo.git` (quizás con un `user@` adelante del nombre de dominio `external-host.com`)
 
 {% tip %}
 
-For purposes of demonstration, we'll use:
+A los fines de demostración, usaremos lo siguiente:
 
-- An external account named **extuser**
-- An external Git host named `https://external-host.com`
-- A {% data variables.product.product_name %} personal user account named **ghuser**
-- A repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} named **repo.git**
+- Una cuenta externa llamada **extuser**
+- Un host de Git externo llamado `https://external-host.com`
+- Una cuenta de usuario personal {% data variables.product.product_name %} llamada **ghuser**
+- Un repositorio en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} que se llame **repo.git**
 
 {% endtip %}
 
-1. [Create a new repository on {% data variables.product.product_name %}](/articles/creating-a-new-repository). You'll import your external Git repository to this new repository.
-2. On the command line, make a "bare" clone of the repository using the external clone URL. This creates a full copy of the data, but without a working directory for editing files, and ensures a clean, fresh export of all the old data.
+1. [Crear un repositorio nuevo en {% data variables.product.product_name %}](/articles/creating-a-new-repository). Importarás tu repositorio de Git externo a este repositorio nuevo.
+2. En la línea de comando, haz un clon "en blanco" del repositorio usando la URL del clon externo. Esto crea una copia completa de los datos, pero sin un directorio de trabajo para editar archivos, y asegura una exportación limpia y nueva de todos los datos antiguos.
   ```shell
   $ git clone --bare https://external-host.com/<em>extuser</em>/<em>repo.git</em>
   # Makes a bare clone of the external repository in a local directory
   ```
-3. Push the locally cloned repository to {% data variables.product.product_name %} using the "mirror" option, which ensures that all references, such as branches and tags, are copied to the imported repository.
+3. Sube el repositorio clonado de forma local a {% data variables.product.product_name %} usando la opción "espejo", que asegura que todas las referencias, como ramas y etiquetas, se copien en el repositorio importado.
   ```shell
   $ cd <em>repo.git</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>ghuser</em>/<em>repo.git</em>
   # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
   ```
-4. Remove the temporary local repository.
+4. Elimina el repositorio local temporal.
   ```shell
   $ cd ..
   $ rm -rf <em>repo.git</em>

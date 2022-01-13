@@ -1,5 +1,5 @@
 ---
-title: Setting permissions for GitHub Apps
+title: Configurar los permisos para las GitHub Apps
 intro: '{% data reusables.shortdesc.permissions_github_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-permissions-for-github-apps
@@ -13,6 +13,7 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Set permissions
+shortTitle: Configurar permisos
 ---
-GitHub Apps don't have any permissions by default. When you create a GitHub App, you can select the permissions it needs to access end user data. Permissions can also be added and removed. For more information, see "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)."
+
+Las GitHub Apps no tienen permisos predeterminados. Cuando creas una GitHub App, puedes seleccionar los permisos a los que necesita para acceder a los datos del usuario final. Los permisos también se pueden agregar y eliminar. Para obtener más información, consulta la sección "[Editar los permisos de una GitHub App](/apps/managing-github-apps/editing-a-github-app-s-permissions/)".

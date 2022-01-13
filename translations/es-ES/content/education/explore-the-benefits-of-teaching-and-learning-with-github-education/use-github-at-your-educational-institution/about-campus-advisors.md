@@ -1,6 +1,6 @@
 ---
-title: About Campus Advisors
-intro: 'As an instructor or mentor, learn to use {% data variables.product.prodname_dotcom %} at your school with Campus Advisors training and support.'
+title: Acerca de Asesores de campus
+intro: 'Como instructor o mentor, aprende a usar {% data variables.product.prodname_dotcom %} en tu escuela con el soporte técnico y la capacitación de Asesores de campus.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-campus-advisors
   - /github/teaching-and-learning-with-github-education/about-campus-advisors
@@ -9,14 +9,15 @@ redirect_from:
 versions:
   fpt: '*'
 ---
-Professors, teachers and mentors can use the Campus Advisors online training to master Git and {% data variables.product.prodname_dotcom %} and learn best practices for teaching students with {% data variables.product.prodname_dotcom %}.  For more information, see "[Campus Advisors](https://education.github.com/teachers/advisors)."
+
+Profesores, maestros y mentores pueden usar la capacitación en línea de Asesores de campus para ser expertos en Git y {% data variables.product.prodname_dotcom %} y aprender las mejores prácticas para enseñarles a los alumnos con {% data variables.product.prodname_dotcom %}.  Para obtener más información, consulta "[Asesores de campus](https://education.github.com/teachers/advisors)".
 
 {% note %}
 
-**Note:** As an instructor, you can't create accounts on {% data variables.product.product_location %} for your students. Students must create their own accounts on {% data variables.product.product_location %}.
+**Nota:** Como instructor, no puedes crear cuentas para tus alumnos en {% data variables.product.product_location %}. Los alumnos deben crear sus propias cuentas en {% data variables.product.product_location %}.
 
 {% endnote %}
 
-Teachers can manage a course on software development with {% data variables.product.prodname_education %}. {% data variables.product.prodname_classroom %} allows you to distribute code, provide feedback, and manage coursework using {% data variables.product.product_name %}. For more information, see "[Manage coursework with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom)."
+Los maestros pueden administrar un curso sobre desarrollo de software con {% data variables.product.prodname_education %}. {% data variables.product.prodname_classroom %} te ayuda a distribuir código, proporcionar retroalimentación y administrar el trabajo del curso utilizando {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Administrar el trabajo del curso con {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom)".
 
-If you're a student or academic faculty and your school isn't partnered with {% data variables.product.prodname_dotcom %} as a {% data variables.product.prodname_campus_program %} school, then you can still individually apply for discounts to use {% data variables.product.prodname_dotcom %}. For more information, see "[Use {% data variables.product.prodname_dotcom %} for your schoolwork](/education/teach-and-learn-with-github-education/use-github-for-your-schoolwork)" or "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research/)."
+Si eres un estudiante validado o académico y tu escuela no está asociada con {% data variables.product.prodname_dotcom %} como una escuela {% data variables.product.prodname_campus_program %}, aún puedes solicitar descuentos de forma individual para usar {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Usar {% data variables.product.prodname_dotcom %} para tu trabajo escolar](/education/teach-and-learn-with-github-education/use-github-for-your-schoolwork)" o "[Usar {% data variables.product.prodname_dotcom %} en tu aula y en tu investigación](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research/)".

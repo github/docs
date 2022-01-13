@@ -1,6 +1,6 @@
 ---
-title: Inviting users to join your organization
-intro: 'You can invite anyone to become a member of your organization using their username or email address for {% data variables.product.product_location %}.'
+title: Convidar usuários para sua organização
+intro: 'Você pode convidar qualquer pessoa para se tornar um integrante da sua organização usando o nome de usuário ou endereço de e-mail deles para {% data variables.product.product_location %}.'
 permissions: Organization owners can invite users to join an organization.
 redirect_from:
   - /articles/adding-or-inviting-members-to-a-team-in-an-organization
@@ -12,20 +12,20 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Invite users to join
+shortTitle: Convidar usuários para participar
 ---
 
-## About organization invitations
+## Sobre convites para a organização
 
-If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." 
+Se a organização tiver uma assinatura paga por usuário, ela deverá ter uma licença não utilizada disponível para você poder convidar um integrante para participar da organização ou restabelecer um ex-integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)".
 
 {% data reusables.organizations.org-invite-scim %}
 
-If your organization requires members to use two-factor authentication, users that you invite must enable two-factor authentication before accepting the invitation. For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)" and "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
+Se a sua organização exige que os integrantes usem a autenticação de dois fatores, os usuários que você convidar deverão ativar a autenticação de dois fatores antes de aceitar o convite. Para mais informações, consulte "[Exigir a autenticação de dois fatores na sua organização](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)" e[Proteger a sua conta com a autenticação de dois fatores (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)".
 
-{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% else %}You{% endif %} can implement SCIM to add, manage, and remove organization members' access to {% data variables.product.prodname_dotcom_the_website %} through an identity provider (IdP). For more information, see "[About SCIM](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% ifversion fpt %}As organizações que usam {% data variables.product.prodname_ghe_cloud %}{% else %}Você{% endif %} podem implementar o SCIM para adicionar, gerenciar e remover o acesso dos integrantes da organização a {% data variables.product.prodname_dotcom_the_website %} por meio de um provedor de identidade (IdP). Para obter mais informações, consulte "[Sobre o SCIM](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %} .{% else %}."{% endif %}
 
-## Inviting a user to join your organization
+## Convidando um usuário para participar da sua organização
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -38,5 +38,5 @@ If your organization requires members to use two-factor authentication, users th
 {% data reusables.organizations.send-invitation %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 
-## Further reading
-- "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"
+## Leia mais
+- "[Adicionar integrantes da organização a uma equipe](/articles/adding-organization-members-to-a-team)"

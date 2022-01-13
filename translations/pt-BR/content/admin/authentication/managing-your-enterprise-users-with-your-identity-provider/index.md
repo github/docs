@@ -1,8 +1,8 @@
 ---
-title: Managing your enterprise users with your identity provider
-shortTitle: Manage users with your IdP
+title: Gerenciando os usuários da sua empresa com seu provedor de identidade
+shortTitle: Gerenciar usuários com seu IdP
 product: '{% data reusables.gated-features.emus %}'
-intro: You can manage identity and access with your identity provider and provision accounts that can only contribute to your enterprise.
+intro: Você pode gerenciar a identidade e o acesso com o seu provedor de identidade e prover contas que só podem contribuir com para a sua empresa.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider
 versions:

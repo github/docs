@@ -1,5 +1,5 @@
 ---
-title: GitHub Subprocessors and Cookies
+title: Subprocesadores y cookies de GitHub
 redirect_from:
   - /subprocessors
   - /github-subprocessors
@@ -13,68 +13,68 @@ topics:
   - Legal
 ---
 
-Effective date: **April 2, 2021**
+Fecha de entrada en vigor: **2 de abril de 2021**
 
-GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
+GitHub ofrece una gran cantidad de transparencia en cuanto a cómo usamos tus datos, cómo recopilamos tus datos y con quién los compartimos. Para este propósito, proporcionamos esta página, la cual detalla [nuestros subprocesadores](#github-subprocessors) y cómo utilizamos las [cookies](#cookies-on-github).
 
-## GitHub Subprocessors
+## Subprocesadores de GitHub
 
-When we share your information with third party subprocessors, such as our vendors and service providers, we remain responsible for it. We work very hard to maintain your trust when we bring on new vendors, and we require all vendors to enter into data protection agreements with us that restrict their processing of Users' Personal Information (as defined in the [Privacy Statement](/articles/github-privacy-statement/)).
+Cuando compartimos tu información con subprocesadores de terceros, como nuestros vendedores y proveedores de servicios, seguimos siendo responsables de ella. Trabajamos arduamente para mantener tu confianza cuando traemos nuevos proveedores y exigimos que todos los proveedores celebren acuerdos de protección de datos con nosotros que restrinjan su procesamiento de la información personal de los usuarios (tal como se define en la [Declaración de Privacidad](/articles/github-privacy-statement/)).
 
-| Name of Subprocessor | Description of Processing | Location of Processing | Corporate Location
-|:---|:---|:---|:---|
-| Automattic | Blogging service | United States | United States |
-| AWS Amazon | Data hosting | United States | United States |
-| Braintree (PayPal) | Subscription credit card payment processor | United States | United States |
-| Clearbit | Marketing data enrichment service | United States | United States |
-| Discourse | Community forum software provider | United States | United States |
-| Eloqua | Marketing campaign automation | United States | United States |
-| Google Apps | Internal company infrastructure | United States | United States |
-| MailChimp | Customer ticketing mail services provider | United States | United States |
-| Mailgun | Transactional mail services provider | United States | United States |
-| Microsoft | Microsoft Services | United States | United States |
-| Nexmo | SMS notification provider | United States | United States |
-| Salesforce.com | Customer relations management | United States | United States |
-| Sentry.io | Application monitoring provider | United States | United States |
-| Stripe | Payment provider | United States | United States |
-| Twilio & Twilio Sendgrid | SMS notification provider & transactional mail service provider | United States | United States |
-| Zendesk | Customer support ticketing system | United States | United States |
-| Zuora | Corporate billing system | United States | United States |
+| Nombre del subprocesador | Descripción del procesamiento                                                                   | Ubicación del procesamiento | Ubicación Corporativa |
+|:------------------------ |:----------------------------------------------------------------------------------------------- |:--------------------------- |:--------------------- |
+| Automattic               | Servicio de alojamiento                                                                         | Estados Unidos              | Estados Unidos        |
+| AWS Amazon               | Alojamiento de datos                                                                            | Estados Unidos              | Estados Unidos        |
+| Braintree (PayPal)       | Procesador de pagos de suscripción con tarjeta de crédito                                       | Estados Unidos              | Estados Unidos        |
+| Clearbit                 | Servicio de enriquecimiento de datos de marketing                                               | Estados Unidos              | Estados Unidos        |
+| Discourse                | Proveedor de software del foro de la comunidad                                                  | Estados Unidos              | Estados Unidos        |
+| Eloqua                   | Automatización de campañas de marketing                                                         | Estados Unidos              | Estados Unidos        |
+| Google Apps              | Infraestructura interna de la empresa                                                           | Estados Unidos              | Estados Unidos        |
+| MailChimp                | Proveedor de servicios de correo de billetaje de clientes                                       | Estados Unidos              | Estados Unidos        |
+| Mailgun                  | Proveedor de servicios de correo transaccional                                                  | Estados Unidos              | Estados Unidos        |
+| Microsoft                | Servicios de Microsoft                                                                          | Estados Unidos              | Estados Unidos        |
+| Nexmo                    | Proveedor de notificaciones SMS                                                                 | Estados Unidos              | Estados Unidos        |
+| Salesforce.com           | Gestión de relaciones con clientes                                                              | Estados Unidos              | Estados Unidos        |
+| Sentry.io                | Proveedor de monitoreo de aplicaciones                                                          | Estados Unidos              | Estados Unidos        |
+| Stripe                   | Proveedor de pagos                                                                              | Estados Unidos              | Estados Unidos        |
+| Twilio & Twilio Sendgrid | Proveedor de notificaciones por SMS & proveedor de servicio de correo electrónico transaccional | Estados Unidos              | Estados Unidos        |
+| Zendesk                  | Sistema de tickets de soporte al cliente                                                        | Estados Unidos              | Estados Unidos        |
+| Zuora                    | Sistema de facturación corporativa                                                              | Estados Unidos              | Estados Unidos        |
 
-When we bring on a new subprocessor who handles our Users' Personal Information, or remove a subprocessor, or we change how we use a subprocessor, we will update this page. If you have questions or concerns about a new subprocessor, we'd be happy to help. Please contact us via {% data variables.contact.contact_privacy %}.
+Cuando traemos un nuevo subprocesador que maneja la información personal de nuestros usuarios o eliminas un subprocesador, o cambiamos la manera en que usamos un subprocesador, actualizaremos esta página. Si tienes preguntas o inquietudes acerca de un nuevo subprocesador, estaremos encantados de ayudarte. Ponte en contacto con nosotros vía{% data variables.contact.contact_privacy %}.
 
-## Cookies on GitHub
+## Cookies en GitHub
 
-GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them. 
- 
-Since the number and names of cookies may change, the table below may be updated from time to time.
+GitHub utiliza cookies para proporcionar y asegurar nuestros sitios web, así como para analizar el uso de los mismos, para poder ofrecerte una gran experiencia de usuario. Por favor, echa un vistazo a nuestra [Declaración de privacidad](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) si te gustaría obtener más información sobre las cookies y sobre cómo y por qué las utilizamos.
 
-| Service Provider | Cookie Name | Description | Expiration* |
-|:---|:---|:---|:---|
-| GitHub | `app_manifest_token` | This cookie is used during the App Manifest flow to maintain the state of the flow during the redirect to fetch a user session. | five minutes |
-| GitHub | `color_mode` | This cookie is used to indicate the user selected theme preference. | session | 
-| GitHub | `_device_id` | This cookie is used to track recognized devices for security purposes. | one year |
-| GitHub | `dotcom_user` | This cookie is used to signal to us that the user is already logged in. | one year |
-| GitHub | `_gh_ent` | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form. | two weeks | 
-| GitHub | `_gh_sess` | This cookie is used for temporary application and framework state between pages like what step the user is on in a multiple step form. | session |
-| GitHub | `gist_oauth_csrf` | This cookie is set by Gist to ensure the user that started the oauth flow is the same user that completes it. | deleted when oauth state is validated |
-| GitHub | `gist_user_session` | This cookie is used by Gist when running on a separate host. | two weeks |
-| GitHub | `has_recent_activity` | This cookie is used to prevent showing the security interstitial to users that have visited the app recently. | one hour | 
-| GitHub | `__Host-gist_user_session_same_site` | This cookie is set to ensure that browsers that support SameSite cookies can check to see if a request originates from GitHub. | two weeks | 
-| GitHub | `__Host-user_session_same_site` | This cookie is set to ensure that browsers that support SameSite cookies can check to see if a request originates from GitHub. | two weeks | 
-| GitHub | `logged_in` | This cookie is used to signal to us that the user is already logged in. | one year | 
-| GitHub | `marketplace_repository_ids` | This cookie is used for the marketplace installation flow. | one hour |
-| GitHub | `marketplace_suggested_target_id` | This cookie is used for the marketplace installation flow. | one hour |
-| GitHub | `_octo` | This cookie is used for session management including caching of dynamic content, conditional feature access, support request metadata, and first party analytics. | one year | 
-| GitHub | `org_transform_notice` | This cookie is used to provide notice during organization transforms. | one hour |
-| GitHub | `private_mode_user_session` |  This cookie is used for Enterprise authentication requests. | two weeks |
-| GitHub | `saml_csrf_token` | This cookie is set by SAML auth path method to associate a token with the client. | until user closes browser or completes authentication request |
-| GitHub | `saml_csrf_token_legacy` | This cookie is set by SAML auth path method to associate a token with the client. | until user closes browser or completes authentication request |
-| GitHub | `saml_return_to` | This cookie is set by the SAML auth path method to maintain state during the SAML authentication loop. | until user closes browser or completes authentication request |
-| GitHub | `saml_return_to_legacy` | This cookie is set by the SAML auth path method to maintain state during the SAML authentication loop. | until user closes browser or completes authentication request |
-| GitHub | `tz` | This cookie allows us to customize timestamps to your time zone. | session | 
-| GitHub | `user_session` | This cookie is used to log you in. | two weeks |
+Ya que la cantidad de nombres y cookies puede cambiar, la tabla siguiente se podría actualizar a menudo.
 
-_*_ The **expiration** dates for the cookies listed below generally apply on a rolling basis.
+| Proveedor de servicios | Nombre de la Cookie                  | Descripción                                                                                                                                                                                                                                       | Vencimiento*                                                                               |
+|:---------------------- |:------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------------ |
+| GitHub                 | `app_manifest_token`                 | Esta cookie se utiliza durante el flujo del manifiesto de la app para mantener su estado durante la redirección para obtener una sesión de usuario.                                                                                               | cinco minutos                                                                              |
+| GitHub                 | `color_mode`                         | Esta cookie se utiliza para indicar que el usuario seleccionó la preferencia de tema.                                                                                                                                                             | sesión                                                                                     |
+| GitHub                 | `_device_id`                         | Esta cookie se utiliza para rastrear los dispositivos reconocidos para propósitos de seguridad.                                                                                                                                                   | un año                                                                                     |
+| GitHub                 | `dotcom_user`                        | Esta cookie se utiliza para indicarnos que el usuario ya está registrado.                                                                                                                                                                         | un año                                                                                     |
+| GitHub                 | `_gh_ent`                            | Esta cookie se utiliza para la aplicación temporal y el estado del marco de trabajo entre las páginas como en qué paso se encuentra el cliente dentro de un formulario de varios pasos.                                                           | dos semanas                                                                                |
+| GitHub                 | `_gh_sess`                           | Esta cookie se usa para la aplicación temporal y el estado del marco entre las páginas como para indicar en qué paso está el usuario en un formulario de múltiples pasos.                                                                         | sesión                                                                                     |
+| GitHub                 | `gist_oauth_csrf`                    | Esta cookie se establece por Gist para asegurar que el usuario que inició el flujo oauth sea el mismo usuario que lo completa.                                                                                                                    | se borra al validar el estado de oauth                                                     |
+| GitHub                 | `gist_user_session`                  | Gist utiliza esta cookie cuando se ejecuta en un host por separado.                                                                                                                                                                               | dos semanas                                                                                |
+| GitHub                 | `has_recent_activity`                | Esta cookie se utiliza para prevenir que se muestre la seguridad que es intersticial a los usuarios que han visitado la app recientemente.                                                                                                        | una hora                                                                                   |
+| GitHub                 | `__Host-gist_user_session_same_site` | Esta cookie se configura para asegurar que los navegadores que soportan las cookies de SameSite puedan verificar si una solicitud se origina desde GitHub.                                                                                        | dos semanas                                                                                |
+| GitHub                 | `__Host-user_session_same_site`      | Esta cookie se configura para asegurar que los navegadores que soportan las cookies de SameSite puedan verificar si una solicitud se origina desde GitHub.                                                                                        | dos semanas                                                                                |
+| GitHub                 | `logged_in`                          | Esta cookie se utiliza para indicarnos que el usuario ya está registrado.                                                                                                                                                                         | un año                                                                                     |
+| GitHub                 | `marketplace_repository_ids`         | Esta cookie se utiliza para el flujo de instalación de marketplace.                                                                                                                                                                               | una hora                                                                                   |
+| GitHub                 | `marketplace_suggested_target_id`    | Esta cookie se utiliza para el flujo de instalación de marketplace.                                                                                                                                                                               | una hora                                                                                   |
+| GitHub                 | `_octo`                              | Esta cookie se utiliza para la administración de sesiones, incluyendo el almacenamiento en caché del contenido dinámico, el acceso de características condicionales, los metadatos de solicitud de soporte y la analítica de las primeras partes. | un año                                                                                     |
+| GitHub                 | `org_transform_notice`               | Esta cookie se utiliza para proporcionar notificaciones durante las transformaciones de las organizaciones.                                                                                                                                       | una hora                                                                                   |
+| GitHub                 | `private_mode_user_session`          | Esta cookie se utiliza para las solicitudes de autenticación empresarial.                                                                                                                                                                         | dos semanas                                                                                |
+| GitHub                 | `saml_csrf_token`                    | Esta cookie se establece mediante el método de ruta de autenticación de SAML para asociar un token con el cliente.                                                                                                                                | hasta que el usuario cierre el buscador o hasta que complete la solicitud de autenticación |
+| GitHub                 | `saml_csrf_token_legacy`             | Esta cookie se establece mediante el método de ruta de autenticación de SAML para asociar un token con el cliente.                                                                                                                                | hasta que el usuario cierre el buscador o hasta que complete la solicitud de autenticación |
+| GitHub                 | `saml_return_to`                     | Esta cookie se establece mediante el método de ruta de autenticación de SAML para mantener el estado durante el bucle de autenticación de SAML.                                                                                                   | hasta que el usuario cierre el buscador o hasta que complete la solicitud de autenticación |
+| GitHub                 | `saml_return_to_legacy`              | Esta cookie se establece mediante el método de ruta de autenticación de SAML para mantener el estado durante el bucle de autenticación de SAML.                                                                                                   | hasta que el usuario cierre el buscador o hasta que complete la solicitud de autenticación |
+| GitHub                 | `tz`                                 | Esta cookie nos permite personalizar las marcas de tiempo a tu zona horaria.                                                                                                                                                                      | sesión                                                                                     |
+| GitHub                 | `user_session`                       | Esta cookie se utiliza para que inicies sesión.                                                                                                                                                                                                   | dos semanas                                                                                |
 
-(!) Please note while we limit our use of third party cookies to those necessary to provide external functionality when rendering external content, certain pages on our website may set other third party cookies. For example, we may embed content, such as videos, from another site that sets a cookie. While we try to minimize these third party cookies, we can’t always control what cookies this third party content sets.
+_*_ Las fechas de **vencimiento** para las cookies que se listan a continuación generalmente se aplican permanentemente.
+
+(i) Por favor, ten encuenta que si bien limitamos nuestro uso de cookies de terceros a aquellas necesarias para proporcionar una funcionalidad externa cuando interpretamos el contenido externo, algunas páginas en nuestro sitio web podrían configurar otras cookies de terceros. Por ejemplo, es posible que insertamos contenido, como vídeos, desde otro sitio que establezca una cookie. Si bien tratamos de minimizar estas cookies de terceros, no siempre podemos controlar qué cookies establece este contenido de terceros.

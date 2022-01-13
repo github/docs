@@ -1,6 +1,6 @@
 ---
-title: Environment variables
-intro: '{% data variables.product.prodname_dotcom %} sets default environment variables for each {% data variables.product.prodname_actions %} workflow run. You can also set custom environment variables in your workflow file.'
+title: Variáveis de ambiente
+intro: '{% data variables.product.prodname_dotcom %} define as variáveis do ambiente para cada execução do fluxo de trabalho {% data variables.product.prodname_actions %}. Você também pode definir variáveis de ambiente personalizadas no seu arquivo do fluxo de trabalho.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-environment-variables
   - /actions/automating-your-workflow-with-github-actions/using-environment-variables
@@ -16,11 +16,11 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About environment variables
+## Sobre as variáveis de ambiente
 
-{% data variables.product.prodname_dotcom %} sets default environment variables that are available to every step in a workflow run. Environment variables are case-sensitive. Commands run in actions or steps can create, read, and modify environment variables.
+{% data variables.product.prodname_dotcom %} define as variáveis-padrão do ambiente disponíveis para cada etapa da execução de um fluxo de trabalho. As variáveis de ambiente diferenciam entre maiúsculas e minúsculas. Os comandos executados em ações ou etapas podem criar, ler e modificar as variáveis do ambiente.
 
-To set custom environment variables, you need to specify the variables in the workflow file. You can define environment variables for a step, job, or entire workflow using the [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv), [`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv), and [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) keywords. For more information, see "[Workflow syntax for {% data variables.product.prodname_dotcom %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
+Para definir as variáveis do ambiente personalizadas, você deverá especificar as variáveis no arquivo do fluxo de trabalho. Você pode definir as variáveis de ambiente para uma etapa, trabalho ou para todo um fluxo de trabalho, usando as palavras-chave [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv), [`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv), and [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env). Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_dotcom %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)".
 
 {% raw %}
 ```yaml
@@ -40,61 +40,51 @@ jobs:
 ```
 {% endraw %}
 
-To use the value of an environment variable in a workflow file, you should use the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context). If you want to use the value of an environment variable inside a runner, you can use the runner operating system's normal method for reading environment variables.
+Para usar o valor de uma variável de ambiente em um arquivo do fluxo de trabalho, você deve usar o [contexto` env`](/actions/reference/context-and-expression-syntax-for-github-actions#env-context). Se você deseja usar o valor de uma variável de ambiente dentro de um executor, você poderá usar o método normal do sistema operacional do executor para ler variáveis de ambiente.
 
-If you use the workflow file's `run` key to read environment variables from within the runner operating system (as shown in the example above), the variable is substituted in the runner operating system after the job is sent to the runner. For other parts of a workflow file, you must use the `env` context to read environment variables; this is because workflow keys (such as `if`) require the variable to be substituted during workflow processing before it is sent to the runner.
+Se você usar a chave `executar` do arquivo de fluxo de trabalho para ler variáveis de ambiente de dentro do sistema operacional do executor (como mostrado no exemplo acima), a variável será substituída no sistema operacional do executor depois que a tarefa for enviada para o executor. Para outras partes de um arquivo de fluxo de trabalho, você deve usar o contexto `env` para ler variáveis de ambiente. Isso ocorre porque as chaves do fluxo de trabalho (como `se`) exigem que a variável seja substituída durante o processamento do fluxo de trabalho antes de ser enviada para o executor.
 
-You can also use the `GITHUB_ENV` environment file to set an environment variable that the following steps in a job can use. The environment file can be used directly by an action or as a shell command in a workflow file using the `run` keyword. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)."
+Você também pode usar o arquivo de ambiente `GITHUB_ENV` para definir uma variável de ambiente que as etapas a seguir podem usar em um trabalho. O arquivo de ambiente pode ser usado diretamente por uma ação ou como um comando shell em um arquivo de fluxo de trabalho usando a palavra-chave `executar`. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)".
 
-## Default environment variables
+## Variáveis padrão de ambiente
 
-We strongly recommend that actions use environment variables to access the filesystem rather than using hardcoded file paths. {% data variables.product.prodname_dotcom %} sets environment variables for actions to use in all runner environments.
+É altamente recomendável que as ações usem as variáveis do ambiente para acessar o sistema do arquivo em vez de usar os caminhos do arquivo com codificação rígida. {% data variables.product.prodname_dotcom %} define as variáveis de ambiente para ações a serem usadas em todos os ambientes executores.
 
-| Environment variable | Description |
-| ---------------------|------------ |
-| `CI` | Always set to `true`. |
-| `GITHUB_WORKFLOW` | The name of the workflow. |
-| `GITHUB_RUN_ID` | {% data reusables.github-actions.run_id_description %} |
-| `GITHUB_RUN_NUMBER` | {% data reusables.github-actions.run_number_description %} |
-| `GITHUB_JOB` | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
-| `GITHUB_ACTION` | The unique identifier (`id`) of the action. |
-| `GITHUB_ACTION_PATH` | The path where your action is located. You can use this path to access files located in the same repository as your action. This variable is only supported in composite actions. |
-| `GITHUB_ACTIONS` | Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow. You can use this variable to differentiate when tests are being run locally or by {% data variables.product.prodname_actions %}.
-| `GITHUB_ACTOR` | The name of the person or app that initiated the workflow. For example, `octocat`. |
-| `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |
-| `GITHUB_EVENT_NAME` | The name of the webhook event that triggered the workflow. |
-| `GITHUB_EVENT_PATH` | The path of the file with the complete webhook event payload. For example, `/github/workflow/event.json`. |
-| `GITHUB_WORKSPACE` | The {% data variables.product.prodname_dotcom %} workspace directory path, initially empty. For example, `/home/runner/work/my-repo-name/my-repo-name`. The [actions/checkout](https://github.com/actions/checkout) action will check out files, by default a copy of your repository, within this directory. |
-| `GITHUB_SHA` | The commit SHA that triggered the workflow. For example, `ffac537e6cbbf934b08745a378932722df287a53`. |
-| `GITHUB_REF` | The branch or tag ref that triggered the workflow. For example, `refs/heads/feature-branch-1`. If neither a branch or tag is available for the event type, the variable will not exist. |
+| Variável de ambiente | Descrição                                                                                                                                                                                                                                                                                                                                      |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CI`                 | Definido sempre como `verdadeiro`.                                                                                                                                                                                                                                                                                                             |
+| `GITHUB_WORKFLOW`    | Nome do fluxo de trabalho.                                                                                                                                                                                                                                                                                                                     |
+| `GITHUB_RUN_ID`      | {% data reusables.github-actions.run_id_description %}
+| `GITHUB_RUN_NUMBER`  | {% data reusables.github-actions.run_number_description %}
+| `GITHUB_JOB`         | O [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) do trabalho atual.                                                                                                                                                                                                                                                |
+| `GITHUB_ACTION`      | Identificador único (`id`) da ação.                                                                                                                                                                                                                                                                                                            |
+| `GITHUB_ACTION_PATH` | O caminho onde está localizada a sua ação. Você pode usar esse caminho para acessar os arquivos localizados no mesmo repositório que sua ação. Esta variável só é compatível em ações compostas.                                                                                                                                               |
+| `GITHUB_ACTIONS`     | Definido sempre como `verdadeiro` quando {% data variables.product.prodname_actions %} estiver executando o fluxo de trabalho. Você pode usar esta variável para diferenciar quando os testes estão sendo executados localmente ou por {% data variables.product.prodname_actions %}.                                                        |
+| `GITHUB_ACTOR`       | Nome da pessoa ou aplicativo que iniciou o fluxo de trabalho. Por exemplo, `octocat`.                                                                                                                                                                                                                                                          |
+| `GITHUB_REPOSITORY`  | Nome do repositório e o proprietário. Por exemplo, `octocat/Hello-World`.                                                                                                                                                                                                                                                                      |
+| `GITHUB_EVENT_NAME`  | Nome do evento de webhook que acionou o workflow.                                                                                                                                                                                                                                                                                              |
+| `GITHUB_EVENT_PATH`  | Caminho do arquivo com a carga completa do evento webhook. Por exemplo, `/github/workflow/event.json`.                                                                                                                                                                                                                                         |
+| `GITHUB_WORKSPACE`   | O caminho do diretório do espaço de trabalho de {% data variables.product.prodname_dotcom %} está inicialmente vazio. Por exemplo, `/home/runner/work/my-repo-name/my-repo-name`. A ação [actions/checkout](https://github.com/actions/checkout) irá fazer o check-out dos arquivos, por padrão uma cópia do seu repositório, neste diretório. |
+| `GITHUB_SHA`         | Commit SHA que acionou o fluxo de trabalho. Por exemplo, `ffac537e6cbbf934b08745a378932722df287a53`.                                                                                                                                                                                                                                           |
+| `GITHUB_REF`         | Branch ou ref tag que acionou o fluxo de trabalho. Por exemplo, `refs/heads/feature-branch-1`. Se não houver branch ou tag disponível para o tipo de evento, a variável não existirá.                                                                                                                                                          |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
-| `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} |
-| `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
-| `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %} |
+| `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} | | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} | | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %}
 {%- endif %}
-| `GITHUB_HEAD_REF` | Only set for pull request events. The name of the head branch.
-| `GITHUB_BASE_REF` | Only set for pull request events. The name of the base branch.
-| `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
-| `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`.
-| `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`.
-| `RUNNER_NAME` | {% data reusables.actions.runner-name-description %}
-| `RUNNER_OS` | {% data reusables.actions.runner-os-description %}{% if actions-runner-arch-envvars %}
-| `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %}{% endif %}
-| `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
+| `GITHUB_HEAD_REF` | Definido apenas para eventos de pull request. O nome do branch principal. | `GITHUB_BASE_REF` | Definido apenas para eventos de pull request. O nome do branch de base. | `GITHUB_SERVER_URL`| Retorna a URL do servidor de {% data variables.product.product_name %}. Por exemplo: `https://{% data variables.product.product_url %}`. | `GITHUB_API_URL` | Retorna a URL da API. Por exemplo: `{% data variables.product.api_url_code %}`. | `GITHUB_GRAPHQL_URL` | Retorna a URL da API do GraphQL. Por exemplo: `{% data variables.product.graphql_url_code %}`. | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} | `RUNNER_OS` | {% data reusables.actions.runner-os-description %}{% if actions-runner-arch-envvars %} | `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %}{% endif %} | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
 {% ifversion not ghae %}| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %}{% endif %}
 
 {% tip %}
 
-**Note:** If you need to use a workflow run's URL from within a job, you can combine these environment variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+**Observação:** Se você precisar usar o URL de um fluxo de trabalho em um trabalho, você poderá combinar estas variáveis de ambiente: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
 
 {% endtip %}
 
-### Determining when to use default environment variables or contexts
+### Determinar quando usar variáveis de ambiente padrão ou contextos
 
 {% data reusables.github-actions.using-context-or-environment-variables %}
 
-## Naming conventions for environment variables
+## Convenções de nomenclatura para variáveis de ambiente
 
-When you set a custom environment variable, you cannot use any of the default environment variable names listed above with the prefix `GITHUB_`. If you attempt to override the value of one of these default environment variables, the assignment is ignored.
+Ao definir uma variável de ambiente personalizada, você não poderá usar qualquer um dos nomes de variáveis de ambiente padrão listados acima com o prefixo `GITHUB_`. Se você tentar substituir o valor de uma dessas variáveis de ambiente padrão, a atribuição será ignorada.
 
-Any new environment variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `HOME` and `GITHUB_WORKSPACE` default variables are exceptions to this convention because the words "home" and "workspace" already imply a location.
+Qualquer variável de ambiente nova que você definir e apontar para um local no sistema de arquivos deve ter um sufixo `_PATH`. As variáveis padrão `HOME` e `GITHUB_WORKSPACE` são exceções a essa convenção porque as palavras "inicial" e "espaço de trabalho" já indicam o local.

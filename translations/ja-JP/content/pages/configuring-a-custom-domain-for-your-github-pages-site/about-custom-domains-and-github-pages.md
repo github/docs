@@ -1,6 +1,6 @@
 ---
-title: About custom domains and GitHub Pages
-intro: '{% data variables.product.prodname_pages %} supports using custom domains, or changing the root of your site''s URL from the default, like `octocat.github.io`, to any domain you own.'
+title: カスタムドメインとGitHub Pagesについて
+intro: '{% data variables.product.prodname_pages %} では、カスタムドメインを使用する、つまりサイトの URL を ''octocat.github.io'' などのデフォルトからあなたが所有するドメインに変更することができます。'
 redirect_from:
   - /articles/about-custom-domains-for-github-pages-sites
   - /articles/about-supported-custom-domains
@@ -13,58 +13,58 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Custom domains in GitHub Pages
+shortTitle: GitHub Pagesにおけるカスタムドメイン
 ---
 
-## Supported custom domains
+## サポートされているカスタムドメイン
 
-{% data variables.product.prodname_pages %} works with two types of domains: subdomains and apex domains. For a list of unsupported custom domains, see "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages/#custom-domain-names-that-are-unsupported)."
+{% data variables.product.prodname_pages %} では、サブドメインとApexドメインの 2 種類のドメインを使用できます。 サポートされていないカスタムサブドメインのリストは、「[カスタムドメインと {% data variables.product.prodname_pages %} のトラブルシューティング](/articles/troubleshooting-custom-domains-and-github-pages/#custom-domain-names-that-are-unsupported)」を参照してください。
 
-| Supported custom domain type | Example |
-|---|---|
-| `www` subdomain | `www.example.com` |
-| Custom subdomain | `blog.example.com` |
-| Apex domain        | `example.com` |
+| サポートされているカスタムドメインの種類 | サンプル               |
+| -------------------- | ------------------ |
+| `www` サブドメイン         | `www.example.com`  |
+| カスタムサブドメイン           | `blog.example.com` |
+| Apex ドメイン            | `example.com`      |
 
-You can set up either or both of apex and `www` subdomain configurations for your site. For more information on apex domains, see "[Using an apex domain for your {% data variables.product.prodname_pages %} site](#using-an-apex-domain-for-your-github-pages-site)."
+サイトには、Apex及び`www`サブドメインのいずれか、あるいは両方の設定をセットアップできます。 Apexドメインに関する詳しい情報については「[{% data variables.product.prodname_pages %}サイトでのApexドメインの利用](#using-an-apex-domain-for-your-github-pages-site)」を参照してください。
 
-We recommend always using a `www` subdomain, even if you also use an apex domain. When you create a new site with an apex domain, we automatically attempt to secure the `www` subdomain for use when serving your site's content. If you configure a `www` subdomain, we automatically attempt to secure the associated apex domain. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+Apex ドメインを使用している場合でも、`www` サブドメインを使用することをおすすめします。 Apexドメインで新しいサイトを作成する場合、サイトのコンテンツを提供する際に`www`サブドメインも利用できるように保護が自動的に試みられます。 `www`サブドメインを設定すれば、関連するApexドメインの保護が自動的に試みられます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
 
-After you configure a custom domain for a user or organization site, the custom domain will replace the `<user>.github.io` or `<organization>.github.io` portion of the URL for any project sites owned by the account that do not have a custom domain configured. For example, if the custom domain for your user site is `www.octocat.com`, and you have a project site with no custom domain configured that is published from a repository called `octo-project`, the {% data variables.product.prodname_pages %} site for that repository will be available at `www.octocat.com/octo-project`.
+ユーザまたは Organization サイトのカスタムドメインを設定すると、カスタムドメインを設定していないアカウントが所有するプロジェクトサイトの URL で、`<user>.github.io` または `<organization>.github.io` の部分がカスタムドメインによって置き換えられます。 たとえば、サイトのカスタムドメインが `www.octocat.com` で、`octo-project` というリポジトリから公開されているプロジェクトサイトにまだカスタムドメインを設定していない場合、そのリポジトリの {% data variables.product.prodname_pages %} サイトは、`www.octocat.com/octo-project` で公開されます。
 
-## Using a subdomain for your {% data variables.product.prodname_pages %} site
+## あなたの {% data variables.product.prodname_pages %} サイトにサブドメインを使用する
 
-A subdomain is the part of a URL before the root domain. You can configure your subdomain as `www` or as a distinct section of your site, like `blog.example.com`.
+サブドメインは、URL のうちルートドメインの前の部分です。 サブドメインは、`www` に設定することも、あるいは `blog.example.com` のようにサイトの独自セクションに設定することもできます。
 
-Subdomains are configured with a `CNAME` record through your DNS provider. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)."
+サブドメインは、DNS プロバイダを通じて `CNAME` レコードで設定されます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)」を参照してください。
 
-### `www` subdomains
+### `www` サブドメイン
 
-A `www` subdomain is the most commonly used type of subdomain. For example, `www.example.com` includes a `www` subdomain.
+サブドメインの種類として最もよく使われているのは、`www` サブドメインです。 たとえば、`www.example.com` には `www` サブドメインが含まれています。
 
-`www` subdomains are the most stable type of custom domain because `www` subdomains are not affected by changes to the IP addresses of {% data variables.product.product_name %}'s servers.
+`www` サブドメインは、カスタムドメインとして最も安定的です。{% data variables.product.product_name %} のサーバの IP アドレスが変更されても、`www` サブドメインは影響を受けないからです。
 
-### Custom subdomains
+### カスタムサブドメイン
 
-A custom subdomain is a type of subdomain that doesn't use the standard `www` variant. Custom subdomains are mostly used when you want two distinct sections of your site. For example, you can create a site called `blog.example.com` and customize that section independently from `www.example.com`.
+カスタムサブドメインは、標準の`www`形式を使わない種類のサブドメインです。 カスタムサブドメインは、サイトに 2 つの独自セクションを作成したい場合に最もよく使われます。 たとえば、`blog.example.com` というサイトを作成し、`www.example.com` から独自のセクションをカスタマイズできます。
 
-## Using an apex domain for your {% data variables.product.prodname_pages %} site
+## あなたの {% data variables.product.prodname_pages %} サイトに Apex ドメインを使用する
 
-An apex domain is a custom domain that does not contain a subdomain, such as `example.com`. Apex domains are also known as base, bare, naked, root apex, or zone apex domains.
+Apex ドメインは、`example.com` といったようにサブドメインを含まないカスタムドメインです。 Apex ドメインは、ベースドメイン、ベアドメイン、裸ドメイン、ルート Apex ドメイン、ゾーン Apex ドメインなどとも呼ばれます。
 
-An apex domain is configured with an `A`, `ALIAS`, or `ANAME` record through your DNS provider. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
+Apex ドメインは、DNS プロバイダを通じて、`A`、`ALIAS`、`ANAME` レコードで設定されます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)」を参照してください。
 
-{% data reusables.pages.www-and-apex-domain-recommendation %} For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)."
+{% data reusables.pages.www-and-apex-domain-recommendation %} 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)」を参照してください。
 
 ## Securing the custom domain for your {% data variables.product.prodname_pages %} site
 
 {% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)" and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
-There are a couple of reasons your site might be automatically disabled.
+サイトが自動的に無効化される理由は、いくつかあります。
 
-- If you downgrade from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, any {% data variables.product.prodname_pages %} sites that are currently published from private repositories in your account will be unpublished. For more information, see "[Downgrading your {% data variables.product.prodname_dotcom %} billing plan](/articles/downgrading-your-github-billing-plan)."
-- If you transfer a private repository to a personal account that is using {% data variables.product.prodname_free_user %}, the repository will lose access to the {% data variables.product.prodname_pages %} feature, and the currently published {% data variables.product.prodname_pages %} site will be unpublished. For more information, see "[Transferring a repository](/articles/transferring-a-repository)."
+- {% data variables.product.prodname_pro %} から {% data variables.product.prodname_free_user %} へダウングレードすると、アカウント内のプライベートリポジトリから公開されている {% data variables.product.prodname_pages %} のサイトは公開されなくなります。 詳細は「[{% data variables.product.prodname_dotcom %} の支払いプランをダウングレードする](/articles/downgrading-your-github-billing-plan)」を参照してください。
+- {% data variables.product.prodname_free_user %} を利用している個人アカウントへプライベートリポジトリを移譲した場合、そのリポジトリからは {% data variables.product.prodname_pages %} の機能を利用できなくなり、公開されている {% data variables.product.prodname_pages %} は公開されなくなります。 詳細は「[リポジトリを移譲する](/articles/transferring-a-repository)」を参照してください。
 
-## Further reading
+## 参考リンク
 
-- "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"
+- [カスタムドメインと {% data variables.product.prodname_pages %} のトラブルシューティング](/articles/troubleshooting-custom-domains-and-github-pages)

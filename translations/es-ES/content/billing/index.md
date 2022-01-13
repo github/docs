@@ -1,7 +1,7 @@
 ---
-title: Billing and payments on GitHub
-shortTitle: Billing and payments
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade or downgrade your account''s subscription and manage your billing settings at any time.{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} bills for your enterprise members'' {% ifversion ghec or ghae %}usage of {% data variables.product.product_name %}{% elsif ghes %} licence seats for {% data variables.product.product_name %}{% ifversion ghes > 3.0 %} and any additional services that you purchase{% endif %}{% endif %}. {% endif %}{% ifversion ghec %} You can view your subscription and manage your billing settings at any time. {% endif %}{% ifversion fpt or ghec %} You can also view usage and manage spending limits for {% data variables.product.product_name %} features such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_codespaces %}.{% endif %}'
+title: Facturación y pagos en GitHub
+shortTitle: Facturación y pagos
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} ofrece productos gratuitos y de pago para todas las cuentas. Puedes tanto mejorar como bajar de nivel la suscripción de tu cuenta y administrar tu configuración de facturación en cualquier momento.{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} factura el {% ifversion ghec or ghae %}uso de plazas de licencia de {% data variables.product.product_name %}{% elsif ghes %} de los miembros de tu empresa para {% data variables.product.product_name %}{% ifversion ghes > 3.0 %} y para cualquier servicio adicional que compres{% endif %}{% endif %}. {% endif %}{% ifversion ghec %} Puedes ver tu suscripción y administrar tus ajustes de facturación en cualquier momento. {% endif %}{% ifversion fpt or ghec %} También puedes ver el uso y administrar los límites de gastos de las características de {% data variables.product.product_name %}, tales como las {% data variables.product.prodname_actions %}, el {% data variables.product.prodname_registry %} y los {% data variables.product.prodname_codespaces %}.{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
@@ -18,7 +18,7 @@ featuredLinks:
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise{% endif %}'
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise{% endif %}'
     - '{% ifversion ghae %}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
-  popular: 
+  popular:
     - '{% ifversion ghec %}/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/managing-billing-for-github-actions/about-billing-for-github-actions{% endif %}'
@@ -27,8 +27,7 @@ featuredLinks:
     - '{% ifversion ghes %}/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage{% endif %}'
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server{% endif %}'
     - '{% ifversion ghae %}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
-  guideCards:  
-    - /billing/managing-your-github-billing-settings/removing-a-payment-method
+  guideCards:
     - /billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process
     - /billing/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise{% endif %}'
@@ -55,3 +54,4 @@ children:
   - /managing-billing-for-git-large-file-storage
   - /setting-up-paid-organizations-for-procurement-companies
 ---
+
