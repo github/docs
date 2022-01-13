@@ -146,16 +146,48 @@ The following example illustrates this approach for a C++ project that's built u
 
 Your project tree contains three subdirectories, `src/`, `lib1`, and `lib2` and your default build command, `make all`, builds them all. If you configure the workflow with the default build command, it generates a {% data variables.product.prodname_codeql %} database with the code and dependencies of all three subdirectories.
 
-```sh
-codeql database create cpp-database --language=cpp --command='make all'
+```yml
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: ${{ matrix.language }}
+
+    # Autobuild attempts to build any compiled languages
+    # In this case it runs the default build command `make all`
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v1
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
 ```
 
-You can omit one of the subdirectories and its dependencies from the {% data variables.product.prodname_codeql %} database by building it before calling the {% data variables.product.prodname_codeql %} CLI.
+You can omit a subdirectory and its dependencies from the {% data variables.product.prodname_codeql %} database by building it before the "Initialize {% data variables.product.prodname_codeql %}" step.
 
-```sh
-make lib2 
+```yml
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Build lib2
+     - run: |
+       make lib2
 
-codeql database create cpp-database --language=cpp --command='make src lib1'
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: ${{ matrix.language }}
+
+    # Autobuild attempts to build any compiled languages
+    # In this case it skips making `lib2` as this is already built
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v1
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
 ```
 
 The resulting {% data variables.product.prodname_codeql %} database will contain only code and dependencies from the `src` and `lib1` directories.
