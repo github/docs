@@ -1,6 +1,6 @@
 ---
-title: Managing GitHub Apps
-intro: 'After you create and register a GitHub App, you can make modifications to the app, change permissions, transfer ownership, and delete the app.'
+title: Adminsitrar las GitHub Apps
+intro: 'Después de que creas y registras una GitHub App, puedes hacer modificaciones a la misma, cambiar sus permisos, transferir la propiedad, y borrarla.'
 redirect_from:
   - /apps/building-integrations/managing-github-apps
   - /apps/managing-github-apps

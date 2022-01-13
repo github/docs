@@ -1,6 +1,6 @@
 ---
-title: Archiving repositories
-intro: You can archive a repository to make it read-only for all users and indicate that it's no longer actively maintained. You can also unarchive repositories that have been archived.
+title: リポジトリのアーカイブ
+intro: リポジトリをアーカイブし、すべてのユーザに対してリードオンリーとし、アクティブにメンテナンスされなくなったことを示すことができます。 アーカイブされたリポジトリのアーカイブを解除することもできます。
 redirect_from:
   - /articles/archiving-repositories
   - /github/creating-cloning-and-archiving-repositories/archiving-repositories
@@ -22,28 +22,26 @@ topics:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** If you have a legacy per-repository billing plan, you will still be charged for your archived repository. If you don't want to be charged for an archived repository, you must upgrade to a new product. For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)."
+**ノート：**過去のリポジトリ単位の支払いプランを利用している場合、アーカイブされたリポジトリについても支払いが続くことになります。 アーカイブされたリポジトリに対する支払いをしたくない場合には、新しい製品にアップグレードしなければなりません。 詳細は「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)」を参照してください。
 
 {% endnote %}
 {% endif %}
 
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
-Once a repository is archived, you cannot add or remove collaborators or teams. Contributors with access to the repository can only fork or star your project.
+リポジトリがアーカイブされると、コラボレータや Team の追加や削除ができなくなります。 リポジトリへのアクセス権を持つコントリビューターは、プロジェクトをフォークするか Star を付けることだけができます。
 
-When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, code scanning alerts, comments and permissions become read-only. To make changes in an archived repository, you must unarchive the repository first.
+When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, code scanning alerts, comments and permissions become read-only. アーカイブされたリポジトリに変更を加えるには、まずそのリポジトリのアーカイブ解除をしなければなりません。
 
-You can search for archived repositories. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)." You can also search for issues and pull requests within archived repositories. For more information, see "[Searching issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)."  
+アーカイブされたリポジトリに対して検索ができます。 詳しい情報については[リポジトリの検索](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)を参照してください。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)を参照してください。 詳しい情報については[Issueやプルリクエストの検索](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)を参照してください。
 
-## Archiving a repository
+## リポジトリをアーカイブへ保管
 
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", click **Archive this repository** or **Unarchive this repository**.
-   ![Archive this repository button](/assets/images/help/repository/archive-repository.png)
-4. Read the warnings.
-5. Type the name of the repository you want to archive or unarchive.
-  ![Archive repository warnings](/assets/images/help/repository/archive-repository-warnings.png)
-6. Click **I understand the consequences, archive this repository**.
+3. "Danger Zone" の下で [** Archive this repository**] (このリポジトリをアーカイブ) または [** Unarchive this repository**] (このリポジトリをアーカイブ解除) をクリックします。 ![[Archive this repository] ボタン](/assets/images/help/repository/archive-repository.png)
+4. 警告を読んでください。
+5. アーカイブあるいはアーカイブを解除したいリポジトリの名前を入力してください。 ![リポジトリのアーカイブの警告](/assets/images/help/repository/archive-repository-warnings.png)
+6. [**I understand the consequences, archive this repository**] (結果を承知した上で、このリポジトリをアーカイブ) をクリックします。

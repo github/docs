@@ -11,6 +11,10 @@ Adobe | Adobe Short-Lived Access Token | adobe_short_lived_access_token{% endif 
 Adobe | Adobe JSON Web Token | adobe_jwt{% endif %}
 Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id
 Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Amazon | Amazon OAuth Client ID | amazon_oauth_client_id{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Amazon | Amazon OAuth Client Secret | amazon_oauth_client_secret{% endif %}
 Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id
 Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
 {%- ifversion fpt or ghec or ghes > 3.2 %}

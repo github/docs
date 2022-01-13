@@ -1,7 +1,6 @@
 ---
 title: Gerenciando direitos de suporte para sua empresa
 intro: Você pode conceder aos integrantes da empresa a capacidade de gerenciar tíquetes de suporte para a conta corporativa.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
 versions:

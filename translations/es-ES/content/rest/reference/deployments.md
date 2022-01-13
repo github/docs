@@ -1,5 +1,5 @@
 ---
-title: Deployments
+title: Implementaciones
 intro: 'The deployments API allows you to create and delete deploy keys, deployments, and deployment environments.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -12,28 +12,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Deploy keys
+Los despliegues son slicitudes para desplegar una ref específica (rma, SHA, etiqueta). GitHub despliega un [evento de `deployment`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) al que puedan escuchar los servicios externos y al con el cual puedan actuar cuando se creen los despliegues nuevos. Los despliegues habilitan a los desarrolladores y a las organizaciones para crear herramientas sin conexión directa en torno a los despliegues, sin tener que preocuparse acerca de los detalles de implementación de entregar tipos de aplicaciones diferentes (por ejemplo, web o nativas).
 
-{% data reusables.repositories.deploy-keys %}
+Los estados de despliegue permiten que los servicios externos marquen estos despliegues con un estado de `error`, `failure`, `pending`, `in_progress`, `queued`, o `success` que pueden consumir los sistemas que escuchan a los [eventos de `deployment_status`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status).
 
-Deploy keys can either be setup using the following API endpoints, or by using GitHub. To learn how to set deploy keys up in GitHub, see "[Managing deploy keys](/developers/overview/managing-deploy-keys)."
+Los estados de despliegue también incluyen una `description` y una `log_url` opcionales, las cuales se recomiendan ampliamente, ya que hacen que los estados de despliegue sean más útiles. La `log_url` es la URL completa para la salida del despliegue, y la `description` es el resumen de alto nivel de lo que pasó con este despliegue.
 
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'keys' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+GitHub envía eventos de `deployment` y `deployment_status` cuando se crean despliegues y estados de despliegue nuevos. Estos eventos permiten que las integraciones de terceros reciban respuesta de las solicitudes de despliegue y actualizan el estado de un despliegue conforme éste progrese.
 
-## Deployments
-
-Deployments are requests to deploy a specific ref (branch, SHA, tag). GitHub dispatches a [`deployment` event](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) that external services can listen for and act on when new deployments are created. Deployments enable developers and organizations to build loosely coupled tooling around deployments, without having to worry about the implementation details of delivering different types of applications (e.g., web, native).
-
-Deployment statuses allow external services to mark deployments with an `error`, `failure`, `pending`, `in_progress`, `queued`, or `success` state that systems listening to [`deployment_status` events](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status) can consume.
-
-Deployment statuses can also include an optional `description` and `log_url`, which are highly recommended because they make deployment statuses more useful. The `log_url` is the full URL to the deployment output, and
-the `description` is a high-level summary of what happened with the deployment.
-
-GitHub dispatches `deployment` and `deployment_status` events when new deployments and deployment statuses are created. These events allows third-party integrations to receive respond to deployment requests and update the status of a deployment as progress is made.
-
-Below is a simple sequence diagram for how these interactions would work.
+Debajo encontrarás un diagrama de secuencia simple que explica cómo funcionarían estas interacciones.
 
 ```
 +---------+             +--------+            +-----------+        +-------------+
@@ -62,25 +49,40 @@ Below is a simple sequence diagram for how these interactions would work.
      |                      |                       |                     |
 ```
 
-Keep in mind that GitHub is never actually accessing your servers. It's up to your third-party integration to interact with deployment events. Multiple systems can listen for deployment events, and it's up to each of those systems to decide whether they're responsible for pushing the code out to your servers, building native code, etc.
+Ten en cuenta que GitHub jamás accede a tus servidores realmente. La interacción con los eventos de despliegue dependerá de tu integración de terceros. Varios sistemas pueden escuchar a los eventos de despliegue, y depende de cada uno de ellos decidir si son responsables de cargar el código a tus servidores, si crean código nativo, etc.
 
-Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% ifversion not ghae %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
+Toma en cuenta que el [Alcance de OAuth](/developers/apps/scopes-for-oauth-apps) de `repo_deployment` otorga acceso dirigido para los despliegues y estados de despliegue **sin** otorgar acceso al código del repositorio, mientras que {% ifversion not ghae %} los alcances de `public_repo` y{% endif %}`repo` también otorgan permisos para el código.
 
+### Despliegues inactivos
 
-### Inactive deployments
+Cuando configuras el estado de un despliegue como `success`, entonces todos los despliegues anteriores que no sean transitorios ni de producción y que se encuentren en el mismo repositorio con el mismo ambiente se convertirán en `inactive`. Para evitar esto, puedes configurar a `auto_inactive` como `false` cuando creas el estado del servidor.
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
-
-You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
+Puedes comunicar que un ambiente transitorio ya no existe si configuras el `state` como `inactive`.  El configurar al `state` como `inactive`muestra el despliegue como `destroyed` en {% data variables.product.prodname_dotcom %} y elimina el acceso al mismo.
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
+{% endfor %}
+
+## Estados de despliegue
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+## Llaves de implementación
+
+{% data reusables.repositories.deploy-keys %}
+
+Las llaves de despliegue pueden ya sea configurarse utilizando las siguientes terminales de la API, o mediante GitHub. Para aprender cómo configurar las llaves de despliegue en GitHub, consulta la sección "[Administrar las llaves de despliegue](/developers/overview/managing-deploy-keys)".
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'keys' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-## Environments
+## Ambientes
 
-The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+La API de Ambientes te permite crear, configurar y borrar ambientes. Para obtener más información sobre los ambientes, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)". Para administrar los secretos de ambiente, consulta la sección "[Secretos](/rest/reference/actions#secrets)".
 
 {% data reusables.gated-features.environments %}
 

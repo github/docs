@@ -1,6 +1,6 @@
 ---
-title: Commits
-intro: 'The commits API allows you to retrieve information and commits, create commit comments, and create commit statuses.'
+title: Confirmaciones
+intro: 'The commits API allows you to list, view, and compare commits in a repository. You can also interact with commit comments and commit statuses.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,56 +12,40 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Commits
-
-The Repo Commits API supports listing, viewing, and comparing commits in a repository.
-
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Commit comments
+## Comentarios sobre confirmación de cambios
 
-### Custom media types for commit comments
+### Tipos de medios personalizados para los comentarios de las confirmaciones
 
-These are the supported media types for commit comments. You can read more
-about the use of media types in the API [here](/rest/overview/media-types).
+Estos son los tipos de medios compatibles para los comentarios de las confirmaciones. Puedes leer más sobre el uso de tipos de medios en la API [aquí](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
     application/vnd.github-commitcomment.html+json
     application/vnd.github-commitcomment.full+json
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+Para obtener más información, consulta la sección "[Tipos de medios personalizados](/rest/overview/media-types)".
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Commit statuses
+## Estados de confirmación
 
-The status API allows external services to mark commits with an `error`,
-`failure`, `pending`, or `success` state, which is then reflected in pull requests
-involving those commits.
+La API de estados permite que los servicios externos marquen las confirmaciones con un estado de `error`, `failure`, `pending`, o `success`, el cual se refleja después en las solicitudes de extracción que involucran a esas confirmaciones.
 
-Statuses can also include an optional `description` and `target_url`, and
-we highly recommend providing them as they make statuses much more
-useful in the GitHub UI.
+Los estados también incluyen una `description` y una `target_url` opcionales, y recomendamos ampliamente proporcionarlas, ya que hacen mucho más útiles a los estados en la IU de GitHub.
 
-As an example, one common use is for continuous integration
-services to mark commits as passing or failing builds using status.  The
-`target_url` would be the full URL to the build output, and the
-`description` would be the high level summary of what happened with the
-build.
+Como ejemplo, un uso común es que los servicios de integración contínua marquen a las confirmaciones como compilaciones que pasan o fallan utilizando los estados.  La `target_url` sería la URL completa de la salida de la compilación, y la `description` sería el resumen de alto nivel de lo que pasó con la compilación.
 
-Statuses can include a `context` to indicate what service is providing that status.
-For example, you may have your continuous integration service push statuses with a context of `ci`, and a security audit tool push statuses with a context of `security`.  You can
-then use the [Get the combined status for a specific reference](/rest/reference/commits#get-the-combined-status-for-a-specific-reference) to retrieve the whole status for a commit.
+Los estados pueden incluir un `context` para indicar qué servicio está proporcionando ese estado. Por ejemplo, puedes hacer que tu servicio de integración continua cargue estados con un contexto de `ci`, y que una herramienta de auditoria de seguridad cargue estados con un contexto de `security`.  Puedes utilizar entonces el [Obtener el estado combinado para una referencia específica](/rest/reference/commits#get-the-combined-status-for-a-specific-reference) para recuperar todo el estado de una confirmación.
 
-Note that the `repo:status` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to statuses **without** also granting access to repository code, while the
-`repo` scope grants permission to code as well as statuses.
+Toma en cuenta que el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps) de `repo:status` otorga acceso dirigido a los estados **sin** otorgar también el acceso al código del repositorio, mientras que el alcance `repo` otorga permisos para el código y también para los estados.
 
-If you are developing a GitHub App and want to provide more detailed information about an external service, you may want to use the [Checks API](/rest/reference/checks).
+Si estás desarrollando una GitHub App y quieres proporcionar información más detallada sobre un servicio externo, tal vez quieras utilizar la [API de Verificaciones](/rest/reference/checks).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}

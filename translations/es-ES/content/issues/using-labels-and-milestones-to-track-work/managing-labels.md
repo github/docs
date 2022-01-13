@@ -1,6 +1,6 @@
 ---
-title: Managing labels
-intro: 'You can classify {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %} by creating, editing, applying, and deleting labels.'
+title: Administrar las etiquetas
+intro: 'Puedes clasificar {% ifversion fpt or ghec %}propuestas, solicitudes de cambio y debates{% else %}propuestas y solicitudes de cambio{% endif %} si creas, editas, aplicas y borras las etiquetas.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
@@ -31,58 +31,57 @@ topics:
   - Project management
 type: how_to
 ---
-## About labels
+  ## Acerca de las etiquetas
 
-You can manage your work on {% data variables.product.product_name %} by creating labels to categorize {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
+Puedes administrar tu trabajo en {% data variables.product.product_name %} si creas etiquetas para categorizar {% ifversion fpt or ghec %}propuestas, solicitudes de cambio, y debates{% else %}propuestas y solicitudes de cambio{% endif %}. Puedes aplicar etiquetas en el repositorio en el que éstas se hayan creado. Una vez que exista una etiqueta, puedes utilizarla en cualquier {% ifversion fpt or ghec %}propuesta, solicitud de cambio o debate{% else %}propuesta o solicitud de cambio{% endif %} dentro del repositorio.
 
-## About default labels
+## Acerca de las etiquetas predeterminadas
 
-{% data variables.product.product_name %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository.
+{% data variables.product.product_name %} ofrece etiquetas predeterminadas en cada repositorio nuevo. Puedes usar estas etiquetas predeterminadas para ayudar a crear un flujo de trabajo estándar en un repositorio.
 
-Label | Description
----  | ---
-`bug` | Indicates an unexpected problem or unintended behavior{% ifversion fpt or ghes or ghec %}
-`documentation` | Indicates a need for improvements or additions to documentation{% endif %}
-`duplicate` | Indicates similar {% ifversion fpt or ghec %}issues, pull requests, or discussions{% else %}issues or pull requests{% endif %}
-`enhancement` | Indicates new feature requests
-`good first issue` | Indicates a good issue for first-time contributors
-`help wanted` | Indicates that a maintainer wants help on an issue or pull request
-`invalid` | Indicates that an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} is no longer relevant
-`question` | Indicates that an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} needs more information
-`wontfix` | Indicates that work won't continue on an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}
+| Etiqueta                  | Descripción                                                                                                                                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `error`                   | Indica un problema inesperado o un comportamiento no intencionado{% ifversion fpt or ghes or ghec %}
+| `documentación`           | Indica una necesidad de mejoras o adiciones a la documentación{% endif %}
+| `duplicado`               | Indica {% ifversion fpt or ghec %}propuestas, solicitudes de cambio o debates{% else %}propuestas o solicitudes de cambio{% endif %}similares.                      |
+| `mejora`                  | Indica solicitudes de nueva función                                                                                                                                 |
+| `primera buena propuesta` | Indica una buena propuesta para los colaboradores por primera vez                                                                                                   |
+| `se busca ayuda`          | Indica que un mantenedor necesita ayuda en una propuesta o solicitud de extracción                                                                                  |
+| `no válida`               | Indica que ya no es relevante una {% ifversion fpt or ghec %}propuesta, solicitud de cambios, o debate{% else %}propuesta o solicitud de cambios{% endif %}
+| `pregunta`                | Sindica que una {% ifversion fpt or ghec %}propuesta, solicitud de cambios o debate{% else %}propuesta o solicitud de cambios{% endif %} necesita más información   |
+| `wontfix`                 | Indica que el trabajo no continuará en una {% ifversion fpt or ghec %}propuesta, solicitud de cambios o debate{% else %}propuesta o solicitud de cambios{% endif %}
 
-Default labels are included in every new repository when the repository is created, but you can edit or delete the labels later.
+Las etiquetas predeterminadas se incluyen en todos los repositorios nuevos cuando se crea el repositorio, pero luego puedes editarlas o eliminarlas.
 
-Issues with the `good first issue` label are used to populate the repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute). 
+Las propuestas con la etiqueta `good first issue` se utilizan para llenar la página de `contribute` del repositorio. Para encontrar un ejemplo de página de `contribute`, consulta [github/docs/contribute](https://github.com/github/docs/contribute).
 
 {% ifversion fpt or ghes or ghec %}
-Organization owners can customize the default labels for repositories in their organization. For more information, see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)."
+Los propietarios de la organización pueden personalizar las etiquetas predeterminadas para los repositorios de la organización. Para obtener más información, consulta "[Administrar etiquetas predeterminadas para los repositorios en tu organización](/articles/managing-default-labels-for-repositories-in-your-organization)".
 {% endif %}
 
-## Creating a label
+## Crear una etiqueta
 
-Anyone with write access to a repository can create a label.
+Cualquiera con acceso de escritura en un repositorio puede crear una etiqueta.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
-4. To the right of the search field, click **New label**.
+4. A la derecha del campo de búsqueda, haz clic en **Nueva etiqueta**.
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.create-label %}
 
-## Applying a label
+## Aplicar una etiqueta
 
-Anyone with triage access to a repository can apply and dismiss labels.
+Cualquiera con acceso de clasificación en un repositorio puede aplicar y descartar etiquetas.
 
-1. Navigate to the {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}.
-1. In the right sidebar, to the right of "Labels", click {% octicon "gear" aria-label="The gear icon" %}, then click a label.
-  !["Labels" drop-down menu](/assets/images/help/issues/labels-drop-down.png)
+1. Navega a la {% ifversion fpt or ghec %}propuesta, solicitud de cambios o debate{% else %}propuesta o solicitud de cambios{% endif %}.
+1. En la barra lateral derecha, a la derecha de "Etiquetas", haz clic en {% octicon "gear" aria-label="The gear icon" %} y luego en la etiqueta. ![Menú desplegable de "Labels"](/assets/images/help/issues/labels-drop-down.png)
 
-## Editing a label
+## Editar una etiqueta
 
-Anyone with write access to a repository can edit existing labels.
+Cualquiera con acceso de escritura en un repositorio puede editar las etiquetas existentes.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -93,18 +92,18 @@ Anyone with write access to a repository can edit existing labels.
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.save-label %}
 
-## Deleting a label
+## Eliminar una etiqueta
 
-Anyone with write access to a repository can delete existing labels.
+Cualquiera con acceso de escritura en un repositorio puede borrar las etiquetas existentes.
 
-Deleting a label will remove the label from issues and pull requests.
+El borrar una etiqueta la eliminará de las propuestas y soilcitudes de cambios.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
 {% data reusables.project-management.delete-label %}
 
-## Further reading
-- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
-- "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
-- "[Encouraging helpful contributions to your project with labels](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
+## Leer más
+- "[Filtrar y buscar propuestas y solicitudes de cambios](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
+- "[Administrar las etiquetas predeterminadas para los repositorios de tu organización](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
+- "[Fomentar las contribuciones sanas a tu proyecto con etiquetas](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

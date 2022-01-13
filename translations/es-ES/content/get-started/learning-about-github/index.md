@@ -1,6 +1,6 @@
 ---
-title: Learning about GitHub
-intro: 'Learn how you can use {% data variables.product.company_short %} products to improve your software management process and collaborate with other people.'
+title: Obtener información sobre GitHub
+intro: 'Aprende cómo puedes utilizar los productos de {% data variables.product.company_short %} para mejorar tu proceso de administración de software y colaborar con otras personas.'
 redirect_from:
   - /articles/learning-about-github
   - /github/getting-started-with-github/learning-about-github

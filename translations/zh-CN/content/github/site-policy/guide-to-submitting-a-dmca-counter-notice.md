@@ -1,5 +1,5 @@
 ---
-title: Guide to Submitting a DMCA Counter Notice
+title: 提交 DMCA 反对通知的指南
 redirect_from:
   - /dmca-counter-notice-how-to
   - /articles/dmca-counter-notice-how-to
@@ -11,72 +11,60 @@ topics:
   - Legal
 ---
 
-This guide describes the information that GitHub needs in order to process a counter notice to a DMCA takedown request. If you have more general questions about what the DMCA is or how GitHub processes DMCA takedown requests, please review our [DMCA Takedown Policy](/articles/dmca-takedown-policy).
+本指南介绍 GitHub 处理 DMCA 删除请求反通知所需的信息。 如果您对 DMCA 的概念或 GitHub 处理 DMCA 删除请求的方式有更多一般性疑问，请参阅我们的 [DMCA 删除政策](/articles/dmca-takedown-policy)。
 
-If you believe your content on GitHub was mistakenly disabled by a DMCA takedown request, you have the right to contest the takedown by submitting a counter notice. If you do, we will wait 10-14 days and then re-enable your content unless the copyright owner initiates a legal action against you before then. Our counter-notice form, set forth below, is consistent with the form suggested by the DMCA statute, which can be found at the U.S. Copyright Office's official website: <https://www.copyright.gov>.
+如果您认为 DMCA 删除请求误禁了您在 GitHub 上的内容，您有权通过提交反通知来反对删除。 如果您这样做，我们将等待 10-14 天，然后重新启用您的内容，除非版权所有者在此之前对您提起法律诉讼。 下述反通知形式与 DMCA 法规建议的形式一致，您可以登录美国版权局官方网站：<https://www.copyright.gov> 查看该法规。 版权局官方网站：<https://www.copyright.gov>。
 
-As with all legal matters, it is always best to consult with a professional about your specific questions or situation. We strongly encourage you to do so before taking any action that might impact your rights. This guide isn't legal advice and shouldn't be taken as such.
+与所有法律事务一样，就您的具体问题或情况咨询专业人员始终是最好的方式。 我们强烈建议您在采取任何可能影响您权利的行动之前这样做。 本指南不是法律意见，也不应作为法律意见。
 
-## Before You Start
+## 开始前
 
-***Tell the Truth.***
-The DMCA requires that you swear to your counter notice *under penalty of perjury*. It is a federal crime to intentionally lie in a sworn declaration. (*See* [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) Submitting false information could also result in civil liability—that is, you could get sued for money damages.
+***说实话。***DMCA 要求您对自己的反通知宣誓，如有不实会*受到伪证处罚*。 在宣誓声明中故意说谎是一种联邦罪行 。 （*请参阅* [美国 法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） （*请参阅* [美国法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） 提交虚假信息还可能导致民事责任，也就是说，可能被诉经济赔偿。
 
-***Investigate.***
-Submitting a DMCA counter notice can have real legal consequences. If the complaining party disagrees that their takedown notice was mistaken, they might decide to file a lawsuit against you to keep the content disabled. You should conduct a thorough investigation into the allegations made in the takedown notice and probably talk to a lawyer before submitting a counter notice.
+***调查。***提交 DMCA 反通知可能会产生现实的法律后果。 如果投诉方不同意其删除通知有误，他们可自行决定对您提起诉讼以求继续禁用内容。 在提交反通知之前，您应该对删除通知中的指控进行彻底的调查，并在必要时咨询律师。
 
-***You Must Have a Good Reason to Submit a Counter Notice.***
-In order to file a counter notice, you must have "a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled." ([U.S. Code, Title 17, Section 512(g)](https://www.copyright.gov/title17/92chap5.html#512).) Whether you decide to explain why you believe there was a mistake is up to you and your lawyer, but you *do* need to identify a mistake before you submit a counter notice. In the past, we have received counter notices citing mistakes in the takedown notice such as: the complaining party doesn't have the copyright; I have a license; the code has been released under an open-source license that permits my use; or the complaint doesn't account for the fact that my use is protected by the fair-use doctrine. Of course, there could be other defects with the takedown notice.
+***必须有充分的理由提交反通知。*** 要提交反通知，您必须“真正认为您的材料被删除或禁用是因为投诉有误或材料标识错误。” （[美国 法典，第 17 章，第 512(g) 条](https://www.copyright.gov/title17/92chap5.html#512)。） 是否要解释您认为存在错误的原因，取决于您和您的律师，但是在提交反通知之前，您*必须*找出错误。 我们在过去收到的反通知中，列举了一些删除通知中的错误，例如：投诉方没有版权；我有许可；该代码已在允许我使用的开源许可下发布；或投诉方没有考虑这一事实：我的使用受到合理使用原则的保护。 当然，删除通知中可能还有其他缺陷。
 
-***Copyright Laws Are Complicated.***
-Sometimes a takedown notice might allege infringement in a way that seems odd or indirect. Copyright laws are complicated and can lead to some unexpected results. In some cases a takedown notice might allege that your source code infringes because of what it can do after it is compiled and run. For example:
-  - The notice may claim that your software is used to [circumvent access controls](https://www.copyright.gov/title17/92chap12.html) to copyrighted works.
-  - [Sometimes](https://www.copyright.gov/docs/mgm/) distributing software can be copyright infringement, if you induce end users to use the software to infringe copyrighted works.
-  - A copyright complaint might also be based on [non-literal copying](https://en.wikipedia.org/wiki/Substantial_similarity) of design elements in the software, rather than the source code itself — in other words, someone has sent a notice saying they think your *design* looks too similar to theirs.
+***版权法很复杂。***有时，删除通知可能以比较奇怪或间接的方式指控侵权。 版权法很复杂，可能会导致一些意想不到的结果。 在某些情况下，删除通知可能基于您的源代码在进行编译和运行后能够执行的操作，而指控它侵权。 例如：
+  - 通知可能声称您的软件用于[规避版权作品的访问控制](https://www.copyright.gov/title17/92chap12.html)。
+  - [有时](https://www.copyright.gov/docs/mgm/)，分发软件也可能侵犯版权，假如您诱使最终用户使用软件侵犯受版权保护的作品。
+  - 版权投诉还可能基于软件中[非完全复制](https://en.wikipedia.org/wiki/Substantial_similarity)的设计元素，换句话说，有人可能会发出通知，说他们认为您的*设计*与他们的设计太像了。
 
-These are just a few examples of the complexities of copyright law. Since there are many nuances to the law and some unsettled questions in these types of cases, it is especially important to get professional advice if the infringement allegations do not seem straightforward.
+这些只是体现版权法复杂性的些许示例。 由于在这些类型的案例中，法律有许多微妙之处，还有一些悬而未决的问题，因此，在侵权指控看起来不那么直接的情况下，寻求专业意见尤为重要。
 
-***A Counter Notice Is A Legal Statement.***
-We require you to fill out all fields of a counter notice completely, because a counter notice is a legal statement — not just to us, but to the complaining party. As we mentioned above, if the complaining party wishes to keep the content disabled after receiving a counter notice, they will need to initiate a legal action seeking a court order to restrain you from engaging in infringing activity relating to the content on GitHub. In other words, you might get sued (and you consent to that in the counter notice).
+***反通知是法律声明。***我们要求您完整填写反通知的所有字段，因为反通知是一种法律声明——不仅是对我们的声明，也是对投诉方的声明。 如上所述，如果投诉方在收到反通知后，希望继续禁用内容，则他们将需要提起法律诉讼，寻求通过法院命令制止您从事与 GitHub 上的内容相关的侵权活动。 也就是说，您可能会被起诉（并且您在反通知中同意这一点）。
 
-***Your Counter Notice Will Be Published.***
-As noted in our [DMCA Takedown Policy](/articles/dmca-takedown-policy#d-transparency), **after redacting personal information,** we publish all complete and actionable counter notices at <https://github.com/github/dmca>. Please also note that, although we will only publicly publish redacted notices, we may provide a complete unredacted copy of any notices we receive directly to any party whose rights would be affected by it. If you are concerned about your privacy, you may have a lawyer or other legal representative file the counter notice on your behalf.
+***您的反通知将被公布。***如我们的 [DMCA 删除政策](/articles/dmca-takedown-policy#d-transparency)所述，**在删节个人信息后，**我们将在 <https://github.com/github/dmca> 上发布所有完整、有效的反通知。 另请注意，尽管我们只公开发布经删节的通知，但我们可能会向权利受影响的任何相关方直接提供相关通知的完整未删节版。 如果您担心自己的隐私，可以请律师或其他法律代表替您提交反通知。
 
-***GitHub Isn't The Judge.***
-GitHub exercises little discretion in this process other than determining whether the notices meet the minimum requirements of the DMCA. It is up to the parties (and their lawyers) to evaluate the merit of their claims, bearing in mind that notices must be made under penalty of perjury.
+***GitHub 不是法官。***除了确定通知是否符合 DMCA 的最低要求外，GitHub 在此过程中几乎不行使酌处权。 当事方（及其律师）应负责评估其投诉的合理性，并注意，此类通知受伪证处罚条款约束。
 
-***Additional Resources.***
-If you need additional help, there are many self-help resources online. Lumen has an informative set of guides on [copyright](https://www.lumendatabase.org/topics/5) and [DMCA safe harbor](https://www.lumendatabase.org/topics/14). If you are involved with an open-source project in need of legal advice, you can contact the [Software Freedom Law Center](https://www.softwarefreedom.org/about/contact/). And if you think you have a particularly challenging case, non-profit organizations such as the [Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) may also be willing to help directly or refer you to a lawyer.
+***其他资源。***如果您需要其他帮助，可以找到许多在线自助资源。 Lumen 有一套内容丰富的[版权](https://www.lumendatabase.org/topics/5)和 [DMCA 安全港](https://www.lumendatabase.org/topics/14)指南。 如果您参与一个开源项目，需要寻求法律意见，您可以联系[软件自由法律中心](https://www.softwarefreedom.org/about/contact/)。 如果您认为自己的案例特别有挑战，像[电子前沿基金会](https://www.eff.org/pages/legal-assistance)这样的非营利组织可能愿意直接提供帮助，或将您推荐给律师。
 
-## Your Counter Notice Must...
+## 您的反通知必须...
 
-1. **Include the following statement: "I have read and understand GitHub's Guide to Filing a DMCA Counter Notice."**
-We won't refuse to process an otherwise complete counter notice if you don't include this statement; however, we will know that you haven't read these guidelines and may ask you to go back and do so.
+1. **包括以下声明：“我已阅读并理解 GitHub 的《提交 DMCA 反通知指南》。”**如果您的反通知未包括此声明，但其他内容完整，我们不会拒绝处理；但我们知道您尚未阅读这些指南后，可能会要求您先完成这一步。
 
-2. ***Identify the content that was disabled and the location where it appeared.***
-The disabled content should have been identified by URL in the takedown notice. You simply need to copy the URL(s) that you want to challenge.
+2. ***标识被禁用的内容及其出现的位置。***被禁用的内容应该已在删除通知中通过 URL 进行了标识。 您只需复制要提出异议的 URL。
 
-3. **Provide your contact information.**
-Include your email address, name, telephone number, and physical address.
+3. **提供您的联系信息。**包括您的电子邮件地址、姓名、电话号码和实际地址。
 
-4. ***Include the following statement: "I swear, under penalty of perjury, that I have a good-faith belief that the material was removed or disabled as a result of a mistake or misidentification of the material to be removed or disabled."***
-You may also choose to communicate the reasons why you believe there was a mistake or misidentification. If you think of your counter notice as a "note" to the complaining party, this is a chance to explain why they should not take the next step and file a lawsuit in response. This is yet another reason to work with a lawyer when submitting a counter notice.
+4. ***包括以下声明：“我宣誓，我坚信材料被删除或禁用是因为投诉有误或材料标识错误，如有不实，愿接受伪证处罚 。”***您也可以选择传达您认为存在错误或错误标识的原因。 如果您将反通知视为传递给投诉方的“便条”，您可以利用这个机会，解释为什么他们不应该针对您的反通知采取下一步行动和提起诉讼。 这是在提交反通知时应该与律师合作的另一个原因。
 
-5. ***Include the following statement: "I consent to the jurisdiction of Federal District Court for the judicial district in which my address is located (if in the United States, otherwise the Northern District of California where GitHub is located), and I will accept service of process from the person who provided the DMCA notification or an agent of such person."***
+5. ***包括以下声明：“我同意，我地址所在司法区的联邦地方法院具有管辖权（如果在美国，则为 GitHub 所在的加州北区的联邦法院），我将接受提供 DMCA 通知的人或其代理人递送法院传票。”***
 
-6. **Include your physical or electronic signature.**
+6. **提供您的手写或电子签名。**
 
-## How to Submit Your Counter Notice
+## 如何提交反通知
 
-The fastest way to get a response is to enter your information and answer all the questions on our {% data variables.contact.contact_dmca %}.
+得到回复的最快方式是在我们的 {% data variables.contact.contact_dmca %} 上输入您的信息并回答所有问题。
 
-You can also send an email notification to <copyright@github.com>. You may include an attachment if you like, but please also include a plain-text version of your letter in the body of your message.
+您也可以发送电子邮件通知到 <copyright@github.com>。 您可以包含附件（如果您愿意），但在邮件正文中也应包含来函的纯文本版本。
 
-If you must send your notice by physical mail, you can do that too, but it will take *substantially* longer for us to receive and respond to it—and the 10-14 day waiting period starts from when we *receive* your counter notice. Notices we receive via plain-text email have a much faster turnaround than PDF attachments or physical mail. If you still wish to mail us your notice, our physical address is:
+如果非要通过实物邮件发送通知，也没问题，但我们接收和回复通知的时间会*大大*延长 - 并且 10-14 天的等待期从我们*收到*您的反通知时开始。 接收纯文本电子邮件通知比接收 PDF 附件或实物邮件要快得多。 如果您仍希望通过邮寄方式发送通知，我们的实际地址是：
 
 ```
 GitHub, Inc
-Attn: DMCA Agent
+收件人：DMCA 代理
 88 Colin P Kelly Jr St
 San Francisco, CA. 94107
 ```

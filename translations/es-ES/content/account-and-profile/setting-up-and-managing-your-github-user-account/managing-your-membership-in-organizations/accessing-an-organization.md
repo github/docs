@@ -1,6 +1,6 @@
 ---
-title: Accessing an organization
-intro: 'To access an organization that you''re a member of, you must sign in to your personal user account.'
+title: Acceder a una organización
+intro: 'Para acceder a una organización de la que eres miembro, debes iniciar sesión en tu cuenta de usuario personal.'
 redirect_from:
   - /articles/error-cannot-log-in-that-account-is-an-organization
   - /articles/cannot-log-in-that-account-is-an-organization
@@ -16,9 +16,10 @@ versions:
 topics:
   - Accounts
 ---
+
 {% tip %}
 
-**Tip:** Only organization owners can see and change the account settings for an organization.
+**Sugerencia:** Solo los propietarios de la organización pueden ver y cambiar los parámetros de la cuenta para una organización.
 
 {% endtip %}
 

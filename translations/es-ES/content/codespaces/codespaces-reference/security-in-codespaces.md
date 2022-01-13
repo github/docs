@@ -1,6 +1,6 @@
 ---
-title: Security in Codespaces
-intro: 'Overview of the {% data variables.product.prodname_codespaces %} security architecture, with guidelines to help you maintain security and minimize the risk of attack.'
+title: La seguridad den los Codespaces
+intro: 'Resumen de la arquitectura de seguridad de {% data variables.product.prodname_codespaces %}, con lineamientos para ayudarte a mantener la seguridad y minimizar el riesgo de un ataque.'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -9,100 +9,100 @@ topics:
   - Codespaces
   - Security
 type: reference
-shortTitle: Security in Codespaces
+shortTitle: Seguridad en los Codespaces
 ---
 
-## Overview of codespace security
+## Resumen de la seguridad de un codespace
 
-{% data variables.product.prodname_codespaces %} is designed to be security hardened by default. Consequently, you will need to ensure that your software development practices do not risk reducing the security posture of your codespace. 
+{% data variables.product.prodname_codespaces %} se diseñó para que, predeterminadamente, tuviera seguridad reforzada. Como consecuencia, necesitarás garantizar que tus prácticas de desarrollo de software no arriesguen el reducir la postura de seguridad de tu codespace.
 
-This guide describes the way Codespaces keeps your development environment secure and provides some of the good practices that will help maintain your security as you work. As with any development tool, remember that you should only open and work within repositories you know and trust.
+Esta guía describe la forma en la que Codespaces mantiene seguro tu ambiente de desarrollo y proporciona algunas de las buenas prácticas que ayudarán a mantener tu seguridad conforme trabajas. Como con cualquier herramienta de desarrollo, recuerda que solo debes intentar abrir y trabajar en repositorios que conoces y confías.
 
-### Environment isolation
+### Aislamiento de ambiente
 
-{% data variables.product.prodname_codespaces %} is designed to keep your codespaces separate from each other, with each using its own virtual machine and network.
+{% data variables.product.prodname_codespaces %} se diseñó para mantener tus codespaces separados entre sí, con cada uno utilizando su red y máquina virtual propias.
 
-#### Isolated virtual machines
+#### Máquinas virtuales aisladas
 
-Each codespace is hosted on its own newly-built virtual machine (VM). Two codespaces are never co-located on the same VM. 
+Cada codespace se hospeda en su máquina virtual (MV) recién creada. Dos codespaces jamás podrán ubicase en la misma MV.
 
-Every time you restart a codespace, it's deployed to a new VM with the latest available security updates.
+Cada vez que reinicias un codespace, este se lanza en una MV nueva con las actualizaciones más recientes de seguridad disponibles.
 
-#### Isolated networking
+#### Conexiones aisladas
 
-Each codespace has its own isolated virtual network. We use firewalls to block incoming connections from the internet and to prevent codespaces from communicating with each other on internal networks. By default, codespaces are allowed to make outbound connections to the internet.
+Cada codespace tiene su propia red virtual aislada. Utilizamos cortafuegos para bloquear las conexiones entrantes de la internet y para prevenir que los codespaces se comuniquen entre sí en redes internas. Predeterminadamente, se permite que los codespaces hagan conexiones salientes a la internet.
 
-### Authentication
+### Autenticación
 
-You can connect to a codespace using a web browser or from Visual Studio Code. If you connect from Visual Studio Code, you are prompted to authenticate with {% data variables.product.product_name %}. 
+Puedes conectarte a un codespace utilizando un buscador web o desde Visual Studio Code. Si te conectas desde Visual Studio Code, se te pedirá autenticarte con {% data variables.product.product_name %}.
 
-Every time a codespace is created or restarted, it's assigned a new {% data variables.product.company_short %} token with an automatic expiry period. This period allows you to work in the codespace without needing to reauthenticate during a typical working day, but reduces the chance that you will leave a connection open when you stop using the codespace.
+Cada vez que se cree o reinicie un codespace, se le asignará un token de {% data variables.product.company_short %} nuevo con un periodo de vencimiento automático. Este periodo te permite trabajar en el codespace sin necesitar volver a autenticarte durante un día de trabajo habitual, pero reduce la oportunidad de que dejes la conexión abierta cuando dejas de utilizar el codespace.
 
-The token's scope will vary depending on the access you have to the repository where the codespace was created:
+El alcance del token variará dependiendo del tipo de acceso que tengas en el repositorio en donde se creó el codespace:
 
-- **If you have write access to the repository**: The token will be scoped for read/write access to the repository.
-- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you attempt to push to a private repo where you only have read access, {% data variables.product.prodname_codespaces %} will prompt you to create a personal fork of the repository. The token will then be updated to have read/write access to the new personal fork. 
-- **If you've enabled your codespace to access other repositories**: When a codespace has been granted [access to other repositories](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces), any codespace created from that repository will have read/write tokens scoped to the source repository. In addition, the tokens will also receive read access to other repositories indicated by the user or organization.
+- **Si tienes acceso de escritura en el repositorio**: Se dará al token un alcance de acceso de lectura/escritura a este.
+- **So solo tienes acceso de lectura al repositorio**: El token solo permitirá que el código se clone desde el repositorio origen. Si intentas subir información a un repositorio privado en donde solo tengas acceso de lectura, {% data variables.product.prodname_codespaces %} te pedirá crear una bifurcación personal de este. El token entonces se actualizará para tener acceso de lectura/escritura a la bifurcación personal nueva.
+- **Si habilitaste tu codespace para que acceda a otros repositorios**: Cuando se le otorga [acceso a otros repositorios](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces) a un codespace, cualquiera de ellos que se cree desde ese repositorio tendrá tokens de lectura/escritura con alcance del repositorio origen. Adicionalmente, los tokens también recibirán acceso de lectura para otros repositorios que indique el usuario u organización.
 
-An organization's administrators specify which repositories should be considered trusted. An admin can [choose to trust](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces) none, all, or some of the organization's repositories. A codespace can't have greater permissions to access resources than the person who created it, even if the organization administrator has granted access to all users and all repositories.
+Los administradores de una organización especifican qué repositorios deberían considerarse como confiables. Un administrador puede [elegir confiar en](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces) todos, ninguno o algunos de los repositorios de la organización. Un codespace no puede tener permisos de acceso a los recursos si son mayores que los de la persona que lo creó, incluso si el administrador de la organización otorgó acceso a todos los usuarios y a todos los repositorios.
 
-### Codespace connections
+### Conexiones de los codespaces
 
-You can connect to your codespace using the TLS encrypted tunnel provided by the {% data variables.product.prodname_codespaces %} service. Only the creator of a codespace can connect to a codespace. Connections are authenticated with {% data variables.product.product_name %}.
+Puedes conectar tu codespace utilizando el túnel cifrado de TLS que proporciona el servicio de {% data variables.product.prodname_codespaces %}. Solo el creador de un codespace puede conectarse a este. Las conexiones se autentican con {% data variables.product.product_name %}.
 
-If you need to allow external access to services running on a codespace, you can enable port forwarding for private or public access.
+Si necesitas permitir el acceso externo a los servicios que se ejecutan en un codespace, puedes habilitar el reenvío de puertos para acceso público o privado.
 
-### Port forwarding
+### Reenvío de puertos
 
-If you need to connect to a service (such as a development web server) running within your codespace, you can configure port forwarding to make the service available on the internet. 
+Si necesitas conectarte a un servicio (tal como un servidor web de desarrollo) que se ejecute en tu codespace, puedes configurar el reenvío de puertos para hacer que el servicio esté disponible en la internet.
 
-**Privately forwarded ports**: Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
+**Puertos reenviados de forma privada**: Son accesibles mediante el internet, pero solo el creador del codespace puede acceder a ellos después de autenticarse en {% data variables.product.product_name %}.
 
-**Publicly forwarded ports within your organization**: Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
+**Puertos reenviados públicamente dentro de tu organización**: Se puede acceder a ellos a través de la internet, pero solo pueden hacerlo los miembros de la misma organización, como el codespace, después de autenticarse en {% data variables.product.product_name %}.
 
-**Publicly forwarded ports**: Are accessible on the internet, and anyone on the internet can access them. No authentication is needed to access public forwarded ports.
+**Puertos reenviados de forma pública**: Se puede acceder a ellos desde internet y todos pueden acceder a ellos. No se necesita autenticación para acceder a los puertos públicos reenviados.
 
-All forwarded ports are private by default, which means that you will need to authenticate before you can access the port. Access to a codespace's private forwarded ports is controlled by authentication cookies with a 3-hour expiry period. When the cookie expires, you will need to reauthenticate.
+Todos los puertos reenviados son privados predeterminadamente, lo cual significa que necesitarás autenticarte antes de poder acceder al puerto. El acceso a los puertos privados reenviados de un codespace se controla mediante cookies de autenticación con un periodo de vencimiento de 3 horas. Cuando la cookie venza, necesitarás volver a autenticarte.
 
-A public forwarded port will automatically revert back to private when you remove and re-add the port, or if you restart the codespace.
+Un puerto público renviado se revertirá automáticamente a privado cuando elimines y vuelvas a agregar dicho puerto o si reinicias el codespace.
 
-You can use the "Ports" panel to configure a port for public or private access, and can stop port forwarding when it's no longer required. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+Puedes utilizar el panel de "Puertos" para configurar uno de ellos para su acceso público o privado y puedes detener el reenvío de puertos cuando ya no sea necesario. Para obtener más información, consulta la sección "[Reenviar puertos en tu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
 
-## Good security practices for your codespaces
+## Buenas prácticas de seguridad para tus codespaces
 
-Codespaces are designed to be security hardened by default. To help maintain this posture, we recommend that you follow good security practices during your development procedures: 
+Los codespaces se diseñan para estar fortalecidos en seguridad predeterminadamente. Para ayudar a mantener esta postura, te recomendamos que sigas las buenas prácticas de seguridad durante tus procedimientos de desarrollo:
 
-- As with any development tool, remember that you should only open and work within repositories you know and trust.
-- Before you add new dependencies to the codespace, check whether they are well-maintained, and if they release updates to fix any security vulnerabilities found in their code.
+- Como con cualquier herramienta de desarrollo, recuerda que solo debes intentar abrir y trabajar en repositorios que conoces y confías.
+- Antes de agregar cualquier dependencia nueva al codespace, revisa si se mantienen bien y si lanzan actualizaciones para arreglar cualquier vulnerabilidad de seguridad que se encuentre en su código.
 
-### Using secrets to access sensitive information 
+### Utilizar secretos para acceder a la información sensible
 
-Always use encrypted secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME ` to see the value of a secret.
+Utiliza siempre secretos cifrados cuando quieras utilizar información sensible (tal como tokens de acceso) en un codespace. Puedes acceder a tus secretos como variables de ambiente en el codespace, incluso desde la terminal. Por ejemplo, puedes lanzar una terminal dentro de tu codespace y utilizar `echo $SECRET_NAME` para ver el valor del secreto.
 
-The secret values are copied to environment variables whenever the codespace is resumed or created, so if you update a secret value while the codespace is running, you’ll need to suspend and resume to pick up the updated value.
+Los valores del secreto se copian a las variables de ambiente cada que el codespace se reanuda o se crea, así que, si actualizas un valor secreto mientras el codespace se ejecuta, necesitarás suspender y reanudar para para tomar el valor actualziado.
 
-For more information on secrets, see:
-- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
-- "[Managing encrypted secrets for your repository and organization for Codespaces](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
+Para obtener más información sobre los secretos, consulta:
+- "[Administrar los secretos cifrados para tus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
+- "[Administrar los secretos cifrados para tu repositorio y organización para los Codespaces](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
 
-### Working with other people's contributions and repositories
+### Trabajar con las contribuciones y repositorios de otros
 
-When you create a codespace from a PR branch from a fork, the token in the codespace will vary depending on whether the repository is public or private:
-- For a private repository, the codespace is granted access to both the fork and parent.
-- For a public repository, the codespace will only have access to the fork and opening PRs on the parent.
+Cuando creas un codespace desde una rama de solicitud de cambios desde una bifurcación, el token en el codespace variará dependiendo de si el repositorio es público o privado:
+- En el caso de un repositorio privado, el codespace obtiene acceso tanto a la bifurcación como al padre.
+- En el caso de un repositorio público, el codespace solo tendrá acceso a la bifurcación y a abrir solicitudes de cambios en el padre.
 
-### Additional good practices
+### Buenas prácticas adicionales
 
-There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_codespaces %}. 
+Existen algunas buenas prácticas adicionales y riesgos de los cuales debes estar consciente cuando utilices los {% data variables.product.prodname_codespaces %}.
 
-#### Understanding a repository's devcontainer.json file
+#### Entender el archivo de devcontainer.json de un repositorio
 
-When creating a codespace, the [devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) is parsed and applied from the source repo, if one exists.  The devcontainer contains powerful features, such as installing third-party extensions and running arbitrary code through a supplied `postCreateCommand`.
+Cuando creas un codespace, el [devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) se interpreta y aplica desde el repositorio fuente, en caso de que exista.  El devcontainer contiene características poderosas, tales como instalar extensiones de terceros y ejecutar código arbitrario a través de un `postCreateCommand` suministrado.
 
-#### Granting access through features
+#### Otorgar acceso a través de características
 
-Certain development features can potentially add risk to your environment. For example, commit signing, secrets injected into environment variables, authenticated registry access, and packages access can all present potential security issues. We recommend that you only grant access to those who need it and adopt a policy of being as restrictive as possible. 
+Ciertas características de desarrollo pueden agregar riesgos a tu ambiente potencialmente. Por ejemplo, el firmar confirmaciones, inyectar secretos en las variables de ambiente, tener acceso autenticado al registro y acceder a los paquetes pueden representar problemas potenciales de seguridad. Te recomendamos que solo otorgues acceso a aquellos que lo necesiten y que adoptes una política de ser tan restrictivo como sea posible.
 
-#### Using extensions
+#### Utilizar extensiones
 
-Any additional {% data variables.product.prodname_vscode %} extensions that you've installed can potentially introduce more risk. To help mitigate this risk, ensure that the you only install trusted extensions, and that they are always kept up to date.
+Cualquier extensión adicional de {% data variables.product.prodname_vscode %} que hayas instalado puede introducir más riesgos potencialmente. Para ayudar a mitigar este riesgo, asegúrate de que solo instales extensiones confiables y de que siempre se mantengan actualizadas.

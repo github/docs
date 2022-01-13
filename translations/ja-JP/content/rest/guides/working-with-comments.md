@@ -1,6 +1,6 @@
 ---
-title: Working with comments
-intro: 'Using the REST API, you can access and manage comments in your pull requests, issues, or commits.'
+title: コメントを扱う
+intro: REST API を使用すると、プルリクエスト、Issue、およびコミットにある、コメントにアクセスして管理できます。
 redirect_from:
   - /guides/working-with-comments
   - /v3/guides/working-with-comments
@@ -15,27 +15,17 @@ topics:
 
 
 
-For any Pull Request, {% data variables.product.product_name %} provides three kinds of comment views:
-[comments on the Pull Request][PR comment] as a whole, [comments on a specific line][PR line comment] within the Pull Request,
-and [comments on a specific commit][commit comment] within the Pull Request. 
+各プルリクエストに対して、{% data variables.product.product_name %} は 3 種類のコメント表示を提供しています。プルリクエスト全体に対する[プルリクエストのコメント][PR comment]、プルリクエスト内の[特定行のコメント][PR line comment]、そしてプルリクエスト内の[特定のコメントへのコメント][commit comment]です。
 
-Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.
-In this guide, we'll explore how you can access and manipulate each one. For every
-example, we'll be using [this sample Pull Request made][sample PR] on the "octocat"
-repository. As always, samples can be found in [our platform-samples repository][platform-samples].
+Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. このガイドでは、それぞれにアクセスして操作する方法を説明します。 各例では、"octocat" リポジトリで作成した、[このサンプルのプルリクエスト][sample PR]を使用します。 いつもと同様、サンプルは [platform-samples リポジトリ][platform-samples]にあります。
 
-## Pull Request Comments
+## プルリクエストのコメント
 
-To access comments on a Pull Request, you'll go through [the Issues API][issues].
-This may seem counterintuitive at first. But once you understand that a Pull
-Request is just an Issue with code, it makes sense to use the Issues API to
-create comments on a Pull Request.
+プルリクエストのコメントにアクセスするには、[Issues API][issues] を経由します。 最初はこれを意外に思うかもしれません。 しかし、プルリクエストがコード付きの Issue に過ぎないことさえ理解すれば、プルリクエストにコメントを作成するため Issues API を使うこともうなずけるでしょう。
 
-We'll demonstrate fetching Pull Request comments by creating a Ruby script using
-[Octokit.rb][octokit.rb]. You'll also want to create a [personal access token][personal token].
+ここでは [Octokit.rb][octokit.rb] を使って Ruby スクリプトを作成し、プルリクエストのコメントをフェッチする方法を示します。 また、[個人アクセストークン][personal token]の作成もおすすめします。
 
-The following code should help you get started accessing comments from a Pull Request
-using Octokit.rb:
+Octokit.rb を使ってプルリクエストからコメントにアクセスを始めるには、以下のコードが役立つでしょう。
 
 ``` ruby
 require 'octokit'
@@ -53,18 +43,13 @@ client.issue_comments("octocat/Spoon-Knife", 1176).each do |comment|
 end
 ```
 
-Here, we're specifically calling out to the Issues API to get the comments (`issue_comments`),
-providing both the repository's name (`octocat/Spoon-Knife`), and the Pull Request ID
-we're interested in (`1176`). After that, it's simply a matter of iterating through
-the comments to fetch information about each one.
+ここでは、コメントを取得するため Issues API を 呼び出し (`issue_comments`)、取得したいコメントのリポジトリ名 (`octocat/Spoon-Knife`) とプルリクエスト ID (`1176`) の両方を指定しています。 その後は、コメントを反復処理して、各コメントの情報を取得しているだけです。
 
-## Pull Request Comments on a Line
+## 行につけるプルリクエストのコメント
 
-Within the diff view, you can start a discussion on a particular aspect of a singular
-change made within the Pull Request. These comments occur on the individual lines
-within a changed file. The endpoint URL for this discussion comes from [the Pull Request Review API][PR Review API].
+diff ビュー内では、プルリクエスト内の一つの変更について、特定の側面からディスカッションを開始できます。 これらのコメントは、変更されたファイル内の個々の行について書き込まれます。 このディスカッションのエンドポイントURLは、[Pull Request Review API][PR Review API] から取得されます。
 
-The following code fetches all the Pull Request comments made on files, given a single Pull Request number:
+以下のコードは、指定したプルリクエスト番号のファイルにあるプルリクエストのコメントすべてをフェッチします。
 
 ``` ruby
 require 'octokit'
@@ -84,19 +69,13 @@ client.pull_request_comments("octocat/Spoon-Knife", 1176).each do |comment|
 end
 ```
 
-You'll notice that it's incredibly similar to the example above. The difference
-between this view and the Pull Request comment is the focus of the conversation.
-A comment made on a Pull Request should be reserved for discussion or ideas on
-the overall direction of the code. A comment made as part of a Pull Request review should
-deal specifically with the way a particular change was implemented within a file.
+上の例と非常に似ていることにお気づきでしょう。 このビューとプルリクエストのコメントとの違いは、会話の焦点にあります。 プルリクエストに対するコメントは、コードの全体的な方向性についてのディスカッションやアイデアを扱うべきです。 プルリクエストのレビューの一環として行うコメントは、ファイルで特定の変更が実装された方法について特に扱うべきです。
 
-## Commit Comments
+## コミットのコメント
 
-The last type of comments occur specifically on individual commits. For this reason,
-they make use of [the commit comment API][commit comment API].
+最後のタイプのコメントは、特に個々のコミットで発生します。 For this reason, they make use of [the commit comment API][commit comment API].
 
-To retrieve the comments on a commit, you'll want to use the SHA1 of the commit.
-In other words, you won't use any identifier related to the Pull Request. Here's an example:
+コミットのコメントを取得するには、コミットの SHA1 を使用します。 言い換えれば、プルリクエストに関する識別子は全く使用しません。 次に例を示します。
 
 ``` ruby
 require 'octokit'
@@ -114,8 +93,7 @@ client.commit_comments("octocat/Spoon-Knife", "cbc28e7c8caee26febc8c013b0adfb97a
 end
 ```
 
-Note that this API call will retrieve single line comments, as well as comments made
-on the entire commit.
+この API 呼び出しは、単一の行コメントと、コミット全体に対するコメントを取得することに注目してください。
 
 [PR comment]: https://github.com/octocat/Spoon-Knife/pull/1176#issuecomment-24114792
 [PR line comment]: https://github.com/octocat/Spoon-Knife/pull/1176#discussion_r6252889

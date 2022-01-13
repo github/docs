@@ -1,6 +1,6 @@
 ---
-title: Updating credentials from the macOS Keychain
-intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% ifversion not ghae %} username, password, or{% endif %} personal access token on {% data variables.product.product_name %}.'
+title: Atualizar credenciais da keychain OSX
+intro: 'Você precisará atualizar suas credenciais salvas no auxiliar `git-credential-osxkeychain` se você alterar o seu {% ifversion not ghae %} nome de usuário, senha ou{% endif %} token de acesso pessoal em {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
@@ -12,39 +12,39 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: macOS Keychain credentials
+shortTitle: Credenciais de keychain do macOS
 ---
+
 {% tip %}
 
-**Note:** Updating credentials from the macOS Keychain only applies to users who manually configured a PAT using the  `osxkeychain` helper that is built-in to macOS. 
+**Observação:** A atualização das credenciais do macOS Keychain aplica-se apenas a usuários que configuraram manualmente um PAT usando o auxiliar  `osxkeychain` integrado ao macOS.
 
-We recommend you either [configure SSH](/articles/generating-an-ssh-key) or upgrade to the [Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) instead. GCM can manage authentication on your behalf (no more manual PATs) including 2FA (two-factor auth).
+Recomendamos que você [configure o SSH](/articles/generating-an-ssh-key) ou faça a atualização para o [Gerente de Credenciais do Git](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM). O GCM pode gerenciar a autenticação em seu nome (sem PATs manuais), incluindo a 2FA (autenticação de dois fatores).
 
 {% endtip %}
 
 {% data reusables.user_settings.password-authentication-deprecation %}
 
-## Updating your credentials via Keychain Access
+## Atualizar credenciais pelo Keychain Access
 
-1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar. Type `Keychain access` then press the Enter key to launch the app.
-   ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
-2. In Keychain Access, search for **{% data variables.command_line.backticks %}**.
-3. Find the "internet password" entry for `{% data variables.command_line.backticks %}`.
-4. Edit or delete the entry accordingly.
+1. Clique no ícone do Spotlight (lente ampliada) no lado direito da barra de menu. Digite `Acesso da Keychain` e, em seguida, pressione a chave Enter para iniciar o aplicativo. ![Barra de pesquisa do Spotlight](/assets/images/help/setup/keychain-access.png)
+2. No Keychain Access, procure por **{% data variables.command_line.backticks %}**.
+3. Localize a entrada "internet password" (senha da internet) referente a `{% data variables.command_line.backticks %}`.
+4. Edite ou exclua a entrada de acordo.
 
-## Deleting your credentials via the command line
+## Excluir credenciais pela linha de comando
 
-Through the command line, you can use the credential helper directly to erase the keychain entry.
+Através da linha de comando, você pode usar o auxiliar de credenciais diretamente para apagar a entrada de keychain.
 
 ```shell
 $ git credential-osxkeychain erase
 host={% data variables.command_line.codeblock %}
 protocol=https
-> <em>[Press Return]</em>
+> <em>[Pressione Return]</em>
 ```
 
-If it's successful, nothing will print out. To test that it works, try and clone a private repository from {% data variables.product.product_location %}. If you are prompted for a password, the keychain entry was deleted.
+Se a ação for bem-sucedida, nada será impresso. Para testar se funciona, tente clonar um repositório privado a partir de {% data variables.product.product_location %}. Se for solicitada uma senha, significa que a entrada da keychain foi excluída.
 
-## Further reading
+## Leia mais
 
-- "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
+- "[Armazenar suas credenciais de {% data variables.product.prodname_dotcom %} no Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"

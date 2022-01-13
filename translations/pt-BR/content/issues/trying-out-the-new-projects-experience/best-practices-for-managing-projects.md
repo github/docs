@@ -1,6 +1,6 @@
 ---
-title: Best practices for managing projects (beta)
-intro: 'Learn tips for managing your projects on {% data variables.product.company_short %}.'
+title: Práticas recomendadas para gerenciar projetos (beta)
+intro: 'Aprenda dicas para gerenciar seus projetos em {% data variables.product.company_short %}.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -15,54 +15,54 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-You can use projects to manage your work on {% data variables.product.company_short %}, where your issues and pull requests live. Read on for tips to manage your projects efficiently and effectively. For more information about projects, see "[About projects](/issues/trying-out-the-new-projects-experience/about-projects)."
+Você pode usar os projetos para gerenciar seu trabalho em {% data variables.product.company_short %}, onde os seus problemas e pull requests são gerados. Leia sobre as dicas para gerenciar seus projetos de forma eficiente e eficaz. Para obter mais informações sobre projetos, consulte "[Sobre projetos](/issues/trying-out-the-new-projects-experience/about-projects)".
 
-## Break down large issues into smaller issues
+## Dividir problemas grandes em problemas menores
 
-Breaking a large issue into smaller issues makes the work more manageable and enables team members to work in parallel. It also leads to smaller pull requests, which are easier to review.
+Dividir um problema grande em problemas menores torna o trabalho mais gerenciável e permite que os integrantes da equipe trabalhem em paralelo. Isso também gera pull requests menores, que são mais fáceis de revisar.
 
-To track how smaller issues fit into the larger goal, use task lists, milestones, or labels. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)", "[About milestones](/issues/using-labels-and-milestones-to-track-work/about-milestones)", and "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)."
+Para acompanhar como os problemas menores encaixam-se na meta maior, use a lista de tarefas, marcos ou etiquetas. Para obter mais informações, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)", "[Sobre marcos](/issues/using-labels-and-milestones-to-track-work/about-milestones)" e "[Gerenciando etiquetas](/issues/using-labels-and-milestones-to-track-work/managing-labels)".
 
-## Communicate
+## Comunicar
 
-Issues and pull requests include built-in features to let you easily communicate with your collaborators. Use @mentions to alert a person or entire team about a comment. Assign collaborators to issues to communicate responsibility. Link to related issues or pull requests to communicate how they are connected.
+Os problemas e pull requests incluem funcionalidades embutidas para permitir que você se comunique facilmente com os seus colaboradores. Use @menções para alertar uma pessoa ou uma equipe inteira sobre um comentário. Atribua colaboradores a problemas para comunicar responsabilidade. Vincule a problemas relacionados ou pull requests para comunicar como eles estão conectados.
 
-## Use views
+## Usar visualizações
 
-Use project views to look at your project from different angles.
+Use as visualizações do projeto para ver o seu projeto de ângulos diferentes.
 
-For example:
+Por exemplo:
 
-- Filter by status to view all un-started items
-- Group by a custom priority field to monitor the volume of high priority items
-- Sort by a custom date field to view the items with the earliest target ship date
+- Filtrar por status para visualizar todos os itens não iniciados
+- Agrupar por um campo personalizado de prioridade para monitorar o volume de itens de alta prioridade
+- Ordenar por um campo de data personalizado para exibir os itens com a data de envio mais recente
 
-For more information, see "[Customizing your project views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."
+Para obter mais informações, consulte "[Personalizar as visualizações do seu projeto](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
 
-## Have a single source of truth
+## Tenha uma única fonte de verdade
 
-To prevent information from getting out of sync, maintain a single source of truth. For example, track a target ship date in a single location instead of spread across multiple fields. Then, if the target ship date shifts, you only need to update the date in one location.
+Para evitar que as informações não fiquem sincronizadas, mantenha uma única fonte de verdade. Por exemplo, monitore uma data de envio em um único local, em vez de se espalhar por vários campos. Posteriormente, se a data de envio for alterada, você deverá apenas atualizar a data em um só lugar.
 
-{% data variables.product.company_short %} projects automatically stay up to date with {% data variables.product.company_short %} data, such as assignees, milestones, and labels. When one of these fields changes in an issue or pull request, the change is automatically reflected in your project.
+Os projetos de {% data variables.product.company_short %} ficam automaticamente atualizados com os dados de {% data variables.product.company_short %}, como os responsáveis, marcos e etiquetas. Quando um desses campos é alterado em um problema ou pull request, a alteração é refletida automaticamente no seu projeto.
 
-## Use automation
+## Usar automação
 
-You can automate tasks to spend less time on busy work and more time on the project itself. The less you need to remember to do manually, the more likely your project will stay up to date.
+Você pode automatizar as tarefas para gastar menos tempo com trabalho e mais tempo no próprio projeto. Quanto menos você precisar se lembrar de fazer manualmente, mais provável será que o seu projeto fique atualizado.
 
-Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done."
+Os projetos (beta) oferecem fluxos de trabalho integrados. Por exemplo, quando um problema é fechado, você pode definir automaticamente o status como "Concluído".
 
-Additionally, {% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. For example, to keep track of pull requests awaiting review, you can create a workflow that adds a pull request to a project and sets the status to "needs review"; this process can be automatically triggered when a pull request is marked as "ready for review."
+Além disso, {% data variables.product.prodname_actions %} e a API do GraphQL permitem que você automatize as tarefas de gerenciamento de projetos rotineiros. Por exemplo, para manter o controle de pull requests que estão aguardando revisão, você pode criar um fluxo de trabalho que adiciona um pull request a um projeto e define o status para "precisa de revisão"; este processo pode ser acionado automaticamente quando um pull request é marcado como "pronto para revisão."
 
-- For an example workflow, see "[Automating projects](/issues/trying-out-the-new-projects-experience/automating-projects)."
-- For more information about the API, see "[Using the API to manage projects](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)."
-- For more information about {% data variables.product.prodname_actions %}, see ["{% data variables.product.prodname_actions %}](/actions)."
+- Para obter um exemplo de fluxo de trabalho, consulte "[Automatizando projetos](/issues/trying-out-the-new-projects-experience/automating-projects)".
+- Para obter mais informações sobre a API, consulte "[Usando a API para gerenciar projetos](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)".
+- Para obter mais informações sobre {% data variables.product.prodname_actions %}, consulte ["{% data variables.product.prodname_actions %}](/actions)".
 
-## Use different field types
+## Usar diferentes tipos de campos
 
-Take advantage of the various field types to meet your needs.
+Aproveite os vários tipos de campo para atender às suas necessidades.
 
-Use an iteration field to schedule work or create a timeline. You can group by iteration to see if items are balanced between iterations, or you can filter to focus on a single iteration. Iteration fields also let you view work that you completed in past iterations, which can help with velocity planning and reflecting on your team's accomplishments.
+Use um campo de iteração para agendar o trabalho ou criar uma linha do tempo. Você pode agrupar por iteração para ver se os itens estão equilibrados entre iterações, ou você pode filtrar para focar em uma única iteração. Os campos de iteração também permitem ver o trabalho que você realizou em iterações anteriores, o que pode ajudar no planejamento de velocidade e refletir sobre as realizações da sua equipe.
 
-Use a single select field to track information about a task based on a preset list of values. For example, track priority or project phase. Since the values are selected from a preset list, you can easily group or filter to focus on items with a specific value.
+Use um único campo de seleção para rastrear informações sobre uma tarefa com base em uma lista de valores predefinidos. Por exemplo, monitore a prioridade ou a fase do projeto. Como os valores são selecionados a partir de uma lista predefinida, você pode facilmente agrupar ou filtrar focar em itens com um valor específico.
 
-For more information about the different field types, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-custom-fields)."
+Para obter mais informações sobre os diferentes tipos de campos, consulte "[Criando um projeto (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-custom-fields)".

@@ -1,6 +1,6 @@
 ---
-title: Canceling a GitHub Marketplace app
-intro: 'You can cancel and remove a {% data variables.product.prodname_marketplace %} app from your account at any time.'
+title: GitHub Marketplace アプリケーションのキャンセル
+intro: '{% data variables.product.prodname_marketplace %}のアプリケーションは、いつでもアカウントからキャンセルおよび削除できます。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/canceling-a-github-marketplace-app
   - /articles/canceling-an-app-for-your-personal-account
@@ -17,29 +17,30 @@ topics:
   - Organizations
   - Trials
   - User account
-shortTitle: Cancel a Marketplace app
+shortTitle: Marketplaceアプリケーションのキャンセル
 ---
-When you cancel an app, your subscription remains active until the end of your current billing cycle. The cancellation takes effect on your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
 
-When you cancel a free trial on a paid plan, your subscription is immediately canceled and you will lose access to the app. If you don't cancel your free trial within the trial period, the payment method on file for your account will be charged for the plan you chose at the end of the trial period. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
+アプリケーションをキャンセルすると、そのプランは現在の支払いサイクルが終わるまで有効のままとなり、 次の支払いサイクルで無効となります。 詳しい情報については、[{% data variables.product.prodname_marketplace %}の支払いについて](/articles/about-billing-for-github-marketplace)を参照してください。
+
+有料プランの無料トライアルをキャンセルすると、そのプランはすぐにキャンセルされ、キャンセルしたアプリケーションにアクセスできなくなります。 無料トライアル期間中にキャンセルしない場合、アカウントで設定された支払い方法で、トライアル期間の終了時にプランに対して課金されます。 詳しい情報については、[{% data variables.product.prodname_marketplace %}の支払いについて](/articles/about-billing-for-github-marketplace)を参照してください。
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-## Canceling an app for your personal account
+## 個人アカウントのアプリケーションをキャンセルする
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-## Canceling a free trial for an app for your personal account
+## 個人アカウントのアプリケーション無料トライアルをキャンセルする
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-free-trial-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-## Canceling an app for your organization
+## Organization の無料トライアルをキャンセルする
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
@@ -50,7 +51,7 @@ When you cancel a free trial on a paid plan, your subscription is immediately ca
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-## Canceling a free trial for an app for your organization
+## Organization のアプリケーション無料トライアルをキャンセルする
 
 {% data reusables.marketplace.marketplace-org-perms %}
 

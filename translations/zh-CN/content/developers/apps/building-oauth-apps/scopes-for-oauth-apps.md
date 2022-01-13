@@ -1,5 +1,5 @@
 ---
-title: Scopes for OAuth Apps
+title: OAuth 应用程序的作用域
 intro: '{% data reusables.shortdesc.understanding_scopes_for_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps
@@ -14,17 +14,18 @@ versions:
 topics:
   - OAuth Apps
 ---
-When setting up an OAuth App on GitHub, requested scopes are displayed to the user on the authorization form.
+
+在 GitHub 上设置 OAuth 应用程序时，请求的作用域会在授权表单上显示给用户。
 
 {% note %}
 
-**Note:** If you're building a GitHub App, you don’t need to provide scopes in your authorization request. For more on this, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+**注** ：如果您在构建 GitHub 应用程序，则不需要在授权请求中提供作用域。 更多信息请参阅“[识别和授权 GitHub 应用程序用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
 
 {% endnote %}
 
-If your {% data variables.product.prodname_oauth_app %} doesn't have access to a browser, such as a CLI tool, then you don't need to specify a scope for users to authenticate to your app. For more information, see "[Authorizing OAuth apps](/developers/apps/authorizing-oauth-apps#device-flow)."
+如果 {% data variables.product.prodname_oauth_app %} 无法访问浏览器（如 CLI 工具），则无需为用户指定向应用程序验证的作用域。 更多信息请参阅“[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps#device-flow)”。
 
-Check headers to see what OAuth scopes you have, and what the API action accepts:
+检查标头以查看您拥有哪些 OAuth 作用域，以及 API 操作接受什么：
 
 ```shell
 $ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
@@ -33,54 +34,53 @@ X-OAuth-Scopes: repo, user
 X-Accepted-OAuth-Scopes: user
 ```
 
-* `X-OAuth-Scopes` lists the scopes your token has authorized.
-* `X-Accepted-OAuth-Scopes` lists the scopes that the action checks for.
+* `X-OAuth-Scopes` 列出令牌已授权的作用域。
+* `X-Accepted-OAuth-Scopes` 列出操作检查的作用域。
 
-## Available scopes
+## 可用作用域
 
-Name | Description
------|-----------|{% ifversion not ghae %}
-**`(no scope)`** | Grants read-only access to public information (including user profile info, repository info, and gists){% endif %}{% ifversion ghes or ghae %}
-**`site_admin`** | Grants site administrators access to [{% data variables.product.prodname_ghe_server %} Administration API endpoints](/rest/reference/enterprise-admin).{% endif %}
-**`repo`** | Grants full access to repositories, including private repositories. That includes read/write access to code, commit statuses, repository and organization projects, invitations, collaborators, adding team memberships, deployment statuses, and repository webhooks for repositories and organizations. Also grants ability to manage user projects.
-&emsp;`repo:status`| Grants read/write access to commit statuses in {% ifversion fpt %}public and private{% elsif ghec or ghes %}public, private, and internal{% elsif ghae %}private and internal{% endif %} repositories. This scope is only necessary to grant other users or services access to private repository commit statuses *without* granting access to the code.
-&emsp;`repo_deployment`| Grants access to [deployment statuses](/rest/reference/repos#deployments) for {% ifversion not ghae %}public{% else %}internal{% endif %} and private repositories. This scope is only necessary to grant other users or services access to deployment statuses, *without* granting access to the code.{% ifversion not ghae %}
-&emsp;`public_repo`| Limits access to public repositories. That includes read/write access to code, commit statuses, repository projects, collaborators, and deployment statuses for public repositories and organizations. Also required for starring public repositories.{% endif %}
-&emsp;`repo:invite` | Grants accept/decline abilities for invitations to collaborate on a repository. This scope is only necessary to grant other users or services access to invites *without* granting access to the code.{% ifversion fpt or ghes > 3.0 or ghec %}
-&emsp;`security_events` | Grants: <br/> read and write access to security events in the [{% data variables.product.prodname_code_scanning %} API](/rest/reference/code-scanning) <br/> read and write access to security events in the [{% data variables.product.prodname_secret_scanning %} API](/rest/reference/secret-scanning) <br/> This scope is only necessary to grant other users or services access to security events *without* granting access to the code.{% endif %}{% ifversion ghes < 3.1 %}
-&emsp;`security_events` | Grants read and write access to security events in the [{% data variables.product.prodname_code_scanning %} API](/rest/reference/code-scanning). This scope is only necessary to grant other users or services access to security events *without* granting access to the code.{% endif %}
-**`admin:repo_hook`** | Grants read, write, ping, and delete access to repository hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories. The `repo` {% ifversion fpt or ghec or ghes %}and `public_repo` scopes grant{% else %}scope grants{% endif %} full access to repositories, including repository hooks. Use the `admin:repo_hook` scope to limit access to only repository hooks.
-&emsp;`write:repo_hook` | Grants read, write, and ping access to hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories.
-&emsp;`read:repo_hook`| Grants read and ping access to hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories.
-**`admin:org`** | Fully manage the organization and its teams, projects, and memberships.
-&emsp;`write:org`| Read and write access to organization membership, organization projects, and team membership.
-&emsp;`read:org`| Read-only access to organization membership, organization projects, and team membership.
-**`admin:public_key`** | Fully manage public keys.
-&emsp;`write:public_key`| Create, list, and view details for public keys.
-&emsp;`read:public_key`| List and view details for public keys.
-**`admin:org_hook`** | Grants read, write, ping, and delete access to organization hooks. **Note:** OAuth tokens will only be able to perform these actions on organization hooks which were created by the OAuth App. Personal access tokens will only be able to perform these actions on organization hooks created by a user.
-**`gist`** | Grants write access to gists.
-**`notifications`** | Grants: <br/>* read access to a user's notifications <br/>* mark as read access to threads <br/>* watch and unwatch access to a repository, and <br/>* read, write, and delete access to thread subscriptions.
-**`user`** | Grants read/write access to profile info only.  Note that this scope includes `user:email` and `user:follow`.
-&emsp;`read:user`| Grants access to read a user's profile data.
-&emsp;`user:email`| Grants read access to a user's email addresses.
-&emsp;`user:follow`| Grants access to follow or unfollow other users.
-**`delete_repo`** | Grants access to delete adminable repositories.
-**`write:discussion`** | Allows read and write access for team discussions.
-&emsp;`read:discussion` | Allows read access for team discussions.{% ifversion fpt or ghae or ghec %}
-**`write:packages`** | Grants access to upload or publish a package in {% data variables.product.prodname_registry %}. For more information, see "[Publishing a package](/github/managing-packages-with-github-packages/publishing-a-package)".
-**`read:packages`** | Grants access to download or install packages from {% data variables.product.prodname_registry %}. For more information, see "[Installing a package](/github/managing-packages-with-github-packages/installing-a-package)".
-**`delete:packages`** | Grants access to delete packages from {% data variables.product.prodname_registry %}. For more information, see "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."{% endif %}
-**`admin:gpg_key`** | Fully manage GPG keys.
-&emsp;`write:gpg_key`| Create, list, and view details for GPG keys.
-&emsp;`read:gpg_key`| List and view details for GPG keys.{% ifversion fpt or ghec %}
-**`codespace`** | Grants the ability to create and manage codespaces. Codespaces can expose a GITHUB_TOKEN which may have a different set of scopes. For more information, see "[Security in Codespaces](/codespaces/codespaces-reference/security-in-codespaces#authentication)."
-**`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."{% endif %}
+| 名称                       | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion not ghae %}
+| **`（无作用域）`**             | 授予对公共信息的只读访问权限（包括用户个人资料信息、公共仓库信息和 gist）{% endif %}{% ifversion ghes or ghae %}
+| **`site_admin`**         | 授予站点管理员对 [{% data variables.product.prodname_ghe_server %} 管理 API 端点](/rest/reference/enterprise-admin)的访问权限。{% endif %}
+| **`repo`**               | 授予对仓库（包括私有仓库）的完全访问权限。 这包括对仓库和组织的代码、提交状态、仓库和组织项目、邀请、协作者、添加团队成员身份、部署状态以及仓库 web 挂钩的读取/写入权限。 还授予管理用户项目的权限。                                                                                                                                                                                                                                                                                                                                |
+| &emsp;`repo:status`      | Grants read/write access to commit statuses in {% ifversion fpt %}public and private{% elsif ghec or ghes %}public, private, and internal{% elsif ghae %}private and internal{% endif %} repositories. 仅在授予其他用户或服务对私有仓库提交状态的访问权限而*不*授予对代码的访问权限时，才需要此作用域。                                                                                                                                                                              |
+| &emsp;`repo_deployment`  | 授予对{% ifversion not ghae %}公共{% else %}内部{% endif %}和私有仓库的[部署状态](/rest/reference/repos#deployments)的访问权限。 仅在授予其他用户或服务对部署状态的访问权限而*不*授予对代码的访问权限时，才需要此作用域。{% ifversion not ghae %}
+| &emsp;`public_repo`      | 将访问权限限制为公共仓库。 这包括对公共仓库和组织的代码、提交状态、仓库项目、协作者以及部署状态的读取/写入权限。 标星公共仓库也需要此权限。{% endif %}
+| &emsp;`repo:invite`      | 授予接受/拒绝仓库协作邀请的权限。 仅在授予其他用户或服务对邀请的访问权限而*不*授予对代码的访问权限时，才需要此作用域。{% ifversion fpt or ghes > 3.0 or ghec %}
+| &emsp;`security_events`  | 授予：<br/>对 [{% data variables.product.prodname_code_scanning %} API](/rest/reference/code-scanning) 中安全事件的读取和写入权限<br/>对 [{% data variables.product.prodname_secret_scanning %} API](/rest/reference/secret-scanning) 中安全事件的读取和写入权限<br/>仅在授予其他用户或服务对安全事件的访问权限而*不*授予对代码的访问权限时，才需要此作用域。{% endif %}{% ifversion ghes < 3.1 %}
+| &emsp;`security_events`  | 授予对 [{% data variables.product.prodname_code_scanning %} API](/rest/reference/code-scanning) 中安全事件的读取和写入权限。 仅在授予其他用户或服务对安全事件的访问权限而*不*授予对代码的访问权限时，才需要此作用域。{% endif %}
+| **`admin:repo_hook`**    | Grants read, write, ping, and delete access to repository hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories. The `repo` {% ifversion fpt or ghec or ghes %}and `public_repo` scopes grant{% else %}scope grants{% endif %} full access to repositories, including repository hooks. 使用 `admin:repo_hook` 作用域将访问权限限制为仅仓库挂钩。 |
+| &emsp;`write:repo_hook`  | Grants read, write, and ping access to hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories.                                                                                                                                                                                                                                  |
+| &emsp;`read:repo_hook`   | Grants read and ping access to hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories.                                                                                                                                                                                                                                          |
+| **`admin:org`**          | 全面管理组织及其团队、项目和成员。                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| &emsp;`write:org`        | 对组织成员身份、组织项目和团队成员身份的读取和写入权限。                                                                                                                                                                                                                                                                                                                                                                                                          |
+| &emsp;`read:org`         | 对组织成员身份、组织项目和团队成员身份的只读权限。                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **`admin:public_key`**   | 全面管理公钥。                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| &emsp;`write:public_key` | 创建、列出和查看公钥的详细信息。                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| &emsp;`read:public_key`  | 列出和查看公钥的详细信息。                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **`admin:org_hook`**     | 授予对组织挂钩的读取、写入、ping 和删除权限。 **注：**OAuth 令牌只能对由 OAuth 应用程序创建的组织挂钩执行这些操作。 个人访问令牌只能对用户创建的组织挂钩执行这些操作。                                                                                                                                                                                                                                                                                                                                       |
+| **`gist`**               | 授予对 gist 的写入权限。                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **`通知`**                 | 授予：<br/>* 对用户通知的读取权限 <br/>* 对线程的标记读取权限 <br/>* 对仓库的关注和取消关注权限，以及<br/>* 对线程订阅的读取、写入和删除权限。                                                                                                                                                                                                                                                                                                                        |
+| **`用户`**                 | 仅授予对个人资料的读取/写入权限。  请注意，此作用域包括 `user:email` 和 `user:follow`。                                                                                                                                                                                                                                                                                                                                                                           |
+| &emsp;`read:user`        | 授予读取用户个人资料数据的权限。                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| &emsp;`user:email`       | 授予对用户电子邮件地址的读取权限。                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| &emsp;`user:follow`      | 授予关注或取消关注其他用户的权限。                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **`delete_repo`**        | 授予删除可管理仓库的权限。                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **`write:discussion`**   | 授予对团队讨论的读取和写入权限。                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| &emsp;`read:discussion`  | 授予对团队讨论的读取权限。{% ifversion fpt or ghae or ghec %}
+| **`write:packages`**     | 授予在 {% data variables.product.prodname_registry %} 中上传或发布包的权限。 更多信息请参阅“[发布包](/github/managing-packages-with-github-packages/publishing-a-package)”。                                                                                                                                                                                                                                                                                   |
+| **`read:packages`**      | 授予从 {% data variables.product.prodname_registry %} 下载或安装包的权限。 更多信息请参阅“[安装包](/github/managing-packages-with-github-packages/installing-a-package)”。                                                                                                                                                                                                                                                                                    |
+| **`delete:packages`**    | 授予从 {% data variables.product.prodname_registry %} 删除包的权限。 For more information, see "{% ifversion fpt or ghes > 3.0 or ghec or ghae %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."{% endif %}
+| **`admin:gpg_key`**      | 全面管理 GPG 密钥。                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| &emsp;`write:gpg_key`    | 创建、列出和查看 GPG 密钥的详细信息。                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| &emsp;`read:gpg_key`     | 列出和查看 GPG 密钥的详细信息。{% ifversion fpt or ghec %}
+| **`代码空间`**               | Grants the ability to create and manage codespaces. Codespaces can expose a GITHUB_TOKEN which may have a different set of scopes. For more information, see "[Security in Codespaces](/codespaces/codespaces-reference/security-in-codespaces#authentication)."{% endif %}
+| **`工作流程`**               | 授予添加和更新 {% data variables.product.prodname_actions %} 工作流程文件的权限。 如果在同一仓库中的另一个分支上存在相同的文件(具有相同的路径和内容)，则工作流程文件可以在没有此作用域的情况下提交。 工作流程文件可以暴露可能有不同范围集的 `GITHUB_TOKEN`。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)。                                                                                                                                                               |
 
 {% note %}
 
-**Note:** Your OAuth App can request the scopes in the initial redirection. You
-can specify multiple scopes by separating them with a space using `%20`:
+**注：**您的 OAuth 应用程序可以在初始重定向中请求作用域。 您可以使用 `%20` 以空格分隔多个作用域来指定它们：
 
     https://github.com/login/oauth/authorize?
       client_id=...&
@@ -88,31 +88,16 @@ can specify multiple scopes by separating them with a space using `%20`:
 
 {% endnote %}
 
-## Requested scopes and granted scopes
+## 请求的作用域和授予的作用域
 
-The `scope` attribute lists scopes attached to the token that were granted by
-the user. Normally, these scopes will be identical to what you requested.
-However, users can edit their scopes, effectively
-granting your application less access than you originally requested. Also, users
-can edit token scopes after the OAuth flow is completed.
-You should be aware of this possibility and adjust your application's behavior
-accordingly.
+`scope` 属性列出了用户授予的附加到令牌的作用域。 通常，这些作用域与您请求的作用域相同。 但是，用户可以编辑其作用域，实际上授予应用程序更少的权限（相比您最初请求的权限）。 此外，用户还可以在 OAuth 流程完成后编辑令牌作用域。 您应该意识到这种可能性，并相应地调整应用程序的行为。
 
-It's important to handle error cases where a user chooses to grant you
-less access than you originally requested. For example, applications can warn
-or otherwise communicate with their users that they will see reduced
-functionality or be unable to perform some actions.
+如果用户选择授予更少的权限（相比您最初请求的权限），妥善处理这种错误情况非常重要。 例如，应用程序可以警告或以其他方式告诉用户，他们可用的功能会减少或者无法执行某些操作。
 
-Also, applications can always send users back through the flow again to get
-additional permission, but don’t forget that users can always say no.
+此外，应用程序总是可以将用户送回流程以获取更多权限，但不要忘记，用户总是可以说不。
 
-Check out the [Basics of Authentication guide](/guides/basics-of-authentication/), which
-provides tips on handling modifiable token scopes.
+请查看[身份验证基础知识指南](/guides/basics-of-authentication/)，其中提供了有关处理可修改令牌作用域的提示。
 
-## Normalized scopes
+## 标准化作用域
 
-When requesting multiple scopes, the token is saved with a normalized list
-of scopes, discarding those that are implicitly included by another requested
-scope. For example, requesting `user,gist,user:email` will result in a
-token with `user` and `gist` scopes only since the access granted with
-`user:email` scope is included in the `user` scope.
+请求多个作用域时，将用标准化的作用域列表保存令牌，而放弃其他请求的作用域隐式包含的那些作用域。 例如，请求 `user,gist,user:email` 将生成仅具有 `user` 和 `gist` 作用域的令牌，因为使用 `user:email` 作用域授予的权限包含在 `user` 作用域中。
