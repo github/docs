@@ -1,8 +1,8 @@
 ---
-title: Best practices for integrators
-intro: 'Build an app that reliably interacts with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API and provides the best experience for your users.'
+title: Mejores prácticas para los integradores
+intro: 'Crea una app que interactúe confiablemente con la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} y proporcione la mejor experiencia para tus usuarios.'
 redirect_from:
-  - /guides/best-practices-for-integrators/
+  - /guides/best-practices-for-integrators
   - /v3/guides/best-practices-for-integrators
 versions:
   fpt: '*'
@@ -11,63 +11,63 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: Integrator best practices
+shortTitle: Mejores prácticas del integrador
 ---
 
 
-Interested in integrating with the GitHub platform? [You're in good company](https://github.com/integrations). This guide will help you build an app that provides the best experience for your users *and* ensure that it's reliably interacting with the API. 
+¡Estás interesado en integrarte con la plataforma de GitHub? [Estás en las manos correctas](https://github.com/integrations). Esta guía te ayudará a crear una app que proporcione la mejor de las experiencias para tus usuarios *y* que garantice su confiabilidad al interactuar con la API.
 
-## Secure payloads delivered from GitHub
+## Asegura las cargas útiles que se entregen desde GitHub
 
-It's very important that you secure [the payloads sent from GitHub][event-types]. Although no personal information (like passwords) is ever transmitted in a payload, leaking *any* information is not good. Some information that might be sensitive include committer email address or the names of private repositories.
+Es muy importante que asegures [las cargas útiles que se envíen desde GitHub][event-types]. Aunque en una carga útil jamás se transmita información personal (como las contraseñas), no es bueno filtrar *ninguna* información. Algunos de los tipos de información que pudieran ser sensibles incluyen las direcciones de correo electrónico del confirmante o los nombres de los repositorios privados.
 
-There are several steps you can take to secure receipt of payloads delivered by GitHub:
+Hya varios pasos que puedes tomar para asegurar la recepción de las cárgas útiles que GitHub entregue:
 
-1. Ensure that your receiving server is on an HTTPS connection. By default, GitHub will verify SSL certificates when delivering payloads.{% ifversion fpt or ghec %}
-1. You can add [the IP address we use when delivering hooks](/github/authenticating-to-github/about-githubs-ip-addresses) to your server's allow list. To ensure that you're always checking the right IP address, you can [use the `/meta` endpoint](/rest/reference/meta#meta) to find the address we use.{% endif %}
-1. Provide [a secret token](/webhooks/securing/) to ensure payloads are definitely coming from GitHub. By enforcing a secret token, you're ensuring that any data received by your server is absolutely coming from GitHub. Ideally, you should provide a different secret token *per user* of your service. That way, if one token is compromised, no other user would be affected.
+1. Asegúrate de que tu servidor receptor tenga una conexión HTTPS. Predeterminadamente, GitHub verificará los certificados SSl cuando entregue las cargas útiles.{% ifversion fpt or ghec %}
+1. Puedes agregar [La dirección IP que utilizamos cuando entregamos ganchos](/github/authenticating-to-github/about-githubs-ip-addresses) a tu lista de conexiones permitidas de tu servidor. Para garantizar que siempre estés verificando la dirección IP correcta, puedes [utilizar la terminal de `/meta`](/rest/reference/meta#meta) para encontrar la dirección que utilizamos.{% endif %}
+1. Proporciona [un token secreto](/webhooks/securing/) para garantizar que las cargas útiles vengan de GitHub definitivamente. Al requerir un token secreto, te estás asegurando de que ninguno de los datos que recibe tu servidor viene de GitHub en lo absoluto. Idealmente, deberías proporcionar un token secreto diferente *por cada usuario* de tu servicio. Así, si un token se pone en riesgo, nadie más se vería afectado.
 
-## Favor asynchronous work over synchronous
+## Favorece el trabajo asincrónico sobre el sincronizado
 
-GitHub expects that integrations respond within {% ifversion fpt or ghec %}10{% else %}30{% endif %} seconds of receiving the webhook payload. If your service takes longer than that to complete, then GitHub terminates the connection and the payload is lost.
+GitHub espera que las integraciones respondan dentro de los primeros {% ifversion fpt or ghec %}10{% else %}30{% endif %} segundos de que se reciba la carga útil del webhook. Si tu servicio demora más que eso para completarse, entonces GitHub finaliza la conexión y se pierde la carga útil.
 
-Since it's impossible to predict how fast your service will complete, you should do all of "the real work" in a background job. [Resque](https://github.com/resque/resque/) (for Ruby), [RQ](http://python-rq.org/) (for Python), or [RabbitMQ](http://www.rabbitmq.com/) (for Java) are examples of libraries that can handle queuing and processing of background jobs.
+Ya que es imposible predecir qué tan rápido completará esto tu servidor, deberías hacer todo "el trabajo real" en un job que actúe en segundo plano. [Resque](https://github.com/resque/resque/) (para Ruby), [RQ](http://python-rq.org/) (para Python), o [RabbitMQ](http://www.rabbitmq.com/) (para JAVA) son algunos ejemplos de bibliotecas que pueden manejar jobs de segundo plano para procesamiento y formación en cola.
 
-Note that even with a background job running, GitHub still expects your server to respond within {% ifversion fpt or ghec %}ten{% else %}thirty{% endif %} seconds. Your server needs to acknowledge that it received the payload by sending some sort of response. It's critical that your service performs any validations on a payload as soon as possible, so that you can accurately report whether your server will continue with the request or not.
+Nota que, aún si tienes un job ejecutándose en segundo plano, GitHub sigue esperando que tu servidor responda dentro de {% ifversion fpt or ghec %}diez{% else %}veinte{% endif %} segundos. Tu servidor necesita reconocer que recibió la carga útil mediante el envío de algún tipo de respuesta. Es crítico que tu servicio realice cualquier validación de una carga útil tan pronto sea posible, para que puedas reportar con exactitud si tu servidor continuará con la solicitud o no.
 
-## Use appropriate HTTP status codes when responding to GitHub
+## Utiliza códigos de estado de HTTP adecuados cuando respondas a GitHub
 
-Every webhook has its own "Recent Deliveries" section, which lists whether a deployment was successful or not.
+Cada webhook tiene su propia sección de "Entregas Recientes", la cual lista si los despliegues tuvieron éxito o no.
 
-![Recent Deliveries view](/assets/images/webhooks_recent_deliveries.png)
+![Vista de entregas recientes](/assets/images/webhooks_recent_deliveries.png)
 
-You should make use of proper HTTP status codes in order to inform users. You can use codes like `201` or `202` to acknowledge receipt of payload that won't be processed (for example, a payload delivered by a branch that's not the default). Reserve the `500` error code for catastrophic failures.
+Deberías utilizar códigos de estado de HTTP adecuados para informar a los usuarios. Puedes utilizar códigos como el `201` o el `202` para reconocer la recepción de las cargas útiles que no se van a procesar (por ejemplo, una carga útil que entregue una rama que no sea la predeterminada). Reserva el código de error `500` para las fallas catastróficas.
 
-## Provide as much information as possible to the user
+## Proporciona al usuario tanta información como sea posible
 
-Users can dig into the server responses you send back to GitHub. Ensure that your messages are clear and informative.
+Los usuarios pueden profundizar en las respuestas del servidor que envíes de vuelta a GitHub. Asegúrate de que tus mensajes son claros e informativos.
 
-![Viewing a payload response](/assets/images/payload_response_tab.png)
+![Visualizar la respuesta de una carga útil](/assets/images/payload_response_tab.png)
 
-## Follow any redirects that the API sends you
+## Sigue cualquier redireccionamiento que te envíe la API
 
-GitHub is explicit in telling you when a resource has moved by providing a redirect status code. You should follow these redirections. Every redirect response sets the `Location` header with the new URI to go to. If you receive a redirect, it's best to update your code to follow the new URI, in case you're requesting a deprecated path that we might remove.
+GitHub es muy explícito en decirte cuando un recurso se migró y lo hace proporcionándote un código de estado de redirección. Debes seguir estas redirecciones. Cada respuesta de redirección configura el encabezado `Location` con la URI nueva a la cual debes dirigirte. Si recibes una redirección, es mejor que actualices tu código para seguir a la nueva URI, en caso de que estés utilizando una ruta obsoleta que tal ves eliminemos.
 
-We've provided [a list of HTTP status codes](/rest#http-redirects) to watch out for when designing your app to follow redirects.
+Hemos proporcionado [una lista de códigos de estado de HTTP](/rest#http-redirects) que puedes consultar cuando estés diseñando tu app para seguir las redirecciones.
 
-## Don't manually parse URLs
+## No analices las URL manualmente
 
-Often, API responses contain data in the form of URLs. For example, when requesting a repository, we'll send a key called `clone_url` with a URL you can use to clone the repository.
+A menudo, las respuestas a la API contienen datos en forma de URL. Por ejemplo, cuando solicitamos un repositorio, estamos enviando una clave denominada `clone_url` con la URL que puedes utilizar para clonar el repositorio.
 
-For the stability of your app, you shouldn't try to parse this data or try to guess and construct the format of future URLs. Your app is liable to break if we decide to change the URL.
+Para mantener la estabilidad de tu app, no deberías analizar estos datos o tratr de adivinar y construir el formato de las URL futuras. Tu app puede fallar si decidimos cambiar la URL.
 
-For example, when working with paginated results, it's often tempting to construct URLs that append `?page=<number>` to the end. Avoid that temptation. [Our guide on pagination](/guides/traversing-with-pagination) offers some safe tips on dependably following paginated results.
+Por ejemplo, cuando estamos trabajando con resultados paginados, a menudo es tentador construir las URL que adjunten `?page=<number>` al final. Evita esa tentación. [Nuestra guía sobre paginación](/guides/traversing-with-pagination) te ofrece tips de seguridad sobre cómo seguir resultados paginados de manera confiable.
 
-## Check the event type and action before processing the event
+## Verifica el tipo de evento y de acción antes de procesar el evento
 
-There are multiple [webhook event types][event-types], and each event can have multiple actions. As GitHub's feature set grows, we will occasionally add new event types or add new actions to existing event types. Ensure that your application explicitly checks the type and action of an event before doing any webhook processing. The `X-GitHub-Event` request header can be used to know which event has been received so that processing can be handled appropriately. Similarly, the payload has a top-level `action` key that can be used to know which action was taken on the relevant object.
+Hay varios [tipos de eventos de webhook][event-types], y cada evento puede tener varias acciones. En medida en que el conjunto de características de GitHub crece, de vez en cuando agregaremos tipos de evento para nuevas acciones a los tipos de evento existentes. Asegúrate de que tu aplicación verifique el tipo y acción de un evento explícitamente antes de que hagas cualquier procesamiento de webhook. El encabezado de solicitud de `X-GitHub-Event` puede utilizarse para saber qué evento se recibió, para que el procesamiento se pueda gestionar de manera adecuada. De manera similar, la carga útil tiene una clave de `action` de alto nivel que puede utilizarse para saber qué acción se llevó a cabo en el objeto relevante.
 
-For example, if you have configured a GitHub webhook to "Send me **everything**", your application will begin receiving new event types and actions as they are added. It is therefore **not recommended to use any sort of catch-all else clause**. Take the following code example:
+Por ejemplo, si configuraste un webhook de GitHub para "Enviarme **todo**", tu aplicación comenzará a recibir tipos de evento y acciones nuevos conforme se agreguen. Por lo tanto, **no se recomienda utilizar ningún tipo de cláusula "else" que reciba todo**. Toma como ejemplo el siguiente extracto de código:
 
 ```ruby
 # Not recommended: a catch-all else clause
@@ -86,9 +86,9 @@ def receive
 end
 ```
 
-In this code example, the `process_repository` and `process_issues` methods will be correctly called if a `repository` or `issues` event was received. However, any other event type would result in `process_pull_requests` being called. As new event types are added, this would result in incorrect behavior and new event types would be processed in the same way that a `pull_request` event would be processed.
+En este ejemplo, se llamará correctamente a los métodos de `process_repository` y `process_issues` si se recibió un evento de `repository` o de `issues`. Sin embargo, cualquier otro tipo de evento resultaría en que se llamara a `process_pull_requests`. En medida en que se agreguen tipos de evento nuevos, esto dará como resultado un comportamiento incorrecto y los tipos de evento nuevos se procesarían de la misma forma que se haría con un evento de `pull_request`.
 
-Instead, we suggest explicitly checking event types and acting accordingly. In the following code example, we explicitly check for a `pull_request` event and the `else` clause simply logs that we've received a new event type:
+En vez de esto, te sugerimos revisar los tipos de evento explícitamente y tomar acciones adecuadas para cada caso. En el siguiente ejemplo, estamos verificando explícitamente si hay eventos de `pull_request` y la cláusula `else` simplemente registra lo que recibimos en un tipo de evento nuevo:
 
 ```ruby
 # Recommended: explicitly check each event type
@@ -109,9 +109,9 @@ def receive
 end
 ```
 
-Because each event can also have multiple actions, it's recommended that actions are checked similarly. For example, the [`IssuesEvent`](/webhooks/event-payloads/#issues) has several possible actions. These include `opened` when the issue is created, `closed` when the issue is closed, and `assigned` when the issue is assigned to someone.
+Ya que cada evento puede tener acciones múltiples también, se recomienda que las acciones se verifiquen de forma similar. Por ejemplo, el [`IssuesEvent`](/webhooks/event-payloads/#issues) tiene muchas acciones posibles. Estas incluyen a `opened` cuando se crea el informe de problemas, a `closed` cuando el informe de problemas se cierra, y a `assigned` cuando este informe se asigna a alguien.
 
-As with adding event types, we may add new actions to existing events. It is therefore again **not recommended to use any sort of catch-all else clause** when checking an event's action. Instead, we suggest explicitly checking event actions as we did with the event type. An example of this looks very similar to what we suggested for event types above:
+De la misma forma como agregamos tipos de evento, podemos agregar acciones nuevas a los eventos existentes. Por lo tanto, nuevamente **no se recomienda utilizar ningún tipo de cláusula "else" para recibir todo** cuando verificamos la acción de un evento. En vez de esto, te sugerimos verificar las acciones de evento explícitamente como lo hicimos con el tipo de evento. Un ejemplo de esto se ve muy similar a lo que sugerimos para los tipos de evento anteriormente:
 
 ```ruby
 # Recommended: explicitly check each action
@@ -129,47 +129,40 @@ def process_issue(payload)
 end
 ```
 
-In this example the `closed` action is checked first before calling the `process_closed` method. Any unidentified actions are logged for future reference.
+En este ejemplo, la acción `closed` se verifica primero antes de llamar al método `process_closed`. Cualquier acción sin identificar se registra para referencias futuras.
 
 {% ifversion fpt or ghec %}
 
-## Dealing with rate limits
+## Lidiar con los límites de tasa
 
-The GitHub API [rate limit](/rest/overview/resources-in-the-rest-api#rate-limiting) ensures that the API is fast and available for everyone.
+El [límite de tasa](/rest/overview/resources-in-the-rest-api#rate-limiting) de la API de GitHub se asegura de que la API sea rápida y esté disponible para todos.
 
-If you hit a rate limit, it's expected that you back off from making requests and try again later when you're permitted to do so. Failure to do so may result in the banning of your app.
+Si alcanzas un límite de tasa, se espera que te retires y no sigas haciendo solicitudes y que intentes más tarde cuando se te permita hacerlo. Si no lo haces, podríamos prohibir tu app.
 
-You can always [check your rate limit status](/rest/reference/rate-limit) at any time. Checking your rate limit incurs no cost against your rate limit.
+Siempre puedes [verificar el estado de tu límite de tasa](/rest/reference/rate-limit) en cualquier momento. El verificar tu límite de tasa no representa costo alguno para éste.
 
-## Dealing with secondary rate limits
+## Lidiar con límites de tasa secundarios
 
-[Secondary rate limits](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) are another way we ensure the API's availability.
-To avoid hitting this limit, you should ensure your application follows the guidelines below.
+Los [Límites de tasa secundarios](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) son otra forma en la que nos aseguramos de que la API tenga disponibilidad. Para evitar llegar a este límite, deberás asegurarte de que tu aplicación siga los siguientes lineamientos.
 
-* Make authenticated requests, or use your application's client ID and secret. Unauthenticated
-  requests are subject to more aggressive secondary rate limiting.
-* Make requests for a single user or client ID serially. Do not make requests for a single user
-  or client ID concurrently.
-* If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user
-  or client ID, wait at least one second between each request.
-* When you have been limited, use the `Retry-After` response header to slow down. The value of the
-  `Retry-After` header will always be an integer, representing the number of seconds you should wait
-  before making requests again. For example, `Retry-After: 30` means you should wait 30 seconds
-  before sending more requests.
-* Requests that create content which triggers notifications, such as issues, comments and pull requests,
-  may be further limited and will not include a `Retry-After` header in the response. Please create this
-  content at a reasonable pace to avoid further limiting.
+* Hacer solicitudes autenticadas, o utilizar la ID de cliente y secreto de tu aplicación. Las solicitudes sin autenticar están sujetas a una limitación de tasa secundaria más agresiva.
+* Hacer solicitudes en serie para solo un usuario o ID de cliente. No hagas solicitudes para solo un usuario o ID de cliente simultáneamente.
+* Si haces muchas solicitudes de tipo `POST`, `PATCH`, `PUT`, o `DELETE` para un solo usuario o ID de cliente, espera por lo menos un segundo entre cada una.
+* Cuando se te limita, utiliza el encabezado de respuesta `Retry-After` para bajar la velocidad. El valor del encabezado `Retry-After` siembre será un número entero, el cual representará la cantidad de segundos que debes esperar antes de volver a hacer la solicitud. Por ejemplo, `Retry-After: 30` significa que debes esperar 30 segundos antes de enviar más solicitudes.
+* Las solicitudes que crean contenido que activa notificaciones, tales como informes de problemas, comentarios y solicitudes de extracción, puede limitarse aún más y no incluirá un encabezado de `Retry-After` en la respuesta. Por favor, crea este contenido con un ritmo razonable para evitar que se te limite nuevamente.
 
-We reserve the right to change these guidelines as needed to ensure availability.
+Nos reservamos el derecho de cambiar estos lineamientos como sea necesario para garantizar la disponibilidad.
 
 {% endif %}
 
-## Dealing with API errors
+## Lidiar con los errores de la API
 
-Although your code would never introduce a bug, you may find that you've encountered successive errors when trying to access the API.
+Aunque tu código jamás introducirá un error, podrías encontrarte con que has dado con varios errores sucesivos cuando intentas acceder a la API.
 
-Rather than ignore repeated `4xx` and `5xx` status codes, you should ensure that you're correctly interacting with the API. For example, if an endpoint requests a string and you're passing it a numeric value, you're going to receive a `5xx` validation error, and your call won't succeed. Similarly, attempting to access an unauthorized or nonexistent endpoint will result in a `4xx` error.
+En vez de ignorar los códigos de estado `4xx` y `5xx` repetidamente, debes asegurarte de que estás interactuando correctamente con la API. Por ejemplo, si una terminal solicita una secuencia y estás pasando un valor numérico, vas a recibir un error de validación `5xx`, y tu llamada no tendrá éxito. De forma similar, el intentar acceder a una terminal inexistente o no autorizada dará como resultado un error `4xx`.
 
-Intentionally ignoring repeated validation errors may result in the suspension of your app for abuse.
+El ignorar los errores de validación constantes a propóstio podría resultar en la suspensión de tu app por abuso.
+
+[event-types]: /webhooks/event-payloads
 
 [event-types]: /webhooks/event-payloads

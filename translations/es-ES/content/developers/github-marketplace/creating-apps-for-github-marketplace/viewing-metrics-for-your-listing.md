@@ -2,9 +2,9 @@
 title: Visualizar las métricas para tu listado
 intro: 'La página de perspectivas de {% data variables.product.prodname_marketplace %} muestra métricas para tu {% data variables.product.prodname_github_app %}. Puedes utilizar las métricas para rastrear el desempeño de tu {% data variables.product.prodname_github_app %} y tomar decisiones informadas acerca de los precios, planes, periodos de prueba gratuitos, y de cómo visualizar los efectos de las campañas de marketing.'
 redirect_from:
-  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/github-marketplace-insights/
+  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/github-marketplace-insights
   - /marketplace/github-marketplace-insights
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:

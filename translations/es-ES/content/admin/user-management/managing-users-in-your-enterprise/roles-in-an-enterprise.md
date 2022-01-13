@@ -1,11 +1,10 @@
 ---
-title: Roles in an enterprise
-intro: 'Everyone in an enterprise is a member of the enterprise. To control access to your enterprise''s settings and data, you can assign different roles to members of your enterprise.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
+title: Roles en una empresa
+intro: 'Todas las personas en una empresa son miembros de ella. Para controlar el acceso a los datos y configuraciones de tu empresa, puedes asignar roles diferentes a los miembros de ella.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account
-  - /articles/permission-levels-for-a-business-account/
+  - /articles/permission-levels-for-a-business-account
   - /articles/roles-for-an-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise
 versions:
@@ -16,61 +15,61 @@ topics:
   - Enterprise
 ---
 
-## About roles in an enterprise
+## Acerca de los roles en una empresa
 
-Everyone in an enterprise is a member of the enterprise. You can also assign administrative roles to members of your enterprise. Each administrator role maps to business functions and provides permissions to do specific tasks within the enterprise.
+Todas las personas en una empresa son miembros de ella. También puedes asignar roles administrativos a los miembros de tu empresa. Cada rol de admnistrador mapea las funciones de negocio y proporciona permisos para llevar a cabo tareas específicas dentro de la empresa.
 
 {% data reusables.enterprise-accounts.enterprise-administrators %}
 
 {% ifversion ghec %}
-If your enterprise does not use {% data variables.product.prodname_emus %}, you can invite someone to an administrative role using a user account on {% data variables.product.product_name %} that they control. For more information, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)".
+Si tu empresa no utiliza {% data variables.product.prodname_emus %}, puedes invitar a alguien a un rol administrativo utilizando una cuetna de usuario en {% data variables.product.product_name %} que ellos controlen. Para obtener más información, consulta la sección "[Invitar a las personas para que administren tu empresa](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)".
 
-In an enterprise using {% data variables.product.prodname_emus %}, new owners and members must be provisioned through your identity provider. Enterprise owners and organization owners cannot add new members or owners to the enterprise using {% data variables.product.prodname_dotcom %}. You can select a member's enterprise role using your IdP and it cannot be changed on {% data variables.product.prodname_dotcom %}. You can select a member's role in an organization on {% data variables.product.prodname_dotcom %}. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+En una empresa que utiliza {% data variables.product.prodname_emus %}, los propietarios y miembros nuevos deben aprovisionarse mediante tu proveedor de identidad. Los propietarios empresariales y propietarios de empresas no pueden agregar miembros o propietarios nuevos a la empresa utilizando {% data variables.product.prodname_dotcom %}. Puedes seleccionar el rol empresarial de un miembro utilizando tu IdP y no puede cambiarse en {% data variables.product.prodname_dotcom %}. Puedes seleccionar el rol de un miembro en una organización de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
 {% else %}
-For more information about adding people to your enterprise, see "[Authentication](/admin/authentication)".
+Para obtener más información acerca de cómo agregar personas a tu empresa, consulta la sección "[Autenticación](/admin/authentication)".
 
 {% endif %}
 
-## Enterprise owner
+## Propietario de empresa
 
-Enterprise owners have complete control over the enterprise and can take every action, including:
-- Managing administrators
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise
-- Managing enterprise settings
-- Enforcing policy across organizations
-{% ifversion ghec %}- Managing billing settings{% endif %}
+Los propietarios de las empresas tienen el control absoluto de las mismas y pueden tomar todas las acciones, incluyendo:
+- Gestionar administradores
+- {% ifversion ghec %}Agregar y eliminar {% elsif ghae or ghes %}Administrar{% endif %} organizaciones{% ifversion ghec %}to and from {% elsif ghae or ghes %} en{% endif %} la empresa
+- Administrar parámetros de la empresa
+- Aplicar políticas en las organizaciones
+{% ifversion ghec %}- Administrar la configuración de facturación{% endif %}
 
-Enterprise owners cannot access organization settings or content unless they are made an organization owner or given direct access to an organization-owned repository. Similarly, owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
+Los propietarios de empresa no pueden acceder a los parámetros o el contenido de la organización, a menos que se conviertan en propietarios de la organización o que se les otorgue acceso directo al repositorio que le pertenece a una organización. De forma similar, los propietarios de las organizaciones en tu empresa no tienen acceso a la empresa misma a menos de que los conviertas en propietarios de ella.
 
-An enterprise owner will only consume a license if they are an owner or member of at least one organization within the enterprise. {% ifversion ghec %}Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}.{% endif %} As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
+Un propietario de la empresa solo consumirá una licencia si son propietarios o miembros de por lo menos una organización dentro de la emrpesa. Even if an enterprise owner has a role in multiple organizations, they will consume a single license. {% ifversion ghec %}Los propietrios de la empresa deben tener una cuenta personal en {% data variables.product.prodname_dotcom %}.{% endif %} Como mejor práctica, te recomendamos que solo algunas personas en tu compañía se conviertan en propietarios, para reducir el riesgo en tu negocio.
 
-## Enterprise members
+## Miembros de empresa
 
-Members of organizations owned by your enterprise are also automatically members of the enterprise. Members can collaborate in organizations and may be organization owners, but members cannot access or configure enterprise settings{% ifversion ghec %}, including billing settings{% endif %}.
+Los miembros de las organizaciones que pertenezcan a tu empresa también son miembros de ella automáticamente. Los miembros pueden colaborar en las organizaciones y pueden ser dueños de éstas, pero no pueden configurar ni acceder a los ajustes empresariales{% ifversion ghec %}, including billing settings{% endif %}.
 
-People in your enterprise may have different levels of access to the various organizations owned by your enterprise and to repositories within those organizations. You can view the resources that each person has access to. For more information, see "[Viewing people in your enterprise](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
+Las personas en tu empresa podrían tener niveles de acceso diferentes para las diversas organizaciones que pertenecen a tu empresa y para los repositorios dentro de ellas. Puedes ver los recursos a los que tiene acceso cada persona. Para obtener más información, consulta la sección "[Visualizar a las personas en tu empresa](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)".
 
 For more information about organization-level permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-People with outside collaborator access to repositories owned by your organization are also listed in your enterprise's People tab, but are not enterprise members and do not have any access to the enterprise. For more information about outside collaborators, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
+Las personas con acceso de colaborador externo a los repositorios que pertenecen a tu organización también se listan en la pestaña de "Personas" de tu empresa, pero no son miembros empresariales y no tienen ningún tipo de acceso a la empresa. Para obtener más información sobre los colaboradores externos, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)".
 
 {% ifversion ghec %}
 
-## Billing manager
+## Gerente de facturación
 
-Billing managers only have access to your enterprise's billing settings. Billing managers for your enterprise can:
-- View and manage user licenses, {% data variables.large_files.product_name_short %} packs and other billing settings
-- View a list of billing managers
-- Add or remove other billing managers
+Los gerentes de facturación solo tienen acceso a la configuración de facturación de tu empresa. Los gerentes de facturación de tu empresa pueden:
+- Ver y administrar las licencias de usuario, {% data variables.large_files.product_name_short %} los paquetes y otros parámetros de facturación
+- Ver una lista de gerentes de facturación
+- Agregar o eliminar otros gerentes de facturación
 
-Billing managers will only consume a license if they are an owner or member of at least one organization within the enterprise. Billing managers do not have access to organizations or repositories in your enterprise, and cannot add or remove enterprise owners. Billing managers must have a personal account on {% data variables.product.prodname_dotcom %}.
+Los gerentes de facturación solo consumirán una licencia si son propietarios o miembros de por lo menos una organización dentro de la empresa. Los gerentes de facturación no tienen acceso a las organizaciones o repositorios de tu empresa y no pueden agregar o eliminar propietarios de la misma. Los gerentes de facturación deben tener una cuenta personal en {% data variables.product.prodname_dotcom %}.
 
-## About support entitlements
+## Acerca de los derechos de soporte
 
 {% data reusables.enterprise-accounts.support-entitlements %}
 
-## Further reading
+## Leer más
 
-- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
+- "[Acerca de las cuentas de empresa](/admin/overview/about-enterprise-accounts)"
 
 {% endif %}

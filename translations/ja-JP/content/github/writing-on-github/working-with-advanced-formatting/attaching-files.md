@@ -21,13 +21,13 @@ topics:
 
 {% endwarning %}
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
+Issue やプルリクエストの会話にファイルを添付するには、コメントボックスにファイルをドラッグアンドドロップします。 または、コメントボックスの下部にあるバーをクリックしてコンピュータからファイルを参照、選択、追加することもできます。
 
-![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
+![コンピュータから添付ファイルを選択する](/assets/images/help/pull_requests/select-bar.png)
 
 {% tip %}
 
-**Tip:** In many browsers, you can copy-and-paste images directly into the box.
+**ヒント:** 多くのブラウザでは、画像をコピーして直接ボックスに貼り付けることができます。
 
 {% endtip %}
 
@@ -38,17 +38,17 @@ The maximum file size is:
 - 100MB for videos{% endif %}
 - 25MB for all other files
 
-We support these files:
+以下のファイルがサポートされています:
 
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-* Log files (*.log*)
-* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
-* Text files (*.txt*)
-* PDFs (*.pdf*)
+* ログファイル (*.log*)
+* Microsoft Word (*.docx*)、Powerpoint (*.pptx*)、および Excel (*.xlsx*) 文書
+* テキストファイル (*.txt*)
+* PDF (*.pdf*)
 * ZIP (*.zip*, *.gz*){% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-* Video (*.mp4*, *.mov*)
+* ビデオ(*.mp4*, *.mov*)
 
 {% note %}
 
@@ -57,4 +57,4 @@ We support these files:
 {% endnote %}
 {% endif %}
 
-![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)
+![添付アニメーション GIF](/assets/images/help/pull_requests/dragging_images.gif)

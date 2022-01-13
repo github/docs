@@ -1,7 +1,7 @@
 ---
-title: About upgrades to new releases
-shortTitle: About upgrades
-intro: '{% ifversion ghae %}Your enterprise on {% data variables.product.product_name %} is updated with the latest features and bug fixes on a regular basis by {% data variables.product.company_short %}.{% else %}You can benefit from new features and bug fixes for {% data variables.product.product_name %} by upgrading your enterprise to a newly released version.{% endif %}'
+title: 关于升级到新版本
+shortTitle: 关于升级
+intro: '{% ifversion ghae %}您在 {% data variables.product.product_name %} 上的企业定期由 {% data variables.product.company_short %} 使用最新功能和漏洞补丁更新。{% else %}您可以通过将企业升级到新版本以获得 {% data variables.product.product_name %} 的新功能和漏洞补丁。{% endif %}'
 versions:
   ghes: '*'
   ghae: '*'
@@ -10,40 +10,41 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
 {% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
 
-{% data variables.product.product_name %} is constantly improving, with new functionality and bug fixes introduced through feature and patch releases. {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} is a fully managed service, so {% data variables.product.company_short %} completes the upgrade process for your enterprise.{% endif %}
+{% data variables.product.product_name %} 在不断改进，通过功能和补丁版本引入新功能和漏洞补丁。 {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，因此 {% data variables.product.company_short %} 可完成企业的升级过程。{% endif %}
 
-Feature releases include new functionality and feature upgrades and typically occur quarterly. {% ifversion ghae %}{% data variables.product.company_short %} will upgrade your enterprise to the latest feature release. You will be given advance notice of any planned downtime for your enterprise.{% endif %}
+功能版本包括新的功能和功能升级，通常每季度进行一次。 {% ifversion ghae %}{% data variables.product.company_short %} 会将您的企业升级到最新的功能版本。 您的企业如有任何计划内的停机，都会提前通知您。{% endif %}
 
 {% ifversion ghes %}
 
-Starting with {% data variables.product.prodname_ghe_server %} 3.0, all feature releases begin with at least one release candidate. Release candidates are proposed feature releases, with a complete feature set. There may be bugs or issues in a release candidate which can only be found through feedback from customers actually using {% data variables.product.product_name %}. 
+从 {% data variables.product.prodname_ghe_server %} 3.0 开始，所有功能版本开始都至少有一个候选版本。 候选版本是提议的功能版本，具有完整的功能集。 候选版本中可能存在错误或问题，只能通过实际使用 {% data variables.product.product_name %} 的客户反馈来找到。
 
-You can get early access to the latest features by testing a release candidate as soon as the release candidate is available. You can upgrade to a release candidate from a supported version and can upgrade from the release candidate to later versions when released. You should upgrade any environment running a release candidate as soon as the release is generally available. For more information, see "[Upgrade requirements](/admin/enterprise-management/upgrade-requirements)."
+只要候选版本可用，您便可通过测试候选版本来提早访问最新功能。 您可以从支持的版本升级到候选版本，并在发布时从版本候选版本升级到更新版本。 只要版本发布，您便应该升级运行候选版本的任何环境。 更多信息请参阅“[升级要求](/admin/enterprise-management/upgrade-requirements)”。
 
-Release candidates should be deployed on test or staging environments. As you test a release candidate, please provide feedback by contacting support. For more information, see "[Working with {% data variables.contact.github_support %}](/admin/enterprise-support)."
+候选版本应部署在测试或暂存环境中。 在测试候选版本时，请通过联系支持提供反馈。 更多信息请参阅“[使用 {% data variables.contact.github_support %}](/admin/enterprise-support)”。
 
-We'll use your feedback to apply bug fixes and any other necessary changes to create a stable production release. Each new release candidate adds bug fixes for issues found in prior versions. When the release is ready for widespread adoption, {% data variables.product.company_short %} publishes a stable production release.
+我们将使用您的反馈应用漏洞补丁及任何其他必要的更改来创建稳定的生产版本。 每个新的候选版本都会为以前版本中发现的问题添加漏洞补丁。 当版本可供广泛采用时，{% data variables.product.company_short %} 将发布稳定的生产版本。
 
 {% endif %}
 
 {% warning %}
 
-**Warning**: The upgrade to a new feature release will cause a few hours of downtime, during which none of your users will be able to use the enterprise. You can inform your users about downtime by publishing a global announcement banner, using your enterprise settings or the REST API. For more information, see "[Customizing user messages on your instance](/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)" and "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
+**警告**：升级到新的功能版本将导致几个小时的停机，在此期间，您的用户将无法使用企业。 您可以使用您的企业设置或 REST API 发布全球公告横幅，告知用户停机。 更多信息请参阅“[自定义您的实例上的用户消息](/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)”和“[{% data variables.product.prodname_enterprise %} 管理员](/rest/reference/enterprise-admin#announcements)”。
 
 {% endwarning %}
 
 {% ifversion ghes %}
 
-Patch releases, which consist of hot patches and bug fixes only, happen more frequently. Patch releases are generally available when first released, with no release candidates. Upgrading to a patch release typically requires less than five minutes of downtime.
+只包含热补丁和漏洞补丁的补丁版本会更频繁地发布。 首次发布时通常提供补丁版本，没有候选版本。 升级到补丁版本通常需要不到五分钟的停机时间。
 
-To upgrade your enterprise to a new release, see "[Release notes](/enterprise-server/admin/release-notes)" and "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)." Because you can only upgrade from a feature release that's at most two releases behind, use the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
+要将您的企业升级到新版本，请参阅“[发行说明](/enterprise-server/admin/release-notes)”和“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)”。 Because you can only upgrade from a feature release that's at most two releases behind, use the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
 
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository{% ifversion ghae %}
-- [ {% data variables.product.prodname_ghe_managed %} release notes](/admin/release-notes)
+- `github/roadmap` 仓库中的 [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}){% ifversion ghae %}
+- [ {% data variables.product.prodname_ghe_managed %} 发行说明](/admin/release-notes)
 {% endif %}
