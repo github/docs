@@ -1,6 +1,6 @@
 ---
-title: Creating a GitHub Pages site
-intro: 'You can create a {% data variables.product.prodname_pages %} site in a new or existing repository.'
+title: Criar um site do GitHub Pages
+intro: 'É possível criar um site do {% data variables.product.prodname_pages %} em um repositório novo ou existente.'
 redirect_from:
   - /articles/creating-pages-manually
   - /articles/creating-project-pages-manually
@@ -16,12 +16,12 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Create a GitHub Pages site
+shortTitle: Criar um site do GitHub Pages
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
-## Creating a repository for your site
+## Criar um repositório para seu site
 
 {% data reusables.pages.new-or-existing-repo %}
 
@@ -32,7 +32,7 @@ shortTitle: Create a GitHub Pages site
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 
-## Creating your site
+## Criar seu site
 
 {% data reusables.pages.must-have-repo-first %}
 
@@ -40,12 +40,12 @@ shortTitle: Create a GitHub Pages site
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.decide-publishing-source %}
-3. If your chosen publishing source already exists, navigate to the publishing source. If your chosen publishing source doesn't exist, create the publishing source.
-4. In the root of the publishing source, create a new file called `index.md` that contains the content you want to display on the main page of your site.
+3. Se a fonte de publicação que você escolheu já existe, navegue até ela. Caso contrário, crie a fonte de publicação.
+4. Na raiz da fonte de publicação, crie um novo arquivo chamado `index.md` com o conteúdo que você deseja exibir na página principal do seu site.
 
   {% tip %}
 
-  **Tip:** If `index.html` is present, this will be used instead of `index.md`. If neither `index.html` nor `index.md` are present, `README.md` will be used.
+  **Dica:** se `index.html` estiver presente, ele será usado ao invés de `index.md`. Se nem `index.html` nem `index.md` estiverem presentes, será usado `README.md`.
 
   {% endtip %}
 {% data reusables.pages.configure-publishing-source %}
@@ -57,16 +57,16 @@ shortTitle: Create a GitHub Pages site
 
 {% data reusables.pages.admin-must-push %}
 
-## Next steps
+## Próximas etapas
 
-You can add more pages to your site by creating more new files. Each file will be available on your site in the same directory structure as your publishing source. For example, if the publishing source for your project site is the `gh-pages` branch, and you create a new file called `/about/contact-us.md` on the `gh-pages` branch, the file will be available at {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html`.
+Você pode adicionar mais páginas ao seu site criando novos arquivos. Cada arquivo ficará disponível no site na mesma estrutura de diretórios que a fonte de publicação. Por exemplo, se a fonte de publicação do site de projeto for o branch `gh-pages` e você criar um arquivo chamado `/about/contact-us.md` no branch `gh-pages`, o arquivo novo ficará disponível em {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html`.
 
-You can also add a theme to customize your site’s look and feel. For more information, see {% ifversion fpt or ghec %}"[Adding a theme to your {% data variables.product.prodname_pages %} site with the theme chooser](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}"[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}."
+Também é possível adicionar um tema para personalizar a aparência do site. Para obter mais informações, consulte {% ifversion fpt or ghec %}"[Adicionar um tema ao site do {% data variables.product.prodname_pages %} com o seletor de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}"[Adicionar um tema ao site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}".
 
-To customize your site even more, you can use Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %}. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)."
+Para personalizar seu site ainda mais, você pode usar o Jekyll, um gerador de site estático com suporte integrado para o {% data variables.product.prodname_pages %}. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_pages %} e o JJekyll](/articles/about-github-pages-and-jekyll)".
 
-## Further reading
+## Leia mais
 
-- "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
-- "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"
-- "[Creating new files](/articles/creating-new-files)"
+- "[Solucionar problemas de erros de criação do Jekyll para sites do {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
+- "[Criar e excluir branches no repositório](/articles/creating-and-deleting-branches-within-your-repository)"
+- "[Criar arquivos](/articles/creating-new-files)"

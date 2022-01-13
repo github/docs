@@ -1,6 +1,6 @@
 ---
-title: Archiving repositories
-intro: You can archive a repository to make it read-only for all users and indicate that it's no longer actively maintained. You can also unarchive repositories that have been archived.
+title: Arquivar repositórios
+intro: Você pode arquivar um repositório a fim de torná-lo somente leitura para todos os usuários e indicar que ele não está mais sendo mantido ativamente. Também é possível desarquivar repositórios que foram arquivados.
 redirect_from:
   - /articles/archiving-repositories
   - /github/creating-cloning-and-archiving-repositories/archiving-repositories
@@ -17,33 +17,31 @@ topics:
   - Repositories
 ---
 
-## About repository archival
+## Sobre o arquivamento do repositório
 
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** If you have a legacy per-repository billing plan, you will still be charged for your archived repository. If you don't want to be charged for an archived repository, you must upgrade to a new product. For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)."
+**Observação:** se você tiver um plano de cobrança por repositório herdado, será feita a cobrança pelo seu repositório arquivado. Se não desejar ser cobrado por um repositório arquivado, será preciso atualizar para um novo produto. Para obter mais informações, consulte os "[Produtos da {% data variables.product.prodname_dotcom %}](/articles/github-s-products)".
 
 {% endnote %}
 {% endif %}
 
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
-Once a repository is archived, you cannot add or remove collaborators or teams. Contributors with access to the repository can only fork or star your project.
+Depois que um repositório é arquivado, não é possível adicionar nem remover colaboradores ou equipes. Os contribuidores com acesso ao repositório podem apenas bifurcar ou marcar com estrela seu projeto.
 
-When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, code scanning alerts, comments and permissions become read-only. To make changes in an archived repository, you must unarchive the repository first.
+Quando um repositório é arquivado, seus problemas, pull requests, código, etiquetas, marcos, projetos, wiki, versões, commits, tags, branches, reações, alertas de varredura de código, comentários e permissões tornam-se somente leitura. Para fazer alterações em um repositório arquivado, você deve desarquivar o repositório primeiro.
 
-You can search for archived repositories. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)." You can also search for issues and pull requests within archived repositories. For more information, see "[Searching issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)."  
+É possível pesquisar repositórios arquivados. Para obter mais informações, consulte "[Pesquisar repositórios](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)". Para obter mais informações, consulte "[Pesquisa de repositórios](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)". Para obter mais informações, consulte "[Pesquisa de problemas e pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)".
 
-## Archiving a repository
+## Arquivar um repositório
 
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", click **Archive this repository** or **Unarchive this repository**.
-   ![Archive this repository button](/assets/images/help/repository/archive-repository.png)
-4. Read the warnings.
-5. Type the name of the repository you want to archive or unarchive.
-  ![Archive repository warnings](/assets/images/help/repository/archive-repository-warnings.png)
-6. Click **I understand the consequences, archive this repository**.
+3. Em "Danger Zone" (Zona de perigo), clique em **Archive this repository** (Arquivar este repositório) ou em **Unarchive this repository** (Desarquivar este repositório). ![Botão Archive this repository (Arquivar este repositório)](/assets/images/help/repository/archive-repository.png)
+4. Leia os avisos.
+5. Digite o nome do repositório que deseja arquivar ou desarquivar. ![Avisos de arquivamento de repositório](/assets/images/help/repository/archive-repository-warnings.png)
+6. Clique em **I understand the consequences, archive this repository** (Entendo as consequências, arquive este repositório).

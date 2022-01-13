@@ -22,7 +22,19 @@ Você também pode interagir com outros usuários em pull requests e problemas u
 
 Cada campo de comentário no {% data variables.product.product_name %} contém uma barra de ferramentas de formatação de texto, permitindo que você formate texto sem precisar aprender a sintaxe markdown. Além da formatação markdown, como os estilos negrito e itálico e criação de headers, links e listas, a barra de ferramentas inclui recursos específicos do {% data variables.product.product_name %}, como @menções, listas de tarefas e links para problemas e pull requests.
 
-![Barra de ferramentas de markdown](/assets/images/help/writing/markdown-toolbar.gif)
+{% if fixed-width-font-gfm-fields %}
+
+## Habilitando fontes de largura fixa no editor
+
+Você pode habilitar uma fonte de largura fixa em cada campo de comentário em {% data variables.product.product_name %}. Each character in a fixed-width, or monospace, font occupies the same horizontal space which can make it easier to edit advanced Markdown structures such as tables and code snippets.
+
+![Captura de tela que mostra o campo comentário de {% data variables.product.product_name %} com as fontes de largura fixa habilitadas](/assets/images/help/writing/fixed-width-example.png)
+
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.appearance-settings %}
+1. Em "Preferência do editor Markdown, selecione **Usar uma fonte de largura fixa (monospace) ao editar o Markdown**. ![Captura de tela que mostra o campo comentário de {% data variables.product.product_name %} com as fontes de largura fixa habilitadas](/assets/images/help/writing/enable-fixed-width.png)
+
+{% endif %}
 
 ## Leia mais
 

@@ -7,15 +7,15 @@ redirect_from:
   - /articles/configuring-jekyll-plugins
   - /articles/using-syntax-highlighting-on-github-pages
   - /articles/files-that-start-with-an-underscore-are-missing
-  - /articles/sitemaps-for-github-pages/
-  - /articles/search-engine-optimization-for-github-pages/
-  - /articles/repository-metadata-on-github-pages/
-  - /articles/atom-rss-feeds-for-github-pages/
-  - /articles/redirects-on-github-pages/
-  - /articles/emoji-on-github-pages/
-  - /articles/mentions-on-github-pages/
-  - /articles/using-jekyll-plugins-with-github-pages/
-  - /articles/adding-jekyll-plugins-to-a-github-pages-site/
+  - /articles/sitemaps-for-github-pages
+  - /articles/search-engine-optimization-for-github-pages
+  - /articles/repository-metadata-on-github-pages
+  - /articles/atom-rss-feeds-for-github-pages
+  - /articles/redirects-on-github-pages
+  - /articles/emoji-on-github-pages
+  - /articles/mentions-on-github-pages
+  - /articles/using-jekyll-plugins-with-github-pages
+  - /articles/adding-jekyll-plugins-to-a-github-pages-site
   - /articles/about-github-pages-and-jekyll
   - /github/working-with-github-pages/about-github-pages-and-jekyll
 product: '{% data reusables.gated-features.pages %}'

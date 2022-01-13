@@ -1,6 +1,6 @@
 ---
-title: Maintaining ownership continuity of your user account's repositories
-intro: You can invite someone to manage your user owned repositories if you are not able to.
+title: Mantener la continuidad de la propiedad para los repositorios de tu cuenta de usuario
+intro: Puedes invitar a alguien para administrar los repositorios que pertenezcan a tu usuario si no puedes hacerlo tú mismo.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,30 +10,29 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-user-accounts-repositories
-shortTitle: Ownership continuity
+shortTitle: Continuidad de la propiedad
 ---
-## About successors
 
-We recommend inviting another {% data variables.product.company_short %} user to be your successor, to manage your user owned repositories if you cannot. As a successor, they will have permission to:
+## Acerca de los sucesores
 
-- Archive your public repositories.
-- Transfer your public repositories to their own user owned account.
-- Transfer your public repositories to an organization where they can create repositories.
+Te recomendamos invitar a otro usuario de {% data variables.product.company_short %} para que sea tu sucesor y que así administre los repositorios que te pertenezcan si tú no puedes hacerlo. Como sucesores, tendrán permisos para:
 
-Successors cannot log into your account.
+- Archivar tus repositorios públicos.
+- Transferir tus repositorios públicos a su propia cuenta de usuario.
+- Transferir tus repositorios públicos a una organización donde puedan crear repositorios.
 
-An appointed successor can manage your public repositories after presenting a death certificate then waiting for 7 days or presenting an obituary then waiting for 21 days. For more information, see "[{% data variables.product.company_short %} Deceased User Policy](/free-pro-team@latest/github/site-policy/github-deceased-user-policy)."
+Los sucesores no pueden iniciar sesión en tu cuenta.
 
-To request access to manage repositories as a successor, contact [GitHub Support](https://support.github.com/contact?tags=docs-accounts).
+Un sucesor designado puede administrar tus repositorios públicos después de presentar un certificado de defunción y esperar por 7 días o presentar un obituario y esperar por 21 días. Para obtener más información, consulta la sección "[Política de Usuario Finado de {% data variables.product.company_short %}](/free-pro-team@latest/github/site-policy/github-deceased-user-policy)".
 
-## Inviting a successor
-The person you invite to be your successor must have a {% data variables.product.company_short %} account.
+Para solicitar acceso para administrar los repositorios como sucesor, contacta a[Soporte de GitHub](https://support.github.com/contact?tags=docs-accounts).
+
+## Invitar un sucesor
+La persona que invites para ser tu sucesor deberá tener una cuenta de {% data variables.product.company_short %}.
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}
-3. Under "Successor settings", to invite a successor, begin typing a username, full name, or email address, then click their name when it appears.
-   ![Successor invitation search field](/assets/images/help/settings/settings-invite-successor-search-field.png)
-4. Click **Add successor**.
+3. Debajo de "Ajustes de sucesor", para invitar a un sucesor, comienza a escribir el nombre de usuario, nombre completo, o dirección de correo electrónico. Posteriormente, da clic en su nombre cuando éste aparezca. ![Campo de bísqueda para invitación de sucesor](/assets/images/help/settings/settings-invite-successor-search-field.png)
+4. Da clic en **Agregar sucesor**.
 {% data reusables.user_settings.sudo-mode-popup %}
-5. The user you've invited will be listed as "Pending" until they agree to become your successor.
-   ![Pending successor invitation](/assets/images/help/settings/settings-pending-successor.png)
+5. El usuario que has invitado se listará como "Pendiente" hasta que acepte convertirse en tu sucesor. ![Invitación de sucesor pendiente](/assets/images/help/settings/settings-pending-successor.png)

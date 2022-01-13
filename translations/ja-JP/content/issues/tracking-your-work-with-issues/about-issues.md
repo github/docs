@@ -3,8 +3,8 @@ title: Issueについて
 intro: '{% data variables.product.prodname_github_issues %}を使って、{% data variables.product.company_short %}での作業に関するアイデア、フィードバック、タスク、バグを追跡してください。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-issues
-  - /articles/creating-issues/
-  - /articles/about-issues/
+  - /articles/creating-issues
+  - /articles/about-issues
   - /github/managing-your-work-on-github/about-issues
   - /issues/tracking-your-work-with-issues/creating-issues/about-issues
 versions:

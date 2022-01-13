@@ -1,13 +1,14 @@
 ---
-title: Organizing information with collapsed sections
-intro: 'You can streamline your Markdown by creating a collapsed section with the `<details>` tag.'
+title: Organizando informações com seções recolhidas
+intro: Você pode simplificar seu Markdown criando uma seção colapsada com a tag '<details>'.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Collapsed sections
+shortTitle: Seções colapsadas
 ---
+
 ## Creating a collapsed section
 
 You can temporarily obscure sections of your Markdown by creating a collapsed section that the reader can choose to expand. For example, when you want to include technical details in an issue comment that may not be relevant or interesting to every reader, you can put those details in a collapsed section.
@@ -24,9 +25,7 @@ Any Markdown within the `<details>` block will be collapsed until the reader cli
       puts "Hello World"
     ```
 
-</p>
-</details>
-```
+</details> ```</p>
 
 The Markdown will be collapsed by default.
 
@@ -36,7 +35,7 @@ After a reader clicks {% octicon "triangle-right" aria-label="The right triange 
 
 ![Rendered open](/assets/images/help/writing/open-collapsed-section.png)
 
-## Further reading
+## Leia mais
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
+- [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)
+- "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax)"

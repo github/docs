@@ -3,15 +3,15 @@ title: Upgrading GitHub Enterprise Server
 intro: 'Upgrade {% data variables.product.prodname_ghe_server %} to get the latest features and security updates.'
 redirect_from:
   - /enterprise/admin/installation/upgrading-github-enterprise-server
-  - /enterprise/admin/articles/upgrading-to-the-latest-release/
-  - /enterprise/admin/articles/migrations-and-upgrades/
-  - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine/
-  - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases/
-  - /enterprise/admin/articles/upgrading-older-installations/
-  - /enterprise/admin/hidden/upgrading-older-installations/
-  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program/
-  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch/
-  - /enterprise/admin/guides/installation/upgrading-github-enterprise/
+  - /enterprise/admin/articles/upgrading-to-the-latest-release
+  - /enterprise/admin/articles/migrations-and-upgrades
+  - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine
+  - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases
+  - /enterprise/admin/articles/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch
+  - /enterprise/admin/guides/installation/upgrading-github-enterprise
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
   - /admin/enterprise-management/upgrading-github-enterprise-server
 versions:
@@ -225,7 +225,9 @@ If an upgrade fails or is interrupted, you should revert your instance back to i
 
 ### Rolling back a patch release
 
-To roll back a patch release, use the `ghe-upgrade` command with the `--allow-patch-rollback` switch. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+To roll back a patch release, use the `ghe-upgrade` command with the `--allow-patch-rollback` switch. Before rolling back, replication must be temporarily stopped by running `ghe-repl-stop` on all replica instances. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+
+Once the rollback is complete, restart replication by running `ghe-repl-start` on all replicas. 
 
 For more information, see "[Command-line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)."
 

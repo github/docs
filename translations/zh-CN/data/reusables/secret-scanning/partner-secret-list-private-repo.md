@@ -18,6 +18,8 @@ Asana | Asana Personal Access Token | asana_personal_access_token{% endif %} Atl
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
+Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
 Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key{% endif %} Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token Azure | Azure SAS Token | azure_sas_token Azure | Azure Service Management Certificate | azure_management_certificate
 {%- ifversion ghes < 3.4 or ghae or ghae-issue-5342 %}
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %} Azure | Azure Storage Account Key | azure_storage_account_key
@@ -86,7 +88,7 @@ Google | Google OAuth Client Secret | google_oauth_client_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-Grafana | Grafana API Key | grafana_api_key{% endif %} Hashicorp Terraform | Terraform Cloud / Enterprise API Token | terraform_api_token Hubspot | Hubspot API Key | hubspot_api_key
+Grafana | Grafana API Key | grafana_api_key{% endif %} HashiCorp | Terraform Cloud / Enterprise API Token | terraform_api_token HashiCorp | HashiCorp Vault Batch Token | hashicorp_vault_batch_token HashiCorp | HashiCorp Vault Service Token | hashicorp_vault_service_token Hubspot | Hubspot API Key | hubspot_api_key
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Intercom | Intercom Access Token | intercom_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -111,6 +113,10 @@ Mapbox | Mapbox Secret Access Token | mapbox_secret_access_token{% endif %}
 MessageBird | MessageBird API Key | messagebird_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Meta | Facebook Access Token | facebook_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Midtrans | Midtrans Production Server Key | midtrans_production_server_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Midtrans | Midtrans Sandbox Server Key | midtrans_sandbox_server_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 New Relic | New Relic Personal API Key | new_relic_personal_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -184,3 +190,9 @@ Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
 Yandex | Yandex.Cloud IAM Cookie | yandex_cloud_iam_cookie{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Yandex.Cloud IAM Token | yandex_cloud_iam_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Dictionary API Key | yandex_dictionary_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Predictor API Key | yandex_predictor_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Translate API Key | yandex_translate_api_key{% endif %}

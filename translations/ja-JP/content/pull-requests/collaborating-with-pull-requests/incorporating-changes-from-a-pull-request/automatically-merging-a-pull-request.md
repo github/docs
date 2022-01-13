@@ -1,6 +1,6 @@
 ---
-title: Automatically merging a pull request
-intro: You can increase development velocity by enabling auto-merge for a pull request so that the pull request will merge automatically when all merge requirements are met.
+title: プルリクエストを自動的にマージする
+intro: プルリクエストの自動マージを有効にすると、すべてのマージ要件が満たされたときにプルリクエストが自動的にマージされるようになり、開発速度を上げることができます。
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
@@ -15,40 +15,36 @@ redirect_from:
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request
 shortTitle: Merge PR automatically
 ---
-## About auto-merge
 
-If you enable auto-merge for a pull request, the pull request will merge automatically when all required reviews are met and status checks have passed. Auto-merge prevents you from waiting around for requirements to be met, so you can move on to other tasks.
+## 自動マージについて
 
-Before you can use auto-merge with a pull request, auto-merge must be enabled for the repository. For more information, see "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)."{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
+プルリクエストの自動マージを有効にすると、必要なすべてのレビューを満たし、ステータスチェックに合格すると、プルリクエストが自動的にマージされます。 自動マージにより、要件が満たされるのを待つ必要がなくなるため、他のタスクに進むことができます。
 
-After you enable auto-merge for a pull request, if someone who does not have write permissions to the repository pushes new changes to the head branch or switches the base branch of the pull request, auto-merge will be disabled. For example, if a maintainer enables auto-merge for a pull request from a fork, auto-merge will be disabled after a contributor pushes new changes to the pull request.{% endif %}
+プルリクエストで自動マージを使用する前に、リポジトリで自動マージを有効にする必要があります。 詳しい情報については、「[リポジトリ内のプルリクエストの自動マージを管理する](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)」を参照してください。{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 
-You can provide feedback about auto-merge by [contacting us](https://support.github.com/contact/feedback?category=prs-and-code-review&subject=Pull%20request%20auto-merge%20feedback).
+プルリクエストの自動マージを有効にした後、リポジトリへの書き込み権限を持たないユーザがプルリクエストの head ブランチに新しい変更をプッシュするか、プルリクエストのベースブランチを切り替えると、自動マージは無効になります。 たとえば、メンテナがフォークからのプルリクエストの自動マージを有効にした場合、コントリビューターがプルリクエストに新しい変更をプッシュすると、自動マージは無効になります。{% endif %}
 
-## Enabling auto-merge
+自動マージに関するフィードバックがある場合は、[お問い合わせ](https://support.github.com/contact/feedback?category=prs-and-code-review&subject=Pull%20request%20auto-merge%20feedback)にご連絡ください。
+
+## 自動マージの有効化
 
 {% data reusables.pull_requests.auto-merge-requires-branch-protection %}
 
-People with write permissions to a repository can enable auto-merge for a pull request.
+リポジトリへの書き込み権限を持つユーザは、プルリクエストの自動マージを有効化できます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-1. In the "Pull Requests" list, click the pull request you'd like to auto-merge.
-1. Optionally, to choose a merge method, select the **Enable auto-merge** drop-down menu, then click a merge method. For more information, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)."
-  !["Enable auto-merge" drop-down menu](/assets/images/help/pull_requests/enable-auto-merge-drop-down.png)
-1. Click **Enable auto-merge**.
-  ![Button to enable auto-merge](/assets/images/help/pull_requests/enable-auto-merge-button.png)
-1. If you chose the merge or squash and merge methods, type a commit message and description and choose the email address you want to author the merge commit.
-  ![Fields to enter commit message and description and choose commit author email](/assets/images/help/pull_requests/pull-request-information-fields.png)
-1. Click **Confirm auto-merge**.
-  ![Button to confirm auto-merge](/assets/images/help/pull_requests/confirm-auto-merge-button.png)
+1. [Pull Requests] リストで、自動マージするプルリクエストをクリックします。
+1. 必要に応じて、マージ方法を選択するには、[**Enable auto-merge**] ドロップダウンメニューを選択してから、マージ方法をクリックします。 詳しい情報については[プルリクエストのマージについて](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)を参照してください。 ![[Enable auto-merge] ドロップダウンメニュー](/assets/images/help/pull_requests/enable-auto-merge-drop-down.png)
+1. [**Enable auto-merge**] をクリックします。 ![自動マージを有効化するボタン](/assets/images/help/pull_requests/enable-auto-merge-button.png)
+1. マージまたは squash とマージの方法を選択した場合は、コミットメッセージと説明を入力し、マージコミットを作成するメールアドレスを選択します。 ![コミットメッセージと説明を入力し、作者のメールをコミットするフィールド](/assets/images/help/pull_requests/pull-request-information-fields.png)
+1. [**Confirm auto-merge**] をクリックします。 ![自動マージを確認するボタン](/assets/images/help/pull_requests/confirm-auto-merge-button.png)
 
-## Disabling auto-merge
+## 自動マージの無効化
 
-People with write permissions to a repository and pull request authors can disable auto-merge for a pull request.
+リポジトリへの書き込み権限を持つユーザと、プルリクエストの作者であるユーザは、プルリクエストの自動マージを無効化できます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-1. In the "Pull Requests" list, click the pull request you'd like to disable auto-merge for.
-1. In the merge box, click **Disable auto-merge**.
-  ![Button to disable auto-merge](/assets/images/help/pull_requests/disable-auto-merge-button.png)
+1. [Pull Requests] リストで、自動マージを無効化するプルリクエストをクリックします。
+1. マージボックスで、[**Disable auto-merge**] をクリックします。 ![自動マージを無効化するボタン](/assets/images/help/pull_requests/disable-auto-merge-button.png)

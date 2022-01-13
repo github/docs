@@ -82,7 +82,7 @@ You can archive an item to keep the context about the item in the project but re
 
 1. Select the item(s) to archive or delete. To select multiple items, do one of the following:
      - `cmd + click` (Mac) or `ctrl + click` (Windows/Linux) each item.
-     - Select an item then `shift + arrow-up` or `shift + arrow-down` to select additional items above or below the intitially selected item.
+     - Select an item then `shift + arrow-up` or `shift + arrow-down` to select additional items above or below the initially selected item.
      - Select an item then `shift + click` another item to select all items between the two items.
      - Enter `cmd + a` (Mac) or `ctrl + a` (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
 2. To archive all selected items, enter `e`. To delete all selected items, enter `del`. Alternatively, select the {% octicon "triangle-down" aria-label="the item menu" %} (in table layout) or the {% octicon "kebab-horizontal" aria-label="the item menu" %} (in board layout), then select the desired action.

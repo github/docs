@@ -1,6 +1,6 @@
 ---
-title: Installing GitHub Enterprise Server on Google Cloud Platform
-intro: 'To install {% data variables.product.prodname_ghe_server %} on Google Cloud Platform, you must deploy onto a supported machine type and use a persistent standard disk or a persistent SSD.'
+title: Google Cloud Platform で GitHub Enterprise Server をインストールする
+intro: '{% data variables.product.prodname_ghe_server %} を Google Cloud Platform にインストールするには、サポートされているマシンタイプにデプロイし、永続的な標準ディスクまたは永続的な SSD を使用する必要があります。'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-google-cloud-platform
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
@@ -15,67 +15,68 @@ topics:
   - Set up
 shortTitle: Install on GCP
 ---
-## Prerequisites
+
+## 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have a Google Cloud Platform account capable of launching Google Compute Engine (GCE) virtual machine (VM) instances. For more information, see the [Google Cloud Platform website](https://cloud.google.com/) and the [Google Cloud Platform Documentation](https://cloud.google.com/docs/).
-- Most actions needed to launch your instance may also be performed using the [Google Cloud Platform Console](https://cloud.google.com/compute/docs/console). However, we recommend installing the gcloud compute command-line tool for initial setup. Examples using the gcloud compute command-line tool are included below. For more information, see the "[gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/)" installation and setup guide in the Google documentation.
+- Google Compute Engine（GCE）仮想マシン（VM）インスタンスを起動できるGoogle Cloud Platformのアカウントが必要です。 詳しい情報については[Google Cloud PlatformのWebサイト](https://cloud.google.com/)及び[Google Cloud Platformドキュメンテーション](https://cloud.google.com/docs/)を参照してください。
+- インスタンスを起動するのに必要なアクションのほとんどは、[Google Cloud Platform Console](https://cloud.google.com/compute/docs/console)を使っても行えます。 とはいえ、初期セットアップのためにgcloud computeコマンドラインツールをインストールすることをお勧めします。 以下の例では、gcloud computeコマンドラインツールを使用しています。 詳しい情報についてはGoogleのドキュメンテーション中の"[gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/)"のインストール及びセットアップガイドを参照してください。
 
-## Hardware considerations
+## ハードウェアについて
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-## Determining the machine type
+## マシンタイプの決定
 
-Before launching {% data variables.product.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Google Cloud Platformde{% data variables.product.product_location %}を起動する前に、組織の要求に最も適したマシンタイプを決定する必要があります。 {% data variables.product.product_name %} の最小要件を確認するには、「[最小要件](#minimum-requirements)」を参照してください。
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-{% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
+{% data variables.product.company_short %} は、{% data variables.product.prodname_ghe_server %} に汎用のハイメモリマシンを推奨しています。 詳しい情報については、Google Compute Engine のドキュメント「[マシンタイプ](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)」を参照してください。
 
-## Selecting the {% data variables.product.prodname_ghe_server %} image
+## {% data variables.product.prodname_ghe_server %} イメージを選択する
 
-1. Using the [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/) command-line tool, list the public {% data variables.product.prodname_ghe_server %} images:
+1. [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/)コマンドラインツールを使用して、パブリックな {% data variables.product.prodname_ghe_server %} イメージを一覧表示します。
    ```shell
    $ gcloud compute images list --project github-enterprise-public --no-standard-images
    ```
 
-2. Take note of the image name for the latest GCE image of  {% data variables.product.prodname_ghe_server %}.
+2. {% data variables.product.prodname_ghe_server %} の最新の GCE イメージのイメージ名をメモしておきます。
 
-## Configuring the firewall
+## ファイアウォールの設定
 
-GCE virtual machines are created as a member of a network, which has a firewall. For the network associated with the {% data variables.product.prodname_ghe_server %} VM, you'll need to configure the firewall to allow the required ports listed in the table below. For more information about firewall rules on Google Cloud Platform, see the Google guide "[Firewall Rules Overview](https://cloud.google.com/vpc/docs/firewalls)."
+GCE 仮想マシンは、ファイアウォールが存在するネットワークのメンバーとして作成されます。 {% data variables.product.prodname_ghe_server %} VMに関連付けられているネットワークの場合、下記の表に一覧表示されている必要なポートを許可するようにファイアウォールを設定する必要があります。 Google Cloud Platform でのファイアウォールルールに関する詳しい情報については、Google ガイドの「[ファイアウォールルールの概要](https://cloud.google.com/vpc/docs/firewalls)」を参照してください。
 
-1. Using the gcloud compute command-line tool, create the network. For more information, see "[gcloud compute networks create](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create)" in the Google documentation.
+1. gcloud compute コマンドラインツールを使用して、ネットワークを作成します。 詳しい情報については、Google ドキュメンテーションの「[gcloud compute networks create](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create)」を参照してください。
    ```shell
    $ gcloud compute networks create <em>NETWORK-NAME</em> --subnet-mode auto
    ```
-2. Create a firewall rule for each of the ports in the table below. For more information, see "[gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)" in the Google documentation.
+2. 下記の表にある各ポートに関するファイアウォールルールを作成します。 詳しい情報については、Googleドキュメンテーションの「[gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)」を参照してください。
    ```shell
    $ gcloud compute firewall-rules create <em>RULE-NAME</em> \
    --network <em>NETWORK-NAME</em> \
    --allow tcp:22,tcp:25,tcp:80,tcp:122,udp:161,tcp:443,udp:1194,tcp:8080,tcp:8443,tcp:9418,icmp
    ```
-   This table identifies the required ports and what each port is used for.
+   次の表に、必要なポートと各ポートの使用目的を示します。
 
    {% data reusables.enterprise_installation.necessary_ports %}
 
-## Allocating a static IP and assigning it to the VM
+## スタティックIPの取得とVMへの割り当て
 
-If this is a production appliance, we strongly recommend reserving a static external IP address and assigning it to the {% data variables.product.prodname_ghe_server %} VM. Otherwise, the public IP address of the VM will not be retained after restarts. For more information, see the Google guide "[Reserving a Static External IP Address](https://cloud.google.com/compute/docs/configure-instance-ip-addresses)."
+これが稼働状態のアプライアンスである場合は、静的な外部 IP アドレスを予約し、それを {% data variables.product.prodname_ghe_server %} VM に割り当てることを強くおすすめします。 そうしなければ、VM のパブリックな IP アドレスは再起動後に保持されません。 詳しい情報については、Google ガイドの「[静的外部 IP アドレスを予約する](https://cloud.google.com/compute/docs/configure-instance-ip-addresses)」を参照してください。
 
-In production High Availability configurations, both primary and replica appliances should be assigned separate static IP addresses.
+稼働状態の High Availability 設定では、プライマリアプライアンスとレプリカアプライアンスの両方に別々の静的 IP アドレスを割り当ててください。
 
-## Creating the {% data variables.product.prodname_ghe_server %} instance
+## {% data variables.product.prodname_ghe_server %} インスタンスを作成する
 
-To create the {% data variables.product.prodname_ghe_server %} instance, you'll need to create a GCE instance with your {% data variables.product.prodname_ghe_server %} image and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."
+{% data variables.product.prodname_ghe_server %} インスタンスを作成するには、{% data variables.product.prodname_ghe_server %} イメージを使用して GCE インスタンスを作成し、インスタンスデータ用の追加のストレージボリュームをアタッチする必要があります。 詳細は「[ハードウェアについて](#hardware-considerations)」を参照してください。
 
-1. Using the gcloud compute command-line tool, create a data disk to use as an attached storage volume for your instance data, and configure the size based on your user license count. For more information, see "[gcloud compute disks create](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create)" in the Google documentation.
+1. gcloud computeコマンドラインツールを使い、インスタンスデータのためのストレージボリュームとしてアタッチして使うデータディスクを作成し、そのサイズをユーザライセンス数に基づいて設定してください。 詳しい情報については、Google ドキュメンテーションの「[gcloud compute disks create](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create)」を参照してください。
    ```shell
    $ gcloud compute disks create <em>DATA-DISK-NAME</em> --size <em>DATA-DISK-SIZE</em> --type <em>DATA-DISK-TYPE</em> --zone <em>ZONE</em>
    ```
 
-2. Then create an instance using the name of the {% data variables.product.prodname_ghe_server %} image you selected, and attach the data disk. For more information, see "[gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" in the Google documentation.
+2. 次に、選択した {% data variables.product.prodname_ghe_server %} イメージの名前を使用してインスタンスを作成し、データディスクをアタッチします。 詳しい情報については、Googleドキュメンテーションの「[gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)」を参照してください。
    ```shell
    $ gcloud compute instances create <em>INSTANCE-NAME</em> \
    --machine-type n1-standard-8 \
@@ -87,15 +88,15 @@ To create the {% data variables.product.prodname_ghe_server %} instance, you'll 
    --image-project github-enterprise-public
    ```
 
-## Configuring the instance
+## インスタンスの設定
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}詳しい情報については、「[{% data variables.product.prodname_ghe_server %} アプライアンスを設定する](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)」を参照してください。
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-## Further reading
+## 参考リンク
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes %}
+- 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

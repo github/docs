@@ -42,7 +42,7 @@ El token que se utiliza para autenticar la llamada debe tener el alcance de `adm
 {% endfor %}
 
 {% ifversion fpt or ghes > 3.4  %}
-## Custom repository roles
+## Roles de repositorio personalizados
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'custom_roles' %}{% include rest_operation %}{% endif %}

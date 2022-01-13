@@ -666,8 +666,6 @@ describe('Page class', () => {
       expect(page.versions.fpt).toBe('*')
       expect(page.versions.ghes).toBe('>2.21')
       expect(page.versions.ghae).toBeUndefined()
-      // The `feature` prop gets deleted by lib/get-applicable-versions, so it's undefined.
-      expect(page.versions.feature).toBeUndefined()
 
       // Test the resolved versioning, where GHES releases specified in frontmatter and in
       // feature versions are combined (i.e., one doesn't overwrite the other).

@@ -3,8 +3,8 @@ title: プルリクエストをIssueにリンクする
 intro: プルリクエストをIssueにリンクして、修正が進行中であることを示し、プルリクエストがマージされるときIssueを自動的にクローズすることができます。
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
-  - /articles/closing-issues-via-commit-message/
-  - /articles/closing-issues-via-commit-messages/
+  - /articles/closing-issues-via-commit-message
+  - /articles/closing-issues-via-commit-messages
   - /articles/closing-issues-using-keywords
   - /github/managing-your-work-on-github/closing-issues-using-keywords
   - /github/managing-your-work-on-github/linking-a-pull-request-to-an-issue

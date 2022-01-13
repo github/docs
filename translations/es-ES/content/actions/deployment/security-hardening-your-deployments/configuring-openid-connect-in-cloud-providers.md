@@ -44,7 +44,7 @@ permissions:
   id-token: write
 ```
 
-You may need to specify additional permissions here, depending on your workflow's requirements.
+Puede que necesites especificar permisos adicionales aquí, dependiendo de los requisitos de tu flujo de trabajo.
 
 ### Using official actions
 
@@ -58,7 +58,7 @@ If you're not using an official action, then {% data variables.product.prodname_
 
 To update your workflows using this approach, you will need to make three changes to your YAML:
 
-1. Add permissions settings for the token.
+1. Agregar ajustes de permisos para el token.
 2. Add code that requests the OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider.
 3. Add code that exchanges the OIDC token with your cloud provider for an access token.
 

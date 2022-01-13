@@ -1,6 +1,6 @@
 ---
-title: Adding organization members to a team
-intro: 'People with owner or team maintainer permissions can add organization members to teams. People with owner permissions can also {% ifversion fpt or ghec %}invite non-members to join{% else %}add non-members to{% endif %} a team and the organization.'
+title: 添加组织成员到团队
+intro: '拥有所有者或团队维护员权限的人员可以添加成员到团队。 具有所有者权限的人员也可{% ifversion fpt or ghec %}邀请非成员加入{% else %}添加非成员到{% endif %}团队和组织。'
 redirect_from:
   - /articles/adding-organization-members-to-a-team-early-access-program
   - /articles/adding-organization-members-to-a-team
@@ -13,7 +13,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Add members to a team
+shortTitle: 将成员添加到团队
 ---
 
 {% data reusables.organizations.team-synchronization %}
@@ -22,14 +22,13 @@ shortTitle: Add members to a team
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
-6. Above the list of team members, click **Add a member**.
-![Add member button](/assets/images/help/teams/add-member-button.png)
+6. 在团队成员列表上方，单击 **Add a member（添加成员）**。 ![添加成员按钮](/assets/images/help/teams/add-member-button.png)
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
 {% ifversion fpt or ghec %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[About teams](/articles/about-teams)"
-- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
+- "[关于团队](/articles/about-teams)"
+- "[管理团队对组织仓库的访问](/articles/managing-team-access-to-an-organization-repository)"

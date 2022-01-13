@@ -1,11 +1,11 @@
 ---
-title: About webhooks
+title: 关于 web 挂钩
 redirect_from:
   - /post-receive-hooks
   - /articles/post-receive-hooks
   - /articles/creating-webhooks
   - /articles/about-webhooks
-intro: Webhooks provide a way for notifications to be delivered to an external web server whenever certain actions occur on a repository or organization.
+intro: Web 挂钩是一种通知方式，只要仓库或组织上发生特定操作，就会发送通知到外部 web 服务器。
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,17 +15,17 @@ versions:
 
 {% tip %}
 
-**Tip:** {% data reusables.organizations.owners-and-admins-can %} manage webhooks for an organization. {% data reusables.organizations.new-org-permissions-more-info %}
+**提示：** {% data reusables.organizations.owners-and-admins-can %} 为组织管理 web 挂钩。 {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
-Webhooks can be triggered whenever a variety of actions are performed on a repository or an organization. For example, you can configure a webhook to execute whenever:
+只要在仓库或组织上执行特定的操作，就可触发 web 挂钩。 例如，您可以配置 web 挂钩在以下情况下执行：
 
-* A repository is pushed to
-* A pull request is opened
-* A {% data variables.product.prodname_pages %} site is built
-* A new member is added to a team
+* 推送到仓库
+* 打开拉取请求
+* 构建 {% data variables.product.prodname_pages %} 网站
+* 团队新增成员
 
-Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you can make these webhooks update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server.
+使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 可以让这些 web 挂钩更新外部议题跟踪器、触发 CI 构建、更新备份镜像，甚至部署到生产服务器。
 
-To set up a new webhook, you'll need access to an external server and familiarity with the technical procedures involved. For help on building a webhook, including a full list of actions you can associate with, see "[Webhooks](/webhooks)."
+要设置新的 web 挂钩，您需要访问外部服务器并熟悉所涉及的技术程序。 有关构建 web 挂钩的帮助，包括可以关联的完整操作列表，请参阅“[web 挂钩](/webhooks)”。

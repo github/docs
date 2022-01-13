@@ -1,7 +1,7 @@
 ---
-title: Managing issues and pull requests
-shortTitle: Managing issues and pull requests
-intro: 'You can automatically manage your issues and pull requests using {% data variables.product.prodname_actions %} workflows.'
+title: Gerenciar problemas e pull requests
+shortTitle: Gerenciar problemas e pull requests
+intro: 'Você pode gerenciar automaticamente seus problemas e pull requests usando fluxos de trabalho de {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'

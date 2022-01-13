@@ -1,10 +1,10 @@
 ---
-title: Git automation with OAuth tokens
+title: OAuth トークンを使用した Git の自動化
 redirect_from:
   - /articles/git-over-https-using-oauth-token
   - /articles/git-over-http-using-oauth-token
   - /articles/git-automation-with-oauth-tokens
-intro: 'You can use OAuth tokens to interact with {% data variables.product.product_name %} via automated scripts.'
+intro: 'OAuthトークンを使用して、自動化されたスクリプトを介して {% data variables.product.product_name %} を操作できます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,36 +13,36 @@ versions:
 shortTitle: Automate with OAuth tokens
 ---
 
-## Step 1: Get an OAuth token
+## ステップ 1: OAuth トークンを取得する
 
-Create a personal access token on your application settings page. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+アプリケーション設定ページで個人アクセストークンを作成します。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
 {% tip %}
 
 {% ifversion fpt or ghec %}
-**Tips:**
-- You must verify your email address before you can create a personal access token. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+**参考:**
+- 個人アクセストークンを作成する前に、メールアドレスを確認する必要があります。 詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」を参照してください。
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% else %}
-**Tip:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**ヒント:** {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% endif %}
 
 {% endtip %}
 
 {% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
-## Step 2: Clone a repository
+## ステップ 2: リポジトリをクローンする
 
 {% data reusables.command_line.providing-token-as-password %}
 
-To avoid these prompts, you can use Git password caching. For information, see "[Caching your GitHub credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
+これらのプロンプトを回避するには、Git パスワードキャッシュを使用できます。 詳しい情報については、「[Git に GitHub 認証情報をキャッシュする](/github/getting-started-with-github/caching-your-github-credentials-in-git)」を参照してください。
 
 {% warning %}
 
-**Warning**: Tokens have read/write access and should be treated like passwords. If you enter your token into the clone URL when cloning or adding a remote, Git writes it to your _.git/config_ file in plain text, which is a security risk.
+**警告**: トークンには読み取り/書き込みアクセス権限があるため、パスワードのように慎重に扱う必要があります。 リモートをクローンまたは追加する際にクローン URL にトークンを入力すると、Git によって _.git/config_ ファイルにプレーンテキストで書き込まれます。これはセキュリティ上のリスクとなります。
 
 {% endwarning %}
 
-## Further reading
+## 参考リンク
 
-- "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"
+- 「[OAuth App を認証する](/developers/apps/authorizing-oauth-apps)」

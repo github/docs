@@ -2,8 +2,6 @@
 title: GitHub Command Palette
 intro: 'Use the command palette in {% data variables.product.product_name %} to navigate, search, and run commands directly from your keyboard.'
 versions:
-  fpt: '*'
-  ghec: '*'
   feature: 'command-palette'
 shortTitle: GitHub Command Palette
 ---
@@ -29,28 +27,28 @@ The ability to run commands directly from your keyboard, without navigating thro
 ## Opening the {% data variables.product.prodname_command_palette %}
 
 Open the command palette using one of the following keyboard shortcuts:
-- Windows and Linux: <kbd>Ctrl</kbd><kbd>k</kbd> or <kbd>Ctrl</kbd><kbd>alt</kbd><kbd>k</kbd> 
-- Mac: <kbd>⌘</kbd><kbd>k</kbd> or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd>
+- Windows and Linux: <kbd>Ctrl</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>
+- Mac: <kbd>Command</kbd>+<kbd>K</kbd> or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd>
 
-When you open the command palette, it shows your location at the top left and uses it as the scope for suggestions (for example, the `mashed-avocado` organization). 
+When you open the command palette, it shows your location at the top left and uses it as the scope for suggestions (for example, the `mashed-avocado` organization).
 
 ![Command palette launch](/assets/images/help/command-palette/command-palette-launch.png)
 
 {% note %}
 
 **Notes:**
-- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd><kbd>alt</kbd><kbd>k</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd> (Mac).
+- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).
 - If you are working on a project (beta), a project-specific command palette is displayed instead. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."
 
 {% endnote %}
 
 ## Navigating with the {% data variables.product.prodname_command_palette %}
 
-You can use the command palette to navigate to any page that you have access to on {% data variables.product.product_name %}. 
+You can use the command palette to navigate to any page that you have access to on {% data variables.product.product_name %}.
 
 {% data reusables.command-palette.open-palette %}
 
-2. Start typing the path you want to navigate to. The suggestions in the command palette change to match your text. 
+2. Start typing the path you want to navigate to. The suggestions in the command palette change to match your text.
 
    ![Command palette navigation current scope](/assets/images/help/command-palette/command-palette-navigation-current-scope.png)
 
@@ -60,22 +58,22 @@ You can use the command palette to navigate to any page that you have access to 
 
 4. Finish entering the path, or use the arrow keys to highlight the path you want from the list of suggestions.
 
-5. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd><kbd>Enter</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+5. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 
 ## Searching with the {% data variables.product.prodname_command_palette %}
 
-You can use the command palette to search for anything on {% data variables.product.product_location %}. 
+You can use the command palette to search for anything on {% data variables.product.product_location %}.
 
 {% data reusables.command-palette.open-palette %}
 
 {% data reusables.command-palette.change-scope %}
 
-3. Optionally, use keystrokes to find specific types of resource: 
+3. Optionally, use keystrokes to find specific types of resource:
 
    - <kbd>#</kbd> Search for issues, pull requests, discussions, and projects
    - <kbd>!</kbd> Search for projects
    - <kbd>@</kbd> Search for users, organizations, and repositories
-   - <kbd>/</kbd> Search for files within a repository scope 
+   - <kbd>/</kbd> Search for files within a repository scope
 
    ![Command palette search files](/assets/images/help/command-palette/command-palette-search-files.png)
 
@@ -87,18 +85,18 @@ You can use the command palette to search for anything on {% data variables.prod
 
    {% endtip %}
 
-5. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd><kbd>Enter</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+5. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 
 ## Running commands from the {% data variables.product.prodname_command_palette %}
 
 You can use the {% data variables.product.prodname_command_palette %} to run commands. For example, you can create a new repository or issue, or change your theme. When you run a command, the location for its action is determined by either the underlying page or the scope shown in the command palette.
 
 - Pull request and issue commands always run on the underlying page.
-- Higher-level commands, for example, repository commands, run in the scope shown in the command palette. 
+- Higher-level commands, for example, repository commands, run in the scope shown in the command palette.
 
 For a full list of supported commands, see "[{% data variables.product.prodname_command_palette %} reference](#github-command-palette-reference)."
 
-1. Use <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>k</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Shift</kbd><kbd>k</kbd> (Mac) to open the command palette in command mode. If you already have the command palette open, press <kbd>></kbd> to switch to command mode. {% data variables.product.prodname_dotcom %} suggests commands based on your location.
+1. Use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac) to open the command palette in command mode. If you already have the command palette open, press <kbd>></kbd> to switch to command mode. {% data variables.product.prodname_dotcom %} suggests commands based on your location.
 
    ![Command palette command mode](/assets/images/help/command-palette/command-palette-command-mode.png)
 
@@ -112,8 +110,8 @@ For a full list of supported commands, see "[{% data variables.product.prodname_
 
 When the command palette is active, you can use one of the following keyboard shortcuts to close the command palette:
 
-- Search and navigation mode: <kbd>esc</kbd> or <kbd>Ctrl</kbd><kbd>k</kbd> (Windows and Linux)  <kbd>⌘</kbd><kbd>k</kbd> (Mac)
-- Command mode: <kbd>esc</kbd> or <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>k</kbd> (Windows and Linux)  <kbd>⌘</kbd><kbd>Shift</kbd><kbd>k</kbd> (Mac)
+- Search and navigation mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>K</kbd> (Mac)
+- Command mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac)
 
 ## {% data variables.product.prodname_command_palette %} reference
 
@@ -128,9 +126,9 @@ These keystrokes are available when the command palette is in navigation and sea
 |<kbd>@</kbd>| Search for users, organizations, and repositories. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
 |<kbd>/</kbd>| Search for files within a repository scope or repositories within an organization scope. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)." |
 |<kbd>!</kbd>| Search just for projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
-|<kbd>Ctrl</kbd><kbd>c</kbd> or <kbd>⌘</kbd><kbd>c</kbd>| Copy the search or navigation URL for the highlighted result to the clipboard.|
+|<kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>Command</kbd>+<kbd>C</kbd>| Copy the search or navigation URL for the highlighted result to the clipboard.|
 |<kbd>Enter</kbd>| Jump to the highlighted result or run the highlighted command.|
-|<kbd>Ctrl</kbd><kbd>Enter</kbd> or <kbd>⌘</kbd><kbd>Enter</kbd>| Open the highlighted search or navigation result in a new brower tab.|
+|<kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Command</kbd>+<kbd>Enter</kbd>| Open the highlighted search or navigation result in a new brower tab.|
 |<kbd>?</kbd>| Display help within the command palette.|
 
 ### Global commands
@@ -198,7 +196,7 @@ These commands are available only when you open the command palette from an issu
 |`Convert issue to discussion...`|Convert the current issue into a discussion. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
 |`Delete issue...`|Delete the current issue. For more information, see "[Deleting an issue](/issues/tracking-your-work-with-issues/deleting-an-issue)."|
 |`Edit issue body`|Open the main body of the issue ready for editing.
-|`Edit issue title`|Open the title of the issue ready for editing. 
+|`Edit issue title`|Open the title of the issue ready for editing.
 |`Lock issue`|Limit new comments to users with write access to the repository. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
 |`Pin`/`unpin issue`|Change whether or not the issue is shown in the pinned issues section for the repository. For more information, see "[Pinning an issue to your repository](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)."|
 |`Subscribe`/`unscubscribe`|Opt in or out of notifications for changes to this issue. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."

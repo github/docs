@@ -186,7 +186,7 @@ $ curl -L 'https://<em>hostname</em>:<em>admin_port</em>/setup/api?api_key=<em>y
 You can also use standard HTTP authentication to send this token. For example:
 
 ```shell
-$ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>admin_port</em>/setup/api'
+$ curl -L -u "api_key:<em>your-amazing-password</em>" 'https://<em>hostname</em>:<em>admin_port</em>/setup/api'
 ```
 
 {% for operation in currentRestOperations %}

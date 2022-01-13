@@ -1,6 +1,6 @@
 ---
-title: Proposing changes to your work with pull requests
-intro: 'After you add changes to a topic branch or fork, you can open a pull request to ask your collaborators or the repository administrator to review your changes before merging them into the project.'
+title: Propor alterações no trabalho com pull requests
+intro: 'Depois de adicionar alterações em um branch de tópico ou bifurcação, você pode abrir uma pull request para solicitar que seus colaboradores ou o administrador do repositório revisem as alterações antes de fazer merge delas no projeto.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests
   - /articles/proposing-changes-to-your-work-with-pull-requests
@@ -24,5 +24,6 @@ children:
   - /requesting-a-pull-request-review
   - /changing-the-base-branch-of-a-pull-request
   - /committing-changes-to-a-pull-request-branch-created-from-a-fork
-shortTitle: Propose changes
+shortTitle: Propor alterações
 ---
+
