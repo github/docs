@@ -1,6 +1,6 @@
 ---
-title: Publicizing or hiding organization membership
-intro: 'If you''d like to tell the world which organizations you belong to, you can display the avatars of the organizations on your profile.'
+title: Mostrar ou ocultar a associação da organização
+intro: 'Se deseja contar ao mundo de quais organizações você faz parte, é possível exibir os avatares das organizações em seu perfil.'
 redirect_from:
   - /articles/publicizing-or-concealing-organization-membership
   - /articles/publicizing-or-hiding-organization-membership
@@ -13,18 +13,17 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Show or hide membership
+shortTitle: Exibir ou ocultar associação
 ---
-![Profile organizations box](/assets/images/help/profile/profile_orgs_box.png)
 
-## Changing the visibility of your organization membership
+![Caixa perfil da organização](/assets/images/help/profile/profile_orgs_box.png)
+
+## Alterar a visibilidade da associação da organização
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
-4. Locate your username in the list of members. If the list is large, you can search for your username in the search box.
-![Organization member search box](/assets/images/help/organizations/member-search-box.png)
-5. In the menu to the right of your username, choose a new visibility option:
-    - To publicize your membership, choose **Public**.
-    - To hide your membership, choose **Private**.
-  ![Organization member visibility link](/assets/images/help/organizations/member-visibility-link.png)
+4. Localize seu nome de usuário na lista de integrantes. Se for uma lista grande, você pode pesquisar seu nome de usuário na caixa de pesquisa. ![Caixa de pesquisa organization member (integrante da organização)](/assets/images/help/organizations/member-search-box.png)
+5. No menu ao lado direito do seu nome de usuário, escolha uma nova opção de visibilidade:
+    - Para mostrar sua associação, escolha **Public** (Público).
+    - Para ocultar sua associação, escolha **Private** (Privado). ![Link visibilidade de integrante da organização](/assets/images/help/organizations/member-visibility-link.png)

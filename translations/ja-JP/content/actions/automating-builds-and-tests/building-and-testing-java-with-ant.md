@@ -1,6 +1,6 @@
 ---
-title: Building and testing Java with Ant
-intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Java project with Ant.
+title: AntでのJavaのビルドとテスト
+intro: GitHub Actions中で継続的インテグレーション（CI）ワークフローを作成し、AntでJavaのプロジェクトのビルドとテストを行うことができます。
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-ant
   - /actions/guides/building-and-testing-java-with-ant
@@ -20,23 +20,23 @@ shortTitle: Build & test Java & Ant
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## はじめに
 
-This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Ant build system. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to upload artifacts from a workflow run.
+このガイドは、Antビルドシステムを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、Pull Requestに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 CIワークフローを拡張して、ワークフローの実行による成果物をアップロードするようにもできます。
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Ant. For a list of software and the pre-installed versions for JDK and Ant, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.product.prodname_dotcom %}ホストランナーは、Java Development Kits（JDKs）及びAntを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 JDK および Ant のソフトウェアとプリインストールされたバージョンのリストについては、「[{% data variables.product.prodname_dotcom %} でホストされているランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 {% endif %}
 
-## Prerequisites
+## 必要な環境
 
-You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
-- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+YAMLと{% data variables.product.prodname_actions %}の構文に馴染んでいる必要があります。 詳しい情報については、以下を参照してください。
+- [{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)
+- 「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」
 
-We recommend that you have a basic understanding of Java and the Ant framework. For more information, see the [Apache Ant Manual](https://ant.apache.org/manual/).
+Java及びAntフレームワークの基本的な理解をしておくことをおすすめします。 詳しい情報については[Apache Ant Manual](https://ant.apache.org/manual/)を参照してください。
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
@@ -44,9 +44,9 @@ We recommend that you have a basic understanding of Java and the Ant framework. 
 
 {% data variables.product.prodname_dotcom %} provides an Ant starter workflow that will work for most Ant-based Java projects. For more information, see the [Ant starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
 
-To get started quickly, you can choose the preconfigured Ant starter workflow when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
+To get started quickly, you can choose the preconfigured Ant starter workflow when you create a new workflow. 詳しい情報については、「[{% data variables.product.prodname_actions %} のクイックスタート](/actions/quickstart)」を参照してください。
 
-You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
+リポジトリの`.github/workflows`に新しいファイルを作成して、手作業でこのワークフローを追加することもできます。
 
 {% raw %}
 ```yaml{:copy}
@@ -70,11 +70,11 @@ jobs:
 ```
 {% endraw %}
 
-This workflow performs the following steps:
+このワークフローは以下のステップを実行します。
 
-1. The `checkout` step downloads a copy of your repository on the runner.
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
-3. The "Build with Ant" step runs the default target in your `build.xml` in non-interactive mode.
+1. `checkout`ステップは、ランナーにリポジトリのコピーをダウンロードします。
+2. `setup-java` ステップは、 Adoptium で Java 11 JDK を設定します。
+3. "Build with Ant"ステップは、`build.xml`中のデフォルトターゲットを非インタラクティブモードで実行します。
 
 The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
@@ -82,13 +82,13 @@ The default starter workflows are excellent starting points when creating your b
 
 {% data reusables.github-actions.java-jvm-architecture %}
 
-## Building and testing your code
+## コードのビルドとテスト
 
-You can use the same commands that you use locally to build and test your code.
+ローカルで使うのと同じコマンドを、コードのビルドとテストに使えます。
 
-The starter workflow will run the default target specified in your _build.xml_ file.  Your default target will commonly be set to build classes, run tests and package classes into their distributable format, for example, a JAR file.
+このスターターワークフローは、_build.xml_ファイルで指定されたデフォルトのターゲットを実行します。  デフォルトのターゲットは、一般的にクラスをビルドし、テストを実行し、たとえばJARファイルのような配布可能なフォーマットにクラスをパッケージするように設定されるでしょう。
 
-If you use different commands to build your project, or you want to run a different target, you can specify those. For example, you may want to run the `jar` target that's configured in your _build-ci.xml_ file.
+プロジェクトのビルドに異なるコマンドを使ったり、異なるターゲットを実行したいのであれば、それらを指定できます。 たとえば、_build-ci.xml_ファイル中で設定された`jar`ターゲットを実行したいこともあるでしょう。
 
 {% raw %}
 ```yaml{:copy}
@@ -103,11 +103,11 @@ steps:
 ```
 {% endraw %}
 
-## Packaging workflow data as artifacts
+## 成果物としてのワークフローのデータのパッケージ化
 
-After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+ビルドが成功し、テストがパスした後には、結果のJavaのパッケージをビルドの成果物としてアップロードすることになるかもしれません。 そうすれば、ビルドされたパッケージをワークフローの実行の一部として保存することになり、それらをダウンロードできるようになります。 成果物によって、Pull Requestをマージする前にローカルの環境でテスト及びデバッグしやすくなります。 詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
 
-Ant will usually create output files like JARs, EARs, or WARs in the `build/jar` directory. You can upload the contents of that directory using the `upload-artifact` action.
+Antは通常、JAR、EAR、WARのような出力ファイルを`build/jar`ディレクトリに作成します。 このディレクトリの内容は`upload-artifact`アクションを使ってアップロードできます。
 
 {% raw %}
 ```yaml{:copy}
@@ -117,7 +117,7 @@ steps:
     with:
       java-version: '11'
       distribution: 'adopt'
-  
+
   - run: ant -noinput -buildfile build.xml
   - uses: actions/upload-artifact@v2
     with:

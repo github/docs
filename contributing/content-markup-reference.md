@@ -156,8 +156,6 @@ These instructions are pertinent to VS Code users.
 {% endvscode %}
 ```
 
-Unlike [operating system tags](#operating-system-tags), which will automatically add tabs to select the operating system at the top of the article, you must add `{% include tool-switcher %}` wherever you want to display tabs to select the tool. This allows you to display the tabs at the top of the article or immediately before a relevant section.
-
 You can define a default tool in the frontmatter. For more information, see the [content README](../content/README.md#defaulttool).
 
 ## Reusable and variable strings of text

@@ -1,6 +1,6 @@
 ---
-title: Developing in a codespace
-intro: 'Create a codespace to get started with developing your project inside a dedicated cloud environment. You can use forwarded ports to run your application and even use codespaces inside {% data variables.product.prodname_vscode %}'
+title: codespace で開発する
+intro: '専用のクラウド環境でプロジェクト開発を開始するための codespace を作成します。 転送されたポートを使用してアプリケーションを実行したり、{% data variables.product.prodname_vscode %} 内の Codespaces を使用したりすることもできます。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -20,4 +20,4 @@ children:
   - /using-codespaces-in-visual-studio-code
   - /using-codespaces-with-github-cli
 ---
- 
+

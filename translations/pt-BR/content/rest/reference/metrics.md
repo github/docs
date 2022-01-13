@@ -19,7 +19,7 @@ miniTocMaxHeadingLevel: 3
 {% endfor %}
 
 {% ifversion fpt or ghec %}
-## Community
+## Comunidade
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'community' %}{% include rest_operation %}{% endif %}
@@ -27,39 +27,32 @@ miniTocMaxHeadingLevel: 3
 
 {% endif %}
 
-## Statistics
+## Estatísticas
 
-The Repository Statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different
-types of repository activity.
+A API de Estatísticas do Repositório permite que você recupere os dados que o {% data variables.product.product_name %} usa para visualizar diferentes tipos de atividade do repositório.
 
-### A word about caching
+### Umas palavras sobre o armazenamento em cache
 
-Computing repository statistics is an expensive operation, so we try to return cached
-data whenever possible.  If the data hasn't been cached when you query a repository's
-statistics, you'll receive a `202` response; a background job is also fired to
-start compiling these statistics. Give the job a few moments to complete, and
-then submit the request again. If the job has completed, that request will receive a
-`200` response with the statistics in the response body.
+Computar as estatísticas do repositório é uma operação cara. Por esse motivo, tentamos retornar dados armazenados em cache sempre que possível.  Se os dados não forem armazenados em cache nas estatísticas de um repositório, você receberá uma resposta de `202`; um trabalho em segundo plano também é acionado para começar a compilar estas estatísticas. Dê ao trabalho alguns instantes para que seja concluído e, em seguida, envie a solicitação novamente. Se o trabalho foi concluído, essa solicitação receberá uma resposta de `200` com as estatísticas no texto da resposta.
 
-Repository statistics are cached by the SHA of the repository's default branch; pushing to the default branch resets the statistics cache.
+As estatísticas do repositório são armazenadas em cache pelo SHA do branch-padrão do repositório; fazer push para o branch-padrão redefine o armazenamento em cache de estatísticas.
 
-### Statistics exclude some types of commits
+### As estatísticas excluem alguns tipos de commits
 
-The statistics exposed by the API match the statistics shown by [different repository graphs](/github/visualizing-repository-data-with-graphs/about-repository-graphs).
+As estatísticas expostas pela API correspondem às estatísticas mostradas pelos [diferentes gráficos de repositórios](/github/visualizing-repository-data-with-graphs/about-repository-graphs).
 
-To summarize:
-- All statistics exclude merge commits.
-- Contributor statistics also exclude empty commits.
+Resumo:
+- Todas as estatísticas excluem commits de merge.
+- As estatísticas do contribuidor também excluem commits vazios.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'statistics' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% ifversion fpt or ghec %}
-## Traffic
+## Tráfego
 
-For repositories that you have push access to, the traffic API provides access
-to the information provided in your repository graph. For more information, see "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Viewing traffic to a repository</a>."
+Para repositórios aos quais você tem acesso de push, a API de tráfego fornece acesso às informações fornecidas no seu gráfico de repositório. Para obter mais informações, consulte "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Visualizar tráfego para um repositório</a>. "
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}

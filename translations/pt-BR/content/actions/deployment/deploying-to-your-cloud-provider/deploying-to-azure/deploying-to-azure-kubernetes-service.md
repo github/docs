@@ -1,6 +1,6 @@
 ---
-title: Deploying to Azure Kubernetes Service
-intro: You can deploy your project to Azure Kubernetes Service (AKS) as part of your continuous deployment (CD) workflows.
+title: Implantando no Azure Kubernetes Service
+intro: Você pode fazer deploy de seu projeto no Azure Kubernetes Service (AKS) como parte de fluxos de trabalho para implantação contínua (CD).
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,41 +16,41 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 
-## Introduction
+## Introdução
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
+Este guia explica como usar {% data variables.product.prodname_actions %} para criar e publicar um projeto no [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Observação**: {% data reusables.actions.about-oidc-short-overview %} e "[Configurando OpenID Connect no Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## Pré-requisitos
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actions %}, primeiro você precisa concluir as etapas de configuração a seguir:
 
-1. Create a target AKS cluster and an Azure Container Registry (ACR). For more information, see "[Quickstart: Deploy an AKS cluster by using the Azure portal - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)" and "[Quickstart - Create registry in portal - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)" in the Azure documentation.
+1. Crie um cluster-alvo do AKS e um Azure Container Registry (ACR). Para obter mais informações, consulte "[Início rápido: Implantar um cluster do AKS usando o portal do Azure - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)" e "[Início rápido - Criar registro no portal - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)" na documentação do Azure.
 
-1. Create a secret called `AZURE_CREDENTIALS` to store your Azure credentials. For more information about how to find this information and structure the secret, see [the `Azure/login` action documentation](https://github.com/Azure/login#configure-a-service-principal-with-a-secret).
+1. Crie um segredo chamado `AZURE_CREDENTIALS` para armazenar suas credenciais do Azure. Para obter mais informações sobre como encontrar essa informação e estruturar o segredo, consulte a documentação da ação [a `açure/login`](https://github.com/Azure/login#configure-a-service-principal-with-a-secret).
 
-## Creating the workflow
+## Criar o fluxo de trabalho
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+Depois de preencher os pré-requisitos, você pode prosseguir com a criação do fluxo de trabalho.
 
-The following example workflow demonstrates how to build and deploy a project to Azure Kubernetes Service when code is pushed to your repository.
+O exemplo de fluxo de trabalho a seguir demonstra como criar e implantar um projeto no Azure Kubernetes Services quando o código for enviado por push para o seu repositório.
 
-Under the workflow `env` key, change the the following values:
-- `AZURE_CONTAINER_REGISTRY` to the name of your container registry
-- `PROJECT_NAME` to the name of your project
-- `RESOURCE_GROUP` to the resource group containing your AKS cluster
-- `CLUSTER_NAME` to the name of your AKS cluster
+Na chave do fluxo de trabalho `env`, altere os seguintes valores:
+- `AZURE_CONTAINER_REGISTRY` para o nome do seu registro de contêiner
+- `PROJECT_NAME` para o nome do seu projeto
+- `RESOURCE_GROUP` para o grupo de recursos que contém seu cluster do AKS
+- `CLUSTER_NAME` para o nome do seu cluster do AKS
 
-This workflow uses the `helm` render engine for the [`azure/k8s-bake` action](https://github.com/Azure/k8s-bake). If you will use the `helm` render engine, change the value of `CHART_PATH` to the path to your helm file. Change `CHART_OVERRIDE_PATH` to an array of override file paths. If you use a different render engine, update the input parameters sent to the `azure/k8s-bake` action.
+Este fluxo de trabalho usa o mecanismo de interpretação `helm` para a ação [`azure/k8s-bake`](https://github.com/Azure/k8s-bake). Se você usar o motor de interpretação `helm` de renderização, altere o valor de `CHART_PATH` para o caminho do seu arquivo de helm. Altere `CHART_OVERRIDE_PATH` para uma matriz de caminhos de arquivos sobrescritos. Se você usar um mecanismo de interpretação diferente, atualize os parâmetros de entrada enviados para a ação `azure/k8s-bake`.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -87,7 +87,7 @@ jobs:
         inlineScript: |
           az configure --defaults acr={% raw %}${{ env.AZURE_CONTAINER_REGISTRY }}{% endraw %}
           az acr build -t  -t {% raw %}${{ env.REGISTRY_URL }}{% endraw %}/{% raw %}${{ env.PROJECT_NAME }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
-    
+
     - name: Gets K8s context
       uses: azure/aks-set-context@4e5aec273183a197b181314721843e047123d9fa
       with:
@@ -117,10 +117,10 @@ jobs:
           {% raw %}${{ env.PROJECT_NAME }}{% endraw %}
 ```
 
-## Additional resources
+## Recursos adicionais
 
-The following resources may also be useful:
+Os seguintes recursos também podem ser úteis:
 
-* For the original starter workflow, see [`azure-kubernetes-service.yml `](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The actions used to in this workflow are the official Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake), and [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy)actions.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* Para o fluxo de trabalho inicial original, consulte [`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) no repositório `starter-workflows` de {% data variables.product.prodname_actions %}.
+* As ações usadas nesse fluxo de trabalho são as ações oficiais do Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake) e [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy).
+* Para obter mais exemplos de fluxos de trabalho do GitHub Action que fazem a implantação no Azure, consulte o repositório [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).

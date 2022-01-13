@@ -1,6 +1,6 @@
 ---
-title: Authenticating users for your GitHub Enterprise Server instance
-intro: 'You can use {% data variables.product.prodname_ghe_server %}''s built-in authentication, or choose between CAS, LDAP, or SAML to integrate your existing accounts and centrally manage user access to {% data variables.product.product_location %}.'
+title: Autenticar usuarios para tu instancia de servidor de GitHub Enterprise
+intro: 'Puedes usar la autenticación integrada de {% data variables.product.prodname_ghe_server %} o elegir entre CAS, LDAP o SAML para integrar tus cuentas existentes y administrar centralmente el acceso de usuarios para {% data variables.product.product_location %}.'
 redirect_from:
   - /enterprise/admin/categories/authentication
   - /enterprise/admin/guides/installation/user-authentication
@@ -20,6 +20,6 @@ children:
   - /using-ldap
   - /allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /changing-authentication-methods
-shortTitle: Authenticate users
+shortTitle: Autenticar usuarios
 ---
 

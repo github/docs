@@ -1,6 +1,6 @@
 ---
-title: Limiting interactions in your organization
-intro: You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your organization.
+title: Restringir interações na organização
+intro: É possível aplicar temporariamente um período de atividade limitada para determinados usuários em todos os repositórios públicos pertencentes à sua organização.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization
@@ -11,37 +11,35 @@ versions:
 permissions: Organization owners can limit interactions in an organization.
 topics:
   - Community
-shortTitle: Limit interactions in org
+shortTitle: Limitar interações no org
 ---
 
-## About temporary interaction limits
+## Sobre limites temporários de interação
 
-Limiting interactions in your organization enables temporary interaction limits for all public repositories owned by the organization. {% data reusables.community.interaction-limits-restrictions %}
+O limite de interações na organização habilita limites de interação temporária para todos os repositórios públicos pertencentes à organização. {% data reusables.community.interaction-limits-restrictions %}
 
-{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your organization's public repositories.
+{% data reusables.community.interaction-limits-duration %} Após a duração do seu limite passar, os usuários podem retomar a atividade normal nos repositórios públicos da sua organização.
 
 {% data reusables.community.types-of-interaction-limits %}
 
-Members of the organization are not affected by any of the limit types.
+Os integrantes da organização não são afetados por nenhum dos tipos de limite.
 
-When you enable organization-wide activity limitations, you can't enable or disable interaction limits on individual repositories. For more information on limiting activity for an individual repository, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
+Quando você habilita restrições de atividades para toda a organização, você não pode habilitar ou desabilitar restrições de interação em repositórios individuais. Para obter mais informações sobre limitação de atividade para um repositório individual, consulte "[Limitar interações no repositório](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
 
-Organization owners can also block users for a specific amount of time. After the block expires, the user is automatically unblocked. For more information, see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
+Os proprietários da organização também podem bloquear os usuários por um determinado período de tempo. Após o término do bloqueio, o usuário é automaticamente desbloqueado. Para obter mais informações, consulte "[Bloquear um usuário em sua organização](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)".
 
-## Limiting interactions in your organization
+## Restringir interações na organização
 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the organization settings sidebar, click **Moderation settings**.
-  !["Moderation settings" in the organization settings sidebar](/assets/images/help/organizations/org-settings-moderation-settings.png)
-1. Under "Moderation settings", click **Interaction limits**.
-  !["Interaction limits" in the organization settings sidebar](/assets/images/help/organizations/org-settings-interaction-limits.png)
+1. Na barra lateral de configurações da organização, clique em **Configurações de moderação**. !["Configurações de moderação" na barra lateral das configurações da organização](/assets/images/help/organizations/org-settings-moderation-settings.png)
+1. Em "Configurações de moderação", clique em **Limites de interação**. !["Limites de interação" na barra lateral de configurações da organização](/assets/images/help/organizations/org-settings-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}
-  ![Temporary interaction limit options](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
+  ![Opções Temporary interaction limit (Restrições de interação temporárias)](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 
-## Further reading
-- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-- "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)"
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+## Leia mais
+- "[Denunciar abuso ou spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- "[Gerenciar o acesso de um indivíduo a um repositório da organização](/articles/managing-an-individual-s-access-to-an-organization-repository)"
+- "[Níveis de permissão do repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository)"
+- "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
