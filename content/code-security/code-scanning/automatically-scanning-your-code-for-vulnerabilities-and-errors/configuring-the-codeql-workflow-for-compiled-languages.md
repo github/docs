@@ -172,6 +172,7 @@ You can omit a subdirectory and its dependencies from the {% data variables.prod
     - name: Checkout repository
       uses: actions/checkout@v2
       
+    # Build `lib2` before initializing CodeQL
     - name: Build lib2
      - run: |
        make lib2
