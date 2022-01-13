@@ -565,7 +565,7 @@ describe('server', () => {
   describe('article versions', () => {
     test('includes links to all versions of each article', async () => {
       const articlePath =
-        'github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line'
+        'get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line'
       const $ = await getDOM(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`
       )
@@ -786,7 +786,7 @@ describe('URLs by language', () => {
 
 describe('GitHub Enterprise URLs', () => {
   test('renders the GHE user docs homepage', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github`)
+    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/get-started`)
     expect(
       $(
         `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/writing-on-github"]`
