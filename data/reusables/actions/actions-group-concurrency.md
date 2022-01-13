@@ -14,7 +14,7 @@ concurrency: ci-${{ github.ref }}
 ```
 {% endraw %}
 
-## Example: Using concurrency to cancel any in-progress job or run on a pull request
+## Example: Using concurrency to cancel any in-progress job or run
 
 {% raw %}
 ```yaml
@@ -24,15 +24,9 @@ concurrency:
 ```
 {% endraw %}
 
-{% note %}
+### Example: Using a fallback value
 
-**Note:** `github.head_ref` is only defined on `pull_request` events. If you have a workflow that responds to other events in addition to `pull_request` events, you will need to provide a fallback to avoid a syntax error.
-
-{% endnote %}
-
-### Example: With fallback
-
-To cancel in-progress jobs or runs on `pull_request` events only, but not on other events the workflow responds to:
+If you build the group name with a property that is only defined for specific events, you can use a fallback value. For example, `github.head_ref` is only defined on `pull_request` events. If your workflow responds to other events in addition to `pull_request` events, you will need to provide a fallback to avoid a syntax error. The following concurrency group cancels in-progress jobs or runs on `pull_request` events only; if `github.head_ref` is undefined, the concurrency group will fallback to the run ID, which is guaranteed to be both unique and defined for the run.
 
 {% raw %}
 ```yaml
@@ -42,32 +36,18 @@ concurrency:
 ```
 {% endraw %}
 
-If `github.head_ref` is undefined, the concurrency group will fallback to the run ID, which is guaranteed to be both unique and defined for the run.
 
 ### Only cancel in-progress jobs or runs for the current workflow
 
-{% note %}
+ If you have multiple workflows in the same repository, concurrency group names must be unique across workflows to avoid canceling in-progress jobs or runs from other workflows. Otherwise, any previously in-progress or pending job will be canceled, regardless of the workflow.
 
-**Note:** If you have multiple workflows in the same repository, concurrency group names must be unique to avoid canceling in-progress jobs or runs from independent workflows. Otherwise, any previously in-progress or pending job will be canceled, regardless of the workflow that triggered it, leading to potentially confusing behavior if that wasn't your intent.
-
-{% endnote %}
-
-To only cancel in-progress runs on a per-workflow basis:
+To only cancel in-progress runs of the same workflow, you can use the `github.workflow` property to build the concurrency group:
 
 {% raw %}
 ```yaml
 concurrency: 
-  group: ${{ github.workflow }}-${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 ```
 {% endraw %}
 
-With fallback:
-
-{% raw %}
-```yaml
-concurrency: 
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
-```
-{% endraw %}
