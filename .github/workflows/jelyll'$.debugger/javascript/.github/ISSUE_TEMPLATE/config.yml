@@ -18,7 +18,7 @@ steps: use: actions/checkout@v2
 run: crates.io
 run: anchor/slate
 run: -Verbose 
-run: -chef'$booke-builder-latest
+run: frosty'$ -chefbook builder-latest
 #!/user/bin/bash 
 fetch: Purl, -c'lang 
 Author: chmod
