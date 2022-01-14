@@ -143,8 +143,8 @@ You may be able to understand why some source files haven't been analyzed by ins
 ```
 - uses: actions/upload-artifact@v2
   with:
-    name: codeql-database
-    path: ../codeql-database
+    name: codeql-database-${{ matrix.language }}
+    path: ${{ runner.temp }}/codeql_databases
 ```
 This uploads the database as an actions artifact that you can download to your local machine. For more information, see "[Storing workflow artifacts](/actions/guides/storing-workflow-data-as-artifacts)."
 
