@@ -18,7 +18,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## ワークフローコマンドについて
 
@@ -77,6 +76,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 | `core.getState`       | 環境変数の`STATE_{NAME}`を使ってアクセス可能                                         |
 | `core.isDebug`        | 環境変数の`RUNNER_DEBUG`を使ってアクセス可能                                         |
 | `core.saveState`      | `save-state`                                                          |
+| `core.setCommandEcho` | `echo`                                                                |
 | `core.setFailed`      | `::error`及び`exit 1`のショートカットとして使われる                                    |
 | `core.setOutput`      | `set-output`                                                          |
 | `core.setSecret`      | `add-mask`                                                            |
@@ -247,6 +247,46 @@ jobs:
 
 {% endraw %}
 
+## Echoing command outputs
+
+```
+::echo::on
+::echo::off
+```
+
+Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
+
+Command echoing is disabled by default. However, a workflow command is echoed if there are any errors processing the command.
+
+The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
+
+You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
+
+### Example toggling command echoing
+
+```yaml
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: toggle workflow command echoing
+        run: |
+          echo '::set-output name=action_echo::disabled'
+          echo '::echo::on'
+          echo '::set-output name=action_echo::enabled'
+          echo '::echo::off'
+          echo '::set-output name=action_echo::disabled'
+```
+
+The step above prints the following lines to the log:
+
+```
+::set-output name=action_echo::enabled
+::echo::off
+```
+
+Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
+
 ## pre及びpostアクションへの値の送信
 
 `save-state`コマンドを使って、ワークフローの`pre:`あるいは`post:`アクションと共有するための環境変数を作成できます。 たとえば、`pre:`アクションでファイルを作成し、そのファイルの場所を`main:`アクションに渡し、`post:`アクションを使ってそのファイルを削除できます。 あるいは、ファイルを`main:`アクションで作成し、そのファイルの場所を`post:`アクションに渡し、`post:`アクションを使ってそのファイルを削除することもできます。
@@ -273,12 +313,33 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 {% warning %}
 
-**警告:** Powershell はデフォルト設定で UTF-8 を使用しません。 正しいエンコーディングを使用してファイルを書き込むようにしてください。 たとえば、パスを設定するときに UTF-8 エンコーディングを設定する必要があります。
+**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default. 正しいエンコーディングを使用してファイルを書き込むようにしてください。 たとえば、パスを設定するときに UTF-8 エンコーディングを設定する必要があります。
 
 ```yaml
-steps:
-  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+jobs:
+  legacy-powershell-example:
+    uses: windows-2019
+    steps:
+      - shell: powershell
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
+
+Or switch to PowerShell Core, which defaults to UTF-8:
+
+```yaml
+jobs:
+  modern-pwsh-example:
+    uses: windows-2019
+    steps:
+      - shell: pwsh
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
+```
+
+More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow answer](https://stackoverflow.com/a/40098904/162694):
+
+> ### Optional reading: The cross-platform perspective: PowerShell _Core_:
+> 
+> [PowerShell is now cross-platform](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), via its **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)** edition, whose encoding - sensibly - ***defaults to ***BOM-less UTF-8******, in line with Unix-like platforms.
 
 {% endwarning %}
 

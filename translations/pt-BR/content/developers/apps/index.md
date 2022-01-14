@@ -2,11 +2,11 @@
 title: Aplicativos
 intro: Você pode automatizar e agilizar seu fluxo de trabalho criando seus próprios aplicativos.
 redirect_from:
-  - /early-access/integrations/
-  - /early-access/integrations/authentication/
-  - /early-access/integrations/install-an-integration/
-  - /apps/adding-integrations/
-  - /apps/building-integrations/setting-up-a-new-integration/about-integrations/
+  - /early-access/integrations
+  - /early-access/integrations/authentication
+  - /early-access/integrations/install-an-integration
+  - /apps/adding-integrations
+  - /apps/building-integrations/setting-up-a-new-integration/about-integrations
   - /apps
   - /v3/integrations
 versions:

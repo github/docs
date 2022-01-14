@@ -2,8 +2,8 @@
 title: Revisar suas chaves SSH
 intro: 'Para manter suas credenciais seguras, você deve regularmente auditar as suas chaves SSH, chaves de implantação e revisar os aplicativos autorizados que acessam a sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
-  - /articles/keeping-your-application-access-tokens-safe/
-  - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe/
+  - /articles/keeping-your-application-access-tokens-safe
+  - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe
   - /articles/reviewing-your-ssh-keys
   - /github/authenticating-to-github/reviewing-your-ssh-keys
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-ssh-keys
@@ -57,7 +57,7 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
   {% endtip %}
 
-4. Abra o Git Bash. Se estiver usando o Git Shell, que faz parte do {% data variables.product.prodname_desktop %}, abra o Git Shell e passe para a etapa 6.
+4. Abra o Git Bash.
 
 5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 

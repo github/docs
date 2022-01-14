@@ -1,13 +1,13 @@
 ---
-title: 在 CI 系统中安装 CodeQL CLI
-shortTitle: 安装 CodeQL CLI
-intro: '您可以安装 {% data variables.product.prodname_codeql_cli %} 并用它在第三方持续集成系统中执行 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}。'
+title: Installing CodeQL CLI in your CI system
+shortTitle: Install CodeQL CLI
+intro: 'You can install the {% data variables.product.prodname_codeql_cli %} and use it to perform {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in a third-party continuous integration system.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '>=3.1'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -24,53 +24,52 @@ redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-cli-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
 ---
-
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-## 关于将 {% data variables.product.prodname_codeql_cli %} 用于 {% data variables.product.prodname_code_scanning %}
+## About using the {% data variables.product.prodname_codeql_cli %} for {% data variables.product.prodname_code_scanning %}
 
-您可以使用 {% data variables.product.prodname_codeql_cli %} 在第三方持续集成 (CI) 系统中处理的代码上运行 {% data variables.product.prodname_code_scanning %}。 {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)." For recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis, see "[Recommended hardware resources for running {% data variables.product.prodname_codeql %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql)."
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 
-您也可以使用 {% data variables.product.prodname_actions %} 在 {% data variables.product.product_name %} 中运行 {% data variables.product.prodname_code_scanning %}。 有关使用操作进行 {% data variables.product.prodname_code_scanning %} 的信息，请参阅“[为仓库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”。 有关 CI 系统选项的概述，请参阅“[关于 CI 系统中的 CodeQL {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)”。
+Alternatively, you can use {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_code_scanning %} within {% data variables.product.product_name %}. For information about {% data variables.product.prodname_code_scanning %} using actions, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)." For an overview of the options for CI systems, see "[About CodeQL {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)".
 
 {% data reusables.code-scanning.licensing-note %}
 
-## 下载 {% data variables.product.prodname_codeql_cli %}
+## Downloading the {% data variables.product.prodname_codeql_cli %}
 
-您应该从 https://github.com/github/codeql-action/releases 下载 {% data variables.product.prodname_codeql %} 包。 包中包含：
+You should download the {% data variables.product.prodname_codeql %} bundle from https://github.com/github/codeql-action/releases. The bundle contains:
 
-- {% data variables.product.prodname_codeql_cli %} 产品
-- 来自 https://github.com/github/codeql 的查询和库的兼容版本
-- 包中包含的所有查询的预编译版本
+- {% data variables.product.prodname_codeql_cli %} product
+- A compatible version of the queries and libraries from https://github.com/github/codeql
+- Precompiled versions of all the queries included in the bundle
 
-您应该始终使用 {% data variables.product.prodname_codeql %} 包，因为这样可以确保兼容性，并且比单独下载 {% data variables.product.prodname_codeql_cli %} 和检出 {% data variables.product.prodname_codeql %} 查询提供更好的性能。 如果您只在一个特定平台上运行 CLI，请下载相应的 `codeql-bundle-PLATFORM.tar.gz` 文件。 或者，您可以下载 `codeql-bundle.tar.gz`，其中包含所有支持平台的 CLI 。
+You should always use the {% data variables.product.prodname_codeql %} bundle as this ensures compatibility and also gives much better performance than a separate download of the {% data variables.product.prodname_codeql_cli %} and checkout of the {% data variables.product.prodname_codeql %} queries. If you will only be running the CLI on one specific platform, download the appropriate `codeql-bundle-PLATFORM.tar.gz` file. Alternatively, you can download `codeql-bundle.tar.gz`, which contains the CLI for all supported platforms.
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-## 在 CI 系统中设置 {% data variables.product.prodname_codeql_cli %}
+## Setting up the {% data variables.product.prodname_codeql_cli %} in your CI system
 
-您需要将 {% data variables.product.prodname_codeql_cli %} 包的全部内容提供给要运行 CodeQL {% data variables.product.prodname_code_scanning %} 分析的每个 CI 服务器。 例如，您可以配置每台服务器从中央内部位置复制包并提取它。 或者，您可以使用 REST API 直接从 {% data variables.product.prodname_dotcom %} 获取包，以确保您从查询的最新改进中受益。 {% data variables.product.prodname_codeql_cli %} 的更新每 2-3 周发布一次。 例如：
+You need to make the full contents of the {% data variables.product.prodname_codeql_cli %} bundle available to every CI server that you want to run CodeQL {% data variables.product.prodname_code_scanning %} analysis on. For example, you might configure each server to copy the bundle from a central, internal location and extract it. Alternatively, you could use the REST API to get the bundle directly from {% data variables.product.prodname_dotcom %}, ensuring that you benefit from the latest improvements to queries. Updates to the {% data variables.product.prodname_codeql_cli %} are released every 2-3 weeks. For example:
 
 ```shell
 $ wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
 $ tar -xvzf ../codeql-bundle-linux64.tar.gz
 ```
 
-提取 {% data variables.product.prodname_codeql_cli %} 包后，您可以在服务器上运行 `codeql` 可执行文件：
+After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the `codeql` executable on the server:
 
-- 通过执行 `/<extraction-root>/codeql/codeql`，其中 `<extraction-root>` 是您提取 {% data variables.product.prodname_codeql_cli %} 包的文件夹。
-- 通过将 `/<extraction-root>/codeql` 添加到 `PATH`，以便您可以像 `codeql` 一样运行可执行文件。
+- By executing `/<extraction-root>/codeql/codeql`, where `<extraction-root>` is the folder where you extracted the {% data variables.product.prodname_codeql_cli %} bundle.
+- By adding `/<extraction-root>/codeql` to your `PATH`, so that you can run the executable as just `codeql`.
 
-## 测试 {% data variables.product.prodname_codeql_cli %} 设置
+## Testing the {% data variables.product.prodname_codeql_cli %} set up
 
-提取 {% data variables.product.prodname_codeql_cli %} 包后，您可以运行以下命令来验证是否正确设置了 CLI 以创建和分析数据库。
+After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the following command to verify that the CLI is correctly set up to create and analyze databases.
 
-- `codeql resolve qlpacks`（如果 `/<extraction-root>/codeql` 在 `PATH` 上）。
-- 或 `/<extraction-root>/codeql/codeql resolve qlpacks`。
+- `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
+- `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
 
-**从成功的输出提取：**
+**Extract from successful output:**
 ```
 codeql-cpp (/<extraction-root>/codeql/qlpacks/codeql-cpp)
 codeql-cpp-examples (/<extraction-root>/codeql/qlpacks/codeql-cpp-examples)
@@ -93,12 +92,12 @@ codeql-python-upgrades (/<extraction-root>/codeql/qlpacks/codeql-python-upgrades
 ...
 ```
 
-您应该检查输出是否包含预期的语言，以及 qlpack 文件的目录位置是否正确。 位置应在提取的 {% data variables.product.prodname_codeql_cli %} 捆绑包内，如上图所示为 `<extraction root>`，除非您使用的是 `github/codeql`的检出。 如果 {% data variables.product.prodname_codeql_cli %} 找不到预期语言的 qlpacks，请检查您是否下载了 {% data variables.product.prodname_codeql %} 捆绑包，而不是 {% data variables.product.prodname_codeql_cli %} 的独立副本。
+You should check that the output contains the expected languages and also that the directory location for the qlpack files is correct. The location should be within the extracted {% data variables.product.prodname_codeql_cli %} bundle, shown above as `<extraction root>`, unless you are using a checkout of `github/codeql`. If the {% data variables.product.prodname_codeql_cli %} is unable to locate the qlpacks for the expected languages, check that you downloaded the {% data variables.product.prodname_codeql %} bundle and not a standalone copy of the {% data variables.product.prodname_codeql_cli %}.
 
-## 使用 {% data variables.product.product_name %} 生成用于身份验证的令牌
+## Generating a token for authentication with {% data variables.product.product_name %}
 
-每个 CI 服务器都需要 {% data variables.product.prodname_github_app %} 或用于 {% data variables.product.prodname_codeql_cli %} 的个人访问令牌，才能将结果上传到 {% data variables.product.product_name %}。 您必须使用具有 `>security_events` 写入权限的访问令牌或 {% data variables.product.prodname_github_app %}。 如果CI 服务器已使用具有此作用域的令牌从 {% data variables.product.product_name %} 检出仓库， 您可以允许 {% data variables.product.prodname_codeql_cli %} 使用相同的令牌。 否则，您应该创建具有 `security_events` 写入权限的新令牌，然后将其添加到 CI 系统的密钥存储区。 更多信息请参阅“[构建 {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)”和“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+Each CI server needs a {% data variables.product.prodname_github_app %} or personal access token for the {% data variables.product.prodname_codeql_cli %} to use to upload results to {% data variables.product.product_name %}. You must use an access token or a {% data variables.product.prodname_github_app %} with the `security_events` write permission. If CI servers already use a token with this scope to checkout repositories from {% data variables.product.product_name %}, you could potentially allow the {% data variables.product.prodname_codeql_cli %} to use the same token. Otherwise, you should create a new token with the `security_events` write permission and add this to the CI system's secret store. For information, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" and "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-## 后续步骤
+## Next steps
 
-您现在可以配置 CI 系统运行 {% data variables.product.prodname_codeql %} 分析、生成结果并上传到 {% data variables.product.product_name %}，在那里结果将匹配分支或拉取请求并显示为 {% data variables.product.prodname_code_scanning %} 警报。 有关详细信息，请参阅“[在 CI 系统中配置 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)”。
+You're now ready to configure the CI system to run {% data variables.product.prodname_codeql %} analysis, generate results, and upload them to {% data variables.product.product_name %} where the results will be matched to a branch or pull request and displayed as {% data variables.product.prodname_code_scanning %} alerts. For detailed information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)."

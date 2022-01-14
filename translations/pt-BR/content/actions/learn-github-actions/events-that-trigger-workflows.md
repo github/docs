@@ -17,7 +17,6 @@ shortTitle: Eventos que acionam fluxos de trabalho
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Configurar eventos de fluxo de trabalho
 
@@ -58,11 +57,11 @@ O evento `agenda` permite que você acione um fluxo de trabalho em um horário a
 A sintaxe cron tem cinco campos separados por um espaço, e cada campo representa uma unidade de tempo.
 
 ```
-┌───────────── minute (0 - 59)
-│ ┌───────────── hour (0 - 23)
-│ │ ┌───────────── day of the month (1 - 31)
-│ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
-│ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+┌───────────── minuto (0 a 59)
+│ ┌───────────── hora (0 a 23)
+│ │ ┌───────────── dia do mês (1 a 31)
+│ │ │ ┌───────────── mês (1 - 12 ou dezembro a janeiro)
+│ │ │ │ ┌───────────── dia da semana (0 a 6 ou domingo a sábado)
 │ │ │ │ │
 │ │ │ │ │
 │ │ │ │ │
@@ -194,7 +193,7 @@ Nem todos os eventos de webhook acionam fluxos de trabalho. Para obter a lista c
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4968  %}
 ### `branch_protection_rule`
 
-Runs your workflow anytime the `branch_protection_rule` event occurs. {% data reusables.developer-site.multiple_activity_types %} For information about the GraphQL API, see "[BranchProtectionRule]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#branchprotectionrule)."
+Executa o fluxo de trabalho sempre que o evento `branch_protection_rule` ocorre. {% data reusables.developer-site.multiple_activity_types %} Para obter informações sobre a API do GraphQL, consulte "[BranchProtectionRule]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#branchprotectionrule). "
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -204,7 +203,7 @@ Runs your workflow anytime the `branch_protection_rule` event occurs. {% data re
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-For example, you can run a workflow when a branch protection rule has been `created` or `deleted`.
+Por exemplo, você pode executar um fluxo de trabalho quando uma regra de proteção de branch tiver sido criada `` ou `excluída`.
 
 ```yaml
 on:
@@ -308,7 +307,7 @@ on:
 
 ### `implantação_status`
 
-Executa o fluxo de trabalho sempre que um terceiro fornece um status de implantação, o que aciona o evento `deployment_status`. Implantações criadas com um commit SHA podem não ter um Git ref. Para obter informações sobre a API REST, consulte "[Criar um status de implantação](/rest/reference/repos#create-a-deployment-status)".
+Executa o fluxo de trabalho sempre que um terceiro fornece um status de implantação, o que aciona o evento `deployment_status`. Implantações criadas com um commit SHA podem não ter um Git ref. Para obter informações sobre a API REST, consulte "[Criar um status de implantação](/rest/reference/deployments#create-a-deployment-status)".
 
 | Carga de evento webhook                                             | Tipos de atividade | `GITHUB_SHA`            | `GITHUB_REF`                                     |
 | ------------------------------------------------------------------- | ------------------ | ----------------------- | ------------------------------------------------ |
@@ -702,7 +701,7 @@ on:
 
 {% note %}
 
-**Observação:** a carga de webhook disponível para o GitHub Actions não inclui os atributos `added`, `removed` e `modified` no objeto `commit`. É possível recuperar o objeto de commit completo usando a API REST. Para obter mais informações, consulte "[Obter um commit](/rest/reference/repos#get-a-commit)".
+**Observação:** a carga de webhook disponível para o GitHub Actions não inclui os atributos `added`, `removed` e `modified` no objeto `commit`. É possível recuperar o objeto de commit completo usando a API REST. Para obter mais informações, consulte "[Obter um commit](/rest/reference/commits#get-a-commit)".
 
 {% endnote %}
 
@@ -808,7 +807,15 @@ on:
 
 {% data reusables.webhooks.workflow_run_desc %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% note %}
+
+**Notas:**
+
+* Este evento acionará apenas um fluxo de trabalho executado se o arquivo do fluxo de trabalho estiver no branch padrão.
+
+* Você não pode usar `workflow_run` para encadear mais de três níveis de fluxos de trabalho. Por exemplo, se você tentar acionar cinco fluxos de trabalho (denominado `B` a `F`) para serem executados sequencialmente após a execução de um fluxo de trabalho inicial `A` (isto é: `A` → `B` → `C` → `D` → `E` → `F`), os fluxos de trabalho `E` e `F` não serão executados.
+
+{% endnote %}
 
 | Carga de evento webhook                                  | Tipos de atividade                    | `GITHUB_SHA`                   | `GITHUB_REF`  |
 | -------------------------------------------------------- | ------------------------------------- | ------------------------------ | ------------- |

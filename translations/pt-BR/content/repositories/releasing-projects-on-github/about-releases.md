@@ -2,8 +2,8 @@
 title: Sobre as versões
 intro: 'Você pode criar uma versão de modo a empacotar software, com notas de versão e links para arquivos binários, para uso de outras pessoas.'
 redirect_from:
-  - /articles/downloading-files-from-the-command-line/
-  - /articles/downloading-files-with-curl/
+  - /articles/downloading-files-from-the-command-line
+  - /articles/downloading-files-with-curl
   - /articles/about-releases
   - /articles/getting-the-download-count-for-your-releases
   - /github/administering-a-repository/getting-the-download-count-for-your-releases
@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
 ![Uma visão geral de versões](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% elsif ghes > 3.2 or ghae-issue-4972 %}
+{% elsif ghes > 3.3 or ghae-issue-4972 %}
 ![Uma visão geral de versões](/assets/images/help/releases/releases-overview-with-contributors.png)
 {% else %}
 ![Uma visão geral de versões](/assets/images/help/releases/releases-overview.png)

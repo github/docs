@@ -13,6 +13,7 @@ children:
   - /managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
   - /managing-repository-access-for-your-organizations-codespaces
   - /reviewing-your-organizations-audit-logs-for-codespaces
+  - /restricting-access-to-machine-types
 shortTitle: Gerenciando sua organização
 ---
 

@@ -2,10 +2,10 @@
 title: 更改 GitHub 用户名
 intro: 'You can change the username for your account on {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %} if your instance uses built-in authentication{% endif %}.'
 redirect_from:
-  - /articles/how-to-change-your-username/
-  - /articles/changing-your-github-user-name/
-  - /articles/renaming-a-user/
-  - /articles/what-happens-when-i-change-my-username/
+  - /articles/how-to-change-your-username
+  - /articles/changing-your-github-user-name
+  - /articles/renaming-a-user
+  - /articles/what-happens-when-i-change-my-username
   - /articles/changing-your-github-username
   - /github/setting-up-and-managing-your-github-user-account/changing-your-github-username
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username
@@ -24,7 +24,7 @@ shortTitle: 更改用户名
 
 {% ifversion ghec %}
 
-**Note**: Members of an {% data variables.product.prodname_emu_enterprise %} cannot change usernames. Your enterprise's IdP administrator controls your username for {% data variables.product.product_name %}. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+**Note**: Members of an {% data variables.product.prodname_emu_enterprise %} cannot change usernames. Your enterprise's IdP administrator controls your username for {% data variables.product.product_name %}. 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 
 {% elsif ghes %}
 
@@ -84,5 +84,5 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 ## 延伸阅读
 
-- "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
+- "[Why are my commits linked to the wrong user?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
 - "[{% data variables.product.prodname_dotcom %} Username Policy](/free-pro-team@latest/github/site-policy/github-username-policy)"{% endif %}

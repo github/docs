@@ -17,7 +17,7 @@ shortTitle: Permitir el borrado de propuestas
 
 Por defecto, las propuestas no pueden eliminarse en los repositorios de una organización. El propietario de la organización debe habilitar esta característica para todos los repositorios de la organización en primer lugar.
 
-Once enabled, organization owners and people with admin access in an organization-owned repository can delete issues. People with admin access in a repository include organization members and outside collaborators who were given admin access. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" and "[Deleting an issue](/articles/deleting-an-issue)."
+Una vez habilitada, los propietarios de la organización y las personas con acceso administrativo a un repositorio que pertenezca a la organización podrán borrar las propuestas. Entre las personas con acceso administrativo en un repositorio se incluyen los miembros de la organización y colaboradores externos que obtuvieron acceso administrativo. Para obtener más información, consulte la sección "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" y "[Borrar una propuesta](/articles/deleting-an-issue)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

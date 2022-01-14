@@ -12,7 +12,7 @@ shortTitle: Gerenciar endereços IP permitidos
 
 ## Sobre listas de endereços IP permitidos para {% data variables.product.prodname_github_apps %}
 
-Os proprietários da empresa e da organização podem restringir o acesso aos ativos configurando uma lista de endereços IP permitidos. Esta lista especifica os endereços IP autorizados a se conectar. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
+Os proprietários da empresa e da organização podem restringir o acesso aos ativos configurando uma lista de endereços IP permitidos. Esta lista especifica os endereços IP autorizados a se conectar. Para obter mais informações, consulte "[Aplicando políticas de segurança na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)".
 
 Quando uma organização tem uma lista de autorizações, aplicativos de terceiros que se conectam por meio de {% data variables.product.prodname_github_app %}, terá acesso negado, a menos que ambos os pontos a seguir sejam verdadeiros:
 

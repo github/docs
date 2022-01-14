@@ -1,7 +1,7 @@
 ---
 title: Sobre o Git rebase
 redirect_from:
-  - /rebase/
+  - /rebase
   - articles/interactive-rebase/
   - /articles/about-git-rebase
   - /github/using-git/about-git-rebase
@@ -23,7 +23,7 @@ Geralmente, `git rebase` é usado para:
 
 {% warning %}
 
-**Aviso**: como a alteração do histórico de commits pode dificultar a vida de outras pessoas que usam o repositório, não é uma boa ideia fazer rebase de commits quando você já fez push em um repositório. Para saber como fazer rebase com segurança no {% data variables.product.product_location %}, consulte "[Sobre merges de pull request](/articles/about-pull-request-merges)".
+**Aviso**: como a alteração do histórico de commits pode dificultar a vida de outras pessoas que usam o repositório, não é uma boa ideia fazer rebase de commits quando você já fez push em um repositório. Para saber como fazer rebase com segurança no {% data variables.product.product_location %}, consulte "[Sobre merges de pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)".
 
 {% endwarning %}
 

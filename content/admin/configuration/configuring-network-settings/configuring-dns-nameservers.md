@@ -2,7 +2,7 @@
 title: Configuring DNS nameservers
 intro: '{% data variables.product.prodname_ghe_server %} uses the dynamic host configuration protocol (DHCP) for DNS settings when DHCP leases provide nameservers. If nameservers are not provided by a dynamic host configuration protocol (DHCP) lease, or if you need to use specific DNS settings, you can specify the nameservers manually.'
 redirect_from:
-  - /enterprise/admin/guides/installation/about-dns-nameservers/
+  - /enterprise/admin/guides/installation/about-dns-nameservers
   - /enterprise/admin/installation/configuring-dns-nameservers
   - /enterprise/admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-dns-nameservers

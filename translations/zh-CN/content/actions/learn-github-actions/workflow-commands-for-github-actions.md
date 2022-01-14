@@ -18,7 +18,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 关于工作流程命令
 
@@ -77,6 +76,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 | `core.getState`       | 可使用环境变量 `STATE_{NAME}` 访问                                             |
 | `core.isDebug`        | 可使用环境变量 `RUNNER_DEBUG` 访问                                             |
 | `core.saveState`      | `save-state`                                                          |
+| `core.setCommandEcho` | `echo`                                                                |
 | `core.setFailed`      | 用作 `::error` 和 `exit 1` 的快捷方式                                         |
 | `core.setOutput`      | `set-output`                                                          |
 | `core.setSecret`      | `add-mask`                                                            |
@@ -247,6 +247,46 @@ jobs:
 
 {% endraw %}
 
+## Echoing command outputs
+
+```
+::echo::on
+::echo::off
+```
+
+Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
+
+Command echoing is disabled by default. However, a workflow command is echoed if there are any errors processing the command.
+
+The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
+
+You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
+
+### Example toggling command echoing
+
+```yaml
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: toggle workflow command echoing
+        run: |
+          echo '::set-output name=action_echo::disabled'
+          echo '::echo::on'
+          echo '::set-output name=action_echo::enabled'
+          echo '::echo::off'
+          echo '::set-output name=action_echo::disabled'
+```
+
+The step above prints the following lines to the log:
+
+```
+::set-output name=action_echo::enabled
+::echo::off
+```
+
+Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
+
 ## 将值发送到 pre 和 post 操作
 
 您可以使用 `save-state` 命令来创建环境变量，以便与工作流程的 `pre:` 或 `post:` 操作共享。 例如，您可以使用 `pre:` 操作创建文件，将该文件位置传给 `main:` 操作，然后使用 `post:` 操作删除文件。 或者，您可以使用 `main:` 操作创建文件，将该文件位置传给 `post:` 操作，然后使用 `post:` 操作删除文件。
@@ -273,12 +313,33 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 {% warning %}
 
-**警告：**Powershell 默认不使用 UTF-8。 请确保使用正确的编码写入文件。 例如，在设置路径时需要设置 UTF-8 编码：
+**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default. 请确保使用正确的编码写入文件。 例如，在设置路径时需要设置 UTF-8 编码：
 
 ```yaml
-steps:
-  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+jobs:
+  legacy-powershell-example:
+    uses: windows-2019
+    steps:
+      - shell: powershell
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
+
+Or switch to PowerShell Core, which defaults to UTF-8:
+
+```yaml
+jobs:
+  modern-pwsh-example:
+    uses: windows-2019
+    steps:
+      - shell: pwsh
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
+```
+
+More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow answer](https://stackoverflow.com/a/40098904/162694):
+
+> ### Optional reading: The cross-platform perspective: PowerShell _Core_:
+> 
+> [PowerShell is now cross-platform](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), via its **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)** edition, whose encoding - sensibly - ***defaults to ***BOM-less UTF-8******, in line with Unix-like platforms.
 
 {% endwarning %}
 

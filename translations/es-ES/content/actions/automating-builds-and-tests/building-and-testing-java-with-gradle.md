@@ -19,13 +19,13 @@ shortTitle: Crear & probar con Java & Gradle
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
 Esta guía te muestra cómo crear un flujo de trabajo que realiza la integración continua (CI) para tu proyecto Java usando el sistema de construcción Gradle. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. Puedes extender tu flujo de trabajo de CI para almacenar en caché los archivos y cargar artefactos desde una ejecución de flujo de trabajo.
 
-{% ifversion ghae %}Para obtener instrucciones de cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 Los ejecutores alojados {% data variables.product.prodname_dotcom %} tienen una caché de herramientas con software preinstalado, que incluye kits de desarrollo de Java (JDK) y Gradle. Para encontrar una lista de software y de las versiones pre-instaladas de JDK y de Gradle, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
@@ -40,11 +40,11 @@ Te recomendamos que tengas una comprensión básica de Java y del marco de Gradl
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Comenzar con una plantilla de flujo de trabajo de Gradle
+## Utilizar el flujo de trabajo inicial de Gradle
 
-{% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de Gradle que funcionará para la mayoría de los proyectos Java basados en Gradle. Para obtener más información, consulta la [Plantilla de flujo de trabajo de Gradle](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
+{% data variables.product.prodname_dotcom %} Proporciona un flujo de trabajo inicial de Gradle que funciona con la mayoría de los proyectos de Java basados en Gradle. Para obtener más información, consulta el [Flujo de trabajo inicial de Gradle](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
 
-Para comenzar rápidamente, puedes elegir la plantilla de Gradle preconfigurada cuando creas un nuevo flujo de trabajo. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
+Para comenzar rápidamente, puedes elegir el flujo de trabajo inicial de Gradle preconfigurado cuando crees un flujo de trabajo nuevo. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
 
 También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
 
@@ -79,7 +79,7 @@ Este flujo de trabajo realiza los siguientes pasos:
 3. El paso de "Validar el wrapper de Gradle" valida la sumas de verificaciones de los archivos JAR del wrapper de Gradle que estén presentes en el árbol fuente.
 4. El paso "Build with Gradle" (construir con Gradle) ejecuta el script contenedor `gradlew` para asegurar que tu código se cree, las pruebas pasen y se pueda crear un paquete.
 
-Las plantillas de flujo de trabajo predeterminadas son excelentes puntos de inicio cuando creas tu flujo de trabajo de construcción y prueba, y puedes personalizar la plantilla para adaptarla a las necesidades de tu proyecto.
+Los flujos de trabajo iniciales predeterminados son un punto de partida excelente para crear tu flujo de trabajo de prueba y de compilación y puedes personalizarlos de acuerdo con las necesidades de tu proyecto.
 
 {% data reusables.github-actions.example-github-runner %}
 

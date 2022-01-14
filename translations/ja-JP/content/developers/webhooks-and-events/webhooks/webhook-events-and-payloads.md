@@ -3,8 +3,8 @@ title: webhook イベントとペイロード
 intro: webhook イベントごとに、イベントの発生日時、ペイロードの例、およびペイロードオブジェクトパラメータに関する説明を確認できます。
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
-  - /early-access/integrations/webhooks/
-  - /v3/activity/events/types/
+  - /early-access/integrations/webhooks
+  - /v3/activity/events/types
   - /webhooks/event-payloads
   - /developers/webhooks-and-events/webhook-events-and-payloads
 versions:
@@ -101,7 +101,7 @@ webhook によって設定されている URL エンドポイントに配信さ�
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 ## branch_protection_rule
 
 ブランチ保護ルールに関するアクティビティです。 詳しい情報については「[ブランチ保護ルールについて](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)」を参照してください。
@@ -191,7 +191,7 @@ webhook によって設定されている URL エンドポイントに配信さ�
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 `sender`オブジェクトは、他の全てのアクションに対して{% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae-next %}`github-enterprise`{% else %}empty{% endif %}です。
+`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 `sender`オブジェクトは、他の全てのアクションに対して{% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae %}`github-enterprise`{% else %}empty{% endif %}です。
 
 ### webhook ペイロードの例
 
@@ -219,6 +219,7 @@ webhook によって設定されている URL エンドポイントに配信さ�
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
 
+{% ifversion ghes < 3.4 %}
 ## content_reference
 
 {% data reusables.webhooks.content_reference_short_desc %}
@@ -233,6 +234,7 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 {{ webhookPayloadsForCurrentVersion.content_reference.created }}
 
+{% endif %}
 ## create
 
 {% data reusables.webhooks.create_short_desc %}
@@ -323,10 +325,10 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー           | 種類                                          | 説明                                                 |
-| ------------ | ------------------------------------------- | -------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| キー           | 種類                                          | 説明                                                       |
+| ------------ | ------------------------------------------- | -------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `action`     | `string`                                    | 実行されたアクション。 `created` を指定可。{% endif %}
-| `deployment` | `オブジェクト`                                    | [デプロイメント](/rest/reference/repos#list-deployments)。 |
+| `deployment` | `オブジェクト`                                    | [デプロイメント](/rest/reference/deployments#list-deployments)。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -348,14 +350,14 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー                                 | 種類                                          | 説明                                                                   |
-| ---------------------------------- | ------------------------------------------- | -------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| キー                                 | 種類                                          | 説明                                                                         |
+| ---------------------------------- | ------------------------------------------- | -------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `action`                           | `string`                                    | 実行されたアクション。 `created` を指定可。{% endif %}
-| `deployment_status`                | `オブジェクト`                                    | [デプロイメントステータス](/rest/reference/repos#list-deployment-statuses)。      |
-| `deployment_status["state"]`       | `string`                                    | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。              |
-| `deployment_status["target_url"]`  | `string`                                    | ステータスに追加されたオプションのリンク。                                                |
-| `deployment_status["description"]` | `string`                                    | オプションの人間可読の説明がステータスに追加。                                              |
-| `deployment`                       | `オブジェクト`                                    | このステータスが関連付けられている [デプロイメント](/rest/reference/repos#list-deployments)。 |
+| `deployment_status`                | `オブジェクト`                                    | [デプロイメントステータス](/rest/reference/deployments#list-deployment-statuses)。      |
+| `deployment_status["state"]`       | `string`                                    | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                    |
+| `deployment_status["target_url"]`  | `string`                                    | ステータスに追加されたオプションのリンク。                                                      |
+| `deployment_status["description"]` | `string`                                    | オプションの人間可読の説明がステータスに追加。                                                    |
+| `deployment`                       | `オブジェクト`                                    | このステータスが関連付けられている [デプロイメント](/rest/reference/deployments#list-deployments)。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -819,7 +821,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 | キー    | 種類        | 説明                                                                         |
 | ----- | --------- | -------------------------------------------------------------------------- |
 | `id`  | `integer` | ページビルドの一意の識別子。                                                             |
-| `ビルド` | `オブジェクト`  | [GitHub Pages ビルドのリスト](/rest/reference/repos#list-github-pages-builds) 自体。 |
+| `ビルド` | `オブジェクト`  | [GitHub Pages ビルドのリスト](/rest/reference/pages#list-github-pages-builds) 自体。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -845,7 +847,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 | -------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `zen`          | `string`  | GitHub zen のランダムな文字列。                                                                                                                                                                                                                                                                                              |
 | `hook_id`      | `integer` | ping をトリガーした webhook の ID。                                                                                                                                                                                                                                                                                         |
-| `フック`          | `オブジェクト`  | [webhook 設定](/rest/reference/repos#get-a-repository-webhook)。                                                                                                                                                                                                                                                      |
+| `フック`          | `オブジェクト`  | [webhook 設定](/rest/reference/webhooks#get-a-repository-webhook)。                                                                                                                                                                                                                                                   |
 | `hook[app_id]` | `integer` | 新しい {% data variables.product.prodname_github_app %} を登録すると、{% data variables.product.product_name %} は登録時に指定した **webhook URL** に ping イベントを送信します。 イベントには、アプリケーションの[認証](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/)に必要な `app_id` が含まれています。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -1197,8 +1199,9 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
-セキュリティアドバイザリに関連するアクティビティ。 セキュリティアドバイザリは、GitHub 上のソフトウェアのセキュリティ関連の脆弱性に関する情報を提供します。 The security advisory dataset also powers the GitHub security alerts, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
-{% endif %}
+Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}.
+
+The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)」を参照してください。
 
 ### 利用の可否
 
@@ -1214,6 +1217,8 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 ### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ## スポンサーシップ

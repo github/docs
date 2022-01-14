@@ -31,7 +31,7 @@ topics:
 
 Una vez que se archiva un repositorio, no puedes agregar ni eliminar colaboradores ni equipos. Solo los colaboradores con acceso al repositorio pueden bifurcar o iniciar tu proyecto.
 
-Cuando se archiva un repositorio, sus propuestas, solicitudes de cambios, còdigo, etiquetas, hitos, proyectos, wiki, lanzamientos, confirmaciones, etiquetas, ramas, reacciones, alertas de escaneo de còdigo y comentarios se hacen de solo lectura. Para realizar cambios en un repositorio archivado, primero debes desarchivar el repositorio.
+Cuando se archiva un repositorio, sus propuestas, solicitudes de cambio, código, etiquetas, hitos, proyectos, wiki, lanzamientos, confirmaciones, marcadores, ramas, reacciones, alertas de escaneo de código, comentarios y permisos se convierten en de solo lectura. Para realizar cambios en un repositorio archivado, primero debes desarchivar el repositorio.
 
 Puedes buscar repositorios archivados. Para obtener más información, consulta "[Buscar repositorios](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)." Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)". Para obtener más información, consulta "[Buscar propuestas y solicitudes de extracción](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)".
 

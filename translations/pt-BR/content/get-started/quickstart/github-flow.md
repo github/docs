@@ -2,8 +2,8 @@
 title: Fluxo do GitHub
 intro: 'Siga o fluxo de {% data variables.product.prodname_dotcom %} para colaborar em projetos.'
 redirect_from:
-  - /articles/creating-and-editing-files-in-your-repository/
-  - /articles/github-flow-in-the-browser/
+  - /articles/creating-and-editing-files-in-your-repository
+  - /articles/github-flow-in-the-browser
   - /articles/github-flow
   - /github/collaborating-with-issues-and-pull-requests/github-flow
   - /github/getting-started-with-github/github-flow
@@ -25,7 +25,7 @@ O fluxo de {% data variables.product.prodname_dotcom %} é um fluxo de trabalho 
 
 ## Pré-requisitos
 
-Para seguir o fluxo de {% data variables.product.prodname_dotcom %}, você precisa da conta de {% data variables.product.prodname_dotcom %} e um repositório. Para obter informações sobre como criar uma conta, consulte "[Inscrevendo-se em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)". Para obter informações sobre como criar um repositório, consulte "[Crie um repositório](/github/getting-started-with-github/create-a-repo). {% ifversion fpt or ghec %} Para mais informações sobre como encontrar um repositório existente para contribuir, consulte "[Encontrar formas de contribuir para código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
+Para seguir o fluxo de {% data variables.product.prodname_dotcom %}, você precisa de uma conta de {% data variables.product.prodname_dotcom %} e um repositório. Para obter informações sobre como criar uma conta, consulte "[Inscrevendo-se em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)". Para obter informações sobre como criar um repositório, consulte "[Crie um repositório](/github/getting-started-with-github/create-a-repo). {% ifversion fpt or ghec %} Para mais informações sobre como encontrar um repositório existente para contribuir, consulte "[Encontrar formas de contribuir para código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
 
 ## Seguindo o fluxo de {% data variables.product.prodname_dotcom %}
 
@@ -89,7 +89,7 @@ Você pode continuar a fazer commit e push das alterações em resposta às revi
 
 ### Fazer merge do seu pull request
 
-Depois que seu pull request for aprovado, faça merge do seu pull request. Isso fará o merge automático do seu branch para que suas alterações apareçam no branch padrão. {% data variables.product.prodname_dotcom %} mantém o histórico de comentários e commits no pull request para ajudar futuros contribuidores a entender suas alterações. Para obter mais informações, consulte "[Fazer merge de uma pull request](/articles/merging-a-pull-request)".
+Depois que seu pull request for aprovado, faça merge do seu pull request. Isso fará o merge automático do seu branch para que suas alterações apareçam no branch padrão. {% data variables.product.prodname_dotcom %} mantém o histórico de comentários e commits no pull request para ajudar futuros contribuidores a entender suas alterações. Para obter mais informações, consulte "[Fazer merge de uma pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)".
 
 {% data variables.product.prodname_dotcom %} dirá se o seu pull request possui conflitos que precisam ser resolvidos antes do merge. Para obter mais informações, consulte "[Solucionar conflitos de merge](/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts)."
 

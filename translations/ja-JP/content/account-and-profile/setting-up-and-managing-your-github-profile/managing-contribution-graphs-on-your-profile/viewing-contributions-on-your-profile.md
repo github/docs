@@ -1,9 +1,9 @@
 ---
-title: プロフィールでコントリビューションを表示する
+title: Viewing contributions on your profile
 intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes or ghec %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
-  - /articles/viewing-contributions/
-  - /articles/viewing-contributions-on-your-profile-page/
+  - /articles/viewing-contributions
+  - /articles/viewing-contributions-on-your-profile-page
   - /articles/viewing-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/viewing-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile
@@ -16,90 +16,89 @@ topics:
   - Profiles
 shortTitle: View contributions
 ---
-
-{% ifversion fpt or ghes or ghec %}Your contribution graph shows activity from public repositories. {% endif %}匿名化されたプライベートリポジトリでのアクティビティの特定の詳細と一緒に、{% ifversion fpt or ghes or ghec %}パブリックリポジトリと{% endif %}プライベートリポジトリの両方からのアクティビティを表示することも選択できます。 詳細は「[プライベートコントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」を参照してください。
+{% ifversion fpt or ghes or ghec %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% ifversion fpt or ghes or ghec %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
 
 {% note %}
 
-**注釈:** コミットは、コミットの作成に使用したメールアドレスが {% data variables.product.product_name %} のアカウントに接続されている場合にのみ、コントリビューショングラフに表示されます。 詳細は「[コントリビューションがプロフィールに表示されないのはなぜですか？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)」を参照してください。
+**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
 
 {% endnote %}
 
-## コントリビューションとして何がカウントされるか
+## What counts as a contribution
 
-プロフィールページでは、特定のアクションがコントリビューションとしてカウントされます:
+On your profile page, certain actions count as contributions:
 
-- リポジトリのデフォルトブランチまたは `gh-pages` ブランチにコミットすること
-- Issue を開くこと
-- ディスカッションをオープンすること
-- ディスカッションに回答すること
-- プルリクエストを提案すること
-- プルリクエストレビューのサブミット{% ifversion ghes or ghae %}
-- リポジトリのデフォルトのブランチまたは `gh-pages` ブランチでコミットを共作{% endif %}
+- Committing to a repository's default branch or `gh-pages` branch
+- Opening an issue
+- Opening a discussion
+- Answering a discussion
+- Proposing a pull request
+- Submitting a pull request review{% ifversion ghes or ghae %}
+- Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
-## 人気のあるリポジトリ
+## Popular repositories
 
-このセクションには、ウォッチャーが最も多いリポジトリが表示されます。 {% ifversion fpt or ghes or ghec %}[リポジトリをプロフィールにピン止め](/articles/pinning-repositories-to-your-profile)すると、このセクションは「固定リポジトリ」に変わります。{% endif %}
+This section displays your repositories with the most watchers. {% ifversion fpt or ghes or ghec %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
 
-![人気のあるリポジトリ](/assets/images/help/profile/profile_popular_repositories.png)
+![Popular repositories](/assets/images/help/profile/profile_popular_repositories.png)
 
 {% ifversion fpt or ghes or ghec %}
 
 ## Pinned repositories
 
-このセクションには最大 6 つのパブリックリポジトリが表示されます。このリポジトリには、自分のリポジトリだけでなく、自分がコントリビュートしたリポジトリも含めることができます。 選択したリポジトリに関する重要な詳細を簡単に見るために、このセクションの各リポジトリには、行われている作業の要約、そのリポジトリに付いた [Star](/articles/saving-repositories-with-stars/) の数、およびそのリポジトリで使用されている主なプログラミング言語が含まれます。 詳細は「[プロフィールにリポジトリをピン止めする](/articles/pinning-repositories-to-your-profile)」を参照してください。
+This section displays up to six public repositories and can include your repositories as well as repositories you've contributed to. To easily see important details about the repositories you've chosen to feature, each repository in this section includes a summary of the work being done, the number of [stars](/articles/saving-repositories-with-stars/) the repository has received, and the main programming language used in the repository. For more information, see "[Pinning repositories to your profile](/articles/pinning-repositories-to-your-profile)."
 
 ![Pinned repositories](/assets/images/help/profile/profile_pinned_repositories.png)
 
 {% endif %}
 
-## コントリビューションカレンダー
+## Contributions calendar
 
-コントリビューションカレンダーは、コントリビューションアクティビティを表示します。
+Your contributions calendar shows your contribution activity.
 
-### 特定の時期からのコントリビューションを表示する
+### Viewing contributions from specific times
 
-- ある日の正方形をクリックすると、その 24 時間の間になされたコントリビューションが表示されます。
-- *Shift* を押しながら、別の日の四角をクリックすると、その期間中に行われたコントリビューションが表示されます。
+- Click on a day's square to show the contributions made during that 24-hour period.
+- Press *Shift* and click on another day's square to show contributions made during that time span.
 
 {% note %}
 
-**メモ:** コントリビューションカレンダーでは 1 か月の範囲まで選ぶことができます。 より長期間を選択した場合、1 か月分のコントリビューションのみが表示されます。
+**Note:** You can select up to a one-month range on your contributions calendar. If you select a larger time span, we will only display one month of contributions.
 
 {% endnote %}
 
-![コントリビューショングラフ](/assets/images/help/profile/contributions_graph.png)
+![Your contributions graph](/assets/images/help/profile/contributions_graph.png)
 
-### コントリビューションイベント時間の計算方法
+### How contribution event times are calculated
 
-タイムスタンプは、コミットとプルリクエストでは異なる方法で計算されます:
-- **コミット**は、コミットタイムスタンプのタイムゾーン情報を使用します。 詳細は「[タイムライン上のコミットのトラブルシューティング](/articles/troubleshooting-commits-on-your-timeline)」を参照してください。
-- {% data variables.product.product_name %} で開かれた**プルリクエスト**と **Issue** は、ブラウザのタイムゾーンを使用します。 API を介して開かれたものは、[API 呼び出しで指定された](https://developer.github.com/changes/2014-03-04-timezone-handling-changes)タイムスタンプまたはタイムゾーンを使用します。
+Timestamps are calculated differently for commits and pull requests:
+- **Commits** use the time zone information in the commit timestamp. For more information, see "[Troubleshooting commits on your timeline](/articles/troubleshooting-commits-on-your-timeline)."
+- **Pull requests** and **issues** opened on {% data variables.product.product_name %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
-## アクティビティの概要
+## Activity overview
 
-{% data reusables.profile.activity-overview-summary %} 詳細は「[プロフィール上にアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。
+{% data reusables.profile.activity-overview-summary %} For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."
 
-![プロフィール上のアクティビティオーバービューセクション](/assets/images/help/profile/activity-overview-section.png)
+![Activity overview section on profile](/assets/images/help/profile/activity-overview-section.png)
 
-アクティビティの概要に記載されている Organization は、Organization 内でのアクティビティの程度に応じて優先順位が付けられています。 プロフィール略歴で Organization に @メンションしており、あなたが Organization のメンバーである場合、その Organization がアクティビティの概要で最優先されます。 For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)" or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
+The organizations featured in the activity overview are prioritized according to how active you are in the organization. If you @mention an organization in your profile bio, and you’re an organization member, then that organization is prioritized first in the activity overview. For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)" or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
 
-## コントリビューションアクティビティ
+## Contribution activity
 
-コントリビューションアクティビティセクションには、あなたが行った、または共作したコミット、あなたが提案したプルリクエスト、あなたが開いた Issue を含む、あなたの仕事の詳細なタイムラインが含まれています。 コントリビューションアクティビティの下にある **Show more activity** をクリックするか、ページの右側に表示したい興味のある年をクリックすることで、コントリビューションを時間の経過とともに見ることができます。 Organization に参加した日付、最初のプルリクエストを提案した日付、または注目度の高い Issue を開いた日付など、重要な瞬間が、コントリビューションアクティビティで強調されます。 タイムラインに特定のイベントが表示されない場合は、イベントが発生した Organization またはリポジトリにまだアクセスできることを確認してください。
+The contribution activity section includes a detailed timeline of your work, including commits you've made or co-authored, pull requests you've proposed, and issues you've opened. You can see your contributions over time by either clicking **Show more activity** at the bottom of your contribution activity or by clicking the year you're interested in viewing on the right side of the page. Important moments, like the date you joined an organization, proposed your first pull request, or opened a high-profile issue, are highlighted in your contribution activity. If you can't see certain events in your timeline, check to make sure you still have access to the organization or repository where the event happened.
 
-![コントリビューションアクティビティ時間フィルター](/assets/images/help/profile/contributions_activity_time_filter.png)
+![Contribution activity time filter](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% ifversion fpt or ghes or ghae-next or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 
-## {% data variables.product.prodname_dotcom_the_website %} 上の {% data variables.product.prodname_enterprise %} からコントリビューションを表示する
+## Viewing contributions from {% data variables.product.prodname_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
 
-If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.product.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.product.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
 
 {% endif %}
 
-## 参考リンク
+## Further reading
 
-- [プロフィールページ上にコントリビューションを表示する](/articles/viewing-contributions-on-your-profile-page)
+- "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"

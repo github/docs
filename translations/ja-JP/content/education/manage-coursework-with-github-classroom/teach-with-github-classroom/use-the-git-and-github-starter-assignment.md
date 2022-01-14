@@ -3,6 +3,7 @@ title: Use the Git and GitHub starter assignment
 intro: 'You can use the Git & {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.company_short %} fundamentals.'
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
 shortTitle: Starter assignment
@@ -40,11 +41,18 @@ The Git & {% data variables.product.company_short %} starter assignment is a pre
 
 Import the starter course into your organization, name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
 
-- [Importing the assignment](#importing-the-assignment)
-- [課題に名前を付ける](#naming-an-assignment)
-- [課題に期限を設定する](#assigning-a-deadline-for-an-assignment)
-- [課題のタイプを選択する](#choosing-an-assignment-type)
-- [課題リポジトリの可視性を選択する](#choosing-a-visibility-for-assignment-repositories)
+- [必要な環境](#prerequisites)
+- [Creating the starter assignment](#creating-the-starter-assignment)
+  - [クラスルームに既存の課題がない場合](#if-there-are-no-existing-assignments-in-the-classroom)
+  - [クラスルームに既存の課題がある場合](#if-there-already-are-existing-assignments-in-the-classroom)
+- [課題の基本情報をセットアップする](#setting-up-the-basics-for-an-assignment)
+  - [Importing the assignment](#importing-the-assignment)
+  - [Naming the assignment](#naming-the-assignment)
+  - [課題に期限を設定する](#assigning-a-deadline-for-an-assignment)
+  - [課題リポジトリの可視性を選択する](#choosing-a-visibility-for-assignment-repositories)
+- [学生を課題に招待する](#inviting-students-to-an-assignment)
+- [次のステップ](#next-steps)
+- [参考リンク](#further-reading)
 
 ### Importing the assignment
 

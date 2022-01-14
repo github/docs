@@ -16,7 +16,7 @@ topics:
 shortTitle: Reinstaurar a un colaborador
 ---
 
-Cuando se elimina el acceso de un colaborador externo a los repositorios privados de tu organización, los privilegios de acceso y configuraciones de éste se guardan por tres meses. You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+Cuando se elimina el acceso de un colaborador externo a los repositorios privados de tu organización, los privilegios de acceso y configuraciones de éste se guardan por tres meses. Puedes restablecer los privilegios del usuario si los vuelves a{% ifversion fpt or ghec %}invitar{% else %} agregar{% endif %} a la organización dentro de este periodo de tiempo.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -33,7 +33,7 @@ Cuando reinstalas un colaborador externo antiguo, puedes restaurar lo siguiente:
 
 **Tips**:
 
- - Solo los propietarios de la organización pueden reinstalar el acceso de colaboradores externos a una organización. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+ - Solo los propietarios de la organización pueden reinstalar el acceso de colaboradores externos a una organización. Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
  - Puede que el flujo de reinstalación de un miembro en {% data variables.product.product_location %} utilice el término "miembro" para describir la reinstalación de un colaborador externo, pero si reinstalas a esta persona y mantienes sus privilegios previos, solo tendrá los [permisos de colaborador externo](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators) anteriores.{% ifversion fpt or ghec %}
  - Si tu organización tiene una suscripción de pago por usuario, debe de existir una licencia sin utilizarse antes de que puedas invitar a un nuevo miembro para que se una a la organización o antes de reinstaurar a algún miembro previo de la misma. Para obtener más información, consulta "[Acerca del precio por usuario](/articles/about-per-user-pricing)."{% endif %}
 
@@ -76,4 +76,4 @@ Cuando reinstalas un colaborador externo antiguo, puedes restaurar lo siguiente:
 
 ## Leer más
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

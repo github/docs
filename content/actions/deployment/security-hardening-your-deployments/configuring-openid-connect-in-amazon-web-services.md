@@ -38,13 +38,14 @@ To add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM, se
 
 To configure the role and trust in IAM, see the AWS documentation for ["Assuming a Role"](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role) and ["Creating a role for web identity or OpenID connect federation"](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html).
 
-By default, the validation only includes the audience (`aud`) condition, so you must manually add a subject (`sub`) condition. Edit the trust relationship to add the `sub` field to the validation conditions. For example:
+Edit the trust relationship to add the `sub` field to the validation conditions. For example:
 
-```yaml{:copy}
+```json{:copy}
 "Condition": {
   "StringEquals": {
-    "token.actions.githubusercontent.com:aud": "https://github.com/octo-org",
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
+  }
+}
 ```
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
@@ -70,7 +71,7 @@ The `aws-actions/configure-aws-credentials` action receives a JWT from the {% da
 
 - `<example-bucket-name>`: Add the name of your S3 bucket here.
 - `<role-to-assume>`: Replace the example with your AWS role.
-- `<example-aws-region>`: Add the name of your AWs region here.
+- `<example-aws-region>`: Add the name of your AWS region here.
 
 ```yaml{:copy}
 # Sample workflow to access AWS resources when workflow is tied to branch
@@ -84,13 +85,13 @@ env:
 # permission can be added at job level or workflow level    
 permissions:
       id-token: write
-      contents: write    # This is required for actions/checkout@v1
+      contents: read    # This is required for actions/checkout@v2
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@master
         with:

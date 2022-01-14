@@ -18,7 +18,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Sobre os comandos do fluxo de trabalho
 
@@ -66,17 +65,18 @@ A tabela a seguir mostra quais funções do conjunto de ferramentas estão dispo
 
 | Função do kit de ferramentas | Comando equivalente do fluxo de trabalho                              |
 | ---------------------------- | --------------------------------------------------------------------- |
-| `core.addPath`               | Accessible using environment file `GITHUB_PATH`                       |
+| `core.addPath`               | Acessível usando o arquivo de ambiente `GITHUB_PATH`                  |
 | `core.debug`                 | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
 | `core.notice`                | `notice` 
 {% endif %}
 | `core.error`                 | `erro`                                                                |
 | `core.endGroup`              | `endgroup`                                                            |
-| `core.exportVariable`        | Accessible using environment file `GITHUB_ENV`                        |
+| `core.exportVariable`        | Acessível usando o arquivo de ambiente `GITHUB_ENV`                   |
 | `core.getInput`              | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}`      |
 | `core.getState`              | Acessível por meio do uso da variável de ambiente `STATE_{NAME}`      |
 | `core.isDebug`               | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG`      |
 | `core.saveState`             | `save-state`                                                          |
+| `core.setCommandEcho`        | `echo`                                                                |
 | `core.setFailed`             | Usado como um atalho para `::error` e `exit 1`                        |
 | `core.setOutput`             | `set-output`                                                          |
 | `core.setSecret`             | `add-mask`                                                            |
@@ -247,6 +247,46 @@ jobs:
 
 {% endraw %}
 
+## Eco de saídas de comando
+
+```
+::echo::on
+::echo::off
+```
+
+Habilita ou desabilita o eco de comandos de fluxo de trabalho. Por exemplo, se você usar o comando `set-output` em um fluxo de trabalho, ele definirá um parâmetro de saída, mas o registro da execução do fluxo de trabalho não irá mostrar o comando em si. Se você habilitar o comando de eco, o registro mostrará o comando, como `::set-output name={name}::{value}`.
+
+O eco de comandos encontra-se desabilitado por padrão. No entanto, um comando de fluxo de trabalho será refletido se houver algum erro que processa o comando.
+
+Os comandos `add-mask`, `depurar`, `aviso` e `erro` não são compatíveis com o eco, porque suas saídas já estão ecoadas no registros.
+
+Você também pode habilitar o comando de eco globalmente ativando o registrode depuração da etapa usando o segredo `ACTIONS_STEP_DEBUG`. Para obter mais informações, consulte[Habilitando o log de depuração](/actions/managing-workflow-runs/enabling-debug-logging)". Em contraste, o comando do fluxo de trabalho `echo` permite que você habilite o comando de eco em um nível mais granular em vez de habilitá-lo para cada fluxo de trabalho em um repositório.
+
+### Exemplo de alternar o comando do eco
+
+```yaml
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: toggle workflow command echoing
+        run: |
+          echo '::set-output name=action_echo::disabled'
+          echo '::echo::on'
+          echo '::set-output name=action_echo::enabled'
+          echo '::echo::off'
+          echo '::set-output name=action_echo::disabled'
+```
+
+A etapa acima imprime as seguintes linhas no registro:
+
+```
+::set-output name=action_echo::enabled
+::echo::off
+```
+
+Apenas os comandos do fluxo de trabalho `set-output` e `echo` estão incluídos no registro, porque o recurso de comandos só estava habilitado quando eles foram executados. Mesmo que nem sempre ele esteja ecoado, o parâmetro de saída é definido em todos os casos.
+
 ## Enviar valores para as ações anterior e posterior
 
 Você pode usar o comando `save-state` para criar variáveis de ambiente para compartilhar com as ações `pre:` ou `post:`. Por exemplo, você pode criar um arquivo com a ação `pre:`, passar o local do arquivo para a ação `main:` e, em seguida, usar a ação `post:` para excluir o arquivo. Como alternativa, você pode criar um arquivo com a ação `main:` ação, passar o local do arquivo para a ação `post:`, além de usar a ação `post:` para excluir o arquivo.
@@ -273,12 +313,33 @@ Durante a execução de um fluxo de trabalho, o executor gera arquivos temporár
 
 {% warning %}
 
-**Aviso:** O Powershell não usa UTF-8 por padrão. Certifique-se de escrever os arquivos usando a codificação correta. Por exemplo, você deve definir a codificação UTF-8 ao definir o caminho:
+**Aviso:** no Windows, o PowerShell de legado (`shell: powershell`) não usa UTF-8 por padrão. Certifique-se de escrever os arquivos usando a codificação correta. Por exemplo, você deve definir a codificação UTF-8 ao definir o caminho:
 
 ```yaml
-steps:
-  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+jobs:
+  legacy-powershell-example:
+    uses: windows-2019
+    steps:
+      - shell: powershell
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
+
+Ou mude para PowerShell Core, cujo padrão é UTF-8:
+
+```yaml
+jobs:
+  modern-pwsh-example:
+    uses: windows-2019
+    steps:
+      - shell: pwsh
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
+```
+
+Mais detalhes sobre UTF-8 e PowerShell Core encontrados nesta excelente [resposta do Stack Overflow](https://stackoverflow.com/a/40098904/162694):
+
+> ### Leitura opcional: A perspectiva entre plataformas: PowerShell _Core_:
+> 
+> [O PowerShell agora é multiplataforma](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), por meio da sua edição do **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)**, cuja codificação - sensívelmente - *** é igual a ***BOM-less UTF-8******, em linha com plataformas do Unix.
 
 {% endwarning %}
 

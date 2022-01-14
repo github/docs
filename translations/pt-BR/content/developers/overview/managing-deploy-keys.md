@@ -2,7 +2,7 @@
 title: Gerenciar chaves de implantação
 intro: Aprenda maneiras diferentes de gerenciar chaves SSH em seus servidores ao automatizar scripts de implantação e da melhor maneira para você.
 redirect_from:
-  - /guides/managing-deploy-keys/
+  - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
 versions:
   fpt: '*'
@@ -110,8 +110,8 @@ Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif 
 ```
 
 
-* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
-* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
+* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - O alias do repositório.
+* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configura o nome de host a ser usado com o alias.
 * `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Atribui uma chave privada ao pseudônimo.
 
 Em seguida, você pode usar o apelido do host para interagir com o repositório usando SSH, que usará a chave de deploy exclusiva atribuída a esse pseudônimo. Por exemplo:
@@ -165,13 +165,13 @@ Uma vez que os aplicativos GitHub são um ator de primeira classe em  {% data va
 
 ## Usuários máquina
 
-If your server needs to access multiple repositories, you can create a new account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and attach an SSH key that will be used exclusively for automation. Since this account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} won't be used by a human, it's called a _machine user_. É possível adicionar o usuário máquina como [colaborador][collaborator] em um repositório pessoal (concedendo acesso de leitura e gravação), como [colaborador externo][outside-collaborator] em um repositório da organização (concedendo leitura, acesso gravação, ou administrador) ou como uma [equipe][team], com acesso aos repositórios que precisa automatizar (concedendo as permissões da equipe).
+Se o servidor tiver de acessar vários repositórios, você poderá criar uma nova conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} e anexar uma chave SSH que será usada exclusivamente para automatização. Como essa conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} não será usada por uma pessoa, ela é chamada denominada _usuário de máquina_. É possível adicionar o usuário máquina como [colaborador][collaborator] em um repositório pessoal (concedendo acesso de leitura e gravação), como [colaborador externo][outside-collaborator] em um repositório da organização (concedendo leitura, acesso gravação, ou administrador) ou como uma [equipe][team], com acesso aos repositórios que precisa automatizar (concedendo as permissões da equipe).
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** Our [terms of service][tos] state:
+**Dica:** Nossos [termos de serviço][tos] afirmam que:
 
 
 
@@ -205,6 +205,12 @@ Isto significa que você não pode automatizar a criação de contas. Mas se voc
 1. [Execute o procedimento `ssh-keygen`][generating-ssh-keys] no seu servidor e anexe a chave pública à conta do usuário máquina.
 2. Dê acesso à conta de usuário máquina aos repositórios que deseja automatizar. Você pode fazer isso adicionando a conta como [colaborador][collaborator], como [colaborador externo][outside-collaborator] ou como uma [equipe][team] em uma organização.
 
+
+
+## Leia mais
+
+- [Configurar notificações](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
@@ -213,3 +219,4 @@ Isto significa que você não pode automatizar a criação de contas. Mas se voc
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
+

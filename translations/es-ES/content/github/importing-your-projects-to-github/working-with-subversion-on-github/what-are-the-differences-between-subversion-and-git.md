@@ -2,7 +2,7 @@
 title: ¿Cuáles son las diferencias entre Subversion y Git?
 intro: 'Los repositorios de Subversion (SVN) son similares a los repositorios de Git, pero hay diferencias cuando se refiere a la arquitectura de tus proyectos.'
 redirect_from:
-  - /articles/what-are-the-differences-between-svn-and-git/
+  - /articles/what-are-the-differences-between-svn-and-git
   - /articles/what-are-the-differences-between-subversion-and-git
   - /github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git
 versions:
@@ -50,7 +50,7 @@ Un *subproyecto* es un proyecto que se ha desarrollado y administrado en algún 
 
 En SVN, un subproyecto se llama un *SVN externo*. En Git, se llama un *submódulo Git*. A pesar de que conceptualmente son similares, los submódulos Git no se mantienen actualizados de forma automática; debes solicitar explícitamente que se traiga una nueva versión a tu proyecto.
 
-For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
+Para obtener más información, consulta la sección "[Submódulos de las Git Tools](https://git-scm.com/book/en/Git-Tools-Submodules)" en la documentación de Git.
 
 ## Mantener el historial
 

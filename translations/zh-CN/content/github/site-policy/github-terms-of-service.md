@@ -1,10 +1,10 @@
 ---
 title: GitHub 服务条款
 redirect_from:
-  - /tos/
-  - /terms/
-  - /terms-of-service/
-  - /github-terms-of-service-draft/
+  - /tos
+  - /terms
+  - /terms-of-service
+  - /github-terms-of-service-draft
   - /articles/github-terms-of-service
 versions:
   fpt: '*'
@@ -101,7 +101,7 @@ topics:
 您在使用服务时可能创建或上传用户生成的内容。 对于您发布、上传、链接或通过服务提供的任何用户生成内容，无论内容的形式如何，您对其内容以及由此造成的任何伤害负有全部责任。 我们对用户生成内容的任何公开显示或滥用概不负责。
 
 ### 2. GitHub 可删除内容
-我们有权删除我们认为违反了任何法律或 [GitHub 条款或政策](/github/site-policy)的用户生成内容。 移动版 GitHub 上显示的用户生成内容可能受移动应用商店附加条款的约束。
+我们有权删除我们认为违反了任何法律或 [GitHub 条款或政策](/github/site-policy)的用户生成内容。 User-Generated Content displayed on GitHub Mobile may be subject to mobile app stores' additional terms.
 
 ### 3. 内容所有权、发布权利和许可授予
 您对您的内容保有所有权和责任。 如果您发布不是您自己创建或者您没有所有权的内容，则您同意对您发布的任何内容负责；您只会提交您有权发布的内容；并且您将完全遵守与您发布的内容有关的任何第三方许可。

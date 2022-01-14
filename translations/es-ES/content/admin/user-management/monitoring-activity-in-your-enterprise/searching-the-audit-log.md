@@ -2,7 +2,7 @@
 title: Buscar el registro de auditoría
 intro: Los administradores de sitio pueden buscar en una lista extensa de acciones auditadas en la empresa.
 redirect_from:
-  - /enterprise/admin/articles/searching-the-audit-log/
+  - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
   - /enterprise/admin/user-management/searching-the-audit-log
   - /admin/user-management/searching-the-audit-log

@@ -1,7 +1,7 @@
 ---
 title: 禁用未经身份验证的注册
 redirect_from:
-  - /enterprise/admin/articles/disabling-sign-ups/
+  - /enterprise/admin/articles/disabling-sign-ups
   - /enterprise/admin/user-management/disabling-unauthenticated-sign-ups
   - /enterprise/admin/authentication/disabling-unauthenticated-sign-ups
   - /admin/authentication/disabling-unauthenticated-sign-ups

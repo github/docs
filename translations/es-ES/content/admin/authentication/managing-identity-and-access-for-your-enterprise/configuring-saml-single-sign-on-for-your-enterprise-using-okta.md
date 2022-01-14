@@ -1,7 +1,6 @@
 ---
 title: Configuring SAML single sign-on for your enterprise using Okta
 intro: 'Puedes utilizar el inicio de sesión único (SSO, por sus siglas en inglés) del Lenguaje de Marcado para Confirmaciones (SAML, por sus siglas en inglés) con Okta para administrar automáticamente el acceso a tu cuenta empresarial en {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-single-sign-on-for-your-enterprise-account-using-okta
   - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta

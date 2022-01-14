@@ -81,12 +81,4 @@ Enterprise アカウントで Organization に対して許可される IP アド
 
 ## IP許可リストで {% data variables.product.prodname_actions %} を使用する
 
-{% ifversion ghae %}
-
-{% data reusables.github-actions.ip-allow-list-hosted-runners %}
-
-{% else %}
-
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
-
-{% endif %}

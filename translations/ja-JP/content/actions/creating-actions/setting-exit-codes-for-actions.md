@@ -14,7 +14,6 @@ type: how_to
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 終了コードについて
 
@@ -41,7 +40,7 @@ try {
 
 ## Docker コンテナアクションで失敗終了コードを設定する
 
-Docker コンテナアクションを作成している場合、失敗終了コードを `entrypoint.sh` スクリプトに設定できます。 例:
+Docker コンテナアクションを作成している場合、失敗終了コードを `entrypoint.sh` スクリプトで設定できます。 例:
 
 ```
 if <condition> ; then

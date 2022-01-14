@@ -2,7 +2,7 @@
 title: Pesquisar repositórios
 intro: 'Você pode pesquisar repositórios no {% data variables.product.product_name %} e limitar os resultados usando qualquer combinação dos qualificadores de pesquisa de repositórios.'
 redirect_from:
-  - /articles/searching-repositories/
+  - /articles/searching-repositories
   - /articles/searching-for-repositories
   - /github/searching-for-information-on-github/searching-for-repositories
   - /github/searching-for-information-on-github/searching-on-github/searching-for-repositories
@@ -148,7 +148,7 @@ Você pode pesquisar repositórios pelo tipo de licença nos repositórios. É p
 
 Você pode filtrar sua pesquisa com base na visibilidade dos repositórios. Para obter mais informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) corresponde a repositórios privados que você pode acessar e que contêm a palavra "pages".
+| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test".{% endif %} | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
 
 {% ifversion fpt or ghec %}
 

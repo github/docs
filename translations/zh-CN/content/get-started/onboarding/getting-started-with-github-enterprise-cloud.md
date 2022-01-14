@@ -49,7 +49,7 @@ To use an organization account with {% data variables.product.prodname_ghe_cloud
 Alternatively, if you have an existing organization account that you would like to upgrade, follow the steps in "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
 #### 3. Setting up and managing billing
 
-When you choose to use an organization account with {% data variables.product.prodname_ghe_cloud %}, you'll first have access to a [14-day trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_team %} before your trial ends, your organization will be downgraded to {% data variables.product.prodname_free_user %} and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[Finishing your trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
+When you choose to use an organization account with {% data variables.product.prodname_ghe_cloud %}, you'll first have access to a [30-day trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_team %} before your trial ends, your organization will be downgraded to {% data variables.product.prodname_free_user %} and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[Finishing your trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
 
 Your organization's billing settings page allows you to manage settings like your payment method and billing cycle, view information about your subscription, and upgrade your storage and {% data variables.product.prodname_actions %} minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)."
 
@@ -119,6 +119,7 @@ You can help keep your organization secure by requiring two-factor authenticatio
 
 #### 3. Reviewing your organization's audit log and integrations
 {% data reusables.getting-started.reviewing-org-audit-log-and-integrations %}
+
 #### 4. Enabling and enforcing SAML single sign-on for your organization
 If you manage your applications and the identities of your organization members with an identity provider (IdP), you can configure SAML single-sign-on (SSO) to control and secure access to organization resources like repositories, issues and pull requests. When members of your organization access organization resources that use SAML SSO, {% data variables.product.prodname_dotcom %} will redirect them to your IdP to authenticate. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
 
@@ -156,7 +157,7 @@ For more information on enforcing two-factor authentication and allowed IP addre
 You can centrally manage access to your enterprise's resources, organization membership and team membership using your IdP and SAM single sign-on (SSO). Enterprise owners can enable SAML SSO across all organizations owned by an enterprise account. 更多信息请参阅“[关于企业的身份和访问权限管理](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)”。
 
 #### 3. Managing team synchronization
-You can enable and manage team sychronization between an identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. 更多信息请参阅“[管理企业帐户中组织的团队同步](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
+You can enable and manage team synchronization between an identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. 更多信息请参阅“[管理企业帐户中组织的团队同步](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
 
 #### 4. Enforcing policies for Advanced Security features in your enterprise account
 {% data reusables.getting-started.enterprise-advanced-security %}
@@ -198,14 +199,18 @@ Members of your organization or enterprise can use tools from the {% data variab
 ## Part 7: Participating in {% data variables.product.prodname_dotcom %}'s community
 
 Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community.
-### 1. Learning with {% data variables.product.prodname_learning %}
+
+### 1. Reading about {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_docs %}
+You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+
+### 2. Learning with {% data variables.product.prodname_learning %}
 Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by the friendly Learning Lab bot.
 
 For more information, see "[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
-### 2. Supporting the open source community
+### 3. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
-### 3. 联系 {% data variables.contact.github_support %}
+### 4. 联系 {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 
 {% data variables.product.prodname_ghe_cloud %} allows you to submit priority support requests with a target eight-hour response time. 更多信息请参阅“[{% data variables.product.prodname_ghe_cloud %} 支持](/github/working-with-github-support/github-enterprise-cloud-support)”。

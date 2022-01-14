@@ -3,10 +3,10 @@ title: Encontrando maneiras de contribuir com o código aberto no GitHub
 intro: 'Você pode encontrar maneiras de contribuir para projetos de código aberto em {% data variables.product.product_location %} que são relevantes para você.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
-  - /articles/where-can-i-find-open-source-projects-to-work-on/
-  - /articles/finding-interesting-projects-on-github/
-  - /articles/about-official-github-mirrors/
-  - /articles/about-github-mirrors/
+  - /articles/where-can-i-find-open-source-projects-to-work-on
+  - /articles/finding-interesting-projects-on-github
+  - /articles/about-official-github-mirrors
+  - /articles/about-github-mirrors
   - /articles/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github

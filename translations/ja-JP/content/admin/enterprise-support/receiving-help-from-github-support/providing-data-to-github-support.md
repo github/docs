@@ -1,10 +1,10 @@
 ---
-title: GitHub Support へのデータ提供
-intro: '{% data variables.contact.github_support %} は顧客の環境にはアクセスできないので、追加情報をご提供いただかなければなりません。'
+title: Providing data to GitHub Support
+intro: 'Since {% data variables.contact.github_support %} doesn''t have access to your environment, we require some additional information from you.'
 redirect_from:
-  - /enterprise/admin/guides/installation/troubleshooting/
-  - /enterprise/admin/articles/support-bundles/
-  - /enterprise/admin/guides/enterprise-support/providing-data-to-github-enterprise-support/
+  - /enterprise/admin/guides/installation/troubleshooting
+  - /enterprise/admin/articles/support-bundles
+  - /enterprise/admin/guides/enterprise-support/providing-data-to-github-enterprise-support
   - /enterprise/admin/enterprise-support/providing-data-to-github-support
   - /admin/enterprise-support/providing-data-to-github-support
 versions:
@@ -15,143 +15,146 @@ topics:
   - Support
 shortTitle: Provide data to Support
 ---
+## Creating and sharing diagnostic files
 
-## Diagnosticファイルの作成と共有
+Diagnostics are an overview of a {% data variables.product.prodname_ghe_server %} instance's settings and environment that contains:
 
-Diagnostics は {% data variables.product.prodname_ghe_server %} インスタンスの設定と環境の概要であり、以下の内容が含まれます:
+- Client license information, including company name, expiration date, and number of user licenses
+- Version numbers and SHAs
+- VM architecture
+- Host name, private mode, SSL settings
+- Load and process listings
+- Network settings
+- Authentication method and details
+- Number of repositories, users, and other installation data
 
-- 会社名、有効期限、ユーザライセンス数を含む顧客情報
-- バージョン番号及びSHA
-- VMアーキテクチャ
-- ホスト名、プライベートモード、SSLの設定
-- 負荷及びプロセスのリスト
-- ネットワーク設定
-- 認証方式と詳細
-- リポジトリ数、ユーザ数、その他のインストール関連データ
+You can download the diagnostics for your instance from the {% data variables.enterprise.management_console %} or by running the `ghe-diagnostics` command-line utility.
 
-インスタンスのDiagnosticsは{% data variables.enterprise.management_console %}から、あるいは`ghe-diagnostics`コマンドラインユーティリティを実行することでダウンロードできます。
+### Creating a diagnostic file from the {% data variables.enterprise.management_console %}
 
-### {% data variables.enterprise.management_console %}でのDiagnosticsファイルの作成
-
-SSHキーがすぐに利用できない場合、この方法が使えます。
+You can use this method if you don't have your SSH key readily available.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.support-link %}
-5. **Download diagnostics info（Diagnostic情報のダウンロード）**をクリックしてください。
+5. Click **Download diagnostics info**.
 
-### SSHを使ったDiagnosticsファイルの作成
+### Creating a diagnostic file using SSH
 
-この方法は、{% data variables.enterprise.management_console %} にサインインせずに利用できます。
+You can use this method without signing into the {% data variables.enterprise.management_console %}.
 
-[ghe-diagnostics](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-diagnostics) コマンドラインユーティリティを使ってインスタンスの Diagnostics を取得してください。
+Use the [ghe-diagnostics](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-diagnostics) command-line utility to retrieve the diagnostics for your instance.
 
 ```shell
 $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 ```
 
-## Support Bundleの作成と共有
+## Creating and sharing support bundles
 
-サポートリクエストをサブミットした後、弊社のチームとの Support Bundle の共有をお願いすることがあります。 Support Bundle は gzip 圧縮された tar アーカイブで、インスタンスの Diagnostics と以下のような重要なログが含まれます:
+After you submit your support request, we may ask you to share a support bundle with our team. The support bundle is a gzip-compressed tar archive that includes diagnostics and important logs from your instance, such as:
 
-- 認証のエラーのトラブルシューティングやLDAP、CAS、SAMLの設定に役立つ認証関連のログ
-- {% data variables.enterprise.management_console %}のログ
-- `github-logs/exceptions.log`：サイトで生じた500エラーに関する情報
-- `github-logs/audit.log`: {% data variables.product.prodname_ghe_server %} 監査ログ
-- `babeld-logs/babeld.log`：Gitプロキシのログ
-- `system-logs/haproxy.log`：HAProxyのログ
-- `elasticsearch-logs/github-enterprise.log`：Elasticsearchのログ
-- `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %} 設定ログ
-- `collectd/logs/collectd.log`：Collectdのログ
-- `mail-logs/mail.log`：SMTPのメール配送ログ
+- Authentication-related logs that may be helpful when troubleshooting authentication errors, or configuring LDAP, CAS, or SAML
+- {% data variables.enterprise.management_console %} log
+- `github-logs/exceptions.log`: Information about 500 errors encountered on the site
+- `github-logs/audit.log`: {% data variables.product.prodname_ghe_server %} audit logs
+- `babeld-logs/babeld.log`: Git proxy logs
+- `system-logs/haproxy.log`: HAProxy logs
+- `elasticsearch-logs/github-enterprise.log`: Elasticsearch logs
+- `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %} configuration logs
+- `collectd/logs/collectd.log`: Collectd logs
+- `mail-logs/mail.log`: SMTP email delivery logs
 
-詳細は「[監査ログ](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)」を参照してください。
+For more information, see "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)."
 
-Support Bundle には過去 2 日分のログが含まれます。 過去 7 日分のログを取得したい場合には、拡張 Support Bundle をダウンロードできます。 詳細は「[拡張 Support Bundle の作成と共有](#creating-and-sharing-extended-support-bundles)」を参照してください。
+Support bundles include logs from the past two days. To get logs from the past seven days, you can download an extended support bundle. For more information, see "[Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles)."
 
 {% tip %}
 
-**参考:** {% data variables.contact.github_support %} に連絡を取ると、チケットの参照リンクを含む確認のメールが送られてきます。 {% data variables.contact.github_support %} が Support Bundle のアップロードをお願いした場合、Support Bundle のアップロードにこのチケット参照リンクを利用できます。
+**Tip:** When you contact {% data variables.contact.github_support %}, you'll be sent a confirmation email that will contain a ticket reference link. If {% data variables.contact.github_support %} asks you to upload a support bundle, you can use the ticket reference link to upload the support bundle.
 
 {% endtip %}
 
-### {% data variables.enterprise.management_console %}でのSupport Bundleの作成
+### Creating a support bundle from the {% data variables.enterprise.management_console %}
 
-Web べースの {% data variables.enterprise.management_console %} と外部のインターネットにアクセスできる環境があれば、以下の手順で Support Bundle を作成して共有できます。
+You can use these steps to create and share a support bundle if you can access the web-based {% data variables.enterprise.management_console %} and have outbound internet access.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.support-link %}
-5. [**Download support bundle**] (Support Bundle のダウンロード) をクリックします。
+5. Click **Download support bundle**.
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
-### SSHを使ったSupport Bundleの作成
+### Creating a support bundle using SSH
 
-{% data variables.product.product_location %} への SSH アクセスがあり、アウトバウンドインターネットアクセスがある場合は、これらのステップで拡張 Support Bundle を作成および共有できます。
+You can use these steps to create and share a support bundle if you have SSH access to {% data variables.product.product_location %} and have outbound internet access.
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
-1. SSH経由でSupport Bundleをダウンロードします。
+1. Download the support bundle via SSH:
   ```shell
   $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -o' > support-bundle.tgz
   ```
-  `ghe-support-bundle` コマンドに関する詳しい情報については、「[コマンドラインユーティリティ](/enterprise/admin/guides/installation/command-line-utilities#ghe-support-bundle)」を参照してください。
+  For more information about the `ghe-support-bundle` command, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities#ghe-support-bundle)".
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
-### Enterprise アカウントを使用して Support Bundle をアップロードする
+### Uploading a support bundle using your enterprise account
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-3. 左のサイドバーで、** Enterprise licensing（Enterpriseライセンス）**をクリックしてください。 ![[Enterprise account settings] サイトバーの "Enterprise licensing"](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. [{% data variables.product.prodname_enterprise %} Help] にある [**Upload a support bundle**] をクリックします。 ![Support Bundle リンクをアップロードする](/assets/images/enterprise/support/upload-support-bundle.png)
-5. [Select an enterprise account] で、ドロップダウンメニューから Support Bundle に関連付けられているアカウントを選択します。 ![Support Bundle の Enterprise アカウントを選択する](/assets/images/enterprise/support/support-bundle-account.png)
-6. [Upload a support bundle for {% data variables.contact.enterprise_support %}] で Support Bundle を選択するには、[**Choose file**] をクリックするか、Support Bundle ファイルを [**Choose file**] にドラッグします。 ![Support Bundle ファイルをアップロードする](/assets/images/enterprise/support/choose-support-bundle-file.png)
-7. [**Upload**] をクリックします。
+3. In the left sidebar, click **Enterprise licensing**.
+  !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+4. Under "{% data variables.product.prodname_enterprise %} Help", click **Upload a support bundle**.
+  ![Upload a support bundle link](/assets/images/enterprise/support/upload-support-bundle.png)
+5. Under "Select an enterprise account", select the support bundle's associated account from the drop-down menu.
+  ![Choose the support bundle's enterprise account](/assets/images/enterprise/support/support-bundle-account.png)
+6. Under "Upload a support bundle for {% data variables.contact.enterprise_support %}", to select your support bundle, click **Choose file**, or drag your support bundle file onto **Choose file**.
+  ![Upload support bundle file](/assets/images/enterprise/support/choose-support-bundle-file.png)
+7. Click **Upload**.
 
-### SSHを使ったSupport Bundleの直接アップロード
+### Uploading a support bundle directly using SSH
 
-以下の状況であれば、Support Bundleを当社のサーバに直接アップロードできます。
-- {% data variables.product.product_location %} への SSH アクセス権がある。
+You can directly upload a support bundle to our server if:
+- You have SSH access to {% data variables.product.product_location %}.
 - Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
 
-1. バンドルを当社のSupport Bundleサーバにアップロードします。
+1. Upload the bundle to our support bundle server:
   ```shell
   $ ssh -p122 admin@<em>hostname</em> -- 'ghe-support-bundle -u'
   ```
 
-## 拡張Support Bundleの作成と提供
+## Creating and sharing extended support bundles
 
-Support Bundleには過去2日分のログが含まれますが、_拡張_Support Bundleには過去7日分のログが含まれます。 {% data variables.contact.github_support %} が調査しているイベントが 2 日以上前に発生した場合は、拡張 Support Bundle の共有をお願いする場合があります。 拡張 Support Bundle をダウンロードするには、SSH アクセスが必要です。{% data variables.enterprise.management_console %} から拡張 Support Bundle をダウンロードすることはできません。
+Support bundles include logs from the past two days, while _extended_ support bundles include logs from the past seven days. If the events that {% data variables.contact.github_support %} is investigating occurred more than two days ago, we may ask you to share an extended support bundle. You will need SSH access to download an extended bundle - you cannot download an extended bundle from the {% data variables.enterprise.management_console %}.
 
-バンドルが大きくなりすぎるのを避けるために、バンドルにはローテーションや圧縮されていないログだけが含まれます。 {% data variables.product.prodname_ghe_server %} でのログのローテーションは、それぞれのログがどの程度の大きさになるかの予想に応じて、ログごとに様々な頻度 (日次あるいは週次) で行われます。
+To prevent bundles from becoming too large, bundles only contain logs that haven't been rotated and compressed. Log rotation on {% data variables.product.prodname_ghe_server %} happens at various frequencies (daily or weekly) for different log files, depending on how large we expect the logs to be.
 
-### SSHを使った拡張Support Bundleの作成
+### Creating an extended support bundle using SSH
 
-{% data variables.product.product_location %} への SSH アクセスがあり、アウトバウンドインターネットアクセスがある場合は、これらのステップで拡張 Support Bundle を作成および共有できます。
+You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.product.product_location %} and you have outbound internet access.
 
-1. `ghe-support-bundle`コマンドに`-x`フラグを追加して、SSH経由で拡張Support Bundleをダウンロードしてください。
+1. Download the extended support bundle via SSH by adding the `-x` flag to the `ghe-support-bundle` command:
   ```shell
   $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -o -x' > support-bundle.tgz
   ```
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
-### SSHを使った拡張Support Bundleの直接アップロード
+### Uploading an extended support bundle directly using SSH
 
-以下の状況であれば、Support Bundleを当社のサーバに直接アップロードできます。
-- {% data variables.product.product_location %} への SSH アクセス権がある。
+You can directly upload a support bundle to our server if:
+- You have SSH access to {% data variables.product.product_location %}.
 - Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
 
-1. バンドルを当社のSupport Bundleサーバにアップロードします。
+1. Upload the bundle to our support bundle server:
   ```shell
   $ ssh -p122 admin@<em>hostname</em> -- 'ghe-support-bundle -u -x'
   ```
 
-## 参考リンク
+## Further reading
 
-- [{% data variables.contact.enterprise_support %} について](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)
-- [{% data variables.product.prodname_ghe_server %}の{% data variables.contact.premium_support %}について](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)
+- "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"
+- "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."

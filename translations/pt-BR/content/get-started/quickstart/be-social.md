@@ -1,7 +1,7 @@
 ---
 title: Interações sociais
 redirect_from:
-  - /be-social/
+  - /be-social
   - /articles/be-social
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
@@ -24,7 +24,7 @@ Para saber mais sobre como acessar o painel pessoal, consulte "[Sobre seu painel
 
 ## Seguir pessoas
 
-When you follow someone on {% data variables.product.prodname_dotcom %}, you'll get notifications on your personal dashboard about their activity. Para obter mais informações, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
+Quando você segue alguém no {% data variables.product.prodname_dotcom %}, as notificações sobre as atividades dessa pessoa são recebidas no seu painel pessoal. Para obter mais informações, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
 
 Clique em **Follow** (Seguir) na página do perfil de uma pessoa para segui-la.
 
@@ -32,7 +32,7 @@ Clique em **Follow** (Seguir) na página do perfil de uma pessoa para segui-la.
 
 ## Inspecionar um repositório
 
-Você pode inspecionar um repositório para receber notificações de novos problemas e pull requests. Quando o proprietário atualiza o repositório, você vê as alterações no seu painel pessoal. For more information see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+Você pode inspecionar um repositório para receber notificações de novos problemas e pull requests. Quando o proprietário atualiza o repositório, você vê as alterações no seu painel pessoal. Para obter mais informações, consulte {% ifversion fpt or ghae or ghes or ghec %}"[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Assistindo e desassistindo repositórios](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 Clique em **Watch** (Inspecionar) no topo de um repositório para inspecioná-lo.
 
@@ -50,7 +50,7 @@ Clique em **Watch** (Inspecionar) no topo de um repositório para inspecioná-lo
 
 ### Criar pull requests
 
- Talvez você queira contribuir com o o projeto de outra pessoa, seja adicionando recursos, seja corrigindo erros. Após fazer as alterações, informe o autor original enviando uma pull request. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)".
+ Talvez você queira contribuir com o o projeto de outra pessoa, seja adicionando recursos, seja corrigindo erros. Após fazer as alterações, informe o autor original enviando uma pull request. Para obter mais informações, consulte "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)".
 
  ![Botão Pull request](/assets/images/help/repository/repo-actions-pullrequest.png)
 

@@ -3,10 +3,10 @@ title: 设置帐单邮箱
 intro: '您帐户的帐单邮箱是 {% data variables.product.product_name %} 发送收据及其他计费相关通信的地方。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-your-billing-email
-  - /articles/setting-your-personal-account-s-billing-email/
-  - /articles/can-i-change-what-email-address-received-my-github-receipt/
-  - '/articles/how-do-i-change-the-billing-email,setting-your-billing-email/'
-  - /articles/setting-your-organization-s-billing-email/
+  - /articles/setting-your-personal-account-s-billing-email
+  - /articles/can-i-change-what-email-address-received-my-github-receipt
+  - '/articles/how-do-i-change-the-billing-email,setting-your-billing-email'
+  - /articles/setting-your-organization-s-billing-email
   - /articles/setting-your-billing-email
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/setting-your-billing-email
 versions:

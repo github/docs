@@ -1,5 +1,5 @@
 ---
-title: コードスキャンニングについて
+title: Code scanningについて
 intro: '{% data variables.product.prodname_code_scanning %} を使用して、{% data variables.product.prodname_dotcom %} 上のプロジェクトのコードからセキュリティの脆弱性とエラーを見つけることができます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:

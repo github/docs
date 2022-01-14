@@ -5,9 +5,9 @@ intro: Aprenda a evitar a duplicação ao criar um fluxo de trabalho reutilizand
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '>=3.4'
   ghae: issue-4757
-  ghec: '*'
 type: how_to
 topics:
   - Workflows
@@ -15,13 +15,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-
-{% note %}
-
-**Observação:** Os fluxos de trabalho reutilizáveis estão atualmente na versão beta e sujeitos a alterações.
-
-{% endnote %}
 
 ## Visão Geral
 
@@ -29,29 +22,52 @@ Em vez de copiar e colar de um fluxo de trabalho para outro, você pode tornar o
 
 A reutilização dosfluxos de trabalho evita duplicação. Isso torna os fluxos de trabalho mais fáceis de manter e permite que você crie novos fluxos de trabalho mais rapidamente, desenvolvendo sobre o trabalho dos outros, assim como você faz com ações. A reutilização do fluxo de trabalho também promove práticas recomendadas, ajudando você a usar os fluxos de trabalho bem projetados, Já foram testados e sua eficiência é comprovada. Sua organização pode criar uma biblioteca de fluxos de trabalho reutilizáveis que pode ser mantida centralmente.
 
+O diagrama abaixo mostra três trabalhos de criação à esquerda do diagrama. Depois que cada um desses trabalhos é concluído com sucesso, executa-se uma tarefa dependente denominada "Implantação". Esse trabalho chama um fluxo de trabalho reutilizável que contém três trabalhos: "Treinamento", "Revisão" e "Produção". A tarefa de implantação "Produção" só é executada após a tarefa de "Treinamento" ter sido concluída com sucesso. O uso um fluxo de trabalho reutilizável para executar trabalhos de implantação permite que você execute esses trabalhos para cada compilação sem duplicar o código nos fluxos de trabalho.
+
+![Diagrama de um fluxo de trabalho reutilizável para implantação](/assets/images/help/images/reusable-workflows-ci-cd.png)
+
 Um fluxo de trabalho que usa outro fluxo de trabalho é referido como um fluxo de trabalho "de chamada". O fluxo de trabalho reutilizável é um fluxo de trabalho "chamado". Um fluxo de trabalho de chamada pode usar vários fluxos de trabalho chamados. Cada fluxo de trabalho chamado é referenciado em uma única linha. O resultado é que o arquivo de fluxo de trabalho de chamadas pode conter apenas algumas linhas de YAML mas pode executar um grande número de tarefas quando for executado. Quando um fluxo de trabalho é reutilizado, todo o fluxo de trabalho chamado é usado, como se fosse parte do fluxo de trabalho de chamada.
 
 Se você reutilizar um fluxo de trabalho de um repositório diferente, todas as ações no fluxo de trabalho chamado são como se fizessem parte do fluxo de trabalho de chamada. Por exemplo, se o fluxo de trabalho chamado usar `ações/checkout`, a ação verifica o conteúdo do repositório que hospeda o fluxo de trabalho de chamada, não o fluxo de trabalho chamado.
 
-Quando um fluxo de trabalho reutilizável é acionado por um fluxo de trabalho de chamadas, o contexto `github` está sempre associado ao fluxo de trabalho de chamada. The called workflow is automatically granted access to `github.token` and `secrets.GITHUB_TOKEN`. Para obter mais informações sobre o contexto do github ``, consulte "[Contexto e sintaxe de expressão para o GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+Quando um fluxo de trabalho reutilizável é acionado por um fluxo de trabalho de chamadas, o contexto `github` está sempre associado ao fluxo de trabalho de chamada. O fluxo de trabalho chamado tem acesso automaticamente a `github.token` e `secrets.GITHUB_TOKEN`. Para obter mais informações sobre o contexto do github ``, consulte "[Contexto e sintaxe de expressão para o GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+
+### Fluxos de trabalho e fluxo de trabalho inicial reutilizáveis
+
+O fluxo de trabalho inicial permite que todos na sua organização que têm permissão criem fluxos de trabalho para fazê-lo de forma mais rápida e fácil. Quando as pessoas criam um novo fluxo de trabalho, eles podem escolher um fluxo de trabalho inicial e uma parte ou todo o trabalho de escrita do fluxo de trabalho será feito para essas pessoas. Dentro do fluxo de trabalho inicial, você também pode fazer referência a fluxos de trabalho reutilizáveis para facilitar o benefício das pessoas de reutilizar o código do fluxo de trabalho gerenciado centralmente. Se você usar uma tag ou nome de branch ao fazer referência ao fluxo de trabalho reutilizável, você poderá garantir que todos que reutilizarem esse fluxo de trabalho sempre usarão o mesmo código YAML. No entanto, se você fizer referência a um fluxo de trabalho reutilizável por uma tag ou branch, certifique-se de que você poderá confiar nessa versão do fluxo de trabalho. Para obter mais informações, consulte "[Fortalecimento da segurança para {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)".
+
+Para obter mais informações, consulte "[Criando fluxos de trabalho iniciais para a sua organização](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)".
 
 ## Acesso a fluxos de trabalho reutilizáveis
 
-Um fluxo de trabalho reutilizável pode ser usado por outro fluxo de trabalho se qualquer uma das seguintes opções for verdadeira:
+Um fluxo de trabalho reutilizável pode ser usado por outro fluxo de trabalho se {% ifversion ghes or ghec or ghae %}qualquer{% else %}ou{% endif %} dos pontos a seguir for verdadeiro:
 
 * Ambos os fluxos de trabalho estão no mesmo repositório.
-* O fluxo de trabalho chamado é armazenado em um repositório público.
-* O fluxo de trabalho chamado é armazenado em um repositório interno e as configurações para esse repositório permitem que ele seja acessado. Para obter mais informações, consulte "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)".
+* O fluxo de trabalho chamado é armazenado em um repositório público.{% ifversion ghes or ghec or ghae %}
+* O fluxo de trabalho chamado é armazenado em um repositório interno e as configurações para esse repositório permitem que ele seja acessado. Para obter mais informações, consulte "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)".{% endif %}
+
+## Usando executores
+
+{% ifversion fpt or ghes or ghec %}
+
+### Usar executores hospedados no GitHub
+
+A atribuição de executores hospedados em {% data variables.product.prodname_dotcom %} é sempre avaliada usando apenas o contexto do chamador. A cobrança para executores hospedados em {% data variables.product.prodname_dotcom %} está sempre associada ao chamador. O fluxo de trabalho de chamadas não pode usar executores hospedados em {% data variables.product.prodname_dotcom %} a partir do repositório chamado. Para obter mais informações, consulte "[Sobre executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)".
+
+### Usando executores auto-hospedados
+
+{% endif %}
+
+Os fluxos de trabalho chamados podem acessar executores auto-hospedados no contexto do chamador. Isso significa que um fluxo de trabalho chamado pode acessar executores auto-hospedados que estão:
+* No repositório de chamada
+* Na organização{% ifversion ghes or ghec or ghae %} ou empresa {% endif %}do repositório de chamadas, desde que o executor tenha sido disponibilizado para o repositório de chamada
 
 ## Limitações
 
 * Os fluxos de trabalho reutilizáveis não podem chamar outros fluxos de trabalho reutilizáveis.
 * Os fluxos de trabalho armazenados dentro de um repositório privado só podem ser usados por fluxos de trabalho dentro do mesmo repositório.
 * Qualquer variável de ambiente definida em um contexto `env` definido no nível do fluxo de trabalho no fluxo de trabalho da chamada não é propagada para o fluxo de trabalho chamado. Para obter mais informações sobre o contexto `env`, consulte "[Contexto e sintaxe de expressão para o GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)".
-
-As seguintes limitações serão removidas quando o fluxo de trabalho reutilizar os movimentos do beta:
-* Não é possível definir a concorrência de um fluxo de trabalho chamado a partir do fluxo de trabalho de chamada. Para obter mais informações sobre `trabalhos.<job_id>.concurrency`, consulte "[Sintaxe de fluxo de trabalho para o GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency)".
-* As saídas geradas por um fluxo de trabalho chamado não podem ser acessadas pelo fluxo de trabalho de chamada.
+* A propriedade `estratégia` não é compatível com nenhum trabalho que chame um fluxo de trabalho reutilizável.
 
 ## Criar um fluxo de trabalho reutilizável
 
@@ -60,34 +76,59 @@ Os fluxos de trabalho reutilizáveis são arquivos formatados com YAML, muito se
 Para que um fluxo de trabalho seja reutilizável, os valores de `on` devem incluir `workflow_call`:
 
 ```yaml
-on: 
-  workflow_call:
-```
-
-Você pode definir entradas e segredos, que podem ser passados do fluxo de trabalho de de chamada e, em seguida, usados no fluxo de trabalho chamado. O exemplo a seguir de um fluxo de trabalho reutilizável define duas entradas (denominadas de "anel" e "ambiente") e um segredo (denominado "token"):
-
-```yaml
 on:
   workflow_call:
-    inputs:
-      ring:
-        description: 'Identifier for the target deployment ring'
-        default: 'ring-0'
-        required: false
-        type: string
-      environment:
-        required: false
-        type: string
-    secrets:
-      token:
-        required: false
 ```
 
-Para obter informações sobre a sintaxe e definir entradas e segredos, consulte [on.workflow_call.inputs](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) e [on.workflow_call.secrets](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
+### Usando entradas e segredos em um fluxo de trabalho reutilizável
+
+Você pode definir entradas e segredos, que podem ser passados do fluxo de trabalho de de chamada e, em seguida, usados no fluxo de trabalho chamado. Há três etapas para usar uma entrada ou um segredo em um fluxo de trabalho reutilizável.
+
+1. No fluxo de trabalho reutilizável, use as palavras-chave `entradas` e `segredos` para definir entradas ou segredos que serão passados de um fluxo de trabalho chamado.
+   {% raw %}
+   ```yaml
+   on:
+     workflow_call:
+       inputs:
+         username:
+           required: true
+           type: string
+       secrets:
+         envPAT:
+           required: true
+   ```
+   {% endraw %}
+   Para obter detalhes da sintaxe para definir as entradas e segredos, consulte [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) e [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
+1. Faça referência à entrada ou segredo no fluxo de trabalho reutilizável.
+
+   {% raw %}
+   ```yaml
+   jobs:
+     reusable_workflow_job:
+       runs-on: ubuntu-latest
+       environment: production
+       steps:
+         - uses: ./.github/actions/my-action@v1
+           with:
+             username: ${{ inputs.username }}
+             token: ${{ secrets.envPAT }}
+   ```
+   {% endraw %}
+   No exemplo acima, `envPAT` é um segredo de ambiente que foi adicionado ao ambiente de `produção`. Por conseguinte, este ambiente é mencionado no trabalho.
+
+   {% note %}
+
+   **Observação**: Os segredos do ambiente são strings criptografadas armazenadas em um ambiente que você definiu para um repositório. Os segredos de ambiente só estão disponíveis para trabalhos de fluxo de trabalho que fazem referência ao ambiente apropriado. Para obter mais informações, consulte "[Usando ambientes para implantação](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)".
+
+   {% endnote %}
+
+1. Passe a entrada ou o segredo do fluxo de trabalho da chamada.
+
+{% indented_data_reference reusables.actions.pass-inputs-to-reusable-workflows spaces=3 %}
 
 ### Exemplo de fluxo de trabalho reutilizável
 
-Este arquivo de fluxo de trabalho reutilizável denominado `workflow-B. ml` (vamos mencioná-lo mais adiante) recebe uma string de entrada e um segredo do fluxo de trabalho de chamada e os usa em uma ação.
+Este arquivo de workflow reutilizável chamado `workflow-B.yml` (faremos referência a ele mais adiante no [exemplo do fluxo de trabalho de chamada](#example-caller-workflow)) tem uma entrada e um segredo do fluxo de trabalho de chamadas e os usa em uma ação.
 
 {% raw %}
 ```yaml{:copy}
@@ -111,7 +152,7 @@ jobs:
       - uses: ./.github/actions/my-action@v1
         with:
           username: ${{ inputs.username }}
-          token: ${{ secrets.token }}      
+          token: ${{ secrets.token }}
 ```
 {% endraw %}
 
@@ -131,16 +172,7 @@ Você pode chamar vários fluxos de trabalho, fazendo referência a cada um em u
 
 ### Passando entradas e segredos para um fluxo de trabalho reutilizável
 
-Use a palavra-chave `com` em uma tarefa para passar entradas nomeadas para o fluxo de trabalho chamado. Use a palavra-chave `segredos` para passar segredos nomeados. As entradas e segredos que você passou devem ser definidos no fluxo de trabalho chamado. Para as entradas, o tipo de dado do valor de entrada deve corresponder ao tipo especificado para essa entrada no fluxo de trabalho chamado (booleano, número ou string).
-
-{% raw %}
-```yaml
-with:
-  username: mona
-secrets:
-  token: ${{ secrets.TOKEN }}
-```
-{% endraw %}
+{% data reusables.actions.pass-inputs-to-reusable-workflows%}
 
 ### Palavras-chave compatíveis com trabalhos que chamam um fluxo de trabalho reutilizável
 
@@ -167,7 +199,7 @@ Ao chamar um fluxo de trabalho reutilizável, você só poderá usar as palavras
 
 ### Exemplo de fluxo de trabalho de chamada
 
-Este arquivo de fluxo de trabalho chama dois arquivos de fluxo de trabalho. O segundo deles: `workflow-B.yml` (exibido acima) passa uma entrada, `nome de usuário` e um segredo, `token`.
+Este arquivo de fluxo de trabalho chama dois arquivos de fluxo de trabalho. O segundo destes, `workflow-B.yml` (mostrado no exemplo [exemplo do fluxo de trabalho reutilizável](#example-reusable-workflow)), fica depois de uma entrada (`nome de usuário`) e um segredo (`token`).
 
 {% raw %}
 ```yaml{:copy}
@@ -190,6 +222,82 @@ jobs:
       token: ${{ secrets.TOKEN }}
 ```
 {% endraw %}
+
+## Usando saídas de um fluxo de trabalho reutilizável
+
+Um fluxo de trabalho reutilizável pode gerar dados que você deseja usar no fluxo de trabalho da chamada. Para usar essas saídas, você deve especificá-las como saídas do fluxo de trabalho reutilizável.
+
+O seguinte fluxo de trabalho reutilizável tem um único trabalho que contém duas etapas. Em cada uma dessas etapas, definimos uma única palavra como a saída: "olá" e "mundo". Na seção `saídas` do trabalho, nós mapeamos esses saídas de etapa para o trabalho chamada: `ouput1` e `ouput2`. Em seguida, na seção `on.workflow_call.outputs`, definimos duas saídas para o próprio fluxo de trabalho, uma chamada `firstword` que mapeamos com `output1`, e uma chamada `secondword` que mapeamos com `output2`.
+
+{% raw %}
+```yaml{:copy}
+name: Reusable workflow
+
+on:
+  workflow_call:
+    # Map the workflow outputs to job outputs
+    outputs:
+      firstword:
+        description: "The first output string"
+        value: ${{ jobs.example_job.outputs.output1 }}
+      secondword:
+        description: "The second output string"
+        value: ${{ jobs.example_job.outputs.output2 }}
+
+jobs:
+  example_job:
+    name: Generate output
+    runs-on: ubuntu-latest
+    # Map the job outputs to step outputs
+    outputs:
+      output1: ${{ steps.step1.outputs.firstword }}
+      output2: ${{ steps.step2.outputs.secondword }}
+    steps:
+      - id: step1
+        run: echo "::set-output name=firstword::hello"
+      - id: step2
+        run: echo "::set-output name=secondword::world"
+```
+{% endraw %}
+
+Agora podemos usar as saídas no fluxo de trabalho da chamada, da mesma forma que você usaria as saídas de um trabalho dentro do mesmo fluxo de trabalho. Fazemos referência às saídas usando os nomes definidos no nível do fluxo de trabalho no fluxo de trabalho reutilizável: `firstword` e `secondword`. Neste fluxo de trabalho, `job1` chama o fluxo de trabalho reutilizável e `job2` imprime as saídas do fluxo de trabalho reutilizável ("hello world") para a saída padrão no registro do fluxo de trabalho.
+
+{% raw %}
+```yaml{:copy}
+name: Call a reusable workflow and use its outputs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    uses: octo-org/example-repo/.github/workflows/called-workflow.yml@v1
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - run: echo ${{ needs.job1.outputs.firstword }} ${{ needs.job1.outputs.secondword }}
+```
+{% endraw %}
+
+Para obter mais informações sobre o uso de saídas de trabalho, consulte "[Sintaxe do Fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idoutputs)".
+
+## Monitorando quais fluxos de trabalho estão sendo utilizados
+
+Você pode usar a API REST de {% data variables.product.prodname_dotcom %} para monitorar como os fluxos de trabalho reutilizáveis são usados. A ação do log de auditoria `prepared_workflow_job` é acionada quando um trabalho de fluxo de trabalho é iniciado. Incluído nos dados registrados:
+* `repo` - a organização/repositório onde o trabalho do fluxo de trabalho está localizado. Para um trabalho que chama outro fluxo de trabalho, este é a organização/repositório do fluxo de trabalho chamador.
+* `@timestamp` - a data e a hora em que o trabalho foi iniciado, no formato epoch do Unix.
+* `job_name` - o nome do trabalho executado.
+* `job_workflow_ref` - o arquivo de fluxo de trabalho usado, no formato `{owner}/{repo}/{path}/{filename}@{ref}`. Para um trabalho que chama outro fluxo de trabalho, isso identifica o fluxo de trabalho chamado.
+
+Para obter informações sobre o uso da API REST para consultar o log de auditoria para uma organização, consulte "[Organizações](/rest/reference/orgs#get-the-audit-log-for-an-organization)".
+
+{% note %}
+
+**Observação**: Os dados de auditoria para `prepared_workflow_job` só podem ser vistos usando a API REST. Eles não são visíveis na interface web de {% data variables.product.prodname_dotcom %} ou incluídos nos dados de auditoria exportados pelo JSON/CSV.
+
+{% endnote %}
 
 ## Próximas etapas
 

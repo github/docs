@@ -46,7 +46,7 @@ Para usar {% data variables.product.prodname_emus %}, você precisa de um tipo d
 O {% data variables.product.prodname_managed_users_caps %} só pode contribuir para repositórios privados e internos da sua empresa e repositórios privados pertencentes à sua conta de usuário. {% data variables.product.prodname_managed_users_caps %} tem acesso somente leitura a toda a comunidade de {% data variables.product.prodname_dotcom %} em geral.
 
 * {% data variables.product.prodname_managed_users_caps %} não pode criar problemas ou pull requests, comentar ou adicionar reações, nem estrelas, inspeção ou repositórios de bifurcação fora da empresa.
-* {% data variables.product.prodname_managed_users_caps %} não pode fazer push de código para repositórios fora da empresa.
+* {% data variables.product.prodname_managed_users_caps %} pode visualizar todos os repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}, mas não pode fazer push de código para repositórios fora da empresa.
 * {% data variables.product.prodname_managed_users_caps %} e o conteúdo que criaa é visível apenas para outros integrantes da empresa.
 * {% data variables.product.prodname_managed_users_caps %} não pode seguir os usuários fora da empresa.
 * {% data variables.product.prodname_managed_users_caps %} não pode criar gists ou comentários em gists.
@@ -61,7 +61,7 @@ Para usar {% data variables.product.prodname_emus %}, você precisa de um tipo d
 
 Seu contato na equipe do GitHub de vendas vai trabalhar com você para criar seu novo {% data variables.product.prodname_emu_enterprise %}. Você deverá fornecer o endereço de e-mail para o usuário que irá configurar sua empresa e um código curto que será usado como sufixo para os nomes de usuários da sua empresa. {% data reusables.enterprise-accounts.emu-shortcode %} Para obter mais informações, consulte "[Nomes de usuário e informações do perfil](#usernames-and-profile-information)"
 
-Após criarmos sua empresa, você receberá um e-mail de {% data variables.product.prodname_dotcom %} convidando você a escolher uma senha para o usuário de configuração da sua empresa, que será o primeiro proprietário da empresa. O usuário de configuração é usado apenas para configurar o logon único SAML e o provisionamento do SCIM para a empresa. Ele não terá mais acesso para administrar a conta corporativa assim que o SAML for habilitado com sucesso.
+Após criarmos sua empresa, você receberá um e-mail de {% data variables.product.prodname_dotcom %} convidando você a escolher uma senha para o usuário de configuração da sua empresa, que será o primeiro proprietário da empresa. Use uma janela de navegação anônima ou privada ao definir a senha. O usuário de configuração é usado apenas para configurar o logon único SAML e o provisionamento do SCIM para a empresa. Ele não terá mais acesso para administrar a conta corporativa assim que o SAML for habilitado com sucesso.
 
 O nome do usuário de configuração é o código curto da sua empresa com o sufixo `_admin`. Depois de efetuar o login no seu usuário de configuração, você pode começar configurando o SAML SSO para a sua empresa. Para obter mais informações, consulte "[Configurando o logon único SAML para Usuários Gerenciados pela Empresa](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 

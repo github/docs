@@ -58,9 +58,9 @@ Você pode monitorar {% data variables.product.product_location %} com o seu pai
 {% data reusables.getting-started.configuring-security-features %}
 
 ## Parte 4: Personalizando e automatizando o trabalho em {% data variables.product.product_location %}
-You can customize and automate work in organizations in {% data variables.product.product_location %} with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_pages %}.
+Você pode personalizar e automatizar o trabalho em organizações em {% data variables.product.product_location %} com a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, {% data variables.product.prodname_actions %} e {% data variables.product.prodname_pages %}.
 
-### 1. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 1. Usando a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}
 {% data reusables.getting-started.api %}
 
 ### 2. Criando {% data variables.product.prodname_actions %}
@@ -73,8 +73,11 @@ Para obter mais informações sobre como habilitar e configurar {% data variable
 ## Parte 5: Usando o aprendizado de {% data variables.product.prodname_dotcom %} e os recursos de suporte
 Os integrantes da sua empresa podem aprender mais sobre Git e {% data variables.product.prodname_dotcom %} com nossos recursos de aprendizado. e você pode obter o suporte de que precisa com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}.
 
-### 1. Aprendendo com {% data variables.product.prodname_learning %}
+### 1. Lendo sobre {% data variables.product.product_name %} em {% data variables.product.prodname_docs %}
+Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_ghe_managed %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+
+### 2. Aprendendo com {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab-enterprise %}
 
-### 2. Trabalhando com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}
+### 3. Trabalhando com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}
 {% data reusables.getting-started.contact-support-enterprise %}

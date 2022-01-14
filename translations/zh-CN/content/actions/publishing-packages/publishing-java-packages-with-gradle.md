@@ -20,7 +20,6 @@ shortTitle: 带有 Gradle 的 Java 包
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -153,7 +152,7 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -172,7 +171,7 @@ jobs:
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. 运行 `gradle published` 命令以发布到 {% data variables.product.prodname_registry %}。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+1. 运行 `gradle published` 命令以发布到 {% data variables.product.prodname_registry %}。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
@@ -229,7 +228,7 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -251,6 +250,6 @@ jobs:
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. 运行 `gradle published` 命令以发布到 `OSSRH` Maven 仓库和 {% data variables.product.prodname_registry %}。 `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+1. 运行 `gradle published` 命令以发布到 `OSSRH` Maven 仓库和 {% data variables.product.prodname_registry %}。 `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。

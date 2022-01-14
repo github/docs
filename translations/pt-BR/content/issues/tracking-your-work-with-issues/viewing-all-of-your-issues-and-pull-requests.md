@@ -25,4 +25,4 @@ Os painéis de problemas e pull requests estão disponíveis na parte superior d
 
 ## Leia mais
 
-- {% ifversion fpt or ghes or ghae or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- {% ifversion fpt or ghes or ghae or ghec %}"[Visualizando as suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listando os repositórios que você está inspecionando](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"

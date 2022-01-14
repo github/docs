@@ -2,8 +2,8 @@
 title: SSH キーをレビューする
 intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
-  - /articles/keeping-your-application-access-tokens-safe/
-  - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe/
+  - /articles/keeping-your-application-access-tokens-safe
+  - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe
   - /articles/reviewing-your-ssh-keys
   - /github/authenticating-to-github/reviewing-your-ssh-keys
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-ssh-keys
@@ -57,7 +57,7 @@ topics:
 
   {% endtip %}
 
-4. Git Bash を開きます。 {% data variables.product.prodname_desktop %} に収納されている Git Shell を使用している場合は、Git Shell を開き、ステップ 6 に進みます。
+4. Git Bash を開きます。
 
 5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 

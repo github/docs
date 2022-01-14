@@ -1,9 +1,9 @@
 ---
 title: webhook について
 redirect_from:
-  - /post-receive-hooks/
-  - /articles/post-receive-hooks/
-  - /articles/creating-webhooks/
+  - /post-receive-hooks
+  - /articles/post-receive-hooks
+  - /articles/creating-webhooks
   - /articles/about-webhooks
 intro: webhook は、特定のアクションがリポジトリあるいは Organization で生じたときに外部の Web サーバーへ通知を配信する方法を提供します。
 versions:

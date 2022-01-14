@@ -3,9 +3,9 @@ title: 支払い履歴と領収書を表示する
 intro: アカウントの支払い履歴はいつでも表示できます。また、過去の領収書は、いつでもダウンロード可能です。
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-payment-history-and-receipts
-  - /articles/downloading-receipts/
-  - /articles/downloading-receipts-for-personal-accounts/
-  - /articles/downloading-receipts-for-organizations/
+  - /articles/downloading-receipts
+  - /articles/downloading-receipts-for-personal-accounts
+  - /articles/downloading-receipts-for-organizations
   - /articles/viewing-your-payment-history-and-receipts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts
 versions:

@@ -10,7 +10,7 @@ const rankings = ['/rest', '/graphql', '/site-policy'].reverse()
 export default function rank(record) {
   for (const index in rankings) {
     const pattern = rankings[index]
-    if (record.url.includes(pattern)) return Number(index)
+    if (record.objectID.includes(pattern)) return Number(index)
   }
 
   // Set the default ranking to the highest possible

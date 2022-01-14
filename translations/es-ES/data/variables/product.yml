@@ -17,9 +17,10 @@ prodname_ghe_server: 'GitHub Enterprise Server'
 prodname_ghe_cloud: 'Nube de GitHub Enterprise'
 prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
+prodname_docs: 'GitHub Docs'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% ifversion ghes %}your GitHub Enterprise Server instance{% elsif ghae %}your enterprise{% else %}GitHub.com{% endif %}
+  {% ifversion ghes %}tu instancia de GitHub Enterprise Server{% elsif ghae %}tu empresa{% else %}GitHub.com{% endif %}
 #Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 #Do not use in other situations!
 product_location_enterprise: 'tu instancia de servidor de GitHub Enterprise'
@@ -46,8 +47,8 @@ prodname_cli: 'CLI de GitHub'
 #GitHub Desktop
 prodname_desktop: 'GitHub Desktop'
 desktop_link: 'https://desktop.github.com/'
-#GitHub for Mobile
-prodname_mobile: 'GitHub para móviles'
+#GitHub Mobile
+prodname_mobile: 'GitHub Mobile'
 prodname_ios: 'GitHub para iOS'
 prodname_android: 'GitHub para Android'
 #GitHub Pages
@@ -96,8 +97,6 @@ prodname_matching_fund: 'Fondo Compensatorio para Patrocinios de GitHub'
 #GitHub Advanced Security
 prodname_GH_advanced_security: 'GitHub Advanced Security'
 prodname_advanced_security: 'Advanced Security'
-#Security Center
-prodname_security_center: 'Centro de seguridad'
 #Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'Acerca de GitHub Codespaces'
@@ -119,7 +118,7 @@ support_ticket_priority_high: 'Alto'
 support_ticket_priority_normal: 'Normal'
 support_ticket_priority_low: 'Bajo'
 #GitHub Professional Services
-prodname_professional_services: 'GitHub Professional Services'
+prodname_professional_services: 'Servicios Profesionales de GitHub'
 prodname_professional_services_team: 'Servicios profesionales'
 #Security features / code scanning platform / Security Lab
 prodname_security: 'GitHub Security Lab'
@@ -136,7 +135,7 @@ prodname_codeql_workflow: 'Flujo de trabajo de análisis de CodeQL'
 #Visual Studio
 prodname_vs: 'Visual Studio'
 prodname_vscode: 'Visual Studio Code'
-prodname_vss_ghe: 'Suscripción de Visual Studio con GitHub Enterprise'
+prodname_vss_ghe: 'Suscripciones a Visual Studio con GitHub Enterprise'
 prodname_vss_admin_portal_with_url: 'el [portal de admnistrador para las suscripciones de Visual Studio](https://visualstudio.microsoft.com/subscriptions-administration/)'
 prodname_vscode_command_palette: 'VS Code Command Palette'
 #GitHub Dependabot
@@ -151,7 +150,7 @@ prodname_arctic_vault: 'Bóveda de Código del Ártico'
 prodname_copilot: 'Copiloto de GitHub'
 prodname_copilot_short: 'Copilot'
 #Command Palette
-prodname_command_palette: 'GitHub Command Palette'
+prodname_command_palette: 'Paleta de Comandos de GitHub'
 #Links
 product_url: >-
   {% ifversion fpt or ghec %}github.com{% else %}[hostname]{% endif %}
@@ -182,7 +181,7 @@ api_url_code: >-
   {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://[hostname]/api/v3{% elsif ghae %}https://[hostname]/api/v3{% endif %}
 #Use this inside command-line code blocks
 graphql_url_pre: >-
-  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://<em>[hostname]</em>/api/graphql{% elsif ghae %}https://api.<em>[hostname]</em>/graphql{% endif %}
+  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://<em>[hostname]</em>/api/graphql{% elsif ghae %}https://<em>[hostname]</em>/api/graphql{% endif %}
 #Use this all other code blocks
 graphql_url_code: >-
-  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://[hostname]/api/graphql{% elsif ghae %}https://api.[hostname]/graphql{% endif %}
+  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://[hostname]/api/graphql{% elsif ghae %}https://[hostname]/api/graphql{% endif %}

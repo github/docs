@@ -1,7 +1,6 @@
 ---
 title: Visualizar pessoas na sua empresa
 intro: 'Para auditar o acesso à utilização de licença de usuário ou de recursos pertencentes à empresa, os proprietários corporativos podem exibir todos os administradores e integrantes da empresa.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
   - /articles/viewing-people-in-your-enterprise-account
@@ -37,6 +36,10 @@ Você pode visualizar {% ifversion ghec %}todas as organizações de {% data var
 1. Como alternativa, clique em **Outside collaborators** (Colaboradores externos) para exibir uma lista deles em vez de uma lista de integrantes. ![Guia Outside collaborators (Colaboradores externos) na página Organization members (Integrantes da organização)](/assets/images/help/business-accounts/outside-collaborators-tab.png)
 {% ifversion ghec %}1. Opcionalmente, para ver uma lista de convites pendentes, clique em **_NÚMERO_ pendente**.
   ![Botão "NÚMERO pendente" à direita das opções de pesquisa e filtro](/assets/images/help/enterprises/members-pending.png){% endif %}
+
+## Exibir usuários inativos
+
+Você pode ver uma lista de todos os usuários desativados {% ifversion ghes or ghae %} que não foram suspensos e {% endif %}que não são administradores do site. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} Para obter mais informações, consulte "[Gerenciar usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
 
 ## Leia mais
 

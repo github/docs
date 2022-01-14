@@ -32,4 +32,4 @@ Restaurar un repositorio no restaurará los archivos adjuntos de lanzamiento o l
 
 ## Leer más
 
-- "[Placing a legal hold on a user or organization](/admin/user-management/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)"
+- "[Colocar una retención legal en un usuario u organización](/admin/user-management/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)"

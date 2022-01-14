@@ -10,6 +10,8 @@ versions:
   ghec: '*'
 topics:
   - Codespaces
+hasExperimentalAlternative: true
+hidden: true
 ---
 
 
@@ -35,14 +37,14 @@ topics:
 
 您可以通过调整 vCPU 和 RAM 的数量、[添加 dotfiles 以个性化环境](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)或者修改安装的工具和脚本来自定义代码空间。
 
-{% data variables.product.prodname_codespaces %} 使用名为 `devcontainer.json` 的文件来存储配置。 在启动时， {% data variables.product.prodname_codespaces %} 使用文件安装项目可能需要的任何工具、依赖项或其他设置。 更多信息请参阅“[为项目配置代码空间](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
+{% data variables.product.prodname_codespaces %} 使用名为 `devcontainer.json` 的文件来存储配置。 在启动时， {% data variables.product.prodname_codespaces %} 使用文件安装项目可能需要的任何工具、依赖项或其他设置。 For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
 
 ## 步骤 2：从模板将开发容器添加到您的代码空间
 
 默认代码空间容器附带最新的 Java 版本、包管理器（Maven、Gradle）和其他预装的常用工具。 但是，我们建议您设置一个自定义容器来定义项目所需的工具和脚本。 这将确保仓库中的所有 {% data variables.product.prodname_codespaces %} 用户都拥有完全可复制的环境。
 
-要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 有关开发容器的更多信息，请参阅“[为项目配置代码空间](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
+要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 For more information on dev containers, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
 
 {% data reusables.codespaces.command-palette-container %}
@@ -111,7 +113,7 @@ topics:
   - **Terminal.integrated.shell.linux** - 虽然 bash 是此处的默认设置，但您可以通过修改它来使用其他终端 shell。
 - **Extensions** - 它们是默认包含的扩展名。
   - **Vscjava.vscode-java-pack** - Java 扩展包为 Java 开发提供了流行的扩展，以帮助您入门。
-- **forwardPorts** - 此处列出的任何端口都将自动转发。
+- **forwardPorts** - 此处列出的任何端口都将自动转发。 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 - **postCreateCommand** - 如果您要在进入 Dockerfile 中未定义的代码空间后执行任何操作，您可以在此处执行。
 - **remoteUser** - 默认情况下，您以 `vscode` 用户身份运行，但您可以选择将其设置为 `root`。
 

@@ -46,7 +46,7 @@ Antes de criar um pull request, você deverá fazer push das alterações em um 
 
 {% endnote %}
 
-## Criar uma pull request
+## Criar um pull request
 
 {% mac %}
 

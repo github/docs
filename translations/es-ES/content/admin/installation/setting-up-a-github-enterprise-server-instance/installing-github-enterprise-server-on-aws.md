@@ -2,7 +2,7 @@
 title: Instalar el servidor de GitHub Enterprise en AWS
 intro: 'Para instalar el {% data variables.product.prodname_ghe_server %} en Amazon Web Services (AWS), debes iniciar una instancia de Amazon Elastic Compute Cloud (EC2) y crear y adjuntar un volumen de datos separado de Amazon Elastic Block Store (EBS).'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-aws/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-aws
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
   - /admin/installation/installing-github-enterprise-server-on-aws
 versions:

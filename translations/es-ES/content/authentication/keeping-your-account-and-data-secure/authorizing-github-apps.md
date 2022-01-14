@@ -50,4 +50,4 @@ Esto significa que, para que la ExampleApp cree una propuesta en nombre de Alice
 
 * La {% data variables.product.prodname_github_app %} de ExampleApp solicita acceso de escritura para las propuestas.
 * Un usuario que tiene acceso administrativo para el Repo A debe tener instalada la {% data variables.product.prodname_github_app %} de ExampleApp en este.
-* Alice must have read permission for Repo A. For information about which permissions are required to perform various activities, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+* Alice debe tener permisos de lectura para el Repo A. Para obtener más información sobre qué permisos se requieren para realizar diversas actividades, consulta la sección "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".

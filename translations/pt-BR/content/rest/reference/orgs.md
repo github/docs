@@ -42,7 +42,7 @@ O token usado para autenticar a chamada deve ter o escopo `admin:org` para fazer
 {% endfor %}
 
 {% ifversion fpt or ghes > 3.4  %}
-## Custom repository roles
+## Funções de repositório personalizadas
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'custom_roles' %}{% include rest_operation %}{% endif %}

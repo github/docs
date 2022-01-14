@@ -2,7 +2,6 @@
 title: Sobre a identidade e gestão de acesso para a sua empresa
 shortTitle: Sobre identidade e gestão de acesso
 intro: 'É possível usar o logon único SAML (SSO) e o Sistema de Gerenciamento de Identidade entre Domínios (SCIM) para gerenciar centralmente o acesso {% ifversion ghec %}a organizações pertencentes à sua empresa em {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% ifversion ghae %}para {% data variables.product.product_location %}{% endif %}.'
-product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   ghec: '*'
   ghae: '*'
@@ -55,11 +54,23 @@ Nós testamos e oferecemos compatibilidade oficial os seguintes IdPs. Para o SSO
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-Após configurar o aplicativo para {% data variables.product.product_name %} no seu IdP, você poderá conceder acesso a {% data variables.product.product_location %}, atribuindo o aplicativo a usuários e grupos no seu IdP. Para obter mais informações sobre o SAML SSO para {% data variables.product.product_name %}, consulte "[Configurar o logon único SAML para a sua empresa](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)".
+Após configurar o aplicativo para {% data variables.product.product_name %} no seu provedor de identidade (IdP), você poderá fornecer acesso ao {% data variables.product.product_location %}, atribuindo o aplicativo a usuários e grupos no seu IdP. Para obter mais informações sobre o SAML SSO para {% data variables.product.product_name %}, consulte "[Configurar o logon único SAML para a sua empresa](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)".
 
 {% data reusables.scim.after-you-configure-saml %} Para obter mais informações, consulte "[Configurar provisionamento do usuário para sua empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)".
 
 Para aprender como configurar tanto o provisionamento de autenticação quanto o usuário para {% data variables.product.product_location %} com seu IdP específico, consulte "[Configurar autenticação e provisionamento com o seu provedor de identidade](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)".
+
+## IdPs compatíveis
+
+Os seguintes IdPs são oficialmente compatíveis com a integração a {% data variables.product.prodname_ghe_managed %}.
+
+{% data reusables.saml.okta-ae-sso-beta %}
+
+{% data reusables.github-ae.saml-idp-table %}
+
+## Mapeando equipes de {% data variables.product.prodname_ghe_managed %} com grupos do Okta
+
+Se você usar o Okta como seu IdP, você poderá mapear seus grupos Okta para as equipes em {% data variables.product.prodname_ghe_managed %}. Para obter mais informações, consulte "[Mapeando grupos do Okta nas equipes](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)".
 
 {% endif %}
 

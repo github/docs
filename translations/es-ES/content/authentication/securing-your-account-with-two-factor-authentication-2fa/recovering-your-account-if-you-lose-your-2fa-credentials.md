@@ -2,8 +2,8 @@
 title: Recuperar tu cuenta si pierdes tus credenciales 2FA
 intro: 'Si pierdes el acceso a tus credenciales de autenticación de dos factores, puedes utilizar tus códigos de recuperación, o cualquier otra opción de recuperación, para recuperar el acceso a tu cuenta.'
 redirect_from:
-  - /articles/recovering-your-account-if-you-lost-your-2fa-credentials/
-  - /articles/authenticating-with-an-account-recovery-token/
+  - /articles/recovering-your-account-if-you-lost-your-2fa-credentials
+  - /articles/authenticating-with-an-account-recovery-token
   - /articles/recovering-your-account-if-you-lose-your-2fa-credentials
   - /github/authenticating-to-github/recovering-your-account-if-you-lose-your-2fa-credentials
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials
@@ -62,7 +62,7 @@ Puedes utilizar tus credenciales de autenticación de dos factores para recobrar
 2. Da clic en **¿No puedes acceder a tu dispositivo de dos factores o a tus códigos de recuperación válidos?** debajo de "¿Tienes Problemas ![Enlace si no tienes tu dispositivo de 2fa o códigos de recuperación](/assets/images/help/2fa/no-access-link.png)
 3. Da clic en **Entiendo, comenzar** para solicitar un restablecimiento de tu configuración de autenticación. ![Botón de restablecimiento de configuración de autenticación](/assets/images/help/2fa/reset-auth-settings.png)
 4. Da clic en **Enviar contraseña de una sola vez** para enviarla a todas las direcciones de correo electrónico asociadas con tu cuenta. ![Botón para enviar contraseña de una sola vez](/assets/images/help/2fa/send-one-time-password.png)
-5. Teclea la contraseña recibida en el correo electrónico de recuperación debajo de "Contraseña de una sola vez"{% data variables.product.prodname_dotcom %}. ![Campo para contraseña de una sola vez](/assets/images/help/2fa/one-time-password-field.png)
+5. Debajo de "Contraseña de una sola vez", teclea la contraseña temporal del correo electrónico de recuperación que envió {% data variables.product.prodname_dotcom %}. ![Campo para contraseña de una sola vez](/assets/images/help/2fa/one-time-password-field.png)
 6. Da clic en **Verificar dirección de correo electrónico**.
 7. Escoge un factor de verificación alterno.
     - Si utilizaste tu dispositivo actual para ingresar en esta cuenta anteriormente y te gustaría utilizarlo para verificación, haz clic en **Verificar con este dispositivo**.
@@ -70,31 +70,6 @@ Puedes utilizar tus credenciales de autenticación de dos factores para recobrar
     - Si configuraste un token de acceso personal previamente y te gustaría utilizarlo para verificación, da clic en **Token de acceso personal**. ![Botones de verificación alternativa](/assets/images/help/2fa/alt-verifications.png)
 8. Un miembro de {% data variables.contact.github_support %} revisará tu solicitud y te enviará un mensaje de correo electrónico dentro de los siguientes 3 a 5 días. Si se aprueba tu solicitud, recibirás un enlace para completar el proceso de recuperación de tu cuenta. Si se te niega la solicitud, el mensaje incluirá un medio para contactar a soporte con cualquier pregunta adicional.
 
-## Autenticar con un token de recuperación de cuenta
-
-{% warning %}
-
-**Advertencia:** Los tokens de recuperación de cuenta se obsoletizaron y se inhabilitarán el **1 de diciembre de 2021**. Por favor, asegúrate de haber configurado otros métodos de recuperación bifactoriales. Para obtener más información, consulta la sección "[Configurar los métodos de autenticación bifactoriales](/articles/configuring-two-factor-authentication-recovery-methods)".
-
-{% endwarning %}
-
-If you lose access to the two-factor authentication methods for your account on {% data variables.product.product_location %}, you can retrieve your account recovery token from a partner recovery provider and ask {% data variables.product.prodname_dotcom %} Support to review it.
-
-Si no tienes acceso a tus métodos de autenticación de dos factores o a tus códigos de recuperación y has almacenado un token de recuperación de cuenta con Facebook utilizando Recuperar cuentas en otro lugar, puedes utilizar tu token para recuperar el acceso a tu cuenta.
-
-Si te es imposible recuperar el acceso a tu cuenta, genera una contraseña de una sola vez para recuperarlo. Para obtener más información, consulta "[Autenticarse con un dispositivo verificado, token, ssh, o token de acceso personal](#authenticating-with-a-verified-device-ssh-token-or-personal-access-token)".
-
-{% warning %}
-
-**Advertencias:**
-- Antes de recuperar un token de recuperación de cuenta, deberías tratar de utilizar tus [códigos de autenticación de dos factores](/articles/accessing-github-using-two-factor-authentication) o tus códigos de recuperación de autenticación de dos factores para recuperar el acceso a tu cuenta. Para obtener más información, consulta "[Recuperar tu cuenta si pierdes tus credenciales de 2FA](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)".
-
-{% endwarning %}
-
-1. En Facebook, desplázate hasta tus [Configuraciones de seguridad](https://www.facebook.com/settings?tab=security), después haz clic en **Recover Accounts Elsewhere (Recuperar cuentas en otro lugar)**. ![Página de configuraciones de seguridad de Facebook con enlace Recuperar cuentas en otro lugar](/assets/images/help/settings/security-facebook-security-settings-page.png)
-2. Click the recovery token associated with your account on {% data variables.product.product_location %}. ![Lista de tokens de recuperación almacenados en Facebook](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
-3. Para rescatar tu token de recuperación de cuenta, haz clic en **Recover This Account (Recuperar esta cuenta)**. Se abrirá una nueva ventana, que te llevará de vuelta a {% data variables.product.product_name %}. ![Casilla modal con información acerca de tu token de recuperación y botón Recuperar esta cuenta](/assets/images/help/settings/security-recover-account-facebook.png)
-4. Contacta a {% data variables.contact.contact_support %} para hacerles saber que tu token de recuperación de cuenta está lista para revisión.
 {% endif %}
 
 ## Leer más

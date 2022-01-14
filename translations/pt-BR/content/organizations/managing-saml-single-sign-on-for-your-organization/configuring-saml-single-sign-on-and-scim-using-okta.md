@@ -1,12 +1,10 @@
 ---
 title: Configurar SCIM e o logon único SAML usando o Okta
-intro: 'Você pode usar o logon único (SSO) da Linguagem de Markup da Declaração de Segurança (SAML) e o Sistema de Gerenciamento de Identidades de Domínio Cruzado (SCIM) com o Okta para gerenciar automaticamente o acesso à sua organização em {% data variables.product.prodname_dotcom %}.'
+intro: 'Você pode usar o logon único (SSO) da Linguagem de Markup da Declaração de Segurança (SAML) e o Sistema de Gerenciamento de Identidades de Domínio Cruzado (SCIM) com o Okta para gerenciar automaticamente o acesso à sua organização em {% data variables.product.product_location %}.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/configuring-saml-single-sign-on-and-scim-using-okta
-product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -16,18 +14,18 @@ shortTitle: Configurar SAML & SCIM com Okta
 
 ## Sobre SAML e SCIM com Okta
 
-Você pode controlar o acesso à organização do {% data variables.product.prodname_dotcom %} e outros aplicativos da web a partir de uma interface central, configurando a organização para usar SAML SSO e SCIM com Okta, um provedor de identidade (IdP).
+Você pode controlar o acesso à sua organização em {% data variables.product.product_location %} e outros aplicativos da web a partir de uma interface central, configurando a organização para usar SAML SSO e o SCIM com Okta, um provedor de identidade (IdP).
 
-O SAML SSO controla e protege o acesso a recursos da organização, como repositórios, problemas e pull requests. O SCIM adiciona, gerencia e remove automaticamente o acesso dos integrantes à sua organização do {% data variables.product.prodname_dotcom %} quando você fizer alterações no Okta. Para obter mais informações, consulte "[Sobre a identidade e gerenciamento de acesso com logon único SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)" e "[Sobre SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+O SAML SSO controla e protege o acesso a recursos da organização, como repositórios, problemas e pull requests. O SCIM adiciona, gerencia e remove automaticamente o acesso dos integrantes à sua organização em {% data variables.product.product_location %} quando você fizer alterações no Okta. Para obter mais informações, consulte "[Sobre a identidade e gerenciamento de acesso com logon único SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)" e "[Sobre SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
 
 Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponíveis para qualquer usuário ao qual você atribuir seu aplicativo do {% data variables.product.prodname_ghe_cloud %} no Okta.
 
-| Funcionalidade                        | Descrição                                                                                                                                                                  |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Fazer push de novos usuários          | Ao criar um novo usuário no Okta, ele receberá um e-mail para juntar-se à sua organização do {% data variables.product.prodname_dotcom %}.                                 |
-| Fazer push de desativações de usuário | Ao desativar um usuário no Okta, este removerá o usuário da sua organização de {% data variables.product.prodname_dotcom %}.                                               |
-| Fazer push das atualização de perfil  | Ao atualizar o perfil de um usuário no Okta, este atualizará os metadados para a associação do usuário na sua organização de {% data variables.product.prodname_dotcom %}. |
-| Reativar usuários                     | Ao reativar um usuário no Okta, este enviará um convite por e-mail para o usuário juntar-se novamente à sua organização de {% data variables.product.prodname_dotcom %}.   |
+| Funcionalidade                        | Descrição                                                                                                                                                                     |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Fazer push de novos usuários          | Ao criar um novo usuário no Okta, o usuário receberá um e-mail para ingressar na sua organização em {% data variables.product.product_location %}.                            |
+| Fazer push de desativações de usuário | Ao desativar um usuário no Okta, ele removerá o usuário da sua organização em {% data variables.product.product_location %}.                                                  |
+| Fazer push das atualização de perfil  | Ao atualizar o perfil de um usuário no Okta, ele irá atualizar os metadados para a associação do usuário na sua organização em {% data variables.product.product_location %}. |
+| Reativar usuários                     | Ao reativar um usuário no Okta, ele enviará um convite por e-mail para o usuário voltar a participar da sua organização em {% data variables.product.product_location %}.     |
 
 ## Pré-requisitos
 
@@ -40,7 +38,7 @@ Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponív
 {% data reusables.saml.search-ghec-okta %}
 4. À direita do "Github Enterprise Cloud - Organização", clique em **Adicionar**. ![Clicar em "Adicionar" para o aplicativo {% data variables.product.prodname_ghe_cloud %}](/assets/images/help/saml/okta-add-ghec-application.png)
 
-5. No campo **Organização do GitHub**, digite o nome da sua organização de {% data variables.product.prodname_dotcom %}. Por exemplo, se a URL da sua organização for https://github.com/octo-org, o nome da organização será `octo-org`. ![Digite o nome da organização do GitHub](/assets/images/help/saml/okta-github-organization-name.png)
+5. No campo **Organização do GitHub**, digite o nome da sua organização em {% data variables.product.product_location %}. Por exemplo, se a URL da sua organização for https://github.com/octo-org, o nome da organização será `octo-org`. ![Digite o nome da organização do GitHub](/assets/images/help/saml/okta-github-organization-name.png)
 
 6. Clique em **Cpncluído**.
 

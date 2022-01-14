@@ -1,6 +1,6 @@
 ---
-title: Borrar un codespace
-intro: Puedes borrar un codespace que ya no necesites.
+title: Deleting a codespace
+intro: You can delete a codespace you no longer need.
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
@@ -13,27 +13,27 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Delete a codespace
 ---
 
- 
+
 
 {% data reusables.codespaces.concurrent-codespace-limit %}
 
 {% note %}
 
-**Nota:** Solo la persona que creó un codespace podrá borrarlo. Actualmente no hay forma de que los propietarios de las organizaciones borren los codespaces que se crearon dentro de su organización.
+**Note:** Only the person who created a codespace can delete it. There is currently no way for organization owners to delete codespaces created within their organization.
 
 {% endnote %}
 
-{% include tool-switcher %}
 
 {% webui %}
 
-1. Navegar a la página de "Tus Codespaces" en [github.com/codespaces](https://github.com/codespaces).
+1. Navigate to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces).
 
-2. A la derecha del codespace que quieres borrar, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y luego en **Borrar {% octicon "trash" aria-label="The trash icon" %}**
+2. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**
 
-   ![Botón de borrar](/assets/images/help/codespaces/delete-codespace.png)
+   ![Delete button](/assets/images/help/codespaces/delete-codespace.png)
 
 {% endwebui %}
 
@@ -59,3 +59,6 @@ If you have unsaved changes, you'll be prompted to confirm deletion. You can use
 For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_delete).
 
 {% endcli %}
+
+## Further reading
+- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)

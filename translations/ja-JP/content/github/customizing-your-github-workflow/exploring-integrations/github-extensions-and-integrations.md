@@ -2,7 +2,7 @@
 title: GitHub の機能拡張およびインテグレーション
 intro: 'サードパーティアプリケーションの中でシームレスに{% data variables.product.product_name %}リポジトリ内で作業をするために、{% data variables.product.product_name %}機能拡張を使ってください。'
 redirect_from:
-  - /articles/about-github-extensions-for-third-party-applications/
+  - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
 versions:

@@ -24,7 +24,7 @@ Para ajudá-lo a entender suas assinaturas e decidir se deseja cancelar sua assi
 
 ## Escolhendo como cancelar a assinatura
 
-Para não inspecionar (ou cancelar a assinatura de) repositórios rapidamente, vá para a página "Repositórios assistidos", onde você pode ver todos os repositórios que você está inspecionando. Para obter mais informações, consulte "[Não inspecionar um repositório](#unwatch-a-repository)".
+To unwatch (or unsubscribe from) repositories quickly, navigate to [github.com/watching](https://github.com/watching) to see all the repositories you're following. For more information, see "[Unwatching repositories](#unwatching-repositories)."
 
 Para cancelar a assinatura de várias notificações ao mesmo tempo, você pode cancelar a assinatura utilizando sua caixa de entrada ou a página de assinaturas. Ambas as opções oferecem mais contexto sobre suas assinaturas do que a página "Repositórios inspecionados".
 
@@ -55,19 +55,32 @@ Ao cancelar a assinatura de notificações em sua caixa de entrada, elas desapar
 
 2. Selecione as notificações que você deseja cancelar a assinatura. No canto superior direito, clique em **Cancelar a assinatura**. ![Página de assinaturas](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
 
-## Deixar de inspecionar um repositório
+## Unwatching repositories
 
 Quando você deixa de inspecionar um repositório, você cancela sua assinatura de atualizações futuras daquele repositório, a menos que você participe de uma conversa ou seja @mencionado.
 
 {% data reusables.notifications.access_notifications %}
-1. Na barra lateral esquerda, na lista de repositórios, use o menu suspenso "Gerenciar notificações" para clicar em **Inspecionar repositórios**. ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
+1. Na barra lateral esquerda, na lista de repositórios, use o menu suspenso "Gerenciar notificações" para clicar em **Inspecionar repositórios**.
+
+  ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
+
 2. Na página de repositórios inspecionados, depois de ter avaliado os repositórios que você está inspecionando, escolha se deseja:
-  {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
-    - Deixar de inspecionar um repositório
-    - Ignorar todas as notificações de um repositório
-    - Personalize os tipos de eventos que você recebe notificações para ({% data reusables.notifications-v2.custom-notification-types %}, se habilitado)
-  {% else %}
-    - Deixar de inspecionar um repositório
-    - Apenas inspecione versões para um repositório
-    - Ignorar todas as notificações de um repositório
-  {% endif %}
+   {%- ifversion fpt or ghes > 3.0 or ghae or ghec %}
+   - Deixar de inspecionar um repositório
+   - Ignorar todas as notificações de um repositório
+   - If enabled, customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %})
+   {%- else %}
+   - Deixar de inspecionar um repositório
+   - Apenas inspecione versões para um repositório
+   - Ignorar todas as notificações de um repositório
+   {%- endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
+1. Optionally, to unsubscribe from all repositories owned by a given user or organization, select the **Unwatch all** dropdown and click the organization whose repositories you'd like to unsubscribe from. The button to unwatch all repositories is only available if you are watching all activity or custom notifications on over 10 repositories.
+
+   ![Screenshot of the Unwatch All button.](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
+
+   - Click **Unwatch** to confirm that you want to unwatch the repositories owned by the selected user or organization, or click **Cancel** to cancel.
+
+   ![Screenshot of the unwatch all confirmation dialogue.](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
+
+{% endif %}

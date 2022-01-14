@@ -2,7 +2,7 @@
 title: Descobrir recursos para um usuário
 intro: Saiba como encontrar os repositórios e organizações que o seu aplicativo pode acessar para um usuário de forma confiável para as suas solicitações autenticadas para a API REST.
 redirect_from:
-  - /guides/discovering-resources-for-a-user/
+  - /guides/discovering-resources-for-a-user
   - /v3/guides/discovering-resources-for-a-user
 versions:
   fpt: '*'
@@ -14,7 +14,7 @@ topics:
 shortTitle: Descobrir recursos para um usuário
 ---
 
- 
+
 
 When making authenticated requests to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, applications often need to fetch the current user's repositories and organizations. Neste guia, explicaremos como descobrir esses recursos de forma confiável.
 
@@ -26,7 +26,7 @@ Se você ainda não o fez, você deverá ler o guia ["Princípios básicos da au
 
 ## Descubra os repositórios que o seu aplicativo pode acessar para um usuário
 
-Além de ter seus próprios repositórios pessoais, um usuário pode ser um colaborador em repositórios pertencentes a outros usuários e organizações. Coletivamente, estes são os repositórios onde o usuário tem acesso privilegiado: ou é um repositório privado onde o usuário tem acesso de leitura ou gravação, ou é um repositório {% ifversion not ghae %}public{% else %}internal{% endif %} onde o usuário tem acesso de gravação.
+Além de ter seus próprios repositórios pessoais, um usuário pode ser um colaborador em repositórios pertencentes a outros usuários e organizações. Collectively, these are the repositories where the user has privileged access: either it's a private repository where the user has read or write access, or it's {% ifversion fpt %}a public{% elsif ghec or ghes %}a public or internal{% elsif ghae %}an internal{% endif %} repository where the user has write access.
 
 [Os escopos do OAuth][scopes] e as [políticas dos aplicativos da organização][oap] determinam quais desses repositórios o seu aplicativo pode acessar para um usuário. Use o fluxo de trabalho abaixo para descobrir esses repositórios.
 

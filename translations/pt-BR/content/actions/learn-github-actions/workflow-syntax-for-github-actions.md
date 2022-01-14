@@ -16,7 +16,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Sobre sintaxe YAML para fluxos de trabalho
 
@@ -62,7 +61,7 @@ Os padrões definidos nos `branches` e `tags` são avaliados relativamente ao no
 on:
   push:
     # Sequence of patterns matched against refs/heads
-    branches:    
+    branches:
       # Push events on main branch
       - main
       # Push events to branches matching refs/heads/mona/octocat
@@ -70,7 +69,7 @@ on:
       # Push events to branches matching refs/heads/releases/10
       - 'releases/**'
     # Sequence of patterns matched against refs/tags
-    tags:        
+    tags:
       - v1             # Push events to v1 tag
       - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
 ```
@@ -110,7 +109,7 @@ O fluxo de trabalho a seguir será executado em pushes para `releases/10` ou `re
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
       - '!releases/**-alpha'
 ```
@@ -182,14 +181,14 @@ O {% data variables.product.prodname_dotcom %} gera a lista de arquivos alterado
 
 Os diffs limitam-se a 300 arquivos. Se houver arquivos alterados que não correspondam aos primeiros 300 arquivos retornados pelo filtro, o fluxo de trabalho não será executado. Talvez seja necessário criar filtros mais específicos para que o fluxo de trabalho seja executado automaticamente.
 
-Para obter mais informações, consulte "[Sobre comparação de branches em pull requests](/articles/about-comparing-branches-in-pull-requests)".
+Para obter mais informações, consulte "[Sobre comparação de branches em pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)".
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call.inputs`
 
-Ao usar a palavra-chave `workflow_call`, você poderá, opcionalmente, especificar entradas que são passadas para o fluxo de trabalho chamado no fluxo de trabalho de chamada. As entradas para fluxos de trabalho reutilizáveis são especificadas com o mesmo formato que entradas de ações. Para obter mais informações sobre as entradas, consulte "[Sintaxe de metadados para o GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)". Para obter mais informações sobre a palavra-chave `workflow_call`, consulte "[Eventos que acionam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
+Ao usar a palavra-chave `workflow_call`, você poderá, opcionalmente, especificar entradas que são passadas para o fluxo de trabalho chamado no fluxo de trabalho de chamada. Para obter mais informações sobre a palavra-chave `workflow_call`, consulte "[Eventos que acionam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
 
-Além dos parâmetros de entrada padrão que estão disponíveis, `on.workflow_call.inputs` exige um parâmetro `tipo`. Para obter mais informações, consulte [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype).
+Além dos parâmetros de entrada padrão que estão disponíveis, `on.workflow_call.inputs` exige um parâmetro `tipo`. Para obter mais informações, consulte [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
 
 Se um parâmetro `padrão` não fordefinido, o valor padrão da entrada será `falso` para um booleano, `0` para um número e `""` para uma string.
 
@@ -222,9 +221,34 @@ jobs:
 
 Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 
-## `on.workflow_call.<input_id>.type`
+## `on.workflow_call.inputs.<input_id>.type`
 
 Necessário se a entrada for definida para a palavra-chave `on.workflow_call`. O valor deste parâmetro é uma string que especifica o tipo de dados da entrada. Este deve ser um dos valores a seguir: `booleano`, `número` ou `string`.
+
+## `on.workflow_call.outputs`
+
+Um mapa de saídas para um fluxo de trabalho chamado. As saídas de fluxo de trabalho chamadas estão disponíveis para todas as tarefas a jusante no fluxo de trabalho de chamadas. Cada saída tem um identificador, uma `descrição` opcional e um `valor.` O `valor` deve ser definido para o valor de uma saída de um trabalho dentro do fluxo de trabalho chamado.
+
+No exemplo abaixo, dois valores de saída são definidos para este fluxo de trabalho reutilizável: `workflow_output1` e `workflow_output2`. Eles são mapeados com as saídas chamadas `job_output1` e `job_output2`, ambas de um trabalho chamado `my_job`.
+
+### Exemplo
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    # Map the workflow outputs to job outputs
+    outputs:
+      workflow_output1:
+        description: "The first job output"
+        value: ${{ jobs.my_job.outputs.job_output1 }}
+      workflow_output2:
+        description: "The second job output"
+        value: ${{ jobs.my_job.outputs.job_output2 }}
+```
+{% endraw %}
+
+Para obter informações sobre como fazer referência a uma saída de trabalho, consulte [`trabalhos.<job_id>.outputs`](#jobsjob_idoutputs). Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 
 ## `on.workflow_call.secrets`
 
@@ -249,7 +273,7 @@ jobs:
   pass-secret-to-action:
     runs-on: ubuntu-latest
 
-    steps:  
+    steps:
       - name: Pass the received secret to an action
         uses: ./.github/actions/my-action@v1
         with:
@@ -268,22 +292,42 @@ Um booleano que especifica se o segredo deve ser fornecido.
 
 ## `on.workflow_dispatch.inputs`
 
-Ao usar o evento `workflow_dispatch`, você pode, opcionalmente, especificar as entradas que são passadas para o fluxo de trabalho. As entradas de fluxo de trabalho são especificadas no mesmo formato que as entradas de ações. Para obter mais informações sobre o formato, consulte "[Sintaxe de Metadados para o GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)".
+Ao usar o evento `workflow_dispatch`, você pode, opcionalmente, especificar as entradas que são passadas para o fluxo de trabalho.
 
+O fluxo de trabalho acionado recebe as entradas no contexto `github.event.inputs`. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts#github-context)".
+
+### Exemplo
 ```yaml
-on: 
+on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Log level'
         required: true
-        default: 'warning'
+        default: 'warning' {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        type: choice
+        options:
+        - info
+        - warning
+        - debug {% endif %}
       tags:
         description: 'Test scenario tags'
-        required: false
+        required: false {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true {% endif %}
+
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the input tag to STDOUT
+        run: echo {% raw %} The tag is ${{ github.event.inputs.tag }} {% endraw %}
 ```
 
-O fluxo de trabalho acionado recebe as entradas no contexto `github.event.inputs`. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts#github-context)".
 
 ## `on.schedule`
 
@@ -291,7 +335,7 @@ O fluxo de trabalho acionado recebe as entradas no contexto `github.event.inputs
 
 Para obter mais informações sobre a sintaxe cron, consulte "[Eventos que acionam fluxos de trabalho](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)".
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `permissões`
 
 Você pode modificar as permissões padrão concedidas ao `GITHUB_TOKEN`, adicionando ou removendo o acesso conforme necessário, para que você permita apenas o acesso mínimo necessário. Para obter mais informações, consulte "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)".
@@ -351,7 +395,7 @@ defaults:
     working-directory: scripts
 ```
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `concorrência`
 
 A moeda garante que apenas um único trabalho ou fluxo de trabalho que usa o mesmo grupo de concorrência seja executado de cada vez. Um grupo de concorrência pode ser qualquer string ou expressão. A expressão só pode usar o contexto [`github`](/actions/learn-github-actions/contexts#github-context). Para obter mais informações sobre expressões, consulte "[Expressões](/actions/learn-github-actions/expressions)".
@@ -367,7 +411,7 @@ A execução de um fluxo de trabalho consiste em um ou mais trabalhos. Por padr�
 
 Cada trabalho é executado em um ambiente de executor especificado por `runs-on`.
 
-Você pode executar quantos trabalhos desejar, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para limites de uso de executores auto-hospedados.
+Você pode executar quantos trabalhos desejar, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte {% ifversion fpt or ghec or ghes %}"[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e {% endif %}"[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" para limites de uso de executor auto-hospedado.{% elsif ghae %}."{% endif %}
 
 Se precisar encontrar o identificador exclusivo de uma tarefa em execução em um fluxo de trabalho, você poderá usar a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. Para obter mais informações, consulte "[Trabalhos do fluxo de trabalho](/rest/reference/actions#workflow-jobs)".
 
@@ -430,22 +474,9 @@ Neste exemplo, `job3` usa a expressão condicional `always()` para que ela sempr
 
 ## `jobs.<job_id>.runs-on`
 
-**Obrigatório**. O tipo de máquina na qual se executa o trabalho. A máquina pode ser ou um executor hospedado em {% data variables.product.prodname_dotcom %} ou um executor auto-hospedado.
+**Obrigatório**. O tipo de máquina na qual se executa o trabalho. {% ifversion fpt or ghec %}A máquina pode ser ou um executor hospedado em {% data variables.product.prodname_dotcom %} ou um executor auto-hospedado.{% endif %} Você pode fornecer `runs-on` como uma única string ou como uma matriz de strings. Se você especificar uma matriz de strings, o seu fluxo de trabalho será executado em um executor auto-hospedado cujas etiquetas correspondam a todos os valores de `runs-on`, se disponível. Se você quiser executar seu fluxo de trabalho em várias máquinas, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
-{% ifversion ghae %}
-### {% data variables.actions.hosted_runner %}s
-
-Se você usar um {% data variables.actions.hosted_runner %}, cada trabalho será executado em uma instância atualizada de um ambiente virtual especificado por `runs-on`.
-
-#### Exemplo
-
-```yaml
-runs-on: [AE-runner-for-CI]
-```
-
-Para obter mais informações, consulte "[Sobre {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)".
-
-{% else %}
+{% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Runners hospedados no {% data variables.product.prodname_dotcom %}
@@ -465,7 +496,9 @@ runs-on: ubuntu-latest
 Para obter mais informações, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
 {% endif %}
 
+{% ifversion fpt or ghec or ghes %}
 ### Executores auto-hospedados
+{% endif %}
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
@@ -479,7 +512,7 @@ runs-on: [self-hosted, linux]
 
 Para obter mais informações, consulte "[Sobre executores auto-hospedados](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" e "[Usar executores auto-hospedados em um fluxo de trabalho](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `jobs.<job_id>.permissions`
 
 Você pode modificar as permissões padrão concedidas ao `GITHUB_TOKEN`, adicionando ou removendo o acesso conforme necessário, para que você permita apenas o acesso mínimo necessário. Para obter mais informações, consulte "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)".
@@ -541,7 +574,7 @@ environment:
 {% endraw %}
 {% endif %}
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
 
 {% note %}
@@ -640,7 +673,7 @@ Você pode usar a condicional `if` (se) para evitar que um trabalho seja executa
 
 Trabalhos contêm sequências de tarefas chamadas `steps`. As etapas podem executar comandos, executar trabalhos de configuração ou executar ações no seu repositório, em repositórios públicos, ou ações publicadas em registros do Docker. Nem todas as etapas executam ações, mas todas as ações são executadas como etapas. Cada etapa é executada em seu próprio processo no ambiente do executor, tendo acesso ao espaço de trabalho e ao sistema de arquivos. Como as etapas são executadas em seus próprios processos, as alterações nas variáveis de ambiente não são preservadas entre as etapas. O {% data variables.product.prodname_dotcom %} fornece etapas integradas para configurar e concluir trabalhos.
 
-Você pode executar quantas etapas quiser, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para limites de uso de executores auto-hospedados.
+Você pode executar quantas etapas quiser, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte {% ifversion fpt or ghec or ghes %}"[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e {% endif %}"[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" para limites de uso de executor auto-hospedado.{% elsif ghae %}."{% endif %}
 
 ### Exemplo
 
@@ -849,7 +882,7 @@ jobs:
 
 Executa programas de linha de comando usando o shell do sistema operacional. Se você não informar um `name`, o nome da etapa será configurado por padrão como o texto indicado no comando `run`.
 
-Por padrão, os comandos run usam shells de não login. Você pode escolher um shell diferente e personalizar o shell usado para executar comandos. Para obter mais informações, consulte "[Usar um shell específico](#using-a-specific-shell)".
+Por padrão, os comandos run usam shells de não login. Você pode escolher um shell diferente e personalizar o shell usado para executar comandos. Para obter mais informações, consulte [`trabalhos.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
 
 Cada palavra-chave `run` representa um novo processo e shell no ambiente do executor. Quando você fornece comandos de várias linhas, cada linha será executada no mesmo shell. Por exemplo:
 
@@ -877,7 +910,7 @@ Com a palavra-chave `working-directory` (diretório de trabalho), é possível e
   working-directory: ./temp
 ```
 
-### Usar um shell específico
+## `jobs.<job_id>.steps[*].shell`
 
 Você pode anular as configurações padrão de shell no sistema operacional do executor usando a palavra-chave `shell`. É possível usar palavras-chave integradas a `shell` ou definir um conjunto personalizado de opções de shell. O comando do shell que é executado internamente executa um arquivo temporário que contém os comandos especificados na palavra-chave `executar`.
 
@@ -954,8 +987,9 @@ steps:
 
 O comando usado, `perl` neste exemplo, deve ser instalado no executor.
 
-{% ifversion ghae %}Para instruções instruções sobre como ter certeza de que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
-{% else %}
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
+{% elsif fpt or ghec %}
 Para informações sobre o software incluído nos executores hospedados no GitHub, consulte "[Especificações para os executores hospedados no GitHub](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
 {% endif %}
 
@@ -994,7 +1028,7 @@ jobs:
         with:
           first_name: Mona
           middle_name: The
-          last_name: Octocat      
+          last_name: Octocat
 ```
 
 ## `jobs.<job_id>.steps[*].with.args`
@@ -1042,7 +1076,7 @@ Define variáveis de ambiente para etapas a serem usadas no ambiente do executor
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Ações públicas podem especificar variáveis de ambiente esperadas no arquivo LEIAME. Se você está configurando um segredo em uma variável de ambiente, use o contexto `secrets`. Para obter mais informações, consulte "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" e "[Contextos](/actions/learn-github-actions/contexts)".
+Ações públicas podem especificar variáveis de ambiente esperadas no arquivo README. Se você está configurando um segredo em uma variável de ambiente, use o contexto `secrets`. Para obter mais informações, consulte "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" e "[Contextos](/actions/learn-github-actions/contexts)".
 
 ### Exemplo
 
@@ -1069,7 +1103,7 @@ Número máximo de minutos para executar a etapa antes de interromper o processo
 
 Número máximo de minutos para permitir a execução de um trabalho o antes que o {% data variables.product.prodname_dotcom %} o cancele automaticamente. Padrão: 360
 
-Se o tempo-limite exceder o tempo limite de execução do trabalho para o runner, o trabalho será cancelada quando o tempo limite de execução for atingido. Para obter mais informações sobre limites de tempo de execução do trabalho, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration#usage-limits)".
+Se o tempo-limite exceder o tempo limite de execução do trabalho para o runner, o trabalho será cancelada quando o tempo limite de execução for atingido. Para obter mais informações sobre o limite de tempo de execução do trabalho, consulte {% ifversion fpt or ghec or ghes %}"[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration#usage-limits)" para executores hospedados em {% data variables.product.prodname_dotcom %} e {% endif %}"[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" para limites de uso de executores auto-hospedados.{% elsif ghae %}."{% endif %}
 
 ## `jobs.<job_id>.strategy`
 
@@ -1087,7 +1121,7 @@ A ordem que você define uma `matriz` importa. A primeira opção que você defi
 
 ### Exemplo: Executando várias versões do Node.js
 
-Você pode especificar uma matriz ao fornecer um array para as opções de configuração. Por exemplo, se o executor for compatível com as versões 10, 12 e 14 do Node.js versões, você poderá especificar um array dessas versões na `matriz`.
+Você pode especificar uma matriz ao fornecer um array para as opções de configuração. Por exemplo, se o executor for compatível com as versões 10, 12 e 14 do Node.js, você poderá especificar uma matriz dessas versões na `matriz`.
 
 Este exemplo cria uma matriz de três trabalhos, definindo a chave `nó` para um array de três versões do Node.js. Para usar a matriz, o exemplo define a propriedade do contexto `matrix.node` como o valor do parâmetro `setup-node` de entrada da ação `node-version`. Como resultado, três trabalhos serão executados, cada uma usando uma versão diferente do Node.js.
 
@@ -1130,7 +1164,8 @@ steps:
 ```
 {% endraw %}
 
-{% ifversion ghae %}Para encontrar opções de configuração suportadas para {% data variables.actions.hosted_runner %}s, consulte "[Especificações de software](/actions/using-github-hosted-runners/about-ae-hosted-runners#software-specifications)".
+{% ifversion ghae %}
+Para obter mais informações sobre a configuração de executores auto-hospedados, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% else %}Para encontrar opções de configuração compatíveis com executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 {% endif %}
 
@@ -1156,7 +1191,7 @@ strategy:
 
 ### Exemplo: Incluindo novas combinações
 
-Você pode usar `incluir` para adicionar novos trabalhos a uma matriz de criação. Qualquer configuração sem correspondência de incluir será adicionadas à matriz. Por exemplo, se você quiser usar a versão 14 do `nó` para compilar em vários sistemas operacionais, mas quiser uma tarefa experimental extra usando o node 15 no Ubuntu, você poderá usar `incluir` para especificar essa tarefa adicional.
+Você pode usar `incluir` para adicionar novos trabalhos a uma matriz de criação. Qualquer configuração sem correspondência de incluir será adicionadas à matriz. Por exemplo, se você quiser usar a versão 14 do `nó` para compilar em vários sistemas operacionais, mas quiser uma tarefa experimental extra a versão 15 do nó no Ubuntu, você poderá usar `incluir` para especificar essa tarefa adicional.
 
 {% raw %}
 ```yaml
@@ -1272,7 +1307,7 @@ jobs:
 
 ## `jobs.<job_id>.container.image`
 
-Imagem Docker a ser usada como contêiner para executar a ação. The value can be the Docker Hub image name or a  registry name.
+Imagem Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um nome de registro.
 
 ## `jobs.<job_id>.container.credentials`
 
@@ -1359,7 +1394,7 @@ serviços:
 
 ## `jobs.<job_id>.services.<service_id>.image`
 
-Imagem Docker a ser usada como contêiner de serviço para executar a ação. The value can be the Docker Hub image name or a  registry name.
+Imagem Docker a ser usada como contêiner de serviço para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um nome de registro.
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -1455,7 +1490,7 @@ jobs:
 
 ## `jobs.<job_id>.with.<input_id>`
 
-Um par composto de um identificador de string para a entrada e o valor da entrada. O identificador deve corresponder ao nome de uma entrada definida por [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) no fluxo de trabalho chamado. O tipo de dado do valor deve corresponder ao tipo definido por [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype) no fluxo de trabalho chamado.
+Um par composto de um identificador de string para a entrada e o valor da entrada. O identificador deve corresponder ao nome de uma entrada definida por [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) no fluxo de trabalho chamado. O tipo de dado do valor deve corresponder ao tipo definido por [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype) no fluxo de trabalho chamado.
 
 Contextos de expressão permitidos: `github` e `needs`.
 
@@ -1473,7 +1508,7 @@ jobs:
   call-workflow:
     uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
     secrets:
-      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} 
+      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
 {% endraw %}
 

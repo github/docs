@@ -1,8 +1,8 @@
 ---
 title: 使用 OAuth 令牌实施 Git 自动化
 redirect_from:
-  - /articles/git-over-https-using-oauth-token/
-  - /articles/git-over-http-using-oauth-token/
+  - /articles/git-over-https-using-oauth-token
+  - /articles/git-over-http-using-oauth-token
   - /articles/git-automation-with-oauth-tokens
 intro: '你可以使用 OAuth 令牌通过自动化脚本与 {% data variables.product.product_name %} 交互。'
 versions:

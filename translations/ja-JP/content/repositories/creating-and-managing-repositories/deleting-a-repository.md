@@ -2,8 +2,8 @@
 title: リポジトリの削除
 intro: Organization のオーナーである場合、あるいはリポジトリまたはフォークに対する管理者権限がある場合、任意のリポジトリまたはフォークを削除できます。 フォークしたリポジトリを削除しても、上流のリポジトリは削除されません。
 redirect_from:
-  - /delete-a-repo/
-  - /deleting-a-repo/
+  - /delete-a-repo
+  - /deleting-a-repo
   - /articles/deleting-a-repository
   - /github/administering-a-repository/deleting-a-repository
   - /github/administering-a-repository/managing-repository-settings/deleting-a-repository
@@ -25,7 +25,7 @@ topics:
 **警告**:
 
 - リポジトリを削除すると、リリースの添付ファイルと Team の権限が**完全に**削除されます。 このアクションは取り消すことが**できません**。
-- Deleting a private or internal repository will delete all forks of the repository.
+- Deleting a private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository will delete all forks of the repository.
 
 {% endwarning %}
 

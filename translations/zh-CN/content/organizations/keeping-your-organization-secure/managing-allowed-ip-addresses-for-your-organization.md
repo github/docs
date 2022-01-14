@@ -81,12 +81,4 @@ shortTitle: 管理允许的 IP 地址
 
 ## 对 {% data variables.product.prodname_actions %} 使用 IP 允许列表
 
-{% ifversion ghae %}
-
-{% data reusables.github-actions.ip-allow-list-hosted-runners %}
-
-{% else %}
-
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
-
-{% endif %}

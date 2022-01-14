@@ -24,7 +24,7 @@ Para ayudarte a entender tus suscripciones y decidir si quieres desuscribirte, c
 
 ## Elegir cómo darte de baja
 
-Para dejar de observar (o para desuscribirte de) un repositorio rápidamente, ve a la página de "Repositorios en observación", donde puedes ver todos los repositorios que estás observando. Para obtener más información, consulta la sección "[Dejar de observar un repositorio](#unwatch-a-repository)".
+To unwatch (or unsubscribe from) repositories quickly, navigate to [github.com/watching](https://github.com/watching) to see all the repositories you're following. For more information, see "[Unwatching repositories](#unwatching-repositories)."
 
 Para desuscribirte de varias notificaciones al mismo tiempo, puedes hacerlo utilizando tu bandeja de entrada o en la página de suscripciones. Ambas de estas opciones ofrecen más contexto acerca de tus suscripciones que la página de "Repositorios en observación".
 
@@ -55,19 +55,32 @@ Cuando te desuscribes de las notificaciones en tu bandeja de entrada, desaparece
 
 2. Selecciona las notificaciones de las cuales quieres darte de baja. En la esquina superior derecha, da clic en **Darse de baja** ![Página de suscripciones](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
 
-## Dejar de seguir un repositorio
+## Unwatching repositories
 
 Cuando dejas de observar un repositorio, de desuscribes de notificaciones futuras del mismo, a menos de que participes en una conversación o te @mencionen.
 
 {% data reusables.notifications.access_notifications %}
-1. En la barra lateral izquierda, bajo la lista de repositorios, utiliza el menú desplegable de "Administrar notificaciones" para dar clic en **Repositorios que sigues**. ![Opciones del menú desplegable de administrar notificaciones](/assets/images/help/notifications-v2/manage-notifications-options.png)
+1. En la barra lateral izquierda, bajo la lista de repositorios, utiliza el menú desplegable de "Administrar notificaciones" para dar clic en **Repositorios que sigues**.
+
+  ![Opciones del menú desplegable de administrar notificaciones](/assets/images/help/notifications-v2/manage-notifications-options.png)
+
 2. En la página de repositorios que sigues, después de que hayas evaluado aquellos que estás siguiendo, decide si quieres:
-  {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
-    - Dejar de seguir un repositorio
-    - Ignorar todas las notificaciones de un repositorio
-    - Personaliza los tipos de evento para los cuales recibes notificaciones ({% data reusables.notifications-v2.custom-notification-types %}, en caso de que se haya habilitado)
-  {% else %}
-    - Dejar de seguir un repositorio
-    - Observar únicamente los lanzamientos de un repositorio
-    - Ignorar todas las notificaciones de un repositorio
-  {% endif %}
+   {%- ifversion fpt or ghes > 3.0 or ghae or ghec %}
+   - Dejar de seguir un repositorio
+   - Ignorar todas las notificaciones de un repositorio
+   - If enabled, customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %})
+   {%- else %}
+   - Dejar de seguir un repositorio
+   - Observar únicamente los lanzamientos de un repositorio
+   - Ignorar todas las notificaciones de un repositorio
+   {%- endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
+1. Optionally, to unsubscribe from all repositories owned by a given user or organization, select the **Unwatch all** dropdown and click the organization whose repositories you'd like to unsubscribe from. The button to unwatch all repositories is only available if you are watching all activity or custom notifications on over 10 repositories.
+
+   ![Screenshot of the Unwatch All button.](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
+
+   - Click **Unwatch** to confirm that you want to unwatch the repositories owned by the selected user or organization, or click **Cancel** to cancel.
+
+   ![Screenshot of the unwatch all confirmation dialogue.](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
+
+{% endif %}

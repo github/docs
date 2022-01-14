@@ -3,15 +3,15 @@ title: GitHub Enterprise Server をアップグレードする
 intro: '最新の機能とセキュリティアップデートを入手するために、{% data variables.product.prodname_ghe_server %} をアップグレードしてください。'
 redirect_from:
   - /enterprise/admin/installation/upgrading-github-enterprise-server
-  - /enterprise/admin/articles/upgrading-to-the-latest-release/
-  - /enterprise/admin/articles/migrations-and-upgrades/
-  - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine/
-  - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases/
-  - /enterprise/admin/articles/upgrading-older-installations/
-  - /enterprise/admin/hidden/upgrading-older-installations/
-  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program/
-  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch/
-  - /enterprise/admin/guides/installation/upgrading-github-enterprise/
+  - /enterprise/admin/articles/upgrading-to-the-latest-release
+  - /enterprise/admin/articles/migrations-and-upgrades
+  - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine
+  - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases
+  - /enterprise/admin/articles/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch
+  - /enterprise/admin/guides/installation/upgrading-github-enterprise
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
   - /admin/enterprise-management/upgrading-github-enterprise-server
 versions:
@@ -23,9 +23,11 @@ topics:
 shortTitle: Upgrading GHES
 ---
 
+{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
+
 ## アップグレードの準備
 
-1. アップグレードの戦略を決定し、アップグレード先のバージョンを選択してください。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
+1. アップグレードの戦略を決定し、アップグレード先のバージョンを選択してください。 For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)" and refer to the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
 3. {% data variables.product.prodname_enterprise_backup_utilities %} で、プライマリインスタンスの新しいバックアップを作成してください。 詳しい情報については、[{% data variables.product.prodname_enterprise_backup_utilities %}README.md ファイル](https://github.com/github/backup-utils#readme)を参照してください。
 4. アップグレードパッケージを使ってアップグレードをする場合は、{% data variables.product.prodname_ghe_server %} のエンドユーザのためにメンテナンス時間枠をスケジューリングしてください。 ホットパッチを利用している場合、メンテナンスモードは必要ありません。
 
@@ -54,14 +56,14 @@ shortTitle: Upgrading GHES
 
   {% endnote %}
 
-| プラットフォーム              | スナップショットの取得方法 | スナップショットドキュメンテーションのURL                                                                                                                                                                                 |
-| --------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Amazon AWS            | ディスク          | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM            | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
-| Hyper-V               | VM            | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
-| Google Compute Engine | ディスク          | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
-| VMware                | VM            | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
-| XenServer             | VM            | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
+| プラットフォーム              | スナップショットの取得方法 | スナップショットドキュメンテーションのURL                                                                                                                                                                                                           |
+| --------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon AWS            | ディスク          | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                                                 |
+| Azure                 | VM            | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                                                        |
+| Hyper-V               | VM            | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                                               |
+| Google Compute Engine | ディスク          | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                                                   |
+| VMware                | VM            | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html){% ifversion ghes < 3.3 %}
+| XenServer             | VM            | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>{% endif %}
 
 ## ホットパッチでのアップグレード
 
@@ -211,11 +213,8 @@ High Availability と Geo-replication が設定されたアプライアンスは
 
    {% endnote %}
 
-   `ghe-repl-status` が `OK` を返さない場合は、以下の手順に従って手動でレプリケーションを開始してください。
+   If `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. 詳しい情報については、「[{% data variables.contact.github_support %} からの支援を受ける](/admin/enterprise-support/receiving-help-from-github-support)」を参照してください。
 
-   1. レプリカインスタンスで再度 `ghe-repl-setup <primary-instance-ip>` を実行してください。
-   {% data reusables.enterprise_installation.start-replication %}
-   {% data reusables.enterprise_installation.replication-status %}
 6. 最後のレプリカのアップグレードが完了し、resync も完了したなら、ユーザが {% data variables.product.product_location %} を使えるようにメンテナンスモードを無効化してください。
 
 ## 失敗したアップグレードからのリストア
@@ -224,7 +223,9 @@ High Availability と Geo-replication が設定されたアプライアンスは
 
 ### パッチリリースのロールバック
 
-パッチリリースをロールバックするには、`--allow-patch-rollback` を付けて `ghe-upgrade` コマンドを使います。 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+パッチリリースをロールバックするには、`--allow-patch-rollback` を付けて `ghe-upgrade` コマンドを使います。 Before rolling back, replication must be temporarily stopped by running `ghe-repl-stop` on all replica instances. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+
+Once the rollback is complete, restart replication by running `ghe-repl-start` on all replicas.
 
 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)」を参照してください。
 

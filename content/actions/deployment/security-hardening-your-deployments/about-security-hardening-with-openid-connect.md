@@ -65,6 +65,7 @@ The following example OIDC token uses a subject (`sub`) that references a job en
 {
   "jti": "example-id",
   "sub": "repo:octo-org/octo-repo:environment:prod",
+  "environment": "prod",
   "aud": "https://github.com/octo-org",
   "ref": "refs/heads/main",
   "sha": "example-sha",
@@ -118,7 +119,7 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `environment`| The name of the environment used by the job.                    | 
 | `event_name`| The name of the event that triggered the workflow run.                    | 
 | `head_ref`| The source branch of the pull request in a workflow run.                   | 
-| `job_workflow_ref`| This is the ref path to the reusable workflow used by this job.                   | 
+| `job_workflow_ref`| This is the ref path to the reusable workflow used by this job. For more information, see "["Using OpenID Connect with reusable workflows"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."                  | 
 | `ref`| _(Reference)_ The git ref that triggered the workflow run.                   | 
 | `ref_type`| The type of `ref`, for example: "branch".                  | 
 | `repository`| The repository from where the workflow is running.                   | 
@@ -160,7 +161,7 @@ You can configure a subject that filters for a specific [environment](/actions/d
 
 #### Filtering for `pull_request` events
 
-You can configure a subject that filters for the [`pull_request`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
+You can configure a subject that filters for the [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 
 |        |             |

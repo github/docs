@@ -28,13 +28,13 @@ shortTitle: 基本格式语法
 
 您可以在评论字段和 `.md` 文件中以粗体、斜体或删除线的文字表示强调。
 
-| 样式       | 语法                | 键盘快捷键      | 示例                 | 输出               |
-| -------- | ----------------- | ---------- | ------------------ | ---------------- |
-| 粗体       | `** **` 或 `__ __` | 命令/控制键 + b | `**这是粗体文本**`       | **这是粗体文本**       |
-| 斜体       | `* *` 或 `_ _`     | 命令/控制键 + i | `*这是斜体文本*`         | *这是斜体文本*         |
-| 删除线      | `~~ ~~`           |            | `~~这是错误文本~~`       | ~~这是错误文本~~       |
-| 粗体和嵌入的斜体 | `** **` 和 `_ _`   |            | `**此文本 _非常_ 重要**`  | **此文本_非常_重要**    |
-| 全部粗体和斜体  | `*** ***`         |            | `***所有这些文本都很重要***` | ***所有这些文本都是斜体*** |
+| 样式       | 语法                 | 键盘快捷键      | 示例                 | 输出               |
+| -------- | ------------------ | ---------- | ------------------ | ---------------- |
+| 粗体       | `** **` 或 `__ __`  | 命令/控制键 + b | `**这是粗体文本**`       | **这是粗体文本**       |
+| 斜体       | `* *` 或 `_ _`      | 命令/控制键 + i | `*这是斜体文本*`         | *这是斜体文本*         |
+| 删除线      | `~~ ~~`            |            | `~~这是错误文本~~`       | ~~这是错误文本~~       |
+| 粗体和嵌入的斜体 | `** **` 和 `_ _`    |            | `**此文本 _非常_ 重要**`  | **此文本_非常_重要**    |
+| 全部粗体和斜体  | `*** ***`          |            | `***所有这些文本都很重要***` | ***所有这些文本都是斜体*** |
 
 ## 引用文本
 
@@ -56,7 +56,7 @@ Text that is not a quote
 
 ## 引用代码
 
-使用单反引号可标注句子中的代码或命令。 倒引号中的文本不会被格式化。{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %} 您也可以按 `command` 或 `Ctrl` + `e` 键盘快捷键将代码块的倒引号插入到 Markdown 一行中。{% endif %}
+使用单反引号可标注句子中的代码或命令。 倒引号中的文本不会被格式化。{% ifversion fpt or ghae or ghes > 3.1 or ghec %} 您也可以按 `command` 或 `Ctrl` + `e` 键盘快捷键将代码块的倒引号插入到 Markdown 一行中。{% endif %}
 
 ```markdown
 使用 `git status` 列出尚未提交的所有新文件或已修改文件。
@@ -79,9 +79,11 @@ git commit
 
 更多信息请参阅“[创建和突出显示代码块](/articles/creating-and-highlighting-code-blocks)”。
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
+
 ## 链接
 
-通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}您也可以使用键盘快捷键 `command + k` 创建链接。{% endif %}
+通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
 `本站点是使用 [GitHub Pages](https://pages.github.com/) 构建的。`
 
@@ -135,6 +137,18 @@ git commit
 
 更多信息请参阅“[相对链接](#relative-links)”。
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
+### Specifying the theme an image is shown to
+
+You can specify the theme an image is displayed to by appending `#gh-dark-mode-only` or `#gh-light-mode-only` to the end of an image URL, in Markdown.
+
+We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
+
+| 上下文         | URL                                                                      |
+| ----------- | ------------------------------------------------------------------------ |
+| Dark Theme  | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
+| Light Theme | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
+{% endif %}
 
 ## 列表
 
@@ -231,6 +245,7 @@ git commit
 
 {% data reusables.repositories.autolink-references %}
 
+{% ifversion ghes < 3.4 %}
 ## 内容附件
 
 有些 {% data variables.product.prodname_github_apps %} 在 {% data variables.product.product_name %} 中提供链接到其注册域名的 URL 信息。 {% data variables.product.product_name %} 可渲染应用程序在正文或者议题或拉取请求的评论中的 URL 下提供的信息。
@@ -241,7 +256,7 @@ git commit
 
 内容附件不会显示在属于 markdown 链接的 URL 中。
 
-有关构建使用内容附件的 {% data variables.product.prodname_github_app %} 的详细信息，请参阅“[使用内容附件](/apps/using-content-attachments)”。
+For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."{% endif %}
 
 ## 上传资产
 
@@ -263,7 +278,7 @@ git commit
 
 通过在文本行之间留一个空白行，可创建新段落。
 
-{% ifversion fpt or ghae-next or ghes > 3.3 or ghec %}
+{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
 ## 脚注
 
 您可以使用此括号语法为您的内容添加脚注：

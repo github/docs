@@ -2,7 +2,7 @@
 title: Rendering data as graphs
 intro: Learn how to visualize the programming languages from your repository using the D3.js library and Ruby Octokit.
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
   fpt: '*'

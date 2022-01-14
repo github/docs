@@ -13,9 +13,10 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Excluir um codespace
 ---
 
- 
+
 
 {% data reusables.codespaces.concurrent-codespace-limit %}
 
@@ -25,7 +26,6 @@ topics:
 
 {% endnote %}
 
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -48,14 +48,17 @@ topics:
 
 {% data reusables.cli.cli-learn-more %}
 
-To delete a codespace use the `gh codespace delete` subcommand and then choose a codespace from the list that's displayed.
+Para excluir um codespace, use o comando `gh codespace delete` e, em seguida, escolha um codespace na lista que for exibida.
 
 ```shell
 gh codespace delete
 ```
 
-If you have unsaved changes, you'll be prompted to confirm deletion. You can use the `-f` flag to force deletion, avoiding this prompt.
+Se você tiver alterações não salvas, será solicitado que você confirme a exclusão. Você pode usar o sinalizador `-f` para forçar a exclusão, evitando a instrução.
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_delete).
+Para obter mais informações sobre esse comando, consulte [o manual de{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_delete).
 
 {% endcli %}
+
+## Leia mais
+- [Ciclo de vida dos codespaces](/codespaces/developing-in-codespaces/codespaces-lifecycle)

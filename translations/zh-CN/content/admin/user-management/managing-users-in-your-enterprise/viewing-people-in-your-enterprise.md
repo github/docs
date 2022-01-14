@@ -1,7 +1,6 @@
 ---
 title: 查看企业中的人员
 intro: 要审核对企业拥有的资源或用户许可证使用的访问权限，企业所有者可以查看企业的每个管理员和成员。
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
   - /articles/viewing-people-in-your-enterprise-account
@@ -37,6 +36,10 @@ shortTitle: 查看企业中的人员
 1. （可选）要查看外部协作者列表而不是成员列表，请单击 **Outside collaborators（外部协作者）**。 ![组织成员页面上的外部协作者选项卡](/assets/images/help/business-accounts/outside-collaborators-tab.png)
 {% ifversion ghec %}1. （可选）要查看待处理邀请列表，请单击 **_NUMBER_ pending（待处理）**。
   ![搜索和过滤选项右侧的 "NUMBER 待处理" 按钮](/assets/images/help/enterprises/members-pending.png){% endif %}
+
+## 查看休眠用户
+
+You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} 更多信息请参阅“[管理休眠用户](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)”。
 
 ## 延伸阅读
 

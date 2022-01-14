@@ -19,13 +19,13 @@ shortTitle: Build & test Java & Gradle
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Gradle build system. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to cache files and upload artifacts from a workflow run.
 
-{% ifversion ghae %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Gradle. For a list of software and the pre-installed versions for JDK and Gradle, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
@@ -40,15 +40,15 @@ We recommend that you have a basic understanding of Java and the Gradle framewor
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Starting with a Gradle workflow template
+## Using the Gradle starter workflow
 
 The easiest way to execute a Gradle build in your workflow is by using the `gradle/gradle-build-action` action provided by the Gradle organization on GitHub. The action takes care of invoking Gradle, collecting results, and caching state between job runs in a workflow. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
 
 Using Gradle's `gradle/gradle-build-action` is the recommended way of using Gradle with GitHub Actions.
 
-{% data variables.product.prodname_dotcom %} provides a Gradle workflow template that will work for most Gradle-based Java projects. For more information, see the [Gradle workflow template](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
+{% data variables.product.prodname_dotcom %} provides a Gradle starter workflow that will work for most Gradle-based Java projects. For more information, see the [Gradle workflow template](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
 
-To get started quickly, you can choose the preconfigured Gradle template when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
+To get started quickly, you can choose the preconfigured Gradle starter workflow when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
 
 You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
@@ -85,7 +85,7 @@ This workflow performs the following steps:
 3. The "Validate Gradle wrapper" step validates the checksums of Gradle Wrapper JAR files present in the source tree.
 4. The "Build with Gradle" step runs the Gradle build to ensure that your code builds, tests pass, and a package can be created.
 
-The default workflow templates are excellent starting points when creating your build and test workflow, and you can customize the template to suit your project’s needs.
+The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
 {% data reusables.github-actions.example-github-runner %}
 

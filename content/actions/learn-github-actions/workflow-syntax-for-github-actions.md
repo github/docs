@@ -16,7 +16,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About YAML syntax for workflows
 
@@ -36,105 +35,173 @@ The name of your workflow. {% data variables.product.prodname_dotcom %} displays
 
 ## `on.<event_name>.types`
 
-Selects the types of activity that will trigger a workflow run. Most GitHub events are triggered by more than one type of activity.  For example, the event for the release resource is triggered when a release is `published`, `unpublished`, `created`, `edited`, `deleted`, or `prereleased`. The `types` keyword enables you to narrow down activity that causes the workflow to run. When only one activity type triggers a webhook event, the `types` keyword is unnecessary.
+Selects the types of activity that will trigger a workflow run. Most GitHub events are triggered by more than one type of activity.  For example, the `label` is triggered when a label is `created`, `edited`, or `deleted`. The `types` keyword enables you to narrow down activity that causes the workflow to run. When only one activity type triggers a webhook event, the `types` keyword is unnecessary.
 
 You can use an array of event `types`. For more information about each event and their activity types, see "[Events that trigger workflows](/articles/events-that-trigger-workflows#webhook-events)."
 
 ```yaml
-# Trigger the workflow on release activity
 on:
-  release:
-    # Only use the types keyword to narrow down the activity types that will trigger your workflow.
-    types: [published, created, edited]
+  label:
+    types: [created, edited]
 ```
 
-## `on.<push|pull_request>.<branches|tags>`
+## `on.<pull_request|pull_request_target>.<branches|branches-ignore>`
 
-When using the `push` and `pull_request` events, you can configure a workflow to run on specific branches or tags. For a `pull_request` event, only branches and tags on the base are evaluated. If you define only `tags` or only `branches`, the workflow won't run for events affecting the undefined Git ref.
+When using the `pull_request` and `pull_request_target` events, you can configure a workflow to run only for pull requests that target specific branches.
+
+Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow.
+
+If you define both `branches`/`branches-ignore` and [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
+
+The `branches` and `branches-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to escape each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+
+### Example: Including branches
+
+The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event for a pull request targeting:
+
+- A branch named `main` (`refs/heads/main`)
+- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+- A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
+
+```yaml
+on:
+  pull_request:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - main
+      - 'mona/octocat'
+      - 'releases/**'
+```
+
+### Example: Excluding branches
+
+When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event unless the pull request is targeting:
+
+- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+- A branch whose name matches `releases/**-alpha`, like `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+
+```yaml
+on:
+  pull_request:
+    # Sequence of patterns matched against refs/heads
+    branches-ignore:    
+      - 'mona/octocat'
+      - 'releases/**-alpha'
+```
+
+### Example: Including and excluding branches
+
+You cannot use `branches` and `branches-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+
+If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead.
+
+The order that you define patterns matters.
+
+- A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
+- A matching positive pattern after a negative match will include the Git ref again.
+
+The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
+
+```yaml
+on:
+  pull_request:
+    branches:    
+      - 'releases/**'
+      - '!releases/**-alpha'
+```
+
+## `on.<push>.<branches|tags|branches-ignore|tags-ignore>`
+
+When using the `push` event, you can configure a workflow to run on specific branches or tags.
+
+Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow.
+
+Use the `tags` filter when you want to include tag name patterns or when you want to both include and exclude tag names patterns. Use the `tags-ignore` filter when you only want to exclude tag name patterns. You cannot use both the `tags` and `tags-ignore` filters for the same event in a workflow.
+
+If you define only `tags`/`tag-ignore` or only `branches`/`branches-ignore`, the workflow won't run for events affecting the undefined Git ref. If you define neither  `tags`/`tag-ignore` or `branches`/`branches-ignore`, the workflow will run for events affecting either branches or tags. If you define both `branches`/`branches-ignore` and [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
 
 The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch or tag name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
 ### Example: Including branches and tags
 
-The patterns defined in `branches` and `tags` are evaluated against the Git ref's name. For example, defining the pattern `mona/octocat` in `branches` will match the `refs/heads/mona/octocat` Git ref. The pattern `releases/**` will match the `refs/heads/releases/10` Git ref.
+The patterns defined in `branches` and `tags` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `push` event to:
+
+- A branch named `main` (`refs/heads/main`)
+- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+- A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
+- A tag named `v2` (`refs/tags/v2`)
+- A tag whose name starts with `v1.`, like `v1.9.1` (`refs/tags/v1.9.1`)
 
 ```yaml
 on:
   push:
     # Sequence of patterns matched against refs/heads
     branches:    
-      # Push events on main branch
       - main
-      # Push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # Push events to branches matching refs/heads/releases/10
       - 'releases/**'
     # Sequence of patterns matched against refs/tags
     tags:        
-      - v1             # Push events to v1 tag
-      - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
+      - v2
+      - v1.*
 ```
 
-### Example: Ignoring branches and tags
+### Example: Excluding branches and tags
 
-Anytime a pattern matches the `branches-ignore` or `tags-ignore` pattern, the workflow will not run. The patterns defined in `branches-ignore` and `tags-ignore` are evaluated against the Git ref's name. For example, defining the pattern `mona/octocat` in `branches` will match the `refs/heads/mona/octocat` Git ref. The pattern `releases/**-alpha` in `branches` will match the `refs/releases/beta/3-alpha` Git ref.
+When a pattern matches the `branches-ignore` or `tags-ignore` pattern, the workflow will not run. The patterns defined in `branches` and `tags` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `push` event, unless the `push` event is to:
+
+- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+- A branch whose name matches `releases/**-alpha`, like `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- A tag named `v2` (`refs/tags/v2`)
+- A tag whose name starts with `v1.`, like `v1.9` (`refs/tags/v1.9`)
 
 ```yaml
 on:
   push:
     # Sequence of patterns matched against refs/heads
-    branches-ignore:
-      # Do not push events to branches matching refs/heads/mona/octocat
+    branches-ignore:    
       - 'mona/octocat'
-      # Do not push events to branches matching refs/heads/releases/beta/3-alpha
       - 'releases/**-alpha'
     # Sequence of patterns matched against refs/tags
-    tags-ignore:
-      - v1.*           # Do not push events to tags v1.0, v1.1, and v1.9
+    tags-ignore:        
+      - v2
+      - v1.*
 ```
 
-### Excluding branches and tags
+### Example: Including and excluding branches and tags
 
-You can use two types of filters to prevent a workflow from running on pushes and pull requests to tags and branches.
-- `branches` or `branches-ignore` - You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow. Use the `branches` filter when you need to filter branches for positive matches and exclude branches. Use the `branches-ignore` filter when you only need to exclude branch names.
-- `tags` or `tags-ignore` - You cannot use both the `tags` and `tags-ignore` filters for the same event in a workflow. Use the `tags` filter when you need to filter tags for positive matches and exclude tags. Use the `tags-ignore` filter when you only need to exclude tag names.
+You can't use `branches` and `branches-ignore` to filter the same event in a single workflow. Similarly, you can't use `tags` and `tags-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch or tag patterns for a single event, use the `branches` or `tags` filter along with the `!` character to indicate which branches or tags should be excluded.
 
-### Example: Using positive and negative patterns
+If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead. Similarly, if you define a tag with the `!` character, you must also define at least one tag without the `!` character. If you only want to exclude tags, use `tags-ignore` instead.
 
-You can exclude `tags` and `branches` using the `!` character. The order that you define patterns matters.
-  - A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
-  - A matching positive pattern after a negative match will include the Git ref again.
+The order that you define patterns matters.
+
+- A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
+- A matching positive pattern after a negative match will include the Git ref again.
 
 The following workflow will run on pushes to `releases/10` or `releases/beta/mona`, but not on `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
 
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
       - '!releases/**-alpha'
 ```
 
-## `on.<push|pull_request>.paths`
+## `on.<push|pull_request|pull_request_target>.<paths|paths-ignore>`
 
-When using the `push` and `pull_request` events, you can configure a workflow to run when at least one file does not match `paths-ignore` or at least one modified file matches the configured `paths`. Path filters are not evaluated for pushes to tags.
+When using the `push` and `pull_request` events, you can configure a workflow to run based on what file paths are changed. Path filters are not evaluated for pushes of tags.
 
-The `paths-ignore` and `paths` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+Use the `paths` filter when you want to include file path patterns or when you want to both include and exclude file path patterns. Use the `paths-ignore` filter when you only want to exclude file path patterns. You cannot use both the `paths` and `paths-ignore` filters for the same event in a workflow.
 
-### Example: Ignoring paths
+If you define both `branches`/`branches-ignore` and `paths`, the workflow will only run when both filters are satisfied.
 
-When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} evaluates patterns defined in `paths-ignore` against the path name. A workflow with the following path filter will only run on `push` events that include at least one file outside the `docs` directory at the root of the repository.
-
-```yaml
-on:
-  push:
-    paths-ignore:
-      - 'docs/**'
-```
+The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
 ### Example: Including paths
 
-If at least one path matches a pattern in the `paths` filter, the workflow runs. To trigger a build anytime you push a JavaScript file, you can use a wildcard pattern.
+If at least one path matches a pattern in the `paths` filter, the workflow runs. For example, the following workflow would run anytime you push a JavaScript file (`.js`).
 
 ```yaml
 on:
@@ -143,17 +210,29 @@ on:
       - '**.js'
 ```
 
-### Excluding paths
+### Example: Excluding paths
 
-You can exclude paths using two types of filters. You cannot use both of these filters for the same event in a workflow.
-- `paths-ignore` - Use the `paths-ignore` filter when you only need to exclude path names.
-- `paths` - Use the `paths` filter when you need to filter paths for positive matches and exclude paths.
+When all the path names match patterns in `paths-ignore`, the workflow will not run. If any path names do not match patterns in `paths-ignore`, even if some path names match the patterns, the workflow will run.
 
-### Example: Using positive and negative patterns
+A workflow with the following path filter will only run on `push` events that include at least one file outside the `docs` directory at the root of the repository.
 
-You can exclude `paths` using the `!` character. The order that you define patterns matters:
-  - A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
-  - A matching positive pattern after a negative match will include the path again.
+```yaml
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+```
+
+### Example: Including and excluding paths
+
+You can not use `paths` and `paths-ignore` to filter the same event in a single workflow. If you want to both include and exclude path patterns for a single event, use the `paths` filter along with the `!` character to indicate which paths should be excluded.
+
+If you define a path with the `!` character, you must also define at least one path without the `!` character. If you only want to exclude paths, use `paths-ignore` instead.
+
+The order that you define patterns matters:
+
+- A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
+- A matching positive pattern after a negative match will include the path again.
 
 This example runs anytime the `push` event includes a file in the `sub-project` directory or its subdirectories, unless the file is in the `sub-project/docs` directory. For example, a push that changed `sub-project/index.js` or `sub-project/src/index.js` will trigger a workflow run, but a push changing only `sub-project/docs/readme.md` will not.
 
@@ -187,9 +266,9 @@ For more information, see "[About comparing branches in pull requests](/pull-req
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call.inputs`
 
-When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. Inputs for reusable workflows are specified with the same format as action inputs. For more information about inputs, see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)." For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
+When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
 
-In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype).
+In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
 
 If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
 
@@ -209,7 +288,7 @@ on:
         default: 'john-doe'
         required: false
         type: string
-  
+
 jobs:
   print-username:
     runs-on: ubuntu-latest
@@ -222,9 +301,34 @@ jobs:
 
 For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 
-## `on.workflow_call.<input_id>.type`
+## `on.workflow_call.inputs.<input_id>.type`
 
 Required if input is defined for the `on.workflow_call` keyword. The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `number`, or `string`.
+
+## `on.workflow_call.outputs`
+
+A map of outputs for a called workflow. Called workflow outputs are available to all downstream jobs in the caller workflow. Each output has an identifier, an optional `description,` and a `value.` The `value` must be set to the value of an output from a job within the called workflow.
+
+In the example below, two outputs are defined for this reusable workflow: `workflow_output1` and `workflow_output2`. These are mapped to outputs called `job_output1` and `job_output2`, both from a job called `my_job`.
+
+### Example
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    # Map the workflow outputs to job outputs
+    outputs:
+      workflow_output1:
+        description: "The first job output"
+        value: ${{ jobs.my_job.outputs.job_output1 }}
+      workflow_output2:
+        description: "The second job output"
+        value: ${{ jobs.my_job.outputs.job_output2 }}
+```
+{% endraw %}
+
+For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 
 ## `on.workflow_call.secrets`
 
@@ -244,12 +348,12 @@ on:
       access-token:
         description: 'A token passed from the caller workflow'
         required: false
-  
+
 jobs:
   pass-secret-to-action:
     runs-on: ubuntu-latest
 
-    steps:  
+    steps:
       - name: Pass the received secret to an action
         uses: ./.github/actions/my-action@v1
         with:
@@ -259,31 +363,98 @@ jobs:
 
 ## `on.workflow_call.secrets.<secret_id>`
 
-A string identifier to associate with the secret. 
+A string identifier to associate with the secret.
 
 ## `on.workflow_call.secrets.<secret_id>.required`
 
 A boolean specifying whether the secret must be supplied.
 {% endif %}
 
-## `on.workflow_dispatch.inputs`
+## `on.workflow_run.<branches|branches-ignore>`
 
-When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. Workflow dispatch inputs are specified with the same format as action inputs. For more information about the format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
+When using the `workflow_run` event, you can specify what branches the triggering workflow must run on in order to trigger your workflow.
+
+The `branches` and `branches-ignore` filters accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+
+For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch whose name starts with `releases/`:
 
 ```yaml
-on: 
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [requested]
+    branches:
+      - 'releases/**'
+```
+
+A workflow with the following trigger will only run when the workflow named `Build` runs on a branch that is not named `canary`:
+
+```yaml
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [requested]
+    branches-ignore:
+      - "canary"
+```
+
+You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+
+The order that you define patterns matters.
+
+- A matching negative pattern (prefixed with `!`) after a positive match will exclude the branch.
+- A matching positive pattern after a negative match will include the branch again.
+
+For example, a workflow with the following trigger will run when the workflow named `Build` runs on a branch that is named `releases/10` or `releases/beta/mona` but will not `releases/10-alpha`, `releases/beta/3-alpha`, or `main`.
+
+```yaml
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [requested]
+    branches:
+      - 'releases/**'
+      - '!releases/**-alpha'
+```
+
+## `on.workflow_dispatch.inputs`
+
+When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
+
+The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
+
+### Example
+```yaml
+on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Log level'
         required: true
-        default: 'warning'
+        default: 'warning' {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        type: choice
+        options:
+        - info
+        - warning
+        - debug {% endif %}
       tags:
         description: 'Test scenario tags'
-        required: false
+        required: false {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true {% endif %}
+
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the input tag to STDOUT
+        run: echo {% raw %} The tag is ${{ github.event.inputs.tag }} {% endraw %}
 ```
 
-The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
 
 ## `on.schedule`
 
@@ -291,7 +462,7 @@ The triggered workflow receives the inputs in the `github.event.inputs` context.
 
 For more information about cron syntax, see "[Events that trigger workflows](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `permissions`
 
 You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
@@ -351,7 +522,7 @@ defaults:
     working-directory: scripts
 ```
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `concurrency`
 
 Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can only use the [`github` context](/actions/learn-github-actions/contexts#github-context). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
@@ -367,7 +538,7 @@ A workflow run is made up of one or more jobs. Jobs run in parallel by default. 
 
 Each job runs in a runner environment specified by `runs-on`.
 
-You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
+You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
 If you need to find the unique identifier of a job running in a workflow run, you can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. For more information, see "[Workflow Jobs](/rest/reference/actions#workflow-jobs)."
 
@@ -430,22 +601,9 @@ In this example, `job3` uses the `always()` conditional expression so that it al
 
 ## `jobs.<job_id>.runs-on`
 
-**Required**. The type of machine to run the job on. The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.
+**Required**. The type of machine to run the job on. {% ifversion fpt or ghec %}The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.{% endif %} You can provide `runs-on` as a single string or as an array of strings. If you specify an array of strings, your workflow will run on a self-hosted runner whose labels match all of the specified `runs-on` values, if available. If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
-{% ifversion ghae %}
-### {% data variables.actions.hosted_runner %}s
-
-If you use an {% data variables.actions.hosted_runner %}, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
-
-#### Example
-
-```yaml
-runs-on: [AE-runner-for-CI]
-```
-
-For more information, see "[About {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)."
-
-{% else %}
+{% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### {% data variables.product.prodname_dotcom %}-hosted runners
@@ -465,7 +623,9 @@ runs-on: ubuntu-latest
 For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 {% endif %}
 
+{% ifversion fpt or ghec or ghes %}
 ### Self-hosted runners
+{% endif %}
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
@@ -479,7 +639,7 @@ runs-on: [self-hosted, linux]
 
 For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `jobs.<job_id>.permissions`
 
 You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
@@ -541,7 +701,7 @@ environment:
 {% endraw %}
 {% endif %}
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
 
 {% note %}
@@ -640,7 +800,7 @@ You can use the `if` conditional to prevent a job from running unless a conditio
 
 A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
 
-You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
+You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
 ### Example
 
@@ -849,7 +1009,7 @@ jobs:
 
 Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
 
-Commands run using non-login shells by default. You can choose a different shell and customize the shell used to run commands. For more information, see "[Using a specific shell](#using-a-specific-shell)."
+Commands run using non-login shells by default. You can choose a different shell and customize the shell used to run commands. For more information, see [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
 
 Each `run` keyword represents a new process and shell in the runner environment. When you provide multi-line commands, each line runs in the same shell. For example:
 
@@ -877,7 +1037,7 @@ Using the `working-directory` keyword, you can specify the working directory of 
   working-directory: ./temp
 ```
 
-### Using a specific shell
+## `jobs.<job_id>.steps[*].shell`
 
 You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
@@ -954,8 +1114,9 @@ steps:
 
 The command used, `perl` in this example, must be installed on the runner.
 
-{% ifversion ghae %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
-{% else %}
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
+{% elsif fpt or ghec %}
 For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
 {% endif %}
 
@@ -994,7 +1155,7 @@ jobs:
         with:
           first_name: Mona
           middle_name: The
-          last_name: Octocat      
+          last_name: Octocat
 ```
 
 ## `jobs.<job_id>.steps[*].with.args`
@@ -1069,7 +1230,7 @@ The maximum number of minutes to run the step before killing the process.
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
 
-If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#usage-limits)."
+If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
 ## `jobs.<job_id>.strategy`
 
@@ -1130,7 +1291,8 @@ steps:
 ```
 {% endraw %}
 
-{% ifversion ghae %}To find supported configuration options for {% data variables.actions.hosted_runner %}s, see "[Software specifications](/actions/using-github-hosted-runners/about-ae-hosted-runners#software-specifications)."
+{% ifversion ghae %}
+For more information about the configuration of self-hosted runners, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% else %}To find supported configuration options for {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 {% endif %}
 
@@ -1423,7 +1585,7 @@ Additional Docker container resource options. For a list of options, see "[`dock
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
 
-The location and version of a reusable workflow file to run as a job. 
+The location and version of a reusable workflow file to run as a job.
 
 `{owner}/{repo}/{path}/{filename}@{ref}`
 
@@ -1455,7 +1617,7 @@ jobs:
 
 ## `jobs.<job_id>.with.<input_id>`
 
-A pair consisting of a string identifier for the input and the value of the input. The identifier must match the name of an input defined by [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) in the called workflow. The data type of the value must match the type defined by [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype) in the called workflow.
+A pair consisting of a string identifier for the input and the value of the input. The identifier must match the name of an input defined by [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) in the called workflow. The data type of the value must match the type defined by [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype) in the called workflow.
 
 Allowed expression contexts: `github`, and `needs`.
 
@@ -1473,7 +1635,7 @@ jobs:
   call-workflow:
     uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
     secrets:
-      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} 
+      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
 {% endraw %}
 
@@ -1506,7 +1668,7 @@ The characters `*`, `[`, and `!` are special characters in YAML. If you start a 
 - **/README.md
 ```
 
-For more information about branch, tag, and path filter syntax, see "[`on.<push|pull_request>.<branches|tags>`](#onpushpull_requestbranchestags)" and "[`on.<push|pull_request>.paths`](#onpushpull_requestpaths)."
+For more information about branch, tag, and path filter syntax, see "[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)", "[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)", and "[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)."
 
 ### Patterns to match branches and tags
 

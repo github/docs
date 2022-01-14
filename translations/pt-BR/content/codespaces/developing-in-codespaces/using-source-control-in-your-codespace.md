@@ -47,7 +47,7 @@ Você pode fazer pull das alterações do repositório remoto para seu codespace
 1. Na parte superior da barra lateral, clique na elipse (**...**). ![Botão Elipsis para visualizar e mais ações](/assets/images/help/codespaces/source-control-ellipsis-button.png)
 1. No menu suspenso, clique em **Pull**.
 
-Se a configuração do contêiner dev foi alterada desde que você criou o codespace, você pode aplicar as alterações reconstruindo o contêiner para o codespace. Para obter mais informações, consulte "[Configurar codespaces para o seu projeto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)".
+Se a configuração do contêiner dev foi alterada desde que você criou o codespace, você pode aplicar as alterações reconstruindo o contêiner para o codespace. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)".
 
 ## Configurar o seu codespace para buscar novas alterações automaticamente
 

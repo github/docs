@@ -1,6 +1,6 @@
 ---
-title: GitHub Marketplace 概述
-intro: '了解如何在 {% data variables.product.prodname_marketplace %} 上与 {% data variables.product.company_short %} 社区分享您的应用程序或操作。'
+title: GitHub Marketplace Overview
+intro: 'Learn how you can share your app or action with the {% data variables.product.company_short %} community on {% data variables.product.prodname_marketplace %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -8,6 +8,6 @@ children:
   - /about-github-marketplace
   - /about-marketplace-badges
   - /applying-for-publisher-verification-for-your-organization
-shortTitle: 概览
+shortTitle: Overview
 ---
 

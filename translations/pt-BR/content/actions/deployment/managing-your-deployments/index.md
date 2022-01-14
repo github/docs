@@ -1,10 +1,10 @@
 ---
-title: Managing your deployments
-shortTitle: Managing your deployments
-intro: 'You can review the past activity of your deployments.'
+title: Gerenciando as suas implantações
+shortTitle: Gerenciando as suas implantações
+intro: Você pode revisar a atividade anterior das suas implantações.
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
 children:
   - /viewing-deployment-history

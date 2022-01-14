@@ -2,8 +2,8 @@
 title: 关于发行版
 intro: 您可以创建包软件的发行版，以及发行说明和二进制文件链接，以供其他人使用。
 redirect_from:
-  - /articles/downloading-files-from-the-command-line/
-  - /articles/downloading-files-with-curl/
+  - /articles/downloading-files-from-the-command-line
+  - /articles/downloading-files-with-curl
   - /articles/about-releases
   - /articles/getting-the-download-count-for-your-releases
   - /github/administering-a-repository/getting-the-download-count-for-your-releases
@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
 ![发行版概述](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% elsif ghes > 3.2 or ghae-issue-4972 %}
+{% elsif ghes > 3.3 or ghae-issue-4972 %}
 ![发行版概述](/assets/images/help/releases/releases-overview-with-contributors.png)
 {% else %}
 ![发行版概述](/assets/images/help/releases/releases-overview.png)

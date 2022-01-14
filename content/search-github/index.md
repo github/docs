@@ -2,8 +2,8 @@
 title: Searching for information on GitHub
 intro: Use different types of searches to find the information you want.
 redirect_from:
-  - /categories/78/articles/
-  - /categories/search/
+  - /categories/78/articles
+  - /categories/search
   - /categories/searching-for-information-on-github
   - /github/searching-for-information-on-github
 versions:

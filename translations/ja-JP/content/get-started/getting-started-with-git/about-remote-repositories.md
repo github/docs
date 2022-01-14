@@ -1,10 +1,10 @@
 ---
 title: リモートリポジトリについて
 redirect_from:
-  - /articles/working-when-github-goes-down/
-  - /articles/sharing-repositories-without-github/
+  - /articles/working-when-github-goes-down
+  - /articles/sharing-repositories-without-github
   - /articles/about-remote-repositories
-  - /articles/which-url-should-i-use/
+  - /articles/which-url-should-i-use
   - /articles/which-remote-url-should-i-use
   - /github/using-git/which-remote-url-should-i-use
   - /github/using-git/about-remote-repositories
@@ -73,7 +73,7 @@ SSH URL は、SSH (安全なプロトコル) を介した Git リポジトリへ
 
 SSH URL を使用して、`git clone`、`git fetch`、`git pull` または `git push` をリモートリポジトリに実行すると、パスワードの入力を求められ、SSH キーパスフレーズを入力する必要があります。 詳しい情報については[SSH キーのパスフレーズを使う](/github/authenticating-to-github/working-with-ssh-key-passphrases)を参照してください。
 
-{% ifversion fpt or ghec %}SAML シングルサインオン (SSO) を使っている Organization にアクセスしている場合は、認証を受ける前に、Organization にアクセスする SSHキーを認可する必要があります。 詳しい情報については「[SAMLシングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」および「[SAML シングルサインオンで使うためにSSHキーを認可する](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
+{% ifversion fpt or ghec %}SAML シングルサインオン (SSO) を使っている Organization にアクセスしている場合は、認証を受ける前に、Organization にアクセスする SSHキーを認可する必要があります。 For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" and "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 {% tip %}
 

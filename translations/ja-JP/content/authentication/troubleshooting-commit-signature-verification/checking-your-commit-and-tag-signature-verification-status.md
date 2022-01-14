@@ -2,7 +2,7 @@
 title: コミットおよびタグの署名の検証ステータスを確認する
 intro: '{% data variables.product.product_name %}のコミットやタグの署名について、検証ステータスを確認できます。'
 redirect_from:
-  - /articles/checking-your-gpg-commit-and-tag-signature-verification-status/
+  - /articles/checking-your-gpg-commit-and-tag-signature-verification-status
   - /articles/checking-your-commit-and-tag-signature-verification-status
   - /github/authenticating-to-github/checking-your-commit-and-tag-signature-verification-status
   - /github/authenticating-to-github/troubleshooting-commit-signature-verification/checking-your-commit-and-tag-signature-verification-status

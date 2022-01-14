@@ -1,6 +1,6 @@
 ---
-title: 使用しているアイデンティティプロバイダ外のユーザのためのビルトイン認証の許可
-intro: LDAP、SAML、CASを使うアイデンティティプロバイダへのアクセスを持たないユーザを認証するために、ビルトイン認証を設定できます。
+title: Allowing built-in authentication for users outside your identity provider
+intro: 'You can configure built-in authentication to authenticate users who don''t have access to your identity provider that uses LDAP, SAML, or CAS.'
 redirect_from:
   - /enterprise/admin/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
@@ -15,44 +15,45 @@ topics:
   - Identity
 shortTitle: Authentication outside IdP
 ---
+## About built-in authentication for users outside your identity provider
 
-## 使用しているアイデンティティプロバイダ外のユーザのためのビルトイン認証について
+You can use built-in authentication for outside users when you are unable to add specific accounts to your identity provider (IdP), such as accounts for contractors or machine users. You can also use built-in authentication to access a fallback account if the identity provider is unavailable.  
 
-契約業者やマシンのユーザなど、特定のアカウントを使用中のアイデンティティプロバイダ（IdP）に追加できない場合、外部のユーザのためのビルトイン認証を使うことができます。 また、アイデンティティプロバイダが利用できない場合にフォールバックアカウントにアクセスするためにビルトイン認証を使うこともできます。
+After built-in authentication is configured and a user successfully authenticates with SAML or CAS, they will no longer have the option to authenticate with a username and password. If a user successfully authenticates with LDAP, the credentials are no longer considered internal.
 
-ビルトイン認証が設定され、ユーザがSAMLもしくはCASでの認証に成功したなら、そのユーザはユーザ名とパスワードでの認証をすることはできません。 ユーザがLDAPでの認証に成功したなら、それ以降クレデンシャルは内部的なものとは見なされません。
-
-特定のIdPに対するビルトイン認証は、デフォルトで無効化されています。
+Built-in authentication for a specific IdP is disabled by default.
 
 {% warning %}
 
-**警告：**ビルトイン認証を無効化した場合、インスタンスへアクセスできなくなったユーザを個別にサスペンドしなければなりません。 詳しい情報については[ユーザのサスペンドとサスペンドの解除](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)を参照してください。
+**Warning:** If you disable built-in authentication, you must individually suspend any users that should no longer have access to the instance. For more information, see "[Suspending and unsuspending users](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)."
 
 {% endwarning %}
 
-## アイデンティティプロバイダ外のユーザのためのビルトイン認証の設定
+## Configuring built-in authentication for users outside your identity provider
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-4. アイデンティティプロバイダを選択してください。 ![アイデンティティプロバイダの選択オプション](/assets/images/enterprise/management-console/identity-provider-select.gif)
-5. **Allow creation of accounts with built-in authentication（ビルトイン認証でのアカウントの作成の許可）**を選択してください。 ![ビルトイン認証のオプションの選択](/assets/images/enterprise/management-console/built-in-auth-identity-provider-select.png)
-6. 警告を読んで、**Ok**をクリックしてください。
+4. Select your identity provider.
+  ![Select identity provider option](/assets/images/enterprise/management-console/identity-provider-select.gif)
+5. Select **Allow creation of accounts with built-in authentication**.
+  ![Select built-in authentication option](/assets/images/enterprise/management-console/built-in-auth-identity-provider-select.png)
+6. Read the warning, then click **Ok**.
 
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-## 使用しているアイデンティティプロバイダ外のユーザをインスタンスで認証するために招待する
+## Inviting users outside your identity provider to authenticate to your instance
 
-ユーザが招待を受け付けると、ユーザはIdPを通じてサインインするのではなく、ユーザ名とパスワードを使ってサインインできます。
+When a user accepts the invitation, they can use their username and password to sign in rather than signing in through the IdP.
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
-## 参考リンク
+## Further reading
 
-- /enterprise/{{ page.version }}/admin/guides/user-management/using-ldap
-- [SAMLの利用](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)
-- [CASの利用](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-cas)
+- "[Using LDAP](/enterprise/admin/authentication/using-ldap)"
+- "[Using SAML](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)"
+- "[Using CAS](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-cas)"

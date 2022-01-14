@@ -59,7 +59,7 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 ```
 {% endraw %}
 
-Observe o exemplo acima produz uma citação de </em>software_(ou seja, o tipo `@software` em BibTeX em vez de `@article`). </p>
+Observe o exemplo acima produz uma citação de </em>software_(ou seja, o tipo `@software` em BibTeX em vez de `@article`).</p>
 
 Para obter mais informações, consulte o site do [Formato do Arquivo de Citação](https://citation-file-format.github.io/).
 
@@ -71,11 +71,21 @@ Ao adicionar um arquivo `CITATION.cff` ao branch padrão do repositório, ele se
 
 Se você prefere que as informações de citação de {% data variables.product.prodname_dotcom %} vinculem outro recurso, como um artigo de pesquisa, você poderá usar a substituição de `preferred-citation` no CFF pelos seguintes tipos.
 
-| Recurso                  | Tipo               |
-| ------------------------ | ------------------ |
-| Artigo de pesquisa       | `artigo`           |
-| Documento de conferência | `conference-paper` |
-| Livro                    | `livro`            |
+| Recurso                               | Tipo CFF                                                                                             | Tipo BibTeX      | Anotações da APA           |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------- | -------------------------- |
+| Artigo de jornal/documento            | `artigo`                                                                                             | `@article`       |                            |
+| Livro                                 | `livro`                                                                                              | `@book`          |                            |
+| Folheto (vinculado mas não publicado) | `pamphlet`                                                                                           | `@booklet`       |                            |
+| Artigo de conferência/documento       | `conference-paper`                                                                                   | `@inproceedings` | [Documento de conferência] |
+| Atas de conferência                   | `conference`, `proceedings`                                                                          | `@proceedings`   |                            |
+| Conjunto de dados                     | `data`, `database`                                                                                   | `@misc`          | [Conjunto de dados]        |
+| Artigo de revista                     | `magazine-article`                                                                                   | `@article`       |                            |
+| Manual                                | `manual`                                                                                             | `@manual`        |                            |
+| Outros                                | `genérico`, qualquer outro tipo de CFF                                                               | `@misc`          |                            |
+| Artigo de jornal                      | `newspaper-article`                                                                                  | `@article`       |                            |
+| Software                              | `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software`      | [Software de computador]   |
+| Relatório/relatório técnico           | `relatório`                                                                                          | `@techreport`    |                            |
+| Não publicado                         | `não publicado`                                                                                      | `@unpublished`   |                            |
 
 Arquivo de CITATION.cff estendido que descreve o software, mas vinculando a um artigo de pesquisa como a citação preferida:
 
@@ -142,7 +152,7 @@ Lisa, M., & Bot, H. (2021). Meu software de pesquisa incrível. Journal Title, 1
 
 ## Citando um conjunto de dados
 
-Se seu repositório contiver um conjunto de dados, você poderá definir o `type: dataset` no seu arquivo de `CITATION.cff` para produzir uma saída de string de citação de dados na instrução da citação de {% data variables.product.prodname_dotcom %}.
+Se seu repositório contiver um conjunto de dados, você poderá definir o `type: dataset` na parte superior do seu arquivo `CITATION.cff` para produzir uma saída de frase de citação de dados na solicitação de citação de {% data variables.product.prodname_dotcom %}.
 
 ## Outros arquivos de citação
 
@@ -159,7 +169,7 @@ CITATIONS.bib
 CITATION.md
 CITATIONS.md
 
-# CITATION files for R packages are typically found at inst/CITATION 
+# CITATION files for R packages are typically found at inst/CITATION
 inst/CITATION
 ```
 

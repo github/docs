@@ -1,7 +1,6 @@
 ---
 title: Enterprise の人を表示する
 intro: Enterprise が所有するリソースやユーザライセンスの利用を監査するため、Enterprise のオーナーは、すべての Enterprise の管理者およびメンバーを表示できます。
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
   - /articles/viewing-people-in-your-enterprise-account
@@ -37,6 +36,10 @@ You can view {% ifversion ghec %}all the {% data variables.product.prodname_ghe_
 1. メンバーのリストではなく、外部コラボレーターのリストを表示したい場合は、[**Outside collaborators**] をクリックします。 ![Organization メンバーのページにある、[Outside collaborators] タブ](/assets/images/help/business-accounts/outside-collaborators-tab.png)
 {% ifversion ghec %}1. 必要に応じて、保留中の招待リストを表示するには、[**_NUMBER_ pending**] をクリックします。
   ![検索およびフィルタオプションの右側にある [NUMBER pending] ボタン](/assets/images/help/enterprises/members-pending.png){% endif %}
+
+## 休眠ユーザの表示
+
+You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} 詳細は「[休眠ユーザを管理する](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)」を参照してください。
 
 ## 参考リンク
 

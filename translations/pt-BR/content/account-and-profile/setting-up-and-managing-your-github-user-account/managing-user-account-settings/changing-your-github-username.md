@@ -2,10 +2,10 @@
 title: Alterar seu nome de usuário do GitHub
 intro: 'Você pode alterar o nome de usuário da sua conta em {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %} se sua instância usar autenticação integrada{% endif %}.'
 redirect_from:
-  - /articles/how-to-change-your-username/
-  - /articles/changing-your-github-user-name/
-  - /articles/renaming-a-user/
-  - /articles/what-happens-when-i-change-my-username/
+  - /articles/how-to-change-your-username
+  - /articles/changing-your-github-user-name
+  - /articles/renaming-a-user
+  - /articles/what-happens-when-i-change-my-username
   - /articles/changing-your-github-username
   - /github/setting-up-and-managing-your-github-user-account/changing-your-github-username
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username
@@ -84,5 +84,5 @@ Após alteração do nome de usuário, os links para sua página de perfil anter
 
 ## Leia mais
 
-- "[Por que os meus commits estão vinculados ao usuário incorreto?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
+- "[Por que os meus commits estão vinculados ao usuário incorreto?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
 - "[{% data variables.product.prodname_dotcom %} Política de nome de usuário](/free-pro-team@latest/github/site-policy/github-username-policy)"{% endif %}

@@ -26,7 +26,7 @@ Para fazer modificações locais em um gist e fazer o push delas na Web, é poss
 
 ## Visualizar o histórico de commits do gist
 
-Para visualizar o histórico completo de commits do gist, clique em "Revisions" (Revisões) na parte superior do gist.
+Para visualizar o histórico completo de commit de um gist, clique na aba "Revisões" na parte superior do gist.
 
 ![Aba gist revisions (revisões)](/assets/images/help/gist/gist_revisions_tab.png)
 

@@ -36,6 +36,24 @@ topics:
 
 Para produzir a saída de log mais detalhada, você pode habilitar o log de depuração da etapa. Para obter mais informações, consulte "[Habilitar o registro de depuração](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)".
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
+
+## Criando artefatos de depuração de {% data variables.product.prodname_codeql %}
+
+Você pode obter artefatos para ajudar você a depurar {% data variables.product.prodname_codeql %}, definindo um sinalizador da configuração de depuração. Modifique a etapa `init` do seu arquivo de fluxo de trabalho {% data variables.product.prodname_codeql %} e defina `debug: true`.
+
+```
+- name: Initialize CodeQL
+  uses: github/codeql-action/init@v1
+  with:
+    debug: true
+```
+Os artefatos de depuração serão carregados para a execução do fluxo de trabalho como um artefato denominado `debug-artifacts`. Os dados contém os registros de {% data variables.product.prodname_codeql %}, banco(s) de dados de {% data variables.product.prodname_codeql %}, e todo(s) o(s) outro(s) arquivo(s) SARIF produzido(s) pelo fluxo de trabalho.
+
+Estes artefatos ajudarão você a depurar problemas com digitalização de código de {% data variables.product.prodname_codeql %}. Se você entrar em contato com o suporte do GitHub, eles poderão pedir estes dados.
+
+{% endif %}
+
 ## Ocorreu uma falha durante a criação automática para uma linguagem compilada
 
 Se ocorrer uma falha na uma criação automática de código para uma linguagem compilada dentro de seu projeto, tente as seguintes etapas para a solução de problemas.
@@ -48,7 +66,7 @@ Se ocorrer uma falha na uma criação automática de código para uma linguagem 
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    analyze:{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
       permissions:
         security-events: write
         actions: read{% endif %}
@@ -77,7 +95,7 @@ Se seu fluxo de trabalho falhar com um erro `Nenhum código fonte foi visto dura
     fail-fast: false
     matrix:
       # Override automatic language detection by changing the list below.
-      # Supported options are listed in a comment in the default workflow.
+      # As opções compatíveis estão listadas em um comentário no fluxo de trabalho padrão.
       language: ['go', 'javascript']
 `</pre>
 
@@ -91,20 +109,20 @@ Se seu fluxo de trabalho falhar com um erro `Nenhum código fonte foi visto dura
    * Criar usando um sistema de compilação distribuído externo às Ações GitHub, usando um processo de daemon.
    * {% data variables.product.prodname_codeql %} não está ciente do compilador específico que você está usando.
 
-  Para projetos de .NET Framework, e para projetos de C# que usam `dotnet build` ou `msbuild` que miram .NET Core 2, você deve especificar `/p:UseSharedCompilation=false` na etapa de `executar` do seu fluxo de trabalho quando você construir seu código. O sinalizador `UseSharedCompilation` não é necessário para o .NET Core 3.0 ou versão superior.
+  Para projetos de .NET Framework e para projetos C# que usam `dotnet build` ou `msbuild`, você deverá especificar `/p:UseSharedCompilation=false` na etapa de `executar` do seu fluxo de trabalho, ao criar o seu código.
 
   Por exemplo, a seguinte configuração para C# irá passar o sinalizador durante a primeira etapa de criação.
 
    ``` yaml
    - run: |
-       dotnet build /p:UseSharedCompilation=false 
+       dotnet build /p:UseSharedCompilation=false
    ```
 
   Se você encontrar outro problema com seu compilador específico ou configuração, entre em contato com {% data variables.contact.contact_support %}.
 
 Para obter mais informações sobre a especificação de etapas de criação, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1  or ghae or ghec %}
 ## As inhas de código digitalizadas são menores do que o esperado
 
 Para linguagens compiladas como, por exemplo, C/C++, C#, Go e Java, {% data variables.product.prodname_codeql %} só faz a digitalização de arquivos criados durante a análise. Portanto, o número de linhas de código digitalizadas será menor do que o esperado se parte do código-fonte não for compilado corretamente. Isso pode acontecer por várias razões:
@@ -161,7 +179,7 @@ O tempo de análise é tipicamente proporcional à quantidade de código em aná
 
 Para linguagens compiladas como Java, C, C++ e C#, o {% data variables.product.prodname_codeql %} analisa todo o código construído durante a execução do fluxo de trabalho. Para limitar a quantidade de código em análise, crie apenas o código que você deseja analisar especificando suas próprias etapas de criação em um bloco `Executar`. Você pode combinar a especificação das suas próprias etapas de criação ao usar os filtros `caminhos` ou `paths-ignore` nos eventos `pull_request` e `push` para garantir que o seu fluxo de trabalho só será executado quando o código específico for alterado. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)".
 
-Para linguagens interpretadas como Go, JavaScript, Python e TypeScript, que {% data variables.product.prodname_codeql %} analisa sem uma criação específica, você pode especificar opções de configuração adicionais para limitar a quantidade de código a ser analisado. Para obter mais informações, consulte "[Especificar diretórios a serem varridos](/code-security/secure-coding/configuring-code-scanning#specifying-directories-to-scan)".
+Para linguagens como Go, JavaScript, Python e TypeScript, que {% data variables.product.prodname_codeql %} analisa sem compilar o código-fonte, você pode especificar as opções de configuração adicionais para limitar a quantidade de código a ser analisado. Para obter mais informações, consulte "[Especificar diretórios a serem varridos](/code-security/secure-coding/configuring-code-scanning#specifying-directories-to-scan)".
 
 Se você dividir sua análise em vários fluxos de trabalho, conforme descrito acima, ainda assim recomendamos que você tenha pelo menos um fluxo de trabalho que seja executado em um `agendamento` que analise todo o código no seu repositório. Já que o {% data variables.product.prodname_codeql %} analisa os fluxos de dados entre os componentes, alguns comportamentos de segurança complexos só podem ser detectados em uma criação completa.
 
@@ -184,7 +202,7 @@ Se a execução de um fluxo de trabalho para {% data variables.product.prodname_
 
 ## Erro: "Fora do disco" ou "Sem memória"
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
+Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar sem disco ou memória no executor.
 {% ifversion fpt or ghec %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
 {% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
 

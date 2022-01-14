@@ -16,10 +16,8 @@ versions:
 shortTitle: GitHub-hosted runners
 ---
 
-{% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About {% data variables.product.prodname_dotcom %}-hosted runners
 
@@ -28,6 +26,8 @@ A {% data variables.product.prodname_dotcom %}-hosted runner is a virtual machin
 When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machine maintenance and upgrades are taken care of for you. You can run workflows directly on the virtual machine or in a Docker container.
 
 You can specify the runner type for each job in a workflow. Each job in a workflow executes in a fresh instance of the virtual machine. All steps in the job execute in the same instance of the virtual machine, allowing the actions in that job to share information using the filesystem.
+
+{% ifversion not ghes %}
 
 {% data reusables.github-actions.runner-app-open-source %}
 
@@ -76,8 +76,8 @@ For more information, see "[Viewing workflow run history](/actions/managing-work
 
 For the overall list of included tools for each runner operating system, see the links below:
 
-* [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
-* [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
+* [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
+* [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
 * [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
@@ -140,5 +140,7 @@ Actions that run in Docker containers have static directories under the `/github
 
 ## Further reading
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+
+{% endif %}
 
 {% endif %}

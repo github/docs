@@ -2,7 +2,7 @@
 title: 启用子域隔离
 intro: '您可以设置子域隔离，将用户提供的内容与 {% data variables.product.prodname_ghe_server %} 设备的其他部分安全地隔离。'
 redirect_from:
-  - /enterprise/admin/guides/installation/about-subdomain-isolation/
+  - /enterprise/admin/guides/installation/about-subdomain-isolation
   - /enterprise/admin/installation/enabling-subdomain-isolation
   - /enterprise/admin/configuration/enabling-subdomain-isolation
   - /admin/configuration/enabling-subdomain-isolation

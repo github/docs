@@ -1,9 +1,9 @@
 ---
 title: 向团队添加人员
 redirect_from:
-  - /enterprise/admin/articles/adding-teams/
-  - /enterprise/admin/articles/adding-or-inviting-people-to-teams/
-  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams/
+  - /enterprise/admin/articles/adding-teams
+  - /enterprise/admin/articles/adding-or-inviting-people-to-teams
+  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams
   - /enterprise/admin/user-management/adding-people-to-teams
   - /admin/user-management/adding-people-to-teams
 intro: '创建团队后，组织管理员可以将用户从 {% data variables.product.product_location %} 添加到团队并决定他们可以访问哪些仓库。'
