@@ -125,11 +125,11 @@ env:
 
 #### 使用数组的示例
 
-`contains(github.event.issue.labels.*.name, 'bug')`
+`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
 
 #### 使用字符串的示例
 
-`contains('Hello world', 'llo')` 返回 `true`
+`contains('Hello world', 'llo')` 返回 `true`.
 
 ### startsWith
 
@@ -139,7 +139,7 @@ env:
 
 #### 示例
 
-`startsWith('Hello world', 'He')` 返回 `true`
+`startsWith('Hello world', 'He')` 返回 `true`.
 
 ### endsWith
 
@@ -149,7 +149,7 @@ env:
 
 #### 示例
 
-`endsWith('Hello world', 'ld')` 返回 `true`
+`endsWith('Hello world', 'ld')` 返回 `true`.
 
 ### format
 
@@ -159,19 +159,19 @@ env:
 
 #### 示例
 
-返回 'Hello Mona the Octocat'
-
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-#### 逸出括号示例
+返回 'Hello Mona the Octocat'.
 
-返回 '{Hello Mona the Octocat!}'
+#### 逸出括号示例
 
 {% raw %}
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
+
+返回 '{Hello Mona the Octocat!}'.
 
 ### join
 

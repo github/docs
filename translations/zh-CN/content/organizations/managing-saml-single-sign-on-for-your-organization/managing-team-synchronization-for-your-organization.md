@@ -46,6 +46,12 @@ shortTitle: 管理团队同步
 
 You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. 更多信息请参阅“[使用 SAML 单点登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
 
+Your SAML settings **must** contain a valid IdP URL for the **Issuer** field.
+
+![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
+
+
+
 ### 为 Azure AD 启用团队同步
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}

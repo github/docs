@@ -39,7 +39,7 @@ Este ejemplo de Markdown añade un distintivo de estado para una rama con el nom
 
 ## Utilizar el parámetro `event`
 
-This Markdown example adds a badge that displays the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
+Este ejemplo de lenguaje de marcado agrega una insignia que muestra el estado de las ejecuciones de flujo de trabajo que se activan con el evento `push`, lo cual mostrará el estado de la compilación del estado actual de dicha rama.
 
 ```markdown
 ![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
