@@ -41,7 +41,7 @@ To produce more detailed logging output, you can enable step debug logging. For 
 
 You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %} by setting a debug configuration flag. Modify the `init` step of your {% data variables.product.prodname_codeql %} workflow file and set `debug: true`.
 
-```
+```yaml
 - name: Initialize CodeQL
   uses: github/codeql-action/init@v1
   with:
@@ -140,11 +140,11 @@ For more information, see "[Configuring the {% data variables.product.prodname_c
 
 ### Inspect the copy of the source files in the {% data variables.product.prodname_codeql %} database
 You may be able to understand why some source files haven't been analyzed by inspecting the copy of the source code included with the {% data variables.product.prodname_codeql %} database. To obtain the database from your Actions workflow, add an `upload-artifact` action after the analysis step in your code scanning workflow:
-```
+```yaml
 - uses: actions/upload-artifact@v2
   with:
-    name: codeql-database-${{ matrix.language }}
-    path: ${{ runner.temp }}/codeql_databases
+    name: {% raw %}codeql-database-${{ matrix.language }}{% endraw %}
+    path: {% raw %}${{ runner.temp }}/codeql_databases{% endraw %}
 ```
 This uploads the database as an actions artifact that you can download to your local machine. For more information, see "[Storing workflow artifacts](/actions/guides/storing-workflow-data-as-artifacts)."
 
