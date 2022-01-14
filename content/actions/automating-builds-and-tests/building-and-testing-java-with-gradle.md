@@ -42,11 +42,7 @@ We recommend that you have a basic understanding of Java and the Gradle framewor
 
 ## Using the Gradle starter workflow
 
-The easiest way to execute a Gradle build in your workflow is by using the `gradle/gradle-build-action` action provided by the Gradle organization on GitHub. The action takes care of invoking Gradle, collecting results, and caching state between job runs in a workflow. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
-
-Using Gradle's `gradle/gradle-build-action` is the recommended way of using Gradle with GitHub Actions.
-
-{% data variables.product.prodname_dotcom %} provides a Gradle starter workflow that will work for most Gradle-based Java projects. For more information, see the [Gradle workflow template](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
+{% data variables.product.prodname_dotcom %} provides a Gradle starter workflow that will work for most Gradle-based Java projects. For more information, see the [Gradle starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
 
 To get started quickly, you can choose the preconfigured Gradle starter workflow when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
 
@@ -83,7 +79,7 @@ This workflow performs the following steps:
 1. The `checkout` step downloads a copy of your repository on the runner.
 2. The `setup-java` step configures the Java 11 JDK by Adoptium.
 3. The "Validate Gradle wrapper" step validates the checksums of Gradle Wrapper JAR files present in the source tree.
-4. The "Build with Gradle" step runs the Gradle build to ensure that your code builds, tests pass, and a package can be created.
+4. The "Build with Gradle" step does a build using the `gradle/gradle-build-action` action provided by the Gradle organization on {% data variables.product.prodname_dotcom %}. The action takes care of invoking Gradle, collecting results, and caching state between jobs. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
 
 The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
@@ -118,9 +114,9 @@ steps:
 
 ## Caching dependencies
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, your build dependencies can be cached to speed up your workflow runs. After a successful run, the `gradle/gradle-build-action` will cache important parts of the Gradle User Home directory on GitHub Actions infrastructure. In future workflow runs, the cache will be restored so that build scripts don't need to be recompiled and dependencies don't need to be downloaded from remote package repositories. 
+When using {% data variables.product.prodname_dotcom %}-hosted runners, your build dependencies can be cached to speed up your workflow runs. After a successful run, the `gradle/gradle-build-action` caches important parts of the Gradle user home directory. In future jobs, the cache will be restored so that build scripts won't need to be recompiled and dependencies won't need to be downloaded from remote package repositories.
 
-The `gradle/gradle-build-action` takes care of this caching transparently, and further configuration is not normally required.
+Caching is enabled by default when using the `gradle/gradle-build-action` action. For more information, see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching).
 
 ## Packaging workflow data as artifacts
 
