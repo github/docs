@@ -48,7 +48,7 @@ Puedes convertir los borradores de propuestas en propuestas. Para obtener más i
 #### Buscar una propuesta o solicitud de cambios
 
 1. Coloca tu cursor en la fila inferior del proyecto, junto al {% octicon "plus" aria-label="plus icon" %}.
-2. Ingresa `#`.
+2. Ingresa <kbd>#</kbd>.
 3. Selecciona el repositorio en donde se ubica la solicitud de cambios o propuesta. Puedes teclear la parte del nombre de repositorio para reducir tus opciones.
 4. Selecciona la propuesta o solicitud de cambios. Puedes teclear parte del título para reducir tus opciones.
 
@@ -81,11 +81,11 @@ En el diseño del tablero:
 Puedes archivar un elemento para mantener el contexto sobre este en el proyecto, pero eliminarlo de las vistas del proyecto. Puedes borrar un elemento para eliminarlo por completo del proyecto.
 
 1. Selecciona el(los) elemento(s) a archivar o borrar. Para seleccionar elementos múltiples, realiza alguna de las siguientes acciones:
-     - Haz `cmd + clic` (Mac) o `ctrl + clic` (Windows/Linux) en cada elemento.
-     - Select an item then `shift + arrow-up` or `shift + arrow-down` to select additional items above or below the initially selected item.
-     - Selecciona un elemento y luego haz `shift + clic` en otro elemento para seleccionar todos aquellos entre dos elementos.
-     - Ingresa `cmd + a` (Mac) o `ctrl + a` (Windows/Linux) para seleccionar todos los elementos en una columna en un diseño de tablero o todos los elementos en un diseño de tabla.
-2. Para archivar todos los elementos seleccionados, ingresa `e`. Para borrar todos los elementos seleccionados, ingresa `del`. Como alternativa, selecciona el {% octicon "triangle-down" aria-label="the item menu" %} (en el diseño de tabla) o el {% octicon "kebab-horizontal" aria-label="the item menu" %} (en el diseño de tablero) y luego selecciona la acción deseada.
+     - <kbd>Command</kbd>+Click (Mac) or <kbd>Ctrl</kbd>+Click (Windows/Linux) each item.
+     - Select an item then <kbd>Shift</kbd>+<kbd>↑</kbd> or <kbd>Shift</kbd>+<kbd>↓</kbd> to select additional items above or below the initially selected item.
+     - Select an item then <kbd>Shift</kbd>+Click another item to select all items between the two items.
+     - Enter <kbd>Command</kbd>+<kbd>A</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
+2. To archive all selected items, enter <kbd>E</kbd>. To delete all selected items, enter <kbd>Del</kbd>. Como alternativa, selecciona el {% octicon "triangle-down" aria-label="the item menu" %} (en el diseño de tabla) o el {% octicon "kebab-horizontal" aria-label="the item menu" %} (en el diseño de tablero) y luego selecciona la acción deseada.
 
 Puedes restablecer los elementos archivados, pero no los borrados. Para obtener más información, consulta la sección de [Cómo restaurar los elementos archivados](#restoring-archived-items).
 
