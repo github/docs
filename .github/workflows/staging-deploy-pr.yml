@@ -191,7 +191,7 @@ jobs:
 
       - if: ${{ steps.check-workflow-run.outputs.cancelled == 'false' }}
         name: Send Slack notification if build workflow failed
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@dafca0835f7e51f42ec46806aced9230fa56b058
         with:
           channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
@@ -327,7 +327,7 @@ jobs:
             })
 
       - name: Send Slack notification if deployment preparation job failed
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@dafca0835f7e51f42ec46806aced9230fa56b058
         if: ${{ failure() }}
         with:
           channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
@@ -457,7 +457,7 @@ jobs:
             })
 
       - name: Send Slack notification if deployment job failed
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@dafca0835f7e51f42ec46806aced9230fa56b058
         if: ${{ failure() }}
         with:
           channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
