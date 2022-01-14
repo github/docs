@@ -25,7 +25,7 @@ export const ArticleList = ({
     <>
       {title && (
         <div className="mb-4 d-flex flex-items-baseline">
-          <h3 className={cx('f4 text-semibold')}>{title}</h3>
+          <h2 className={cx('f4 text-semibold')}>{title}</h2>
           {viewAllHref && (
             <Link
               href={viewAllHref}
@@ -60,13 +60,23 @@ export const ArticleList = ({
                   href={link.href}
                   className="py-3"
                   title={
-                    <h4 data-testid="link-with-intro-title">
+                    !link.hideIntro && link.intro ? (
+                      <h3 className="f4" data-testid="link-with-intro-title">
+                        <span
+                          dangerouslySetInnerHTML={
+                            link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
+                          }
+                        />
+                      </h3>
+                    ) : (
                       <span
+                        className="f4 text-bold d-block"
+                        data-testid="link-with-intro-title"
                         dangerouslySetInnerHTML={
                           link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
                         }
-                      />
-                    </h4>
+                      ></span>
+                    )
                   }
                 >
                   {!link.hideIntro && link.intro && (
