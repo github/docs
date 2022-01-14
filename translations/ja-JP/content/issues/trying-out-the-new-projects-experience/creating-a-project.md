@@ -1,6 +1,6 @@
 ---
-title: Creating a project (beta)
-intro: 'Learn how to make a project, populate it, and add custom fields.'
+title: プロジェクト（ベータ）の作成
+intro: プロジェクトを作成し、展開し、カスタムフィールドを追加する方法を学んでください。
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -11,11 +11,11 @@ topics:
   - Projects
 ---
 
-Projects are a customizable collection of items that stay up-to-date with {% data variables.product.company_short %} data. Your projects can track issues, pull requests, and ideas that you jot down. You can add custom fields and create views for specific purposes.
+プロジェクトは、{% data variables.product.company_short %}のデータと最新の状況を保つアイテムのカスタマイズ可能なコレクションです。 プロジェクトでは、Issue、Pull Request、メモ書きできるアイデアを追跡できます。 カスタムフィールドを追加して、特定の目的のためのビューを作成できます。
 
 {% data reusables.projects.projects-beta %}
 
-## Creating a project
+## プロジェクトの作成
 
 ### Creating an organization project
 
@@ -25,41 +25,41 @@ Projects are a customizable collection of items that stay up-to-date with {% dat
 
 {% data reusables.projects.create-user-project %}
 
-## Adding items to your project
+## プロジェクトへのアイテムの追加
 
-Your project can track draft issues, issues, and pull requests.
+プロジェクトは、ドラフトのIssue、Issue、Pull Requestを追跡できます。
 
-### Creating draft issues
+### ドラフトIssueの作成
 
-Draft issues are useful to quickly capture ideas.
+ドラフトIssueは、素早くアイデアを捕捉するのに役立ちます。
 
-1. Place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
-2. Type your idea, then press **Enter**.
+1. カーソルをプロジェクトの最下行、{% octicon "plus" aria-label="plus icon" %}の隣に持ってきてください。
+2. アイデアを入力し、**Enter**を押してください。
 
 You can convert draft issues into issues. For more information, see [Converting draft issues to issues](#converting-draft-issues-to-issues).
 
-### Issues and pull requests
+### Issue およびプルリクエスト
 
-#### Paste the URL of an issue or pull request
+#### IssueあるいはPull RequestのURLの貼り付け
 
-1. Place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
-1. Paste the URL of the issue or pull request.
+1. カーソルをプロジェクトの最下行、{% octicon "plus" aria-label="plus icon" %}の隣に持ってきてください。
+1. IssueあるいはPull RequestのURLを貼り付けてください。
 
-#### Searching for an issue or pull request
+#### IssueあるいはPull Requestの検索
 
-1. Place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
-2. Enter `#`.
-3. Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
-4. Select the issue or pull request. You can type part of the title to narrow down your options.
+1. カーソルをプロジェクトの最下行、{% octicon "plus" aria-label="plus icon" %}の隣に持ってきてください。
+2. <kbd>#</kbd>を入力してください。
+3. Pull RequestあるいはIssueがあるリポジトリを選択してください。 リポジトリ名の一部を入力して、選択肢を狭めることができます。
+4. IssueあるいはPull Requestを選択してください。 タイトルの一部を入力して、選択肢を狭めることができます。
 
-#### Assigning a project from within an issue or pull request
+#### IssueあるいはPull Requestの中からプロジェクトをアサインする
 
-1. Navigate to the issue or pull request that you want to add to a project.
-2. In the side bar, click **Projects**.
-3. Select the project that you want to add the issue or pull request to.
-4. Optionally, populate the custom fields.
+1. プロジェクトに追加したいIssueあるいはPull Requestにアクセスしてください。
+2. サイドバーで**Projects（プロジェクト）**をクリックしてください。
+3. IssueあるいはPull Requestを追加したいプロジェクトを選択してください。
+4. あるいは、カスタムフィールドに入力してください。
 
-   ![Project sidebar](/assets/images/help/issues/project_side_bar.png)
+   ![プロジェクトサイドバー](/assets/images/help/issues/project_side_bar.png)
 
 ## Converting draft issues to issues
 
@@ -81,11 +81,11 @@ In board layout:
 You can archive an item to keep the context about the item in the project but remove it from the project views. You can delete an item to remove it from the project entirely.
 
 1. Select the item(s) to archive or delete. To select multiple items, do one of the following:
-     - `cmd + click` (Mac) or `ctrl + click` (Windows/Linux) each item.
-     - Select an item then `shift + arrow-up` or `shift + arrow-down` to select additional items above or below the initially selected item.
-     - Select an item then `shift + click` another item to select all items between the two items.
-     - Enter `cmd + a` (Mac) or `ctrl + a` (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
-2. To archive all selected items, enter `e`. To delete all selected items, enter `del`. Alternatively, select the {% octicon "triangle-down" aria-label="the item menu" %} (in table layout) or the {% octicon "kebab-horizontal" aria-label="the item menu" %} (in board layout), then select the desired action.
+     - <kbd>Command</kbd>+Click (Mac) or <kbd>Ctrl</kbd>+Click (Windows/Linux) each item.
+     - Select an item then <kbd>Shift</kbd>+<kbd>↑</kbd> or <kbd>Shift</kbd>+<kbd>↓</kbd> to select additional items above or below the initially selected item.
+     - Select an item then <kbd>Shift</kbd>+Click another item to select all items between the two items.
+     - Enter <kbd>Command</kbd>+<kbd>A</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
+2. To archive all selected items, enter <kbd>E</kbd>. To delete all selected items, enter <kbd>Del</kbd>. Alternatively, select the {% octicon "triangle-down" aria-label="the item menu" %} (in table layout) or the {% octicon "kebab-horizontal" aria-label="the item menu" %} (in board layout), then select the desired action.
 
 You can restore archived items but not deleted items. For more information, see [Restoring archived items](#restoring-archived-items).
 
@@ -93,27 +93,26 @@ You can restore archived items but not deleted items. For more information, see 
 
 To restore an archived item, navigate to the issue or pull request. In the project side bar on the issue or pull request, click **Restore** for the project that you want to restore the item to. Draft issues cannot be restored.
 
-## Adding fields
+## フィールドの追加
 
-As field values change, they are automatically synced so that your project and the items that it tracks are up-to-date.
+フィールドの値が変更されると、プロジェクト及びプロジェクトが追跡するアイテムが最新の状態に保たれるよう、自動的に同期されます。
 
-### Showing existing fields
+### 既存のフィールドの表示
 
-Your project tracks up-to-date information about  issues and pull requests, including any changes to the title, assignees, labels, milestones, and repository. When your project initializes, "title" and "assignees" are displayed; the other fields are hidden. You can change the visibility of these fields in your project.
+プロジェクトは、タイトル、アサインされた人、ラベル、マイルストーン、リポジトリへのあらゆる変更を含め、IssueやPull Requestに関する最新の情報を追跡します。 プロジェクトが初期化された時点では、"title（タイトル）"と"assignees（アサインされた人）"が表示されます。他のフィールドは非表示になります。 プロジェクト内でのそれらのフィールドの可視性は変更できます。
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "show".
-3. Select the desired command (for example: "Show: Repository").
+2. "show"と入力を始めてください。
+3. 希望するコマンド（たとえば"Show: Repository"）を選択してください。
 
-Alternatively, you can do this in the UI:
+あるいは、これはUIから行うこともできます。
 
-1. Click {% octicon "plus" aria-label="the plus icon" %} in the rightmost field header. A drop-down menu with the project fields will appear.
-   ![Show or hide fields](/assets/images/help/issues/projects_fields_menu.png)
-2. Select the field(s) that you want to display or hide. A {% octicon "check" aria-label="check icon" %} indicates which fields are displayed.
+1. 右端のフィールドヘッダの{% octicon "plus" aria-label="the plus icon" %}をクリックしてください。 プロジェクトのフィールドのドロップダウンメニューが表示されます。 ![フィールドの表示もしくは非表示](/assets/images/help/issues/projects_fields_menu.png)
+2. 表示あるいは非表示にしたいフィールドを選択してください。 {% octicon "check" aria-label="check icon" %}は、表示されるフィールドを示します。
 
-### Adding custom fields
+### カスタムフィールドの追加
 
-You can add custom fields to your project. Custom fields will display on the side bar of issues and pull requests in the project.
+プロジェクトにカスタムフィールドを追加できます。 カスタムフィールドは、プロジェクトのIssueあるいはPull Requestのサイドバー上に表示されます。
 
 Custom fields can be text, number, date, single select, or iteration:
 
@@ -123,12 +122,11 @@ Custom fields can be text, number, date, single select, or iteration:
 - Single select: The value must be selected from a set of specified values.
 - Iteration: The value must be selected from a set of date ranges (iterations). Iterations in the past are automatically marked as "completed", and the iteration covering the current date range is marked as "current".
 
-1. {% data reusables.projects.open-command-palette %} Start typing any part of "Create new field". When "Create new field" displays in the command palette, select it.
-2. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} in the rightmost field header. A drop-down menu with the project fields will appear. Click **New field**.
-3. A popup will appear for you to enter information about the new field.
-   ![New field](/assets/images/help/issues/projects_new_field.png)
-4. In the text box, enter a name for the new field.
-5. Select the dropdown menu and click the desired type.
+1. {% data reusables.projects.open-command-palette %} "Create new field"のどこかを入力し始めてください。 コマンドパレットに"Create new field"が表示されたら、選択してください。
+2. あるいは、右端のフィールドヘッダの{% octicon "plus" aria-label="the plus icon" %}をクリックしてください。 プロジェクトのフィールドのドロップダウンメニューが表示されます。 **New field（新規フィールド）**をクリックしてください。
+3. 新しいフィールドに関する情報を入力するためのポップアップが表示されます。 ![新しいフィールド](/assets/images/help/issues/projects_new_field.png)
+4. テキストボックスに、新しいフィールドの名前を入力してください。
+5. ドロップダウンメニューを選択し、目的の種類をクリックしてください。
 6. If you specified **Single select** as the type, enter the options.
 7. If you specified **Iteration** as the type, enter the start date of the first iteration and the duration of the iteration. Three iterations are automatically created, and you can add additional iterations on the project's settings page.
 
@@ -141,7 +139,7 @@ You can later edit the drop down options for single select and iteration fields.
 
 ## Customizing your views
 
-You can view your project as a table or board, group items by field, filter item, and more. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."
+プロジェクトは、テーブルあるいはボードとしてみることができ、フィールドでのアイテムのグループ化、アイテムのフィルタリングなどができます。 詳しい情報については「[プロジェクト（ベータ）のビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)」を参照してください。
 
 ## Configuring built-in automation
 

@@ -1,6 +1,6 @@
 ---
-title: Editing wiki content
-intro: 'You can add images and links to content in your wiki, and use some supported MediaWiki formats.'
+title: Editar conteúdo de wiki
+intro: Você pode adicionar imagens e links no conteúdo do seu wiki e usar alguns formatos do MediaWiki compatíveis.
 redirect_from:
   - /articles/adding-links-to-wikis
   - /articles/how-do-i-add-links-to-my-wiki
@@ -21,40 +21,39 @@ topics:
   - Community
 ---
 
-## Adding links
+## Adicionar links
 
-You can create links in wikis using the standard markup supported by your page, or using MediaWiki syntax. For example:
+Você pode criar links em wikis usando markup padrão compatível para sua página ou usando sintaxe do MediaWiki. Por exemplo:
 
-- If your pages are rendered with Markdown, the link syntax is `[Link Text](full-URL-of-wiki-page)`.
-- With MediaWiki syntax, the link syntax is `[[Link Text|nameofwikipage]]`.
+- Em páginas renderizadas com Markdown, a sintaxe do link é `[Link Text](full-URL-of-wiki-page)`.
+- Com a sintaxe do MediaWiki, a sintaxe do link é `[[Link Text|nameofwikipage]]`.
 
-## Adding images
+## Adicionar imagens
 
-Wikis can display PNG, JPEG, and GIF images.
+Os wikis podem exibir imagens em PNG, JPEG e GIF.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-3. Using the wiki sidebar, navigate to the page you want to change, and then click **Edit**.
-4. On the wiki toolbar, click **Image**.
-   ![Wiki Add image button](/assets/images/help/wiki/wiki_add_image.png)
-5. In the "Insert Image" dialog box, type the image URL and the alt text (which is used by search engines and screen readers).
-6. Click **OK**.
+3. Usando a barra lateral de wikis, navegue até a página que deseja alterar e clique em **Edit** (Editar).
+4. Na barra de ferramentas de wikis, clique em **Image** (Imagem). ![Imagem do botão Wiki Add (Adição de wiki)](/assets/images/help/wiki/wiki_add_image.png)
+5. Na caixa de diálogo "Insert Image" (Inserir imagem), digite a URL da imagem e o texto alt (que é usado por mecanismos de pesquisa e leitores de tela).
+6. Clique em **OK**.
 
-### Linking to images in a repository
+### Vincular a imagens em um repositório
 
-You can link to an image in a repository on {% data variables.product.product_name %} by copying the URL in your browser and using that as the path to the image. For example, embedding an image in your wiki using Markdown might look like this:
+Para vincular a uma imagem em um repositório no {% data variables.product.product_name %}, copie a URL no navegador e use-a como caminho para a imagem. Por exemplo, a incorporação de uma imagem no wiki usando Markdown pode ter esta aparência:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-## Supported MediaWiki formats
+## Formatos do MediaWiki compatíveis
 
-No matter which markup language your wiki page is written in, certain MediaWiki syntax will always be available to you.
-- Links ([except Asciidoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
-- Horizontal rules via `---`
-- Shorthand symbol entities (such as `&delta;` or `&euro;`)
+Seja qual for a linguagem de marcação em que sua página wiki foi escrita, sempre haverá uma sintaxe do MediaWiki disponível para você.
+- Links ([exceto Asciidoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- Regras horizontais via `---`
+- Entidades de símbolo abreviadas (como `&delta;` ou `&euro;`)
 
-For security and performance reasons, some syntaxes are unsupported.
-- [Transclusion](https://www.mediawiki.org/wiki/Transclusion)
-- Definition lists
-- Indentation
-- Table of contents
+Por motivos de segurança e desempenho, algumas sintaxes não são compatíveis.
+- [Transclusão](https://www.mediawiki.org/wiki/Transclusion)
+- Listas de definições
+- Indentação
+- Índice

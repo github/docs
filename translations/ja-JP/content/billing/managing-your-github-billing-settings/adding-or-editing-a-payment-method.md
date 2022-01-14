@@ -1,6 +1,6 @@
 ---
-title: Adding or editing a payment method
-intro: You can add a payment method to your account or update your account's existing payment method at any time.
+title: 支払い方法を追加または編集する
+intro: アカウントに支払い方法を追加したり、アカウントの既存の支払い方法を更新することはいつでもできます。
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/adding-or-editing-a-payment-method
   - /articles/updating-your-personal-account-s-payment-method
@@ -24,31 +24,29 @@ type: how_to
 topics:
   - Organizations
   - User account
-shortTitle: Manage a payment method
+shortTitle: 支払い方法の管理
 ---
+
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
-We don't provide invoicing or support purchase orders for personal accounts. We email receipts monthly or yearly on your account's billing date. If your company, country, or accountant requires your receipts to provide more detail, you can also [add extra information](/articles/adding-information-to-your-personal-account-s-receipts) to your receipts.
+個人アカウントに対する請求書の対応や、発注書のサポートはしておりません。 アカウントの月次もしくは年次の支払日に、領収書をメールします。 あなたの会社、国、会計士が領収書にさらなる詳細を必要とする場合は、領収書に[情報を追加](/articles/adding-information-to-your-personal-account-s-receipts)できます。
 
-## Updating your personal account's payment method
+## 個人アカウントの支払い方法を更新する
 
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. If your account has existing billing information that you want to update, click **Edit**.
-![Billing New Card button](/assets/images/help/billing/billing-information-edit-button.png)
+1. If your account has existing billing information that you want to update, click **Edit**. ![支払の新しいカードボタン](/assets/images/help/billing/billing-information-edit-button.png)
 {% data reusables.dotcom_billing.enter-billing-info %}
-1. If your account has an existing payment method that you want to update, click **Edit**.
-![Billing New Card button](/assets/images/help/billing/billing-payment-method-edit-button.png)
+1. If your account has an existing payment method that you want to update, click **Edit**. ![支払の新しいカードボタン](/assets/images/help/billing/billing-payment-method-edit-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
-## Updating your organization's payment method
+## Organization の支払い方法を更新する
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-If your organization is outside of the US or if you're using a corporate checking account to pay for {% data variables.product.product_name %}, PayPal could be a helpful method of payment.
+Organization がアメリカ外にあるか、{% data variables.product.product_name %} への支払いに会社の当座預金口座を使っているなら、支払い方法として PayPal が役立つかもしれません
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. If your account has an existing credit card that you want to update, click **New Card**.
-![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
+1. アカウントに既存のクレジットカードがあり、更新したい場合には、**New Card（新しいカード）**をクリックしてください。 ![支払の新しいカードボタン](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}

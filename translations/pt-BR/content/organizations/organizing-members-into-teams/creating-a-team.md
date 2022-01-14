@@ -1,6 +1,6 @@
 ---
-title: Creating a team
-intro: You can create independent or nested teams to manage repository permissions and mentions for groups of people.
+title: Criar equipes
+intro: Você pode criar equipes independentes ou aninhadas para gerenciar permissões de repositório e menções para grupos de pessoas.
 redirect_from:
   - /articles/creating-a-team-early-access-program
   - /articles/creating-a-team
@@ -15,7 +15,7 @@ topics:
   - Teams
 ---
 
-Only organization owners and maintainers of a parent team can create a new child team under a parent. Owners can also restrict creation permissions for all teams in an organization. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)."
+Apenas os proprietários e mantenedores de uma equipe principal podem criar uma nova equipe secundária sob a principal. Os proprietários também podem restringir as permissões de criação para todas as equipes em uma organização. Para obter mais informações, consulte "[Configurar permissões de criação de equipes na organização](/articles/setting-team-creation-permissions-in-your-organization)".
 
 {% data reusables.organizations.team-synchronization %}
 
@@ -26,17 +26,16 @@ Only organization owners and maintainers of a parent team can create a new child
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.create-team-choose-parent %}
 {% ifversion ghec %}
-1. Optionally, if your organization or enterprise account uses team synchronization or your enterprise uses {% data variables.product.prodname_emus %}, connect an identity provider group to your team.
-    * If your enterprise uses {% data variables.product.prodname_emus %}, use the "Identity Provider Groups" drop-down menu, and select a single identity provider group to connect to the new team. For more information, "[Managing team memberships with identity provider groups](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)."
-    * If your organization or enterprise account uses team synchronization, use the "Identity Provider Groups" drop-down menu, and select up to five identity provider groups to connect to the new team. For more information, see "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
-    ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png)
+1. Opcionalmente, se sua conta da organização ou empresa usa a sincronização de equipes ou sua empresa usa {% data variables.product.prodname_emus %}, conecte um grupo do provedor de identidade à sua equipe.
+    * Se a sua empresa usar o {% data variables.product.prodname_emus %}, use o menu suspenso "Grupos de provedor de identidade" e selecione um único grupo de provedores de identidade para conectar-se à nova equipe. Para mais informações, consulte "[Gerenciar associações de equipe com grupos de provedor de identidade](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
+    * Se a conta da sua organização ou empresa usar a sincronização de equipe, use o menu suspenso "Grupos de provedor de identidade e selecione até cinco grupos de provedores de identidade para conectar-se à nova equipe. Para obter mais informações, consulte "[Sincronizando uma equipe com um grupo de provedores de identidade ](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)." ![Menu suspenso para escolher grupos de provedores de identidade](/assets/images/help/teams/choose-an-idp-group.png)
 {% endif %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
-1. Optionally, [give the team access to organization repositories](/articles/managing-team-access-to-an-organization-repository).
+1. Se desejar, [forneça à equipe acesso aos repositórios da organização](/articles/managing-team-access-to-an-organization-repository).
 
-## Further reading
+## Leia mais
 
-- "[About teams](/articles/about-teams)"
-- "[Changing team visibility](/articles/changing-team-visibility)"
-- "[Moving a team in your organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)"
+- "[Sobre equipes](/articles/about-teams)"
+- "[Alterar a visibilidade da equipe](/articles/changing-team-visibility)"
+- "[Mover uma equipe na hierarquia da organização](/articles/moving-a-team-in-your-organization-s-hierarchy)"

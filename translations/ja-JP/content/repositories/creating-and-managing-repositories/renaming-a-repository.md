@@ -1,6 +1,6 @@
 ---
-title: Renaming a repository
-intro: You can rename a repository if you're either an organization owner or have admin permissions for the repository.
+title: リポジトリの名前を変更する
+intro: Organization のオーナーであるかリポジトリの管理者権限があれば、リポジトリの名前を変更することができます。
 redirect_from:
   - /articles/renaming-a-repository
   - /github/administering-a-repository/renaming-a-repository
@@ -13,43 +13,43 @@ versions:
 topics:
   - Repositories
 ---
-When you rename a repository, all existing information, with the exception of project site URLs, is automatically redirected to the new name, including:
 
-* Issues
-* Wikis
-* Stars
-* Followers
+リポジトリの名前を変更すると、プロジェクトサイトの URL を除くすべての既存の情報は、下記を含む新しい名前に自動的にリダイレクトされます。
+
+* Issue
+* Wiki
+* Star
+* フォロワー
 
 For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
-In addition to redirecting web traffic, all `git clone`, `git fetch`, or `git push` operations targeting the previous location will continue to function as if made on the new location. However, to reduce confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using  `git remote` on the command line:
+Web トラフィックのリダイレクトに加え、前の場所をターゲットにしたすべての `git clone`、`git fetch`、または `git push` 操作は、引き続き新しい場所に対して行われているように機能します。 ただし、混乱を低減するため、既存のローカルクローンが新しいリポジトリ URL を指すよう更新することを強く推奨します。 これを行うには、コマンドラインで  `git remote` を使用します。
 
 ```shell
-$ git remote set-url origin <em>new_url</em>
+$ git remote set-url origin <em>新しい URL</em>
 ```
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+詳しい情報については「[リモートリポジトリの管理](/github/getting-started-with-github/managing-remote-repositories)」を参照してください。
 
 {% ifversion fpt or ghec %}
 
-If you plan to rename a repository that has a {% data variables.product.prodname_pages %} site, we recommend using a custom domain for your site. This ensures that the site's URL isn't impacted by renaming the repository. For more information, see "[About custom domains and {% data variables.product.prodname_pages %} site](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)." 
+{% data variables.product.prodname_pages %}サイトを持つリポジトリの名前を変更する場合は、サイトにカスタムドメインを使用することをお勧めします。 これにより、リポジトリの名前を変更してもサイトの URL は影響を受けません。 詳細は「[カスタムドメインおよび{% data variables.product.prodname_pages %}サイトについて](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)」を参照してください。
 
 {% endif %}
 
 {% tip %}
 
-**Tip:** {% data reusables.organizations.owners-and-admins-can %} rename a repository. {% data reusables.organizations.new-repo-permissions-more-info %}
+**ヒント:** {% data reusables.organizations.owners-and-admins-can %}リポジトリの名前を変更できます。 {% data reusables.organizations.new-repo-permissions-more-info %}
 
 {% endtip %}
 
 {% warning %}
 
-**Warning**: If you create a new repository under your account in the future, do not reuse the original name of the renamed repository. If you do, redirects to the renamed repository will break.
+**警告**: 将来的にアカウントで新しいリポジトリを作成する場合、名前変更したリポジトリの元の名前を再利用しないでください。 再利用した場合、名前変更したリポジトリへのリダイレクトが切断されます。
 
 {% endwarning %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under the **Repository Name** heading, type the new name of your repository.
-   ![Repository rename](/assets/images/help/repository/repository-name-change.png)
-4. Click **Rename**. You're done!
+3. [**Repository Name**] の下で、リポジトリの新しい名前を入力します。 ![リポジトリの名前の変更](/assets/images/help/repository/repository-name-change.png)
+4. [**Rename**] をクリックします。 これで完了です。

@@ -1,5 +1,5 @@
 ---
-title: Rate limits for GitHub Apps
+title: Limites de taxa para aplicativos do GitHub
 intro: '{% data reusables.shortdesc.rate_limits_github_apps %}'
 redirect_from:
   - /early-access/integrations/rate-limits
@@ -14,15 +14,16 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Rate limits
+shortTitle: Limites de taxa
 ---
-## Server-to-server requests
+
+## Solicitações de servidor para servidor
 
 {% ifversion ghec %}
 
-The rate limits for server-to-server requests made by {% data variables.product.prodname_github_apps %} depend on where the app is installed. If the app is installed on organizations or repositories owned by an enterprise on {% data variables.product.product_location %}, then the rate is higher than for installations outside an enterprise.
+Os limites de taxa para as solicitações de servidor para servidor feitas por {% data variables.product.prodname_github_apps %} dependem de onde o aplicativo está instalado. Se o aplicativo estiver instalado em organizações ou repositórios pertencentes a uma empresa em {% data variables.product.product_location %}, a taxa é mais alta do que para instalações fora de uma empresa.
 
-### Normal server-to-server rate limits
+### Limites de taxa normais de servidor a servidor
 
 {% endif %}
 
@@ -30,32 +31,32 @@ The rate limits for server-to-server requests made by {% data variables.product.
 
 {% ifversion ghec %}
 
-### {% data variables.product.prodname_ghe_cloud %} server-to-server rate limits
+### Limites de taxa de servidor a servidor de {% data variables.product.prodname_ghe_cloud %}
 
-{% data variables.product.prodname_github_apps %} that are installed on an organization or repository owned by an enterprise on {% data variables.product.product_location %} have a rate limit of 15,000 requests per hour for server-to-server requests.
+{% data variables.product.prodname_github_apps %} que são instalados em uma organização ou repositório pertencente a uma empresa em {% data variables.product.product_location %} têm um limite de taxa de 15.000 solicitações por hora para solicitações de servidor para servidor.
 
 {% endif %}
 
-## User-to-server requests
+## Solicitações de usuário para servidor
 
-{% data variables.product.prodname_github_apps %} can also act [on behalf of a user](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), making user-to-server requests.
+{% data variables.product.prodname_github_apps %} também pode atuar [em nome de um usuário](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), fazendo solicitações do usuário para servidor.
 
 {% ifversion ghec %}
 
-The rate limits for user-to-server requests made by {% data variables.product.prodname_github_apps %} depend on where the app is installed. If the app is installed on organizations or repositories owned by an enterprise on {% data variables.product.product_location %}, then the rate is higher than for installations outside an enterprise.
+Os limites de taxa para as solicitações de servidor para servidor feitas por {% data variables.product.prodname_github_apps %} dependem de onde o aplicativo está instalado. Se o aplicativo estiver instalado em organizações ou repositórios pertencentes a uma empresa em {% data variables.product.product_location %}, a taxa é mais alta do que para instalações fora de uma empresa.
 
-### Normal user-to-server rate limits
+### Limites de taxa normais de usuário para servidor
 
 {% endif %}
 
-User-to-server requests are rate limited at {% ifversion ghae %}15,000{% else %}5,000{% endif %} requests per hour and per authenticated user. All OAuth applications authorized by that user, personal access tokens owned by that user, and requests authenticated with that user's{% ifversion ghae %} token{% else %} username and password{% endif %} share the same quota of 5,000 requests per hour for that user.
+As solicitações de usuário para servidor têm um limite de {% ifversion ghae %}15.000{% else %}5.000{% endif %} solicitações por hora e por usuário autenticado. Todos os aplicativos OAuth autorizados por esse usuário, tokens de acesso pessoal pertencentes a esse usuário e solicitações autenticadas com o usuário {% ifversion ghae %} token{% else %} usuário e senha{% endif %} compartilham a mesma cota de 5.000 solicitações por hora para esse usuário.
 
 {% ifversion ghec %}
 
-### {% data variables.product.prodname_ghe_cloud %} user-to-server rate limits
+### Limites de taxa de usuário para servidor de {% data variables.product.prodname_ghe_cloud %}
 
-When a user belongs to an enterprise on {% data variables.product.product_location %}, user-to-server requests to resources owned by the same enterprise are rate limited at 15,000 requests per hour and per authenticated user. All OAuth applications authorized by that user, personal access tokens owned by that user, and requests authenticated with that user's username and password share the same quota of 5,000 requests per hour for that user.
+Quando um usuário pertence a uma empresa em {% data variables.product.product_location %}, as solicitações de usuário para servidor para recursos pertencentes à mesma empresa têm uma taxa limite de 15.000 solicitações por hora e por usuário autenticado. Todos os aplicativos OAuth autorizados por esse usuário, tokens de acesso pessoal pertencentes a esse usuário, e pedidos autenticados com o nome de usuário e senha compartilham a mesma cota de 5.000 solicitações por hora para esse usuário.
 
 {% endif %}
 
-For more detailed information about rate limits, see "[Rate limiting](/rest/overview/resources-in-the-rest-api#rate-limiting)" for REST API and "[Resource limitations]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations)" for GraphQL API.
+Para obter informações mais detalhadas sobre os limites de taxa, consulte "[Limite de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting)" para API REST e "[Limitações de recursos]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations)" para API do GraphQL.

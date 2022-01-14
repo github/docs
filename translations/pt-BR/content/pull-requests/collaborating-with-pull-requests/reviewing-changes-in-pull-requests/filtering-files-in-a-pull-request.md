@@ -1,6 +1,6 @@
 ---
-title: Filtering files in a pull request
-intro: 'To help you quickly review changes in a large pull request, you can filter changed files.'
+title: Filtrar arquivos em uma pull request
+intro: 'Para facilitar a rápida revisão de alterações em uma pull request extensa, você pode filtrar arquivos alterados.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request
   - /articles/filtering-files-in-a-pull-request-by-file-type
@@ -14,25 +14,24 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Filter files
+shortTitle: Filtrar arquivos
 ---
-You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.
+
+Você pode filtrar arquivos em um pull request por tipo de extensão de arquivo, como `. tml` ou `.js`, falta de uma extensão, propriedade de código ou dotfiles.
 
 {% tip %}
 
-**Tip:** To simplify your pull request diff view, you can also temporarily hide deleted files or files you have already viewed in the pull request diff from the file filter drop-down menu.
+**Dica:** para simplificar a visualização do diff do pull request, também é possível ocultar temporariamente os arquivos excluídos ou aqueles que você já visualizou no diff do pull request a partir menu suspenso Filtro de arquivo.
 
 {% endtip %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request you'd like to filter.
+2. Na lista de pull requests, clique na pull request que você gostaria de filtrar.
 {% data reusables.repositories.changed-files %}
-4. Use the File filter drop-down menu, and select, unselect, or click the desired filters.
-  ![File filter option above pull request diff](/assets/images/help/pull_requests/file-filter-option.png)
-5. Optionally, to clear the filter selection, under the **Files changed** tab, click **Clear**.
-  ![Clear file filter selection](/assets/images/help/pull_requests/clear-file-filter.png)
+4. Use o menu suspenso File filter (Filtro de arquivo) e selecione, desmarque ou clique nos filtros desejados. ![Opção File filter (Filtro de arquivo) acima do diff da pull request](/assets/images/help/pull_requests/file-filter-option.png)
+5. Como opção, para limpar a seleção de filtro, abaixo da aba **Files changed** (Arquivos alterados) clique em **Clear** (Limpar). ![Limpar a seleção File filter (Filtro de arquivo)](/assets/images/help/pull_requests/clear-file-filter.png)
 
-## Further reading
+## Leia mais
 
-- "[About comparing branches in a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)"
-- "[Finding changed methods and functions in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/finding-changed-methods-and-functions-in-a-pull-request)"
+- "[Sobre comparar branches em uma pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)"
+- "[Encontrar métodos e funções alterados em uma pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/finding-changed-methods-and-functions-in-a-pull-request)"

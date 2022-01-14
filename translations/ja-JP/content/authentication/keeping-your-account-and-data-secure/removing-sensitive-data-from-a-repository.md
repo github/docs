@@ -1,6 +1,6 @@
 ---
-title: Removing sensitive data from a repository
-intro: 'If you commit sensitive data, such as a password or SSH key into a Git repository, you can remove it from the history. To entirely remove unwanted files from a repository''s history you can use either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.'
+title: 機密データをリポジトリから削除する
+intro: Git リポジトリへのパスワードや SSH キーといった機密データをコミットする場合、そのデータを履歴から削除することができます。 To entirely remove unwanted files from a repository's history you can use either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.
 redirect_from:
   - /remove-sensitive-data
   - /removing-sensitive-data
@@ -18,51 +18,52 @@ topics:
   - Access management
 shortTitle: Remove sensitive data
 ---
-The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
 
-You can remove the file from the latest commit with `git rm`. For information on removing a file that was added with the latest commit, see "[About large files on {% data variables.product.prodname_dotcom %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)."
+The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. コミットの SHA が変更されると、リポジトリでオープンされたプルリクエストに影響する可能性があります。 ファイルをリポジトリから削除する前に、オープンプルリクエストをすべてマージまたはクローズすることを推奨します。
+
+`git rm` によって、最新のコミットからファイルを削除することができます。 For information on removing a file that was added with the latest commit, see "[About large files on {% data variables.product.prodname_dotcom %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)."
 
 {% warning %}
 
-This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. However, it's important to note that those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You cannot remove sensitive data from other users' clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
+This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. ただし、こうしたコミットも、リポジトリのクローンやフォークからは、{% data variables.product.product_name %} でキャッシュされているビューの SHA-1 ハッシュによって直接、また参照元のプルリクエストによって、到達できる可能性があることに注意することが重要です。 You cannot remove sensitive data from other users' clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
 
-**Warning: Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised.** If you committed a password, change it! If you committed a key, generate a new one. Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository. Consider these limitations in your decision to rewrite your repository's history.
+**Warning: Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised.** If you committed a password, change it! キーをコミットした場合は、新たに生成してください。 Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository. Consider these limitations in your decision to rewrite your repository's history.
 
 {% endwarning %}
 
-## Purging a file from your repository's history
+## ファイルをリポジトリの履歴からパージする
 
 You can purge a file from your repository's history using either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.
 
-### Using the BFG
+### BFG を使用する
 
-The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-branch` for removing unwanted data. 
+[BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) は、オープンソースコミュニティによって構築およびメンテナンスされているツールです。 これは、不要なデータを削除する手段として、`git filter-branch` より高速でシンプルです。
 
-For example, to remove your file with sensitive data and leave your latest commit untouched, run:
+たとえば、機密データを含むファイルを削除して、最新のコミットをそのままにしておくには、次を実行します:
 
 ```shell
-$ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
+$ bfg --delete-files <em>機密データを含むファイル</em>
 ```
 
-To replace all text listed in `passwords.txt` wherever it can be found in your repository's history, run:
+`passwords.txt` にリストされているすべてのテキストについて、リポジトリの履歴にあれば置き換えるには、次を実行します:
 
 ```shell
 $ bfg --replace-text passwords.txt
 ```
 
-After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}. Force pushing rewrites the repository history, which removes sensitive data from the commit history. If you force push, it may overwrite commits that other people have based their work on.
+機密データが削除されたら、変更を {% data variables.product.product_name %} に強制的にプッシュする必要があります。 Force pushing rewrites the repository history, which removes sensitive data from the commit history. If you force push, it may overwrite commits that other people have based their work on.
 
 ```shell
 $ git push --force
 ```
 
-See the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
+完全な使用方法とダウンロード手順については、[BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) のドキュメントを参照してください。
 
 ### Using git filter-repo
 
 {% warning %}
 
-**Warning:** If you run `git filter-repo` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-repo`, we recommend unstashing any changes you've made. To unstash the last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
+**Warning:** If you run `git filter-repo` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-repo`, we recommend unstashing any changes you've made. stash した最後の一連の変更を unstash するには、`git stash show -p | git apply -R` を実行します。 For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
 
 {% endwarning %}
 
@@ -74,25 +75,25 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   ```
   For more information, see [*INSTALL.md*](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md) in the `newren/git-filter-repo` repository.
 
-2. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/articles/cloning-a-repository/) to your local computer.
+2. 機密データを含むリポジトリのローカルコピーが履歴にまだない場合は、ローカルコンピュータに[リポジトリのクローンを作成](/articles/cloning-a-repository/)します。
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>
-  > Initialized empty Git repository in /Users/<em>YOUR-FILE-PATH</em>/<em>YOUR-REPOSITORY</em>/.git/
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>ユーザ名</em>/<em>リポジトリ</em>
+  > Initialized empty Git repository in /Users/<em>ファイルパス</em>/<em>リポジトリ</em>/.git/
   > remote: Counting objects: 1301, done.
   > remote: Compressing objects: 100% (769/769), done.
   > remote: Total 1301 (delta 724), reused 910 (delta 522)
   > Receiving objects: 100% (1301/1301), 164.39 KiB, done.
   > Resolving deltas: 100% (724/724), done.
   ```
-3. Navigate into the repository's working directory.
+3. リポジトリのワーキングディレクトリに移動します。
   ```shell
-  $ cd <em>YOUR-REPOSITORY</em>
+  $ cd <em>リポジトリ</em>
   ```
-4. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
-    - Force Git to process, but not check out, the entire history of every branch and tag
-    - Remove the specified file, as well as any empty commits generated as a result
+4. 次のコマンドを実行します。`機密データを含むファイルへのパス`は、**ファイル名だけではなく、削除するファイルへのパス**で置き換えます。 その引数により、次のことが行われます:
+    - 各ブランチとタグの履歴全体を強制的に Git で処理するが、チェックアウトはしない
+    - 指定のファイルを削除することにより、生成された空のコミットも削除される
     - Remove some configurations, such as the remote URL, stored in the *.git/config* file. You may want to back up this file in advance for restoration later.
-    - **Overwrite your existing tags**
+    - **既存のタグを上書きする**
         ```shell
         $ git filter-repo --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
         Parsed 197 commits
@@ -110,11 +111,11 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 
   {% note %}
 
-  **Note:** If the file with sensitive data used to exist at any other paths (because it was moved or renamed), you must run this command on those paths, as well.
+  **メモ:** 機密データを含む当該ファイルが (移動されたか名前が変更されたため) 他のパスに存在していた場合、このコマンドはそのパスでも実行する必要があります。
 
   {% endnote %}
 
-5. Add your file with sensitive data to `.gitignore` to ensure that you don't accidentally commit it again.
+5. 機密データを含むファイルを、誤って再度コミットしないようにするため、`.gitignore` に追加します。
 
   ```shell
   $ echo "<em>YOUR-FILE-WITH-SENSITIVE-DATA</em>" >> .gitignore
@@ -123,7 +124,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   > [main 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
-6. Double-check that you've removed everything you wanted to from your repository's history, and that all of your branches are checked out.
+6. リポジトリの履歴から削除対象をすべて削除したこと、すべてのブランチがチェックアウトされたことをダブルチェックします。
 7. Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, as well as all the branches you've pushed up. A force push is required to remove sensitive data from your commit history.
   ```shell
   $ git push origin --force --all
@@ -135,7 +136,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
-8. In order to remove the sensitive file from [your tagged releases](/articles/about-releases), you'll also need to force-push against your Git tags:
+8. 機密データを[タグ付きリリース](/articles/about-releases)から削除するため、Git タグに対しても次のようにフォースプッシュする必要があります。
   ```shell
   $ git push origin --force --tags
   > Counting objects: 321, done.
@@ -151,9 +152,9 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 
 After using either the BFG tool or `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.product_name %}, you must take a few more steps to fully remove the data from {% data variables.product.product_name %}.
 
-1. Contact {% data variables.contact.contact_support %}, asking them to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}. Please provide the name of the repository and/or a link to the commit you need removed.
+1. {% data variables.contact.contact_support %} に連絡し、{% data variables.product.product_name %} 上で、キャッシュされているビューと、プルリクエストでの機密データへの参照を削除するよう依頼します。 Please provide the name of the repository and/or a link to the commit you need removed.
 
-2. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *not* merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
+2. コラボレータには、 作成したブランチを古い (汚染された) リポジトリ履歴から[リベース](https://git-scm.com/book/en/Git-Branching-Rebasing)する (マージ*しない*) よう伝えます。 マージコミットを 1 回でも行うと、パージで問題が発生したばかりの汚染された履歴の一部または全部が再導入されてしまいます。
 
 3. After some time has passed and you're confident that the BFG tool / `git filter-repo` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
   ```shell
@@ -168,21 +169,21 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
   ```
   {% note %}
 
-   **Note:** You can also achieve this by pushing your filtered history to a new or empty repository and then making a fresh clone from {% data variables.product.product_name %}.
+   **注釈:** フィルタした履歴を、新規または空のリポジトリにプッシュして、{% data variables.product.product_name %} から新しいクローンを作成することによっても、同じことができます。
 
   {% endnote %}
 
-## Avoiding accidental commits in the future
+## 将来にわたって誤ったコミットを回避する
 
-There are a few simple tricks to avoid committing things you don't want committed:
+コミット対象でないものがコミットされるのを回避するためのシンプルな方法がいくつかあります。
 
-- Use a visual program like [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) or [gitk](https://git-scm.com/docs/gitk) to commit changes. Visual programs generally make it easier to see exactly which files will be added, deleted, and modified with each commit.
-- Avoid the catch-all commands `git add .` and `git commit -a` on the command line—use `git add filename` and `git rm filename` to individually stage files, instead.
-- Use `git add --interactive` to individually review and stage changes within each file.
-- Use `git diff --cached` to review the changes that you have staged for commit. This is the exact diff that `git commit` will produce as long as you don't use the `-a` flag.
+- [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) や [gitk](https://git-scm.com/docs/gitk) のようなビジュアルプログラムを使用して、変更をコミットします。 ビジュアルプログラムは通常、各コミットでどのファイルが追加、削除、変更されるかを正確に把握しやすくするものです。
+- コマンドラインでは catch-all コマンド、`git add .` および `git commit -a` は使用しないようにします。ファイルを個別にステージングするには、代わりに `git add filename` および `git rm filename` を使用します。
+- 各ファイル内の変更を個別にレビューしステージングするには、`git add --interactive` を使用します。
+- コミットのためにステージングされている変更をレビューするには、`git diff --cached` を使用します。 これはまさに、`git commit` で `-a` フラグを使用しない限りにおいて生成される diff です。
 
-## Further reading
+## 参考リンク
 
 - [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
-- [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
+- [Pro Git：Git ツール - 履歴の書き換え](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
 - "[About Secret scanning](/code-security/secret-security/about-secret-scanning)"

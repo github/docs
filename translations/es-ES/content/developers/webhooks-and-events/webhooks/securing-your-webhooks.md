@@ -1,6 +1,6 @@
 ---
-title: Securing your webhooks
-intro: 'Ensure your server is only receiving the expected {% data variables.product.prodname_dotcom %} requests for security reasons.'
+title: Asegurar tus webhooks
+intro: 'Asegúrate de que tu servidor está recibiendo únicamente las solicitudes de {% data variables.product.prodname_dotcom %} esperadas por razones de seguridad.'
 redirect_from:
   - /webhooks/securing
   - /developers/webhooks-and-events/securing-your-webhooks
@@ -12,42 +12,42 @@ versions:
 topics:
   - Webhooks
 ---
-Once your server is configured to receive payloads, it'll listen for any payload sent to the endpoint you configured. For security reasons, you probably want to limit requests to those coming from GitHub. There are a few ways to go about this--for example, you could opt to allow requests from GitHub's IP address--but a far easier method is to set up a secret token and validate the information.
+
+Una vez que tu servidor se configure para recibir cargas útiles, éste escuchará a cualquiera de ellas que se envíe a la terminal que configuraste. Por razones de seguridad, probablemente quieras limitar las solicitudes a aquellas que vengan de GitHub. Hay algunas formas de solucionar esto, por ejemplo, podrías decidir el permitir las solicitudes que vengan de la dirección IP de GitHub, pero una manera mucho más fácil es configurar un token secreto y validar la información.
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-## Setting your secret token
+## Configurar tu token secreto
 
-You'll need to set up your secret token in two places: GitHub and your server.
+Necesitarás configurar tu token secreto en dos lugares: GitHub y tu servidor.
 
-To set your token on GitHub:
+Para configurar tu token en GitHub:
 
-1. Navigate to the repository where you're setting up your webhook.
-2. Fill out the Secret textbox. Use a random string with high entropy (e.g., by taking the output of `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` at the terminal).
-![Webhook secret token field](/assets/images/webhook_secret_token.png)
-3. Click **Update Webhook**.
+1. Navega al repositorio en donde configuraste tu webhook.
+2. Llena la caja de texto del secreto. Utiliza una secuencia aleatoria con entropía alta (por ejemplo, tomando la salida de `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` en la terminal). ![Campo de webhook y de token secreto](/assets/images/webhook_secret_token.png)
+3. Da clic en **Actualizar Webhook**.
 
-Next, set up an environment variable on your server that stores this token. Typically, this is as simple as running:
+Después, configura una variable de ambiente en tu servidor, la cual almacene este token. Por lo general, esto es tan simple como el ejecutar:
 
 ```shell
 $ export SECRET_TOKEN=<em>your_token</em>
 ```
 
-**Never** hardcode the token into your app!
+¡**Jamás** preprogrames el token en tu app!
 
-## Validating payloads from GitHub
+## Validar cargas útiles de GitHub
 
-When your secret token is set, {% data variables.product.product_name %} uses it to create a hash signature with each payload. This hash signature is included with the headers of each request as `X-Hub-Signature-256`.
+Cuando se configura tu token secreto, {% data variables.product.product_name %} lo utiliza para crear una firma de hash con cada carga útil. Esta firma de hash se incluye con los encabezados de cada solicitud como `X-Hub-Signature-256`.
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**Note:** For backward-compatibility, we also include the `X-Hub-Signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `X-Hub-Signature-256` header for improved security. The example below demonstrates using the `X-Hub-Signature-256` header.
+**Nota:** Para tener compatibilidad en versiones anteriores, también incluimos el encabezado `X-Hub-Signature` que se genera utilizando la función de hash SHA-1. De ser posible, te recomendamos que utilices el encabezado de `X-Hub-Signature-256` para mejorar la seguridad. El ejemplo siguiente demuestra cómo utilizar el encabezado `X-Hub-Signature-256`.
 
 {% endnote %}
 {% endif %}
 
-For example, if you have a basic server that listens for webhooks, it might be configured similar to this:
+Por ejemplo, si tienes un servidor básico que escucha a los webhooks, puede configurarse de forma similar a esto:
 
 ``` ruby
 require 'sinatra'
@@ -60,7 +60,7 @@ post '/payload' do
 end
 ```
 
-The intention is to calculate a hash using your `SECRET_TOKEN`, and ensure that the result matches the hash from {% data variables.product.product_name %}. {% data variables.product.product_name %} uses an HMAC hex digest to compute the hash, so you could reconfigure your server to look a little like this:
+La intención es calcular un hash utilizando tu `SECRET_TOKEN`, y asegurarse de que el resultado empate con el hash de {% data variables.product.product_name %}. {% data variables.product.product_name %} utiliza un resumen hexadecimal de HMAC para calcular el hash, así que podrías reconfigurar tu servidor para que se viera así:
 
 ``` ruby
 post '/payload' do
@@ -79,14 +79,14 @@ end
 
 {% note %}
 
-**Note:** Webhook payloads can contain unicode characters. If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8.
+**Nota:** Las cargas útiles de los webhooks pueden contener caracteres en unicode. Si tu implementación de idioma y servidor especifican un cifrado de caracteres, asegúrate de que estés manejando la carga útil como UTF-8.
 
 {% endnote %}
 
-Your language and server implementations may differ from this example code. However, there are a number of very important things to point out:
+Tus implementaciones de lenguaje y de servidor pueden diferir de esta muestra de código. Sin embargo, hay varias cosas muy importantes que destacar:
 
-* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
+* Sin importar qué implementación utilices, la firma de hash comenzará con `sha256=`, utilizando la llave de tu token secreto y el cuerpo de tu carga útil.
 
-* Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
+* **No se recomienda** utilizar un simple operador de `==`. Un método como el de [`secure_compare`][secure_compare] lleva a cabo una secuencia de comparación de "tiempo constante" que ayuda a mitigar algunos ataques de temporalidad en contra de las operaciones de igualdad habituales.
 
 [secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare

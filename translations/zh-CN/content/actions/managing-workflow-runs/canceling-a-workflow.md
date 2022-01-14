@@ -1,6 +1,6 @@
 ---
-title: Canceling a workflow
-intro: 'You can cancel a workflow run that is in progress. When you cancel a workflow run, {% data variables.product.prodname_dotcom %} cancels all jobs and steps that are a part of that workflow.'
+title: 取消工作流程
+intro: '您可以取消正在运行的工作流程。 当您取消工作流程运行时，{% data variables.product.prodname_dotcom %} 会取消属于该工作流程的所有作业和步骤。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,26 +13,25 @@ versions:
 
 {% data reusables.repositories.permissions-statement-write %}
 
-## Canceling a workflow run
+## 取消工作流程运行
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-1. From the list of workflow runs, click the name of the `queued` or `in progress` run that you want to cancel.
-![Name of workflow run](/assets/images/help/repository/in-progress-run.png)
-1. In the upper-right corner of the workflow, click **Cancel workflow**.
+1. 从工作流程运行列表中，单击您要取消的`已排队`或`进行中`运行的名称。 ![工作流程运行的名称](/assets/images/help/repository/in-progress-run.png)
+1. 在工作流程右上角单击 **Cancel workflow（取消工作流程）**。
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
- ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite-updated.png)
+ ![取消检查套件按钮](/assets/images/help/repository/cancel-check-suite-updated.png)
 {% else %}
- ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite.png)
+ ![取消检查套件按钮](/assets/images/help/repository/cancel-check-suite.png)
 {% endif %}
 
-## Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
+## {% data variables.product.prodname_dotcom %} 取消工作流程运行所执行的步骤
 
-When canceling workflow run, you may be running other software that uses resources that are related to the workflow run. To help you free up resources related to the workflow run, it may help to understand the steps {% data variables.product.prodname_dotcom %} performs to cancel a workflow run.
+取消工作流程运行时，您可能正在运行使用与工作流程运行相关的资源的其他软件。 为了帮助您释放与工作流程运行相关的资源，它可能有助于了解 {% data variables.product.prodname_dotcom %} 为取消工作流程运行而执行的步骤。
 
-1. To cancel the workflow run, the server re-evaluates `if` conditions for all currently running jobs. If the condition evaluates to `true`, the job will not get canceled. For example, the condition `if: always()` would evaluate to true and the job continues to run. When there is no condition, that is the equivalent of the condition `if: success()`, which only runs if the previous step finished successfully.
-2. For jobs that need to be canceled, the server sends a cancellation message to all the runner machines with jobs that need to be canceled.
-3. For jobs that continue to run, the server re-evaluates `if` conditions for the unfinished steps. If the condition evaluates to `true`, the step continues to run.
-4. For steps that need to be canceled, the runner machine sends `SIGINT/Ctrl-C` to the step's entry process (`node` for javascript action, `docker` for container action, and `bash/cmd/pwd` when using `run` in a step). If the process doesn't exit within 7500 ms, the runner will send `SIGTERM/Ctrl-Break` to the process, then wait for 2500 ms for the process to exit. If the process is still running, the runner kills the process tree.
-5. After the 5 minutes cancellation timeout period, the server will force terminate all jobs and steps that don't finish running or fail to complete the cancellation process.
+1. 要取消工作流程运行，服务器将重新评估所有正在运行的作业的 `if` 条件。 如果条件评估为 `true`，作业将不会取消。 例如，条件 `if: always()` 将评估为 true，并且作业继续运行。 没有条件时，则等同于条件 `if: success()`，仅在上一步已成功完成时才会运行。
+2. 对于需要取消的作业，服务器向包含需取消作业的所有运行器机器发送取消消息。
+3. 对于继续运行的作业，服务器将对未完成的步骤重新评估 `if` 条件。 如果条件评估为 `true`，则步骤继续运行。
+4. 对于需要取消的步骤，运行器机器发送 `SIGINT/Ctrl-C` 到该步骤的输入进程（`node` 用于 javascript 操作，`docker` 用于容器操作，`bash/cmd/pwd` 则在步骤中使用 `run` 时发送）。 如果进程未在 7500 毫秒内退出，运行器将发送 `SIGTERM/Ctrl-Break` 到此进程，然后等待 2500 毫秒让进程退出。 如果该进程仍在运行，运行器会停止进程树。
+5. 在 5 分钟取消超时期后，服务器将强制终止未完成运行或无法完成取消进程的所有作业和步骤。

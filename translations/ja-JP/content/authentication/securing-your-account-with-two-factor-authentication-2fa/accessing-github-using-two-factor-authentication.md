@@ -1,6 +1,6 @@
 ---
-title: Accessing GitHub using two-factor authentication
-intro: 'With 2FA enabled, you''ll be asked to provide your 2FA authentication code, as well as your password, when you sign in to {% data variables.product.product_name %}.'
+title: 2 要素認証を利用した GitHub へのアクセス
+intro: '2FA を有効にすると、{% data variables.product.product_name %} にサインインするときに、2FA 認証コードとパスワードを入力するように求められます。'
 redirect_from:
   - /articles/providing-your-2fa-security-code
   - /articles/providing-your-2fa-authentication-code
@@ -16,57 +16,58 @@ topics:
   - 2FA
 shortTitle: Access GitHub with 2FA
 ---
-With two-factor authentication enabled, you'll need to provide an authentication code when accessing {% data variables.product.product_name %} through your browser. If you access {% data variables.product.product_name %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)."
 
-## Providing a 2FA code when signing in to the website
+2 要素認証を有効にすると、ブラウザから {% data variables.product.product_name %} にアクセスするときに認証コードを入力する必要があります。 API やコマンドラインなどの他の方法を使用して {% data variables.product.product_name %} にアクセスする場合は、別の形式の認証を使用する必要があります。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} への認証について](/github/authenticating-to-github/about-authentication-to-github)」を参照してください。
 
-After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% ifversion fpt or ghec %}a text message or{% endif %} your TOTP app.
+## Web サイトへのサインインの際に 2FA コードを提供
 
-{% data variables.product.product_name %} will only ask you to provide your 2FA authentication code again if you've logged out, are using a new device, or your session expires.
+パスワードを使用して {% data variables.product.product_name %}にサインインした後、{% ifversion fpt or ghec %}テキストメッセージまたは {% endif %}TOTP アプリケーションから、認証コードを入力するよう求められます。
 
-### Generating a code through a TOTP application
+{% data variables.product.product_name %}が 2FA 認証コードを再度求めるのは、ログアウトした場合、新しいデバイスを使う場合、またはセッションが期限切れになった場合のみです。
 
-If you chose to set up two-factor authentication using a TOTP application on your smartphone, you can generate an authentication code for {% data variables.product.product_name %} at any time. In most cases, just launching the application will generate a new code. You should refer to your application's documentation for specific instructions.
+### TOTP アプリケーションでのコード生成
 
-If you delete the mobile application after configuring two-factor authentication, you'll need to provide your recovery code to get access to your account. For more information, see "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
+スマートフォン上の TOTP アプリケーションを使用して 2 要素認証をセットアップすることにした場合は、いつでも {% data variables.product.product_name %}のための認証コードを生成できます。 多くの場合、アプリケーションを起動するだけで新しいコードが生成されます。 個別の手順についてはアプリケーションのドキュメンテーションを参照してください。
+
+2 要素認証を設定した後にモバイルアプリケーションを削除した場合、アカウントにアクセスする際にリカバリコードを入力しなければなりません。 詳しい情報については[2FA クレデンシャルをなくした際のアカウントの回復](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)を参照してください。
 
 {% ifversion fpt or ghec %}
 
-### Receiving a text message
+### テキストメッセージの受信
 
-If you set up two-factor authentication via text messages, {% data variables.product.product_name %} will send you a text message with your authentication code.
+テキストメッセージで 2 要素認証をセットアップする場合、{% data variables.product.product_name %}は認証コードが記されたテキストメッセージを送信します。
 
 {% endif %}
 
-## Using two-factor authentication with the command line
+## コマンドラインでの 2 要素認証の使用
 
-After you've enabled 2FA, you must use a personal access token or SSH key instead of your password when accessing {% data variables.product.product_name %} on the command line.
+2 要素認証を有効化した後は、{% data variables.product.product_name %} にコマンドラインからアクセスする際に、パスワードの代わりに個人アクセストークンまたは SSH キーを使わなければなりません。
 
-### Authenticating on the command line using HTTPS
+### HTTPS を利用したコマンドラインでの認証
 
-After you've enabled 2FA, you must create a personal access token to use as a password when authenticating to {% data variables.product.product_name %} on the command line using HTTPS URLs.
+2FA を有効化した後は、コマンドライン上で HTTPS の URL を使って {% data variables.product.product_name %}の認証を受けるために、パスワードとして使うための個人アクセストークンを作成しなければなりません。
 
-When prompted for a username and password on the command line, use your {% data variables.product.product_name %} username and personal access token. The command line prompt won't specify that you should enter your personal access token when it asks for your password.
+コマンドラインでユーザ名とパスワードを求められたら、{% data variables.product.product_name %}のユーザ名と個人アクセストークンを入力してください。 コマンドラインプロンプトがパスワードを要求する際には、個人アクセストークンを入力すべきだということを示しません。
 
-For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
-### Authenticating on the command line using SSH
+### SSH を利用したコマンドラインでの認証
 
-Enabling 2FA doesn't change how you authenticate to {% data variables.product.product_name %} on the command line using SSH URLs. For more information about setting up and using an SSH key, see "[Connecting to {% data variables.product.prodname_dotcom %} with SSH](/articles/connecting-to-github-with-ssh/)."
+2 要素認証を有効化しても、コマンドライン上で SSH URL を使って {% data variables.product.product_name %} の認証を受けるやり方は変わりません。 SSH キーのセットアップと利用に関する詳しい情報については、「[{% data variables.product.prodname_dotcom %} に SSH で接続する](/articles/connecting-to-github-with-ssh/)」を参照してください。
 
-## Using two-factor authentication to access a repository using Subversion
+## Subversion を使ったリポジトリへのアクセスでの 2 要素認証の利用
 
-When you access a repository via Subversion, you must provide a personal access token instead of entering your password. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+SubVersion を介してリポジトリにアクセスする際には、パスワードを入力する代わりに個人アクセストークンを提供しなければなりません。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
-## Troubleshooting
+## トラブルシューティング
 
-If you lose access to your two-factor authentication credentials, you can use your recovery codes or another recovery method (if you've set one up) to regain access to your account. For more information, see "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)."
+2 要素認証のクレデンシャルを利用できなくなった場合、アカウントに再びアクセスするためには、リカバリコードを使用するか、その他のリカバリ方法 (セットアップ済みである場合) を使用できます。 詳しい情報については[2FA クレデンシャルをなくした際のアカウントの回復](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)を参照してください。
 
-If your authentication fails several times, you may wish to synchronize your phone's clock with your mobile provider. Often, this involves checking the "Set automatically" option on your phone's clock, rather than providing your own time zone.
+認証が何度も失敗するようであれば、スマートフォンのクロックをモバイルプロバイダと同期してみてください。 多くの場合、タイムゾーンを指定するのではなく、スマートフォンのクロックの「自動設定」オプションをオンにすることになります。
 
-## Further reading
+## 参考リンク
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"
-- "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"
-- "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
+- [2 要素認証について](/articles/about-two-factor-authentication)
+- [2 要素認証の設定](/articles/configuring-two-factor-authentication)
+- [2 要素認証のリカバリ方法の設定](/articles/configuring-two-factor-authentication-recovery-methods)
+- [2FA クレデンシャルをなくした際のアカウントの回復](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)

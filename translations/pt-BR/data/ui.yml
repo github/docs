@@ -22,7 +22,9 @@ search:
   placeholder: Pesquisar tópicos, produtos...
   loading: Carregando
   no_results: Nenhum resultado encontrado
+  search_results_for: Search results for
   no_content: No content
+  matches_displayed: Matches displayed
 homepage:
   explore_by_product: Explorar por produto
   version_picker: Versão
@@ -56,6 +58,7 @@ survey:
   required: Obrigatório
   email_placeholder: email@example.com
   email_label: If we can contact you with more questions, please enter your email address
+  email_validation: Please enter a valid email address
   send: Enviar
   feedback: Thank you! We received your feedback.
   not_support: If you need a reply, please contact support instead.

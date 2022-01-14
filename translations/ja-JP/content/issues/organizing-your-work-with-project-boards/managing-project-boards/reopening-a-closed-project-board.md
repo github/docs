@@ -1,5 +1,5 @@
 ---
-title: Reopening a closed project board
+title: クローズされたプロジェクトボードを再びオープンする
 intro: You can reopen a closed project board and restart any workflow automation that was configured for the project board.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/reopening-a-closed-project-board
@@ -12,22 +12,21 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Reopen project board
+shortTitle: プロジェクトボードの再オープン
 ---
+
 {% data reusables.projects.project_boards_old %}
 
-When you close a project board, any workflow automation that was configured for the project board will pause by default. For more information, see "[Closing a project board](/articles/closing-a-project-board)."
+プロジェクトボードをクローズすると、プロジェクトボードに設定されているワークフロー自動化はデフォルトで一時停止されます。 詳しい情報については[プロジェクトボードのクローズ](/articles/closing-a-project-board)を参照してください。
 
-When you reopen a project board, you have the option to *sync* automation, which updates the position of the cards on the board according to the automation settings configured for the board.
+プロジェクトボードを再びオープンする際、自動化を*同期*するオプションがあります。これにより、ボードに設定されている自動化設定に従って、ボード上のカードの位置を更新します。
 
-1. Navigate to the project board you want to reopen.
+1. 再びオープンするプロジェクトボードに移動します。
 {% data reusables.project-management.click-menu %}
-3. Choose whether to sync automation for your project board or reopen your project board without syncing.
-    - To reopen your project board and sync automation, click **Reopen and sync project**.
-  ![Select "Reopen and resync project" button](/assets/images/help/projects/reopen-and-sync-project.png)
-    - To reopen your project board without syncing automation, using the reopen drop-down menu, click **Reopen only**. Then, click **Reopen only**.
-  ![Reopen closed project board drop-down menu](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
+3. プロジェクトボードの自動化を同期するか、プロジェクトボードを同期なしで再びオープンするかを選択します。
+    - プロジェクトボードを再びオープンして自動化を同期するには、[**Reopen and sync project**] をクリックします。 !["Reopen and resync project" ボタンの選択](/assets/images/help/projects/reopen-and-sync-project.png)
+    - プロジェクトボードを自動化の同期なしで再びオープンするには、再オープンドロップダウンメニューで [**Reopen only**] をクリックします。 続いて、[**Reopen only**] をクリックします。 ![クローズ済みプロジェクトボード再オープンドロップダウンメニュー](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
-## Further reading
+## 参考リンク
 
-- "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"
+- 「[プロジェクトボードの自動化を設定する](/articles/configuring-automation-for-project-boards)」

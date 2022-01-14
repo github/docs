@@ -53,7 +53,7 @@ Os gerentes de cobrança **não** podem:
 {% ifversion ghec %}
 {% note %}
 
-**Observação:** Se sua organização for gerenciada usando [Contas Corporativas](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) você não poderá convidar os Gerentes de Cobrança no nível da organização.
+**Observação:** Se a sua organização pertencer a uma conta corporativa, você não pode convidar gerentes de cobrança no nível da organização. Para obter mais informações, consulte "[Sobre contas corporativas](/admin/overview/about-enterprise-accounts)".
 
 {% endnote %}
 {% endif %}

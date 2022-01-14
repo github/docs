@@ -1,6 +1,6 @@
 ---
-title: Tracking changes in a file
-intro: You can trace changes to lines in a file and discover how parts of the file evolved over time.
+title: Controlar as alterações em um arquivo
+intro: É possível controlar as alterações em linhas de um arquivo e descobrir como as partes do arquivo evoluíram ao longo do tempo.
 redirect_from:
   - /articles/using-git-blame-to-trace-changes-in-a-file
   - /articles/tracing-changes-in-a-file
@@ -14,25 +14,24 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Track file changes
+shortTitle: Rastrear alterações do arquivo
 ---
-With the blame view, you can view the line-by-line revision history for an entire file, or view the revision history of a single line within a file by clicking {% octicon "versions" aria-label="The prior blame icon" %}. Each time you click {% octicon "versions" aria-label="The prior blame icon" %}, you'll see the previous revision information for that line, including who committed the change and when.
 
-![Git blame view](/assets/images/help/repository/git_blame.png)
+Com a exibição blame, você pode ver o histórico de revisão linha por linha de um arquivo inteiro ou exibir o histórico de revisão de uma única linha dentro de um arquivo clicando em {% octicon "versions" aria-label="The prior blame icon" %}. Toda vez que você clicar em {% octicon "versions" aria-label="The prior blame icon" %}, verá as informações anteriores de revisão relativas a essa linha, inclusive quem realizou a alteração e quando.
 
-In a file or pull request, you can also use the {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} menu to view Git blame for a selected line or range of lines.
+![Exibição blame do Git](/assets/images/help/repository/git_blame.png)
 
-![Kebab menu with option to view Git blame for a selected line](/assets/images/help/repository/view-git-blame-specific-line.png)
+Em um arquivo ou uma pull request, também é possível usar o menu {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} para exibir o recurso blame do Git relacionado a uma determinada linha ou um intervalo de linhas.
+
+![Menu kebab com opção para exibir o recurso blame do Git relacionado a uma determinada linha](/assets/images/help/repository/view-git-blame-specific-line.png)
 
 {% tip %}
 
-**Tip:** On the command line, you can also use `git blame` to view the revision history of lines within a file. For more information, see [Git's `git blame` documentation](https://git-scm.com/docs/git-blame).
+**Dica:** na linha de comando, você também pode usar `git blame` para exibir o histórico de revisão das linhas dentro de um arquivo. Para obter mais informações, consulte [Documentação sobre `git blame` no Git](https://git-scm.com/docs/git-blame).
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Click to open the file whose line history you want to view.
-3. In the upper-right corner of the file view, click **Blame** to open the blame view.
-![Blame button](/assets/images/help/repository/blame-button.png)
-4. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="The prior blame icon" %} until you've found the changes you're interested in viewing.
-![Prior blame button](/assets/images/help/repository/prior-blame-button.png)
+2. Clique para abrir o arquivo cujo histórico de linhas você deseja exibir.
+3. No canto superior direito da exibição do arquivo, clique em **Blame** para abrir a exibição blame. ![Botão Blame (Blame)](/assets/images/help/repository/blame-button.png)
+4. Para ver revisões anteriores de uma linha específica ou tornar a usar o recurso blame, clique em {% octicon "versions" aria-label="The prior blame icon" %} até encontrar as alterações que você deseja exibir. ![Botão Prior blame (Blame anterior)](/assets/images/help/repository/prior-blame-button.png)

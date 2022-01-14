@@ -1,5 +1,5 @@
 ---
-title: Enabling OAuth App access restrictions for your organization
+title: Organization の OAuth App アクセス制限を有効化する
 intro: 'Organization owners can enable {% data variables.product.prodname_oauth_app %} access restrictions to prevent untrusted apps from accessing the organization''s resources while allowing organization members to use {% data variables.product.prodname_oauth_apps %} for their personal accounts.'
 redirect_from:
   - /articles/enabling-third-party-application-restrictions-for-your-organization
@@ -11,24 +11,22 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Enable OAuth App
+shortTitle: OAuth Appの有効化
 ---
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 
 {% warning %}
 
-**Warnings**:
-- Enabling {% data variables.product.prodname_oauth_app %} access restrictions will revoke organization access for all previously authorized {% data variables.product.prodname_oauth_apps %} and SSH keys. For more information, see "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)."
-- Once you've set up {% data variables.product.prodname_oauth_app %} access restrictions, make sure to re-authorize any {% data variables.product.prodname_oauth_app %} that require access to the organization's private data on an ongoing basis. All organization members will need to create new SSH keys, and the organization will need to create new deploy keys as needed.
-- When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, applications can use an OAuth token to access information about {% data variables.product.prodname_marketplace %} transactions.
+**警告**:
+- Enabling {% data variables.product.prodname_oauth_app %} access restrictions will revoke organization access for all previously authorized {% data variables.product.prodname_oauth_apps %} and SSH keys. 詳しい情報については、「[{% data variables.product.prodname_oauth_app %}のアクセス制限について](/articles/about-oauth-app-access-restrictions)」を参照してください。
+- {% data variables.product.prodname_oauth_app %} のアクセス制限を設定したら、Organization のプライベートなデータへのアクセスを必要とするすべての {% data variables.product.prodname_oauth_app %} を再認証してください。 Organization のすべてのメンバーは新しい SSH キーを作成する必要があり、Organization は必要に応じて新しいデプロイキーを作成する必要があります。
+- {% data variables.product.prodname_oauth_app %} のアクセス制限が有効化されると、アプリケーションで OAuth トークンを使用して {% data variables.product.prodname_marketplace %} 取引に関する情報にアクセスできます。
 
 {% endwarning %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
-5. Under "Third-party application access policy," click **Setup application access restrictions**.
-  ![Set up restrictions button](/assets/images/help/settings/settings-third-party-set-up-restrictions.png)
-6. After you review the information about third-party access restrictions, click **Restrict third-party application access**.
-  ![Restriction confirmation button](/assets/images/help/settings/settings-third-party-restrict-confirm.png)
+5. [Third-party application access policy] の下で [**Setup application access restrictions**] をクリックします。 ![制限の設定ボタン](/assets/images/help/settings/settings-third-party-set-up-restrictions.png)
+6. サードパーティのアクセス制限に関する情報を確認したら、[**Restrict third-party application access**] をクリックします。 ![制限の確認ボタン](/assets/images/help/settings/settings-third-party-restrict-confirm.png)
