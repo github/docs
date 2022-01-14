@@ -1,10 +1,10 @@
 ---
-title: Managing vulnerabilities in your project's dependencies
-intro: 'You can track your repository''s dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies.'
+title: Administrar vulnerabilidades en las dependencias de tus proyectos
+intro: 'Puedes rastrear las dependencias de tu repositorio y recibir {% data variables.product.prodname_dependabot_alerts %} cuando {% data variables.product.product_name %} detecte dependencias vulnerables.'
 redirect_from:
-  - /articles/updating-your-project-s-dependencies/
-  - /articles/updating-your-projects-dependencies/
-  - /articles/managing-security-vulnerabilities-in-your-projects-dependencies/
+  - /articles/updating-your-project-s-dependencies
+  - /articles/updating-your-projects-dependencies
+  - /articles/managing-security-vulnerabilities-in-your-projects-dependencies
   - /articles/managing-vulnerabilities-in-your-projects-dependencies
   - /github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies
 versions:
@@ -30,6 +30,6 @@ children:
   - /viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
-shortTitle: Fix vulnerable dependencies
+shortTitle: Arreglar dependencias vulnerables
 ---
 

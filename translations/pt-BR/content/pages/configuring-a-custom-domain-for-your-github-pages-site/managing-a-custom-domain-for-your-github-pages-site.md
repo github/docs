@@ -1,6 +1,6 @@
 ---
-title: Managing a custom domain for your GitHub Pages site
-intro: 'You can set up or update certain DNS records and your repository settings to point the default domain for your {% data variables.product.prodname_pages %} site to a custom domain.'
+title: Gerenciar um domínio personalizado do seu site do GitHub Pages
+intro: 'É possível definir ou atualizar determinados registros DNS e as configurações de repositório para apontar o domínio padrão do seu site do {% data variables.product.prodname_pages %} para um domínio personalizado.'
 redirect_from:
   - /articles/quick-start-setting-up-a-custom-domain
   - /articles/setting-up-an-apex-domain
@@ -17,41 +17,40 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Manage a custom domain
+shortTitle: Gerenciar um domínio personalizado
 ---
 
-People with admin permissions for a repository can configure a custom domain for a {% data variables.product.prodname_pages %} site.
+Pessoas com permissões de administrador para um repositório podem configurar um domínio personalizado de um site do {% data variables.product.prodname_pages %}.
 
-## About custom domain configuration
+## Sobre a configuração de domínio personalizado
 
-Make sure you add your custom domain to your {% data variables.product.prodname_pages %} site before configuring your custom domain with your DNS provider. Configuring your custom domain with your DNS provider without adding your custom domain to {% data variables.product.product_name %} could result in someone else being able to host a site on one of your subdomains.
+Lembre-se de adicionar o domínio personalizado ao seu site do {% data variables.product.prodname_pages %} antes de configurar o domínio personalizado com o provedor DNS. Se você configurar o domínio personalizado com o provedor DNS sem adicioná-lo ao {% data variables.product.product_name %}, outra pessoa conseguirá hospedar um site em um dos seus subdomínios.
 
 {% windows %}
 
-The `dig` command, which can be used to verify correct configuration of DNS records, is not included in Windows. Before you can verify that your DNS records are configured correctly, you must install [BIND](https://www.isc.org/bind/).
+O comando `dig`, que pode ser usado para verificar a configuração correta dos registros DNS, não está incluído no Windows. Antes de verificar se os registros DNS estão configurados corretamente, você deve instalar [BIND](https://www.isc.org/bind/).
 
 {% endwindows %}
 
 {% note %}
 
-**Note:** DNS changes can take up to 24 hours to propagate.
+**Observação:** as alterações no DNS podem levar até 24 horas para serem propagadas.
 
 {% endnote %}
 
-## Configuring a subdomain
+## Configurando um subdomínio
 
-To set up a `www` or custom subdomain, such as `www.example.com` or `blog.example.com`, you must add your domain in the repository settings, which will create a CNAME file in your site’s repository. After that, configure a CNAME record with your DNS provider.
+Para configurar um `www` ou um subdomínio personalizado como, por exemplo, `www.example.com` ou `blog.example.com`, você deve adicionar seu domínio nas configurações do repositório, o que criará um arquivo CNAME no repositório do seu site. Em seguida, configure um registro CNAME com seu provedor DNS.
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-4. Under "Custom domain", type your custom domain, then click **Save**. This will create a commit that adds a _CNAME_ file in the root of your publishing source.
-  ![Save custom domain button](/assets/images/help/pages/save-custom-subdomain.png)
-5. Navigate to your DNS provider and create a `CNAME` record that points your subdomain to the default domain for your site. For example, if you want to use the subdomain `www.example.com` for your user site, create a `CNAME` record that points `www.example.com` to `<user>.github.io`. If you want to use the subdomain `www.anotherexample.com` for your organization site, create a `CNAME` record that points `www.anotherexample.com` to `<organization>.github.io`. The `CNAME` record should always point to `<user>.github.io` or `<organization>.github.io`, excluding the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
+4. Em "Domínio personalizado,", digite o seu domínio personalizado e clique em **Salvar**. Isso criará um commit que adiciona um arquivo _CNAME_ à raiz da sua fonte de publicação. ![Botão Salvar domínio personalizado](/assets/images/help/pages/save-custom-subdomain.png)
+5. Navegue até o provedor DNS e crie um registro `CNAME` que aponte seu subdomínio para o domínio padrão do seu site. Por exemplo, se você quiser usar o subdomínio `www.example.com` para seu site de usuário, crie um registro `CNAME` que aponte `www.example.com` para `<user>.github.io`. Se você desejar usar o subdomínio `www.anotherexample.com` no seu site da organização, crie um registro `CNAME` que aponte `www. notherexample.com` para `<organization>.github.io`. O registro `CNAME` sempre deve apontar para `<user>.github.io` ou `<organization>.github.io`, excluindo o nome do repositório. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
-6. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your subdomain.
+6. Para confirmar que o registro DNS foi configurado corretamente, use o comando `dig`, substituindo _WW.EXAMPLE.COM_ pelo seu subdomínio.
 ```shell
     $ dig <em>WWW.EXAMPLE.COM</em> +nostats +nocomments +nocmd
     > ;<em>WWW.EXAMPLE.COM.</em>                     IN      A
@@ -62,38 +61,36 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
 
-## Configuring an apex domain
+## Configurando um domínio apex
 
-To set up an apex domain, such as `example.com`, you must configure a _CNAME_ file  in your {% data variables.product.prodname_pages %} repository and at least one `ALIAS`, `ANAME`, or `A` record with your DNS provider.
+Para configurar um domínio apex, como `example.com`, você deve configurar um arquivo</em> CNAME_ no seu repositório de {% data variables.product.prodname_pages %} e pelo menos um `ALIAS`, `ANAME` ou um registro `A` com seu provedor DNS.</p>
 
-{% data reusables.pages.www-and-apex-domain-recommendation %} For more information, see "[Configuring a subdomain](#configuring-a-subdomain)."
+{% data reusables.pages.www-and-apex-domain-recommendation %} Para obter mais informações, consulte "[Configurar um subdomínio](#configuring-a-subdomain)".
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-4. Under "Custom domain", type your custom domain, then click **Save**. This will create a commit that adds a _CNAME_ file in the root of your publishing source.
-  ![Save custom domain button](/assets/images/help/pages/save-custom-apex-domain.png)
-5. Navigate to your DNS provider and create either an `ALIAS`, `ANAME`, or `A` record. You can also create `AAAA` records for IPv6 support. {% data reusables.pages.contact-dns-provider %}
-    - To create an `ALIAS` or `ANAME` record, point your apex domain to the default domain for your site. {% data reusables.pages.default-domain-information %}
-    - To create `A` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
+4. Em "Domínio personalizado,", digite o seu domínio personalizado e clique em **Salvar**. Isso criará um commit que adiciona um arquivo _CNAME_ à raiz da sua fonte de publicação. ![Botão Salvar domínio personalizado](/assets/images/help/pages/save-custom-apex-domain.png)
+5. Navegue até o provedor DNS e crie um registro `ALIAS`, `ANAME` ou `A`. Você também pode criar registros de `AAAA` para suporte ao IPv6. {% data reusables.pages.contact-dns-provider %}
+    - Para criar um registro `ALIAS` ou `ANAME`, aponte o domínio apex para o domínio padrão do seu site. {% data reusables.pages.default-domain-information %}
+    - Para criar registros `A`, aponte seu domínio apex para os endereços IP para {% data variables.product.prodname_pages %}.
       ```shell
       185.199.108.153
       185.199.109.153
       185.199.110.153
       185.199.111.153
       ```
-    - To create `AAAA` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
-      ```shell
-      2606:50c0:8000::153
+    - Para criar os registros de </code>AAAA`, aponte o seu domínio apex para os endereços IP para {% data variables.product.prodname_pages %}.
+<pre><code class="shell">      2606:50c0:8000::153
       2606:50c0:8001::153
       2606:50c0:8002::153
       2606:50c0:8003::153
-      ```
+`</pre>
 
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
-6. To confirm that your DNS record configured correctly, use the `dig` command, replacing _EXAMPLE.COM_ with your apex domain. Confirm that the results match the IP addresses for {% data variables.product.prodname_pages %} above.
-   - For `A` records.
+6. Para confirmar que o registro DNS foi configurado corretamente, use o comando `dig`, substituindo _WW.EXAMPLE.COM_ pelo domínio apex. Confirme que os resultados correspondem aos endereços IP do {% data variables.product.prodname_pages %} acima.
+   - Para registros de `A`.
     ```shell
     $ dig <em>EXAMPLE.COM</em> +noall +answer -t A
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.108.153
@@ -101,7 +98,7 @@ To set up an apex domain, such as `example.com`, you must configure a _CNAME_ fi
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.110.153
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.111.153
     ```
-   - For `AAAA` records.
+   - Para registros `AAAA`.
     ```shell
     $ dig <em>EXAMPLE.COM</em> +noall +answer -t AAAA
     > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8000::153
@@ -112,16 +109,16 @@ To set up an apex domain, such as `example.com`, you must configure a _CNAME_ fi
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
 
-## Configuring an apex domain and the `www` subdomain variant
+## Configurar um domínio apex e a variante de subdomínio `www`
 
-When using an apex domain, we recommend configuring your {% data variables.product.prodname_pages %} site to host content at both the apex domain and that domain's `www` subdomain variant.
+Ao usar um domínio apex, recomendamos que você configure o seu site de {% data variables.product.prodname_pages %} para hospedar o conteúdo tanto no domínio apex quanto na variante de subdomínio `www`.
 
-To set up a `www` subdomain alongside the apex domain, you must first configure an apex domain, which will create an `ALIAS`, `ANAME`, or `A` record with your DNS provider. For more information, see "[Configuring an apex domain](#configuring-an-apex-domain)."
+Para configurar um subdomínio de `www` junto com o domínio apex, você deve primeiro configurar um domínio apex, que irá criar um `ALIAS`, `ANAME` ou registro `A` junto ao seu provedor DNS. Para obter mais informações, consulte "[Configurar um domínio apex](#configuring-an-apex-domain)".
 
-After you configure the apex domain, you must configure a CNAME record with your DNS provider.
+Depois de configurar o domínio apex, você deverá configurar um registro CNAME com seu provedor DNS.
 
-1. Navigate to your DNS provider and create a `CNAME` record that points `www.example.com` to the default domain for your site: `<user>.github.io` or `<organization>.github.io`. Do not include the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
-2. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your `www` subdomain variant.
+1. Acesse o provedor DNS e crie um registro `CNAME` que aponte `www.example.com` para o domínio padrão do seu site: `<user>.github.io` ou `<organization>.github.io`. Não inclua o nome do repositório. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
+2. Para confirmar que o registro DNS foi configurado corretamente, use o comando `dig` substituindo _WWW.EXAMPLE.COM_ pela sua variante de subdomínio `www`.
 ```shell
     $ dig <em>WWW.EXAMPLE.COM</em> +nostats +nocomments +nocmd
     > ;<em>WWW.EXAMPLE.COM.</em>                     IN      A
@@ -129,18 +126,17 @@ After you configure the apex domain, you must configure a CNAME record with your
     > <em>YOUR-USERNAME</em>.github.io.      43192   IN      CNAME   <em> GITHUB-PAGES-SERVER </em>.
     > <em> GITHUB-PAGES-SERVER </em>.         22      IN      A       192.0.2.1
 ```
-## Removing a custom domain
+## Remover um domínio personalizado
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-4. Under "Custom domain," click **Remove**.
-  ![Save custom domain button](/assets/images/help/pages/remove-custom-domain.png)
+4. Em "Domínio personalizado, clique em **Remover**. ![Botão Salvar domínio personalizado](/assets/images/help/pages/remove-custom-domain.png)
 
-## Securing your custom domain
+## Protegendo seu domínio personalizado
 
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
+{% data reusables.pages.secure-your-domain %} Para obter mais informações, consulte "[Verificando seu domínio personalizado para {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)".
 
-## Further reading
+## Leia mais
 
-- "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"
+- "[Solucionar problemas de domínios personalizados e do {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"

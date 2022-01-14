@@ -1,6 +1,6 @@
 ---
-title: About notifications
-intro: 'Notifications provide updates about the activity on {% data variables.product.product_location %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
+title: 关于通知
+intro: '通知提供有关您在 {% data variables.product.product_location %} 上已订阅活动的更新。 您可以使用通知收件箱来自定义、分类和管理更新。'
 redirect_from:
   - /articles/notifications
   - /articles/about-notifications
@@ -15,89 +15,90 @@ versions:
 topics:
   - Notifications
 ---
+
 {% ifversion ghes %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
 
-## Notifications and subscriptions
+## 通知和订阅
 
-You can choose to receive ongoing updates about specific activity on {% data variables.product.product_location %} through a subscription. Notifications are updates that you receive for specific activity that you are subscribed to.
+您可以选择通过订阅接收有关 {% data variables.product.product_location %} 上特定活动的持续更新。 通知是您收到的已订阅特定活动的更新。
 
-### Subscription options
+### 订阅选项
 
-You can choose to subscribe to notifications for:
-- A conversation in a specific issue, pull request, or gist.
-- All activity in a repository or team discussion.
-- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).{% else %}
-- Releases in a repository.{% endif %}
+您可以选择订阅关于以下内容的通知：
+- 关于特定议题、拉取请求或 Gist 的对话。
+- 仓库或团队讨论中的所有活动。
+- CI 活动，例如仓库中使用 {% data variables.product.prodname_actions %} 设置的工作流程的状态。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+- 仓库 {% data reusables.notifications-v2.custom-notification-types %} (如果启用)。{% else %}
+- 在仓库中发布。{% endif %}
 
-You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository you have access to manually by clicking **Watch**.
+您也可以选择自动关注所有您有推送访问权限的仓库，但复刻除外。 您可以通过单击 **Watch（关注）**来手动关注您有权访问的任何其他仓库。
 
-If you're no longer interested in a conversation, you can unsubscribe, unwatch, or customize the types of notifications you'll receive in the future. For example, if you no longer want to receive notifications from a particular repository, you can click **Unsubscribe**. For more information, see "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+如果您的某项对话不再感兴趣，您可以取消订阅、取消关注或自定义以后接收的通知类型。 例如，如果不想再接收特定仓库的通知，您可以单击 **Unsubscribe（取消订阅）**。 更多信息请参阅“[管理订阅](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)”。
 
-### Default subscriptions
+### 默认订阅
 
-In general, you are automatically subscribed to conversations by default when you have:
-- Not disabled automatic watching for repositories or teams you've joined in your notification settings. This setting is enabled by default.
-- Been assigned to an issue or pull request.
-- Opened a pull request, issue, or created a team discussion post.
-- Commented on a thread.
-- Subscribed to a thread manually by clicking **Watch** or **Subscribe**.
-- Had your username @mentioned.
-- Changed the state of a thread, such as by closing an issue or merging a pull request.
-- Had a team you're a member of @mentioned.
+一般来说，默认在以下情况下自动订阅对话：
+- 在通知设置中未禁用自动关注您加入的仓库或团队。 此设置在默认情况下会启用。
+- 被分配了议题或拉取请求。
+- 打开了拉取请求、议题或创建了团队讨论帖子。
+- 在帖子中发表了评论。
+- 通过单击 **Watch（关注）**或 **Subscribe（订阅）**手动订阅了帖子。
+- 您的用户名被 @提及
+- 更改了帖子的状态，例如通过关闭议题或合并拉取请求。
+- 您所属的团队被 @提及。
 
-By default, you also automatically watch all repositories that you create and are owned by your user account.
+默认情况下，还会自动关注您创建的以及您的用户帐户所拥有的所有仓库。
 
-To unsubscribe from conversations you're automatically subscribed to, you can change your notification settings or directly unsubscribe or unwatch activity on {% data variables.product.product_location %}. For more information, see "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+要取消订阅自动订阅的对话，您可以更改通知设置，或者直接取消订阅或取消关注 {% data variables.product.product_location %} 上的活动。 更多信息请参阅“[管理订阅](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)”。
 
-## Customizing notifications and subscriptions
+## 自定义通知和订阅
 
-You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes or ghec %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
+您可以选择通过 [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes or ghec %} 上和 {% data variables.product.prodname_mobile %} 应用程序{% endif %}中的通知收件箱、电子邮件或这些选项的某些组合来查看通知。
 
-To customize the types of updates you'd like to receive and where to send those updates, configure your notification settings. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)."
+要自定义您希望接收的更新类型以及将这些更新发送至何处，请配置通知设置。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)”。
 
-To keep your subscriptions manageable, review your subscriptions and watched repositories and unsubscribe as needed. For more information, see "[Managing subscriptions for activity on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+要保持订阅的可管理性，请审查您的订阅和关注的仓库，并根据需要取消订阅。 更多信息请参阅“[在 GitHub 上管理活动订阅](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”。
 
-To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
+要自定义如何接收特定拉取请求或议题的更新，可以在议题或拉取请求中配置首选项。 更多信息请参阅“[对单个通知进行分类](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)”。
 
 {% ifversion fpt or ghes or ghec %}
-You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)."
+您可以在 {% data variables.product.prodname_mobile %} 应用程序中自定义和安排推送通知。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)”。
 {% endif %}
 
-## Reasons for receiving notifications
+## 接收通知的原因
 
-Your inbox is configured with default filters, which represent the most common reasons that people need to follow-up on their notifications. For more information about inbox filters, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#default-notification-filters)."
+您的收件箱配置了默认过滤器，它们代表人们需要跟进通知的最常见原因。 有关收件箱过滤器的更多信息，请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#default-notification-filters)”。
 
-Your inbox shows the `reasons` you're receiving notifications as a label.
+收件箱以标签形式显示您接收通知的 `reasons`。
 
-![Reasons labels in inbox](/assets/images/help/notifications-v2/reasons-as-labels-in-inbox.png)
+![收件箱中的原因标签](/assets/images/help/notifications-v2/reasons-as-labels-in-inbox.png)
 
-You can filter your inbox by the reason you're subscribed to notifications. For example, to only see pull requests where someone requested your review, you can use the `review-requested` query filter.
+您可以按订阅通知的原因过滤收件箱。 例如，要仅查看有人请求您审查的拉取请求，您可以使用 `review-requested` 查询过滤器。
 
-![Filter notifications by review requested reason](/assets/images/help/notifications-v2/review-requested-reason.png)
+![通过查看请求的原因过滤通知](/assets/images/help/notifications-v2/review-requested-reason.png)
 
-If you've configured notifications to be sent by email and believe you're receiving notifications that don't belong to you, consider troubleshooting with email headers, which show the intended recipient. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)."
+如果您已将通知配置为通过电子邮件发送，但认为您收到了不属于自己的通知，请考虑使用显示预期收件人的电子邮件标头排除故障。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)”。
 
-## Triaging notifications from your inbox
+## 从收件箱分类通知
 
-To effectively manage your notifications, you can triage your inbox with options to:
-- Remove a notification from the inbox with **Done**. You can review **Done** notifications all in one place by clicking **Done** in the sidebar or by using the query `is:done`.
-- Mark a notification as read or unread.
-- **Save** a notification for later review. **Saved** notifications are flagged in your inbox. You can review **Saved** notifications all in one place in the sidebar by clicking **Saved** or by using the query `is:saved`.
-- Automatically unsubscribe from this notification and future updates from this conversation. Unsubscribing also removes the notification from your inbox. If you unsubscribe from a conversation and someone mentions your username or a team you're on that you're receiving updates for, then you will start to receive notifications from this conversation again.
+为了有效地管理通知，您可以使用以下选项对收件箱进行分类：
+- 使用 **Done（已完成）**从收件箱删除通知。 您可以通过单击边栏中的 **Done（已完成）**或使用查询 `is:done` 来集中查看所有 **Done（已完成）**通知。
+- 将通知标记为已读或未读。
+- **Save（保存）**通知以供以后查看。 **Saved（已保存）**通知会标记在您的收件箱中。 您可以通过单击 **Saved（已保存）**或使用查询 `is:saved` 在边栏中集中查看所有 **Saved（已保存）**通知。
+- 自动取消订阅此通知和此对话的未来更新。 取消订阅还会从收件箱中删除通知。 如果您取消订阅了对话，但有人在此对话中提及您的用户名或您所在的团队（您正在为其接收更新），则您将再次开始接收此对话的通知。
 
-From your inbox you can also triage multiple notifications at once. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)."
+您还可以从收件箱中一次分类多个通知。 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)”。
 
-## Customizing your notifications inbox
+## 自定义通知收件箱
 
-To focus on a group of notifications in your inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
+要在 {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} 或 {% data variables.product.prodname_mobile %}{% endif %} 上的收件箱中关注一组通知，您可以创建自定义过滤器。 例如，您可以为您参与的开源项目创建自定义过滤器，只查看您被提及的仓库的通知。 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)”。 有关如何自定义分类工作流程的更多示例，请参阅“[自定义对通知分类的工作流程](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)”。
 
-## Notification retention policy
+## 通知保留策略
 
-Notifications that are not marked as **Saved** are kept for 5 months. Notifications marked as **Saved** are kept indefinitely. If your saved notification is older than 5 months and you unsave it, the notification will disappear from your inbox within a day.
+未标记为 **Saved（已保存）**的通知将保留 5 个月。 标记为 **Saved（已保存）**的通知将无限期保留。 如果已保存通知超过 5 个月后，您取消保存它，则该通知将在一天之内从收件箱中消失。
 
-## Feedback and support
+## 反馈和支持
 
-If you have feedback or feature requests for notifications, use the [feedback form for notifications](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback).
+如果您对通知有反馈或功能请求，请使用[通知反馈表](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback)。

@@ -1,6 +1,6 @@
 ---
 title: GitHub Mobile
-intro: 'Triage, collaborate, and manage your work on {% data variables.product.product_name %} from your mobile device.'
+intro: 'Faça triagem, colabore e gerencie seu trabalho em {% data variables.product.product_name %} do seu dispositivo móvel.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,80 +12,81 @@ redirect_from:
   - /github/getting-started-with-github/github-for-mobile
   - /github/getting-started-with-github/using-github/github-for-mobile
 ---
+
 {% data reusables.mobile.ghes-release-phase %}
 
-## About {% data variables.product.prodname_mobile %}
+## Sobre o {% data variables.product.prodname_mobile %}
 
 {% data reusables.mobile.about-mobile %}
 
-{% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.product_name %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your {% data variables.product.product_name %} data through a trusted, first-party client application.
+{% data variables.product.prodname_mobile %} oferece a você uma maneira de realizar trabalhos de alto impacto {% data variables.product.product_name %} rapidamente e de qualquer lugar. O {% data variables.product.prodname_mobile %}é uma maneira segura e confiável de acessar seus dados {% data variables.product.product_name %} através de um aplicativo cliente confiável e primordial.
 
-With {% data variables.product.prodname_mobile %} you can:
-- Manage, triage, and clear notifications
-- Read, review, and collaborate on issues and pull requests
-- Search for, browse, and interact with users, repositories, and organizations
-- Receive a push notification when someone mentions your username
+Com o {% data variables.product.prodname_mobile %} você pode:
+- Gerenciar, fazer triagem e limpar notificações
+- Leia, analisar e colaborar em problemas e pull requests
+- Pesquisar, navegar e interagir com usuários, repositórios e organizações
+- Receber uma notificação push quando alguém mencionar seu nome de usuário
 
-For more information about notifications for {% data variables.product.prodname_mobile %}, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."
+Para mais informações sobre notificações para {% data variables.product.prodname_mobile %}, consulte "[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."
 
-## Installing {% data variables.product.prodname_mobile %}
+## Instalar o {% data variables.product.prodname_mobile %}
 
-To install {% data variables.product.prodname_mobile %} for Android or iOS, see [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
+Para instalar {% data variables.product.prodname_mobile %} para Android ou iOS, consulte [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
 
-## Managing accounts
+## Gerenciar contas
 
-You can be simultaneously signed into mobile with one user account on {% data variables.product.prodname_dotcom_the_website %} and one user account on {% data variables.product.prodname_ghe_server %}.
+Você pode estar conectado simultaneamente em um celular com uma conta de usuário em {% data variables.product.prodname_dotcom_the_website %} e com uma conta de usuário em {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre nossos diferentes produtos, consulte "[Produtos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)"
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
-{% data variables.product.prodname_mobile %} may not work with your enterprise if you're required to access your enterprise over VPN.
+{% data variables.product.prodname_mobile %} pode não funcionar com a sua empresa se for necessário acessar sua empresa através da VPN.
 
-### Prerequisites
+### Pré-requisitos
 
-You must install {% data variables.product.prodname_mobile %} 1.4 or later on your device to use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}.
+Você precisa instalar {% data variables.product.prodname_mobile %} 1.4 ou superior no seu dispositivo para usar {% data variables.product.prodname_mobile %} com {% data variables.product.prodname_ghe_server %}.
 
-To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+Para usar {% data variables.product.prodname_mobile %} com {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} deve ser a versão 3.0 ou superior, e o proprietário da empresa deverá habilitar o suporte móvel para a sua empresa. Para obter mais informações, consulte {% ifversion ghes %}"[Observações de versão](/enterprise-server/admin/release-notes)e {% endif %}"[Gerenciando {% data variables.product.prodname_mobile %} para a sua empresa]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" na documentação de {% data variables.product.prodname_ghe_server %}.{% else %}."{% endif %}
 
-During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a user account on {% data variables.product.prodname_dotcom_the_website %}.
+Durante o beta para {% data variables.product.prodname_mobile %} com {% data variables.product.prodname_ghe_server %}, você deve estar conectado com uma conta de usuário em {% data variables.product.prodname_dotcom_the_website %}.
 
-### Adding, switching, or signing out of accounts
+### Adicionar, alternar ou encerrar a sessão das contas
 
-You can sign into mobile with a user account on {% data variables.product.product_location %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap {% octicon "plus" aria-label="The plus icon" %} **Add Enterprise Account**. Follow the prompts to sign in.
+Você pode iniciar a sessão no celular com uma conta de usuário em {% data variables.product.prodname_ghe_server %}. Na parte inferior do aplicativo, mantenha pressionado {% octicon "person" aria-label="The person icon" %} **Perfil** e, em seguida, toque em {% octicon "plus" aria-label="The plus icon" %} **Adicionar Conta Corporativa**. Siga as instruções para efetuar o login.
 
-After you sign into mobile with a user account on {% data variables.product.product_location %}, you can switch between the account and your account on  {% data variables.product.prodname_dotcom_the_website %}.  At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap the account you want to switch to.
+Depois de efetuar o login no celular com uma conta de usuário em {% data variables.product.prodname_ghe_server %}, você poderá alternar entre a conta e a sua conta em {% data variables.product.prodname_dotcom_the_website %}. Na parte inferior do aplicativo, mantenha pressionado {% octicon "person" aria-label="The person icon" %} **Perfil** e, em seguida, toque na conta para a qual você deseja mudar.
 
-If you no longer need to access data for your user account on {% data variables.product.product_location %} from {% data variables.product.prodname_mobile %}, you can sign out of the account. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, swipe left on the account to sign out of, then tap **Sign out**.
+Se você não precisar mais acessar os dados da sua conta de usuário em {% data variables.product.prodname_ghe_server %} de {% data variables.product.prodname_mobile %}, você poderá encerrar a sessão da conta. Na parte inferior do aplicativo, mantenha pressionado {% octicon "person" aria-label="The person icon" %} **Perfil**, deslize para a esquerda na conta para encerrar sessão e toque em **Encerrar sessão**.
 
-## Supported languages for {% data variables.product.prodname_mobile %}
+## Idiomas compatíveis com {% data variables.product.prodname_mobile %}
 
-{% data variables.product.prodname_mobile %} is available in the following languages.
+{% data variables.product.prodname_mobile %} está disponível nos seguintes idiomas.
 
 - English
 - Japanese
-- Brazilian Portuguese
-- Simplified Chinese
+- Português do Brasil
+- Chinês simplificado
 - Spanish
 
-If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
+Se você configurar o idioma do seu dispositivo para um idioma compatível, {% data variables.product.prodname_mobile %} será o idioma-padrão. Você pode alterar o idioma para {% data variables.product.prodname_mobile %} no no menu **Configurações** de {% data variables.product.prodname_mobile %}.
 
-## Managing Universal Links for {% data variables.product.prodname_mobile %} on iOS
+## Gerenciando links universais para {% data variables.product.prodname_mobile %} no iOS
 
-{% data variables.product.prodname_mobile %} automatically enables Universal Links for iOS. When you tap any {% data variables.product.product_name %} link, the destination URL will open in {% data variables.product.prodname_mobile %} instead of Safari. For more information, see [Universal Links](https://developer.apple.com/ios/universal-links/) on the Apple Developer site.
+{% data variables.product.prodname_mobile %} ativa automaticamente o Universal Links para iOS. Quando você clica em qualquer link {% data variables.product.product_name %}, a URL de destino vai abrir em {% data variables.product.prodname_mobile %} em vez do Safari. Para obter mais informações, consulte [Universal Links](https://developer.apple.com/ios/universal-links/)  no site de desenvolvedor da Apple
 
-To disable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open**. Every time you tap a {% data variables.product.product_name %} link in the future, the destination URL will open in Safari instead of {% data variables.product.prodname_mobile %}.
+Para desabilitar os links universais, mantenha qualquer link {% data variables.product.product_name %} pressionado e, em seguida, pressione **Abrir**. Toda vez que você clica em um link {% data variables.product.product_name %} no futuro, a URL de destino abrirá no Safari em vez do {% data variables.product.prodname_mobile %}.
 
-To re-enable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open in {% data variables.product.prodname_dotcom %}**.
+Para reabilitar o Universal Links, mantenha pressionado qualquer link {% data variables.product.product_name %}, depois clique em **Abrir em {% data variables.product.prodname_dotcom %}**.
 
-## Sharing feedback
+## Compartilhando feedback
 
-If you find a bug in {% data variables.product.prodname_mobile %}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
+Se você encontrar um erro em {% data variables.product.prodname_mobile %}, você pode nos enviar um e-mail para <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
 
-You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_discussions %}](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
+Você pode enviar solicitações de recursos ou outros feedbacks para {% data variables.product.prodname_mobile %} em [{% data variables.product.prodname_discussions %}](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
 
-## Opting out of beta releases for iOS
+## Desativando versões beta para iOS
 
-If you're testing a beta release of {% data variables.product.prodname_mobile %} for iOS using TestFlight, you can leave the beta at any time.
+Se você estiver testando uma versão beta do {% data variables.product.prodname_mobile %} para iOS usando TestFlight, você pode deixar a versão beta a qualquer momento.
 
-1. On your iOS device, open the TestFlight app.
-2. Under "Apps", tap **{% data variables.product.prodname_dotcom %}**.
-3. At the bottom of the page, tap **Stop Testing**.
+1. Em seu dispositivo iOS, abra o app TestFlight.
+2. Em "Apps", clique em **{% data variables.product.prodname_dotcom %}**.
+3. Na parte inferior da página, clique em **Interromper testes**.

@@ -1,7 +1,6 @@
 ---
 title: Managing team synchronization for organizations in your enterprise
 intro: '您可以启用身份提供程序 (IdP) 与 {% data variables.product.product_name %} 之间的团队同步，以允许企业帐户拥有的组织通过 IdP 组管理团队成员身份。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   ghec: '*'

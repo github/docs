@@ -2,8 +2,8 @@
 title: Acerca del Soporte prémium de GitHub para GitHub Enterprise Server
 intro: '{% data variables.contact.premium_support %} es una oferta de soporte remunerado, adicional para clientes de {% data variables.product.prodname_enterprise %}.'
 redirect_from:
-  - /enterprise/admin/guides/enterprise-support/about-premium-support-for-github-enterprise/
-  - /enterprise/admin/guides/enterprise-support/about-premium-support/
+  - /enterprise/admin/guides/enterprise-support/about-premium-support-for-github-enterprise
+  - /enterprise/admin/guides/enterprise-support/about-premium-support
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 versions:

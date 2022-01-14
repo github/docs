@@ -1,6 +1,6 @@
 ---
-title: Reviewing proposed changes in a pull request
-intro: 'In a pull request, you can review and discuss commits, changed files, and the differences (or "diff") between the files in the base and compare branches.'
+title: Revisar alterações proposta em pull requests
+intro: 'Em uma pull request, você pode revisar e comentar commits, arquivos alterados e diferenças (ou "diff") entre os arquivos nos branches base e de comparação.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request
   - /articles/reviewing-proposed-changes-in-a-pull-request
@@ -13,17 +13,16 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Review proposed changes
+shortTitle: Revisar alterações propostas
 ---
-## About reviewing pull requests
 
-You can review changes in a pull request one file at a time. While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. This collapses the file, helping you identify the files you still need to review. A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
+## Sobre revisões de pull requests
+
+Você pode revisar as alterações em um arquivo de pull request por vez. Ao revisar os arquivos em um pull request, você pode deixar comentários individuais em alterações específicas. Após terminar de revisar cada arquivo, você pode marcar o arquivo como visualizado. Isso aninha o arquivo e ajuda a identificar os arquivos que ainda precisam ser revisadas. Uma barra de progresso no cabeçalho do pull request mostra o número de arquivos que você visualizou. Depois de revisar todos os arquivos você desejar, você pode aprovar a solicitação de pull ou solicitar alterações adicionais enviando a sua revisão com um comentário resumido.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
-## Starting a review
-
-{% include tool-switcher %}
+## Iniciar uma revisão
 
 {% webui %}
 
@@ -32,81 +31,81 @@ You can review changes in a pull request one file at a time. While reviewing the
 {% data reusables.repositories.changed-files %}
 {% ifversion fpt or ghec or ghes > 3.3 or ghae %}
 
-   You can change the format of the diff view in this tab by clicking {% octicon "gear" aria-label="The Settings gear" %} and choosing the unified or split view. The choice you make will apply when you view the diff for other pull requests.
+   Você pode alterar o formato da visualização do diff nesta aba clicando em {% octicon "gear" aria-label="The Settings gear" %} e escolhendo a exibição unificada ou dividida. A escolha que você fizer será aplicada quando você visualizar o diff para outros pull requests.
 
-   ![Diff view settings](/assets/images/help/pull_requests/diff-view-settings.png)
+   ![Configurações de exibição do diff](/assets/images/help/pull_requests/diff-view-settings.png)
 
-   You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
+   Você também pode optar por ocultar as diferenças nos espaços em branco. A escolha que você fizer só se aplica a este pull request e será lembrada na próxima vez que você acessar esta página.
 {% endif %}
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
-1. When you're done, click **Start a review**. If you have already started a review, you can click **Add review comment**.
+1. Quando terminar, clique em **Start a review** (Iniciar uma revisão). Se você já iniciou uma revisão, poderá clicar em **Add review comment** (Adicionar comentários à revisão).
 
-   ![Start a review button](/assets/images/help/pull_requests/start-a-review-button.png)
+   ![Botão Start a review (Iniciar uma revisão)](/assets/images/help/pull_requests/start-a-review-button.png)
 
-Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, scroll down to the end of the timeline on the Conversation tab, then click **Cancel review**.
+Antes de enviar a revisão, os comentários em linha ficam com status _pendente_ e somente você pode visualizá-los. Você pode editar editar os comentários pendentes a qualquer momento antes de enviar a revisão. Para cancelar uma revisão pendente, incluindo todos os comentários pendentes, role para baixo até o final da linha do tempo na guia Conversation (Conversa) e clique em **Cancel review** (Cancelar revisão).
 
-![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
+![Botão Cancel review (Cancelar revisão)](/assets/images/help/pull_requests/cancel-review-button.png)
 {% endwebui %}
 
 {% ifversion fpt or ghec %}
 
 {% codespaces %}
 
-You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+Você pode usar [{% data variables.product.prodname_codespaces %}](/codespaces/overview) para testar, executar e revisar pull requests.
 
 {% data reusables.codespaces.review-pr %}
 
-For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+Para obter mais informações sobre a revisão de pull requests em {% data variables.product.prodname_codespaces %}, consulte "[Usando codespaces para pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)"
 
 {% endcodespaces %}
 {% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghec %}
-## Reviewing dependency changes
+## Revisar alterações de dependência
 
 {% data reusables.dependency-review.beta %}
 
-If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)."
+Se o pull request contiver alterações em dependências, você poderá usar a revisão de dependências para um manifesto ou arquivo de bloqueio para ver o que mudou e verificar se as alterações introduzem vulnerabilidades de segurança. Para obter mais informações, consulte "[Revisar as mudanças de dependências em um pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)".
 
 {% data reusables.repositories.changed-files %}
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+1. À direita do cabeçalho de um manifesto ou arquivo de bloqueio, exiba a revisão de dependências clicando no botão de diff avançado**{% octicon "file" aria-label="The rich diff icon" %}**.
 
-   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![Botão de diff avançado](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
 {% data reusables.repositories.return-to-source-diff %}
 {% endif %}
 
-## Marking a file as viewed
+## Marcar um arquivo como visualizado
 
-After you finish reviewing a file, you can mark the file as viewed, and the file will collapse. If the file changes after you view the file, it will be unmarked as viewed.
+Quando terminar de revisar um arquivo, você pode marcar o arquivo como visualizado, e o arquivo será aninhado. Se o arquivo for alterado após ser visualizado, será desmarcado como visualizado.
 
 {% data reusables.repositories.changed-files %}
-2. On the right of the header of the file you've finished reviewing, select **Viewed**.
+2. À direta do cabeçalho do arquivo revisado, selecione **Viewed** (Visualizado).
 
-   ![Viewed checkbox](/assets/images/help/pull_requests/viewed-checkbox.png)
+   ![Caixa de seleção visualizado](/assets/images/help/pull_requests/viewed-checkbox.png)
 
-## Submitting your review
+## Enviar a revisão
 
-After you've finished reviewing all the files you want in the pull request, submit your review.
+Quando terminar de revisar os arquivos que deseja incluir na pull request, envie a revisão.
 
 {% data reusables.repositories.changed-files %}
 {% data reusables.repositories.review-changes %}
 {% data reusables.repositories.review-summary-comment %}
-4. Select the type of review you'd like to leave:
+4. Selecione como deseja marcar a revisão:
 
-   ![Radio buttons with review options](/assets/images/help/pull_requests/pull-request-review-statuses.png)
+   ![Botões de opção com opções de revisão](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
-    - Select **Comment** to leave general feedback without explicitly approving the changes or requesting additional changes.
-    - Select **Approve** to submit your feedback and approve merging the changes proposed in the pull request.
-    - Select **Request changes** to submit feedback that must be addressed before the pull request can be merged.
+    - Selecione **Comment** (Comentar) para incluir um feedback geral sem aprovar explicitamente as alterações nem solicitar alterações adicionais.
+    - Selecione **Approve** (Aprovar) para enviar um feedback e aprovar o merge das alterações propostas na pull request.
+    - Selecione **Request changes** (Solicitar alterações) para enviar um feedback que deve ser aplicado para que a pull request possa sofrer merge.
 {% data reusables.repositories.submit-review %}
 
 {% data reusables.repositories.request-changes-tips %}
 
-## Further reading
+## Leia mais
 
-- "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
-- "[Filtering pull requests by review status](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"
+- "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[Filtrar pull requests por status de revisão](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

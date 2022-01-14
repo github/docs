@@ -1,6 +1,6 @@
 ---
-title: Audited actions
-intro: You can search the audit log for a wide variety of actions.
+title: 审核的操作
+intro: 您可以在审核日志中搜索各种操作。
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/articles/audited-actions
@@ -17,27 +17,20 @@ topics:
   - Security
 ---
 
-## Authentication
+## 身份验证
 
-Action                               | Description
------------------------------------- | ----------------------------------------
-`oauth_access.create`                | An [OAuth access token][] was [generated][generate token] for a user account.
-`oauth_access.destroy`               | An [OAuth access token][] was deleted from a user account.
-`oauth_application.destroy`          | An [OAuth application][] was deleted from a user or organization account.
-`oauth_application.reset_secret`     | An [OAuth application][]'s secret key was reset.
-`oauth_application.transfer`         | An [OAuth application][] was transferred from one user or organization account to another.
-`public_key.create`                  | An SSH key was [added][add key] to a user account or a [deploy key][] was added to a repository.
-`public_key.delete`                  | An SSH key was removed from a user account or a [deploy key][] was removed from a repository.
-`public_key.update`                  | A user account's SSH key or a repository's [deploy key][] was updated.{% ifversion ghes %}
-`two_factor_authentication.enabled`  | [Two-factor authentication][2fa] was enabled for a user account.
-`two_factor_authentication.disabled` | [Two-factor authentication][2fa] was disabled for a user account.{% endif %}
-
-  [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
-  [deploy key]: /guides/managing-deploy-keys/#deploy-keys
-  [generate token]: /articles/creating-an-access-token-for-command-line-use
-  [OAuth access token]: /developers/apps/authorizing-oauth-apps
-  [OAuth application]: /guides/basics-of-authentication/#registering-your-app
-  [2fa]: /articles/about-two-factor-authentication
+| 操作                                   | 描述                                               |
+| ------------------------------------ | ------------------------------------------------ |
+| `oauth_access.create`                | 已为用户帐户[生成>][generate token] [OAuth 访问令牌][]。      |
+| `oauth_access.destroy`               | 已从用户帐户中删除 [OAuth 访问令牌][]。                        |
+| `oauth_application.destroy`          | 已从用户或组织帐户中删除 [OAuth 应用程序][]。                     |
+| `oauth_application.reset_secret`     | 已重置 [OAuth 应用程序][]的密钥。                           |
+| `oauth_application.transfer`         | 已将 [OAuth 应用程序][]从一个用户或组织帐户传送到另一个用户或组织帐户。        |
+| `public_key.create`                  | 已将 SSH 密钥[添加][add key]到用户帐户中，或者已将[部署密钥][]添加到仓库中。 |
+| `public_key.delete`                  | 已从用户帐户中移除 SSH 密钥，或已从仓库中移除[部署密钥][]。               |
+| `public_key.update`                  | 已更新用户帐户的 SSH 密钥或仓库的[部署密钥][]。{% ifversion ghes %}
+| `two_factor_authentication.enabled`  | 已为用户帐户启用[双重身份验证][2fa]。                           |
+| `two_factor_authentication.disabled` | 已为用户帐户禁用[双重身份验证][2fa]。{% endif %}
 
 {% ifversion ghes %}
 ## {% data variables.product.prodname_actions %}
@@ -46,159 +39,150 @@ Action                               | Description
 
 {% endif %}
 
-## Hooks
+## 挂钩
 
-Action                            | Description
---------------------------------- | -------------------------------------------
-`hook.create`                     | A new hook was added to a repository.
-`hook.config_changed`             | A hook's configuration was changed.
-`hook.destroy`                    | A hook was deleted.
-`hook.events_changed`             | A hook's configured events were changed.
+| 操作                    | 描述          |
+| --------------------- | ----------- |
+| `hook.create`         | 已向仓库添加新挂钩。  |
+| `hook.config_changed` | 已更改挂钩的配置。   |
+| `hook.destroy`        | 已删除挂钩。      |
+| `hook.events_changed` | 已更改挂钩的配置事件。 |
 
-## Enterprise configuration settings
+## 企业配置设置
 
-Action                                          | Description
------------------------------------------------ | -------------------------------------------{% ifversion ghes > 3.0 or ghae %}
-`business.advanced_security_policy_update` | A site admin creates, updates, or removes a policy for {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."{% endif %}
-`business.clear_members_can_create_repos` | A site admin clears a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% ifversion ghes > 3.1 %}
-`business.referrer_override_enable` | A site admin enables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."
-`business.referrer_override_disable` | A site admin disables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."{% endif %}
-`business.update_member_repository_creation_permission` | A site admin restricts repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% ifversion ghes %}
-`enterprise.config.lock_anonymous_git_access`   | A site admin locks anonymous Git read access to prevent repository admins from changing existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."
-`enterprise.config.unlock_anonymous_git_access` | A site admin unlocks anonymous Git read access to allow repository admins to change existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."{% endif %}
+| 操作                                                      | 描述                                                                                                                                                                                                                                                      |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion ghes > 3.0 or ghae %}
+| `business.advanced_security_policy_update`              | 站点管理员创建、更新或删除 {% data variables.product.prodname_GH_advanced_security %} 策略。 更多信息请参阅“[在企业中执行 {% data variables.product.prodname_advanced_security %} 的策略](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)”。{% endif %}
+| `business.clear_members_can_create_repos`               | 站点管理员取消了对在企业中的组织中创建仓库的限制。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。{% ifversion ghes > 3.1 %}
+| `business.referrer_override_enable`                     | 站点管理员可以改写推荐策略。 更多信息请参阅“[配置企业的推荐策略](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)”。                                                                                                              |
+| `business.referrer_override_disable`                    | 站点管理员可以禁用推荐策略。 更多信息请参阅“[配置企业的推荐策略](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)”。{% endif %}
+| `business.update_member_repository_creation_permission` | 站点管理员限制在企业中的组织中创建仓库。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。{% ifversion ghes %}
+| `enterprise.config.lock_anonymous_git_access`           | 站点管理员锁定匿名 Git 读取权限，以防止仓库管理员更改该企业中仓库的现有匿名 Git 读取权限设置。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。                                                        |
+| `enterprise.config.unlock_anonymous_git_access`         | 站点管理员解锁匿名 Git 读取权限，以允许仓库管理员更改该企业中仓库的现有匿名 Git 读取权限设置。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。{% endif %}
 
 {% ifversion ghae %}
 
-## IP allow lists
+## IP 允许列表
 
-Name                                 | Description
-------------------------------------:| -----------------------------------------------------------
-`ip_allow_list_entry.create`         | An IP address was added to an IP allow list.
-`ip_allow_list_entry.update`         | An IP address or its description was changed.
-`ip_allow_list_entry.destroy`        | An IP address was deleted from an IP allow list.
-`ip_allow_list.enable`               | An IP allow list was enabled.
-`ip_allow_list.enable_for_installed_apps` | An IP allow list was enabled for installed {% data variables.product.prodname_github_apps %}.
-`ip_allow_list.disable`              | An IP allow list was disabled.
-`ip_allow_list.disable_for_installed_apps` | An IP allow list was disabled for installed {% data variables.product.prodname_github_apps %}.
+|                                         名称 | 描述                                                                    |
+| ------------------------------------------:| --------------------------------------------------------------------- |
+|               `ip_allow_list_entry.create` | IP 地址已添加到 IP 允许列表中。                                                   |
+|               `ip_allow_list_entry.update` | IP 地址或描述已更改。                                                          |
+|              `ip_allow_list_entry.destroy` | IP 地址已从 IP 允许列表中删除。                                                   |
+|                     `ip_allow_list.enable` | IP 允许列表已启用。                                                           |
+|  `ip_allow_list.enable_for_installed_apps` | 已为安装的 {% data variables.product.prodname_github_apps %} 启用 IP 允许列表。 |
+|                    `ip_allow_list.disable` | IP 允许列表已禁用。                                                           |
+| `ip_allow_list.disable_for_installed_apps` | 已为安装的 {% data variables.product.prodname_github_apps %} 禁用 IP 允许列表。 |
 
 {% endif %}
 
-## Issues
+## 议题
 
-Action                               | Description
------------------------------------- | -----------------------------------------------------------
-`issue.update`                       | An issue's body text (initial comment) changed.
-`issue_comment.update`               | A comment on an issue (other than the initial one) changed.
-`issue.destroy`                      | An issue was deleted from the repository. For more information, see "[Deleting an issue](/github/managing-your-work-on-github/deleting-an-issue)."
+| 操作                     | 描述                                                                                  |
+| ---------------------- | ----------------------------------------------------------------------------------- |
+| `issue.update`         | 问题的正文文本（初始注释）已更改。                                                                   |
+| `issue_comment.update` | 已更改问题的正文文本（初始注释）。                                                                   |
+| `issue.destroy`        | 已从仓库中删除问题。 更多信息请参阅“[删除议题](/github/managing-your-work-on-github/deleting-an-issue)”。 |
 
-## Organizations
+## 组织
 
-Action             | Description
------------------- | ----------------------------------------------------------
-`org.async_delete` | A user initiated a background job to delete an organization.
-`org.delete`       | An organization was deleted by a user-initiated background job.{% ifversion not ghae %}
-`org.transform`    | A user account was converted into an organization. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."{% endif %}
+| 操作                 | 描述                                                                                                                                           |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `org.async_delete` | 用户发起了删除组织的后台作业。                                                                                                                              |
+| `org.delete`       | 用户发起的背景作业删除了组织。{% ifversion not ghae %}
+| `org.transform`    | 已将用户帐户转换为组织。 更多信息请参阅“[将用户转换为组织](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)”{% endif %}
 
-## Pull requests
+## 拉取请求
 
-| Action | Description |
-| :- | :- |{% ifversion ghes > 3.1 or ghae %}
-| `pull_request.create` | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)." |
-| `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." |
-| `pull_request.reopen` | A pull request was reopened after previously being closed. |
-| `pull_request.merge` | A pull request was merged. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)." |
-| `pull_request.indirect_merge` | A pull request was considered merged because the pull request's commits were merged into the target branch. |
-| `pull_request.ready_for_review` | A pull request was marked as ready for review. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)." |
-| `pull_request.converted_to_draft` | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)." |
-| `pull_request.create_review_request` | A review was requested on a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request.remove_review_request` | A review request was removed from a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request_review.submit` | A review was submitted for a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request_review.dismiss` | A review on a pull request was dismissed. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)." |
-| `pull_request_review.delete` | A review on a pull request was deleted. |
-| `pull_request_review_comment.create` | A review comment was added to a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request_review_comment.update` | A review comment on a pull request was changed. |{% endif %}
-| `pull_request_review_comment.delete` | A review comment on a pull request was deleted. |
+| 操作 | 描述n | | :- | :- |{% ifversion ghes > 3.1 or ghae %} | `pull_request.create` | 创建了拉取请求。 更多信息请参阅“[创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)”。 | | `pull_request.close` | 关闭了拉取请求而未合并。 更多信息请参阅“[关闭拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)”。 | | `pull_request.reopen` | 重新打开了之前关闭的拉取请求。 | | `pull_request.merge` | 合并了拉取请求。 更多信息请参阅“[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。 | | `pull_request.indirect_merge` | 考虑合并拉取请求，因为拉取请求的提交已合并到目标分支。 | | `pull_request.ready_for_review` | 拉取请求标记为可供审查。 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)”。 | | `pull_request.converted_to_draft` | 拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)”。 | | `pull_request.create_review_request` | 请求对拉取请求的审查。 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request.remove_review_request` | 从拉取请求删除审查请求。 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review.submit` | 为拉取请求提交审查。 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review.discute` | 撤销对拉取请求的审查。 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。 | | `pull_request_review.delete` | 删除对拉取请求的审查。 | | `pull_request_review_comment.create` | 审查评论添加到拉取请求。 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review_comment.update` | 更改拉取请求上的审查评论。 |{% endif %} | `pull_request_review_comment.delete` | 删除了拉取请求上的审查评论。 |
 
-## Protected branches
+## 受保护分支
 
-Action                     | Description
--------------------------- | ----------------------------------------------------------
-`protected_branch.create ` | Branch protection is enabled on a branch.
-`protected_branch.destroy` | Branch protection is disabled on a branch.
-`protected_branch.update_admin_enforced `            | Branch protection is enforced for repository administrators.
-`protected_branch.update_require_code_owner_review ` | Enforcement of required code owner review is updated on a branch.
-`protected_branch.dismiss_stale_reviews `   | Enforcement of dismissing stale pull requests is updated on a branch.
-`protected_branch.update_signature_requirement_enforcement_level `    | Enforcement of required commit signing is updated on a branch.
-`protected_branch.update_pull_request_reviews_enforcement_level `     | Enforcement of required pull request reviews is updated on a branch.
-`protected_branch.update_required_status_checks_enforcement_level `   | Enforcement of required status checks is updated on a branch.
-`protected_branch.rejected_ref_update `     | A branch update attempt is rejected.
-`protected_branch.policy_override `         | A branch protection requirement is overridden by a repository administrator.
+| 操作                                                                 | 描述                                                                                    |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| `protected_branch.create`                                          | 已在分支上启用分支保护。                                                                          |
+| `protected_branch.destroy`                                         | 已在分支上禁用分支保护。                                                                          |
+| `protected_branch.update_admin_enforced`                           | 已为仓库管理员强制执行分支保护。                                                                      |
+| `protected_branch.update_require_code_owner_review`                | 已在分支上更新必需代码所有者审查的强制执行。                                                                |
+| `protected_branch.dismiss_stale_reviews`                           | 已在分支上更新忽略旧拉取请求的强制执行。                                                                  |
+| `protected_branch.update_signature_requirement_enforcement_level`  | 已在分支上更新必需提交签名的强制执行。                                                                   |
+| `protected_branch.update_pull_request_reviews_enforcement_level`   | 已在分支上更新必需拉取请求审查的强制执行。 Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone). |
+| `protected_branch.update_required_status_checks_enforcement_level` | 已在分支上更新必需状态检查的强制执行。                                                                   |
+| `protected_branch.rejected_ref_update`                             | 分支更新尝试被拒。                                                                             |
+| `protected_branch.policy_override`                                 | 分支保护要求被仓库管理员覆盖。                                                                       |
 
-## Repositories
+## 仓库
 
-Action                | Description
---------------------- | -------------------------------------------------------
-`repo.access`         | The visibility of a repository changed to private{% ifversion ghes %}, public,{% endif %} or internal.
-`repo.archived`       | A repository was archived. For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."
-`repo.add_member`     | A collaborator was added to a repository.
-`repo.config`         | A site admin blocked force pushes. For more information, see [Blocking force pushes to a repository](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) to a repository.
-`repo.create`         | A repository was created.
-`repo.destroy`        | A repository was deleted.
-`repo.remove_member`  | A collaborator was removed from a repository.
-`repo.rename`         | A repository was renamed.
-`repo.transfer`       | A user accepted a request to receive a transferred repository.
-`repo.transfer_start` | A user sent a request to transfer a repository to another user or organization.
-`repo.unarchived`     | A repository was unarchived. For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."{% ifversion ghes %}
-`repo.config.disable_anonymous_git_access`| Anonymous Git read access is disabled for a repository. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
-`repo.config.enable_anonymous_git_access` | Anonymous Git read access is enabled for a repository. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
-`repo.config.lock_anonymous_git_access` | A repository's anonymous Git read access setting is locked, preventing repository administrators from changing (enabling or disabling) this setting. For more information, see "[Preventing users from changing anonymous Git read access](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."
-`repo.config.unlock_anonymous_git_access` | A repository's anonymous Git read access setting is unlocked, allowing repository administrators to change (enable or disable) this setting. For more information, see "[Preventing users from changing anonymous Git read access](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."{% endif %}
+| 操作                                         | 描述                                                                                                                                                                                                        |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repo.access`                              | 仓库的可见性已更改为私有{% ifversion ghes %}、公共{% endif %} 或内部。                                                                                                                                                       |
+| `repo.archived`                            | 已存档仓库。 更多信息请参阅“[存档 {% data variables.product.prodname_dotcom %} 仓库](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)”。                                                  |
+| `repo.add_member`                          | 已向仓库添加协作者。                                                                                                                                                                                                |
+| `repo.config`                              | 站点管理员已阻止强制推送。 更多信息请参阅“[阻止对仓库进行强制推送](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)”。                                                            |
+| `repo.create`                              | 已创建仓库。                                                                                                                                                                                                    |
+| `repo.destroy`                             | 已删除仓库。                                                                                                                                                                                                    |
+| `repo.remove_member`                       | 已从仓库中移除协作者。                                                                                                                                                                                               |
+| `repo.rename`                              | 已重命名仓库。                                                                                                                                                                                                   |
+| `repo.transfer`                            | 用户已接受接收传输仓库的请求。                                                                                                                                                                                           |
+| `repo.transfer_start`                      | 用户已发送向另一用户或组织传输仓库的请求。                                                                                                                                                                                     |
+| `repo.unarchived`                          | 已取消存档仓库。 更多信息请参阅“[存档 {% data variables.product.prodname_dotcom %} 仓库](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)”。{% ifversion ghes %}
+| `repo.config.disable_anonymous_git_access` | 已为仓库禁用匿名 Git 读取权限。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”                                                       |
+| `repo.config.enable_anonymous_git_access`  | 已为仓库启用匿名 Git 读取权限。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”                                                       |
+| `repo.config.lock_anonymous_git_access`    | 已锁定仓库的匿名 Git 读取权限设置，阻止仓库管理员更改（启用或禁用）此设置。 更多信息请参阅“[阻止用户更改匿名 Git 读取权限](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)”。            |
+| `repo.config.unlock_anonymous_git_access`  | 已解锁仓库的匿名 Git 读取权限设置，允许仓库管理员更改（启用或禁用）此设置。 更多信息请参阅“[阻止用户更改匿名 Git 读取权限](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)”。{% endif %}
 
-## Site admin tools
+## 站点管理员工具
 
-Action                        | Description
------------------------------ | -----------------------------------------------
-`staff.disable_repo`          | A site admin disabled access to a repository and all of its forks.
-`staff.enable_repo`           | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghes > 3.2 %}
-`staff.exit_fake_login`       | A site admin ended an impersonation session on {% data variables.product.product_name %}.
-`staff.fake_login`            | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
-`staff.repo_unlock`           | A site admin unlocked (temporarily gained full access to) one of a user's private repositories.
-`staff.unlock`                | A site admin unlocked (temporarily gained full access to) all of a user's private repositories.
+| 操作                      | 描述                                                                                             |
+| ----------------------- | ---------------------------------------------------------------------------------------------- |
+| `staff.disable_repo`    | 站点管理员已禁用对仓库及其所有复刻的访问。                                                                          |
+| `staff.enable_repo`     | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghes > 3.2 %}
+| `staff.exit_fake_login` | A site admin ended an impersonation session on {% data variables.product.product_name %}.      |
+| `staff.fake_login`      | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
+| `staff.repo_unlock`     | 站点管理员已解锁（临时获得完全访问权限）用户的一个私有仓库。                                                                 |
+| `staff.unlock`          | 站点管理员已解锁（临时获得完全访问权限）用户的所有私有仓库。                                                                 |
 
-## Teams
+## 团队
 
-Action                            | Description
---------------------------------- | -------------------------------------------
-`team.create`                     | A user account or repository was added to a team.
-`team.delete`                     | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
-`team.demote_maintainer`          | A user was demoted from a team maintainer to a team member.{% endif %}
-`team.destroy`                    | A team was deleted.{% ifversion ghes or ghae %}
-`team.promote_maintainer`         | A user was promoted from a team member to a team maintainer.{% endif %}
+| 操作                        | 描述                                                                                |
+| ------------------------- | --------------------------------------------------------------------------------- |
+| `team.create`             | 已向团队添加用户帐户或仓库。                                                                    |
+| `team.delete`             | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
+| `team.demote_maintainer`  | 用户从团队维护员降级为团队成员。{% endif %}
+| `team.destroy`            | 团队被删除。{% ifversion ghes or ghae %}
+| `team.promote_maintainer` | 用户从团队成员晋升为团队维护员。{% endif %}
 
-## Users
+## 用户
 
-Action                            | Description
---------------------------------- | -------------------------------------------
-`user.add_email`                  | An email address was added to a user account.
-`user.async_delete`               | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% ifversion ghes %}
-`user.change_password`            | A user changed his or her password.{% endif %}
-`user.create`                     | A new user account was created.
-`user.delete`                     | A user account was destroyed by an asynchronous job.
-`user.demote`                     | A site admin was demoted to an ordinary user account.
-`user.destroy`                    | A user deleted his or her account, triggering `user.async_delete`.{% ifversion ghes %}
-`user.failed_login`               | A user tried to sign in with an incorrect username, password, or two-factor authentication code.
-`user.forgot_password`            | A user requested a password reset via the sign-in page.{% endif %}
-`user.login`                      | A user signed in.{% ifversion ghes or ghae %}
-`user.mandatory_message_viewed`   | A user views a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
-`user.promote`                    | An ordinary user account was promoted to a site admin.
-`user.remove_email`               | An email address was removed from a user account.
-`user.rename`                     | A username was changed.
-`user.suspend`                    | A user account was suspended by a site admin.{% ifversion ghes %}
-`user.two_factor_requested`       | A user was prompted for a two-factor authentication code.{% endif %}
-`user.unsuspend`                  | A user account was unsuspended by a site admin.
+| 操作                              | 描述                                                                                                            |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `user.add_email`                | 已向用户帐户添加电子邮件地址。                                                                                               |
+| `user.async_delete`             | 异步作业已开始破坏用户帐户，最终触发 `user.delete`。{% ifversion ghes %}
+| `user.change_password`          | 用户已更改其密码。{% endif %}
+| `user.create`                   | 已创建新的用户帐户。                                                                                                    |
+| `user.delete`                   | 已通过异步作业销毁用户帐户。                                                                                                |
+| `user.demote`                   | 已将站点管理员降级为普通用户帐户。                                                                                             |
+| `user.destroy`                  | 用户已删除其帐户，触发 `user.async_delete`。{% ifversion ghes %}
+| `user.failed_login`             | 用户尝试登录时使用的用户名、密码或双重身份验证码不正确。                                                                                  |
+| `user.forgot_password`          | 用户通过登录页面请求了密码重置。{% endif %}
+| `user.login`                    | 用户已登录。{% ifversion ghes or ghae %}
+| `user.mandatory_message_viewed` | 用户查看必读消息（详情请参阅“[自定义用户消息](/admin/user-management/customizing-user-messages-for-your-enterprise)”）| {% endif %}
+| `user.promote`                  | 已将普通用户帐户升级为站点管理员。                                                                                             |
+| `user.remove_email`             | 已从用户帐户中移除电子邮件地址。                                                                                              |
+| `user.rename`                   | 已更改用户名。                                                                                                       |
+| `user.suspend`                  | 用户帐户被站点管理员暂停。{% ifversion ghes %}
+| `user.two_factor_requested`     | 已提示用户输入双重身份验证码。{% endif %}
+| `user.unsuspend`                | 站点管理员已取消挂起用户帐户。                                                                                               |
 
 {% ifversion ghes > 3.1 or ghae %}
-## Workflows
+## 工作流程
 
 {% data reusables.actions.actions-audit-events-workflow %}
 {% endif %}
+
+  [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
+  [部署密钥]: /guides/managing-deploy-keys/#deploy-keys
+  [generate token]: /articles/creating-an-access-token-for-command-line-use
+  [OAuth 访问令牌]: /developers/apps/authorizing-oauth-apps
+  [OAuth 应用程序]: /guides/basics-of-authentication/#registering-your-app
+  [2fa]: /articles/about-two-factor-authentication

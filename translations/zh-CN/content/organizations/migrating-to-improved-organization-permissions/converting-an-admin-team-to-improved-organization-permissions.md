@@ -1,6 +1,6 @@
 ---
-title: Converting an admin team to improved organization permissions
-intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. Members of legacy admin teams automatically retain the ability to create repositories until those teams are migrated to the improved organization permissions model.'
+title: 将管理员团队转换为改进的组织权限
+intro: 如果您的组织是在 2015 年 9 月之后创建的，则您的组织默认具有改进的组织权限。 在 2015 年 9 月之前创建的组织可能需要将较旧的所有者和管理员团队迁移到改进的权限模型。 旧管理员团队的成员在其团队被迁移到改进的组织权限模型之前，自动保留创建仓库的权限。
 redirect_from:
   - /articles/converting-your-previous-admin-team-to-the-improved-organization-permissions
   - /articles/converting-an-admin-team-to-improved-organization-permissions
@@ -12,23 +12,23 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Convert admin team
+shortTitle: 转换管理员团队
 ---
 
-You can remove the ability for members of legacy admin teams to create repositories by creating a new team for these members, ensuring that the team has necessary access to the organization's repositories, then deleting the legacy admin team.
+要删除旧管理员团队成员创建仓库的权限，请为这些成员创建新团队，确保该团队对组织仓库具有必要的权限，然后删除旧管理员团队。
 
 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% warning %}
 
-**Warnings:**
-- If there are members of your legacy Admin team who are not members of other teams, deleting the team will remove those members from the organization. Before deleting the team, ensure members are already direct members of the organization, or have collaborator access to necessary repositories.
-- To prevent the loss of private forks made by members of the legacy Admin team, you must follow steps 1-3 below before deleting the legacy Admin team.
-- Because "admin" is a term for organization members with specific [access to certain repositories](/articles/repository-permission-levels-for-an-organization) in the organization, we recommend you avoid that term in any team name you decide on.
+**警告：**
+- 如果旧管理员团队中有成员不是其他团队的成员，则删除该团队将导致从组织中删除这些成员。 在删除该团队之前，请确保其成员已经是组织的直接成员，或者具有对必要仓库的协作者权限。
+- 为防止丢失旧管理员团队成员创建的私有复刻，在删除旧管理员团队之前必须完成下面的步骤 1-3。
+- 由于“管理员”是用于[对某些仓库具有特定权限](/articles/repository-permission-levels-for-an-organization)的组织成员的术语，因此我们建议在您决定的任何团队名称中避免使用该术语。
 
 {% endwarning %}
 
-1. [Create a new team](/articles/creating-a-team).
-2. [Add each of the members](/articles/adding-organization-members-to-a-team) of your legacy admin team to the new team.
-3. [Give the new team equivalent access](/articles/managing-team-access-to-an-organization-repository) to each of the repositories the legacy team could access.
-4. [Delete the legacy admin team](/articles/deleting-a-team).
+1. [创建新团队](/articles/creating-a-team)。
+2. [将旧管理员团队的每个成员添加](/articles/adding-organization-members-to-a-team)到新团队。
+3. 对于旧团队可访问的每个仓库，[为新团队提供同等的访问权限](/articles/managing-team-access-to-an-organization-repository) 。
+4. [删除旧管理员团队](/articles/deleting-a-team)。

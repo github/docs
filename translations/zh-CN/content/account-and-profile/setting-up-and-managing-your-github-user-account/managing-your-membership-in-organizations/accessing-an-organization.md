@@ -1,6 +1,6 @@
 ---
-title: Accessing an organization
-intro: 'To access an organization that you''re a member of, you must sign in to your personal user account.'
+title: 访问组织
+intro: 要访问您是其成员的组织，必须登录您的个人用户帐户。
 redirect_from:
   - /articles/error-cannot-log-in-that-account-is-an-organization
   - /articles/cannot-log-in-that-account-is-an-organization
@@ -16,9 +16,10 @@ versions:
 topics:
   - Accounts
 ---
+
 {% tip %}
 
-**Tip:** Only organization owners can see and change the account settings for an organization.
+**提示：**只有组织所有者才可查看和更改组织的帐户设置。
 
 {% endtip %}
 
