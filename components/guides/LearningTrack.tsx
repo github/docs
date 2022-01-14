@@ -32,11 +32,11 @@ export const LearningTrack = ({ track }: Props) => {
         <div className="Box-header color-bg-subtle p-4 d-flex flex-1 flex-items-start flex-wrap">
           <div className="d-flex flex-auto flex-items-start col-8 col-md-12 col-xl-8">
             <div className="my-xl-0 mr-xl-3">
-              <h5 id={slug} className={cx('mb-3 color-text f3 text-semibold', styles.hashAnchor)}>
+              <h3 id={slug} className={cx('mb-3 color-text f3 text-semibold', styles.hashAnchor)}>
                 <a className="color-unset" href={`#${slug}`}>
                   {track?.title}
                 </a>
-              </h5>
+              </h3>
               <TruncateLines as="p" maxLines={3} className="color-text">
                 {track?.description}
               </TruncateLines>
@@ -99,8 +99,8 @@ export const LearningTrack = ({ track }: Props) => {
                         className="rounded-0 pl-7 py-4 width-full d-block Box-row d-flex flex-items-center color-fg-default no-underline"
                         href={`${guide.href}?learn=${track?.trackName}&learnProduct=${track?.trackProduct}`}
                       >
-                        <h5
-                          className="flex-auto pr-2"
+                        <h4
+                          className="flex-auto pr-2 f5"
                           dangerouslySetInnerHTML={{ __html: guide.title }}
                         />
                         <div className="color-fg-muted h6 text-uppercase flex-shrink-0">
