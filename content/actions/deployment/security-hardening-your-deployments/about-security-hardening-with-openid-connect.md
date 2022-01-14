@@ -126,7 +126,7 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `repository_owner`| The name of the organization in which the `repository` is stored.                   | 
 | `run_id`| The ID of the workflow run that triggered the workflow.                   | 
 | `run_number`| The number of times this workflow has been run.                   | 
-| `run_attempt`| The number of time this workflow run was been retried.                    | 
+| `run_attempt`| The number of times this workflow run has been retried.                    | 
 | `workflow`| The name of the workflow.                   | 
 
 ### Defining trust conditions on cloud roles using OIDC claims
