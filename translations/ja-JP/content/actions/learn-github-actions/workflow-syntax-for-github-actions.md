@@ -60,18 +60,18 @@ The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glo
 ```yaml
 on:
   push:
-    # refs/heads とマッチするパターンのシークエンス
-    branches:    
-      # メインブランチのプッシュイベント
+    # Sequence of patterns matched against refs/heads
+    branches:
+      # Push events on main branch
       - main
-      # refs/heads/mona/octocat に一致するブランチにイベントをプッシュする
+      # Push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # refs/heads/releases/10 に一致するブランチにイベントをプッシュする
+      # Push events to branches matching refs/heads/releases/10
       - 'releases/**'
-    # refs/tags とマッチするパターンのシーケンス
-    tags:        
-      - v1             # イベントを v1 タグにプッシュする
-      - v1.*           # イベントを v1.0、v1.1、および v1.9 タグにプッシュする
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - v1             # Push events to v1 tag
+      - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
 ```
 
 ### Example: Ignoring branches and tags
@@ -109,7 +109,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
       - '!releases/**-alpha'
 ```
@@ -244,7 +244,7 @@ on:
         value: ${{ jobs.my_job.outputs.job_output1 }}
       workflow_output2:
         description: "The second job output"
-        value: ${{ jobs.my_job.outputs.job_output2 }}  
+        value: ${{ jobs.my_job.outputs.job_output2 }}
 ```
 {% endraw %}
 
@@ -273,7 +273,7 @@ jobs:
   pass-secret-to-action:
     runs-on: ubuntu-latest
 
-    steps:  
+    steps:
       - name: Pass the received secret to an action
         uses: ./.github/actions/my-action@v1
         with:
@@ -297,13 +297,12 @@ When using the `workflow_dispatch` event, you can optionally specify inputs that
 The triggered workflow receives the inputs in the `github.event.inputs` context. 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts#github-context)」を参照してください。
 
 ### サンプル
-{% raw %}
 ```yaml
-on: 
+on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Log level'
         required: true
         default: 'warning' {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: choice
@@ -326,9 +325,9 @@ jobs:
 
     steps:
       - name: Print the input tag to STDOUT
-        run: echo The tag is ${{ github.event.inputs.tag }}
+        run: echo {% raw %} The tag is ${{ github.event.inputs.tag }} {% endraw %}
 ```
-{% endraw %}
+
 
 ## `on.schedule`
 
@@ -749,7 +748,7 @@ Git ref、SHA、またはDockerタグ番号を指定して、使用している�
 
 入力が必要なアクションもあり、入力を[`with`](#jobsjob_idstepswith)キーワードを使って設定する必要があります。 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
 
-アクションは、JavaScriptのファイルもしくはDockerコンテナです。 使用するアクションがDockerコンテナの場合は、Linux環境で実行する必要があります。 詳細については[`runs-on`](#jobsjob_idruns-on)を参照してください。
+アクションは、JavaScriptのファイルもしくはDockerコンテナです。 使用するアクションがDockerコンテナの場合、ジョブはLinux環境で実行する必要があります。 詳細については[`runs-on`](#jobsjob_idruns-on)を参照してください。
 
 ### Example: Using versioned actions
 
@@ -913,7 +912,7 @@ jobs:
 
 ## `jobs.<job_id>.steps[*].shell`
 
-`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルを上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
+`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルの設定を上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
 | サポートされているプラットフォーム | `shell` パラメータ | 説明                                                                                                                                                                                                        | 内部で実行されるコマンド                                    |
 | ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -1029,7 +1028,7 @@ jobs:
         with:
           first_name: Mona
           middle_name: The
-          last_name: Octocat      
+          last_name: Octocat
 ```
 
 ## `jobs.<job_id>.steps[*].with.args`
@@ -1077,7 +1076,7 @@ steps:
 
 {% data reusables.repositories.actions-env-var-note %}
 
-パブリックなアクションは、READMEファイル中で期待する環境変数を指定できます。 環境変数に秘密情報を設定しようとしている場合、秘密情報は`secrets`コンテキストを使って設定しなければなりません。 For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+パブリックなアクションは、READMEファイル中で期待する環境変数を指定できます。 環境変数にシークレットを設定しようとしている場合、シークレットは`secrets`コンテキストを使って設定しなければなりません。 For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
 
 ### サンプル
 
@@ -1257,7 +1256,7 @@ strategy:
 
 ### Example: Preventing a specific failing matrix job from failing a workflow run
 
-ジョブマトリックス中の特定のジョブが失敗しても、ワークフローの実行が失敗にならないようにすることができます。 たとえば、`node`が`15`に設定された実験的なジョブが失敗しても、ワークフローの実行を失敗させないようにしたいとしましょう。
+ジョブマトリックス中の特定のジョブが失敗しても、ワークフローの実行が失敗にならないようにすることができます。 For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
 
 {% raw %}
 ```yaml
@@ -1509,7 +1508,7 @@ jobs:
   call-workflow:
     uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
     secrets:
-      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} 
+      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
 {% endraw %}
 

@@ -40,11 +40,11 @@ Te recomendamos que tengas una comprensión básica de Java y del marco de Gradl
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Gradle starter workflow
+## Utilizar el flujo de trabajo inicial de Gradle
 
-{% data variables.product.prodname_dotcom %} provides a Gradle starter workflow that will work for most Gradle-based Java projects. For more information, see the [Gradle starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
+{% data variables.product.prodname_dotcom %} Proporciona un flujo de trabajo inicial de Gradle que funciona con la mayoría de los proyectos de Java basados en Gradle. Para obtener más información, consulta el [Flujo de trabajo inicial de Gradle](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
 
-To get started quickly, you can choose the preconfigured Gradle starter workflow when you create a new workflow. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
+Para comenzar rápidamente, puedes elegir el flujo de trabajo inicial de Gradle preconfigurado cuando crees un flujo de trabajo nuevo. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
 
 También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
 
@@ -79,7 +79,7 @@ Este flujo de trabajo realiza los siguientes pasos:
 3. El paso de "Validar el wrapper de Gradle" valida la sumas de verificaciones de los archivos JAR del wrapper de Gradle que estén presentes en el árbol fuente.
 4. El paso "Build with Gradle" (construir con Gradle) ejecuta el script contenedor `gradlew` para asegurar que tu código se cree, las pruebas pasen y se pueda crear un paquete.
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+Los flujos de trabajo iniciales predeterminados son un punto de partida excelente para crear tu flujo de trabajo de prueba y de compilación y puedes personalizarlos de acuerdo con las necesidades de tu proyecto.
 
 {% data reusables.github-actions.example-github-runner %}
 
