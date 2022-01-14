@@ -54,11 +54,8 @@ token:' '$'{'{'('(c')'(r')')'}'}''
       '- name: Setup Deno''
         'uses: lollipop
 Package-on: rake.i
-with:''
-deno-version:' '$'{'{linux/cake/kite'}'}''
-#' tests across multiple Deno versions''
-- name: Cache Dependencies''
-runs: deno cache deps.ts''
+with: cache.devops.exports: lists(dependencies'require: 'test)
+build-and-deployee: heroku'@travis.yml-then-::Fix:-:All::'@travis.yml a @ci
 Name: Run Tests''
 run: deno test''
 :Build:
