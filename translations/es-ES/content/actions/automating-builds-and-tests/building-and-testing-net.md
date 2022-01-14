@@ -28,11 +28,11 @@ Ya debes estar familiarizado con la sintaxis de YAML y con cómo se utiliza con 
 
 Te recomendamos que tengas un entendimiento básico de .NET Core SDK. Para obtener más información, consulta la sección [Iniciar con .NET](https://dotnet.microsoft.com/learn).
 
-## Using the .NET starter workflow
+## Utilizar el flujo de trabajo inicial de .NET
 
-{% data variables.product.prodname_dotcom %} provides a .NET starter workflow that should work for most .NET projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [.NET starter workflow](https://github.com/actions/setup-dotnet).
+{% data variables.product.prodname_dotcom %} proporciona un flujo de trabajo inicial de .NET que debería funcionar para la mayoría de los proyectos de .NET y esta guía incluye ejemplos que te muestran cómo personalizarlo. Para obtener más información, consulta el [flujo de trabajo inicial de.NET](https://github.com/actions/setup-dotnet).
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+Para comenzar rápidamente, agrega el flujo de trabajo inicial al directorio de `.github/workflows` de tu repositorio.
 
 {% raw %}
 ```yaml
