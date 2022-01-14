@@ -61,7 +61,7 @@ on:
 on:
   push:
     # Sequence of patterns matched against refs/heads
-    branches:    
+    branches:
       # Push events on main branch
       - main
       # Push events to branches matching refs/heads/mona/octocat
@@ -69,7 +69,7 @@ on:
       # Push events to branches matching refs/heads/releases/10
       - 'releases/**'
     # Sequence of patterns matched against refs/tags
-    tags:        
+    tags:
       - v1             # Push events to v1 tag
       - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
 ```
@@ -109,7 +109,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
       - '!releases/**-alpha'
 ```
@@ -244,7 +244,7 @@ on:
         value: ${{ jobs.my_job.outputs.job_output1 }}
       workflow_output2:
         description: "The second job output"
-        value: ${{ jobs.my_job.outputs.job_output2 }}  
+        value: ${{ jobs.my_job.outputs.job_output2 }}
 ```
 {% endraw %}
 
@@ -273,7 +273,7 @@ jobs:
   pass-secret-to-action:
     runs-on: ubuntu-latest
 
-    steps:  
+    steps:
       - name: Pass the received secret to an action
         uses: ./.github/actions/my-action@v1
         with:
@@ -297,13 +297,12 @@ When using the `workflow_dispatch` event, you can optionally specify inputs that
 触发的工作流程接收 `github.event.input` 上下文中的输入。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#github-context)”。
 
 ### 示例
-{% raw %}
 ```yaml
-on: 
+on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Log level'
         required: true
         default: 'warning' {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: choice
@@ -326,9 +325,9 @@ jobs:
 
     steps:
       - name: Print the input tag to STDOUT
-        run: echo The tag is ${{ github.event.inputs.tag }}
+        run: echo {% raw %} The tag is ${{ github.event.inputs.tag }} {% endraw %}
 ```
-{% endraw %}
+
 
 ## `on.schedule`
 
@@ -1029,7 +1028,7 @@ jobs:
         with:
           first_name: Mona
           middle_name: The
-          last_name: Octocat      
+          last_name: Octocat
 ```
 
 ## `jobs.<job_id>.steps[*].with.args`
@@ -1257,7 +1256,7 @@ strategy:
 
 ### 示例：防止特定失败的矩阵作业无法运行工作流程
 
-您可以允许作业矩阵中的特定任务失败，但工作流程运行不失败。 例如， 只允许 `node` 设置为 `15` 的实验性作业失败，而不允许工作流程运行失败。
+您可以允许作业矩阵中的特定任务失败，但工作流程运行不失败。 For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
 
 {% raw %}
 ```yaml
@@ -1509,7 +1508,7 @@ jobs:
   call-workflow:
     uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
     secrets:
-      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} 
+      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
 {% endraw %}
 

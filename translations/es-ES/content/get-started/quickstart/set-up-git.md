@@ -44,10 +44,10 @@ Si no deseas trabajar con archivos de forma local, {% data variables.product.pro
 
 {% note %}
 
-**Note**: If you are using a Chrome OS device, additional set up is required:
+**Nota**: Si estás utilizando un dispositivo con Chrome OS, necesitarás realizar configuraciones adicionales:
 
-1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
-2. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
+1. Instala un emulador de terminal como Termux desde la Google Play Store en tu dispositivo Chrome OS.
+2. Instala Git desde el emulador de terminal que instalaste. Por ejemplo, ingresa `apt install git` en Termux y teclea `y` cuando se te indique.
 
 {% endnote %}
 

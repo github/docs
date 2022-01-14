@@ -40,11 +40,11 @@ Recomendamos que tengas un conocimiento básico de Java y de la estructura de An
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Ant starter workflow
+## Utilizar el flujo de trabajo inicial de Ant
 
-{% data variables.product.prodname_dotcom %} provides an Ant starter workflow that will work for most Ant-based Java projects. For more information, see the [Ant starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
+{% data variables.product.prodname_dotcom %} proporciona un flujo de trabajo inicial de Ant que funcionará para la mayoría de los proyectos de Java basados en Ant. Para obtener más información, consulta el [Flujo de trabajo inicial de Ant](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
 
-To get started quickly, you can choose the preconfigured Ant starter workflow when you create a new workflow. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
+Para comenzar rápidamente, puedes elegir el flujo de trabajo inicial de Ant preconfigurado cuando crees un nuevo flujo de trabajo. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
 
 También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
 
@@ -76,7 +76,7 @@ Este flujo de trabajo realiza los siguientes pasos:
 2. El paso `setup-java` configura el JDK de Java 11 por Adoptium.
 3. El paso "Build with Ant" (Construir con Ant) ejecuta el objetivo predeterminado en tu `build.xml` en el modo no interactivo.
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+Los flujos de trabajo iniciales predeterminados son un punto de partida excelente para crear tu flujo de trabajo de prueba y de compilación y puedes personalizarlos de acuerdo con las necesidades de tu proyecto.
 
 {% data reusables.github-actions.example-github-runner %}
 
