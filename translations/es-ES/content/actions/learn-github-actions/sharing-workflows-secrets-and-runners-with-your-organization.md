@@ -1,7 +1,7 @@
 ---
 title: 'Compartir flujos de trabajo, secretos y ejecutores con tu organización'
 shortTitle: Compartir flujos de trabajo con tu organización
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflow, secrets, and self-hosted runners.'
+intro: 'Aprende cómo puedes utilizar características de la organización para colaborar con tu equipo compartiendo flujos de trabajo iniciales, secretos y ejecutores auto-hospedados.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
 versions:

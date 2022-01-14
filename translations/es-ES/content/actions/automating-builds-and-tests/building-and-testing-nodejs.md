@@ -36,11 +36,11 @@ Te recomendamos que tengas una comprensión básica de Node.js, YAML, las opcion
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Node.js starter workflow
+## Utilizar el flujo de trabajo inicial de Node.js
 
-{% data variables.product.prodname_dotcom %} provides a Node.js starter workflow that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the starter workflow. For more information, see the [Node.js starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
+{% data variables.product.prodname_dotcom %} proporciona un flujo de trabajo inicial de Node.js que funcionará para la mayoría de los proyectos de Node.js. Esta guía incluye ejemplos de Yarn y de npm que puedes utilizar para personalizar el flujo de trabajo inicial. Para obtener más información, consulta el [flujo de trabajo inicial de Node.js](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. El flujo de trabajo que se muestra a continuación asume que la rama predeterminada de tu repositorio es `main`.
+Para comenzar rápidamente, agrega el flujo de trabajo inicial al directorio de `.github/workflows` de tu repositorio. El flujo de trabajo que se muestra a continuación asume que la rama predeterminada de tu repositorio es `main`.
 
 {% raw %}
 ```yaml{:copy}
@@ -81,7 +81,7 @@ La forma más fácil de especificar una versión de Node.js es por medio de la a
 
 La acción `setup-node` toma una versión de Node.js como una entrada y configura esa versión en el ejecutor. La acción `setup-node` encuentra una versión específica de Node.js de la caché de herramientas en cada ejecutor y añade los binarios necesarios a `PATH`, que continúan para el resto del trabajo. Usar la acción `setup-node` es la forma recomendada de usar Node.js con {% data variables.product.prodname_actions %} porque asegura un comportamiento consistente a través de diferentes ejecutores y diferentes versiones de Node.js. Si estás usando un ejecutor autoalojado, debes instalar Node.js y añadirlo a `PATH`.
 
-The starter workflow includes a matrix strategy that builds and tests your code with four Node.js versions: 10.x, 12.x, 14.x, and 15.x. La 'x' es un carácter comodín que coincide con el último lanzamiento menor y de parche disponible para una versión. Cada versión de Node.js especificada en la matriz `node-version` crea un trabajo que ejecuta los mismos pasos.
+El flujo de trabajo inicial incluye una estrategia de matriz que compila y prueba tu código con cuatro versiones de Node.js: 10.x, 12.x, 14.x y 15.x. La 'x' es un carácter comodín que coincide con el último lanzamiento menor y de parche disponible para una versión. Cada versión de Node.js especificada en la matriz `node-version` crea un trabajo que ejecuta los mismos pasos.
 
 Cada trabajo puede acceder al valor definido en la matriz `node-version` por medio del contexto `matrix`. La acción `setup-node` utiliza el contexto como la entrada `node-version`. La acción `setup-node` configura cada trabajo con una versión diferente de Node.js antes de construir y probar código. Para obtener más información acerca de las estrategias y los contextos de la matriz, consulta las secciones "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" y "[Contextos](/actions/learn-github-actions/contexts)".
 

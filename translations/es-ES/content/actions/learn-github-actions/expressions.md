@@ -125,11 +125,11 @@ Arroja `true` si `search` contiene `item`. Si `search` es una matriz, esta funci
 
 #### Ejemplo usando una matriz
 
-`contains(github.event.issue.labels.*.name, 'bug')`
+`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
 
 #### Ejemplo usando una cadena
 
-`contains('Hello world', 'llo')` devuelve `verdadero`
+`contains('Hello world', 'llo')` devuelve `verdadero`.
 
 ### startsWith
 
@@ -139,7 +139,7 @@ Arroja `true` cuando `searchString` empieza con `searchValue`. Esta función no 
 
 #### Ejemplo
 
-`startsWith('Hello world', 'He')` regresa a `verdadero`
+`startsWith('Hello world', 'He')` regresa a `verdadero`.
 
 ### endsWith
 
@@ -149,7 +149,7 @@ Arroja `true` si `searchString` termina con `searchValue`. Esta función no dist
 
 #### Ejemplo
 
-`endsWith('Hello world', 'He')` devuelve `verdadero`
+`endsWith('Hello world', 'He')` devuelve `verdadero`.
 
 ### format
 
@@ -159,19 +159,19 @@ Reemplaza valores en la `string`, con la variable `replaceValueN`. Las variables
 
 #### Ejemplo
 
-Arroja 'Hello Mona the Octocat'
-
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-#### Ejemplo de evasión de llaves
+Devuelve 'Hello Mona the Octocat'.
 
-Devuelve '{Hello Mona the Octocat!}'
+#### Ejemplo de evasión de llaves
 
 {% raw %}
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
+
+Devuelve '{Hello Mona the Octocat!}'.
 
 ### join
 
