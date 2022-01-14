@@ -2,7 +2,7 @@
 title: Utilizar el reenvío del agente SSH
 intro: 'Para simplificar los despliegues en un servidor, puedes configurar el reenvío del agente SSH para utilizar las llaves SSH locales de forma segura.'
 redirect_from:
-  - /guides/using-ssh-agent-forwarding/
+  - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
 versions:
   fpt: '*'

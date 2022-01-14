@@ -2,8 +2,8 @@
 title: GitHub Servicesの置き換え
 intro: '非推奨となった{% data variables.product.prodname_dotcom %} Servicesにまだ依存しているなら、サービスフックをwebhookに移行する方法を学んでください。'
 redirect_from:
-  - /guides/replacing-github-services/
-  - /v3/guides/automating-deployments-to-integrators/
+  - /guides/replacing-github-services
+  - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
 versions:
   fpt: '*'

@@ -2,10 +2,10 @@
 title: GitHub Pages サイトを作成する
 intro: '新規または既存のリポジトリ内に、{% data variables.product.prodname_pages %} サイトを作成できます。'
 redirect_from:
-  - /articles/creating-pages-manually/
-  - /articles/creating-project-pages-manually/
-  - /articles/creating-project-pages-from-the-command-line/
-  - /articles/creating-project-pages-using-the-command-line/
+  - /articles/creating-pages-manually
+  - /articles/creating-project-pages-manually
+  - /articles/creating-project-pages-from-the-command-line
+  - /articles/creating-project-pages-using-the-command-line
   - /articles/creating-a-github-pages-site
   - /github/working-with-github-pages/creating-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
@@ -53,6 +53,7 @@ shortTitle: GitHub Pagesのサイトの作成
 {% data reusables.pages.sidebar-pages %}{% ifversion fpt or ghec %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
+{% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 

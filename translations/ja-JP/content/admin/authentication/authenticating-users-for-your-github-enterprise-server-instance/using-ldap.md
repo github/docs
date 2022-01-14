@@ -1,15 +1,15 @@
 ---
-title: Using LDAP
+title: LDAPの利用
 redirect_from:
-  - /enterprise/admin/articles/configuring-ldap-authentication/
-  - /enterprise/admin/articles/about-ldap-authentication/
-  - /enterprise/admin/articles/viewing-ldap-users/
-  - /enterprise/admin/hidden/enabling-ldap-sync/
-  - /enterprise/admin/hidden/ldap-sync/
+  - /enterprise/admin/articles/configuring-ldap-authentication
+  - /enterprise/admin/articles/about-ldap-authentication
+  - /enterprise/admin/articles/viewing-ldap-users
+  - /enterprise/admin/hidden/enabling-ldap-sync
+  - /enterprise/admin/hidden/ldap-sync
   - /enterprise/admin/user-management/using-ldap
   - /enterprise/admin/authentication/using-ldap
   - /admin/authentication/using-ldap
-intro: 'LDAP lets you authenticate {% data variables.product.prodname_ghe_server %} against your existing accounts and centrally manage repository access. LDAP is a popular application protocol for accessing and maintaining directory information services, and is one of the most common protocols used to integrate third-party software with large company user directories.'
+intro: 'LDAP を使えば、既存のアカウントに対して {% data variables.product.prodname_ghe_server %} を認証させることができ、リポジトリへのアクセスを集中管理できます。 LDAPはディレクトリ情報サービスへのアクセスと管理のための広く使われているアプリケーションプロトコルで、大企業のユーザディレクトリとサードパーティのソフトウェアを統合するために使われている最も一般的なプロトコルの1つです。'
 versions:
   ghes: '*'
 type: how_to
@@ -19,11 +19,12 @@ topics:
   - Enterprise
   - Identity
 ---
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-## Supported LDAP services
+## サポートされているLDAPサービス
 
-{% data variables.product.prodname_ghe_server %} integrates with these LDAP services:
+{% data variables.product.prodname_ghe_server %} は、以下の LDAP サービスと統合できます:
 
 * Active Directory
 * FreeIPA
@@ -32,7 +33,7 @@ topics:
 * Open Directory
 * 389-ds
 
-## Username considerations with LDAP
+## LDAPでのユーザ名についての考慮
 
 {% data reusables.enterprise_management_console.username_normalization %}
 
@@ -41,153 +42,150 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-## Configuring LDAP with {% data variables.product.product_location %}
+## {% data variables.product.product_location %}とのLDAPの設定
 
-After you configure LDAP, users will be able to sign into your instance with their LDAP credentials. When users sign in for the first time, their profile names, email addresses, and SSH keys will be set with the LDAP attributes from your directory.
+LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでインスタンスにサインインできるようになります。 ユーザが初めてサインインするときに、ディレクトリ内のLDAP属性を使ってプロフィール名、メールアドレス、SSHキーが設定されます。
 
-When you configure LDAP access for users via the {% data variables.enterprise.management_console %}, your user licenses aren't used until the first time a user signs in to your instance. However, if you create an account manually using site admin settings, the user license is immediately accounted for.
+{% data variables.enterprise.management_console %}経由でユーザのLDAPアクセスを設定した場合、インスタンスにユーザが初めてサインインするまで、ユーザライセンスは使われません。 ただし、サイト管理設定を使ってマニュアルでアカウントを作成した場合、ユーザライセンスはすぐに使われます。
 
 {% warning %}
 
-**Warning:** Before configuring LDAP on {% data variables.product.product_location %}, make sure that your LDAP service supports paged results.
+**警告：**{% data variables.product.product_location %}でLDAPを設定する前に、利用するLDAPサービスがページ化された結果をサポートしていることを確認してください。
 
 {% endwarning %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-3. Under "Authentication", select **LDAP**.
-![LDAP select](/assets/images/enterprise/management-console/ldap-select.png)
-4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Select LDAP built-in authentication checkbox](/assets/images/enterprise/management-console/ldap-built-in-authentication.png)
-5. Add your configuration settings.
+3. "Authentication（認証）"の下で**LDAP**を選択してください。 ![LDAP の選択](/assets/images/enterprise/management-console/ldap-select.png)
+4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![LDAP のビルトイン認証の選択チェックボックス](/assets/images/enterprise/management-console/ldap-built-in-authentication.png)
+5. 設定を追加してください。
 
-## LDAP attributes
-Use these attributes to finish configuring LDAP for {% data variables.product.product_location %}.
+## LDAPの属性
+{% data variables.product.product_location %}のlDAPの設定を完了させるために、以下の属性を使ってください。
 
-| Attribute name           | Type     | Description |
-|--------------------------|----------|-------------|
-| `Host`                   | Required | The LDAP host, e.g. `ldap.example.com` or `10.0.0.30`. If the hostname is only available from your internal network, you may need to configure {% data variables.product.product_location %}'s DNS first so it can resolve the hostname using your internal nameservers. |
-| `Port`                   | Required | The port the host's LDAP services are listening on. Examples include: 389 and 636 (for LDAPS). |
-| `Encryption`             | Required | The encryption method used to secure communications to the LDAP server. Examples include plain (no encryption), SSL/LDAPS (encrypted from the start), and StartTLS (upgrade to encrypted communication once connected). |
-| `Domain search user`     | Optional | The LDAP user that looks up other users that sign in, to allow authentication. This is typically a service account created specifically for third-party integrations. Use a fully qualified name, such as `cn=Administrator,cn=Users,dc=Example,dc=com`. With Active Directory, you can also use the `[DOMAIN]\[USERNAME]` syntax (e.g. `WINDOWS\Administrator`) for the domain search user with Active Directory. |
-| `Domain search password` | Optional | The password for the domain search user. |
-| `Administrators group`   | Optional | Users in this group are promoted to site administrators when signing into your appliance. If you don't configure an LDAP Administrators group, the first LDAP user account that signs into your appliance will be automatically promoted to a site administrator. |
-| `Domain base`            | Required | The fully qualified `Distinguished Name` (DN) of an LDAP subtree you want to search for users and groups. You can add as many as you like; however, each group must be defined in the same domain base as the users that belong to it. If you specify restricted user groups, only users that belong to those groups will be in scope. We recommend that you specify the top level of your LDAP directory tree as your domain base and use restricted user groups to control access. |
-| `Restricted user groups` | Optional | If specified, only users in these groups will be allowed to log in. You only need to specify the common names (CNs) of the groups, and you can add as many groups as you like. If no groups are specified, *all* users within the scope of the specified domain base will be able to sign in to your {% data variables.product.prodname_ghe_server %} instance. |
-| `User ID`                | Required | The LDAP attribute that identifies the LDAP user who attempts authentication. Once a mapping is established, users may change their {% data variables.product.prodname_ghe_server %} usernames. This field should be `sAMAccountName` for most Active Directory installations, but it may be `uid` for other LDAP solutions, such as OpenLDAP. The default value is `uid`. |
-| `Profile name`           | Optional | The name that will appear on the user's {% data variables.product.prodname_ghe_server %} profile page. Unless LDAP Sync is enabled, users may change their profile names. |
-| `Emails`                 | Optional | The email addresses for a user's {% data variables.product.prodname_ghe_server %} account. |
-| `SSH keys`               | Optional | The public SSH keys attached to a user's {% data variables.product.prodname_ghe_server %} account. The keys must be in OpenSSH format. |
-| `GPG keys`               | Optional | The GPG keys attached to a user's {% data variables.product.prodname_ghe_server %} account. |
-| `Disable LDAP authentication for Git operations` | Optional |If selected, [turns off](#disabling-password-authentication-for-git-operations) users' ability to use LDAP passwords to authenticate Git operations. |
-| `Enable LDAP certificate verification` | Optional |If selected, [turns on](#enabling-ldap-certificate-verification) LDAP certificate verification. |
-| `Synchronization` | Optional |If selected, [turns on](#enabling-ldap-sync) LDAP Sync. |
+| 属性名                                              | 種類 | 説明                                                                                                                                                                                                                                                        |
+| ------------------------------------------------ | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Host`                                           | 必須 | LDAP のホスト。例: `ldap.example.com` あるいは `10.0.0.30`。 ホスト名が内部ネットワークからしか利用できないなら、まず{% data variables.product.product_location %}のDNSを設定してホスト名を内部のネームサーバを使って解決できるようにする必要があるかもしれません。                                                                             |
+| `ポート`                                            | 必須 | ホストの LDAP サービスが待ち受けるポート。 例：389及び636（LDAPS用）。                                                                                                                                                                                                              |
+| `Encryption`                                     | 必須 | LDAP サーバーとの通信をセキュアにするために使われる暗号化の方法。 例：plain（暗号化なし）、SSL/LDAPS（最初からの暗号化）、StartTLS（接続後に暗号化通信にアップグレード）。                                                                                                                                                       |
+| `Domain search user`                             | 任意 | 認証を許可するために、サインインする他のユーザを検索する LDAP ユーザ。 これは通常、サードパーティとのインテグレーションのために特に作成されるサービスアカウントです。 `cn=Administrator,cn=Users,dc=Example,dc=com`のような完全修飾名を使ってください。 Active Directoryでは、ドメイン検索ユーザとして `[DOMAIN]\[USERNAME]`という構文（例：`WINDOWS\Administrator`）を使うこともできます。 |
+| `Domain search password`                         | 任意 | ドメイン検索ユーザのためのパスワード。                                                                                                                                                                                                                                       |
+| `Administrators group`                           | 任意 | このグループ内のユーザは、アプライアンスへサインインしたときにサイト管理者に昇格します。 LDAPの管理者グループを設定しなければ、アプライアンスに最初にサインインしたLDAPユーザが自動的にサイト管理者に昇格します。                                                                                                                                             |
+| `Domain base`                                    | 必須 | ユーザおよびグループの検索を行う LDAP サブツリーの完全修飾 `Distinguished Name` (DN)。 いくつでも追加できるが、それぞれのグループはユーザが属するのと同じドメインベースで定義されなければなりません。 制限されたユーザグループを指定したなら、それらのグループに属するユーザだけがスコープに入ります。 ドメインベースにはLDAPディレクトリツリーの最上位を指定し、制限されたユーザグループでアクセス制御することをおすすめします。                      |
+| `Restricted user groups`                         | 任意 | 指定された場合、このグループ内のユーザだけがログインできます。 指定が必要なのはグループのcommon name（CN）だけで、グループはいくつでも追加できます。 グループが指定されていなければ、指定されたドメインベースのスコープ内の*すべての*ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインできるようになります。                                                |
+| `User ID`                                        | 必須 | 認証を受けようとした LDAP ユーザを特定する LDAP 属性。 マッピングが確立されたら、ユーザは自分の {% data variables.product.prodname_ghe_server %} ユーザ名を変更できます。 このフィールドはほとんどのActive Directoryの環境では`sAMAccountName`にすべきですが、OpenLDAPなどの他のLDAPソリューションでは`uid`になることがあります。 デフォルト値は`uid`です。               |
+| `Profile name`                                   | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} プロフィールページに表示される名前。 LDAP Syncが有効化されていなければ、ユーザは自分のプロフィール名を変更できます。                                                                                                                                   |
+| `Emails`                                         | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントのメールアドレス。                                                                                                                                                                                    |
+| `SSH keys`                                       | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントにアタッチされた公開 SSH キー。 キーはOpenSSH形式でなければなりません。                                                                                                                                                   |
+| `GPG keys`                                       | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントにアタッチされたGPGキー。                                                                                                                                                                               |
+| `Disable LDAP authentication for Git operations` | 任意 | 選択した場合、ユーザが LDAP パスワードで Git の操作の認証を受けるのが[オフ](#disabling-password-authentication-for-git-operations)になります。                                                                                                                                                 |
+| `Enable LDAP certificate verification`           | 任意 | 選択した場合、LDAP 証明書の検証が[オン](#enabling-ldap-certificate-verification)になります。                                                                                                                                                                                    |
+| `Synchronization`                                | 任意 | 選択した場合、LDAP Sync が[オン](#enabling-ldap-sync)になります。                                                                                                                                                                                                         |
 
-### Disabling password authentication for Git operations
+### Gitの操作のパスワード認証の無効化
 
-Select **Disable username and password authentication for Git operations** in your LDAP settings to enforce use of personal access tokens or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests. We recommend this setting because a slow-responding LDAP server, especially combined with a large number of requests due to polling, is a frequent source of performance issues and outages.
+LDAP 設定中の [**Disable username and password authentication for Git operations（Git の操作でのユーザ名およびパスワード認証の無効化）**] を選択し、Git アクセスでの個人アクセストークンあるいは SSH キーの使用を強制してください。そうすれば、サーバーが LDAP 認証のリクエストで過負荷になるのを防ぐのに役に立ちます。 特にポーリングによる大量のリクエストと組み合わさると、レスポンスの遅いLDAPサーバーは頻繁にパフォーマンス問題や障害の原因となるので、この設定をおすすめします。
 
-![Disable LDAP password auth for Git check box](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
+![GItチェックボックスのためのLDAPパスワード認証の無効化](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
 
-When this option is selected, if a user tries to use a password for Git operations via the command line, they will receive an error message that says, `Password authentication is not allowed for Git operations. You must use a personal access token.`
+このオプションが選択されると、ユーザがコマンドライン経由のGitの操作でパスワードを使おうとすると、次のようなエラーメッセージが返されます。`Password authentication is not allowed for Git operations. You must use a personal access token.`
 
-### Enabling LDAP certificate verification
+### LDAPの証明書検証の有効化
 
-Select **Enable LDAP certificate verification** in your LDAP settings to validate the LDAP server certificate you use with TLS.
+TLSと共に使うLDAPサーバの証明書を検証するには、LDAPの設定で**Enable LDAP certificate verification（LDAPの証明書検証の有効化）**を選択してください。
 
-![LDAP certificate verification box](/assets/images/enterprise/management-console/ldap-enable-certificate-verification.png)
+![LDAP証明書の検証ボックス](/assets/images/enterprise/management-console/ldap-enable-certificate-verification.png)
 
-When this option is selected, the certificate is validated to make sure:
-- If the certificate contains at least one Subject Alternative Name (SAN), one of the SANs matches the LDAP hostname. Otherwise, the Common Name (CN) matches the LDAP hostname.
-- The certificate is not expired.
-- The certificate is signed by a trusted certificate authority (CA).
+このオプションが選択されると、以下のことを確実にするために証明書が検証されます:
+- 証明書にAlternative Name (SAN) が少なくとも1つ含まれている場合には、SANの1つがLDAPホスト名に一致し、 そうでない場合はコモンネーム (CN) がLDAPホスト名に一致すること。
+- 証明書の期限が切れていないこと。
+- 証明書が信頼されている認証局 (CA) によって署名されていること。
 
-### Enabling LDAP Sync
-
-{% note %}
-
-**Note:** Teams using LDAP Sync are limited to a maximum 1499 members.
-
-{% endnote %}
-
-LDAP Sync lets you synchronize {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.prodname_ghe_server %}. For more information, see "[Creating teams](/enterprise/{{ currentVersion }}/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)."
-
-To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys** .
-
-![Synchronization check box](/assets/images/enterprise/management-console/ldap-synchronize.png)
-
-After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
-
-- If you've allowed built-in authentication for users outside your identity provider, and the user is using built-in authentication, move on to the next user.
-- If no LDAP mapping exists for the user, try to map the user to an LDAP entry in the directory. If the user cannot be mapped to an LDAP entry, suspend the user and move on to the next user.
-- If there is an LDAP mapping and the corresponding LDAP entry in the directory is missing, suspend the user and move on to the next user.
-- If the corresponding LDAP entry has been marked as disabled and the user is not already suspended, suspend the user and move on to the next user.
-- If the corresponding LDAP entry is not marked as disabled, and the user is suspended, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
-- If the corresponding LDAP entry includes a `name` attribute, update the user's profile name.
-- If the corresponding LDAP entry is in the Administrators group, promote the user to site administrator.
-- If the corresponding LDAP entry is not in the Administrators group, demote the user to a normal account.
-- If an LDAP User field is defined for emails, synchronize the user's email settings with the LDAP entry. Set the first LDAP `mail` entry as the primary email.
-- If an LDAP User field is defined for SSH public keys, synchronize the user's public SSH keys with the LDAP entry.  
-- If an LDAP User field is defined for GPG keys, synchronize the user's GPG keys with the LDAP entry.  
+### LDAP Syncの有効化
 
 {% note %}
 
-**Note**: LDAP entries can only be marked as disabled if you use Active Directory and the `userAccountControl` attribute is present and flagged with `ACCOUNTDISABLE`. Some variations of Active Directory, such as AD LDS and ADAM, don't support the `userAccountControl` attribute.
+**注釈:** LDAP Sync を使用する Team は、最大 1499 人のメンバーに制限されています。
 
 {% endnote %}
 
-A synchronization job will also run at the specified time interval to perform the following operations on each team that has been mapped to an LDAP group:
+LDAP Sync を使うと、{% data variables.product.prodname_ghe_server %} のユーザおよび Team のメンバーシップを、確立された LDAP グループに対して同期できます。 そうすることで、{% data variables.product.prodname_ghe_server %} 内で手作業で行う代わりに、LDAP サーバからユーザのロールベースのアクセス制御を確立できます。 詳細は「[チームを作成する](/enterprise/{{ currentVersion }}/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)」を参照してください。
 
-- If a team's corresponding LDAP group has been removed, remove all members from the team.
-- If LDAP member entries have been removed from the LDAP group, remove the corresponding users from the team. If the user is no longer a member of any team in the organization, remove the user from the organization. If the user loses access to any repositories as a result, delete any private forks the user has of those repositories.
-- If LDAP member entries have been added to the LDAP group, add the corresponding users to the team. If the user regains access to any repositories as a result, restore any private forks of the repositories that were deleted because the user lost access in the past 90 days.
+LDAP Sync を有効化するには、[**Synchronize Emails**]、[**Synchronize SSH Keys**]、または [**Synchronize GPG Keys**] を選択します。
+
+![同期チェックボックス](/assets/images/enterprise/management-console/ldap-synchronize.png)
+
+LDAP Sync を有効化すると、同期のジョブが指定された間隔で動作し、各ユーザアカウントに対して以下の操作を行います:
+
+- アイデンティティプロバイダ外のユーザに対してビルトイン認証を許可し、ユーザがビルトイン認証を使っているなら、次のユーザに進みます。
+- ユーザに LDAP のマッピングが存在しないなら、ユーザをディレクトリ中の LDAP エントリにマップしようとします。 ユーザが LDAP のエントリにマップできなかった場合、ユーザをサスペンドして次のユーザに進みます。
+- LDAP マッピングが存在し、ディレクトリ中の対応する LDAP のエントリが欠けている場合、そのユーザをサスペンドして次のユーザに進みます。
+- 対応する LDAP のエントリが無効としてマークされており、ユーザがまだサスペンドされていないなら、そのユーザをサスペンドして次のユーザに進みます。
+- 対応する LDAP のエントリが無効としてマークされておらず、そのユーザがサスペンドされており、Admin center で [_Reactivate suspended users（サスペンドされたユーザを再アクティベート_] が有効化されているなら、ユーザのサスペンドを解除します。
+- 対応する LDAP エントリが `name` 属性を含んでいるなら、ユーザのプロフィール名を更新します。
+- 対応する LDAP エントリが Administrators グループ内にあるなら、そのユーザをサイト管理者に昇格させます。
+- 対応する LDAP エントリが Administrators グループ内にないなら、そのユーザを通常のアカウントに降格させます。
+- LDAP の User フィールドがメール用に定義されているなら、ユーザのメール設定を LDAP のエントリと同期します。 最初の LDAP の `mail` エントリをプライマリのメールとして設定します。
+- LDAP の User フィールドが公開 SSH キー用に定義されているなら、ユーザの公開 SSH キーを LDAP のエントリと同期します。
+- LDAP の User フィールドが GPG キー用に定義されているなら、ユーザの GPG キーを LDAP のエントリと同期します。
+
+{% note %}
+
+**メモ**: LDAP のエントリが無効としてマークされるのは、Active Directory を使用しており、`userAccountControl` が存在して `ACCOUNTDISABLE` とされている場合のみです。 Some variations of Active Directory, such as AD LDS and ADAM, don't support the `userAccountControl` attribute.
+
+{% endnote %}
+
+同期ジョブは、LDAP グループにマップされなかった各 Team に対して以下の操作を行うためにも、指定された間隔で動作します。
+
+- Team に対応する LDAP グループが削除された場合、すべてのメンバーを Team から削除します。
+- LDAP グループから LDAP のメンバーエントリが削除された場合、対応するユーザを Team から削除します。 If the user is no longer a member of any team in the organization, remove the user from the organization. その結果、ユーザがリポジトリへのアクセスを失った場合、それらのリポジトリでユーザが持っていたプライベートなフォークを削除します。
+- LDAP グループに LDAP のメンバーエントリが追加された場合、対応するユーザを Team に追加します。 その結果、ユーザがリポジトリへのアクセスを再度得ることになった場合、過去 90 日以内にユーザがアクセスを失ったために削除されたリポジトリのプライベートフォークがリストアされます。
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 {% warning %}
 
-**Security Warning:**
+**セキュリティの警告:**
 
-When LDAP Sync is enabled, site admins and organization owners can search the LDAP directory for groups to map the team to.
+LDAP Sync が有効化されると、サイト管理者と Organization のオーナーは Team をマップするグループを LDAP のディレクトリで検索できます。
 
-This has the potential to disclose sensitive organizational information to contractors or other unprivileged users, including:
+これは、以下を含む組織に関する機密情報を契約者やその他の権限を持たないユーザに開示してしまう可能性があります。
 
-- The existence of specific LDAP Groups visible to the *Domain search user*.
-- Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
+- *ドメイン検索ユーザ*に特定の LDAP グループの存在が見えてしまう。
+- {% data variables.product.prodname_ghe_server %} のユーザアカウントを持つ LDAP グループのメンバーが、その LDAP グループと同期する Team を作ったときに開示されてしまう。
 
-If disclosing such information is not desired, your company or organization should restrict the permissions of the configured *Domain search user* in the admin console. If such restriction isn't possible, contact {% data variables.contact.contact_ent_support %}.
+こういった情報が開示されることを望まないなら、企業あるいは組織は管理コンソールで設定された*ドメイン検索ユーザ*の権限を制限しなければなりません。 そういった制限ができない場合は、{% data variables.contact.contact_ent_support %} に連絡してください。
 
 {% endwarning %}
 
-### Supported LDAP group object classes
+### サポートされるLDAPグループのオブジェクトクラス
 
-{% data variables.product.prodname_ghe_server %} supports these LDAP group object classes. Groups can be nested.
+{% data variables.product.prodname_ghe_server %} は、以下の LDAP グループオブジェクトクラスをサポートします。 グループは入れ子にできます。
 
 - `group`
 - `groupOfNames`
 - `groupOfUniqueNames`
 - `posixGroup`
 
-## Viewing and creating LDAP users
+## LDAPユーザの表示と作成
 
-You can view the full list of LDAP users who have access to your instance and provision new users.
+インスタンスにアクセスできる LDAP ユーザの完全なリストを表示し、新しいユーザをプロビジョニングできます。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. In the left sidebar, click **LDAP users**.
-![LDAP users tab](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
-4. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
-![LDAP search](/assets/images/enterprise/site-admin-settings/ldap-users-search.png)
+3. 左のサイドバーで**LDAP users（LDAPユーザ）**をクリックしてください。 ![LDAP ユーザタブ](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
+4. ユーザを検索するには、完全なユーザ名もしくはユーザ名の一部を入力し、**Search（検索）**をクリックしてください。 検索結果に該当するユーザが表示されます。 該当するユーザがいなければ、**Create（作成）**をクリックして新しいユーザアカウントをプロビジョニングできます。 ![LDAP検索](/assets/images/enterprise/site-admin-settings/ldap-users-search.png)
 
-## Updating LDAP accounts
+## LDAPアカウントの更新
 
-Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are not automatically synchronized with {% data variables.product.prodname_ghe_server %}.
+[LDAP Sync が有効化](#enabling-ldap-sync)されていない限り、LDAP アカウントへの変更は自動的には {% data variables.product.prodname_ghe_server %} に同期されません。
 
-* To use a new LDAP admin group, users must be manually promoted and demoted on {% data variables.product.prodname_ghe_server %} to reflect changes in LDAP.
-* To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/user-management/promoting-or-demoting-a-site-administrator).
-* To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users).
+* 新しい LDAP 管理者グループを使うには、LDAP 内での変更を反映させるためにユーザを {% data variables.product.prodname_ghe_server %} 上で手動で昇格および降格させなければなりません。
+* LDAP 管理者グループに LDAP アカウントを追加あるいは削除するには、[{% data variables.product.prodname_ghe_server %} 上でそのアカウントを昇格もしくは降格](/enterprise/{{ currentVersion }}/admin/guides/user-management/promoting-or-demoting-a-site-administrator)させてください。
+* LDAP アカウントを削除するには、[{% data variables.product.prodname_ghe_server %} アカウントをサスペンド](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)してください。
 
-### Manually syncing LDAP accounts
+### 手動でのLDAPアカウントの同期
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -195,13 +193,12 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 {% data reusables.enterprise_site_admin_settings.click-user %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
-![LDAP sync now button](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
+5. "LDAP"の下で**Sync now（即時同期）**をクリックして、LDAPサーバからのデータでアカウントを手動更新してください。 ![LDAPの即時同期ボタン](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
 
-You can also [use the API to trigger a manual sync](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap).
+[API を使用して手動同期をトリガー](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)することもできます。
 
-## Revoking access to {% data variables.product.product_location %}
+## {% data variables.product.product_location %}へのアクセスの削除
 
-If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
+[LDAP Sync が有効化](#enabling-ldap-sync)されているなら、ユーザの LDAP のクレデンシャルを削除すれば、次の同期が行われた後にそのユーザのアカウントはサスペンドされます。
 
-If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see "[Suspending and unsuspending users](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)".
+LDAP Sync が有効化**されていない**なら、LDAP のクレデンシャルの削除後に {% data variables.product.prodname_ghe_server %} アカウントを手動でサスペンドしなければなりません。 詳細は「[ユーザのサスペンドとサスペンドの解除](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)」を参照してください。

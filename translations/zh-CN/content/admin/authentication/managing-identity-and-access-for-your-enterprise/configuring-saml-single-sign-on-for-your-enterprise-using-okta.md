@@ -1,7 +1,6 @@
 ---
 title: Configuring SAML single sign-on for your enterprise using Okta
 intro: '您可以使用安全声明标记语言 (SAML) 单点登录 (SSO) 与 Okta 一起来自动管理对 {% data variables.product.product_name %} 上企业帐户的访问。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-single-sign-on-for-your-enterprise-account-using-okta
   - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta

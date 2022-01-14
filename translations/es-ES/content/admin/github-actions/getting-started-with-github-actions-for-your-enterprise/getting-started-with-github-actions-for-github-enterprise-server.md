@@ -1,7 +1,7 @@
 ---
-title: Getting started with GitHub Actions for GitHub Enterprise Server
-shortTitle: Get started
-intro: 'Learn about enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %} for the first time.'
+title: Iniciar con GitHub Actions para GitHub Enterprise Server
+shortTitle: Empezar
+intro: 'Aprende cómo habilitar y configurar las {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %} por primera vez.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage
@@ -15,13 +15,14 @@ topics:
   - Actions
   - Enterprise
 ---
+
 {% data reusables.actions.enterprise-beta %}
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}
+## Acerca del {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %}
 
-This article explains how site administrators can configure {% data variables.product.prodname_ghe_server %} to use {% data variables.product.prodname_actions %}.
+Este artículo explica cómo los administradores de sitio pueden habilitar {% data variables.product.prodname_ghe_server %} para utilizar {% data variables.product.prodname_actions %}.
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
@@ -31,13 +32,13 @@ This article explains how site administrators can configure {% data variables.pr
 
 {% data reusables.actions.migrating-enterprise %}
 
-## Review hardware considerations
+## Revisar las consideraciones de hardware
 
 {% ifversion ghes = 3.0 %}
 
 {% note %}
 
-**Note**: If you're upgrading an existing {% data variables.product.prodname_ghe_server %} instance to 3.0 or later and want to configure {% data variables.product.prodname_actions %}, note that the minimum hardware requirements have increased. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
+**Nota**:Si estás actualizando una instancia existente de {% data variables.product.prodname_ghe_server %} hacia la versión 3.0 o superior y quieres configurar las {% data variables.product.prodname_actions %}, nota que los requisitos mínimos de hardware han aumentado. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
 
 {% endnote %}
 
@@ -45,17 +46,17 @@ This article explains how site administrators can configure {% data variables.pr
 
 {%- ifversion ghes < 3.2 %}
 
-The CPU and memory resources available to {% data variables.product.product_location %} determine the maximum job throughput for {% data variables.product.prodname_actions %}.
+Los recursos de CPU y de memoria que están disponibles para {% data variables.product.product_location %} determinan el rendimiento máximo de jobs para {% data variables.product.prodname_actions %}.
 
-Internal testing at {% data variables.product.company_short %} demonstrated the following maximum throughput for {% data variables.product.prodname_ghe_server %} instances with a range of CPU and memory configurations. You may see different throughput depending on the overall levels of activity on your instance.
+Las pruebas internas de {% data variables.product.company_short %} demostraron el siguiente rendimiento máximo para las instancias de {% data variables.product.prodname_ghe_server %} con un rango de CPU y configuraciones de memoria. Puede que vas rendimientos diferentes dependiendo de los niveles generales de actividad en tu instancia.
 
 {%- endif %}
 
 {%- ifversion ghes > 3.1 %}
 
-The CPU and memory resources available to {% data variables.product.product_location %} determine the number of jobs that can be run concurrently without performance loss.
+Los recursos de memoria y CPU que {% data variables.product.product_location %} tiene disponibles determinan la cantidad de jobs que se pueden ejecutar simultáneamente sin pérdida de rendimiento.
 
-The peak quantity of concurrent jobs running without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated the following performance targets for GitHub Enterprise Server on a range of CPU and memory configurations:
+La cantidad máxima de ejecución simultánea de jobs sin pérdida de rendimiento depende de factores tales como la duración de los jobs, el uso de artefactos, la cantidad de repositorios ejecutando acciones y qué tanto trabajo adicional sin relación a las acciones ejecuta tu instancia. Las pruebas internas en GitHub demostraron los siguientes objetivos de rendimiento para GitHub Enterprise Server en un rango de configuraciones de memoria y CPU:
 
 {% endif %}
 
@@ -69,7 +70,7 @@ The peak quantity of concurrent jobs running without performance loss depends on
 
 {% data reusables.actions.hardware-requirements-3.2 %}
 
-Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
+La simultaneidad máxima se midió utilizando repositorios múltiples, una duración de los jobs de aproximadamente 10 minutos y 10 MB de cargas de artefactos. Puedes experimentar rendimientos diferentes dependiendo de los niveles de actividad generales de tu instancia.
 
 {%- endif %}
 
@@ -77,17 +78,17 @@ Maximum concurrency was measured using multiple repositories, job duration of ap
 
 {% data reusables.actions.hardware-requirements-after %}
 
-Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
+La simultaneidad máxima se midió utilizando repositorios múltiples, una duración de los jobs de aproximadamente 10 minutos y 10 MB de cargas de artefactos. Puedes experimentar rendimientos diferentes dependiendo de los niveles de actividad generales de tu instancia.
 
 {%- endif %}
 
-If you plan to enable {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
+If you plan to enable {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. Para obtener más información acerca de cómo monitorear la capacidad y rendimiento de {% data variables.product.prodname_ghe_server %}, consulta la sección "[Monitorear tu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
 
-For more information about minimum hardware requirements for {% data variables.product.product_location %}, see the hardware considerations for your instance's platform.
+Para obtener más información acerca de los requisitos mínimos de {% data variables.product.product_location %}, consulta las consideraciones de hardware para la plataforma de tu instancia.
 
 - [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
 - [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)
-- [Google Cloud Platform](/admin/installation/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
+- [Plataforma de Google Cloud](/admin/installation/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
 - [Hyper-V](/admin/installation/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
 - [OpenStack KVM](/admin/installation/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
 - [VMware](/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations){% ifversion ghes < 3.3 %}
@@ -95,58 +96,58 @@ For more information about minimum hardware requirements for {% data variables.p
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 
-## External storage requirements
+## Requisitos de almacenamiento externo
 
-To enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, you must have access to external blob storage.
+Para habilitar {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %}, debes tener acceso al almacenamiento externo de blobs.
 
-{% data variables.product.prodname_actions %} uses blob storage to store artifacts generated by workflow runs, such as workflow logs and user-uploaded build artifacts. The amount of storage required depends on your usage of {% data variables.product.prodname_actions %}. Only a single external storage configuration is supported, and you can't use multiple storage providers at the same time.
+{% data variables.product.prodname_actions %} utiliza el almacenamiento de blobs para almacenar artefactos que se generan con las ejecuciones de flujo de trabajo, tales como las bitácoras de flujo de trabajo y los artefactos de compilaciones que sube el usuario. La cantidad de almacenamiento requerida dependerá de tu uso de {% data variables.product.prodname_actions %}. Sólo se admite una sola configuración de almacenamiento externo y no puedes utilizar varios proveedores de almacenamiento al mismo tiempo.
 
-{% data variables.product.prodname_actions %} supports these storage providers:
+{% data variables.product.prodname_actions %} es compatible con estos proveedores de almacenamiento:
 
 * Azure Blob storage
 * Amazon S3
-* S3-compatible MinIO Gateway for NAS
+* S3-compatible MinIO Gateway para NAS
 
 {% note %}
 
-**Note:** These are the only storage providers that {% data variables.product.company_short %} supports and can provide assistance with. Other S3 API-compatible storage providers are unlikely to work due to differences from the S3 API. [Contact us](https://support.github.com/contact) to request support for additional storage providers.
+**Nota:** Estos son los únicos proveedores de almacenamiento compatibles con {% data variables.product.company_short %} y sobre los que éste puede proporcionar asistencia. Es muy poco probable que otros proveedores de almacenamiento de S3 compatibles con la API funcionen, debido a las diferencias de la API de S3. [Contáctanos](https://support.github.com/contact) para solicitar soporte para proveedores de almacenamiento adicionales.
 
 {% endnote %}
 
-## Networking considerations
+## Consideraciones de las conexiones
 
-{% data reusables.actions.proxy-considerations %} For more information about using a proxy with {% data variables.product.prodname_ghe_server %}, see "[Configuring an outbound web proxy server](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
+{% data reusables.actions.proxy-considerations %} Para obtener más información sobre cómo utilizar un proxy con {% data variables.product.prodname_ghe_server %}, consulta la sección "[Configurar un servidor proxy saliente](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)".
 
 {% ifversion ghes %}
 
-## Enabling {% data variables.product.prodname_actions %} with your storage provider
+## Habilitar las {% data variables.product.prodname_actions %} con tu proveedor de almacenamiento
 
-Follow one of the procedures below to enable {% data variables.product.prodname_actions %} with your chosen storage provider:
+Sigue uno de los procedimientos siguientes para habilitar las {% data variables.product.prodname_actions %} con el proveedor de almacenamiento de tu elección:
 
-* [Enabling GitHub Actions with Azure Blob storage](/admin/github-actions/enabling-github-actions-with-azure-blob-storage)
-* [Enabling GitHub Actions with Amazon S3 storage](/admin/github-actions/enabling-github-actions-with-amazon-s3-storage)
-* [Enabling GitHub Actions with MinIO Gateway for NAS storage](/admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage)
+* [Habilitar las GitHub Actions con el almacenamiento de Azure Blob](/admin/github-actions/enabling-github-actions-with-azure-blob-storage)
+* [Habilitar las GitHub Actions con el almacenamiento de Amazon S3](/admin/github-actions/enabling-github-actions-with-amazon-s3-storage)
+* [Habilitar las GitHub Actions con la puerta de enlace de MinIO para el almacenamiento en NAS](/admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage)
 
-## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
+## Administrar los permisos de acceso para {% data variables.product.prodname_actions %} en tu empresa
 
-You can use policies to manage access to {% data variables.product.prodname_actions %}. For more information, see "[Enforcing GitHub Actions policies for your enterprise](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+Puedes utilizar políticas para administrar el acceso a las {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Requerir las políticas de GitHub Actions para tu empresa](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)".
 
-## Adding self-hosted runners
+## Agrega ejecutores auto-hospedados
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-To run {% data variables.product.prodname_actions %} workflows, you need to add self-hosted runners. You can add self-hosted runners at the enterprise, organization, or repository levels. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+Para ejecutar los flujos de trabajo de {% data variables.product.prodname_actions %}, necesitas agregar ejecutores auto-hospedados. Puedes agregar ejecutores auto-hospedados a nivel de empresa, organización o repositorio. Para obtener más información, consulta "[Agregar ejecutores autoalojados](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
-## Managing which actions can be used in your enterprise
+## Administrar qué acciones pueden utilizarse en tu empresa
 
-You can control which actions your users are allowed to use in your enterprise. This includes setting up {% data variables.product.prodname_github_connect %} for automatic access to actions from {% data variables.product.prodname_dotcom_the_website %}, or manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}.
+Puedes controlar las acciones que pueden utilizar tus usuarios en tu empresa. Esto incluye el configurar {% data variables.product.prodname_github_connect %} para el acceso automático a las acciones de {% data variables.product.prodname_dotcom_the_website %}, o sincronizar las acciones de {% data variables.product.prodname_dotcom_the_website %} manualmente.
 
-For more information, see "[About using actions in your enterprise](/admin/github-actions/about-using-actions-in-your-enterprise)."
+Para obtener más información, consulta la sección "[Acerca de utilizar las acciones en tu empresa](/admin/github-actions/about-using-actions-in-your-enterprise)".
 
 {% data reusables.actions.general-security-hardening %}
 
 {% endif %}
 
-## Reserved Names
+## Nombres reservados
 
-When you enable {% data variables.product.prodname_actions %} for your enterprise, two organizations are created: `github` and `actions`. If your enterprise already uses the `github` organization name, `github-org` (or `github-github-org` if `github-org` is also in use) will be used instead. If your enterprise already uses the `actions` organization name, `github-actions` (or `github-actions-org` if `github-actions` is also in use) will be used instead. Once actions is enabled, you won't be able to use these names anymore.
+Cuando habilitas las {% data variables.product.prodname_actions %} para tu empresa, se crean dos organizaciones: `github` y `actions`. Si tu empresa utiliza el nombre de organización `github`, `github-org` (o `github-github-org` si `github-org` también se está utilizando) se utilizará en su lugar. Si tu empresa ya utiliza el nombre de organización `actions`, `github-actions` (or `github-actions-org` si `github-actions` también se está utilizando) se utilizará en su lugar. Una vez que se habiliten las acciones, ya no podrás utilizar estos nombres.

@@ -3,8 +3,8 @@ title: 关于议题
 intro: '使用 {% data variables.product.prodname_github_issues %} 追踪在 {% data variables.product.company_short %} 上的想法、反馈、任务或缺陷。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-issues
-  - /articles/creating-issues/
-  - /articles/about-issues/
+  - /articles/creating-issues
+  - /articles/about-issues
   - /github/managing-your-work-on-github/about-issues
   - /issues/tracking-your-work-with-issues/creating-issues/about-issues
 versions:

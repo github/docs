@@ -18,7 +18,7 @@ shortTitle: 管理安全和分析
 
 ## 关于安全性和分析设置的管理
 
-{% data variables.product.prodname_dotcom %} 可帮助保护组织中的仓库。 您可以管理成员在组织中创建的所有现有或新仓库的安全性和分析功能。 {% ifversion fpt or ghec %}如果您拥有 {% data variables.product.prodname_GH_advanced_security %} 许可，则您还可以管理对这些功能的访问。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}
+{% data variables.product.prodname_dotcom %} 可帮助保护组织中的仓库。 您可以管理成员在组织中创建的所有现有或新仓库的安全性和分析功能。 {% ifversion ghec %}如果您拥有 {% data variables.product.prodname_GH_advanced_security %} 许可，则您还可以管理对这些功能的访问。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also manage access to these features. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization).{% endif %}
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
@@ -31,7 +31,7 @@ shortTitle: 管理安全和分析
 
 显示的页面允许您为组织中的仓库启用或禁用所有安全和分析功能。
 
-{% ifversion fpt or ghec %}如果您的组织属于具有 {% data variables.product.prodname_GH_advanced_security %} 许可的企业，则该页面还包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。 使用 {% data variables.product.prodname_GH_advanced_security %} 的任何仓库都列在页面底部。{% endif %}
+{% ifversion ghec %}如果您的组织属于具有 {% data variables.product.prodname_GH_advanced_security %} 许可的企业，则该页面还包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。 使用 {% data variables.product.prodname_GH_advanced_security %} 的任何仓库都列在页面底部。{% endif %}
 
 {% ifversion ghes > 3.0 %}如果您具有 {% data variables.product.prodname_GH_advanced_security %} 许可，则该页面还包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。 使用 {% data variables.product.prodname_GH_advanced_security %} 的任何仓库都列在页面底部。{% endif %}
 
@@ -39,20 +39,28 @@ shortTitle: 管理安全和分析
 
 ## 为所有现有仓库启用或禁用功能
 
-您可以启用或禁用所有仓库的功能。 {% ifversion fpt or ghec %}您的更改对组织中仓库的影响取决于其可见性：
+您可以启用或禁用所有仓库的功能。
+{% ifversion fpt or ghec %}您的更改对组织中仓库的影响取决于其可见性：
 
 - **依赖项图** - 您的更改仅影响私有仓库，因为该功能对公共仓库始终启用。
 - **{% data variables.product.prodname_dependabot_alerts %}** - 您的更改影响所有仓库。
 - **{% data variables.product.prodname_dependabot_security_updates %}** - 您的更改影响所有仓库。
+{%- ifversion ghec %}
 - **{% data variables.product.prodname_GH_advanced_security %}** - 您的更改仅影响私有仓库，因为 {% data variables.product.prodname_GH_advanced_security %} 和相关功能对公共仓库始终启用。
-- **{% data variables.product.prodname_secret_scanning_caps %}** - 您的更改仅影响还启用了 {% data variables.product.prodname_GH_advanced_security %} 的私有仓库。 {% data variables.product.prodname_secret_scanning_caps %} 对公共仓库始终启用。{% endif %}
+- **{% data variables.product.prodname_secret_scanning_caps %}** - 您的更改仅影响还启用了 {% data variables.product.prodname_GH_advanced_security %} 的私有仓库。 {% data variables.product.prodname_secret_scanning_caps %} 对公共仓库始终启用。
+{% endif %}
+
+{% endif %}
 
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
 1. 转到组织的安全和分析设置。 更多信息请参阅“[显示安全和分析设置](#displaying-the-security-and-analysis-settings)”。
-2. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable all（全部禁用）**或 **Enable all（全部启用）**。 {% ifversion fpt or ghes > 3.0 or ghec %}如果您的 {% data variables.product.prodname_GH_advanced_security %} 许可中没有可用的席位，对“{% data variables.product.prodname_GH_advanced_security %}”的控制将会禁用。{% endif %}
-   {% ifversion fpt or ghec %}
-   !["Configure security and analysis（配置安全性和分析）"功能的"Enable all（全部启用）"或"Disable all（全部禁用）"按钮](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-dotcom.png)
+2. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable all（全部禁用）**或 **Enable all（全部启用）**。 {% ifversion ghes > 3.0 or ghec %}如果您的 {% data variables.product.prodname_GH_advanced_security %} 许可中没有可用的席位，对“{% data variables.product.prodname_GH_advanced_security %}”的控制将会禁用。{% endif %}
+   {% ifversion fpt %}
+   !["Configure security and analysis（配置安全性和分析）"功能的"Enable all（全部启用）"或"Disable all（全部禁用）"按钮](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-fpt.png)
+   {% endif %}
+   {% ifversion ghec %}
+   !["Configure security and analysis（配置安全性和分析）"功能的"Enable all（全部启用）"或"Disable all（全部禁用）"按钮](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-ghec.png)
    {% endif %}
    {% ifversion ghes > 3.2 %}
    !["Configure security and analysis（配置安全性和分析）"功能的"Enable all（全部启用）"或"Disable all（全部禁用）"按钮](/assets/images/enterprise/3.3/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
@@ -94,10 +102,13 @@ shortTitle: 管理安全和分析
 
 1. 转到组织的安全和分析设置。 更多信息请参阅“[显示安全和分析设置](#displaying-the-security-and-analysis-settings)”。
 2. 在功能右边的“Configure security and analysis features（配置安全性和分析功能）”下，默认为组织中的新仓库{% ifversion fpt or ghec %} 或所有私有仓库{% endif %} 启用或禁用该功能。
-   {% ifversion fpt or ghec %}
-   ![用于对新仓库启用或禁用功能的复选框](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-dotcom.png)
+   {% ifversion fpt %}
+   ![用于对新仓库启用或禁用功能的复选框](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-fpt.png)
    {% endif %}
-   {% ifversion ghes > 3.2 %}
+   {% ifversion ghec %}
+   ![用于对新仓库启用或禁用功能的复选框](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-ghec.png)
+   {% endif %}
+  {% ifversion ghes > 3.2 %}
    ![用于对新仓库启用或禁用功能的复选框](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
    {% endif %}
    {% ifversion ghes = 3.1 or ghes = 3.2 %}
@@ -110,7 +121,8 @@ shortTitle: 管理安全和分析
    ![用于对新仓库启用或禁用功能的复选框](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
    {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion ghec or ghes > 3.2 %}
+<!--TODO confirm that this functionality is intentionally not available for FPT -->
 
 ## 允许 {% data variables.product.prodname_dependabot %} 访问私有依赖项
 
@@ -130,7 +142,7 @@ shortTitle: 管理安全和分析
 1. （可选）要从列表中删除仓库，在仓库右侧单击 {% octicon "x" aria-label="The X icon" %}。 !["X" 按钮来删除仓库。](/assets/images/help/organizations/dependabot-private-repository-list.png)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion ghes > 3.0 or ghec %}
 
 ## 从组织中的个别仓库中移除对 {% data variables.product.prodname_GH_advanced_security %} 的访问权限
 
@@ -151,8 +163,8 @@ shortTitle: 管理安全和分析
 
 ## 延伸阅读
 
-- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"
-- "[关于密码扫描](/github/administering-a-repository/about-secret-scanning)"{% ifversion fpt or ghec %}
-- "[自动更新依赖项](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}{% ifversion not ghae %}
+- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
+- "[About secret scanning](/github/administering-a-repository/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
 - “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
-- "[管理项目依赖项中的漏洞](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"{% endif %}
+- "[Managing vulnerabilities in your project's dependencies](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}
+- "[自动更新依赖项](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}

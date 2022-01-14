@@ -2,7 +2,7 @@
 title: GitHub Marketplace 应用程序的定价计划
 intro: '定价计划允许您为应用程序提供不同级别的服务或资源。 您可以在 {% data variables.product.prodname_marketplace %} 上架信息中提供最多 10 个定价计划。'
 redirect_from:
-  - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans/
+  - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:

@@ -2,7 +2,7 @@
 title: Gerar logs de auditoria
 intro: '{% data variables.product.product_name %} mantém registros de{% ifversion ghes %} sistema auditado,{% endif %} eventos de usuários, organização e repositórios. Os logs são úteis para fins de depuração e conformidade interna e externa.'
 redirect_from:
-  - /enterprise/admin/articles/audit-logging/
+  - /enterprise/admin/articles/audit-logging
   - /enterprise/admin/installation/audit-logging
   - /enterprise/admin/user-management/audit-logging
   - /admin/user-management/audit-logging

@@ -344,7 +344,7 @@ describe('server', () => {
       )
       expect($('h2#in-this-article').length).toBe(1)
       expect($('h2#in-this-article + div div ul').length).toBeGreaterThan(0) // non-indented items
-      expect($('h2#in-this-article + div div ul li div div div ul li').length).toBeGreaterThan(0) // indented items
+      expect($('h2#in-this-article + div div ul li div div div ul.ml-3').length).toBeGreaterThan(0) // indented items
     })
 
     test('does not render mini TOC in articles with only one heading', async () => {
@@ -775,13 +775,11 @@ describe('server', () => {
 })
 
 describe('URLs by language', () => {
-  // TODO re-enable this test once TOCs are auto-generated (after PR 11731 has landed)
   test('heading IDs and links on translated pages are in English', async () => {
-    const $ = await getDOM('/ja/actions/using-github-hosted-runners/about-github-hosted-runners')
+    const $ = await getDOM('/ja/github/site-policy/github-terms-of-service')
     expect($.res.statusCode).toBe(200)
-    expect($('h2[id="further-reading"]').length).toBe(1)
-    expect($('h3[id="参考リンク"]').length).toBe(0)
-    expect($('h2 a[href="#further-reading"]').length).toBe(1)
+    expect($('h1')[0].children[0].data).toBe('GitHub利用規約')
+    expect($('h2 a[href="#summary"]').length).toBe(1)
   })
 })
 
@@ -812,7 +810,7 @@ describe('GitHub Enterprise URLs', () => {
   test('renders the Enterprise Admin category homepage', async () => {
     const adminPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin`
     const $ = await getDOM(adminPath)
-    expect($(`h3 ~ a[href="${adminPath}/guides"]`).length).toBe(1)
+    expect($(`h2 ~ a[href="${adminPath}/guides"]`).length).toBe(1)
     expect($('h2 a[href="#all-docs"]').length).toBe(1)
   })
 
@@ -1027,6 +1025,8 @@ describe('static routes', () => {
     // The "Surrogate-Key" header is set so we can do smart invalidation
     // in the Fastly CDN. This needs to be available for static assets too.
     expect(res.headers['surrogate-key']).toBeTruthy()
+    expect(res.headers.etag).toBeUndefined()
+    expect(res.headers['last-modified']).toBeTruthy()
   })
 
   it('rewrites /assets requests from a cache-busting prefix', async () => {
@@ -1047,6 +1047,9 @@ describe('static routes', () => {
     // Because static assets shouldn't use CSRF and thus shouldn't
     // be setting a cookie.
     expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers.etag).toBeUndefined()
+    expect(res.headers['last-modified']).toBeTruthy()
+
     expect(
       (await get(`/public/ghes-${enterpriseServerReleases.latest}/schema.docs-enterprise.graphql`))
         .statusCode

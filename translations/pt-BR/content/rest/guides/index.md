@@ -2,7 +2,7 @@
 title: Guias
 intro: 'Saiba mais sobre como começar com a API REST, sobre a autenticação e como usar a API REST para várias tarefas.'
 redirect_from:
-  - /guides/
+  - /guides
   - /v3/guides
 versions:
   fpt: '*'

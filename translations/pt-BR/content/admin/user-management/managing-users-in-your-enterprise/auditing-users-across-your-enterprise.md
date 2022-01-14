@@ -2,7 +2,7 @@
 title: Auditar de usuários em toda a sua empresa
 intro: 'O painel do log de auditoria mostra aos administradores do site as ações realizadas por todos os usuários e organizações de toda a sua empresa dentro do mês atual e dos seis meses anteriores. O log de auditoria inclui detalhes como quem realizou a ação, qual foi a ação e quando a ação foi realizada.'
 redirect_from:
-  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
+  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise

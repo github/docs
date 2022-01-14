@@ -1,6 +1,6 @@
 ---
-title: Configuring backups on your appliance
-shortTitle: Configuring backups
+title: Configurar backups no appliance
+shortTitle: Configuração de backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores
   - /enterprise/admin/articles/backup-and-recovery
@@ -14,7 +14,7 @@ redirect_from:
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-backups-on-your-appliance
-intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.product.product_location %} by configuring automated backups.'
+intro: 'Como parte de um plano de recuperação de desastre, é possível proteger os dados de produção na {% data variables.product.product_location %} configurando backups automatizados.'
 versions:
   ghes: '*'
 type: how_to
@@ -24,117 +24,118 @@ topics:
   - Fundamentals
   - Infrastructure
 ---
-## About {% data variables.product.prodname_enterprise_backup_utilities %}
 
-{% data variables.product.prodname_enterprise_backup_utilities %} is a backup system you install on a separate host, which takes backup snapshots of {% data variables.product.product_location %} at regular intervals over a secure SSH network connection. You can use a snapshot to restore an existing {% data variables.product.prodname_ghe_server %} instance to a previous state from the backup host.
+## Sobre o {% data variables.product.prodname_enterprise_backup_utilities %}
 
-Only data added since the last snapshot will transfer over the network and occupy additional physical storage space. To minimize performance impact, backups are performed online under the lowest CPU/IO priority. You do not need to schedule a maintenance window to perform a backup.
+O {% data variables.product.prodname_enterprise_backup_utilities %} é um sistema de backup a ser instalado em um host separado, que tira instantâneos de backup da {% data variables.product.product_location %} em intervalos regulares em uma conexão de rede SSH segura. É possível usar um instantâneo para voltar uma instância do {% data variables.product.prodname_ghe_server %} a um estado anterior do host de backup.
 
-For more detailed information on features, requirements, and advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme).
+Somente os dados adicionados desde o último instantâneo serão transferidos pela rede e ocuparão espaço adicional de armazenamento físico. Para minimizar o impacto no desempenho, os backups são feitos online com a menor prioridade de E/S de CPU. Não é necessário programar um período de manutenção para fazer backups.
 
-## Prerequisites
+Para obter informações mais detalhadas sobre recursos, requisitos e uso avançado, consulte o [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 
-To use {% data variables.product.prodname_enterprise_backup_utilities %}, you must have a Linux or Unix host system separate from {% data variables.product.product_location %}.
+## Pré-requisitos
 
-You can also integrate {% data variables.product.prodname_enterprise_backup_utilities %} into an existing environment for long-term permanent storage of critical data.
+Para usar o {% data variables.product.prodname_enterprise_backup_utilities %}, você deve ter um sistema host Linux ou Unix separado da {% data variables.product.product_location %}.
 
-We recommend that the backup host and {% data variables.product.product_location %} be geographically distant from each other. This ensures that backups are available for recovery in the event of a major disaster or network outage at the primary site.
+Também é possível integrar o {% data variables.product.prodname_enterprise_backup_utilities %} a um ambiente para fins de armazenamento permanente em longo prazo de dados essenciais.
 
-Physical storage requirements will vary based on Git repository disk usage and expected growth patterns:
+É recomendável que o host de backup e a {% data variables.product.product_location %} estejam geograficamente distantes. Essa medida garante que os backups estejam disponíveis para recuperação em casos de grandes desastres ou falhas de rede no site primário.
 
-| Hardware | Recommendation |
-| -------- | --------- |
-| **vCPUs**  | 2 |
-| **Memory** | 2 GB |
-| **Storage** | Five times the primary instance's allocated storage |
+Os requisitos de armazenamento físico variam com base no uso do disco do repositório Git e nos padrões de crescimento esperados:
 
-More resources may be required depending on your usage, such as user activity and selected integrations.
+| Hardware          | Recomendação                                              |
+| ----------------- | --------------------------------------------------------- |
+| **vCPUs**         | 2                                                         |
+| **Memória**       | 2 GB                                                      |
+| **Armazenamento** | Cinco vezes o armazenamento alocado da instância primária |
 
-## Installing {% data variables.product.prodname_enterprise_backup_utilities %}
+Podem ser necessários mais recursos dependendo do uso, como atividade do usuário e integrações selecionadas.
+
+## Instalar o {% data variables.product.prodname_enterprise_backup_utilities %}
 
 {% note %}
 
-**Note:** To ensure a recovered appliance is immediately available, perform backups targeting the primary instance even in a Geo-replication configuration.
+**Observação:** para garantir a disponibilidade imediata de um appliance recuperado, faça backups visando a instância principal, mesmo em uma configuração de replicação geográfica.
 
 {% endnote %}
 
-1. Download the latest [{% data variables.product.prodname_enterprise_backup_utilities %} release](https://github.com/github/backup-utils/releases) and extract the file with the `tar` command.
+1. Baixe a [versão mais recente do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils/releases) e extraia o arquivo com o comando `tar`.
   ```shell
-  $ tar -xzvf /path/to/github-backup-utils-v<em>MAJOR.MINOR.PATCH</em>.tar.gz	  
+  $ tar -xzvf /path/to/github-backup-utils-v<em>MAJOR.MINOR.PATCH</em>.tar.gz     
   ```
-2. Copy the included `backup.config-example` file to `backup.config` and open in an editor.
-3. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
+2. Copie o arquivo `backup.config-example` para `backup.config` e abra em um editor.
+3. Defina o valor `GHE_HOSTNAME` para o nome de host ou endereço IP da instância primária do {% data variables.product.prodname_ghe_server %}.
 
   {% note %}
 
-  **Note:** If your {% data variables.product.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.product.product_location %}.
+  **Observação:** Se o seu {% data variables.product.product_location %} for implantado como um cluster ou em uma configuração de alta disponibilidade usando um balanceador de carga, o `GHE_HOSTNAME` poderá ser o nome de host do balanceador da carga, desde que permita o acesso SSH (na porta 122) a {% data variables.product.product_location %}.
 
   {% endnote %}
 
-4. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots.
-5. Open your primary instance's settings page at `https://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
-6. Verify SSH connectivity with {% data variables.product.product_location %} with the `ghe-host-check` command.
+4. Defina o valor `GHE_DATA_DIR` no local do arquivo do sistema onde você deseja arquivar os instantâneos de backup.
+5. Abra a página das configurações da instância primária em `https://HOSTNAME/setup/settings` e adicione a chave SSH do host de backup à lista de chaves SSH autorizadas. Para obter mais informações, consulte [Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+6. Verifique a conectividade SSH com a {% data variables.product.product_location %} usando o comando `ghe-host-check`.
   ```shell
-  $ bin/ghe-host-check		  
-  ```		  
-  7. To create an initial full backup, run the `ghe-backup` command.
+  $ bin/ghe-host-check        
+  ```
+  7. Para criar um backup completo inicial, execute o comando `ghe-backup`.
   ```shell
-  $ bin/ghe-backup		  
+  $ bin/ghe-backup        
   ```
 
-For more information on advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme).
+Para obter mais informações sobre uso avançado, consulte o [arquivo README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 
-## Scheduling a backup
+## Programar um backup
 
-You can schedule regular backups on the backup host using the `cron(8)` command or a similar command scheduling service. The configured backup frequency will dictate the worst case recovery point objective (RPO) in your recovery plan. For example, if you have scheduled the backup to run every day at midnight, you could lose up to 24 hours of data in a disaster scenario. We recommend starting with an hourly backup schedule, guaranteeing a worst case maximum of one hour of data loss if the primary site data is destroyed.
+É possível programar backups regulares no host de backup com o comando `cron(8)` ou um serviço de agendamento semelhante. A frequência configurada determinará o objetivo do ponto de recuperação (RPO) nos piores cenários do seu plano de recuperação. Por exemplo, ao programar backups diários à meia-noite, você pode perder até 24 horas de dados em caso de desastre. É recomendável começar com backups a cada hora, garantindo a possibilidade de perdas menores (no máximo de uma hora) caso os dados primários do site sejam destruídos.
 
-If backup attempts overlap, the `ghe-backup` command will abort with an error message, indicating the existence of a simultaneous backup. If this occurs, we recommended decreasing the frequency of your scheduled backups. For more information, see the "Scheduling backups" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#scheduling-backups).
+Se houver sobreposição de tentativas de backup, o comando `ghe-backup` será interrompido com uma mensagem de erro, informando a existência de um backup simultâneo. Nesse caso, é recomendável diminuir a frequência dos backups programados. Para obter mais informações, consulte a seção "Agendar backups" do [ arquivo README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#scheduling-backups).
 
-## Restoring a backup
+## Restaurar um backup
 
-In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.product.product_location %} by provisioning another {% data variables.product.prodname_enterprise %} appliance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} appliance as an authorized SSH key before restoring an appliance.
+Em caso de interrupção prolongada ou evento catastrófico no site primário, é possível restaurar a {% data variables.product.product_location %} provisionando outro appliance do {% data variables.product.prodname_enterprise %} e executando uma restauração no host de backup. Antes de restaurar um appliance, você deve adicionar a chave SSH do host de backup ao appliance de destino do {% data variables.product.prodname_enterprise %} como chave SSH autorizada.
 
 {% ifversion ghes %}
 {% note %}
 
-**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+**Nota:** Se {% data variables.product.product_location %} tiver {% data variables.product.prodname_actions %} habilitado, você deverá primeiro configurar o provedor de armazenamento externo de {% data variables.product.prodname_actions %} no aplicativo de substituição antes de executar o comando `ghe-restore`. Para obter mais informações, consulte "[Backup e restauração de {% data variables.product.prodname_ghe_server %} com {% data variables.product.prodname_actions %} ativado](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
 
 {% endnote %}
 {% endif %}
 
 {% note %}
 
-**Note:** When performing backup restores to {% data variables.product.product_location %}, the same version supportability rules apply. You can only restore data from at most two feature releases behind.
+**Observação:** Ao executar backup para {% data variables.product.product_location %}, aplicam-se as mesmas regras de suporte de versão. Você só pode restaurar dados de no máximo duas versões do recursos para trás.
 
-For example, if you take a backup from GHES 3.0.x, you can restore it into a GHES 3.2.x instance. But, you cannot restore data from a backup of GHES 2.22.x onto 3.2.x, because that would be three jumps between versions (2.22 > 3.0 > 3.1 > 3.2). You would first need to restore onto a 3.1.x instance, and then upgrade to 3.2.x.
+Por exemplo, se você receber um backup do GHES 3.0.x, você poderá restaurá-lo em uma instância GHES 3.2.x. No entanto, você não poderá restaurar dados de um backup do GHES 2.22.x para 3.2., porque seriam três saltos entre as versões (2.22 > 3.0 > 3.1 > 3.2). Primeiro, você deverá restaurar em uma instância de 3.1.x e, em seguida, atualizar para 3.2.x.
 
 {% endnote %}
 
-To restore {% data variables.product.product_location %} from the last successful snapshot, use the `ghe-restore` command. You should see output similar to this:
+Para restaurar a {% data variables.product.product_location %} do instantâneo mais recente bem-sucedido, use o comando `ghe-restore`. Você verá um conteúdo semelhante a este:
 
 ```shell
 $ ghe-restore -c 169.154.1.1
-> Checking for leaked keys in the backup snapshot that is being restored ...
-> * No leaked keys found
-> Connect 169.154.1.1:122 OK (v2.9.0)
+> Verificando chaves vazadas no instantâneo do backup em restauração...
+> * Sem chavez vazadas
+> Conexão 169.154.1.1:122 OK (v2.9.0)
 
-> WARNING: All data on GitHub Enterprise appliance 169.154.1.1 (v2.9.0)
->          will be overwritten with data from snapshot 20170329T150710.
-> Please verify that this is the correct restore host before continuing.
-> Type 'yes' to continue: <em>yes</em>
+> AVISO: todos os dados no appliance GitHub Enterprise 169.154.1.1 (v2.9.0)
+>          serão substituídos por dados do instantâneo 20170329T150710.
+> Antes de prosseguir, confirme se o host de restauração está correto.
+> Digite 'sim' para continuar: <em>sim</em>
 
-> Starting restore of 169.154.1.1:122 from snapshot 20170329T150710
-# ...output truncated
-> Completed restore of 169.154.1.1:122 from snapshot 20170329T150710
-> Visit https://169.154.1.1/setup/settings to review appliance configuration.
+> Iniciando restauração de 169.154.1.1:122 a partir do instantâneo 20170329T150710
+# ...saída truncada
+> Restauração concluída de 169.154.1.1:122 a partir do instantâneo 20170329T150710
+> Acesse https://169.154.1.1/setup/settings para revisar a configuração do appliance.
 ```
 
 {% note %}
 
-**Note:** The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
+**Observação:** as configurações de rede são excluídas do instantâneo de backup. Você deve configurar manualmente a rede no appliance de destino do {% data variables.product.prodname_ghe_server %} conforme o seu ambiente.
 
 {% endnote %}
 
-You can use these additional options with `ghe-restore` command:
-- The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
-- The `-s` flag allows you to select a different backup snapshot.
+Você pode usar estas opções adicionais com o comando `ghe-restore`:
+- O sinalizador `-c` substitui as configurações, os certificados e os dados de licença no host de destino, mesmo que já configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. Para obter mais informações, consulte a seção "Usar comandos de backup e restauração" do [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
+- O sinalizador `-s` permite selecionar outro instantâneo de backup.

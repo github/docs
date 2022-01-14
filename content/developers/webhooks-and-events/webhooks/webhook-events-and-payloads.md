@@ -3,8 +3,8 @@ title: Webhook events and payloads
 intro: 'For each webhook event, you can review when the event occurs, an example payload, and descriptions about the payload object parameters.'
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
-  - /early-access/integrations/webhooks/
-  - /v3/activity/events/types/
+  - /early-access/integrations/webhooks
+  - /v3/activity/events/types
   - /webhooks/event-payloads
   - /developers/webhooks-and-events/webhook-events-and-payloads
 versions:
@@ -240,7 +240,7 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you push more than three tags at once.
+**Note:** You will not receive a webhook for this event when you create more than three tags at once.
 
 {% endnote %}
 
@@ -382,7 +382,7 @@ Activity related to a discussion. For more information, see the "[Using the Grap
 
 Key | Type | Description
 ----|------|-------------
-`action` |`string` | The action performed. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, or `unanswered`.
+`action` |`string` | The action performed. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled`, or `unlabeled`.
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -856,6 +856,38 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.ping }}
 
+## project
+
+{% data reusables.webhooks.project_short_desc %}
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
+
+### Webhook payload object
+
+{% data reusables.webhooks.project_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.project.created }}
+
+{% ifversion fpt or ghes or ghec %}
+
 ## project_card
 
 {% data reusables.webhooks.project_card_short_desc %}
@@ -865,6 +897,14 @@ Key | Type | Description
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
 
 ### Webhook payload object
 
@@ -900,29 +940,6 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-## project
-
-{% data reusables.webhooks.project_short_desc %}
-
-### Availability
-
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
-
-### Webhook payload object
-
-{% data reusables.webhooks.project_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
-
-### Webhook payload example
-
-{{ webhookPayloadsForCurrentVersion.project.created }}
-
-{% ifversion fpt or ghes or ghec %}
 ## public
 
 {% data reusables.webhooks.public_short_desc %}
@@ -1197,8 +1214,9 @@ Key | Type | Description
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
-Activity related to a security advisory. A security advisory provides information about security-related vulnerabilities in software on GitHub. The security advisory dataset also powers the GitHub security alerts, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
-{% endif %}
+Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}. 
+
+The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
 
 ### Availability
 
@@ -1214,6 +1232,8 @@ Key | Type | Description
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ## sponsorship

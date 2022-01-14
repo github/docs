@@ -47,7 +47,7 @@ O {% data variables.product.product_name %} pode exibir diversos formatos comuns
 
 ### Exibir imagens
 
-You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
+Você pode navegar diretamente e ver imagens no seu repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
 
 ![imagem inline](/assets/images/help/images/view.png)
 
@@ -136,7 +136,7 @@ O GitHub oferece suporte à renderização de dados tabulares na forma de arquiv
 
 ![Arquivo CSV de amostra renderizado](/assets/images/help/repository/rendered_csv.png)
 
-When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. Por padrão, vamos sempre presumir que a primeira linha é a linha de cabeçalho.
+Quando visualizado, todos os arquivos _.csv_ ou _.tsv_ inseridos em um repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} serão interpretados automaticamente como uma tabela interativa completa com cabeçalhos e numeração de linha. Por padrão, vamos sempre presumir que a primeira linha é a linha de cabeçalho.
 
 Você pode criar um link para uma linha específica clicando no número da linha ou selecionar várias linhas mantendo a tecla Shift pressionada. Copie e envie a URL para um amigo.
 

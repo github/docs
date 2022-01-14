@@ -2,7 +2,6 @@
 title: Enforcing repository management policies in your enterprise
 intro: 'You can enforce policies for repository management within your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: Enterprise owners can enforce policies for repository management in an enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
   - /enterprise/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility
@@ -10,26 +9,26 @@ redirect_from:
   - /enterprise/admin/user-management/restricting-repository-creation-in-your-instance
   - /enterprise/admin/user-management/preventing-users-from-deleting-organization-repositories
   - /enterprise/admin/installation/setting-git-push-limits
-  - /enterprise/admin/guides/installation/git-server-settings/
-  - /enterprise/admin/articles/setting-git-push-limits/
+  - /enterprise/admin/guides/installation/git-server-settings
+  - /enterprise/admin/articles/setting-git-push-limits
   - /enterprise/admin/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories
   - /enterprise/admin/installation/disabling-the-merge-conflict-editor-for-pull-requests-between-repositories
   - /enterprise/admin/developer-workflow/blocking-force-pushes-on-your-appliance
   - /enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization
   - /enterprise/admin/developer-workflow/blocking-force-pushes-to-a-repository
-  - /enterprise/admin/articles/blocking-force-pushes-on-your-appliance/
-  - /enterprise/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access-to-a-repository/
+  - /enterprise/admin/articles/blocking-force-pushes-on-your-appliance
+  - /enterprise/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access-to-a-repository
   - /enterprise/admin/user-management/preventing-users-from-changing-anonymous-git-read-access
-  - /enterprise/admin/articles/blocking-force-pushes-to-a-repository/
-  - /enterprise/admin/articles/block-force-pushes/
-  - /enterprise/admin/articles/blocking-force-pushes-for-a-user-account/
-  - /enterprise/admin/articles/blocking-force-pushes-for-an-organization/
-  - /enterprise/admin/articles/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization/
+  - /enterprise/admin/articles/blocking-force-pushes-to-a-repository
+  - /enterprise/admin/articles/block-force-pushes
+  - /enterprise/admin/articles/blocking-force-pushes-for-a-user-account
+  - /enterprise/admin/articles/blocking-force-pushes-for-an-organization
+  - /enterprise/admin/articles/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization
   - /enterprise/admin/developer-workflow/blocking-force-pushes
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-repository-management-policies-in-your-enterprise
-  - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
-  - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account
+  - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account
   - /articles/enforcing-repository-management-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account

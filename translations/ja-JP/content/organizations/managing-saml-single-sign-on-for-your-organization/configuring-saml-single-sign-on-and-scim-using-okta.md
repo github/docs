@@ -1,6 +1,6 @@
 ---
-title: Configuring SAML single sign-on and SCIM using Okta
-intro: 'You can use Security Assertion Markup Language (SAML) single sign-on (SSO) and System for Cross-domain Identity Management (SCIM) with Okta to automatically manage access to your organization on {% data variables.product.product_location %}.'
+title: Okta を使う SAML シングルサインオンおよび SCIM を設定する
+intro: 'Okta を使う Security Assertion Markup Language (SAML) シングルサインオン (SSO) および System for Cross-domain Identity Management (SCIM) を使用すると、 {% data variables.product.product_location %} で Organization へのアクセスを自動的に管理することができます。'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/configuring-saml-single-sign-on-and-scim-using-okta
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
@@ -9,51 +9,49 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Configure SAML & SCIM with Okta
+shortTitle: OktaでSAMLとSCIMを設定する
 ---
 
-## About SAML and SCIM with Okta
+## Okta での SAML と SCIM について
 
 You can control access to your organization on {% data variables.product.product_location %} and other web applications from one central interface by configuring the organization to use SAML SSO and SCIM with Okta, an Identity Provider (IdP).
 
-SAML SSO controls and secures access to organization resources like repositories, issues, and pull requests. SCIM automatically adds, manages, and removes members' access to your organization on {% data variables.product.product_location %} when you make changes in Okta. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)" and "[About SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
+SAML SSO は、リポジトリや Issue、プルリクエストといった Organization のリソースに対するアクセスを制御し、保護します。 SCIM automatically adds, manages, and removes members' access to your organization on {% data variables.product.product_location %} when you make changes in Okta. 詳しい情報については、「[SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)」と「[SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)」を参照してください。
 
-After you enable SCIM, the following provisioning features are available for any users that you assign your {% data variables.product.prodname_ghe_cloud %} application to in Okta.
+SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_cloud %} アプリケーションを割り当てる任意のユーザが次のプロビジョニング機能を使えるようになります。
 
-| Feature | Description |
-| --- | --- |
-| Push New Users | When you create a new user in Okta, the user will receive an email to join your organization on {% data variables.product.product_location %}. |
-| Push User Deactivation | When you deactivate a user in Okta, Okta will remove the user from your organization on {% data variables.product.product_location %}. |
-| Push Profile Updates | When you update a user's profile in Okta, Okta will update the metadata for the user's membership in your organization on {% data variables.product.product_location %}. |
-| Reactivate Users | When you reactivate a user in Okta, Okta will send an email invitation for the user to rejoin your organization on {% data variables.product.product_location %}. |
+| 機能            | 説明                                                                                                                                                                       |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 新しいユーザのプッシュ   | When you create a new user in Okta, the user will receive an email to join your organization on {% data variables.product.product_location %}.                           |
+| ユーザ無効化のプッシュ   | When you deactivate a user in Okta, Okta will remove the user from your organization on {% data variables.product.product_location %}.                                   |
+| プロフィール更新のプッシュ | When you update a user's profile in Okta, Okta will update the metadata for the user's membership in your organization on {% data variables.product.product_location %}. |
+| ユーザの再アクティブ化   | When you reactivate a user in Okta, Okta will send an email invitation for the user to rejoin your organization on {% data variables.product.product_location %}.        |
 
-## Prerequisites
+## 必要な環境
 
 {% data reusables.saml.use-classic-ui %}
 
-## Adding the {% data variables.product.prodname_ghe_cloud %} application in Okta
+## Okta で {% data variables.product.prodname_ghe_cloud %} アプリケーションを追加する
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.add-okta-application %}
 {% data reusables.saml.search-ghec-okta %}
-4. To the right of "Github Enterprise Cloud - Organization", click **Add**.
-  ![Clicking "Add" for the {% data variables.product.prodname_ghe_cloud %} application](/assets/images/help/saml/okta-add-ghec-application.png)
+4. [Github Enterprise Cloud - Organization] の右で [**Add**] をクリックします。 ![{% data variables.product.prodname_ghe_cloud %} アプリケーションの [Add] をクリック](/assets/images/help/saml/okta-add-ghec-application.png)
 
-5. In the **GitHub Organization** field, type the name of your organization on {% data variables.product.product_location %}. For example, if your organization's URL is https://github.com/octo-org, the organization name would be `octo-org`.
-  ![Type GitHub organization name](/assets/images/help/saml/okta-github-organization-name.png)
+5. In the **GitHub Organization** field, type the name of your organization on {% data variables.product.product_location %}. たとえば、Organization の URL が https://github.com/octo-org の場合、Organization 名は `octo-org` となります。 ![GitHub の Organization 名を入力](/assets/images/help/saml/okta-github-organization-name.png)
 
-6. Click **Done**.
+6. [**Done**] をクリックします。
 
-## Enabling and testing SAML SSO
+## SAML SSO の有効化とテスト
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
 {% data reusables.saml.assign-yourself-to-okta %}
 {% data reusables.saml.okta-sign-on-tab %}
 {% data reusables.saml.okta-view-setup-instructions %}
-6. Enable and test SAML SSO on {% data variables.product.prodname_dotcom %} using the sign on URL, issuer URL, and public certificates from the "How to Configure SAML 2.0" guide. For more information, see "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)."
+6. SAML 2.0 の設定方法に関するガイドから、サインオン URL、発行者 URL、公開の証明書を使用して、{% data variables.product.prodname_dotcom %} での SAML SSO を有効化してテストします。 詳細は「[Organization での SAML シングルサインオンの有効化とテスト](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)」を参照してください。
 
-## Configuring access provisioning with SCIM in Okta
+## Okta で SCIM を使ってアクセスのプロビジョニングを設定する
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
@@ -62,25 +60,22 @@ After you enable SCIM, the following provisioning features are available for any
 {% data reusables.saml.okta-enable-api-integration %}
 
 
-6. Click **Authenticate with Github Enterprise Cloud - Organization**.
-  !["Authenticate with Github Enterprise Cloud - Organization" button for Okta application](/assets/images/help/saml/okta-authenticate-with-ghec-organization.png)
+6. [**Authenticate with Github Enterprise Cloud - Organization**] をクリックします。 ![Okta アプリケーションの [Authenticate with Github Enterprise Cloud - Organization] ボタン](/assets/images/help/saml/okta-authenticate-with-ghec-organization.png)
 
-7. To the right of your organization's name, click **Grant**.
-  !["Grant" button for authorizing Okta SCIM integration to access organization](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)
+7. Organization 名の右にある [**Grant**] をクリックします。 ![Organization にアクセスできるよう Okta SCIM インテグレーションを認証する [Grant] ボタン](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)
 
   {% note %}
 
-  **Note**: If you don't see your organization in the list, go to `https://github.com/orgs/ORGANIZATION-NAME/sso` in your browser and authenticate with your organization via SAML SSO using your administrator account on the IdP. For example, if your organization's name is `octo-org`, the URL would be `https://github.com/orgs/octo-org/sso`. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."
+  **注釈**: リストに自分の Organization が表示されていない場合は、ブラウザで `https://github.com/orgs/ORGANIZATION-NAME/sso` を開き、IdP での管理者アカウントを使用して SAML SSO 経由で Organization に認証してもらいます。 たとえば、Organization 名が `octo-org` の場合、URL は `https://github.com/orgs/octo-org/sso` となります。 詳しい情報については「[SAML シングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」を参照してください。
 
   {% endnote %}
-1. Click **Authorize OktaOAN**.
-  !["Authorize OktaOAN" button for authorizing Okta SCIM integration to access organization](/assets/images/help/saml/okta-scim-integration-authorize-oktaoan.png)
+1. [**Authorize OktaOAN**] をクリックします。 ![Organization にアクセスできるよう Okta SCIM インテグレーションを認証する [Authorize OktaOAN] ボタン](/assets/images/help/saml/okta-scim-integration-authorize-oktaoan.png)
 {% data reusables.saml.okta-save-provisioning %}
 {% data reusables.saml.okta-edit-provisioning %}
 
-## Further reading
+## 参考リンク
 
-- "[Configuring SAML single sign-on for your enterprise account using Okta](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)"
-- "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
-- [Understanding SAML](https://developer.okta.com/docs/concepts/saml/) in the Okta documentation
-- [Understanding SCIM](https://developer.okta.com/docs/concepts/scim/) in the Okta documentation
+- 「[Okta を使用して Enterprise アカウントの SAML シングルサインオンを設定する](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)」
+- [Organization の Team 同期を管理する](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)
+- Okta ドキュメントの「[Understanding SAML](https://developer.okta.com/docs/concepts/saml/)」
+- Okta ドキュメントの「[Understanding SCIM](https://developer.okta.com/docs/concepts/scim/)」

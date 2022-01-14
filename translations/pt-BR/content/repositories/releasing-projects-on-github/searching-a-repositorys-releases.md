@@ -1,5 +1,5 @@
 ---
-title: Searching a repository's releases
+title: Pesquisando versões de um repositório
 intro: 'You can use keywords, tags, and other qualifiers to search for particular releases in a repository.'
 permissions: Anyone with read access to a repository can search that repository's releases.
 shortTitle: Searching releases

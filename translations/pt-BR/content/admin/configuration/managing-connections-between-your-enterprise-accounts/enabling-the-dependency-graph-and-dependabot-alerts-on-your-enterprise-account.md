@@ -1,7 +1,8 @@
 ---
-title: Enabling the dependency graph and Dependabot alerts on your enterprise account
-intro: 'You can connect {% data variables.product.product_location %} to {% data variables.product.prodname_ghe_cloud %} and enable the dependency graph and  {% data variables.product.prodname_dependabot_alerts %} in repositories in your instance.'
-shortTitle: Enable dependency analysis
+title: Habilitando o gráfico de dependências e os alertas de dependências na sua conta corporativa
+intro: 'Você pode conectar {% data variables.product.product_location %} a {% data variables.product.prodname_ghe_cloud %} e habilitar o gráfico de dependências e  {% data variables.product.prodname_dependabot_alerts %} nos repositórios da sua instância.'
+miniTocMaxHeadingLevel: 3
+shortTitle: Habilitar a análise de dependências
 redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enterprise/admin/configuration/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
@@ -20,99 +21,107 @@ topics:
   - Dependency graph
   - Dependabot
 ---
-## About alerts for vulnerable dependencies on {% data variables.product.product_location %}
+
+## Sobre alertas para dependências vulneráveis no {% data variables.product.product_location %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-{% data variables.product.prodname_dotcom %} identifies vulnerable dependencies in repositories and creates {% data variables.product.prodname_dependabot_alerts %} on {% data variables.product.product_location %}, using:
+{% data variables.product.prodname_dotcom %} identifica dependências vulneráveis nos repositórios e cria {% data variables.product.prodname_dependabot_alerts %} em {% data variables.product.product_location %}, usando:
 
-- Data from the {% data variables.product.prodname_advisory_database %}
-- The dependency graph service
+- Dados do {% data variables.product.prodname_advisory_database %}
+- O serviço gráfico de dependências
 
-For more information about these features, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)" and "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+Para obter mais informações sobre essas funcionalidades, consulte "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)" e "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
 
-### About synchronization of data from the {% data variables.product.prodname_advisory_database %}
+### Sobre a sincronização de dados de {% data variables.product.prodname_advisory_database %}
 
-{% data reusables.repositories.tracks-vulnerabilities %} 
+{% data reusables.repositories.tracks-vulnerabilities %}
 
-You can connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_github_connect %}. Once connected, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. You can also choose to manually sync vulnerability data at any time. No code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
+Você pode conectar-se {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %} com {% data variables.product.prodname_github_connect %}. Uma vez conectados, os dados de vulnerabilidade são sincronizados de {% data variables.product.prodname_advisory_database %} para sua instância uma vez a cada hora. Também é possível sincronizar os dados de vulnerabilidade manualmente a qualquer momento. Nenhum código ou informações sobre o código da {% data variables.product.product_location %} são carregados para o {% data variables.product.prodname_dotcom_the_website %}.
 
-### About generation of {% data variables.product.prodname_dependabot_alerts %}
+Apenas as consultorias revisadas por {% data variables.product.company_short %} estão sincronizados. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-If you enable vulnerability detection, when {% data variables.product.product_location %} receives information about a vulnerability, it identifies repositories in your instance that use the affected version of the dependency and generates {% data variables.product.prodname_dependabot_alerts %}. You can choose whether or not to notify users automatically about new {% data variables.product.prodname_dependabot_alerts %}.
+### Sobre a digitalização de repositórios com dados sincronizados do {% data variables.product.prodname_advisory_database %}
 
-## Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies on {% data variables.product.product_location %}
+Para repositórios com {% data variables.product.prodname_dependabot_alerts %} habilitado, a digitalização é acionada em qualquer push para o branch padrão que contém um arquivo de manifesto ou arquivo de bloqueio. Além disso, quando um novo registro de vulnerabilidade é adicionado à instância, {% data variables.product.prodname_ghe_server %} irá digitalizar todos os repositórios existentes nessa instância e gerará alertas para qualquer repositório que seja vulnerável. Para obter mais informações, consulte "[Detecção de dependências vulneráveis](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)".
 
-### Prerequisites
 
-For {% data variables.product.product_location %} to detect vulnerable dependencies and generate {% data variables.product.prodname_dependabot_alerts %}:
-- You must connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghae %}This also enables the dependency graph service. {% endif %}{% ifversion ghes or ghae %}For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."{% endif %}
-{% ifversion ghes %}- You must enable the dependency graph service.{% endif %}
-- You must enable vulnerability scanning.
+### Sobre a geração de {% data variables.product.prodname_dependabot_alerts %}
+
+Se você habilitar a detecção de vulnerabilidade, quando {% data variables.product.product_location %} recebe informações sobre uma vulnerabilidade, ela irá identificar os repositórios na sua instância que usam a versão afetada da dependência e irá gerar {% data variables.product.prodname_dependabot_alerts %}. Você pode escolher se quer ou não notificar os usuários automaticamente sobre o novo {% data variables.product.prodname_dependabot_alerts %}.
+
+## Habilitando o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis em {% data variables.product.product_location %}
+
+### Pré-requisitos
+
+Para {% data variables.product.product_location %} detectar dependências vulneráveis e gerar {% data variables.product.prodname_dependabot_alerts %}:
+- Você deve conectar {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghae %}Isso também habilita o serviço do gráfico de dependências. {% endif %}{% ifversion ghes or ghae %}Para obter mais informações, consulte "[Conectando a conta corporativa ao {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)".{% endif %}
+{% ifversion ghes %}- Você deve habilitar o serviço do gráfico de dependências.{% endif %}
+- Você deve habilitar a digitalização de vulnerabilidade.
 
 {% ifversion ghes %}
 {% ifversion ghes > 3.1 %}
-You can enable the dependency graph via the {% data variables.enterprise.management_console %} or the administrative shell. We recommend you follow the {% data variables.enterprise.management_console %} route unless {% data variables.product.product_location %} uses clustering. 
+Você pode habilitar o gráfico de dependências por meio do {% data variables.enterprise.management_console %} ou do shell administrativo. Recomendamos que você siga o encaminhamento de {% data variables.enterprise.management_console %} a menos que {% data variables.product.product_location %} use clustering.
 
-### Enabling the dependency graph via the {% data variables.enterprise.management_console %}
+### Habilitando o gráfico de dependências por meio do {% data variables.enterprise.management_console %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," click **Dependency graph**.
-![Checkbox to enable or disable the dependency graph](/assets/images/enterprise/3.2/management-console/enable-dependency-graph-checkbox.png)
+1. Em "Segurança", clique em **Gráfico de dependência**. ![Caixa de seleção para habilitar ou desabilitar o gráfico de dependências](/assets/images/enterprise/3.2/management-console/enable-dependency-graph-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
-1. Click **Visit your instance**.
+1. Clique **Visit your instance** (Visite sua instância).
 
-### Enabling the dependency graph via the administrative shell
+### Habilitando o gráfico de dependências por meio do shell administrativo
 {% endif %}{% ifversion ghes < 3.2 %}
-### Enabling the dependency graph
+### Habilitar o gráfico de dependências
 {% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-1. In the administrative shell, enable the dependency graph on {% data variables.product.product_location %}:
-    ``` shell
-    $ {% ifversion ghes > 3.1 %}ghe-config app.dependency-graph.enabled true{% else %}ghe-config app.github.dependency-graph-enabled true{% endif %}
+1. No shell administrativo, habilite o gráfico de dependências em {% data variables.product.product_location %}:
+    {% ifversion ghes > 3.1 %}```shell
+    ghe-config app.dependency-graph.enabled true
     ```
+    {% else %}```shell
+    ghe-config app.github.dependency-graph-enabled true
+  ghe-config app.github.vulnerability-alerting-and-settings-enabled true
+    ```{% endif %}
    {% note %}
 
    **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
-1. Apply the configuration.
+2. Aplique a configuração.
     ```shell
     $ ghe-config-apply
     ```
-1. Return to {% data variables.product.prodname_ghe_server %}.
+3. Volte para o {% data variables.product.prodname_ghe_server %}.
 {% endif %}
 
-### Enabling {% data variables.product.prodname_dependabot_alerts %}
+### Habilitar o {% data variables.product.prodname_dependabot_alerts %}
 
 {% ifversion ghes %}
-Before enabling {% data variables.product.prodname_dependabot_alerts %} for your instance, you need to enable the dependency graph. For more information, see above.
+Antes de habilitar {% data variables.product.prodname_dependabot_alerts %} para sua instância, você deverá habilitar o gráfico de dependências. Para obter mais informações, consulte acima.
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {%- ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
-1. Under "Repositories can be scanned for vulnerabilities", select the drop-down menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**.
-   ![Drop-down menu to enable scanning repositories for vulnerabilities](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png)
+1. Em "Repositórios podem ser digitalizados com relação a vulnerabilidades", selecione o menu suspenso e clique em **Habilitado sem notificações**. Opcionalmente, para habilitar alertas com notificações, clique em **Habilitado com as notificações**. ![Menu suspenso para habilitar a verificação vulnerabilidades nos repositórios](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png)
 
    {% tip %}
-   
-   **Tip**: We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of emails. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.
+
+   **Dica**: Recomendamos configurar {% data variables.product.prodname_dependabot_alerts %} sem notificações para os primeiros dias para evitar uma sobrecarga de e-mails. Após alguns dias, você poderá habilitar as notificações para receber {% data variables.product.prodname_dependabot_alerts %}, como de costume.
 
    {% endtip %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
-When you enable {% data variables.product.prodname_dependabot_alerts %}, you should consider also setting up {% data variables.product.prodname_actions %} for {% data variables.product.prodname_dependabot_security_updates %}. This feature allows developers to fix vulnerabilities in their dependencies. For more information, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+Ao habilitar {% data variables.product.prodname_dependabot_alerts %}, você também deve considerar configurar {% data variables.product.prodname_actions %} para {% data variables.product.prodname_dependabot_security_updates %}. Este recurso permite aos desenvolvedores corrigir a vulnerabilidades nas suas dependências. Para obter mais informações, consulte "[Configurando a segurança de {% data variables.product.prodname_dependabot %} e as atualizações de versão na sua empresa](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)".
 {% endif %}
 
-## Viewing vulnerable dependencies on {% data variables.product.product_location %}
+## Exibir dependências vulneráveis no {% data variables.product.product_location %}
 
-You can view all vulnerabilities in {% data variables.product.product_location %} and manually sync vulnerability data from {% data variables.product.prodname_dotcom_the_website %} to update the list.
+Você pode exibir todas as vulnerabilidades na {% data variables.product.product_location %} e sincronizar manualmente os dados de vulnerabilidade do {% data variables.product.prodname_dotcom_the_website %} para atualizar a lista.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. In the left sidebar, click **Vulnerabilities**.
-  ![Vulnerabilities tab in the site admin sidebar](/assets/images/enterprise/business-accounts/vulnerabilities-tab.png)
-3. To sync vulnerability data, click **Sync Vulnerabilities now**.
-  ![Sync vulnerabilities now button](/assets/images/enterprise/site-admin-settings/sync-vulnerabilities-button.png)
+2. Na barra lateral esquerda, clique em **Vulnerabilities** (Vulnerabilidades). ![Guia Vulnerabilities (Vulnerabilidades) na barra lateral de administração do site](/assets/images/enterprise/business-accounts/vulnerabilities-tab.png)
+3. Para sincronizar os dados de vulnerabilidade, clique em **Sync Vulnerabilities now** (Sincronizar vulnerabilidades agora). ![Botão Sync Vulnerabilities now (Sincronizar vulnerabilidades agora)](/assets/images/enterprise/site-admin-settings/sync-vulnerabilities-button.png)

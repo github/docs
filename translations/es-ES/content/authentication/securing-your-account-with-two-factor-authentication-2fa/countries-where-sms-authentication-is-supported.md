@@ -67,72 +67,68 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Islandia</li>
 <li>India</li>
 <li>Indonesia</li>
-<li>Irán</li>
-<li>Irlanda</li>
+<li>Ireland</li>
 <li>Israel</li>
-<li>Italia</li>
-<li>Costa de Marfil</li>
+<li>Italy</li>
+<li>Ivory Coast</li>
 <li>Jamaica</li>
-<li>Japón</li>
-<li>Jordania</li>
+<li>Japan</li>
+<li>Jordan</li>
 <li>Kazakhstan</li>
 <li>Kuwait</li>
-<li>Letonia</li>
-<li>Libia</li>
+<li>Latvia</li>
+<li>Libya</li>
 <li>Liechtenstein</li>
-<li>Lituania</li>
-<li>Luxemburgo</li>
+<li>Lithuania</li>
+<li>Luxembourg</li>
 <li>Madagascar</li>
 <li>Malawi</li>
-<li>Malasia</li>
-<li>Maldivas</li>
+<li>Malaysia</li>
+<li>Maldives</li>
 <li>Mali</li>
 <li>Malta</li>
-<li>Isla Mauricio</li>
-<li>México</li>
-<li>Mónaco</li>
+<li>Mauritius</li>
+<li>Mexico</li>
+<li>Monaco</li>
 <li>Montenegro</li>
 <li>Montserrat</li>
 <li>Mozambique</li>
 <li>Namibia</li>
-<li>Países Bajos</li>
-<li>Antillas Neerlandesas</li>
-<li>Nueva Zelanda</li>
+<li>Netherlands</li>
+<li>Netherlands Antilles</li>
+<li>New Zealand</li>
 <li>Nigeria</li>
-<li>Noruega</li>
-<li>Filipinas</li>
-<li>Polonia</li>
+<li>Norway</li>
+<li>Philippines</li>
+<li>Poland</li>
 <li>Portugal</li>
-<li>Catar</li>
-<li>Rumania</li>
-<li>Rusia</li>
-<li>Ruanda</li>
+<li>Qatar</li>
+<li>Romania</li>
+<li>Rwanda</li>
 <li>Senegal</li>
 <li>Serbia</li>
-<li>Islas Seychelles</li>
-<li>Singapur</li>
-<li>Eslovaquia</li>
-<li>Eslovenia</li>
-<li>Sudáfrica</li>
-<li>Corea del Sur</li>
-<li>España</li>
+<li>Seychelles</li>
+<li>Singapore</li>
+<li>Slovakia</li>
+<li>Slovenia</li>
+<li>South Africa</li>
+<li>South Korea</li>
+<li>Spain</li>
 <li>Sri Lanka</li>
-<li>St. Lucía</li>
-<li>Sudán</li>
-<li>Suecia</li>
-<li>Suiza</li>
-<li>Taiwán</li>
+<li>St Lucia</li>
+<li>Sudan</li>
+<li>Sweden</li>
+<li>Switzerland</li>
+<li>Taiwan</li>
 <li>Tanzania</li>
 <li>Togo</li>
-<li>Trinidad y Tobago</li>
-<li>Turquía</li>
-<li>Turcas y Caicos</li>
+<li>Trinidad and Tobago</li>
+<li>Turks and Caicos Islands</li>
 <li>Uganda</li>
-<li>Ucrania</li>
-<li>Emiratos Árabes Unidos</li>
-<li>Reino Unido</li>
+<li>United Arab Emirates</li>
+<li>United Kingdom</li>
 <li>Estados Unidos</li>
-<li>Uzbekistán</li>
+<li>Uzbekistan</li>
 <li>Venezuela</li>
 </ul>
 

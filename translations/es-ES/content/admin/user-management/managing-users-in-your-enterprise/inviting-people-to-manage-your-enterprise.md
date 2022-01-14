@@ -1,12 +1,11 @@
 ---
 title: Invitar a las personas para que administren tu empresa
 intro: 'Puedes {% ifversion ghec %}invitar a que las personas se conviertan en propietarios empresariales o gerentes de facturación para {% elsif ghes %}agregar propietarios empresariales a{% endif %} tu cuenta empresarial. También puedes eliminar a los propietarios empresariales {% ifversion ghec %}o gerentes de facturación {% endif %}que ya no necesiten acceso a la cuenta empresarial.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
-  - /articles/inviting-people-to-collaborate-in-your-business-account/
+  - /articles/inviting-people-to-collaborate-in-your-business-account
   - /articles/inviting-people-to-manage-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
 versions:

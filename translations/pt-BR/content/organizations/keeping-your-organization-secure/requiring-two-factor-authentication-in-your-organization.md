@@ -20,7 +20,7 @@ shortTitle: Exigir a 2FA na organização
 
 {% ifversion fpt or ghec %}
 
-Você também pode exigir autenticação de dois fatores para as organizações de uma empresa. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
+Você também pode exigir autenticação de dois fatores para as organizações de uma empresa. Para obter mais informações, consulte "[Aplicando políticas de segurança na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
 
 {% endif %}
 

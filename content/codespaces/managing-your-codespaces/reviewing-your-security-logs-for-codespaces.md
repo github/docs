@@ -22,6 +22,6 @@ When you perform an action related to {% data variables.product.prodname_codespa
 
 The security log includes details on what action occurred and when you performed it. For information about {% data variables.product.prodname_codespaces %} actions, see "[{% data variables.product.prodname_codespaces %} category actions](/github/authenticating-to-github/reviewing-your-security-log#codespaces-category-actions)".
 
-## Further Reading
+## Further reading
 
 - "[Reviewing your organization's audit logs for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces)"

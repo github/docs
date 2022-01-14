@@ -8,27 +8,16 @@ name: Staging - Build PR
 
 on:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-
-  # This is necessary so that the cached things can be reused between
-  # pull requests.
-  # If we don't let the workflow run on `main` the caching will only
-  # help between multiple runs of the same workflow. By letting
-  # it build on pushes to main too, the cache will be reusable
-  # in other people's PRs too.
-  push:
-    branches:
-      - main
 
 permissions:
   contents: read
 
-# This allows one Build workflow run to interrupt another
+# This allows a subsequently queued workflow run to interrupt previous runs
+# These are different from the concurrency in that here it checks if the
+# whole workflow runs again. The "inner concurrency" is used for
+# undeployments to cleaning up resources.
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label }}'
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
 jobs:
@@ -38,10 +27,9 @@ jobs:
 
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 5
-    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
-    # progress for this PR branch.
+    # This interrupts Build and Deploy workflow runs in progress for this PR branch.
     concurrency:
-      group: 'PR Staging @ ${{ github.event.pull_request.head.label }}'
+      group: 'PR Staging @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
       cancel-in-progress: true
     steps:
       - name: Check out repo
@@ -81,7 +69,7 @@ jobs:
         run: exit 1
 
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -94,10 +82,10 @@ jobs:
         run: npm ci
 
       - name: Cache nextjs build
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}-${{ hashFiles('.github/workflows/staging-build-pr.yml') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
       - name: Build
         run: npm run build
@@ -112,8 +100,6 @@ jobs:
         run: npm set-script heroku-postbuild "echo 'Application was pre-built!'"
 
       - name: Create an archive
-        # Only bother if this is actually a pull request
-        if: ${{ github.event.pull_request.number }}
         run: |
           tar -c --file=app.tar \
             node_modules/ \
@@ -143,9 +129,7 @@ jobs:
       # We are not willing to trust the rest (e.g. script/) for the remainder
       # of the deployment process.
       - name: Upload build artifact
-        # Only bother if this is actually a pull request
-        if: ${{ github.event.pull_request.number }}
-        uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2
         with:
           name: pr_build
           path: app.tar

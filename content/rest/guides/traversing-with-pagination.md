@@ -2,7 +2,7 @@
 title: Traversing with pagination
 intro: Explore how to use pagination to manage your responses with some examples using the Search API.
 redirect_from:
-  - /guides/traversing-with-pagination/
+  - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
 versions:
   fpt: '*'

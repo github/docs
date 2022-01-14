@@ -15,7 +15,6 @@ children:
   - /enabling-github-advanced-security-for-your-enterprise
   - /configuring-code-scanning-for-your-appliance
   - /configuring-secret-scanning-for-your-appliance
-  - /viewing-your-github-advanced-security-usage
   - /overview-of-github-advanced-security-deployment
   - /deploying-github-advanced-security-in-your-enterprise
 ---

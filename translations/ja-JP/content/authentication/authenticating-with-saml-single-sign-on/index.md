@@ -1,5 +1,5 @@
 ---
-title: Authenticating with SAML single sign-on
+title: SAMLシングルサインオンで認証する
 intro: 'You can authenticate to {% data variables.product.product_name %} with SAML single sign-on (SSO){% ifversion ghec %} and view your active sessions{% endif %}.'
 redirect_from:
   - /articles/authenticating-to-a-github-organization-with-saml-single-sign-on

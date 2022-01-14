@@ -2,7 +2,7 @@
 title: 构建 CI 服务器
 intro: 使用状态 API 构建您自己的 CI 系统。
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'

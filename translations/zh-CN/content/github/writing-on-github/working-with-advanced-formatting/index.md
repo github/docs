@@ -1,6 +1,6 @@
 ---
-title: Working with advanced formatting
-intro: 'Formatting like tables, syntax highlighting, and automatic linking allows you to arrange complex information clearly in your pull requests, issues, and comments.'
+title: 使用高级格式
+intro: 表格、语法突出显示和自动链接等格式设置可让您在拉取请求、议题和评论中清楚地布置复杂的信息。
 redirect_from:
   - /articles/working-with-advanced-formatting
 versions:
@@ -16,6 +16,6 @@ children:
   - /attaching-files
   - /creating-a-permanent-link-to-a-code-snippet
   - /using-keywords-in-issues-and-pull-requests
-shortTitle: Work with advanced formatting
+shortTitle: 使用高级格式
 ---
 

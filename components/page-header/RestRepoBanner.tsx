@@ -1,25 +1,29 @@
+import React from 'react'
 import { Flash } from '@primer/components'
 import { useRouter } from 'next/router'
 import { Link } from 'components/Link'
+
 const restDisplayPages = [
   '/rest/reference/branches',
   '/rest/reference/collaborators',
   '/rest/reference/commits',
   '/rest/reference/deployments',
   '/rest/reference/pages',
+  '/rest/reference/releases',
   '/rest/reference/repos',
-  '/rest/reference/repository-metrics',
+  '/rest/reference/metrics',
   '/rest/reference/webhooks',
 ]
-const restRepoCategoryExceptions = [
-  'Branches',
-  'Collaborators',
-  'Commits',
-  'Deployments',
-  'Github Pages',
-  'Repository metrics',
-  'Webhooks',
-]
+const restRepoCategoryExceptionsTitles = {
+  branches: 'Branches',
+  collaborators: 'Collaborators',
+  commits: 'Commits',
+  deployments: 'Deployments',
+  pages: 'GitHub Pages',
+  releases: 'Releases',
+  metrics: 'Metrics',
+  webhooks: 'Webhooks',
+}
 
 export const RestRepoBanner = () => {
   const router = useRouter()
@@ -28,11 +32,16 @@ export const RestRepoBanner = () => {
     return null
   }
 
-  const newRestPagesText = restRepoCategoryExceptions.map((page, i) => [
-    <Link href={`/rest/references/${page}`}>
-      {page}
-      {i < restRepoCategoryExceptions.length - 1 && ', '}
-    </Link>,
+  const pages = Object.keys(restRepoCategoryExceptionsTitles) as Array<
+    keyof typeof restRepoCategoryExceptionsTitles
+  >
+  const newRestPagesText = pages.map((page, i) => [
+    <React.Fragment key={page}>
+      <Link href={`/${router.locale}/rest/reference/${page}`}>
+        {restRepoCategoryExceptionsTitles[page]}
+      </Link>
+      {i < pages.length - 1 && ', '}
+    </React.Fragment>,
   ])
 
   return (

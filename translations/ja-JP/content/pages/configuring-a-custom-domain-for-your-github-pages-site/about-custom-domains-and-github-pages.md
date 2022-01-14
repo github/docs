@@ -2,9 +2,9 @@
 title: カスタムドメインとGitHub Pagesについて
 intro: '{% data variables.product.prodname_pages %} では、カスタムドメインを使用する、つまりサイトの URL を ''octocat.github.io'' などのデフォルトからあなたが所有するドメインに変更することができます。'
 redirect_from:
-  - /articles/about-custom-domains-for-github-pages-sites/
-  - /articles/about-supported-custom-domains/
-  - /articles/custom-domain-redirects-for-your-github-pages-site/
+  - /articles/about-custom-domains-for-github-pages-sites
+  - /articles/about-supported-custom-domains
+  - /articles/custom-domain-redirects-for-your-github-pages-site
   - /articles/about-custom-domains-and-github-pages
   - /github/working-with-github-pages/about-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'

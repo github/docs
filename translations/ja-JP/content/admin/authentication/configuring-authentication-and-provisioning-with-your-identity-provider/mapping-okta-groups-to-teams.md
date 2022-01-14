@@ -19,25 +19,24 @@ topics:
 
 If you use Okta as your IdP, you can map your Okta group to a team in {% data variables.product.prodname_ghe_managed %}. Members of the Okta group will automatically become members of the mapped {% data variables.product.prodname_ghe_managed %} team. To configure this mapping, you can configure the Okta "GitHub AE" app to push the group and its members to {% data variables.product.prodname_ghe_managed %}. You can then choose which team in {% data variables.product.prodname_ghe_managed %} will be mapped to the Okta group.
 
-## Prerequisites
+## 必要な環境
 
 You or your Okta administrator must be a Global administrator or a Privileged Role administrator in Okta.
- 
-You must enable SAML single sign-on with Okta. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
 
-You must authenticate to your enterprise account using SAML SSO and Okta. For more information, see "[Authenticating with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on)."
+You must enable SAML single sign-on with Okta. 詳しい情報については、「[Enterprise 向けのSAML シングルサインオンを設定する](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
+
+You must authenticate to your enterprise account using SAML SSO and Okta. 詳しい情報については「[SAMLシングルサインオンで認証する](/github/authenticating-to-github/authenticating-with-saml-single-sign-on)」を参照してください。
 
 ## Assigning your Okta group to the "GitHub AE" app
 
 1. In the Okta Dashboard, open your group's settings.
-1. Click **Manage Apps**.
-  ![Add group to app](/assets/images/help/saml/okta-ae-group-add-app.png)
+1. Click **Manage Apps**. ![Add group to app](/assets/images/help/saml/okta-ae-group-add-app.png)
 
 1. To the right of "GitHub AE", click **Assign**.
 
   ![Assign app](/assets/images/help/saml/okta-ae-assign-group-to-app.png)
 
-1. Click **Done**.
+1. [**Done**] をクリックします。
 
 ## Pushing the Okta group to {% data variables.product.prodname_ghe_managed %}
 
@@ -48,7 +47,7 @@ When you push an Okta group and map the group to a team, all of the group's memb
 
 1. Click **Push Groups**.
 
-  ![Push Groups tab](/assets/images/help/saml/okta-ae-push-groups-tab.png)
+  ![[Push Groups] タブ](/assets/images/help/saml/okta-ae-push-groups-tab.png)
 
 1. Select the Push Groups drop-down menu and click **Find groups by name**.
 
@@ -66,16 +65,14 @@ You can map a team in your enterprise to an Okta group you previously pushed to 
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-6. Under "Identity Provider Group", select the drop-down menu and click an identity provider group.
-    ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
-7. Click **Save changes**.
+6. Under "Identity Provider Group", select the drop-down menu and click an identity provider group. ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
+7. [**Save changes**] をクリックします。
 
 ## Checking the status of your mapped teams
 
 Enterprise owners can use the site admin dashboard to check how Okta groups are mapped to teams on {% data variables.product.prodname_ghe_managed %}.
 
-1. To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
-  ![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. ダッシュボードへアクセスするには、ページ右上の隅にある {% octicon "rocket" aria-label="The rocket ship" %}をクリックしてください。 ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
 1. In the left pane, click **External groups**.
 
@@ -85,7 +82,7 @@ Enterprise owners can use the site admin dashboard to check how Okta groups are 
 
   ![List of external groups](/assets/images/help/saml/okta-ae-site-admin-list-groups.png)
 
-1. The group's details includes the name of the Okta group, a list of the Okta users that are members of the group, and the corresponding mapped team on {% data variables.product.prodname_ghe_managed %}. 
+1. The group's details includes the name of the Okta group, a list of the Okta users that are members of the group, and the corresponding mapped team on {% data variables.product.prodname_ghe_managed %}.
 
   ![List of external groups](/assets/images/help/saml/okta-ae-site-admin-group-details.png)
 

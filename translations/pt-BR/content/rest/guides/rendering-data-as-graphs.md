@@ -2,7 +2,7 @@
 title: Representar dados como gráficos
 intro: Aprenda a visualizar as linguagens de programação do seu repositório usando a biblioteca D3.js e o Ruby Octokit.
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
   fpt: '*'
