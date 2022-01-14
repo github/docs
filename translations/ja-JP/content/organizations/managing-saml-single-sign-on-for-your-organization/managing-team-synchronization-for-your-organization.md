@@ -46,6 +46,12 @@ Organization と、サポートされている IdP について、SAMLシング�
 
 You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. 詳しい情報については「[SAMLシングルサインオンで認証する](/articles/authenticating-with-saml-single-sign-on)」を参照してください。
 
+Your SAML settings **must** contain a valid IdP URL for the **Issuer** field.
+
+![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
+
+
+
 ### Azure AD で Team の同期を有効化する
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}

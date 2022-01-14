@@ -29,11 +29,11 @@ Te recomendamos que tengas una comprensión básica de Ruby, YAML, las opciones 
 - [Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
 - [Ruby en 20 minutos](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Using the Ruby starter workflow
+## Utilizar el flujo de trabajo inicial de Ruby
 
-{% data variables.product.prodname_dotcom %} Proporciona un flujo de trabajo inicial de Ruby que funcionará para la mayoría de los proyectos de Ruby. For more information, see the [Ruby starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
+{% data variables.product.prodname_dotcom %} Proporciona un flujo de trabajo inicial de Ruby que funcionará para la mayoría de los proyectos de Ruby. Para obtener más información, consulta el [Flujo de trabajo inicial de Ruby](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. El flujo de trabajo que se muestra a continuación asume que la rama predeterminada de tu repositorio es `main`.
+Para comenzar rápidamente, agrega el flujo de trabajo inicial al directorio de `.github/workflows` de tu repositorio. El flujo de trabajo que se muestra a continuación asume que la rama predeterminada de tu repositorio es `main`.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
