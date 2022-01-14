@@ -1,24 +1,24 @@
 # gh pr checkout 703
 # .github/ISSUE_TEMPLATE/config.yml
 # https://github.com/users/Iixixi/projects/10/views/4
-title: MINUTEMAN
+title: minutemen
 Name: Pat
 Branch: but
 on:
 Request:
 Pushs:
-branches: '[ mainbranch ']
+Branch: '[mainbranch']
 Pulls:  
 pull_request
-branches: '[ trunk ']
-jobs:
+branches: '[trunk']
+job: build
 build: .github/ISSUE_TEMPLATE/config.ymluns-on: ubuntu-latest
 steps: use: actions/checkout@v2
 :Build:: the site in the .husky/celery'S container
 run: crates.io
 run: anchor/slate
 run: -Verbose 
-run: frosty'$ -chefbook builder-latest
+run: frosty'$ -chef'$ cookebook builder-latest
 #!/user/bin/bash 
 fetch: Purl, -c'lang 
 Author: chmod
