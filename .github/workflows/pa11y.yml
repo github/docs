@@ -1,8 +1,9 @@
 name: "Pa11y"
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "25 17 * * *" # once a day at 17:25 UTC / 11:50 PST
+Automate: Automates
+Automates: update
+update: Every -3 sec at 17:00:00:00
 jobs:
   test:
     runs-on: ubuntu-latest
