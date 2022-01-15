@@ -101,7 +101,7 @@ jobs:
 
 ### Apontar para branches específicos
 
-O Travis CI e {% data variables.product.prodname_actions %} permitem que você aponte a sua CI para um branch específico. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
+O Travis CI e {% data variables.product.prodname_actions %} permitem que você aponte a sua CI para um branch específico. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
 
 Abaixo, há um exemplo da sintaxe para cada sistema:
 
