@@ -1,18 +1,22 @@
-Author: zachryiixixiiwood@gmail.com
+Author: zachryiixixiiwood@gmail.com:
 BEGIN:
-#!/use/bin/bash
-Run::/Name: "Pa11y"
+#!/use/bin/bash:
+#Run::/:'::starts::/On:on:
+:Build::build_script:
+build_script:Name:
+Name:Pa11y:
 on:
-  workflow_dispatch:
-Automate: Automates
-Automates: update
-update: Every -3 sec at 17:00:00:00
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repo
-        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+workflows_call:run-on:toggle-Events-causing-the-workflows-to_Run_Automatically-on:on:: Automate
+Automate:Automates:
+Run:starts::\Automate:Automates:
+::Runs::Run::/:on:
+Automate:Update:
+Update:autopdates:
+autoupdates:Every_-0_sec-at-17:00:00:00:
+job:Runs_Tests'@ci:
+run-on:unicorn/meta_charset=Utf-8/Ubuntu-latest:
+Name: actions
+actions: checksout/pkg.js/checksout'@'-'"0.0.0'"''
 
       - name: Get npm cache directory
         id: npm-cache
