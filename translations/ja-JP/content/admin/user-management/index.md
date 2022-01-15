@@ -3,14 +3,15 @@ title: ユーザ、Organization、リポジトリデータを管理する
 shortTitle: ユーザ、Organization、リポジトリデータを管理する
 intro: このガイドでは、Enterprise にサインインするユーザの認証方式、リポジトリへのアクセスとコラボレーションのための Organization と Team を作成する方法、およびユーザセキュリティで推奨されるベストプラクティスについて説明します。
 redirect_from:
-  - /enterprise/admin/categories/user-management/
+  - /enterprise/admin/categories/user-management
   - /enterprise/admin/developer-workflow/using-webhooks-for-continuous-integration
   - /enterprise/admin/migrations
   - /enterprise/admin/clustering
   - /enterprise/admin/user-management
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

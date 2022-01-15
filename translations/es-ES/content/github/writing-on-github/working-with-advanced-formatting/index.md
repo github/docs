@@ -4,14 +4,18 @@ intro: 'Los formatos como tablas, resaltado de la sintaxis y enlace automático 
 redirect_from:
   - /articles/working-with-advanced-formatting
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - /organizing-information-with-tables
+  - /organizing-information-with-collapsed-sections
   - /creating-and-highlighting-code-blocks
   - /autolinked-references-and-urls
   - /attaching-files
   - /creating-a-permanent-link-to-a-code-snippet
+  - /using-keywords-in-issues-and-pull-requests
+shortTitle: Trabajar con formato avanzado
 ---
 

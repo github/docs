@@ -2,26 +2,30 @@
 title: REST APIを使ってみる
 intro: 認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。
 redirect_from:
-  - /guides/getting-started/
+  - /guides/getting-started
   - /v3/guides/getting-started
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: 始めましょう - REST API
 ---
 
 
 日常的なユースケースに取り組みながら、APIの中心的な概念を見ていきましょう。
 
-### 概要
+{% data reusables.rest-api.dotcom-only-guide-note %}
+
+## 概要
 
 ほとんどのアプリケーションは、任意の言語において既存の[ラッパーライブラリ][wrappers]を使用しています。ただ、まずは基底となっているAPI HTTPメソッドについて知ることが大切です。
 
-ちょっと試しにやってみるだけなら、[cURL][curl]を使うのが一番簡単です。{% if currentVersion == "free-pro-team@latest" %} 別のクライアントを使用している場合、リクエストで有効な [ユーザエージェントのヘッダ](/rest/overview/resources-in-the-rest-api#user-agent-required)を送信する必要があることに注意してください。{% endif %}
+ちょっと試しにやってみるだけなら、[cURL][curl]を使うのが一番簡単です。{% ifversion fpt or ghec %}別のクライアントを使用している場合、リクエストで有効な [ユーザエージェントのヘッダ](/rest/overview/resources-in-the-rest-api#user-agent-required)を送信する必要があることに注意してください。{% endif %}
 
-#### Hello World
+### Hello World
 
 まずはセットアップをテストすることから始めましょう。 コマンドプロンプトを開き、次のコマンドを入力します。
 
@@ -42,7 +46,10 @@ $ curl https://api.github.com/users/defunkt
 > {
 >   "login": "defunkt",
 >   "id": 2,
->   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
+>   "node_id": "MDQ6VXNlcjI=",
+>   "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4",
+>   "gravatar_id": "",
+>   "url": "https://api.github.com/users/defunkt",
 >   "html_url": "https://github.com/defunkt",
 >   ...
 > }
@@ -54,25 +61,40 @@ $ curl https://api.github.com/users/defunkt
 $ curl -i https://api.github.com/users/defunkt
 
 > HTTP/2 200
-> Server: GitHub.com
-> Date: Sun, 11 Nov 2012 18:43:28 GMT
-> Content-Type: application/json; charset=utf-8
-> ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
-> X-RateLimit-Limit: 60
-> X-RateLimit-Remaining: 57
-> X-RateLimit-Reset: 1352660008
-> X-GitHub-Media-Type: github.v3
-> Vary: Accept
-> Cache-Control: public, max-age=60, s-maxage=60
-> X-Content-Type-Options: nosniff
-> Content-Length: 692
-> Last-Modified: Tue, 30 Oct 2012 18:58:42 GMT
-
+> server: GitHub.com
+> date: Thu, 08 Jul 2021 07:04:08 GMT
+> content-type: application/json; charset=utf-8
+> cache-control: public, max-age=60, s-maxage=60
+> vary: Accept, Accept-Encoding, Accept, X-Requested-With
+> etag: W/"61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"
+> last-modified: Fri, 01 Nov 2019 21:56:00 GMT
+> x-github-media-type: github.v3; format=json
+> access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+> access-control-allow-origin: *
+> strict-transport-security: max-age=31536000; includeSubdomains; preload
+> x-frame-options: deny
+> x-content-type-options: nosniff
+> x-xss-protection: 0
+> referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+> content-security-policy: default-src 'none'
+> x-ratelimit-limit: 60
+> x-ratelimit-remaining: 53
+> x-ratelimit-reset: 1625731053
+> x-ratelimit-resource: core
+> x-ratelimit-used: 7
+> accept-ranges: bytes
+> content-length: 1305
+> x-github-request-id: 9F60:7019:ACC5CD5:B03C931:60E6A368
+>
 > {
->   "login": "defunkt",
->   "id": 2,
->   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
->   "html_url": "https://github.com/defunkt",
+>  "login": "defunkt",
+>  "id": 2,
+>  "node_id": "MDQ6VXNlcjI=",
+>  "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4",
+>  "gravatar_id": "",
+>  "url": "https://api.github.com/users/defunkt",
+>  "html_url": "https://github.com/defunkt",
+>
 >   ...
 > }
 ```
@@ -84,13 +106,13 @@ $ curl -i https://api.github.com/users/defunkt
 * `X-GitHub-Media-Type`の値は`github.v3`です。 これは、レスポンスの[メディアタイプ][media types]を伝えています。 メディアタイプは、出力をAPI v3にするために役立ちました。 これについては、後ほど詳しく説明します。
 * `X-RateLimit-Limit`と`X-RateLimit-Remaining`のヘッダに注目してください。 この2つのヘッダは、1つのローリング期間 (通常は1時間) に[1つのクライアントが行えるリクエストの数][rate-limiting]と、クライアントが既に消費したリクエストの数を示しています。
 
-### 認証
+## 認証
 
-認証されていないクライアントは、1時間に60件のリクエストを行うことができます。 1時間あたりのリクエストを増やすには、_認証_が必要です。 実のところ、{% data variables.product.product_name %} APIを使って何か面白いことがしたければ、[認証][authentication]は欠かせません。
+認証されていないクライアントは、1時間に60件のリクエストを行うことができます。 1時間あたりのリクエストを増やすには、_認証_が必要です。 In fact, doing anything interesting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API requires [authentication][authentication].
 
-#### 個人アクセストークンの使用
+### 個人アクセストークンの使用
 
-{% data variables.product.product_name %} APIで認証を行う最も簡単かつ最善の方法は、[OAuthトークン](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)経由でBasic認証を使用することです。 OAuthトークンには[個人アクセストークン][personal token]が含まれています。
+The easiest and best way to authenticate with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is by using Basic Authentication [via OAuth tokens](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). OAuthトークンには[個人アクセストークン][personal token]が含まれています。
 
 `-u`フラグを使って、ユーザ名を設定します。
 
@@ -101,10 +123,10 @@ $ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/use
 
 プロンプトが表示されたらOAuthトークンを入力できますが、そのための変数を設定することをお勧めします。
 
-トークンをシェル履歴に残すことは避けるべきです。`-u "username:$token"`を使用して、`token`の変数を設定すると、トークンはシェル履歴に残りません。
+You can use `-u "your_username:$token"` and set up a variable for `token` to avoid leaving your token in shell history, which should be avoided.
 
 ```shell
-$ curl -i -u <em>username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
+$ curl -i -u <em>your_username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
@@ -112,17 +134,29 @@ $ curl -i -u <em>username:$token</em> {% data variables.product.api_url_pre %}/u
 
 [個人アクセストークンの設定ページ][tokens settings]から、簡単に[**個人アクセストークン**を作成][personal token]できます。
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
+{% warning %}
+
+To help keep your information secure, we highly recommend setting an expiration for your personal access tokens.
+
+{% endwarning %}
+{% endif %}
+
+{% ifversion fpt or ghes or ghec %}
 ![個人トークンの選択](/assets/images/personal_token.png)
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 ![個人トークンの選択](/assets/images/help/personal_token_ghae.png)
 {% endif %}
 
-#### ユーザプロフィールの取得
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
+API requests using an expiring personal access token will return that token's expiration date via the `GitHub-Authentication-Token-Expiration` header. You can use the header in your scripts to provide a warning message when the token is close to its expiration date.
+{% endif %}
 
-認証が正しく行われると、{% data variables.product.product_name %}アカウントに関連づけられている権限を利用できます。 たとえば、あなたのプロフィールを取得してみましょう。
+### ユーザプロフィールの取得
+
+When properly authenticated, you can take advantage of the permissions associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. たとえば、あなたのプロフィールを取得してみましょう。
 
 ```shell
 $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.product.api_url_pre %}/user
@@ -141,7 +175,7 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.produc
 
 今回は、以前に[@defunkt][defunkt github]について取得した公開情報の同じセットに加えて、あなたのユーザプロフィールのパブリックではない情報もあるはずです。 たとえば、アカウントの{% data variables.product.product_name %}プランに関する詳細を持つ`plan`オブジェクトがレスポンス中にあります。
 
-#### OAuthトークンのアプリケーションへの使用
+### OAuthトークンのアプリケーションへの使用
 
 他のユーザに代わりAPIを使用してプライベートな情報を読み書きする必要があるアプリは、 [OAuth][oauth]を使用すべきです。
 
@@ -158,28 +192,28 @@ OAuthは_トークン_を使用します。 トークンには、次の2つの�
 
 さて、これで認証された呼び出しのコツをつかみました。それでは次は[リポジトリ API][repos-api]に進みましょう。
 
-### リポジトリ
+## リポジトリ
 
-{% data variables.product.product_name %} APIを有意義に使用する場合、そのほとんどにおいて何らかのリポジトリ情報が関与します。 以前にユーザ情報をフェッチしたのと同じ方法で、[リポジトリ情報を`GET`][get repo] できます。
+Almost any meaningful use of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API will involve some level of Repository information. 以前にユーザ情報をフェッチしたのと同じ方法で、[リポジトリの詳細を`GET`][get repo]できます。
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 ```
 
-同様に、[認証済みのユーザにリポジトリを表示][user repos api]できます。
+同様に、[認証済みのユーザのリポジトリを表示][user repos api]できます。
 
 ```shell
-$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-また、[別のユーザにリポジトリを一覧表示][other user repos api]できます。
+また、[別のユーザのリポジトリを一覧表示][other user repos api]できます。
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/users/octocat/repos
 ```
 
-あるいは、[Organizationにリポジトリを一覧表示][org repos api]することもできます。
+あるいは、[Organizationのリポジトリを一覧表示][org repos api]することもできます。
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
@@ -187,9 +221,10 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 これらの呼び出しから返される情報は、認証時にトークンが持っているスコープにより異なります。
 
-{% if currentVersion != "github-ae@latest" %}
-* `public_repo` [スコープ][scopes]を持つトークンは、GitHub.com上で見るためのアクセス権を私たちが持つすべてのパブリックリポジトリを含むレスポンスを返します。{% endif %}
-* `repo` [スコープ][scopes]を持つトークンは、{% data variables.product.product_location %}上で私たちが見るためのアクセスを持つすねての{% if currentVersion != "github-ae@latest" %}パブリック{% else %}インターナル{% endif %}及びプライベートリポジトリを含むレスポンスを返します。
+{%- ifversion fpt or ghec or ghes %}
+* A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on {% data variables.product.product_location %}.
+{%- endif %}
+* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories we have access to see on {% data variables.product.product_location %}.
 
 [Docs][repos-api]に記載されている通り、これらのメソッドは`type`パラメータを取り、これによって、ユーザがリポジトリに対して持つアクセス権に基づき、返されるリポジトリをフィルタリングできます。 こうすることで、直接所有するリポジトリ、Organizationのリポジトリ、またはチームによりユーザがコラボレーションするリポジトリに限定してフェッチすることができます。
 
@@ -199,14 +234,14 @@ $ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=own
 
 この例では、octocatが所有するリポジトリのみを取得し、コラボレーションするリポジトリは取得しません。 URLが引用符で囲まれていることに注目してください。 シェルの設定によっては、cURLはURLを引用符で囲まないとクエリ文字列型を無視することがあります。
 
-#### リポジトリの作成
+### リポジトリの作成
 
 既存のリポジトリ情報をフェッチすることは一般的なユースケースですが、
-{% data variables.product.product_name %}APIは新規リポジトリの作成もサポートしています。 [リポジトリを作成する][create repo]には、
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API supports creating new repositories as well. [リポジトリを作成する][create repo]には、
 詳細情報や設定オプションを含んだいくつかのJSONを`POST`する必要があります。
 
 ```shell
-$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     -d '{ \
         "name": "blog", \
         "auto_init": true, \
@@ -216,7 +251,7 @@ $ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-この最小限の例では、ブログ用の新しいプライベートリポジトリを作成しています ([GitHub Pages][pages]で提供されるかもしれません)。 このブログは{% if currentVersion != "github-ae@latest" %}パブリックになり{% else %}すべてのEnterpriseメンバーからアクセスできるようになり{% endif %}ますが、このリポジトリはプライベートにしました。 このステップでは、READMEと[nanoc][nanoc]フレーバーの[.gitignore テンプレート][gitignore templates]によるリポジトリの初期化も行います。
+この最小限の例では、ブログ用の新しいプライベートリポジトリを作成しています ([GitHub Pages][pages]で提供されるかもしれません)。 このブログは{% ifversion not ghae %}パブリックになり{% else %}すべてのEnterpriseメンバーからアクセスできるようになり{% endif %}ますが、このリポジトリはプライベートにしました。 このステップでは、READMEと[nanoc][nanoc]フレーバーの[.gitignore テンプレート][gitignore templates]によるリポジトリの初期化も行います。
 
 生成されたリポジトリは、`https://github.com/<your_username>/blog`にあります。 オーナーであるOrganization以下にリポジトリを作成するには、APIメソッドを `/user/repos`から`/orgs/<org_name>/repos`に変更するだけです。
 
@@ -232,24 +267,24 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 > }
 ```
 
-あれれ？ どこにいったのでしょう。 リポジトリを_プライベート_にして作成したので、表示するには認証する必要があります。 古参のHTTPユーザの方なら、`403`が出ると思っていたかもしれません。 プライベートリポジトリについての情報を漏らしたくはないので、この場合{% data variables.product.product_name %} APIは`404`を返します。「このリポジトリが存在するかは肯定も否定もできない」というようなことです。
+あれれ？ どこにいったのでしょう。 リポジトリを_プライベート_にして作成したので、表示するには認証する必要があります。 古参のHTTPユーザの方なら、`403`が出ると思っていたかもしれません。 Since we don't want to leak information about private repositories, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API returns a `404` in this case, as if to say "we can neither confirm nor deny the existence of this repository."
 
-### 問題
+## Issue
 
 {% data variables.product.product_name %}のIssue用UIは、「必要十分」なワークフローを提供しつつ、邪魔にならないということを目指しています。 {% data variables.product.product_name %} [Issues API][issues-api]を使えば、他のツールからデータを引き出したり、Issueを作成したりして、あなたのTeamに合ったワークフローを作成できます。
 
 GitHub.comと同じように、Issues APIは認証されたユーザがIssueを表示するためのメソッドをいくつか提供します。 [すべてのIssueを表示][get issues api]するには、`GET /issues`を呼び出します。
 
 ```shell
-$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
-[あなたの{% data variables.product.product_name %} Organizationのうちの1つ][get issues api]のみを取得するには、`GET
+[あなたの{% data variables.product.product_name %} Organizationのうちの1つのIssue][get issues api]のみを取得するには、`GET
 /orgs/<org>/issues`を呼び出します。
 
 ```shell
-$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -259,7 +294,7 @@ $ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest
 $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 ```
 
-#### ページネーション
+### ページネーション
 
 Railsのような規模のプロジェクトになれば、万単位のIssueがあります。 [ページネーション][pagination]を行い、API呼び出しを複数回行ってデータを取得する必要があります。 直近で行った呼び出しを繰り返してみましょう。今回はレスポンスヘッダに注目してください。
 
@@ -273,16 +308,16 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 > ...
 ```
 
-[`Link`ヘッダ][link-header]は、外部リソースへのリンクに対するレスポンスを提供します。今回の場合は、追加のデータページです。 呼び出しで30 (デフォルトのページサイズ) を超えるIssueを検出したので、APIは次のページと最後のページの場所を伝えます。
+[`Link`ヘッダ][link-header]は、外部リソースへのリンクに対するレスポンスの方法を提供します。今回の場合は、追加のデータページです。 呼び出しで30 (デフォルトのページサイズ) を超えるIssueを検出したので、APIは次のページと最後のページの場所を伝えます。
 
-#### Issue の作成
+### Issue の作成
 
 Issueのリストでページネーションを行う方法を確認したので、次はAPIから[Issueを作成][create issue]しましょう。
 
 Issueを作成するには認証される必要があるので、ヘッダにOAuthトークンを渡します。 また、タイトル、本文、およびJSONの本文にあるラベルを、Issueを作成したい、リポジトリ以下の`/issues`パスに渡します。
 
 ```shell
-$ curl -i -H 'Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
+$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \
@@ -333,21 +368,21 @@ $    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 
 レスポンスでは、新しく作成されたIssueに2つのポインタを提供し、それは両方とも`Location`レスポンスヘッダとJSONレスポンスの `url`フィールドにあります。
 
-### 条件付きリクエスト
+## 条件付きリクエスト
 
-良きAPI利用者であるために非常に大切なのは、変更されていない情報をキャッシュして、レート制限を尊重するということです。 APIは[条件付きリクエスト][conditional-requests]をサポートしており、正しく振る舞うために役立ちます。 最初に呼び出した、Chris Wanstrathのプロフィールを取り上げてみましょう。
+良きAPI利用者であるために非常に大切なのは、変更されていない情報をキャッシュして、レート制限を尊重するということです。 APIは[条件付きリクエスト][conditional-requests]をサポートしており、正しいことを行うための役に立ちます。 最初に呼び出した、Chris Wanstrathのプロフィールを取り上げてみましょう。
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/2 200
-> ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
+> etag: W/"61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"
 ```
 
 JSONの本文に加え、HTTPステータスコード `200`と`ETag`ヘッダに注目してください。 [ETag][etag]はレスポンスのフィンガープリントです。 後続の呼び出しにこれを渡すと、変更されたリソースだけを渡すようAPIに伝えることができます。
 
 ```shell
-$ curl -i -H 'If-None-Match: "bfd85cbf23ac0b0c8a29bee02e7117c6"' \
+$ curl -i -H 'If-None-Match: "61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"' \
 $    {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/2 304
@@ -355,7 +390,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 
 `304`ステータスは、直近のリクエストからリソースが変更されておらず、レスポンスには本文が含まれないことを示しています。 特典として、`304`レスポンスは[レート制限][rate-limiting]にカウントされません。
 
-ヤッター！ これで{% data variables.product.product_name %} APIの基本が理解できました！
+ヤッター！ Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
 
 * Basic & OAuth認証
 * リポジトリおよびIssueのフェッチと作成

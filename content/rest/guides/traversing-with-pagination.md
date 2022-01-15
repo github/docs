@@ -2,20 +2,21 @@
 title: Traversing with pagination
 intro: Explore how to use pagination to manage your responses with some examples using the Search API.
 redirect_from:
-  - /guides/traversing-with-pagination/
+  - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Traverse with pagination
 ---
 
-The {% data variables.product.product_name %} API provides a vast wealth of information for developers to consume.
+The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume.
 Most of the time, you might even find that you're asking for _too much_ information,
-and in order to keep our servers happy, the API will automatically [paginate the requested items][pagination].
+and in order to keep our servers happy, the API will automatically [paginate the requested items](/rest/overview/resources-in-the-rest-api#pagination).
 
 In this guide, we'll make some calls to the Search API, and iterate over
 the results using pagination. You can find the complete source code for this project
@@ -262,4 +263,4 @@ puts "The next page link is #{next_page_href}"
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [hypermedia-relations]: https://github.com/octokit/octokit.rb#pagination
-[listing commits]: /rest/reference/repos#list-commits
+[listing commits]: /rest/reference/commits#list-commits

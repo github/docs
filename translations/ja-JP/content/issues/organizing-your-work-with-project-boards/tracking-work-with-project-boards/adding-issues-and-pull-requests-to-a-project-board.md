@@ -3,16 +3,20 @@ title: プロジェクトボードへの Issue およびプルリクエストの
 intro: Issue やプルリクエストはカードの形でプロジェクトボードに追加し、列にトリアージしていくことができます。
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
-  - /articles/adding-issues-and-pull-requests-to-a-project/
+  - /articles/adding-issues-and-pull-requests-to-a-project
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: ボードへのIssueとPRの追加
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 以下のようにして、プロジェクトボードに Issue またはプルリクエストカードを追加できます:
 - サイドバーの [**Triage**] セクションからカードをドラッグする。
@@ -33,7 +37,7 @@ topics:
 
 {% data reusables.project-management.link-repos-to-project-board %}プロジェクトボードに追加するために Issue やプルリクエストを検索する場合、自動的にその検索の対象はリンクされたリポジトリになります。 それらの条件を取り除いて、Organization のすべてのリポジトリを対象に検索することができます。 詳しい情報については、「[リポジトリをプロジェクトボードにリンクする](/articles/linking-a-repository-to-a-project-board)」を参照してください。
 
-### プロジェクトボードへの Issue およびプルリクエストの追加
+## プロジェクトボードへの Issue およびプルリクエストの追加
 
 1. Issue およびプルリクエストを追加するプロジェクトボードに移動します。
 2. プロジェクトボードで {% octicon "plus" aria-label="The plus icon" %} [**Add cards**] をクリックします。 ![カードの追加ボタン](/assets/images/help/projects/add-cards-button.png)
@@ -54,7 +58,7 @@ topics:
 
     {% endtip %}
 
-### サイドバーからのプロジェクトボードへの Issue およびプルリクエストの追加
+## サイドバーからのプロジェクトボードへの Issue およびプルリクエストの追加
 
 1. Issue あるいはプルリクエストの右側で、[**Projects {% octicon "gear" aria-label="The Gear icon" %}**] をクリックします。 ![サイドバーのプロジェクトボードボタン](/assets/images/help/projects/sidebar-project.png)
 2. 追加したいプロジェクトボードの [**Recent**]、[**Repository**]、[**User**]、[**Organization**] タブをクリックします。 ![Recent、Repository、Organization タブ](/assets/images/help/projects/sidebar-project-tabs.png)
@@ -62,7 +66,7 @@ topics:
 4. Issueまたはプルリクエストを追加する1つ以上のプロジェクトボードを選択します。 ![選択されたプロジェクトボード](/assets/images/help/projects/sidebar-select-project.png)
 5. {% octicon "triangle-down" aria-label="The down triangle icon" %} をクリックし、Issueまたはプルリクエストが必要な列をクリックします。 カードが、選択したプロジェクトボードの列の下部に移動します。 ![[Move card to column] メニュー](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
-### 参考リンク
+## 参考リンク
 
 - [プロジェクトボードについて](/articles/about-project-boards)
 - [プロジェクトボードの編集](/articles/editing-a-project-board)

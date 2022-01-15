@@ -3,28 +3,31 @@ title: Atualizar o GitHub Enterprise Server
 intro: 'Atualize o {% data variables.product.prodname_ghe_server %} para usar os recursos e atualizações de segurança mais recentes.'
 redirect_from:
   - /enterprise/admin/installation/upgrading-github-enterprise-server
-  - /enterprise/admin/articles/upgrading-to-the-latest-release/
-  - /enterprise/admin/articles/migrations-and-upgrades/
-  - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine/
-  - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases/
-  - /enterprise/admin/articles/upgrading-older-installations/
-  - /enterprise/admin/hidden/upgrading-older-installations/
-  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program/
-  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch/
-  - /enterprise/admin/guides/installation/upgrading-github-enterprise/
+  - /enterprise/admin/articles/upgrading-to-the-latest-release
+  - /enterprise/admin/articles/migrations-and-upgrades
+  - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine
+  - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases
+  - /enterprise/admin/articles/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch
+  - /enterprise/admin/guides/installation/upgrading-github-enterprise
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
   - /admin/enterprise-management/upgrading-github-enterprise-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: Atualizando GHES
 ---
 
-### Preparar para a atualização
+{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
 
-1. Determine uma estratégia de atualização e escolha uma versão para atualizar. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
+## Preparar para a atualização
+
+1. Determine uma estratégia de atualização e escolha uma versão para atualizar. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)" e consulte o [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) para encontrar o caminho de atualização da sua versão atual.
 3. Crie um backup da instância primária usando o {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, consulte o [Arquivo README.md do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 4. Se você estiver atualizando com um pacote de atualização, programe um período de manutenção para os usuários finais do {% data variables.product.prodname_ghe_server %}. Se estiver usando um hotpatch, não será necessário recorrer ao modo de manutenção.
 
@@ -36,7 +39,7 @@ topics:
 
 {% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
-### Obter um instantâneo
+## Obter um instantâneo
 
 Instantâneo é um ponto de verificação de uma máquina virtual (VM) em um momento específico. É altamente recomendável obter um instantâneo antes de atualizar sua máquina virtual para que você possa recuperar a VM em caso de falha. Se você estiver atualizando para uma nova versão do recurso, obtenha um instantâneo da VM. Se você estiver atualizando para uma versão de patch, vincule o disco de dados existente.
 
@@ -53,33 +56,33 @@ Há dois tipos de instantâneo:
 
   {% endnote %}
 
-| Plataforma            | Método de instantâneo | URL de documentação de instantâneo                                                                                                                                                                     |
-| --------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Amazon AWS            | Disco                 | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM                    | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
-| Hyper-V               | VM                    | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
-| Google Compute Engine | Disco                 | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
-| VMware                | VM                    | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
-| XenServer             | VM                    | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
+| Plataforma            | Método de instantâneo | URL de documentação de instantâneo                                                                                                                                                                                               |
+| --------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon AWS            | Disco                 | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                                                 |
+| Azure                 | VM                    | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                                                        |
+| Hyper-V               | VM                    | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                                               |
+| Google Compute Engine | Disco                 | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                                                   |
+| VMware                | VM                    | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html){% ifversion ghes < 3.3 %}
+| XenServer             | VM                    | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>{% endif %}
 
-### Atualizar com hotpatch
+## Atualizar com hotpatch
 
 {% data reusables.enterprise_installation.hotpatching-explanation %} Ao usar o {% data variables.enterprise.management_console %}, é possível instalar um hotpatch na mesma hora ou programar a instalação para depois. Você pode usar o shell administrativo para instalar um hotpatch com o utilitário `ghe-upgrade`. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
 
 {% note %}
 
-**{% if currentVersion ver_gt "enterprise-server@2.22" %}Observações{% else %}Note{% endif %}**:
+**{% ifversion ghes %}Observações{% else %}Observação{% endif %}**:
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes %}
 - Se {% data variables.product.product_location %} estiver executando a compilação de um candidato à versão, você não poderá atualizar com um hotpatch.
 
 - {% endif %}Instalando um hotpatch usando o {% data variables.enterprise.management_console %} não está disponível em ambientes com cluster. Para instalar um hotpatch em um ambiente em cluster, consulte "[Atualizar um cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)".
 
 {% endnote %}
 
-#### Atualizar um appliance com hotpatch
+### Atualizar um appliance com hotpatch
 
-##### Instalar um hotpatch usando o {% data variables.enterprise.management_console %}
+#### Instalar um hotpatch usando o {% data variables.enterprise.management_console %}
 
 1. Habilite atualizações automáticas. Para obter mais informações, consulte "[Habilitar atualizações automáticas](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)".
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -90,7 +93,7 @@ Há dois tipos de instantâneo:
     - Para instalar depois, selecione outra data. ![Menu suspenso com datas para instalação de hotpatch](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
 5. Clique em **instalar**. ![Botão de instalação de hotpatch](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
-##### Instalar hotpatch usando o shell administrativo
+#### Instalar hotpatch usando o shell administrativo
 
 {% data reusables.enterprise_installation.download-note %}
 
@@ -104,7 +107,7 @@ Há dois tipos de instantâneo:
   ```
 5. Se for necessário reinicializar para aplicar as atualizações no kernel, MySQL, Elasticsearch ou em outros programas, você receberá uma notificação do script de atualização do hotpatch.
 
-#### Atualizar um appliance com instâncias de réplica usando hotpatch
+### Atualizar um appliance com instâncias de réplica usando hotpatch
 
 {% note %}
 
@@ -114,11 +117,11 @@ Há dois tipos de instantâneo:
 
 Appliances configurados para alta disponibilidade e replicação geográfica usam instâncias de réplica, além de instâncias principais. Para atualizar esses appliance, você terá que atualizar a instância primária e todas as instâncias de réplica, uma por vez.
 
-##### Atualizar a instância primária
+#### Atualizar a instância primária
 
 1. Atualize a instância primária seguindo as instruções em "[Instalar hotpatch usando o shell administrativo](#installing-a-hotpatch-using-the-administrative-shell)".
 
-##### Atualizar uma instância de réplica
+#### Atualizar uma instância de réplica
 
 {% note %}
 
@@ -130,11 +133,11 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 
-### Atualizar com pacote de atualização
+## Atualizar com pacote de atualização
 
 Mesmo que seja possível usar um hotpatch para fazer a atualização do patch em uma série, você deve usar um pacote de atualização a fim de atualizar para uma versão mais recente. Por exemplo, use um pacote ao atualizar da versão `2.11.10` para a `2.12.4`, já que elas estão em séries diferentes. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
 
-#### Atualizar um appliance com pacote de atualização
+### Atualizar um appliance com pacote de atualização
 
 {% data reusables.enterprise_installation.download-note %}
 
@@ -170,11 +173,11 @@ Mesmo que seja possível usar um hotpatch para fazer a atualização do patch em
 
   {% endnote %}
 
-#### Atualizar um appliance com instâncias de réplica usando um pacote de atualização
+### Atualizar um appliance com instâncias de réplica usando um pacote de atualização
 
 Appliances configurados para alta disponibilidade e replicação geográfica usam instâncias de réplica, além de instâncias principais. Para atualizar esses appliance, você terá que atualizar a instância primária e todas as instâncias de réplica, uma por vez.
 
-##### Atualizar a instância primária
+#### Atualizar a instância primária
 
 {% warning %}
 
@@ -187,7 +190,7 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
 3. Na instância de réplica (ou em todas as instâncias de réplica), se você estiver executando várias réplicas como parte da replicação geográfica, execute `ghe-repl-stop` para parar a replicação.
 4. Atualize a instância primária seguindo as instruções em "[Atualizar um appliance com pacote de atualização](#upgrading-a-single-appliance-with-an-upgrade-package)".
 
-##### Atualizar uma instância de réplica
+#### Atualizar uma instância de réplica
 
 {% note %}
 
@@ -210,29 +213,28 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
 
    {% endnote %}
 
-   Se `ghe-repl-status` não retornar `OK`, siga estas etapas para iniciar a replicação manualmente.
+   Se `ghe-repl-status` não retornou `OK`, entre em contato com {% data variables.contact.enterprise_support %}. Para obter mais informações, consulte "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 
-   1. Na instância de réplica, execute `ghe-repl-setup <primary-instance-ip>` mais uma vez.
-   {% data reusables.enterprise_installation.start-replication %}
-   {% data reusables.enterprise_installation.replication-status %}
 6. Ao concluir a atualização da última réplica e quando a ressincronização terminar, desabilite o modo de manutenção para que os usuários possam trabalhar na {% data variables.product.product_location %}.
 
-### Restaurar após uma atualização com falha
+## Restaurar após uma atualização com falha
 
 Em caso de falha ou interrupção da atualização, volte a sua instância ao estado anterior. Esse processo dependerá do tipo de atualização.
 
-#### Voltar a uma versão de patch
+### Voltar a uma versão de patch
 
-Para reverter uma versão de patch, use o comando `ghe-upgrade` com o switch `--allow-patch-rollback`. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+Para reverter uma versão de patch, use o comando `ghe-upgrade` com o switch `--allow-patch-rollback`. Antes de reverter tudo, a replicação deve ser temporariamente parada executando `ghe-repl-stop` em todas as instâncias de réplica. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+
+Uma vez que a reversão estiver completa, reinicie a replicação executando `ghe-repl-start` em todas as réplicas.
 
 Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)".
 
-#### Voltar a uma versão de recurso
+### Voltar a uma versão de recurso
 
 Para voltar a partir de uma versão de recurso, faça a restauração partindo de um instantâneo da VM para garantir o estado consistente das partições raiz e de dados. Para obter mais informações, consulte "[Obter um instantâneo](#taking-a-snapshot)".
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-### Leia mais
+{% ifversion ghes %}
+## Leia mais
 
 - "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"
 {% endif %}

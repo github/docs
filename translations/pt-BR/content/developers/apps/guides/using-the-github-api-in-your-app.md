@@ -2,18 +2,20 @@
 title: Usar a API do GitHub no seu aplicativo
 intro: Aprenda como configurar seu aplicativo para ouvir eventos e usar a biblioteca do Octokit para realizar operações da API REST.
 redirect_from:
-  - /apps/building-your-first-github-app/
+  - /apps/building-your-first-github-app
   - /apps/quickstart-guides/using-the-github-api-in-your-app
   - /developers/apps/using-the-github-api-in-your-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: Crie um aplicativo com a API REST
 ---
 
-### Introdução
+## Introdução
 
 Este guia irá ajudá-lo a criar um aplicativo GitHub e executá-lo em um servidor. O aplicativo que você criar adicionará uma etiqueta a todos os novos problemas abertos no repositório onde o aplicativo está instalado.
 
@@ -24,9 +26,9 @@ Este projeto orientará você no seguinte:
 
 {% data reusables.apps.app-ruby-guides %}
 
-Uma concluídas as etapas, você estará pronto para desenvolver outros tipos de integrações usando o conjunto completo das APIS do GitHub. {% if currentVersion == "free-pro-team@latest" %}Você pode conferir exemplos bem sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Funciona com o GitHub](https://github.com/works-with).{% endif %}
+Uma concluídas as etapas, você estará pronto para desenvolver outros tipos de integrações usando o conjunto completo das APIS do GitHub. {% ifversion fpt or ghec %}Você pode conferir exemplos bem-sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Trabalhos com GitHub](https://github.com/works-with).{% endif %}
 
-### Pré-requisitos
+## Pré-requisitos
 
 Você pode achar útil ter um entendimento básico do seguinte:
 
@@ -53,7 +55,7 @@ Antes de começar, você precisará fazer o seguinte:
 
   Consulte a seção [Solução de problemas](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) se você tiver problemas na configuração do seu aplicativo GitHub do modelo.
 
-### Criar o aplicativo
+## Criar o aplicativo
 
 Agora que você está familiarizado com o código `template_server.rb`, você irá criar um código que adiciona automaticamente a etiqueta `needs-response` para todos os problemas abertos no repositório onde o aplicativo está instalado.
 
@@ -74,7 +76,7 @@ Estas são as etapas que você concluirá para criar seu primeiro aplicativo Git
 3. [Criar nova etiqueta](#step-3-create-a-new-label)
 4. [Adicionar gerenciamento de etiqueta](#step-4-add-label-handling)
 
-### Etapa 1. Atualizar as permissões do aplicativo
+## Etapa 1. Atualizar as permissões do aplicativo
 
 Quando você [registrou seu aplicativo pela primeira vez](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app), você aceitou as permissões-padrão, o que significa que seu aplicativo não tem acesso à maioria dos recursos. Para este exemplo, seu aplicativo precisará de permissão para ler problemas e escrever etiquetas.
 
@@ -87,7 +89,7 @@ Para atualizar as permissões do aplicativo:
 
 Ótimo! Seu aplicativo tem permissão para realizar as tarefas que você deseja que ele realize. Agora você pode adicionar o código para que ele funcione.
 
-### Etapa 2. Adicionar gerenciamento de evento
+## Etapa 2. Adicionar gerenciamento de evento
 
 A primeira coisa que seu aplicativo precisa fazer é ouvir novos problemas que estão abertos. Agora que você se assinou o evento **Problemas**, você começará a receber o webhook dos [`problemas`](/webhooks/event-payloads/#issues), que é acionado quando ocorrem certas ações relacionadas a um problema. Você pode filtrar este tipo de evento para a ação específica que você deseja no seu código.
 
@@ -137,7 +139,7 @@ No seu navegador, acesse o repositório onde você instalou seu aplicativo. Abra
 
 Ao olhar para o seu Terminal, você deve ver uma mensagem na saída que diz: `Um problema foi aberto!` Parabéns! Você adicionou um gerenciador de eventos ao seu aplicativo. 💪
 
-### Etapa 3. Criar nova etiqueta
+## Etapa 3. Criar nova etiqueta
 
 Ok, seu aplicativo pode dizer quando os problemas estão abertos. Agora você quer que ele adicione a etiqueta `needs-response` a qualquer problema recém-aberto em um repositório no qual o aplicativo está instalado.
 
@@ -151,7 +153,7 @@ Antes que a etiqueta possa ser _adicionada_ em qualquer lugar, você precisará 
 
 Agora que o rótulo foi criado, você pode programar seu aplicativo para usar a API REST para [adicionar a etiqueta a qualquer problema recém-aberto](/rest/reference/issues#add-labels-to-an-issue).
 
-### Etapa 4. Adicionar gerenciamento de etiqueta
+## Etapa 4. Adicionar gerenciamento de etiqueta
 
 Parabéns! Você chegou à etapa final: adicionando o gerenciamento de etiquetas ao seu aplicativo. Para esta tarefa, você vai irá usar a [biblioteca Octokit.rb do Ruby](http://octokit.github.io/octokit.rb/).
 
@@ -198,7 +200,7 @@ Você pode ver o código final no `server.rb` no [repositório do modelo do apli
 
 Consulte "[Próximos passos](#next-steps)" para ter ideias sobre aonde você pode ir a partir daqui.
 
-### Solução de Problemas
+## Solução de Problemas
 
 Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiver qualquer outro problema, poderá pedir ajuda ou orientação em {% data variables.product.prodname_support_forum_with_url %}.
 
@@ -216,14 +218,14 @@ Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiv
     * Seu aplicativo tem permissões de [leitura & e gravação permissões em problemas e está assinado a eventos do problema](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel).
     * Você [verificou seu e-mail](#step-1-update-app-permissions) depois de atualizar as permissões e aceitou as novas permissões.
 
-### Conclusão
+## Conclusão
 
 Depois de analisar este guia, você aprendeu os componentes básicos para o desenvolvimento dos aplicativos GitHub! Para resumir, você:
 
 * Programou seu aplicativo para ouvir eventos
 * Usou a biblioteca do Octokit.rb para fazer operações da API REST
 
-### Próximas etapas
+## Próximas etapas
 
 Aqui estão algumas ideias do que você pode fazer a seguir:
 
@@ -233,5 +235,5 @@ Aqui estão algumas ideias do que você pode fazer a seguir:
 * Quando o bot adiciona a etiqueta com sucesso, é exibida uma mensagem no Terminal. (Dica: compare o ID da etiqueta `needs-response` com o ID da etiqueta na carga como uma condição para sua mensagem para que a mensagem seja exibida somente quando a etiqueta relevante for adicionada e não qualquer outra etiqueta.)
 * Adicione uma página inicial ao seu aplicativo e conecte um [encaminhamento do Sinatra](https://github.com/sinatra/sinatra#routes) para isso.
 * Mova o seu código para um servidor hospedado (como o Heroku). Não se esqueça de atualizar as configurações do seu aplicativo com o novo domínio.
-* Compartilhe o seu projeto ou receba orientação em {% data variables.product.prodname_support_forum_with_url %}{% if currentVersion == "free-pro-team@latest" %}
+* Compartilhe seu projeto ou receba orientações no {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt or ghec %}
 * Você construiu um aplicativo novo brilhante que você considera que outras pessoas podem achar útil? [Adicione-o ao GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

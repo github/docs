@@ -2,15 +2,17 @@
 title: Solucionar problemas de erros na solicitação de token de acesso do OAuth
 intro: '{% data reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors/
+  - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /developers/apps/troubleshooting-oauth-app-access-token-request-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
+shortTitle: Solucionar problemas de solicitação do token
 ---
 
 {% note %}
@@ -19,7 +21,7 @@ topics:
 
 {% endnote %}
 
-### Credenciais do cliente incorretas
+## Credenciais do cliente incorretas
 
 Se o cliente\_id e o cliente\_secret que você inseriu estiverem incorretos, você receberá essa resposta de erro.
 
@@ -33,7 +35,7 @@ Se o cliente\_id e o cliente\_secret que você inseriu estiverem incorretos, voc
 
 Para resolver este erro, verifique se você tem as credenciais corretas para o seu {% data variables.product.prodname_oauth_app %}. Verifique novamente o `client_id` e `client_secret` para certificar-se de que estão corretos e que são informados corretamente para {% data variables.product.product_name %}.
 
-### Erro no redirecionamento do URI
+## Erro no redirecionamento do URI
 
 Se você fornecer um `redirect_uri` que não coincide com o que você registrou com o seu {% data variables.product.prodname_oauth_app %}, você receberá esta mensagem de erro:
 
@@ -47,7 +49,7 @@ Se você fornecer um `redirect_uri` que não coincide com o que você registrou 
 
 Para corrigir este erro, forneça um `redirect_uri` que corresponda ao que você registrou ou deixe este parâmetro de fora para usar o padrão registrado com o seu aplicativo.
 
-### Código de verificação incorreto
+## Código de verificação incorreto
 
 ```json
 {

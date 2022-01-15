@@ -1,14 +1,15 @@
 ---
-title: Renombrar una organización
-intro: 'Si tu proyecto o empresa cambió de nombre, puedes actualizar el nombre de tu organización para que coincida.'
+title: Renaming an organization
+intro: 'If your project or company has changed names, you can update the name of your organization to match.'
 redirect_from:
-  - /articles/what-happens-when-i-change-my-organization-s-name/
+  - /articles/what-happens-when-i-change-my-organization-s-name
   - /articles/renaming-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/renaming-an-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -16,34 +17,35 @@ topics:
 
 {% tip %}
 
-**Sugerencia:** Solo los propietarios de la organización pueden renombrar una organización. {% data reusables.organizations.new-org-permissions-more-info %}
+**Tip:** Only organization owners can rename an organization. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
-### ¿Qué sucede cuando cambio el nombre de mi organización?
+## What happens when I change my organization's name?
 
-Después de cambiar el nombre de tu organización, el nombre antiguo de tu organización se pone a disposición para quien lo quiera utilizar. Cuando cambias el nombre de tu organización, la mayoría de las referencias a los repositorios bajo el nombre antiguo de tu organización se cambiarán automáticamente al nombre nuevo. Sin embargo, algunos enlaces a tu perfil no se redirigirán automáticamente.
+After changing your organization's name, your old organization name becomes available for someone else to claim. When you change your organization's name, most references to your repositories under the old organization name automatically change to the new name. However, some links to your profile won't automatically redirect.
 
-#### Cambios que ocurren automáticamente
+### Changes that occur automatically
 
-- {% data variables.product.prodname_dotcom %} redirige automáticamente las referencias a tus repositorios.  Los enlaces web a los **repositorios** existentes de tu organización seguirán funcionando. Puede tomar algunos minutos para que se complete luego de que inicies el cambio.
-- Puedes continuar subiendo tus repositorios locales a la URL de seguimiento del remoto antiguo sin actualizarla. Sin embargo, recomendamos que actualices todas las URL de repositorios remotos existentes después de cambiar el nombre de tu organización. Como el nombre antiguo de tu organización queda disponible para que lo utilice cualquier otra persona después de que lo cambies, el propietario de la organización nuevo puede crear repositorios que remplacen las entradas redirigidas a tu repositorio. Para obtener más información, consulta "[Administrar repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)."
-- Las confirmaciones de Git anteriores también se atribuirán según corresponda a los usuarios de tu organización.
+- {% data variables.product.prodname_dotcom %} automatically redirects references to your repositories.  Web links to your organization's existing **repositories** will continue to work. This can take a few minutes to complete after you initiate the change.
+- You can continue pushing your local repositories to the old remote tracking URL without updating it. However, we recommend you update all existing remote repository URLs after changing your organization name. Because your old organization name is available for use by anyone else after you change it, the new organization owner can create repositories that override the redirect entries to your repository. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+- Previous Git commits will also be correctly attributed to users within your organization.
 
-#### Cambios que no son automáticos
+### Changes that aren't automatic
 
-Después de cambiar el nombre de tu organización:
-- Los enlaces a la página de perfil de tu organización anterior, como `https://{% data variables.command_line.backticks %}/previousorgname`, generarán un error 404. Te recomendamos que actualices los enlaces a tu organización desde otros sitios{% if currentVersion == "free-pro-team@latest" %}, tales como tus perfiles de LinkedIn o Twitter{% endif %}.
-- Las solicitudes API que utilizan el nombre de la organización antiguo generarán un error 404. Recomendamos que actualices el nombre de la organización antiguo en tus solicitudes API.
-- No hay redireccionamientos automáticos de [@mención](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) para los equipos que utilizan el nombre antiguo de la organización.{% if currentVersion == "free-pro-team@latest" %}
-- Si se habilita el inicio de sesión único (SSO) para la organización, debes actualizar el nombre de la misma en la aplicación para {% data variables.product.prodname_ghe_cloud %} en tu proveedor de identidad (IdP). Si no actualizas el nombre de organización en tu IdP, los miembros de esta ya no podrán autenticarse con tu IdP para acceder a los recursos de la organización. Para obtener más información, consulta la sección "[Conectar a tu proveedor de identidad con tu organización](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)."{% endif %}
+After changing your organization's name:
+- Links to your previous organization profile page, such as `https://{% data variables.command_line.backticks %}/previousorgname`, will return a 404 error. We recommend you update links to your organization from other sites{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profiles{% endif %}.
+- API requests that use the old organization's name will return a 404 error. We recommend you update the old organization name in your API requests.
+- There are no automatic [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) redirects for teams that use the old organization's name.{% ifversion ghec %}
+- If SAML single sign-on (SSO) is enabled for the organization, you must update the organization name in the application for {% data variables.product.prodname_ghe_cloud %} on your identity provider (IdP). If you don't update the organization name on your IdP, members of the organization will no longer be able to authenticate with your IdP to access the organization's resources. For more information, see "[Connecting your identity provider to your organization](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)."{% endif %}
 
-### Cambiar el nombre de tu organización
+## Changing your organization's name
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. Cerca de la parte de abajo de la página de parámetros, en "Rename organization" (Renombrar organización), haz clic en **Rename Organization** (Renombrar organización). ![Botón Rename organization (Renombrar organización)](/assets/images/help/settings/settings-rename-organization.png)
+4. Near the bottom of the settings page, under "Rename organization", click **Rename Organization**.
+  ![Rename organization button](/assets/images/help/settings/settings-rename-organization.png)
 
-### Leer más
+## Further reading
 
-* "[¿Por qué mis confirmaciones están vinculadas al usuario incorrecto?](/articles/why-are-my-commits-linked-to-the-wrong-user)"
+* "[Why are my commits linked to the wrong user?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"

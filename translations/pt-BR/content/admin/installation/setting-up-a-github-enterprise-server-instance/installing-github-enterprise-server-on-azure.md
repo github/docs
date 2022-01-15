@@ -2,40 +2,41 @@
 title: Instalar o GitHub Enterprise Server no Azure
 intro: 'Para instalar o {% data variables.product.prodname_ghe_server %} no Azure, você deve fazer a implantação em uma instância da série DS e usar o armazenamento Premium-LRS.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
+shortTitle: Instalar no Azure
 ---
 
 Você pode implantar o {% data variables.product.prodname_ghe_server %} no Azure global ou Azure Government.
 
-### Pré-requisitos
+## Pré-requisitos
 
 - {% data reusables.enterprise_installation.software-license %}
 - Você deve ter uma conta do Azure que permita provisionar novas máquinas. Para obter mais informações, consulte o [site do Microsoft Azure](https://azure.microsoft.com).
 - A maioria das ações necessárias para iniciar sua máquina virtual (VM) também pode ser executada pelo Portal do Azure. No entanto, é recomendável instalar a interface da linha de comando (CLI) do Azure para a configuração inicial. Veja abaixo alguns exemplos de uso da CLI do Azure 2.0. Para obter mais informações, consulte o guia "[Instalar a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)".
 
-### Considerações de hardware
+## Considerações de hardware
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Determinar o tipo de máquina virtual
+## Determinar o tipo de máquina virtual
 
 Antes de lançar {% data variables.product.product_location %} no Azure, você deverá determinar o tipo de máquina que melhor atende às necessidades da sua organização. Para revisar os requisitos mínimos para {% data variables.product.product_name %}, consulte "[Requisitos mínimos](#minimum-requirements)".
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-O appliance do {% data variables.product.prodname_ghe_server %} requer um disco de dados de armazenamento premium e é compatível com qualquer VM do Azure que tenha suporte ao armazenamento premium. Tipos de Azure VM com `s` sufixo são compatíveis com o armazenamento premium. Para obter mais informações, consulte "[Quais tipos de disco estão disponíveis no Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)" e "[Armazenamento premium do Azure: design para alto desempenho](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)" na documentação do Azure.
+{% data reusables.enterprise_installation.azure-instance-recommendation %}
 
-{% data variables.product.company_short %} recomenda uma VM com memória otimizada para {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Tamanhos de máquinas virtuais com memória otimizada ](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)" na documentação do Azure.
-
-O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer região compatível com o seu tipo de VM. Para obter mais informações sobre as regiões compatíveis com cada VM, consulte "[Produtos disponíveis por região](https://azure.microsoft.com/regions/services/)".
-
-### Criar a instância da máquina virtual do {% data variables.product.prodname_ghe_server %}
+## Criar a instância da máquina virtual do {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -62,7 +63,7 @@ O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer regiã
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. Crie e anexe um novo disco de dados não criptografado à VM e configure o tamanho com base na sua contagem de licenças do usuário. Para obter mais informações, consulte "[anexar disco a uma vm no az](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" na documentação da Microsoft.
+4. Crie e anexe um novo disco de dados gerenciado na VM e configure o tamanho com base em sua contagem de licenças. Todos os discos gerenciados do Azure criados desde 10 de junho de 2017 são criptografados por padrão com criptografia de serviço de armazenamento (SSE). Para obter mais informações sobre o comando `az vm disk attach`, consulte "[disco vm no az anexar](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" na documentação da Microsoft.
 
   Veja as opções de nome da VM (por exemplo, `ghe-acme-corp`), o grupo de recursos, o SKU de armazenamento Premium, o tamanho do disco (por exemplo, `100`) e um nome para o VHD resultante.
 
@@ -76,7 +77,7 @@ O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer regiã
 
    {% endnote %}
 
-### Configurar a máquina virtual do {% data variables.product.prodname_ghe_server %}
+## Configurar a máquina virtual do {% data variables.product.prodname_ghe_server %}
 
 1. Antes de configurar a VM, você deve aguardar a entrada no status ReadyRole. Verifique o status da VM com o comando `vm list`. Para obter mais informações, consulte "[listar vms no az](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" na documentação da Microsoft.
   ```shell
@@ -98,7 +99,7 @@ O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer regiã
   {% data reusables.enterprise_installation.instance-will-restart-automatically %}
   {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Leia mais
+## Leia mais
 
-- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% ifversion ghes %}
 - "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

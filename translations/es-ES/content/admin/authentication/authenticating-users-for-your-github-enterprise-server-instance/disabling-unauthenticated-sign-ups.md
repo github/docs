@@ -1,18 +1,19 @@
 ---
 title: Desactivar los registros no autenticados
 redirect_from:
-  - /enterprise/admin/articles/disabling-sign-ups/
+  - /enterprise/admin/articles/disabling-sign-ups
   - /enterprise/admin/user-management/disabling-unauthenticated-sign-ups
   - /enterprise/admin/authentication/disabling-unauthenticated-sign-ups
   - /admin/authentication/disabling-unauthenticated-sign-ups
 intro: 'Si usas la autenticación integrada, puedes impedir que las personas no autenticadas puedan crear una cuenta.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
+shortTitle: Bloquear la creación de cuentas
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

@@ -9,11 +9,14 @@ on:
     types:
       - labeled
 
+permissions:
+  contents: none
+
 jobs:
   transfer-issue:
     name: Transfer issue
     runs-on: ubuntu-latest
-    if: github.event.label.name == 'rest-description' && github.repository == 'github/docs'
+    if: (github.event.label.name == 'rest-description' || github.event.label.name == 'graphql-description') && github.repository == 'github/docs'
     steps:
       - name: Check if this run was triggered by a member of the docs team
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
@@ -57,7 +60,7 @@ jobs:
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Comment on the old issue
-        run: gh issue comment $OLD_ISSUE --body "Thank you for opening this issue! Updates to the REST API description must be made internally. I have copied your issue to an internal issue, so I will close this issue."
+        run: gh issue comment $OLD_ISSUE --body "Thank you for opening this issue! Updates to the REST/GraphQL API description must be made internally. I have copied your issue to an internal issue, so I will close this issue."
         env:
           GITHUB_TOKEN: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
           OLD_ISSUE: ${{ github.event.issue.html_url }}

@@ -1,1 +1,0 @@
-Personen mit Administratorberechtigungen für {% data variables.product.prodname_insights %} können verwalten, welche Metriken angezeigt werden. Weitere Informationen finden Sie unter „[Verwalten verfügbarer Metriken und Berichte](/insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports)."

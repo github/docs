@@ -2,21 +2,22 @@
 title: Gerenciar projetos usando o Jira
 intro: 'Você pode integrar o Jira com {% data variables.product.prodname_enterprise %} para o gerenciamento de projeto.'
 redirect_from:
-  - /enterprise/admin/guides/installation/project-management-using-jira/
-  - /enterprise/admin/articles/project-management-using-jira/
+  - /enterprise/admin/guides/installation/project-management-using-jira
+  - /enterprise/admin/articles/project-management-using-jira
   - /enterprise/admin/developer-workflow/managing-projects-using-jira
   - /enterprise/admin/developer-workflow/customizing-your-instance-with-integrations
   - /enterprise/admin/user-management/managing-projects-using-jira
   - /admin/user-management/managing-projects-using-jira
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Project management
+shortTitle: Gerenciamento de projetos com Jira
 ---
 
-### Conectar o Jira a uma organização de {% data variables.product.prodname_enterprise %}
+## Conectar o Jira a uma organização de {% data variables.product.prodname_enterprise %}
 
 1. Entre na sua conta do {% data variables.product.prodname_enterprise %} em http[s]://[hostname]/login. Se já conectado, clique no logotipo de {% data variables.product.prodname_dotcom %} no canto superior esquerdo.
 2. Clique no seu ícone de perfil abaixo do logotipo de {% data variables.product.prodname_dotcom %} e selecione a organização que você deseja que se conecte com o Jira.
@@ -42,7 +43,7 @@ topics:
 7. Clique em **Register application** (Registrar aplicativo).
 8. Na parte superior da página, anote os dados dos campos **Client ID** (ID do cliente) e **Client Secret** (Segredo do cliente). Você precisará dessas informações para configurar sua instância do Jira.
 
-### Configuração da instância do Jira
+## Configuração da instância do Jira
 
 1. Na instância do Jira, faça login em uma conta com acesso administrativo.
 2. Na parte superior da página, clique no ícone de configurações (engrenagem) e selecione **Aplicativos**.

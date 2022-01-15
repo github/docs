@@ -5,9 +5,11 @@ permissions: 'People with write permissions to a repository can configure {% dat
 redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates
   - /code-security/supply-chain-security/configuration-options-for-dependency-updates
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: reference
 topics:
   - Dependabot
@@ -15,17 +17,21 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+shortTitle: 配置选项
 ---
 
-### 关于 *dependabot.yml* 文件
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
+## 关于 *dependabot.yml* 文件
 
 {% data variables.product.prodname_dependabot %} 配置文件 *dependabot.yml* 使用 YAML 语法。 如果您是 YAML 的新用户并想要了解更多信息，请参阅“[五分钟了解 YAML](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)”。
 
-必须将此文件存储在仓库的 `.github` 目录中。 添加或更新 *dependabot.yml* 文件时，这将触发对版本更新的立即检查。 下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”和“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)”。
+必须将此文件存储在仓库的 `.github` 目录中。 添加或更新 *dependabot.yml* 文件时，这将触发对版本更新的立即检查。 下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
 *dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择性包括一个顶级`注册表`键。 该文件必须以 `version: 2` 开头。
 
-### 更新的配置选项
+## 更新的配置选项
 
 顶级 `updates` 密钥是必需的。 您使用它来配置 {% data variables.product.prodname_dependabot %} 如何更新版本或项目的依赖项。 每个条目都为特定的包管理器配置更新设置。 您可以使用以下选项。
 
@@ -69,11 +75,11 @@ topics:
 
 仅对默认分支上有漏洞的包清单提出安全更新。 如果为同一分支设置配置选项（不使用 `target-branch` 时为 true），并为有漏洞的清单指定 `package-ecosystem` 和 `directory`，则安全更新的拉取请求使用相关选项。
 
-一般而言，安全更新会使用影响拉取请求的任何配置选项，例如添加元数据或改变其行为。 有关安全更新的更多信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)”。
+一般而言，安全更新会使用影响拉取请求的任何配置选项，例如添加元数据或改变其行为。 For more information about security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
 {% endnote %}
 
-#### `package-ecosystem`
+### `package-ecosystem`
 
 **必填**。 为您希望 {% data variables.product.prodname_dependabot %} 监控新版本的每个包管理器添加一个 `package-ecosystem` 元素。 仓库还必须包含其中每个包管理器的依赖项清单或锁定文件。 如果您想要为支持它的软件包管理器启用供应，则必须在所需的目录中找到供应的依赖项。 更多信息请参阅下面的 [`vendor`](#vendor)。
 
@@ -104,7 +110,7 @@ updates:
       interval: "daily"
 ```
 
-#### `目录`
+### `目录`
 
 **必填**。 必须为每个包管理器（如 *package.json* 或 *Gemfile*）定义包清单的位置。 为所有生态系统（GitHub Actions 除外）定义相对于仓库根目录的目录。 对于 GitHub Actions，将目录设置为 `/` 以检查 `.github/workflows` 中的工作流程文件。
 
@@ -133,9 +139,9 @@ updates:
       interval: "daily"
 ```
 
-#### `schedule.interval`
+### `schedule.interval`
 
-**必填**。 必须为每个包管理器定义检查新版本的频率。 默认情况下，在 UTC 时间凌晨 5 点运行。 若要修改此选项，请使用 [`schedule.time`](#scheduletime) 和 [`schedule.timezone`](#scheduletimezone)。
+**必填**。 必须为每个包管理器定义检查新版本的频率。 默认情况下， {% data variables.product.prodname_dependabot %} 随机分配一个时间来应用配置文件中的所有更新。 要设置特定时间，请使用 [`schedule.time`](#scheduletime) 和 [`schedule.timezone`](#scheduletimezone)。
 
 - `daily`—每个工作日（星期一到星期五）运行。
 - `weekly`—每周运行一次。 默认情况下为星期一。 若要修改此选项，请使用 [`schedule.day`](#scheduleday)。
@@ -162,11 +168,11 @@ updates:
 
 {% note %}
 
-**注意**：`时间表` 定义 {% data variables.product.prodname_dependabot %} 尝试更新的时间。 但是，这不是您可收到拉取请求的唯一时间。 更新可基于 `dependabot.yml` 文件的更改、更新失败后清单文件的更改或 {% data variables.product.prodname_dependabot_security_updates %} 触发。 更多信息请参阅“[{% data variables.product.prodname_dependabot %} 拉取请求的频率](/github/administering-a-repository/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)”和“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
+**注意**：`时间表` 定义 {% data variables.product.prodname_dependabot %} 尝试更新的时间。 但是，这不是您可收到拉取请求的唯一时间。 更新可基于 `dependabot.yml` 文件的更改、更新失败后清单文件的更改或 {% data variables.product.prodname_dependabot_security_updates %} 触发。 For more information, see "[Frequency of {% data variables.product.prodname_dependabot %} pull requests](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
 
 {% endnote %}
 
-#### `allow`
+### `allow`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
@@ -220,7 +226,7 @@ updates:
         dependency-type: "production"
 ```
 
-#### `assignees`
+### `assignees`
 
 使用 `assignees` 指定对包管理器提出的所有拉取请求的个别受理人。
 
@@ -240,7 +246,7 @@ updates:
       - "octocat"
 ```
 
-#### `commit-message`
+### `commit-message`
 
 默认情况下，{% data variables.product.prodname_dependabot %} 会尝试检测您的提交消息首选项并使用类似的模式。 使用 `commit-message` 选项来明确指定首选项。
 
@@ -287,27 +293,27 @@ updates:
       include: "scope"
 ```
 
-#### `ignore`
+### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
 通过将依赖项添加到 `ignore` 或针对由 {% data variables.product.prodname_dependabot %} 打开的拉取请求使用 `@dependabot ignore` 命令，可忽略依赖项。
 
-##### 从 `@dependabot ignore` 创建 `ignore` 条件
+#### 从 `@dependabot ignore` 创建 `ignore` 条件
 
 使用 `@dependabot ignore` 命令忽略的依赖项为每个包管理器集中存储。 如果您开始忽略 `dependabot.yml` 文件中的依赖项，则这些现有的首选项将会与配置中的 `ignore` 依赖项一起被考虑。
 
 您可以搜索仓库中是否有 `"@dependabot ignore" in:comments`，以检查仓库是否存储了 `ignore` 首选项。 如果您希望取消忽略以这种方式忽略的依赖项，请重新打开拉取请求。
 
-有关 `@dependabot ignore` 命令的更多信息，请参阅“[管理依赖项更新的拉取请求](/github/administering-a-repository/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
+For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
-##### 指定要忽略的依赖项和版本
+#### 指定要忽略的依赖项和版本
 
 可以使用 `ignore` 选项自定义更新哪些依赖项。 `ignore` 选项支持以下选项。
 
 - `dependency-name`—用于忽略名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`（例如：`org.kohsuke:github-api`）。
 - `versions`—用于忽略特定版本或版本范围。 如果要定义范围，请使用包管理器的标准模式（例如：对 npm 使用 `^1.0.0`，对 Bundler 使用 `~> 2.0`）。
-- `update-types`—用于忽略更新类型，如关于版本更新的 semver `major`、`minor` 或 `patch` 更新（例如：`version-update:semver-patch` 将忽略补丁更新）。 您可以将此与 `dependency-name: *` 结合，以忽略所有依赖项的特定 `update-types`。 目前，`version-update:semver-major`、`version-update:semver-minor` 和 `version-update:semver-patch` 是唯一支持的选项。 安全更新不受此设置的影响。
+- `update-types`—用于忽略更新类型，如关于版本更新的 semver `major`、`minor` 或 `patch` 更新（例如：`version-update:semver-patch` 将忽略补丁更新）。 您可以将此与 `dependency-name: "*"` 结合，以忽略所有依赖项的特定 `update-types`。 目前，`version-update:semver-major`、`version-update:semver-minor` 和 `version-update:semver-patch` 是唯一支持的选项。 安全更新不受此设置的影响。
 
 如果 `versions` 与 `update-types` 一起使用，则 {% data variables.product.prodname_dependabot %} 将会忽略任一集中的任何更新。
 
@@ -335,12 +341,12 @@ updates:
 
 {% note %}
 
-**注意**：即使您将不可访问的依赖项添加到配置文件的`忽略`选项，{% data variables.product.prodname_dependabot %} 也仅在可以访问文件中的所有依赖项时才可在清单文件或锁定文件上运行版本更新。 更多信息请参阅“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)”和“[排除 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)”。
+**注意**：即使您将不可访问的依赖项添加到配置文件的`忽略`选项，{% data variables.product.prodname_dependabot %} 也仅在可以访问文件中的所有依赖项时才可在清单文件或锁定文件上运行版本更新。 For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
 
 
 {% endnote %}
 
-#### `insecure-external-code-execution`
+### `insecure-external-code-execution`
 
 作为版本更新过程的一部分，具有 `package-ecosystem` 值 `bundler`、`mix` 和 `pip` 的包管理器可以在清单中执行外部代码。 这可能允许受损害的软件包窃取凭据或访问已配置的注册。 当您在 `updates` 配置中添加 [`registries`](#registries) 设置时，{% data variables.product.prodname_dependabot %} 自会动阻止外部代码执行，在这种情况下，版本更新可能失败。 您可以选择覆盖此行为，并将 `insecure-external-code-execution` 设置为 `allow`，以允许 `bundler`、`mix` 和 `pip` 包管理器的执行。
 
@@ -366,7 +372,7 @@ updates:
 ```
 {% endraw %}
 
-#### `labels`
+### `labels`
 
 {% data reusables.dependabot.default-labels %}
 
@@ -389,7 +395,7 @@ updates:
       - "dependencies"
 ```
 
-#### `里程碑`
+### `里程碑`
 
 使用 `milestone` 将对包管理器提出的所有拉取请求与里程碑相关联。 您需要指定里程碑的数字标识符，而不是其标签。 如果查看里程碑，则页面 URL 的最后一部分（`milestone` 之后）是标识符。 例如：`https://github.com/<org>/<repo>/milestone/3`。
 
@@ -408,7 +414,7 @@ updates:
     milestone: 4
 ```
 
-#### `open-pull-requests-limit`
+### `open-pull-requests-limit`
 
 默认情况下， {% data variables.product.prodname_dependabot %} 最多打开五个版本更新的拉取请求。 一旦有五个打开的拉取请求，新的请求将被阻止，直到您合并或关闭一些打开的请求，之后可以在后续更新中打开新的拉取请求。 使用 `open-pull-requests-limit` 可更改此限制。 这也提供了一个简单的方法来暂时禁用包管理器的版本更新。
 
@@ -434,7 +440,7 @@ updates:
     open-pull-requests-limit: 10
 ```
 
-#### `pull-request-branch-name.separator`
+### `pull-request-branch-name.separator`
 
 {% data variables.product.prodname_dependabot %} 为每个拉取请求生成分支。 每个分支名称包含 `dependabot` 以及更新的包管理器和依赖项。 默认情况下，这些部分用 `/` 符号分隔，例如：`dependabot/npm_and_yarn/next_js/acorn-6.4.1`。
 
@@ -457,7 +463,7 @@ updates:
       separator: "-"
 ```
 
-#### `rebase-strategy`
+### `rebase-strategy`
 
 默认情况下，{% data variables.product.prodname_dependabot %} 会在检测到拉取请求有任何更改时自动变基打开的拉取请求。 使用 `rebase-strategy` 可禁用此行为。
 
@@ -481,7 +487,7 @@ updates:
     rebase-strategy: "disabled"
 ```
 
-#### `registries`
+### `registries`
 
 要允许 {% data variables.product.prodname_dependabot %} 在执行版本更新时访问私人包注册表，您必须在相关的 `updates` 配置中包括 `registries` 设置。 您可以通过将 `registrations` 设置为 `"*"` 来允许使用所有定义的注册表。 或者，您可以列出更新可以使用的注册表。 要执行此操作，请使用 _dependabot.yml_ 文件的顶层 `registries` 部分定义的注册表。
 
@@ -497,7 +503,8 @@ registries:
   maven-github:
     type: maven-repository
     url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+    username: octocat
+    password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
   npm-npmjs:
     type: npm-registry
     url: https://registry.npmjs.org
@@ -513,7 +520,7 @@ updates:
 {% endraw %}
 ```
 
-#### `reviewers`
+### `reviewers`
 
 使用 `reviewers` 指定对包管理器提出的所有拉取请求的个别受理人。 您必须使用完整的团队名称，包括组织，就好像您@提及团队一样。
 
@@ -535,9 +542,9 @@ updates:
       - "my-org/python-team"
 ```
 
-#### `schedule.day`
+### `schedule.day`
 
-设置 `weekly` 更新计划时，默认情况下，{% data variables.product.prodname_dependabot %} 会在 UTC 时间星期一凌晨 5:00 检查新版本。 使用 `schedule.day` 可指定替代的更新检查日期。
+设置 `weekly` 更新计划时，默认情况下，{% data variables.product.prodname_dependabot %} 会在星期一为仓库随机设置的时间检查新版本。 使用 `schedule.day` 可指定替代的更新检查日期。
 
 支持的值
 
@@ -562,9 +569,9 @@ updates:
       day: "sunday"
 ```
 
-#### `schedule.time`
+### `schedule.time`
 
-默认情况下， {% data variables.product.prodname_dependabot %} 在 UTC 时间凌晨 5:00 检查新版本。 使用 `schedule.time` 可指定在一天中的其他时间来检查更新（格式：`h:mm`）。
+默认情况下，{% data variables.product.prodname_dependabot %} 在仓库的随机设置时间检查新版本。 使用 `schedule.time` 可指定在一天中的其他时间来检查更新（格式：`h:mm`）。
 
 ```yaml
 # Set a time for checks
@@ -578,9 +585,9 @@ updates:
       time: "09:00"
 ```
 
-#### `schedule.timezone`
+### `schedule.timezone`
 
-默认情况下， {% data variables.product.prodname_dependabot %} 在 UTC 时间凌晨 5:00 检查新版本。 使用 `schedule.timezone` 可指定其他时区。 时区标识符必须来自 [iana](https://www.iana.org/time-zones) 维护的时区数据库。 更多信息请参阅 [tz 数据库时区列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)。
+默认情况下，{% data variables.product.prodname_dependabot %} 在仓库的随机设置时间检查新版本。 使用 `schedule.timezone` 可指定其他时区。 时区标识符必须来自 [iana](https://www.iana.org/time-zones) 维护的时区数据库。 更多信息请参阅 [tz 数据库时区列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)。
 
 ```yaml
 # Specify the timezone for checks
@@ -596,7 +603,7 @@ updates:
       timezone: "Asia/Tokyo"
 ```
 
-#### `target-branch`
+### `target-branch`
 
 默认情况下，{% data variables.product.prodname_dependabot %} 会检查默认分支上的清单文件，并对此分支提出版本更新的拉取请求。 使用 `target-branch` 可为清单文件和拉取请求指定不同的分支。 使用此选项时，此包管理器的设置将不再影响针对安全更新提出的任何拉取请求。
 
@@ -627,7 +634,7 @@ updates:
       - "npm dependencies"
 ```
 
-#### `vendor`
+### `vendor`
 
 使用 `vendor` 选项指示 {% data variables.product.prodname_dependabot %} 在更新依赖项时供应它们。 如果您使用 `gomod` 作为 {% data variables.product.prodname_dependabot %} 自动检测此工具的供应，请不要使用此选项。
 
@@ -652,7 +659,7 @@ updates:
 | `gomod`   | 没有路径要求（依赖项通常位于 _vendor_ 目录中）              | [`go mod vendor` 文档](https://golang.org/ref/mod#go-mod-vendor)  |
 
 
-#### `versioning-strategy`
+### `versioning-strategy`
 
 {% data variables.product.prodname_dependabot %} 在编辑清单文件来更新版本时，使用以下总体策略：
 
@@ -703,7 +710,7 @@ updates:
     versioning-strategy: lockfile-only
 ```
 
-### 私人注册的配置选项
+## 私人注册的配置选项
 
 顶级 `updates` 密钥可选。 它允许您指定 {% data variables.product.prodname_dependabot %} 可用于访问私人包注册表的身份验证详细信息。
 
@@ -738,20 +745,20 @@ updates:
 
 您使用以下选项来指定访问设置。 注册表设置必须包含 `type` 和 `url`，通常是一个 `username` 和 `password` 组合或 `token`。
 
-| 选项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                                                                                                                                               |
-|:-------------------------------------------------------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                             | 识别注册表的类型。 请参阅下面的完整类型列表。                                                                                                                                                          |
-| `url`                                                                                              | 用于访问此注册表中的依赖项的 URL。 协议是可选的。 如果未指定，则假定是 `https:///`。 {% data variables.product.prodname_dependabot %} 根据需要添加或忽略尾随斜线。                                                              |
-| `用户名`                                                                                              | {% data variables.product.prodname_dependabot %} 用于访问注册表的用户名。                                                                                                                    |
-| `密码`                                                                                               | 引用包含指定用户密码的 {% data variables.product.prodname_dependabot %} 机密。 更多信息请参阅“[管理 Dependabot 的加密密码](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)”。   |
-| `键`                                                                                                | 引用包含此注册表访问密钥的 {% data variables.product.prodname_dependabot %} 机密。 更多信息请参阅“[管理 Dependabot 的加密密码](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)”。 |
-| `令牌`                                                                                               | 引用包含此注册表访问令牌的 {% data variables.product.prodname_dependabot %} 机密。 更多信息请参阅“[管理 Dependabot 的加密密码](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)”。 |
-| `replaces-base`                                                                                    | 对于具有 `type: python-index` 的注册表，如果布尔值是 `true`，pip 将使用指定的 URL 而不是 Python Package Index 的基础 URL（默认 `https://pypi.org/simple`）来解析依赖项。                                                |
+| 选项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                                                                                                                                                                                                                                          |
+|:-------------------------------------------------------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                             | 识别注册表的类型。 请参阅下面的完整类型列表。                                                                                                                                                                                                                                                     |
+| `url`                                                                                              | 用于访问此注册表中的依赖项的 URL。 协议是可选的。 如果未指定，则假定是 `https:///`。 {% data variables.product.prodname_dependabot %} 根据需要添加或忽略尾随斜线。                                                                                                                                                         |
+| `用户名`                                                                                              | {% data variables.product.prodname_dependabot %} 用于访问注册表的用户名。                                                                                                                                                                                                               |
+| `密码`                                                                                               | 引用包含指定用户密码的 {% data variables.product.prodname_dependabot %} 机密。 For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."   |
+| `键`                                                                                                | 引用包含此注册表访问密钥的 {% data variables.product.prodname_dependabot %} 机密。 For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
+| `令牌`                                                                                               | 引用包含此注册表访问令牌的 {% data variables.product.prodname_dependabot %} 机密。 For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
+| `replaces-base`                                                                                    | 对于具有 `type: python-index` 的注册表，如果布尔值是 `true`，pip 将使用指定的 URL 而不是 Python Package Index 的基础 URL（默认 `https://pypi.org/simple`）来解析依赖项。                                                                                                                                           |
 
 
 每个配置 `type` 需要您提供特定的设置。 某些类型允许多种连接方式。 以下各节提供了您应用于每个 `type` 的设置的详细信息。
 
-#### `composer-repository`
+### `composer-repository`
 
 `composer-repository` 类型支持用户名和密码。
 
@@ -766,7 +773,7 @@ registries:
 ```
 {% endraw %}
 
-#### `docker-registry`
+### `docker-registry`
 
 `docker-registration` 类型支持用户名和密码。
 
@@ -794,7 +801,7 @@ registries:
 ```
 {% endraw %}
 
-#### `git`
+### `git`
 
 `git` 类型支持用户名和密码。
 
@@ -809,7 +816,7 @@ registries:
 ```
 {% endraw %}
 
-#### `hex-organization`
+### `hex-organization`
 
 `hex-organization` 类型支持组织和密钥。
 
@@ -823,9 +830,9 @@ registries:
 ```
 {% endraw %}
 
-#### `maven-repository`
+### `maven-repository`
 
-`maven-reposite` 类型支持用户名和密码或令牌。
+`maven-repository` 类型支持用户名和密码。
 
 {% raw %}
 ```yaml
@@ -838,19 +845,11 @@ registries:
 ```
 {% endraw %}
 
-{% raw %}
-```yaml
-registries:
-  maven-github:
-    type: maven-repository
-    url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
-```
-{% endraw %}
-
-#### `npm-registry`
+### `npm-registry`
 
 `npm-registration` 类型支持用户名和密码或令牌。
+
+使用用户名和密码时，`.npmrc`的 auth 令牌可能包含 `base64` 编码 的`_password`；但是，{% data variables.product.prodname_dependabot %} 配置文件中引用的密码必须是原始（未编码）密码。
 
 {% raw %}
 ```yaml
@@ -859,7 +858,7 @@ registries:
     type: npm-registry
     url: https://registry.npmjs.org
     username: octocat
-    password: ${{secrets.MY_NPM_PASSWORD}}
+    password: ${{secrets.MY_NPM_PASSWORD}}  # Must be an unencoded password
 ```
 {% endraw %}
 
@@ -873,7 +872,7 @@ registries:
 ```
 {% endraw %}
 
-#### `nuget-feed`
+### `nuget-feed`
 
 `nuget-feed` 类型支持用户名和密码或令牌。
 
@@ -898,7 +897,7 @@ registries:
 ```
 {% endraw %}
 
-#### `python-index`
+### `python-index`
 
 `python-index` 类型支持用户名和密码或令牌。
 
@@ -925,7 +924,7 @@ registries:
 ```
 {% endraw %}
 
-#### `rubygems-server`
+### `rubygems-server`
 
 `rubygems-server` 类型支持用户名和密码或令牌。
 
@@ -950,7 +949,7 @@ registries:
 ```
 {% endraw %}
 
-#### `terraform-registry`
+### `terraform-registry`
 
 `terraform-registry` 类型支持令牌。
 

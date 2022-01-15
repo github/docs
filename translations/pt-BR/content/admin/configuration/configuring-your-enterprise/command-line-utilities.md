@@ -2,14 +2,14 @@
 title: Utilitários de linha de comando
 intro: 'O {% data variables.product.prodname_ghe_server %} tem uma série de utilitários que ajudam a resolver problemas específicos ou a executar determinadas tarefas.'
 redirect_from:
-  - /enterprise/admin/articles/viewing-all-services/
-  - /enterprise/admin/articles/command-line-utilities/
+  - /enterprise/admin/articles/viewing-all-services
+  - /enterprise/admin/articles/command-line-utilities
   - /enterprise/admin/installation/command-line-utilities
   - /enterprise/admin/configuration/command-line-utilities
   - /admin/configuration/command-line-utilities
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -18,13 +18,13 @@ topics:
 
 Depois de entrar como usuário administrador com SSH, você pode executar esses comandos de qualquer lugar na VM. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)".
 
-### Geral
+## Geral
 
-#### ghe-announce
+### ghe-announce
 
 Este utilitário insere um banner no topo de cada página do {% data variables.product.prodname_enterprise %}. Você pode usá-lo para enviar uma comunicação a todos os usuários.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 Você também pode definir um banner de anúncio usando as configurações empresariais no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Personalizar mensagens de usuário na instância](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)".
 {% endif %}
 
@@ -37,7 +37,37 @@ $ ghe-announce -u
 > Mensagem de anúncio removida
 ```
 
-#### ghe-check-disk-usage
+{% ifversion ghes > 3.1 %}
+<!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
+
+### ghe-aqueduct
+
+Este utilitário exibe informações sobre trabalhos em segundo plano, ativos e em fila. Ele fornece os mesmos números de contagem de trabalhos que a barra de estatísticas de administração, na parte superior de todas as páginas.
+
+Este utilitário pode ajudar a identificar se o servidor de Aqueduct está tendo problemas no processamento de trabalhos em segundo plano. Qualquer dos seguintes cenários pode indicar um problema com o Aqueduct:
+
+* O número de trabalhos em segundo plano está aumentando, e os trabalhos ativos continuam iguais.
+* Os feeds de evento não estão sendo atualizados.
+* Webhooks não estão sendo acionados.
+* A interface web não atualiza após um push do Git.
+
+Se você suspeitar que o Aqueduct tem uma falha, entre em contato com {% data variables.contact.contact_ent_support %} para obter ajuda.
+
+Com este comando, também é possível pausar ou retomar trabalhos na fila.
+
+```shell
+$ ghe-aqueduct status
+# lists queues and the number of currently queued jobs for all queues
+$ ghe-aqueduct queue_depth --queue <em>QUEUE</em>
+# lists the number of currently queued jobs for the specified queue
+$ ghe-aqueduct pause --queue <em>QUEUE</em>
+# pauses the specified queue
+$ ghe-aqueduct resume --queue <em>QUEUE</em>
+# resumes the specified queue
+```
+{% endif %}
+
+### ghe-check-disk-usage
 
 Este utilitário verifica se há arquivos grandes ou arquivos excluídos no disco, mas que ainda têm identificadores abertos. Deve ser executado para liberar espaço na partição raiz.
 
@@ -45,14 +75,14 @@ Este utilitário verifica se há arquivos grandes ou arquivos excluídos no disc
 ghe-check-disk-usage
 ```
 
-#### ghe-cleanup-caches
+### ghe-cleanup-caches
 
 Este utilitário limpa uma série de caches que podem vir a ocupar espaço extra em disco no volume raiz. Se você perceber que o uso do espaço em disco do volume raiz aumenta muito ao longo do tempo, talvez seja uma boa ideia executar este utilitário e verificar se ele ajuda a reduzir o uso geral.
 
 ```shell
 ghe-cleanup-caches
 ```
-#### ghe-cleanup-settings
+### ghe-cleanup-settings
 
 Este utilitário apaga todas as configurações do {% data variables.enterprise.management_console %}.
 
@@ -66,7 +96,7 @@ Este utilitário apaga todas as configurações do {% data variables.enterprise.
 ghe-cleanup-settings
 ```
 
-#### ghe-config
+### ghe-config
 
 Com este utilitário, você pode recuperar e modificar as definições de configuração da {% data variables.product.product_location %}.
 
@@ -84,7 +114,7 @@ Permite encontrar o identificador universalmente exclusivo (UUID) do seu nó em 
   $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 Permite isentar uma lista de usuários do limite de taxa de da API. Para obter mais informações, consulte "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)".
 
 ``` shell
@@ -93,7 +123,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-ac
 ```
 {% endif %}
 
-#### ghe-config-apply
+### ghe-config-apply
 
 Este utilitário aplica configurações do {% data variables.enterprise.management_console %}, recarrega os serviços do sistema, prepara um dispositivo de armazenamento, recarrega os serviços de aplicativos e executa as migrações pendentes de banco de dados. Ele equivale a clicar em **Save settings** (Salvar configurações) na IU da web do {% data variables.enterprise.management_console %} ou a enviar uma solicitação POST [ao endpoint `/setup/api/configure`](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console).
 
@@ -103,7 +133,7 @@ Este utilitário aplica configurações do {% data variables.enterprise.manageme
 ghe-config-apply
 ```
 
-#### ghe-console
+### ghe-console
 
 Este utilitário abre o console do GitHub Rails no appliance do {% data variables.product.prodname_enterprise %}. {% data reusables.command_line.use_with_support_only %}
 
@@ -111,7 +141,7 @@ Este utilitário abre o console do GitHub Rails no appliance do {% data variable
 ghe-console
 ```
 
-#### ghe-dbconsole
+### ghe-dbconsole
 
 Este utilitário abre uma sessão do banco de dados MySQL no appliance do {% data variables.product.prodname_enterprise %}. {% data reusables.command_line.use_with_support_only %}
 
@@ -119,7 +149,7 @@ Este utilitário abre uma sessão do banco de dados MySQL no appliance do {% dat
 ghe-dbconsole
 ```
 
-#### ghe-es-index-status
+### ghe-es-index-status
 Este utilitário retorna um resumo dos índices do Elasticsearch no formato CSV.
 
 Imprimir um resumo do índice com uma linha de header em `STDOUT`:
@@ -161,7 +191,7 @@ $ ghe-es-index-status -do | column -ts,
 > wikis-4          true     true        true      true      100.0           2613dec44bd14e14577803ac1f9e4b7e07a7c234
 ```
 
-#### ghe-legacy-github-services-report
+### ghe-legacy-github-services-report
 
 Este utilitário lista os repositórios no appliance que usam o {% data variables.product.prodname_dotcom %} Services, um método de integração que será descontinuado em 1 de outubro de 2018. Os usuários do seu appliance podem ter configurado o {% data variables.product.prodname_dotcom %} Services para criar notificações de pushes em determinados repositórios. Para obter mais informações, consulte "[Anunciar a depreciação dos serviços de {% data variables.product.prodname_dotcom %}](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" em {% data variables.product.prodname_blog %} ou "[Substituir serviços de {% data variables.product.prodname_dotcom %}](/developers/overview/replacing-github-services)". Para saber mais sobre este comando ou consultar opções adicionais, use o sinalizador `-h`.
 
@@ -170,7 +200,7 @@ ghe-legacy-github-services-report
 
 ```
 
-#### ghe-logs-tail
+### ghe-logs-tail
 
 Este utilitário permite registrar todos os arquivos de log relevantes da sua instalação. Você pode passar as opções para limitar os logs a conjuntos específicos. Para consultar opções adicionais, use o sinalizador -h.
 
@@ -178,7 +208,7 @@ Este utilitário permite registrar todos os arquivos de log relevantes da sua in
 ghe-logs-tail
 ```
 
-#### ghe-maintenance
+### ghe-maintenance
 
 Este utilitário permite controlar o estado do modo de manutenção da instalação. Ele foi desenvolvido para uso principalmente nos bastidores do {% data variables.enterprise.management_console %}, mas também pode ser usado diretamente.
 
@@ -186,7 +216,7 @@ Este utilitário permite controlar o estado do modo de manutenção da instalaç
 ghe-maintenance -h
 ```
 
-#### ghe-motd
+### ghe-motd
 
 Este utilitário exibe novamente a mensagem do dia (MOTD) que os administradores veem quando acessam a instância através do shell administrativo. A saída contém uma visão geral do estado da instância.
 
@@ -194,7 +224,7 @@ Este utilitário exibe novamente a mensagem do dia (MOTD) que os administradores
 ghe-motd
 ```
 
-#### ghe-nwo
+### ghe-nwo
 
 Este utilitário retorna o nome e o proprietário de um repositório com base no ID do repositório.
 
@@ -202,7 +232,7 @@ Este utilitário retorna o nome e o proprietário de um repositório com base no
 ghe-nwo <em>REPOSITORY_ID</em>
 ```
 
-#### ghe-org-admin-promote
+### ghe-org-admin-promote
 
 Use este comando para conceder privilégios de proprietário da organização a usuários com privilégios de administrador do site no appliance ou a qualquer usuário em uma única organização. Você deve especificar um usuário e/ou organização. O comando `ghe-org-admin-promote` sempre solicitará a confirmação antes da execução, a menos que você use o sinalizador `-y` para ignorar essa etapa.
 
@@ -239,7 +269,7 @@ Conceder privilégios de proprietário da organização a todos os administrador
 ghe-org-admin-promote -a
 ```
 
-#### ghe-reactivate-admin-login
+### ghe-reactivate-admin-login
 
 Use este comando para desbloquear imediatamente o {% data variables.enterprise.management_console %} após 10 tentativas de login com falha no período de 10 minutos.
 
@@ -247,7 +277,10 @@ Use este comando para desbloquear imediatamente o {% data variables.enterprise.m
 $ ghe-reactivate-admin-login
 ```
 
-#### ghe-resque-info
+{% ifversion ghes < 3.2 %}
+<!--For more recent releases of GHES, see the replacement service `ghe-aqueduct`-->
+
+### ghe-resque-info
 
 Este utilitário exibe informações sobre trabalhos em segundo plano, ativos e em fila. Ele fornece os mesmos números de contagem de trabalhos que a barra de estatísticas de administração, na parte superior de todas as páginas.
 
@@ -270,8 +303,9 @@ $ ghe-resque-info -p <em>QUEUE</em>
 $ ghe-resque-info -r <em>QUEUE</em>
 # retoma a fila especificada
 ```
+{% endif %}
 
-#### ghe-saml-mapping-csv
+### ghe-saml-mapping-csv
 
 Este utilitário pode ajudar a mapear os registros SAML.
 
@@ -290,7 +324,7 @@ Para atualizar os mapeamentos SAML com novos valores:
 $ ghe-saml-mapping-csv -u -f /path/to/file
 ```
 
-#### ghe-service-list
+### ghe-service-list
 
 Este utilitário lista todos os serviços iniciados ou parados (em execução ou em espera) no appliance.
 
@@ -317,19 +351,7 @@ stop/waiting
   - ghe-replica-mode
 ```
 
-{% tip %}
-
-Os nomes de serviço retornados deste comando podem ser usados com comandos "[`systemctl`](https://www.freedesktop.org/software/systemd/man/systemctl.html)" para interromper, iniciar ou reiniciar esses serviços manualmente, se necessário. Por exemplo:
-
-```shell
-$ sudo systemctl restart github-resqued
-```
-
-A interrupção dos serviços causará tempo de inatividade na instalação. Portanto, é recomendável entrar em contato com o {% data variables.contact.contact_ent_support %} antes de parar ou reiniciar qualquer serviço.
-
-{% endtip %}
-
-#### ghe-set-password
+### ghe-set-password
 
 Com `ghe-set-password`, você pode definir uma nova senha para autenticação no [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console).
 
@@ -337,7 +359,7 @@ Com `ghe-set-password`, você pode definir uma nova senha para autenticação no
 ghe-set-password <new_password>
 ```
 
-#### ghe-ssh-check-host-keys
+### ghe-ssh-check-host-keys
 
 Este utilitário verifica as chaves do host SSH atuais para identificar chaves vazadas conhecidas.
 
@@ -357,7 +379,7 @@ Se não houver chaves de host vazadas, o utilitário exibirá o status `0` e a s
 > No momento, nenhuma etapa adicional é necessária/recomendada.
 ```
 
-#### ghe-ssh-roll-host-keys
+### ghe-ssh-roll-host-keys
 
 Este utilitário acumula as chaves do host SSH e as substitui por chaves recém-geradas.
 
@@ -371,7 +393,7 @@ chaves atuais em /etc/ssh/ssh_host_* para gerar chaves novas. [y/N]
 > chaves de host SSH foram acumuladas com êxito.
 ```
 
-#### ghe-ssh-weak-fingerprints
+### ghe-ssh-weak-fingerprints
 
 Este utilitário retorna um relatório de chaves SSH fracas conhecidas armazenadas no appliance do {% data variables.product.prodname_enterprise %}. Você também pode revogar as chaves do usuário como uma ação em lote. O utilitário relatará as chaves de sistema fracas, que você deve revogar manualmente no [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console).
 
@@ -383,7 +405,7 @@ $ ghe-ssh-weak-fingerprints
 $ ghe-ssh-weak-fingerprints --revoke
 ```
 
-#### ghe-ssl-acme
+### ghe-ssl-acme
 
 Este utilitário permite instalar um certificado Let's Encrypt no seu appliance do {% data variables.product.prodname_enterprise %}. Para obter mais informações, consulte "[Configurar o TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)".
 
@@ -393,7 +415,7 @@ Você pode usar o sinalizador `-x` para remover a configuração ACME.
 ghe-ssl-acme -e
 ```
 
-#### ghe-ssl-ca-certificate-install
+### ghe-ssl-ca-certificate-install
 
 Este utilitário permite instalar um certificado CA personalizado de raiz no seu appliance do {% data variables.product.prodname_enterprise %}. O certificado deve estar no formato PEM. Além disso, se o seu provedor de certificados incluir vários certificados CA em um só arquivo, você deverá separá-los em arquivos a serem passados individualmente para ` ghe-ssl-ca-certificate-install`.
 
@@ -437,7 +459,7 @@ SSL-Session:
 ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
 ```
 
-#### ghe-ssl-generate-csr
+### ghe-ssl-generate-csr
 
 Com este utilitário, você pode gerar uma chave privada e uma solicitação de assinatura de certificado (CSR, Certificate Signing Request) a ser compartilhada com uma autoridade certificada comercial ou privada para obter um certificado válido na sua instância. Para obter mais informações, consulte "[Configurar o TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)".
 
@@ -447,7 +469,7 @@ Para saber mais sobre este comando ou consultar opções adicionais, use o sinal
 ghe-ssl-generate-csr
 ```
 
-#### ghe-storage-extend
+### ghe-storage-extend
 
 Algumas plataformas exigem este script para aumentar o volume de usuários. Para obter mais informações, consulte "[Aumentar a capacidade de armazenamento](/enterprise/admin/guides/installation/increasing-storage-capacity/)".
 
@@ -455,7 +477,7 @@ Algumas plataformas exigem este script para aumentar o volume de usuários. Para
 $ ghe-storage-extend
 ```
 
-#### ghe-version
+### ghe-version
 
 Este utilitário imprime a versão, a plataforma e a compilação da {% data variables.product.product_location %}.
 
@@ -463,7 +485,7 @@ Este utilitário imprime a versão, a plataforma e a compilação da {% data var
 $ ghe-version
 ```
 
-#### ghe-webhook-logs
+### ghe-webhook-logs
 
 Este utilitário retorna logs de entrega de webhook para os administradores revisarem e identificarem problemas.
 
@@ -472,7 +494,7 @@ ghe-webhook-logs
 ```
 
 Para exibir todas as entregas de hook falhas do último dia:
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
 ```
@@ -485,7 +507,7 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 Para exibir a carga útil total do hook, o resultado e quaisquer exceções para a entrega:
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em>
 ```
@@ -495,9 +517,9 @@ ghe-webhook-logs -g <em>delivery-guid</em> -v
 ```
 {% endif %}
 
-### Clustering
+## Clustering
 
-#### ghe-cluster-status
+### ghe-cluster-status
 
 Verifique a saúde dos seus nós e serviços em uma implantação de clustering de {% data variables.product.prodname_ghe_server %}.
 
@@ -505,7 +527,7 @@ Verifique a saúde dos seus nós e serviços em uma implantação de clustering 
 $ ghe-cluster-status
 ```
 
-#### ghe-cluster-support-bundle
+### ghe-cluster-support-bundle
 
 Este utilitário cria um pacote de suporte tarball com logs importantes de cada nó em configurações de replicação geográfica ou de cluster.
 
@@ -531,8 +553,8 @@ Para enviar um pacote para {% data variables.contact.github_support %} e associa
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -t <em>ticket-id</em>'
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
-#### ghe-cluster-failover
+{% ifversion ghes %}
+### ghe-cluster-failover
 
 Falha ao sair de nós de cluster ativos para nós de cluster passivo. Para obter mais informações, consulte "[Iniciar um failover para seu cluster de réplica](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)".
 
@@ -541,7 +563,7 @@ ghe-cluster-failover
 ```
 {% endif %}
 
-#### ghe-dpages
+### ghe-dpages
 
 Este utilitário permite que você gerencie o servidor distribuído {% data variables.product.prodname_pages %}.
 
@@ -559,7 +581,7 @@ Para evacuar um serviço de armazenamento {% data variables.product.prodname_pag
 ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
-#### ghe-spokes
+### ghe-spokes
 
 Este utilitário permite gerenciar as três cópias de cada repositório nos servidores distribuídos do git.
 
@@ -585,7 +607,7 @@ Para evacuar os serviços de armazenamento em um nó de cluster:
 ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
-#### ghe-storage
+### ghe-storage
 
 Este utilitário permite remover todos os serviços de armazenamento antes de remover um nó de cluster.
 
@@ -593,9 +615,9 @@ Este utilitário permite remover todos os serviços de armazenamento antes de re
 ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
-### Git
+## Git
 
-#### ghe-btop
+### ghe-btop
 
 Interface do tipo `top` para as operações atuais do Git.
 
@@ -603,7 +625,32 @@ Interface do tipo `top` para as operações atuais do Git.
 ghe-btop [ <port number> | --help | --usage ]
 ```
 
-#### ghe-repo
+#### ghe-governor
+
+Este utilitário ajuda a analisar o tráfego do Git. Ela consulta arquivos de dados do _Governador_, localizados em `/data/user/gitmon`. {% data variables.product.company_short %} mantém uma hora de dados por arquivo, retidos por duas semanas. Para obter mais informações, consulte [Analisando tráfego do Git que usa o Governador](https://github.community/t/analyzing-git-traffic-using-governor/13516) em {% data variables.product.prodname_gcf %}.
+
+```bash
+ghe-governor <subcommand> <column> [options]
+```
+
+```
+ghe-governor -h
+Usage: ghe-governor [-h] <subcommand> args
+
+OPTIONS:
+  -h | --help        Show this message.
+
+Os subcomandos válidos são:
+  aggregate              Find the top (n) groups of queries for a grouping function and metric
+  health                 Summarize all recent activity on one or more servers
+  top                    Find the top (n) queries for a given metric
+  dump                   Dump individual operations
+  test-quotas            Check quota information
+
+Try ghe-governor <subcommand> --help for more information on the arguments each subcommand takes.
+```
+
+### ghe-repo
 
 Este utilitário permite mudar para o diretório de um repositório e abrir um shell interativo como usuário do `git`. Você pode fazer a inspeção ou manutenção manual de um repositório usando comandos como `git-*` ou `git-nw-*`.
 
@@ -611,7 +658,7 @@ Este utilitário permite mudar para o diretório de um repositório e abrir um s
 ghe-repo <em>username</em>/<em>reponame</em>
 ```
 
-#### ghe-repo-gc
+### ghe-repo-gc
 
 Este utilitário empacota manualmente uma rede de repositórios para otimizar o armazenamento do pacote. Se você tem um repositório muito grande, esse comando pode ajudar a reduzir o tamanho. O {% data variables.product.prodname_enterprise %} executa automaticamente este comando durante toda a sua interação com uma rede de repositórios.
 
@@ -621,52 +668,52 @@ Você pode adicionar o argumento opcional `--prune` para remover objetos inacess
 ghe-repo-gc <em>username</em>/<em>reponame</em>
 ```
 
-### Importação e exportação
+## Importação e exportação
 
-#### ghe-migrator
+### ghe-migrator
 
 O `ghe-migrator` é uma ferramenta de alta fidelidade que ajuda a fazer migrações de uma instância do GitHub para outra. Você pode consolidar suas instâncias ou mover a organização, os usuários, as equipes e os repositórios do GitHub.com para o {% data variables.product.prodname_enterprise %}.
 
 Para obter mais informações, consulte nosso guia sobre [como migrar dados de usuário, organização e repositório](/enterprise/admin/guides/migrations/).
 
-#### git-import-detect
+### git-import-detect
 
 Em uma URL, detecta qual tipo de sistema de gerenciamento de controle de origem está na outra extremidade. Provavelmente esse processo já é conhecido nas importações manuais, mas pode ser muito útil em scripts automatizados.
 ```shell
 git-import-detect
 ```
 
-#### git-import-hg-raw
+### git-import-hg-raw
 
 Este utilitário importa um repositório Mercurial para este repositório Git. Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
 ```shell
 git-import-hg-raw
 ```
 
-#### git-import-svn-raw
+### git-import-svn-raw
 
 Este utilitário importa histórico do Subversion e dados de arquivos para um branch do Git. Trata-se de uma cópia direta da árvore, ignorando qualquer distinção de trunk ou branch. Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
 ```shell
 git-import-svn-raw
 ```
 
-#### git-import-tfs-raw
+### git-import-tfs-raw
 
 Este utilitário faz a importação a partir do Controle de Versão da Fundação da Equipe (TFVC). Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
 ```shell
 git-import-tfs-raw
 ```
 
-#### git-import-rewrite
+### git-import-rewrite
 
 Este utilitário reescreve o repositório importado. Isso dá a você a oportunidade de renomear autores e, para o Subversion e TFVC, produz branches Git baseados em pastas. Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
 ```shell
 git-import-rewrite
 ```
 
-### Suporte
+## Suporte
 
-#### ghe-diagnostics
+### ghe-diagnostics
 
 Este utilitário faz uma série de verificações e reúne informações sobre a instalação que você pode enviar ao suporte para ajudar a diagnosticar problemas.
 
@@ -676,7 +723,7 @@ No momento, a saída do utilitário é semelhante ao download das informações 
 ghe-diagnostics
 ```
 
-#### ghe-support-bundle
+### ghe-support-bundle
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 Esse utilitário cria um tarball do pacote de suporte com logs importantes da sua instância.
@@ -704,7 +751,7 @@ Para enviar um pacote para {% data variables.contact.github_support %} e associa
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -t <em>ticket-id</em>'
 ```
 
-#### ghe-support-upload
+### ghe-support-upload
 
 Este utilitário envia informações do seu appliance para o suporte do {% data variables.product.prodname_enterprise %}. Você pode especificar um arquivo local ou fornecer um fluxo de até 100 MB de dados via `STDIN`. Os dados carregados também podem ser associados a um tíquete de suporte.
 
@@ -720,9 +767,9 @@ Para fazer upload de dados via `STDIN` e associá-los a dados de um tíquete:
 
 Neste exemplo, `ghe-repl-status -vv` envia informações detalhadas do status de um appliance réplica. Substitua `ghe-repl-status -vv` pelos dados que você deseja transmitir a `STDIN` e faça uma breve descrição dos dados em `Verbose Replication Status`. {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
-### Atualização do {% data variables.product.prodname_ghe_server %}
+## Atualização do {% data variables.product.prodname_ghe_server %}
 
-#### ghe-upgrade
+### ghe-upgrade
 
 Este utilitário instala ou verifica um pacote de atualização. Também é possível usá-lo para voltar a uma versão de patch em casos de falha ou interrupção de uma atualização. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)".
 
@@ -738,7 +785,7 @@ ghe-upgrade <em>UPGRADE-PACKAGE-FILENAME</em>
 
 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
-#### ghe-upgrade-scheduler
+### ghe-upgrade-scheduler
 
 Este utilitário gerencia a instalação programada de pacotes de atualização. Você pode exibir, criar ou remover instalações programadas. Crie as programações usando expressões cron. Para obter mais informações, leia mais sobre [Cron na Wikipedia](https://en.wikipedia.org/wiki/Cron#Overview).
 
@@ -758,7 +805,7 @@ Para remover instalações programadas para um pacote:
 $ ghe-upgrade-scheduler -r <em>UPGRADE PACKAGE FILENAME</em>
 ```
 
-#### ghe-update-check
+### ghe-update-check
 
 Este utilitário verificará se uma nova versão do patch do {% data variables.product.prodname_enterprise %} está disponível. Se estiver e se houver espaço disponível na sua instância, ele baixará o pacote. Por padrão, a versão fica salva em */var/lib/ghe-updates*. Um administrador pode [realizar a atualização](/enterprise/admin/guides/installation/updating-the-virtual-machine-and-physical-resources/).
 
@@ -770,11 +817,11 @@ Para verificar a versão mais recente do {% data variables.product.prodname_ente
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 ```
 
-### Gerenciamento de usuários
+## Gerenciamento de usuários
 
-#### ghe-license-usage
+### ghe-license-usage
 
-Este utilitário exporta uma lista de usuários da instalação em formato JSON. Se sua instância estiver conectada ao {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} usa essa informação para reportar informações de licenciamento ao {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Conctando {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_ghe_cloud %}](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)".
+Este utilitário exporta uma lista de usuários da instalação em formato JSON. Se sua instância estiver conectada ao {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} usa essa informação para reportar informações de licenciamento ao {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Conectando a sua conta corporativa a {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)".
 
 Por padrão, a lista de usuários no arquivo JSON resultante é criptografada. Use o sinalizador `-h` para ver mais opções.
 
@@ -782,7 +829,7 @@ Por padrão, a lista de usuários no arquivo JSON resultante é criptografada. U
 ghe-license-usage
 ```
 
-#### ghe-org-membership-update
+### ghe-org-membership-update
 
 Este utilitário aplicará a configuração padrão de visibilidade da associação da organização a todos os integrantes da sua instância. Para obter mais informações, consulte "[Configurar a visibilidade da associação à organização](/enterprise/{{ currentVersion }}/admin/guides/user-management/configuring-visibility-for-organization-membership)". As opções de configuração são `públicas` ou `privadas`.
 
@@ -790,7 +837,7 @@ Este utilitário aplicará a configuração padrão de visibilidade da associaç
 ghe-org-membership-update --visibility=<em>SETTING</em>
 ```
 
-#### ghe-user-csv
+### ghe-user-csv
 
 Este utilitário exporta uma lista de todos os usuários na instalação em formato CSV. O arquivo CSV inclui o endereço de e-mail, o tipo de usuário (por exemplo, administrador), a quantidade de repositórios, chaves SSH e associações os usuários têm na organização, o endereço IP mais recente e outras informações. Use o sinalizador `-h` para ver mais opções.
 
@@ -798,7 +845,7 @@ Este utilitário exporta uma lista de todos os usuários na instalação em form
 ghe-user-csv -o > users.csv
 ```
 
-#### ghe-user-demote
+### ghe-user-demote
 
 Este utilitário rebaixa o usuário especificado do status de administrador para o status de usuário regular. É recomendável usar a IU da web para executar esta ação, mas informe esse utilitário em caso de erro na execução do utilitário `ghe-user-promotion` se você precisar rebaixar um usuário novamente da CLI.
 
@@ -806,7 +853,7 @@ Este utilitário rebaixa o usuário especificado do status de administrador para
 ghe-user-demote <em>some-user-name</em>
 ```
 
-#### ghe-user-promote
+### ghe-user-promote
 
 Este utilitário promove a conta de usuário especificada a administrador do site.
 
@@ -814,7 +861,7 @@ Este utilitário promove a conta de usuário especificada a administrador do sit
 ghe-user-promote <em>some-user-name</em>
 ```
 
-#### ghe-user-suspend
+### ghe-user-suspend
 
 Este utilitário suspende o usuário especificado, impedindo-o de fazer login, push ou pull nos seus repositórios.
 
@@ -822,7 +869,7 @@ Este utilitário suspende o usuário especificado, impedindo-o de fazer login, p
 ghe-user-suspend <em>some-user-name</em>
 ```
 
-#### ghe-user-unsuspend
+### ghe-user-unsuspend
 
 Este utilitário cancela a suspensão do usuário especificado, liberando o acesso para fazer login, push ou pull nos seus repositórios.
 

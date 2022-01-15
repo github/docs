@@ -1,21 +1,22 @@
 ---
 title: Configurar la replicación con disponibilidad alta para un clúster
 intro: 'Puedes configurar una réplica pasiva de todo tu clúster de {% data variables.product.prodname_ghe_server %} en una ubicación diferentes, lo cual le permitirá tolerar fallos en nodos redundantes.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
   - /admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
-  enterprise-server: '>2.21'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Configurar la replicación de HA
 ---
 
-### Acerca de la replicación de disponibilidad alta para clústers
+## Acerca de la replicación de disponibilidad alta para clústers
 
 Puedes configurar el despliegue de un clúster de {% data variables.product.prodname_ghe_server %} para que tenga disponibilidad alta, mientras que un conjunto idéntico de nodos pasivos se sincroniza con los nodos en tu clúster activo. Si las características de hardware o software afectan el centro de datos que alberga tu clúster activo, puedes hacer una recuperación de fallos manual a los nodos de réplica y seguir procesando las solicitudes de los usuarios, minimizando así el impacto del servicio interrumpido.
 
@@ -23,9 +24,9 @@ En el modo de alta disponibilidad, cada nodo activo se sincroniza regularmente c
 
 Te recomendamos configurar la disponibilidad alta como parte de un plan integral de recuperación de desastres para {% data variables.product.prodname_ghe_server %}. También te recomendamos realizar respaldos constantemente. Para obtener más información, consulta "[Configurar copias de seguridad en tu aparato](/enterprise/admin/configuration/configuring-backups-on-your-appliance)"
 
-### Prerrequisitos
+## Prerrequisitos
 
-#### Hardware y software
+### Hardware y software
 
 Para cada nodo existente en tu clúster activo, necesitarás aprovisionar una segunda máquina virtual con recursos de hardware idénticos. Por ejemplo, si tu clúster tiene 11 nodos y cada nodo tiene 12 vCPUs, 96 GB de RAM, y 750 GB de almacenamiento adjunto, deberás aprovisionar 11 máquinas virtuales en donde cada una tenga 12 vCPUs, 96 GB de RAM, y 750GB de almacenamiento adjunto.
 
@@ -37,19 +38,19 @@ En cada máquina virtual, instala la misma versión de {% data variables.product
 
 {% endnote %}
 
-#### Red
+### Red
 
 Debes asignar una dirección IP estática a cada nodo nuevo que aprovisiones, y debes configurar un balanceador de carga para aceptar las conecciones y dirigirlas a los nodos que están a nivel del front-end de tu clúster.
 
 No te recomendamos configurar un firewall entre la red con con tu clúster activo y aquella con tu clúster pasivo. Lalatencia entre las redes con nodos activos y aquellas con nodos pasivos debe ser de menos de 70 milisegundos. Para obtener más información acerca de la conectividad de red entre nodos en el clúster pasivo, consulta la sección "[Configuración de clúster de red](/enterprise/admin/enterprise-management/cluster-network-configuration)".
 
-### Crear una réplica de disponibilidad alta para un clúster
+## Crear una réplica de disponibilidad alta para un clúster
 
 - [Asignar nodos activos al datacenter primario](#assigning-active-nodes-to-the-primary-datacenter)
 - [Agregar nodos pasivos al archivo de configuración de clúster](#adding-passive-nodes-to-the-cluster-configuration-file)
 - [Ejemplo de configuración](#example-configuration)
 
-#### Asignar nodos activos al datacenter primario
+### Asignar nodos activos al datacenter primario
 
 Antes de que definas un datacenter secundario para tus nodos pasivos, asegúrate de que has asignado tus nodos activos al datacenter primario.
 
@@ -101,7 +102,7 @@ Antes de que definas un datacenter secundario para tus nodos pasivos, asegúrate
 
 Después de que {% data variables.product.prodname_ghe_server %} te regrese al prompt, habrás terminado de asignar tus nodos al datacenter primario del clúster.
 
-#### Agregar nodos pasivos al archivo de configuración de clúster
+### Agregar nodos pasivos al archivo de configuración de clúster
 
 Para configurar la disponibilidad alta, debes definir un nodo pasivo correspondiente para cada nodo activo en tu clúster. Con las siguientes instrucciones se crea una configuración de clúster nueva que define tanto los nodos activos como los pasivos. Lo que harás:
 
@@ -189,12 +190,6 @@ Para ver un ejemplo de configuración, consulta la sección "[Ejemplo de configu
     git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
     ```
 
-12. Habilita MySQL para conmutar por error automáticamente cuando hagas una recuperación de errores hacia los nodos pasivos de réplica.
-
-    ```shell
-    git config -f /data/user/common/cluster.conf cluster.mysql-auto-failover true
-    ```
-
     {% warning %}
 
     **Advertencia**: Revisa tu archivo de configuración de clúster antes de proceder.
@@ -235,7 +230,7 @@ Para ver un ejemplo de configuración, consulta la sección "[Ejemplo de configu
 
 Has terminado de configurar la replicación de disponibilidad alta para los nodos en tu clúster. Cada nodo activo comienza a replicar la configuración y los datos a su nodo pasivo correspondiente, y puedes dirigir el tráfico al balanceador de carga para el datacenter secundario en caso de que exista un fallo. Para obtener más información sobre la conmutación por error, consulta la sección "[Iniciar una conmutación por error a tu clúster de réplica](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)".
 
-#### Ejemplo de configuración
+### Ejemplo de configuración
 
 La configuración de `[cluster]` de nivel superior se debería ver como en el ejemplo siguiente.
 
@@ -246,7 +241,7 @@ La configuración de `[cluster]` de nivel superior se debería ver como en el ej
   primary-datacenter = <em>PRIMARY DATACENTER NAME</em>
   mysql-master-replica = <em>HOSTNAME OF PASSIVE MYSQL MASTER</em>
   redis-master-replica = <em>HOSTNAME OF PASSIVE REDIS MASTER</em>
-  mysql-auto-failover = true
+  mysql-auto-failover = false
 ...
 ```
 
@@ -303,7 +298,7 @@ La configuración para el nodo pasivo correspondiente en el nivel de almacenamie
 ...
 ```
 
-### Monitorear la replicación entre los nodos de clúster pasivos y activos
+## Monitorear la replicación entre los nodos de clúster pasivos y activos
 
 La replicación inicial entre los nodos activos y pasivos en tu clúster toma su tiempo. La cantidad de tiempo dependerá de la cantidad de datos a replicar y de los niveles de actividad de {% data variables.product.prodname_ghe_server %}.
 
@@ -335,11 +330,11 @@ Puedes monitorear el progreso de cualquier nodo en el clúster, utilizando las h
 
 Puedes utilizar `ghe-cluster-status` para revisar la salud general de tu clúster. Para obtener más información, consulta la sección "[Utilidades de la línea de comandos](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)".
 
-### Reconfigurar la replilcación de disponibilidad alta después de un fallo
+## Reconfigurar la replilcación de disponibilidad alta después de un fallo
 
 Después de que te recuperes de un fallo de los nodos activos del clúster hacia los nodos pasivos, puedes reconfigurar la replicación de disponibilidad alta en dos formas.
 
-#### Aprovisionar y configurar los nodos pasivos nuevos
+### Aprovisionar y configurar los nodos pasivos nuevos
 
 Después de recuperarte de un fallo, puedes reconfigurar la disponibilidad alta en dos formas. El método que elijas dependerá de la razón por la cual ocurrió el fallo y del estado de los nodos activos originales.
 
@@ -350,7 +345,7 @@ Después de recuperarte de un fallo, puedes reconfigurar la disponibilidad alta 
 El proceso para reconfigurar la disponibilidad alta es idéntico a la configuración inicial de la misma. Para obtener más información, consulta la sección "[Crear una réplica de disponibilidad alta para un clúster](#creating-a-high-availability-replica-for-a-cluster)".
 
 
-### Inhabilitar la replicación de disponibilidad alta para un clúster
+## Inhabilitar la replicación de disponibilidad alta para un clúster
 
 Pudes parar la replicación hacia los nodos pasivos para el despliegue de {% data variables.product.prodname_ghe_server %} de tu clúster.
 
@@ -358,7 +353,7 @@ Pudes parar la replicación hacia los nodos pasivos para el despliegue de {% dat
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. En la sección de `[cluster]` de nivel superior, borra los pares de clave-valor de `mysql-auto-failover`, `redis-master-replica`, y `mysql-master-replica`.
+3. En la sección de `[cluster]` de nivel superior, borra los pares de clave-valor de `redis-master-replica` y `mysql-master-replica`.
 
 4. Borra cada sección para un nodo pasivo. Para los nodos pasivos, `replica` se configura como `enabled`.
 

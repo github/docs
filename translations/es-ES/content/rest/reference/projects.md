@@ -1,13 +1,16 @@
 ---
 title: Proyectos
+intro: 'La API de Proyectos te permite crear, listar, actualizar, borrar y personalizar los proyectos en un repositorio.'
 redirect_from:
   - /v3/projects
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}

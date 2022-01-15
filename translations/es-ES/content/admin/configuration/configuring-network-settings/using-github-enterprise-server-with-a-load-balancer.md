@@ -2,25 +2,28 @@
 title: Utilizar el servidor de GitHub Enterprise con un balanceador de carga
 intro: 'Utiliza un balanceador de carga frente a un aparato único del {% data variables.product.prodname_ghe_server %} o un par de aparatos en una configuración de alta disponibilidad.'
 redirect_from:
-  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer/
+  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
   - Networking
+shortTitle: Utilizar un balanceador de carga
 ---
+
+## Acerca de los balanceadores de carga
 
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-### Manejar información de conexión de clientes
+## Manejar información de conexión de clientes
 
 Debido a que las conexiones de cliente al {% data variables.product.prodname_ghe_server %} provienen del balanceador de carga, se puede perder la dirección IP del cliente.
 
@@ -28,9 +31,13 @@ Debido a que las conexiones de cliente al {% data variables.product.prodname_ghe
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### Habilitar soporte para protocolo de PROXY en {% data variables.product.product_location %}
+{% data reusables.enterprise_installation.terminating-tls %}
 
-Recomendamos firmemente habilitar el soporte para protocolo de PROXY para tu aparato y el balanceador de carga. Utiliza las instrucciones provistas por tu proveedor para habilitar el protocolo PROXY en tu balanceador de carga. Para obtener más información, consulta [la documentación de protocolo PROXY](http://www.haproxy.org/download/1.6/doc/proxy-protocol.txt).
+### Habilitar soporte para protocolo de PROXY en {% data variables.product.product_location %}
+
+Recomendamos firmemente habilitar el soporte para protocolo de PROXY para tu aparato y el balanceador de carga. Utiliza las instrucciones provistas por tu proveedor para habilitar el protocolo PROXY en tu balanceador de carga. Para obtener más información, consulta [la documentación de protocolo PROXY](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
+
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -40,11 +47,9 @@ Recomendamos firmemente habilitar el soporte para protocolo de PROXY para tu apa
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### Habilitar soporte para X-Forwarded-For en {% data variables.product.product_location %}
+### Habilitar soporte para X-Forwarded-For en {% data variables.product.product_location %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
-
-{% data reusables.enterprise_installation.terminating-tls %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -54,7 +59,7 @@ Recomendamos firmemente habilitar el soporte para protocolo de PROXY para tu apa
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-### Configurar la revisión de estado
+## Configurar la revisión de estado
 
 Las comprobaciones de estado permiten que un balanceador de carga deje de enviar tráfico a un nodo que no responde si una comprobación preconfigurada falla en ese nodo. Si el aparato está fuera de línea debido a un mantenimiento o una falla inesperada, el balanceador de carga puede mostrar una página de estado. En una configuración de alta disponibilidad (HA), un balanceador de carga puede usarse como parte de una estrategia de conmutación por error. Sin embargo, no está admitida la conmutación por error automática de los pares de HA. Debes impulsar de forma manual el aparato réplica antes de que comience con las consultas activas. Para obtener más información, consulta "[Configurar el {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
 

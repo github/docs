@@ -1,13 +1,16 @@
 ---
 title: 検索
+intro: '{% data variables.product.product_name %} Search APIを使うと、特定のアイテムを効率的に検索できます。'
 redirect_from:
   - /v3/search
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 Search API は、見つけたい特定の項目を検索するために役立ちます。 たとえば、リポジトリ内のユーザや特定のファイルを見つけることができます。 Google で検索を実行するのと同じように考えてください。 Search API は、探している 1 つの結果 (または探しているいくつかの結果) を見つけるために役立つよう設計されています。 Google で検索する場合と同じように、ニーズに最も合う項目を見つけるため、検索結果を数ページ表示したい場合もあるでしょう。 こうしたニーズを満たすため、{% data variables.product.product_name %} Search API では**各検索につき 最大 1,000 件の結果**を提供します。
@@ -48,7 +51,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-使用可能な修飾子の完全な一覧、フォーマット、使用例については、「[GitHub での検索](/articles/searching-on-github/)」を参照してください。 特定の数量、日付に一致させたり、検索結果から除外したりするために演算子を使う方法の詳細については、「[検索構文を理解する](/articles/understanding-the-search-syntax/)」を参照してください。
+See "[Searching on GitHub](/search-github/searching-on-github)" for a complete list of available qualifiers, their format, and an example of how to use them. For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
 
 ### クエリの長さの制限
 
@@ -66,7 +69,7 @@ Search API は、以下のクエリをサポートしていません。
 
 ### アクセスエラーまたは検索結果の欠落
 
-検索クエリでは、認証に成功してリポジトリにアクセスできるようにする必要があります。そうしない場合は、`422 Unprocessible Entry` エラーと、「Validation Failed」というメッセージが表示されます。 たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
+You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessable Entry` error with a "Validation Failed" message. たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
 
 検索クエリで複数のリソースをリクエストする場合、レスポンスにはあなたがアクセスできるリソースのみが含まれ、返されないリソースを一覧表示するようなエラーメッセージは**表示されません**。
 

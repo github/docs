@@ -1,0 +1,1 @@
+您可以直接从 {% data variables.product.prodname_vscode %} 连接至您的代码空间。 更多信息请参阅“[在 {% data variables.product.prodname_vscode %} 中使用代码空间](/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code)”。

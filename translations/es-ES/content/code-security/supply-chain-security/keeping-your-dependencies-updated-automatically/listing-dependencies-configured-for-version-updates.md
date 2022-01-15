@@ -1,32 +1,41 @@
 ---
-title: Listar dependencias configuradas para las actualizaciones de versión
-intro: 'Puedes ver las dependencias que monitorea el {% data variables.product.prodname_dependabot %} pára encontrar actualizaciones.'
+title: Listing dependencies configured for version updates
+intro: 'You can view the dependencies that {% data variables.product.prodname_dependabot %} monitors for updates.'
 redirect_from:
   - /github/administering-a-repository/listing-dependencies-configured-for-version-updates
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Repositories
   - Dependabot
   - Version updates
   - Dependencies
+shortTitle: List configured dependencies
 ---
 
-### Visualizar dependencias que monitorea el {% data variables.product.prodname_dependabot %}
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
 
-Después de que habilites las actualizaciones de versión, puedes confirmar que tu configuración es la correcta si utilizas la pestaña de **{% data variables.product.prodname_dependabot %}** en la gráfica de dependencias para el repositorio. Para obtener más información, consulta la sección "[Habilitar e inhabilitar las actualizaciones de versión](/github/administering-a-repository/enabling-and-disabling-version-updates)".
+## Viewing dependencies monitored by {% data variables.product.prodname_dependabot %}
+
+After you've enabled version updates, you can confirm that your configuration is correct using the **{% data variables.product.prodname_dependabot %}** tab in the dependency graph for the repository. For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
 {% data reusables.dependabot.click-dependabot-tab %}
-5. Opcionalmente, para ver los archivos que se monitorean para un administrador de paquete, da clic en el {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} asociado. ![Archivos de dependencia monitoreados](/assets/images/help/dependabot/monitored-dependency-files.png)
+1. Optionally, to view the files monitored for a package manager, click the associated {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+  ![Monitored dependency files](/assets/images/help/dependabot/monitored-dependency-files.png)
 
-Si no encuentras alguna dependencia, revisa los archivos de bitácora para ver los errores. En caso de que no encuentres algún administrador de paquete, revisa el archivo de configuración.
+If any dependencies are missing, check the log files for errors. If any package managers are missing, review the configuration file.
 
-### Visualizar los archivos de bitácora del {% data variables.product.prodname_dependabot %}
+## Viewing {% data variables.product.prodname_dependabot %} log files
 
-1. En la **pestaña de {% data variables.product.prodname_dependabot %}**, da clic en **Revisado por última vez hace *TIME*** para ver el archivo de bitácora que generó el {% data variables.product.prodname_dependabot %} durante su última verificación de actualizaciones de versión. ![Ver el archivo de bitácora](/assets/images/help/dependabot/last-checked-link.png)
-2. Opcionalmente, para volver a ejecutar la revisión de versión, da clic en **Revisar si hay actualizaciones**. ![Revisar si hay actualizaciones](/assets/images/help/dependabot/check-for-updates.png)
+1. On the **{% data variables.product.prodname_dependabot %}** tab, click **Last checked *TIME* ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates.
+  ![View log file](/assets/images/help/dependabot/last-checked-link.png)
+2. Optionally, to rerun the version check, click **Check for updates**.
+  ![Check for updates](/assets/images/help/dependabot/check-for-updates.png)

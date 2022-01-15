@@ -35,6 +35,7 @@ The day after a GHES version's [deprecation date](https://github.com/github/docs
 
 ## Step 3: Commit and push changes to help-docs-archived-enterprise-versions repo
 
+- [ ] Search for `site-search-input` in the compressed Javascript files. When you find it, use something like https://beautifier.io/ to reformat it to be readable. Find `site-search-input` in the file, there will be something like... `1125: function () { return [SearchReactComponent] },` Delete the innards of this function, but leave the `function() {}` part.
 - [ ] In your archival checkout, `git add <version>`, commit, and push.
 - [ ] Open a PR and merge it in. Note that the version will _not_ be deprecated on the docs site until you do the next step.
 
@@ -47,12 +48,15 @@ In your `docs-internal` checkout:
     - [ ] Tests are passing.
     - [ ] The deprecated version renders on staging as expected. You should be able to navigate to docs.github.com/enterprise/<DEPRECATED VERSION> to access the docs. You should also be able to navigate to a page that is available in the deprecated version and change the version in the URL to the deprecated version, to test redirects.
     - [ ] The new oldest supported version renders on staging as expected. You should see a banner on the top of every page for the oldest supported version that notes when the version will be deprecated.
+    
+You may need to include the changes in step 6 to get tests to pass.
 
 ## Step 5: Remove static files for the version
 
 - [ ] In your `docs-internal` checkout, from your `remove-<version>-static-files` branch: `git checkout -b remove-<version>-static-files`
 - [ ] Run `script/enterprise-server-deprecations/remove-static-files.js` and commit results.
 - [ ] Run `script/enterprise-server-deprecations/remove-redirects.js` and commit results.
+- [ ] `lib/rest/static` directory has deferenced and decorated directory underneath, remove the numbered version and all below from the list
 - [ ] Open a new PR.
 - [ ] Get a review from docs-engineering and merge. This step can be merged independently from step 6. The purpose of splitting up steps 5 and 6 is to focus the review on specific files.
 
@@ -66,3 +70,8 @@ In your `docs-internal` checkout:
     - [ ] Debug any test failures or unexpected results. 
 - [ ] When the PR is approved, merge it in to complete the deprecation. This can be merged independently from step 5. 
 
+## Step 7: Deprecate the OpenAPI description in `github/github`
+    
+- [ ] In `github/github`, edit the release's config file in `app/api/description/config/releases/`, and change `deprecated: false` to `deprecated: true`.
+- [ ] Open a new PR, and get the required code owner approvals. A docs-content team member can approve it for the docs team.
+- [ ] When the PR is approved, merge the `github/github` PR.

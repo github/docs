@@ -1,48 +1,48 @@
 ---
 title: Cofnigurar SCIM y el inicio de sesión único de SAML con Okta
-intro: 'Puedes utilizar el inicio de sesión único (SSO) del Lenguaje de Marcado para Confirmaciones de Seguridad (SAML) y un Sistema para la Administración de Identidad a través de los Dominios (SCIM) con Okta para administrar automáticamente el acceso a tu organización en {% data variables.product.prodname_dotcom %}.'
+intro: 'Puedes utilizar el inicio de sesión único (SSO) del Lenguaje de Marcado para Confirmaciones de Seguridad (SAML) y un Sistema para la Administración de Identidad a través de los Dominios (SCIM) con Okta para administrar automáticamente el acceso a tu organización en {% data variables.product.product_location %}.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/configuring-saml-single-sign-on-and-scim-using-okta
-product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Configurar SAML & SCIM con Okta
 ---
 
-### Acerca de SAML y SCIM con Okta
+## Acerca de SAML y SCIM con Okta
 
-Puedes controlar el acceso a tu organización de {% data variables.product.prodname_dotcom %} y a otras aplicaciones web desde una interface central si configuras la organización para que utilice el SSO de SAML con Okta, un Proveedor de Identidad (IdP).
+Puedes controlar el acceso a tu organización en {% data variables.product.product_location %} y a otras aplicaciones web desde una interface central si configuras dicha organización para que utilice el SSO de SAML y SCIM con Okta, un proveedor de identidad (IdP).
 
-El SSO de SAML controla y asegura el acceso a los recursos organizacionales como los repositorios, informes de problemas y solicitudes de extracción. SCIM agrega automáticamente, administra y elimina el acceso de los miembros a tu organización de {% data variables.product.prodname_dotcom %} cuando haces cambios en Okta. Para obtener más información, consulta la sección "[Acerca de la administración de accesos e identidad con el inicio de sesión único de SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)" y "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+El SSO de SAML controla y asegura el acceso a los recursos organizacionales como los repositorios, informes de problemas y solicitudes de extracción. SCIM agrega, administra y elimina automáticamente el acceso a tu organización en {% data variables.product.product_location %} cuando haces cambios en Okta. Para obtener más información, consulta la sección "[Acerca de la administración de accesos e identidad con el inicio de sesión único de SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)" y "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
 
 Después de que habilites SCIM, las siguientes características de aprovisionamiento estarán disponibles para cualquier usuario al que asignes tu aplicación de {% data variables.product.prodname_ghe_cloud %} en Okta.
 
-| Característica                    | Descripción                                                                                                                                                                            |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Subir Usuarios Nuevos             | Cuando creas un usuario nuevo en Okta, éste recibirá un correo electrónico para unirse a tu organización de {% data variables.product.prodname_dotcom %}.                              |
-| Subir Desactivaciones de Usuarios | Cuando desactivas un usuario en Okta, Okta lo eliminará de tu organización de {% data variables.product.prodname_dotcom %}.                                                            |
-| Subir Actualizaciones de Perfil   | Cuando actualizas el perfil de un usuario en Okta, Okta actualizará los metadatos de su membrecía en tu organización de {% data variables.product.prodname_dotcom %}.                  |
-| Reactivar Usuarios                | Cuando reactivas un usuario en Okta, Okta le enviará una invitación por correo electrónico para que vuelva a unirse a tu organización de {% data variables.product.prodname_dotcom %}. |
+| Característica                    | Descripción                                                                                                                                                                                       |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Subir Usuarios Nuevos             | Cuando creas un usuario nuevo en Okta, este recibirá un mensaje de correo electrónico para unirse a tu organización de {% data variables.product.product_location %}.                             |
+| Subir Desactivaciones de Usuarios | Cuando desactivas a un usuario en Okta, Okta lo eliminará de tu organización en {% data variables.product.product_location %}.                                                                    |
+| Subir Actualizaciones de Perfil   | Cuando actualizas el perfil de un usuario en Okta, Okta actualizará los metadatos de la membrecía de dicho usuario de tu organización en {% data variables.product.product_location %}.           |
+| Reactivar Usuarios                | Cuando reactivas a un usuario en Okta, Okta enviará una invitación por correo electrónico al usuario para que vuelva a unirse a tu organización de {% data variables.product.product_location %}. |
 
-### Prerrequisitos
+## Prerrequisitos
 
 {% data reusables.saml.use-classic-ui %}
 
-### Agregar la aplicación {% data variables.product.prodname_ghe_cloud %} en Okta
+## Agregar la aplicación {% data variables.product.prodname_ghe_cloud %} en Okta
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.add-okta-application %}
 {% data reusables.saml.search-ghec-okta %}
 4. Da clic en **Agregar** a la derecha de "Github Enterprise Cloud - Organization". ![Dar clic en "Agregar" para la aplicación de {% data variables.product.prodname_ghe_cloud %}](/assets/images/help/saml/okta-add-ghec-application.png)
 
-5. En el campo **Organizaciòn de GitHub**, teclea el nombre de tu organizaciòn de {% data variables.product.prodname_dotcom %}. Por ejemplo, si la URL de de tu organizaciòn es https://github.com/octo-org, el nombre de organizaciòn serìa `octo-org`. ![Teclear el nombre de organización de GitHub](/assets/images/help/saml/okta-github-organization-name.png)
+5. En el campo **Organización de GitHub**, teclea el nombre de tu organización de {% data variables.product.product_location %}. Por ejemplo, si la URL de de tu organizaciòn es https://github.com/octo-org, el nombre de organizaciòn serìa `octo-org`. ![Teclear el nombre de organización de GitHub](/assets/images/help/saml/okta-github-organization-name.png)
 
 6. Haz clic en **Done** (listo).
 
-### Habilitar y probar el SSO de SAML
+## Habilitar y probar el SSO de SAML
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
@@ -51,7 +51,7 @@ Después de que habilites SCIM, las siguientes características de aprovisionami
 {% data reusables.saml.okta-view-setup-instructions %}
 6. Habilita y prueba el SSO de SAML en {% data variables.product.prodname_dotcom %} utilizando la URL de registro, URL del emisor, y certificados pùblicos de la guìa "Còmo configurar SAML 2.0". Para obtener más información, consulta "[Habilitar y probar el inicio de sesión único para tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)".
 
-### Configurar el aprovisionamiento de acceso con SCIM en Okta
+## Configurar el aprovisionamiento de acceso con SCIM en Okta
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
@@ -73,9 +73,9 @@ Después de que habilites SCIM, las siguientes características de aprovisionami
 {% data reusables.saml.okta-save-provisioning %}
 {% data reusables.saml.okta-edit-provisioning %}
 
-### Leer más
+## Leer más
 
-- "[Configurar el inicio de sesión único de SAML y SCIM para tu cuenta empresarial utilizando Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
+- "[Configurar el inicio de sesión único de SAML para tu cuenta empresarial utilizando Okta](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)"
 - "[Administrar la sincronización de equipos para tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - [Understanding SAML](https://developer.okta.com/docs/concepts/saml/) en la documentación de Okta
 - [Understanding SCIM](https://developer.okta.com/docs/concepts/scim/) en la documentación de Okta

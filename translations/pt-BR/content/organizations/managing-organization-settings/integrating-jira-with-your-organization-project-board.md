@@ -5,8 +5,9 @@ redirect_from:
   - /articles/integrating-jira-with-your-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/integrating-jira-with-your-organization-project-board
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Integrate Jira
 ---
 
 {% data reusables.user_settings.access_settings %}
@@ -20,7 +21,7 @@ versions:
 9. Em **Organization owned applications** (Aplicativos de propriedade da organização), anote os valores "Client ID" (ID do cliente) e "Client Secret" (Chave secreta do cliente). ![Client ID (ID do cliente) e Client Secret (Chave secreta do cliente)](/assets/images/help/oauth/client-id-and-secret.png)
 {% data reusables.user_settings.jira_help_docs %}
 
-### Leia mais
+## Leia mais
 
 - ["Integrar o Jira com seus projetos pessoais"](/articles/integrating-jira-with-your-personal-projects)
 - <a href="https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html" data-proofer-ignore>Conectar o Jira Cloud ao GitHub</a> (documentação Atlassian)

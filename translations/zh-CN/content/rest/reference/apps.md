@@ -1,63 +1,64 @@
 ---
-title: 应用
+title: Apps
+intro: 'The GitHub Apps API enables you to retrieve the information about the installation as well as specific information about GitHub Apps.'
 redirect_from:
   - /v3/apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
-
-GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次信息以及有关应用程序安装设施的特定信息。 要了解有关 GitHub 应用程序的更多信息，请参阅“[验证为 GitHub 应用程序](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)”。
 
 {% data reusables.apps.general-apps-restrictions %}
 
-本页列出了验证为 GitHub 应用程序后可访问的端点。 更多信息请参阅“[验证为 GitHub 应用程序](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)”。
+This page lists endpoints that you can access while authenticated as a GitHub App. See "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)" to learn more.
 
-验证为 GitHub 应用程序后，GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次信息以及有关应用程序安装的特定信息。
+When authenticated as a GitHub App, the GitHub Apps API enables you to get high-level information about a GitHub App as well as specific information about installations of an app.
 
-验证为 GitHub 应用程序后，您可以访问 REST API v3 端点。 这些端点带有“备注”部分，即“与 GitHub 应用程序结合使用”。 验证为用户后也可以访问这些端点。
+You can access REST API v3 endpoints while authenticated as a GitHub App. These endpoints have a "Notes" section that contains a bullet point that says "Works with GitHub Apps." You can also access these endpoints while authenticated as a user.
 
-某些 REST API v3 端点需要验证为 GitHub 应用程序安装设施。 有关这些端点的列表，请参阅[安装设施](/rest/reference/apps#installations)。
+A subset of REST API v3 endpoints requires authenticating as a GitHub App installation. See [Installations](/rest/reference/apps#installations) for a list of these endpoints.
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## OAuth 应用程序 API
+## OAuth Applications API
 
-您可以使用此 API 来管理 OAuth 应用程序用于管理用户的 {% data variables.product.prodname_dotcom %} 帐户的 OAuth 令牌。
+You can use this API to manage the OAuth tokens an OAuth application uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'oauth-applications' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 安装设施
+## Installations
 
-安装设施 API 使您能够获取有关 GitHub 应用程序安装设施的信息并在这些安装设施中执行操作。 _安装设施_是指已安装该应用程序的任何用户或组织帐户。 有关如何验证为安装设施和限制访问特定仓库的信息，请参阅“[验证为安装设施](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)”。
+The Installations API enables you to get information about installations of your GitHub App and perform actions within those installations. An _installation_ refers to any user or organization account that has installed the app. For information on how to authenticate as an installation and limit access to specific repositories, see "[Authenticating as an installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 
-要列出组织的所有 GitHub 应用程序安装设施，请参阅“[列出组织的应用程序安装设施](/rest/reference/orgs#list-app-installations-for-an-organization)”。
+To list all GitHub App installations for an organization, see "[List app installations for an organization](/rest/reference/orgs#list-app-installations-for-an-organization)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 ## Marketplace
 
-有关 {% data variables.product.prodname_marketplace %} 的更多信息，请参阅“[GitHub Marketplace](/marketplace/)”。
+For more information about {% data variables.product.prodname_marketplace %}, see "[GitHub Marketplace](/marketplace/)."
 
-{% data variables.product.prodname_marketplace %} API 允许您查看哪些客户正在使用定价计划，查看客户的购买情况，以及查看帐户是否具有有效订阅。
+The {% data variables.product.prodname_marketplace %} API allows you to see which customers are using a pricing plan, see a customer's purchases, and see if an account has an active subscription.
 
-### 使用存根端点进行测试
+### Testing with stubbed endpoints
 
-此 API 包括允许您使用**存根数据**测试 {% data variables.product.prodname_github_app %} 的端点。 存根数据是硬编码的假数据，不会根据实际订阅而更改。
+This API includes endpoints that allow you to [test your {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) with **stubbed data**. Stubbed data is hard-coded, fake data that will not change based on actual subscriptions.
 
-要使用存根数据进行测试，请使用存根端点代替其对应的生产端点。 这允许您在 {% data variables.product.prodname_marketplace %} 上列出 {% data variables.product.prodname_github_app %} 之前测试 API 逻辑是否成功。
+To test with stubbed data, use a stubbed endpoint in place of its production counterpart. This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_apps %} on {% data variables.product.prodname_marketplace %}.
 
-在部署您的 {% data variables.product.prodname_github_app %} 之前，请务必将存根端点替换为生产端点。
+Be sure to replace stubbed endpoints with production endpoints before deploying your {% data variables.product.prodname_github_app %}.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'marketplace' %}{% include rest_operation %}{% endif %}
@@ -65,8 +66,10 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-## Web 挂钩
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
+## Webhooks
+
+A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}

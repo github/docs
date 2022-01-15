@@ -2,18 +2,19 @@
 title: 创建 OAuth 应用程序
 intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps
   - /apps/building-oauth-apps/creating-an-oauth-app
   - /developers/apps/creating-an-oauth-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **注意：** {% data reusables.apps.maximum-oauth-apps-allowed %}
@@ -42,7 +43,7 @@ topics:
 7. 在“Homepage URL（主页 URL）”中，输入应用程序网站的完整 URL。 ![应用程序主页 URL 字段](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
 8. （可选）在“Application description（应用程序说明）”中，输入用户将看到的应用程序说明。 ![应用程序说明字段](/assets/images/oauth-apps/oauth_apps_application_description.png)
 9. 在“Authorization callback URL（授权回调 URL）”中，输入应用程序的回调 URL。 ![应用程序的授权回调 URL 字段](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
    {% note %}
 
    **注：**与 {% data variables.product.prodname_github_apps %} 不同，OAuth 应用程序不能有多个回调 URL。

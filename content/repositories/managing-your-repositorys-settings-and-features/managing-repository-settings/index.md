@@ -1,10 +1,11 @@
 ---
 title: Managing repository settings
-intro: 'You can choose the way your repository functions by managing repository settings.'
+intro: You can choose the way your repository functions by managing repository settings.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 children:

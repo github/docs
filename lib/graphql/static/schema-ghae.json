@@ -449,6 +449,15 @@
         "description": "<p>Lookup a given repository by the owner and repository name.</p>",
         "args": [
           {
+            "name": "followRenames",
+            "defaultValue": true,
+            "type": "Boolean",
+            "id": "boolean",
+            "kind": "scalars",
+            "href": "/graphql/reference/scalars#boolean",
+            "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>"
+          },
+          {
             "name": "name",
             "type": "String!",
             "id": "string",
@@ -1545,7 +1554,7 @@
       "kind": "mutations",
       "id": "createcommitonbranch",
       "href": "/graphql/reference/mutations#createcommitonbranch",
-      "description": "<p>Appends a commit to the given branch as the authenticated user.</p>\n<p>This mutation creates a commit whose parent is the HEAD of the provided\nbranch and also updates that branch to point to the new commit.\nIt can be thought of as similar to <code>git commit</code>.</p>\n<h3 id=\"locating-a-branch\"><a href=\"#locating-a-branch\">Locating a Branch</a></h3>\n<p>Commits are appended to a <code>branch</code> of type <code>Ref</code>.\nThis must refer to a git branch (i.e.  the fully qualified path must\nbegin with <code>refs/heads/</code>, although including this prefix is optional.</p>\n<p>Callers may specify the <code>branch</code> to commit to either by its global node\nID or by passing both of <code>repositoryNameWithOwner</code> and <code>refName</code>.  For\nmore details see the documentation for <code>CommittableBranch</code>.</p>\n<h3 id=\"describing-changes\"><a href=\"#describing-changes\">Describing Changes</a></h3>\n<p><code>fileChanges</code> are specified as a <code>FilesChanges</code> object describing\n<code>FileAdditions</code> and <code>FileDeletions</code>.</p>\n<p>Please see the documentation for <code>FileChanges</code> for more information on\nhow to use this argument to describe any set of file changes.</p>\n<h3 id=\"authorship\"><a href=\"#authorship\">Authorship</a></h3>\n<p>Similar to the web commit interface, this mutation does not support\nspecifying the author or committer of the commit and will not add\nsupport for this in the future.</p>\n<p>A commit created by a successful execution of this mutation will be\nauthored by the owner of the credential which authenticates the API\nrequest.  The committer will be identical to that of commits authored\nusing the web interface.</p>\n<p>If you need full control over author and committer information, please\nuse the Git Database REST API instead.</p>\n<h3 id=\"commit-signing\"><a href=\"#commit-signing\">Commit Signing</a></h3>\n<p>Commits made using this mutation are automatically signed by GitHub if\nsupported and will be marked as verified in the user interface.</p>",
+      "description": "<p>Appends a commit to the given branch as the authenticated user.</p>\n<p>This mutation creates a commit whose parent is the HEAD of the provided\nbranch and also updates that branch to point to the new commit.\nIt can be thought of as similar to <code>git commit</code>.</p>\n<h3 id=\"locating-a-branch\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#locating-a-branch\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Locating a Branch</h3>\n<p>Commits are appended to a <code>branch</code> of type <code>Ref</code>.\nThis must refer to a git branch (i.e.  the fully qualified path must\nbegin with <code>refs/heads/</code>, although including this prefix is optional.</p>\n<p>Callers may specify the <code>branch</code> to commit to either by its global node\nID or by passing both of <code>repositoryNameWithOwner</code> and <code>refName</code>.  For\nmore details see the documentation for <code>CommittableBranch</code>.</p>\n<h3 id=\"describing-changes\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#describing-changes\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Describing Changes</h3>\n<p><code>fileChanges</code> are specified as a <code>FilesChanges</code> object describing\n<code>FileAdditions</code> and <code>FileDeletions</code>.</p>\n<p>Please see the documentation for <code>FileChanges</code> for more information on\nhow to use this argument to describe any set of file changes.</p>\n<h3 id=\"authorship\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#authorship\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Authorship</h3>\n<p>Similar to the web commit interface, this mutation does not support\nspecifying the author or committer of the commit and will not add\nsupport for this in the future.</p>\n<p>A commit created by a successful execution of this mutation will be\nauthored by the owner of the credential which authenticates the API\nrequest.  The committer will be identical to that of commits authored\nusing the web interface.</p>\n<p>If you need full control over author and committer information, please\nuse the Git Database REST API instead.</p>\n<h3 id=\"commit-signing\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#commit-signing\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Commit Signing</h3>\n<p>Commits made using this mutation are automatically signed by GitHub if\nsupported and will be marked as verified in the user interface.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -1579,54 +1588,6 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#ref",
           "description": "<p>The ref which has been updated to point to the new commit.</p>"
-        }
-      ]
-    },
-    {
-      "name": "createContentAttachment",
-      "kind": "mutations",
-      "id": "createcontentattachment",
-      "href": "/graphql/reference/mutations#createcontentattachment",
-      "description": "<p>Create a content attachment.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Create content attachments preview",
-        "description": "This preview adds support for creating content attachments.",
-        "toggled_by": "corsair-preview",
-        "toggled_on": [
-          "Mutation.createContentAttachment"
-        ],
-        "owning_teams": [
-          "@github/feature-lifecycle"
-        ],
-        "accept_header": "application/vnd.github.corsair-preview+json",
-        "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
-      },
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "CreateContentAttachmentInput!",
-          "id": "createcontentattachmentinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#createcontentattachmentinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "contentAttachment",
-          "type": "ContentAttachment",
-          "id": "contentattachment",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#contentattachment",
-          "description": "<p>The newly created content attachment.</p>"
         }
       ]
     },
@@ -2789,6 +2750,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequestreview",
           "description": "<p>The dismissed pull request review.</p>"
+        }
+      ]
+    },
+    {
+      "name": "dismissRepositoryVulnerabilityAlert",
+      "kind": "mutations",
+      "id": "dismissrepositoryvulnerabilityalert",
+      "href": "/graphql/reference/mutations#dismissrepositoryvulnerabilityalert",
+      "description": "<p>Dismisses the Dependabot alert.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DismissRepositoryVulnerabilityAlertInput!",
+          "id": "dismissrepositoryvulnerabilityalertinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#dismissrepositoryvulnerabilityalertinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repositoryVulnerabilityAlert",
+          "type": "RepositoryVulnerabilityAlert",
+          "id": "repositoryvulnerabilityalert",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryvulnerabilityalert",
+          "description": "<p>The Dependabot alert that was dismissed.</p>"
         }
       ]
     },
@@ -5283,6 +5278,48 @@
       ]
     },
     {
+      "name": "updateOrganizationAllowPrivateRepositoryForkingSetting",
+      "kind": "mutations",
+      "id": "updateorganizationallowprivaterepositoryforkingsetting",
+      "href": "/graphql/reference/mutations#updateorganizationallowprivaterepositoryforkingsetting",
+      "description": "<p>Sets whether private repository forks are enabled for an organization.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateOrganizationAllowPrivateRepositoryForkingSettingInput!",
+          "id": "updateorganizationallowprivaterepositoryforkingsettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateorganizationallowprivaterepositoryforkingsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of updating the allow private repository forking setting.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization with the updated allow private repository forking setting.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateProject",
       "kind": "mutations",
       "id": "updateproject",
@@ -5408,6 +5445,40 @@
           "href": "/graphql/reference/interfaces#actor",
           "description": "<p>Identifies the actor who performed the event.</p>"
         },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The updated pull request.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updatePullRequestBranch",
+      "kind": "mutations",
+      "id": "updatepullrequestbranch",
+      "href": "/graphql/reference/mutations#updatepullrequestbranch",
+      "description": "<p>Merge HEAD from upstream branch into pull request branch.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdatePullRequestBranchInput!",
+          "id": "updatepullrequestbranchinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updatepullrequestbranchinput"
+        }
+      ],
+      "returnFields": [
         {
           "name": "clientMutationId",
           "type": "String",
@@ -7096,6 +7167,106 @@
           ]
         },
         {
+          "name": "bypassForcePushAllowances",
+          "description": "<p>A list of actors able to force push for this branch protection rule.</p>",
+          "type": "BypassForcePushAllowanceConnection!",
+          "id": "bypassforcepushallowanceconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypassforcepushallowanceconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "bypassPullRequestAllowances",
+          "description": "<p>A list of actors able to bypass PRs for this branch protection rule.</p>",
+          "type": "BypassPullRequestAllowanceConnection!",
+          "id": "bypasspullrequestallowanceconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypasspullrequestallowanceconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "creator",
           "description": "<p>The actor who created this branch protection rule.</p>",
           "type": "Actor",
@@ -7268,6 +7439,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>List of required status checks that must pass for commits to be accepted to matching branches.</p>",
+          "type": "[RequiredStatusCheckDescription!]",
+          "id": "requiredstatuscheckdescription",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#requiredstatuscheckdescription"
         },
         {
           "name": "requiresApprovingReviews",
@@ -7555,6 +7734,202 @@
           "id": "branchprotectionrule",
           "kind": "objects",
           "href": "/graphql/reference/objects#branchprotectionrule"
+        }
+      ]
+    },
+    {
+      "name": "BypassForcePushAllowance",
+      "kind": "objects",
+      "id": "bypassforcepushallowance",
+      "href": "/graphql/reference/objects#bypassforcepushallowance",
+      "description": "<p>A team or user who has the ability to bypass a force push requirement on a protected branch.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor that can dismiss.</p>",
+          "type": "BranchActorAllowanceActor",
+          "id": "branchactorallowanceactor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#branchactorallowanceactor"
+        },
+        {
+          "name": "branchProtectionRule",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user or team.</p>",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#branchprotectionrule"
+        }
+      ]
+    },
+    {
+      "name": "BypassForcePushAllowanceConnection",
+      "kind": "objects",
+      "id": "bypassforcepushallowanceconnection",
+      "href": "/graphql/reference/objects#bypassforcepushallowanceconnection",
+      "description": "<p>The connection type for BypassForcePushAllowance.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[BypassForcePushAllowanceEdge]",
+          "id": "bypassforcepushallowanceedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypassforcepushallowanceedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[BypassForcePushAllowance]",
+          "id": "bypassforcepushallowance",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypassforcepushallowance"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "BypassForcePushAllowanceEdge",
+      "kind": "objects",
+      "id": "bypassforcepushallowanceedge",
+      "href": "/graphql/reference/objects#bypassforcepushallowanceedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "BypassForcePushAllowance",
+          "id": "bypassforcepushallowance",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypassforcepushallowance"
+        }
+      ]
+    },
+    {
+      "name": "BypassPullRequestAllowance",
+      "kind": "objects",
+      "id": "bypasspullrequestallowance",
+      "href": "/graphql/reference/objects#bypasspullrequestallowance",
+      "description": "<p>A team or user who has the ability to bypass a pull request requirement on a protected branch.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor that can dismiss.</p>",
+          "type": "BranchActorAllowanceActor",
+          "id": "branchactorallowanceactor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#branchactorallowanceactor"
+        },
+        {
+          "name": "branchProtectionRule",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user or team.</p>",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#branchprotectionrule"
+        }
+      ]
+    },
+    {
+      "name": "BypassPullRequestAllowanceConnection",
+      "kind": "objects",
+      "id": "bypasspullrequestallowanceconnection",
+      "href": "/graphql/reference/objects#bypasspullrequestallowanceconnection",
+      "description": "<p>The connection type for BypassPullRequestAllowance.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[BypassPullRequestAllowanceEdge]",
+          "id": "bypasspullrequestallowanceedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypasspullrequestallowanceedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[BypassPullRequestAllowance]",
+          "id": "bypasspullrequestallowance",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypasspullrequestallowance"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "BypassPullRequestAllowanceEdge",
+      "kind": "objects",
+      "id": "bypasspullrequestallowanceedge",
+      "href": "/graphql/reference/objects#bypasspullrequestallowanceedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "BypassPullRequestAllowance",
+          "id": "bypasspullrequestallowance",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#bypasspullrequestallowance"
         }
       ]
     },
@@ -10556,72 +10931,6 @@
       ]
     },
     {
-      "name": "ContentAttachment",
-      "kind": "objects",
-      "id": "contentattachment",
-      "href": "/graphql/reference/objects#contentattachment",
-      "description": "<p>A content attachment.</p>",
-      "fields": [
-        {
-          "name": "body",
-          "description": "<p>The body text of the content attachment. This parameter supports markdown.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "contentReference",
-          "description": "<p>The content reference that the content attachment is attached to.</p>",
-          "type": "ContentReference!",
-          "id": "contentreference",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#contentreference"
-        },
-        {
-          "name": "databaseId",
-          "description": "<p>Identifies the primary key from the database.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
-        },
-        {
-          "name": "title",
-          "description": "<p>The title of the content attachment.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        }
-      ]
-    },
-    {
-      "name": "ContentReference",
-      "kind": "objects",
-      "id": "contentreference",
-      "href": "/graphql/reference/objects#contentreference",
-      "description": "<p>A content reference.</p>",
-      "fields": [
-        {
-          "name": "databaseId",
-          "description": "<p>Identifies the primary key from the database.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
-        },
-        {
-          "name": "reference",
-          "description": "<p>The reference of the content reference.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        }
-      ]
-    },
-    {
       "name": "ContributionCalendar",
       "kind": "objects",
       "id": "contributioncalendar",
@@ -11763,6 +12072,46 @@
             "accept_header": "application/vnd.github.starfox-preview+json",
             "href": "/graphql/overview/schema-previews#project-event-details-preview"
           }
+        }
+      ]
+    },
+    {
+      "name": "ConvertedToDiscussionEvent",
+      "kind": "objects",
+      "id": "convertedtodiscussionevent",
+      "href": "/graphql/reference/objects#convertedtodiscussionevent",
+      "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "discussion",
+          "description": "<p>The discussion that the issue was converted into.</p>",
+          "type": "Discussion",
+          "id": "discussion",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#discussion"
         }
       ]
     },
@@ -15424,6 +15773,16 @@
                 "id": "string",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "viewerOrganizationRole",
+              "description": "<p>The viewer's role in an organization.</p>",
+              "type": {
+                "name": "RoleInOrganization",
+                "id": "roleinorganization",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#roleinorganization"
               }
             }
           ]
@@ -30369,6 +30728,14 @@
           ]
         },
         {
+          "name": "membersCanForkPrivateRepositories",
+          "description": "<p>Members can fork private repositories in this organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "membersWithRole",
           "description": "<p>A list of users who are members of this organization.</p>",
           "type": "OrganizationMemberConnection!",
@@ -30862,6 +31229,17 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#repository",
           "arguments": [
+            {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
             {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",
@@ -31359,7 +31737,7 @@
       "kind": "objects",
       "id": "organizationconnection",
       "href": "/graphql/reference/objects#organizationconnection",
-      "description": "<p>The connection type for Organization.</p>",
+      "description": "<p>A list of organizations managed by an enterprise.</p>",
       "fields": [
         {
           "name": "edges",
@@ -37720,11 +38098,11 @@
         },
         {
           "name": "pusher",
-          "description": "<p>The user who pushed.</p>",
-          "type": "User!",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user"
+          "description": "<p>The actor who pushed.</p>",
+          "type": "Actor!",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
         },
         {
           "name": "repository",
@@ -43986,6 +44364,17 @@
               }
             },
             {
+              "name": "filterByAssignable",
+              "defaultValue": false,
+              "description": "<p>Filter by categories that are assignable by the viewer.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "first",
               "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
               "type": {
@@ -46942,6 +47331,31 @@
           "id": "repositoryvulnerabilityalert",
           "kind": "objects",
           "href": "/graphql/reference/objects#repositoryvulnerabilityalert"
+        }
+      ]
+    },
+    {
+      "name": "RequiredStatusCheckDescription",
+      "kind": "objects",
+      "id": "requiredstatuscheckdescription",
+      "href": "/graphql/reference/objects#requiredstatuscheckdescription",
+      "description": "<p>Represents a required status check for a protected branch, but not any specific run of that check.</p>",
+      "fields": [
+        {
+          "name": "app",
+          "description": "<p>The App that must provide this status in order for it to be accepted.</p>",
+          "type": "App",
+          "id": "app",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#app"
+        },
+        {
+          "name": "context",
+          "description": "<p>The name of this status.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -52456,6 +52870,106 @@
           ]
         },
         {
+          "name": "repositories",
+          "description": "<p>A list of repositories.</p>",
+          "type": "RepositoryConnection!",
+          "id": "repositoryconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryconnection",
+          "arguments": [
+            {
+              "name": "affiliations",
+              "description": "<p>Array of viewer's affiliation options for repositories returned from the\nconnection. For example, OWNER will include only repositories that the\ncurrent viewer owns.</p>",
+              "type": {
+                "name": "[RepositoryAffiliation]",
+                "id": "repositoryaffiliation",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryaffiliation"
+              }
+            },
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "isLocked",
+              "description": "<p>If non-null, filters repositories according to whether they have been locked.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for repositories returned from the connection.</p>",
+              "type": {
+                "name": "RepositoryOrder",
+                "id": "repositoryorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#repositoryorder"
+              }
+            },
+            {
+              "name": "ownerAffiliations",
+              "description": "<p>Array of owner's affiliation options for repositories returned from the\nconnection. For example, OWNER will include only repositories that the\norganization or user being viewed owns.</p>",
+              "type": {
+                "name": "[RepositoryAffiliation]",
+                "id": "repositoryaffiliation",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryaffiliation"
+              }
+            },
+            {
+              "name": "privacy",
+              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "type": {
+                "name": "RepositoryPrivacy",
+                "id": "repositoryprivacy",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            }
+          ]
+        },
+        {
           "name": "stargazerCount",
           "description": "<p>Returns a count of how many stargazers there are on this object.</p>",
           "type": "Int!",
@@ -54564,6 +55078,17 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#repository",
           "arguments": [
+            {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
             {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",
@@ -57856,6 +58381,17 @@
           "href": "/graphql/reference/objects#repository",
           "arguments": [
             {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",
               "type": {
@@ -58665,6 +59201,35 @@
       ]
     },
     {
+      "name": "DismissReason",
+      "kind": "enums",
+      "id": "dismissreason",
+      "href": "/graphql/reference/enums#dismissreason",
+      "description": "<p>The possible reasons that a Dependabot alert was dismissed.</p>",
+      "values": [
+        {
+          "name": "FIX_STARTED",
+          "description": "<p>A fix has already been started.</p>"
+        },
+        {
+          "name": "INACCURATE",
+          "description": "<p>This alert is inaccurate or incorrect.</p>"
+        },
+        {
+          "name": "NOT_USED",
+          "description": "<p>Vulnerable code is not actually used.</p>"
+        },
+        {
+          "name": "NO_BANDWIDTH",
+          "description": "<p>No bandwidth to fix this.</p>"
+        },
+        {
+          "name": "TOLERABLE_RISK",
+          "description": "<p>Risk is tolerable to this project.</p>"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseAdministratorInvitationOrderField",
       "kind": "enums",
       "id": "enterpriseadministratorinvitationorderfield",
@@ -59215,6 +59780,10 @@
         {
           "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
           "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
         },
         {
           "name": "CROSS_REFERENCED_EVENT",
@@ -60339,6 +60908,10 @@
           "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+        },
+        {
           "name": "CONVERT_TO_DRAFT_EVENT",
           "description": "<p>Represents a<code>convert_to_draft</code>event on a given pull request.</p>"
         },
@@ -60995,6 +61568,27 @@
       ]
     },
     {
+      "name": "RoleInOrganization",
+      "kind": "enums",
+      "id": "roleinorganization",
+      "href": "/graphql/reference/enums#roleinorganization",
+      "description": "<p>Possible roles a user may have in relation to an organization.</p>",
+      "values": [
+        {
+          "name": "DIRECT_MEMBER",
+          "description": "<p>A user who is a direct member of the organization.</p>"
+        },
+        {
+          "name": "OWNER",
+          "description": "<p>A user with full administrative access to the organization.</p>"
+        },
+        {
+          "name": "UNAFFILIATED",
+          "description": "<p>A user who is unaffiliated with the organization.</p>"
+        }
+      ]
+    },
+    {
       "name": "SamlDigestAlgorithm",
       "kind": "enums",
       "id": "samldigestalgorithm",
@@ -61116,6 +61710,10 @@
         {
           "name": "RUBYGEMS",
           "description": "<p>Ruby gems hosted at RubyGems.org.</p>"
+        },
+        {
+          "name": "RUST",
+          "description": "<p>Rust crates.</p>"
         }
       ]
     },
@@ -61502,6 +62100,25 @@
       ]
     },
     {
+      "name": "BranchActorAllowanceActor",
+      "kind": "unions",
+      "id": "branchactorallowanceactor",
+      "href": "/graphql/reference/unions#branchactorallowanceactor",
+      "description": "<p>Types which can be actors for <code>BranchActorAllowance</code> objects.</p>",
+      "possibleTypes": [
+        {
+          "name": "Team",
+          "id": "team",
+          "href": "/graphql/reference/objects#team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
       "name": "Closer",
       "kind": "unions",
       "id": "closer",
@@ -61798,6 +62415,11 @@
           "name": "ConvertedNoteToIssueEvent",
           "id": "convertednotetoissueevent",
           "href": "/graphql/reference/objects#convertednotetoissueevent"
+        },
+        {
+          "name": "ConvertedToDiscussionEvent",
+          "id": "convertedtodiscussionevent",
+          "href": "/graphql/reference/objects#convertedtodiscussionevent"
         },
         {
           "name": "CrossReferencedEvent",
@@ -62585,6 +63207,11 @@
           "name": "ConvertedNoteToIssueEvent",
           "id": "convertednotetoissueevent",
           "href": "/graphql/reference/objects#convertednotetoissueevent"
+        },
+        {
+          "name": "ConvertedToDiscussionEvent",
+          "id": "convertedtodiscussionevent",
+          "href": "/graphql/reference/objects#convertedtodiscussionevent"
         },
         {
           "name": "CrossReferencedEvent",
@@ -64298,7 +64925,7 @@
       "kind": "inputObjects",
       "id": "committablebranch",
       "href": "/graphql/reference/input-objects#committablebranch",
-      "description": "<p>A git ref for a commit to be appended to.</p>\n<p>The ref must be a branch, i.e. its fully qualified name must start\nwith <code>refs/heads/</code> (although the input is not required to be fully\nqualified).</p>\n<p>The Ref may be specified by its global node ID or by the\nrepository nameWithOwner and branch name.</p>\n<h3 id=\"examples\"><a href=\"#examples\">Examples</a></h3>\n<p>Specify a branch using a global node ID:</p>\n<pre><code>{ \"id\": \"MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=\" }\n</code></pre>\n<p>Specify a branch using nameWithOwner and branch name:</p>\n<pre><code>{\n  \"nameWithOwner\": \"github/graphql-client\",\n  \"branchName\": \"main\"\n}.\n</code></pre>",
+      "description": "<p>A git ref for a commit to be appended to.</p>\n<p>The ref must be a branch, i.e. its fully qualified name must start\nwith <code>refs/heads/</code> (although the input is not required to be fully\nqualified).</p>\n<p>The Ref may be specified by its global node ID or by the\nrepository nameWithOwner and branch name.</p>\n<h3 id=\"examples\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#examples\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Examples</h3>\n<p>Specify a branch using a global node ID:</p>\n<pre><code>{ \"id\": \"MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=\" }\n</code></pre>\n<p>Specify a branch using nameWithOwner and branch name:</p>\n<pre><code>{\n  \"nameWithOwner\": \"github/graphql-client\",\n  \"branchName\": \"main\"\n}.\n</code></pre>",
       "inputFields": [
         {
           "name": "branchName",
@@ -64444,6 +65071,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "bypassForcePushActorIds",
+          "description": "<p>A list of User or Team IDs allowed to bypass force push targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "bypassPullRequestActorIds",
+          "description": "<p>A list of User or Team IDs allowed to bypass pull requests targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "clientMutationId",
           "description": "<p>A unique identifier for the client performing the mutation.</p>",
           "type": "String",
@@ -64507,6 +65150,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>The list of required status checks.</p>",
+          "type": "[RequiredStatusCheckInput!]",
+          "id": "requiredstatuscheckinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requiredstatuscheckinput"
         },
         {
           "name": "requiresApprovingReviews",
@@ -64776,48 +65427,6 @@
           "id": "commitmessage",
           "kind": "input-objects",
           "href": "/graphql/reference/input-objects#commitmessage"
-        }
-      ]
-    },
-    {
-      "name": "CreateContentAttachmentInput",
-      "kind": "inputObjects",
-      "id": "createcontentattachmentinput",
-      "href": "/graphql/reference/input-objects#createcontentattachmentinput",
-      "description": "<p>Autogenerated input type of CreateContentAttachment.</p>",
-      "inputFields": [
-        {
-          "name": "body",
-          "description": "<p>The body of the content attachment, which may contain markdown.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "contentReferenceId",
-          "description": "<p>The node ID of the content_reference.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        },
-        {
-          "name": "title",
-          "description": "<p>The title of the content attachment.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -66274,6 +66883,40 @@
       ]
     },
     {
+      "name": "DismissRepositoryVulnerabilityAlertInput",
+      "kind": "inputObjects",
+      "id": "dismissrepositoryvulnerabilityalertinput",
+      "href": "/graphql/reference/input-objects#dismissrepositoryvulnerabilityalertinput",
+      "description": "<p>Autogenerated input type of DismissRepositoryVulnerabilityAlert.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "dismissReason",
+          "description": "<p>The reason the Dependabot alert is being dismissed.</p>",
+          "type": "DismissReason!",
+          "id": "dismissreason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#dismissreason"
+        },
+        {
+          "name": "repositoryVulnerabilityAlertId",
+          "description": "<p>The Dependabot alert ID to dismiss.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "DraftPullRequestReviewComment",
       "kind": "inputObjects",
       "id": "draftpullrequestreviewcomment",
@@ -66576,7 +67219,7 @@
       "kind": "inputObjects",
       "id": "filechanges",
       "href": "/graphql/reference/input-objects#filechanges",
-      "description": "<p>A description of a set of changes to a file tree to be made as part of\na git commit, modeled as zero or more file <code>additions</code> and zero or more\nfile <code>deletions</code>.</p>\n<p>Both fields are optional; omitting both will produce a commit with no\nfile changes.</p>\n<p><code>deletions</code> and <code>additions</code> describe changes to files identified\nby their path in the git tree using unix-style path separators, i.e.\n<code>/</code>.  The root of a git tree is an empty string, so paths are not\nslash-prefixed.</p>\n<p><code>path</code> values must be unique across all <code>additions</code> and <code>deletions</code>\nprovided.  Any duplication will result in a validation error.</p>\n<h3 id=\"encoding\"><a href=\"#encoding\">Encoding</a></h3>\n<p>File contents must be provided in full for each <code>FileAddition</code>.</p>\n<p>The <code>contents</code> of a <code>FileAddition</code> must be encoded using RFC 4648\ncompliant base64, i.e. correct padding is required and no characters\noutside the standard alphabet may be used.  Invalid base64\nencoding will be rejected with a validation error.</p>\n<p>The encoded contents may be binary.</p>\n<p>For text files, no assumptions are made about the character encoding of\nthe file contents (after base64 decoding).  No charset transcoding or\nline-ending normalization will be performed; it is the client's\nresponsibility to manage the character encoding of files they provide.\nHowever, for maximum compatibility we recommend using UTF-8 encoding\nand ensuring that all files in a repository use a consistent\nline-ending convention (<code>\\n</code> or <code>\\r\\n</code>), and that all files end\nwith a newline.</p>\n<h3 id=\"modeling-file-changes\"><a href=\"#modeling-file-changes\">Modeling file changes</a></h3>\n<p>Each of the the five types of conceptual changes that can be made in a\ngit commit can be described using the <code>FileChanges</code> type as follows:</p>\n<ol>\n<li>\n<p>New file addition: create file <code>hello world\\n</code> at path <code>docs/README.txt</code>:</p>\n<p>   {\n\"additions\" [\n{\n\"path\": \"docs/README.txt\",\n\"contents\": base64encode(\"hello world\\n\")\n}\n]\n}</p>\n</li>\n<li>\n<p>Existing file modification: change existing <code>docs/README.txt</code> to have new\ncontent <code>new content here\\n</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"new content here\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file deletion: remove existing file <code>docs/README.txt</code>.\nNote that the path is required to exist -- specifying a\npath that does not exist on the given branch will abort the\ncommit and return an error.</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\"\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with no changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to the same content at\n<code>newdocs/README.txt</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to a file at path\n<code>newdocs/README.txt</code> with content <code>new contents\\n</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"new contents\\n\")\n    }\n  ]\n}.\n</code></pre>\n</li>\n</ol>",
+      "description": "<p>A description of a set of changes to a file tree to be made as part of\na git commit, modeled as zero or more file <code>additions</code> and zero or more\nfile <code>deletions</code>.</p>\n<p>Both fields are optional; omitting both will produce a commit with no\nfile changes.</p>\n<p><code>deletions</code> and <code>additions</code> describe changes to files identified\nby their path in the git tree using unix-style path separators, i.e.\n<code>/</code>.  The root of a git tree is an empty string, so paths are not\nslash-prefixed.</p>\n<p><code>path</code> values must be unique across all <code>additions</code> and <code>deletions</code>\nprovided.  Any duplication will result in a validation error.</p>\n<h3 id=\"encoding\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#encoding\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Encoding</h3>\n<p>File contents must be provided in full for each <code>FileAddition</code>.</p>\n<p>The <code>contents</code> of a <code>FileAddition</code> must be encoded using RFC 4648\ncompliant base64, i.e. correct padding is required and no characters\noutside the standard alphabet may be used.  Invalid base64\nencoding will be rejected with a validation error.</p>\n<p>The encoded contents may be binary.</p>\n<p>For text files, no assumptions are made about the character encoding of\nthe file contents (after base64 decoding).  No charset transcoding or\nline-ending normalization will be performed; it is the client's\nresponsibility to manage the character encoding of files they provide.\nHowever, for maximum compatibility we recommend using UTF-8 encoding\nand ensuring that all files in a repository use a consistent\nline-ending convention (<code>\\n</code> or <code>\\r\\n</code>), and that all files end\nwith a newline.</p>\n<h3 id=\"modeling-file-changes\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#modeling-file-changes\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Modeling file changes</h3>\n<p>Each of the the five types of conceptual changes that can be made in a\ngit commit can be described using the <code>FileChanges</code> type as follows:</p>\n<ol>\n<li>\n<p>New file addition: create file <code>hello world\\n</code> at path <code>docs/README.txt</code>:</p>\n<p>   {\n\"additions\" [\n{\n\"path\": \"docs/README.txt\",\n\"contents\": base64encode(\"hello world\\n\")\n}\n]\n}</p>\n</li>\n<li>\n<p>Existing file modification: change existing <code>docs/README.txt</code> to have new\ncontent <code>new content here\\n</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"new content here\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file deletion: remove existing file <code>docs/README.txt</code>.\nNote that the path is required to exist -- specifying a\npath that does not exist on the given branch will abort the\ncommit and return an error.</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\"\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with no changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to the same content at\n<code>newdocs/README.txt</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to a file at path\n<code>newdocs/README.txt</code> with content <code>new contents\\n</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"new contents\\n\")\n    }\n  ]\n}.\n</code></pre>\n</li>\n</ol>",
       "inputFields": [
         {
           "name": "additions",
@@ -68041,6 +68684,31 @@
       ]
     },
     {
+      "name": "RequiredStatusCheckInput",
+      "kind": "inputObjects",
+      "id": "requiredstatuscheckinput",
+      "href": "/graphql/reference/input-objects#requiredstatuscheckinput",
+      "description": "<p>Specifies the attributes for a new or updated required status check.</p>",
+      "inputFields": [
+        {
+          "name": "appId",
+          "description": "<p>The ID of the App that must set the status in order for it to be accepted.\nOmit this value to use whichever app has recently been setting this status, or\nuse \"any\" to allow any app to set the status.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "context",
+          "description": "<p>Status check context that must pass for commits to be accepted to the matching branch.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "RerequestCheckSuiteInput",
       "kind": "inputObjects",
       "id": "rerequestchecksuiteinput",
@@ -68681,6 +69349,22 @@
           "isDeprecated": false
         },
         {
+          "name": "bypassForcePushActorIds",
+          "description": "<p>A list of User or Team IDs allowed to bypass force push targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "bypassPullRequestActorIds",
+          "description": "<p>A list of User or Team IDs allowed to bypass pull requests targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "clientMutationId",
           "description": "<p>A unique identifier for the client performing the mutation.</p>",
           "type": "String",
@@ -68735,6 +69419,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>The list of required status checks.</p>",
+          "type": "[RequiredStatusCheckInput!]",
+          "id": "requiredstatuscheckinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requiredstatuscheckinput"
         },
         {
           "name": "requiresApprovingReviews",
@@ -69956,6 +70648,40 @@
       ]
     },
     {
+      "name": "UpdateOrganizationAllowPrivateRepositoryForkingSettingInput",
+      "kind": "inputObjects",
+      "id": "updateorganizationallowprivaterepositoryforkingsettinginput",
+      "href": "/graphql/reference/input-objects#updateorganizationallowprivaterepositoryforkingsettinginput",
+      "description": "<p>Autogenerated input type of UpdateOrganizationAllowPrivateRepositoryForkingSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "forkingEnabled",
+          "description": "<p>Enable forking of private repositories in the organization?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization on which to set the allow private repository forking setting.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "UpdateProjectCardInput",
       "kind": "inputObjects",
       "id": "updateprojectcardinput",
@@ -70086,6 +70812,40 @@
           "id": "projectstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#projectstate"
+        }
+      ]
+    },
+    {
+      "name": "UpdatePullRequestBranchInput",
+      "kind": "inputObjects",
+      "id": "updatepullrequestbranchinput",
+      "href": "/graphql/reference/input-objects#updatepullrequestbranchinput",
+      "description": "<p>Autogenerated input type of UpdatePullRequestBranch.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "expectedHeadOid",
+          "description": "<p>The head ref oid for the upstream branch.</p>",
+          "type": "GitObjectID",
+          "id": "gitobjectid",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#gitobjectid"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>The Node ID of the pull request.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },

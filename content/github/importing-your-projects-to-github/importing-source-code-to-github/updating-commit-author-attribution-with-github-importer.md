@@ -6,6 +6,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/updating-commit-author-attribution-with-github-importer
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Update author GitHub Importer
 ---
 GitHub Importer looks for GitHub users whose email addresses match the authors of the commits in the repository you're importing. You can then connect a commit to its author using their email address or the author's GitHub username.

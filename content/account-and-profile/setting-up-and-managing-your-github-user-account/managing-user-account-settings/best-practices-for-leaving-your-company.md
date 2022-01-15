@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/best-practices-for-leaving-your-company
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Leaving your company
@@ -15,7 +16,7 @@ Before you leave your company, make sure you update the following information in
 
 - Unverify your company email address by [deleting it in your Email settings](/articles/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
 - [Change your primary email address](/articles/changing-your-primary-email-address) from your company email to your personal email.
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - [Verify your new primary email address](/articles/verifying-your-email-address).
 {% endif %}
 - [Change your GitHub username](/articles/changing-your-github-username) to remove any references to your company or organization, if necessary.

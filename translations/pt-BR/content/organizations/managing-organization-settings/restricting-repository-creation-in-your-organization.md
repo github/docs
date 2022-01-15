@@ -5,19 +5,21 @@ redirect_from:
   - /articles/restricting-repository-creation-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Restringir criação de repositório
 ---
 
-Você pode escolher se os integrantes podem criar repositórios na sua organização. Se você permitir que os integrantes criem repositórios, você poderá escolher quais tipos de repositórios os integrantes poderão criar.{% if currentVersion == "free-pro-team@latest" %} Para permitir que os integrantes criem apenas repositórios privados, a sua organização deve usar {% data variables.product.prodname_ghe_cloud %}.{% endif %} Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)".
+Você pode escolher se os integrantes podem criar repositórios na sua organização. Se você permitir que os integrantes criem repositórios, você poderá escolher quais tipos de repositórios os integrantes poderão criar.{% ifversion fpt or ghec %} Para permitir que os integrantes criem apenas repositórios privados, a sua organização deve usar {% data variables.product.prodname_ghe_cloud %}.{% endif %}{% ifversion fpt %} Para obter mais informações, consulte "[Sobre repositórios](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories)" na documentação de {% data variables.product.prodname_ghe_cloud %}{% endif %}.
 
 Os proprietários da organização sempre podem criar qualquer tipo de repositório.
-
-{% if currentVersion == "free-pro-team@latest" %}Os proprietários da empresa{% else %}administradores do site{% endif %} podem restringir as opções disponíveis para você para a política de criação de repositório da sua organização. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" %}"[Aplicar políticas de gerenciamento do repositório na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account).{% else %}"[Restringir a criação do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}
+{% ifversion ghec or ghae or ghes %}
+{% ifversion ghec or ghae %}Proprietários corporativos{% elsif ghes %}administradores do site{% endif %} podem restringir as opções que você tem disponíveis para a política de criação de repositório da sua organização.{% ifversion ghec or ghes or ghae %} Para obter mais informações, consulte "[Restringindo a criação de repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}{% endif %}
 
 {% warning %}
 
@@ -25,10 +27,14 @@ Os proprietários da organização sempre podem criar qualquer tipo de repositó
 
 {% endwarning %}
 
-{% data reusables.organizations.internal-repos-enterprise %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Em "Criação do repositório", selecione uma ou mais opções. ![Opções de criação de repositório](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+5. Em "Criação do repositório", selecione uma ou mais opções.
+
+   {%- ifversion ghes or ghec or ghae %}
+   ![Opções de criação de repositório](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+   {%- elsif fpt %}
+   ![Opções de criação de repositório](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+   {%- endif %}
 6. Clique em **Salvar**.

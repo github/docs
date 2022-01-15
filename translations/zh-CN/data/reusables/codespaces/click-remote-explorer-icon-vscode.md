@@ -1,0 +1,1 @@
+1. 在 {% data variables.product.prodname_vscode %} 中，从左侧边栏单击 Remote Explorer 图标。 ![{% data variables.product.prodname_vscode %} 中的 Remote Explorer 图标](/assets/images/help/codespaces/click-remote-explorer-icon-vscode.png)

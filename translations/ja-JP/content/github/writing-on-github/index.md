@@ -1,15 +1,16 @@
 ---
 title: GitHub での執筆
 redirect_from:
-  - /categories/88/articles/
-  - /articles/github-flavored-markdown/
-  - /articles/writing-on-github/
+  - /categories/88/articles
+  - /articles/github-flavored-markdown
+  - /articles/writing-on-github
   - /categories/writing-on-github
 intro: 'You can structure the information shared on {% data variables.product.product_name %} with various formatting options.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - /getting-started-with-writing-and-formatting-on-github
   - /working-with-advanced-formatting

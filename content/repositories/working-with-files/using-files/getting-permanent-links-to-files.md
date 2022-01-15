@@ -2,8 +2,8 @@
 title: Getting permanent links to files
 intro: 'When viewing a file on {% data variables.product.product_location %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
 redirect_from:
-  - /articles/getting-a-permanent-link-to-a-file/
-  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
+  - /articles/getting-a-permanent-link-to-a-file
+  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
   - /articles/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/managing-files-on-github/getting-permanent-links-to-files
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Permanent links to files
@@ -31,7 +32,7 @@ refers to GitHub's `codeql` repository, and shows the `main` branch's current ve
 
 The version of a file at the head of branch can change as new commits are made, so if you were to copy the normal URL, the file contents might not be the same when someone looks at it later.
 
-## Press <kbd>y</kbd> to permalink to a file in a specific commit
+## Press <kbd>Y</kbd> to permalink to a file in a specific commit
 
 For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  This will permanently link to the exact version of the file in that commit.  For example:
 

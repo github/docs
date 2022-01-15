@@ -1,2 +1,3 @@
-{%- if currentVersion == "free-pro-team@latest" %}propuestas, solicitudes de cambios, lanzamientos, alertas de seguridad o debates{% endif %}
-{%- if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}propuestas, solicitudes de cambio, lanzamientos, o debates{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}issues, pull requests, releases, security alerts, or discussions
+{%- else %}propuestas, solicitudes de cambios, lanzamientos o debates<!-- `else` statement probably not picked up by GHES 3.1 deprecation script. Will need to review here -->
+{% endif %}

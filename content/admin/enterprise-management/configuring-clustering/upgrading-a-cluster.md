@@ -79,7 +79,7 @@ Run the `ghe-upgrade` command, providing the package file name you downloaded in
   > gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
   > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
   ```
-5. The upgrade process will reboot the primary MySQL node once it completes. Verify that you can `ping` each node after it reboots.{% ifversion ghes > 2.22 %}
+5. The upgrade process will reboot the primary MySQL node once it completes. Verify that you can `ping` each node after it reboots.{% ifversion ghes %}
 6. Connect to the administrative shell of the primary MySQL node and run the `ghe-cluster-config-apply` command.
 7. When `ghe-cluster-config-apply` is complete, check that the services are in a healthy state by running `ghe-cluster-status`.{% endif %}
 8. Exit maintenance mode from the administrative shell of any node by running `ghe-cluster-maintenance -u`.

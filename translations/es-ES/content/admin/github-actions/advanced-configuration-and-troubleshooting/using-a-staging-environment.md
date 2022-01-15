@@ -2,7 +2,7 @@
 title: Utilizar un ambiente de montaje
 intro: 'Aprende sobre cómo utilizar {% data variables.product.prodname_actions %} con los ambientes de montaje de {% data variables.product.prodname_ghe_server %}.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Actions
@@ -11,6 +11,7 @@ topics:
   - Upgrades
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
+shortTitle: Utiliza un área de pruebas
 ---
 
 Puede ser útil tener un ambiente de montaje o de pruebas para {% data variables.product.product_location %}, para que así puedas probar las actualizaciones o características nuevas antes de implementarlas en tu ambiente productivo.

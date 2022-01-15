@@ -2,40 +2,41 @@
 title: Instalar el servidor de GitHub Enterprise en Azure
 intro: 'Para instalar {% data variables.product.prodname_ghe_server %} en Azure, debes implementar en una instancia de serie DS y usar almacenamiento Premium-LRS.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
+shortTitle: Instalar en Azure
 ---
 
 Puedes implementar {% data variables.product.prodname_ghe_server %} en Azure mundial o Azure Government.
 
-### Prerrequisitos
+## Prerrequisitos
 
 - {% data reusables.enterprise_installation.software-license %}
 - Debes tener una cuenta Azure capaz de abastecer nuevas máquinas. Para obtener más información, consulta el [sitio web de Microsoft Azure](https://azure.microsoft.com).
 - La mayoría de las acciones necesarias para lanzar tu máquina virtual (VM) también se podrían realizar por medio del Portal Azure. Sin embargo, recomendamos instalar la interfaz de la línea de comando de Azure (CLI) para la configuración inicial. Abajo se incluyen ejemplos que utilizan Azure CLI 2.0. Para obtener más información, consulta la guía de Azure "[Instalar Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)."
 
-### Consideraciones relativas al hardware
+## Consideraciones relativas al hardware
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Determinar el tipo de máquina virtual
+## Determinar el tipo de máquina virtual
 
 Antes de iniciar {% data variables.product.product_location %} en Azure, deberás determinar el tipo de máquina que mejor se adapte a las necesidades de tu organización. Para revisar los requisitos mínimos para {% data variables.product.product_name %}, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-El aparato {% data variables.product.prodname_ghe_server %} requiere un disco de datos de almacenamiento prémium, y es compatible con cualquier Azure VM que admita almacenamiento prémium. Los tipos de Azure VM con el sufijo `s`s son compatibles con el almacenamiento premium. Para obtener más información, consulta las secciones "[¿Qué tipos de disco están disponibles en Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)" y "[Almacenamiento premium de Azure: diseño para la disponibilidad alta](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)" en la documentación de Azure.
+{% data reusables.enterprise_installation.azure-instance-recommendation %}
 
-{% data variables.product.company_short %} recomienda una VM con memoria optimizada para {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta la sección "[Tamaños de máquina virtual con memoria optimizada](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)" en la documentación de Azure.
-
-{% data variables.product.prodname_ghe_server %} admite cualquier región que sea compatible con tu tipo de VM. Para obtener más información sobre las regiones admitidas para cada VM, consulte los productos de Azure "[disponibles por región](https://azure.microsoft.com/regions/services/)."
-
-### Crear la máquina virtual{% data variables.product.prodname_ghe_server %}
+## Crear la máquina virtual{% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -62,7 +63,7 @@ El aparato {% data variables.product.prodname_ghe_server %} requiere un disco de
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. Crea y adjunta a la VM un nuevo disco de datos descifrado y configura su tamaño con base en la cantidad de licencias que tengas. Para obtener más información, consulta "[adjuntar un disco de vm de az](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" en la documentación de Microsoft.
+4. Crea y adjunta un disco de datos administrados nuevo a la MV y configura el tamaño con base en la cantidad de licencias que tengas. Todos los discos administrados de Azure que se crearon desde el 10 de junio de 2017 están cifrados en reposo predeterminadamente con el Cifrado de Servicio de Almacenamiento (SSE). Para obtener más información sobre el comando `az vm disk attach`, consulta la sección "[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" en la documentación de Microsoft.
 
   Aprueba opciones para el nombre de tu VM (por ejemplo, `ghe-acme-corp`), el grupo de recurso, el almacenamiento prémium de SKU, el tamaño del disco (por ejemplo, `100`) y un nombre para el VHD resultante.
 
@@ -76,7 +77,7 @@ El aparato {% data variables.product.prodname_ghe_server %} requiere un disco de
 
    {% endnote %}
 
-### Configurara la máquina virtual {% data variables.product.prodname_ghe_server %}
+## Configurara la máquina virtual {% data variables.product.prodname_ghe_server %}
 
 1. Antes de configurar el VM, debes esperar que pase al estado ReadyRole. Controla el estado del VM con el comando `vm list`. Para obtener más información, consulta "[lista de vm de az](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" en la documentación de Microsoft.
   ```shell
@@ -98,7 +99,7 @@ El aparato {% data variables.product.prodname_ghe_server %} requiere un disco de
   {% data reusables.enterprise_installation.instance-will-restart-automatically %}
   {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Leer más
+## Leer más
 
-- "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

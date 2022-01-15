@@ -145,8 +145,9 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
         // If the new conditional contains all the currently supported versions, no conditional
         // is actually needed, and it can be removed. Any `else` statements and their content should
         // also be removed.
-        const containsAllSupportedVersions = supportedShortVersions.every((v) =>
-          newCondWithLiquid.includes(v)
+        const containsAllSupportedVersions = supportedShortVersions.every(
+          (v) => newCondWithLiquid.includes(v) && !newCondWithLiquid.includes('issue')
+          // The writers are using "issue" versions for upcoming GHAE releases
         )
 
         if (!containsAllSupportedVersions) {

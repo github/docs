@@ -5,12 +5,14 @@ redirect_from:
   - /articles/organizing-information-with-tables
   - /github/writing-on-github/organizing-information-with-tables
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Datos organizados con tablas
 ---
 
-### Crear una tabla
+## Crear una tabla
 
 Puede crear tablas con barras verticales `|` y guiones `-`. Los guiones se usan para crear el encabezado de cada columna, mientras que las barras verticales separan cada columna. Debes incluir una línea en blanco antes de tu tabla para que se representen correctamente.
 
@@ -37,7 +39,9 @@ Las celdas pueden variar en el ancho y no es necesario que estén perfectamente 
 
 ![Tabla presentada con ancho de celda variado](/assets/images/help/writing/table-varied-columns-rendered.png)
 
-### Formatear el contenido dentro de tu tabla
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
+
+## Formatear el contenido dentro de tu tabla
 
 Puedes utilizar [formato](/articles/basic-writing-and-formatting-syntax) como enlaces, bloques de códigos insertados y el estilo de texto dentro de tu tabla:
 
@@ -72,7 +76,7 @@ Para incluir una barra vertical `|` como contenido dentro de tu celda, utiliza u
 
 ![Tabla presentada con una barra vertical liberada](/assets/images/help/writing/table-escaped-character-rendered.png)
 
-### Leer más
+## Leer más
 
 - [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
 - [Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"

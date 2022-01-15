@@ -2,18 +2,19 @@
 title: Solución de problemas con ganchos de servicio
 intro: 'Si las cargar no se están entregando, comprueba estos problemas comunes.'
 redirect_from:
-  - /enterprise/admin/articles/troubleshooting-service-hooks/
+  - /enterprise/admin/articles/troubleshooting-service-hooks
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
   - /enterprise/admin/user-management/troubleshooting-service-hooks
   - /admin/user-management/troubleshooting-service-hooks
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
+shortTitle: Solución de problemas en los ganchos de servicio
 ---
 
-### Obtener información sobre las entregas
+## Obtener información sobre las entregas
 
 Puedes buscar información para la última respuesta de todas las entregas de ganchos de servicio en cualquier repositorio.
 
@@ -23,7 +24,7 @@ Puedes buscar información para la última respuesta de todas las entregas de ga
 4. Haz clic en el enlace **Latest Delivery** (Última entrega) bajo el gancho de servicio que tiene problemas. ![Detalles de ganchos](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
 5. En **Remote Calls** (Llamadas remotas), verás los encabezados que se usaron al publicar en el servidor remoto junto con la respuesta que el servidor remoto volvió a enviar a tu instalación.
 
-### Ver la carga
+## Ver la carga
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Explorar en el repositorio que estás investigando.
@@ -31,7 +32,7 @@ Puedes buscar información para la última respuesta de todas las entregas de ga
 4. Haz clic en el enlace **Latest Delivery** (Última entrega) bajo el gancho de servicio que tiene problemas.
 5. Da clic en **Entrega**. ![Ver la carga](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
 
-### Ver entregas anteriores
+## Ver entregas anteriores
 
 Las entregas se almacenan durante 15 días.
 
