@@ -240,7 +240,7 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you push more than three tags at once.
+**Note:** You will not receive a webhook for this event when you create more than three tags at once.
 
 {% endnote %}
 
@@ -382,7 +382,7 @@ Activity related to a discussion. For more information, see the "[Using the Grap
 
 Key | Type | Description
 ----|------|-------------
-`action` |`string` | The action performed. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, or `unanswered`.
+`action` |`string` | The action performed. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled`, or `unlabeled`.
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -856,6 +856,38 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.ping }}
 
+## project
+
+{% data reusables.webhooks.project_short_desc %}
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
+
+### Webhook payload object
+
+{% data reusables.webhooks.project_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.project.created }}
+
+{% ifversion fpt or ghes or ghec %}
+
 ## project_card
 
 {% data reusables.webhooks.project_card_short_desc %}
@@ -865,6 +897,14 @@ Key | Type | Description
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
 
 ### Webhook payload object
 
@@ -900,29 +940,6 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-## project
-
-{% data reusables.webhooks.project_short_desc %}
-
-### Availability
-
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
-
-### Webhook payload object
-
-{% data reusables.webhooks.project_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
-
-### Webhook payload example
-
-{{ webhookPayloadsForCurrentVersion.project.created }}
-
-{% ifversion fpt or ghes or ghec %}
 ## public
 
 {% data reusables.webhooks.public_short_desc %}
