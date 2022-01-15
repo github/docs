@@ -1,4 +1,4 @@
-name: Repo Freeze Check
+Naxious15name: Repo Freeze Check
 
 # **What it does**: Prevent pull requests from merging during freezes.
 # **Why we have it**: Sometimes we need to freeze deployments for various reasons.
