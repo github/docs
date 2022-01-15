@@ -41,7 +41,7 @@ shortTitle: 组织成员资格
 
 {% ifversion fpt or ghec %}
 
-如果您的组织属于某个企业帐户，您会自动成为该企业帐户的成员，企业帐户所有者能够看到您。 更多信息请参阅“[关于企业帐户](/admin/overview/about-enterprise-accounts)”。
+如果您的组织属于某个企业帐户，您会自动成为该企业帐户的成员，企业帐户所有者能够看到您。 For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% endif %}
 

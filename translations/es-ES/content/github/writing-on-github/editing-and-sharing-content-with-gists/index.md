@@ -1,5 +1,5 @@
 ---
-title: Editing and sharing content with gists
+title: Editar y compartir contenido con gists
 intro: ''
 redirect_from:
   - /categories/23/articles
@@ -13,6 +13,6 @@ versions:
 children:
   - /creating-gists
   - /forking-and-cloning-gists
-shortTitle: Share content with gists
+shortTitle: Compartir el contenido con gists
 ---
 

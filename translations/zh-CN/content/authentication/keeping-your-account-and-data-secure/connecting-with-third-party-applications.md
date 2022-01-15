@@ -1,6 +1,6 @@
 ---
-title: Connecting with third-party applications
-intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing one of these applications, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
+title: 连接第三方应用程序
+intro: '您可以将 {% data variables.product.product_name %} 身份连接到使用 OAuth 的第三方应用程序。 在授权这些应用程序时，应确保您信任应用程序，查阅开发者是谁，并查阅应用程序要访问的信息类型。'
 redirect_from:
   - /articles/connecting-with-third-party-applications
   - /github/authenticating-to-github/connecting-with-third-party-applications
@@ -13,65 +13,66 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Third-party applications
+shortTitle: 第三方应用程序
 ---
-When a third-party application wants to identify you by your {% data variables.product.product_name %} login, you'll see a page with the developer contact information and a list of the specific data that's being requested.
 
-## Contacting the application developer
+当第三方应用程序要通过您的 {% data variables.product.product_name %} 登录识别您时，您会看到一个页面，其中包含开发者联系信息，以及申请的特定数据列表。
 
-Because an application is developed by a third-party who isn't {% data variables.product.product_name %}, we don't know exactly how an application uses the data it's requesting access to. You can use the developer information at the top of the page to contact the application admin if you have questions or concerns about their application.
+## 联系应用程序开发者
 
-![{% data variables.product.prodname_oauth_app %} owner information](/assets/images/help/platform/oauth_owner_bar.png)
+由于应用程序是由不是 {% data variables.product.product_name %} 的第三方开发的，因此我们并不确切地了解应用程序如何使用它申请访问的数据。 如果您对这些应用程序有疑问或疑虑，您可以使用页面顶部的开发者信息联系应用程序管理员。
 
-If the developer has chosen to supply it, the right-hand side of the page provides a detailed description of the application, as well as its associated website.
+![{% data variables.product.prodname_oauth_app %} 所有者信息](/assets/images/help/platform/oauth_owner_bar.png)
 
-![OAuth application information and website](/assets/images/help/platform/oauth_app_info.png)
+页面的右侧可能提供应用程序的详细说明及其相关网站，具体取决于开发者是否选择提供这些信息。
 
-## Types of application access and data
+![OAuth 应用程序信息和网站](/assets/images/help/platform/oauth_app_info.png)
 
-Applications can have *read* or *write* access to your {% data variables.product.product_name %} data.
+## 应用程序数据访问权限的类型
 
-- **Read access** only allows an application to *look at* your data.
-- **Write access** allows an application to *change* your data.
+应用程序可能对您的 {% data variables.product.product_name %} 数据具有*读取*或*写入*权限。
 
-### About OAuth scopes
+- **读取权限**仅允许应用程序*查看*您的数据。
+- **写入权限**允许应用程序*更改*您的数据。
 
-*Scopes* are named groups of permissions that an application can request to access both public and non-public data.
+### 关于 OAuth 范围
 
-When you want to use a third-party application that integrates with {% data variables.product.product_name %}, that application lets you know what type of access to your data will be required. If you grant access to the application, then the application will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+*范围*是应用程序可以申请访问公共及非公共数据的权限组。
 
-{% tip %}
-
-**Note:** Currently, you can't scope source code access to read-only.
-
-{% endtip %}
-
-### Types of requested data
-
-There are several types of data that applications can request.
-
-![OAuth access details](/assets/images/help/platform/oauth_access_types.png)
+要使用集成了 {% data variables.product.product_name %} 的第三方应用程序时，该应用程序会让您了解需要的数据访问权限类型。 如果您授予应用程序访问权限，则应用程序将能代您执行操作，例如读取或修改数据。 例如，如果您要使用申请 `user:email` 范围的应用程序，则该应用程序对您的私有电子邮件地址具有只读权限。 更多信息请参阅“[关于 {% data variables.product.prodname_oauth_apps %} 的范围](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)”。
 
 {% tip %}
 
-**Tip:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**注：**目前，您无法将源代码访问范围设为只读。
 
 {% endtip %}
 
-| Type of data | Description |
-| --- | --- |
-| Commit status | You can grant access for a third-party application to report your commit status. Commit status access allows applications to determine if a build is a successful against a specific commit. Applications won't have access to your code, but they <em>can</em> read and write status information against a specific commit. |
-| Deployments | Deployment status access allows applications to determine if a deployment is successful against a specific commit for a repository. Applications won't have access to your code. |
-| Gists | [Gist](https://gist.github.com) access allows applications to read or write to {% ifversion not ghae %}both your public and{% else %}both your internal and{% endif %} secret Gists. |
-| Hooks | [Webhooks](/webhooks) access allows applications to read or write hook configurations on repositories you manage. |
-| Notifications | Notification access allows applications to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, applications remain unable to access anything in your repositories. |
-| Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
-| Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
-| Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. An application can request access to all of your repositories of any visibility level. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)." |
-| Repository delete | Applications can request to delete repositories that you administer, but they won't have access to your code. |
+### 申请的数据类型
 
-## Requesting updated permissions
+以下是应用程序可能申请的几种数据类型。
 
-Applications can request new access privileges. When asking for updated permissions, the application will notify you of the differences.
+![OAuth 访问权限详细信息](/assets/images/help/platform/oauth_access_types.png)
 
-![Changing third-party application access](/assets/images/help/platform/oauth_existing_access_pane.png)
+{% tip %}
+
+**提示：**{% data reusables.user_settings.review_oauth_tokens_tip %}
+
+{% endtip %}
+
+| 数据类型   | 描述                                                                                                                                                                                                                                      |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 提交状态   | 您可以授权第三方应用程序报告您的提交状态。 提交状态访问权限允许应用程序确定对特定提交的构建是否成功。 应用程序无法访问您的代码，但<em>能够</em>读取和写入特定提交的状态信息。                                                                                                                              |
+| 部署     | 部署状态访问权限允许应用程序根据仓库的特定提交确定部署是否成功。 应用程序无法访问您的代码。                                                                                                                                                                                          |
+| Gist   | [Gist](https://gist.github.com) 访问权限允许应用程序读取或写入{% ifversion not ghae %}公共和{% else %}内部和{% endif %}机密 Gist。                                                                                                                              |
+| 挂钩     | [Web 挂钩](/webhooks)访问权限允许应用程序读取或写入您管理的仓库中的挂钩配置。                                                                                                                                                                                         |
+| 通知     | 通知访问权限允许应用程序读取您的 {% data variables.product.product_name %} 通知，如议题和拉取请求的评论。 但应用程序仍然无法访问仓库中的任何内容。                                                                                                                                         |
+| 组织和团队  | 组织和团队访问权限允许应用程序访问并管理组织和团队成员资格。                                                                                                                                                                                                          |
+| 个人用户数据 | 用户数据包括您的用户个人资料中的信息，例如您的姓名、电子邮件地址和地点。                                                                                                                                                                                                    |
+| 仓库     | 仓库信息包括贡献者的姓名、您创建的分支以及仓库中的实际文件。 An application can request access to all of your repositories of any visibility level. 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。 |
+| 仓库删除   | 应用程序可以申请删除您管理的仓库，但无法访问您的代码。                                                                                                                                                                                                             |
+
+## 申请更新的权限
+
+应用程序可以申请新的访问权限。 要求更新权限时，应用程序会通知您更新前后的差异。
+
+![更改第三方应用程序访问权限](/assets/images/help/platform/oauth_existing_access_pane.png)

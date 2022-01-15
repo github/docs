@@ -57,3 +57,8 @@ Enterprise owners and billing managers can manage the spending limit for {% data
 Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, and 90% of your account's spending limit. 
 
 You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
+
+## Further reading
+
+- "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

@@ -1,6 +1,6 @@
 ---
-title: Configuring package ecosystem support for your enterprise
-intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including Docker, RubyGems, npm, Apache Maven, Gradle, or NuGet. Learn about other configuration requirements to support specific package ecosystems.'
+title: Configurar o suporte ao ecossistema de pacote para sua empresa
+intro: 'Você pode configurar {% data variables.product.prodname_registry %} para a sua empresa habilitando ou desabilitando globalmente os ecossistemas de pacotes individuais na sua empresa, incluindo Docker, RubyGems, npm, Apache Maven, Gradle ou NuGet. Conheça outros requisitos de configuração para dar suporte aos ecossistemas de pacote específicos.'
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
@@ -10,43 +10,44 @@ type: how_to
 topics:
   - Enterprise
   - Packages
-shortTitle: Configure package ecosystems
+shortTitle: Configurar os ecossistemas dos pacotes
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-## Enabling or disabling individual package ecosystems
+## Habilitar ou desabilitar os ecossistemas de cada pacote
 
-To prevent new packages from being uploaded, you can set an ecosystem you previously enabled to **Read-Only**, while still allowing existing packages to be downloaded.
+Para evitar que novos pacotes sejam carregados, você pode definir um ecossistema que você previamente habilitou como **Read-Only**, ao mesmo tempo que permite que pacotes existentes sejam baixados.
 
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
-1. Under "Ecosystem Toggles", for each package type, select **Enabled**, **Read-Only**, or **Disabled**.{% ifversion ghes > 3.1 %}
-  ![Ecosystem toggles](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
-  ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
+1. Em "Alternância de ecossistema", para cada tipo de pacote, selecione **habilitado**, **somente leitura** ou **Desabilitado**.
+{% ifversion ghes > 3.1 %}
+  ![Alternância de ecossistemas](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
+![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes = 3.0 or ghes > 3.0 %}
-## Connecting to the official npm registry
+## Conectar ao registro oficial do npm
 
-If you've enabled npm packages on your enterprise and want to allow access to the official npm registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.
+Se você habilitou os pacotes do npm na sua empresa e deseja permitir acesso ao registro oficial do npm, bem como ao registro npm do {% data variables.product.prodname_registry %}, você deverá executar uma configuração adicional.
 
-{% data variables.product.prodname_registry %} uses a transparent proxy for network traffic that connects to the official npm registry at `registry.npmjs.com`. The proxy is enabled by default and cannot be disabled.
+{% data variables.product.prodname_registry %} usa um proxy transparente para o tráfego de rede que se conecta ao registro npm oficial em `registry.npmjs.com`. O proxy está habilitado por padrão e não pode ser desabilitado.
 
-To allow network connections to the npm registry, you will need to configure network ACLs that allow {% data variables.product.prodname_ghe_server %} to send HTTPS traffic to `registry.npmjs.com`  over port 443:
+Para permitir conexões de rede para o registro npm, você precisa configurar as ACLs de rede que permitem que {% data variables.product.prodname_ghe_server %} envie tráfego de HTTPS para o `registry.npmjs.com` por meio da porta 443:
 
-| Source | Destination | Port | Type |
-|---|---|---|---|
+| Fonte                                              | Destino              | Porta   | Tipo  |
+| -------------------------------------------------- | -------------------- | ------- | ----- |
 | {% data variables.product.prodname_ghe_server %} | `registry.npmjs.com` | TCP/443 | HTTPS |
 
-Note that connections to `registry.npmjs.com` traverse through the Cloudflare network, and subsequently do not connect to a single static IP address; instead, a connection is made to an IP address within the CIDR ranges listed here: https://www.cloudflare.com/ips/.
+Observe que as conexões com `registry.npmjs.com` atravessam a rede Cloudflare e, consequentemente, não se conectam a um único endereço IP estático; em vez disso, é feita uma conexão com um endereço IP dentro dos intervalos de CIDR listados aqui: https://www. loudflare.com/ips/.
 
-If you wish to enable npm upstream sources, select `Enabled` for `npm upstreaming`.
+Se você deseja habilitar fontes upstream do npm, selecione `habilitado` para `upstream do npm`.
 
 {% endif %}
 
-## Next steps
+## Próximas etapas
 
-As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+Como a próxima etapa, recomendamos que verifique se precisa atualizar ou carregar um certificado TLS para a URL do seu pacote de host. Para obter mais informações, consulte "[Primeiros passos com o GitHub Packages para sua empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)".

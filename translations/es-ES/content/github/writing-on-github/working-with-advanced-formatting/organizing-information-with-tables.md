@@ -39,6 +39,8 @@ Las celdas pueden variar en el ancho y no es necesario que estén perfectamente 
 
 ![Tabla presentada con ancho de celda variado](/assets/images/help/writing/table-varied-columns-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
+
 ## Formatear el contenido dentro de tu tabla
 
 Puedes utilizar [formato](/articles/basic-writing-and-formatting-syntax) como enlaces, bloques de códigos insertados y el estilo de texto dentro de tu tabla:

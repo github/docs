@@ -1,19 +1,20 @@
 ---
-title: Create an assignment from a template repository
-intro: 'You can create an assignment from a template repository to provide starter code, documentation, and other resources to your students.'
-permissions: Organization owners who are admins for a classroom can create an assignment from a template repository that is public or owned by the organization. {% data reusables.classroom.classroom-admins-link %}
+title: Criar uma atividade a partir de um repositório de modelo
+intro: 'Você pode criar uma atividade a partir de um repositório de modelo para fornecer código inicial, documentação e outros recursos aos seus alunos.'
+permissions: 'Organization owners who are admins for a classroom can create an assignment from a template repository that is public or owned by the organization. {% data reusables.classroom.classroom-admins-link %}'
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/using-template-repos-for-assignments
   - /education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository
-shortTitle: Template repository
+shortTitle: Repositório de modelo
 ---
-You can use a template repository on {% data variables.product.product_name %} as starter code for an assignment on {% data variables.product.prodname_classroom %}. Your template repository can contain boilerplate code, documentation, and other resources for your students. For more information, see "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)."
 
-To use the template repository for your assignment, the template repository must be owned by your organization, or the visibility of the template repository must be public.
+Você pode utilizar um repositório de modelo em {% data variables.product.product_name %} como código inicial para uma atividade em {% data variables.product.prodname_classroom %}. Seu repositório modelo pode conter código-padrão, documentação e outros recursos para seus alunos. Para obter mais informações, consulte "[Criar um repositório de modelos](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)".
 
-## Further reading
+Para usar o repositório de modelo para a sua atribuição, o repositório de modelo deve pertencer à sua organização, ou a visibilidade do repositório de modelos deverá ser pública.
 
-- "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"
-- "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)"
+## Leia mais
+
+- "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"
+- "[Criar uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)"

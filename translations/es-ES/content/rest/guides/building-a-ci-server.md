@@ -1,8 +1,8 @@
 ---
-title: Building a CI server
-intro: Build your own CI system using the Status API.
+title: Crear un servidor de IC
+intro: Crea tu propio sistema de IC utilizando la API de Estados.
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'
@@ -15,31 +15,22 @@ topics:
 
 
 
-The [Status API][status API] is responsible for tying together commits with
-a testing service, so that every push you make can be tested and represented
-in a {% data variables.product.product_name %} pull request.
+La [API de Estados][status API] es responsable de unir las confirmaciones con un servicio de pruebas para que cada carga que hagas pueda probarse y se represente en una solicitud de extracción de {% data variables.product.product_name %}.
 
-This guide will use that API to demonstrate a setup that you can use.
-In our scenario, we will:
+Esta guía utilizará la API para demostrar una configuración que puedes utilizar. En nuestro escenario, nosotros:
 
-* Run our CI suite when a Pull Request is opened (we'll set the CI status to pending).
-* When the CI is finished, we'll set the Pull Request's status accordingly.
+* Ejecutaremos nuestra suit de IC cuando se abra una Solicitud de Extracción (configuraremos el estado de IC como pendiente).
+* Cuando finalice la IC, configuraremos el estado de la Solicitud de Extracción como corresponda.
 
-Our CI system and host server will be figments of our imagination. They could be
-Travis, Jenkins, or something else entirely. The crux of this guide will be setting up
-and configuring the server managing the communication.
+Nuestro sistema de IC y nuestro servidor host serán imaginarios. Podrían ser Travis, Jenkins, o algo completamente distinto. El meollo de esta guía será configurar y ajustar el servidor que administra la comunicación.
 
-If you haven't already, be sure to [download ngrok][ngrok], and learn how
-to [use it][using ngrok]. We find it to be a very useful tool for exposing local
-connections.
+Si aún no lo has hecho, asegúrate de [descargar ngrok][ngrok], y de aprender a [utilizarlo][using ngrok]. Consideramos que es una herramienta muy útil para exponer las conexiones locales.
 
-Note: you can download the complete source code for this project
-[from the platform-samples repo][platform samples].
+Nota: puedes descargar todo el código fuente para este proyecto [del repo platform-samples][platform samples].
 
-## Writing your server
+## Escribir tu servidor
 
-We'll write a quick Sinatra app to prove that our local connections are working.
-Let's start with this:
+Escribiremos una app de Sinatra rápidamente para probar que nuestras conexiones locales estén funcionando. Comencemos con esto:
 
 ``` ruby
 require 'sinatra'
@@ -51,29 +42,20 @@ post '/event_handler' do
 end
 ```
 
-(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
+(Si no estás familiarizado con como funciona Sinatra, te recomendamos [leer la guía de Sinatra][Sinatra].)
 
-Start this server up. By default, Sinatra starts on port `4567`, so you'll want
-to configure ngrok to start listening for that, too.
+Inicia este servidor. Predeterminadamente, Sinatra inicia en el puerto `4567`, así que también debes configurar ngrok para comenzar a escuchar este puerto.
 
-In order for this server to work, we'll need to set a repository up with a webhook.
-The webhook should be configured to fire whenever a Pull Request is created, or merged.
-Go ahead and create a repository you're comfortable playing around in. Might we
-suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)?
-After that, you'll create a new webhook in your repository, feeding it the URL
-that ngrok gave you, and choosing `application/x-www-form-urlencoded` as the
-content type:
+Para que este servidor funcione, necesitaremos configurar un repositorio con un webhook. El webhook debe configurarse para que se active cada que se crea o fusiona una Solicitud de Extracción. Sigue adelante y crea un repositorio en el que quieras hacer tus experimentos. ¿Podríamos sugerirte que sea [el repositorio Spoon/Knife de @octocat](https://github.com/octocat/Spoon-Knife)? Después de esto, crearás un webhook nuevo en tu repositorio y lo alimentarás con la URL que te dio ngrok para luego escoger a `application/x-www-form-urlencoded` como el tipo de contenido:
 
-![A new ngrok URL](/assets/images/webhook_sample_url.png)
+![Una URL de ngrok nueva](/assets/images/webhook_sample_url.png)
 
-Click **Update webhook**. You should see a body response of `Well, it worked!`.
-Great! Click on **Let me select individual events**, and select the following:
+Haz clic en **Actualizar webhook**. Deberás ver una respuesta en el cuerpo que diga `Well, it worked!`. ¡Genial! Da clic en **Déjame selecionar eventos individuales**, y selecciona lo siguiente:
 
-* Status
-* Pull Request
+* Estado
+* Solicitud de Extracción
 
-These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
-occurs. Let's update our server to *just* handle the Pull Request scenario right now:
+Estos son los eventos que {% data variables.product.product_name %} enviará a nuestro servidor cuando ocurra cualquier acción relevante. Vamos a actualizar nuestro servidor para que *solo* gestione el escenario de Solicitud de Extracción ahora:
 
 ``` ruby
 post '/event_handler' do
@@ -94,26 +76,15 @@ helpers do
 end
 ```
 
-What's going on? Every event that {% data variables.product.product_name %} sends out attached a `X-GitHub-Event`
-HTTP header. We'll only care about the PR events for now. From there, we'll
-take the payload of information, and return the title field. In an ideal scenario,
-our server would be concerned with every time a pull request is updated, not just
-when it's opened. That would make sure that every new push passes the CI tests.
-But for this demo, we'll just worry about when it's opened.
+¿Qué está pasando? Cada evento que {% data variables.product.product_name %} envía adjunta un encabezado de HTTP de `X-GitHub-Event`. Solo nos interesan los eventos de Solicitud de Extracción por el momento. Desde ahí, tomaremos la carga útil de información y devolveremos el campo de título. En un escenario ideal, a nuestro servidor le interesaría cada vez que se actualiza una solicitud de extracción, no únicamente cuando se abre. Eso garantizaría que todas las cargas pasen la prueba de IC. Pero para efectos de esta demostración, solo nos interesará cuándo se abren.
 
-To test out this proof-of-concept, make some changes in a branch in your test
-repository, and open a pull request. Your server should respond accordingly!
+Para probar esta prueba de concepto, haz algunos cambios en una rama de tu repositorio de pruebas, y abre una solicitud de extracción. ¡Tu servidor deberá responder de acuerdo con los casos!
 
-## Working with statuses
+## Trabajar con los estados
 
-With our server in place, we're ready to start our first requirement, which is
-setting (and updating) CI statuses. Note that at any time you update your server,
-you can click **Redeliver** to send the same payload. There's no need to make a
-new pull request every time you make a change!
+Ya que configuramos el servidor, estamos listos para comenzar con nuestro primer requisito, que es configurar (y actualizar) los estados de IC. Nota que en cualquier momento que actualices tu servidor, puedes dar clic en **Volver a entregar** para enviar la misma carga útil. ¡No necesitas hacer una solicitud de extracción cada que haces un cambio!
 
-Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb]
-to manage our interactions. We'll configure that client with
-[a personal access token][access token]:
+Ya que estamos interactuando con la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, utilizaremos [Octokit.rb][octokit.rb] para administrar nuestras interacciones. Configuraremos a ese cliente con
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -125,8 +96,7 @@ before do
 end
 ```
 
-After that, we'll just need to update the pull request on {% data variables.product.product_name %} to make clear
-that we're processing on the CI:
+Después de ésto, solo necesitaremos actualizar la solicitud de extracción en {% data variables.product.product_name %} para dejar en claro lo que estamos procesando en la IC:
 
 ``` ruby
 def process_pull_request(pull_request)
@@ -135,16 +105,13 @@ def process_pull_request(pull_request)
 end
 ```
 
-We're doing three very basic things here:
+Estamos haciendo tres cosas muy básicas aquí:
 
-* we're looking up the full name of the repository
-* we're looking up the last SHA of the pull request
-* we're setting the status to "pending"
+* buscando el nombre completo del repositorio
+* buscando el último SHA de la solicitud de extracción
+* configurando el estado como "pendiente"
 
-That's it! From here, you can run whatever process you need to in order to execute
-your test suite. Maybe you're going to pass off your code to Jenkins, or call
-on another web service via its API, like [Travis][travis api]. After that, you'd
-be sure to update the status once more. In our example, we'll just set it to `"success"`:
+¡Listo! Desde estepunto puedes ejecutar el proceso que sea que necesites para ejecutar tu suit de pruebas. Tal vez vas a pasar tu código a Jenkins, o a llamar a otro servicio web a través de su API, como con [Travis][travis api]. Después de eso, asegúrate actualizar el estado una vez más. En nuestro ejemplo, solo lo configuraremos como `"success"`:
 
 ``` ruby
 def process_pull_request(pull_request)
@@ -153,33 +120,24 @@ def process_pull_request(pull_request)
   @client.create_status(pull_request['base']['repo']['full_name'], pull_request['head']['sha'], 'success')
   puts "Pull request processed!"
 end
-``` 
+```
 
-## Conclusion
+## Conclusión
 
-At GitHub, we've used a version of [Janky][janky] to manage our CI for years.
-The basic flow is essentially the exact same as the server we've built above.
-At GitHub, we:
+En GitHub, utilizamos una versión de [Janky][janky] durante años para administrar nuestra IC. El flujo básico es esencial y exactamente el mismo que en el servidor que acabamos de crear. En GitHub, nosotros:
 
-* Fire to Jenkins when a pull request is created or updated (via Janky)
-* Wait for a response on the state of the CI
-* If the code is green, we merge the pull request
+* Notificamos todo a Jenkins cuando se crea o actualiza una solicitud de extracción (a través de Janky)
+* Esperamos una respuesta del estado de la IC
+* Si el código tiene luz verde, lo fusionamos con la solicitud de extracción
 
-All of this communication is funneled back to our chat rooms. You don't need to
-build your own CI setup to use this example.
-You can always rely on [GitHub integrations][integrations].
+Todas estas comunicaciones se canalizan de vuelta a nuestras salas de chat. No necesitas crear tu propia configuración de IC para utilizar este ejemplo. Siempre puedes confiar en las [Integraciones de GitHub][integrations].
 
-[deploy API]: /rest/reference/repos#deployments
 [status API]: /rest/reference/repos#statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server
 [Sinatra]: http://www.sinatrarb.com/
-[webhook]: /webhooks/
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[access token]: /articles/creating-an-access-token-for-command-line-use
 [travis api]: https://api.travis-ci.org/docs/
 [janky]: https://github.com/github/janky
-[heaven]: https://github.com/atmos/heaven
-[hubot]: https://github.com/github/hubot
 [integrations]: https://github.com/integrations

@@ -41,7 +41,7 @@ For secrets stored at the environment level, you can enable required reviewers t
 
 {% data reusables.codespaces.secrets-naming %}
 
-  For example, {% ifversion fpt or ghes > 3.0 or ghae or ghec %}a secret created at the environment level must have a unique name in that environment, {% endif %}a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level. 
+  For example, {% ifversion fpt or ghes > 3.0 or ghae or ghec %}a secret created at the environment level must have a unique name in that environment, {% endif %}a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
   {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae or ghec %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.{% endif %}
 
@@ -78,8 +78,6 @@ When generating credentials, we recommend that you grant the minimum permissions
 ## Creating encrypted secrets for a repository
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -121,8 +119,6 @@ To list all secrets for the repository, use the `gh secret list` subcommand.
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -159,8 +155,6 @@ gh secret list --env <em>environment-name</em>
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.github-actions.permissions-statement-secrets-organization %}
-
-{% include tool-switcher %}
 
 {% webui %}
 

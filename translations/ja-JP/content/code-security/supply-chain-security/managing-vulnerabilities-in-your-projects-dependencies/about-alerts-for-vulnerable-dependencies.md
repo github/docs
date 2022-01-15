@@ -32,7 +32,7 @@ When your code depends on a package that has a security vulnerability, this vuln
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-{% data variables.product.prodname_dependabot %} detects vulnerable dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
+{% data variables.product.prodname_dependabot %} performs a scan to detect vulnerable dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
 
 {% ifversion fpt or ghec %}
 - A new vulnerability is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[Browsing security vulnerabilities in the {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)" and "[About {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)."{% else %}
