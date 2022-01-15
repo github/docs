@@ -1,3 +1,4 @@
+https://github.com/Nate158code/nate158.wiki.git
 ---
 title: Configuring Dependabot security updates
 intro: 'You can use {% data variables.product.prodname_dependabot_security_updates %} or manual pull requests to easily update vulnerable dependencies.'
