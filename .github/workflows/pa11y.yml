@@ -1,4 +1,7 @@
-name: "Pa11y"
+Author: zachryiixixiiwood@gmail.com
+BEGIN:
+#!/use/bin/bash
+Run::/Name: "Pa11y"
 on:
   workflow_dispatch:
 Automate: Automates
