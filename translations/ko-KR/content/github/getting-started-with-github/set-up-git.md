@@ -15,7 +15,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
+
+### Using Git
 
 To use Git on the command line, you'll need to download, install, and configure Git on your computer. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} from the command line. For more information on {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) documentation.{% endif %}
 
@@ -31,7 +38,7 @@ If you don't need to work with files locally, {% data variables.product.product_
 ### Setting up Git
 
 1. [Download and install the latest version of Git](https://git-scm.com/downloads).
-2. [Set your username in Git](/articles/setting-your-username-in-git).
+2. [Set your username in Git](/github/getting-started-with-github/setting-your-username-in-git).
 3. [Set your commit email address in Git](/articles/setting-your-commit-email-address).
 
 ### Next steps: Authenticating with {% data variables.product.prodname_dotcom %} from Git
@@ -40,11 +47,11 @@ When you connect to a {% data variables.product.product_name %} repository from 
 
 #### Connecting over HTTPS (recommended)
 
-If you [clone with HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-https-urls), you can [cache your {% data variables.product.prodname_dotcom %} credentials in Git](/github/using-git/caching-your-github-credentials-in-git) using a credential helper.
+If you [clone with HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), you can [cache your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git) using a credential helper.
 
 #### Connecting over SSH
 
-If you [clone with SSH](/articles/which-remote-url-should-i-use#cloning-with-ssh-urls), you must [generate SSH keys](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) on each computer you use to push or pull from {% data variables.product.product_name %}.
+If you [clone with SSH](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls), you must [generate SSH keys](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) on each computer you use to push or pull from {% data variables.product.product_name %}.
 
 ### Celebrate
 

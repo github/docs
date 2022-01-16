@@ -12,12 +12,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data variables.product.product_name %} utiliza la [biblioteca de Linguist](https://github.com/github/linguist) de código abierto para
 determinar los lenguajes de un archivo para resaltar la sintaxis y obtener la estadística del repositorio. Las estadísticas de lenguaje se actualizarán después de que subas los cambios a tu rama predeterminada.
 
-Algunos archivos son difíciles de identificar y, a veces, los proyectos contienen más archivos de biblioteca y de proveedor que su código primario. Si estás recibiendo resultados incorrectos, consulta la [Guía de solución de problemas](https://github.com/github/linguist#troubleshooting) del Lingüista para obtener ayuda.
+Algunos archivos son difíciles de identificar y, a veces, los proyectos contienen más archivos de biblioteca y de proveedor que su código primario. Si estás recibiendo resultados incorrectos, consulta la [Guía de solución de problemas](https://github.com/github/linguist/blob/master/docs/troubleshooting.md) del Lingüista para obtener ayuda.
 
 ### Lenguaje Markup
 

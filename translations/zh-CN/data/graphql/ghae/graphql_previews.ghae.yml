@@ -26,7 +26,7 @@
     - CreateDeploymentInput
     - CreateDeploymentPayload
   owning_teams:
-    - '@github/ecosystem-api'
+    - '@github/c2c-actions-service'
 - 
   title: >-
     MergeInfoPreview - 有关拉取请求合并状态的更多详细信息。
@@ -86,21 +86,6 @@
     - Mutation.createContentAttachment
   owning_teams:
     - '@github/feature-lifecycle'
-- 
-  title: 固定议题预览
-  description: 此预览增加了对固定议题的支持。
-  toggled_by: ':elektra-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Repository.pinnedIssues
-    - PinnedIssue
-    - PinnedIssueEdge
-    - PinnedIssueConnection
-    - Mutation.pinIssue
-    - Mutation.unpinIssue
-  owning_teams:
-    - '@github/pe-pull-requests'
 - 
   title: 标签预览
   description: >-

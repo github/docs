@@ -1,3 +1,3 @@
-{% if currentVersion == "free-pro-team@latest" %}
-Du kannst eine Sicherheitsrichtlinie erstellen, um Personen Anweisungen für das verantwortungsvolle Melden von Sicherheitslücken in Deinem Projekt zu geben. Weitere Informationen findest Du unter „[Eine Sicherheitsrichtlinie zu Deinem Repository hinzufügen](/articles/adding-a-security-policy-to-your-repository).“
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
+You can create a security policy to give people instructions for reporting security vulnerabilities in your project. Weitere Informationen findest Du unter „[Eine Sicherheitsrichtlinie zum Repository hinzufügen](/code-security/getting-started/adding-a-security-policy-to-your-repository)“.
 {% endif %}

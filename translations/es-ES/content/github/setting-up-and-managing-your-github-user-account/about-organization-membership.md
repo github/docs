@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
 ---
 
 Un propietario de la organización puede invitarte a unirte a su organización como miembro, gerente de facturación o propietario. Un miembro o propietario de la organización con privilegios de administrador para un repositorio puede invitarte a colaborar en uno o más repositorios como un colaborador externo. Para obtener más información, consulta "[Niveles de permisos para una organización](/articles/permission-levels-for-an-organization)".
@@ -41,7 +43,7 @@ Si tu organización pertenece a una cuenta de empresa, automáticamente eres un 
 
 Puedes dejar una organización en cualquier momento. Para obtener más información, consulta "[Cómo eliminarte de una organización](/articles/removing-yourself-from-an-organization)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de las organizaciones](/articles/about-organizations)"
 - "[Administrar tu membresía en organizaciones](/articles/managing-your-membership-in-organizations)"

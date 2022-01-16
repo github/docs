@@ -1,11 +1,14 @@
 ---
 title: GitHub Enterprise Cloud の GitHub Premium Support について
-intro: '{% data variables.contact.premium_support %} は、{% data variables.product.prodname_ghe_cloud %} および {% data variables.product.prodname_ghe_one %} のお客様のための有料の補足的なサポートです。'
+intro: '{% data variables.contact.premium_support %} は、{% data variables.product.prodname_ghe_cloud %} のお客様のための有料の補足的なサポートです。'
 redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Jobs
+shortTitle: GitHub Premium Support
 ---
 
 {% note %}
@@ -20,7 +23,7 @@ versions:
 
 {% endnote %}
 
-### {% data variables.contact.premium_support %} について
+## {% data variables.contact.premium_support %} について
 
 {% data variables.contact.premium_support %} は以下を提供します:
   - GitHub Enterprise サポートページを通じた文面 (英語) での 24 時間 365 日のサポート
@@ -38,13 +41,13 @@ versions:
 
 {% data reusables.support.contacting-premium-support %}
 
-### 営業時間
+## 営業時間
 
 {% data variables.contact.premium_support %} は、24 時間 365 日利用できます。
 
 {% data reusables.support.service-level-agreement-response-times %}
 
-### サポートチケットへの優先度の割り当て
+## サポートチケットへの優先度の割り当て
 
 {% data variables.contact.premium_support %} へのお問い合わせ時に、チケットの優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} の 4 つから選択できます。
 
@@ -52,9 +55,9 @@ versions:
 
 {% data reusables.support.ghec-premium-priorities %}
 
-### サポートチケットの解決とクローズ
+## サポートチケットの解決とクローズ
 
-{% data variables.contact.premium_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, or workaround instructions,
+{% data variables.contact.premium_support %} は、説明、推奨対応、使用方法、または回避策を提供した後、解決済みのチケットを検討する場合があります。
 
 カスタムあるいはサポートされていないプラグイン、モジュール、カスタムコードを使っている場合、{% data variables.contact.premium_support %} は問題の解決を試みるに当たってサポートされていないプラグイン、モジュール、コードの削除をお願いすることがあります。 サポートされていないプラグイン、モジュール、カスタムコードが削除されたことで問題が修正された場合、{% data variables.contact.premium_support %}はチケットが解決されたと見なすことがあります。
 
@@ -64,6 +67,6 @@ versions:
 
 {% data reusables.support.accessing-premium-content %}
 
-### 参考リンク
+## 参考リンク
 
 - [チケットをサブミットする](/articles/submitting-a-ticket)

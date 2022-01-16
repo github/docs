@@ -1,7 +1,7 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% note %}
 
-**ノート:** インターナルリポジトリは、Enterpriseアカウントの一部であるOrganizationで利用できます。 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
+**ノート:** インターナルリポジトリは、Enterpriseアカウントの一部であるOrganizationで利用できます。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 {% endnote %}
 {% endif %}

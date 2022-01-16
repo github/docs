@@ -10,6 +10,9 @@ redirect_from:
   - /articles/about-githubs-ip-addresses
 versions:
   free-pro-team: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Puedes recuperar una lista de direcciones IP de {% data variables.product.prodname_dotcom %} desde el punto de conexión de API [meta](https://api.github.com/meta). Para obtener más información, consulta la sección "[Meta](/rest/reference/meta)".
@@ -20,6 +23,6 @@ De vez en cuando hacemos cambios en nuestras direcciones IP, y mantendremos esta
 
 Para que las aplicaciones funcionen, debes habilitar los puertos TCP 22, 80, 443 y 9418 mediante nuestros rangos de IP para `github.com`.
 
-### Further reading
+### Leer más
 
 - "[Solucionar problemas de conectividad ](/articles/troubleshooting-connectivity-problems)"

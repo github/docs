@@ -31,6 +31,6 @@ Si quieres hacer coincidir las confirmaciones de tu repositorio con las cuentas 
 
 Recibirás un correo electrónico cuando se haya importado todo el repositorio.
 
-### Further reading
+### Leer más
 
 - "[Actualizar la atribución del autor de la confirmación con Importador GitHub ](/articles/updating-commit-author-attribution-with-github-importer)"

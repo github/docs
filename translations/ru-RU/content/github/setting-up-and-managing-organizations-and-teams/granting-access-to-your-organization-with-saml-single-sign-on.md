@@ -6,5 +6,8 @@ redirect_from:
   - /articles/granting-access-to-your-organization-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 

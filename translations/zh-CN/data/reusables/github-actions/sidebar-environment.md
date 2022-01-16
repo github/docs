@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Environments**.
+1. 在左侧边栏中，单击 **Environments（环境）**。

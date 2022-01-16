@@ -13,6 +13,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% tip %}
@@ -37,7 +39,7 @@ versions:
 {% data reusables.repositories.choose-repo-visibility %}
 6. If you're not using a template, there are a number of optional items you can pre-populate your repository with. If you're importing an existing repository to {% data variables.product.product_name %}, don't choose any of these options, as you may introduce a merge conflict. You can add or create new files using the user interface or choose to add new files using the command line later. For more information, see "[Importing a Git repository using the command line](/articles/importing-a-git-repository-using-the-command-line/)," "[Adding a file to a repository using the command line](/articles/adding-a-file-to-a-repository-using-the-command-line)," and "[Addressing merge conflicts](/articles/addressing-merge-conflicts/)."
     - You can create a README, which is a document describing your project. For more information, see "[About READMEs](/articles/about-readmes/)."
-    - You can create a *.gitignore* file, which is a set of ignore rules. For more information, see "[Ignoring files](/articles/ignoring-files)."{% if currentVersion == "free-pro-team@latest" %}
+    - You can create a *.gitignore* file, which is a set of ignore rules. For more information, see "[Ignoring files](/github/getting-started-with-github/ignoring-files)."{% if currentVersion == "free-pro-team@latest" %}
     - You can choose to add a software license for your project. For more information, see "[Licensing a repository](/articles/licensing-a-repository)."{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {% data reusables.repositories.create-repo %}

@@ -1,52 +1,59 @@
 ---
-title: Migrating from Azure Pipelines to GitHub Actions
-intro: '{% data variables.product.prodname_actions %} and Azure Pipelines share several configuration similarities, which makes migrating to {% data variables.product.prodname_actions %} relatively straightforward.'
+title: 从 Azure Pelines 迁移到 GitHub Actions
+intro: '{% data variables.product.prodname_actions %} 和 Azure Pipelines 具有一些相似的配置，这使得迁移到 {% data variables.product.prodname_actions %} 很简单。'
 redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Azure Pipelines
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### Introduction
+### 简介
 
-Azure Pipelines and {% data variables.product.prodname_actions %} both allow you to create workflows that automatically build, test, publish, release, and deploy code. Azure Pipelines and {% data variables.product.prodname_actions %} share some similarities in workflow configuration:
+Azure Pipelines 和 {% data variables.product.prodname_actions %} 都允许您创建能自动构建、测试、发布、发行和部署代码的工作流程。 Azure Pelines 和 {% data variables.product.prodname_actions %} 的工作流程配置有一些相似之处：
 
-- Workflow configuration files are written in YAML and are stored in the code's repository.
-- Workflows include one or more jobs.
-- Jobs include one or more steps or individual commands.
-- Steps or tasks can be reused and shared with the community.
+- 工作流程配置文件以 YAML 编写并存储在代码仓库中。
+- 工作流程包括一项或多项作业。
+- 作业包括一个或多个步骤或单个命令。
+- 步骤或任务可以重复使用并与社区共享。
 
-For more information, see "[Core concepts for {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)."
+更多信息请参阅“[{% data variables.product.prodname_actions %} 的核心概念](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)”。
 
-### Key differences
+### 主要差异
 
-When migrating from Azure Pipelines, consider the following differences:
+从 Azure Pipelines 迁移时，考虑以下差异：
 
-- Azure Pipelines supports a legacy _classic editor_, which lets you define your CI configuration in a GUI editor instead of creating the pipeline definition in a YAML file. {% data variables.product.prodname_actions %} uses YAML files to define workflows and does not support a graphical editor.
-- Azure Pipelines allows you to omit some structure in job definitions. For example, if you only have a single job, you don't need to define the job and only need to define its steps. {% data variables.product.prodname_actions %} requires explicit configuration, and YAML structure cannot be omitted.
-- Azure Pipelines supports _stages_ defined in the YAML file, which can be used to create deployment workflows. {% data variables.product.prodname_actions %} requires you to separate stages into separate YAML workflow files.
-- On-premises Azure Pipelines build agents can be selected with capabilities. {% data variables.product.prodname_actions %} self-hosted runners can be selected with labels.
+- Azure Pelines 支持传统的_经典编辑器_，可让您在 GUI 编辑器中定义 CI 配置，而不是在 YAML 文件中创建管道定义。 {% data variables.product.prodname_actions %} 使用 YAML 文件来定义工作流程，不支持图形编辑器。
+- Azure Pelines 允许您在作业定义中省略一些结构。 例如，如果您只有一个作业，则无需定义作业，只需要定义其步骤。 {% data variables.product.prodname_actions %} 需要明确的配置，且不能省略 YAML 结构。
+- Azure Pipelines 支持 YAML 文件中定义的_阶段_，可用于创建部署工作流程。 {% data variables.product.prodname_actions %} 要求您将阶段分成单独的 YAML 工作流程文件。
+- 可以使用功能选择本地 Azure Pipelines 构建代理。 通过标签可以选择 {% data variables.product.prodname_actions %} 自托管的运行器。
 
-### Migrating jobs and steps
+### 迁移作业和步骤
 
-Jobs and steps in Azure Pipelines are very similar to jobs and steps in {% data variables.product.prodname_actions %}. In both systems, jobs have the following characteristics:
+Azure Pelines 中的作业和步骤非常类似于 {% data variables.product.prodname_actions %} 中的作业和步骤。 在这两个系统中，作业具有以下特征：
 
-* Jobs contain a series of steps that run sequentially.
-* Jobs run on separate virtual machines or in separate containers.
-* Jobs run in parallel by default, but can be configured to run sequentially.
+* 作业包含一系列按顺序运行的步骤。
+* 作业在单独的虚拟机或单独的容器中运行。
+* 默认情况下作业并行运行，但可以配置为按顺序运行。
 
-### Migrating script steps
+### 迁移脚本步骤
 
-You can run a script or a shell command as a step in a workflow. In Azure Pipelines, script steps can be specified using the `script` key, or with the `bash`, `powershell`, or `pwsh` keys. Scripts can also be specified as an input to the [Bash task](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops) or the [PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops).
+可以将脚本或 shell 命令作为工作流程中的步骤运行。 在 Azure Pipelines 中，脚本步骤可以使用 `script` 键指定，或者使用 `bash`、`powershell` 或 `pwsh` 键指定。 脚本也可以指定为 [Bash 任务](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops)或 [PowerShell 任务](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops)的输入。
 
-In {% data variables.product.prodname_actions %}, all scripts are specified using the `run` key. To select a particular shell, you can specify the `shell` key when providing the script. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+在 {% data variables.product.prodname_actions %} 中，所有脚本都使用 `run` 键来指定。 要选择特定的 shell，您可以在提供脚本时指定 `shell` 键。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)”。
 
-Below is an example of the syntax for each system:
+下面是每个系统的语法示例：
 
 <table class="d-block">
 <tr>
@@ -62,16 +69,16 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: scripts
-  pool:
-    vmImage: 'windows-latest'
-  steps:
-  - script: echo "This step runs in the default shell"
-  - bash: echo "This step runs in bash"
-  - pwsh: Write-Host "This step runs in PowerShell Core"
-  - task: PowerShell@2
-    inputs:
-      script: Write-Host "This step runs in PowerShell"
+  - job: scripts
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+      - script: echo "This step runs in the default shell"
+      - bash: echo "This step runs in bash"
+      - pwsh: Write-Host "This step runs in PowerShell Core"
+      - task: PowerShell@2
+        inputs:
+          script: Write-Host "This step runs in PowerShell"
 ```
 {% endraw %}
 </td>
@@ -82,32 +89,32 @@ jobs:
   scripts:
     runs-on: windows-latest
     steps:
-    - run: echo "This step runs in the default shell"
-    - run: echo "This step runs in bash"
-      shell: bash
-    - run: Write-Host "This step runs in PowerShell Core"
-      shell: pwsh
-    - run: Write-Host "This step runs in PowerShell"
-      shell: powershell
+      - run: echo "This step runs in the default shell"
+      - run: echo "This step runs in bash"
+        shell: bash
+      - run: Write-Host "This step runs in PowerShell Core"
+        shell: pwsh
+      - run: Write-Host "This step runs in PowerShell"
+        shell: powershell
 ```
 {% endraw %}
 </td>
 </tr>
 </table>
 
-### Differences in script error handling
+### 脚本错误处理中的差异
 
-In Azure Pipelines, scripts can be configured to error if any output is sent to `stderr`. {% data variables.product.prodname_actions %} does not support this configuration.
+在 Azure Pipelines 中，脚本可配置为有任何输出发送到 `stderr` 时出错。 {% data variables.product.prodname_actions %} 不支持此配置。
 
-{% data variables.product.prodname_actions %} configures shells to "fail fast" whenever possible, which stops the script immediately if one of the commands in a script exits with an error code. In contrast, Azure Pipelines requires explicit configuration to exit immediately on an error. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference)."
+{% data variables.product.prodname_actions %} 尽可能将 shell 配置为“快速失败”，如果脚本中的一个命令退出并有错误代码，则会立即停止脚本。 相反，Azure Pipelines 需要明确配置为在出错时立即退出。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference)”。
 
-### Differences in the default shell on Windows
+### Windows 上默认 shell 的差异
 
-In Azure Pipelines, the default shell for scripts on Windows platforms is the Command shell (_cmd.exe_). In {% data variables.product.prodname_actions %}, the default shell for scripts on Windows platforms is PowerShell. PowerShell has several differences in built-in commands, variable expansion, and flow control.
+在 Azure Pelines 中，Windows 平台上脚本的默认 shell 是命令 shell (_cmd.exe_)。 在 {% data variables.product.prodname_actions %} 中，Windows 平台上脚本的默认 shell 是 PowerShell 。 PowerShell 在内置命令、变量扩展和流控制方面存在若干差异。
 
-If you're running a simple command, you might be able to run a Command shell script in PowerShell without any changes. But in most cases, you will either need to update your script with PowerShell syntax or instruct {% data variables.product.prodname_actions %} to run the script with the Command shell instead of PowerShell. You can do this by specifying `shell` as `cmd`.
+如果您运行的是简单的命令，则可以在 PowerShell 中运行命令 shell 脚本，而无需进行任何更改。 但在大多数情况下，您需要使用 PowerShell 语法更新脚本，或者指示 {% data variables.product.prodname_actions %} 使用命令 shell 而不是 PowerShell 来运行脚本。 您可以通过将 `shell` 指定为 `Cmd` 来完成。
 
-Below is an example of the syntax for each system:
+下面是每个系统的语法示例：
 
 <table class="d-block">
 <tr>
@@ -123,11 +130,11 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: run_command
-  pool:
-    vmImage: 'windows-latest'
-  steps:
-  - script: echo "This step runs in CMD on Windows by default"
+  - job: run_command
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+      - script: echo "This step runs in CMD on Windows by default"
 ```
 {% endraw %}
 </td>
@@ -138,24 +145,24 @@ jobs:
   run_command:
     runs-on: windows-latest
     steps:
-    - run: echo "This step runs in PowerShell on Windows by default"
-    - run: echo "This step runs in CMD on Windows explicitly"
-      shell: cmd
+      - run: echo "This step runs in PowerShell on Windows by default"
+      - run: echo "This step runs in CMD on Windows explicitly"
+        shell: cmd
 ```
 {% endraw %}
 </td>
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)."
+更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)”。
 
-### Migrating conditionals and expression syntax
+### 迁移条件和表达式语法
 
-Azure Pipelines and {% data variables.product.prodname_actions %} can both run steps conditionally. In Azure Pipelines, conditional expressions are specified using the `condition` key. In {% data variables.product.prodname_actions %}, conditional expressions are specified using the `if` key.
+Azure Pipelines 和 {% data variables.product.prodname_actions %} 可以有条件地运行步骤。 在 Azure Pipelines 中，使用 `condition` 键指定条件表达式。 在 {% data variables.product.prodname_actions %} 中，条件表达式使用 `if` 键来指定。
 
-Azure Pipelines uses functions within expressions to execute steps conditionally. In contrast, {% data variables.product.prodname_actions %} uses an infix notation. For example, you must replace the `eq` function in Azure Pipelines with the `==` operator in {% data variables.product.prodname_actions %}.
+Azure Pelines 使用表达式中的函数来有条件地执行步骤。 相反，{% data variables.product.prodname_actions %} 使用 infix 表示法。 例如，必须将 Azure Pipelines 中的 `eq` 函数替换为 {% data variables.product.prodname_actions %} 中的 `==` 运算符。
 
-Below is an example of the syntax for each system:
+下面是每个系统的语法示例：
 
 <table class="d-block">
 <tr>
@@ -171,12 +178,12 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: conditional
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - script: echo "This step runs with str equals 'ABC' and num equals 123"
-    condition: and(eq(variables.str, 'ABC'), eq(variables.num, 123))
+  - job: conditional
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - script: echo "This step runs with str equals 'ABC' and num equals 123"
+        condition: and(eq(variables.str, 'ABC'), eq(variables.num, 123))
 ```
 {% endraw %}
 </td>
@@ -187,21 +194,21 @@ jobs:
   conditional:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This step runs with str equals 'ABC' and num equals 123"
-      if: ${{ env.str == 'ABC' && env.num == 123 }}
+      - run: echo "This step runs with str equals 'ABC' and num equals 123"
+        if: ${{ env.str == 'ABC' && env.num == 123 }}
 ```
 {% endraw %}
 </td>
 </tr>
 </table>
 
-For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
-### Dependencies between jobs
+### 作业之间的依赖关系
 
-Both Azure Pipelines and {% data variables.product.prodname_actions %} allow you to set dependencies for a job. In both systems, jobs run in parallel by default, but job dependencies can be specified explicitly. In Azure Pipelines, this is done with the `dependsOn` key. In {% data variables.product.prodname_actions %}, this is done with the `needs` key.
+Azure Pipelines 和 {% data variables.product.prodname_actions %} 允许您为作业设置依赖项。 在这两个系统中，默认情况下作业并行运行，但可以明确指定作业依赖项。 在 Azure Pipelines 中，这通过 `dependsOn` 键来完成。 在 {% data variables.product.prodname_actions %} 中，这通过 `needs` 键来完成。
 
-Below is an example of the syntax for each system. The workflows start a first job named `initial`, and when that job completes, two jobs named `fanout1` and `fanout2` will run. Finally, when those jobs complete, the job `fanin` will run.
+下面是每个系统的语法示例： 工作流程启动第一个名为 `initial` 的作业，当该作业完成时，两个分别名为 `fanout1` 和 `fanout2` 的作业将会运行。 最后，当这些作业完成后，作业 `fanin` 将会运行。
 
 <table class="d-block">
 <tr>
@@ -217,29 +224,29 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: initial
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - script: echo "This job will be run first."
-- job: fanout1
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: initial
-  steps:
-  - script: echo "This job will run after the initial job, in parallel with fanout2."
-- job: fanout2
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: initial
-  steps:
-  - script: echo "This job will run after the initial job, in parallel with fanout1."
-- job: fanin:
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: [fanout1, fanout2]
-  steps:
-  - script: echo "This job will run after fanout1 and fanout2 have finished."
+  - job: initial
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - script: echo "This job will be run first."
+  - job: fanout1
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: initial
+    steps:
+      - script: echo "This job will run after the initial job, in parallel with fanout2."
+  - job: fanout2
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: initial
+    steps:
+      - script: echo "This job will run after the initial job, in parallel with fanout1."
+  - job: fanin:
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: [fanout1, fanout2]
+    steps:
+      - script: echo "This job will run after fanout1 and fanout2 have finished."
 ```
 {% endraw %}
 </td>
@@ -250,35 +257,35 @@ jobs:
   initial:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This job will be run first."
+      - run: echo "This job will be run first."
   fanout1:
     runs-on: ubuntu-latest
     needs: initial
     steps:
-    - run: echo "This job will run after the initial job, in parallel with fanout2."
+      - run: echo "This job will run after the initial job, in parallel with fanout2."
   fanout2:
     runs-on: ubuntu-latest
     needs: initial
     steps:
-    - run: echo "This job will run after the initial job, in parallel with fanout1."
+      - run: echo "This job will run after the initial job, in parallel with fanout1."
   fanin:
     runs-on: ubuntu-latest
     needs: [fanout1, fanout2]
     steps:
-    - run: echo "This job will run after fanout1 and fanout2 have finished."
+      - run: echo "This job will run after fanout1 and fanout2 have finished."
 ```
 {% endraw %}
 </td>
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)."
+更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)”。
 
-### Migrating tasks to actions
+### 将任务迁移到操作
 
-Azure Pipelines uses _tasks_, which are application components that can be re-used in multiple workflows. {% data variables.product.prodname_actions %} uses _actions_, which can be used to perform tasks and customize your workflow. In both systems, you can specify the name of the task or action to run, along with any required inputs as key/value pairs.
+Azure Pipelines 使用_任务_，这是可在多个工作流程中重复使用的应用程序组件。 {% data variables.product.prodname_actions %} 使用 _操作_，这可用于执行任务和自定义工作流程。 在这两个系统中，您可以指定要运行的任务或操作的名称，以及任何必需的输入作为键/值对。
 
-Below is an example of the syntax for each system:
+下面是每个系统的语法示例：
 
 <table>
 <tr>
@@ -294,15 +301,15 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: run_python
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.7'
-      architecture: 'x64'
-  - script: python script.py
+  - job: run_python
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.7'
+          architecture: 'x64'
+      - script: python script.py
 ```
 {% endraw %}
 </td>
@@ -313,15 +320,15 @@ jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '3.7'
-        architecture: 'x64'
-    - run: python script.py
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - run: python script.py
 ```
 {% endraw %}
 </td>
 </tr>
 </table>
 
-You can find actions that you can use in your workflow in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions), or you can create your own actions. For more information, see "[Creating actions](/actions/creating-actions)."
+您可以在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 中找到可用于工作流程的操作，也可以创建自己的操作。 更多信息请参阅“[创建操作](/actions/creating-actions)”。

@@ -1,1 +1,1 @@
-Du kannst Dich in [{% data variables.product.prodname_gcf %}](https://github.community) mit Entwicklern auf der ganzen Welt verbinden, um Fragen zu stellen und zu beantworten, zu lernen und direkt mit {% data variables.product.product_name %}-Mitarbeitern zu interagieren.
+You can connect with developers around the world in [{% data variables.product.prodname_gcf %}](https://github.community) to ask and answer questions, learn, and interact directly with {% data variables.product.product_name %} staff.

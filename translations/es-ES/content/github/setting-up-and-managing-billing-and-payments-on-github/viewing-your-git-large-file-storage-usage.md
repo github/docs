@@ -7,6 +7,8 @@ redirect_from:
   - /articles/viewing-your-git-large-file-storage-usage
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}
@@ -14,22 +16,19 @@ versions:
 ### Ver el uso del almacenamiento y del ancho de banda para una cuenta personal
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
 ### Ver el uso del almacenamiento y del ancho de banda para una organización
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
-### Further reading
+### Leer más
 
 - "[Acerca del uso de banda ancha y del almacenamiento](/articles/about-storage-and-bandwidth-usage)"
 - "[Actualizar {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage/)"

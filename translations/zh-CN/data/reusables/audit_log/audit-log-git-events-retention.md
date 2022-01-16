@@ -1,1 +1,1 @@
-The audit log retains Git events for 7 days. This is shorter than other audit log events, which can be retained for 90 days.
+审核日志将 Git 事件保留 7 天。 这短于其他审计日志事件的 90 天保留期。

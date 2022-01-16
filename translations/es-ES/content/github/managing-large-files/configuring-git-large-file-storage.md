@@ -57,7 +57,7 @@ Si hay archivos existentes en tu repositorio con los que te gustaría usar {% da
   > 64.74 MB / 81.04 MB  79.21 % 3s
   ```
 
-### Further reading
+### Leer más
 
 - "[Colaboraciones con {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 - "[Administrar objetos de {% data variables.large_files.product_name_short %} en los archivos de tu repositorio](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

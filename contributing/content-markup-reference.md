@@ -10,6 +10,8 @@
   - [Usage](#usage-2)
 - [Operating system tags](#operating-system-tags)
   - [Usage](#usage-3)
+- [Tool tags](#tool-tags)
+  - [Usage](#usage-4)
 - [Reusable and variable strings of text](#reusable-and-variable-strings-of-text)
 
 ## Writing in Markdown
@@ -99,6 +101,64 @@ These instructions are pertinent to Windows users.
 ```
 
 You can define a default platform in the frontmatter. For more information, see the [content README](../content/README.md#defaultplatform).
+
+## Tool tags
+
+We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
+
+### Usage
+
+```
+{% webui %}
+
+These instructions are pertinent to GitHub UI users.
+
+{% endwebui %}
+```
+
+```
+{% cli %}
+
+These instructions are pertinent to GitHub CLI users.
+
+{% endcli %}
+```
+
+```
+{% desktop %}
+
+ These instructions are pertinent to GitHub Desktop.
+
+{% enddesktop %}
+```
+
+```
+{% curl %}
+
+These instructions are pertinent to cURL users.
+
+{% endcurl %}
+```
+
+```
+{% codespaces %}
+
+These instructions are pertinent to Codespaces users. They are mostly used outside the Codespaces docset, when we want to refer to how to do something inside Codespaces. Otherwise `webui` or `vscode` may be used.
+
+{% endcodespaces %}
+```
+
+```
+{% vscode %}
+
+These instructions are pertinent to VS Code users.
+
+{% endvscode %}
+```
+
+Unlike [operating system tags](#operating-system-tags), which will automatically add tabs to select the operating system at the top of the article, you must add `{% include tool-switcher %}` wherever you want to display tabs to select the tool. This allows you to display the tabs at the top of the article or immediately before a relevant section.
+
+You can define a default tool in the frontmatter. For more information, see the [content README](../content/README.md#defaulttool).
 
 ## Reusable and variable strings of text
 

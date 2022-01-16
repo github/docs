@@ -3,14 +3,17 @@ title: GitHub GPL Cooperation Commitment
 redirect_from:
   - /articles/github-gpl-cooperation-commitment
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Diese Verpflichtung bezieht sich auf GitHub-Beiträge zu Git, dem Linux-Kernel und anderen Programmen unter abgedeckten Lizenzen (scrollen Sie zum Ende, um die Definitionen anzusehen).
 
 Wir stützten unsere Erklärung auf die [Vorlage](https://github.com/gplcc/gplcc/blob/master/Company/GPL%20Cooperation%20Commitment-Company-Template.md) für Unternehmen. Auf der [Website der GPL-Kooperationsverpflichtung](https://gplcc.github.io/gplcc/) erfahren Sie, wie andere Unternehmen, Einzelpersonen und Projekte diese Verpflichtung übernehmen können.
 
-### Unsere Verpflichtung
+## Unsere Verpflichtung
 
 Bevor ein Gerichtsverfahren oder eine Klage (außgenommen einer Abwehrklage), die sich aus der Beendigung einer abgedeckten Lizenz ergibt, eingereicht oder weiter verfolgt wird, verpflichtet sich GitHub, der Person oder Organisation ("Sie"), die der Verletzung der Covered License beschuldigt wird, die folgenden Bestimmungen bezüglich Beseitigung und Wiedereinsetzung, die der GPL Version 3 entnommen sind, zu gewähren. In der hier verwendeten Form bezieht sich der Begriff "diese Lizenz" auf die Durchsetzung der betreffenden abgedeckten Lizenz.
 

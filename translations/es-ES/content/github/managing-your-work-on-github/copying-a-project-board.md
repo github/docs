@@ -5,6 +5,8 @@ redirect_from:
   - /articles/copying-a-project-board
 versions:
   free-pro-team: '*'
+topics:
+  - Pull requests
 ---
 
 Copiar un tablero de proyecto te permite volver a usar el título, la descripción y la configuración automática de un tablero de proyecto. Puedes copiar los tableros de proyecto para eliminar el proceso manual de creación de nuevos tableros de proyecto para flujos de trabajo similares.

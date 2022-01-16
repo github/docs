@@ -47,7 +47,7 @@ Recibirás una notificación si:
 
 También puedes explorar las actividades de las personas que sigues, los repositorios que miras y las organizaciones de las que eres miembro en tu tablero. Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
 
-### Further reading
+### Leer más
 
 - "[Listar los repositorios que estás observando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"
 - "[Observar y dejar de observar un repositorio](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)"

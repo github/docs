@@ -1,4 +1,4 @@
-<table spaces-before="0" line-breaks-before="1">
+<table spaces-before="0">
   <tr>
     <th>
       <nobr>Tipo de análise</nobr>
@@ -11,21 +11,18 @@
   
   <tr>
     <td>
-      {% data variables.product.prodname_codeql %}
     </td>
     
     <td>
-      Usar {% data variables.product.prodname_actions %} (consulte "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository#enabling-code-scanning-using-actions">Habilitar {% data variables.product.prodname_code_scanning %} usando ações</a>") ou usar o {% data variables.product.prodname_codeql_runner %} em um sistema contínuo de integração contínua (CI) de terceiros (consulte "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system">Varrendo o código em execução no seu sistema de CI</a>").
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      Third&#8209;party
-    </td>
-    
-    <td>
-      Usar {% data variables.product.prodname_actions %} (consulte "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository#enabling-code-scanning-using-actions">Habilitar {% data variables.product.prodname_code_scanning %} usando ações</a>") ou geradas externamente e subidas em {% data variables.product.product_name %} (consulte "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github">Fazer upload de um arquivo SARIF em {% data variables.product.prodname_dotcom %}</a>").
     </td>
   </tr>
 </table>
+{%- ifversion fpt or ghes > 3.0 or ghae-next %}
+|
+{% data variables.product.prodname_codeql %} | Usando {% data variables.product.prodname_actions %} (consulte "[Configurar {% data variables.product.prodname_code_scanning %} usando ações](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)") ou executando {% data variables.product.prodname_codeql %} análise em um sistema de integração contínua (CI) de terceiros (consulte "[Sobre {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} no seu sistema CI](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)").
+{%- else %}
+|
+{% data variables.product.prodname_codeql %} | Usando {% data variables.product.prodname_actions %} (consulte "[Configurar {% data variables.product.prodname_code_scanning %} usando ações](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)") ou usando o sistema {% data variables.product.prodname_codeql_runner %} em uma integração contínua (CI) de terceiros (consulte "[Executando a digitalização de código {% data variables.product.prodname_codeql %} no seu sistema CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)").
+{%- endif %}
+| Terceiros&#8209; | Usando
+{% data variables.product.prodname_actions %} (consulte "[Configurar {% data variables.product.prodname_code_scanning %} usando ações](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)") ou gerado externamente e enviado para {% data variables.product.product_name %} (consulte "[Fazer o upload de um arquivo SARIF para {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)").├

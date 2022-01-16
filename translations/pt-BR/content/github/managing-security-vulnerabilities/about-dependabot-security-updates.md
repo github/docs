@@ -33,3 +33,7 @@ Ao fazer merge de um pull request que contém uma atualização de segurança, o
 ### Sobre pontuações de compatibilidade
 
 O {% data variables.product.prodname_dependabot_security_updates %} pode inclui uma pontuação de compatibilidade para que você saiba se atualizar uma vulnerabilidade pode causar alterações significativas no seu projeto. Estes são calculados a partir de testes de CI em outros repositórios públicos onde a mesma atualização de segurança foi gerada. Uma pontuação de compatibilidade da atualização é a porcentagem de execuções de CI que foram aprovadas durante a atualização entre versões específicas da dependência.
+
+### Sobre notificações para atualizações de segurança de {% data variables.product.prodname_dependabot %}
+
+Você pode filtrar suas notificações em {% data variables.product.company_short %} para mostrar as atualizações de segurança de {% data variables.product.prodname_dependabot %}. Para obter mais informações, consulte "[Gerenciando notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -14,15 +16,21 @@ versions:
 
 You can add query parameters to these URLs to preselect the configuration of a {% data variables.product.prodname_github_app %} on a personal or organization account:
 * **User account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
-* **Organization account:** `{% data variables.product.oauth_host_code %}/:org/settings/apps/new`
+* **Organization account:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 The person creating the app can edit the preselected values from the {% data variables.product.prodname_github_app %} registration page, before submitting the app. If you do not include required parameters in the URL query string, like `name`, the person creating the app will need to input a value before submitting the app.
 
 The following URL creates a new public app called `octocat-github-app` with a preconfigured description and callback URL. This URL also selects read and write permissions for `checks`, subscribes to the `check_run` and `check_suite` webhook events, and selects the option to request user authorization (OAuth) during installation:
 
-  ```
-  {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
-  ```
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+```
+{% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_urls[]=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
+```
+{% else %}
+```
+{% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
+```
+{% endif %}
 
 The complete list of available query parameters, permissions, and events is listed in the sections below.
 
@@ -32,8 +40,9 @@ The complete list of available query parameters, permissions, and events is list
  | -------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
  | `name`                     | `문자열`              | The name of the {% data variables.product.prodname_github_app %}. Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.                                                                                                                                                                                                                                     |
  | `설명`                       | `문자열`              | A description of the {% data variables.product.prodname_github_app %}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
- | `url`                      | `문자열`              | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
- | `callback_url`             | `문자열`              | The full URL to redirect to after someone authorizes an installation. This URL is used if your app needs to identify and authorize user-to-server requests.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+ | `url`                      | `문자열`              | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+ | `callback_urls`            | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to identify and authorize user-to-server requests. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`.{% else %}
+ | `callback_url`             | `문자열`              | The full URL to redirect to after someone authorizes an installation. This URL is used if your app needs to identify and authorize user-to-server requests.{% endif %}
  | `request_oauth_on_install` | `boolean`          | If your app authorizes users using the OAuth flow, you can set this option to `true` to allow people to authorize the app when they install it, saving a step. If you select this option, the `setup_url` becomes unavailable and users will be redirected to your `callback_url` after installing the app.                                                                                                                                                                                                                                                                      |
  | `setup_url`                | `문자열`              | The full URL to redirect to after someone installs the {% data variables.product.prodname_github_app %} if the app requires additional setup after installation.                                                                                                                                                                                                                                                                                                                                                                                                               |
  | `setup_on_update`          | `boolean`          | Set to `true` to redirect people to the setup URL when installations have been updated, for example, after repositories are added or removed.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -80,7 +89,7 @@ You can select permissions in a query string using the permission name in the fo
 | [`starring`](/rest/reference/permissions-required-for-github-apps/#permission-on-starring)                                       | Grants access to the [Starring API](/rest/reference/activity#starring). Can be one of: `none`, `read`, or `write`.                                                                                                                                                                                              |
 | [`statuses`](/rest/reference/permissions-required-for-github-apps/#permission-on-statuses)                                       | Grants access to the [Statuses API](/rest/reference/repos#statuses). Can be one of: `none`, `read`, or `write`.                                                                                                                                                                                                 |
 | [`team_discussions`](/rest/reference/permissions-required-for-github-apps/#permission-on-team-discussions)                       | Grants access to the [Team Discussions API](/rest/reference/teams#discussions) and the [Team Discussion Comments API](/rest/reference/teams#discussion-comments). Can be one of: `none`, `read`, or `write`.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
-| `vulnerability_alerts`                                                                                                           | Grants access to receive security alerts for vulnerable dependencies in a repository. See "[About security alerts for vulnerable dependencies](/articles/about-security-alerts-for-vulnerable-dependencies)" to learn more. Can be one of: `none` or `read`.{% endif %}
+| `vulnerability_alerts`                                                                                                           | Grants access to receive security alerts for vulnerable dependencies in a repository. See "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)" to learn more. Can be one of: `none` or `read`.{% endif %}
 | `시청`                                                                                                                             | Grants access to list and change repositories a user is subscribed to. Can be one of: `none`, `read`, or `write`.                                                                                                                                                                                               |
 
 ### {% data variables.product.prodname_github_app %} webhook events

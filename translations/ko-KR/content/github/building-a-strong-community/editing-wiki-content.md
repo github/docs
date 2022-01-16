@@ -15,6 +15,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 커뮤니티
 ---
 
 ### Adding links

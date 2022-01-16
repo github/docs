@@ -2,7 +2,7 @@
 | --------------- | ---------------------- |
 | `Acción`        | team.create            |
 | `actor (actor)` | octocat                |
-| `user`          | codertocat             |
+| `usuario`       | codertocat             |
 | `org`           | octo-org               |
 | `repo`          | octo-org/documentation |
 | `created`       | 2019-06-01             |

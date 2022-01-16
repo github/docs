@@ -4,6 +4,8 @@ intro: '当 {% data variables.product.prodname_codespaces %} 公开发布时，�
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}

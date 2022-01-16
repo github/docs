@@ -6,6 +6,8 @@ redirect_from:
   - /articles/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
 versions:
   free-pro-team: '*'
+topics:
+  - 2fa
 ---
 
 {% note %}

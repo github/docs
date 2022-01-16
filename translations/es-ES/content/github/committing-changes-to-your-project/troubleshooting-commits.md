@@ -1,7 +1,7 @@
 ---
 title: Confirmaciones de solución de problemas
 intro: ''
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /articles/troubleshooting-commits
 versions:

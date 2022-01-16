@@ -1,7 +1,7 @@
 ---
 title: About using MakeCode Arcade with GitHub Classroom
 shortTitle: About using MakeCode Arcade
-intro: You can configure MakeCode Arcade as the online IDE for assignments in {% data variables.product.prodname_classroom %}.
+intro: 'You can configure MakeCode Arcade as the online IDE for assignments in {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 redirect_from:

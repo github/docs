@@ -19,7 +19,7 @@ versions:
 7. También puedes seleccionar si deseas que tu publicación sea privada o pública usando el menú desplegable.![Menú de parámetros de privacidad de los debates del equipo](/assets/images/help/projects/team-discussions-privacy-menu.png)
 8. Da clic en **Comentar**. ![Botón Crear nuevo comentario de los debates del equipo](/assets/images/help/projects/team-discussions-comment-button.png)
 
-### Further reading
+### Leer más
 
   - "[Acerca de los debates del equipo](/articles/about-team-discussions)"
   - "[Editar o eliminar un debate de equipo](/articles/editing-or-deleting-a-team-discussion)"

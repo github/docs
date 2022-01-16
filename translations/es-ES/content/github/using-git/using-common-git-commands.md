@@ -1,7 +1,7 @@
 ---
 title: Utilizar comandos de Git comunes
 intro: ''
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /articles/using-common-git-commands
 versions:

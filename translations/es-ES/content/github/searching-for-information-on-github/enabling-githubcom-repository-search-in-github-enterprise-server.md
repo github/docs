@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - GitHub search
 ---
 
 Si usas {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_dotcom_the_website %} tu administrador del sitio {% data variables.product.prodname_ghe_server %} ha habilitado {% data variables.product.prodname_github_connect %} y {% data variables.product.prodname_unified_search %} para repositorios privados, podrás buscar repositorios privados designados en la organización conectada.

@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Un colaborador externo es una persona que no es explícitamente un miembro de tu organización, pero tiene permisos para un tablero de proyecto en tu organización.

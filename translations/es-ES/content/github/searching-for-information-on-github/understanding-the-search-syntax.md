@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 ### Consulta para valores mayores o menores que otro valor
@@ -48,7 +50,7 @@ Puedes buscar fechas que sean anteriores o posteriores a otra fecha o que entren
 | <code><=<em>AAAA</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:<=2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A%3C%3D2012-07-04&type=Issues)** coincidirá con los informes de problemas que contengan la palabra "cats" y se hayan creado en o antes del 4 de julio de 2012.     |
 | <code><em>AAAA</em>-<em>MM</em>-<em>DD</em>..<em>AAAA</em>-<em>MM</em>-<em>DD</em></code> | **[gatos subidos:2016-04-30..2016-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+pushed%3A2016-04-30..2016-07-04&type=Repositories)** busca repositorios con la palabra "gatos" que se hayan subido entre fines de abril y julio de 2016.         |
 | <code><em>AAAA</em>-<em>MM</em>-<em>DD</em>..*</code> | **[gatos creados:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** busca propuestas que se hayan creado después del 30 de abril de 2012 y contengan la palabra "gatos".                               |
-| <code>*..<em>AAAA</em>-<em>MM</em>-<em>DD</em></code> | **[gatos creados:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** busca propuestas creadas antes del 4 de julio de 2012 que contengan la palabra "gatos".                                            |
+| <code>*..<em>AAAA</em>-<em>MM</em>-<em>DD</em></code> | **[gatos creados:*..2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** busca propuestas creadas antes del 4 de julio de 2012 que contengan la palabra "gatos".                                            |
 
 {% data reusables.time_date.time_format %}
 

@@ -1,1 +1,1 @@
-1. En la parte izquierda de tu página de perfil, debajo de "Organizaciones", da clic en el icono de tu organización. ![iconos de organización](/assets/images/help/profile/profile_orgs_box.png)
+1. En la esquina superior derecha de {% data variables.product.product_name %}, haz clic en tu foto de perfil y luego en **Tus organizaciones**. ![Tus organizaciones en el menú de perfil](/assets/images/help/profile/your-organizations.png)

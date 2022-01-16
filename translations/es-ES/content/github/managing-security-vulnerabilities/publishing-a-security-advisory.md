@@ -24,6 +24,18 @@ Cuando publicas una asesoría de seguridad, notificas a tu comunidad acerca de l
 
 Antes de que publiques una asesoría de seguridad, puedes hacer una colaboración privada para arreglar la vulnerabilidad en una bifurcación privada. Para obtener más información, consulta "[Colaborar en una bifurcación privada temporaria para resolver una vulnerabilidad de seguridad](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)".
 
+{% warning %}
+
+**Warning**: Whenever possible, you should always add a fix version to a security advisory prior to publishing the advisory. If you don't, the advisory will be published without a fixed version, and {% data variables.product.prodname_dependabot %} will alert your users about the issue, without offering any safe version to update to.
+
+We recommend you take the following steps in these different situations:
+
+- If a fix version is imminently available, and you are able to, wait to disclose the issue when the fix is ready.
+- If a fix version is in development but not yet available, mention this in the advisory, and edit the advisory later, after publication.
+- If you are not planning to fix the issue, be clear about it in the advisory so that your users don't contact you to ask when a fix will be made. In this case, it is helpful to include steps users can take to mitigate the issue.
+
+{% endwarning %}
+
 Cuando publicas un borrador de asesoría desde un repositorio público, todos pueden ver:
 
 - La versión actual de los datos de la asesoría.
@@ -66,6 +78,6 @@ El publicar una asesoría de seguridad borra la bifurcación temporal privada pa
 
 {% data reusables.repositories.github-reviews-security-advisories %}
 
-### Further reading
+### Leer más
 
 - "[retirar una asesoría de seguridad](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)"

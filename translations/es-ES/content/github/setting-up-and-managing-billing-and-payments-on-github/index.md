@@ -5,6 +5,8 @@ redirect_from:
   - /categories/setting-up-and-managing-billing-and-payments-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 
@@ -44,6 +46,9 @@ versions:
     {% link_in_list /viewing-your-git-large-file-storage-usage %}
     {% link_in_list /upgrading-git-large-file-storage %}
     {% link_in_list /downgrading-git-large-file-storage %}
+{% topic_link_in_list /managing-licensing-for-github-advanced-security %}
+    {% link_in_list /about-licensing-for-github-advanced-security %}
+    {% link_in_list /viewing-your-github-advanced-security-usage %}
 {% topic_link_in_list /managing-billing-for-github-sponsors %}
     {% link_in_list /about-billing-for-github-sponsors %}
     {% link_in_list /upgrading-a-sponsorship %}

@@ -78,15 +78,15 @@ La mejor forma de resolver este error es fusionar o cerrar algunas de las solici
 
 #### El {% data variables.product.prodname_dependabot %} no puede resolver tus archivos de dependencia
 
-If {% data variables.product.prodname_dependabot %} attempts to check whether dependency references need to be updated in a repository, but can't access one or more of the referenced files, the operation will fail with the error message "{% data variables.product.prodname_dependabot %} can't resolve your LANGUAGE dependency files." The API error type is `git_dependencies_not_reachable`.
+Si el {% data variables.product.prodname_dependabot %} intenta verificar si las referencias de la dependencia necesitan actualizarse en un repositorio, pero no puede acceder a uno o más de los archivos referenciados, la operación fallará con el mensaje de error "{% data variables.product.prodname_dependabot %} can't resolve your LANGUAGE dependency files". El tipo de error de la API es `git_dependencies_not_reachable`.
 
-To allow {% data variables.product.prodname_dependabot %} to update the dependency references successfully, make sure that all of the referenced dependencies are hosted at accessible locations.
+Para permitir añ {% data variables.product.prodname_dependabot %} actualizar las referencias de dependencia exitosamente, asegúrate que todas las dependencias referencias se hospeden en ubicaciones accesibles.
 
-**Version updates only.** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. Para obtener más información, consulta la sección "[Acerca de las actualizaciones de versión del Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)".
+**Únicamente actualizaciones de versión** {% data reusables.dependabot.private-dependencies-note %} Adicionalmente, el {% data variables.product.prodname_dependabot %} no es compatible con dependencias de {% data variables.product.prodname_dotcom %} privadas para todos los administradores de paquetes. Para obtener más información, consulta la sección "[Acerca de las actualizaciones de versión del Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)".
 
 ### Activar una solicitud de cambios del {% data variables.product.prodname_dependabot %} manualmente
 
 Si desbloqueas al {% data variables.product.prodname_dependabot %}, puedes activar manualmente un nuevo intento de crear una solicitud de cambios.
 
 - **Actualizaciones de seguridad**—muestra la alerta del {% data variables.product.prodname_dependabot %} que presente el error que arreglaste y da clic en **Crear una actualización de seguridad del {% data variables.product.prodname_dependabot %}**.
-- **Version updates**—on the **Insights** tab for the repository click **Dependency graph**, and then click the **Dependabot** tab. Click **Last checked *TIME* ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates. Click **Check for updates**.
+- **Actualizaciones de versión**—en la pestaña de **Perspectivas** del repositorio, da clic en **Gráfica de dependencias** y luego en la pestaña de **Dependabot**. Da clic en **Verificado hace *TIME*** para ver el archivo de bitácora que generó el {% data variables.product.prodname_dependabot %} durante la última verificación de actualizaciones de versión. Da clic en **Verificar actualizaciones**.

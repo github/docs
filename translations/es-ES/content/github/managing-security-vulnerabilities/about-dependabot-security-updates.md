@@ -16,7 +16,7 @@ Las {% data variables.product.prodname_dependabot_security_updates %} te facilit
 
 {% note %}
 
-**Note**
+**Nota**
 
 La característica de {% data variables.product.prodname_dependabot_security_updates %} se encuentra disponible para los repositorios en donde hayas habilitado la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %}. Verás una alerta del {% data variables.product.prodname_dependabot %} por cada dependencia vulnerable que se haya identificado en toda tu gráfica de dependencias. Sin embargo, las actualizaciones de seguridad se activan únicamente para las dependencias que se especifican en un archivo de manifiesto o de bloqueo. El {% data variables.product.prodname_dependabot %} no puede actualizar una dependencia indirecta o transitoria si no se define explícitamente. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included)".
 
@@ -34,6 +34,6 @@ Cuando fusionas una solicitud de cambios que contiene una actualización de segu
 
 Las {% data variables.product.prodname_dependabot_security_updates %} podrían incuir puntuaciones de compatibilidad para hacerte saber si el actualizar una vulnerabilidad podría causar cambios sustanciales en tu proyecto. Estos se calculan de las pruebas de IC en otros repositorios públicos en donde se ha generado la misma actualización de seguridad. La puntuación de compatibilidad de una actualización es el porcentaje de ejecuciones de IC que pasaron cuando se hicieron actualizaciones en versiones específicas de la dependencia.
 
-### About notifications for {% data variables.product.prodname_dependabot %} security updates
+### Acerca de las notificaciones para las actualizaciones de seguridad del {% data variables.product.prodname_dependabot %}
 
-You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} security updates. Para recibir más información, consulta la sección "[Administrar las notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".
+Puedes filtrar tus notificaciones en {% data variables.product.company_short %} para mostrar las actualizaciones de seguridad del {% data variables.product.prodname_dependabot %}. Para recibir más información, consulta la sección "[Administrar las notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".

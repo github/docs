@@ -1,6 +1,6 @@
 ---
 title: GitHub のフロー
-intro: 'GitHub では、私たちの製品を毎日使っており、プロジェクトでコラボレーションするためのワークフローを開発しています。 Team の規模や技術的な専門知識の深さにかかわらず使えるように、弊社はワークフローの各手順が Web ベースのインターフェイスで完結できるようにしました。'
+intro: GitHub では、私たちの製品を毎日使っており、プロジェクトでコラボレーションするためのワークフローを開発しています。 Team の規模や技術的な専門知識の深さにかかわらず使えるように、弊社はワークフローの各手順が Web ベースのインターフェイスで完結できるようにしました。
 redirect_from:
   - /articles/creating-and-editing-files-in-your-repository/
   - /articles/github-flow-in-the-browser/
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### GitHub のフローに従う

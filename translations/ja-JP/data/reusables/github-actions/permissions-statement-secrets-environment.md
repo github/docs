@@ -1,1 +1,1 @@
-To create secrets for an environment in a user account repository, you must be the repository owner. To create secrets for an environment in an organization repository, you must have `admin` access.
+ユーザアカウントリポジトリ内の環境にシークレットを作成するには、リポジトリのオーナーでなければなりません。 Organizationリポジトリ内の環境にシークレットを作成するには、`admin`アクセス権を持っていなければなりません。

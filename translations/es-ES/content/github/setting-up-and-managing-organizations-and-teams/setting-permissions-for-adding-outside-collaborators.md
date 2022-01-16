@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Los propietarios de la organización y los miembros con privilegios administrativos en los repositorios pueden invitar colaboradores externos para trabajar en ellos. También puedes restringir los permisos de invitación de colaboradores externos para que solo los propietarios de la organización puedan emitirlos.

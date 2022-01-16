@@ -1,11 +1,14 @@
 ---
 title: Informationen zu GitHub Premium-Support für GitHub Enterprise Cloud
-intro: '{% data variables.contact.premium_support %} ist ein kostenpflichtiges, zusätzliches Supportangebot für {% data variables.product.prodname_ghe_cloud %}- und {% data variables.product.prodname_ghe_one %}-Kunden.'
+intro: '{% data variables.contact.premium_support %} ist ein kostenpflichtiges, ergänzendes Supportangebot für {% data variables.product.prodname_ghe_cloud %}-Kunden.'
 redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Jobs
+shortTitle: GitHub Premium-Support
 ---
 
 {% note %}
@@ -20,7 +23,7 @@ versions:
 
 {% endnote %}
 
-### Informationen zu {% data variables.contact.premium_support %}
+## Informationen zu {% data variables.contact.premium_support %}
 
 {% data variables.contact.premium_support %} bietet Folgendes:
   - Schriftlicher Unterstützung in englischer Sprache, rund um die Uhr über unser Supportportal
@@ -38,13 +41,13 @@ versions:
 
 {% data reusables.support.contacting-premium-support %}
 
-### Geschäftszeiten
+## Geschäftszeiten
 
 Der {% data variables.contact.premium_support %} ist rund um die Uhr verfügbar.
 
 {% data reusables.support.service-level-agreement-response-times %}
 
-### Einem Support-Ticket eine Priorität zuweisen
+## Einem Support-Ticket eine Priorität zuweisen
 
 Wenn Du {% data variables.contact.premium_support %}kontaktierst, kannst Du eine von vier Prioritäten für das Ticket auswählen: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} oder {% data variables.product.support_ticket_priority_low %}.
 
@@ -52,7 +55,7 @@ Wenn Du {% data variables.contact.premium_support %}kontaktierst, kannst Du eine
 
 {% data reusables.support.ghec-premium-priorities %}
 
-### Support-Tickets lösen und schließen
+## Support-Tickets lösen und schließen
 
 Der {% data variables.contact.premium_support %} kann ein Ticket als gelöst betrachten, nachdem er eine Erklärung, Empfehlung, Gebrauchsanweisung oder Anleitung zur Problemumgehung gegeben hat,
 
@@ -64,6 +67,6 @@ Der {% data variables.contact.premium_support %} kann Tickets schließen, wenn s
 
 {% data reusables.support.accessing-premium-content %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Ein Ticket einreichen](/articles/submitting-a-ticket)“

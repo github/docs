@@ -1,14 +1,19 @@
 ---
 title: Migrating to GitHub Actions
-intro: 'Migrate from other continuous integration (CI) providers to {% data variables.product.prodname_actions %}.'
+shortTitle: Migrating to GitHub Actions
+intro: 'Learn how to migrate your existing CI/CD workflows to {% data variables.product.prodname_actions %}.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+redirect_from:
+  - /actions/migrating-to-github-actions
+  - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax/
+children:
+  - /migrating-from-azure-pipelines-to-github-actions
+  - /migrating-from-circleci-to-github-actions
+  - /migrating-from-gitlab-cicd-to-github-actions
+  - /migrating-from-jenkins-to-github-actions
+  - /migrating-from-travis-ci-to-github-actions
 ---
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-{% link_in_list /migrating-from-circleci-to-github-actions %}
-{% link_in_list /migrating-from-azure-pipelines-to-github-actions %}
-{% link_in_list /migrating-from-jenkins-to-github-actions %}

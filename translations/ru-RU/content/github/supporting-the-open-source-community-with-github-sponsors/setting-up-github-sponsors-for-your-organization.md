@@ -7,6 +7,8 @@ redirect_from:
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Joining {% data variables.product.prodname_sponsors %}
@@ -46,6 +48,7 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
+{% data reusables.sponsors.enable-custom-amounts %}
 {% data reusables.sponsors.add-more-tiers %}
 
 ### Submitting your bank information

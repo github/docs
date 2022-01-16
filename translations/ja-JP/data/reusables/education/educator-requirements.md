@@ -1,6 +1,6 @@
-To apply for an educator or researcher discount, you must meet the following requirements.
+教育者もしくは研究者の割引を申し込むには、以下の要件を満たしていなければなりません。
 
-- 教育者、教職員、または研究者であること.
-- Have a verifiable school-issued email address.
-- Upload documents that prove your school affiliation.
-- Have a user account on {% data variables.product.product_name %}.
+- 教育者、教職員、または研究者であること。
+- 学校が発行した確認可能なメールアドレスを持っていること。
+- 学校への所属を証明するドキュメントをアップロードすること。
+- {% data variables.product.product_name %}上にユーザアカウントを持っていること。

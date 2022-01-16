@@ -36,13 +36,6 @@ upcoming_changes:
     criticality: breaking
     owner: tambling
   - 
-    location: Sponsorship.maintainer
-    description: 'Se eliminará a `maintainer`. Utiliza `Sponsorship.sponsorable` en sustitución.'
-    reason: 'Se eliminará a `Sponsorship.maintainer`.'
-    date: '2020-04-01T00:00:00+00:00'
-    criticality: breaking
-    owner: antn
-  - 
     location: EnterprisePendingMemberInvitationEdge.isUnlicensed
     description: 'Se eliminará a `isUnlicensed`.'
     reason: Todos los miembros pendientes consumen una licencia
@@ -78,13 +71,6 @@ upcoming_changes:
     criticality: breaking
     owner: jdennes
   - 
-    location: Sponsorship.sponsor
-    description: 'Se eliminará a `sponsor`. En vez de esto, utiliza `Sponsorship.sponsorEntity`.'
-    reason: 'Se eliminará a `Sponsorship.sponsor`.'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: nholden
-  - 
     location: EnterpriseMemberEdge.isUnlicensed
     description: 'Se eliminará a `isUnlicensed`.'
     reason: Todos los miembros consumen una licencia
@@ -112,3 +98,17 @@ upcoming_changes:
     date: '2021-01-01T00:00:00+00:00'
     criticality: breaking
     owner: nplasterer
+  - 
+    location: PackageType.DOCKER
+    description: 'Se eliminará a `DOCKER`.'
+    reason: Se eliminará a DOCKER de esta enumeración, ya que este tipo se migrará para que solo lo utilice la API de REST de paquetes.
+    date: '21-06-2021'
+    criticality: breaking
+    owner: reybard
+  - 
+    location: ReactionGroup.users
+    description: 'Se eliminará a `users`. Utiliza el campo de `reactors` en su lugar.'
+    reason: Los reactores ahora pueden ser maniquíes, bots y organizaciones.
+    date: '2021-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: synthead

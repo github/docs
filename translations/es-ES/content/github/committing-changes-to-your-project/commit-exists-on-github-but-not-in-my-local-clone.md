@@ -72,7 +72,7 @@ $ git fetch upstream recover-B
 
 Evita los empujes forzados a un repositorio a menos que sea absolutamente necesario. Esto es especialmente cierto si más de una persona puede subir al repositorio.
 
-### Further reading
+### Leer más
 
 - ["Working with Remotes" (Trabajar con remotos) desde el libro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
 - ["Recuperación de datos" sde el libro _Pro Git_](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

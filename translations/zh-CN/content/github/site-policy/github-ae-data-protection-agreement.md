@@ -328,7 +328,7 @@ For the purposes of Article 46 (2) of the General Data Protection Regulation (EU
 
 但是，由于数据进口方提供存储服务，并且不控制其存储的数据类别，因此数据出口方可以选择传输特殊类别的数据。 所以，数据出口方应全权负责确保其遵守适用法律和法规规定的与收集和处理任何特殊类别数据有关的所有义务，包括在处理敏感个人数据之前获得数据主体的明确同意。
 
-**Processing operations:** The personal data transferred will be subject to the following basic processing activities: GitHub uses personal data for the limited purposes set forth in the GitHub Privacy Statement, available at https://help.github.com/articles/github-privacy-statement/, and the “Data Processing” section of the DPA.
+**Processing operations:** The personal data transferred will be subject to the following basic processing activitiews: GitHub uses personal data for the limited purposes set forth in the GitHub Privacy Statement, available at https://docs.github.com/articles/github-privacy-statement/, and the “Data Processing” section of the DPA.
 
 **Subcontractors:** In accordance with the DPA, the data importer may hire other companies to provide limited services on data importer’s behalf, such as providing customer support. 任何此类分包商只能以提供数据进口商委托的服务为目的而获取客户个人数据，并且不得将客户个人数据用于任何其他目的。
 

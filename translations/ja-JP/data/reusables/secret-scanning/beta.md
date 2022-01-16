@@ -1,7 +1,17 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes = 3.0 or ghae %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for organization-owned{% if currentVersion ver_gt "enterprise-server@2.22" %} public and{% endif %} private repositories is currently in beta and subject to change.
+**ノート:** Organizationが所有するリポジトリのための{% data variables.product.prodname_secret_scanning_caps %}は現在ベータで、変更されることがあります。
+
+{% endnote %}
+
+{% endif %}
+{% ifversion ghes > 3.0 %}
+
+{% note %}
+
+**ノート:** {% data variables.product.prodname_secret_scanning_caps %}は{% data variables.product.prodname_ghe_server %} 3.0ではベータでした。 {% data variables.product.prodname_secret_scanning %}の一般に利用なリリースについては、{% data variables.product.prodname_ghe_server %}の最新リリースにアップグレードしてください。
+
 
 {% endnote %}
 

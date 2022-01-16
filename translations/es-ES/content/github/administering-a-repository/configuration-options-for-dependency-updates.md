@@ -21,14 +21,14 @@ El archivo *dependabot.yml* debe comenzar con `version: 2`, seguido de un conjun
 | Opción                                                                     | Requerido | Descripción                                                                                   |
 |:-------------------------------------------------------------------------- |:---------:|:--------------------------------------------------------------------------------------------- |
 | [`package-ecosystem`](#package-ecosystem)                                  |   **X**   | Administrador de paquetes a utilizar                                                          |
-| [`directory`](#directory)                                                  |   **X**   | Ubicación de los manifiestos del paquete                                                      |
+| [`directorio`](#directory)                                                 |   **X**   | Ubicación de los manifiestos del paquete                                                      |
 | [`schedule.interval`](#scheduleinterval)                                   |   **X**   | Qué tan a menudo se revisará si hay actualizaciones                                           |
 | [`allow`](#allow)                                                          |           | Personalizar qué actualizaciones se permitirán                                                |
 | [`asignatarios`](#assignees)                                               |           | Los asignados a configurar en las solicitudes de extracción                                   |
 | [`commit-message`](#commit-message)                                        |           | Preferencias de mensaje de confirmación                                                       |
 | [`ignore`](#ignore)                                                        |           | Ignorar ciertas dependencias o versiones                                                      |
 | [`etiquetas`](#labels)                                                     |           | Las etiquetas a configurar en las solicitudes de extracción                                   |
-| [`milestone`](#milestone)                                                  |           | Hito a configurar en las solicitudes de extracción                                            |
+| [`hito`](#milestone)                                                       |           | Hito a configurar en las solicitudes de extracción                                            |
 | [`open-pull-requests-limit`](#open-pull-requests-limit)                    |           | Limitar la cantidad de solicitudes de extracción abiertas para las actualizaciones de versión |
 | [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |           | Cambiar el separador para los nombres de rama de la solicitud de extracción                   |
 | [`rebase-strategy`](#rebase-strategy)                                      |           | Inhabilitar el rebase automático                                                              |
@@ -91,7 +91,7 @@ updates:
       interval: "daily"
 ```
 
-### `directory`
+### `directorio`
 
 **Requerido** Debes definir la ubicación de los manifiestos de paquete para cada administrador de paquete (por ejemplo, el *package.json* o *Gemfile*). Tú definierás el directorio relativo a la raíz del repositorio para todos los ecosistemas, menos para GitHub Actions. Para GitHub Actions, configura el directorio para que sea `/` y así revisar los archivos de flujo de trabajo en `.github/workflows`.
 
@@ -336,7 +336,7 @@ updates:
       - "dependencies"
 ```
 
-### `milestone`
+### `hito`
 
 Utiliza `milestone` para asociar todas las solicitudes de extracción que se han levantado para un administrador de paquete con un hito. Necesitas especificar el identificador numérico del hito y, no así, su etiqueta. Si ves un hito, la parte final de la URL de la página, después de `milestone`, es el identificador. Por ejemplo: `https://github.com/<org>/<repo>/milestone/3`.
 

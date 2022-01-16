@@ -16,7 +16,7 @@ versions:
 5. Para revisar tu respuesta, haz clic en **Vista previa**. ![Agregar una respuesta guardada](/assets/images/help/settings/saved-replies-preview.png)
 6. Haz clic en **Agregar respuesta guardada**. ![Agregar una respuesta guardada](/assets/images/help/settings/saved-replies-add-button.png)
 
-### Further reading
+### Leer más
 
 - "[Usar respuestas guardadas](/articles/using-saved-replies)"
 - "[Editar una respuesta guardada](/articles/editing-a-saved-reply)"

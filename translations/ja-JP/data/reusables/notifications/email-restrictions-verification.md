@@ -1,0 +1,1 @@
+メールの制限を有効化すると、メンバーは検証済みあるいは承認済みのドメイン内の検証済みメールアドレスでメール通知を受信できるようになります。 {% ifversion fpt %}For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."{% endif %}

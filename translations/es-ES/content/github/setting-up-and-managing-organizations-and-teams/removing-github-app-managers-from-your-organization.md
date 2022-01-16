@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Para más información sobre los permisos del administrador de {% data variables.product.prodname_github_app %}, consulta "[Niveles de permiso para una organización](/articles/permission-levels-for-an-organization#github-app-managers)".
@@ -32,7 +35,7 @@ Para más información sobre los permisos del administrador de {% data variables
 1. En "App managers" (Administradores de app), encuentra el nombre de usuario de la persona para la que quieres eliminar {% data variables.product.prodname_github_app %} los permisos de administrador, luego haz clic en **Revoke** (Revocar). ![Revocar {% data variables.product.prodname_github_app %} permisos de administrador](/assets/images/help/organizations/github-app-manager-revoke-permissions-individual-app.png)
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+### Leer más
 
 - "[Acerca de {% data variables.product.prodname_dotcom %} Mercado](/articles/about-github-marketplace/)"
 {% endif %}

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Bifurcar un repositorio es similar a copiar un repositorio, con dos diferencias principales:
@@ -26,7 +28,7 @@ En proyectos de código abierto, las bifurcaciones suelen iterar en ideas o camb
 
 Si quieres crear un repositorio nuevo desde el contenido de uno existente pero no quieres fusionar tus cambios ascendentemente en ocasiones futuras, puedes duplicar el repositorio o, si éste es una plantilla, utilizarlo como plantilla. Para obtener más información, consulta "[Duplicar un repositorio](/articles/duplicating-a-repository)" y [Crear un repositorio a partir de una plantilla](/articles/creating-a-repository-from-a-template)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de los modelos de desarrollo colaborativo](/articles/about-collaborative-development-models)"
 - "[Crear una solicitud de extracción desde una bifurcación](/articles/creating-a-pull-request-from-a-fork)"

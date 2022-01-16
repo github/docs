@@ -7,9 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
-{% data reusables.organizations.team-discussions-default %}Para obtener más información acerca de los debates de equipo, consulta "[Acerca de los debates de equipo](/articles/about-team-discussions)".
+{% data reusables.organizations.team-discussions-default %}Para obtener más información acerca de los debates de equipo, consulta "[Acerca de los debates de equipo](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)".
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

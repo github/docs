@@ -1,1 +1,1 @@
-1. Überprüfe rechts auf der Seite unter „Select a tier" (Eine Stufe wählen) die verfügbaren Sponsorship-Stufen. Dann klicke rechts neben der gewünschten Stufe auf **Select** (Auswählen). ![Kontrollkästchen „Select a tier" (Stufe wählen)](/assets/images/help/sponsors/select-a-tier-box.png)
+1. To the right of the tier you want, click **Select**. If want to select a custom amount, enter the sponsorship amount before clicking "Select." ![Kontrollkästchen „Select a tier" (Stufe wählen)](/assets/images/help/sponsors/select-a-tier-box.png)

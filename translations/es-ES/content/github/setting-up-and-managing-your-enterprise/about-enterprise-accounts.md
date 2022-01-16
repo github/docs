@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Acerca de las cuentas de empresa
@@ -16,7 +18,7 @@ versions:
 Una cuenta empresarial te permite administrar varias organizaciones de {% data variables.product.prodname_dotcom %} e instancias de {% data variables.product.prodname_ghe_server %}. Tu cuenta de empresa debe tener un controlador, como una organización o cuenta personal en {% data variables.product.prodname_dotcom %}. Los administradores de empresas pueden administrar los parámetros y las referencias, como:
 
 - El acceso de los miembros y la administración (miembros de la organización, colaboradores externos).
-- Facturación y uso (instancias de {% data variables.product.prodname_ghe_server %}, licencias de usuario, paquetes de {% data variables.large_files.product_name_short %})
+- Uso y facturación (instancias de {% data variables.product.prodname_ghe_server %}, licencias de usuario, paquetes de {% data variables.large_files.product_name_short %}{% if currentVersion == "free-pro-team@latest" or ver_gt "enterprise-server@3.0" %}, uso de {% data variables.product.prodname_GH_advanced_security %}{% endif %})
 - Seguridad (inicio de sesión único, autenticación de dos factores).
 - Solicitudes y paquetes de soporte compartidos con {% data variables.contact.enterprise_support %}
 

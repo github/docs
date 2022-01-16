@@ -1,11 +1,11 @@
-1. Under "Policies", select your options.
+1. "Policies（ポリシー）"の下で、オプションを選択してください。
 
-  You can choose which organizations in your enterprise can use {% data variables.product.prodname_actions %}, and you can restrict access to public actions.
+  Enterprise内のどのOrganizationが{% data variables.product.prodname_actions %}を使えるのかを選択でき、パブリックなアクションへのアクセスを制限できます。
 
-  {% if currentVersion ver_gt "enterprise-server@2.21" %}
+  {% ifversion ghes %}
   {% note %}
 
-  **Note:** To enable access to public actions, you must first configure {% data variables.product.product_location %} to connect to {% data variables.product.prodname_marketplace %}. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
+  **ノート:** パブリックなアクションへのアクセスを有効化するには、まず{% data variables.product.product_location %}を{% data variables.product.prodname_marketplace %}に接続するように設定しなければなりません。 詳しい情報については「[GitHub Connectを使用したGitHub.comのアクションへの自動アクセスの有効化](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)」を参照してください。
 
   {% endnote %}
   {% endif %}

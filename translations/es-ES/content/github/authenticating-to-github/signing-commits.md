@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% data reusables.gpg.desktop-support-for-commit-signing %}
@@ -45,7 +48,7 @@ Si tienes múltiples llaves o estás intentando firmar confirmaciones o etiqueta
 {% data reusables.repositories.review-pr-commits %}
 5. Para ver información más detallada acerca de la firma verificada, haz clic en Verified (Verificada). ![Confirmación firmada](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
-### Further reading
+### Leer más
 
 * "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 * "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"

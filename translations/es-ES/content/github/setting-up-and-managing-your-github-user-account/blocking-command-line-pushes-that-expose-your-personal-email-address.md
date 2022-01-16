@@ -5,6 +5,9 @@ redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 Cuando subes las confirmaciones de la línea de comando, la dirección de correo electrónico que has [establecido en Git](/articles/setting-your-commit-email-address) están asociadas con tus confirmaciones. Este parámetro impide que subas confirmaciones a la línea de comando que usa tu dirección de correo electrónico personal.
@@ -16,6 +19,6 @@ Cuando subes las confirmaciones de la línea de comando, la dirección de correo
 {% data reusables.user_settings.keeping_your_email_address_private %}
 4. Para que tu dirección de correo electrónico siga siendo privada en las confirmaciones desde la línea de comando, selecciona **Block command line pusses that expose my email** (Bloquear inserciones de la línea de comando que expone mi correo electrónico). ![Opción para bloquear las inserciones de la línea de comando que expone tus correos electrónicos](/assets/images/help/settings/email_privacy_block_command_line_pushes.png)
 
-### Further reading
+### Leer más
 
 - "[Establecer tu dirección de correo electrónico de confirmaciones](/articles/setting-your-commit-email-address)"

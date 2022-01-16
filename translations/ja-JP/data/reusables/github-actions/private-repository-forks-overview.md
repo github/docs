@@ -1,5 +1,5 @@
-If you rely on using forks of your private repositories, you can configure policies that control how users can run workflows on `pull_request` events. Available to private repositories only, you can configure these policy settings for enterprise accounts, organizations, or repositories. For enterprise accounts, the policies are applied to all repositories in all organizations.
+プライベートリポジトリのフォークの利用に依存しているなら、ユーザがどのように`pull_request`イベントの際にワークフローを実行できるかを制御するポリシーを設定できます。 Available to private and internal repositories only, you can configure these policy settings for enterprises, organizations, or repositories. Enterpriseの場合、このポリシーはすべてのOrganizationのすべてのリポジトリに適用されます。
 
-- **Run workflows from fork pull requests** - Allows users to run workflows from fork pull requests, using a `GITHUB_TOKEN` with read-only permission, and with no access to secrets.
-- **Send write tokens to workflows from pull requests** - Allows pull requests from forks to use a `GITHUB_TOKEN` with write permission.
-- **Send secrets to workflows from pull requests** - Makes all secrets available to the pull request.
+- **Run workflows from fork pull requests（フォークのPull Requestからワークフローを実行）** - 読み取りのみの権限を持ち、シークレットにはアクセスできない`GITHUB_TOKEN`を使って、フォークのPull Requestからワークフローを実行することをユーザに許可します。
+- **Send write tokens to workflows from pull requests（Pull Requestから書き込みトークンをワークフローに送信）** - 書き込み権限を持つ`GITHUB_TOKEN`の利用をフォークからのPull Requestに許可します。
+- **Send secrets to workflows from pull requests（Pull Requestからワークフローにシークレットを送信）** - すべてのシークレットをPull Requestから利用可能にします。

@@ -10,6 +10,8 @@ redirect_from:
   - /github/getting-started-with-github/finding-open-source-projects-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - Open Source
 ---
 
 ### Discovering relevant projects

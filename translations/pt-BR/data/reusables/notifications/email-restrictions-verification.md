@@ -1,0 +1,1 @@
+Após habilitar as restrições por e-mail, os integrantes podem receber notificações de e-mail em endereços de e-mail verificados dentro de domínios que você verificou ou aprovou. {% ifversion fpt %}For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."{% endif %}

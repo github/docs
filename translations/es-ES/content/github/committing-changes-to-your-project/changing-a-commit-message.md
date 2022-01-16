@@ -116,6 +116,6 @@ Si incluiste información sensible en un mensaje de confirmación, el subir dich
 
 {% endwarning %}
 
-### Further reading
+### Leer más
 
 * "[Firmar confirmaciones](/articles/signing-commits)"

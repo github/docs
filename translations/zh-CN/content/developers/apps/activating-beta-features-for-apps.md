@@ -3,6 +3,8 @@ title: 激活应用程序的测试版功能
 intro: '您可以在 {% data variables.product.prodname_github_apps %} 和 {% data variables.product.prodname_oauth_app %} 的公开测试版中测试所发布的新应用程序功能。'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% warning %}

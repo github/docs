@@ -103,7 +103,7 @@ Para el ejemplo de más arriba, esto sería:
 $ git pull -s subtree spoon-knife main
 ```
 
-### Further reading
+### Leer más
 
 - [El capítulo de "Fusión Avanzada" del libro de _Pro Git_](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
 - "[Cómo usar la estrategia de fusión de subárbol](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"

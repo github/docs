@@ -37,7 +37,7 @@ También puedes observar y dejar de observar los lanzamientos en un repositorio.
 
 {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Suscribirse y desuscribirse de las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
 - "[Listar los repositorios que estás observando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"

@@ -7,13 +7,17 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
 versions:
   enterprise-server: '*'
+type: reference
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
-Para acceder al tablero, en la esquina superior derecha de cualquier página, haz clic en {% octicon "rocket" aria-label="The rocket ship" %}. ![Ícono de cohete para acceder a las configuraciones de administrador del sitio](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+Para acceder al tablero, en la esquina superior derecha de cualquier página, haz clic en {% octicon "rocket" aria-label="The rocket ship" %}. ![Icono de cohete para acceder a la configuración de administrador del sitio](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-### Search
+### Buscar
 
 Aquí puedes iniciar la {{ site.data.variables.enterprise.management_console }} para administrar las configuraciones del aparato virtual como el dominio, la autenticación y SSL.
 
@@ -77,8 +81,8 @@ Para acceder a otros informes mediante programación, reemplaza `all_users` con 
 | `created_at (creado en)` | Cuándo fue creada la cuenta de usuario (como una marca de tiempo ISO 8601)        |
 |                     `id` | ID de la cuenta para el usuario o la organización                                 |
 |                  `login` | Nombre de inicio de sesión de la cuenta                                           |
-|                  `email` | Dirección principal de correo electrónico de la cuenta                            |
-|                   `role` | Si la cuenta es de un usuario administrador o de un usuario común                 |
+|     `correo electrónico` | Dirección principal de correo electrónico de la cuenta                            |
+|                    `rol` | Si la cuenta es de un usuario administrador o de un usuario común                 |
 |             `suspended?` | Si la cuenta ha sido suspendida                                                   |
 |         `last_logged_ip` | La dirección IP más reciente que se registró en la cuenta                         |
 |                  `repos` | Cantidad de repositorios que posee la cuenta                                      |
@@ -96,7 +100,7 @@ Para acceder a otros informes mediante programación, reemplaza `all_users` con 
 |                     `id` | ID de la organización                                        |
 | `created_at (creado en)` | Cuándo se creó la organización                               |
 |                  `login` | Nombre de inicio de sesión de la organización                |
-|                  `email` | Dirección principal de correo electrónico de la organización |
+|     `correo electrónico` | Dirección principal de correo electrónico de la organización |
 |                 `owners` | Cantidad de propietarios de la organización                  |
 |                `members` | Cantidad de miembros de la organización                      |
 |                `equipos` | Cantidad de equipos de la organización                       |
@@ -113,7 +117,7 @@ Para acceder a otros informes mediante programación, reemplaza `all_users` con 
 |             `owner_name` | Nombre del propietario del repositorio                             |
 |                     `id` | ID del repositorio                                                 |
 |          `name (nombre)` | Nombre del repositorio                                             |
-|             `visibility` | Si el repositorio es público o privado                             |
+|            `visibilidad` | Si el repositorio es público o privado                             |
 |          `readable_size` | El tamaño del repositorio en un formato legible                    |
 |               `raw_size` | Tamaño del repositorio como un número                              |
 |          `collaborators` | Cantidad de colaboradores del repositorio                          |

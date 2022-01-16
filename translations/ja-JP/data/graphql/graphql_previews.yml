@@ -26,7 +26,7 @@
     - CreateDeploymentInput
     - CreateDeploymentPayload
   owning_teams:
-    - '@github/ecosystem-api'
+    - '@github/c2c-actions-service'
 - 
   title: >-
     MergeInfoPreview - プルリクエストのマージ状態に関する詳細な情報。
@@ -103,21 +103,6 @@
     - Mutation.createContentAttachment
   owning_teams:
     - '@github/feature-lifecycle'
-- 
-  title: ピン止めされたIssueのプレビュー
-  description: このプレビューは、ピン止めされたIssueのサポートを追加します。
-  toggled_by: ':elektra-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Repository.pinnedIssues
-    - PinnedIssue
-    - PinnedIssueEdge
-    - PinnedIssueConnection
-    - Mutation.pinIssue
-    - Mutation.unpinIssue
-  owning_teams:
-    - '@github/pe-pull-requests'
 - 
   title: ラベルのプレビュー
   description: >-

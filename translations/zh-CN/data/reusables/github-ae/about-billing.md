@@ -1,1 +1,1 @@
-You will receive a monthly bill for {% data variables.product.prodname_ghe_managed %}, with charges that are calculated per licensed user per day.
+您将每月收到一张 {% data variables.product.prodname_ghe_managed %} 账单，费用按每个许可用户每天计算。

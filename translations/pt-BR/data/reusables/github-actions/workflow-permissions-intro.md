@@ -1,0 +1,1 @@
+Você pode definir as permissões padrão concedidas ao `GITHUB_TOKEN`. Para obter mais informações sobre o `GITHUB_TOKEN`, consulte "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow)". Você pode escolher entre um conjunto restrito de permissões como padrão ou configuração permissiva. 

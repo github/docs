@@ -41,10 +41,15 @@ Windows 虚拟机配置为以禁用了用户帐户控制 (UAC) 的管理员身�
 
 ### 支持的运行器和硬件资源
 
-每台虚拟机都有相同的硬件资源。
 
+Hardware specification for Windows and Linux virtual machines:
 - 2 核 CPU
 - 7 GB RAM 内存
+- 14 GB SSD 硬盘空间
+
+Hardware specification for macOS virtual machines:
+- 3 核 CPU
+- 14 GB RAM 内存
 - 14 GB SSD 硬盘空间
 
 {% data reusables.github-actions.supported-github-runners %}
@@ -71,9 +76,13 @@ Windows 虚拟机配置为以禁用了用户帐户控制 (UAC) 的管理员身�
 
 {% data variables.product.prodname_dotcom %} 托管的运行器除了上述参考中列出的包之外，还包括操作系统的默认内置工具。 例如，Ubuntu 和 macOS 运行器除了其他默认工具之外，还包括 `grep`、`find` 和 `which`。
 
-工作流程日志包括指向运行器上预安装的工具的链接。 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will tell you the the preinstalled tools on the runner that ran the workflow. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-如果有您想要请求的工具，请在 [actions/virtual-environments](https://github.com/actions/virtual-environments) 打开一个议题。
+We recommend using actions to interact with the software installed on runners. This approach has several benefits:
+- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
+- It ensures the tool versions used in your workflow will remain the same regardless of software updates
+
+如果有您想要请求的工具，请在 [actions/virtual-environments](https://github.com/actions/virtual-environments) 打开一个议题。 This repository also contains announcements about all major software updates on runners.
 
 ### IP 地址
 
@@ -83,11 +92,11 @@ Windows 虚拟机配置为以禁用了用户帐户控制 (UAC) 的管理员身�
 
 {% endnote %}
 
-Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
+Windows 和 Ubuntu 运行程序托管在 Azure 中，随后具有与 Azure 数据中心相同的 IP 地址范围。 macOS 运行器托管在 {% data variables.product.prodname_dotcom %} 自己的 macOS 云中。
 
-To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API . For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint. You can use this list of IP addresses if you require an allow-list to prevent unauthorized access to your internal resources.
+要获取 {% data variables.product.prodname_actions %} 用于 {% data variables.product.prodname_dotcom %} 托管运行器的 IP 地址范围列表，您可以使用 {% data variables.product.prodname_dotcom %} REST API。 更多信息请参阅“[获取 GitHub 元信息](/rest/reference/meta#get-github-meta-information)”端点响应中的 `actions` 键。 如果需要一个允许列表来阻止未经授权访问您的内部资源，您可以使用此 IP 地址列表。
 
-The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
+API 返回的 {% data variables.product.prodname_actions %} IP 地址列表每周更新一次。
 
 ### 文件系统
 

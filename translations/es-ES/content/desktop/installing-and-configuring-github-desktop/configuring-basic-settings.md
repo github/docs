@@ -23,6 +23,6 @@ versions:
 
 {% endwindows %}
 
-### Further reading
+### Leer más
 
 - "[Configurar un tema para {% data variables.product.prodname_desktop %}](/desktop/guides/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)"

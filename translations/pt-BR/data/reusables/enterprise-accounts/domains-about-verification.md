@@ -1,0 +1,11 @@
+Você pode confirmar que os sites e endereços de e-mail listados nos perfis de qualquer organização pertencente à sua conta corporativa são controlados pela sua empresa verificando os domínios. Os domínios verificados para uma conta corporativa aplicam-se a todas as organizações pertencentes à conta corporativa.
+
+Depois de verificar a propriedade dos domínios da sua conta, será exibido um selo "Verificado" no perfil de cada organização com o domínio listado no seu perfil. {% data reusables.organizations.verified-domains-details %}
+
+Os proprietários da organização conseguirão de verificar a identidade dos integrantes da organização, visualizando o endereço de e-mail de cada integrante dentro do domínio verificado.
+
+Após verificar domínios para a sua conta corporativa, você poderá restringir notificações de e-mail para domínios verificados para todas as organizações pertencentes à sua conta corporativa. {% ifversion fpt%}For more information, see "[Restricting email notifications for your enterprise account](/github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."{% endif %}
+
+Mesmo se você não restringir as notificações de e-mail da conta corporativa, se o proprietário da organização tiver restringido as notificações de e-mail para a organização, os integrantes da organização poderão receber notificações em qualquer domínio verificado ou aprovado para a conta corporativa, além de quaisquer domínios verificados ou aprovados para a organização. Para obter mais informações sobre restrições de notificações para uma organização, consulte "[Restringir notificações de e-mail para a sua organização](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)".
+
+Os proprietários da organização também podem verificar domínios adicionais para suas organizações. Para obter mais informações, consulte "[Verificar ou aprovar um domínio para a sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".

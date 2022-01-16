@@ -4,6 +4,10 @@ intro: 'Organization owners can disable, enable, and limit GitHub Actions for an
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.actions.enterprise-beta %}

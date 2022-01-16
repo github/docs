@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Visualizar a los propietarios{% if currentVersion == "free-pro-team@latest" %} y gerentes de facturación de la empresa{% endif %}
@@ -23,7 +25,7 @@ Puedes ver a los propietarios {% if currentVersion == "free-pro-team@latest" %}y
 
 ### Ver miembros y colaboradores externos
 
-Puedes ver la cantidad de miembros y colaboradores externos pendientes. Puedes filtrar la lista de miembros por {% if currentVersion == "free-pro-team@latest" %}lanzamiento ({% data variables.product.prodname_ghe_cloud %} o {% data variables.product.prodname_ghe_server %}),{% endif %}rol {% if currentVersion == "free-pro-team@latest" %}, y{% elsif currentVersion == "github-ae@latest" %}u {% endif %}organización. Puedes filtrar la lista de colaboradores externos por la visibilidad de los repositorios a los que el colaborador tiene acceso. Puedes encontrar una persona específica al buscar por su nombre de usuario o nombre que se muestra.
+Puedes ver la cantidad de miembros y colaboradores externos pendientes. Puedes filtrar la lista de miembros por {% if currentVersion == "free-pro-team@latest" %}despliegue ({% data variables.product.prodname_ghe_cloud %} o {% data variables.product.prodname_ghe_server %}),{% endif %} rol{% if currentVersion == "free-pro-team@latest" %}, y{% else %} u{% endif %} organización. Puedes filtrar la lista de colaboradores externos por la visibilidad de los repositorios a los que el colaborador tiene acceso. Puedes encontrar una persona específica al buscar por su nombre de usuario o nombre que se muestra.
 
 Puedes ver {% if currentVersion == "free-pro-team@latest" %}todas las organizaciones de {% data variables.product.prodname_ghe_cloud %} e instancias de {% data variables.product.prodname_ghe_server %} a las cuales pertenece un miembro, y {% endif %}a qué repositorios tiene acceso un colaborador externo{% if currentVersion == "free-pro-team@latest" %}, {% endif %} dand clic en el nombre de una persona.
 
@@ -33,6 +35,6 @@ Puedes ver {% if currentVersion == "free-pro-team@latest" %}todas las organizaci
 {% if currentVersion == "free-pro-team@latest" %}1. Opcionalmente, para ver una lista de invitaciones pendientes, da clic en **_CANTIDAD_ pendientes**.
   ![botón de "CANTIDAD pendientes" a la derecha de las opciones de búsqueda y de filtrado](/assets/images/help/enterprises/members-pending.png){% endif %}
 
-### Further reading
+### Leer más
 
 - "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)"

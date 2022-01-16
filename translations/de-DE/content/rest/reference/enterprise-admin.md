@@ -1,22 +1,25 @@
 ---
 title: GitHub Enterprise administration
+intro: 'You can use these {% data variables.product.prodname_ghe_cloud %} endpoints to administer your enterprise account. Among the tasks you can perform with this API are many relating to GitHub Actions.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
   - /v3/enterprise
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
+shortTitle: Enterprise administration
 ---
 
-You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
-
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 
-**Note:** This article applies to {% data variables.product.prodname_ghe_cloud %}. To see the {% data variables.product.prodname_ghe_server %} version, use the **{% data ui.pages.article_version %}** drop-down menu.
+**Note:** This article applies to {% data variables.product.prodname_ghe_cloud %}. To see the {% data variables.product.prodname_ghe_managed %} or {% data variables.product.prodname_ghe_server %} version, use the **{% data ui.pages.article_version %}** drop-down menu.
 
 {% endnote %}
 
@@ -24,29 +27,29 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 ### Endpoint URLs
 
-REST API endpoints{% if enterpriseServerVersions contains currentVersion %}—except [Management Console](#management-console) API endpoints—{% endif %} are prefixed with the following URL:
+REST API endpoints{% ifversion ghes %}—except [Management Console](#management-console) API endpoints—{% endif %} are prefixed with the following URL:
 
 ```shell
-http(s)://<em>hostname</em>/api/v3/
+{% data variables.product.api_url_pre %}
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 [Management Console](#management-console) API endpoints are only prefixed with a hostname:
 
 ```shell
 http(s)://<em>hostname</em>/
 ```
 {% endif %}
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ### Authentifizierung
 
-Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the GitHub.com API. You can authenticate yourself with **[OAuth tokens](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** {% if enterpriseServerVersions contains currentVersion %}(which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization)) {% endif %}or **[basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if enterpriseServerVersions contains currentVersion %} OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
+Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the GitHub.com API. You can authenticate yourself with **[OAuth tokens](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** {% ifversion ghes %}(which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization)) {% endif %}or **[basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% ifversion ghes %} OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
 
-Enterprise administration API endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators{% if enterpriseServerVersions contains currentVersion %}, except for the [Management Console](#management-console) API, which requires the [Management Console password](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
+Enterprise administration API endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators{% ifversion ghes %}, except for the [Management Console](#management-console) API, which requires the [Management Console password](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ### Version information
 
 The current version of your enterprise is returned in the response header of every API: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` You can also read the current version by calling the [meta endpoint](/rest/reference/meta/).
@@ -57,7 +60,7 @@ The current version of your enterprise is returned in the response header of eve
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ## Auditprotokoll
 
@@ -67,7 +70,7 @@ The current version of your enterprise is returned in the response header of eve
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Billing
 
 {% for operation in currentRestOperations %}
@@ -76,91 +79,15 @@ The current version of your enterprise is returned in the response header of eve
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ## GitHub Actions
+
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-## SCIM
-
-### SCIM Provisioning for Enterprises
-
-SCIM-enabled Identity Providers (IdPs) can use the SCIM API to automate the provisioning of enterprise membership. The {% data variables.product.product_name %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/).
-
-The IdP must use `{% data variables.product.api_url_code %}/scim/v2/enterprises/{enterprise}/` as the SCIM endpoint.
-
-{% note %}
-
-**Note:** The enterprise SCIM API is only available to enterprises on [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. Weitere Informationen zu SCIM findest Du unter „[Informationen zu SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim).“
-
-{% endnote %}
-
-### Authenticating calls to the SCIM API
-
-You must authenticate as an owner of a {% data variables.product.product_name %} enterprise to use its SCIM API. The API expects an [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) token to be included in the `Authorization` header. You may also use a personal access token, but you must first [authorize it for use with your SAML SSO enterprise](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
-
-### Mapping of SAML and SCIM data
-
-The SAML IdP and the SCIM client must use matching `NameID` and `userName` values for each user. This allows a user authenticating through SAML to be linked to their provisioned SCIM identity.
-
-SCIM groups are matched with {% data variables.product.product_name %} organizations that have the exact same name, and are owned by the enterprise account.
-
-The SAML IdP and SCIM client must be configured to exactly match the `displayName` of the SCIM group with the name of the corresponding {% data variables.product.product_name %} organization. This allows {% data variables.product.product_name %} to link the SCIM group with the {% data variables.product.product_name %} organization membership.
-
-### Supported SCIM User attributes
-
-| Name             | Typ       | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `userName`       | `string`  | The username for the user.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `name.givenName` | `string`  | The first name of the user.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `name.lastName`  | `string`  | The last name of the user.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `emails`         | `array`   | List of user emails.                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `externalId`     | `string`  | This identifier is generated by the SAML provider, and is used as a unique ID by the SAML provider to match against a GitHub user. You can find the `externalID` for a user either at the SAML provider, or using the [List SCIM provisioned identities for an enterprise](#list-scim-provisioned-identities-for-an-enterprise) endpoint and filtering on other known attributes, such as a user's GitHub username or email address. |
-| `id`             | `string`  | Identifier generated by the GitHub SCIM endpoint.                                                                                                                                                                                                                                                                                                                                                                                    |
-| `active`         | `boolean` | Used to indicate whether the identity is active (true) or should be deprovisioned (false).                                                                                                                                                                                                                                                                                                                                           |
-| `groups`         | `array`   | Optional list of SCIM group IDs the user is a member of.                                                                                                                                                                                                                                                                                                                                                                             |
-
-{% note %}
-
-**Note:** Endpoint URLs for the SCIM API are case sensitive. For example, the first letter in the `Users` endpoint must be capitalized:
-
-```shell
-GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
-```
-
-{% endnote %}
-
-### Supported SCIM Group attributes
-
-| Name          | Typ      | Beschreibung                                                                                                                                                                                                                                                |
-| ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `displayName` | `string` | The name of the SCIM group, which must exactly match the name of the corresponding {% data variables.product.product_name %} organization. For example, if the URL of the organization is `https://github.com/octo-org`, the group name must be `octo-org`. |
-| `members`     | `array`  | List of SCIM user IDs that are members of the group.                                                                                                                                                                                                        |
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'scim' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
-{% if currentVersion == "github-ae@latest" %}
-
-## Encryption at rest
-
-You can use the encryption at rest API to manage the key that encrypts your data on {% data variables.product.product_name %}. For more information, see "[Configuring data encryption for your enterprise](/admin/configuration/configuring-data-encryption-for-your-enterprise)."
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'encryption-at-rest' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## Admin stats
 
 The Admin Stats API provides a variety of metrics about your installation. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
@@ -171,7 +98,7 @@ The Admin Stats API provides a variety of metrics about your installation. *It i
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghae or ghes > 2.22 %}
 
 ## Announcements
 
@@ -183,7 +110,7 @@ The Announcements API allows you to manage the global announcement banner in you
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 
 ## Global webhooks
 
@@ -197,7 +124,7 @@ Global webhooks are installed on your enterprise. You can use global webhooks to
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## LDAP
 
@@ -211,8 +138,7 @@ With the LDAP mapping endpoints, you're able to update the Distinguished Name (D
 
 {% endif %}
 
-
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## Lizenz
 
 The License API provides information on your Enterprise license. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
@@ -223,7 +149,7 @@ The License API provides information on your Enterprise license. *It is only ava
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## Management console
 
@@ -261,7 +187,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## Organisationen
 
 The Organization Administration API allows you to create organizations on your enterprise. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
@@ -272,8 +198,7 @@ The Organization Administration API allows you to create organizations on your e
 
 {% endif %}
 
-
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## Organization pre-receive hooks
 
 The Organization Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to an organization.
@@ -297,7 +222,7 @@ Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disab
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## Pre-receive environments
 
@@ -331,7 +256,7 @@ Possible values for `state` are `not_started`, `in_progress`, `success`, `failed
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## Pre-receive hooks
 
 The Pre-receive Hooks API allows you to create, list, update and delete pre-receive hooks. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
@@ -357,7 +282,7 @@ Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disab
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## Repository pre-receive hooks
 
@@ -381,10 +306,10 @@ Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disab
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## Benutzer
 
-The User Administration API allows you to suspend{% if enterpriseServerVersions contains currentVersion %}, unsuspend, promote, and demote{% endif %}{% if currentVersion == "github-ae@latest" %} and unsuspend{% endif %} users on your enterprise. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `403` response if they try to access it.
+The User Administration API allows you to suspend{% ifversion ghes %}, unsuspend, promote, and demote{% endif %}{% ifversion ghae %} and unsuspend{% endif %} users on your enterprise. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `403` response if they try to access it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

@@ -11,7 +11,7 @@ versions:
 
 ### Bifurcar gists
 
-Each gist indicates which forks have activity, making it easy to find interesting changes from others.
+Cada gist indica qué bifurcaciones tiene actividad, haciéndo más fácil el encontrar cambios interesantes de otras personas.
 
 ![Bifurcaciones del gist](/assets/images/help/gist/gist_forks.png)
 

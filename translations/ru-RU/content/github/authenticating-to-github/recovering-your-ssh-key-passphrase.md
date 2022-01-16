@@ -9,11 +9,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 {% mac %}
 
-If you [configured your SSH passphrase with the OS X Keychain](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain), you may be able to recover it.
+If you [configured your SSH passphrase with the macOS keychain](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain), you may be able to recover it.
 
 1. In Finder, search for the **Keychain Access** app. ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
 2. In Keychain Access, search for **SSH**.
@@ -26,12 +28,12 @@ If you [configured your SSH passphrase with the OS X Keychain](/articles/working
 
 {% windows %}
 
-If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https) so you can use your GitHub password instead.
+If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/github/getting-started-with-github/managing-remote-repositories) so you can use your GitHub password instead.
 
 {% endwindows %}
 
 {% linux %}
 
-If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/articles/which-remote-url-should-i-use/#cloning-with-https-urls) so you can use your GitHub password instead.
+If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls) so you can use your GitHub password instead.
 
 {% endlinux %}

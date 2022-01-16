@@ -7,11 +7,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 Enterprise owners can create new organizations within an enterprise account's settings.
 
-To add an organization to your enterprise account, you must create the organization from within the enterprise account settings. You cannot transfer existing organizations into an enterprise account.
+To add an organization to your enterprise account, you must create the organization from within the enterprise account settings. If you want to transfer an existing organization to your enterprise account, contact your {% data variables.product.prodname_dotcom %} sales account representative.
 
 ### Creating an organization in your enterprise account
 

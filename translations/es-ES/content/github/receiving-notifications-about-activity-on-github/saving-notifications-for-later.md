@@ -23,7 +23,7 @@ Cuando guardas una notificación, se mueve a la pestaña Saved for later (Guarda
 1. En tu lista de notificaciones guardadas, encuentra la notificación guardada que desearías eliminar.
 1. En el lateral derecho de la notificación guardada, haz clic en {% octicon "bookmark" aria-label="The bookmark button" %}. ![Botón para eliminar una notificación guardada](/assets/images/help/notifications/remove-saved-notification.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
 - "[Acceder a tus notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/accessing-your-notifications)"

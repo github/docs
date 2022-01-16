@@ -9,6 +9,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - páginas
 ---
 
 ### Errores _CNAME_
@@ -21,8 +23,8 @@ Luego, asegúrate de que el archivo _CNAME_ tenga el formato correcto.
 
 - El nombre de archivo _CNAME_ debe estar todo en mayúsculas.
 - El archivo _CNAME_ puede contener solo un dominio. Para apuntar múltiples dominios a tu sitio, debes configurar un redireccionamiento a través de tu proveedor DNS.
-- La entrada _CNAME_ debe ser el dominio solo. Por ejemplo, `www.example.com`,`blog.example.com` o `example.com`.
-- La entrada _CNAME_ solo se puede usar una vez en {% data variables.product.product_name %}. Por ejemplo, si el archivo _CNAME_ de otro repositorio contiene `example.com`, no puedes usar `example.com` en el archivo _CNAME_ para tu repositorio.
+- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
+- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. Por ejemplo, si el archivo _CNAME_ de otro repositorio contiene `example.com`, no puedes usar `example.com` en el archivo _CNAME_ para tu repositorio.
 
 ### Error de configuración DNS
 

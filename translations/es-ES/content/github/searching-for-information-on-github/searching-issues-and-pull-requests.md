@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 Puedes buscar propuestas y solicitudes de extracción globalmente a través de todos los {% data variables.product.product_name %}, o buscar propuestas y solicitudes de extracción dentro de una organización particular. Para obtener más información, consulta "[Acerca de buscar en {% data variables.product.company_short %}](/articles/about-searching-on-github)".
@@ -131,7 +133,8 @@ Puedes acotar tus resultados para que solo incluyan informes de problemas que se
 | `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) coincidirá con informes de problemas abiertos en el repositorio `desktop/desktop` que se enlazan a una solicitud de extracción con una referencia cerrada.                                                      |
 | `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) coincidirá con las solicitudes de extracción cerradas en el repositorio `desktop/desktop` que se enlazaron a un informe de problemas que se pudo haber cerrado con una solicitud de extracción.       |
 | `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) coincidirá con informes de problemas abiertos en el repositorio `desktop/desktop` que no estén enlazados a una solicitud de extracción por una referencia cerrada.                                            |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) Coincidirá con las solicitudes de extracción abiertas en el repositorio `desktop/desktop` que no se hayan enlazado con un informe de problemas que la solicitud de extracción haya creado. |{% endif %}
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) Coincidirá con las solicitudes de extracción abiertas en el repositorio `desktop/desktop` que no se hayan enlazado con un informe de problemas que la solicitud de extracción haya creado. 
+{% endif %}
 
 ### Buscar por etiqueta
 
@@ -302,7 +305,7 @@ El calificador `archived` (archivado) filtra tus resultados en base a si una pro
 
 ### Buscar en base a si una conversación está bloqueada
 
-Puedes buscar por una propuesta o solicitud de extracción que tiene una conversación utilizando el calificador `is`. Para obtener más información, consulta "[Bloquear conversaciones](/articles/locking-conversations)."
+Puedes buscar por una propuesta o solicitud de extracción que tiene una conversación utilizando el calificador `is`. Para obtener más información, consulta "[Bloquear conversaciones](/communities/moderating-comments-and-conversations/locking-conversations)."
 
 | Qualifier     | Ejemplo                                                                                                                                                                                                                                                                                                          |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -325,6 +328,6 @@ Puedes acotar tu búsqueda a propuestas y solicitudes de extracción que tienen 
 | `no:assignee`  | [**important no:assignee language:java type:issue**](https://github.com/search?q=important+no%3Aassignee+language%3Ajava+type%3Aissue&type=Issues) encuentra propuestas no asociadas con un asignatario, que contienen la palabra "important," y en repositorios Java. |
 | `no:project`   | [**build no:project**](https://github.com/search?utf8=%E2%9C%93&q=build+no%3Aproject&type=Issues) encuentra propuestas no asociadas con un tablero de proyecto, que contienen la palabra "build."                                                                      |
 
-### Further reading
+### Leer más
 
 - "[Clasificar los resultados de la búsqueda](/articles/sorting-search-results/)"

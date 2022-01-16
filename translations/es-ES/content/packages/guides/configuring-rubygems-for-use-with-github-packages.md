@@ -108,7 +108,7 @@ $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygem
 
 Para publicar múltiples gemas en el mismo repositorio, puedes incluir la URL al repositorio {% data variables.product.prodname_dotcom %} en el campo `github_repo` en `gem.metadata`. Si incluyes este campo, {% data variables.product.prodname_dotcom %} empatará el repositorio con base en este valor en vez de utilizar el nombre de la gema.{% if enterpriseServerVersions contains currentVersion %} Reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.{% endif %}
 
-```
+```ruby
 gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
 ```
 
@@ -119,7 +119,7 @@ Puedes usar gemas desde {% data variables.product.prodname_registry %} al igual 
 {% data reusables.package_registry.authenticate-step %}
 2. Para Bundler, agrega tu usuario u organización {% data variables.product.prodname_dotcom %} como fuente en tu *Gemfile* para extraer gemas de esta nueva fuente. Por ejemplo, puedes agregar un bloque nuevo de `source` al *Gemfile* que utiliza el {% data variables.product.prodname_registry %} únicamente para los paquetes que especifiques, reemplzando *GEM NAME* con el paquete que quieres instalar desde el {% data variables.product.prodname_registry %} y *OWNER* con el usuario u organización al que pertenece el repositorio que contienen la gema que quieres instalar.{% if enterpriseServerVersions contains currentVersion %} Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia. Si tu instancia cuenta con el aislamiento de subdominios habilitado, utiliza `rubygems.HOSTNAME`. Si tu instancia cuenta con el aislamiento de subdominios inhabilitado, utiliza `HOSTNAME/_registry/rubygems`. Cualquiera que sea el caso, reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.{% endif %}
 
-  ```
+  ```ruby
   source "https://rubygems.org"
 
   gem "rails"
@@ -131,7 +131,7 @@ Puedes usar gemas desde {% data variables.product.prodname_registry %} al igual 
 
 3. Para las versiones de Bundler anteriores a 1.7.0, debes agregar una nueva `fuente` global. Para obtener más información acerca del uso de Bundler, consulta la [documentación bundler.io](http://bundler.io/v1.5/gemfile.html).
 
-  ```
+  ```ruby
   source "https://{% if currentVersion == "free-pro-team@latest" %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER"
   source "https://rubygems.org"
 
@@ -144,6 +144,6 @@ Puedes usar gemas desde {% data variables.product.prodname_registry %} al igual 
   $ gem install octo-gem --version "0.1.1"
   ```
 
-### Further reading
+### Leer más
 
 - "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"

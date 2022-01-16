@@ -1,1 +1,1 @@
-4. Under "Dependency graph", click **{% data variables.product.prodname_dependabot %}**. ![Dependency graph, {% data variables.product.prodname_dependabot %} tab](/assets/images/help/dependabot/dependabot-tab-beta.png)
+4. "Dependency graph（依存関係グラフ）"の下で、**{% data variables.product.prodname_dependabot %}**をクリックしてください。 ![依存関係グラフ、{% data variables.product.prodname_dependabot %}タブ](/assets/images/help/dependabot/dependabot-tab-beta.png)

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 La barra de búsqueda de propuestas y solicitudes de extracción te permite definir tus propios filtros personalizados y clasificar por una amplia variedad de criterios. Puedes encontrar la barra de búsqueda en las pestañas **Issues** (Propuestas) y **Pull requests** (Solicitudes de extracción) de cada repositorio y en tus [tableros de Issues (Propuestas) y Pull requests (Solicitudes de extracción)](/articles/viewing-all-of-your-issues-and-pull-requests).
@@ -44,7 +46,7 @@ Para las solicitudes de cambios, también puedes utilizar la búsqueda para:
 - Filtra las solicitudes de cambios de acuerdo con el equipo al que se le solicitó la revisión: `state:open type:pr team-review-requested:github/atom`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - Filtrar por las solicitudes de extracción enlazadas con un informe de problemas que se pudiera cerrar con dicha solicitud: `linked:issue`{% endif %}
 
-### Further reading
+### Leer más
 
 - "[Buscar propuestas](/articles/searching-issues)"
 - [Filtrar propuestas y solicitudes de extracción](/articles/filtering-issues-and-pull-requests)"

@@ -1,4 +1,4 @@
-{% data variables.product.prodname_actions %} requires the following permissions for the access key that will access the bucket:
+{% data variables.product.prodname_actions %} requiere los siguientes permisos para la clave de acceso que accederá al bucket:
 
 * `s3:PutObject`
 * `s3:GetObject`

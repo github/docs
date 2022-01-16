@@ -5,13 +5,20 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
+
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
 Este guia mostra como criar, testar e publicar um pacote no .NET.
 
-Os executores hospedados em {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado, que inclui o .NET Core SDK. Para uma lista completa de software atualizado e as versões pré-instaladas do .NET Core SDK, consulte [o software instalado nos executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners).
+{% if currentVersion == "github-ae@latest" %} Para criar e testar o seu projeto .NET em {% data variables.product.prodname_ghe_managed %}, você precisará criar uma imagem personalizada do sistema operacional que inclui o SDK .NET Core. Para obter instruções sobre como garantir que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+Os executores hospedados em {% else %} {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado, que inclui o SDK Core do .NET. Para uma lista completa de software atualizado e as versões pré-instaladas do .NET Core SDK, consulte [o software instalado nos executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners).
+{% endif %}
 
 ### Pré-requisitos
 
@@ -37,20 +44,20 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: [ '2.2.103', '3.0', '3.1.x' ]
+        dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core SDK ${{ matrix.dotnet }}
-      uses: actions/setup-dotnet@v1.6.0
-      with:
-        dotnet-version: {{ matrix.dotnet-version }}
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal
 ```
 {% endraw %}
 
@@ -58,7 +65,7 @@ jobs:
 
 Para usar uma versão pré-instalada do .NET Core SDK em um executor hospedado em {% data variables.product.prodname_dotcom %}, use a ação `setup-dotnet`. Esta ação encontra uma versão específica do .NET do cache de ferramentas em cada executor e adiciona os binários necessários para `PATH`. Estas alterações persistirão para o resto do trabalho.
 
-A ação `setup-dotnet` é a forma recomendada de usar .NET com {% data variables.product.prodname_actions %}, porque garante um comportamento consistente em executores diferentes e versões diferentes do .NET. Se você estiver usando um executor auto-hospedado, você deverá instalar o .NET e adicioná-lo ao `PATH`. Para obter mais informações, consulte a [`configuração-dotnet`](https://github.com/marketplace/actions/setup-dotnet).
+A ação `setup-dotnet` é a forma recomendada de usar .NET com {% data variables.product.prodname_actions %}, porque garante um comportamento consistente em executores diferentes e versões diferentes do .NET. Se você estiver usando um executor auto-hospedado, você deverá instalar o .NET e adicioná-lo ao `PATH`. Para obter mais informações, consulte a ação [`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk).
 
 #### Usar múltiplas versões do .NET
 
@@ -74,17 +81,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet: [ '2.2.103', '3.0', '3.1.x' ]
+        dotnet: [ '3.0', '3.1.x', '5.0.x' ]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup dotnet ${{ matrix.dotnet-version }}
-      uses: actions/setup-dotnet@v1.6.0
-      with:
-        dotnet-version: ${{ matrix.dotnet-version }}
-    # You can test your matrix by printing the current dotnet version
-    - name: Display dotnet version
-      run: dotnet --version
+      - uses: actions/checkout@v2
+      - name: Setup dotnet ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      # You can test your matrix by printing the current dotnet version
+      - name: Display dotnet version
+        run: dotnet --version
 ```
 {% endraw %}
 
@@ -95,7 +102,7 @@ Você pode configurar o seu trabalho para usar uma versão específica do .NET, 
 {% raw %}
 ```yaml
     - name: Setup .NET 3.x
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v1
       with:
         # Semantic version range syntax or exact version of a dotnet version
         dotnet-version: '3.x' 
@@ -111,7 +118,7 @@ Os executores hospedados em {% data variables.product.prodname_dotcom %} têm o 
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.6.0
+  uses: actions/setup-dotnet@v1
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
@@ -132,7 +139,7 @@ Para obter mais informações, consulte "[Memorizar dependências para acelerar 
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.6.0
+  uses: actions/setup-dotnet@v1
   with:
     dotnet-version: '3.1.x'
 - uses: actions/cache@v2
@@ -164,7 +171,7 @@ Você pode usar os mesmos comandos usados localmente para criar e testar seu có
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.6.0
+  uses: actions/setup-dotnet@v1
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
@@ -194,25 +201,25 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: [ '2.2.103', '3.0', '3.1.x' ]
+        dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
 
       steps:
-      - uses: actions/checkout@v2
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v1.6.0
-        with:
-          dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Install dependencies
-        run: dotnet restore
-      - name: Test with dotnet
-        run: dotnet test --logger trx --results-directory "TestResults-${{ matrix.dotnet-version }}"
-      - name: Upload dotnet test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: dotnet-results-${{ matrix.dotnet-version }}
-          path: TestResults-${{ matrix.dotnet-version }}
-        # Use always() to always run this step to publish test results when there are test failures
-        if: ${{ always() }}
+        - uses: actions/checkout@v2
+        - name: Setup dotnet
+          uses: actions/setup-dotnet@v1
+          with:
+            dotnet-version: ${{ matrix.dotnet-version }}
+        - name: Install dependencies
+          run: dotnet restore
+        - name: Test with dotnet
+          run: dotnet test --logger trx --results-directory "TestResults-${{ matrix.dotnet-version }}"
+        - name: Upload dotnet test results
+          uses: actions/upload-artifact@v2
+          with:
+            name: dotnet-results-${{ matrix.dotnet-version }}
+            path: TestResults-${{ matrix.dotnet-version }}
+          # Use always() to always run this step to publish test results when there are test failures
+          if: ${{ always() }}
 ```
 {% endraw %}
 
@@ -220,7 +227,6 @@ jobs:
 
 É possível configurar o seu fluxo de trabalho para publicar o pacote Dotnet em um pacote de registro quando o CI teste passa. Você pode usar segredos do repositório para armazenar quaisquer tokens ou credenciais necessárias para publicar seu binário. O exemplo a seguir cria e publica um pacote em {% data variables.product.prodname_registry %} usando `dotnet core cli`.
 
-{% raw %}
 ```yaml
 name: Upload dotnet package
 
@@ -230,19 +236,21 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-dotnet@v1
-    with:
-        dotnet-version: '3.1.x' # SDK Version to use.
-        source-url: https://nuget.pkg.github.com/<owner>/index.json
-    env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    - run: dotnet build <my project>
-    - name: Create the package
-    run: dotnet pack --configuration Release <my project>
-    - name: Publish the package to GPR
-    run: dotnet nuget push <my project>/bin/Release/*.nupkg
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x' # SDK Version to use.
+          source-url: https://nuget.pkg.github.com/<owner>/index.json
+        env:
+          NUGET_AUTH_TOKEN: {% raw %}${{secrets.GITHUB_TOKEN}}{% endraw %}
+      - run: dotnet build --configuration Release <my project>
+      - name: Create the package
+        run: dotnet pack --configuration Release <my project>
+      - name: Publish the package to GPR
+        run: dotnet nuget push <my project>/bin/Release/*.nupkg
 ```
-{% endraw %}

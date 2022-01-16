@@ -1,6 +1,6 @@
 ---
 title: Visualizar los lanzamientos y etiquetas de tu repositorio
-intro: Puedes ver el historial cronológico de tu repositorio por lanzamiento, nombre o número de versión de la etiqueta.
+intro: 'Puedes ver el historial cronológico de tu repositorio por lanzamiento, nombre o número de versión de la etiqueta.'
 redirect_from:
   - /articles/working-with-tags/
   - /articles/viewing-your-repositorys-tags
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
@@ -31,6 +33,6 @@ versions:
 {% data reusables.repositories.releases %}
 2. En la parte superior de la página de lanzamiento, haz clic en **Tags** (Etiqueta). ![Página de etiquetas](/assets/images/help/releases/tags-list.png)
 
-### Further reading
+### Leer más
 
 - "[Firmar etiquetas](/articles/signing-tags)"

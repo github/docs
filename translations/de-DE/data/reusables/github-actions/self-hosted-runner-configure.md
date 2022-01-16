@@ -1,6 +1,4 @@
-1. Wähle das Betriebssystem und die Architektur Deiner selbst-gehosteten Läufermaschine aus. ![Selbst-gehostetes Läuferbetriebssystem auswählen](/assets/images/help/settings/actions-runner-architecture-os.png)
-
-
+1. Select the operating system image and architecture of your self-hosted runner machine.
 1. Du wirst Anweisungen sehen, wie Du die Läuferanwendung herunterlädst und sie auf Deiner selbst-gehosteten Läufermaschine installierst.
 
    Öffne eine Shell auf Deiner selbst-gehosteten Läufermaschine und führe jeden Shell-Befehl in der angezeigten Reihenfolge aus.

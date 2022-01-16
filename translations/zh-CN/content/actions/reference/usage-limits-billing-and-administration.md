@@ -1,5 +1,5 @@
 ---
-title: '使用限制、计费和管理'
+title: 使用限制、计费和管理
 intro: '{% data variables.product.prodname_actions %} 工作流程有使用限制。 使用费适用于超出仓库免费分钟数和存储空间量的仓库。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -7,15 +7,19 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - Billing
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于 {% data variables.product.prodname_actions %} 的计费
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.github-actions.actions-billing %} 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)”。
+{% data reusables.github-actions.actions-billing %} 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”。
 {% else %}
 GitHub Actions 使用对
 使用自托管运行器的 {% data variables.product.prodname_ghe_server %} 免费。
@@ -45,6 +49,8 @@ GitHub Actions 使用对
   | 团队        | 60        | 5                 |
   | 企业        | 180       | 50                |
 - **作业矩阵** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
+
 {% else %}
 使用限制适用于自托管运行器。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”。
 {% endif %}
@@ -56,7 +62,7 @@ GitHub Actions 使用对
 [GitHub 服务条款](/articles/github-terms-of-service/)使用 {% data variables.product.prodname_actions %}。 有关 {% data variables.product.prodname_actions %} 特定条款的更多信息，请参阅 [GitHub 附加产品条款](/github/site-policy/github-additional-product-terms#a-actions-usage)。
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### 构件和日志保留策略
 
 您可以为仓库、组织或企业帐户配置构件和日志保留期。
@@ -66,7 +72,7 @@ GitHub Actions 使用对
 更多信息请参阅：
 
 - [为仓库中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
-- [为组织中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期](/github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
+- [为组织中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
 - [为企业中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
 {% endif %}
 
@@ -76,10 +82,10 @@ GitHub Actions 使用对
 
 更多信息请参阅：
 - "[对仓库禁用或限制 {% data variables.product.prodname_actions %}](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository)"
-- "[对组织禁用或限制 {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
+- "[对组织禁用或限制 {% data variables.product.prodname_actions %}](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
 - "[在企业帐户中实施 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.product.prodname_actions %} 策略](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)"{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### 禁用和启用工作流程
 
 您可以在 {% data variables.product.prodname_dotcom %} 上启用和禁用仓库中的个别工作流程。

@@ -1,1 +1,1 @@
-You cannot convert a discussion to an issue.
+Você não pode converter uma discussão em um problema.

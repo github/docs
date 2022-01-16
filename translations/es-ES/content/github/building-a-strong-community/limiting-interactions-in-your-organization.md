@@ -1,12 +1,14 @@
 ---
 title: Limitar las interacciones en tu organización
-intro: 'Puedes requerir temporalmente un periodo de actividad limitada para usuarios específicos en todos los repositorios públicos que pertenezcan a tu organización.'
+intro: Puedes requerir temporalmente un periodo de actividad limitada para usuarios específicos en todos los repositorios públicos que pertenezcan a tu organización.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
 permissions: Los propietarios de la organización pueden limitar las interacciones en la misma.
+topics:
+  - comunidad
 ---
 
 ### Acerca de los límites de interacción temporales
@@ -33,7 +35,7 @@ Los propietarios de la organización también pueden bloquear a los usuarios por
 {% data reusables.community.set-interaction-limit %}
   ![Opciones de límites de interacción temporarios](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 
-### Further reading
+### Leer más
 - "[Informar abuso o spam](/articles/reporting-abuse-or-spam)"
 - "[Administrar el acceso de un individuo al repositorio de una organización](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[Niveles de permiso para el repositorio de una cuenta de usuario](/articles/permission-levels-for-a-user-account-repository)"

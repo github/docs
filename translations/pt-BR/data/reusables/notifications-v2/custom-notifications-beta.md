@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note:** Custom notifications are currently in beta and subject to change.
+**Observação:** As notificações personalizadas estão atualmente na versão beta e estão sujeitas a alterações.
 
 {% endnote %}
 

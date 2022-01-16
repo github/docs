@@ -5,27 +5,35 @@ intro: 'Learn how you can use organization features to collaborate with your tea
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-type: 'how_to'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### Übersicht
+## Übersicht
 
 If you need to share workflows and other {% data variables.product.prodname_actions %} features with your team, then consider collaborating within a {% data variables.product.prodname_dotcom %} organization. An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. You can also create workflow templates in the `.github` repository and share them with other users in your organization.
 
-### Erstellen einer Workflowvorlage
+## Erstellen einer Workflowvorlage
 
-Workflowvorlagen können von Benutzern mit Schreibzugriff auf die `.github` Repository der Organisation erstellt werden. Die Vorlagen können dann von Organisationsmitgliedern verwendet werden, die über die Berechtigung zum Erstellen von Workflows verfügen. Workflowvorlagen können verwendet werden, um neue Workflows in öffentlichen Repositorys einer Organisation zu erstellen. Um Vorlagen zum Erstellen von Workflows in privaten Repositorys zu verwenden, muss die Organisation Teil eines Unternehmens- oder GitHub One-Plans sein.
+Workflowvorlagen können von Benutzern mit Schreibzugriff auf die `.github` Repository der Organisation erstellt werden. Die Vorlagen können dann von Organisationsmitgliedern verwendet werden, die über die Berechtigung zum Erstellen von Workflows verfügen.
+
+{% note %}
+
+**Note:** Workflow templates can be used to create new workflows in an organization' s public repository; to use templates to create workflows in private repositories, the organization must be part of an enterprise plan.
+
+{% endnote %}
 
 In diesem Verfahren wird veranschaulicht, wie eine Workflowvorlage und eine Metadatendatei erstellt werden. Die Metadatendatei beschreibt, wie die Vorlage benutzern beim Erstellen eines neuen Workflows angezeigt wird.
 
 1. Wenn es noch nicht vorhanden ist, erstellen Sie ein neues öffentliches Repository mit dem Namen `.github` in Ihrer Organisation.
-1. Erstellen Sie ein Verzeichnis mit dem Namen `Workflowvorlagen`.
-1. Erstellen Sie Ihre neue Workflowdatei im `Workflow-Vorlagen` Verzeichnis.
+2. Erstellen Sie ein Verzeichnis mit dem Namen `Workflowvorlagen`.
+3. Erstellen Sie Ihre neue Workflowdatei im `Workflow-Vorlagen` Verzeichnis.
 
    Wenn Sie auf den Standardzweig eines Repositorys verweisen müssen, können Sie den `$default-branch` Platzhalter verwenden. Wenn ein Workflow mit Ihrer Vorlage erstellt wird, wird der Platzhalter automatisch durch den Namen der Standardverzweigung des Repositorys ersetzt.
 
@@ -50,7 +58,7 @@ In diesem Verfahren wird veranschaulicht, wie eine Workflowvorlage und eine Meta
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-1. Erstellen Sie eine Metadatendatei im `Workflow-Vorlagen` Verzeichnis. Die Metadatendatei muss denselben Namen wie die Workflowdatei haben, aber anstelle der Erweiterung `.yml` muss sie mit `.properties.json`angehängt werden. Diese Datei mit dem Namen `octo-organization-ci.properties.json enthält` beispielsweise die Metadaten für eine Workflowdatei mit dem Namen `octo-organization-ci.yml`:
+4. Erstellen Sie eine Metadatendatei im `Workflow-Vorlagen` Verzeichnis. Die Metadatendatei muss denselben Namen wie die Workflowdatei haben, aber anstelle der Erweiterung `.yml` muss sie mit `.properties.json`angehängt werden. Diese Datei mit dem Namen `octo-organization-ci.properties.json enthält` beispielsweise die Metadaten für eine Workflowdatei mit dem Namen `octo-organization-ci.yml`:
    ```yaml
    •
        "Name": "Octo Organization Workflow",
@@ -76,7 +84,7 @@ Um eine weitere Workflowvorlage hinzuzufügen, fügen Sie Ihre Dateien `Workflow
 
 ![Workflow-Vorlagendateien](/assets/images/help/images/workflow-template-files.png)
 
-### Using a workflow template from your organization
+## Using a workflow template from your organization
 
 In diesem Verfahren wird veranschaulicht, wie ein Mitglied Ihrer Organisation eine Workflowvorlage finden und verwenden kann, um einen neuen Workflow zu erstellen. Die Workflowvorlagen einer Organisation können von jedem Benutzer verwendet werden, der Mitglied der Organisation ist.
 
@@ -86,7 +94,7 @@ In diesem Verfahren wird veranschaulicht, wie ein Mitglied Ihrer Organisation ei
 1. Die Workflowvorlagen Ihrer Organisation befinden sich in ihrem eigenen Abschnitt mit dem Titel "Workflows, die von _Organisationsnamen_erstellt wurden". Klicke unter dem Namen der zu verwendenden Vorlage auf **Set up this workflow** (Workflow einrichten). ![Einrichten dieses Workflows](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 
-### Sharing secrets within an organization
+## Sharing secrets within an organization
 
 You can centrally manage your secrets within an organization, and then make them available to selected repositories. This also means that you can update a secret in one location, and have the change apply to all repository workflows that use the secret.
 
@@ -103,13 +111,13 @@ Beim Erstellen eines geheimen Schlüssels in einer Organisation können Sie eine
 1. Wählen Sie im **Repository-Zugriff** Dropdownliste eine Zugriffsrichtlinie aus.
 1. Klicken Sie auf **Add secret** (Geheimnis hinzufügen).
 
-### Share self-hosted runners within an organization
+## Share self-hosted runners within an organization
 
 Organization admins can add their self-hosted runners to groups, and then create policies that control which repositories can access the group.
 
 For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
 
 
-### Nächste Schritte:
+## Nächste Schritte:
 
 To continue learning about {% data variables.product.prodname_actions %}, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions)."

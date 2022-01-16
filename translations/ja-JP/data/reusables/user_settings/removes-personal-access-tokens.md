@@ -1,1 +1,1 @@
-セキュリティ上の理由から、 {% data variables.product.prodname_dotcom %} は過去 1 年間使用されていない個人アクセストークンを自動的に削除します。
+As a security precaution, {% data variables.product.company_short %} automatically removes personal access tokens that haven't been used in a year.{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 %} To provide additional security, we highly recommend adding an expiration to your personal access tokens.{% endif %}

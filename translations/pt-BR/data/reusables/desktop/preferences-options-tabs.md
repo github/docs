@@ -2,4 +2,5 @@
     - Escolha **Integrações** para selecionar um editor externo ou shell.
     - Escolha **Git** para editar a configuração do Git;
     - Escolha **Aparência** para alternar entre o tema claro ou escuro.
+    - Escolha **Prompts** para habilitar ou desabilitar diálogos de confirmação antes de executar ações destrutivas.
     - Escolha **Advanced** (Avançado) para ver mais opções de configuração.
