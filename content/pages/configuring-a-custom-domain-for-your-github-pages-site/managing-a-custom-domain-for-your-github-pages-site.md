@@ -72,7 +72,7 @@ To set up an apex domain, such as `example.com`, you must configure a _CNAME_ fi
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 4. Under "Custom domain", type your custom domain, then click **Save**. This will create a commit that adds a _CNAME_ file in the root of your publishing source.
-  ![Save custom domain button](/assets/images/help/pages/save-custom-apex-domain.png)
+   ![Save custom domain button](/assets/images/help/pages/save-custom-apex-domain.png)
 5. Navigate to your DNS provider and create either an `ALIAS`, `ANAME`, or `A` record. You can also create `AAAA` records for IPv6 support. {% data reusables.pages.contact-dns-provider %}
     - To create an `ALIAS` or `ANAME` record, point your apex domain to the default domain for your site. {% data reusables.pages.default-domain-information %}
     - To create `A` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
