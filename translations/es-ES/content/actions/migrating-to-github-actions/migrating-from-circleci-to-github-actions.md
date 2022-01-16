@@ -2,7 +2,6 @@
 title: Migrar de CircleCI a GitHub Actions
 intro: 'GitHub Actions y CircleCi comparten varias configuraciones similares, lo cual hace que migrar a GitHub Actions sea relativamente fácil.'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
   - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
 versions:
   fpt: '*'
@@ -20,7 +19,6 @@ shortTitle: Migrarse desde Circle Cl
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -38,7 +36,7 @@ Para obtener más información, consulta la sección "[Conceptos esenciales para
 Cuando migres desde CircleCI, considera las siguientes diferencias:
 
 - El paralelismo automático de pruebas de CircleCI agrupa las pruebas automáticamente de acuerdo con las reglas que el usuario haya especificado o el historial de información de tiempos. Esta funcionalidad no se incluye en {% data variables.product.prodname_actions %}.
-- Las acciones que se ejecutan en los contenedores de Docker distinguen entre problemas de permisos, ya que los contenedores tienen un mapeo de usuarios diferente. Puedes evitar muchos de estos problemas si no utilizas la instrucción `USER` en tu *Dockerfile*. {% ifversion ghae %}Para obtener instrucciones sobre cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+- Las acciones que se ejecutan en los contenedores de Docker distinguen entre problemas de permisos, ya que los contenedores tienen un mapeo de usuarios diferente. Puedes evitar muchos de estos problemas si no utilizas la instrucción `USER` en tu *Dockerfile*. {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
 {% else %}Para obtener más información acerca del sistema de archivos de Docker en los ejecutores hospedados en {% data variables.product.product_name %}, consulta la sección "[Ambientes virtuales para los ejecutores hospedados en {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
 {% endif %}
 
@@ -65,9 +63,8 @@ Recomendamos que te retires de las imágenes pre-compiladas de CircleCi cuando m
 
 {% ifversion ghae %}
 Para obtener información sobre el sistema de archivos de Docker, consulta la sección "[Sistema de archivos del contenedor de Docker](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)".
-Para obtener instrucciones sobre cómo asegurarte de que tu
 
-{% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 Para obtener más información acerca del sistema de archivos de Docker, consulta la sección "[Ambientes virtuales para los ejecutores hospedados en {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
 Para obtener más información sobre las herramientas y paquetes disponibles en

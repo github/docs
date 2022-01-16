@@ -15,7 +15,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Sobre as variáveis de ambiente
 
@@ -71,7 +70,7 @@ Você também pode usar o arquivo de ambiente `GITHUB_ENV` para definir uma vari
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} | | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} | | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %}
 {%- endif %}
-| `GITHUB_HEAD_REF` | Definido apenas para eventos de pull request. O nome do branch principal. | `GITHUB_BASE_REF` | Definido apenas para eventos de pull request. O nome do branch de base. | `GITHUB_SERVER_URL`| Retorna a URL do servidor de {% data variables.product.product_name %}. Por exemplo: `https://{% data variables.product.product_url %}`. | `GITHUB_API_URL` | Retorna a URL da API. Por exemplo: `{% data variables.product.api_url_code %}`. | `GITHUB_GRAPHQL_URL` | Retorna a URL da API do GraphQL. Por exemplo: `{% data variables.product.graphql_url_code %}`. | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} | `RUNNER_OS` | {% data reusables.actions.runner-os-description %} | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
+| `GITHUB_HEAD_REF` | Definido apenas para eventos de pull request. O nome do branch principal. | `GITHUB_BASE_REF` | Definido apenas para eventos de pull request. O nome do branch de base. | `GITHUB_SERVER_URL`| Retorna a URL do servidor de {% data variables.product.product_name %}. Por exemplo: `https://{% data variables.product.product_url %}`. | `GITHUB_API_URL` | Retorna a URL da API. Por exemplo: `{% data variables.product.api_url_code %}`. | `GITHUB_GRAPHQL_URL` | Retorna a URL da API do GraphQL. Por exemplo: `{% data variables.product.graphql_url_code %}`. | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} | `RUNNER_OS` | {% data reusables.actions.runner-os-description %}{% if actions-runner-arch-envvars %} | `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %}{% endif %} | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
 {% ifversion not ghae %}| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %}{% endif %}
 
 {% tip %}

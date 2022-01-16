@@ -1,12 +1,10 @@
 ---
 title: 身份提供程序不可用时访问组织
 intro: '即使身份提供程序不可用，组织管理员也可绕过单点登录使用其恢复代码登录 {% data variables.product.product_name %}。'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

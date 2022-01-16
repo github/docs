@@ -22,8 +22,8 @@ Se você não tem uma conta corporativa, use {% data variables.contact.enterpris
 {% data reusables.support.zendesk-old-tickets %}
 
 1. Navegue até o {% data variables.contact.contact_support_portal %}.
-2. Select the **Account or organization** drop-down menu and click the name of the account, organization, or enterprise your ticket is regarding. ![Account field](/assets/images/help/support/account-field.png)
-2. Select the **From** drop-down menu and click the email address you'd like {% data variables.contact.github_support %} to contact. ![Campo Email (E-mail)](/assets/images/help/support/from-field.png)
+2. Selecione o menu suspenso **Conta ou organização** e clique no nome da conta, organização ou empresa ao qual o seu ticket se refere. ![Campo de conta](/assets/images/help/support/account-field.png)
+2. Selecione o menu suspenso **de** e clique no endereço de e-mail que você deseja que {% data variables.contact.github_support %} entre em contato. ![Campo Email (E-mail)](/assets/images/help/support/from-field.png)
 4. Em "Subject" (Assunto), insira um título descritivo para o problema que está ocorrendo. ![Campo Subject (Assunto)](/assets/images/help/support/subject-field.png)
 5. Em "How can we help" (Como podemos ajudar), insira as informações adicionais que ajudarão a equipe de suporte a resolver o problema. As informações úteis podem incluir: ![Campo How can we help (Como podemos ajudar)](/assets/images/help/support/how-can-we-help-field.png)
     - Etapas para reproduzir o problema

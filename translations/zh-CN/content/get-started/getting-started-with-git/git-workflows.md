@@ -2,7 +2,7 @@
 title: Git 工作流程
 intro: '{% data variables.product.prodname_dotcom %} 流是一个基于分支的轻量级工作流程，支持定期部署的团队和项目。'
 redirect_from:
-  - /articles/what-is-a-good-git-workflow/
+  - /articles/what-is-a-good-git-workflow
   - /articles/git-workflows
   - /github/using-git/git-workflows
   - /github/getting-started-with-github/git-workflows

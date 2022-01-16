@@ -3,7 +3,7 @@ title: GitHub Sponsors ガイド
 shortTitle: ガイド
 intro: '{% data variables.product.prodname_sponsors %} を最大限に活用する方法を学びましょう。'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghec: '*'

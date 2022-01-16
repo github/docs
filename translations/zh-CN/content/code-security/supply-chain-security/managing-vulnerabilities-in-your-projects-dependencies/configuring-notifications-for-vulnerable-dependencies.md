@@ -1,7 +1,7 @@
 ---
 title: 配置有漏洞依赖项的通知
 shortTitle: 配置通知
-intro: '优化接收 {% data variables.product.prodname_dependabot %} 相关警报的通知的方式。'
+intro: 'Optimize how you receive notifications about  {% data variables.product.prodname_dependabot_alerts %}.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
@@ -51,7 +51,7 @@ topics:
 
 {% note %}
 
-**注：** 您可以过滤 {% data variables.product.company_short %} 上的通知以显示{% data variables.product.prodname_dependabot %} 警报。 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)”。
+**Note:** You can filter your notifications on {% data variables.product.company_short %} to show  {% data variables.product.prodname_dependabot_alerts %}. 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)”。
 
 {% endnote %}
 

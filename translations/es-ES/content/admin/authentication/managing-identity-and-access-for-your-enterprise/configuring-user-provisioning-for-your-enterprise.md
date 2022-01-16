@@ -3,7 +3,6 @@ title: Configurar el aprovisionamiento de usuarios para tu empresa
 shortTitle: Configurar el aprovisionamiento de usuarios
 intro: 'Puedes configurar el Sistema para la Administración de Identidad entre Dominios (SCIM) para tu empresa, el cual aprovisiona las cuentas de usuario automáticamente en {% data variables.product.product_location %} cuando asignas la aplicación para {% data variables.product.product_location %} a un usuario en tu proveedor de identidad (IdP).'
 permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   ghae: '*'
 type: how_to
@@ -35,9 +34,13 @@ La aplicación de aprovisionamiento en tu IdP se comunica con {% data variables.
 
 ## Proveedores de identidad compatibles
 
-{% data reusables.scim.supported-idps %}
+Los siguientes IDP son compatibles con SSO con {% data variables.product.prodname_ghe_managed %}:
 
-Cuando configuras el aprovisionamiento de usuarios con un IdP compatible, también puedes asignar o desasignar la aplicación para {% data variables.product.product_name %} a grupos de usuarios. Estos grupos estarán entonces disponibles para que los propietarios de organización y mantenedores de equipo en {% data variables.product.product_location %} los mapeen a los equipos de {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Sincronizar a un equipo con un grupo de proveedor de identidad](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)".
+{% data reusables.saml.okta-ae-sso-beta %}
+
+{% data reusables.github-ae.saml-idp-table %}
+
+Para los IdP que son compatibles con el mapeo de equipos, puedes asignar o dejar de asignar la aplicación de {% data variables.product.product_name %} a los grupos de usuarios en tu IdP. Estos grupos estarán entonces disponibles para que los propietarios de organización y mantenedores de equipo en {% data variables.product.product_location %} los mapeen a los equipos de {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Mapear grupos de Okta en los equipos](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)".
 
 ## Prerrequisitos
 
@@ -75,9 +78,10 @@ Debes tener acceso administrativo en tu IdP para configurar la aplicación para 
 
   Los siguientes IdP proporcionan documentación acerca de cómo configurar el aprovisionamiento para {% data variables.product.product_name %}. Si no se lista tu IdP, por favor, contáctalo para solicitar soporte para {% data variables.product.product_name %}.
 
-  | IdP      | Más información                                                                                                                                                                                                                                           |
-  |:-------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | Azure AD | [Tutorial: Configurar a {% data variables.product.prodname_ghe_managed %} para el aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial) en los documentos de Microsoft |
+  | IdP      | Más información                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+  |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | Azure AD | [Tutorial: Configurar a {% data variables.product.prodname_ghe_managed %} para el aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial) en los documentos de Microsoft. Para configurar a Azure AD para {% data variables.product.prodname_ghe_managed %}, consulta la sección "[Configurar la autenticación y aprovisionamiento para tu empresa utilizando Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)". |
+  | Okta     | (beta) Para configurar a Okta en {% data variables.product.prodname_ghe_managed %}, consulta la sección "[Configurar el aprovisionamiento y la autenticación en tu empresa utilizando Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)".                                                                                                                                                                                                                                                                  |
 
   La aplicación en tu IdP requiere dos valores para aprovisionar o desaprovisionar las cuentas de usuario en {% data variables.product.product_location %}.
 

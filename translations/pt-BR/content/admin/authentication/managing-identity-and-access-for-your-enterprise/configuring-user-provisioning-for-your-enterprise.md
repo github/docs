@@ -3,7 +3,6 @@ title: Configurar o provisionamento do usuário para a sua empresa
 shortTitle: Configurar o provisionamento do usuário
 intro: 'Você pode configurar o Sistema para Gerenciamento de Identidades entre Domínios (SCIM) para sua empresa, que automaticamente fornece contas de usuário em {% data variables.product.product_location %} quando você atribuir o aplicativo para {% data variables.product.product_location %} a um usuário no seu provedor de identidade (IdP).'
 permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   ghae: '*'
 type: how_to
@@ -35,9 +34,13 @@ O aplicativo de provisionamento no seu IdP comunica-se com {% data variables.pro
 
 ## Provedores de identidade compatíveis
 
-{% data reusables.scim.supported-idps %}
+Os seguintes IdPs são compatíveis com SSO com {% data variables.product.prodname_ghe_managed %}:
 
-Ao configurar o provisionamento de usuário com um IdP compatível, você também pode atribuir ou desatribuir a do aplicativo de {% data variables.product.product_name %} para grupos de usuários. Estes grupos são disponibilizados para os proprietários da organização e mantenedores de equipe em {% data variables.product.product_location %} para mapear para equipes de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sincronizando uma equipe com um grupo de provedores de identidade ](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
+{% data reusables.saml.okta-ae-sso-beta %}
+
+{% data reusables.github-ae.saml-idp-table %}
+
+Para IdPs compatíveis com o mapeamento de equipe, você pode atribuir ou desatribuir o aplicativo de {% data variables.product.product_name %} para grupos de usuários do seu IdP. Estes grupos são disponibilizados para os proprietários da organização e mantenedores de equipe em {% data variables.product.product_location %} para mapear para equipes de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Mapeando grupos do Okta nas equipes](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)".
 
 ## Pré-requisitos
 
@@ -75,9 +78,10 @@ Você deve ter acesso administrativo no seu IdP para configurar o aplicativo par
 
   Os seguintes IdPs fornecem documentação sobre configuração de provisionamento para {% data variables.product.product_name %}. Se seu IdP não estiver listado, entre em contato com seu IdP para solicitar suporte para {% data variables.product.product_name %}.
 
-  | IdP      | Mais informações                                                                                                                                                                                                                                 |
-  |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-  | Azure AD | [Tutorial: Configurar {% data variables.product.prodname_ghe_managed %} para provisionamento automático do usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial) na documentação da Microsoft. |
+  | IdP      | Mais informações                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+  |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | Azure AD | [Tutorial: Configurar {% data variables.product.prodname_ghe_managed %} para provisionamento automático do usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial) na documentação da Microsoft. Para configurar o Azure AD para {% data variables.product.prodname_ghe_managed %}, consulte "[Configurando a autenticação e provisionamento para sua empresa usando o Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)". |
+  | Okta     | (beta) Para configurar o Okta para {% data variables.product.prodname_ghe_managed %}, consulte "[Configurando a autenticação e provisionamento para sua empresa usando o Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)".                                                                                                                                                                                                                                                       |
 
   O aplicativo no seu IdP exige dois valores para provisionar ou desprovisionar contas de usuário em {% data variables.product.product_location %}.
 

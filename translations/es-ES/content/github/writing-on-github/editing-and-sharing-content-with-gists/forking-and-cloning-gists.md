@@ -26,7 +26,7 @@ Si deseas hacer cambios locales en un gist y subirlos a la web, puedes clonar un
 
 ## Ver el historial de confirmaciones de un gist
 
-Para ver el historial completo de confirmaciones de un gist, haz clic en la pestaña "Revisiones" en la parte superior del gist.
+Para ver el historial de confirmaciones completo de un gist, haz clic en la pestaña "Revisiones" en la parte superior de este.
 
 ![Pestaña Revisiones de gist](/assets/images/help/gist/gist_revisions_tab.png)
 

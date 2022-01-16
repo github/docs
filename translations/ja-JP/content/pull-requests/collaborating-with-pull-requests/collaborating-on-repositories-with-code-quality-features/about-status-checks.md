@@ -3,7 +3,7 @@ title: ステータスチェックについて
 intro: ステータスチェックを利用すると、コントリビュート先のリポジトリの条件をコミットが満たしているかどうかを知ることができます。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
-  - /articles/about-statuses/
+  - /articles/about-statuses
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
   - /github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks

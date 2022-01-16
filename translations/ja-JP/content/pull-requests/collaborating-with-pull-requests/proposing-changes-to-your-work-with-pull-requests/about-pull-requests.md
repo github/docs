@@ -3,7 +3,7 @@ title: プルリクエストについて
 intro: 'プルリクエストは、他者に対してあなたが{% data variables.product.product_name %}上のリポジトリ内のブランチにプッシュした変更について知らせます。 プルリクエストがオープンされると、変更がベースブランチにマージされる前に、可能性のある変更についてコラボレーターと議論し、レビューでき、フォローアップのコメントを追加できます。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
-  - /articles/using-pull-requests/
+  - /articles/using-pull-requests
   - /articles/about-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
@@ -22,7 +22,7 @@ topics:
 
 **メモ:** プルリクエストを使う際には以下のことを念頭に置いてください:
 * [共有リポジトリモデル](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)で作業をしている場合、プルリクエストにはトピックブランチを使うことをおすすめします。 ブランチあるいはコミットからプルリクエストを送ることもできますが、トピックブランチを使えば提案した変更を更新する必要がある場合、フォローアップのコミットをプッシュできます。
-* プルリクエストにコミットをプッシュする場合、フォースプッシュはしないでください。 フォースプッシュをすると、プルリクエストが壊れることがあります。
+* プルリクエストにコミットをプッシュする場合、フォースプッシュはしないでください。 Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ You can create pull requests on {% data variables.product.prodname_dotcom_the_we
 {% tip %}
 
 **参考:**
-- プルリクエスト内のすべての古いレビューコメントの折りたたみと展開を切り替えるには、<span class="platform-mac"><kbd>option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> を押しながら、[**Show outdated**] または [**Hide outdated**] をクリックします。 その他のショートカットについては「[キーボードのショートカット](/articles/keyboard-shortcuts)」を参照してください。
+- To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>Option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. その他のショートカットについては「[キーボードのショートカット](/articles/keyboard-shortcuts)」を参照してください。
 - プルリクエストをマージする際には、変更を効率的に見ることができるようにするためにコミットを squash できます。 詳しい情報については[プルリクエストのマージについて](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)を参照してください。
 
 {% endtip %}

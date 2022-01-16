@@ -14,13 +14,10 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Re-running all the jobs in a workflow
 
 重新运行工作流程使用触发工作流程运行的原始事件的 `GITHUB_SHA`（提交 SHA）和 `GITHUB_REF` (Git ref)。 You can re-run a workflow for up to 30 days after the initial run.
-
-{% include tool-switcher %}
 
 {% webui %}
 

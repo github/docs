@@ -1,11 +1,11 @@
 ---
 title: LDAPの利用
 redirect_from:
-  - /enterprise/admin/articles/configuring-ldap-authentication/
-  - /enterprise/admin/articles/about-ldap-authentication/
-  - /enterprise/admin/articles/viewing-ldap-users/
-  - /enterprise/admin/hidden/enabling-ldap-sync/
-  - /enterprise/admin/hidden/ldap-sync/
+  - /enterprise/admin/articles/configuring-ldap-authentication
+  - /enterprise/admin/articles/about-ldap-authentication
+  - /enterprise/admin/articles/viewing-ldap-users
+  - /enterprise/admin/hidden/enabling-ldap-sync
+  - /enterprise/admin/hidden/ldap-sync
   - /enterprise/admin/user-management/using-ldap
   - /enterprise/admin/authentication/using-ldap
   - /admin/authentication/using-ldap
@@ -132,7 +132,7 @@ LDAP Sync を有効化すると、同期のジョブが指定された間隔で�
 
 {% note %}
 
-**メモ**: LDAP のエントリが無効としてマークされるのは、Active Directory を使用しており、`userAccountControl` が存在して `ACCOUNTDISABLE` とされている場合のみです。
+**メモ**: LDAP のエントリが無効としてマークされるのは、Active Directory を使用しており、`userAccountControl` が存在して `ACCOUNTDISABLE` とされている場合のみです。 Some variations of Active Directory, such as AD LDS and ADAM, don't support the `userAccountControl` attribute.
 
 {% endnote %}
 
@@ -140,7 +140,7 @@ LDAP Sync を有効化すると、同期のジョブが指定された間隔で�
 
 - Team に対応する LDAP グループが削除された場合、すべてのメンバーを Team から削除します。
 - LDAP グループから LDAP のメンバーエントリが削除された場合、対応するユーザを Team から削除します。 If the user is no longer a member of any team in the organization, remove the user from the organization. その結果、ユーザがリポジトリへのアクセスを失った場合、それらのリポジトリでユーザが持っていたプライベートなフォークを削除します。
-- LDAP グループに LDAP のメンバーエントリが追加された場合、対応するユーザを Team に追加します。 その結果がユーザがリポジトリへのアクセスを再度得ることになった場合、過去 90 日以内にユーザがアクセスを失ったために削除されたリポジトリのプライベートフォークがリストアされます。
+- LDAP グループに LDAP のメンバーエントリが追加された場合、対応するユーザを Team に追加します。 その結果、ユーザがリポジトリへのアクセスを再度得ることになった場合、過去 90 日以内にユーザがアクセスを失ったために削除されたリポジトリのプライベートフォークがリストアされます。
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 

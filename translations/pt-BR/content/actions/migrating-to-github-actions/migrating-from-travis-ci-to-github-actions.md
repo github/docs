@@ -2,7 +2,6 @@
 title: Migrar do Travis CI para o GitHub Actions
 intro: '{% data variables.product.prodname_actions %} e o Travis CI compartilham várias semelhanças, o que ajuda a tornar relativamente fácil a migração para {% data variables.product.prodname_actions %}.'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
@@ -20,7 +19,6 @@ shortTitle: Fazer a migração a partir da CI do Travis
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -103,7 +101,7 @@ jobs:
 
 ### Apontar para branches específicos
 
-O Travis CI e {% data variables.product.prodname_actions %} permitem que você aponte a sua CI para um branch específico. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
+O Travis CI e {% data variables.product.prodname_actions %} permitem que você aponte a sua CI para um branch específico. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
 
 Abaixo, há um exemplo da sintaxe para cada sistema:
 
@@ -199,9 +197,13 @@ Ao fazer a migração do Travis CI, considere os recursos principais a seguir em
 
 Se os seus trabalhos exigirem hardware ou software específico, {% data variables.product.prodname_actions %} permitirá que você hospede seus próprios executores e envie seus trabalhos para eles processarem. {% data variables.product.prodname_actions %} também permite usar políticas para controlar como esses executores são acessados, concedendo acesso ao nível da organização ou do repositório. Para obter mais informações, consulte ["Hospedar seus próprios executores](/actions/hosting-your-own-runners)".
 
+{% ifversion fpt or ghec %}
+
 ### Trabalhos simultâneos e tempo de execução
 
 Os trabalhos simultâneos e os tempos de execução do fluxo de trabalho em {% data variables.product.prodname_actions %} podem variar dependendo do seu plano de {% data variables.product.company_short %}. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration)".
+
+{% endif %}
 
 ### Usar diferentes linguagens em {% data variables.product.prodname_actions %}
 

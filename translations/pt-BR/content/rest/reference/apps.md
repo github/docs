@@ -1,6 +1,6 @@
 ---
 title: Aplicativos
-intro: The GitHub Apps API enables you to retrieve the information about the installation as well as specific information about GitHub Apps.
+intro: 'A API dos aplicativos GitHub permite que você recupere as informações sobre a instalação, bem como informações específicas sobre os aplicativos GitHub.'
 redirect_from:
   - /v3/apps
 versions:
@@ -29,7 +29,7 @@ Um subconjunto de pontos de extremidade da API v2 de REST exige autenticação c
 
 ## API de aplicativos do OAuth
 
-You can use this API to manage the OAuth tokens an OAuth application uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+Você pode usar esta API para gerenciar os tokens do OAuth que um aplicativo OAuth usa para acessar as contas das pessoas em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'oauth-applications' %}{% include rest_operation %}{% endif %}

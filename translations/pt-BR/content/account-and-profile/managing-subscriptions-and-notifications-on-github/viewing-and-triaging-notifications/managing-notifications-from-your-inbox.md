@@ -109,7 +109,7 @@ Para adicionar um filtro de `repo:`, você deve incluir o proprietário do repos
 
 ### Consultas suportadas `is:`
 
-Para filtrar notificações para uma atividade específica no {% data variables.product.product_location %}, você pode usar a  consulta `is`. Por exemplo, para ver apenas atualizações de convite do repositório, use `is:repository-invitation`{% ifversion not ghae %}, e para ver apenas alertas de {% data variables.product.prodname_dependabot %}, use `is:repository-vulnerability-alert`{% endif %}.
+Para filtrar notificações para uma atividade específica no {% data variables.product.product_location %}, você pode usar a  consulta `is`. Por exemplo, para visualizar apenas atualizações de convite do repositório, use `is:repository-invitation`{% ifversion not ghae %}, e para ver apenas {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`{% endif %}.
 
 - `is:check-suite`
 - `is:commit`

@@ -51,7 +51,7 @@ Organization のワークフローをすべて無効にすることも、Organiz
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。
-   {%- ifversion ghes %}
+   {%- ifversion ghes > 3.0 %}
    ![許可リストにアクションを追加する](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
    ![許可リストにアクションを追加する](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
@@ -86,7 +86,7 @@ You can configure this behavior for an organization using the procedure below. �
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Organizationに対する`GITHUB_TOKEN`の権限の設定
 
 {% data reusables.github-actions.workflow-permissions-intro %}

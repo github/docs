@@ -2,7 +2,7 @@
 title: 批准组织的 OAuth Apps
 intro: '当组织成员申请 {% data variables.product.prodname_oauth_app %} 访问组织资源时，组织所有者可以批准或拒绝该申请。'
 redirect_from:
-  - /articles/approving-third-party-applications-for-your-organization/
+  - /articles/approving-third-party-applications-for-your-organization
   - /articles/approving-oauth-apps-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization
 versions:

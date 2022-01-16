@@ -1,12 +1,10 @@
 ---
 title: Conectar o provedor de identidade à organização
 intro: 'Para usar o logon único SAML e o SCIM, é preciso conectar o provedor de identidade à organização do {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

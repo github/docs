@@ -15,7 +15,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
 
 ## 環境について
 
@@ -26,14 +25,16 @@ Environments are used to describe a general deployment target like `production`,
 {% ifversion fpt %}
 {% note %}
 
-**Note:** If you don't use {% data variables.product.prodname_ghe_cloud %} and convert a repository from public to private, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. リポジトリをパブリックに変換して戻せば、以前に設定されていた保護ルールや環境のシークレットにアクセスできるようになります。 {% data reusables.enterprise.link-to-ghec-trial %}
+**Note:** You can only configure environments for public repositories. リポジトリをパブリックからプライベートに変換すると、設定された保護ルールや環境のシークレットは無視されるようになり、環境は設定できなくなります。 リポジトリをパブリックに変換して戻せば、以前に設定されていた保護ルールや環境のシークレットにアクセスできるようになります。
+
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can configure environments for private repositories. 詳しい情報については[{% data variables.product.prodname_ghe_cloud %}のドキュメンテーション](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment)を参照してください。 {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}
 
 ## 環境の保護ルール
 
-環境の保護ルールは、その環境を参照しているジョブが進行する前に特定の条件をパスすることを要求します。 {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}環境保護ルールを使用して、手動による承認を要求したり、ジョブを遅延させたり、環境を特定のブランチに制限したりすることができます。{% else %}環境保護ルールを使用して、手動による承認を要求したり、ジョブを遅延させたりすることができます。{% endif %}
+環境の保護ルールは、その環境を参照しているジョブが進行する前に特定の条件をパスすることを要求します。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}環境保護ルールを使用して、手動による承認を要求したり、ジョブを遅延させたり、環境を特定のブランチに制限したりすることができます。{% else %}環境保護ルールを使用して、手動による承認を要求したり、ジョブを遅延させたりすることができます。{% endif %}
 
 ### 必須のレビュー担当者
 
@@ -45,7 +46,7 @@ Environments are used to describe a general deployment target like `production`,
 
 ジョブが最初にトリガーされた後、特定の時間ジョブを遅延させるために、待機タイマーを使ってください。 時間（分）は、0から43,200（30日）の間の整数でなければなりません。
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ### デプロイメントブランチ
 
 デプロイメントブランチを使用して、環境にデプロイできるブランチを制限します。 環境のデプロイメントブランチのオプションは以下のとおりです。
@@ -92,7 +93,7 @@ Environments are used to describe a general deployment target like `production`,
    1. Enter the secret value.
    1. [**Add secret（シークレットの追加）**] をクリックします。
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}REST API を介して環境を作成および設定することもできます。 詳しい情報については、「[環境](/rest/reference/repos#environments)」および「[シークレット](/rest/reference/actions#secrets)」を参照してください。{% endif %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}REST API を介して環境を作成および設定することもできます。 詳しい情報については、「[環境](/rest/reference/repos#environments)」および「[シークレット](/rest/reference/actions#secrets)」を参照してください。{% endif %}
 
 存在しない環境を参照するワークフローを実行すると、参照された名前を持つ環境が作成されます。 新しく作成される環境には、保護ルールやシークレットは設定されていません。 リポジトリのワークフローを編集できる人は、ワークフローファイルを通じて環境を作成できますが、その環境を設定できるのはリポジトリ管理者だけです。
 
@@ -116,7 +117,7 @@ Environments are used to describe a general deployment target like `production`,
 1. 削除する環境の横にある {% octicon "trash" aria-label="The trash icon" %} をクリックします。
 2. **I understand, delete this environment（分かりました、この環境を削除してください）**をクリックしてください。
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}REST API を介して環境を削除することもできます。 詳しい情報については、「[環境](/rest/reference/repos#environments)」を参照してください。{% endif %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}REST API を介して環境を削除することもできます。 詳しい情報については、「[環境](/rest/reference/repos#environments)」を参照してください。{% endif %}
 
 ## How environments relate to deployments
 

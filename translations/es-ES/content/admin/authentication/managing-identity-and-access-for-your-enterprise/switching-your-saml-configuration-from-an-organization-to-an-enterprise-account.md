@@ -1,7 +1,6 @@
 ---
 title: Cambiar tu configuración de SAML de una cuenta organizacional a una empresarial
 intro: Aprende sobre las consideraciones especiales y mejores prácticas para reemplazar una configuración de SAML a nivel organizacional con una configuración de SAML a nivel empresarial.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can configure SAML single sign-on for an enterprise account.
 versions:
   ghec: '*'
@@ -23,7 +22,7 @@ redirect_from:
 
 {% data reusables.saml.switching-from-org-to-enterprise %}
 
-When you configure SAML SSO at the organization level, each organization must be configured with a unique SSO tenant in your IdP, which means that your members will be associated with a unique SAML identity record for each organization they have successfully authenticated with. Si configuras el SSO de SAML para que se utilice en su lugar en tu empresa, cada miembro de ella tendrá una identidad de SAML que se utilizará para todas las organizaciones que pertenezcan a la cuenta empresarial.
+Cuando configuras el SSO de SAML a nivel de organización, cada organización debe configurarse con un inquilino de SSO único en tu IdP, lo cual significa que tus miembros se asociarán con un registro de identidad único de SAML para cada organización con la cual se hayan autenticado exitosamente. Si configuras el SSO de SAML para que se utilice en su lugar en tu empresa, cada miembro de ella tendrá una identidad de SAML que se utilizará para todas las organizaciones que pertenezcan a la cuenta empresarial.
 
 Después de que configures el SSO de SAML para tu cuenta empresarial, la configuración nueva anulará cualquier configuración de SSO de SAML para las organizaciones que pertenezcan a esta cuenta.
 

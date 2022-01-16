@@ -48,6 +48,12 @@ For information on managing and changing your account's spending limit, see "[Ma
 
 {% data reusables.codespaces.exporting-changes %}
 
+## Limiting the choice of machine types
+
+The type of machine a user chooses when they create a codespace affects the per-minute charge for that codespace, as shown above. 
+
+Organization owners can create a policy to restrict the machine types that are available to users. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+
 ## How billing is handled for forked repositories
 
 {% data variables.product.prodname_codespaces %} can only be used in organizations where a billable owner has been defined. To incur charges to the organization, the user must be a member or collaborator, otherwise they cannot create a codespace. 

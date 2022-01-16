@@ -1,9 +1,9 @@
 ---
 title: 邀请用户参加您的组织
-intro: '您可以使用任何人的 {% data variables.product.product_name %} 用户名或电子邮件地址邀请其成为组织的成员。'
+intro: 'You can invite anyone to become a member of your organization using their username or email address for {% data variables.product.product_location %}.'
 permissions: Organization owners can invite users to join an organization.
 redirect_from:
-  - /articles/adding-or-inviting-members-to-a-team-in-an-organization/
+  - /articles/adding-or-inviting-members-to-a-team-in-an-organization
   - /articles/inviting-users-to-join-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization
 versions:
@@ -22,6 +22,8 @@ shortTitle: 邀请用户加入
 {% data reusables.organizations.org-invite-scim %}
 
 如果您的组织要求成员使用双重身份验证，则您邀请的用户在接受邀请之前必须启用双重身份验证。 更多信息请参阅“[在组织中要求双重身份验证](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)”和“[使用双重身份验证 (2FA) 保护您的帐户](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)”。
+
+{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% else %}You{% endif %} can implement SCIM to add, manage, and remove organization members' access to {% data variables.product.prodname_dotcom_the_website %} through an identity provider (IdP). For more information, see "[About SCIM](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 ## Inviting a user to join your organization
 

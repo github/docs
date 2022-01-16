@@ -18,7 +18,6 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Sobre os contextos
 
@@ -125,12 +124,14 @@ O contexto `steps` (etapas) contém informações sobre as etapas já executadas
 
 O contexto do `executor` contém informações sobre o executor que está executando o trabalho atual.
 
-| Nome da propriedade | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Nome da propriedade | Tipo     | Descrição                                                                                                                                                       |
+| ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `runner.name`       | `string` | {% data reusables.actions.runner-name-description %}
-| `runner.os`         | `string` | {% data reusables.actions.runner-os-description %}
+| `runner.os`         | `string` | {% data reusables.actions.runner-os-description %} |{% if actions-runner-arch-envvars %}
+| `runner.arch`       | `string` | {% data reusables.actions.runner-arch-description %} 
+{% endif %}
 | `runner.temp`       | `string` | {% data reusables.actions.runner-temp-directory-description %}
-| `runner.tool_cache` | `string` | {% ifversion ghae %}Para instruções instruções sobre como ter certeza de que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)". {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}
+| `runner.tool_cache` | `string` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}
 
 ### Contexto `needs`
 
@@ -207,7 +208,7 @@ Além disso, algumas funções só podem ser utilizadas em determinados lugares.
 A tabela a seguir indica onde cada contexto e função especial pode ser utilizado dentro de um fluxo de trabalho. A menos que esteja listado abaixo, uma função pode ser usada em qualquer lugar. |{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 | Caminho                    | Contexto                   | Funções especiais          |
 | -------------------------- | -------------------------- | -------------------------- |
-| <code>concorrência</code>  | <code>github</code>  |                            |
+| <code>concorrência</code>  | <code>github, entradas</code>  |                            |
 | <code>env</code>  | <code>github, segredos, entradas</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.concurrency</code>  | <code>github, necessidades, estratégia, matriz, entradas</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, necessidades, estratégia, matriz, entradas</code>  |                            |

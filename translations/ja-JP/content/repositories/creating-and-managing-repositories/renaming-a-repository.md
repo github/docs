@@ -16,7 +16,7 @@ topics:
 
 リポジトリの名前を変更すると、プロジェクトサイトの URL を除くすべての既存の情報は、下記を含む新しい名前に自動的にリダイレクトされます。
 
-* 問題
+* Issue
 * Wiki
 * Star
 * フォロワー
@@ -29,7 +29,7 @@ Web トラフィックのリダイレクトに加え、前の場所をターゲ�
 $ git remote set-url origin <em>新しい URL</em>
 ```
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+詳しい情報については「[リモートリポジトリの管理](/github/getting-started-with-github/managing-remote-repositories)」を参照してください。
 
 {% ifversion fpt or ghec %}
 

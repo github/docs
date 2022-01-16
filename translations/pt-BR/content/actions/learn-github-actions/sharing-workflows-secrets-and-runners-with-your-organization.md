@@ -1,7 +1,7 @@
 ---
 title: 'Compartilhando fluxos de trabalho, segredos e executores com a sua organização'
 shortTitle: Compartilhar fluxos de trabalho com a sua organização
-intro: 'Aprenda como usar recursos da organização para colaborar com a sua equipe, compartilhando modelos de fluxo de trabalho, segredos e executores auto-hospedados.'
+intro: 'Aprenda como usar recursos da organização para colaborar com a sua equipe, compartilhando fluxos de trabalho iniciantes, segredos e executores auto-hospedados.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
 versions:
@@ -14,15 +14,14 @@ type: how_to
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Visão Geral
 
-Se você precisar compartilhar fluxos de trabalho e outros recursos de {% data variables.product.prodname_actions %} com a sua equipe, considere colaborar dentro de uma organização de {% data variables.product.prodname_dotcom %}. Uma organização permite que você armazene e gerencie, centralizadamente, segredos, artefatos e executores auto-hospedados. Você também pode criar modelos de fluxo de trabalho no repositório `.github` e compartilhá-los com outros usuários na sua organização.
+Se você precisar compartilhar fluxos de trabalho e outros recursos de {% data variables.product.prodname_actions %} com a sua equipe, considere colaborar dentro de uma organização de {% data variables.product.prodname_dotcom %}. Uma organização permite que você armazene e gerencie, centralizadamente, segredos, artefatos e executores auto-hospedados. Você também pode criar um fluxo de trabalho inicial no repositório `.github` e compartilhá-lo com outros usuários na sua organização.
 
-## Usando modelos de fluxo de trabalho
+## Usando fluxos de trabalho iniciais
 
-{% data reusables.actions.workflow-organization-templates %} Para obter mais informações, consulte "[Criando modelos de fluxo de trabalho](/actions/learn-github-actions/creating-workflow-templates)".
+{% data reusables.actions.workflow-organization-templates %} Para obter mais informações, consulte "[Criando fluxos de trabalho iniciais para a sua organização](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)".
 
 {% data reusables.actions.reusable-workflows %}
 
@@ -52,4 +51,4 @@ Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hosp
 
 ## Próximas etapas
 
-Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Criar modelos de fluxo de trabalho](/actions/learn-github-actions/creating-workflow-templates)".
+Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Criando fluxos de trabalho iniciais para a sua organização](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)".

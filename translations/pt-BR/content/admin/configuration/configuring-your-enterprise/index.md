@@ -1,11 +1,11 @@
 ---
-title: Configuring your enterprise
-intro: 'After {% data variables.product.product_name %} is up and running, you can configure your enterprise to suit your organization''s needs.'
+title: Configurar a sua empresa
+intro: 'Depois que {% data variables.product.product_name %} estiver pronto e funcionando, você poderá configurar a sua empresa para atender às necessidades da sua organização.'
 redirect_from:
-  - /enterprise/admin/guides/installation/basic-configuration/
-  - /enterprise/admin/guides/installation/administrative-tools/
-  - /enterprise/admin/articles/restricting-ssh-access-to-specific-hosts/
-  - /enterprise/admin/guides/installation/configuring-the-github-enterprise-appliance/
+  - /enterprise/admin/guides/installation/basic-configuration
+  - /enterprise/admin/guides/installation/administrative-tools
+  - /enterprise/admin/articles/restricting-ssh-access-to-specific-hosts
+  - /enterprise/admin/guides/installation/configuring-the-github-enterprise-appliance
   - /enterprise/admin/installation/configuring-the-github-enterprise-server-appliance
   - /enterprise/admin/configuration/configuring-your-enterprise
 versions:
@@ -23,7 +23,7 @@ children:
   - /configuring-backups-on-your-appliance
   - /site-admin-dashboard
   - /enabling-private-mode
-  - /managing-github-for-mobile-for-your-enterprise
+  - /managing-github-mobile-for-your-enterprise
   - /configuring-email-for-notifications
   - /verifying-or-approving-a-domain-for-your-enterprise
   - /configuring-rate-limits
@@ -35,6 +35,6 @@ children:
   - /configuring-github-pages-for-your-enterprise
   - /configuring-the-referrer-policy-for-your-enterprise
   - /configuring-custom-footers
-shortTitle: Configure your enterprise
+shortTitle: Configure sua empresa
 ---
 

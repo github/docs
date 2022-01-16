@@ -21,7 +21,6 @@ topics:
 shortTitle: Alertas do Dependabot
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/managing-security-vulnerabilities-->
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About alerts for vulnerable dependencies ".-->
 
 ## Sobre as dependências vulneráveis
@@ -34,11 +33,16 @@ Quando o seu código depende de um pacote que tenha uma vulnerabilidade de segur
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-{% data variables.product.prodname_dependabot %} detecta dependências vulneráveis e envia {% data variables.product.prodname_dependabot_alerts %} quando:
+{% data variables.product.prodname_dependabot %} faz a digitalização para detectar dependências vulneráveis e envia {% data variables.product.prodname_dependabot_alerts %} quando:
 
 {% ifversion fpt or ghec %}
-- Uma nova vulnerabilidade foi adicionada ao {% data variables.product.prodname_advisory_database %}. Para obter mais informações, consulte "[Pesquisar vulnerabilidades de segurança em {% data variables.product.prodname_advisory_database %}](/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database)" e "[Sobre {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)."{% else %}
+- Uma nova vulnerabilidade foi adicionada ao {% data variables.product.prodname_advisory_database %}. Para obter mais informações, consulte "[Pesquisar vulnerabilidades de segurança em {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)" e "[Sobre {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)."{% else %}
 - São sincronizados novos dados de consultoria com {% data variables.product.product_location %} a cada hora a partir de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
+  {% note %}
+
+  **Observação:** Apenas consultorias que foram revisados por {% data variables.product.company_short %} irão acionar {% data variables.product.prodname_dependabot_alerts %}.
+
+  {% endnote %}
 - O gráfico de dependências para alterações de repositório. Por exemplo, quando um colaborador faz push de um commit para alterar os pacotes ou versões de que depende{% ifversion fpt or ghec %} ou quando o código de uma das alterações das dependências{% endif %}. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/code-security/supply-chain-security/about-the-dependency-graph)".
 
 {% data reusables.repositories.dependency-review %}
@@ -51,7 +55,7 @@ Para obter uma lista dos ecossistemas para os quais o {% data variables.product.
 
 {% endnote %}
 
-## Alertas do {% data variables.product.prodname_dependabot %} para dependências vulneráveis
+## {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis
 
 {% data reusables.repositories.enable-security-alerts %}
 
@@ -76,7 +80,7 @@ Para repositórios em que {% data variables.product.prodname_dependabot_security
 
 {% endwarning %}
 
-## Acesso a alertas de {% data variables.product.prodname_dependabot %}
+## Acesso a {% data variables.product.prodname_dependabot_alerts %}
 
 É possível ver todos os alertas que afetam um determinado projeto{% ifversion fpt or ghec %} na aba Segurança do repositório ou{% endif %} no gráfico de dependências do repositório. Para obter mais informações, consulte "[Visualizar e atualizar dependências vulneráveis no seu repositório](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository). "
 

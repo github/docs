@@ -151,6 +151,12 @@ A linha do tempo a seguir demonstra como a contagem ativa do committer para {% d
   </tr>
 </table>
 
+{% note %}
+
+**Observação:** Um usuário será sinalizado como ativo quando seus commits forem levados a qualquer branch de um repositório, mesmo que os compromissos tenham sido criados há mais de 90 dias.
+
+{% endnote %}
+
 ## Aproveitando o máximo de {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.getting-the-most-from-your-license %}

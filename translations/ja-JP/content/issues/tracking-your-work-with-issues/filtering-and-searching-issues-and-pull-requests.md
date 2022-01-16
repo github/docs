@@ -119,8 +119,6 @@ You can use advanced filters to search for issues and pull requests that meet sp
 
 ### Searching for issues and pull requests
 
-{% include tool-switcher %}
-
 {% webui %}
 
 Issue とプルリクエストの検索バーを使用すると、独自のカスタムフィルターを定義し、さまざまな基準で並べ替えることができます。 検索バーは、各リポジトリの [**Issues**] および [**Pull requests**] タブ、ならびに[Issues および Pull requests のダッシュボード](/articles/viewing-all-of-your-issues-and-pull-requests)にあります。
@@ -165,7 +163,7 @@ Issue およびプルリクエストの検索用語により、次のことが�
 - ラベルにより Issue とプルエストをフィルタリング: `state:open type:issue label:"bug"`
 - 次の用語の前に `-` を使用して検索用語を除外: `state:open type:issue -author:octocat`
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 {% tip %}
 
 **Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
@@ -228,4 +226,4 @@ Issue が生成した URL は、どのユーザにも送れます。そして、
 
 ## 参考リンク
 
-- "[Searching issues and pull requests](/articles/searching-issues)""
+- "[Searching issues and pull requests](/articles/searching-issues)"

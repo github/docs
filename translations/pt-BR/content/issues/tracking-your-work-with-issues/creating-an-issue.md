@@ -83,7 +83,7 @@ Você pode abrir um novo problema a partir de um comentário em um problema ou p
 {% data reusables.repositories.navigate-to-repo %}
 1. Localize o código que deseja referenciar em um problema:
     - Para abrir um problema sobre código em um arquivo, navegue até o arquivo.
-    - Para abrir um problema sobre código em uma pull request, navegue até a pull request e clique em {% octicon "diff" aria-label="The file diff icon" %} **Files changed** (Arquivos alterados). Depois, vá até o arquivo que contém o código que você quer incluir em seu comentário e clique em **View** (Visualizar).
+    - Para abrir um problema sobre código em uma pull request, navegue até a pull request e clique em {% octicon "diff" aria-label="The file diff icon" %} **Files changed** (Arquivos alterados). Em seguida, acesse o arquivo que contém o código que você deseja que seja incluído no seu comentário e clique em **Visualizar**.
 {% data reusables.repositories.choose-line-or-range %}
 4. À esquerda do intervalo do código, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. No menu suspenso, clique em **Referência em um novo problema**. ![Menu kebab com opção para abrir um novo problema a partir de uma linha selecionada](/assets/images/help/repository/open-new-issue-specific-line.png)
 {% data reusables.repositories.type-issue-title-and-description %}
@@ -129,7 +129,7 @@ Você pode usar parâmetros de consulta para abrir problemas. Os parâmetros de 
 
 {% endtip %}
 
-Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, é preciso ter permissão para adicionar uma etiqueta a um problema para usar o parâmetro de consulta `label`. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, é preciso ter permissão para adicionar uma etiqueta a um problema para usar o parâmetro de consulta `label`. Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
 Se você criar uma URL inválida usando parâmetros de consulta, ou se você não tiver as permissões adequadas, a URL retornará uma página de erro `404 Not Found`. Se você criar uma URL que excede o limite do servidor, a URL retornará uma página de erro de `414 URI Too Long`.
 
@@ -144,10 +144,10 @@ Se você criar uma URL inválida usando parâmetros de consulta, ou se você nã
 | `modelo`              | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` cria um problema com um modelo no texto do problema. O parâmetro de consulta `template` funciona com modelos armazenados em um subdiretório `ISSUE_TEMPLATE` dentro da raiz, `docs/` ou diretório do `.github/` em um repositório. Para obter mais informações, consulte "[Usar modelos para incentivar problemas úteis e pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)". |
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
-## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
+## Criando uma issue de um alerta de {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}
-If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
+Se você está usando problemas para rastrear e priorizar seu trabalho, você pode usar problemas para acompanhar os alertas de {% data variables.product.prodname_code_scanning %}.
 {% data reusables.code-scanning.alert-tracking-link %}
 
 {% endif %}

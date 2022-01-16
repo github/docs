@@ -2,7 +2,7 @@
 title: ガイド
 intro: REST APIおよび認証の初歩や、さまざまなタスクでREST APIを使用する方法について学びましょう。
 redirect_from:
-  - /guides/
+  - /guides
   - /v3/guides
 versions:
   fpt: '*'

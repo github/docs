@@ -1,7 +1,7 @@
 ---
 title: 'Sharing workflows, secrets, and runners with your organization'
 shortTitle: 与组织共享工作流程
-intro: 了解如何通过共享工作流模板、机密和自托管运行器，使用组织功能与团队协作。
+intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflow, secrets, and self-hosted runners.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
 versions:
@@ -14,15 +14,14 @@ type: how_to
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 概览
 
-如果需要与您的团队共享工作流程和其他 {% data variables.product.prodname_actions %} 功能，则考虑在 {% data variables.product.prodname_dotcom %} 组织内协作。 组织允许您集中存储和管理机密、构件和自托管运行器。 您也可以在 `.github` 仓库中创建工作流程模板，并与您组织中的其他用户共享。
+如果需要与您的团队共享工作流程和其他 {% data variables.product.prodname_actions %} 功能，则考虑在 {% data variables.product.prodname_dotcom %} 组织内协作。 组织允许您集中存储和管理机密、构件和自托管运行器。 You can also create starter workflow in the `.github` repository and share them with other users in your organization.
 
-## Using workflow templates
+## Using starter workflows
 
-{% data reusables.actions.workflow-organization-templates %} For more information, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."
+{% data reusables.actions.workflow-organization-templates %} For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
 
 {% data reusables.actions.reusable-workflows %}
 
@@ -52,4 +51,4 @@ type: how_to
 
 ## 后续步骤
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."

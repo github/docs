@@ -1,7 +1,7 @@
 ---
 title: 脆弱性のある依存関係の通知を設定する
 shortTitle: 通知を設定する
-intro: '{% data variables.product.prodname_dependabot %}アラートに関する通知の受信方法の最適化'
+intro: 'Optimize how you receive notifications about  {% data variables.product.prodname_dependabot_alerts %}.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
@@ -51,7 +51,7 @@ When a new {% data variables.product.prodname_dependabot %} alert is detected, {
 
 {% note %}
 
-**ノート:** {% data variables.product.company_short %}の通知をフィルタして、{% data variables.product.prodname_dependabot %}アラートを表示できます。 詳しい情報については「[インボックスからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)」を参照してください。
+**Note:** You can filter your notifications on {% data variables.product.company_short %} to show  {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については「[インボックスからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)」を参照してください。
 
 {% endnote %}
 

@@ -11,7 +11,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/overview
   - /actions/getting-started-with-github-actions/getting-started-with-github-actions
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
-  - /articles/creating-a-workflow-with-github-actions/
+  - /articles/creating-a-workflow-with-github-actions
   - /articles/configuring-a-workflow
   - /github/automating-your-workflow-with-github-actions/configuring-a-workflow
   - /actions/automating-your-workflow-with-github-actions/configuring-a-workflow
@@ -34,8 +34,8 @@ children:
   - /essential-features-of-github-actions
   - /managing-complex-workflows
   - /sharing-workflows-secrets-and-runners-with-your-organization
-  - /creating-workflow-templates
-  - /using-workflow-templates
+  - /creating-starter-workflows-for-your-organization
+  - /using-starter-workflows
   - /reusing-workflows
   - /events-that-trigger-workflows
   - /expressions
@@ -46,4 +46,3 @@ children:
   - /usage-limits-billing-and-administration
 ---
 
-{% data reusables.actions.ae-beta %}

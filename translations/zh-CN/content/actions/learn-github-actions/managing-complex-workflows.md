@@ -14,7 +14,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 概览
 
@@ -146,17 +145,6 @@ jobs:
 
 此功能可帮助您将作业分配到特定的托管运行器。 如果要确保特定类型的运行器处理作业，可以使用标签来控制作业的执行位置。 除了 `self-hosted` 的默认标签之外，您还可以向自托管运行器分配标签。 然后，您可以在 YAML 工作流程中引用这些标签，确保以可预测的方式安排作业。{% ifversion not ghae %} {% data variables.product.prodname_dotcom %} 托管的运行器已指定预定义的标签。{% endif %}
 
-{% ifversion ghae %}
-此示例显示工作流程如何使用标签来指定所需的运行器：
-
-```yaml
-jobs:
-  example-job:
-    runs-on: [AE-runner-for-CI]
-```
-
-更多信息请参阅“[将标签与 {% data variables.actions.hosted_runner %} 一起使用](/actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners)”。
-{% else %}
 此示例显示工作流程如何使用标签来指定所需的运行器：
 
 ```yaml
@@ -167,27 +155,30 @@ jobs:
 
 工作流程只能在一个所有标签处于 `runs-on` 数组中的运行器上运行。 作业将优先转到具有指定标签的空闲自托管运行器。 如果没有可用且具有指定标签的 {% data variables.product.prodname_dotcom %} 托管运行器存在，作业将转到 {% data variables.product.prodname_dotcom %} 托管的运行器。
 
-要了解自托管运行器标签的更多信息，请参阅“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)”。 要详细了解
+要了解自托管运行器标签的更多信息，请参阅“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)”。
+
+{% ifversion fpt or ghes %}
+要详细了解
 {% data variables.product.prodname_dotcom %} 托管的运行器标签，请参阅[“支持的运行器和硬件资源”](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)。
 {% endif %}
 
 {% data reusables.actions.reusable-workflows %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
 ## 使用环境
 
 您可以使用保护规则和机密配置环境。 工作流程中的每个作业都可以引用单个环境。 在将引用环境的作业发送到运行器之前，必须通过为环境配置的任何保护规则。 更多信息请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。
 {% endif %}
 
-## 使用工作流程模板
+## Using starter workflows
 
 {% data reusables.actions.workflow-template-overview %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. 如果您的仓库已经有工作流程：在左上角单击 **New workflow（新工作流程）**。 ![创建新工作流程](/assets/images/help/repository/actions-new-workflow.png)
-1. 在您想要使用的模板名称下，单击 **Set up this workflow（设置此工作流程）**。 ![设置此工作流程](/assets/images/help/settings/actions-create-starter-workflow.png)
+1. Under the name of the starter workflow you'd like to use, click **Set up this workflow**. ![设置此工作流程](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 ## 后续步骤
 

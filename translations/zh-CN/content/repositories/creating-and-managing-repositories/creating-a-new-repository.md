@@ -2,9 +2,9 @@
 title: 创建新仓库
 intro: 您可以在个人帐户或者您有足够权限的任何组织中创建新仓库。
 redirect_from:
-  - /creating-a-repo/
-  - /articles/creating-a-repository-in-an-organization/
-  - /articles/creating-a-new-organization-repository/
+  - /creating-a-repo
+  - /articles/creating-a-repository-in-an-organization
+  - /articles/creating-a-new-organization-repository
   - /articles/creating-a-new-repository
   - /articles/creating-an-internal-repository
   - /github/setting-up-and-managing-your-enterprise-account/creating-an-internal-repository

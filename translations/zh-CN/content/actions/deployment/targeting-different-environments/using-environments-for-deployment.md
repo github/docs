@@ -15,7 +15,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
 
 ## 关于环境
 
@@ -26,14 +25,16 @@ Environments are used to describe a general deployment target like `production`,
 {% ifversion fpt %}
 {% note %}
 
-**Note:** If you don't use {% data variables.product.prodname_ghe_cloud %} and convert a repository from public to private, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. 如果将仓库转换回公共，您将有权访问以前配置的任何保护规则和环境机密。 {% data reusables.enterprise.link-to-ghec-trial %}
+**Note:** You can only configure environments for public repositories. 如果您将仓库从公开转换为私密，任何配置的保护规则或环境机密将被忽略， 并且您将无法配置任何环境。 如果将仓库转换回公共，您将有权访问以前配置的任何保护规则和环境机密。
+
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can configure environments for private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment). {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}
 
 ## 环境保护规则
 
-环境保护规则要求通过特定的条件，然后引用环境的作业才能继续。 {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}您可以使用环境保护规则来要求手动批准、延迟作业或者将环境限于某些分支。{% else %}您可以使用环境保护规则要求手动批准或延迟作业。{% endif %}
+环境保护规则要求通过特定的条件，然后引用环境的作业才能继续。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}您可以使用环境保护规则来要求手动批准、延迟作业或者将环境限于某些分支。{% else %}您可以使用环境保护规则要求手动批准或延迟作业。{% endif %}
 
 ### 需要的审查者
 
@@ -45,7 +46,7 @@ Environments are used to describe a general deployment target like `production`,
 
 在最初触发作业后，使用等待计时器将作业延迟特定时间。 时间（分钟）必须是 0 至 43,200（30天）之间的整数。
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ### 部署分支
 
 使用部署分支来限制哪些分支可以部署到环境中。 以下是环境部署分支的选项：
@@ -92,7 +93,7 @@ Environments are used to describe a general deployment target like `production`,
    1. Enter the secret value.
    1. 单击 **Add secret（添加密码）**。
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}您也可以通过 REST API 创建和配置环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”和“[密码](/rest/reference/actions#secrets)”。{% endif %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}您也可以通过 REST API 创建和配置环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”和“[密码](/rest/reference/actions#secrets)”。{% endif %}
 
 运行引用不存在的环境的工作流程将使用引用的名称创建环境。 新创建的环境将不配置任何保护规则或机密。 可在仓库中编辑工作流程的任何人都可以通过工作流程文件创建环境，但只有仓库管理员才能配置环境。
 
@@ -116,7 +117,7 @@ Environments are used to describe a general deployment target like `production`,
 1. 在要删除的环境旁边，单击 {% octicon "trash" aria-label="The trash icon" %}。
 2. 单击 **I understand, delete this environment（我了解，删除此环境）**。
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}您也可以通过 REST API 删除环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”。{% endif %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}您也可以通过 REST API 删除环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”。{% endif %}
 
 ## How environments relate to deployments
 

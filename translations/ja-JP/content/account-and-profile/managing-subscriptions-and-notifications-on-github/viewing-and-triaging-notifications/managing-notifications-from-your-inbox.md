@@ -109,7 +109,7 @@ shortTitle: Manage from your inbox
 
 ### サポートされている `is:` クエリ
 
-{% data variables.product.product_location %} での特定のアクティビティの通知をフィルタするには、`is` クエリを使用できます。 For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% data variables.product.prodname_dependabot %} alerts, use `is:repository-vulnerability-alert`{% endif %}.
+{% data variables.product.product_location %} での特定のアクティビティの通知をフィルタするには、`is` クエリを使用できます。 For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`{% endif %}.
 
 - `is:check-suite`
 - `is:commit`

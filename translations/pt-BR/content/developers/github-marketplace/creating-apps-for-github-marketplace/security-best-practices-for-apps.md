@@ -2,7 +2,7 @@
 title: Práticas de segurança recomendadas para aplicativos
 intro: 'Diretrizes para a preparação de um aplicativo seguro para compartilhar em {% data variables.product.prodname_marketplace %}.'
 redirect_from:
-  - /apps/marketplace/getting-started/security-review-process/
+  - /apps/marketplace/getting-started/security-review-process
   - /marketplace/getting-started/security-review-process
   - /developers/github-marketplace/security-review-process-for-submitted-apps
   - /developers/github-marketplace/security-best-practices-for-apps

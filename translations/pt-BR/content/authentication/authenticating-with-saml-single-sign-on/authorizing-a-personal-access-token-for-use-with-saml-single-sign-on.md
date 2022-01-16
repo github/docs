@@ -2,12 +2,11 @@
 title: Autorizar o uso de um token de acesso pessoal para uso com logon único SAML
 intro: 'Para usar um token de acesso pessoal com uma organização que utiliza logon único SAML (SSO), primeiramente, você deve autorizar o token.'
 redirect_from:
-  - /articles/authorizing-a-personal-access-token-for-use-with-a-saml-single-sign-on-organization/
+  - /articles/authorizing-a-personal-access-token-for-use-with-a-saml-single-sign-on-organization
   - /articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - SSO

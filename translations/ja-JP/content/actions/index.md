@@ -13,7 +13,7 @@ featuredLinks:
     - /actions/guides/about-packaging-with-github-actions
     - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
   guideCards:
-    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/learn-github-actions/using-starter-workflows
     - /actions/guides/publishing-nodejs-packages
     - /actions/guides/building-and-testing-powershell
   popular:
@@ -30,13 +30,12 @@ changelog:
 examples_source: data/product-examples/actions/code-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
-  - /articles/automating-your-workflow-with-github-actions/
-  - /articles/customizing-your-project-with-github-actions/
+  - /articles/automating-your-workflow-with-github-actions
+  - /articles/customizing-your-project-with-github-actions
   - /github/automating-your-workflow-with-github-actions
-  - /actions/automating-your-workflow-with-github-actions/
+  - /actions/automating-your-workflow-with-github-actions
   - /categories/automating-your-workflow-with-github-actions
   - /marketplace/actions
-  - /actions/guides
   - /actions/reference
 layout: product-landing
 versions:

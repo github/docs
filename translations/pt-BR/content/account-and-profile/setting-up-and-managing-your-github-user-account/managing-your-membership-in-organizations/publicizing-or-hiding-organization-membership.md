@@ -2,7 +2,7 @@
 title: Mostrar ou ocultar a associação da organização
 intro: 'Se deseja contar ao mundo de quais organizações você faz parte, é possível exibir os avatares das organizações em seu perfil.'
 redirect_from:
-  - /articles/publicizing-or-concealing-organization-membership/
+  - /articles/publicizing-or-concealing-organization-membership
   - /articles/publicizing-or-hiding-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/publicizing-or-hiding-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/publicizing-or-hiding-organization-membership

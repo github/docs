@@ -14,13 +14,10 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Re-running all the jobs in a workflow
 
 El volver a ejecutar un flujo de trabajo utiliza el mismo `GITHUB_SHA` (SHA de confirmación) y `GITHUB_REF` (ref de Git) del evento original que activó la ejecución de flujo de trabajo. You can re-run a workflow for up to 30 days after the initial run.
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -58,7 +55,7 @@ gh run watch
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
 ### Reviewing previous workflow runs
 
-You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see ["Get a workflow run"](/rest/reference/actions#get-a-workflow-run).
+You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. Para obtener más información, consulta la sección "[Obtener una ejecución de flujo de trabajo](/rest/reference/actions#get-a-workflow-run)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

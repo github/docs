@@ -1,6 +1,6 @@
 ---
 title: Administrar la facturación para los Codespaces en tu organización
-shortTitle: Administrar la facturación para los Codespaces
+shortTitle: Administrar la facturación
 intro: 'Puedes verificar tu uso de {% data variables.product.prodname_codespaces %} y configurar los límites de uso.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
@@ -36,6 +36,8 @@ Puedes configurar el límite de uso de los codespaces en tu organización o repo
 Puedes inhabilitar el uso de los {% data variables.product.prodname_codespaces %} en tu organización o repositorio. Para obtener más información, consulta la sección "[Administrar el acceso de un repositorio a los codespces de tu organización](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)".
 
 También puedes limitar a los usuarios individuales que pueden utilizar {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Administrar los permisos de los usuarios para tu organización](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)".
+
+You can limit the choice of machine types that are available for repositories owned by your organization. This allows you to prevent people using overly resourced machines for their codespaces. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
 ## Borrar los codespaces sin utilizar
 

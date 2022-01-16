@@ -3,6 +3,7 @@ title: Utiliza la tarea inicial de Git y GitHub
 intro: 'Puedes utilizar la tarea de inicio de Git & {% data variables.product.company_short %} para proporcionar a los alumnos un resumen de lo básic de Git y de {% data variables.product.company_short %}.'
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
 shortTitle: Tarea de inicio
@@ -40,11 +41,18 @@ La tarea inicial de Git & {% data variables.product.company_short %} es un curso
 
 Importa el curso de inicio en tu organización, nombra tu tarea, decide si quieres asignar una fecha límite y elige la visibilidad de los repositorios de la tarea.
 
-- [Importar la tarea](#importing-the-assignment)
-- [Nombrar una tarea](#naming-an-assignment)
-- [Asignar una fecha límita para una tarea](#assigning-a-deadline-for-an-assignment)
-- [Elegir un tipo de tarea](#choosing-an-assignment-type)
-- [Elegir un tipo de visibilidad para los repositorios de la tarea](#choosing-a-visibility-for-assignment-repositories)
+- [Prerrequisitos](#prerequisites)
+- [Crear la tarea inicial](#creating-the-starter-assignment)
+  - [Si no hay tareas existentes en el aula](#if-there-are-no-existing-assignments-in-the-classroom)
+  - [Si ya existen tareas en el aula](#if-there-already-are-existing-assignments-in-the-classroom)
+- [Configurar lo básico para una tarea](#setting-up-the-basics-for-an-assignment)
+  - [Importar la tarea](#importing-the-assignment)
+  - [Nombrar la tarea](#naming-the-assignment)
+  - [Asignar una fecha límita para una tarea](#assigning-a-deadline-for-an-assignment)
+  - [Elegir un tipo de visibilidad para los repositorios de la tarea](#choosing-a-visibility-for-assignment-repositories)
+- [Invitar a los alumnos a una tarea](#inviting-students-to-an-assignment)
+- [Pasos siguientes](#next-steps)
+- [Leer más](#further-reading)
 
 ### Importar la tarea
 

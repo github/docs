@@ -2,7 +2,7 @@
 title: Editar uma resposta salva
 intro: Você pode editar o título e o corpo de uma resposta salva.
 redirect_from:
-  - /articles/changing-a-saved-reply/
+  - /articles/changing-a-saved-reply
   - /articles/editing-a-saved-reply
   - /github/writing-on-github/editing-a-saved-reply
 versions:

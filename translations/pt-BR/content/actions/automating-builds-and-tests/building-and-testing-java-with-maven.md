@@ -19,13 +19,13 @@ shortTitle: Criar & testar o Java com o Maven
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
 Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando a ferramenta de gerenciamento de projeto do software Maven. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. Você pode estender seu fluxo de trabalho de CI para memorizar arquivos e fazer o upload de artefatos a partir da execução de um fluxo de trabalho.
 
-{% ifversion ghae %}Para instruções instruções sobre como ter certeza de que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 Os executores hospedados em {% data variables.product.prodname_dotcom %} têm uma cache de ferramentas com um software pré-instalado, que inclui kits de desenvolvimento Java (JDKs) e Maven. Para uma lista de software e as versões pré-instaladas para JDK e Maven, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
@@ -40,11 +40,11 @@ Recomendamos que você tenha um entendimento básico da estrutura do Java e do M
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Introdução com um modelo de fluxo de trabalho do Maven
+## Usando o fluxo de trabalho inicial do Maven
 
-{% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho Maven que funcionará para a maioria dos projetos Java baseados no Maven. Para obter mais informações, consulte o [Modelo do fluxo de trabalho do Maven](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
+{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial do Maven que funcionará para a maioria dos projetos Java baseados no Maven. Para obter mais informações, consulte o [Fluxo de trabalho inicial do Maven](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
 
-Para começar rapidamente, você pode escolher o modelo do Maven pré-configurado ao criar um novo fluxo de trabalho. Para obter mais informações, consulte o início rápido "[{% data variables.product.prodname_actions %}](/actions/quickstart)".
+Para começar rapidamente, você pode escolher o fluxo de trabalho inicial pré-configurado do Maven ao criar um novo fluxo de trabalho. Para obter mais informações, consulte o início rápido "[{% data variables.product.prodname_actions %}](/actions/quickstart)".
 
 Você também pode adicionar este fluxo de trabalho manualmente, criando um novo arquivo no diretório `.github/workflows` do seu repositório.
 
@@ -76,7 +76,7 @@ Este fluxo de trabalho executa os seguintes passos:
 2. A etapa `setup-java` configura o Java 11 JDK pelo Adoptium.
 3. A etapa "Construir com Maven" executa o `pacote`-alvo Maven alvo de modo não interativo para garantir que seu código de seja criado, o seu teste seja aprovado e que seja possível criar um pacote.
 
-Os modelos-padrão do fluxo de trabalho são excelentes pontos de partida ao criar seu fluxo de trabalho de compilação e teste, e você pode personalizar o modelo para atender às necessidades do seu projeto.
+Os fluxos de trabalho inicial padrão são excelentes pontos de partida ao criar seu fluxo de trabalho de criação e teste, e você pode personalizar o fluxo de trabalho inicial para atender às necessidades do seu projeto.
 
 {% data reusables.github-actions.example-github-runner %}
 

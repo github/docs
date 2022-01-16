@@ -17,7 +17,6 @@ shortTitle: 触发工作流程的事件
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 配置工作流程事件
 
@@ -308,7 +307,7 @@ on:
 
 ### `deployment_status`
 
-每当第三方提供部署状态（触发 `deployment_status` 事件）时运行您的工作流程。 使用提交 SHA 创建的部署可能没有 Git 引用。 有关 REST API 的信息，请参阅“[创建部署状态](/rest/reference/repos#create-a-deployment-status)”。
+每当第三方提供部署状态（触发 `deployment_status` 事件）时运行您的工作流程。 使用提交 SHA 创建的部署可能没有 Git 引用。 有关 REST API 的信息，请参阅“[创建部署状态](/rest/reference/deployments#create-a-deployment-status)”。
 
 | Web 挂钩事件有效负载                                                       | 活动类型 | `GITHUB_SHA` | `GITHUB_REF`     |
 | ------------------------------------------------------------------ | ---- | ------------ | ---------------- |
@@ -330,7 +329,7 @@ on:
 {% ifversion fpt or ghec %}
 ### `讨论`
 
-在发生 `discussion` 事件的任何时间运行您的工作流程。 {% data reusables.developer-site.multiple_activity_types %}有关 GraphQL API 的信息，请参阅“[讨论]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)”。
+在发生 `discussion` 事件的任何时间运行您的工作流程。 {% data reusables.developer-site.multiple_activity_types %} For information about the GraphQL API, see "[Discussions]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -350,7 +349,7 @@ on:
 
 ### `discussion_comment`
 
-在发生 `discussion_comment` 事件的任何时间运行您的工作流程。 {% data reusables.developer-site.multiple_activity_types %}有关 GraphQL API 的信息，请参阅“[讨论]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)”。
+在发生 `discussion_comment` 事件的任何时间运行您的工作流程。 {% data reusables.developer-site.multiple_activity_types %} For information about the GraphQL API, see "[Discussions]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -702,7 +701,7 @@ on:
 
 {% note %}
 
-**注：**适用于 GitHub Actions 的 web 挂钩有效负载在 `commit` 对象中不包括 `added`、`removed` 和 `modified` 属性。 您可以使用 REST API 检索完整的提交对象。 更多信息请参阅“[获取提交](/rest/reference/repos#get-a-commit)”。
+**注：**适用于 GitHub Actions 的 web 挂钩有效负载在 `commit` 对象中不包括 `added`、`removed` 和 `modified` 属性。 您可以使用 REST API 检索完整的提交对象。 更多信息请参阅“[获取提交](/rest/reference/commits#get-a-commit)”。
 
 {% endnote %}
 
