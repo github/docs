@@ -20,8 +20,8 @@ shortTitle: View files and changes file changes
 ## View or download the raw file content
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Click to open the file whose line history you want to view.
-3. In the upper-right corner of the file view, click **Raw** to open the raw view. To dowload the file, right-click **Raw** and select **Save as**.
+2. Click to open the file.
+3. In the upper-right corner of the file view, click **Raw** to open the raw view. To download the file, right-click **Raw** and select **Save as**.
 
 ## View the line-by-line revision history for a file
 
