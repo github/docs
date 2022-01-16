@@ -7,7 +7,7 @@ miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '>=3.1'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -29,7 +29,7 @@ redirect_from:
 
 ## Sobre o uso do {% data variables.product.prodname_codeql_cli %} for {% data variables.product.prodname_code_scanning %}
 
-Você pode usar {% data variables.product.prodname_codeql_cli %} para executar o {% data variables.product.prodname_code_scanning %} no código que você está processando em um sistema de integração contínua (CI) de terceiros. {% data reusables.code-scanning.about-code-scanning %} Para obter informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %} com {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+Você pode usar {% data variables.product.prodname_codeql_cli %} para executar o {% data variables.product.prodname_code_scanning %} no código que você está processando em um sistema de integração contínua (CI) de terceiros. {% data reusables.code-scanning.about-code-scanning %} Para obter informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %} com {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)." Para as especificações recomendadas (RAM, núcleos de CPU e disco) para executar a análise {% data variables.product.prodname_codeql %}, consulte "[Recursos recomendados de hardware para executar {% data variables.product.prodname_codeql %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql)".
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 

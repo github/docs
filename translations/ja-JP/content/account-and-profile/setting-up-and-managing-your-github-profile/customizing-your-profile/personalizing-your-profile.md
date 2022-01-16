@@ -2,11 +2,11 @@
 title: プロフィールをパーソナライズする
 intro: 'プロフィール画像を設定し、プロフィールに略歴を追加することで、自分自身についての情報を他の {% data variables.product.product_name %} ユーザと共有することができます。'
 redirect_from:
-  - /articles/adding-a-bio-to-your-profile/
-  - /articles/setting-your-profile-picture/
-  - /articles/how-do-i-set-up-my-profile-picture/
-  - /articles/gravatar-problems/
-  - /articles/how-do-i-set-up-my-avatar/
+  - /articles/adding-a-bio-to-your-profile
+  - /articles/setting-your-profile-picture
+  - /articles/how-do-i-set-up-my-profile-picture
+  - /articles/gravatar-problems
+  - /articles/how-do-i-set-up-my-avatar
   - /articles/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile

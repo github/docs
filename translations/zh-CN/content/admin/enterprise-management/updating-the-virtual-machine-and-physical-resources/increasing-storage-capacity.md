@@ -65,21 +65,29 @@ shortTitle: 增加存储容量
 {% endwarning %}
 
 1. 将新磁盘连接到 {% data variables.product.prodname_ghe_server %} 设备。
-2. 运行 `parted` 命令，将磁盘格式化：
+1. 运行 `parted` 命令，将磁盘格式化：
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-3. 运行 `ghe-upgrade` 命令，将完整的平台特定包安装到新分区的磁盘中。 `github-enterprise-2.11.9.hpkg` 等通用热补丁升级包将无法按预期运行。 在 `ghe-upgrade` 命令完成后，应用程序服务将自动终止。
+1. To stop replication, run the `ghe-repl-stop` command.
+
+   ```shell
+   $ ghe-repl-stop
+   ```
+
+1. 运行 `ghe-upgrade` 命令，将完整的平台特定包安装到新分区的磁盘中。 `github-enterprise-2.11.9.hpkg` 等通用热补丁升级包将无法按预期运行。 在 `ghe-upgrade` 命令完成后，应用程序服务将自动终止。
 
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. 关闭设备：
+1. 关闭设备：
   ```shell
   $ sudo poweroff
   ```
-5. 在虚拟机监控程序中，移除旧的根磁盘，并将新的根磁盘连接到旧的根磁盘的位置。
-6. 启动设备。
-7. 确保系统服务正常运行，然后释放维护模式。 更多信息请参阅“[启用和排定维护模式](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+1. 在虚拟机监控程序中，移除旧的根磁盘，并将新的根磁盘连接到旧的根磁盘的位置。
+1. 启动设备。
+1. 确保系统服务正常运行，然后释放维护模式。 更多信息请参阅“[启用和排定维护模式](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+
+If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.

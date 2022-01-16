@@ -18,7 +18,7 @@ topics:
 
 您可以使用硬件安全密钥来进一步保护 SSH 密钥，当密钥对用于通过 SSH 进行身份验证时，需要将物理硬件安全密钥附加到计算机上。 您还可以通过将密钥添加到 ssh 代理并使用密码来保护您的 SSH 密钥。 更多信息请参阅“[使用 SSH 密钥密码](/github/authenticating-to-github/working-with-ssh-key-passphrases)”。
 
-{% ifversion fpt or ghec %}要对使用 SAML 单点登录的组织所拥有的仓库使用 SSH 密钥，您必须授权密钥。 更多信息请参阅“[授权 SSH 密钥用于 SAML 单点登录](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。{% endif %}
+{% ifversion fpt or ghec %}要对使用 SAML 单点登录的组织所拥有的仓库使用 SSH 密钥，您必须授权密钥。 For more information, see "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 为了保持帐户安全，您可以定期检查您的 SSH 密钥列表，并撤销任何无效或已泄漏的密钥。 更多信息请参阅“[审查 SSH 密钥](/github/authenticating-to-github/reviewing-your-ssh-keys)”。
 

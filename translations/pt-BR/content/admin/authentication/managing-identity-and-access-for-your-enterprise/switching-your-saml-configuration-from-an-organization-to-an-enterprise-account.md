@@ -1,7 +1,6 @@
 ---
 title: Alterando a configuração do SAML de uma organização para uma conta corporativa
 intro: Aprenda as considerações especiais e as práticas recomendas para substituir uma configuração do SAML no nível da organização por uma configuração do SAML de nível corporativo.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can configure SAML single sign-on for an enterprise account.
 versions:
   ghec: '*'

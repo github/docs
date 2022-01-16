@@ -2,7 +2,7 @@
 title: Aprovar aplicativos OAuth na organização
 intro: 'Quando uma integrante da organização solicita acesso do {% data variables.product.prodname_oauth_app %} aos recursos da organização, os proprietários da organização podem aprová-la ou negá-la.'
 redirect_from:
-  - /articles/approving-third-party-applications-for-your-organization/
+  - /articles/approving-third-party-applications-for-your-organization
   - /articles/approving-oauth-apps-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization
 versions:

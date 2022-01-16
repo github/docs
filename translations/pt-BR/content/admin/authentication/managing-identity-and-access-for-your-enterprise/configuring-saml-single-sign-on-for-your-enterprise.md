@@ -2,7 +2,6 @@
 title: Configurar o logon único SAML para sua empresa
 shortTitle: Configurar o SAML SSO
 intro: 'Você pode controlar e garantir acesso a recursos {% ifversion ghec %}como repositórios, problemas, e pull requests para as organizações da sua empresa{% elsif ghae %}a sua empresa em {% data variables.product.prodname_ghe_managed %}{% endif %} {% ifversion ghec %}aplicando {% elsif ghae %}configurando{% endif %} logon único SAML (SSO) por meio do seu provedor de identidade (IdP).'
-product: '{% data reusables.gated-features.saml-sso %}'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
   ghec: '*'
@@ -82,15 +81,14 @@ Para obter informações mais detalhadas sobre como habilitar o SAML usando o Ok
 
 ## Habilitar o SAML SSO
 
-{% ifversion ghae %}
-
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
 Os seguintes IdPs fornecem documentação sobre a configuração de do SAML SSO para {% data variables.product.product_name %}. Se seu IdP não estiver listado, entre em contato com seu IdP para solicitar suporte para {% data variables.product.product_name %}.
 
- | IdP      | Mais informações                                                                                                                                                                                                                           |
- |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
- | Azure AD | [Tutorial: integração do logon único (SSO) do Azure Active Directory com {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) na documentação da Microsoft |
+ | IdP         | Mais informações                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+ |:----------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | Azure AD    | [Tutorial: integração do logon único (SSO) do Azure Active Directory com {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) na documentação da Microsoft. Para configurar o Azure AD para {% data variables.product.prodname_ghe_managed %}, consulte "[Configurando a autenticação e provisionamento para sua empresa usando o Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)". |
+ | Okta (Beta) | Para configurar o Okta para {% data variables.product.prodname_ghe_managed %}, consulte "[Configurando a autenticação e provisionamento para sua empresa usando o Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)".                                                                                                                                                                                                                                                         |
 
 Durante a inicialização para {% data variables.product.product_name %}, você deve configurar {% data variables.product.product_name %} como um Provedor de Serviço do SAML (SP) no seu IdP. Você deve inserir vários valores únicos no seu IdP para configurar {% data variables.product.product_name %} como um SP válido.
 
@@ -99,8 +97,6 @@ Durante a inicialização para {% data variables.product.product_name %}, você 
 | ID da Entidade do SP                                   | URL do SP       | Sua URL de nível superior para {% data variables.product.prodname_ghe_managed %} | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em></code> |
 | URL do Serviço do Consumidor de Declaração (ACS) do SP | URL de resposta | URL em que o IdP envia respostas do SAML                                           | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/saml/consume</code> |
 | URL de logon único (SSO) do SP                         |                 | URL em que o IdP começa com SSO                                                    | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/sso</code> |
-
-{% endif %}
 
 ## Editar a configuração SAML SSO
 
@@ -127,9 +123,9 @@ Se os detalhes para o seu IdP forem alterados, você deverá editar a configura�
 
 {% endif %}
 
-## Desabilitar SAML SSO
-
 {% ifversion ghae %}
+
+## Desabilitar SAML SSO
 
 {% warning %}
 

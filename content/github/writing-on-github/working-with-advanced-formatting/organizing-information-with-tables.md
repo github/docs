@@ -38,6 +38,8 @@ Cells can vary in width and do not need to be perfectly aligned within columns. 
 
 ![Rendered table with varied cell width](/assets/images/help/writing/table-varied-columns-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
+
 ## Formatting content within your table
 
 You can use [formatting](/articles/basic-writing-and-formatting-syntax) such as links, inline code blocks, and text styling within your table:

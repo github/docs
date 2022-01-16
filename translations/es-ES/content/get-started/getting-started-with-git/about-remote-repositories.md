@@ -1,10 +1,10 @@
 ---
 title: Acerca de los repositorios remotos
 redirect_from:
-  - /articles/working-when-github-goes-down/
-  - /articles/sharing-repositories-without-github/
+  - /articles/working-when-github-goes-down
+  - /articles/sharing-repositories-without-github
   - /articles/about-remote-repositories
-  - /articles/which-url-should-i-use/
+  - /articles/which-url-should-i-use
   - /articles/which-remote-url-should-i-use
   - /github/using-git/which-remote-url-should-i-use
   - /github/using-git/about-remote-repositories
@@ -69,11 +69,11 @@ Cuando ejecutas `git clone`, `git fetch`, `git pull`, o `git push` en un reposit
 
 ## Clonar con URL de SSH
 
-Las URL de SSH brindan acceso a un repositorio de Git por medio de SSH, un protocolo seguro. To use these URLs, you must generate an SSH keypair on your computer and add the **public** key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Para obtener más información, consulta la sección "[Conectarse a {% data variables.product.prodname_dotcom %} con SSH](/github/authenticating-to-github/connecting-to-github-with-ssh)".
+Las URL de SSH brindan acceso a un repositorio de Git por medio de SSH, un protocolo seguro. Para utilizar estas URL, debes generar un par de llaves SSH en tu computadora y agregar la llave **pública** a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Para obtener más información, consulta la sección "[Conectarse a {% data variables.product.prodname_dotcom %} con SSH](/github/authenticating-to-github/connecting-to-github-with-ssh)".
 
 Cuando ejecutas `git clone`, `git fetch`, `git pull`, o `git push` en un repositorio remoto utilizando URL de SSH, se te solicitará una contraseña y deberás ingresar tu frase de acceso con llave de SSH. Para obtener más información, consulta la sección "[Trabajar con frases de acceso con llave SSH](/github/authenticating-to-github/working-with-ssh-key-passphrases)".
 
-{% ifversion fpt or ghec %}Si estás intentando acceder a una organización que utiliza el inicio de sesión único (SSO) de SAML, debes autorizar tu llave de SSH para acceder a la organización antes de que te autentiques. Para obtener más información, consulta la sección "[Acerca de la autenticación con el inicio de sesión único de SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" y "[Autorizar una llave SSH para su uso con el inicio de sesión único de SAML](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)". {% endif %}
+{% ifversion fpt or ghec %}Si estás intentando acceder a una organización que utiliza el inicio de sesión único (SSO) de SAML, debes autorizar tu llave de SSH para acceder a la organización antes de que te autentiques. Para obtener más información, consulta las secciones "[Acerca de la autenticación con el inicio de sesión único de SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" y "[Autorizar una llave SSH para utilizarla con el inicio de sesión único de SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}{% endif %}
 
 {% tip %}
 

@@ -13,13 +13,12 @@ shortTitle: Criar & test .NET
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
 Este guia mostra como criar, testar e publicar um pacote no .NET.
 
-{% ifversion ghae %} Para criar e testar o seu projeto .NET em {% data variables.product.prodname_ghe_managed %}, você deverá criar uma imagem personalizada do sistema operacional que inclui o SDK .NET Core. Para obter instruções sobre como garantir que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %} Para criar e testar seu projeto .NET no {% data variables.product.prodname_ghe_managed %}, é necessário o SDK Core do .NET. {% data reusables.actions.self-hosted-runners-software %}
 Os executores hospedados em {% else %} {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado, que inclui o SDK Core do .NET. Para uma lista completa de software atualizado e as versões pré-instaladas do .NET Core SDK, consulte [o software instalado nos executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners).
 {% endif %}
 
@@ -29,11 +28,11 @@ Você já deve estar familiarizado com a sintaxe YAML e como é usado com {% dat
 
 Recomendamos que você tenha um entendimento básico do .NET Core SDK. Para obter mais informações, consulte [Primeiros passos com o .NET](https://dotnet.microsoft.com/learn).
 
-## Começando com o modelo do fluxo de trabalho do .NET
+## Usando o fluxo de trabalho inicial do .NET
 
-{% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho do .NET que deve funcionar para a maioria dos projetos .NET e este guia inclui exemplos que mostram como personalizar este modelo. Para obter mais informações, consulte o [modelo do fluxo de trabalho do .NET](https://github.com/actions/setup-dotnet).
+{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial do .NET que deve funcionar na maior parte dos projetos do .NET e este guia inclui exemplos que mostram como personalizar este fluxo de trabalho inicial. Para obter mais informações, consulte o [fluxo de trabalho inicial do .NET](https://github.com/actions/setup-dotnet).
 
-Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do repositório.
+Para iniciar rapidamente, adicione o fluxo de trabalho inicial para o diretório `.github/workflows` do seu repositório.
 
 {% raw %}
 ```yaml
@@ -239,7 +238,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

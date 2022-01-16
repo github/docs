@@ -3,8 +3,8 @@ title: 将拉取请求链接到议题
 intro: 您可以将拉取请求链接到议题，以显示修复正在进行中，并在拉取请求被合并时自动关闭该议题。
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
-  - /articles/closing-issues-via-commit-message/
-  - /articles/closing-issues-via-commit-messages/
+  - /articles/closing-issues-via-commit-message
+  - /articles/closing-issues-via-commit-messages
   - /articles/closing-issues-using-keywords
   - /github/managing-your-work-on-github/closing-issues-using-keywords
   - /github/managing-your-work-on-github/linking-a-pull-request-to-an-issue

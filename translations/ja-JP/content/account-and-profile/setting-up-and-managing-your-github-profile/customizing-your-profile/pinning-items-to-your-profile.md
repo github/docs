@@ -2,7 +2,7 @@
 title: プロフィールにアイテムをピン止めする
 intro: Gist とリポジトリをプロフィールに固定して、他のユーザがあなたの最高の作品をすばやく確認できるようにすることができます。
 redirect_from:
-  - /articles/pinning-repositories-to-your-profile/
+  - /articles/pinning-repositories-to-your-profile
   - /articles/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile

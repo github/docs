@@ -2,8 +2,8 @@
 title: 個人アクセストークンを使用する
 intro: コマンドラインまたは API を使用して、パスワードの代わりに使用する個人アクセストークンを作成する必要があります。
 redirect_from:
-  - /articles/creating-an-oauth-token-for-command-line-use/
-  - /articles/creating-an-access-token-for-command-line-use/
+  - /articles/creating-an-oauth-token-for-command-line-use
+  - /articles/creating-an-access-token-for-command-line-use
   - /articles/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token
@@ -27,7 +27,7 @@ shortTitle: Create a PAT
 
 個人アクセストークン（PAT）は、[GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) または[コマンドライン](#using-a-token-on-the-command-line)を使用するときに {% data variables.product.product_name %} への認証でパスワードの代わりに使用できます。
 
-{% ifversion fpt or ghec %}PAT を使用して、SAML SSO を使用する Organization が所有するリソースにアクセスする場合は、PAT を認証する必要があります。 詳しい情報については「[SAMLシングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」及び「[SAMLシングルサインオンで利用する個人アクセストークンの認可](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
+{% ifversion fpt or ghec %}PAT を使用して、SAML SSO を使用する Organization が所有するリソースにアクセスする場合は、PAT を認証する必要があります。 For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" and "[Authorizing a personal access token for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 {% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
@@ -51,7 +51,7 @@ A token with no assigned scopes can only access public information. トークン
 8. [**Generate token**] をクリックします。 ![[Generate token] ボタン](/assets/images/help/settings/generate_token.png)
    {% ifversion fpt or ghec %}
    ![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes > 3.1 or ghae-next %}
+   {% elsif ghes > 3.1 or ghae %}
    ![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens_ghe.png)
    {% else %}
    ![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
@@ -62,7 +62,7 @@ A token with no assigned scopes can only access public information. トークン
 
    {% endwarning %}
 
-{% ifversion fpt or ghec %}9. SAML SSO を使用する Organization への認証にトークンを使用するには、[Organization への SAML シングルサインオンに使用できるようトークンを認証します](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)。{% endif %}
+{% ifversion fpt or ghec %}9. To use your token to authenticate to an organization that uses SAML single sign-on, authorize the token. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 ## コマンドラインでトークンを使用する
 

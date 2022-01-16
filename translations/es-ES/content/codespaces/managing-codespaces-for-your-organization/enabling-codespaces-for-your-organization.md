@@ -1,7 +1,7 @@
 ---
-title: Enabling Codespaces for your organization
-shortTitle: Enable Codespaces
-intro: 'You can control which users in your organization can use {% data variables.product.prodname_codespaces %}.'
+title: Habilitar los Codespaces para tu organización
+shortTitle: Habilitar Codespaces
+intro: 'Puedes controlar qué usuarios de tu organización pueden utilizar {% data variables.product.prodname_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage user permissions for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
 redirect_from:
@@ -17,40 +17,49 @@ topics:
 ---
 
 
-## About enabling {% data variables.product.prodname_codespaces %} for your organization
+## Acerca de cómo habilitar los {% data variables.product.prodname_codespaces %} para tu organización
 
-Organization owners can control which users in your organization can create and use codespaces.
+Los propietarios de organización pueden controlar qué usuarios de tu organización pueden crear y utilizar codespaces.
 
-To use codespaces in your organization, you must do the following:
+Para utilizar codespaces en tu organización, debes hacer lo siguiente:
 
-- Ensure that users have [at least write access](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization) to the repositories where they want to use a codespace. 
-- [Enable {% data variables.product.prodname_codespaces %} for users in your organization](#configuring-which-users-in-your-organization-can-use-codespaces). You can choose allow {% data variables.product.prodname_codespaces %} for selected users or only for specific users.
-- [Set a spending limit](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
-- Ensure that your organization does not have an IP address allow list enabled. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
+- Asegurarte de que los usuarios tengan [por lo menos acceso de escritura](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization) en los repositorios en donde quieren utilizar un codespace.
+- [Habilitar los {% data variables.product.prodname_codespaces %} para los usuarios en tu organización](#enable-codespaces-for-users-in-your-organization). Puedes elegir permitir los {% data variables.product.prodname_codespaces %} para los usuarios seleccionados o únicamente para los usuarios específicos.
+- [Configurar un límite de gastos](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
+- Asegúrate de que tu organización no tenga habilitada una lista de direcciones IP permitidas. Para obtener más información, consulta "[Administrar las direcciones IP permitidas en tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
-By default, a codespace can only access the repository from which it was created. If you want codespaces in your organization to be able to access other organization repositories that the codespace creator can access, see "[Managing access and security for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)."
+Predeterminadamente, un codespace solo puede acceder al repositorio desde el cual se creó. Si quieres que los codespaces de tu organización puedan acceder a otros repositorios de organización a los que puede acceder el creador de dichos codespaces, consulta la sección "[Administrar el acceso y la seguridad de los {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)".
 
-## Enable {% data variables.product.prodname_codespaces %} for users in your organization
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Under "User permissions", select one of the following options:
-
-   * **Allow for all users** to allow all your organization members to use {% data variables.product.prodname_codespaces %}.
-   * **Selected users** to select specific organization members to use {% data variables.product.prodname_codespaces %}.
-
-   ![Radio buttons for "User permissions"](/assets/images/help/codespaces/organization-user-permission-settings.png)
-
-## Disabling {% data variables.product.prodname_codespaces %} for your organization
+## Habilitar los {% data variables.product.prodname_codespaces %} para los usuarios en tu organización
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}
-1. Under "User permissions", select **Disabled**.
+1. Debajo de "Permisos de usuario", selecciona una de las siguientes opciones:
 
-## Setting a spending limit
+   * **Usuarios selectos** para seleccionar miembros específicos de la organización que puedan utilizar {% data variables.product.prodname_codespaces %}.
+   * **Permitir para todos los miembros** para permitir que todos los miembros de tu organización utilicen {% data variables.product.prodname_codespaces %}.
+   * **Permitir para todos los miembros y colaboradores externos** para permitir que todos los miembros de tu organización, así como los colaboradores externos, utilicen {% data variables.product.prodname_codespaces %}.
 
-{% data reusables.codespaces.codespaces-spending-limit-requirement %} 
+   ![Botones radiales de "Permisos de usuario"](/assets/images/help/codespaces/org-user-permission-settings-outside-collaborators.png)
 
-For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+   {% note %}
+
+   **Nota:** Cuando seleccionas **Permitir para todos los miembros y colaboradores externos**, todos los colaboradores externos que hayan agregado información a repositorios específicos podrán crear y utilizar {% data variables.product.prodname_codespaces %}. Se le facturará a tu organización por todo el uso en el que incurrieron los colaboradores externos. Para obtener más información sobre cómo administrar colaboradores externos, consulta la sección "[Acerca de los colaboradores externos](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)".
+
+   {% endnote %}
+
+1. Haz clic en **Save ** (guardar).
+
+## Inhabilitar los {% data variables.product.prodname_codespaces %} para tu organización
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.click-codespaces %}
+1. Debajo de "Permisos de usuario", selecciona **Inhabilitado**.
+
+## Configurar un límite de gastos
+
+{% data reusables.codespaces.codespaces-spending-limit-requirement %}
+
+Para obtener más información sobre cómo administrar y cambiar el límite de gastos de tu organización, consulta la sección "[Administrar tu límite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".

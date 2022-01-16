@@ -1,11 +1,11 @@
 ---
 title: 使用 LDAP
 redirect_from:
-  - /enterprise/admin/articles/configuring-ldap-authentication/
-  - /enterprise/admin/articles/about-ldap-authentication/
-  - /enterprise/admin/articles/viewing-ldap-users/
-  - /enterprise/admin/hidden/enabling-ldap-sync/
-  - /enterprise/admin/hidden/ldap-sync/
+  - /enterprise/admin/articles/configuring-ldap-authentication
+  - /enterprise/admin/articles/about-ldap-authentication
+  - /enterprise/admin/articles/viewing-ldap-users
+  - /enterprise/admin/hidden/enabling-ldap-sync
+  - /enterprise/admin/hidden/ldap-sync
   - /enterprise/admin/user-management/using-ldap
   - /enterprise/admin/authentication/using-ldap
   - /admin/authentication/using-ldap
@@ -132,7 +132,7 @@ topics:
 
 {% note %}
 
-**注**：只有您使用 Active Directory，`userAccountControl` 属性显示并使用 `ACCOUNTDISABLE` 标记时，才可以将 LDAP 条目标记为禁用。
+**注**：只有您使用 Active Directory，`userAccountControl` 属性显示并使用 `ACCOUNTDISABLE` 标记时，才可以将 LDAP 条目标记为禁用。 Some variations of Active Directory, such as AD LDS and ADAM, don't support the `userAccountControl` attribute.
 
 {% endnote %}
 

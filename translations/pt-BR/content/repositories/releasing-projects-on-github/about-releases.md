@@ -2,8 +2,8 @@
 title: Sobre as versões
 intro: 'Você pode criar uma versão de modo a empacotar software, com notas de versão e links para arquivos binários, para uso de outras pessoas.'
 redirect_from:
-  - /articles/downloading-files-from-the-command-line/
-  - /articles/downloading-files-with-curl/
+  - /articles/downloading-files-from-the-command-line
+  - /articles/downloading-files-with-curl
   - /articles/about-releases
   - /articles/getting-the-download-count-for-your-releases
   - /github/administering-a-repository/getting-the-download-count-for-your-releases

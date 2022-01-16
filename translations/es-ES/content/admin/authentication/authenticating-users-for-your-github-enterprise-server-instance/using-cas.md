@@ -1,8 +1,8 @@
 ---
 title: Usar CAS
 redirect_from:
-  - /enterprise/admin/articles/configuring-cas-authentication/
-  - /enterprise/admin/articles/about-cas-authentication/
+  - /enterprise/admin/articles/configuring-cas-authentication
+  - /enterprise/admin/articles/about-cas-authentication
   - /enterprise/admin/user-management/using-cas
   - /enterprise/admin/authentication/using-cas
   - /admin/authentication/using-cas
@@ -33,7 +33,7 @@ topics:
 
 Están disponibles los siguientes atributos.
 
-| Nombre del atributo | Type      | Descripción                                                              |
+| Nombre del atributo | Tipo      | Descripción                                                              |
 | ------------------- | --------- | ------------------------------------------------------------------------ |
 | `nombre de usuario` | Requerido | El nombre de usuario {% data variables.product.prodname_ghe_server %}. |
 

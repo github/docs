@@ -1,8 +1,8 @@
 ---
 title: Using SAML
 redirect_from:
-  - /enterprise/admin/articles/configuring-saml-authentication/
-  - /enterprise/admin/articles/about-saml-authentication/
+  - /enterprise/admin/articles/configuring-saml-authentication
+  - /enterprise/admin/articles/about-saml-authentication
   - /enterprise/admin/user-management/using-saml
   - /enterprise/admin/authentication/using-saml
   - /admin/authentication/using-saml
@@ -70,6 +70,15 @@ These attributes are available. You can change the attribute names in the [manag
 | `emails`        | Optional | The email addresses for the user. More than one can be specified. |
 | `public_keys`   | Optional | The public SSH keys for the user. More than one can be specified. |
 | `gpg_keys`   | Optional | The GPG keys for the user. More than one can be specified.  |
+
+To specify more than one value for an attribute, use multiple `<saml2:AttributeValue>` elements.
+
+```
+<saml2:Attribute FriendlyName="public_keys" Name="urn:oid:1.2.840.113549.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+    <saml2:AttributeValue>ssh-rsa LONG KEY</saml2:AttributeValue>
+    <saml2:AttributeValue>ssh-rsa LONG KEY 2</saml2:AttributeValue>
+</saml2:Attribute>
+```
 
 ## Configuring SAML settings
 

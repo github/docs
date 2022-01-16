@@ -2,8 +2,8 @@
 title: 更新 GitHub 访问凭据
 intro: '{% data variables.product.product_name %} 凭据不仅{% ifversion not ghae %}包括密码，还{% endif %}包括您用于与 {% data variables.product.product_name %} 通信的访问令牌、SSH 密钥和应用程序 API 令牌。 如果您有需要，可以自行重置所有这些访问凭据。'
 redirect_from:
-  - /articles/rolling-your-credentials/
-  - /articles/how-can-i-reset-my-password/
+  - /articles/rolling-your-credentials
+  - /articles/how-can-i-reset-my-password
   - /articles/updating-your-github-access-credentials
   - /github/authenticating-to-github/updating-your-github-access-credentials
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/updating-your-github-access-credentials
@@ -21,7 +21,7 @@ shortTitle: 更新访问凭据
 {% ifversion not ghae %}
 ## 请求新密码
 
-1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
+1. 要请求新密码，请访问 {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}。
 2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured. ![密码重置电子邮件请求对话框](/assets/images/help/settings/password-recovery-email-request.png)
 3. 我们将向您发送一封电子邮件，其中含有可让您重置密码的链接。 您必须在收到电子邮件后的 3 小时内单击此链接。 如果您没有收到来自我们的电子邮件，请确保检查垃圾邮件文件夹。
 4. 如果您启用了双重身份验证，将提示您获得 2FA 凭据。 键入您的 2FA 凭据或 2FA 恢复代码之一，然后单击 **Verify（验证）**。 ![双重身份验证提示](/assets/images/help/2fa/2fa-password-reset.png)

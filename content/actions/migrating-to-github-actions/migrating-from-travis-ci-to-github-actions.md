@@ -2,7 +2,6 @@
 title: Migrating from Travis CI to GitHub Actions
 intro: '{% data variables.product.prodname_actions %} and Travis CI share multiple similarities, which helps make it relatively straightforward to migrate to {% data variables.product.prodname_actions %}.'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
@@ -103,7 +102,7 @@ jobs:
 
 ### Targeting specific branches
 
-Travis CI and {% data variables.product.prodname_actions %} both allow you to target your CI to a specific branch. For more information, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)."
+Travis CI and {% data variables.product.prodname_actions %} both allow you to target your CI to a specific branch. For more information, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
 
 Below is an example of the syntax for each system:
 

@@ -4,7 +4,7 @@ shortTitle: Gerenciar usuários com seu IdP
 product: '{% data reusables.gated-features.emus %}'
 intro: Você pode gerenciar a identidade e o acesso com o seu provedor de identidade e prover contas que só podem contribuir com para a sua empresa.
 redirect_from:
-  - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/
+  - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider
 versions:
   ghec: '*'
 topics:

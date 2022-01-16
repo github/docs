@@ -1,7 +1,7 @@
 ---
 title: 'Compartir flujos de trabajo, secretos y ejecutores con tu organización'
 shortTitle: Compartir flujos de trabajo con tu organización
-intro: 'Aprende cómo puedes utilizar características de la organización para colaborar con tu equipo al compartir plantillas de flujos de trabajo, secretos y ejecutores auto-hospedados.'
+intro: 'Aprende cómo puedes utilizar características de la organización para colaborar con tu equipo compartiendo flujos de trabajo iniciales, secretos y ejecutores auto-hospedados.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
 versions:
@@ -14,15 +14,14 @@ type: how_to
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Resumen
 
-Si necesitas compartir flujos de trabajo y otras características de {% data variables.product.prodname_actions %} con tu equipo, entonces considera colaborar dentrod e una organización de {% data variables.product.prodname_dotcom %}. Una organización te permite almacenar centralmente y administrar secretos, artefactos y ejecutores auto-hospedados. También puedes crear plantillas de flujo de trabajo en el repositorio de `.github` y compartirlas con otros usuarios en tu organización.
+Si necesitas compartir flujos de trabajo y otras características de {% data variables.product.prodname_actions %} con tu equipo, entonces considera colaborar dentrod e una organización de {% data variables.product.prodname_dotcom %}. Una organización te permite almacenar centralmente y administrar secretos, artefactos y ejecutores auto-hospedados. You can also create starter workflow in the `.github` repository and share them with other users in your organization.
 
-## Utilizar plantillas de flujo de trabajo
+## Utilizar flujos de trabajo iniciales
 
-{% data reusables.actions.workflow-organization-templates %} Para obtener más información, consulta la sección "[Crear plantillas de flujo de trabajo](/actions/learn-github-actions/creating-workflow-templates)".
+{% data reusables.actions.workflow-organization-templates %} For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
 
 {% data reusables.actions.reusable-workflows %}
 
@@ -52,4 +51,4 @@ Para obtener más información, consulta la sección "[Administrar el acceso a l
 
 ## Pasos siguientes
 
-Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Crear plantillas de flujo de trabajo](/actions/learn-github-actions/creating-workflow-templates)".
+To continue learning about {% data variables.product.prodname_actions %}, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."

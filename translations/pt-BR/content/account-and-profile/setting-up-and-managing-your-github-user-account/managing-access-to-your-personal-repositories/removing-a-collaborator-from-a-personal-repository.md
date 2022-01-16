@@ -2,11 +2,11 @@
 title: Remover um colaborador de um repositório pessoal
 intro: 'Quando você remove um colaborador do projeto, ele perde o acesso de leitura/gravação ao repositório. Se o repositório for privado e o colaborador tiver criado uma bifurcação, essa bifurcação também será excluída.'
 redirect_from:
-  - /articles/how-do-i-remove-a-collaborator/
-  - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository/
-  - /articles/removing-a-collaborator-from-a-private-repository/
-  - /articles/deleting-a-private-fork-of-a-private-user-repository/
-  - /articles/how-do-i-delete-a-fork-of-my-private-repository/
+  - /articles/how-do-i-remove-a-collaborator
+  - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository
+  - /articles/removing-a-collaborator-from-a-private-repository
+  - /articles/deleting-a-private-fork-of-a-private-user-repository
+  - /articles/how-do-i-delete-a-fork-of-my-private-repository
   - /articles/removing-a-collaborator-from-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/removing-a-collaborator-from-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository

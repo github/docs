@@ -1,11 +1,11 @@
 ---
 title: Usar LDAP
 redirect_from:
-  - /enterprise/admin/articles/configuring-ldap-authentication/
-  - /enterprise/admin/articles/about-ldap-authentication/
-  - /enterprise/admin/articles/viewing-ldap-users/
-  - /enterprise/admin/hidden/enabling-ldap-sync/
-  - /enterprise/admin/hidden/ldap-sync/
+  - /enterprise/admin/articles/configuring-ldap-authentication
+  - /enterprise/admin/articles/about-ldap-authentication
+  - /enterprise/admin/articles/viewing-ldap-users
+  - /enterprise/admin/hidden/enabling-ldap-sync
+  - /enterprise/admin/hidden/ldap-sync
   - /enterprise/admin/user-management/using-ldap
   - /enterprise/admin/authentication/using-ldap
   - /admin/authentication/using-ldap
@@ -132,7 +132,7 @@ Depois que você habilitar a sincronização LDAP, um trabalho de sincronizaçã
 
 {% note %}
 
-**Observação**: as entradas LDAP só podem ser marcadas como desabilitadas se você usar o Active Directory, e se o atributo `userAccountControl` estiver presente e sinalizado com `ACCOUNTDISABLE`.
+**Observação**: as entradas LDAP só podem ser marcadas como desabilitadas se você usar o Active Directory, e se o atributo `userAccountControl` estiver presente e sinalizado com `ACCOUNTDISABLE`. Algumas variações do Diretório Ativo, como AD LDS e ADAM, não são compatíveis com o atributo `userAccountControl`.
 
 {% endnote %}
 

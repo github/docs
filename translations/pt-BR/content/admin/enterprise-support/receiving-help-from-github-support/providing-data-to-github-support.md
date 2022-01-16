@@ -2,9 +2,9 @@
 title: Enviar dados ao suporte do GitHub
 intro: 'Como o {% data variables.contact.github_support %} não tem acesso ao seu ambiente, precisamos que você nos envie algumas informações adicionais.'
 redirect_from:
-  - /enterprise/admin/guides/installation/troubleshooting/
-  - /enterprise/admin/articles/support-bundles/
-  - /enterprise/admin/guides/enterprise-support/providing-data-to-github-enterprise-support/
+  - /enterprise/admin/guides/installation/troubleshooting
+  - /enterprise/admin/articles/support-bundles
+  - /enterprise/admin/guides/enterprise-support/providing-data-to-github-enterprise-support
   - /enterprise/admin/enterprise-support/providing-data-to-github-support
   - /admin/enterprise-support/providing-data-to-github-support
 versions:

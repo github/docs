@@ -2,10 +2,10 @@
 title: GitHub Pages サイトを取り下げる
 intro: '{% data variables.product.prodname_pages %} サイトを取り下げて、サイトを利用不可にすることができます。'
 redirect_from:
-  - /articles/how-do-i-unpublish-a-project-page/
-  - /articles/unpublishing-a-project-page/
-  - /articles/unpublishing-a-project-pages-site/
-  - /articles/unpublishing-a-user-pages-site/
+  - /articles/how-do-i-unpublish-a-project-page
+  - /articles/unpublishing-a-project-page
+  - /articles/unpublishing-a-project-pages-site
+  - /articles/unpublishing-a-user-pages-site
   - /articles/unpublishing-a-github-pages-site
   - /github/working-with-github-pages/unpublishing-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'

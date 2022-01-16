@@ -12,7 +12,7 @@ redirect_from:
   - /articles/conditions-for-large-files
   - /github/managing-large-files/conditions-for-large-files
   - /github/managing-large-files/working-with-large-files/conditions-for-large-files
-  - /articles/what-is-the-size-limit-for-a-repository/
+  - /articles/what-is-the-size-limit-for-a-repository
   - /articles/what-is-my-disk-quota
   - /github/managing-large-files/what-is-my-disk-quota
   - /github/managing-large-files/working-with-large-files/what-is-my-disk-quota

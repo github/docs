@@ -1,10 +1,10 @@
 ---
 title: Termos de serviço do GitHub
 redirect_from:
-  - /tos/
-  - /terms/
-  - /terms-of-service/
-  - /github-terms-of-service-draft/
+  - /tos
+  - /terms
+  - /terms-of-service
+  - /github-terms-of-service-draft
   - /articles/github-terms-of-service
 versions:
   fpt: '*'
@@ -101,7 +101,7 @@ Você concorda que, em nenhuma circunstância, violará nossas [Políticas de Us
 Você pode criar ou fazer upload do conteúdo gerado pelo usuário usando o Serviço. Você é o único responsável pelo conteúdo e por qualquer dano resultante de qualquer conteúdo gerado pelo usuário que você publicar, fizer upload, linkar para ou deixar disponível através do Serviço, independentemente da forma desse Conteúdo. Não somos responsáveis por nenhuma exibição pública ou uso indevido do seu Conteúdo Gerado pelo Usuário.
 
 ### 2. O GitHub pode remover conteúdo
-Temos o direito de recusar ou remover qualquer Conteúdo Gerado por Usuário que, a nosso exclusivo critério, viole quaisquer leis ou [termos ou políticas do GitHub](/github/site-policy). Conteúdo Gerado pelo Usuário disposto no GitHub para dispositivos móveis pode estar sujeito aos termos adicionais de aplicativos móveis.
+Temos o direito de recusar ou remover qualquer Conteúdo Gerado por Usuário que, a nosso exclusivo critério, viole quaisquer leis ou [termos ou políticas do GitHub](/github/site-policy). O Conteúdo Gerado pelo Usuário disposto no GitHub para dispositivos móveis pode estar sujeito aos termos adicionais de aplicativos móveis.
 
 ### 3. Propriedade do conteúdo, Direito de postar; Concessões de licença
 Você mantém a propriedade e a responsabilidade pelo seu conteúdo. Se você está postando qualquer coisa que você não criou ou não possui os direitos, você concorda que é responsável por qualquer conteúdo que você publique; que você só enviará Conteúdo que você tem o direito de publicar; e que você esteja em total conformidade com licenças de terceiros relacionadas ao Conteúdo que você publicar.

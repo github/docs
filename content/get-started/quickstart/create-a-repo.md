@@ -1,7 +1,7 @@
 ---
 title: Create a repo
 redirect_from:
-  - /create-a-repo/
+  - /create-a-repo
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
@@ -39,8 +39,6 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 {% endif %}
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.create_new %}
@@ -68,8 +66,6 @@ Congratulations! You've successfully created your first repository, and initiali
 {% endcli %}
 
 ## Commit your first change
-
-{% include tool-switcher %}
 
 {% webui %}
 

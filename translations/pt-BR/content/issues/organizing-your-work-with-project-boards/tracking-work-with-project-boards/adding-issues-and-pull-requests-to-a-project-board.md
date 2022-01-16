@@ -3,7 +3,7 @@ title: Adicionar problemas e pull requests a um quadro de projeto
 intro: Você pode adicionar problemas e pull requests a um quadro de projeto na forma de cartões e fazer a triagem deles em colunas.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
-  - /articles/adding-issues-and-pull-requests-to-a-project/
+  - /articles/adding-issues-and-pull-requests-to-a-project
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:

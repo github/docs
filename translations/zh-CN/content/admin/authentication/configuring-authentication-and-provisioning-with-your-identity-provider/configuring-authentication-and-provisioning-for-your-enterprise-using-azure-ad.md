@@ -3,7 +3,6 @@ title: 使用 Azure AD 为企业配置身份验证和预配
 shortTitle: 使用 Azure AD 配置
 intro: '您可以使用 Azure Active Directory (Azure AD) 中的租户作为身份提供程序 (IDP) 来集中管理 {% data variables.product.product_location %} 的身份验证和用户预配。'
 permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   ghae: '*'
 type: how_to

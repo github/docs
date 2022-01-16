@@ -2,7 +2,7 @@
 title: 使用 GitHub 导入工具导入仓库
 intro: 如果您有项目托管在另一个版本控制系统上，可以使用 GitHub 导入工具将其自动导入到 GitHub。
 redirect_from:
-  - /articles/importing-from-other-version-control-systems-to-github/
+  - /articles/importing-from-other-version-control-systems-to-github
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:

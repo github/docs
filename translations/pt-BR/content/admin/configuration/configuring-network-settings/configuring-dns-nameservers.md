@@ -2,7 +2,7 @@
 title: Configurar servidores de nomes DNS
 intro: 'O {% data variables.product.prodname_ghe_server %} usa o protocolo de configuração dinâmica de host (DHCP) para configurações de DNS quando as concessões de DHCP fornecem servidores de nomes. Se os servidores de nomes não forem fornecidos por uma concessão do protocolo DHCP, ou caso você precise usar configurações DNS específicas, será possível especificá-los manualmente.'
 redirect_from:
-  - /enterprise/admin/guides/installation/about-dns-nameservers/
+  - /enterprise/admin/guides/installation/about-dns-nameservers
   - /enterprise/admin/installation/configuring-dns-nameservers
   - /enterprise/admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-dns-nameservers

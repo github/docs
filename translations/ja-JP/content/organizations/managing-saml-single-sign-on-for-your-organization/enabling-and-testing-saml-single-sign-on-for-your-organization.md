@@ -1,12 +1,10 @@
 ---
 title: Organization 向けの SAML シングルサインオンを有効化してテストする
 intro: Organization のオーナーと管理者は、SAML シングルサインオンを有効にして、Organization のセキュリティを強化できます。
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -23,8 +21,6 @@ SAML SSO を有効化しても強制はしない場合、SAML SSO を使用し�
 {% data reusables.saml.outside-collaborators-exemption %}
 
 ## Organization 向けの SAML シングルサインオンを有効化してテストする
-
-{% data reusables.saml.saml-requires-ghec %}{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
 
 Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. 詳細は「[Organization での SAML シングルサインオンの施行を準備する](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)」を参照してください。
 

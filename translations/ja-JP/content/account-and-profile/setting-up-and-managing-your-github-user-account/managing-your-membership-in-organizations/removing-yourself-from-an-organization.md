@@ -2,7 +2,7 @@
 title: Organization から自分を削除する
 intro: あなたは、ある Organization の外部コラボレーターまたはメンバーになっている場合、その Organization からいつでも離脱できます。
 redirect_from:
-  - /articles/how-do-i-remove-myself-from-an-organization/
+  - /articles/how-do-i-remove-myself-from-an-organization
   - /articles/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization

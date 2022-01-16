@@ -2,8 +2,8 @@
 title: Utilitários de linha de comando
 intro: 'O {% data variables.product.prodname_ghe_server %} tem uma série de utilitários que ajudam a resolver problemas específicos ou a executar determinadas tarefas.'
 redirect_from:
-  - /enterprise/admin/articles/viewing-all-services/
-  - /enterprise/admin/articles/command-line-utilities/
+  - /enterprise/admin/articles/viewing-all-services
+  - /enterprise/admin/articles/command-line-utilities
   - /enterprise/admin/installation/command-line-utilities
   - /enterprise/admin/configuration/command-line-utilities
   - /admin/configuration/command-line-utilities

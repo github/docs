@@ -3,8 +3,8 @@ title: Acerca de las propuestas
 intro: 'Utiliza {% data variables.product.prodname_github_issues %} para rastrear ideas, retroalimentación, tareas o errores para trabajar en {% data variables.product.company_short %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-issues
-  - /articles/creating-issues/
-  - /articles/about-issues/
+  - /articles/creating-issues
+  - /articles/about-issues
   - /github/managing-your-work-on-github/about-issues
   - /issues/tracking-your-work-with-issues/creating-issues/about-issues
 versions:

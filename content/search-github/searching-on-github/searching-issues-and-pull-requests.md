@@ -2,7 +2,7 @@
 title: Searching issues and pull requests
 intro: 'You can search for issues and pull requests on {% data variables.product.product_name %} and narrow the results using these search qualifiers in any combination.'
 redirect_from:
-  - /articles/searching-issues/
+  - /articles/searching-issues
   - /articles/searching-issues-and-pull-requests
   - /github/searching-for-information-on-github/searching-issues-and-pull-requests
   - /github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests

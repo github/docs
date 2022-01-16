@@ -1,7 +1,6 @@
 ---
 title: Managing team synchronization for your organization
 intro: 'You can enable and disable team synchronization between your identity provider (IdP) and your organization on {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.team-synchronization %}'
 redirect_from:
   - /articles/synchronizing-teams-between-your-identity-provider-and-github
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
@@ -10,7 +9,6 @@ redirect_from:
 permissions: Organization owners can manage team synchronization for an organization.
 miniTocMaxHeadingLevel: 3
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -47,6 +45,12 @@ The steps to enable team synchronization depend on the IdP you want to use. Ther
 You must enable SAML single sign-on for your organization and your supported IdP. For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
 
 You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
+
+Your SAML settings **must** contain a valid IdP URL for the **Issuer** field. 
+
+![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
+
+
 
 ### Enabling team synchronization for Azure AD
 

@@ -2,7 +2,6 @@
 title: Enterprise 向けの SAML シングルサインオンを設定する
 shortTitle: Configure SAML SSO
 intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghae %}your enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghae %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
-product: '{% data reusables.gated-features.saml-sso %}'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
   ghec: '*'
@@ -82,15 +81,14 @@ For more detailed information about how to enable SAML using Okta, see "[Configu
 
 ## SAML SSO を有効化する
 
-{% ifversion ghae %}
-
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
 次の IdP は、{% data variables.product.product_name %} の SAML SSO の設定に関するドキュメントを提供しています。 IdP がリストにない場合は、IdP に問い合わせて、{% data variables.product.product_name %} のサポートをご依頼ください。
 
- | IdP      | 詳細情報                                                                                                                                                                                                          |
- |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | Azure AD | Microsoft Docs の「[チュートリアル: Azure Active Directory シングルサインオン (SSO) と {% data variables.product.prodname_ghe_managed %} の統合](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial)」 |
+ | IdP         | 詳細情報                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+ |:----------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | Azure AD    | [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs. To configure Azure AD for {% data variables.product.prodname_ghe_managed %}, see "[Configuring authentication and provisioning for your enterprise using Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)." |
+ | Okta (Beta) | To configure Okta for {% data variables.product.prodname_ghe_managed %}, see "[Configuring authentication and provisioning for your enterprise using Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)."                                                                                                                                                                                                                                                 |
 
 {% data variables.product.product_name %} の初期化中に、IdP で {% data variables.product.product_name %} を SAML サービスプロバイダ (SP) として設定する必要があります。 {% data variables.product.product_name %} を有効な SP として設定するには、IdP にいくつかの一意の値を入力する必要があります。
 
@@ -99,8 +97,6 @@ For more detailed information about how to enable SAML using Okta, see "[Configu
 | SP エンティティ ID                   | SP URL | {% data variables.product.prodname_ghe_managed %} の最上位にある URL | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em></code> |
 | SP アサーションコンシューマーサービス (ACS) URL | 返信 URL | IdP が SAML レスポンスを送信する URL                                       | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/saml/consume</code> |
 | SP シングルサインオン (SSO) URL         |        | IdP が SSO を開始する URL                                             | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/sso</code> |
-
-{% endif %}
 
 ## SAML SSO 設定を編集する
 
@@ -127,9 +123,9 @@ IdP の詳細が変更された場合は、{% data variables.product.product_loc
 
 {% endif %}
 
-## SAML SSO を無効化する
-
 {% ifversion ghae %}
+
+## SAML SSO を無効化する
 
 {% warning %}
 

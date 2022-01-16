@@ -1,7 +1,6 @@
 ---
 title: Adding organizations to your enterprise
 intro: You can create new organizations or invite existing organizations to manage within your enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /articles/adding-organizations-to-your-enterprise-account
@@ -40,7 +39,7 @@ You can only add organizations this way to an existing enterprise account. {% da
 
 ## 邀请组织加入您的企业帐户
 
-企业所有者可以邀请现有组织加入其企业帐户。 如果您要邀请的组织已经归其他企业所有，则在上一个企业放弃对组织的所有权之前，您将无法发出邀请。
+企业所有者可以邀请现有组织加入其企业帐户。 如果您要邀请的组织已经归其他企业所有，则在上一个企业放弃对组织的所有权之前，您将无法发出邀请。 For more information, see "[Removing an organization from your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 2. 在 **Organizations（组织）**选项卡中的组织列表上方，单击 **Invite organization（邀请组织）**。 ![邀请组织](/assets/images/help/business-accounts/enterprise-account-invite-organization.png)

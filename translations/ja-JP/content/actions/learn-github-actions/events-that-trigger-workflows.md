@@ -17,7 +17,6 @@ shortTitle: ワークフローをトリガーするイベント
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## ワークフローイベントを設定する
 
@@ -308,7 +307,7 @@ on:
 
 ### `deployment_status`
 
-サードパーティプロバイダーがデプロイメントステータスを提供し、それによって `deployment_status` イベントがトリガーされるときにワークフローを実行します。 コミット SHA 付きで作成されたデプロイメントには Git ref がない場合があります。 REST API の詳細については、「[デプロイメントステータスの作成](/rest/reference/repos#create-a-deployment-status)」を参照してください。
+サードパーティプロバイダーがデプロイメントステータスを提供し、それによって `deployment_status` イベントがトリガーされるときにワークフローを実行します。 コミット SHA 付きで作成されたデプロイメントには Git ref がない場合があります。 REST API の詳細については、「[デプロイメントステータスの作成](/rest/reference/deployments#create-a-deployment-status)」を参照してください。
 
 | webhook イベントのペイロード                                                 | アクティビティタイプ | `GITHUB_SHA` | `GITHUB_REF`                 |
 | ------------------------------------------------------------------ | ---------- | ------------ | ---------------------------- |
@@ -608,7 +607,7 @@ on:
 
 ### `pull_request`
 
-`pull_request` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull requests](/rest/reference/pulls)."
+`pull_request` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[プルリクエスト](/rest/reference/pulls)」を参照してください。
 
 {% note %}
 
@@ -636,7 +635,7 @@ on:
 
 ### `pull_request_review`
 
-`pull_request_review` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull request reviews](/rest/reference/pulls#reviews)."
+`pull_request_review` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[プルリクエストレビュー](/rest/reference/pulls#reviews)」を参照してください。
 
 | webhook イベントのペイロード                                                     | アクティビティタイプ                                                 | `GITHUB_SHA`                  | `GITHUB_REF`                           |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------------------- | -------------------------------------- |
@@ -656,7 +655,7 @@ on:
 
 ### `pull_request_review_comment`
 
-プルリクエストの統合 diff へのコメントが変更され、それによって `pull_request_review_comment` イベントがトリガーされるときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see [Review comments](/rest/reference/pulls#comments).
+プルリクエストの統合 diff へのコメントが変更され、それによって `pull_request_review_comment` イベントがトリガーされるときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[レビューコメント](/rest/reference/pulls#comments)」を参照してください。
 
 | webhook イベントのペイロード                                                                     | アクティビティタイプ                                             | `GITHUB_SHA`                  | `GITHUB_REF`                           |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------------------------- | -------------------------------------- |
@@ -702,7 +701,7 @@ on:
 
 {% note %}
 
-**ノート：** GitHub Actionsが利用できるwebhookのペイロードには、`commit`オブジェクト中の`added`、`removed`、`modified`属性は含まれません。 完全なcommitオブジェクトは、REST APIを使って取得できます。 詳しい情報については、「[1つのコミットの取得](/rest/reference/repos#get-a-commit)」を参照してください。
+**ノート：** GitHub Actionsが利用できるwebhookのペイロードには、`commit`オブジェクト中の`added`、`removed`、`modified`属性は含まれません。 完全なcommitオブジェクトは、REST APIを使って取得できます。 詳しい情報については、「[1つのコミットの取得](/rest/reference/commits#get-a-commit)」を参照してください。
 
 {% endnote %}
 

@@ -177,13 +177,13 @@
 - 
   term: rama predeterminada
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+    La rama base para todas las solicitudes de cambio y confirmaciones de código en un repositorio. Cada repositorio tiene por lo menos una rama, la cual crea Git cuando lo inicializas. La rama principal a menudo se llama {% ifversion ghes < 3.2 %} 'master'{% else %}'main'{% endif %}, y habitualmente es la rama predeterminada.
 - 
-  term: dependents graph
+  term: gráfica de dependientes
   description: >-
     Un gráfico del repositorio que muestra los paquetes, los proyectos y los repositorios que dependen de un repositorio público.
 - 
-  term: dependency graph
+  term: gráfica de dependencias
   description: >-
     Un gráfico del repositorio que muestra los paquetes y los proyectos de los que depende el respositorio.
 - 
@@ -210,7 +210,7 @@
   description: Las notificaciones enviadas a la dirección de correo electrónico de un usuario.
 - 
   term: cuenta empresarial
-  description: Las cuentas empresariales te permiten administrar centralmente las políticas y facturación de varias organizaciones de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
+  description: Las cuentas empresariales te permiten administrar centralmente las políticas y la facturación de varias organizaciones. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -248,7 +248,7 @@
 - 
   term: gist
   description: >-
-    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
+    Un gist es un archivo que se puede compartir y que editas, clonas y bifurcas en GitHub. Puedes hacer que un gist sea {% ifversion ghae %}interno{% else %}público{% endif %} o secreto, aunque los gists secretos estarán disponibles para {% ifversion ghae %}cualquier miembro de la empresa{% else %}cualquiera{% endif %} que tenga la URL.
 - 
   term: Git
   description: >-
@@ -373,7 +373,7 @@
   description: >-
     Una cuenta personal a la que el usuario no puede acceder. Las cuentas se bloquean cuando los usuarios degradan su cuenta paga a una gratis o si su plan de pago se venció.
 - 
-  term: management console
+  term: consola de administración
   description: >-
     Una sección dentro de la interfaz GitHub Enterprise que contiene funciones administrativas.
 - 
@@ -392,7 +392,7 @@
   description: >-
     La rama predeterminada en muchos de los repositorios de Git. Predeterminadamente, cuando creas un repositorio de Git nuevo en la línea de comandos, se creará una rama denominada 'master'. Hoy en día, muchas herramientas utilizan un nombre alterno para la rama predeterminada.{% ifversion fpt or ghes > 3.1 or ghae %} Por ejemplo, cuando creas un repositorio nuevo en GitHub, la rama predeterminada se llama 'main'.{% endif %}
 - 
-  term: members graph
+  term: gráfica de miembros
   description: Un gráfico del repositorio que muestra todas las bifurcaciones de un repositorio.
 - 
   term: mención
@@ -418,7 +418,7 @@
   description: >-
     Un equipo hijo de un equipo padre. Puedes tener varios equipos hijo (o anidados).
 - 
-  term: network graph
+  term: gráfica de red
   description: >-
     Un gráfico del repositorio que muestra el historial de la rama de toda la red del repositorio, incluidas las ramas del repositorio raíz y las ramas de las bifurcaciones que contienen confirmaciones de cambios únicas para la red.
 - 
@@ -539,10 +539,10 @@
   description: >-
     Los comentarios de los colaboradores en una solicitud de extracción que aprueban los cambios o solicitan otros cambios antes de fusionar la solicitud de extracción.
 - 
-  term: pulse graph
+  term: gráfica de pulso
   description: Un gráfico del repositorio que te brinda una descripción de la actividad de un repositorio.
 - 
-  term: punch graph
+  term: gráfica de perforado
   description: >-
     Un gráfico del repositorio que muestra la frecuencia de las actualizaciones para un repositorio en función del día de la semana y la hora del día.
 - 

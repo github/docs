@@ -2,7 +2,7 @@
 title: Entrar em contato com o suporte do GitHub
 intro: 'Entre em contato com {% data variables.contact.enterprise_support %} usando o {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} ou{% endif %} o portal de suporte.'
 redirect_from:
-  - /enterprise/admin/guides/enterprise-support/reaching-github-enterprise-support/
+  - /enterprise/admin/guides/enterprise-support/reaching-github-enterprise-support
   - /enterprise/admin/enterprise-support/reaching-github-support
   - /admin/enterprise-support/reaching-github-support
 versions:

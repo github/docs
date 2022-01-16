@@ -2,8 +2,8 @@
 title: Cobrar dos clientes
 intro: 'Os aplicativos no {% data variables.product.prodname_marketplace %} devem aderir às diretrizes de cobrança do GitHub e oferecer suporte aos serviços recomendados. A observância das nossas diretrizes ajuda os clientes a percorrer o processo de cobrança sem nenhuma surpresa.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace/
-  - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace
+  - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace
   - /marketplace/selling-your-app/billing-customers-in-github-marketplace
   - /developers/github-marketplace/billing-customers
 versions:

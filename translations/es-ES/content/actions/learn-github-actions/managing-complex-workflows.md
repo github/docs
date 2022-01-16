@@ -14,7 +14,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Resumen
 
@@ -146,17 +145,6 @@ Para obtener más información, consulta la sección "[Utilizar bases de datos y
 
 Esta característica te ayuda a asignar jobs a un ejecutor hospedado específico. Si quieres asegurarte de que un tipo específico de ejecutor procesará tu job, puedes utilizar etiquetas para controlar donde se ejecutan los jobs. Puedes asignar etiquetas a un ejecutor auto-hospedado adicionalmente a su etiqueta predeterminada de `self-hosted`. Entonces, puedes referirte a estas etiquetas en tu flujo de trabajo de YAML, garantizando que el job se enrute de forma predecible.{% ifversion not ghae %}Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} tienen asignadas etiquetas predefinidas.{% endif %}
 
-{% ifversion ghae %}
-Este ejemplo muestra como un flujo de trabajo puede utilizar etiquetas para especificar el ejecutor requerido:
-
-```yaml
-jobs:
-  example-job:
-    runs-on: [AE-runner-for-CI]
-```
-
-Para obtener más información, consulta la sección "[Utilizar etiquetas con un {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners)".
-{% else %}
 Este ejemplo muestra como un flujo de trabajo puede utilizar etiquetas para especificar el ejecutor requerido:
 
 ```yaml
@@ -167,27 +155,30 @@ jobs:
 
 Un flujo de trabajo solo se ejecutará en un ejecutor que tenga todas las etiquetas en el arreglo `runs-on`. El job irá preferencialmente a un ejecutor auto-hospedado inactivo con las etiquetas especificadas. Si no hay alguno disponible y existe un ejecutor hospedado en {% data variables.product.prodname_dotcom %} con las etiquetas especificadas, el job irá a un ejecutor hospedado en {% data variables.product.prodname_dotcom %}.
 
-Para aprender más acerca de las etiquetas auto-hospedadas, consulta la sección ["Utilizar etiquetas con los ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)". Para aprender más sobre
+Para aprender más acerca de las etiquetas auto-hospedadas, consulta la sección ["Utilizar etiquetas con los ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
+
+{% ifversion fpt or ghes %}
+Para aprender más sobre
 las etiquetas de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección ["Ejecutores compatibles y recursos de hardware"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
 {% data reusables.actions.reusable-workflows %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
 ## Utilizar ambientes
 
 Puedes configurr ambientes con reglas de protección y secretos. Cad job en un flujo de trabajo puede referenciar un solo ambiente. Cualquier regla de protección que se configure para el ambiente debe pasar antes de que un job que referencia al ambiente se envíe a un ejecutor. Para obtener más información, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
 {% endif %}
 
-## Utilizar una plantilla de flujo de trabajo
+## Utilizar flujos de trabajo iniciales
 
 {% data reusables.actions.workflow-template-overview %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. Si tu repositorio ya cuenta con flujos de trabajo: En la esquina superior izquierda, da clic sobre **Flujo de trabajo nuevo**. ![Crear un nuevo flujo de trabajo](/assets/images/help/repository/actions-new-workflow.png)
-1. Debajo del nombre de la plantilla que deseas utilizar, da clic en **Configurar este flujo de trabajo**. ![Configurar este flujo de trabajo](/assets/images/help/settings/actions-create-starter-workflow.png)
+1. Debajo del nombre del flujo de trabajo inicial que te gustaría utilizar, haz clic en **Configurar este flujo de trabajo**. ![Configurar este flujo de trabajo](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 ## Pasos siguientes
 

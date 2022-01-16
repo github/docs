@@ -2,7 +2,7 @@
 title: Sobre restrições de acesso do aplicativo OAuth
 intro: 'As organizações podem escolher quais {% data variables.product.prodname_oauth_apps %} têm acesso aos seus repositórios e outros recursos, habilitando as restrições de acesso de {% data variables.product.prodname_oauth_app %}.'
 redirect_from:
-  - /articles/about-third-party-application-restrictions/
+  - /articles/about-third-party-application-restrictions
   - /articles/about-oauth-app-access-restrictions
   - /github/setting-up-and-managing-organizations-and-teams/about-oauth-app-access-restrictions
 versions:

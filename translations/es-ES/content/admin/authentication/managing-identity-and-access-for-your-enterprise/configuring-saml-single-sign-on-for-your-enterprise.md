@@ -1,8 +1,7 @@
 ---
 title: Configurar el inicio de sesión único de SAML para tu empresa
 shortTitle: Configurar el SSO de SAML
-intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghae %}your enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghae %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
-product: '{% data reusables.gated-features.saml-sso %}'
+intro: 'Puedes controlar el acceso seguro a {% ifversion ghec %}los recursos como repositorios, propuestas y solicitudes de cambios dentro de las organizaciones de tu empresa{% elsif ghae %}tu empresa en {% data variables.product.prodname_ghe_managed %}{% endif %} si {% ifversion ghec %}requieres{% elsif ghae %}la configuración {% endif %}del inicio de sesión único (SSO) de SAML a través de tu proveedor de identidad (IdP).'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
   ghec: '*'
@@ -23,7 +22,7 @@ redirect_from:
 
 {% data reusables.enterprise-accounts.emu-saml-note %}
 
-## About SAML SSO for enterprise accounts
+## Acerca del SSO de SAML para tus cuentas empresariales
 
 {% ifversion ghec %}
 
@@ -59,7 +58,7 @@ Después de autenticarse exitosamente en tu IdP, la sesión de SAML del usuario 
 
 **Notas:**
 
-- When you enforce SAML SSO for your enterprise, the enterprise configuration will override any existing organization-level SAML configurations. {% data reusables.saml.switching-from-org-to-enterprise %} Para obtener más información, consulta la sección "[Cambiar tu configuración de SAML de una cuenta de organización a una de empresa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)".
+- Cuando requieres el SSO de SAML para tu empresa, la configuración empresarial se superpondrá a cualquier configuración de SAML que exista a nivel organizacional. {% data reusables.saml.switching-from-org-to-enterprise %} Para obtener más información, consulta la sección "[Cambiar tu configuración de SAML de una cuenta de organización a una de empresa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)".
 - Cuando requieres el SSO de SAML para una organización, {% data variables.product.company_short %} elimina cualquier miembro de la organización que no se haya autenticado con éxito en tu IdP de SAML. Cuando requieres el SSO de SAML para tu empresa, {% data variables.product.company_short %} no elimina a los miembros de dicha empresa que no se hayan autenticado exitosamente con tu IdP de SAML. La siguiente vez que un miembro acceda a los recursos empresariales, este deberá autenticarse con tu IdP de SAML.
 
 {% endnote %}
@@ -82,15 +81,14 @@ Para obtener información más detallada sobre cómo habilitar el SAML utilizand
 
 ## Habilitar el SSO de SAML
 
-{% ifversion ghae %}
-
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
 Los siguientes IdP proporcionan documentación sobre cómo configurar el SSO de SAML para {% data variables.product.product_name %}. Si no se lista tu IdP, por favor, contáctalo para solicitar soporte para {% data variables.product.product_name %}.
 
- | IdP      | Más información                                                                                                                                                                                                                                           |
- |:-------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | Azure AD | [Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) en los Documentos de Microsoft |
+ | IdP         | Más información                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+ |:----------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+ | Azure AD    | [Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) en los Documentos de Microsoft. Para configurar a Azure AD para {% data variables.product.prodname_ghe_managed %}, consulta la sección "[Configurar la autenticación y aprovisionamiento para tu empresa utilizando Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)". |
+ | Okta (Beta) | Para configurar Okta para {% data variables.product.prodname_ghe_managed %}, consulta la sección "[Configurar la autenticación y el aprovisionamiento para tu empresa utilizando Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)".                                                                                                                                                                                                                                                                       |
 
 Durante la inicialización para {% data variables.product.product_name %}, debes configurar a {% data variables.product.product_name %} como un proveedor de servicios (SP) de SAML en tu IdP. Debes ingresar varios valores únicos en tu IdP para configurar {% data variables.product.product_name %} como un SP válido.
 
@@ -99,8 +97,6 @@ Durante la inicialización para {% data variables.product.product_name %}, debes
 | ID de Entidad de SP                                       | URL de SP        | Tu URL de más alto nivel para {% data variables.product.prodname_ghe_managed %} | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em></code> |
 | URL del Servicio de Consumidor de Aserciones (ACS) del SP | URL de respuesta | URL a la que el IdP enviará respuestas de SAML                                    | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/saml/consume</code> |
 | URL de inicio de sesión único (SSO) del SP                |                  | URL en donde el IdP comienza con SSO                                              | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/sso</code> |
-
-{% endif %}
 
 ## Editar la configuración del SSO de SAML
 
@@ -127,9 +123,9 @@ Si los detalles de tu IdP cambian, necesitarás editar la configuración de SSO 
 
 {% endif %}
 
-## Inhabilitar el SSO de SAML
-
 {% ifversion ghae %}
+
+## Inhabilitar el SSO de SAML
 
 {% warning %}
 

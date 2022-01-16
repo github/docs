@@ -2,8 +2,8 @@
 title: Pontos de extremidade de REST para a API do GitHub Marketplace
 intro: 'Para ajudar a gerenciar seu aplicativo em {% data variables.product.prodname_marketplace %}, use esses pontos de extremidade da API de {% data variables.product.prodname_marketplace %}.'
 redirect_from:
-  - /apps/marketplace/github-marketplace-api-endpoints/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints/
+  - /apps/marketplace/github-marketplace-api-endpoints
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /developers/github-marketplace/rest-endpoints-for-the-github-marketplace-api
 versions:

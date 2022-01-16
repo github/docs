@@ -11,7 +11,6 @@ shortTitle: Manually run a workflow
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## ワークフローを手動実行する設定
 
@@ -20,8 +19,6 @@ shortTitle: Manually run a workflow
 {% data reusables.repositories.permissions-statement-write %}
 
 ## Running a workflow
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -71,6 +68,6 @@ gh run watch
 
 ## REST API を使用してワークフローを実行する
 
-REST API を使用する場合は、 `inputs`と`ref`をリクエストボディのパラメータとして設定してください。 入力を省略すると、ワークフロー ファイルで定義されているデフォルト値が使用されます。
+REST API を使用する場合は、 `inputs`と`ref`をリクエストボディのパラメータとして設定してください。 入力を省略すると、ワークフローファイルで定義されているデフォルト値が使用されます。
 
 REST API の使用の詳細については、「[ワークフローディスパッチ イベントの作成](/rest/reference/actions/#create-a-workflow-dispatch-event)」を参照してください。

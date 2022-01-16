@@ -5,7 +5,9 @@ import { describeViaActionsOnly } from '../helpers/conditional-runs.js'
 import { loadPages } from '../../lib/page-data.js'
 import CspParse from 'csp-parse'
 import { productMap } from '../../lib/all-products.js'
+import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 import { jest } from '@jest/globals'
+import { languageKeys } from '../../lib/languages.js'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 const activeProducts = Object.values(productMap).filter(
@@ -137,7 +139,7 @@ describe('server', () => {
     const res = await get('/en')
     expect(res.headers['cache-control']).toBe('private, no-store')
     expect(res.headers['surrogate-control']).toBe('private, no-store')
-    expect(res.headers['surrogate-key']).toBe('all-the-things')
+    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
 
   test('does not render duplicate <html> or <body> tags', async () => {
@@ -181,7 +183,7 @@ describe('server', () => {
   })
 
   test('renders a 500 page when errors are thrown', async () => {
-    const $ = await getDOM('/_500')
+    const $ = await getDOM('/_500', undefined, true)
     expect($('h1').text()).toBe('Ooops!')
     expect($.text().includes('It looks like something went wrong.')).toBe(true)
     expect(
@@ -244,6 +246,11 @@ describe('server', () => {
 
     // check for CORS header
     expect(res.headers['access-control-allow-origin']).toBe('*')
+
+    // Check that it can be cached at the CDN
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
 
     const categories = JSON.parse(res.text)
     expect(Array.isArray(categories)).toBe(true)
@@ -373,6 +380,7 @@ describe('server', () => {
   })
 
   describe('image asset paths', () => {
+    const localImageCacheBustBasePathRegex = /^\/assets\/cb-\d+\/images\//
     const localImageBasePath = '/assets/images'
     const legacyImageBasePath = '/assets/enterprise'
     const latestEnterprisePath = `/en/enterprise/${enterpriseServerReleases.latest}`
@@ -382,7 +390,10 @@ describe('server', () => {
       const $ = await getDOM(
         '/en/github/authenticating-to-github/configuring-two-factor-authentication'
       )
-      expect($('img').first().attr('src').startsWith(localImageBasePath)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(
+        localImageCacheBustBasePathRegex.test(imageSrc) || imageSrc.startsWith(localImageBasePath)
+      ).toBe(true)
     })
 
     test('github articles on GHE have images that point to local assets dir', async () => {
@@ -391,7 +402,9 @@ describe('server', () => {
       )
       const imageSrc = $('img').first().attr('src')
       expect(
-        imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)
+        localImageCacheBustBasePathRegex.test(imageSrc) ||
+          imageSrc.startsWith(localImageBasePath) ||
+          imageSrc.startsWith(legacyImageBasePath)
       ).toBe(true)
     })
 
@@ -401,7 +414,9 @@ describe('server', () => {
       )
       const imageSrc = $('img').first().attr('src')
       expect(
-        imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)
+        localImageCacheBustBasePathRegex.test(imageSrc) ||
+          imageSrc.startsWith(localImageBasePath) ||
+          imageSrc.startsWith(legacyImageBasePath)
       ).toBe(true)
     })
 
@@ -411,7 +426,9 @@ describe('server', () => {
       )
       const imageSrc = $('img').first().attr('src')
       expect(
-        imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)
+        localImageCacheBustBasePathRegex.test(imageSrc) ||
+          imageSrc.startsWith(localImageBasePath) ||
+          imageSrc.startsWith(legacyImageBasePath)
       ).toBe(true)
     })
 
@@ -426,14 +443,20 @@ describe('server', () => {
       const $ = await getDOM(
         '/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account'
       )
-      expect($('img').first().attr('src').startsWith(localImageBasePath)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(
+        localImageCacheBustBasePathRegex.test(imageSrc) || imageSrc.startsWith(localImageBasePath)
+      ).toBe(true)
     })
 
     test('admin articles on GHEC have images that point to local assets dir', async () => {
       const $ = await getDOM(
         '/en/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise'
       )
-      expect($('img').first().attr('src').startsWith(localImageBasePath)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(
+        localImageCacheBustBasePathRegex.test(imageSrc) || imageSrc.startsWith(localImageBasePath)
+      ).toBe(true)
     })
 
     test('github articles on GHAE have images that point to local assets dir', async () => {
@@ -442,13 +465,18 @@ describe('server', () => {
       )
       const imageSrc = $('img').first().attr('src')
       expect(
-        imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)
+        localImageCacheBustBasePathRegex.test(imageSrc) ||
+          imageSrc.startsWith(localImageBasePath) ||
+          imageSrc.startsWith(legacyImageBasePath)
       ).toBe(true)
     })
 
     test('admin articles on GHAE have images that point to local assets dir', async () => {
       const $ = await getDOM('/en/github-ae@latest/admin/user-management/managing-dormant-users')
-      expect($('img').first().attr('src').startsWith(localImageBasePath)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(
+        localImageCacheBustBasePathRegex.test(imageSrc) || imageSrc.startsWith(localImageBasePath)
+      ).toBe(true)
     })
   })
 
@@ -609,6 +637,7 @@ describe('server', () => {
     test('redirects old articles to their English URL', async () => {
       const res = await get('/articles/deleting-a-team')
       expect(res.statusCode).toBe(302)
+      expect(res.headers['set-cookie']).toBeUndefined()
       // no cache control because a language prefix had to be injected
       expect(res.headers['cache-control']).toBeUndefined()
     })
@@ -620,17 +649,48 @@ describe('server', () => {
       )
     })
 
-    test('redirects / to /en', async () => {
+    test('redirects / to /en when no language preference is specified', async () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
       expect(res.headers['cache-control']).toBe('private, no-store')
+      expect(res.headers['set-cookie']).toBeUndefined()
+    })
+
+    test('redirects / to appropriate language preference if specified', async () => {
+      await Promise.all(
+        languageKeys.map(async (languageKey) => {
+          const res = await get('/', {
+            headers: {
+              'accept-language': `${languageKey}`,
+            },
+          })
+          expect(res.statusCode).toBe(302)
+          expect(res.headers.location).toBe(`/${languageKey}`)
+          expect(res.headers['cache-control']).toBe('private, no-store')
+          expect(res.headers['set-cookie']).toBeUndefined()
+        })
+      )
+    })
+
+    test('redirects / to /en when unsupported language preference is specified', async () => {
+      const res = await get('/', {
+        headers: {
+          // Tagalog: https://www.loc.gov/standards/iso639-2/php/langcodes_name.php?iso_639_1=tl
+          'accept-language': 'tl',
+        },
+      })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en')
+      expect(res.headers['cache-control']).toBe('private, no-store')
+      expect(res.headers['set-cookie']).toBeUndefined()
     })
 
     test('adds English prefix to old article URLs', async () => {
       const res = await get('/articles/deleting-a-team')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location.startsWith('/en/')).toBe(true)
+      expect(res.headers['set-cookie']).toBeUndefined()
       expect(res.headers['cache-control']).toBeUndefined()
     })
 
@@ -645,6 +705,7 @@ describe('server', () => {
       const res = await get('/desktop-classic')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('https://desktop.github.com')
+      expect(res.headers['set-cookie']).toBeUndefined()
       expect(res.headers['cache-control']).toBeUndefined()
     })
 
@@ -714,13 +775,11 @@ describe('server', () => {
 })
 
 describe('URLs by language', () => {
-  // TODO re-enable this test once TOCs are auto-generated (after PR 11731 has landed)
   test('heading IDs and links on translated pages are in English', async () => {
-    const $ = await getDOM('/ja/actions/using-github-hosted-runners/about-github-hosted-runners')
+    const $ = await getDOM('/ja/github/site-policy/github-terms-of-service')
     expect($.res.statusCode).toBe(200)
-    expect($('h2[id="further-reading"]').length).toBe(1)
-    expect($('h3[id="参考リンク"]').length).toBe(0)
-    expect($('h2 a[href="#further-reading"]').length).toBe(1)
+    expect($('h1')[0].children[0].data).toBe('GitHub利用規約')
+    expect($('h2 a[href="#summary"]').length).toBe(1)
   })
 })
 
@@ -751,7 +810,7 @@ describe('GitHub Enterprise URLs', () => {
   test('renders the Enterprise Admin category homepage', async () => {
     const adminPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin`
     const $ = await getDOM(adminPath)
-    expect($(`h3 ~ a[href="${adminPath}/guides"]`).length).toBe(1)
+    expect($(`h2 ~ a[href="${adminPath}/guides"]`).length).toBe(1)
     expect($('h2 a[href="#all-docs"]').length).toBe(1)
   })
 
@@ -966,6 +1025,18 @@ describe('static routes', () => {
     // The "Surrogate-Key" header is set so we can do smart invalidation
     // in the Fastly CDN. This needs to be available for static assets too.
     expect(res.headers['surrogate-key']).toBeTruthy()
+    expect(res.headers.etag).toBeUndefined()
+    expect(res.headers['last-modified']).toBeTruthy()
+  })
+
+  it('rewrites /assets requests from a cache-busting prefix', async () => {
+    // The rewrite-asset-urls.js Markdown plugin will do this to img tags.
+    const res = await get('/assets/cb-123456/images/site/be-social.gif')
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    expect(res.headers['surrogate-key']).toBeTruthy()
   })
 
   it('serves schema files from the /data/graphql directory at /public', async () => {
@@ -976,6 +1047,9 @@ describe('static routes', () => {
     // Because static assets shouldn't use CSRF and thus shouldn't
     // be setting a cookie.
     expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers.etag).toBeUndefined()
+    expect(res.headers['last-modified']).toBeTruthy()
+
     expect(
       (await get(`/public/ghes-${enterpriseServerReleases.latest}/schema.docs-enterprise.graphql`))
         .statusCode

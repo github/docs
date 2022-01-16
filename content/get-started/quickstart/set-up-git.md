@@ -1,14 +1,14 @@
 ---
 title: Set up Git
 redirect_from:
-  - /git-installation-redirect/
-  - /linux-git-installation/
-  - /linux-set-up-git/
-  - /mac-git-installation/
-  - /mac-set-up-git/
-  - /set-up-git-redirect/
-  - /win-git-installation/
-  - /win-set-up-git/
+  - /git-installation-redirect
+  - /linux-git-installation
+  - /linux-set-up-git
+  - /mac-git-installation
+  - /mac-set-up-git
+  - /set-up-git-redirect
+  - /win-git-installation
+  - /win-set-up-git
   - /articles/set-up-git
   - /github/getting-started-with-github/set-up-git
   - /github/getting-started-with-github/quickstart/set-up-git
@@ -40,6 +40,16 @@ If you don't need to work with files locally, {% data variables.product.product_
 ## Setting up Git
 
 1. [Download and install the latest version of Git](https://git-scm.com/downloads).
+
+{% note %}
+
+**Note**: If you are using a Chrome OS device, additional set up is required:
+
+1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
+2. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted. 
+
+{% endnote %}
+
 2. [Set your username in Git](/github/getting-started-with-github/setting-your-username-in-git).
 3. [Set your commit email address in Git](/articles/setting-your-commit-email-address).
 

@@ -2,11 +2,11 @@
 title: Personalizar seu perfil
 intro: 'É possível compartilhar informações sobre você mesmo com outros usuários do {% data variables.product.product_name %} definindo uma imagem e adicionando uma bio ao seu perfil.'
 redirect_from:
-  - /articles/adding-a-bio-to-your-profile/
-  - /articles/setting-your-profile-picture/
-  - /articles/how-do-i-set-up-my-profile-picture/
-  - /articles/gravatar-problems/
-  - /articles/how-do-i-set-up-my-avatar/
+  - /articles/adding-a-bio-to-your-profile
+  - /articles/setting-your-profile-picture
+  - /articles/how-do-i-set-up-my-profile-picture
+  - /articles/gravatar-problems
+  - /articles/how-do-i-set-up-my-avatar
   - /articles/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile

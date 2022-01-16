@@ -1,6 +1,6 @@
 ---
-title: Managing alerts from secret scanning
-intro: You can view and close alerts for secrets checked in to your repository.
+title: Administrar las alertas del escaneo de secretos
+intro: Puedes ver y cerrar las alertas para los secretos que se hayan revisado en tu repositorio.
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning
@@ -16,51 +16,51 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Manage secret alerts
+shortTitle: Administrar las alertas de los secretos
 ---
 
 {% data reusables.secret-scanning.beta %}
 
-## Managing {% data variables.product.prodname_secret_scanning %} alerts
+## Administrar las alertas del {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-1. In the left sidebar, click **Secret scanning alerts**.
+1. En la barra lateral izquierda, haz clic en **Alertas del escaneo de secretos**.
    {% ifversion fpt or ghes or ghec %}
-   !["Secret scanning alerts" tab](/assets/images/help/repository/sidebar-secrets.png)
+   ![Pestaña de "Alertas del escaneo de secretos"](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
-   !["Secret scanning alerts" tab](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
+   ![Pestaña de "Alertas del escaneo de secretos"](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
    {% endif %}
-1. Under "Secret scanning" click the alert you want to view.
+1. Debajo de "Escaneo de secretos" da clic en la alerta que quieras ver.
    {% ifversion fpt or ghec %}
-   ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert.png)
+   ![Lista de alertas del escaneo de secretos](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
    {% ifversion ghes %}
-   ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
+   ![Lista de alertas del escaneo de secretos](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
    {% endif %}
    {% ifversion ghae %}
-   ![List of alerts from secret scanning](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
+   ![Lista de alertas del escaneo de secretos](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
-1. Optionally, select the {% ifversion fpt or ghec %}"Close as"{% elsif ghes or ghae %}"Mark as"{% endif %} drop-down menu and click a reason for resolving an alert.
+1. Opcionalmente, selecciona el menú desplegable de {% ifversion fpt or ghec %}"Cerrar como"{% elsif ghes or ghae %}"Marcar como"{% endif %} y haz clic en la razón para resolver una alerta.
    {% ifversion fpt or ghec %}
-   ![Drop-down menu for resolving an alert from secret scanning](/assets/images/help/repository/secret-scanning-resolve-alert.png)
+   ![Menú desplegable para resolver una alerta del escaneo de secretos](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}
    {% ifversion ghes or ghae %}
-   ![Drop-down menu for resolving an alert from secret scanning](/assets/images/help/repository/secret-scanning-resolve-alert-ghe.png)
+   ![Menú desplegable para resolver una alerta del escaneo de secretos](/assets/images/help/repository/secret-scanning-resolve-alert-ghe.png)
    {% endif %}
 
-## Securing compromised secrets
+## Asegurar los secretos en riesgo
 
-Once a secret has been committed to a repository, you should consider the secret compromised. {% data variables.product.prodname_dotcom %} recommends the following actions for compromised secrets:
+Cuando un secreto se haya confirmado en un repositorio, deberás considerarlo en riesgo. {% data variables.product.prodname_dotcom %} recomienda tomar las siguientes acciones para los secretos puestos en riesgo:
 
-- For a compromised {% data variables.product.prodname_dotcom %} personal access token, delete the compromised token, create a new token, and update any services that use the old token. For more information, see "[Creating a personal access token for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)."
-- For all other secrets, first verify that the secret committed to {% data variables.product.product_name %} is valid. If so, create a new secret, update any services that use the old secret, and then delete the old secret.
+- Para un token de acceso personal de {% data variables.product.prodname_dotcom %} comprometido, elimina el token comprometido, crea un nuevo token y actualiza todo servicio que use el token antiguo. Para obtener más información, consulta la sección "[Crear un token de acceso personal para la línea de comandos](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)".
+- Para todos los demás secretos, verifica primero que aquellos que se hayan confirmado en {% data variables.product.product_name %} sean válidos. De ser así, crea un secreto nuevo, actualiza cualquier servicio que utilice el secreto anterior, y luego bórralo.
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
-## Configuring notifications for {% data variables.product.prodname_secret_scanning %} alerts
+## Configurar las notificaciones para las alertas del {% data variables.product.prodname_secret_scanning %}
 
-When a new secret is detected, {% data variables.product.product_name %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive alerts if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, are the author of the commit that contains the secret and are not ignoring the repository.
+Cuando se detecta un secreto nuevo, {% data variables.product.product_name %} notifica a todos los usuarios con acceso a las alertas de seguridad del repositorio de acuerdo con sus preferencias de notificación. Recibirás alertas si estás observando el repositorio, si habilitaste las notificaciones para las alertas de seguridad o para toda la actividad del repositorio, si eres el autor de la confirmación que contiene el secreto y si no estás ignorando el repositorio.
 
-For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+Para obtener más información, consulta las secciones "[Administrar la seguridad y configuración de análisis para tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" y "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 {% endif %}

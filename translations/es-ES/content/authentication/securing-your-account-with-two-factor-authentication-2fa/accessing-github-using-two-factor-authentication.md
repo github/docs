@@ -2,9 +2,9 @@
 title: Acceder a GitHub utilizando la autenticación de dos factores
 intro: 'Cuando habilitas la 2FA, se te pedirá que proporciones tu código de 2FA así como tu contraseña al momento de iniciar sesión en {% data variables.product.product_name %}.'
 redirect_from:
-  - /articles/providing-your-2fa-security-code/
-  - /articles/providing-your-2fa-authentication-code/
-  - /articles/authenticating-to-github-using-fido-u2f-via-nfc/
+  - /articles/providing-your-2fa-security-code
+  - /articles/providing-your-2fa-authentication-code
+  - /articles/authenticating-to-github-using-fido-u2f-via-nfc
   - /articles/accessing-github-using-two-factor-authentication
   - /github/authenticating-to-github/accessing-github-using-two-factor-authentication
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication

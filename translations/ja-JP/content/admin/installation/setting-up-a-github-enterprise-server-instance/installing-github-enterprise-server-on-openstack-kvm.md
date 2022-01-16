@@ -2,7 +2,7 @@
 title: OpenStack KVM で GitHub Enterprise Server をインストールする
 intro: '{% data variables.product.prodname_ghe_server %} を OpenStack KVM 上にインストールするには、OpenStack にアクセスでき、{% data variables.product.prodname_ghe_server %} QCOW2 イメージをダウンロードすることが必要です。'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-openstack-kvm/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-openstack-kvm
   - /enterprise/admin/installation/installing-github-enterprise-server-on-openstack-kvm
   - /admin/installation/installing-github-enterprise-server-on-openstack-kvm
 versions:

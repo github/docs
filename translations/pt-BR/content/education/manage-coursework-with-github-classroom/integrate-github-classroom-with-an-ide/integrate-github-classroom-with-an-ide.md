@@ -4,6 +4,7 @@ shortTitle: Integrar com um IDE
 intro: 'Você pode pré-configurar um ambiente de desenvolvimento integrado (IDE) compatível para atividades que você criar em {% data variables.product.prodname_classroom %}.'
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can integrate {% data variables.product.prodname_classroom %} with an IDE. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/online-ide-integrations
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide

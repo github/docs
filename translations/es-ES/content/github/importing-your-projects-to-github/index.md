@@ -3,8 +3,8 @@ title: Importar tus proyectos a GitHub
 intro: 'Puedes importar tu código fuente a {% data variables.product.product_name %} utilizando diversos métodos diferentes.'
 shortTitle: Importar tus proyectos
 redirect_from:
-  - /categories/67/articles/
-  - /categories/importing/
+  - /categories/67/articles
+  - /categories/importing
   - /categories/importing-your-projects-to-github
 versions:
   fpt: '*'

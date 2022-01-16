@@ -119,8 +119,6 @@ You can use advanced filters to search for issues and pull requests that meet sp
 
 ### Searching for issues and pull requests
 
-{% include tool-switcher %}
-
 {% webui %}
 
 议题和拉取请求搜索栏可以定义您自己的自定义过滤器并按各种标准进行排序。 您可以在每个仓库的 **Issues（议题）**和 **Pull requests（拉取请求）**选项卡上以及[议题和拉取请求仪表板](/articles/viewing-all-of-your-issues-and-pull-requests)上找到搜索栏。
@@ -165,7 +163,7 @@ gh pr list --search "team:octo-org/octo-team"
 - 按标签过滤议题和拉取请求：`state:open type:issue label:"bug"`
 - 使用 `-` before the term: `state:open type:issue -author:octocat` 过滤搜索词。
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 {% tip %}
 
 **Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
@@ -228,4 +226,4 @@ gh pr list --search "team:octo-org/octo-team"
 
 ## 延伸阅读
 
-- "[Searching issues and pull requests](/articles/searching-issues)""
+- "[Searching issues and pull requests](/articles/searching-issues)"

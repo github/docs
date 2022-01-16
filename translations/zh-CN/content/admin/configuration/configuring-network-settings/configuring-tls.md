@@ -2,8 +2,8 @@
 title: 配置 TLS
 intro: '您可以在 {% data variables.product.product_location %} 上配置传输层安全 (TLS)，以便使用由可信证书颁发机构签名的证书。'
 redirect_from:
-  - /enterprise/admin/articles/ssl-configuration/
-  - /enterprise/admin/guides/installation/about-tls/
+  - /enterprise/admin/articles/ssl-configuration
+  - /enterprise/admin/guides/installation/about-tls
   - /enterprise/admin/installation/configuring-tls
   - /enterprise/admin/configuration/configuring-tls
   - /admin/configuration/configuring-tls

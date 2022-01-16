@@ -13,15 +13,18 @@ header:
     ghes_release_notes_upgrade_patch_only: '📣 Este no es el <a href="#{{ latestPatch }}">lanzamiento de parche más reciente</a> de Enterprise Server.'
     ghes_release_notes_upgrade_release_only: '📣 Este no es el <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">lanzamiento más reciente </a> de Enterprise Server.'
     ghes_release_notes_upgrade_patch_and_release: '📣 Este no es el <a href="#{{ latestPatch }}">lanzamiento de parche más reciente</a> de esta serie de lanzamientos, y no es el<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">último lanzamiento</a> de Enterprise Server.'
+picker:
+  toggle_picker_list: Activar lista de selector
 release_notes:
-  banner_text_current: Estos cam bios se implementarán en la siguiente semana.
-  banner_text_past: Estos cambios se implementarán en las empresas durante la semana de
+  banner_text: GitHub comenzó a implementar estos cambios en empresas en
 search:
   need_help: '¿Necesitas ayuda?'
   placeholder: Busca temas, productos...
   loading: Cargando
   no_results: No se encontró ningún resultado
+  search_results_for: Buscar resultados para
   no_content: Sin contenido
+  matches_displayed: Coincidencias mostradas
 homepage:
   explore_by_product: Explorar por producto
   version_picker: Versión
@@ -30,6 +33,7 @@ toc:
   popular: Popular
   guides: Guías
   whats_new: Qué hay de nuevo
+  videos: Vídeos
 pages:
   article_version: 'Versión del artículo'
   miniToc: En este artículo
@@ -53,7 +57,8 @@ survey:
   optional: Opcional
   required: Requerido
   email_placeholder: email@ejemplo.com
-  email_label: '¿Podemos contactarte si tenemos más preguntas?'
+  email_label: Si quieres que te contactemos con más preguntas, por favor, ingresa tu dirección de correo electrónico
+  email_validation: Ingresa un dirección de correo electrónico válida
   send: Enviar
   feedback: '¡Gracias! Recibimos tus comentarios.'
   not_support: Si necesitas una respuesta, por favor, mejor contacta a soporte.
@@ -70,7 +75,7 @@ products:
       fields: Campos
       arguments: Argumentos
       name: Nombre
-      type: Type
+      type: Tipo
       description: Descripción
       input_fields: Campos de entrada
       return_fields: Campos de retorno
@@ -161,7 +166,7 @@ product_guides:
   all_guides: 'Todas las guías de {{ productMap[currentProduct].name }}'
   filter_instructions: Filtra la lista de guías utilizando estos controles
   filters:
-    type: Type
+    type: Tipo
     topic: Tema
     all: Todas
   guides_found:

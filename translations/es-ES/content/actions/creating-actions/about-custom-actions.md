@@ -20,7 +20,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acercad e las acciones personalizadas
 
@@ -36,7 +35,7 @@ Las acciones pueden ejecutarse directamente en una máquina o en un contenedor D
 
 Puedes crear acciones de contenedor Docker y JavaScript. Las acciones requieren un archivo de metadatos para definir las entradas, salidas y puntos de entrada para tu acción. El nombre del archivo de metadatos debe ser `action.yml` o `action.yaml`. Para obtener más información, consulta "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)"
 
-| Type                | Sistema operativo     |
+| Tipo                | Sistema operativo     |
 | ------------------- | --------------------- |
 | Contenedor Docker   | Linux                 |
 | JavaScript          | Linux, macOS, Windows |
@@ -74,7 +73,7 @@ Con el almacenamiento de una acción en su propio repositorio es más fácil par
 
 ## Compatibilidad con {% data variables.product.prodname_ghe_server %}
 
-To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URLs. You should instead use environment variables to refer to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API:
+Para garantizar de que tu acción es compatible con {% data variables.product.prodname_ghe_server %}, debes asegurarte de que no utilices ninguna referencia escrita a mano para las URL de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. En vez de esto, deberías utilizar variables de ambiente para referirte a la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}:
 
 - Crear y validar un lanzamiento en una rama de lanzamiento (tal como `release/v1`) antes de crear la etiqueta de lanzamiento (por ejemplo, `v1.0.2`).
 - Para el caso de GraphQL, utiliza la variable de ambiente `GITHUB_GRAPHQL_URL`.
