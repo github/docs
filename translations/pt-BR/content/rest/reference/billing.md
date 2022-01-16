@@ -1,6 +1,6 @@
 ---
 title: Cobrança
-intro: 'With the Billing API, you can monitor the charges and usage {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} for a user or organization.'
+intro: 'Com a API de cobrança você pode monitorar as cobranças e uso {% data variables.product.prodname_actions %} e {% data variables.product.prodname_registry %} para um usuário ou organização.'
 versions:
   fpt: '*'
   ghec: '*'

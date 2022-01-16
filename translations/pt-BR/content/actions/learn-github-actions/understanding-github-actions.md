@@ -114,7 +114,7 @@ Para ajudar você a entender como a sintaxe de YAML é usada para criar um arqui
   ```
 </td>
 <td>
-Especifica o gatilho para este fluxo de trabalho. Este exemplo usa o evento <code>push</code> para que a execução de um fluxo de trabalho seja acionada toda vez que alguém fizer push de uma alteração no repositório ou merge de um pull request.  Isso é acionado por um push para cada branch. Para obter exemplos de sintaxe executados apenas em pushes para branches, caminhos ou tags específicos, consulte <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">"Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}.</a>
+Especifica o gatilho para este fluxo de trabalho. Este exemplo usa o evento <code>push</code> para que a execução de um fluxo de trabalho seja acionada toda vez que alguém fizer push de uma alteração no repositório ou merge de um pull request.  Isso é acionado por um push para cada branch. Para obter exemplos de sintaxe executados apenas em pushes para branches, caminhos ou tags específicos, consulte <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">"Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}.</a>
 </td>
 </tr>
 <tr>
