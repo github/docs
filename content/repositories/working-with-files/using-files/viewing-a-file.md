@@ -19,6 +19,8 @@ shortTitle: View files and changes file changes
 ---
 ## View or download the raw file content
 
+With the raw view, you can view the raw file content for an entire file or download the file.
+
 {% data reusables.repositories.navigate-to-repo %}
 2. Click to open the file.
 3. In the upper-right corner of the file view, click **Raw** to open the raw view. To download the file, right-click **Raw** and select **Save as**.
