@@ -7,7 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
 versions:
   ghec: '*'
-type: tutorial
+type: test
 topics:
   - Authentication
   - Enterprise
