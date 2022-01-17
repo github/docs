@@ -6,7 +6,6 @@ translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-r
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,Listed in localization-support#489
-translations/pt-BR/content/actions/learn-github-actions/managing-complex-workflows.md,Listed in localization-support#489
 translations/pt-BR/content/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/allowing-built-in-authentication-for-users-outside-your-identity-provider.md,broken liquid tags
 translations/pt-BR/content/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-saml.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
