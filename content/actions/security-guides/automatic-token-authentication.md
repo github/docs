@@ -109,9 +109,9 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | issues        | read/write  | none | read |
 | metadata      | read        | read | read |
 | packages      | read/write  | none | read |
-| pull requests | read/write  | none | read |
-| repository projects | read/write | none | read |
-| security events     | read/write | none | read |
+| pull-requests | read/write  | none | read |
+| repository-projects | read/write | none | read |
+| security-events     | read/write | none | read |
 | statuses      | read/write  | none | read |
 {% else %}
 | Scope    | Access type | Access by forked repos |
@@ -123,8 +123,8 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | issues   | read/write  | read |
 | metadata | read        | read |
 | packages | read/write  | read |
-| pull requests | read/write | read |
-| repository projects | read/write | read |
+| pull-requests | read/write | read |
+| repository-projects | read/write | read |
 | statuses | read/write  | read |
 {% endif %}
 
