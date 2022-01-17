@@ -1,6 +1,6 @@
 ---
-title: Managing access to your user account's project boards
-intro: 'As a project board owner, you can add or remove a collaborator and customize their permissions to a project board.'
+title: Gerenciar acessos aos quadros de projetos de sua conta de usuário
+intro: 'Como proprietário de quadro de projeto, você pode adicionar ou remover um colaborador e personalizar as permissões dele em um quadro de projeto.'
 redirect_from:
   - /articles/managing-project-boards-in-your-repository-or-organization
   - /articles/managing-access-to-your-user-account-s-project-boards
@@ -14,23 +14,22 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Manage access project boards
+shortTitle: Gerenciar quadros de projetos de acesso
 ---
-A collaborator is a person who has permissions to a project board you own. A collaborator's permissions will default to read access. For more information, see "[Permission levels for user-owned project boards](/articles/permission-levels-for-user-owned-project-boards)."
 
-## Inviting collaborators to a user-owned project board
+Um colaborador é uma pessoa com permissões em um quadro de projeto pertencente a você. A permissão padrão de um colaborador é acesso de leitura. Para obter mais informações, consulte "[Níveis de permissão para quadros de projetos de propriedade de um usuário](/articles/permission-levels-for-user-owned-project-boards)".
 
-1. Navigate to the project board where you want to add an collaborator.
+## Convidar colaboradores a um quadro de projeto de propriedade de um usuário
+
+1. Navegue até o quadro de projeto onde você quer adicionar um colaborador.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
-5. Under "Search by username, full name or email address", type the collaborator's name, username, or {% data variables.product.prodname_dotcom %} email.
-   ![The Collaborators section with the Octocat's username entered in the search field](/assets/images/help/projects/org-project-collaborators-find-name.png)
+5. Em "Search by username, full name or email address" (Pesquisar por nome de usuário, nome completo ou endereço de e-mail), digite o nome, o nome de usuário ou o e-mail do colaborador no {% data variables.product.prodname_dotcom %}. ![A seção Collaborators (Colaboradores) com o nome de usuário Octocat inserido no campo de pesquisa](/assets/images/help/projects/org-project-collaborators-find-name.png)
 {% data reusables.project-management.add-collaborator %}
-7. The new collaborator has read permissions by default. Optionally, next to the new collaborator's name, use the drop-down menu and choose a different permission level.
-  ![The Collaborators section with the Permissions drop-down menu selected](/assets/images/help/projects/user-project-collaborators-edit-permissions.png)
+7. O novo colaborador tem acessos de leitura por padrão. Como opção, ao lado do nome do novo colaborador, use o menu suspenso e escolha um nível de permissão diferente. ![Seção Collaborators (Colaboradores) com menu suspenso Permissions (Permissões) selecionado](/assets/images/help/projects/user-project-collaborators-edit-permissions.png)
 
-## Removing a collaborator from a user-owned project board
+## Remover um colaborador de um quadro de projeto de propriedade de um usuário
 
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}

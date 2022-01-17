@@ -15,21 +15,21 @@ miniTocMaxHeadingLevel: 3
 
 ## About expressions
 
-You can use expressions to programmatically set variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+プログラムでワークフローファイルの変数を設定したり、コンテキストにアクセスするために、式を利用できます。 式で使えるのは、リテラル値、コンテキストへの参照、関数の組み合わせです。 リテラル、コンテキストへの参照、および関数を組み合わせるには、演算子を使います。 For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
 
-Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
+式は、ステップを実行すべきか判断するための `if` 条件キーワードをワークフローファイル内に記述して使用するのが一般的です。 `if`条件が`true`になれば、ステップは実行されます。
 
-You need to use specific syntax to tell {% data variables.product.prodname_dotcom %} to evaluate an expression rather than treat it as a string.
+ある式を、文字列型として扱うのではなく式として評価するためには、特定の構文を使って {% data variables.product.prodname_dotcom %} に指示する必要があります。
 
 {% raw %}
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
+{% data reusables.github-actions.expression-syntax-if %} `if`条件の詳細については、「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
 
 {% data reusables.github-actions.context-injection-warning %}
 
-#### Example expression in an `if` conditional
+#### `if` 条件内の式の例
 
 ```yaml
 steps:
@@ -37,7 +37,7 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Example setting an environment variable
+#### 環境変数の設定例
 
 {% raw %}
 ```yaml
@@ -46,18 +46,18 @@ env:
 ```
 {% endraw %}
 
-## Literals
+## リテラル
 
-As part of an expression, you can use `boolean`, `null`, `number`, or `string` data types.
+式の一部として、`boolean`、`null`、`number`、または`string`のデータ型を使用できます。
 
-| Data type | Literal value |
-|-----------|---------------|
-| `boolean` | `true` or `false` |
-| `null`    | `null` |
-| `number`  | Any number format supported by JSON. |
-| `string`  | You must use single quotes. Escape literal single-quotes with a single quote. |
+| データ型      | リテラル値                                                |
+| --------- | ---------------------------------------------------- |
+| `boolean` | `true` または `false`                                   |
+| `null`    | `null`                                               |
+| `number`  | JSONでサポートされている任意の数値書式。                               |
+| `string`  | 一重引用符で囲む必要があります。 一重引用符そのものを使用するには、一重引用符でエスケープしてください。 |
 
-#### Example
+#### サンプル
 
 {% raw %}
 ```yaml
@@ -73,99 +73,97 @@ env:
 ```
 {% endraw %}
 
-## Operators
+## 演算子
 
-| Operator    | Description |
-| ---         | ---         |
-| `( )`       | Logical grouping |
-| `[ ]`       | Index
-| `.`         | Property dereference |
-| `!`         | Not |
-| `<`         | Less than |
-| `<=`        | Less than or equal |
-| `>`         | Greater than |
-| `>=`        | Greater than or equal |
-| `==`        | Equal |
-| `!=`        | Not equal |
-| `&&`        | And |
-|  <code>\|\|</code> | Or |
+| 演算子                       | 説明        |
+| ------------------------- | --------- |
+| `( )`                     | 論理グループ化   |
+| `[ ]`                     | インデックス    |
+| `から実行されます。`               | プロパティ参照外し |
+| `!`                       | 否定        |
+| `<`                    | 小なり       |
+| `<=`                   | 以下        |
+| `>`                    | 大なり       |
+| `>=`                   | 以上        |
+| `==`                      | 等しい       |
+| `!=`                      | 等しくない     |
+| `&&`              | AND       |
+| <code>\|\|</code> | OR        |
 
-{% data variables.product.prodname_dotcom %} performs loose equality comparisons.
+{% data variables.product.prodname_dotcom %} は、等価性を緩やかに比較します。
 
-* If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
+* 型が一致しない場合、{% data variables.product.prodname_dotcom %} は型を強制的に数値とします。 {% data variables.product.prodname_dotcom %} は、以下の変換方法で、データ型を数字にキャストします。
 
-  | Type    | Result |
-  | ---     | ---    |
-  | Null    | `0` |
-  | Boolean | `true` returns `1` <br /> `false` returns `0` |
-  | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
-  | Array   | `NaN` |
-  | Object  | `NaN` |
-* A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
-* {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
-* Objects and arrays are only considered equal when they are the same instance.
+  | 種類     | 結果                                                                     |
+  | ------ | ---------------------------------------------------------------------- |
+  | ヌル     | `0`                                                                    |
+  | 論理値    | `true`は`1`を返します。<br /> `false`は`0`を返します。                         |
+  | 文字列型   | 正規のJSON数値型からパースされます。それ以外の場合は`NaN`です。 <br />注釈: 空の文字列は `0` を返します。 |
+  | 配列     | `NaN`                                                                  |
+  | オブジェクト | `NaN`                                                                  |
+* ある `NaN` を、別の `NaN` と比較すると、`true` は返ってきません。 詳しい情報については、「[NaN Mozilla ドキュメント](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)」を参照してください。
+* {% data variables.product.prodname_dotcom %} は、文字列を比較する際に大文字と小文字を区別しません。
+* オブジェクトおよび配列は、同じインスタンスの場合にのみ等しいとみなされます。
 
-## Functions
+## 関数
 
-{% data variables.product.prodname_dotcom %} offers a set of built-in functions that you can use in expressions. Some functions cast values to a string to perform comparisons. {% data variables.product.prodname_dotcom %} casts data types to a string using these conversions:
+{% data variables.product.prodname_dotcom %} は、式で使用できる組み込み関数のセットを提供します。 一部の関数は、比較を行なうために、値を文字列型にキャストします。 {% data variables.product.prodname_dotcom %} は、以下の変換方法で、データ型を文字列にキャストします。
 
-| Type    | Result |
-| ---     | ---    |
-| Null    | `''` |
-| Boolean | `'true'` or `'false'` |
-| Number  | Decimal format, exponential for large numbers |
-| Array   | Arrays are not converted to a string |
-| Object  | Objects are not converted to a string |
+| 種類     | 結果                   |
+| ------ | -------------------- |
+| ヌル     | `''`                 |
+| 論理値    | `'true'`または`'false'` |
+| Number | 10進数、大きい場合は指数        |
+| 配列     | 配列は文字列型に変換されません      |
+| オブジェクト | オブジェクトは文字列型に変換されません  |
 
 ### contains
 
 `contains( search, item )`
 
-Returns `true` if `search` contains `item`. If `search` is an array, this function returns `true` if the `item` is an element in the array. If `search` is a string, this function returns `true` if the `item` is a substring of `search`. This function is not case sensitive. Casts values to a string.
+`search`が`item` を含む場合、`true` を返します。 `search`が配列の場合、`item`が配列の要素であれば、この関数は`true`を返します。 `search`が文字列の場合、`item`が`search`の部分文字列であれば、この関数は`true`を返します。 この関数は大文字と小文字を区別しません。 値を文字列にキャストします。
 
-#### Example using an array
+#### 配列の利用例
 
-`contains(github.event.issue.labels.*.name, 'bug')`
+`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
 
-#### Example using a string
+#### 文字列の使用例
 
-`contains('Hello world', 'llo')` returns `true`
+`contains('Hello world', 'llo')` returns `true`.
 
 ### startsWith
 
 `startsWith( searchString, searchValue )`
 
-Returns `true` when `searchString` starts with `searchValue`. This function is not case sensitive. Casts values to a string.
+`searchString` が `searchValue` で始まる場合、`true` を返します。 この関数は大文字と小文字を区別しません。 値を文字列にキャストします。
 
-#### Example
+#### サンプル
 
-`startsWith('Hello world', 'He')` returns `true`
+`startsWith('Hello world', 'He')` は、`true` を返します.
 
 ### endsWith
 
 `endsWith( searchString, searchValue )`
 
-Returns `true` if `searchString` ends with `searchValue`. This function is not case sensitive. Casts values to a string.
+`searchString` が `searchValue` で終わる場合、`true` を返します。 この関数は大文字と小文字を区別しません。 値を文字列にキャストします。
 
-#### Example
+#### サンプル
 
-`endsWith('Hello world', 'ld')` returns `true`
+`endsWith('Hello world', 'ld')` は、`true` を返します.
 
 ### format
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
+`string` の値を、変数 `replaceValueN` で置換します。 `string` の変数は、`{N}` という構文で指定します。ここで `N` は整数です。 少なくとも、`replaceValue` と `string` を 1 つ指定する必要があります。 使用できる変数 (`replaceValueN`) の数に制限はありません。 中括弧はダブルブレースでエスケープします。
 
-#### Example
-
-Returns 'Hello Mona the Octocat'
+#### サンプル
 
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-#### Example escaping braces
+Returns 'Hello Mona the Octocat'.
 
-Returns '{Hello Mona the Octocat!}'
+#### 括弧をエスケープするサンプル
 
 {% raw %}
 ```js
@@ -173,35 +171,37 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
 
+Returns '{Hello Mona the Octocat!}'.
+
 ### join
 
 `join( array, optionalSeparator )`
 
-The value for `array` can be an array or a string. All values in `array` are concatenated into a string. If you provide `optionalSeparator`, it is inserted between the concatenated values. Otherwise, the default separator `,` is used. Casts values to a string.
+`array`の値は、配列もしくは文字列になります。 `array`内のすべての値が連結されて文字列になります。 `optionalSeparator`を渡すと、連結された値の間にその値が挿入されます。 渡していない場合は、デフォルトのセパレータの`,`が使われます。 値を文字列にキャストします。
 
-#### Example
+#### サンプル
 
-`join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
+`join(github.event.issue.labels.*.name, ', ')`は'bug, help wanted'といった結果を返します。
 
 ### toJSON
 
 `toJSON(value)`
 
-Returns a pretty-print JSON representation of `value`. You can use this function to debug the information provided in contexts.
+`value` を、書式を整えたJSON表現で返します。 この関数を使って、コンテキスト内で提供された情報のデバッグができます。
 
-#### Example
+#### サンプル
 
-`toJSON(job)` might return `{ "status": "Success" }`
+`toJSON(job)` は、`{ "status": "Success" }` といった結果を返します。
 
 ### fromJSON
 
 `fromJSON(value)`
 
-Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert environment variables from a string.
+`value`に対するJSONオブジェクト、あるいはJSONデータ型を返します。 この関数を使って、評価された式としてJSONオブジェクトを提供したり、環境変数を文字列から変換したりできます。
 
-#### Example returning a JSON object
+#### JSONオブジェクトを返す例
 
-This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
+以下のワークフローはJSONのマトリックスを1つのジョブに設定し、それを出力と`fromJSON`を使って次のジョブに渡します。
 
 {% raw %}
 ```yaml
@@ -225,9 +225,9 @@ jobs:
 ```
 {% endraw %}
 
-#### Example returning a JSON data type
+#### JSONデータ型を返す例
 
-This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
+このワークフローは`fromJSON`を使い、環境変数を文字列型から論理型もしくは整数に変換します。
 
 {% raw %}
 ```yaml
@@ -250,31 +250,31 @@ jobs:
 
 `hashFiles(path)`
 
-Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
+`path`パターンにマッチするファイル群から単一のハッシュを返します。 単一の `path` パターンまたはコンマで区切られた複数の `path` パターンを指定できます。 `path`は`GITHUB_WORKSPACE`ディレクトリに対する相対であり、含められるのは`GITHUB_WORKSPACE`内のファイルだけです。 この関数はマッチしたそれぞれのファイルに対するSHA-256ハッシュを計算し、それらのハッシュを使ってファイルの集合に対する最終的なSHA-256ハッシュを計算します。 SHA-256に関する詳しい情報については「[SHA-2](https://en.wikipedia.org/wiki/SHA-2)」を参照してください。
 
-You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)."
+パターンマッチング文字を使ってファイル名をマッチさせることができます。 パターンマッチングは、Windowsでは大文字小文字を区別しません。 サポートされているパターンマッチング文字に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)」を参照してください。
 
-#### Example with a single pattern
+#### 単一のパターンの例
 
-Matches any `package-lock.json` file in the repository.
+リポジトリ内の任意の`package-lock.json`ファイルにマッチします。
 
 `hashFiles('**/package-lock.json')`
 
-#### Example with multiple patterns
+#### 複数のパターンの例
 
-Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repository.
+リポジトリ内の `package-lock.json` および `Gemfile.lock` ファイルのハッシュを作成します。
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
-## Status check functions
+## ステータスチェック関数
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+`if` 条件では、次のステータスチェック関数を式として使用できます。 A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
 
 ### success
 
-Returns `true` when none of the previous steps have failed or been canceled.
+以前のステップで失敗もしくはキャンセルされたものがない場合に`true`を返します。
 
-#### Example
+#### サンプル
 
 ```yaml
 steps:
@@ -285,9 +285,9 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
+Causes the step to always execute, and returns `true`, even when canceled. クリティカルなエラーによりタスクが実行されない場合は、ジョブやステップも実行されません。 たとえば、ソースの取得に失敗した場合などがそれにあたります。
 
-#### Example
+#### サンプル
 
 ```yaml
 if: {% raw %}${{ always() }}{% endraw %}
@@ -295,9 +295,9 @@ if: {% raw %}${{ always() }}{% endraw %}
 
 ### cancelled
 
-Returns `true` if the workflow was canceled.
+ワークフローがキャンセルされた場合、`true` を返します。
 
-#### Example
+#### サンプル
 
 ```yaml
 if: {% raw %}${{ cancelled() }}{% endraw %}
@@ -305,9 +305,9 @@ if: {% raw %}${{ cancelled() }}{% endraw %}
 
 ### failure
 
-Returns `true` when any previous step of a job fails. If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
+ジョブの以前のステップのいずれかが失敗したなら`true`を返します。 If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
 
-#### Example
+#### サンプル
 
 ```yaml
 steps:
@@ -342,11 +342,11 @@ steps:
 
 This is the same as using `if: failure()` in a composite action step.
 
-## Object filters
+## オブジェクトフィルタ
 
-You can use the `*` syntax to apply a filter and select matching items in a collection.
+`*` 構文を使って、フィルタを適用し、コレクション内の一致するアイテムを選択できます。
 
-For example, consider an array of objects named `fruits`.
+たとえば、`fruits`というオブジェクトの配列を考えます。
 
 ```json
 [
@@ -356,4 +356,4 @@ For example, consider an array of objects named `fruits`.
 ]
 ```
 
-The filter `fruits.*.name` returns the array `[ "apple", "orange", "pear" ]`
+`fruits.*.name`というフィルタを指定すると、配列`[ "apple", "orange", "pear" ]`が返されます。

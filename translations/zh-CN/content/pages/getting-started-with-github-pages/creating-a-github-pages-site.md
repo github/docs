@@ -1,6 +1,6 @@
 ---
-title: Creating a GitHub Pages site
-intro: 'You can create a {% data variables.product.prodname_pages %} site in a new or existing repository.'
+title: 创建 GitHub Pages 站点
+intro: '您可以在新仓库或现有仓库中创建 {% data variables.product.prodname_pages %} 站点。'
 redirect_from:
   - /articles/creating-pages-manually
   - /articles/creating-project-pages-manually
@@ -16,12 +16,12 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Create a GitHub Pages site
+shortTitle: 创建 GitHub Pages 站点
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
-## Creating a repository for your site
+## 为站点创建仓库
 
 {% data reusables.pages.new-or-existing-repo %}
 
@@ -32,7 +32,7 @@ shortTitle: Create a GitHub Pages site
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 
-## Creating your site
+## 创建站点
 
 {% data reusables.pages.must-have-repo-first %}
 
@@ -40,8 +40,8 @@ shortTitle: Create a GitHub Pages site
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.decide-publishing-source %}
-3. If your chosen publishing source already exists, navigate to the publishing source. If your chosen publishing source doesn't exist, create the publishing source.
-4. In the root of the publishing source, create a new file called `index.md` that contains the content you want to display on the main page of your site.
+3. 如果所选发布源已存在，请导航到发布源。 如果所选发布源不存在，则创建发布源。
+4. 在发布源的根目录中，创建一个名为 `index.md`、包含要在网站主页上显示的内容的文件。
 
   {% tip %}
 
@@ -57,16 +57,16 @@ shortTitle: Create a GitHub Pages site
 
 {% data reusables.pages.admin-must-push %}
 
-## Next steps
+## 后续步骤
 
-You can add more pages to your site by creating more new files. Each file will be available on your site in the same directory structure as your publishing source. For example, if the publishing source for your project site is the `gh-pages` branch, and you create a new file called `/about/contact-us.md` on the `gh-pages` branch, the file will be available at {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html`.
+您可以通过创建更多新文件向网站添加更多页面。 每个文件都将在网站上与发布源相同的目录结构中。 例如，如果项目网站的发布源是 `gh-pages` 分支，并且您在 `gh-pages` 分支上创建了名为 `/about/contact-us.md` 的新文件，该文件将在 {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html` 下。
 
-You can also add a theme to customize your site’s look and feel. For more information, see {% ifversion fpt or ghec %}"[Adding a theme to your {% data variables.product.prodname_pages %} site with the theme chooser](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}"[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}."
+您还可以添加主题以自定义网站的外观。 更多信息请参阅{% ifversion fpt or ghec %}“[使用主题选择器添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}”[使用 Jekyll 添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}”。
 
-To customize your site even more, you can use Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %}. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)."
+要更多地自定义您的站点，您可以使用 Jekyl - 内置 {% data variables.product.prodname_pages %} 支持的静态站点生成器。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 和 Jekyll](/articles/about-github-pages-and-jekyll)”。
 
-## Further reading
+## 延伸阅读
 
-- "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
-- "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"
-- "[Creating new files](/articles/creating-new-files)"
+- "[排查 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
+- “[在仓库内创建和删除分支](/articles/creating-and-deleting-branches-within-your-repository)”
+- "[创建新文件](/articles/creating-new-files)"

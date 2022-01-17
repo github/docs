@@ -1,6 +1,6 @@
 ---
-title: About comparing branches in pull requests
-intro: Pull requests display diffs to compare the changes you made in your topic branch against the base branch that you want to merge your changes into.
+title: Sobre como comparar branches nas pull requests
+intro: As pull requests exibem diffs para comparar as alterações feitas no branch de tópico com o branch base com o qual você deseja fazer merge.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests
   - /articles/about-comparing-branches-in-pull-requests
@@ -13,60 +13,60 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Compare branches
+shortTitle: Comparar branches
 ---
+
 {% note %}
 
-**Note:** When creating your pull request, you can change the base branch that you're comparing your changes against. For more information, see "[Creating a pull request](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
+**Observação:** ao criar a pull request, é possível alterar o branch base com o qual você está comparando suas alterações. Para obter mais informações, consulte "[Criar uma pull request](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)".
 
 {% endnote %}
 
-You can view proposed changes in a pull request in the Files changed tab.
-![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
+É possível exibir alterações propostas em uma pull request na aba Arquivos alterados. ![Guia Files changed (Arquivos alterados) da pull request](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
 
-Rather than viewing the commits themselves, you can view the proposed changes as they'll appear in the files once the pull request is merged. The files appear in alphabetical order within the Files changed tab. Additions to the files appear in green and are prefaced by a `+` sign while content that has been removed appears in red and is prefaced by a `-` sign.
+Em vez de exibir os commits em si, você pode ver as alterações propostas como elas aparecerão nos arquivos assim que a pull request passar pelo merge. Os arquivos aparecem em ordem alfabética na guia Files changed (Arquivos alterados). As adições aos arquivos aparecem em verde e são precedidas por um sinal de `+`, enquanto o conteúdo que foi removido aparece em vermelho e é precedido por um sinal de `-`.
 
-## Diff view options
+## Opções de exibição de diff
 
 {% tip %}
 
-**Tip:** If you're having a hard time understanding the context of a change, you can click **View** in the Files changed tab to view the whole file with the proposed changes.
+**Dica:** se estiver com dificuldades para entender o contexto de uma alteração, você poderá clicar em **View** (Exibir) na guia Files changed (Arquivos alterados) para ver o arquivo todo com as alterações propostas.
 
 {% endtip %}
 
-You have several options for viewing a diff:
-- The unified view shows updated and existing content together in a linear view.
-- The split view shows old content on one side and new content on the other side.
-- The rich diff view shows a preview of how the changes will look once the pull request is merged.
-- The source view shows the changes in source without the formatting of the rich diff view.
+Há várias opções de exibição de um diff:
+- A exibição unificada mostra conteúdo atualizado e existente juntos em uma exibição linear.
+- A exibição dividida mostra conteúdo antigo em um lado e novo conteúdo do outro lado.
+- A exibição de diff avançado mostra uma visualização da aparência das alterações depois que a pull request passar por merge.
+- A exibição da origem mostra as alterações na origem sem a formatação da exibição de diff avançado.
 
-You can also choose to ignore whitespace changes to get a more accurate view of the substantial changes in a pull request.
+Também é possível optar por ignorar alterações de espaço em branco para obter uma exibição mais precisa das alterações importantes em uma pull request.
 
-![Diff viewing options menu](/assets/images/help/pull_requests/diff-settings-menu.png)
+![Menu de opções para exibição de diff](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. For more information, see "[Filtering files in a pull request by file type](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+Para simplificar a revisão das alterações em um pull request extenso, é possível filtrar o diff para mostrar apenas os tipos de arquivo selecionados, mostrar arquivos dos quais você é CODEOWNER, ocultar arquivos que você já visualizou ou ocultar arquivos excluídos. Para obter mais informações, consulte "[Filtrar aquivos em uma pull request por tipo de arquivo](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)".
 
-  ![File filter drop-down menu](/assets/images/help/pull_requests/file-filter-menu.png)
+  ![Menu suspenso File filter (Filtro de arquivo)](/assets/images/help/pull_requests/file-filter-menu.png)
 
-## Three-dot and two-dot Git diff comparisons
+## Comparações de diff do Git de três pontos e dois pontos
 
-By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff, or a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
+Por padrão, as pull requests no {% data variables.product.prodname_dotcom %} mostram um diff de três pontos ou uma comparação entre a versão mais recente do branch de tópico e o commit onde o branch de tópico foi sincronizado pela última vez com o branch base.
 
-To see two committish references in a two-dot diff comparison on {% data variables.product.prodname_dotcom %}, you can edit the URL of your repository's "Comparing changes" page. For more information, see the  [Git Glossary for "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) from the _Pro Git_ book site.
+Para ver duas referências de committish em uma comparação de diff de dois pontos no {% data variables.product.prodname_dotcom %}, você pode editar o URL da página "Comparing changes" (Comparar alterações) do seu repositório. Para obter mais informações, consulte [Glossário do Git para "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) no book site do _Pro Git_.
 
 {% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
-A two-dot diff compares two Git committish references, such as SHAs or OIDs (Object IDs), directly with each other. On {% data variables.product.prodname_dotcom %}, the Git committish references in a two-dot diff comparison must be pushed to the same repository or its forks.
+Um diff de dois pontos compara duas referências de committish do Git, como SHAs ou IDs de objeto (OIDs, Object IDs), diretamente entre si. No {% data variables.product.prodname_dotcom %}, as referências de committish do Git em uma comparação de diff de dois pontos devem ser enviadas por push ao mesmo repositório ou para suas bifurcações.
 
-If you want to simulate a two-dot diff in a pull request and see a comparison between the most recent versions of each branch, you can merge the base branch into your topic branch, which updates the last common ancestor between your branches.
+Se desejar simular um diff de dois pontos em uma pull request e ver uma comparação entre as versões mais recentes de cada branch, você poderá fazer merge do branch base no branch de tópico, o que atualiza o último ancestral comum entre seus branches.
 
-For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
+Para obter mais informações sobre os comandos do Git para comparar alterações, consulte "[Opções de diff do Git](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" no site do livro do _Pro Git_.
 
-## Reasons diffs will not display
-- You've exceeded the total limit of files or certain file types. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
-- Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[Customizing how changed files appear on GitHub](/articles/customizing-how-changed-files-appear-on-github)."
+## Motivos pelos quais os diffs não serão exibidos
+- Você excedeu o limite total de arquivos ou de determinados tipos de arquivo. Para obter mais informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)".
+- Seu arquivo corresponde a uma regra no arquivo *.gitattributes* do repositório para impedir esse arquivo de ser exibido por padrão. Para obter mais informações, consulte "[Personalizar como os arquivos alterados aparecem no GitHub](/articles/customizing-how-changed-files-appear-on-github)".
 
-## Further reading
+## Leia mais
 
-- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+- "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
