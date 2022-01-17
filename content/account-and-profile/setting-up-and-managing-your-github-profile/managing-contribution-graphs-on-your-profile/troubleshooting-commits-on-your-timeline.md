@@ -64,5 +64,6 @@ When you open the URL with the modified commit date, you can see the commit deta
 ![Commit details](/assets/images/help/commits/commit-details.png)
 
 ## Expected commits missing in your timeline
+## Expected commits missing in your timeline
 
 If you're not seeing expected commits on your timeline, it's possible the commit history in Git was rewritten and the commit author date and the commit date are different. For other possibilities, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
