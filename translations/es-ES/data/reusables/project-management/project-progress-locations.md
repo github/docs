@@ -1,0 +1,1 @@
+Si se habilita el rastreo de progreso, aparecerá una barra de progreso sobre el tablero de proyecto, en la página de listado del proyecto, en la barra lateral de la propuesta, y en las referencias del proyecto en otros tableros de proyecto.

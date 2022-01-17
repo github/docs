@@ -1,1 +1,1 @@
-If your repository contains code in more than one of the supported languages, you can choose which languages you want to analyze. 言語が分析されないようにする理由はいくつかあります。 たとえば、プロジェクトには、コードの本文とは異なる言語の依存関係があり、それらの依存関係のアラートを表示する必要がない場合があります。
+リポジトリがサポートされている言語を複数含む場合、分析したい言語を選択できます。 言語が分析されないようにする理由はいくつかあります。 たとえば、プロジェクトには、コードの本文とは異なる言語の依存関係があり、それらの依存関係のアラートを表示する必要がない場合があります。

@@ -1,0 +1,1 @@
+1. Decide qué fuente de publicación quieres utilizar.  Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_pages %}](/articles/about-github-pages#publishing-sources-for-github-pages-sites)".

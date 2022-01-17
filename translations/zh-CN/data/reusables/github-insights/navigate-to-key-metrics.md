@@ -1,1 +1,0 @@
-1. 在 {% data variables.product.prodname_insights %} 中，单击 **{% octicon "graph" aria-label="The graph icon" %} Key metrics（关键指标）**。 ![Key metrics（关键指标）选项卡](/assets/images/help/insights/key-metrics-tab.png)

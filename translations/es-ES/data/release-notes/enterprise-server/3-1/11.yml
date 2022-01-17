@@ -1,0 +1,28 @@
+date: '2021-11-09'
+sections:
+  security_fixes:
+    - 'Se identificó una vulnerabilidad de recorrido de ruta en las compilaciones de {% data variables.product.prodname_pages %} en {% data variables.product.prodname_ghe_server %}, la cual pudo haber permitido que un atacante leyera los archivos de sistema. Para explotar esta vulnerabilidad, el atacante necesitaría permiso para crear y compilar un sitio de {% data variables.product.prodname_pages %} en la instancia de {% data variables.product.prodname_ghe_server %}. Esta vulnerabilidad afectó a todas las versiones de {% data variables.product.prodname_ghe_server %} anteriores a la 3.3 y se corrigió en las versiones 3.0.19, 3.1.11 y 3.2.3. Esta vulnerabilidad se reportó a través del programa de Recompensas por Errores de {% data variables.product.company_short %} y se le asignó el identificador CVE-2021-22870.'
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'Some Git operations failed after upgrading a {% data variables.product.prodname_ghe_server %} 3.x cluster because of the HAProxy configuration.'
+    - 'Unicorn worker counts might have been set incorrectly in clustering mode.'
+    - 'Resqued worker counts might have been set incorrectly in clustering mode.'
+    - 'If Ubuntu''s Uncomplicated Firewall (UFW) status was inactive, a client could not clearly see it in the logs.'
+    - 'Upgrading from {% data variables.product.prodname_ghe_server %} 2.x to 3.x failed when there were UTF8 characters in an LDAP configuration.'
+    - 'Some pages and Git-related background jobs might not run in cluster mode with certain cluster configurations.'
+    - 'Al crear una etiqueta nueva, la carga útil del webhook de [push](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) no mostró un objeto correcto de `head_commit`. Ahora, cuando se crea una etiqueta nueva, la carga útil del webhook de subida siempre incluye un objeto de `head_commit` que contiene los datos de la confirmación a la cual apunta dicha etiqueta nueva. Como resultado, el objeto `head_commit` siempre contendrá los datos de la confirmación `after` de la carga útil.'
+    - 'The enterprise audit log page would not display audit events for {% data variables.product.prodname_secret_scanning %}.'
+    - 'There was an insufficient job timeout for replica repairs.'
+    - 'Users were not warned about potentially dangerous bidirectional unicode characters when viewing files. For more information, see "[Warning about bidirectional Unicode text](https://github.co/hiddenchars)" in {% data variables.product.prodname_blog %}.'
+    - 'Hookshot Go sent distribution type metrics that Collectd could not handle, which caused a ballooning of parsing errors.'
+  changes:
+    - 'Kafka configuration improvements have been added. When deleting repositories, package files are now immediately deleted from storage account to free up space. `DestroyDeletedPackageVersionsJob` now deletes package files from storage account for stale packages along with metadata records.'
+  known_issues:
+    - 'El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.'
+    - 'En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'
+    - 'Si se habilitan las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}, el desmontar un nodo de réplica con `ghe-repl-teardown` tendrá éxito, pero podría devolver un `ERROR:Running migrations`.'
+    - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'

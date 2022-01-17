@@ -2,12 +2,16 @@
 title: Git Database APIを使ってみる
 intro: 'Git Database APIでは、{% data variables.product.product_name %}上のGitデータベースに対してRaw形式のGitオブジェクトを読み書きしたり、リファレンス (ブランチheadやタグ) をリストおよび更新したりすることができます。'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+shortTitle: 始めましょう - GitデータベースAPI
 ---
 
-### 概要
+## 概要
 
 これにより、さまざまなGitの機能を、APIを介して再実装することができます。Raw形式オブジェクトのオブジェクトをデータベースに直接作成し、ブランチリファレンスを更新することにより、Gitをインストールしなくても、Gitができることのほとんどを行えるのです。
 
@@ -29,18 +33,18 @@ Gitオブジェクトデータベースについての詳細は、Pro Gitブッ�
 
 複雑に見えるかもしれませんが、実際にはモデルを理解していれば非常に単純で、理解することによりAPIでできることが広がるでしょう。
 
-### プルリクエストのマージ可能性を確認
+## プルリクエストのマージ可能性を確認
 
 {% warning %}
 
-**Warning!** Please do not depend on using Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference)  for updates to `merge` Git refs, because this content becomes outdated without warning.
+**警告:** 更新でGit refを`merge`するために直接Gitを使用したり、[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference)を使用したりしないでください。こうしたコンテンツが古くて使えなくなっても警告されません。
 
 {% endwarning %}
 
 _test_マージコミットを作成するには、使用するAPIは、明示的にプルリクエストを要求する必要があります。 _test_マージコミットは、UIでプルリクエストを表示して [Merge] ボタンが表示されるか、REST APIを使ってプルリクエストを[取得](/rest/reference/pulls#get-a-pull-request)、[作成](/rest/reference/pulls#create-a-pull-request)、または[編集](/rest/reference/pulls#update-a-pull-request)した際に作成されます。 このリクエストがなければ、`merge` Git refは次に誰かがプルリクエストを表示するまで期限切れになります。
 
-If you are currently using polling methods that produce outdated `merge` Git refs, then GitHub recommends using the following steps to get the latest changes from the default branch:
+期限切れの`merge` Git refを生成するポーリングメソッドを現在使用している場合、GitHubでは以下のステップに従い、デフォルトブランチ から最新の変更を取得することをお勧めします。
 
 1. プルリクエストwebhookを受け取ります。
 2. [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request)を呼び出し、マージコミット候補を作成するためのバックグラウンドジョブを開始します。
-3. `mergeable`属性が`true`か`false`かを判断するため、[`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request)を使用してリポジトリをポーリングします。 You can use Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference) for updates to `merge` Git refs only after performing the previous steps.
+3. `mergeable`属性が`true`か`false`かを判断するため、[`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request)を使用してリポジトリをポーリングします。 更新でGit refを`merge`するために直接Gitを、または [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference)を使用できるのは、前の手順を実行した場合のみです。

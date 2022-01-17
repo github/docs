@@ -1,24 +1,27 @@
 ---
 title: コメントを扱う
-intro: 'REST API を使用すると、プルリクエスト、Issue、およびコミットにある、コメントにアクセスして管理できます。'
+intro: REST API を使用すると、プルリクエスト、Issue、およびコミットにある、コメントにアクセスして管理できます。
 redirect_from:
-  - /guides/working-with-comments/
+  - /guides/working-with-comments
   - /v3/guides/working-with-comments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
 ---
 
 
 
 各プルリクエストに対して、{% data variables.product.product_name %} は 3 種類のコメント表示を提供しています。プルリクエスト全体に対する[プルリクエストのコメント][PR comment]、プルリクエスト内の[特定行のコメント][PR line comment]、そしてプルリクエスト内の[特定のコメントへのコメント][commit comment]です。
 
-コメントの各タイプは、{% data variables.product.product_name %} API の別々の部分を経由します。 このガイドでは、それぞれにアクセスして操作する方法を説明します。 各例では、"octocat" リポジトリで作成した、[このサンプルのプルリクエスト][sample PR]を使用します。 いつもと同様、サンプルは [platform-samples リポジトリ][platform-samples]にあります。
+Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. このガイドでは、それぞれにアクセスして操作する方法を説明します。 各例では、"octocat" リポジトリで作成した、[このサンプルのプルリクエスト][sample PR]を使用します。 いつもと同様、サンプルは [platform-samples リポジトリ][platform-samples]にあります。
 
-### プルリクエストのコメント
+## プルリクエストのコメント
 
-To access comments on a Pull Request, you'll go through [the Issues API][issues]. 最初はこれを意外に思うかもしれません。 しかし、プルリクエストがコード付きの Issue に過ぎないことさえ理解すれば、プルリクエストにコメントを作成するため Issues API を使うこともうなずけるでしょう。
+プルリクエストのコメントにアクセスするには、[Issues API][issues] を経由します。 最初はこれを意外に思うかもしれません。 しかし、プルリクエストがコード付きの Issue に過ぎないことさえ理解すれば、プルリクエストにコメントを作成するため Issues API を使うこともうなずけるでしょう。
 
 ここでは [Octokit.rb][octokit.rb] を使って Ruby スクリプトを作成し、プルリクエストのコメントをフェッチする方法を示します。 また、[個人アクセストークン][personal token]の作成もおすすめします。
 
@@ -42,9 +45,9 @@ end
 
 ここでは、コメントを取得するため Issues API を 呼び出し (`issue_comments`)、取得したいコメントのリポジトリ名 (`octocat/Spoon-Knife`) とプルリクエスト ID (`1176`) の両方を指定しています。 その後は、コメントを反復処理して、各コメントの情報を取得しているだけです。
 
-### 行につけるプルリクエストのコメント
+## 行につけるプルリクエストのコメント
 
-diff ビュー内では、プルリクエスト内の一つの変更について、特定の側面からディスカッションを開始できます。 これらのコメントは、変更されたファイル内の個々の行について書き込まれます。 The endpoint URL for this discussion comes from [the Pull Request Review API][PR Review API].
+diff ビュー内では、プルリクエスト内の一つの変更について、特定の側面からディスカッションを開始できます。 これらのコメントは、変更されたファイル内の個々の行について書き込まれます。 このディスカッションのエンドポイントURLは、[Pull Request Review API][PR Review API] から取得されます。
 
 以下のコードは、指定したプルリクエスト番号のファイルにあるプルリクエストのコメントすべてをフェッチします。
 
@@ -68,7 +71,7 @@ end
 
 上の例と非常に似ていることにお気づきでしょう。 このビューとプルリクエストのコメントとの違いは、会話の焦点にあります。 プルリクエストに対するコメントは、コードの全体的な方向性についてのディスカッションやアイデアを扱うべきです。 プルリクエストのレビューの一環として行うコメントは、ファイルで特定の変更が実装された方法について特に扱うべきです。
 
-### コミットのコメント
+## コミットのコメント
 
 最後のタイプのコメントは、特に個々のコミットで発生します。 For this reason, they make use of [the commit comment API][commit comment API].
 
@@ -101,4 +104,4 @@ end
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [PR Review API]: /rest/reference/pulls#comments
-[commit comment API]: /rest/reference/repos#get-a-commit-comment
+[commit comment API]: /rest/reference/commits#get-a-commit-comment

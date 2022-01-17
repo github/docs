@@ -1,1 +1,1 @@
-1. {% data variables.product.product_name %}で、Organizationのメインページにアクセスしてください。
+1. {% data variables.product.product_location %}で、Organizationのメインページにアクセスしてください。

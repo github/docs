@@ -1,6 +1,7 @@
 {% tip %}
 
-**ノート：** リポジトリをロックすると、ユーザはそのリポジトリにプッシュしたり、Issue、ラベル、マイルストーン、wiki、コメントといったリポジトリのリソースを修正したりできなくなります。 新しいTeamやコラボレータは、ロックされたリポジトリに関連づけできません。
+**Note:** Locking a repository prevents all write access to the repository. ロックされたリポジトリには、新しいTeamやコラボレータを関連づけることはできません。
+トライアル実行をしているなら、リポジトリをロックする必要はありません。 使用中のリポジトリからデータを移行する場合、
 
-トライアル実行をしているなら、リポジトリをロックする必要はありません。 そうでない場合は、ロックすることを強くおすすめします。 詳細は「[移行について](/enterprise/admin/migrations/about-migrations#types-of-migrations)」を参照してください。
+{% data variables.product.company_short %}はそのリポジトリをロックすることを強くおすすめします。 詳細は「[移行について](/enterprise/admin/migrations/about-migrations#types-of-migrations)」を参照してください。
 {% endtip %}

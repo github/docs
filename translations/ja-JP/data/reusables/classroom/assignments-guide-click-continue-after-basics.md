@@ -1,7 +1,7 @@
 <br/>
 
-When you're done, click **Continue** to configure starter code and a development environment for the assignment.
+完了したら、**Continue（続ける）**をクリックして課題のためのスターターコードと開発環境を設定してください。
 
 <div class="procedural-image-wrapper">
-  <img alt="'Continue' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-continue-button.png">
+  <img alt="'続ける'ボタン" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-continue-button.png">
 </div>

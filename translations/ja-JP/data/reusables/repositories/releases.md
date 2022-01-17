@@ -1,9 +1,1 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-
-1. リポジトリ名の下で**Releases（リリース）**をクリックしてください。 ![リリースタブ](/assets/images/help/releases/release-link.png)
-
-{% else %}
-
-1. To the right of the list of files, click **Releases** or **Latest release**. ![Releases section in right-hand sidebar](/assets/images/help/releases/release-link.png)
-
-{% endif %}
+1. To the right of the list of files, click **Releases**. ![右側のサイドバー内のリリースセクション](/assets/images/help/releases/release-link.png)

@@ -1,1 +1,1 @@
-1. 在您的个人资料页面左侧的“Organizations（组织）”下，单击组织的图标。 ![组织图标](/assets/images/help/profile/profile_orgs_box.png)
+1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Your organizations**. ![个人资料菜单中的组织](/assets/images/help/profile/your-organizations.png)

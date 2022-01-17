@@ -1,1 +1,0 @@
-You can designate which email address receives updates from the accounts your organization sponsors. For more information, see "[Managing updates from accounts your organization sponsors](/github/setting-up-and-managing-organizations-and-teams/managing-updates-from-accounts-your-organization-sponsors)."

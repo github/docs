@@ -1,0 +1,1 @@
+`project_card` | `object` | El objeto de la tarjeta de proyecto. `project_id` | `integer` | El identificador único de la tarjeta de proyecto. `project_url` | `string` | La URL de la API de REST que recuperará la tarjeta de proyecto. `column_name` | `string` | El nombre de la columna en la cual está el informe de problemas.

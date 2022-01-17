@@ -1,0 +1,1 @@
+La actividad relacionada con una organización y sus miembros. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[organizaciones](/rest/reference/orgs)".

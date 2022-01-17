@@ -1,1 +1,1 @@
-{% data variables.product.prodname_codespaces %} 在测试期间可免费使用。 When {% data variables.product.prodname_codespaces %} becomes generally available, you will be billed for storage and compute usage.
+{% data variables.product.prodname_codespaces %} 在测试期间可免费使用。 当 {% data variables.product.prodname_codespaces %} 公开发布时，将按存储和计算使用情况计费。

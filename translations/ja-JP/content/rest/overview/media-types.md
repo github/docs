@@ -4,9 +4,12 @@ intro: 使用するデータの形式を指定するためのメディアタイ�
 redirect_from:
   - /v3/media
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
 ---
 
 
@@ -21,7 +24,7 @@ API がサポートする最も基本的なメディアタイプは次のとお�
     application/json
     application/vnd.github+json
 
-Neither of these specify a [version][versions], so you will always get the current default JSON representation of resources.
+これらはどちらも[バージョン][versions]を指定しないため、常にリソースの現在のデフォルトの JSON 表現を取得します。
 
 {% note %}
 
@@ -41,104 +44,104 @@ Neither of these specify a [version][versions], so you will always get the curre
 
 ```shell
 $ curl {% data variables.product.api_url_pre %}/users/technoweenie -I
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-GitHub-Media-Type: github.v3
 
 $ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.full+json"
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 
 $ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.v3.full+json"
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 ```
 
-### コメント本文のプロパティ
+## コメント本文のプロパティ
 
-The body of a comment can be written in [GitHub Flavored Markdown][gfm], [issues](/rest/reference/issues), [issue comments](/rest/reference/issues#comments), [pull request comments](/rest/reference/pulls#comments), and the [gist comments](/rest/reference/gists#comments) APIs all accept these same media types:
+コメントの本文は、[GitHub Flavored Markdown][gfm]、[Issue](/rest/reference/issues)、[Issue コメント](/rest/reference/issues#comments)、[プルリクエストコメント](/rest/reference/pulls#comments)、および [gist コメント](/rest/reference/gists#comments) API で記述できます。これらの API はすべて、次の同じメディアタイプを受け入れます。
 
-#### Raw
+### Raw
 
     application/vnd.github.VERSION.raw+json
 
 Raw 形式の Markdown 本文を返します。 レスポンスには `body` が含まれます。 これは、特定のメディアタイプを渡さない場合のデフォルトです。
 
-#### Text
+### Text
 
     application/vnd.github.VERSION.text+json
 
 Markdown 本文の表現のみのテキストを返します。 レスポンスには `body_text` が含まれます。
 
-#### HTML
+### HTML
 
     application/vnd.github.VERSION.html+json
 
 本文の Markdown からレンダリングされた HTML を返します。 レスポンスには `body_html` が含まれます。
 
-#### Full
+### Full
 
     application/vnd.github.VERSION.full+json
 
 Raw 形式のテキストおよび HTML 表現を返します。 レスポンスには `body`、 `body_text`、および `body_html` が含まれます。
 
-### Git blob プロパティ
+## Git blob プロパティ
 
-The following media types are allowed when [getting a blob](/rest/reference/git#get-a-blob):
+[blob の取得](/rest/reference/git#get-a-blob)時に許可されるメディアタイプは次のとおりです。
 
-#### JSON
+### JSON
 
     application/vnd.github.VERSION+json
     application/json
 
 `content` を含む blob の JSON 表現を base64 でエンコードされた文字列型として返します。 これは、何も渡されていない場合のデフォルトです。
 
-#### Raw
+### Raw
 
     application/vnd.github.VERSION.raw
 
 Raw 形式の blob データを返します。
 
-### コミット、コミット比較、プルリクエスト
+## コミット、コミット比較、プルリクエスト
 
-The [commits API](/rest/reference/repos#commits) and [pull requests API](/rest/reference/pulls) support [diff][git-diff] and [patch][git-patch] formats:
+[コミット API](/rest/reference/repos#commits) と[プルリクエスト API](/rest/reference/pulls) は、[diff][git-diff] および [patch][git-patch] 形式をサポートしています。
 
-#### diff
+### diff
 
     application/vnd.github.VERSION.diff
 
-#### patch
+### patch
 
     application/vnd.github.VERSION.patch
 
-#### sha
+### sha
 
     application/vnd.github.VERSION.sha
 
-### リポジトリコンテンツ
+## リポジトリコンテンツ
 
-#### Raw
+### Raw
 
     application/vnd.github.VERSION.raw
 
 ファイルの内容を Raw 形式で返します。 これは、特定のメディアタイプを渡さない場合のデフォルトです。
 
-#### HTML
+### HTML
 
     application/vnd.github.VERSION.html
 
 Markdown や AsciiDoc などのマークアップファイルでは、`.html` メディアタイプを使用して、レンダリングされた HTML を取得できます。 マークアップ言語は、オープンソースの[マークアップライブラリ](https://github.com/github/markup)を使用して HTML にレンダリングされます。
 
-### Gist
+## Gist
 
-#### Raw
+### Raw
 
     application/vnd.github.VERSION.raw
 
 Gist の内容を Raw 形式で返します。 これは、特定のメディアタイプを渡さない場合のデフォルトです。
 
-#### base64
+### base64
 
     application/vnd.github.VERSION.base64
 

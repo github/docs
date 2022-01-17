@@ -1,0 +1,1 @@
+Puedes designar qué dirección de correo electrónico recibe actualizaciones de las cuentas que patrocina tu organización. Para obtener más información, consulta la sección "[Administrar las actualizaciones de las cuentas que patrocina tu organización](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)".

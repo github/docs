@@ -3,7 +3,10 @@ title: Contrato de desenvolvedor registrado do GitHub
 redirect_from:
   - /articles/github-registered-developer-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 O GitHub tem a sorte de contar com muitos desenvolvedores se juntando à nossa plataforma. Achamos isso incrível, e queremos tornar essa experiência ainda melhor.  O Programa de Desenvolvedores do GitHub (o "Programa") nos ajuda a nos conectarmos com você, compartilhando informações e apoiando seus esforços criativos melhor do que nunca. A relação especial entre o GitHub e a comunidade de desenvolvedores que o Programa cria requer um conjunto especial de termos. Bem-vindo ao Contrato de Desenvolvedor Registrado ("Contrato").
@@ -86,7 +89,7 @@ Este Contrato é um acordo legal entre você ("você") e o GitHub, Inc. ("GitHub
 
 13. **Direitos Proprietários**
 
-  Você concorda que o GitHub e seus licenciadores possuem todos os direitos, o título e o interesse na API, nos Materiais de Pré-Lançamento e em todos os outros produtos e serviços do GitHub; todas as informações e dados relacionados às suas configurações e combinações; e todas as modificações e trabalhos derivados de qualquer um dos itens mencionados acima. You agree not to remove, alter, cover or obfuscate any copyright or other proprietary rights notices we place on or embed in the API, the Pre-release Materials, or any other GitHub products and services.
+  Você concorda que o GitHub e seus licenciadores possuem todos os direitos, o título e o interesse na API, nos Materiais de Pré-Lançamento e em todos os outros produtos e serviços do GitHub; todas as informações e dados relacionados às suas configurações e combinações; e todas as modificações e trabalhos derivados de qualquer um dos itens mencionados acima. Você concorda em não remover, alterar, cobrir ou ocultar quaisquer direitos autorais ou outros avisos de direitos de propriedade que colocamos ou incorporamos na API, os materiais de pré-versão ou quaisquer outros produtos e serviços do GitHub.
 
 14. **Usuários do Governo**
 

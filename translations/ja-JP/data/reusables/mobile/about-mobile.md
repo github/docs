@@ -1,0 +1,1 @@
+{% data variables.product.prodname_mobile %}は、Android及びiOSアプリケーションとして利用できます。 {% data variables.product.prodname_mobile %}{% data variables.product.prodname_dotcom_the_website %}ユーザが一般利用可能であり、{% data variables.product.prodname_ghe_server %} 3.0+のユーザにはパブリックベータとなっています。

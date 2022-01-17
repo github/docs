@@ -1,1 +1,1 @@
-1. In your menu bar, click **Branch**, then click **Delete...**. You can also press <kbd>shift</kbd><kbd>⌘ command</kbd><kbd>D</kbd>.
+1. メニューバーで**Branch（ブランチ）**をクリックして、続いて**Delete...（削除...）**をクリックしてください。 You can also press <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>D</kbd>.

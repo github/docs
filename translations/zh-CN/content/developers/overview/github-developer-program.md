@@ -2,9 +2,12 @@
 title: GitHub 开发者计划
 intro: '要构建与 {% data variables.product.prodname_dotcom %} 集成的工具，您可以加入 {% data variables.product.prodname_dotcom %} 开发者计划。'
 redirect_from:
-  - /计划
+  - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - API
 ---
 
 要构建与 GitHub 集成的应用程序？ 请注册我们的开发者计划！ 无尽可能，享受点赞。 [立即注册](https://github.com/developer/register)
@@ -19,7 +22,7 @@ versions:
 
 ## 纳入企业
 
-[取得开发者许可](http://github.com/contact?form%5Bsubject%5D=Development+licenses)，根据 {% data variables.product.prodname_ghe_server %} 或 {% data variables.product.prodname_ghe_managed %} 构建和测试您的应用程序。
+[取得开发者许可](http://github.com/contact?form%5Bsubject%5D=Development+licenses)以根据 {% data variables.product.prodname_ghe_server %} 构建和测试您的应用程序。
 
 
 ## 有适用于 GitHub 的集成？

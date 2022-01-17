@@ -1,16 +1,16 @@
 2. `package.json`ファイルと同じディレクトリに、`.npmrc`を作成もしくは編集し、{% data variables.product.prodname_registry %}のURLとアカウントのオーナーを指定する行を含めてください。 `OWNER`を、プロジェクトを含むリポジトリを所有するユーザもしくはOrganizationアカウント名で置き換えてください。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
   ```shell
-registry=https://npm.pkg.github.com/<em>OWNER</em>
+  @<em>OWNER</em>:registry=https://npm.pkg.github.com
   ```
 {% else %}
-  If subdomain isolation is enabled:
+  Subdomain Isolationが有効な場合:
   ```shell
-  registry=https://npm.<em>HOSTNAME</em>/<em>OWNER</em>
+  @<em>OWNER</em>:registry=https://npm.<em>HOSTNAME</em>
   ```
-  If subdomain isolation is disabled:
+  Subdomain Isolationが無効な場合:
   ```shell
-  https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
+  @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
   ```
 {% endif %}

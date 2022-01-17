@@ -2,13 +2,17 @@
 title: Uniões
 redirect_from:
   - /v4/union
+  - /v4/reference/union
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
 ---
 
-### Sobre uniões
+## Sobre uniões
 
 Uma [união](https://graphql.github.io/graphql-spec/June2018/#sec-Unions) é um tipo de objeto que representa muitos objetos.
 

@@ -1,5 +1,5 @@
 {% warning %}
 
-**Warning**: Be careful where you share invitation URLs. Anyone with an invitation URL for an assignment can accept the invitation and associate a user account on {% data variables.product.product_name %} with an identifier in your roster.
+**警告**：在分享邀请 URL 时要小心。 任何拥有作业邀请 URL 的人都可以接受邀请并将 {% data variables.product.product_name %} 上的用户帐户与您的名册中的标识符相关联。
 
 {% endwarning %}
