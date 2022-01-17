@@ -7,7 +7,8 @@ redirect_from:
   - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
   - /articles/restricting-email-notifications-to-an-approved-domain
   - /github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain
-  - /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain
+  - /
+
 versions:
   fpt: '*'
   ghes: '>=3.2'
@@ -43,4 +44,5 @@ For more information about verifying and approving domains for an organization, 
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.verified-domains %}
 {% data reusables.organizations.restrict-email-notifications %}
-6. Click **Save**.
+6. Click **Save
+**.
