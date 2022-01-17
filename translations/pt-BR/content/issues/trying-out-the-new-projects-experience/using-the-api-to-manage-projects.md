@@ -243,6 +243,12 @@ Cada campo tem um ID. Além disso, campos únicos selecionados e iteração têm
 
 Você pode consultar a API para encontrar informações sobre itens no seu projeto.
 
+{% note %}
+
+**Note**: The API will not return information about draft issues.
+
+{% endnote %}
+
 O exemplo a seguir retornará o título e ID dos primeiros 20 itens em um projeto. Para cada item, ela também retornará o valor e nome para os primeiros 8 campos do projeto. Se o item for um problema ou um pull request, ele retornará o login dos primeiros 10 responsáveis. Substitua `PROJECT_ID` pelo ID do nó do seu projeto.
 
 {% curl %}
