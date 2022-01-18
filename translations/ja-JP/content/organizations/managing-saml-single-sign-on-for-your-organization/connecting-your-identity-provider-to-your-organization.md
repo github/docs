@@ -22,6 +22,12 @@ You can find the SAML and SCIM implementation details for your IdP in the IdP's 
 - PingOne: [SAML](https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector)
 - Shibboleth: [SAML](https://wiki.shibboleth.net/confluence/display/IDP30/Home)
 
+You can access your organization's service provider metadata at the following URL, replacing ORGANIZATION with your organization's username.
+
+```
+http(s)://github.com/orgs/ORGANIZATION/saml/metadata.xml
+```
+
 {% note %}
 
 **メモ:** {% data variables.product.product_name %} がサポートする SCIM アイデンティティプロバイダは Azure AD、Okta、OneLogin です。 {% data reusables.scim.enterprise-account-scim %} SCIMに関する詳しい情報については、「[SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim) 」を参照してください。
