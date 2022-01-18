@@ -16,7 +16,7 @@ topics:
 shortTitle: Perfil de la organización
 ---
 
-Opcionalmente, puedes elegir agregar una descripción, ubicación, sitio web y dirección de correo electrónico para tu organización y fijar repositorios importantes.{% ifversion not ghes and not ghae %} Puedes personalizar el perfil de tu organización si agregas un archivo README.md. Para obtener más información, consulta la sección "[Personalizar el perfil de tu organización ](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".{% endif %}
+Opcionalmente, puedes elegir agregar una descripción, ubicación, sitio web y dirección de correo electrónico para tu organización y fijar repositorios importantes.{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4749 %} Puedes personalizar el perfil de tu organización si agregas un archivo README.md. Para obtener más información, consulta la sección "[Personalizar el perfil de tu organización ](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".{% endif %}
 
 {% ifversion fpt or ghec %}Para confirmar la identidad de tu organización y mostrar el distintivo "Verificada" en la página del perfil de tu organización, debes verificar los dominios de tu organización con {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".{% endif %}
 

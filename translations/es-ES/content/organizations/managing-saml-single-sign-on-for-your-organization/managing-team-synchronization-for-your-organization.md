@@ -46,9 +46,9 @@ Debes habilitar el inicio de sesión único de SAML para tu organización y tu I
 
 Debes tener una identidad de SAML vinculada. Para crear una identidad vinculada, debes autenticarte a tu organización utilizando el SSO de SAML y el IdP compatible por lo menos una vez. Para obtener más información, consulta "[Acerca de la autenticación con el inicio de sesión único de SAML](/articles/about-authentication-with-saml-single-sign-on)".
 
-Your SAML settings **must** contain a valid IdP URL for the **Issuer** field.
+Tus ajustes de SAML **deben** contener una URL de IdP válida para el campo **emisor**.
 
-![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
+![Campo de emisor de SAML](/assets/images/help/saml/saml_issuer.png)
 
 
 
