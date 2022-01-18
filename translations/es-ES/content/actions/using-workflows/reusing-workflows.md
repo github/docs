@@ -130,7 +130,7 @@ Puedes definir entradas y secretos, las cuales pueden pasarse desde el flujo de 
 
 ### Flujo de trabajo reutilizable de ejemplo
 
-This reusable workflow file named `workflow-B.yml` (we'll refer to this later in the [example caller workflow](#example-caller-workflow)) takes an input string and a secret from the caller workflow and uses them in an action.
+Este flujo de trabajo reutilizable llamado `workflow-B.yml` (al cual nos referiremos más adelante en el [flujo de trabajo llamante de ejemplo](#example-caller-workflow)) toma un secreto y secuencia de entrada desde el flujo de trabajo llamante y los utiliza en una acción.
 
 {% raw %}
 ```yaml{:copy}

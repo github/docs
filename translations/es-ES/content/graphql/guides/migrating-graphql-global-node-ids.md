@@ -21,7 +21,7 @@ To learn more about why the legacy global node ID format will be deprecated, see
 
 You only need to follow the migration steps if you store references to GraphQL global node IDs.  These IDs correspond to the `id` field for any object in the schema.  If you don't store any global node IDs, then you can continue to interact with the API with no change.
 
-Additionally, if you currently decode the legacy IDs to extract type information (for example, if you use the first two characters of `PR_kwDOAHz1OX4uYAah` to determine if the object is a pull request), your service will break since the format of the IDs has changed.  You should migrate your service to treat these IDs as opaque strings.  These IDs will be unique, therefore you can rely on them directly as references.
+Adicionalmente, si actualmente descodificas las ID tradicionales para extraer información de tipo (por ejemplo, si utilizas los dos primeros caracteres de `PR_kwDOAHz1OX4uYAah` para determinar si el objeto es una solicitud de cambios), tu servicio se interrumpirá, ya que el formato de las ID cambió.  You should migrate your service to treat these IDs as opaque strings.  These IDs will be unique, therefore you can rely on them directly as references.
 
 
 ## Migrating to the new global IDs
