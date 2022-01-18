@@ -102,7 +102,7 @@ Uma ação geralmente aceita ou exige entradas e gera saídas que você pode usa
 
 Para ver as entradas e saídas de uma ação, verifique a `action.yml` ou `action.yaml` no diretório-raiz do repositório.
 
-Neste exemplo `action.yml`, a palavra-chave `entradas` define uma entrada obrigatória denominada `file-path` e inclui um valor-padrão que será usado, caso nenhum valor seja especificado. A palavra-chave `saídas` define uma saída denominada `results-file`, que diz onde localizar os resultados.
+Neste exemplo `action.yml`, a palavra-chave `inputs` define uma entrada obrigatória denominada `file-path` e inclui um valor-padrão que será usado, caso nenhum valor seja especificado. A palavra-chave `outputs` define uma saída denominada `results-file`, que diz onde localizar os resultados.
 
 ```yaml
 name: "Example"
@@ -132,26 +132,26 @@ Se uma ação for definida no mesmo repositório onde seu arquivo de fluxo de tr
 Estrutura de arquivos do repositório de exemplo:
 
 ```
-|-- Hello-world (repositório)
+|-- hello-world (repositório)
 |   |__ .github
-|       fluxos de trabalho └sadessa
-|           └➤➤ my-first-workflow.yml
-|       ações └➤➤
-|           |__ Hello-world-action
-|               └➤➤ ação.yml
+|       └── workflows
+|           └── my-first-workflow.yml
+|       └── actions
+|           |__ hello-world-action
+|               └── action.yml
 ```
 
 Arquivo de fluxo de trabalho de exemplo:
 
 ```yaml
-empregos:
-  construir:
+jobs:
+  build:
     runs-on: ubuntu-latest
-    passos:
+    steps:
       # Esta etapa confere uma cópia do seu repositório.
-      - usa: ações/checkout@v2
+      - uses: ações/checkout@v2
       # Esta etapa faz referência ao diretório que contém a ação.
-      - usa: ./.github/actions/hello-world-action
+      - uses: ./.github/actions/hello-world-action
 ```
 
 O arquivo `action.yml` é usado para fornecer metadados para a ação. Saiba mais sobre o conteúdo deste arquivo em "[Sintaxe de metadados para o GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)"
@@ -161,11 +161,11 @@ O arquivo `action.yml` é usado para fornecer metadados para a ação. Saiba mai
 Se uma ação for definida em uma imagem de contêiner Docker publicada no Docker Hub, você deve fazer referência à ação com o `docker://{image}:{tag}` sintaxe em seu arquivo de fluxo de trabalho. Para proteger seu código e dados, recomendamos fortemente que verifique a integridade da imagem do contêiner Docker do Docker Hub antes de usá-la em seu fluxo de trabalho.
 
 ```yaml
-empregos:
+jobs:
   my_first_job:
-    passos:
-      - nome: Meu primeiro passo
-        usa: docker://alpine:3.8
+    steps:
+      - name: My first step
+        uses: docker://alpine:3.8
 ```
 
 Para ver alguns exemplos de ações do Docker, consulte o [Fluxo de trabalho Docker-image.yml](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) e "[Criar uma ação de contêiner do Docker](/articles/creating-a-docker-container-action)."
