@@ -51,6 +51,12 @@ Se você adicionar uma lista de tarefas ao texto de um problema, isso significa 
 
 {% data reusables.repositories.task-list-markdown %}
 
+{% tip %}
+
+**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
+
+{% endtip %}
+
 ## Reordenar tarefas
 
 Você pode reordenar os itens de uma lista de tarefas clicando à esquerda da caixa de seleção de uma tarefa arrastando a tarefa para uma nova localidade e soltando a tarefa. Você pode reordenar tarefas em diferentes listas no mesmo comentário, mas você não pode reordenar tarefas em diferentes comentários.

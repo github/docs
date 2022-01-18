@@ -1,6 +1,6 @@
 ---
 title: Implantações
-intro: 'The deployments API allows you to create and delete deploy keys, deployments, and deployment environments.'
+intro: 'A API de implantação permite que você crie e exclua chaves de implantação, implantações e ambientes de implantação.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

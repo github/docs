@@ -53,11 +53,7 @@ To make a secret available to an action, you must set the secret as an input or 
 
 You can use and read encrypted secrets in a workflow file if you have access to edit the file. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
-{% warning %}
-
-**Warning:** {% data variables.product.prodname_dotcom %} automatically redacts secrets printed to the log, but you should avoid printing secrets to the log intentionally.
-
-{% endwarning %}
+{% data reusables.github-actions.secrets-redaction-warning %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Organization and repository secrets are read when a workflow run is queued, and environment secrets are read when a job referencing the environment starts.
