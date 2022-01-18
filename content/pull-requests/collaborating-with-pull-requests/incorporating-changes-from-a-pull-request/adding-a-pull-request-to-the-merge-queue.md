@@ -58,4 +58,4 @@ The merge queue view shows the pull requests that are currently in the queue, wi
 
 ## Handling pull requests removed from the merge queue
 	
-{% data reusables.pull_requests.merge-queue-reject %}
+{% data adding-a-pull-request-to-the-merge-queue.md %}
