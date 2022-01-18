@@ -17,7 +17,7 @@ export const ProductPicker = () => {
       defaultText="All products"
       options={activeProducts.map((product) => ({
         text: product.name,
-        selected: product === currentProduct,
+        selected: product.name === currentProduct?.name,
         item: (
           <Link href={`${product.external ? '' : `/${router.locale}`}${product.href}`}>
             {product.name}

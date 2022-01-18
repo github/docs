@@ -2,11 +2,11 @@
 title: 关于仓库语言
 intro: 仓库中的文件和目录确定构成仓库的语言。 您可以查看仓库的语言以快速获取仓库的概述。
 redirect_from:
-  - /articles/my-repository-is-marked-as-the-wrong-language/
-  - /articles/why-isn-t-my-favorite-language-recognized/
-  - /articles/my-repo-is-marked-as-the-wrong-language/
-  - /articles/why-isn-t-sql-recognized-as-a-language/
-  - /articles/why-isn-t-my-favorite-language-recognized-by-github/
+  - /articles/my-repository-is-marked-as-the-wrong-language
+  - /articles/why-isn-t-my-favorite-language-recognized
+  - /articles/my-repo-is-marked-as-the-wrong-language
+  - /articles/why-isn-t-sql-recognized-as-a-language
+  - /articles/why-isn-t-my-favorite-language-recognized-by-github
   - /articles/about-repository-languages
   - /github/creating-cloning-and-archiving-repositories/about-repository-languages
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repository-languages

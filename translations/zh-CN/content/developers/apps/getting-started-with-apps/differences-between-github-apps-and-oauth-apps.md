@@ -2,8 +2,8 @@
 title: GitHub 应用程序和 OAuth 应用程序之间的差异
 intro: '了解 {% data variables.product.prodname_github_apps %} 和 {% data variables.product.prodname_oauth_apps %} 之间的差异可帮助您决定要创建哪个应用程序。 在组织或组织内的仓库上安装时，{% data variables.product.prodname_oauth_app %} 代表 GitHub 用户，而 {% data variables.product.prodname_github_app %} 使用它自己的身份。'
 redirect_from:
-  - /early-access/integrations/integrations-vs-oauth-applications/
-  - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type/
+  - /early-access/integrations/integrations-vs-oauth-applications
+  - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type
   - /apps/differences-between-apps
   - /developers/apps/differences-between-github-apps-and-oauth-apps
 versions:
@@ -96,10 +96,10 @@ _授权的_ OAuth 应用程序有权访问用户或组织所有者可访问的�
 
 ## Git 访问
 
-| GitHub 应用程序                                                                                                                                                | OAuth 应用程序                                                                                                             |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| GitHub 应用程序请求仓库内容权限，并使用安装令牌通过[基于 HTTP 的 Git](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation) 进行身份验证。 | OAuth 应用程序请求 `write:public_key` 作用域，并通过 API [创建部署密钥](/rest/reference/repos#create-a-deploy-key)。 然后您可以使用该密钥来执行 Git 命令。 |
-| 令牌用作 HTTP 密码。                                                                                                                                              | 令牌用作 HTTP 用户名。                                                                                                         |
+| GitHub 应用程序                                                                                                                                                | OAuth 应用程序                                                                                                                   |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| GitHub 应用程序请求仓库内容权限，并使用安装令牌通过[基于 HTTP 的 Git](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation) 进行身份验证。 | OAuth 应用程序请求 `write:public_key` 作用域，并通过 API [创建部署密钥](/rest/reference/deployments#create-a-deploy-key)。 然后您可以使用该密钥来执行 Git 命令。 |
+| 令牌用作 HTTP 密码。                                                                                                                                              | 令牌用作 HTTP 用户名。                                                                                                               |
 
 ## 机器与机器人帐户
 

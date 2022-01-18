@@ -26,7 +26,7 @@ Gist にローカルの変更を加え、ウェブにプッシュしたい場合
 
 ## Gist のコミットの履歴を見る
 
-Gist の完全なコミットの履歴を見るには、Gist の上部にある [Revisions] タブをクリックします。
+To view a gist's full commit history, click the "Revisions" tab at the top of the gist.
 
 ![Gist [revisions] タブ](/assets/images/help/gist/gist_revisions_tab.png)
 

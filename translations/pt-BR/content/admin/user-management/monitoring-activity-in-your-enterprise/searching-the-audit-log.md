@@ -2,7 +2,7 @@
 title: Pesquisar no log de auditoria
 intro: Os administradores do site podem pesquisar uma extensa lista de ações auditadas sobre a empresa.
 redirect_from:
-  - /enterprise/admin/articles/searching-the-audit-log/
+  - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
   - /enterprise/admin/user-management/searching-the-audit-log
   - /admin/user-management/searching-the-audit-log

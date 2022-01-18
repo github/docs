@@ -2,8 +2,8 @@
 title: リリースについて
 intro: 他の人が使用できるようにソフトウェア、リリースノート、バイナリファイルへのリンクをパッケージしたリリースを作成できます。
 redirect_from:
-  - /articles/downloading-files-from-the-command-line/
-  - /articles/downloading-files-with-curl/
+  - /articles/downloading-files-from-the-command-line
+  - /articles/downloading-files-with-curl
   - /articles/about-releases
   - /articles/getting-the-download-count-for-your-releases
   - /github/administering-a-repository/getting-the-download-count-for-your-releases

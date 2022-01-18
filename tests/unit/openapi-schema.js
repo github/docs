@@ -4,11 +4,18 @@ import walk from 'walk-sync'
 import { get, isPlainObject } from 'lodash-es'
 import { allVersions } from '../../lib/all-versions.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-import { operations } from '../../lib/rest/index.js'
+import getRest from '../../lib/rest/index.js'
 import dedent from 'dedent'
+import { beforeAll } from '@jest/globals'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const schemasPath = path.join(__dirname, '../../lib/rest/static/decorated')
-const nonEnterpriseDefaultVersionSchema = operations[nonEnterpriseDefaultVersion]
+
+let operations = null
+let nonEnterpriseDefaultVersionSchema = null
+beforeAll(async () => {
+  operations = (await getRest()).operations
+  nonEnterpriseDefaultVersionSchema = operations[nonEnterpriseDefaultVersion]
+})
 
 describe('OpenAPI schema validation', () => {
   test('makes an object', () => {
@@ -57,14 +64,14 @@ describe('x-codeSamples for curl', () => {
     expect(source).toEqual(expected)
   })
 
-  test('operations with required preview headers', () => {
+  test('operations with required preview headers match Shell examples', () => {
     const operationsWithRequiredPreviewHeaders = nonEnterpriseDefaultVersionSchema.filter(
       (operation) => {
         const previews = get(operation, 'x-github.previews', [])
         return previews.some((preview) => preview.required)
       }
     )
-    expect(operationsWithRequiredPreviewHeaders.length).toBeGreaterThan(0)
+
     const operationsWithHeadersInCodeSample = operationsWithRequiredPreviewHeaders.filter(
       (operation) => {
         const { source: codeSample } = operation['x-codeSamples'].find(
@@ -126,14 +133,13 @@ describe('x-codeSamples for @octokit/core.js', () => {
     expect(source).toEqual(expected)
   })
 
-  test('operations with required preview headers', () => {
+  test('operations with required preview headers match JavaScript examples', () => {
     const operationsWithRequiredPreviewHeaders = nonEnterpriseDefaultVersionSchema.filter(
       (operation) => {
         const previews = get(operation, 'x-github.previews', [])
         return previews.some((preview) => preview.required)
       }
     )
-    expect(operationsWithRequiredPreviewHeaders.length).toBeGreaterThan(0)
 
     // Find something that looks like the following in each code sample:
     /*

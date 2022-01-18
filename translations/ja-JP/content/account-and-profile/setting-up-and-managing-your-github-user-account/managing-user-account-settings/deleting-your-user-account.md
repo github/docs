@@ -2,7 +2,7 @@
 title: 自分のユーザアカウントの削除
 intro: 'いつでも自分の {% data variables.product.product_name %}ユーザアカウントを削除できます。'
 redirect_from:
-  - /articles/deleting-a-user-account/
+  - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account

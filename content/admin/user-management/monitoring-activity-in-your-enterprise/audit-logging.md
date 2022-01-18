@@ -2,7 +2,7 @@
 title: Audit logging
 intro: '{% data variables.product.product_name %} keeps logs of audited{% ifversion ghes %} system,{% endif %} user, organization, and repository events. Logs are useful for debugging and internal and external compliance.'
 redirect_from:
-  - /enterprise/admin/articles/audit-logging/
+  - /enterprise/admin/articles/audit-logging
   - /enterprise/admin/installation/audit-logging
   - /enterprise/admin/user-management/audit-logging
   - /admin/user-management/audit-logging

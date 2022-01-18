@@ -2,7 +2,7 @@
 title: Licenciar um repositório
 intro: 'Os repositórios públicos no GitHub são usados frequentemente para compartilhar softwares de código aberto. Para que seu repositório seja realmente de código aberto, você precisará licenciá-lo para que outros tenham a liberdade de usar, alterar e distribuir o software.'
 redirect_from:
-  - /articles/open-source-licensing/
+  - /articles/open-source-licensing
   - /articles/licensing-a-repository
   - /github/creating-cloning-and-archiving-repositories/licensing-a-repository
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/licensing-a-repository
@@ -90,7 +90,7 @@ O selecionador de licenças somente está disponível quando você cria um novo 
 
 ## Isenção de responsabilidade
 
-O objetivo das iniciativas de licenciamento de código aberto do GitHub é oferecer um ponto de partida para ajudar você a tomar uma decisão fundamentada. O GitHub apresenta informações sobre licenças para ajudar os usuários a conseguir informações sobre licenças de código aberto e sobre os projetos que as usam. Esperamos que seja útil, mas esteja ciente de que não somos advogados e que cometemos erros como qualquer pessoa. For that reason, GitHub provides the information on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the license information. Se você tiver quaisquer dúvidas com relação à licença ideal para seu código ou quaisquer outras questões legais relacionadas a ele, sempre é melhor consultar um profissional.
+O objetivo das iniciativas de licenciamento de código aberto do GitHub é oferecer um ponto de partida para ajudar você a tomar uma decisão fundamentada. O GitHub apresenta informações sobre licenças para ajudar os usuários a conseguir informações sobre licenças de código aberto e sobre os projetos que as usam. Esperamos que seja útil, mas esteja ciente de que não somos advogados e que cometemos erros como qualquer pessoa. Por esse motivo, o GitHub fornece as informações de forma "como se apresentam" e não faz garantia em relação a qualquer informação ou licença fornecida em ou por meio dela, e exime-se da responsabilidade por danos resultantes do uso das informações de licença. Se você tiver quaisquer dúvidas com relação à licença ideal para seu código ou quaisquer outras questões legais relacionadas a ele, sempre é melhor consultar um profissional.
 
 ## Leia mais
 

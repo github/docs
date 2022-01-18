@@ -2,8 +2,8 @@
 title: 生成新 SSH 密钥并添加到 ssh-agent
 intro: 检查现有 SSH 密钥后，您可以生成新 SSH 密钥以用于身份验证，然后将其添加到 ssh-agent。
 redirect_from:
-  - /articles/adding-a-new-ssh-key-to-the-ssh-agent/
-  - /articles/generating-a-new-ssh-key/
+  - /articles/adding-a-new-ssh-key-to-the-ssh-agent
+  - /articles/generating-a-new-ssh-key
   - /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
@@ -21,7 +21,7 @@ shortTitle: 生成新 SSH 密钥
 
 如果您还没有 SSH 密钥，则必须生成新 SSH 密钥用于身份验证。 如果不确定是否已经拥有 SSH 密钥，您可以检查现有密钥。 更多信息请参阅“[检查现有 SSH 密钥](/github/authenticating-to-github/checking-for-existing-ssh-keys)”。
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 
 如果要使用硬件安全密钥向 {% data variables.product.product_name %} 验证，则必须为硬件安全密钥生成新的 SSH 密钥。 使用密钥对进行身份验证时，您必须将硬件安全密钥连接到计算机。 更多信息请参阅 [OpenSSH 8.2 发行说明](https://www.openssh.com/txt/release-8.2)。
 
@@ -191,7 +191,7 @@ shortTitle: 生成新 SSH 密钥
 
 {% endlinux %}
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## 为硬件安全密钥生成新的 SSH 密钥
 
 如果您使用 macOS 或 Linux， 在生成新的 SSH 密钥之前，您可能需要更新 SSH 客户端或安装新的 SSH 客户端。 更多信息请参阅“[错误：未知密钥类型](/github/authenticating-to-github/error-unknown-key-type)”。
@@ -253,6 +253,6 @@ shortTitle: 生成新 SSH 密钥
 
 - "[关于 SSH](/articles/about-ssh)"
 - "[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)"
-{%- ifversion fpt %}
-- "[授权 SSH 密钥用于 SAML 单点登录](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
+{%- ifversion fpt or ghec %}
+- "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
 {%- endif %}

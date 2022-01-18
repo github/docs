@@ -12,7 +12,7 @@ redirect_from:
   - /articles/creating-and-editing-labels-for-issues-and-pull-requests
   - /articles/creating-a-label
   - /github/managing-your-work-on-github/creating-a-label
-  - /articles/customizing-issue-labels/
+  - /articles/customizing-issue-labels
   - /articles/applying-labels-to-issues-and-pull-requests
   - /github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests
   - /articles/editing-a-label
@@ -53,7 +53,7 @@ type: how_to
 
 リポジトリの作成時に、すべての新しいリポジトリにデフォルトのラベルが含められますが、後でそのラベルを編集または削除できます。
 
-Issues with the `good first issue` label are used to populate the repository's `contribute` page. `contribute`ページの例については[github/docs/contribute](https://github.com/github/docs/contribute)を参照してください。
+`good first issue`ラベル付きのIssueは、リポジトリの`contribute`ページを展開するために使われます。 `contribute`ページの例については[github/docs/contribute](https://github.com/github/docs/contribute)を参照してください。
 
 {% ifversion fpt or ghes or ghec %}
 Organization のオーナーは、Organization 内のリポジトリのためのデフォルトラベルをカスタマイズできます。 詳しい情報については、「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」を参照してください。
@@ -72,7 +72,7 @@ Anyone with write access to a repository can create a label.
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.create-label %}
 
-## Applying a label
+## ラベルの適用
 
 Anyone with triage access to a repository can apply and dismiss labels.
 

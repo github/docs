@@ -5,19 +5,20 @@ name: Hubber contribution help
 # **Who does it impact**: docs-internal contributors
 
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
     paths:
       - 'content/**'
       - 'data/**'
 
+permissions:
+  pull-requests: write
+
 jobs:
   check-team-membership:
     if: github.repository == 'github/docs-internal' && github.actor != 'github-openapi-bot'
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - id: membership_check
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d

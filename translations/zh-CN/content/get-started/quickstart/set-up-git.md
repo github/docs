@@ -1,14 +1,14 @@
 ---
 title: 设置 Git
 redirect_from:
-  - /git-installation-redirect/
-  - /linux-git-installation/
-  - /linux-set-up-git/
-  - /mac-git-installation/
-  - /mac-set-up-git/
-  - /set-up-git-redirect/
-  - /win-git-installation/
-  - /win-set-up-git/
+  - /git-installation-redirect
+  - /linux-git-installation
+  - /linux-set-up-git
+  - /mac-git-installation
+  - /mac-set-up-git
+  - /set-up-git-redirect
+  - /win-git-installation
+  - /win-set-up-git
   - /articles/set-up-git
   - /github/getting-started-with-github/set-up-git
   - /github/getting-started-with-github/quickstart/set-up-git
@@ -41,6 +41,16 @@ topics:
 ## 设置 Git
 
 1. [下载并安装最新版本的 Git](https://git-scm.com/downloads)。
+
+{% note %}
+
+**Note**: If you are using a Chrome OS device, additional set up is required:
+
+1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
+2. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
+
+{% endnote %}
+
 2. [在 Git 中设置您的用户名](/github/getting-started-with-github/setting-your-username-in-git)。
 3. [在 Git 中设置提交电子邮件地址](/articles/setting-your-commit-email-address)。
 

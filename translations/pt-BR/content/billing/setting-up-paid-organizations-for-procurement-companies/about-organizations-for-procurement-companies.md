@@ -3,7 +3,7 @@ title: Sobre organizações para empresas de compras
 intro: 'As empresas usam organizações para colaborar em projetos compartilhados com vários proprietários e administradores. Você pode criar uma organização para seu cliente, fazer um pagamento no nome dele e, por fim, passar a propriedade da organização ao cliente.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-organizations-for-procurement-companies
-  - /articles/about-organizations-for-resellers/
+  - /articles/about-organizations-for-resellers
   - /articles/about-organizations-for-procurement-companies
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/about-organizations-for-procurement-companies
 versions:

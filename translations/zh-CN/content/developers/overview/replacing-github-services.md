@@ -2,8 +2,8 @@
 title: 替换 GitHub 服务
 intro: '如果您仍然依赖已弃用的 {% data variables.product.prodname_dotcom %} 服务，请了解如何将服务挂钩迁移到 web 挂钩。'
 redirect_from:
-  - /guides/replacing-github-services/
-  - /v3/guides/automating-deployments-to-integrators/
+  - /guides/replacing-github-services
+  - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
 versions:
   fpt: '*'

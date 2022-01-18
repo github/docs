@@ -12,7 +12,6 @@ redirect_from:
 shortTitle: Usar ações
 ---
 
-{% data reusables.actions.ae-beta %}
 
 Os fluxos de trabalho de {% data variables.product.prodname_actions %} podem usar _ações_, que são tarefas individuais que você pode combinar para criar tarefas e personalizar seu fluxo de trabalho. Você pode criar suas próprias ações ou usar e personalizar ações compartilhadas pela comunidade {% data variables.product.prodname_dotcom %}.
 

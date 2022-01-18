@@ -2,7 +2,7 @@
 title: GitHub Enterprise Server のトライアルを設定する
 intro: '{% data variables.product.prodname_ghe_server %} のトライアルは無料でできます。'
 redirect_from:
-  - /articles/requesting-a-trial-of-github-enterprise/
+  - /articles/requesting-a-trial-of-github-enterprise
   - /articles/setting-up-a-trial-of-github-enterprise-server
   - /github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-server
   - /github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server
@@ -42,6 +42,7 @@ shortTitle: Enterprise Server trial
    - [Quick start guide to {% data variables.product.prodname_dotcom %}](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/) ウェブキャスト
    - {% data variables.product.prodname_dotcom %} ガイドの [Understanding the {% data variables.product.prodname_dotcom %}flow](https://guides.github.com/introduction/flow/)
    - {% data variables.product.prodname_dotcom %} ガイドの [Hello World](https://guides.github.com/activities/hello-world/)
+   - "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"
 3. 組織のニーズに合わせてインスタンスを設定するには、「[Enterprise を設定する](/enterprise-server@latest/admin/configuration/configuring-your-enterprise)」を参照してください。
 4. {% data variables.product.prodname_ghe_server %} とご使用のアイデンティティプロバイダとを統合するには、「[SAML を使用する](/enterprise-server@latest/admin/user-management/using-saml)」および「[LDAP を使用する](/enterprise-server@latest/admin/authentication/using-ldap)」を参照してください。
 5. 個人をトライアルに招待します。人数制限はありません。

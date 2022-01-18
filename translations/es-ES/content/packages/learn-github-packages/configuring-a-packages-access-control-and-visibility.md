@@ -86,33 +86,33 @@ Para personalizar aún más el acceso a tu imagen de contenedor, consulta la sec
 
 Para personalizar aún más el acceso a tu imagen de contenedor, consulta la sección "[Configurar el acceso a las imágenes de contenedor de una organización](#configuring-access-to-container-images-for-an-organization)".
 
-## Ensuring {% data variables.product.prodname_codespaces %} access to your package
+## Asegurarse de que {% data variables.product.prodname_codespaces %} puede acceder a tu paquete
 
-By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_dotcom %} Container Registry, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)."
+Predeterminadamente, un codespace puede acceder sin problema a algunos paquetes en el Registro de Contenedores de {% data variables.product.prodname_dotcom %}, tales como aquellos que se publican en el mismo repositorio con la opción de **Heredar acceso** seleccionada. Para obtener más información sobre qué tipo de acceso se configura automáticamente, consulta la sección "[Acceder a las imágenes almacenadas en el Registro de Contenedores de {% data variables.product.prodname_dotcom %}](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)".
 
-Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
+De otra manera, para asegurarte de que un codespace tiene acceso a tu paquete, debes otorgar acceso al repositorio en donde se esté lanzando dicho codespace.
 
-El repositorio especificado no necesita ser aquél en donde se mantiene el código fuente del paquete. You can give codespaces in multiple repositories access to a package.
+El repositorio especificado no necesita ser aquél en donde se mantiene el código fuente del paquete. Puedes otorgar acceso a un paquete para los codespaces en diversos repositorios.
 
-Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
+Una vez que hayas seleccionado el paquete que quieres compartir con un codespace de un repositorio, puedes otorgar este acceso de repositorio.
 
-1. In the right sidebar, click **Package settings**.
+1. En la barra lateral derecha, haz clic en **Ajustes de paquete**.
 
-   !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
+   ![Opción de "Ajustes de paquete" en el menú derecho](/assets/images/help/package-registry/package-settings.png)
 
-2. Under "Manage Codespaces access", click **Add repository**.
+2. Debajo de "Administrar el acceso de los codespaces", haz clic en **Agregar repositorio**.
 
    ![Botón "Agregar repositorio"](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
 
-3. Search for the repository you want to add.
+3. Busca el repositorio que quieras agregar.
 
    ![Botón "Agregar repositorio"](/assets/images/help/package-registry/manage-codespaces-access-search.png)
 
-4. Repeat for any additional repositories you would like to allow access.
+4. Repite los pasos para cualquier repositorio adicional al que quieras otorgarle acceso.
 
-5. If the codespaces for a repository no longer need access to an image, you can remove access.
+5. Si el codespace para un repositorio ya no necesita acceso a una imagen, puedes eliminar el acceso.
 
-   !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
+   ![Botón "Eliminar repositorio"](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
 ## Configurar la visibilidad de las imágenes de contenedor para tu cuenta personal
 
@@ -140,7 +140,7 @@ Puedes elegir la visibilidad de los contenedores que los miembros de las organiz
 6. Debajo de "Creación de contenedores", elige si quieres habilitar la creación de imágenes de contenedor públicas, privadas o internas.
     - Para habilitar a los miembros de la organización para que creen imágenes de contenedor, da clic en **Públicas**.
     - Para habilitar a los miembros de la organización para que creen imágenes de contenedor que solo sean visibles para otros miembros de la organización, da clic en **Privadas**. Puedes personalizar aún más la visibilidad de las imagenes de contenedor privadas.
-    - **Únicamente para {% data variables.product.prodname_ghe_cloud %}:** Para habilitar a los miembros de la organización para que creen imágenes de contenedor internas que solo puedan ver otros miembros organizacionales, haz clic en **Interna**. ![Opciones de visibilidad para las imágenes de contenedor que publican los miembros de la organización](/assets/images/help/package-registry/container-creation-org-settings.png)
+    - Para habilitar a los miembros de la organización para que creen imágenes de contenedor internas que sean visibles para todos los miembros organizacionales, haz clic en **Interno**. Si la organización pertenece a una empresa, las imágenes de contenedor serán visibles para todos los miembros de la empresa. ![Opciones de visibilidad para las imágenes de contenedor que publican los miembros de la organización](/assets/images/help/package-registry/container-creation-org-settings.png)
 
 ## Configurar la visibilidad de las imágenes de contenedor para una organización
 

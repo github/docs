@@ -2,7 +2,7 @@
 title: ログの転送
 intro: '{% data variables.product.product_name %} は `syslog-ng` を使用して、{% ifversion ghes %} システム {% elsif ghae %} Git{% endif %} とアプリケーションログを指定したサーバーに転送します。'
 redirect_from:
-  - /enterprise/admin/articles/log-forwarding/
+  - /enterprise/admin/articles/log-forwarding
   - /enterprise/admin/installation/log-forwarding
   - /enterprise/admin/enterprise-management/log-forwarding
   - /admin/enterprise-management/log-forwarding

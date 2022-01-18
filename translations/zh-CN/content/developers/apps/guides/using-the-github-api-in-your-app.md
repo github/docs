@@ -2,7 +2,7 @@
 title: 在应用程序中使用 GitHub API
 intro: 了解如何设置应用程序以侦听事件，并使用 Octokit 库执行 REST API 操作。
 redirect_from:
-  - /apps/building-your-first-github-app/
+  - /apps/building-your-first-github-app
   - /apps/quickstart-guides/using-the-github-api-in-your-app
   - /developers/apps/using-the-github-api-in-your-app
 versions:

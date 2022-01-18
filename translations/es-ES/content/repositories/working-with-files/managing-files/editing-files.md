@@ -2,7 +2,7 @@
 title: Editar archivos
 intro: 'Puedes editar archivos directamente en {% data variables.product.product_name %} en cualquiera de tus repositorios usando el editor de archivos.'
 redirect_from:
-  - /articles/editing-files/
+  - /articles/editing-files
   - /articles/editing-files-in-your-repository
   - /github/managing-files-in-a-repository/editing-files-in-your-repository
   - /articles/editing-files-in-another-user-s-repository

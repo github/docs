@@ -2,7 +2,7 @@
 title: リポジトリのリリースとタグを表示する
 intro: リリース名またはタグのバージョン番号でリポジトリの履歴を時系列順に表示できます。
 redirect_from:
-  - /articles/working-with-tags/
+  - /articles/working-with-tags
   - /articles/viewing-your-repositorys-tags
   - /github/administering-a-repository/viewing-your-repositorys-tags
   - /github/administering-a-repository/viewing-your-repositorys-releases-and-tags

@@ -2,7 +2,6 @@
 title: Travis CI から GitHub Actions への移行
 intro: '{% data variables.product.prodname_actions %} と Travis CI は複数の類似点を共有しているため、{% data variables.product.prodname_actions %} への移行は比較的簡単です。'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
@@ -20,7 +19,6 @@ shortTitle: Migrate from Travis CI
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -103,7 +101,7 @@ jobs:
 
 ### 特定のブランチをターゲットにする
 
-Travis CI と {% data variables.product.prodname_actions %} はどちらも、CI を特定のブランチにターゲット設定できます。 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)」を参照してください。
+Travis CI と {% data variables.product.prodname_actions %} はどちらも、CI を特定のブランチにターゲット設定できます。 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)」を参照してください。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -199,9 +197,13 @@ Travis CI から移行する場合は、{% data variables.product.prodname_actio
 
 ジョブに特定のハードウェアまたはソフトウェアが必要な場合、{% data variables.product.prodname_actions %} を使用すると、自分のランナーをホストして、処理のためにジョブをそれらに送信できます。 {% data variables.product.prodname_actions %} では、ポリシーを使用してこれらのランナーへのアクセス方法を制御し、Organization またはリポジトリレベルでアクセスを許可することもできます。 詳しい情報については、「[自分のランナーをホストする](/actions/hosting-your-own-runners)」を参照してください。
 
+{% ifversion fpt or ghec %}
+
 ### 同時ジョブと実行時間
 
 {% data variables.product.prodname_actions %} の同時ジョブとワークフローの実行時間は、{% data variables.product.company_short %} プランによって異なります。 詳しい情報については、「[使用制限、支払い、および管理](/actions/reference/usage-limits-billing-and-administration)」を参照してください。
+
+{% endif %}
 
 ### {% data variables.product.prodname_actions %} で様々な言語を使用する
 

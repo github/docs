@@ -14,7 +14,7 @@ topics:
 shortTitle: Acerca de la 2FA
 ---
 
-Para {% data variables.product.product_name %}, la segunda forma de autenticación es un código que es generado por una aplicación en tu dispositivo móvil{% ifversion fpt or ghec %} o enviado como mensaje de texto (SMS){% endif %}. After you enable 2FA, {% data variables.product.product_name %} generates an authentication code any time someone attempts to sign into your account on {% data variables.product.product_location %}. El único modo en que alguien puede iniciar sesión en tu cuenta es si conoce la contraseña y si tiene acceso al código de autenticación de tu teléfono.
+Para {% data variables.product.product_name %}, la segunda forma de autenticación es un código que es generado por una aplicación en tu dispositivo móvil{% ifversion fpt or ghec %} o enviado como mensaje de texto (SMS){% endif %}. Una vez que activas la 2FA, {% data variables.product.product_name %} genera un código de autenticación cada vez que alguien intenta iniciar sesión en tu cuenta de {% data variables.product.product_location %}. El único modo en que alguien puede iniciar sesión en tu cuenta es si conoce la contraseña y si tiene acceso al código de autenticación de tu teléfono.
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 

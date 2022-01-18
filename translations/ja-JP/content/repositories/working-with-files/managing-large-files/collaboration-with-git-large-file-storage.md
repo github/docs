@@ -2,7 +2,7 @@
 title: Git Large File Storage でのコラボレーション
 intro: '{% data variables.large_files.product_name_short %}を有効にすると、大容量のファイルも Git で扱う通常のファイルと同じようにフェッチ、修正、プッシュできます。 ただし、{% data variables.large_files.product_name_short %}を持っていないユーザの場合、ワークフローが異なります。'
 redirect_from:
-  - /articles/collaboration-with-large-file-storage/
+  - /articles/collaboration-with-large-file-storage
   - /articles/collaboration-with-git-large-file-storage
   - /github/managing-large-files/collaboration-with-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/collaboration-with-git-large-file-storage

@@ -15,7 +15,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 環境変数について
 
@@ -71,7 +70,7 @@ You can also use the `GITHUB_ENV` environment file to set an environment variabl
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} | | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} | | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %}
 {%- endif %}
-| `GITHUB_HEAD_REF` | Only set for pull request events. headブランチの名前です。 | `GITHUB_BASE_REF` | Only set for pull request events. ベースブランチの名前です。 | `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`. | `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`. | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`. | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} | `RUNNER_OS` | {% data reusables.actions.runner-os-description %} | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
+| `GITHUB_HEAD_REF` | Only set for pull request events. headブランチの名前です。 | `GITHUB_BASE_REF` | Only set for pull request events. ベースブランチの名前です。 | `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`. | `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`. | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`. | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} | `RUNNER_OS` | {% data reusables.actions.runner-os-description %}{% if actions-runner-arch-envvars %} | `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %}{% endif %} | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
 {% ifversion not ghae %}| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %}{% endif %}
 
 {% tip %}

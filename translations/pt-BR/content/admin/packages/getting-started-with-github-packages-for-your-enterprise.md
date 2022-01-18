@@ -16,7 +16,10 @@ topics:
 
 {% data reusables.package_registry.packages-cluster-support %}
 
-## Etapa 1: Habilite {% data variables.product.prodname_registry %} e configure o armazenamento externo
+## Passo 1: Verifique se {% data variables.product.prodname_registry %} está disponível para a sua empresa
+
+{% data variables.product.prodname_registry %} está disponível em {% data variables.product.prodname_ghe_server %} 3.0 ou superior. Se você estiver usando uma versão anterior do {% data variables.product.prodname_ghe_server %}, você deverá fazer a atualização para usar {% data variables.product.prodname_registry %}. Para obter mais informações sobre a atualização da instância de {% data variables.product.prodname_ghe_server %}, consulte "[Sobre as atualizações para novas versões de](/admin/overview/about-upgrades-to-new-releases)."
+## Etapa 2: Habilite {% data variables.product.prodname_registry %} e configure o armazenamento externo
 
 {% data variables.product.prodname_registry %} em {% data variables.product.prodname_ghe_server %} usa armazenamento externo de blob para armazenar seus pacotes.
 
@@ -32,11 +35,11 @@ Para habilitar {% data variables.product.prodname_registry %} e configurar o arm
   - "[Habilitar o GitHub Packages com o Azure Blob Storage](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
   - "[Habilitar o GitHub Packages com o MinIO](/admin/packages/enabling-github-packages-with-minio)"
 
-## Etapa 2: Especifique os ecossistemas de pacote que serão compatíveis com a sua instância
+## Etapa 3: Especifique os ecossistemas de pacote que serão compatíveis com a sua instância
 
 Escolha quais ecossistemas de pacote você gostaria de habilitar, desabilitar ou definir como somente leitura no seu {% data variables.product.product_location %}. As opções disponíveis são Docker, RubyGems, npm, Apache Maven, Gradle ou NuGet.  Para obter mais informações, consulte "[Configurar a compatibilidade com o ecossistema de pacote para a sua empresa](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)".
 
-## Etapa 3: Certifique-se de ter um certificado TLS para a URL do seu pacote de hospedagem, se necessário
+## Etapa 4: Certifique-se de ter um certificado TLS para a URL do seu pacote de hospedagem, se necessário
 
 Se o isolamento de subdomínio estiver habilitado para {% data variables.product.product_location %}, você deverá criar e fazer upload de um certificado TLS que permite a URL de host do pacote para cada ecossistema que você deseja usar, como `npm.HOSTNAME`. Certifique-se de que o host de cada pacote contém `https://`.
 

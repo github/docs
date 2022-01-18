@@ -23,6 +23,8 @@ Only the project visibility is affected; to view an item on the project, someone
 
 Only project admins can control project visibility.
 
+In private, organization-owned projects, the avatars of users who are current making updates to the project are displayed in the project UI.
+
 Project admins can also manage write and admin access to their project and control read access for individual users. For more information, see "[Managing access to projects](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)."
 
 ## Changing project visibility

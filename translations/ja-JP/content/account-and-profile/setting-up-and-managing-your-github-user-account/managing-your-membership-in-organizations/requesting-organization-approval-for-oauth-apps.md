@@ -2,8 +2,8 @@
 title: OAuth App に対する Organization の承認をリクエストする
 intro: 'Organization のメンバーは、オーナーが {% data variables.product.prodname_oauth_app %} に Organization リソースへのアクセスを許可するようリクエストできます。'
 redirect_from:
-  - /articles/requesting-organization-approval-for-third-party-applications/
-  - /articles/requesting-organization-approval-for-your-authorized-applications/
+  - /articles/requesting-organization-approval-for-third-party-applications
+  - /articles/requesting-organization-approval-for-your-authorized-applications
   - /articles/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps

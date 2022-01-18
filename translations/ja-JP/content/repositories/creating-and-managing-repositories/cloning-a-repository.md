@@ -25,8 +25,6 @@ topics:
 
 ## リポジトリをクローンする
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}

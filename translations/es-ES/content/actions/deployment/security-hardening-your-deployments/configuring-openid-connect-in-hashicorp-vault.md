@@ -39,7 +39,7 @@ Configure the vault to accept JSON Web Tokens (JWT) for authentication:
 ## Actualizar tu flujo de trabajo de {% data variables.product.prodname_actions %}
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
-1. Add permissions settings for the token.
+1. Agregar ajustes de permisos para el token.
 2. Use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to exchange the OIDC token (JWT) for a cloud access token.
 
 
@@ -52,7 +52,7 @@ To add OIDC integration to your workflows that allow them to access secrets in V
 
 This example demonstrates how to use OIDC with the official action to request a secret from HashiCorp Vault.
 
-### Adding permissions settings
+### Agregar ajustes de permisos
 
 The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por ejemplo:
 
@@ -61,7 +61,7 @@ permissions:
   id-token: write
 ```
 
-You may need to specify additional permissions here, depending on your workflow's requirements.
+Puede que necesites especificar permisos adicionales aquí, dependiendo de los requisitos de tu flujo de trabajo.
 
 ### Requesting the access token
 

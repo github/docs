@@ -2,13 +2,13 @@
 title: Configurar o endereço de e-mail do commit
 intro: 'Você pode definir o endereço de e-mail que é usado para criar commits em {% data variables.product.product_location %} e no seu computador.'
 redirect_from:
-  - /articles/keeping-your-email-address-private/
-  - /articles/setting-your-commit-email-address-on-github/
-  - /articles/about-commit-email-addresses/
-  - /articles/git-email-settings/
-  - /articles/setting-your-email-in-git/
-  - /articles/set-your-user-name-email-and-github-token/
-  - /articles/setting-your-commit-email-address-in-git/
+  - /articles/keeping-your-email-address-private
+  - /articles/setting-your-commit-email-address-on-github
+  - /articles/about-commit-email-addresses
+  - /articles/git-email-settings
+  - /articles/setting-your-email-in-git
+  - /articles/set-your-user-name-email-and-github-token
+  - /articles/setting-your-commit-email-address-in-git
   - /articles/setting-your-commit-email-address
   - /github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address

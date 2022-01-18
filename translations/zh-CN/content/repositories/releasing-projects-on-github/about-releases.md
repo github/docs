@@ -2,8 +2,8 @@
 title: 关于发行版
 intro: 您可以创建包软件的发行版，以及发行说明和二进制文件链接，以供其他人使用。
 redirect_from:
-  - /articles/downloading-files-from-the-command-line/
-  - /articles/downloading-files-with-curl/
+  - /articles/downloading-files-from-the-command-line
+  - /articles/downloading-files-with-curl
   - /articles/about-releases
   - /articles/getting-the-download-count-for-your-releases
   - /github/administering-a-repository/getting-the-download-count-for-your-releases

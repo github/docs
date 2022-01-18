@@ -2,8 +2,8 @@
 title: 合并多个用户帐户
 intro: 如果工作和个人分别使用不同的帐户，您可以合并这些帐户。
 redirect_from:
-  - /articles/can-i-merge-two-accounts/
-  - /articles/keeping-work-and-personal-repositories-separate/
+  - /articles/can-i-merge-two-accounts
+  - /articles/keeping-work-and-personal-repositories-separate
   - /articles/merging-multiple-user-accounts
   - /github/setting-up-and-managing-your-github-user-account/merging-multiple-user-accounts
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts
@@ -20,6 +20,12 @@ shortTitle: 合并多个用户帐户
 **提示：**建议只使用一个用户帐户来管理个人和专业仓库。
 
 {% endtip %}
+
+{% warning %}
+
+**Warning:** Organization and repository access permissions aren't transferable between accounts. If the account you want to delete has an existing access permission, an organization owner or repository administrator will need to invite the account that you want to keep.
+
+{% endwarning %}
 
 1. 从您要删除的帐户[转让任何仓库](/articles/how-to-transfer-a-repository)到要保留的帐户。 议题、拉取请求和 wiki 也会转让。 确认要保留的帐户中存在仓库。
 2. [更新远程 URL](/github/getting-started-with-github/managing-remote-repositories)（在移动的仓库的任何本地克隆中）。

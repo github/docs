@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.2.0-alpine as base
+FROM node:16-alpine as base
 
 RUN apk add --no-cache make g++ git
 
@@ -17,10 +17,15 @@ WORKDIR /usr/src/docs
 # ---------------
 FROM base as all_deps
 
-COPY package*.json ./
 COPY .npmrc ./
+COPY package*.json ./
 
 RUN npm ci
+
+# For Next.js v12+
+# This the appropriate necessary extra for node:16-alpine
+# Other options are https://www.npmjs.com/search?q=%40next%2Fswc
+# RUN npm i @next/swc-linux-x64-musl --no-save
 
 
 # ---------------
@@ -36,14 +41,12 @@ RUN npm prune --production
 # ---------------
 FROM all_deps as builder
 
-ENV NODE_ENV production
-
 COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
 
-# one part of the build relies on this content file to pull all-products
+# One part of the build relies on this content file to pull all-products
 COPY content/index.md ./content/index.md
 
 COPY next.config.js ./next.config.js
@@ -56,7 +59,7 @@ RUN npm run build
 # MAIN IMAGE
 # --------------------------------------------------------------------------------
 
-FROM node:16.2.0-alpine as production
+FROM node:16-alpine as production
 
 # Let's make our home
 WORKDIR /usr/src/docs
@@ -76,24 +79,28 @@ COPY --chown=node:node --from=builder /usr/src/docs/.next /usr/src/docs/.next
 # We should always be running in production mode
 ENV NODE_ENV production
 
-# Hide iframes, add warnings to external links
-ENV AIRGAP true
+# Whether to hide iframes, add warnings to external links
+ENV AIRGAP false
 
-# Copy only what's needed to run the server
-COPY --chown=node:node assets ./assets
-COPY --chown=node:node content ./content
-COPY --chown=node:node data ./data
-COPY --chown=node:node includes ./includes
-COPY --chown=node:node lib ./lib
-COPY --chown=node:node middleware ./middleware
-COPY --chown=node:node translations ./translations
-COPY --chown=node:node server.mjs ./server.mjs
-COPY --chown=node:node package*.json ./
-COPY --chown=node:node feature-flags.json ./
-COPY --chown=node:node next.config.js ./
+# By default we typically don't want to run in clustered mode
+ENV WEB_CONCURRENCY 1
 
 # This makes sure server.mjs always picks up the preferred port
-ENV PORT=4000
+ENV PORT 4000
+
+# Copy only what's needed to run the server
+COPY --chown=node:node package.json ./
+COPY --chown=node:node assets ./assets
+COPY --chown=node:node includes ./includes
+COPY --chown=node:node translations ./translations
+COPY --chown=node:node content ./content
+COPY --chown=node:node lib ./lib
+COPY --chown=node:node middleware ./middleware
+COPY --chown=node:node feature-flags.json ./
+COPY --chown=node:node data ./data
+COPY --chown=node:node next.config.js ./
+COPY --chown=node:node server.mjs ./server.mjs
+
 EXPOSE $PORT
 
 CMD ["node", "server.mjs"]
