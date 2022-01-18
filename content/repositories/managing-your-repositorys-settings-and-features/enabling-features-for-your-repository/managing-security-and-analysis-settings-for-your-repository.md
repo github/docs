@@ -1,4 +1,25 @@
 ---
+package main
+
+import (
+	"net/http"
+	"os"
+
+	"github.com/goproxy/goproxy"
+)
+
+func main() {
+	http.ListenAndServe("localhost:8080", &goproxy.Goproxy{
+		GoBinEnv: append(
+			os.Environ(),
+			"GOPROXY=https://goproxy.cn,direct", // Use Goproxy.cn as the upstream proxy
+			"GOPRIVATE=git.example.com",         // Solve the problem of pulling private modules
+		),
+		ProxiedSUMDBs: []string{
+			"sum.golang.org https://goproxy.cn/sumdb/sum.golang.org", // Proxy the default checksum database
+		},
+	})
+}
 title: Managing security and analysis settings for your repository
 intro: 'You can control features that secure and analyze the code in your project on {% data variables.product.prodname_dotcom %}.'
 permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
