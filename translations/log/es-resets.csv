@@ -33,15 +33,12 @@ translations/es-ES/content/actions/hosting-your-own-runners/monitoring-and-troub
 translations/es-ES/content/actions/index.md,Listed in localization-support#489
 translations/es-ES/content/actions/learn-github-actions/contexts.md,Listed in localization-support#489
 translations/es-ES/content/actions/learn-github-actions/environment-variables.md,Listed in localization-support#489
-translations/es-ES/content/actions/learn-github-actions/events-that-trigger-workflows.md,Listed in localization-support#489
-translations/es-ES/content/actions/learn-github-actions/workflow-commands-for-github-actions.md,Listed in localization-support#489
-translations/es-ES/content/actions/learn-github-actions/workflow-syntax-for-github-actions.md,Listed in localization-support#489
-translations/es-ES/content/actions/learn-github-actions/workflow-syntax-for-github-actions.md,broken liquid tags
 translations/es-ES/content/actions/managing-workflow-runs/manually-running-a-workflow.md,Listed in localization-support#489
 translations/es-ES/content/actions/quickstart.md,Listed in localization-support#489
 translations/es-ES/content/actions/security-guides/automatic-token-authentication.md,Listed in localization-support#489
 translations/es-ES/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,Listed in localization-support#489
 translations/es-ES/content/actions/using-github-hosted-runners/customizing-github-hosted-runners.md,Listed in localization-support#489
+translations/es-ES/content/actions/using-workflows/workflow-syntax-for-github-actions.md,broken liquid tags
 translations/es-ES/content/admin/advanced-security/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/es-ES/content/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise.md,Listed in localization-support#489
 translations/es-ES/content/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise.md,Listed in localization-support#489

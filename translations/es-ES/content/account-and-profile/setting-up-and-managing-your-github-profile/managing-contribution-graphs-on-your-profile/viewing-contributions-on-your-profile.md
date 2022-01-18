@@ -99,7 +99,3 @@ La sección de actividad de contribuciones incluye una cronología detallada de 
 Si utilizas {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} o {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} y tu propietario de empresa habilita las {% data variables.product.prodname_unified_contributions %}, puedes enviar los conteos de contribución de empresa desde tu perfil de {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Enviar contribuciones empresariales a tu perfil de {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
 
 {% endif %}
-
-## Leer más
-
-- "[Ver las contribuciones en tu página de perfil](/articles/viewing-contributions-on-your-profile-page)"

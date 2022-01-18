@@ -15,12 +15,12 @@ translations/ja-JP/content/actions/hosting-your-own-runners/monitoring-and-troub
 translations/ja-JP/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,broken liquid tags
 translations/ja-JP/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,Listed in localization-support#489
 translations/ja-JP/content/actions/learn-github-actions/finding-and-customizing-actions.md,broken liquid tags
-translations/ja-JP/content/actions/learn-github-actions/managing-complex-workflows.md,broken liquid tags
 translations/ja-JP/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,broken liquid tags
 translations/ja-JP/content/actions/publishing-packages/about-packaging-with-github-actions.md,broken liquid tags
 translations/ja-JP/content/actions/quickstart.md,broken liquid tags
 translations/ja-JP/content/actions/security-guides/automatic-token-authentication.md,parsing error
 translations/ja-JP/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,broken liquid tags
+translations/ja-JP/content/actions/using-workflows/advanced-workflow-features.md,broken liquid tags
 translations/ja-JP/content/admin/advanced-security/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/advanced-security/configuring-secret-scanning-for-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/allowing-built-in-authentication-for-users-outside-your-identity-provider.md,broken liquid tags
