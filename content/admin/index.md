@@ -118,7 +118,6 @@ children:
   - /enterprise-management
   - /github-actions
   - /packages
-  - /enterprise-support
   - /advanced-security
   - /guides
   - /release-notes
