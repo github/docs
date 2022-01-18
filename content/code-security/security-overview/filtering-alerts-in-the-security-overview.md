@@ -100,6 +100,8 @@ Available in the organization-level overview.
 | -------- | -------- |
 | <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
 
+{% ifversion ghec or ghes > 3.4 %}
+
 ## Filter by severity
 
 Available in the code scanning alert views. All code scanning alerts have one of the categories shown below. You can click any result to see full details of the relevant rule, and the line of code that triggered the alert. 
@@ -114,6 +116,7 @@ Available in the code scanning alert views. All code scanning alerts have one of
 |`severity:warning`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings.|
 |`severity:note`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.|
 
+{% endif %}
 
 ## Filter by secret types
 
