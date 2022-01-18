@@ -45,7 +45,7 @@ You can assign the security manager role to a maximum of 10 teams in your organi
 
 {% warning %}
 
-**Warning:** Removing the security manager role from a team will remove the team's ability to manage security alerts and settings across the organization, but the team will retain read access to repositories that was granted when the role was assigned. You must remove any unwanted read access manually. Para obtener más información, consulta la sección "[Administrar el acceso de un equipo a un repositorio organizacional](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository#removing-a-teams-access-to-a-repository)."
+**Advertencia:** El eliminar el rol de administrador de seguridad de un equipo también eliminará la capacidad de dicho equipo para administrar las alertas de seguridad y los ajustes en toda la organización, pero el equipo retendrá el acceso de lectura a los repositorios en donde lo tuviera cuando este se haya asignado. You must remove any unwanted read access manually. Para obtener más información, consulta la sección "[Administrar el acceso de un equipo a un repositorio organizacional](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository#removing-a-teams-access-to-a-repository)."
 
 {% endwarning %}
 

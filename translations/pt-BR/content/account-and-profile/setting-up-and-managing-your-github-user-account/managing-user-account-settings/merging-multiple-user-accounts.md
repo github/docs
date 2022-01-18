@@ -17,7 +17,15 @@ shortTitle: Fazer merge de várias contas de usuário
 
 {% tip %}
 
+{% ifversion ghec %}
+
+**Tip:** {% data variables.product.prodname_emus %} allow an enterprise to provision unique user accounts for its members through an identity provider (IdP). For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)." For other use cases, we recommend using only one user account to manage both personal and professional repositories.
+
+{% else %}
+
 **Dicas::** recomendamos que você use apenas uma conta de usuário para gerenciar os repositórios pessoal e profissional.
+
+{% endif %}
 
 {% endtip %}
 
