@@ -124,6 +124,8 @@ After you enable LDAP sync, a synchronization job will run at the specified time
 - If there is an LDAP mapping and the corresponding LDAP entry in the directory is missing, suspend the user and move on to the next user.
 - If the corresponding LDAP entry has been marked as disabled and the user is not already suspended, suspend the user and move on to the next user.
 - If the corresponding LDAP entry is not marked as disabled, and the user is suspended, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
+- If one or more restricted user groups are configured on the instance and the corresponding LDAP entry is not in one of these groups, suspend the user.
+- If one or more restricted user groups are configured on the instance, the corresponding LDAP entry is in one of these groups, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
 - If the corresponding LDAP entry includes a `name` attribute, update the user's profile name.
 - If the corresponding LDAP entry is in the Administrators group, promote the user to site administrator.
 - If the corresponding LDAP entry is not in the Administrators group, demote the user to a normal account.
