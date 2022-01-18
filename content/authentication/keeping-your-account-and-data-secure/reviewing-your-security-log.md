@@ -124,7 +124,6 @@ An overview of some of the most common actions that are recorded as events in th
 
 | Action | Description
 |------------------|-------------------
-| `clear` | Triggered when [a payment method](/articles/removing-a-payment-method) on file is removed.
 | `create` | Triggered when a new payment method is added, such as a new credit card or PayPal account.
 | `update` | Triggered when an existing payment method is updated.
 

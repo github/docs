@@ -11,6 +11,10 @@ Adobe | Adobe Short-Lived Access Token | adobe_short_lived_access_token{% endif 
 Adobe | Adobe JSON Web Token | adobe_jwt{% endif %}
 Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id
 Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Amazon | Amazon OAuth Client ID | amazon_oauth_client_id{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Amazon | Amazon OAuth Client Secret | amazon_oauth_client_secret{% endif %}
 Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id
 Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -161,6 +165,8 @@ Notion | Notion Integration Token | notion_integration_token{% endif %}
 Notion | Notion OAuth Client Secret | notion_oauth_client_secret{% endif %}
 npm | npm Access Token | npm_access_token
 NuGet | NuGet API Key | nuget_api_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Octopus Deploy | Octopus Deploy API Key | octopus_deploy_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Onfido | Onfido Live API Token | onfido_live_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -239,6 +245,10 @@ Twilio | Twilio Account String Identifier | twilio_account_sid
 Twilio | Twilio API Key | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Typeform | Typeform Personal Access Token | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | WorkOS Production API Key | workos_production_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | WorkOS Staging API Key | workos_staging_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}

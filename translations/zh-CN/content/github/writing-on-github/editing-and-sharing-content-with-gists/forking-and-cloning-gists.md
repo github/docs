@@ -1,6 +1,6 @@
 ---
-title: Forking and cloning gists
-intro: 'Gists are actually Git repositories, which means that you can fork or clone any gist, even if you aren''t the original author. You can also view a gist''s full commit history, including diffs.'
+title: 复刻和克隆 Gist
+intro: Gist 实际上是 Git 仓库，这意味着即使您不是原作者，也可以复刻或克隆任何 Gist。 还可以查看 Gist 的完整提交历史记录，包括差异。
 permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/forking-and-cloning-gists
@@ -11,24 +11,25 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-## Forking gists
 
-Each gist indicates which forks have activity, making it easy to find interesting changes from others.
+## 复刻 Gist
 
-![Gist forks](/assets/images/help/gist/gist_forks.png)
+每个 Gist 都指示哪些复刻中有活动，使您更容易找到他人的有趣更改。
 
-## Cloning gists
+![Gist 复刻](/assets/images/help/gist/gist_forks.png)
 
-If you want to make local changes to a gist and push them up to the web, you can clone a gist and make commits the same as you would with any Git repository. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+## 克隆 Gist
 
-![Gist clone button](/assets/images/help/gist/gist_clone_btn.png)
+如果要对 Gist 进行本地更改然后将其推送到 web 上，您可以克隆 Gist 然后进行提交，与使用任何 Git 仓库的方法一样。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
 
-## Viewing gist commit history
+![Gist 克隆按钮](/assets/images/help/gist/gist_clone_btn.png)
+
+## 查看 Gist 提交历史记录
 
 To view a gist's full commit history, click the "Revisions" tab at the top of the gist.
 
-![Gist revisions tab](/assets/images/help/gist/gist_revisions_tab.png)
+![Gist 版本选项卡](/assets/images/help/gist/gist_revisions_tab.png)
 
-You will see a full commit history for the gist with diffs.
+您将看到该 Gist 的完整提交历史记录及其差异。
 
-![Gist revisions page](/assets/images/help/gist/gist_history.png)
+![Gist 版本页面](/assets/images/help/gist/gist_history.png)

@@ -1,11 +1,11 @@
 ---
 title: Configuring OpenID Connect in HashiCorp Vault
 shortTitle: Configuring OpenID Connect in HashiCorp Vault
-intro: 'Use OpenID Connect within your workflows to authenticate with HashiCorp Vault.'
+intro: Use OpenID Connect within your workflows to authenticate with HashiCorp Vault.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
 type: tutorial
 topics:
@@ -15,13 +15,13 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Overview
+## Resumen
 
 OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to authenticate with a HashiCorp Vault to retrieve secrets.
 
 This guide gives an overview of how to configure HashiCorp Vault to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and demonstrates how to use this configuration in [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) to retrieve secrets from HashiCorp Vault.
 
-## Prerequisites
+## Prerrequisitos
 
 {% data reusables.actions.oidc-link-to-intro %}
 
@@ -36,10 +36,10 @@ Configure the vault to accept JSON Web Tokens (JWT) for authentication:
 - For `bound_issuer`, use `https://token.actions.githubusercontent.com`
 - Ensure that `bound_subject` is correctly defined for your security requirements. For more information, see ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud) and [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action).
 
-## Updating your {% data variables.product.prodname_actions %} workflow
+## Actualizar tu flujo de trabajo de {% data variables.product.prodname_actions %}
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
-1. Add permissions settings for the token.
+1. Agregar ajustes de permisos para el token.
 2. Use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to exchange the OIDC token (JWT) for a cloud access token.
 
 
@@ -52,16 +52,16 @@ To add OIDC integration to your workflows that allow them to access secrets in V
 
 This example demonstrates how to use OIDC with the official action to request a secret from HashiCorp Vault.
 
-### Adding permissions settings
+### Agregar ajustes de permisos
 
-The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. For example:
+The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por ejemplo:
 
 ```yaml{:copy}
 permissions:
   id-token: write
 ```
 
-You may need to specify additional permissions here, depending on your workflow's requirements. 
+Puede que necesites especificar permisos adicionales aquí, dependiendo de los requisitos de tu flujo de trabajo.
 
 ### Requesting the access token
 
@@ -86,7 +86,7 @@ jobs:
                 method: jwt
                 jwtGithubAudience: <Audience>
                 secrets: <Secret-Path>
-                
+
             - name: Use secret from Vault
                run: |
                  # This step has access to the secret retrieved above; see hashicorp/vault-action for more details.

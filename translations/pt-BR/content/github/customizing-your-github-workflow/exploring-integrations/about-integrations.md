@@ -1,6 +1,6 @@
 ---
-title: About integrations
-intro: 'Integrations are tools and services that connect with {% data variables.product.product_name %} to complement and extend your workflow.'
+title: Sobre integrações
+intro: 'As integrações são ferramentas e serviços que se conectam ao {% data variables.product.product_name %} para complementar e estender o fluxo de trabalho.'
 redirect_from:
   - /articles/about-integrations
   - /github/customizing-your-github-workflow/about-integrations
@@ -8,34 +8,35 @@ versions:
   fpt: '*'
   ghec: '*'
 ---
-You can install integrations in your personal account or organizations you own. You can also install {% data variables.product.prodname_github_apps %} from a third-party in a specific repository where you have admin permissions or which is owned by your organization.
 
-## Differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}
+Você pode instalar integrações em sua conta pessoal ou em organizações que possui. Você também pode instalar {% data variables.product.prodname_github_apps %} a partir de um repositório específico em um repositório específico em que você tem permissões de administrador ou que pertencem à sua organização.
 
-Integrations can be {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %}, or anything that utilizes {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs or webhooks.
+## Diferenças entre {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %}
 
-{% data variables.product.prodname_github_apps %} offer granular permissions and request access to only what the app needs. {% data variables.product.prodname_github_apps %} also offer specific user-level permissions that each user must authorize individually when an app is installed or when the integrator changes the permissions requested by the app.
+As integrações podem ser {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %}, ou qualquer coisa que utilize {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs ou webhooks.
 
-For more information, see:
-- "[Differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}](/apps/differences-between-apps/)"
-- "[About apps](/apps/about-apps/)"
-- "[User-level permissions](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions)"
-- "[Authorizing {% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)"
-- "[Authorizing {% data variables.product.prodname_github_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
-- "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations/)"
+{% data variables.product.prodname_github_apps %} oferecem permissões granulares e solicitam acesso apenas ao que o aplicativo precisa. {% data variables.product.prodname_github_apps %} também oferece permissões específicas no nível de usuário que cada um deve autorizar individualmente quando um aplicativo está instalado ou quando o integrador altera as permissões solicitadas pelo aplicativo.
 
-You can install a preconfigured {% data variables.product.prodname_github_app %}, if the integrators or app creators have created their app with the {% data variables.product.prodname_github_app %} manifest flow. For information about how to  run your {% data variables.product.prodname_github_app %} with automated configuration, contact the integrator or app creator.
+Para obter mais informações, consulte:
+- "[Diferenças entre {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %}](/apps/differences-between-apps/)"
+- "[Sobre aplicativos](/apps/about-apps/)"
+- "[Permissões de nível de usuário](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions)"
+- "[Autorizar {% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)"
+- "[Autorizar {% data variables.product.prodname_github_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
+- "[Revisar integrações autorizadas](/articles/reviewing-your-authorized-integrations/)"
 
-You can create a {% data variables.product.prodname_github_app %} with simplified configuration if you build your app with Probot. For more information, see the [Probot docs](https://probot.github.io/docs/) site.
+Será possível instalar um {% data variables.product.prodname_github_app %} pré-configurado se os integradores ou criadores de app tiverem criado o respectivo app com o fluxo de manifesto do {% data variables.product.prodname_github_app %}. Para obter informações sobre como executar o {% data variables.product.prodname_github_app %} com configuração automatizada, entre em contato com o integrador ou criador do app.
 
-## Discovering integrations in {% data variables.product.prodname_marketplace %}
+Você poderá criar um {% data variables.product.prodname_github_app %} com configuração simplificada se usar o Probot. Para obter mais informações, consulte o site de [documentos do Probot](https://probot.github.io/docs/).
 
-You can find an integration to install or publish your own integration in {% data variables.product.prodname_marketplace %}.
+## Descobrir integrações no {% data variables.product.prodname_marketplace %}
 
-[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) contains {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}. For more information on finding an integration or creating your own integration, see "[About {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)."
+É possível encontrar uma integração para instalar ou publicar a sua própria integração no {% data variables.product.prodname_marketplace %}.
 
-## Integrations purchased directly from integrators
+[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) contém {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %}. Para obter mais informações sobre como encontrar uma integração ou criar sua própria integração, consulte "[Sobre o {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)".
 
-You can also purchase some integrations directly from integrators. As an organization member, if you find a {% data variables.product.prodname_github_app %} that you'd like to use, you can request that an organization approve and install the app for the organization.
+## Integrações compradas diretamente de integradores
 
-If you have admin permissions for all organization-owned repositories the app is installed on, you can install {% data variables.product.prodname_github_apps %} with repository-level permissions without having to ask an organization owner to approve the app. When an integrator changes an app's permissions, if the permissions are for a repository only, organization owners and people with admin permissions to a repository with that app installed can review and accept the new permissions.
+Você também pode comprar algumas integrações diretamente de integradores. Como um integrante da organização, ao encontrar um {% data variables.product.prodname_github_app %} que queira usar, você poderá solicitar que uma organização aprove e instale o app para a organização.
+
+Se você tiver permissões de administrador para todos os repositórios de organizações em que o app está instalado, você poderá instalar {% data variables.product.prodname_github_apps %} com permissões de nível de repositório sem ter que solicitar que o proprietário da organização aprove o aplicativo. Quando um integrador altera as permissões do app, se as permissões forem apenas para um repositório, os proprietários da organização e as pessoas com permissões de administrador para um repositório com esse app instalado poderão revisar e aceitar as novas permissões.

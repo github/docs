@@ -1,5 +1,5 @@
 ---
-title: Auditing users across your enterprise
+title: Enterprise にわたるユーザの監査
 intro: 'The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the current month and previous six months. The audit log includes details such as who performed the action, what the action was, and when the action was performed.'
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
@@ -18,102 +18,103 @@ topics:
   - User account
 shortTitle: Audit users
 ---
-## Accessing the audit log
 
-The audit log dashboard gives you a visual display of audit data across your enterprise.
+## Audit log にアクセスする
 
-![Instance wide audit log dashboard](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
+Audit log ダッシュボードには、Enterprise 全体の監査データが表示されます。
+
+![インスタンスにわたるAudit logのダッシュボード](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
 
-Within the map, you can pan and zoom to see events around the world. Hover over a country to see a quick count of events from that country.
+地図内では、世界中のイベントを見るためにパンやズームができます。 国にカーソルを合わせれば、その国のイベントの簡単な集計が表示されます。
 
-## Searching for events across your enterprise
+## Enterprise にわたるイベントの検索
 
-The audit log lists the following information about actions made within your enterprise:
+Audit log には、Enterprise 内で行われたアクションに関する次の情報が一覧表示されます。
 
-* [The repository](#search-based-on-the-repository) an action was performed in
-* [The user](#search-based-on-the-user) who performed the action
-* [Which organization](#search-based-on-the-organization) an action pertained to
-* [The action](#search-based-on-the-action-performed) that was performed
-* [Which country](#search-based-on-the-location) the action took place in
-* [The date and time](#search-based-on-the-time-of-action) the action occurred
+* アクションが行われた[リポジトリ](#search-based-on-the-repository)
+* アクションを行った[ユーザ](#search-based-on-the-user)
+* アクションに関係する[Organization](#search-based-on-the-organization)
+* 行われた[アクション](#search-based-on-the-action-performed)
+* アクションが行われた[国](#search-based-on-the-location)
+* アクションが生じた[日時](#search-based-on-the-time-of-action)
 
 {% warning %}
 
-**Notes:**
+**ノート:**
 
-- While you can't use text to search for audit entries, you can construct search queries using a variety of filters. {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)."
+- Audit logのエントリはテキストを使った検索はできませんが、様々なフィルタを使って検索クエリを構築できます。 {% data variables.product.product_name %} は、{% data variables.product.product_name %} 全体を検索するための多くの演算子をサポートしています。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/github/searching-for-information-on-github/about-searching-on-github)」を参照してください。
 - Audit records are available for the current month and every day of the previous six months.
 
 {% endwarning %}
 
-### Search based on the repository
+### リポジトリに基づく検索
 
-The `repo` qualifier limits actions to a specific repository owned by your organization. For example:
+`repo` 修飾子は、Organization が所有する特定のリポジトリにアクションを制限します。 例:
 
-* `repo:my-org/our-repo` finds all events that occurred for the `our-repo` repository in the `my-org` organization.
-* `repo:my-org/our-repo repo:my-org/another-repo` finds all events that occurred for both the `our-repo` and `another-repo` repositories in the `my-org` organization.
-* `-repo:my-org/not-this-repo` excludes all events that occurred for the `not-this-repo` repository in the `my-org` organization.
+* `repo:my-org/our-repo`は`my-org` Organization内の`our-repo`リポジトリで起きたすべてのイベントを検索します。
+* `repo:my-org/our-repo repo:my-org/another-repo`は、`my-org` Organization内の`our-repo`及び`another-repo`の両リポジトリ内で起きたすべてのイベントを検索します。
+* `-repo:my-org/not-this-repo`は、`my-org` Organization内の`not-this-repo`リポジトリで起きたすべてのイベントを除外します。
 
-You must include your organization's name within the `repo` qualifier; searching for just `repo:our-repo` will not work.
+`repo`修飾子内には、Organizationの名前を含めなければなりません。単に`repo:our-repo`として検索することはできません。
 
-### Search based on the user
+### ユーザーに基づく検索
 
-The `actor` qualifier scopes events based on the member of your organization that performed the action. For example:
+`actor` 修飾子は、アクションを実行した Organization のメンバーに基づいてイベントの範囲を設定します。 例:
 
-* `actor:octocat` finds all events performed by `octocat`.
-* `actor:octocat actor:hubot` finds all events performed by both `octocat` and `hubot`.
-* `-actor:hubot` excludes all events performed by `hubot`.
+* `actor:octocat`は`octocat`が行ったすべてのイベントを検索します。
+* `actor:octocat actor:hubot`は、`octocat`及び`hubot`が行ったすべてのイベントを検索します。
+* `-actor:hubot`は、`hubot`が行ったすべてのイベントを除外します。
 
-You can only use a {% data variables.product.product_name %} username, not an individual's real name.
+使用できるのは {% data variables.product.product_name %} ユーザ名のみで、個人の本当の名前ではありません。
 
-### Search based on the organization
+### Organizationに基づく検索
 
-The `org` qualifier limits actions to a specific organization. For example:
+`org` 修飾子は、特定の Organization にアクションを限定します。 例:
 
-* `org:my-org` finds all events that occurred for the `my-org` organization.
-* `org:my-org action:team` finds all team events performed within the `my-org` organization.
-* `-org:my-org` excludes all events that occurred for the `my-org` organization.
+* `org:my-org` は `my-org` という Organization で生じたすべてのイベントを検索します。
+* `org:my-org action:team`は`my-org`というOrganization内で行われたすべてのteamイベントを検索します。
+* `-org:my-org` は `my-org` という Organization で生じたすべてのイベントを除外します。
 
-### Search based on the action performed
+### 実行されたアクションに基づく検索
 
-The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see "[Audited actions](/admin/user-management/audited-actions)".
+`action`修飾子は、特定のイベントをカテゴリ内でグループ化して検索します。 以下のカテゴリに関連するイベントの詳しい情報については「[監査済みのアクション](/admin/user-management/audited-actions)」を参照してください。
 
-| Category name | Description
-|------------------|-------------------
-| `hook` | Contains all activities related to webhooks.
-| `org` | Contains all activities related organization membership
-| `repo` | Contains all activities related to the repositories owned by your organization.
-| `team` | Contains all activities related to teams in your organization.
+| カテゴリ名  | 説明                                           |
+| ------ | -------------------------------------------- |
+| `フック`  | webhookに関連するすべてのアクティビティを含みます。                |
+| `org`  | Organizationのメンバーシップに関連するすべてのアクティビティを含みます。   |
+| `repo` | Organizationが所有するリポジトリに関連するすべてのアクティビティを含みます。 |
+| `Team` | Organization内のチームに関連するすべてのアクティビティを含みます。      |
 
-You can search for specific sets of actions using these terms. For example:
+次の用語を使用すれば、特定の一連の行動を検索できます。 例:
 
-* `action:team` finds all events grouped within the team category.
-* `-action:billing` excludes all events in the billing category.
+* `action:team`はteamカテゴリ内でグループ化されたすべてのイベントを検索します。
+* `-action:billing`はbillingカテゴリ内のすべてのイベントを除外します。
 
-Each category has a set of associated events that you can filter on. For example:
+各カテゴリには、フィルタリングできる一連の関連イベントがあります。 例:
 
-* `action:team.create` finds all events where a team was created.
-* `-action:billing.change_email` excludes all events where the billing email was changed.
+* `action:team.create`はTeamが作成されたすべてのイベントを検索します。
+* `-action:billing.change_email`は課金のメールが変更されたすべてのイベントを検索します。
 
-### Search based on the location
+### 場所に基づく検索
 
-The `country` qualifier filters actions by the originating country.
-- You can use a country's two-letter short code or its full name.
-- Countries with spaces in their name must be wrapped in quotation marks. For example:
-  * `country:de` finds all events that occurred in Germany.
-  * `country:Mexico` finds all events that occurred in Mexico.
-  * `country:"United States"` all finds events that occurred in the United States.
+`country`修飾子は、発生元の国によってアクションをフィルタリングします。
+- 国の 2 文字のショートコードまたはフル ネームを使用できます。
+- 名前に空白を含む国は、引用符で囲まなければなりません。 例:
+  * `country:de` は、ドイツで発生したイベントをすべて検索します。
+  * `country:Mexico` はメキシコで発生したすべてのイベントを検索します。
+  * `country:"United States"` はアメリカ合衆国で発生したすべてのイベントを検索します。
 
-### Search based on the time of action
+### アクションの時刻に基づく検索
 
-The `created` qualifier filters actions by the time they occurred.
-- Define dates using the format of `YYYY-MM-DD`--that's year, followed by month, followed by day.
-- Dates support [greater than, less than, and range qualifiers](/enterprise/{{ currentVersion }}/user/articles/search-syntax). For example:
-  * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
-  * `created:>=2014-07-01` finds all events that occurred on or after July 8th, 2014.
-  * `created:<=2014-07-01` finds all events that occurred on or before July 8th, 2014.
-  * `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
+`created`修飾子は、発生した時刻でアクションをフィルタリングします。
+- 日付には `YYYY-MM-DD` という形式を使います。これは、年の後に月、その後に日が続きます。
+- 日付では[大なり、小なりおよび範囲指定](/enterprise/{{ currentVersion }}/user/articles/search-syntax)を使用できます。 例:
+  * `created:2014-07-08` は、2014 年 7 月 8 日に発生したイベントをすべて検索します。
+  * `created:>=2014-07-01` は、2014 年 7 月 1 日かそれ以降に生じたすべてのイベントを検索します。
+  * `created:<=2014-07-01`は、2014 年 7 月 1 日かそれ以前に生じたすべてのイベントを検索します。
+  * `created:2014-07-01..2014-07-31`は、2014 年 7 月に起きたすべてのイベントを検索します。

@@ -23,10 +23,10 @@ The Command Palette is one of the focal features of {% data variables.product.pr
 
 You can access the {% data variables.product.prodname_vscode_command_palette %} in a number of ways.
 
-- `Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows).
+- <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
 
   Note that this command is a reserved keyboard shortcut in Firefox.
-- `F1`
+- <kbd>F1</kbd>
 - From the Application Menu, click **View > Command Palette…**.
 
   ![The application menu](/assets/images/help/codespaces/codespaces-view-menu.png)

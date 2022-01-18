@@ -1,6 +1,6 @@
 ---
-title: Enabling and testing SAML single sign-on for your organization
-intro: Organization owners and admins can enable SAML single sign-on to add an extra layer of security to their organization.
+title: Organization 向けの SAML シングルサインオンを有効化してテストする
+intro: Organization のオーナーと管理者は、SAML シングルサインオンを有効にして、Organization のセキュリティを強化できます。
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
@@ -9,55 +9,48 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Enable & test SAML SSO
+shortTitle: SAML SSOの有効化とテスト
 ---
 
 ## About SAML single sign-on
 
-You can enable SAML SSO in your organization without requiring all members to use it. Enabling but not enforcing SAML SSO in your organization can help smooth your organization's SAML SSO adoption. Once a majority of your organization's members use SAML SSO, you can enforce it within your organization.
+すべてのメンバーに使用するように強制する必要なく、Organization 内で SAML SSO を有効化できます。 SAML SSO を Organization 内で強制せずに有効化することで、Organization での SAML SSO の導入がスムーズになります。 Organization 内の大半のメンバーが SAML SSO を使用するようになったら、Organization 内で強制化できます。
 
-If you enable but don't enforce SAML SSO, organization members who choose not to use SAML SSO can still be members of the organization. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
+SAML SSO を有効化しても強制はしない場合、SAML SSO を使用しないメンバーは、引き続き Organization のメンバーであり続けます。 SAML SSO の強制化の詳細については、「[Organization で SAML シングルサインオンを施行する](/articles/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-## Enabling and testing SAML single sign-on for your organization
+## Organization 向けの SAML シングルサインオンを有効化してテストする
 
-Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. For more information, see "[Preparing to enforce SAML single sign-on in your organization](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)."
+Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. 詳細は「[Organization での SAML シングルサインオンの施行を準備する](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)」を参照してください。
 
 For more information about the identity providers (IdPs) that {% data variables.product.company_short %} supports for SAML SSO, see "[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-5. Under "SAML single sign-on", select **Enable SAML authentication**.
-![Checkbox for enabling SAML SSO](/assets/images/help/saml/saml_enable.png)
+5. [SAML single sign-on] の下で [**Enable SAML authentication**] を選択します。 ![SAML SSO を有効化するためのチェックボックス](/assets/images/help/saml/saml_enable.png)
 
   {% note %}
 
-  **Note:** After enabling SAML SSO, you can download your single sign-on recovery codes so that you can access your organization even if your IdP is unavailable. For more information, see "[Downloading your organization's SAML single sign-on recovery codes](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)."
+  **メモ:** SAML SSO の有効化後、シングルサインオンのリカバリコードをダウンロードして、IdP が使用できなくなった場合にも Organization にアクセスできるようにできます。 詳細は「[Organization の SAML シングルサインオンのリカバリコードをダウンロード](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)」を参照してください。
 
   {% endnote %}
 
-6. In the "Sign on URL" field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
-![Field for the URL that members will be forwarded to when signing in](/assets/images/help/saml/saml_sign_on_url.png)
-7. Optionally, in the "Issuer" field, type your SAML issuer's name. This verifies the authenticity of sent messages.
-![Field for the SAML issuer's name](/assets/images/help/saml/saml_issuer.png)
-8. Under "Public Certificate," paste a certificate to verify SAML responses.
-![Field for the public certificate from your identity provider](/assets/images/help/saml/saml_public_certificate.png)
-9. Click {% octicon "pencil" aria-label="The edit icon" %} and then in the Signature Method and Digest Method drop-downs, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests.
-![Drop-downs for the Signature Method and Digest method hashing algorithms used by your SAML issuer](/assets/images/help/saml/saml_hashing_method.png)
-10. Before enabling SAML SSO for your organization, click **Test SAML configuration** to ensure that the information you've entered is correct. ![Button to test SAML configuration before enforcing](/assets/images/help/saml/saml_test.png)
+6. [Sign on URL] フィールドにシングルサインオンのリクエスト用の IdP の HTTPS エンドポイントを入力します。 この値は Idp の設定で使用できます。 ![メンバーがサインインする際にリダイレクトされる URL のフィールド](/assets/images/help/saml/saml_sign_on_url.png)
+7. または、[Issuer] フィールドに SAML 発行者の名前を入力します。 これにより、送信メッセージの信ぴょう性が検証されます。 ![SAMl 発行者の名前のフィールド](/assets/images/help/saml/saml_issuer.png)
+8. [Public Certificate] の下で証明書を貼り付けて SAML の応答を検証します。 ![アイデンティティプロバイダからの公開の証明書のフィールド](/assets/images/help/saml/saml_public_certificate.png)
+9. {% octicon "pencil" aria-label="The edit icon" %} をクリックして、[Signature Method] および [Digest Method] ドロップダウンで、SAML 発行者がリクエストの整合性を検証するために使用するハッシュアルゴリズムを選択します。 ![SAML 発行者が使用する署名方式とダイジェスト方式のハッシュアルゴリズム用のドロップダウン](/assets/images/help/saml/saml_hashing_method.png)
+10. Organization で SAML SSO を有効化する前に、[ **Test SAML configuration**] をクリックして、入力した情報が正しいことを確認します。 ![強制化の前に SAML の構成をテストするためのボタン](/assets/images/help/saml/saml_test.png)
 
   {% tip %}
 
-  **Tip:** {% data reusables.saml.testing-saml-sso %}
+  **ヒント:** {% data reusables.saml.testing-saml-sso %}
 
   {% endtip %}
-11. To enforce SAML SSO and remove all organization members who haven't authenticated via your IdP, select **Require SAML SSO authentication for all members of the _organization name_ organization**. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
-![Checkbox to require SAML SSO for your organization ](/assets/images/help/saml/saml_require_saml_sso.png)
-12. Click **Save**.
-![Button to save SAML SSO settings](/assets/images/help/saml/saml_save.png)
+11. SAML SSO を強制して、IdP 経由で認証をされていないすべての Organization メンバーを削除するには、[**Require SAML SSO authentication for all members of the _Organization 名_ organization**] を選択します。 SAML SSO の強制化の詳細については、「[Organization で SAML シングルサインオンを施行する](/articles/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。 ![Organization 向けに SAML SSO を強制するためのチェックボックス ](/assets/images/help/saml/saml_require_saml_sso.png)
+12. [**Save**] をクリックします。 ![SAML SSO 設定を保存するためのボタン](/assets/images/help/saml/saml_save.png)
 
-## Further reading
+## 参考リンク
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- [SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)

@@ -1,6 +1,6 @@
 ---
-title: About task lists
-intro: 'You can use task lists to break the work for an issue or pull request into smaller tasks, then track the full set of work to completion.'
+title: Sobre listas de tarefas
+intro: 'Você pode usar listas de tarefas para dividir o trabalho de um problema ou pull request em tarefas menores e, em seguida, rastrear o conjunto completo de trabalho a ser concluído.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-task-lists
   - /articles/about-task-lists
@@ -19,56 +19,62 @@ topics:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** Improved task lists are currently in beta and subject to change.
+**Observação:** A lista de tarefas melhorada está atualmente na versão beta e sujeita a alterações.
 
 {% endnote %}
 {% endif %}
 
-## About task lists
+## Sobre listas de tarefas
 
-A task list is a set of tasks that each render on a separate line with a clickable checkbox. You can select or deselect the checkboxes to mark the tasks as complete or incomplete. 
+Uma lista de tarefas é um conjunto de tarefas que cada uma interpreta em uma linha separada com uma caixa de seleção clicável. Você pode selecionar ou desmarcar as caixas de seleção para marcar as tarefas como concluídas ou não concluídas.
 
-You can use Markdown to create a task list in any comment on {% data variables.product.product_name %}. {% ifversion fpt or ghec %}If you reference an issue, pull request, or discussion in a task list, the reference will unfurl to show the title and state.{% endif %} 
+Você pode usar Markdown para criar uma lista de tarefas em qualquer comentário em {% data variables.product.product_name %}. {% ifversion fpt or ghec %}Se você fizer referência a um problema, pull request, ou discussão em uma lista de tarefas, a referência irá desenrolar-se para mostrar o título e o estado.{% endif %}
 
-{% ifversion not fpt or ghec %} 
-You can view task list summary information in issue and pull request lists, when the task list is in the initial comment.
+{% ifversion not fpt or ghec %}
+Você poderá exibir informações de resumo da lista de tarefas nas listas de problemas e pull requests quando a lista de tarefas estiver no comentário inicial.
 {% else %}
 
-## About issue task lists
+## Sobre listas de tarefas do problema
 
-If you add a task list to the body of an issue, the list has added functionality.
+Se você adicionar uma lista de tarefas ao texto de um problema, isso significa que a lista adicionou a funcionalidade.
 
-- To help you track your team's work on an issue, the progress of an issue's task list appears in various places on {% data variables.product.product_name %}, such as a repository's list of issues.
-- If a task references another issue and someone closes that issue, the task's checkbox will automatically be marked as complete. 
-- If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. To add more details before creating the issue, you can use keyboard shortcuts to open the new issue form. For more information, see "[Keyboard shortcuts](/github/getting-started-with-github/using-github/keyboard-shortcuts#issues-and-pull-requests)."
-- Any issues referenced in the task list will specify that they are tracked in the referencing issue.
+- Para ajudar você a acompanhar o trabalho da sua equipe em um problema, o progresso da lista de tarefas de um problema aparece em vários lugares em {% data variables.product.product_name %} como, por exemplo, em uma lista de problemas de um repositório.
+- Se uma tarefa fizer referência a outro problema e alguém fechar esse problema, a caixa de seleção da tarefa será automaticamente marcada como concluída.
+- Se uma tarefa exigir mais rastreamento ou discussão, você poderá convertê-la em um problema, passando o mouse sobre a tarefa e clicando em {% octicon "issue-opened" aria-label="The issue opened icon" %} no canto superior direito da tarefa. Para adicionar mais detalhes antes de criar o problema, você pode usar atalhos de teclado para abrir o formulário do novo problema. Para obter mais informações, consulte "[Atalhos de teclado](/github/getting-started-with-github/using-github/keyboard-shortcuts#issues-and-pull-requests)".
+- Quaisquer problemas referenciados na lista de tarefas especificarão que são rastreados no problema de referência.
 
-![Rendered task list](/assets/images/help/writing/task-list-rendered.png)
+![Lista de tarefas gerada](/assets/images/help/writing/task-list-rendered.png)
 
 {% endif %}
 
-## Creating task lists
+## Criar listas de tarefas
 
 {% data reusables.repositories.task-list-markdown %}
 
-## Reordering tasks
+{% tip %}
 
-You can reorder the items in a task list by clicking to the left of a task's checkbox, dragging the task to a new location, and dropping the task. You can reorder tasks across different lists in the same comment, but you can not reorder tasks across different comments.
+**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
 
-{% ifversion fpt %} ![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
+{% endtip %}
+
+## Reordenar tarefas
+
+Você pode reordenar os itens de uma lista de tarefas clicando à esquerda da caixa de seleção de uma tarefa arrastando a tarefa para uma nova localidade e soltando a tarefa. Você pode reordenar tarefas em diferentes listas no mesmo comentário, mas você não pode reordenar tarefas em diferentes comentários.
+
+{% ifversion fpt %} ![Lista de tarefas reordenadas](/assets/images/help/writing/task-list-reordered.gif)
 {% else %} ![Reordered task list](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
 
 {% ifversion fpt %}
 
-## Navigating tracked issues
+## Navegação de problemas monitorizados
 
-Any issues that are referenced in a task list specify that they are tracked by the issue that contains the task list. To navigate to the tracking issue from the tracked issue, click on the tracking issue number in the **Tracked in** section next to the issue status.
+Todos os problemas referenciados em uma lista de tarefas especificam que são acompanhados pelo problema que contém a lista de tarefas. Para Acessar o problema de rastreamento a partir do problema rastreado, clique no número de rastreamento do **Rastreado na seção** ao lado do status do problema.
 
-![Tracked in example](/assets/images/help/writing/task_list_tracked.png)
+![Rastreado no exemplo](/assets/images/help/writing/task_list_tracked.png)
 
 {% endif %}
 
-## Further reading
+## Leia mais
 
-* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
-* "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}
+* "[Escrita básica e sintaxe de formatação](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+* "[Rastreando alertas de {% data variables.product.prodname_code_scanning %} em problemas que usam listas de tarefas](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

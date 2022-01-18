@@ -1,5 +1,5 @@
 ---
-title: Deleting a GitHub App
+title: Borrar una GitHub App
 intro: '{% data reusables.shortdesc.deleting_github_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-github-apps/deleting-a-github-app
@@ -13,15 +13,12 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
-4. Select the GitHub App you want to delete.
-![App selection](/assets/images/github-apps/github_apps_select-app.png)
+4. Selecciona la GitHub App que quieres borrar. ![Seleccion de apps](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
-6. Click **Delete GitHub App**.
-![Button to delete a GitHub App](/assets/images/github-apps/github_apps_delete.png)
-7. Type the name of the GitHub App to confirm you want to delete it.
-![Field to confirm the name of the GitHub App you want to delete](/assets/images/github-apps/github_apps_delete_integration_name.png)
-8. Click **I understand the consequences, delete this GitHub App**.
-![Button to confirm the deletion of your GitHub App](/assets/images/github-apps/github_apps_confirm_deletion.png)
+6. Da clic en **Borrar GitHub App**. ![Botón para borrar una GitHub App](/assets/images/github-apps/github_apps_delete.png)
+7. Teclea e nombre de la GitHub App para confirmar que la quieres borrar. ![Campo para confirmar el nombre de la GitHub App que quieres borrar](/assets/images/github-apps/github_apps_delete_integration_name.png)
+8. Da clic en **Entiendo las consecuencias, borrar esta GitHub App**. ![Botón para confirmar el borrado de tu GitHub App](/assets/images/github-apps/github_apps_confirm_deletion.png)

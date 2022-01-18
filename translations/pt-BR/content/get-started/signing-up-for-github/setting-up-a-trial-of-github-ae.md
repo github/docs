@@ -1,69 +1,66 @@
 ---
-title: Setting up a trial of GitHub AE
-intro: 'You can try {% data variables.product.prodname_ghe_managed %} for free.'
+title: Configurando um teste do GitHub AE
+intro: 'Você pode avaliar o {% data variables.product.prodname_ghe_managed %} gratuitamente.'
 versions:
   ghae: '*'
 topics:
   - Accounts
-shortTitle: GitHub AE trial
+shortTitle: Teste do GitHub AE
 ---
 
-## About the {% data variables.product.prodname_ghe_managed %} trial
+## Sobre o teste de {% data variables.product.prodname_ghe_managed %}
 
-You can set up a 90-day trial to evaluate {% data variables.product.prodname_ghe_managed %}. This process allows you to deploy a {% data variables.product.prodname_ghe_managed %} account in your existing Azure region. 
+Você pode definir uma avaliação de 90 dias para avaliar {% data variables.product.prodname_ghe_managed %}. Este processo permite que você implemente uma conta do {% data variables.product.prodname_ghe_managed %} na sua região do Azure existente.
 
-- **{% data variables.product.prodname_ghe_managed %} account**: The Azure resource that contains the required components, including the instance.
-- **{% data variables.product.prodname_ghe_managed %} portal**: The Azure management tool at [https://portal.azure.com](https://portal.azure.com). This is used to deploy the {% data variables.product.prodname_ghe_managed %} account.
+- **Conta de {% data variables.product.prodname_ghe_managed %} **: O recurso do Azure que contém os componentes necessários, incluindo a instância.
+- **{% data variables.product.prodname_ghe_managed %} portal**: A ferramenta de gerenciamento do Azure em [https://portal.azure.com](https://portal.azure.com). Ela é usada para implantar a conta de {% data variables.product.prodname_ghe_managed %}.
 
-## Setting up your trial of {% data variables.product.prodname_ghe_managed %}
+## Configurar a versão de avaliação do {% data variables.product.prodname_ghe_managed %}
 
 
-Before you can start your trial of {% data variables.product.prodname_ghe_managed %}, you must request access by contacting your {% data variables.product.prodname_dotcom %} account team. {% data variables.product.prodname_dotcom %} will enable the {% data variables.product.prodname_ghe_managed %} trial for your Azure subscription.
+Antes de poder iniciar o seu teste de {% data variables.product.prodname_ghe_managed %}, você deverá solicitar o acesso entrando em contato com sua equipe de conta de {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_dotcom %} irá habilitar o teste {% data variables.product.prodname_ghe_managed %} para sua assinatura do Azure.
 
-Contact {% data variables.contact.contact_enterprise_sales %} to check your eligibility for a {% data variables.product.prodname_ghe_managed %} trial.
+Entre em contato com {% data variables.contact.contact_enterprise_sales %} para verificar a sua elegibilidade para um teste de {% data variables.product.prodname_ghe_managed %}.
 
-## Deploying {% data variables.product.prodname_ghe_managed %} with the {% data variables.actions.azure_portal %}
+## Implantando {% data variables.product.prodname_ghe_managed %} com o {% data variables.actions.azure_portal %}
 
-The {% data variables.actions.azure_portal %} allows you to deploy the {% data variables.product.prodname_ghe_managed %} account in your Azure resource group.
+O {% data variables.actions.azure_portal %} permite que você faça a implementação da conta do {% data variables.product.prodname_ghe_managed %} no seu grupo de recursos do Azure.
 
-1. On the {% data variables.actions.azure_portal %}, type `GitHub AE` in the search field. Then, under _Services_, click {% data variables.product.prodname_ghe_managed %}.
-    ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-search.png)
-1. To begin the process of adding a new {% data variables.product.prodname_ghe_managed %} account, click **Create GitHub AE account**.
-1. Complete the "Project details" and "Instance details" fields.
-    ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-form.png)
-    - **Account name:** The hostname for your enterprise
-    - **Administrator username:** A username for the initial enterprise owner that will be created in {% data variables.product.prodname_ghe_managed %}
-    - **Administrator email:** The email address that will receive the login information
-1. To review a summary of the proposed changes, click **Review + create**.
-1. After the validation process has completed, click **Create**.
+1. No {% data variables.actions.azure_portal %}, digite `GitHub AE` no campo de busca. Em seguida, em _Serviços_, clique em {% data variables.product.prodname_ghe_managed %}. ![Resultado da pesquisa de {% data variables.actions.azure_portal %}](/assets/images/azure/github-ae-azure-portal-search.png)
+1. Para começar o processo de adicionar uma nova conta de {% data variables.product.prodname_ghe_managed %}, clique em **Criar conta do GitHub AE**.
+1. Insira as informações nos campos "Detalhes do projeto" e "Detalhes da instância". ![Resultado da pesquisa de {% data variables.actions.azure_portal %}](/assets/images/azure/github-ae-azure-portal-form.png)
+    - **Nome da conta:** O nome do host da sua empresa
+    - **Nome de usuário administrador:** Um nome de usuário para o proprietário corporativo inicial que será criado em {% data variables.product.prodname_ghe_managed %}
+    - E-mail do administrador **:** O endereço de e-mail que receberá as informações de login
+1. Para revisar um resumo das alterações propostas, clique em **Revisão + criar**.
+1. Após a conclusão do processo de validação, clique em **Criar**.
 
-The email address you entered above will receive instructions on how to access your enterprise. After you have access, you can get started by following the initial setup steps. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
+O endereço de e-mail que você digitou acima receberá instruções sobre como acessar a sua empresa. Após ter acesso, você poderá começar seguindo os passos das configuração iniciais. Para obter mais informações, consulte "[Inicializar {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)".
 
 {% note %}
 
-**Note:** Software updates for your {% data variables.product.prodname_ghe_managed %} instance are performed by {% data variables.product.prodname_dotcom %}. For more information, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+**Observação:** As atualizações de software para a sua instância {% data variables.product.prodname_ghe_managed %} são executadas por {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte[Sobre atualizações para novas versões de](/admin/overview/about-upgrades-to-new-releases)."
 
 {% endnote %}
 
-## Navigating to your enterprise
+## Acessando a sua empresa
 
-You can use the {% data variables.actions.azure_portal %} to navigate to your {% data variables.product.prodname_ghe_managed %} instance. The resulting list includes all the {% data variables.product.prodname_ghe_managed %} instances in your Azure region.
+Você pode usar o {% data variables.actions.azure_portal %} para navegar para a sua instância de {% data variables.product.prodname_ghe_managed %}. A lista resultante inclui todas as instâncias de {% data variables.product.prodname_ghe_managed %} na sua região do Azure.
 
-1. On the {% data variables.actions.azure_portal %}, in the left panel, click **All resources**.
-1. From the available filters, click **All types**, then deselect **Select all** and select **GitHub AE**:
-    ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-type-filter.png)
+1. No {% data variables.actions.azure_portal %}, no painel esquerdo, clique em **Todos os recursos**.
+1. Nos filtros disponíveis, clique em **Todos os tipos** e, em seguida, desmarque **Selecionar todos** e selecione **GitHub AE**: ![Resultado da pesquisa de {% data variables.actions.azure_portal %}](/assets/images/azure/github-ae-azure-portal-type-filter.png)
 
-## Next steps
+## Próximas etapas
 
-Once your instance has been provisioned, the next step is to initialize {% data variables.product.prodname_ghe_managed %}. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
+Uma vez fornecida a sua instância, o próximo passo é para inicializar {% data variables.product.prodname_ghe_managed %}. Para obter mais informações, consulte "[Inicializar {% data variables.product.prodname_ghe_managed %}](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)".
 
-## Finishing your trial
+## Finalizar a versão de avaliação
 
-You can upgrade to a full license at any time during the trial period by contacting contact {% data variables.contact.contact_enterprise_sales %}. If you haven't upgraded by the last day of your trial, then the instance is automatically deleted.
+Você pode fazer a atualização para uma licença completa a qualquer momento durante o período de avaliação, entrando em contato com {% data variables.contact.contact_enterprise_sales %}. Se você não atualizou até o último dia de seu teste, a instância será excluída automaticamente.
 
-If you need more time to evaluate {% data variables.product.prodname_ghe_managed %}, contact {% data variables.contact.contact_enterprise_sales %} to request an extension.
+Se precisar de mais tempo para avaliar o {% data variables.product.prodname_ghe_managed %}, entre em contato com {% data variables.contact.contact_enterprise_sales %} para solicitar uma extensão.
 
-## Further reading 
+## Leia mais
 
-- "[Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.prodname_ghe_managed %}](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
-- "[{% data variables.product.prodname_ghe_managed %} release notes](/github-ae@latest/admin/overview/github-ae-release-notes)" 
+- "[Habilitando as funcionalidades de {% data variables.product.prodname_advanced_security %} em {% data variables.product.prodname_ghe_managed %}](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
+- "[Notas de versão de {% data variables.product.prodname_ghe_managed %}](/github-ae@latest/admin/overview/github-ae-release-notes)" 

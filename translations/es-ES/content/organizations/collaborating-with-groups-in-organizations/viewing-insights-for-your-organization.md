@@ -1,6 +1,6 @@
 ---
-title: Viewing insights for your organization
-intro: 'Organization insights provide data about your organization''s activity, contributions, and dependencies.'
+title: Ver información de tu organización
+intro: 'La información de tu organización brinda datos acerca de la actividad, las contribuciones y las dependencias de tu organización.'
 product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
@@ -11,57 +11,49 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: View organization insights
+shortTitle: Ver las perspectivas de la organización
 ---
 
-All members of an organization can view organization insights. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Todos los miembros de una organización pueden ver información de la organización. Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-You can use organization activity insights to help you better understand how members of your organization are using {% data variables.product.product_name %} to collaborate and work on code. Dependency insights can help you track, report, and act on your organization's open source usage.
+Puedes utilizar la información sobre la actividad de la organización para ayudarte a comprender mejor cómo los miembros de tu organización están utilizando {% data variables.product.product_name %} para colaborar y trabajar con el código. La información sobre las dependencias puede ayudarte a rastrear, informar y actuar en relación al uso del código abierto de tu organización.
 
-## Viewing organization activity insights
-
-{% note %}
-
-**Note:** Organization activity insights are currently in public beta and subject to change.
-
-{% endnote %}
-
-With organization activity insights you can view weekly, monthly, and yearly data visualizations of your entire organization or specific repositories, including issue and pull request activity, top languages used, and cumulative information about where your organization members spend their time.
-
-{% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
-3. Under your organization name, click {% octicon "graph" aria-label="The bar graph icon" %} **Insights**.
-  ![Click the organization insights tab](/assets/images/help/organizations/org-nav-insights-tab.png)
-4. Optionally, in the upper-right corner of the page, choose to view data for the last **1 week**, **1 month**, or **1 year**.
-  ![Choose time period to view org insights](/assets/images/help/organizations/org-insights-time-period.png)
-5. Optionally, in the upper-right corner of the page, choose to view data for up to three repositories and click **Apply**.
-  ![Choose repositories to view org insights](/assets/images/help/organizations/org-insights-repos.png)
-
-## Viewing organization dependency insights
+## Ver la información de la actividad de la organización
 
 {% note %}
 
-**Note:** Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph). 
+**Nota:**las perspectivas de actividad en las organizaciones se encuentran actualmente en un beta público y están sujetos a cambio.
 
 {% endnote %}
 
-With dependency insights you can view vulnerabilities, licenses, and other important information for the open source projects your organization depends on.
+Con la información sobre la actividad de la organización puedes ver semanal, mensual y anualmente las visualizaciones de datos de toda tu organización o de repositorios específicos, incluida la actividad de las propuestas y las solicitudes de extracción, los principales lenguajes utilizados e información acumulada sobre dónde los miembros de tu organización pasan su tiempo.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
-3. Under your organization name, click {% octicon "graph" aria-label="The bar graph icon" %} **Insights**.
-  ![Insights tab in the main organization navigation bar](/assets/images/help/organizations/org-nav-insights-tab.png)
-4. To view dependencies for this organization, click **Dependencies**.
-  ![Dependencies tab under the main organization navigation bar](/assets/images/help/organizations/org-insights-dependencies-tab.png)
-5. To view dependency insights for all your {% data variables.product.prodname_ghe_cloud %} organizations, click **My organizations**.
-  ![My organizations button under dependencies tab](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)
-6. You can click the results in the **Open security advisories** and **Licenses** graphs to filter by a vulnerability status, a license, or a combination of the two.
-  ![My organizations vulnerabilities and licenses graphs](/assets/images/help/organizations/org-insights-dependencies-graphs.png)
-7. You can click on {% octicon "package" aria-label="The package icon" %} **dependents** next to each vulnerability to see which dependents in your organization are using each library.
-  ![My organizations vulnerable dependents](/assets/images/help/organizations/org-insights-dependencies-vulnerable-item.png)
+3. Dentro del nombre de tu organización, haz clic en {% octicon "graph" aria-label="The bar graph icon" %} **Insights (Información)**. ![Haz clic en la pestaña de información de la organización](/assets/images/help/organizations/org-nav-insights-tab.png)
+4. Como alternativa, en el ángulo superior derecho de la página, elige ver los datos del/de la último/a **semana**, **mes** o **año**. ![Elige un período de tiempo para ver la información de la organización](/assets/images/help/organizations/org-insights-time-period.png)
+5. Alternativamente, en el ángulo superior derecho de la página, elige ver hasta tres repositorios y haz clic en **Apply (Aplicar)**. ![Elige repositorios para ver la información de la organización](/assets/images/help/organizations/org-insights-repos.png)
 
-## Further reading
- - "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
- - "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
- - "[Changing the visibility of your organization's dependency insights](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"{% ifversion ghec %}
-- "[Enforcing policies for dependency insights in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)"{% endif %}
+## Ver la información de las dependencias de la organización
+
+{% note %}
+
+**Notea:** Por favor, asegúrate de que hayas habilitado la [Gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).
+
+{% endnote %}
+
+Con la información sobre las dependencias puedes ver vulnerabilidades, licencias y otra información importante de los proyectos de código abierto de los que depende tu organización.
+
+{% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
+3. Dentro del nombre de tu organización, haz clic en {% octicon "graph" aria-label="The bar graph icon" %} **Insights (Información)**. ![Pestaña de información en la barra de navegación principal de la organización](/assets/images/help/organizations/org-nav-insights-tab.png)
+4. Para ver las dependencias de esta organización, haz clic en **Dependencies (Dependencias)**. ![Pestaña de dependencias debajo de la barra de navegación principal de la organización](/assets/images/help/organizations/org-insights-dependencies-tab.png)
+5. Para ver la información de las dependencias de todas tus organizaciones {% data variables.product.prodname_ghe_cloud %}, haz clic en **My organizations (Mis organizaciones)**. ![Botón Mi organización dentro de la pestaña de dependencias](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)
+6. Puedes hacer clic en los resultados de los gráficos **Open security advisories** (Avisos de seguridad abiertos) y **Licenses** (Licencias) para filtrar por estado de vulnerabilidad, por licencia o por una combinación de ambos. ![Gráficas de "las vulnerabilidades de mis organizaciones" y de licencias](/assets/images/help/organizations/org-insights-dependencies-graphs.png)
+7. Puedes hacer clic en {% octicon "package" aria-label="The package icon" %} **dependents (dependientes)** al lado de cada vulnerabilidad para ver qué dependiente en tu organización está usando cada biblioteca. ![Dependientes vulnerables de mis organizaciones](/assets/images/help/organizations/org-insights-dependencies-vulnerable-item.png)
+
+## Leer más
+ - "[Acerca de las organizaciones](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+ - "[Explorar las dependencias de un repositorio](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
+ - "[Cambiar la visibilidad de las perspectivas de dependencia de tu organización](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"{% ifversion ghec %}
+- "[Requerir políticas para las perspectivas de dependencia en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)"{% endif %}

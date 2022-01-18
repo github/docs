@@ -1,6 +1,6 @@
 ---
-title: Managing projects using Jira
-intro: 'You can integrate Jira with {% data variables.product.prodname_enterprise %} for project management.'
+title: 使用 Jira 管理项目
+intro: '您可以将 Jira 与 {% data variables.product.prodname_enterprise %} 集成以进行项目管理。'
 redirect_from:
   - /enterprise/admin/guides/installation/project-management-using-jira
   - /enterprise/admin/articles/project-management-using-jira
@@ -14,56 +14,57 @@ type: how_to
 topics:
   - Enterprise
   - Project management
-shortTitle: Project management with Jira
+shortTitle: 使用 Jira 的项目管理
 ---
-## Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
 
-1. Sign into your {% data variables.product.prodname_enterprise %} account at http[s]://[hostname]/login. If already signed in, click on the {% data variables.product.prodname_dotcom %} logo in the top left corner.
-2. Click on your profile icon under the {% data variables.product.prodname_dotcom %} logo and select the organization you would like to connect with Jira.
+## 将 Jira 连接到 {% data variables.product.prodname_enterprise %} 组织
 
-  ![Select an organization](/assets/images/enterprise/orgs-and-teams/profile-select-organization.png)
+1. 在 http[s]://[hostname]/login 上登录您的 {% data variables.product.prodname_enterprise %} 帐户。 如果已登录，请单击左上角的 {% data variables.product.prodname_dotcom %} 徽标。
+2. 单击 {% data variables.product.prodname_dotcom %} 徽标下的个人资料图标，然后选择您希望使用 Jira 连接的组织。
 
-3. Click on the **Edit _organization name_ settings** link.
+  ![选择组织](/assets/images/enterprise/orgs-and-teams/profile-select-organization.png)
 
-  ![Edit organization settings](/assets/images/enterprise/orgs-and-teams/edit-organization-settings.png)
+3. 单击**编辑_组织名称_设置**链接。
 
-4. In the left sidebar, under **Developer settings**, click **OAuth Apps**.
+  ![编辑组织设置](/assets/images/enterprise/orgs-and-teams/edit-organization-settings.png)
 
-  ![Select OAuth Apps](/assets/images/enterprise/orgs-and-teams/organization-dev-settings-oauth-apps.png)
+4. 在左侧边栏的 **Developer settings（开发者设置）**下，单击 **OAuth Apps（OAuth 应用程序）**。
 
-5. Click on the **Register new application** button.
+  ![选择 OAuth 应用程序](/assets/images/enterprise/orgs-and-teams/organization-dev-settings-oauth-apps.png)
 
-  ![Register new application button](/assets/images/enterprise/orgs-and-teams/register-oauth-application-button.png)
+5. 单击 **Register new application（注册新应用程序）**按钮。
 
-6. Fill in the application settings:
-    - In the **Application name** field, type "Jira" or any name you would like to use to identify the Jira instance.
-    - In the **Homepage URL** field, type the full URL of your Jira instance.
-    - In the **Authorization callback URL** field, type the full URL of your Jira instance.
-7. Click **Register application**.
-8. At the top of the page, note the **Client ID** and **Client Secret**. You will need these for configuring your Jira instance.
+  ![注册新应用程序按钮](/assets/images/enterprise/orgs-and-teams/register-oauth-application-button.png)
 
-## Jira instance configuration
+6. 填写应用程序设置：
+    - 在 **Application name（应用程序名称）** 字段中，输入 "Jira" 或您想要用来标识 Jira 实例的任何名称。
+    - 在 **Homepage URL（主页 URL）**字段中，输入 Jira 实例的完整 URL。
+    - 在 **Authorization callback URL（授权回叫 URL）**字段中，输入 Jira 实例的完整 URL。
+7. 单击 **Register application（注册应用程序）**。
+8. 在页面顶部，记下 **Client ID** 和 **Client Secret**。 您将需要这些信息来配置 Jira 实例。
 
-1. On your Jira instance, log into an account with administrative access.
-2. At the top of the page, click the settings (gear) icon and choose **Applications**.
+## Jira 实例配置
 
-  ![Select Applications on Jira settings](/assets/images/enterprise/orgs-and-teams/jira/jira-applications.png)
+1. 在 Jira 实例上，登录具有管理访问权限的帐户。
+2. 在页面顶部，单击设置（齿轮）图标，然后选择 **Applications（应用程序）**。
 
-3. In the left sidebar, under **Integrations**, click **DVCS accounts**.
+  ![选择 Jira 设置中的应用程序](/assets/images/enterprise/orgs-and-teams/jira/jira-applications.png)
 
-  ![Jira Integrations menu - DVCS accounts](/assets/images/enterprise/orgs-and-teams/jira/jira-integrations-dvcs.png)
+3. 在左侧边栏的 **Integrations（集成）**下，单击 **DVCS accounts（DVCS 帐户）**。
 
-4. Click **Link Bitbucket Cloud or {% data variables.product.prodname_dotcom %} account**.
+  ![Jira 集成菜单 - DVCS 帐户](/assets/images/enterprise/orgs-and-teams/jira/jira-integrations-dvcs.png)
 
-  ![Link GitHub account to Jira](/assets/images/enterprise/orgs-and-teams/jira/jira-link-github-account.png)
+4. 单击**链接 Bitbucket Cloud 或 {% data variables.product.prodname_dotcom %} 帐户**。
 
-5. In the **Add New Account** modal, fill in your {% data variables.product.prodname_enterprise %} settings:
-    - From the **Host** dropdown menu, choose **{% data variables.product.prodname_enterprise %}**.
-    - In the **Team or User Account** field, type the name of your {% data variables.product.prodname_enterprise %} organization or personal account.
-    - In the **OAuth Key** field, type the Client ID of your {% data variables.product.prodname_enterprise %} developer application.
-    - In the **OAuth Secret** field, type the Client Secret for your {% data variables.product.prodname_enterprise %} developer application.
-    - If you don't want to link new repositories owned by your {% data variables.product.prodname_enterprise %} organization or personal account, deselect **Auto Link New Repositories**.
-    - If you don't want to enable smart commits, deselect **Enable Smart Commits**.
-    - Click **Add**.
-6. Review the permissions you are granting to your {% data variables.product.prodname_enterprise %} account and click **Authorize application**.
-7. If necessary, type your password to continue.
+  ![将 GitHub 帐户链接到 Jira](/assets/images/enterprise/orgs-and-teams/jira/jira-link-github-account.png)
+
+5. 在 **Add New Account** 模态中，填写您的 {% data variables.product.prodname_enterprise %} 设置：
+    - 从 **Host（主机）**下拉菜单中，选择 **{% data variables.product.prodname_enterprise %}**。
+    - 在 **Team or User Account** 字段中，输入 {% data variables.product.prodname_enterprise %} 组织或个人帐户的名称。
+    - 在 **OAuth Key** 字段中，输入 {% data variables.product.prodname_enterprise %} 开发者应用程序的客户端 ID。
+    - 在 **OAuth Secret** 字段中，输入 {% data variables.product.prodname_enterprise %} 开发者应用程序的客户端密钥。
+    - 如果您不想链接 {% data variables.product.prodname_enterprise %} 组织或个人帐户拥有的新仓库，请取消选择 **Auto Link New Repositories（自动链接新仓库）**。
+    - 如果您不想启用智能提交，请取消选择 **Enable Smart Commits（启用智能提交）**。
+    - 单击 **Add（添加）**。
+6. 查看您要授予 {% data variables.product.prodname_enterprise %} 帐户的权限，然后单击 **Authorize application**。
+7. 如有必要，请输入密码以继续。

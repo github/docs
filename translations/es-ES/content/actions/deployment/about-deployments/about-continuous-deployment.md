@@ -1,6 +1,6 @@
 ---
-title: About continuous deployment
-intro: 'You can create custom continuous deployment (CD) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
+title: Acerca del despliegue contínuo
+intro: 'Puedes crear flujos de trabajo de despliegue continuo (DC) personalizados directamente en tu repositorio de {% data variables.product.prodname_dotcom %} con {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,17 +11,17 @@ redirect_from:
   - /actions/deployment/about-continuous-deployment
 topics:
   - CD
-shortTitle: About continuous deployment
+shortTitle: Acerca del despliegue contínuo
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About continuous deployment
+## Acerca del despliegue contínuo
 
 _Continuous deployment_ (CD) is the practice of using automation to publish and deploy software updates. As part of the typical CD process, the code is automatically built and tested before deployment.
 
-Continuous deployment is often coupled with continuous integration. For more information about continuous integration, see "[About continuous integration](/actions/guides/about-continuous-integration)".
+Continuous deployment is often coupled with continuous integration. Para obtener más información acerca de la integración contínua, consulta la sección "[Acerca de la Integración Contínua](/actions/guides/about-continuous-integration)".
 
 ## About continuous deployment using {% data variables.product.prodname_actions %}
 
@@ -46,10 +46,10 @@ You can configure your CD workflow to run when a {% data variables.product.produ
 
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
-## Further reading
+## Leer más
 
 - [Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)
-- [Using environments for deployment](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"{% endif %}
+- [Utilizar ambientes para desplegue](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
+- "[Administrar la facturación para las {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"{% endif %}
 
 {% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Downgrading the billing plan for a GitHub Marketplace app
-intro: 'If you''d like to use a different billing plan, you can downgrade your {% data variables.product.prodname_marketplace %} app at any time.'
+title: 降级 GitHub Marketplace 应用程序的结算方案
+intro: '如果您想要使用不同的结算方案，可以随时降级您的 {% data variables.product.prodname_marketplace %} 应用程序。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-the-billing-plan-for-a-github-marketplace-app
   - /articles/downgrading-an-app-for-your-personal-account
@@ -16,13 +16,14 @@ topics:
   - Marketplace
   - Organizations
   - User account
-shortTitle: Downgrade billing plan
+shortTitle: 降级结算方案
 ---
-When you downgrade an app, your subscription remains active until the end of your current billing cycle. The downgrade takes effect on your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
+
+降级应用程序后，您的订阅在当前结算周期结束之前将保持有效。 降级会在下一个结算日期生效。 更多信息请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-## Downgrading an app for your personal account
+## 降级个人帐户的应用程序
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -31,7 +32,7 @@ When you downgrade an app, your subscription remains active until the end of you
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-## Downgrading an app for your organization
+## 降级组织的应用程序
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
@@ -43,6 +44,6 @@ When you downgrade an app, your subscription remains active until the end of you
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-## Further reading
+## 延伸阅读
 
-- "[Canceling a {% data variables.product.prodname_marketplace %} app](/articles/canceling-a-github-marketplace-app/)"
+- “[取消 {% data variables.product.prodname_marketplace %} 应用程序](/articles/canceling-a-github-marketplace-app/)”

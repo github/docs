@@ -1,6 +1,6 @@
 ---
-title: About issues
-intro: 'Use {% data variables.product.prodname_github_issues %} to track ideas, feedback, tasks, or bugs for work on {% data variables.product.company_short %}.'
+title: Issueについて
+intro: '{% data variables.product.prodname_github_issues %}を使って、{% data variables.product.company_short %}での作業に関するアイデア、フィードバック、タスク、バグを追跡してください。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-issues
   - /articles/creating-issues
@@ -17,38 +17,39 @@ topics:
   - Issues
   - Project management
 ---
-## Integrated with GitHub
 
-Issues let you track your work on {% data variables.product.company_short %}, where development happens. When you mention an issue in another issue or pull request, the issue's timeline reflects the cross-reference so that you can keep track of related work. To indicate that work is in progress, you can link an issue to a pull request. When the pull request merges, the linked issue automatically closes.
+## GitHubとの統合
 
-## Quickly create issues
+Issueを使って、開発が行われる{% data variables.product.company_short %}上での作業を追跡できます。 他のIssueもしくはPull Request内のIssueにメンションすると、そのIssueのタイムラインにはクロスリファレンスが反映され、関連する作業を追跡できるようになります。 作業が進行中であることを示すために、Pull RequestにIssueをリンクできます。 Pull Requestがマージされると、リンクされたIssueは自動的にクローズされます。
 
-Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow. For example, you can create an issue from a repository,{% ifversion fpt or ghec %} an item in a task list,{% endif %} a note in a project, a comment in an issue or pull request, a specific line of code, or a URL query. You can also create an issue from your platform of choice: through the web UI, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_cli %}, GraphQL and REST APIs, or {% data variables.product.prodname_mobile %}. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)."
+## 素早いIssueの作成
 
-## Track work
+Issueは様々な方法で作成できるので、ワークフローで最も便利な方法を選択できます。 Issueの作成は、たとえばリポジトリから、{% ifversion fpt or ghec %}タスクリストのアイテムから、{% endif %}プロジェクトのノート、IssueあるいはPull Requestのコメント、コードの特定の行、URLクエリから作成できます。 Issueは、Web UI、{% data variables.product.prodname_desktop %}、{% data variables.product.prodname_cli %}、GraphQL及びREST API、{% data variables.product.prodname_mobile %}といった好きなプラットフォームから作成することもできます。 詳しい情報については、「[Issue を作成する](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)」を参照してください。
 
-You can organize and prioritize issues with projects. {% ifversion fpt or ghec %}To track issues as part of a larger issue, you can use task lists.{% endif %} To categorize related issues, you can use labels and milestones.
+## 作業の追跡
 
-For more information about projects, see {% ifversion fpt or ghec %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" and {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)." {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}For more information about labels and milestones, see "[Using labels and milestones to track work](/issues/using-labels-and-milestones-to-track-work)."
+プロジェクトで、Issueを整理して優先順位付けできます。 {% ifversion fpt or ghec %}大きなIssueの一部であるIssueを追跡するには、タスクリストが使えます。{% endif %}関連するIssueを分類するには、ラベルとマイルストーンが使えます。
 
-## Stay up to date
+プロジェクトに関する詳しい情報については{% ifversion fpt or ghec %}「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」及び{% endif %}「[プロジェクトボードでの作業の整理](/issues/organizing-your-work-with-project-boards)」を参照してください。 {% ifversion fpt or ghec %}タスクリストに関する詳しい情報については「[タスクリストについて](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)」を参照してください。 {% endif %}ラベルとマイルストーンに関する詳しい情報については「[作業を追跡するためのラベルとマイルストーンの利用](/issues/using-labels-and-milestones-to-track-work)」を参照してください。
 
-To stay updated on the most recent comments in an issue, you can subscribe to an issue to receive notifications about the latest comments. To quickly find links to recently updated issues you're subscribed to, visit your dashboard. For more information, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}" and "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+## 最新情報の確認
 
-## Community management
+Issueの最新のコメントの情報を得ておきたい場合には、Issueをサブスクライブして最新のコメントに関する通知を受け取ることができます。 サブスクライブした Issue の最新の更新へのリンクを素早く見つけるには、ダッシュボードにアクセスしてください。 詳しい情報については{% ifversion fpt or ghes or ghae or ghec %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」{% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications)」{% endif %}及び「[個人ダッシュボードについて](/articles/about-your-personal-dashboard)」を参照してください。
 
-To help contributors open meaningful issues that provide the information that you need, you can use {% ifversion fpt or ghec %}issue forms and {% endif %}issue templates. For more information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+## コミュニティの管理
 
-{% ifversion fpt or ghec %}To maintain a healthy community, you can report comments that violate {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). For more information, see "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)."{% endif %}
+必要な情報を提供する、意味のあるIssueをコントリビューターがオープンするのを支援するために、{% ifversion fpt or ghec %}Issueフォームと{% endif %}Issueテンプレートが利用できます。 詳しい情報については「[有益なIssueとPull Requestを促進するためのテンプレートの利用](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」を参照してください。
 
-## Efficient communication
+{% ifversion fpt or ghec %}コミュニティを健全に保つために、{% data variables.product.prodname_dotcom %}の[コミュニティガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines)に違反するコメントを報告できます。 詳細は「[乱用やスパムをレポートする](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)」を参照してください。{% endif %}
 
-You can @mention collaborators who have access to your repository in an issue to draw their attention to a comment. To link related issues in the same repository, you can type `#` followed by part of the issue title and then clicking the issue that you want to link. To communicate responsibility, you can assign issues. If you find yourself frequently typing the same comment, you can use saved replies.
-{% ifversion fpt or ghec %} For more information, see "[Basic writing and formatting syntax](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" and "[Assigning issues and pull requests to other GitHub users](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)."
+## 効率的なコミュニケーション
 
-## Comparing issues and discussions
+コメントに注意してもらうために、Issue内でリポジトリにアクセスできるコラボレータを@メンションできます。 同じリポジトリ内の関連するIssueをリンクするために、`#`につづいてIssueのタイトルの一部を続け、リンクしたいIssueをクリックできます。 責任を伝えるために、Issueを割り当てることができます。 同じコメントを頻繁に入力しているなら、返信テンプレートを利用できます。
+{% ifversion fpt or ghec %}詳しい情報については「[基本的な記述とフォーマットの構文](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)」及び「[他のGitHubユーザへのIssueやPull Requestの割り当て](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)」を参照してください。
 
-Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} For guidance on when to use an issue or a discussion, see "[Communicating on GitHub](/github/getting-started-with-github/quickstart/communicating-on-github)."
+## Issueとディスカッションの比較
 
-When a conversation in an issue is better suited for a discussion, you can convert the issue to a discussion.
+Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} Issueあるいはディスカッションを使う場合のガイダンスについては「[GitHubでのコミュニケーション](/github/getting-started-with-github/quickstart/communicating-on-github)」を参照してください。
+
+Issue内での会話にディスカッションの方が適している場合は、Issueをディスカッションに変換できます。
 {% endif %}
