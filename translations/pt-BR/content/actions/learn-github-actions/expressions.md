@@ -125,7 +125,7 @@ Retorna `verdadeiro` se a `pesquisa` contiver `item`. Se a `pesquisa` for uma ar
 
 #### Exemplo de uso de array
 
-`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
+`contains(github.event.issue.labels.*.name, 'bug')` retorna se a issue relacionada ao evento possui uma etiqueta de "erro".
 
 #### Exemplo de uso de string
 

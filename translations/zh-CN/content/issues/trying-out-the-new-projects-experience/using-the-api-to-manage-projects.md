@@ -243,6 +243,12 @@ gh api graphql -f query='
 
 您可以查询 API 来查找项目中各项的信息。
 
+{% note %}
+
+**Note**: The API will not return information about draft issues.
+
+{% endnote %}
+
 下面的示例将返回项目中前 20 个字段的名称和 ID。 对于每个项目，它还将返回项目前 8 个字段的值和名称。 如果项目是议题或拉取请求，它将返回前 10 个受理人的登录名。 将 `PROJECT_ID` 替换为项目的节点 ID。
 
 {% curl %}

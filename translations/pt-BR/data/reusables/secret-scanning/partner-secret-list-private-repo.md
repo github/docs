@@ -190,6 +190,10 @@ Telegram | Telegram Bot Token | telegram_bot_token{% endif %} Tencent Cloud | Te
 Twilio | Twilio Access Token | twilio_access_token{% endif %} Twilio | Twilio Account String Identifier | twilio_account_sid Twilio | Twilio API Key | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Typeform | Typeform Personal Access Token | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | WorkOS Production API Key | workos_production_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | WorkOS Staging API Key | workos_staging_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}

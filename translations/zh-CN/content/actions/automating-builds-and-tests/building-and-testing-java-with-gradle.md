@@ -69,7 +69,9 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Build with Gradle
-        run: ./gradlew build
+        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        with:
+          arguments: build
 ```
 
 此工作流程执行以下步骤：
@@ -77,7 +79,7 @@ jobs:
 1. `checkout` 步骤在运行器上下载仓库的副本。
 2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “验证 Gradle 包装器”步骤验证源树中存在的 Gradle Wrapper JAR 文件的校验和。
-4. “使用 Gradle 构建”步骤运行 `gradlew` wrapper 脚本以确保可以创建您的代码构建、测试通过和包。
+4. The "Build with Gradle" step does a build using the `gradle/gradle-build-action` action provided by the Gradle organization on {% data variables.product.prodname_dotcom %}. The action takes care of invoking Gradle, collecting results, and caching state between jobs. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
 
 The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
@@ -104,38 +106,17 @@ steps:
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Run the Gradle package task
-    run: ./gradlew -b ci.gradle package
+    uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+    with:
+      arguments: -b ci.gradle package
 ```
 {% endraw %}
 
 ## 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Gradle 缓存将存储在 GitHub Actions 基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程包仓库下载依赖项。 您可以简单地使用 [`setup-java` 操作](https://github.com/marketplace/actions/setup-java-jdk)缓存依赖项，也可使用 [`cache` 操作](https://github.com/actions/cache)进行自定义和更高级的配置。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, your build dependencies can be cached to speed up your workflow runs. After a successful run, the `gradle/gradle-build-action` caches important parts of the Gradle user home directory. In future jobs, the cache will be restored so that build scripts won't need to be recompiled and dependencies won't need to be downloaded from remote package repositories.
 
-{% raw %}
-```yaml{:copy}
-steps:
-  - uses: actions/checkout@v2
-  - name: Set up JDK 11
-    uses: actions/setup-java@v2
-    with:
-      java-version: '11'
-      distribution: 'adopt'
-      cache: gradle
-  - name: Validate Gradle wrapper
-    uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
-  - name: Build with Gradle
-    run: ./gradlew build
-  - name: Cleanup Gradle Cache
-    # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
-    # Restoring these files from a GitHub Actions cache might cause problems for future builds.
-    run: |
-      rm -f ~/.gradle/caches/modules-2/modules-2.lock
-      rm -f ~/.gradle/caches/modules-2/gc.properties
-```
-{% endraw %}
-
-此工作流程将保存本地 Gradle 包缓存的内容，位于运行器主目录的 `.gradle/caches` 和 `.gradle/wrapper` 目录中。 缓存键将是 gradle 构建文件（包括 Gradle wrapper 属性文件）的哈希内容，因此对它们的任何更改都将使缓存无效。
+Caching is enabled by default when using the `gradle/gradle-build-action` action. For more information, see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching).
 
 ## 将工作流数据打包为构件
 
@@ -153,7 +134,10 @@ steps:
       distribution: 'adopt'
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
-  - run: ./gradlew build
+  - name: Build with Gradle
+    uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+    with:
+      arguments: build
   - uses: actions/upload-artifact@v2
     with:
       name: Package
