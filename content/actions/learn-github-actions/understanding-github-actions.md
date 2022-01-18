@@ -80,7 +80,8 @@ You can create an example workflow in your repository that automatically trigger
 1. In the `.github/workflows/` directory, create a new file called `learn-github-actions.yml` and add the following code.
     ```yaml
     name: learn-github-actions
-    on: [push]
+    on: 
+     push:
     jobs:
       check-bats-version:
         runs-on: ubuntu-latest
