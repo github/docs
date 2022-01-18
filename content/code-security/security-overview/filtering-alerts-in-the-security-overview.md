@@ -116,8 +116,6 @@ Available in the code scanning alert views. All code scanning alerts have one of
 |`severity:warning`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings.|
 |`severity:note`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.|
 
-{% endif %}
-
 ## Filter by secret types
 
 Available in the secret scanning alert views.
@@ -134,3 +132,5 @@ Available in the secret scanning alert views.
 | Qualifier | Description |
 | -------- | -------- |
 |`provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[List of supported secrets for private repositories](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories) |
+
+{% endif %}
