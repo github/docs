@@ -74,7 +74,7 @@ Here are some high-level examples of what your goals for rolling out GHAS might 
 
 ### {% octicon "checklist" aria-label="The checklist icon" %} Establish clear communication and alignment between your teams
 
-Clear communication and alignment are critical to the success of any project, and the rollout of GHAS is no different. We’ve found that companies that have clear communication and alignment between their security and development groups, as well as their executive sponsor (either CISO or VP) from the purchase of GHAS through rollout, often have more success with their rollouts.
+Clear communication and alignment are critical to the success of any project, and the rollout of GHAS is no different. Hemos visto que las compañías que tienen comunicaciones claras y que se alinean entre sus grupos de desarrollo y seguridad, así como con su patrocinador ejecutivo (ya sea el CISO o VP) desde la compra de GHAS hasta su implementación suelen tener más éxito en dichas implementaciones.
 
 In addition to ensuring these groups are aligned throughout your GHAS rollout, there are a few specific areas we recommend focusing on.
 
