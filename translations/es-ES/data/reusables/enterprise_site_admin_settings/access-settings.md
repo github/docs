@@ -1,7 +1,7 @@
-1. From an administrative account on {% data variables.product.product_name %}, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
+1. Desde una cuenta administrativa de {% data variables.product.product_name %}, en la esquina superior derecha de cualquier página, haz clic en {% octicon "rocket" aria-label="The rocket ship" %}.
 
-   ![Screenshot of the rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+   ![Captura de pantalla del icono de cohete para acceder a los ajustes administrativos](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-1. If you're not already on the "Site admin" page, in the upper-left corner, click **Site admin**.
+1. Si aún no estás en la página de "Administrador de sitio", en la esquina inferior izquierda, haz clic en **Administrador de sitio**.
 
-   ![Screenshot of "Site admin" link](/assets/images/enterprise/site-admin-settings/site-admin-link.png)
+   ![Captura de pantalla del enlace de "Administrador de sitio"](/assets/images/enterprise/site-admin-settings/site-admin-link.png)

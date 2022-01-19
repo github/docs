@@ -13,7 +13,7 @@ topics:
 
 ## Acerca del {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_cloud %}
 
-{% data variables.product.prodname_actions %} is enabled for your enterprise by default. To get started using {% data variables.product.prodname_actions %} within your enterprise, you can manage the policies that control how enterprise members use {% data variables.product.prodname_actions %} and optionally add self-hosted runners to run workflows.
+{% data variables.product.prodname_actions %} is enabled for your enterprise by default. Para comenzar a utilizar las {% data variables.product.prodname_actions %} dentro de tu empresa, puedes administrar las políticas que controlan cómo los miembros empresariales utilizan estas {% data variables.product.prodname_actions %} y, opcionalmente, agregar ejecutores auto-hospedados a los flujos de trabajo.
 
 {% data reusables.actions.introducing-enterprise %}
 
