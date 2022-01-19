@@ -1,15 +1,15 @@
-date: '2022-01-12'
+date: '2022-01-18'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions. In these updates, Log4j has been updated to version 2.17.1. Note: previous mitigations released in 3.3.1, 3.2.6, 3.1.14, and 3.0.22 are sufficient to address the impact of CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, and CVE-2021-44832 in these versions of GitHub Enterprise Server. 
-    - Sanitize more secrets in the generated support bundles 
-    - Packages have been updated to the latest security versions. 
+    - 'Packages have been updated to the latest security versions. In these updates, Log4j has been updated to version 2.17.1. Note: previous mitigations released in 3.3.1, 3.2.6, 3.1.14, and 3.0.22 are sufficient to address the impact of CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, and CVE-2021-44832 in these versions of GitHub Enterprise Server.'
+    - Sanitize more secrets in the generated support bundles
+    - Packages have been updated to the latest security versions.
   bugs:
-    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`. 
-    - The save button in management console was unreachable by scrolling in lower resolution browsers. 
-    - IOPS and Storage Traffic monitoring graphs were not updating after collectd version upgrade. 
-    - Some webhook related jobs could generated large amount of logs. 
-    - The repository permissions to the user returned by the `/repos` API would not return the full list. 
+    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
+    - The save button in management console was unreachable by scrolling in lower resolution browsers.
+    - IOPS and Storage Traffic monitoring graphs were not updating after collectd version upgrade.
+    - Some webhook related jobs could generated large amount of logs.
+    - The repository permissions to the user returned by the `/repos` API would not return the full list.
   known_issues:
     - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
     - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
