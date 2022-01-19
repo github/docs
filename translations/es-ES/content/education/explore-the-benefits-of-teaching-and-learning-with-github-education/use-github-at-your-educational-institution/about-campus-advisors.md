@@ -14,7 +14,7 @@ Profesores, maestros y mentores pueden usar la capacitación en línea de Asesor
 
 {% note %}
 
-**Nota:** Como instructor, no puedes crear cuentas de {% data variables.product.prodname_dotcom %} para tus alumnos. Los alumnos deben crear sus propias cuentas de {% data variables.product.prodname_dotcom %}.
+**Nota:** Como instructor, no puedes crear cuentas para tus alumnos en {% data variables.product.product_location %}. Los alumnos deben crear sus propias cuentas en {% data variables.product.product_location %}.
 
 {% endnote %}
 

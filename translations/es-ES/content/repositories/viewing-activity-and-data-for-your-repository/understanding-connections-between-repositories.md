@@ -1,6 +1,7 @@
 ---
 title: Entender las conexiones entre repositorios
 intro: Puedes entender mejor las conexiones que existen entre los repositorios si ves la red y las bifurcaciones de este y los proyectos que dependen de él.
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
   - /articles/viewing-a-repositorys-network
@@ -17,6 +18,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Conexiones entre repositorios
@@ -24,7 +26,7 @@ shortTitle: Conexiones entre repositorios
 
 ## Ver la red de un repositorio
 
-'La gráfica de red muestra el historial de ramas de toda la red del repositorio, incluyendo las ramas en el repositorio raíz y las ramas de las bifurcaciones que contienen confirmaciones únicas para la red'. producto: '{% data reusables.gated-features.repository-insights %}'
+El gráfico de red muestra el historial de la rama de la red del repositorio completa, incluidas las ramas del repositorio raíz y las ramas de las bifurcaciones que contienen confirmaciones únicas de la red.
 
 ![Gráfico de red del repositorio](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -46,7 +48,7 @@ El Gráfico de miembros muestra todas las bifurcaciones de un repositorio.
 
 Las bifurcaciones se detallan alfabéticamente por el nombre de usuario de la persona que bifurcó el repositorio. Puedes hacer clic en el nombre de usuario para ser redirigido a la página de perfil del usuario {% data variables.product.product_name %} o hacer clic en el nombre de la bifurcación para ser redirigido a la bifurcación específica del repositorio.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![Gráfico de miembros del repositorio](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
 
@@ -62,7 +64,7 @@ Las bifurcaciones se detallan alfabéticamente por el nombre de usuario de la pe
 {% data reusables.repositories.accessing-repository-graphs %}
 3. En la barra lateral izquierda, haz clic en **Forks** (Bifurcaciones). ![Pestaña Forks (Bifurcaciones)](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Visualizar las dependencias de un repositorio
 
 Puedes utilizar la gráfica de dependencias para explorar el código del cual depende tu repositorio.

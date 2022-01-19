@@ -2,13 +2,14 @@
 title: Editar una respuesta guardada
 intro: Puedes editar el título y el cuerpo de una respuesta guardada.
 redirect_from:
-  - /articles/changing-a-saved-reply/
+  - /articles/changing-a-saved-reply
   - /articles/editing-a-saved-reply
   - /github/writing-on-github/editing-a-saved-reply
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}

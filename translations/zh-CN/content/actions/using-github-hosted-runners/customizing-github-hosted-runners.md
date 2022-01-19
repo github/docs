@@ -1,17 +1,15 @@
 ---
 title: 自定义 GitHub 托管的运行器
 intro: 您可以在 GitHub 托管的运行器上安装其他软件作为工作流程的一部分。
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
 shortTitle: 自定义运行器
 ---
 
-{% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 如果 {% data variables.product.prodname_dotcom %} 托管的运行器上需要其他软件包，您可以创建一个作业，将包的安装作为工作流程的一部分。

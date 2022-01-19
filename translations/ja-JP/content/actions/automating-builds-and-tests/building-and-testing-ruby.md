@@ -1,13 +1,13 @@
 ---
 title: Rubyでのビルドとテスト
 intro: Rubyプロジェクトのビルドとテストのための継続的インテグレーション（CI）ワークフローを作成できます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-ruby
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -29,11 +29,11 @@ Ruby、YAML、ワークフローの設定オプションと、ワークフロー
 - [{% data variables.product.prodname_actions %}を学ぶ](/actions/learn-github-actions)
 - [20分のRuby](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Rubyワークフローテンプレートを使い始める
+## Using the Ruby starter workflow
 
-{% data variables.product.prodname_dotcom %}は、ほとんどのRubyプロジェクトで使えるRubyのワークフローテンプレートを提供しています。 詳しい情報については[Rubyワークフローテンプレート](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml)を参照してください。
+{% data variables.product.prodname_dotcom %} provides a Ruby starter workflow that will work for most Ruby projects. For more information, see the [Ruby starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
 
-手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。 以下に示すワークフローは、リポジトリのデフォルトブランチが `main` であることを前提としています。
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. 以下に示すワークフローは、リポジトリのデフォルトブランチが `main` であることを前提としています。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -283,7 +283,7 @@ on:
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

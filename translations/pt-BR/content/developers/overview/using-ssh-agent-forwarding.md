@@ -2,12 +2,13 @@
 title: Usar o encaminhamento de agente SSH
 intro: 'Para simplificar a implantação em um servidor, você pode configurar o encaminhamento do agente para usar as chaves SSH locais de forma segura.'
 redirect_from:
-  - /guides/using-ssh-agent-forwarding/
+  - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Encaminhamento de agente SSH

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## 复刻 Gist
@@ -25,7 +26,7 @@ versions:
 
 ## 查看 Gist 提交历史记录
 
-要查看 Gist 的完整提交历史记录，请单击该 Gist 顶部的“Revisions（版本）”选项卡。
+To view a gist's full commit history, click the "Revisions" tab at the top of the gist.
 
 ![Gist 版本选项卡](/assets/images/help/gist/gist_revisions_tab.png)
 

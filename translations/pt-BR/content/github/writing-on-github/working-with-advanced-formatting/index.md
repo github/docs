@@ -7,8 +7,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /organizing-information-with-tables
+  - /organizing-information-with-collapsed-sections
   - /creating-and-highlighting-code-blocks
   - /autolinked-references-and-urls
   - /attaching-files

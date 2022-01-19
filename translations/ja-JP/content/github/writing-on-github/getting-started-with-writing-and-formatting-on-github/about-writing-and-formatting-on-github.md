@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Write & format on GitHub
 ---
 
@@ -21,7 +22,19 @@ shortTitle: Write & format on GitHub
 
 {% data variables.product.product_name %}のすべてのコメントフィールドには、テキストフォーマット用のツールバーが含まれており、Markdown の構文を学ばなくてもテキストをフォーマットできます。 太字や斜体といったスタイルなどの Markdown のフォーマットやヘッダ、リンク、リストの作成といったことに加えて、このツールバーには @メンション、タスクリスト、Issue およびプルリクエストへのリンクといった {% data variables.product.product_name %}固有の機能があります。
 
-![Markdown ツールバー](/assets/images/help/writing/markdown-toolbar.gif)
+{% if fixed-width-font-gfm-fields %}
+
+## Enabling fixed-width fonts in the editor
+
+You can enable a fixed-width font in every comment field on {% data variables.product.product_name %}. Each character in a fixed-width, or monospace, font occupies the same horizontal space which can make it easier to edit advanced Markdown structures such as tables and code snippets.
+
+![Screenshot showing the {% data variables.product.product_name %} comment field with fixed-width fonts enabled](/assets/images/help/writing/fixed-width-example.png)
+
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.appearance-settings %}
+1. Under "Markdown editor font preference", select **Use a fixed-width (monospace) font when editing Markdown**. ![Screenshot showing the {% data variables.product.product_name %} comment field with fixed width fonts enabled](/assets/images/help/writing/enable-fixed-width.png)
+
+{% endif %}
 
 ## 参考リンク
 

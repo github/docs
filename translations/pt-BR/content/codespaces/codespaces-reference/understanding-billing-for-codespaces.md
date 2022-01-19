@@ -3,6 +3,7 @@ title: Entendendo a cobrança para Codespaces
 intro: 'Saiba como seu uso de {% data variables.product.prodname_codespaces %} é cobrado.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/about-billing-for-codespaces
   - /codespaces/getting-started-with-codespaces/about-billing-for-codespaces
@@ -53,3 +54,7 @@ Seu código será automaticamente excluído quando você for removido de uma org
 ## Excluindo seus codespaces não utilizados
 
 Você pode excluir manualmente os seus codespaces em https://github.com/codespaces e de dentro de {% data variables.product.prodname_vscode %}. Para reduzir o tamanho de um codespace, você pode excluir arquivos manualmente usando o terminal ou de dentro de {% data variables.product.prodname_vscode %}.
+
+## Leia mais
+
+- "[Gerenciando a cobrança para codespaces na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

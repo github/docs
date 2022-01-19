@@ -2,14 +2,15 @@
 title: Buscar información en GitHub
 intro: Utiliza los diferentes tipos de búsqueda para encontrar la información que quieres.
 redirect_from:
-  - /categories/78/articles/
-  - /categories/search/
+  - /categories/78/articles
+  - /categories/search
   - /categories/searching-for-information-on-github
   - /github/searching-for-information-on-github
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 children:

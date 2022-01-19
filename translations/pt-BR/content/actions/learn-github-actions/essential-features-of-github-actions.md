@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -91,6 +92,8 @@ jobs:
         with:
           name: output-log-file
 ```
+
+Para fazer o download de um artefato da mesma execução de fluxo de trabalho, seu trabalho de download deverá especificar `needs: upload-job-name` para que não inicie até que o trabalho de upload seja concluído.
 
 Para obter mais informações sobre artefatos, consulte "[Persistir dados de fluxo de trabalho usando artefatos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)".
 

@@ -4,6 +4,7 @@ intro: '您可以管理和审查您组织中的用户如何使用  {% data varia
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 children:
@@ -12,6 +13,7 @@ children:
   - /managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
   - /managing-repository-access-for-your-organizations-codespaces
   - /reviewing-your-organizations-audit-logs-for-codespaces
-shortTitle: Managing your organization
+  - /restricting-access-to-machine-types
+shortTitle: 管理组织
 ---
 

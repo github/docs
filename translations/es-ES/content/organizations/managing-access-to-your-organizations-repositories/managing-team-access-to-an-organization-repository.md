@@ -2,13 +2,14 @@
 title: Administrar el acceso de equipo a un repositorio de la organización
 intro: 'Puedes darle acceso de equipo a un repositorio, eliminar el acceso del equipo sobre un repositorio, o cambiar el nivel de permiso del equipo sobre un repositorio.'
 redirect_from:
-  - /articles/managing-team-access-to-an-organization-repository-early-access-program/
+  - /articles/managing-team-access-to-an-organization-repository-early-access-program
   - /articles/managing-team-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-repository
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -51,4 +52,4 @@ Puedes eliminar el acceso de un equipo a un repositorio si el equipo tiene acces
 
 ## Leer más
 
-- "[Niveles de permiso del repositorio para una organización](/articles/repository-permission-levels-for-an-organization)"
+- "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

@@ -3,13 +3,14 @@ title: Agregar propuestas y solicitudes de extracción a un tablero de proyecto
 intro: Puedes agregar propuestas y solicitudes de extracción a un tablero de proyecto en la forma de tarjetas y jerarquizarlas en columnas.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
-  - /articles/adding-issues-and-pull-requests-to-a-project/
+  - /articles/adding-issues-and-pull-requests-to-a-project
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Agrega propuestas & solicitudes de cambio a un tablero

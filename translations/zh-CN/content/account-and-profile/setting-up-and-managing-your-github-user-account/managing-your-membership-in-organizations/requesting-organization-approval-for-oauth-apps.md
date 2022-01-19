@@ -2,13 +2,14 @@
 title: 请求组织批准 OAuth 应用程序
 intro: '组织成员可以请求所有者批准对 {% data variables.product.prodname_oauth_app %}组织资源的访问权限。'
 redirect_from:
-  - /articles/requesting-organization-approval-for-third-party-applications/
-  - /articles/requesting-organization-approval-for-your-authorized-applications/
+  - /articles/requesting-organization-approval-for-third-party-applications
+  - /articles/requesting-organization-approval-for-your-authorized-applications
   - /articles/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: 请求 OAuth 应用程序批准

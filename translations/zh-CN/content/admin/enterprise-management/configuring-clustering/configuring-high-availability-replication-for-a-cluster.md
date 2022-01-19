@@ -353,7 +353,7 @@ shortTitle: 配置 HA 复制
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. In the top-level `[cluster]` section, delete the `redis-master-replica`, and `mysql-master-replica` key-value pairs.
+3. 在顶层 `[cluster]` 部分，删除 `redis-master-replica` 和 `mysql-master-replica` 键值对。
 
 4. 删除被动节点的每个部分。 对于被动节点，`replica` 配置为 `enabled`。
 

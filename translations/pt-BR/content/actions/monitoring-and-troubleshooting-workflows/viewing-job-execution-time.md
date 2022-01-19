@@ -1,18 +1,18 @@
 ---
 title: Visualizar o tempo de execução do trabalho
 intro: 'Você pode visualizar o tempo de execução de um trabalho, incluindo os minutos faturáveis que um trabalho acumulou.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/viewing-job-execution-time
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Visualizar tempo de execução do trabalho
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Os minutos de execução de um trabalho faturável são exibidos para trabalhos executados em repositórios privados que usam executores hospedados em {% data variables.product.prodname_dotcom %}. Não há minutos faturáveis ao usar {% data variables.product.prodname_actions %} nos repositórios públicos ou para trabalhos executados em executores auto-hospedados.
+Os minutos de execução de um trabalho faturável são exibidos para trabalhos executados em repositórios privados que usam executores hospedados em {% data variables.product.prodname_dotcom %} e são arredondados para o próximo minuto. Não há minutos faturáveis ao usar {% data variables.product.prodname_actions %} nos repositórios públicos ou para trabalhos executados em executores auto-hospedados.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -22,6 +22,6 @@ Os minutos de execução de um trabalho faturável são exibidos para trabalhos 
 
    {% note %}
 
-   **Observação:**O tempo faturável exibido não inclui arredondamentos ou multiplicadores de minutos. Para visualizar o uso total de {% data variables.product.prodname_actions %}, incluindo arredondamento e multiplicadores de minutos, consulte "[Visualizando o seu uso {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)".
+   **Observação:**O tempo faturável exibido não inclui multiplicadores de minutos. Para visualizar o uso total de {% data variables.product.prodname_actions %}, incluindo multiplicadores de minutos, consulte "[Visualizando o seu uso {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)".
 
    {% endnote %}

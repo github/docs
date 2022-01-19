@@ -2,13 +2,14 @@
 title: Verificar endereço de e-mail
 intro: 'A verificação do endereço de e-mail principal garante segurança reforçada, permite que a equipe do {% data variables.product.prodname_dotcom %} auxilie melhor caso você esqueça sua senha e fornece acesso a mais recursos no {% data variables.product.prodname_dotcom %}.'
 redirect_from:
-  - /articles/troubleshooting-email-verification/
-  - /articles/setting-up-email-verification/
+  - /articles/troubleshooting-email-verification
+  - /articles/setting-up-email-verification
   - /articles/verifying-your-email-address
   - /github/getting-started-with-github/verifying-your-email-address
   - /github/getting-started-with-github/signing-up-for-github/verifying-your-email-address
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Verifique seu endereço de e-mail
@@ -57,11 +58,11 @@ Se você não verificar seu endereço de e-mail, não poderá:
 
 O link de verificação expira após 24 horas. Se você não verificar seu e-mail dentro de 24 horas, poderá solicitar outro link de verificação de e-mail. Para obter mais informações, consulte "[Verificar o endereço de e-mail](/articles/verifying-your-email-address)".
 
-Se você clicar no link incluído no e-mail de confirmação dentro de 24 horas e for direcionado para uma página de erro, confira se entrou na conta correta do {% data variables.product.prodname_dotcom %}.
+Se você clicar no link no e-mail de confirmação dentro de 24 horas e você for direcionado a uma página de erro, você deve garantir que está conectado à conta correta em {% data variables.product.product_location %}.
 
-1. {% data variables.product.signout_link %} da sua conta pessoal do {% data variables.product.prodname_dotcom %}.
+1. {% data variables.product.signout_link %} da sua conta pessoal em {% data variables.product.product_location %}.
 2. Saia e reinicie o navegador.
-3. {% data variables.product.signin_link %} para sua conta pessoal do {% data variables.product.prodname_dotcom %}.
+3. {% data variables.product.signin_link %} para a sua conta pessoal em {% data variables.product.product_location %}.
 4. Clique no link de verificação no e-mail que enviamos para você.
 
 ## Leia mais

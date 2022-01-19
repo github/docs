@@ -2,11 +2,11 @@
 title: 個人リポジトリからコラボレーターを削除する
 intro: コラボレータをプロジェクトから削除すると、そのコラボレータはリポジトリに対する読み取り/書き込みアクセスを失います。 リポジトリがプライベートであり、その個人がフォークを作成している場合、そのフォークも削除されます。
 redirect_from:
-  - /articles/how-do-i-remove-a-collaborator/
-  - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository/
-  - /articles/removing-a-collaborator-from-a-private-repository/
-  - /articles/deleting-a-private-fork-of-a-private-user-repository/
-  - /articles/how-do-i-delete-a-fork-of-my-private-repository/
+  - /articles/how-do-i-remove-a-collaborator
+  - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository
+  - /articles/removing-a-collaborator-from-a-private-repository
+  - /articles/deleting-a-private-fork-of-a-private-user-repository
+  - /articles/how-do-i-delete-a-fork-of-my-private-repository
   - /articles/removing-a-collaborator-from-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/removing-a-collaborator-from-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository
@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
@@ -29,7 +30,7 @@ shortTitle: Remove a collaborator
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. 削除するコラボレーターの右で、{% octicon "trash" aria-label="The trash icon" %} をクリックします。 ![コラボレーターを削除するボタン](/assets/images/help/repository/collaborator-remove.png)
 {% else %}

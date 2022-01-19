@@ -2,17 +2,18 @@
 title: 源代码迁移工具
 intro: 您可以使用外部工具将项目移动到 GitHub。
 redirect_from:
-  - /articles/importing-from-subversion/
+  - /articles/importing-from-subversion
   - /articles/source-code-migration-tools
   - /github/importing-your-projects-to-github/source-code-migration-tools
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 代码迁移工具
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 我们建议使用 [GitHub 导入工具](/articles/about-github-importer)从 Subversion、Mercurial、Team Foundation Version Control (TFVC) 或其他 Git 仓库导入项目。 您还可以使用这些外部工具将项目转换为 Git。
 
@@ -46,7 +47,7 @@ For more information about moving from TFVC (a centralized version control syste
 
 {% endtip %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 延伸阅读
 

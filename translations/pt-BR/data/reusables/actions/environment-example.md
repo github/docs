@@ -1,6 +1,6 @@
-You can specify an environment for each job in your workflow. To do so, add a `jobs.<job_id>.environment` key followed by the name of the environment.
+Você pode especificar um ambiente para cada tarefa do seu fluxo de trabalho. Para fazer isso, adicione um chave a função `.<job_id>.environment` seguida pelo nome do ambiente.
 
-For example, this workflow will use an environment called `production`.
+Por exemplo, esse fluxo de trabalho usará um ambiente denominado `produção`.
 
 ```yaml
 name: Deployment

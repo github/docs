@@ -19,15 +19,14 @@ shortTitle: Configure package ecosystems
 
 新しいパッケージがアップロードされないようにするには、以前に有効にしたエコシステムを**読み取り専用**に設定し、既存のパッケージをダウンロードできるようにします。
 
-{% ifversion ghes = 2.22 %}
-ー
-Dockerで {% data variables.product.prodname_registry %} を使用するには、インスタンスで Subdomain Isolation を有効にする必要があります。 詳しい情報については、「[Subdomain Isolation の有効化](/enterprise/admin/configuration/enabling-subdomain-isolation)」を参照してください。
-{% endif %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
-1. [Ecosystem Toggles] の下で、パッケージの種類ごとに [**Enabled**]、[**Read-Only**]、または [**Disabled**] を選択します。 ![エコシステムの切り替え](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png)
+1. [Ecosystem Toggles] の下で、パッケージの種類ごとに [**Enabled**]、[**Read-Only**]、または [**Disabled**] を選択します。
+{% ifversion ghes > 3.1 %}
+  ![エコシステムの切り替え](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
+![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes = 3.0 or ghes > 3.0 %}
@@ -44,6 +43,8 @@ npm レジストリへのネットワーク接続を許可するには、{% data
 | {% data variables.product.prodname_ghe_server %} | `registry.npmjs.com` | TCP/443 | HTTPS |
 
 `registry.npmjs.com` への接続は、Cloudflare ネットワークを通過した後、単一の静的 IP アドレスに接続しませんので、ご注意ください。代わりに、https://www.cloudflare.com/ips/ にリストされている CIDR 範囲内の IP アドレスに接続されます。
+
+If you wish to enable npm upstream sources, select `Enabled` for `npm upstreaming`.
 
 {% endif %}
 

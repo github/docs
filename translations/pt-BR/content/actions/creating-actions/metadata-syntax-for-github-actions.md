@@ -2,7 +2,6 @@
 title: Sintaxe de metadados para o GitHub Actions
 shortTitle: Sintaxe dos metadados
 intro: Você pode criar ações para executar tarefas no repositório. As ações requerem um arquivo de metadados que usa sintaxe YAML.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
@@ -132,35 +132,42 @@ runs:
 
 Para obter mais informações sobre como usar a sintaxe de contexto, consulte "[Contextos](/actions/learn-github-actions/contexts)".
 
+## `runs`
+
+**Obrigatório** Especifica se esta é uma ação do JavaScript, uma ação composta ou uma ação do Docker e como a ação é executada.
+
 ## `runs` para ações de JavaScript
 
-**Obrigatório** Configura o caminho para o código da ação e o aplicativo usado para executar o código.
+**Obrigatório** Configura o caminho para o código da ação e o tempo de execução usado para executar o código.
 
-### Exemplo usando Node.js
+### Exemplo que usa o Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
 
 ```yaml
-executa:
-  using: 'node12'
+runs:
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'main.js'
 ```
 
 ### `runs.using`
 
-**Obrigatório** O aplicativo usado para executar o código especificado em [`principal`](#runsmain).
+**Obrigatório** O tempo de execução usado para executar o código especificado em [`principal`](#runsmain).
+
+- Use `node12` para o Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+- Use o `node16` para o Node.js v16.{% endif %}
 
 ### `runs.main`
 
-**Obrigatório** O arquivo que contém o código da ação. O aplicativo especificado em [`usando`](#runsusing) executa este arquivo.
+**Obrigatório** O arquivo que contém o código da ação. O tempo de execução especificado [`em uso`](#runsusing) executa este arquivo.
 
 ### `pre`
 
-**Opcional** Permite que você execute um script no início de um trabalho antes de a ação `main:` começar. Por exemplo, você pode usar `pre:` para executar um pré-requisito da configuração do script. O aplicativo especificado com a sintaxe [`using`](#runsusing) executará esse arquivo. A ação `pre:` é sempre executada como padrão, mas você pode substituí-la usando [`pre-if`](#pre-if).
+**Opcional** Permite que você execute um script no início de um trabalho antes de a ação `main:` começar. Por exemplo, você pode usar `pre:` para executar um pré-requisito da configuração do script. O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo. A ação `pre:` é sempre executada como padrão, mas você pode substituí-la usando [`pre-if`](#pre-if).
 
 Neste exemplo, a ação `pre:` executa um script denominado `setup.js.`:
 
 ```yaml
-executa:
-  using: 'node12'
+runs:
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -168,7 +175,9 @@ executa:
 
 ### `pre-if`
 
-**Opcional** Permite que você defina condições para a execução da ação `pre:`. A ação `pre:` será executada apenas se as condições em `pre-if` forem atendidas. Se não forem definidas, o padrão de `pre-if` será `sempre()`. Observe que o contexto da `etapa` está indisponível, uma vez que nenhuma etapa foi executada ainda.
+**Opcional** Permite que você defina condições para a execução da ação `pre:`. A ação `pre:` será executada apenas se as condições em `pre-if` forem atendidas. Se não forem definidas, o padrão de `pre-if` será `sempre()`. Em `pre-if`, verifique as funções para avaliar com base no status do trabalho, não o status próprio da ação.
+
+Observe que o contexto da `etapa` está indisponível, uma vez que nenhuma etapa foi executada ainda.
 
 Neste exemplo, o `cleanup.js` é executado apenas nos executores baseados no Linux:
 
@@ -179,13 +188,13 @@ Neste exemplo, o `cleanup.js` é executado apenas nos executores baseados no Lin
 
 ### `post`
 
-**Opcional** Permite que você execute um script no final do trabalho, uma vez que a ação `main:` foi finalizada. Por exemplo, você pode usar `post:` para encerrar uns processos ou remover arquivos desnecessários. O aplicativo especificado com a sintaxe [`using`](#runsusing) executará esse arquivo.
+**Opcional** Permite que você execute um script no final do trabalho, uma vez que a ação `main:` foi finalizada. Por exemplo, você pode usar `post:` para encerrar uns processos ou remover arquivos desnecessários. O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo.
 
 Neste exemplo, a ação `post:` executa um script chamado `cleanup.js`:
 
 ```yaml
-executa:
-  using: 'node12'
+runs:
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
   post: 'cleanup.js'
 ```
@@ -194,7 +203,7 @@ A ação `post:` é executada sempre por padrão, mas você pode substituí-la u
 
 ### `post-if`
 
-**Opcional** Permite que você defina condições para a execução da ação `post:`. A ação `post:` só será executada se as condições em `post-if` forem atendidas. Se não forem definidas, o padrão de `post-if` será `sempre()`.
+**Opcional** Permite que você defina condições para a execução da ação `post:`. A ação `post:` só será executada se as condições em `post-if` forem atendidas. Se não forem definidas, o padrão de `post-if` será `sempre()`. Em `post-if`, verifique as funções para avaliar com base no status do trabalho, não o status próprio da ação.
 
 Por exemplo, este `cleanup.js` só será executado em executores baseados no Linux:
 
@@ -205,15 +214,15 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
 
 ## `runs` para ações compostas
 
-**Obrigatório** Configura o caminho para a ação composta, e o aplicativo usado para executar o código.
+**Obrigatório** Configura o caminho da ação composta.
 
 ### `runs.using`
 
-**Obrigatório** Para usar uma ação composta, defina-o como `"cmposto"`.
+**Obrigatório** Você deve definir este valor como`'composto'`.
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Obrigatório** As etapas de que você planeja executar nesta ação. Elas podem ser etapas de `run` ou etapas de `uses`.
 {% else %}
 **Obrigatório** As etapas de que você planeja executar nesta ação.
@@ -221,7 +230,7 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Optional** O comando que você deseja executar. Isso pode ser inline ou um script no seu repositório de ação:
 {% else %}
 **Obrigatório** O comando que você deseja executar. Isso pode ser inline ou um script no seu repositório de ação:
@@ -251,11 +260,40 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
-**Opcional** O shell onde você deseja executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Obrigatório se `run` estiver configurado.
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+**Opcional** O shell onde você deseja executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Obrigatório se `run` estiver configurado.
 {% else %}
-**Obrigatório** O shell onde você quer executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Obrigatório se `run` estiver configurado.
+**Obrigatório** O shell onde você quer executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Obrigatório se `run` estiver configurado.
 {% endif %}
+
+#### `runs.steps[*].if`
+
+**Opcional** Você pode usar o `if` condicional para evitar que uma etapa seja executada, a menos que uma condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
+
+{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
+
+**Exemplo: Usando contextos**
+
+ Essa etapa somente é executada quando o tipo de evento é uma `pull_request` e a ação do evento é `unassigned` (não atribuída).
+
+ ```yaml
+steps:
+  - run: echo This event is a pull request that had an assignee removed.
+    if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
+```
+
+**Exemplo: Usando funções de verificação de status**
+
+A função `my backup step` somente é executada quando houver falha uma ação composta da etapa anterior do trabalho. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#job-status-check-functions)".
+
+```yaml
+steps:
+  - name: My first step
+    uses: octo-org/action-name@main
+  - name: My backup step
+    if: {% raw %}${{ failure() }}{% endraw %}
+    uses: actions/heroku@1.0.0
+```
 
 #### `runs.steps[*].name`
 
@@ -267,13 +305,13 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 #### `runs.steps[*].env`
 
-**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. Se você desejar modificar a variável de ambiente armazenada no fluxo de trabalho, use {% ifversion fpt or ghes > 2.22 or ghae %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} em uma etapa composta.
+**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. Se você deseja modificar a variável de ambiente armazenada no fluxo de trabalho, use `eco "{name}={value}" >> $GITHUB_ENV` em uma etapa composta.
 
 #### `runs.steps[*].working-directory`
 
 **Opcional**  Especifica o diretório de trabalho onde o comando é executado.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 #### `runs.steps[*].uses`
 
 **Opcional**  Seleciona uma ação a ser executada como parte de uma etapa do seu trabalho. A ação é uma unidade reutilizável de código. Você pode usar uma ação definida no mesmo repositório que o fluxo de trabalho, um repositório público ou em uma [imagem publicada de contêiner Docker](https://hub.docker.com/).
@@ -352,7 +390,7 @@ runs:
 
 **Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e qualquer status de que você precisar devem ser acessado na área de trabalho, em `HOME`, ou como uma variável `STATE_`. A ação `pre-entrypoint:` é sempre executada por padrão, mas você pode substituí-la usando [`pre-if`](#pre-if).
 
-O aplicativo especificado com a sintaxe [`using`](#runsusing) executará esse arquivo.
+O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo.
 
 Neste exemplo, a ação `pre-entrypoint:` executa um script denominado `setup.sh`:
 
@@ -420,7 +458,7 @@ runs:
 ```
 {% endraw %}
 
-## `branding (marca)`
+## `branding`
 
 Você pode usar uma cor e o ícone da [Pena](https://feathericons.com/) para criar um selo para personalizar e distinguir a sua ação. Os selos são exibidos ao lado do nome da sua ação em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 

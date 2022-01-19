@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - CLI
 type: overview
@@ -24,7 +25,7 @@ Para obtener más información acerca de lo que puedes hacer con {% data variabl
 
 ## Instalar {% data variables.product.prodname_cli %}
 
-Ver las instrucciones de instalación de {% data variables.product.prodname_cli %} para MacOS, Windows y Linux en la [{% data variables.product.prodname_cli %}página](https://cli.github.com).
+{% data reusables.cli.cli-installation %}
 
 ## Compartir retroalimentación
 

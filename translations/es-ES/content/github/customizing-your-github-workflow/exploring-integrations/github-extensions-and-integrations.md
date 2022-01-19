@@ -2,11 +2,12 @@
 title: Extensiones e integraciones de GitHub
 intro: 'Utiliza las extensiones {% data variables.product.product_name %} para trabajar sin inconvenientes en los repositorios {% data variables.product.product_name %} dentro de las aplicaciones de terceros.'
 redirect_from:
-  - /articles/about-github-extensions-for-third-party-applications/
+  - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Extensiones & integraciones
 ---
 
@@ -32,7 +33,7 @@ Con el {% data variables.product.prodname_dotcom %} para la extensión de Visual
 
 ## Herramientas de gestión de proyectos
 
-Puedes integrar tu cuenta personal o de organización de {% data variables.product.product_name %} con las herramientas de administración de proyectos de terceros tales como Jira.
+Puedes integrar tu cuenta organizacional o personal en {% data variables.product.product_location %} con herramientas de administración de proyectos de terceros, tales como Jira.
 
 ### Integración de Jira Cloud y {% data variables.product.product_name %}.com
 
@@ -40,7 +41,7 @@ Puedes integrar Jira Cloud con tu cuenta personal o de organización para escane
 
 ## Herramientas de comunicación para equipos
 
-Puedes integrar tu cuenta organizacional o personal de {% data variables.product.product_name %} con las herramientas de comunicación para equipos de terceros tales como Slack o Microsoft Teams.
+Puedes integrar tu cuenta organizacional o personal en {% data variables.product.product_location %} con herramientas de comunicación de equipos de terceros, tales como Slack o Microsoft Teams.
 
 ### Integración con Slack y con {% data variables.product.product_name %}
 

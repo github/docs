@@ -2,14 +2,15 @@
 title: 自分の GitHub ユーザ名またはメールアドレスを忘れた場合は
 intro: '{% data variables.product.product_location %} へのサインインは久しぶりでしょうか? そうであれば、改めてようこそ。 自分の {% data variables.product.product_name %}ユーザアカウント名を思い出せない場合は、次の方法を試してみてください。'
 redirect_from:
-  - /articles/oh-noes-i-ve-forgotten-my-username-email/
-  - /articles/oh-noes-i-ve-forgotten-my-username-or-email/
+  - /articles/oh-noes-i-ve-forgotten-my-username-email
+  - /articles/oh-noes-i-ve-forgotten-my-username-or-email
   - /articles/remembering-your-github-username-or-email
   - /github/setting-up-and-managing-your-github-user-account/remembering-your-github-username-or-email
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/remembering-your-github-username-or-email
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications
@@ -68,7 +69,7 @@ origin  https://{% data variables.command_line.codeblock %}/<em>ご使用のユ�
 
 ご使用のユーザ名は `https://{% data variables.command_line.backticks %}/` の直後にあるものです。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 参考リンク
 
 - "[メールアドレスを検証する](/articles/verifying-your-email-address)"

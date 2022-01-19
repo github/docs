@@ -100,6 +100,8 @@ shortTitle: 配置集群网络
 
 我们强烈建议您为实例和负载均衡器启用 PROXY 支持。
 
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
+
  - 对于您的实例，请使用以下命令：
   ```shell
   $ ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply

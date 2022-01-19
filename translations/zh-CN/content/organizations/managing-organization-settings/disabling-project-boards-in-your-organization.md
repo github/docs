@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 禁用项目板
@@ -18,7 +19,7 @@ shortTitle: 禁用项目板
 
 在组织中禁用仓库项目板后，将无法在任何组织仓库中创建新项目板，并且将无法通过其先前的 URL 访问组织仓库中的任何现有项目板。 组织级别的项目板不受影响。
 
-禁用项目板后，在时间表或[审核日志](/articles/reviewing-the-audit-log-for-your-organization/)中将不再看到项目板信息。
+禁用项目板后，在时间表或[审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)中将不再看到项目板信息。
 
 
 {% data reusables.profile.access_org %}

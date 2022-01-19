@@ -2,15 +2,16 @@
 title: Acessar o GitHub usando a autenticação de dois fatores
 intro: 'Com a 2FA habilitada, será solicitado que você forneça seu código de autenticação de 2FA, bem como sua senha, ao iniciar a sessão no {% data variables.product.product_name %}.'
 redirect_from:
-  - /articles/providing-your-2fa-security-code/
-  - /articles/providing-your-2fa-authentication-code/
-  - /articles/authenticating-to-github-using-fido-u2f-via-nfc/
+  - /articles/providing-your-2fa-security-code
+  - /articles/providing-your-2fa-authentication-code
+  - /articles/authenticating-to-github-using-fido-u2f-via-nfc
   - /articles/accessing-github-using-two-factor-authentication
   - /github/authenticating-to-github/accessing-github-using-two-factor-authentication
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Acesse o GitHub com 2FA
@@ -20,7 +21,7 @@ Com a autenticação de dois fatores habilitada, você deverá fornecer um códi
 
 ## Fornecer um código 2FA ao entrar no site
 
-Depois de entrar no {% data variables.product.product_name %} usando sua senha, será solicitado que você forneça um código de autenticação de {% ifversion fpt %}uma mensagem de texto ou{% endif %} do seu app TOTP.
+Depois de entrar no {% data variables.product.product_name %} usando sua senha, será solicitado que você forneça um código de autenticação de {% ifversion fpt or ghec %}uma mensagem de texto ou{% endif %} do seu app TOTP.
 
 O {% data variables.product.product_name %} solicitará seu código de autenticação 2FA novamente apenas se você se desconectar, for usar um novo dispositivo ou a sessão expirar.
 
@@ -30,7 +31,7 @@ Se você optar por configurar a autenticação de dois fatores usando um aplicat
 
 Em caso de exclusão do aplicativo móvel após configuração da autenticação de dois fatores, será preciso fornecer seu código de recuperação para obter acesso à sua conta. Para obter mais informações, consulte "[Recuperar sua conta se você perder as credenciais da autenticação de dois fatores](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### Receber uma mensagem de texto
 

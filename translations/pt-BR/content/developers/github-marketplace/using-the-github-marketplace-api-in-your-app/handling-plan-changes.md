@@ -2,12 +2,13 @@
 title: Gerenciar mudanças de plano
 intro: 'Atualizar ou fazer downgrade de um aplicativo do {% data variables.product.prodname_marketplace %} aciona o webook do [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) com a ação `alterado`, que dá início ao fluxo de atualização ou downgrade.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /developers/github-marketplace/handling-plan-changes
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---

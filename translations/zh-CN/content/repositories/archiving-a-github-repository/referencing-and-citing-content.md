@@ -7,6 +7,7 @@ redirect_from:
   - /github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/referencing-and-citing-content
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: 参考和引用内容
@@ -14,7 +15,7 @@ shortTitle: 参考和引用内容
 
 ## 使用 Zenodo 发出仓库的持久标识符
 
-为了使您的仓库在学术文献中更易于参考，您可以创建持久标识符，也称为数字对象标识符 (DOI)。 您可以使用数据存档工具 [Zenodo](https://zenodo.org/about) 来存档 {% data variables.product.product_name %} 仓库并发出存档的 DOI。
+为了使您的仓库在学术文献中更易于参考，您可以创建持久标识符，也称为数字对象标识符 (DOI)。 You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and issue a DOI for the archive.
 
 {% tip %}
 

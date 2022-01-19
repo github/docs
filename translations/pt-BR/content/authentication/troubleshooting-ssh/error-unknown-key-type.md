@@ -4,7 +4,8 @@ intro: Este erro significa que o tipo de chave SSH que você usou não foi recon
 versions:
   fpt: '*'
   ghes: '>=3.2'
-  ghae: next
+  ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 redirect_from:

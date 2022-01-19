@@ -2,12 +2,13 @@
 title: Terminales de REST para la API de GitHub Marketplace
 intro: 'Para ayudarte a adminsitrar tu app en {% data variables.product.prodname_marketplace %}, utiliza estas terminales de la API de {% data variables.product.prodname_marketplace %}.'
 redirect_from:
-  - /apps/marketplace/github-marketplace-api-endpoints/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints/
+  - /apps/marketplace/github-marketplace-api-endpoints
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /developers/github-marketplace/rest-endpoints-for-the-github-marketplace-api
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: API de REST

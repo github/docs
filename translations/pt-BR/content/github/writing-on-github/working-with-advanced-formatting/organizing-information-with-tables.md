@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Dados organizados com tabelas
 ---
 
@@ -37,6 +38,8 @@ As células podem ter largura variada e não precisam estar alinhadas perfeitame
 ```
 
 ![Tabela construída com largura de célula variada](/assets/images/help/writing/table-varied-columns-rendered.png)
+
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
 
 ## Formatar conteúdo dentro da tabela
 

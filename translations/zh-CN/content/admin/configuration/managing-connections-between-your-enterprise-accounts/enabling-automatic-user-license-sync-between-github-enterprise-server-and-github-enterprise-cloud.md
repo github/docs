@@ -19,7 +19,7 @@ shortTitle: 启用用户许可同步
 
 ## 关于许可同步
 
-在启用许可同步后，您将能够查看 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 上整个企业帐户的许可使用情况。 {% data variables.product.prodname_github_connect %} 每周在 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_ghe_cloud %} 之间同步许可。 For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
+在启用许可同步后，您将能够查看 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 上整个企业帐户的许可使用情况。 {% data variables.product.prodname_github_connect %} 每周在 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_ghe_cloud %} 之间同步许可。 更多信息请参阅“[管理 {% data variables.product.prodname_enterprise %} 的许可](/billing/managing-your-license-for-github-enterprise)”。
 
 您还可以手动将 {% data variables.product.prodname_ghe_server %} 用户许可信息上传到 {% data variables.product.prodname_ghe_cloud %}。 For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 

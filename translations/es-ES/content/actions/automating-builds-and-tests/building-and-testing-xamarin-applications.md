@@ -1,13 +1,13 @@
 ---
 title: Crear y probar aplicaciones de Xamarin
 intro: Puedes crear un flujo de trabajo de integración contínua (IC) en GitHub Actions para crear y probar tu aplicación de Xamarin.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-xamarin-applications
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI

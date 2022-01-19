@@ -2,13 +2,17 @@
 title: Instalar o GitHub Enterprise Server no Azure
 intro: 'Para instalar o {% data variables.product.prodname_ghe_server %} no Azure, você deve fazer a implantação em uma instância da série DS e usar o armazenamento Premium-LRS.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Instalar no Azure
 ---
 
@@ -30,11 +34,7 @@ Antes de lançar {% data variables.product.product_location %} no Azure, você d
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-O appliance do {% data variables.product.prodname_ghe_server %} requer um disco de dados de armazenamento premium e é compatível com qualquer VM do Azure que tenha suporte ao armazenamento premium. Tipos de Azure VM com `s` sufixo são compatíveis com o armazenamento premium. Para obter mais informações, consulte "[Quais tipos de disco estão disponíveis no Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)" e "[Armazenamento premium do Azure: design para alto desempenho](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)" na documentação do Azure.
-
-{% data variables.product.company_short %} recomenda uma VM com memória otimizada para {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Tamanhos de máquinas virtuais com memória otimizada ](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)" na documentação do Azure.
-
-O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer região compatível com o seu tipo de VM. Para obter mais informações sobre as regiões compatíveis com cada VM, consulte "[Produtos disponíveis por região](https://azure.microsoft.com/regions/services/)".
+{% data reusables.enterprise_installation.azure-instance-recommendation %}
 
 ## Criar a instância da máquina virtual do {% data variables.product.prodname_ghe_server %}
 
@@ -63,7 +63,7 @@ O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer regiã
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. Crie e anexe um novo disco de dados não criptografado à VM e configure o tamanho com base na sua contagem de licenças do usuário. Para obter mais informações, consulte "[anexar disco a uma vm no az](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" na documentação da Microsoft.
+4. Crie e anexe um novo disco de dados gerenciado na VM e configure o tamanho com base em sua contagem de licenças. Todos os discos gerenciados do Azure criados desde 10 de junho de 2017 são criptografados por padrão com criptografia de serviço de armazenamento (SSE). Para obter mais informações sobre o comando `az vm disk attach`, consulte "[disco vm no az anexar](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" na documentação da Microsoft.
 
   Veja as opções de nome da VM (por exemplo, `ghe-acme-corp`), o grupo de recursos, o SKU de armazenamento Premium, o tamanho do disco (por exemplo, `100`) e um nome para o VHD resultante.
 
@@ -101,5 +101,5 @@ O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer regiã
 
 ## Leia mais
 
-- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% ifversion ghes > 2.22 %}
+- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% ifversion ghes %}
 - "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

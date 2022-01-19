@@ -3,6 +3,7 @@ title: GitHub 表单架构的语法
 intro: '您可以使用 {% data variables.product.company_short %} 的表单架构来配置支持的功能。'
 versions:
   fpt: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 topics:
   - Community

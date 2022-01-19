@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: 创建 PR 模板
@@ -17,9 +18,9 @@ shortTitle: 创建 PR 模板
 
 您可以在任何支持的文件夹中创建 *PULL_REQUEST_TEMPLATE/* 子目录，以包含多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板。 更多信息请参阅“[关于使用查询参数自动化议题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)”。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-您可以为组织{% ifversion fpt or ghes %}或用户帐户{% endif %}创建默认的拉取请求模板。 更多信息请参阅“[创建默认社区健康文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
+您可以为组织{% ifversion fpt or ghes or ghec %}或用户帐户{% endif %}创建默认的拉取请求模板。 更多信息请参阅“[创建默认社区健康文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
 
 {% endif %}
 

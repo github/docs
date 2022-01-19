@@ -2,7 +2,7 @@
 title: Solução de problemas com hooks de serviço
 intro: 'Se as cargas não estiverem sendo entregues, verifique se há problemas comuns.'
 redirect_from:
-  - /enterprise/admin/articles/troubleshooting-service-hooks/
+  - /enterprise/admin/articles/troubleshooting-service-hooks
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
   - /enterprise/admin/user-management/troubleshooting-service-hooks
   - /admin/user-management/troubleshooting-service-hooks

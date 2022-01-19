@@ -1,8 +1,8 @@
 ---
 title: ユーザを Organization に変換する
 redirect_from:
-  - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization/
-  - /articles/explaining-the-account-transformation-warning/
+  - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization
+  - /articles/explaining-the-account-transformation-warning
   - /articles/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
@@ -10,6 +10,7 @@ intro: ユーザアカウントは、Organization に変換できます。 こ�
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: User into an organization
@@ -41,7 +42,7 @@ Organization の名前を、あなたの個人アカウントが使用してい�
 あなたの個人ユーザアカウントを Organization に直接変換することも可能です。 アカウントを変換すると、以下のことが起こります:
  - リポジトリはそのまま保持されます。他のアカウントに手動で移譲する必要はありません。
  - コラボレーターを、Team に自動的に招待します。コラボレーターの権限は、以前のものがそのまま引き継がれます。
- {% ifversion fpt %}- {% data variables.product.prodname_pro %} のユーザアカウントでは、支払い情報の入力や支払いサイクルの調整も必要なく、また二重の支払いもすることなく、自動的に[有料 {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) に移行できます。{% endif %}
+ {% ifversion fpt or ghec %}- {% data variables.product.prodname_pro %} のユーザアカウントでは、支払い情報の入力や支払いサイクルの調整も必要なく、また二重の支払いもすることなく、自動的に[有料 {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) に移行できます。{% endif %}
 
 1. GitHub にサインインし、変換後に Organization やリポジトリにアクセスするために使う、新しい個人アカウントを作成します。
 2.  変換するアカウントで参加している、[すべての Organization から自分を削除](/articles/removing-yourself-from-an-organization)してください。
@@ -56,11 +57,11 @@ Organization の名前を、あなたの個人アカウントが使用してい�
 
 {% tip %}
 
-**ヒント**: ユーザアカウントを Organization に変換した場合、アカウントに属していたリポジトリのコラボレーターは、新しい Organization に*外部コラボレーター*として追加されます。 希望する場合は、*外部コラボレーター*を新しい Organization のメンバーに招待できます。 詳しい情報については「[Organization の権限レベル](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)」を参照してください。
+**ヒント**: ユーザアカウントを Organization に変換した場合、アカウントに属していたリポジトリのコラボレーターは、新しい Organization に*外部コラボレーター*として追加されます。 希望する場合は、*外部コラボレーター*を新しい Organization のメンバーに招待できます。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
 
 {% endtip %}
 
 ## 参考リンク
 - [Team の設定](/articles/setting-up-teams)
-{% ifversion fpt %}-"[Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization){% endif %}
+{% ifversion fpt or ghec %}-"[Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization){% endif %}
 - [Organization にアクセスする](/articles/accessing-an-organization)

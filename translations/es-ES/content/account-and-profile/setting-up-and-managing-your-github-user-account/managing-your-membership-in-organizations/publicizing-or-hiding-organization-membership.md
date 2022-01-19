@@ -2,7 +2,7 @@
 title: Divulgar u ocultar membresía de la organización
 intro: 'Si te gustaría decirle al mundo a qué organizaciones perteneces, puedes mostrar los avatares de las organizaciones en tu perfil.'
 redirect_from:
-  - /articles/publicizing-or-concealing-organization-membership/
+  - /articles/publicizing-or-concealing-organization-membership
   - /articles/publicizing-or-hiding-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/publicizing-or-hiding-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/publicizing-or-hiding-organization-membership
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Mostrar u ocultar la membrecía

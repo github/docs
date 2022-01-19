@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -18,9 +19,13 @@ shortTitle: Definir permissões básicas
 
 É possível definir as permissões básicas que se aplicam a todos os integrantes da organização ao acessar qualquer um dos repositórios da organização. As permissões básicas não se aplicam a colaboradores externos.
 
-{% ifversion fpt %}Por padrão, os integrantes de uma organização terão permissão de **leitura** nos repositórios da organização.{% endif %}
+{% ifversion fpt or ghec %}Por padrão, os integrantes de uma organização terão permissão de **leitura** nos repositórios da organização.{% endif %}
 
-Se alguém com permissão de administrador no repositório de uma organização conceder a um membro um nível de permissão mais alto para o repositório, o nível mais alto de permissão irá substituir a permissão básica.
+Se alguém com acesso de administrador ao repositório de uma organização conceder a um integrante um nível maior de acesso para o repositório, o nível maior de acesso irá substituir a permissão de base.
+
+{% ifversion ghec %}
+Se você criou uma função de repositório personalizado com uma função herdada com um acesso menor do que as permissões básicas da sua organização, qualquer integrante atribuído a essa função será padrão para as permissões básicas da organização, ao invés da função herdada. Para obter mais informações, consulte "[Gerenciando as funções de repositórios personalizados para uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+{% endif %}
 
 ## Definir permissões básicas
 
@@ -32,5 +37,5 @@ Se alguém com permissão de administrador no repositório de uma organização 
 
 ## Leia mais
 
-- "[Níveis de permissão do repositório da organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)"
+- "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - "[Adicionar colaboradores externos a repositórios na sua organização](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)"

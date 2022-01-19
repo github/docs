@@ -2,13 +2,14 @@
 title: 应用程序的安全最佳实践
 intro: '准备在 {% data variables.product.prodname_marketplace %} 上分享安全应用程序的指南。'
 redirect_from:
-  - /apps/marketplace/getting-started/security-review-process/
+  - /apps/marketplace/getting-started/security-review-process
   - /marketplace/getting-started/security-review-process
   - /developers/github-marketplace/security-review-process-for-submitted-apps
   - /developers/github-marketplace/security-best-practices-for-apps
 shortTitle: 安全最佳实践
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---

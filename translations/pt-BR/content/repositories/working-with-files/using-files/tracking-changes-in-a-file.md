@@ -2,8 +2,8 @@
 title: Controlar as alterações em um arquivo
 intro: É possível controlar as alterações em linhas de um arquivo e descobrir como as partes do arquivo evoluíram ao longo do tempo.
 redirect_from:
-  - /articles/using-git-blame-to-trace-changes-in-a-file/
-  - /articles/tracing-changes-in-a-file/
+  - /articles/using-git-blame-to-trace-changes-in-a-file
+  - /articles/tracing-changes-in-a-file
   - /articles/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/managing-files-on-github/tracking-changes-in-a-file
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Rastrear alterações do arquivo

@@ -2,7 +2,7 @@
 title: Acerca de Large File Storage de Git
 intro: '{% data variables.product.product_name %} limita el tamaño de los archivos permitidos en los repositorios. Para rastrear los archivos más allá de este límite, puedes utilizar {% data variables.large_files.product_name_long %}.'
 redirect_from:
-  - /articles/about-large-file-storage/
+  - /articles/about-large-file-storage
   - /articles/about-git-large-file-storage
   - /github/managing-large-files/about-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/about-git-large-file-storage
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Almacenamiento de archivos de gran tamaño Git
 ---
 
@@ -17,7 +18,7 @@ shortTitle: Almacenamiento de archivos de gran tamaño Git
 
 {% data variables.large_files.product_name_short %} maneja archivos grandes almacenando referencias del archivo en el repositorio, pero no el archivo real. Para trabajar en la arquitectura de Git, {% data variables.large_files.product_name_short %} crea un archivo puntero que actúa como una referencia del archivo real (que se almacena en otro lugar). {% data variables.product.product_name %} administra este archivo puntero en tu repositorio. Cuando clonas el repositorio, {% data variables.product.product_name %} usa el archivo puntero como un mapa para ir y buscar el archivo grande por ti.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Con {% data variables.large_files.product_name_short %} puedes subier archivos de hasta:
 
 | Producto                                          | Tamaño máximo de archivo |

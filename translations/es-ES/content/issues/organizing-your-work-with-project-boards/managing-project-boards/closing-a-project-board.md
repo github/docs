@@ -3,13 +3,14 @@ title: Cerrar un tablero de proyecto
 intro: 'Si has completado todas las tareas de tu tablero de proyecto o ya no necesitas usar un tablero de proyecto, puedes cerrarlo.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/closing-a-project-board
-  - /articles/closing-a-project/
+  - /articles/closing-a-project
   - /articles/closing-a-project-board
   - /github/managing-your-work-on-github/closing-a-project-board
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---

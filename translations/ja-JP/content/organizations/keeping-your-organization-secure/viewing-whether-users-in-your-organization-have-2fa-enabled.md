@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -15,7 +16,7 @@ shortTitle: Organizationでの2FAの利用
 
 {% note %}
 
-**メモ:** {% ifversion fpt %}オーナー、支払いマネージャーおよび{% else %}{% endif %}外部コラボレーターを含むすべてのメンバーに、2 要素認証を有効にするよう要求できます。 詳しい情報については [Organization で 2 要素認証を要求する](/articles/requiring-two-factor-authentication-in-your-organization)を参照してください。
+**メモ:** {% ifversion fpt or ghec %}オーナー、支払いマネージャーおよび{% else %}{% endif %}外部コラボレーターを含むすべてのメンバーに、2 要素認証を有効にするよう要求できます。 詳しい情報については [Organization で 2 要素認証を要求する](/articles/requiring-two-factor-authentication-in-your-organization)を参照してください。
 
 {% endnote %}
 

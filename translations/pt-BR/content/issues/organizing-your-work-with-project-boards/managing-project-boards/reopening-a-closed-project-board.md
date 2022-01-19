@@ -1,6 +1,6 @@
 ---
 title: Reabrir um quadro de projeto fechado
-intro: Você pode reabrir um quadro de projeto reaberto e reiniciar qualquer automação do fluxo de trabalho que tenha sido configurada para o quadro de projeto.
+intro: Você pode reabrir um painel de projeto fechado e reiniciar qualquer automação de fluxo de trabalho que tenha sido configurada para o quadro de projetos.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/reopening-a-closed-project-board
   - /articles/reopening-a-closed-project-board
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Reabrir quadro de projeto

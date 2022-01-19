@@ -2,11 +2,12 @@
 title: Importar un repositorio con el Importador GitHub
 intro: 'Si tienes un proyecto alojado en otro sistema de control de versión, puedes importarlo automáticamente a GitHub usando la herramienta Importador GitHub.'
 redirect_from:
-  - /articles/importing-from-other-version-control-systems-to-github/
+  - /articles/importing-from-other-version-control-systems-to-github
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Utilizar el importador de GitHub
 ---
 
@@ -17,8 +18,6 @@ shortTitle: Utilizar el importador de GitHub
 {% endtip %}
 
 Si quieres hacer coincidir las confirmaciones de tu repositorio con las cuentas de usuario de GitHub de los autores durante la importación, asegúrate de que cada contribuyente de tu repositorio tenga una cuenta de GitHub antes de comenzar la importación.
-
-{% data reusables.repositories.migrating-from-codeplex %}
 
 {% data reusables.repositories.repo-size-limit %}
 

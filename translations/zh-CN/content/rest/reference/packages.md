@@ -1,9 +1,10 @@
 ---
-title: 包
-intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
+title: Packages
+intro: '通过 {% data variables.product.prodname_registry %} API，您可以管理 {% data variables.product.prodname_dotcom %} 仓库和组织的软件包。'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -18,7 +19,7 @@ miniTocMaxHeadingLevel: 3
 
 如果您的 `package_type` 是 `npm`、`maven`、`rubygems` 或 `nuget`，则您的令牌必须还包括 `repo` 范围，因为您的包从 {% data variables.product.prodname_dotcom %} 仓库继承权限。 如果您的包位于 {% data variables.product.prodname_container_registry %}，则 `package_type` 是 `container`，且令牌不需要 `repo` 作用域便可访问或管理此 `package_type`。 `container` 包提供与仓库分开的粒度权限。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %} 的权限](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)”。
 
-如果您想使用 {% data variables.product.prodname_registry %} API 访问已启用 SSO 的组织中的资源，则必须对个人访问令牌启用 SSO。 更多信息请参阅“[授权个人访问令牌用于 SAML 单点登录](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”。
+如果您想使用 {% data variables.product.prodname_registry %} API 访问已启用 SSO 的组织中的资源，则必须对个人访问令牌启用 SSO。 For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

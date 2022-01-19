@@ -2,13 +2,14 @@
 title: Verificar tu dirección de correo electrónico
 intro: 'Verificar tu dirección principal de correo electrónico garantiza mayor seguridad, permite que el personal {% data variables.product.prodname_dotcom %} te ayude mejor si olvidas tu contraseña y te brinda acceso a más funciones en {% data variables.product.prodname_dotcom %}.'
 redirect_from:
-  - /articles/troubleshooting-email-verification/
-  - /articles/setting-up-email-verification/
+  - /articles/troubleshooting-email-verification
+  - /articles/setting-up-email-verification
   - /articles/verifying-your-email-address
   - /github/getting-started-with-github/verifying-your-email-address
   - /github/getting-started-with-github/signing-up-for-github/verifying-your-email-address
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Verificar tu dirección de correo electrónico
@@ -57,11 +58,11 @@ Si no verificas tu dirección de correo electrónico, no podrás hacer lo siguie
 
 El enlace de verificación vence después de 24 horas. Si no verificas tu correo electrónico dentro de las 24 horas, puedes solicitar otro enlace de verificación de correo electrónico. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".
 
-Si haces clic en el enlace del correo electrónico de confirmación dentro de las 24 horas, y te dirige a una página de error, debes asegurarte de haberte registrado en la cuenta {% data variables.product.prodname_dotcom %} correcta.
+Si haces clic en el enlace del correo electrónico de confirmación dentro de las siguientes 24 horas y se te dirige a una página de error, deberías garantizar que estés firmado en la cuenta correcta de {% data variables.product.product_location %}.
 
-1. {% data variables.product.signout_link %} de tu cuenta personal {% data variables.product.prodname_dotcom %}.
+1. {% data variables.product.signout_link %} de tu cuenta personal en {% data variables.product.product_location %}.
 2. Sal y vuelve a iniciar tu navegador.
-3. {% data variables.product.signin_link %} a tu cuenta personal {% data variables.product.prodname_dotcom %}.
+3. {% data variables.product.signin_link %} a tu cuenta personal de {% data variables.product.product_location %}.
 4. Haz clic en el enlace de verificación del correo electrónico que te enviamos.
 
 ## Leer más

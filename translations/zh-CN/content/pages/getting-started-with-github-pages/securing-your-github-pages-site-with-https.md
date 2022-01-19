@@ -7,6 +7,7 @@ redirect_from:
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: 使用 HTTPS 保护站点
@@ -24,7 +25,7 @@ shortTitle: 使用 HTTPS 保护站点
 
 {% note %}
 
-**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
+**注意：** RFC3280 表示通用名称的最大长度应该是 64 个字符。 因此，{% data variables.product.prodname_pages %} 网站的整个域名必须小于 64 个字符，才能成功创建证书。
 
 {% endnote %}
 
@@ -34,6 +35,12 @@ shortTitle: 使用 HTTPS 保护站点
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 3. 在 "{% data variables.product.prodname_pages %}" 下，选择 **Enforce HTTPS（实施 HTTPS）**。 ![强制实施 HTTPS 复选框](/assets/images/help/pages/enforce-https-checkbox.png)
+
+## Troubleshooting certificate provisioning ("Certificate not yet created" error")
+
+When you set or change your custom domain in the Pages settings, an automatic DNS check begins. This check determines if your DNS settings are configured to allow {% data variables.product.prodname_dotcom %} to obtain a certificate automatically. If the check is successful, {% data variables.product.prodname_dotcom %} queues a job to request a TLS certificate from [Let's Encrypt](https://letsencrypt.org/). On receiving a valid certificate, {% data variables.product.prodname_dotcom %} automatically uploads it to the servers that handle TLS termination for Pages. When this process completes successfully, a check mark is displayed beside your custom domain name.
+
+The process may take some time. If the process has not completed several minutes after you clicked **Save**, try clicking **Remove** next to your custom domain name. Retype the domain name and click **Save** again. This will cancel and restart the provisioning process.
 
 ## 解决具有混合内容的问题
 

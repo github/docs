@@ -2,8 +2,8 @@
 title: 個人アクセストークンを使用する
 intro: コマンドラインまたは API を使用して、パスワードの代わりに使用する個人アクセストークンを作成する必要があります。
 redirect_from:
-  - /articles/creating-an-oauth-token-for-command-line-use/
-  - /articles/creating-an-access-token-for-command-line-use/
+  - /articles/creating-an-oauth-token-for-command-line-use
+  - /articles/creating-an-access-token-for-command-line-use
   - /articles/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -26,31 +27,31 @@ shortTitle: Create a PAT
 
 個人アクセストークン（PAT）は、[GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) または[コマンドライン](#using-a-token-on-the-command-line)を使用するときに {% data variables.product.product_name %} への認証でパスワードの代わりに使用できます。
 
-{% ifversion fpt %}PAT を使用して、SAML SSO を使用する Organization が所有するリソースにアクセスする場合は、PAT を認証する必要があります。 詳しい情報については「[SAMLシングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」及び「[SAMLシングルサインオンで利用する個人アクセストークンの認可](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
+{% ifversion fpt or ghec %}PAT を使用して、SAML SSO を使用する Organization が所有するリソースにアクセスする場合は、PAT を認証する必要があります。 For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" and "[Authorizing a personal access token for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
-{% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
-A token with no assigned scopes can only access public information. トークンを使用してコマンドラインからリポジトリにアクセスするには、[`repo`] を選択します。 For more information, see “[Available scopes](/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)”.
+A token with no assigned scopes can only access public information. トークンを使用してコマンドラインからリポジトリにアクセスするには、[`repo`] を選択します。 For more information, see "[Available scopes](/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)".
 
 ## トークンの作成
 
-{% ifversion fpt %}1. まだ検証していない場合は[メールアドレスを検証](/github/getting-started-with-github/verifying-your-email-address)します。{% endif %}
+{% ifversion fpt or ghec %}1. まだ検証していない場合は[メールアドレスを検証](/github/getting-started-with-github/verifying-your-email-address)します。{% endif %}
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
 {% data reusables.user_settings.personal_access_tokens %}
 {% data reusables.user_settings.generate_new_token %}
-5. トークンにわかりやすい名前を付けます。 ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.2 or ghae-issue-4374 %}
+5. トークンにわかりやすい名前を付けます。 ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.2 or ghae-issue-4374 or ghec %}
 6. To give your token an expiration, select the **Expiration** drop-down menu, then click a default or use the calendar picker. ![Token expiration field](/assets/images/help/settings/token_expiration.png){% endif %}
 7. このトークンに付与するスコープ、すなわち権限を選択します。 トークンを使用してコマンドラインからリポジトリにアクセスするには、[**repo**] を選択します。
-   {% ifversion fpt or ghes %}
+   {% ifversion fpt or ghes or ghec %}
    ![トークンスコープの選択](/assets/images/help/settings/token_scopes.gif)
    {% elsif ghae %}
    ![トークンスコープの選択](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
    {% endif %}
 8. [**Generate token**] をクリックします。 ![[Generate token] ボタン](/assets/images/help/settings/generate_token.png)
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes > 3.1 or ghae-next %}
+   {% elsif ghes > 3.1 or ghae %}
    ![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens_ghe.png)
    {% else %}
    ![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
@@ -61,7 +62,7 @@ A token with no assigned scopes can only access public information. トークン
 
    {% endwarning %}
 
-{% ifversion fpt %}9. SAML SSO を使用する Organization への認証にトークンを使用するには、[Organization への SAML シングルサインオンに使用できるようトークンを認証します](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)。{% endif %}
+{% ifversion fpt or ghec %}9. To use your token to authenticate to an organization that uses SAML single sign-on, authorize the token. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 ## コマンドラインでトークンを使用する
 
@@ -75,5 +76,5 @@ Instead of manually entering your PAT for every HTTPS Git operation, you can cac
 
 ## 参考リンク
 
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}
+- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 - "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}

@@ -1,15 +1,16 @@
 ---
 title: 创建仓库
 redirect_from:
-  - /create-a-repo/
+  - /create-a-repo
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
-intro: '要将项目放在 {% data variables.product.product_location %} 上，您需要创建一个仓库来存放它。'
+intro: '要将项目放在 {% data variables.product.prodname_dotcom %} 上，您需要创建一个仓库来存放它。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -19,9 +20,9 @@ topics:
 
 ## 创建仓库
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-您可以在 {% data variables.product.product_name %} 仓库中存储各种项目，包括开源项目。 通过[开源项目](http://opensource.org/about)，您可以共享代码以开发更好、更可靠的软件。 您可以使用仓库与他人协作并跟踪您的工作。 更多信息请参阅“[关于仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)”。
+您可以在 {% data variables.product.prodname_dotcom %} 仓库中存储各种项目，包括开源项目。 通过[开源项目](http://opensource.org/about)，您可以共享代码以开发更好、更可靠的软件。 您可以使用仓库与他人协作并跟踪您的工作。 更多信息请参阅“[关于仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)”。
 
 {% elsif ghes or ghae %}
 
@@ -29,7 +30,7 @@ topics:
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -38,8 +39,6 @@ topics:
 {% endnote %}
 
 {% endif %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -59,19 +58,13 @@ topics:
 {% data reusables.cli.cli-learn-more %}
 
 1. In the command line, navigate to the directory where you would like to create a local clone of your new project.
-2. To create a repository for your project, use the `gh repo create` subcommand. Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
-
-   ```shell
-   gh repo create <em>project-name</em>
-   ```
-
-3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
+2. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
+3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.
+4. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag.  For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
 
 {% endcli %}
 
 ## 提交您的第一个更改
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -137,12 +130,12 @@ Now that you have created a project, you can start committing changes.
 
 {% webui %}
 
-您现在可以克隆 {% data variables.product.product_name %} 仓库以在计算机上创建本地副本。 从您的本地仓库，您可以提交并创建拉取请求来更新上游仓库中的更改。 更多信息请参阅“[克隆仓库](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)”和“[设置 Git](/articles/set-up-git)”。
+您现在可以克隆 {% data variables.product.prodname_dotcom %} 仓库以在计算机上创建本地副本。 从您的本地仓库，您可以提交并创建拉取请求来更新上游仓库中的更改。 更多信息请参阅“[克隆仓库](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)”和“[设置 Git](/articles/set-up-git)”。
 
 {% endwebui %}
 
-您可以在 {% data variables.product.product_name %} 上找到有趣的项目和仓库，并通过创建仓库的复刻来更改它们。 更多信息请参阅“[复刻仓库](/articles/fork-a-repo)”。
+您可以在 {% data variables.product.prodname_dotcom %} 上找到有趣的项目和仓库，并通过创建仓库的复刻来更改它们。 更多信息请参阅“[复刻仓库](/articles/fork-a-repo)”。
 
-{% data variables.product.product_name %} 中的每个仓库均归个人或组织所有。 您可以在 {% data variables.product.product_name %} 上连接和关注人员、仓库和组织以与之进行交互。 更多信息请参阅“[社交](/articles/be-social)”。
+{% data variables.product.prodname_dotcom %} 中的每个仓库均归个人或组织所有。 您可以在 {% data variables.product.prodname_dotcom %} 上连接和关注人员、仓库和组织以与之进行交互。 更多信息请参阅“[社交](/articles/be-social)”。
 
 {% data reusables.support.connect-in-the-forum-bootcamp %}

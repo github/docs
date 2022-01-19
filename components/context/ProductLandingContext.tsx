@@ -51,6 +51,7 @@ export type ProductLandingContextT = {
   featuredArticles: Array<{
     label: string // Guides
     viewAllHref?: string // If provided, adds a "View All ->" to the header
+    viewAllTitleText?: string // Adds 'title' attribute text for the "View All" href
     articles: Array<FeaturedLink>
   }>
   changelogUrl?: string
@@ -87,9 +88,9 @@ export const getFeaturedLinksFromReq = (req: any): Record<string, Array<Featured
         ((entries as Array<any>) || []).map((entry: any) => ({
           href: entry.href,
           title: entry.title,
-          intro: entry.intro,
-          authors: entry.page.authors || [],
-          fullTitle: entry.fullTitle,
+          intro: entry.intro || null,
+          authors: entry.page?.authors || [],
+          fullTitle: entry.fullTitle || null,
         })),
       ]
     })
@@ -141,13 +142,13 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
 
     featuredArticles: Object.entries(req.context.featuredLinks || [])
       .filter(([key]) => {
-        return key === 'guides' || key === 'popular'
+        return key === 'guides' || key === 'popular' || key === 'videos'
       })
       .map(([key, links]: any) => {
         return {
           label:
-            key === 'popular'
-              ? req.context.page.featuredLinks.popularHeading || req.context.site.data.ui.toc[key]
+            key === 'popular' || key === 'videos'
+              ? req.context.page.featuredLinks[key + 'Heading'] || req.context.site.data.ui.toc[key]
               : req.context.site.data.ui.toc[key],
           viewAllHref:
             key === 'guides' && !req.context.currentCategory && hasGuidesPage
@@ -158,9 +159,9 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
               hideIntro: key === 'popular',
               href: link.href,
               title: link.title,
-              intro: link.intro,
-              authors: link.page.authors || [],
-              fullTitle: link.fullTitle,
+              intro: link.intro || null,
+              authors: link.page?.authors || [],
+              fullTitle: link.fullTitle || null,
             }
           }),
         }

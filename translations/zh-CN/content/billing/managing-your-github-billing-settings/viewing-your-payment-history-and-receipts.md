@@ -3,13 +3,14 @@ title: 查看您的付款历史记录和收据
 intro: 您可以随时查看帐户的付款历史记录和下载过去的收据。
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-payment-history-and-receipts
-  - /articles/downloading-receipts/
-  - /articles/downloading-receipts-for-personal-accounts/
-  - /articles/downloading-receipts-for-organizations/
+  - /articles/downloading-receipts
+  - /articles/downloading-receipts-for-personal-accounts
+  - /articles/downloading-receipts-for-organizations
   - /articles/viewing-your-payment-history-and-receipts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Accounts

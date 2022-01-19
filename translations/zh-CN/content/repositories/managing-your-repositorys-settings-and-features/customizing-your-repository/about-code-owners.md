@@ -2,7 +2,7 @@
 title: 关于代码所有者
 intro: 您可以使用 CODEOWNERS 文件定义负责仓库代码的个人或团队。
 redirect_from:
-  - /articles/about-codeowners/
+  - /articles/about-codeowners
   - /articles/about-code-owners
   - /github/creating-cloning-and-archiving-repositories/about-code-owners
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -25,13 +26,9 @@ topics:
 
 当具有管理员或所有者权限的人员启用必需审查时，他们也可选择性要求代码所有者批准后，作者才可合并仓库中的拉取请求。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)”。
 
-{% ifversion fpt or ghae or ghes %}如果团队启用了代码审查分配，则个别审批无法满足受保护分支中代码所有者审批的要求。 更多信息请参阅“[管理团队的代码审查分配](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
-
-{% ifversion fpt or ghae or ghes > 2.22 %}
 如果文件具有代码所有者，则在打开拉取请求之前可以看到代码所有者是谁。 在仓库中，您可以找到文件并悬停于 {% octicon "shield-lock" aria-label="The edit icon" %} 上。
 
 ![仓库中文件的代码所有者](/assets/images/help/repository/code-owner-for-a-file.png)
-{% endif %}
 
 ## CODEOWNERS 文件位置
 
@@ -41,17 +38,17 @@ topics:
 
 为使代码所有者接收审查请求，CODEOWNERS 文件必须在拉取请求的基本分支上。 例如，如果您将 `@octocat` 分配为仓库 `gh-pages` 分支上 *.js* 文件的代码所有者，则在头部分支与 `gh-pages` 之间打开更改 *.js* 文件的拉取请求时，`@octocat` 将会收到审查请求。
 
-{% ifversion fpt or ghae or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-9273 %}
 ## CODEOWNERS file size
 
-CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information not to be shown and the appropriate code owners will not be requested to review changes in a pull request.
+CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
 
 To reduce the size of your CODEOWNERS file, consider using wildcard patterns to consolidate multiple entries into a single entry.
 {% endif %}
 
 ## CODEOWNERS 语法
 
-CODEOWNERS 文件使用遵循 [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) 文件中所用大多数规则的模式，但有[一些例外](#syntax-exceptions)。 模式后接一个或多个使用标准 `@username` 或 `@org/team-name` 格式的 {% data variables.product.prodname_dotcom %} 用户名或团队名称。 Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. 您也可以通过已经添加到其 {% data variables.product.product_name %} 帐户的电子邮件地址来指代用户，如 `user@example.com`。
+CODEOWNERS 文件使用遵循 [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) 文件中所用大多数规则的模式，但有[一些例外](#syntax-exceptions)。 模式后接一个或多个使用标准 `@username` 或 `@org/team-name` 格式的 {% data variables.product.prodname_dotcom %} 用户名或团队名称。 Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. You can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, for example `user@example.com`.
 
 如果 CODEOWNERS 文件中的任何行包含无效语法，则该文件将不会被检测并且不会用于请求审查。
 ### CODEOWNERS 文件示例
@@ -116,7 +113,6 @@ gitignore 文件有一些语法规则在 CODEOWNERS 文件中不起作用：
 ## CODEOWNERS and branch protection
 Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)”。
 
-
 ### CODEOWNERS 文件示例
 ```
 # In this example, any change inside the `/apps` directory
@@ -129,13 +125,8 @@ Repository owners can add branch protection rules to ensure that changed code is
 
 # In this example, any change inside the `/apps` directory
 # will require approval from a member of the @example-org/content team.
-# If a member of @example-org/content opens a pull request 
-# with a change inside the `/apps` directory, their approval is implicit.
-# The team is still added as a reviewer but not a required reviewer.
-# Anyone can approve the changes.
 /apps/ @example-org/content-team
 ```
-
 
 
 ## 延伸阅读
@@ -144,4 +135,4 @@ Repository owners can add branch protection rules to ensure that changed code is
 - "[邀请个人仓库的协作者](/articles/inviting-collaborators-to-a-personal-repository)"
 - "[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[管理团队对组织仓库的访问](/articles/managing-team-access-to-an-organization-repository)"
-- "[查看拉取请求审查](/articles/viewing-a-pull-request-review)"
+- "[查看拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"

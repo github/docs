@@ -3,22 +3,23 @@ title: 支払い方法を追加または編集する
 intro: アカウントに支払い方法を追加したり、アカウントの既存の支払い方法を更新することはいつでもできます。
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/adding-or-editing-a-payment-method
-  - /articles/updating-your-personal-account-s-payment-method/
-  - /articles/how-do-i-update-my-credit-card/
-  - /articles/updating-your-account-s-credit-card/
-  - /articles/updating-your-personal-account-s-credit-card/
-  - /articles/updating-your-personal-account-s-paypal-information/
-  - /articles/does-github-provide-invoicing/
-  - /articles/switching-payment-methods-for-your-personal-account/
-  - /articles/paying-for-your-github-organization-account/
-  - /articles/updating-your-organization-s-credit-card/
-  - /articles/updating-your-organization-s-paypal-information/
-  - /articles/updating-your-organization-s-payment-method/
-  - /articles/switching-payment-methods-for-your-organization/
+  - /articles/updating-your-personal-account-s-payment-method
+  - /articles/how-do-i-update-my-credit-card
+  - /articles/updating-your-account-s-credit-card
+  - /articles/updating-your-personal-account-s-credit-card
+  - /articles/updating-your-personal-account-s-paypal-information
+  - /articles/does-github-provide-invoicing
+  - /articles/switching-payment-methods-for-your-personal-account
+  - /articles/paying-for-your-github-organization-account
+  - /articles/updating-your-organization-s-credit-card
+  - /articles/updating-your-organization-s-paypal-information
+  - /articles/updating-your-organization-s-payment-method
+  - /articles/switching-payment-methods-for-your-organization
   - /articles/adding-or-editing-a-payment-method
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/adding-or-editing-a-payment-method
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -36,7 +37,7 @@ shortTitle: 支払い方法の管理
 {% data reusables.dotcom_billing.update_payment_method %}
 1. If your account has existing billing information that you want to update, click **Edit**. ![支払の新しいカードボタン](/assets/images/help/billing/billing-information-edit-button.png)
 {% data reusables.dotcom_billing.enter-billing-info %}
-1. If your account has an existing payment method that you want to update, click **Edit**. ![Billing New Card button](/assets/images/help/billing/billing-payment-method-edit-button.png)
+1. If your account has an existing payment method that you want to update, click **Edit**. ![支払の新しいカードボタン](/assets/images/help/billing/billing-payment-method-edit-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
 ## Organization の支払い方法を更新する

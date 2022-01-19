@@ -3,6 +3,7 @@ title: Conceder permissões superiores aos melhores colaboradores
 intro: Administradores de repositório podem promover qualquer integrante da comunidade a moderador e mantenedor.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Conceder permissões superiores
 ---
 

@@ -3,8 +3,9 @@ title: Managing the default branch name for your repositories
 intro: 'You can set the default branch name for new repositories that you create on {% data variables.product.product_location %}.'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 redirect_from:

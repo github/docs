@@ -2,13 +2,17 @@
 title: 在 Google Cloud Platform 上安装 GitHub Enterprise Server
 intro: '要在 Google Cloud Platform 上安装 {% data variables.product.prodname_ghe_server %}，您必须部署到受支持的机器类型上，并使用持久标准磁盘或持久 SSD。'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-google-cloud-platform/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-google-cloud-platform
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
   - /admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: 在 GCP 上安装
 ---
 
@@ -94,5 +98,5 @@ GCE 虚拟机作为具有防火墙的网络的成员创建。 对于与 {% data 
 
 ## 延伸阅读
 
-- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

@@ -2,14 +2,14 @@
 title: Migrar datos a tu empresa
 intro: 'Después de generar un archivo de migración, puedes importar los datos a tu instancia de destino del {% data variables.product.prodname_ghe_server %}. Podrás revisar los cambios para detectar posibles conflictos antes de aplicar de manera permanente los cambios a tu instancia de destino.'
 redirect_from:
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
   - /enterprise/admin/migrations/reviewing-migration-data
   - /enterprise/admin/migrations/completing-the-import-on-github-enterprise-server
-  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/reviewing-the-imported-data/
-  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server/
+  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise
+  - /enterprise/admin/guides/migrations/reviewing-the-imported-data
+  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-data-to-your-enterprise
 versions:
@@ -23,7 +23,9 @@ shortTitle: Importar hacia tu empresa
 
 ## Aplicar los datos importados en {% data variables.product.prodname_ghe_server %}
 
-Una vez que hayas [preparado tu migración](/admin/user-management/preparing-to-migrate-data-to-your-enterprise), puedes utilizar los siguientes pasos para completar la migración.
+Antes de que puedas migrar los datos a tu empresa, debes prepararlos y resolver cualquier conflicto. Para obtener más información, consulta la sección "[Cómo prepararte para migrar datos a tu empresa](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
+
+Después de que prepares los datos y resuelvas conflictos, puedes aplicar los datos importados en {% data variables.product.product_name %}.
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 

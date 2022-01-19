@@ -1,12 +1,13 @@
 ---
 title: ユーザアカウントに GitHub スポンサーを設定する
-intro: 'スポンサード開発者になるには、{% data variables.product.prodname_sponsors %} に参加し、スポンサード開発者プロフィールに必要事項をすべて記入し、スポンサーシップ層を作成し、銀行口座情報と納税フォームをサブミットし、{% data variables.product.prodname_dotcom %} アカウントで 2 要素認証を有効にします。'
+intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication for your account on {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - User account
@@ -76,7 +77,7 @@ Organization として {% data variables.product.prodname_sponsors %} に参加�
 
 ## {% data variables.product.prodname_dotcom %} アカウントで 2 要素認証 (2FA) を有効にする
 
-スポンサード開発者になるには、{% data variables.product.product_name %} アカウントで 2FA を有効にする必要があります。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
+Before you can become a sponsored developer, you must enable 2FA for your account on {% data variables.product.product_location %}. 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
 
 ## {% data variables.product.prodname_dotcom %} に申請をサブミットして承認を求める
 

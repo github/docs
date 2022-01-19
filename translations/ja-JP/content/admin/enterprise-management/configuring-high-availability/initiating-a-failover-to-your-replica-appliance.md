@@ -25,7 +25,14 @@ shortTitle: Initiate failover to appliance
       ```shell
       $ ghe-maintenance -s
       ```
-2. アクティブな Git 操作の数がゼロになったら、30 秒間待ちます。
+2.  When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds.
+
+    {% note %}
+
+    **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
+
+    {% endnote %}
+
 3. すべてのレプリケーションチャネルが `OK` を報告することを確認するには、`ghe-repl-status -vv` コマンドを使用します。
   ```shell
   $ ghe-repl-status -vv

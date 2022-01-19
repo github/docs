@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -20,7 +21,7 @@ Puedes buscar temas en {% data variables.product.product_name %}, explorar temas
 1. Navega hasta https://github.com/search.
 2. Escribe una palabra clave del tema. ![campo buscar](/assets/images/help/search/search-field.png)
 3. En la barra lateral de la izquierda, para acotar tu búsqueda por temas, haz clic en **Topics (Temas)**.
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
   ![La página de resultados de búsqueda de repositorios de Jekyll con la opción de menú lateral de temas resaltada](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% else %}
 ![Jekyll repository search results page on dotcom with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation.png){% endif %}
 

@@ -1,12 +1,11 @@
 ---
 title: Sobre o SCIM
 intro: 'Com o Sistema para gerenciamento de identidades entre domínios (SCIM, System for Cross-domain Identity Management), os administradores podem automatizar a troca de informações de identidade do usuário entre sistemas.'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-scim
   - /github/setting-up-and-managing-organizations-and-teams/about-scim
 versions:
-  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -18,10 +17,16 @@ Se você usa [SAML SSO](/articles/about-identity-and-access-management-with-saml
 
 Se o SAML SSO for usado sem implementação do SCIM, você não terá desprovisionamento automático. Quando as sessões dos integrantes da organização expiram depois que o acesso deles é removido do IdP, eles não podem ser removidos automaticamente da organização. Os tokens autorizados concedem acesso à organização mesmo depois que as respectivas sessões expiram. Para remover o acesso, os administradores da organização podem remover o token autorizado manualmente da organização ou automatizar a remoção com o SCIM.
 
-Estes provedores de identidade são compatíveis com a API de SCIM de {% data variables.product.product_name %} para organizações. Para obter mais informações, consulte [SCIM](/rest/reference/scim) na documentação de API do {% data variables.product.product_name %}.
+Estes provedores de identidade são compatíveis com a API de SCIM de {% data variables.product.product_name %} para organizações. Para obter mais informações, consulte [SCIM](/rest/reference/scim) na documentação da API {% ifversion ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.
 - Azure AD
 - Okta
 - OneLogin
+
+{% note %}
+
+**Observação:** {% data reusables.scim.nameid-and-username-must-match %}
+
+{% endnote %}
 
 {% data reusables.scim.enterprise-account-scim %}
 

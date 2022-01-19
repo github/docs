@@ -2,12 +2,13 @@
 title: Eventos de webhook para la API de GitHub Marketplace
 intro: 'Una app de {% data variables.product.prodname_marketplace %} recibe información acerca de los cambios en el plan de un usuario desde el webhook del evento de compra en Marketplace. Un evento de compra de marketplace se activa cuando un usuario compra, cancela o cambia su plan de pago.'
 redirect_from:
-  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/
+  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Eventos de webhook
@@ -24,7 +25,7 @@ Las cancelaciones y disminuciones de categoría toman efecto el primer día del 
 Cada carga útil de webhook de una `marketplace_purchase` tendrá la siguiente información:
 
 
-| Clave                  | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Clave                  | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ---------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Acción`               | `secuencia` | La acción realizada para generar el webhook. Puede ser `purchased`, `cancelled`, `pending_change`, `pending_change_cancelled`, o `changed`. Para obtener más información, consulta los ejemplos de cargas útiles de webhook a continuación. **Nota:** las cargas útiles de `pending_change` y `pending_change_cancelled` contienen las mismas claves que se muestra en el [ejemplo de carga útil de `changed`](#example-webhook-payload-for-a-changed-event). |
 | `effective_date`       | `secuencia` | La fecha en la que la `action` se hace efectiva.                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -33,7 +34,7 @@ Cada carga útil de webhook de una `marketplace_purchase` tendrá la siguiente i
 
 El objeto `marketplace_purchase` tiene las siguientes claves:
 
-| Clave                | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                              |
+| Clave                | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                              |
 | -------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `cuenta`             | `objeto`    | La cuenta de `organización` o `usuario` asociada con la suscripción. Las cuentas de organización incluirán `organization_billing_email`, que es la dirección de correo electrónico administrativa de la misma. Para encontrar direcciones de correo electrónico para cuentas personales, puedes utilizar la terminal [Obtener el usuario autenticado](/rest/reference/users#get-the-authenticated-user). |
 | `billing_cycle`      | `secuencia` | Puede ser `yearly` o `monthly`. Cuando el dueño de la `account` tiene un plan gratuito de GitHub y compra un plan gratuito de {% data variables.product.prodname_marketplace %}, el `billing_cycle` será `nil`.                                                                                                                                                                                          |
@@ -45,7 +46,7 @@ El objeto `marketplace_purchase` tiene las siguientes claves:
 
 El objeto `plan` tiene las siguientes claves:
 
-| Clave                    | Type                     | Descripción                                                                                                                                              |
+| Clave                    | Tipo                     | Descripción                                                                                                                                              |
 | ------------------------ | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`                     | `número`                 | El identificador único para este plan.                                                                                                                   |
 | `name (nombre)`          | `secuencia`              | El nombre del plan.                                                                                                                                      |

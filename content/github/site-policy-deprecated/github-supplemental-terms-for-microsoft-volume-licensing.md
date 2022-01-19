@@ -2,7 +2,7 @@
 title: GitHub Supplemental Terms for Microsoft Volume Licensing
 hidden: true
 redirect_from:
-  - /articles/GitHub-Supplemental-Terms-for-Microsoft-Volume-Licensing/
+  - /articles/GitHub-Supplemental-Terms-for-Microsoft-Volume-Licensing
   - /articles/github-supplemental-terms-for-microsoft-volume-licensing
   - /github/site-policy/github-supplemental-terms-for-microsoft-volume-licensing
 versions:

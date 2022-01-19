@@ -2,9 +2,8 @@
 title: Managing invoices for your enterprise
 shortTitle: Manage invoices
 intro: 'You can view, pay, or download a current invoice for your enterprise, and you can view your payment history.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
-  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Enterprise

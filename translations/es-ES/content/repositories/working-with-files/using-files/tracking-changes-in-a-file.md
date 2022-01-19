@@ -2,8 +2,8 @@
 title: Rastrear cambios en un archivo
 intro: Puedes rastrear cambios de líneas en un archivo y descubrir la manera en que las partes del archivo fueron evolucionando.
 redirect_from:
-  - /articles/using-git-blame-to-trace-changes-in-a-file/
-  - /articles/tracing-changes-in-a-file/
+  - /articles/using-git-blame-to-trace-changes-in-a-file
+  - /articles/tracing-changes-in-a-file
   - /articles/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/managing-files-on-github/tracking-changes-in-a-file
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Rastrar cambios en los archivos

@@ -3,12 +3,13 @@ title: Atualizar o plano de cobrança de um app do GitHub Marketplace
 intro: 'É possível atualizar o app do {% data variables.product.prodname_marketplace %} para um plano diferente a qualquer momento.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-the-billing-plan-for-a-github-marketplace-app
-  - /articles/upgrading-an-app-for-your-personal-account/
-  - /articles/upgrading-an-app-for-your-organization/
+  - /articles/upgrading-an-app-for-your-personal-account
+  - /articles/upgrading-an-app-for-your-organization
   - /articles/upgrading-the-billing-plan-for-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Marketplace

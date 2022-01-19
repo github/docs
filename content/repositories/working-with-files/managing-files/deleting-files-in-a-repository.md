@@ -1,6 +1,6 @@
 ---
 title: Deleting files in a repository
-intro: 'You can delete an individual file{% ifversion fpt or ghes > 3.0 %} or an entire directory{% endif %} in your repository on {% data variables.product.product_name %}.'
+intro: 'You can delete an individual file{% ifversion fpt or ghes > 3.0 or ghec %} or an entire directory{% endif %} in your repository on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/deleting-files
   - /github/managing-files-in-a-repository/deleting-files
@@ -11,18 +11,19 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-permissions: 'People with write permissions can delete files{% ifversion fpt or ghes > 3.0 %} or directories{% endif %} in a repository.'
+  ghec: '*'
+permissions: 'People with write permissions can delete files{% ifversion fpt or ghes > 3.0 or ghec %} or directories{% endif %} in a repository.'
 topics:
   - Repositories
 shortTitle: Delete files
 ---
-## About file{% ifversion fpt or ghes > 3.0 %} and directory{% endif %} deletion
+## About file{% ifversion fpt or ghes > 3.0 or ghec %} and directory{% endif %} deletion
 
-You can delete an individual file in your repository{% ifversion fpt or ghes > 3.0 %} or an entire directory, including all the files in the directory{% endif %}.
+You can delete an individual file in your repository{% ifversion fpt or ghes > 3.0 or ghec %} or an entire directory, including all the files in the directory{% endif %}.
 
-If you try to delete a file{% ifversion fpt or ghes > 3.0 %} or directory{% endif %} in a repository that you don’t have write permissions to, we'll fork the project to your user account and help you send a pull request to the original repository after you commit your change. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
+If you try to delete a file{% ifversion fpt or ghes > 3.0 or ghec %} or directory{% endif %} in a repository that you don’t have write permissions to, we'll fork the project to your user account and help you send a pull request to the original repository after you commit your change. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
 
-If the file{% ifversion fpt or ghes > 3.0 %} or directory{% endif %} you deleted contains sensitive data, the data will still be available in the repository's Git history. To completely remove the file from {% data variables.product.product_name %}, you must remove the file from your repository's history. For more information, see "[Removing sensitive data from a repository](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)."
+If the file{% ifversion fpt or ghes > 3.0 or ghec %} or directory{% endif %} you deleted contains sensitive data, the data will still be available in the repository's Git history. To completely remove the file from {% data variables.product.product_name %}, you must remove the file from your repository's history. For more information, see "[Removing sensitive data from a repository](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)."
 
 ## Deleting a file
 
@@ -33,7 +34,7 @@ If the file{% ifversion fpt or ghes > 3.0 %} or directory{% endif %} you deleted
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 ## Deleting a directory
 
 1. Browse to the directory in your repository that you want to delete.

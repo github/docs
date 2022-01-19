@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Inicio Rápido
 ---
 
@@ -69,7 +70,7 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
 
       publish-gpr:
         needs: build
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
         permissions:
           packages: write
           contents: read{% endif %}

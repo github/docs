@@ -2,12 +2,13 @@
 title: Subversion と Git の違い
 intro: Subversion (SVN) リポジトリは、Git リポジトリに似ています。ですが、プロジェクトのアーキテクチャの点からいくつかの違いがあります。
 redirect_from:
-  - /articles/what-are-the-differences-between-svn-and-git/
+  - /articles/what-are-the-differences-between-svn-and-git
   - /articles/what-are-the-differences-between-subversion-and-git
   - /github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 shortTitle: Subversion & Git differences
 ---
 
@@ -49,11 +50,11 @@ Git はディレクトリ構造は同じままですが、SVN とは違い、フ
 
 SVN では、サブプロジェクトは、*SVN external* と呼ばれます。 Git では、*Git サブモジュール*と呼ばれます。 コンセプトは似ていますが、Git サブモジュールは自動では最新状態のままにはなりません。プロジェクトに新しいバージョンを取り込むためには、明示的に要求する必要があります。
 
-詳しい情報については、Pro Git ドキュメントで「[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)」を参照してください。
+For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
 
 ## 履歴を保存する
 
-SVN は、プロジェクトの履歴は変更されないものとして設定されています。 Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
+SVN は、プロジェクトの履歴は変更されないものとして設定されています。 Git は、[`git rebase`](/github/getting-started-with-github/about-git-rebase) のようなツールを使って、過去のコミットや変更を修正できます。
 
 {% tip %}
 

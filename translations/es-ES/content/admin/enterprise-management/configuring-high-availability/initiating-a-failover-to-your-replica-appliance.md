@@ -25,7 +25,14 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
       ```shell
       $ ghe-maintenance -s
       ```
-2. Cuando el número de operaciones Git activas llega a cero, espera 30 segundos.
+2.  Cuando la cantidad de operaciones activas de Git, consultas de MySQL y jobs de Resque lleguen a cero, espera 30 segundos.
+
+    {% note %}
+
+    **Nota:** Nomad siempre tendrá jobs en ejecución, incluso si está en modo de mantenimiento, así que puedes ignorar estos jobs de forma segura.
+
+    {% endnote %}
+
 3. Para verificar que todos los canales de replicación informan `OK`, utiliza el comando `ghe-repl-status -vv`.
   ```shell
   $ ghe-repl-status -vv

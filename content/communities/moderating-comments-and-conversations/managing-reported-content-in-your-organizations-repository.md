@@ -3,6 +3,7 @@ title: Managing reported content in your organization's repository
 intro: 'After a contributor reports disruptive content in a repository, repository maintainers can view and manage the report.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:

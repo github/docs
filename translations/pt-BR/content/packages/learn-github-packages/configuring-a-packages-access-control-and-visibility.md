@@ -7,6 +7,7 @@ redirect_from:
   - /packages/guides/configuring-access-control-and-visibility-for-container-images
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Controle de acesso & visibilidade
 ---
 
@@ -85,6 +86,34 @@ Para personalizar ainda mais o acesso à imagem do seu contêiner, consulte "[Co
 
 Para personalizar ainda mais o acesso à sua imagem de contêiner, consulte "[Configurar acesso a imagens de contêiner para uma organização](#configuring-access-to-container-images-for-an-organization)".
 
+## Assegurando acesso de {% data variables.product.prodname_codespaces %} ao seu pacote
+
+Por padrão, um codespace pode acessar perfeitamente certos pacotes no Registro Contêiner de{% data variables.product.prodname_dotcom %} como, por exemplo, aqueles publicados no mesmo repositório com a opção **herdar acesso** selecionada. Para obter mais informações sobre o qual o acesso é automaticamente configurado, consulte "[Acessando imagens armazenadas no registro de contêiner de {% data variables.product.prodname_dotcom %}](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)".
+
+Caso contrário, para garantir que um código tenha acesso ao seu pacote, você deverá conceder acesso ao repositório onde o codespace está sendo iniciado.
+
+O repositório especificado não precisa ser o repositório onde o código-fonte do pacote é mantido. Você pode dar acesso a codespaces em vários repositórios a um pacote.
+
+Depois de selecionar o pacote que você está interessado em compartilhar com codespaces de um repositório, você poderá conceder esse acesso ao repositório.
+
+1. Na barra lateral direita, clique em **Configurações do pacote**.
+
+   ![Opção "Configurações do pacote" no menu à direita](/assets/images/help/package-registry/package-settings.png)
+
+2. Em "Gerenciar acesso dos codespaces", clique em **Adicionar repositório**.
+
+   ![Botão "Adicionar repositório"](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
+
+3. Pesquise o repositório que você deseja adicionar.
+
+   ![Botão "Adicionar repositório"](/assets/images/help/package-registry/manage-codespaces-access-search.png)
+
+4. Repita o procedimento para todos os repositórios adicionais que você gostaria de permitir o acesso.
+
+5. Se os codespaces de um repositório não precisarem mais acessar uma imagem, você poderá remover o acesso.
+
+   ![Botão "Remover repositório"](/assets/images/help/package-registry/manage-codespaces-access-item.png)
+
 ## Configurar a visibilidade de imagens de contêiner para sua conta pessoal
 
 Ao publicar um pacote, a visibilidade-padrão é privada e só você poderá ver o pacote. Você pode modificar o acesso de uma imagem do contêiner privada ou pública, alterando as configurações de acesso.
@@ -111,7 +140,7 @@ Você pode escolher a visibilidade de contêineres que os integrantes da organiz
 6. Em "Criação de contêiner", escolha se deseja permitir a criação de imagens públicas, privadas ou internas de contêineres.
     - Para permitir que os integrantes da organização criem imagens de contêiner público, clique em **Público**.
     - Para permitir que os integrantes da organização criem imagens privadas de contêiner visíveis apenas para outros integrantes da organização, clique em **Privado**. Você pode personalizar ainda mais a visibilidade de imagens de contêiner privado.
-    - **Para {% data variables.product.prodname_ghe_cloud %} apenas:** Para permitir que os integrantes da organização criem imagens internas de contêiner visíveis apenas para outros integrantes da organização, clique em **Interno**. ![Opções de visibilidade para imagens de contêiner publicadas por integrantes da organização](/assets/images/help/package-registry/container-creation-org-settings.png)
+    - Para permitir que os integrantes da organização criem imagens internas de contêiner que são visíveis para todos os integrantes da organização, clique em **Interno**. Se a organização pertencer a uma empresa, as imagens de contêiner ficarão visíveis para todos os integrantes da empresa. ![Opções de visibilidade para imagens de contêiner publicadas por integrantes da organização](/assets/images/help/package-registry/container-creation-org-settings.png)
 
 ## Configurar a visibilidade de imagens de contêiner para uma organização
 

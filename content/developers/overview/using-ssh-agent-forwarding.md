@@ -2,12 +2,13 @@
 title: Using SSH agent forwarding
 intro: 'To simplify deploying to a server, you can set up SSH agent forwarding to securely use local SSH keys.'
 redirect_from:
-  - /guides/using-ssh-agent-forwarding/
+  - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: SSH agent forwarding

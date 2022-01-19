@@ -5,6 +5,7 @@ intro: 'Puedes administrar los repositorios a los cuales pueden acceder los {% d
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Security
@@ -23,4 +24,4 @@ Cuando habilitas el acceso y la seguridad de un repositorio que pertenezca a tu 
 
 ## Leer más
 
-- "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)"
+- "[Administrar el acceso a los repositorios para los codespaces de tu organización](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)"

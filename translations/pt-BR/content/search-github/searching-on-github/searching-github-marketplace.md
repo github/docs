@@ -3,6 +3,7 @@ title: Pesquisar no GitHub Marketplace
 intro: 'Você pode pesquisar aplicativos e ações disponíveis em {% data variables.product.prodname_marketplace %}.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - GitHub search
 redirect_from:

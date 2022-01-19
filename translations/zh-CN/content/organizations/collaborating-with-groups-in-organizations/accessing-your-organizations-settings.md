@@ -1,11 +1,11 @@
 ---
 title: 访问组织的设置
 redirect_from:
-  - /articles/who-can-access-organization-billing-information-and-account-settings/
-  - /articles/managing-the-organization-s-settings/
-  - /articles/who-can-see-billing-information-account-settings/
-  - /articles/who-can-see-billing-information-and-access-account-settings/
-  - /articles/managing-an-organization-s-settings/
+  - /articles/who-can-access-organization-billing-information-and-account-settings
+  - /articles/managing-the-organization-s-settings
+  - /articles/who-can-see-billing-information-account-settings
+  - /articles/who-can-see-billing-information-and-access-account-settings
+  - /articles/managing-an-organization-s-settings
   - /articles/accessing-your-organization-s-settings
   - /articles/accessing-your-organizations-settings
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organizations-settings
@@ -14,13 +14,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 访问组织设置
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 

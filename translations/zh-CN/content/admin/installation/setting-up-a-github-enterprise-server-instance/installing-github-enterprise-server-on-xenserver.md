@@ -2,13 +2,17 @@
 title: 在 XenServer 上安装 GitHub Enterprise Server
 intro: '要在 XenServer 上安装 {% data variables.product.prodname_ghe_server %}，您必须先将 {% data variables.product.prodname_ghe_server %} 磁盘映像部署到 XenServer 主机。'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-xenserver/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-xenserver
   - /enterprise/admin/installation/installing-github-enterprise-server-on-xenserver
   - /admin/installation/installing-github-enterprise-server-on-xenserver
 versions:
-  ghes: '*'
+  ghes: <=3.2
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: 在 XenServer 上安装
 ---
 
@@ -55,5 +59,5 @@ shortTitle: 在 XenServer 上安装
 
 ## 延伸阅读
 
-- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

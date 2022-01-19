@@ -1,13 +1,13 @@
 ---
 title: .NETでのビルドとテスト
 intro: .NETプロジェクトのビルドとテストのための継続的インテグレーション（CI）ワークフローを作成できます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-net
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Build & test .NET
 ---
 
@@ -18,7 +18,7 @@ shortTitle: Build & test .NET
 
 このガイドは、.NETパッケージのビルド、テスト、公開の方法を紹介します。
 
-{% ifversion ghae %} To build and test your .NET project on {% data variables.product.prodname_ghe_managed %}, you will need to create a custom operating system image that includes the .NET Core SDK. {% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% ifversion ghae %} To build and test your .NET project on {% data variables.product.prodname_ghe_managed %}, the .NET Core SDK is required. {% data reusables.actions.self-hosted-runners-software %}
 {% else %} {% data variables.product.prodname_dotcom %} ホストランナーには、.NET Core SDKを含むソフトウェアがプリインストールされたツールキャッシュがあります。 最新のソフトウェアとプリインストールされたバージョンの.NET Core SDKの完全なリストについては、[{% data variables.product.prodname_dotcom %}ホストランナー上にインストールされているソフトウェア](/actions/reference/specifications-for-github-hosted-runners)を参照してください。
 {% endif %}
 
@@ -28,11 +28,11 @@ YAMLの構文と、{% data variables.product.prodname_actions %}でのYAMLの使
 
 .NET Core SDKの基本的な理解をしておくことをおすすめします。 詳細は「[Getting started with .NET](https://dotnet.microsoft.com/learn)」を参照してください。
 
-## .NETワークフローテンプレートを使い始める
+## Using the .NET starter workflow
 
-{% data variables.product.prodname_dotcom %}は、ほとんどの.NETプロジェクトで動作する.NETワークフローテンプレートを提供しており、このガイドにはこのテンプレートのカスタマイズ方法を示す例が含まれています。 詳しい情報については[.NETワークフローテンプレート](https://github.com/actions/setup-dotnet)を参照してください。
+{% data variables.product.prodname_dotcom %} provides a .NET starter workflow that should work for most .NET projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [.NET starter workflow](https://github.com/actions/setup-dotnet).
 
-手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
 ```yaml
@@ -128,7 +128,7 @@ steps:
 ```
 {% endraw %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### 依存関係のキャッシング
 
@@ -238,7 +238,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

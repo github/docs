@@ -2,7 +2,6 @@
 title: GitHub Actions 的元数据语法
 shortTitle: 元数据语法
 intro: 您可以创建操作来执行仓库中的任务。 操作需要使用 YAML 语法的元数据文件。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
@@ -144,19 +144,25 @@ runs:
 
 
 
+## `runs`
+
+**Required** Specifies whether this is a JavaScript action, a composite action or a Docker action and how the action is executed.
+
+
+
 ## 用于 JavaScript 操作的 `runs`
 
-**必要** 配置操作代码的路径和用于执行代码的应用程序。
+**Required** Configures the path to the action's code and the runtime used to execute the code.
 
 
 
-### 使用 Node.js 的示例
+### Example using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
 
 
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'main.js'
 ```
 
@@ -165,19 +171,22 @@ runs:
 
 ### `runs.using`
 
-**必要** 用于执行 [`main`](#runsmain) 中指定的代码的应用程序。
+**Required** The runtime used to execute the code specified in [`main`](#runsmain).  
+
+- Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+- Use `node16` for Node.js v16.{% endif %}
 
 
 
 ### `runs.main`
 
-**必要** 包含操作代码的文件。 [`using`](#runsusing) 中指定的应用程序执行此文件。
+**必要** 包含操作代码的文件。 The runtime specified in [`using`](#runsusing) executes this file.
 
 
 
 ### `pre`
 
-**可选** 允许您在 `main:` 操作开始之前，在作业开始时运行脚本。 例如，您可以使用 `pre:` 运行基本要求设置脚本。 使用 [`using`](#runsusing) 语法指定的应用程序将执行此文件。 `pre:` 操作始终默认运行，但您可以使用 [`pre-if`](#pre-if) 覆盖该设置。
+**可选** 允许您在 `main:` 操作开始之前，在作业开始时运行脚本。 例如，您可以使用 `pre:` 运行基本要求设置脚本。 The runtime specified with the [`using`](#runsusing) syntax will execute this file. `pre:` 操作始终默认运行，但您可以使用 [`pre-if`](#pre-if) 覆盖该设置。
 
 在此示例中，`pre:` 操作运行名为 `setup.js` 的脚本：
 
@@ -185,7 +194,7 @@ runs:
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -196,7 +205,9 @@ runs:
 
 ### `pre-if`
 
-**可选** 允许您定义 `pre:` 操作执行的条件。 `pre:` 操作仅在满足 `pre-if` 中的条件后运行。 如果未设置，则 `pre-if` 默认使用 `always()`。 请注意，`step` 上下文不可用，因为尚未运行任何步骤。
+**可选** 允许您定义 `pre:` 操作执行的条件。 `pre:` 操作仅在满足 `pre-if` 中的条件后运行。 如果未设置，则 `pre-if` 默认使用 `always()`。 In `pre-if`, status check functions evaluate against the job's status, not the action's own status.
+
+请注意，`step` 上下文不可用，因为尚未运行任何步骤。
 
 在此示例中，`cleanup.js` 仅在基于 Linux 的运行器上运行：
 
@@ -212,7 +223,7 @@ runs:
 
 ### `post`
 
-**可选** 允许您在 `main:` 操作完成后，在作业结束时运行脚本。 例如，您可以使用 `post:` 终止某些进程或删除不需要的文件。 使用 [`using`](#runsusing) 语法指定的应用程序将执行此文件。
+**可选** 允许您在 `main:` 操作完成后，在作业结束时运行脚本。 例如，您可以使用 `post:` 终止某些进程或删除不需要的文件。 The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
 在此示例中，`post:` 操作会运行名为 `cleanup.js` 的脚本：
 
@@ -220,7 +231,7 @@ runs:
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
   post: 'cleanup.js'
 ```
@@ -232,7 +243,7 @@ runs:
 
 ### `post-if`
 
-**可选** 允许您定义 `post:` 操作执行的条件。 `post:` 操作仅在满足 `post-if` 中的条件后运行。 如果未设置，则 `post-if` 默认使用 `always()`。
+**可选** 允许您定义 `post:` 操作执行的条件。 `post:` 操作仅在满足 `post-if` 中的条件后运行。 如果未设置，则 `post-if` 默认使用 `always()`。 In `post-if`, status check functions evaluate against the job's status, not the action's own status.
 
 例如，此 `cleanup.js` 仅在基于 Linux 的运行器上运行：
 
@@ -248,19 +259,19 @@ runs:
 
 ## 用于复合操作的 `runs`
 
-**必要** 配置组合操作的路径和用于执行代码的应用程序。
+**Required** Configures the path to the composite action.
 
 
 
 ### `runs.using`
 
-**必要** 要使用复合操作，请将此设置为 `"composite"`。
+**Required** You must set this value to `'composite'`.
 
 
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 
 
 **必要** 您计划在此操作中的步骤。 这些步骤可以是 `run` 步骤或 `uses` 步骤。 
@@ -275,7 +286,7 @@ runs:
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 
 
 **可选** 您想要运行的命令。 这可以是内联的，也可以是操作仓库中的脚本： 
@@ -319,16 +330,53 @@ runs:
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 
 
-**可选** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)列出的任何 shell。 如果设置了 `run`，则必填。 
+**可选** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)列出的任何 shell。 如果设置了 `run`，则必填。 
 
 {% else %}
 
-**必要** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)列出的任何 shell。 如果设置了 `run`，则必填。 
+**必要** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)列出的任何 shell。 如果设置了 `run`，则必填。 
 
 {% endif %}
+
+
+
+#### `runs.steps[*].if`
+
+**Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. 您可以使用任何支持上下文和表达式来创建条件。
+
+{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+
+**示例：使用上下文**
+
+此步骤仅在事件类型为 `pull_request` 并且事件操作为 `unassigned` 时运行。
+
+
+
+ ```yaml
+steps:
+  - run: echo This event is a pull request that had an assignee removed.
+    if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
+```
+
+
+**示例：使用状态检查功能**
+
+The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+
+
+
+```yaml
+steps:
+  - name: My first step
+    uses: octo-org/action-name@main
+  - name: My backup step
+    if: {% raw %}${{ failure() }}{% endraw %}
+    uses: actions/heroku@1.0.0
+```
+
 
 
 
@@ -346,7 +394,7 @@ runs:
 
 #### `runs.steps[*].env`
 
-**可选** 设置环境变量的 `map` 仅用于该步骤。 如果要修改工作流程中存储的环境变量，请在复合步骤中使用 {% ifversion fpt or ghes > 2.22 or ghae %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %}。
+**可选** 设置环境变量的 `map` 仅用于该步骤。 If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
 
 
 
@@ -354,7 +402,7 @@ runs:
 
 **可选**  指定命令在其中运行的工作目录。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 
 
 #### `runs.steps[*].uses`
@@ -461,7 +509,7 @@ runs:
 
 **可选** 允许您在 `entrypoint` 操作开始之前运行脚本。 例如，您可以使用 `pre-entrypoint:` 运行基本要求设置脚本。 {% data variables.product.prodname_actions %} 使用 `docker run` 启动此操作，并在使用同一基本映像的新容器中运行脚本。 这意味着运行时状态与主 `entrypoint` 容器不同，并且必须在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 `pre-entrypoint:` 操作始终默认运行，但您可以使用 [`pre-if`](#pre-if) 覆盖该设置。
 
-使用 [`using`](#runsusing) 语法指定的应用程序将执行此文件。
+The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
 在此示例中，`pre-entrypoint:` 操作会运行名为 `setup.sh` 的脚本：
 

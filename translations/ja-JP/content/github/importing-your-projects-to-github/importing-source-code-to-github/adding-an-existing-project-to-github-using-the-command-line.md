@@ -2,19 +2,18 @@
 title: コマンドラインを使った GitHub への既存のプロジェクトの追加
 intro: '既存の作業を {% data variables.product.product_name %}に置けば、多くの素晴らしい方法で共有とコラボレーションができます。'
 redirect_from:
-  - /articles/add-an-existing-project-to-github/
+  - /articles/add-an-existing-project-to-github
   - /articles/adding-an-existing-project-to-github-using-the-command-line
   - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Add a project locally
 ---
 
 ## About adding existing projects to {% data variables.product.product_name %}
-
-{% data reusables.repositories.migrating-from-codeplex %}
 
 {% tip %}
 
@@ -26,7 +25,7 @@ shortTitle: Add a project locally
 
 ## Adding a project to {% data variables.product.product_name %} with {% data variables.product.prodname_cli %}
 
-{% data variables.product.prodname_cli %} は、コンピューターのコマンドラインから {% data variables.product.product_name %} を使用するためのオープンソースツールです。 {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data variables.product.prodname_cli %} は、コンピューターのコマンドラインから {% data variables.product.prodname_dotcom %} を使用するためのオープンソースツールです。 {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
 1. In the command line, navigate to the root directory of your project.
 1. ローカルディレクトリを Git リポジトリとして初期化します。
@@ -35,24 +34,17 @@ shortTitle: Add a project locally
     git init -b main
     ```
 
-1. To create a repository for your project on {% data variables.product.product_name %}, use the `gh repo create` subcommand. Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
+1. Stage and commit all the files in your project
 
    ```shell
-   gh repo create <em>project-name</em>
+   git add . && git commit -m "initial commit"
    ```
 
-1. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
-1. Pull changes from the new repository that you created. (If you created a `.gitignore` or `LICENSE` file in the previous step, this will pull those changes to your local directory.)
+1. To create a repository for your project on GitHub, use the `gh repo create` subcommand. When prompted, select **Push an existing local repository to GitHub** and enter the desired name for your repository. If you want your project to belong to an organization instead of your user account, specify the organization name and project name with `organization-name/project-name`.
 
-    ```shell
-    git pull --set-upstream origin main
-    ```
+1. Follow the interactive prompts. To add the remote and push the repository, confirm yes when asked to add the remote and push the commits to the current branch.
 
-1. Stage, commit, and push all of the files in your project.
-
-    ```shell
-    git add . && git commit -m "initial commit" && git push
-    ```
+1. Alternatively, to skip all the prompts, supply the path to the repository with the `--source` flag and pass a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create --source=. --public`. Specify a remote with the `--remote` flag. To push your commits, pass the `--push` flag. For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
 
 ## Adding a project to {% data variables.product.product_name %} without {% data variables.product.prodname_cli %}
 
@@ -75,7 +67,7 @@ shortTitle: Add a project locally
   $ git commit -m "First commit"
   # 追跡された変更をコミットし、リモートリポジトリへのプッシュに備えます。 {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. {% data variables.product.product_name %} リポジトリの Quick Setup ページの上部で、{% octicon "clippy" aria-label="The copy to clipboard icon" %} をクリックしてリモートリポジトリの URL をコピーします。 ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. ターミナルで、ローカルリポジトリがプッシュされる[リモートリポジトリの URL を追加](/github/getting-started-with-github/managing-remote-repositories)してください。
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>
@@ -110,7 +102,7 @@ shortTitle: Add a project locally
   $ git commit -m "First commit"
   # 追跡された変更をコミットし、リモートリポジトリへのプッシュに備えます。 {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. {% data variables.product.product_name %} リポジトリの Quick Setup ページの上部で、{% octicon "clippy" aria-label="The copy to clipboard icon" %} をクリックしてリモートリポジトリの URL をコピーします。 ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. コマンドプロンプトで、ローカルリポジトリのプッシュ先となる[リモートリポジトリの URL を追加](/github/getting-started-with-github/managing-remote-repositories)します。
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>
@@ -145,7 +137,7 @@ shortTitle: Add a project locally
   $ git commit -m "First commit"
   # 追跡された変更をコミットし、リモートリポジトリへのプッシュに備えます。 {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. {% data variables.product.product_name %} リポジトリの Quick Setup ページの上部で、{% octicon "clippy" aria-label="The copy to clipboard icon" %} をクリックしてリモートリポジトリの URL をコピーします。 ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. ターミナルで、ローカルリポジトリがプッシュされる[リモートリポジトリの URL を追加](/github/getting-started-with-github/managing-remote-repositories)してください。
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>

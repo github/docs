@@ -2,14 +2,15 @@
 title: Solucionar problemas de domínios personalizados e do GitHub Pages
 intro: 'Você pode verificar os erros comuns para resolver problemas com domínios personalizados ou HTTPS no seu site do {% data variables.product.prodname_pages %}.'
 redirect_from:
-  - /articles/my-custom-domain-isn-t-working/
-  - /articles/custom-domain-isn-t-working/
-  - /articles/troubleshooting-custom-domains/
+  - /articles/my-custom-domain-isn-t-working
+  - /articles/custom-domain-isn-t-working
+  - /articles/troubleshooting-custom-domains
   - /articles/troubleshooting-custom-domains-and-github-pages
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Solucione o problema de um domínio personalizado
@@ -32,10 +33,10 @@ Em seguida, verifique se o arquivo _CNAME_ está formatado corretamente.
 
 Se você tiver problemas para apontar o domínio padrão do site para o domínio personalizado, entre em contato com seu provedor DNS.
 
-You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
+Você também pode usar um dos seguintes métodos para testar se os registros DNS do seu domínio personalizado estão configurados corretamente:
 
-- A CLI tool such as `dig`. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
-- An online DNS lookup tool.
+- Uma ferramenta CLI como `dig`. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+- Uma ferramenta de pesquisa de DNS on-line.
 
 ## Nomes de domínios personalizados que não são compatíveis
 
@@ -54,7 +55,7 @@ Para obter uma lista de domínios personalizados compatíveis, consulte "[Sobre 
 
 ## Erros de HTTPS
 
-É possível acessar por HTTPS os sites do {% data variables.product.prodname_pages %} que usem domínios personalizados e estejam corretamente configurados com registros DNS _CNAME_, `ALIAS`, `ANAME` ou `A`. Para obter mais informações, consulte "[Proteger seu site do {% data variables.product.prodname_pages %} com HTTPS](/articles/securing-your-github-pages-site-with-https)".
+É possível acessar por HTTPS os sites do {% data variables.product.prodname_pages %} que usem domínios personalizados e estejam corretamente configurados com registros DNS `CNAME`, `ALIAS`, `ANAME` ou `A`. Para obter mais informações, consulte "[Proteger seu site do {% data variables.product.prodname_pages %} com HTTPS](/articles/securing-your-github-pages-site-with-https)".
 
 Depois que você configurar seu domínio personalizado, pode levar até uma hora para o seu site ser disponibilizado por HTTPS. Após a atualização das configurações DNS existentes, talvez seja necessário remover o domínio personalizado e tornar a adicioná-lo ao repositório do site para acionar o processo de habilitação do HTTPS. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 

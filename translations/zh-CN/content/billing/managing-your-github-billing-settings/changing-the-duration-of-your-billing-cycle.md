@@ -3,13 +3,14 @@ title: 更改结算周期的时长
 intro: 您可以按月度或年度结算周期来支付您帐户的订阅及其他付费功能和产品的费用。
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/changing-the-duration-of-your-billing-cycle
-  - /articles/monthly-and-yearly-billing/
-  - /articles/switching-between-monthly-and-yearly-billing-for-your-personal-account/
-  - /articles/switching-between-monthly-and-yearly-billing-for-your-organization/
+  - /articles/monthly-and-yearly-billing
+  - /articles/switching-between-monthly-and-yearly-billing-for-your-personal-account
+  - /articles/switching-between-monthly-and-yearly-billing-for-your-organization
   - /articles/changing-the-duration-of-your-billing-cycle
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations

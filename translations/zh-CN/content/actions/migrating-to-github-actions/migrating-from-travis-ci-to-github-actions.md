@@ -2,12 +2,12 @@
 title: 从 Travis CI 迁移到 GitHub Actions
 intro: '{% data variables.product.prodname_actions %} 和 Travis CI 有多个相似之处，这有助于很简便地迁移到 {% data variables.product.prodname_actions %}。'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Travis CI
@@ -101,7 +101,7 @@ jobs:
 
 ### 定向特定分支
 
-Travis CI 和 {% data variables.product.prodname_actions %} 允许您将 CI 定向到特定分支。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)”。
+Travis CI 和 {% data variables.product.prodname_actions %} 允许您将 CI 定向到特定分支。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
 
 下面是每个系统的语法示例：
 
@@ -187,7 +187,7 @@ Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义�
 
 ### 存储密码
 
-{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 {% ifversion fpt or ghes > 3.0 or ghae %}环境保护规则可能需要手动批准工作流程才能访问环境秘密。 {% endif %}更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
+{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}环境保护规则可能需要手动批准工作流程才能访问环境秘密。 {% endif %}更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
 
 ### 在作业和工作流程之间共享文件
 
@@ -197,14 +197,18 @@ Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义�
 
 如果您的作业需要特定的硬件或软件，{% data variables.product.prodname_actions %} 允许您托管自己的运行器，并将其作业发送给它们进行处理。 {% data variables.product.prodname_actions %} 还允许您使用策略来控制访问这些运行器的方式，在组织或仓库级别授予访问权限。 更多信息请参阅“[托管您自己的运行器](/actions/hosting-your-own-runners)”。
 
+{% ifversion fpt or ghec %}
+
 ### 并行作业和执行时间
 
 {% data variables.product.prodname_actions %} 中的并行作业和工作流程执行时间因 {% data variables.product.company_short %} 计划而异。 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration)”。
 
+{% endif %}
+
 ### 在 {% data variables.product.prodname_actions %} 中使用不同的语言
 
 在 {% data variables.product.prodname_actions %} 中使用不同语言时，您可以在作业中创建步骤来设置语言依赖项。 有关使用特定语言的信息，请参阅特定指南：
-  - [Building and testing Node.js or Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [构建并测试 Node.js 或 Python](/actions/guides/building-and-testing-nodejs-or-python)
   - [构建和测试 PowerShell](/actions/guides/building-and-testing-powershell)
   - [使用 Maven 构建和测试 Java](/actions/guides/building-and-testing-java-with-maven)
   - [使用 Gradle 构建和测试 Java](/actions/guides/building-and-testing-java-with-gradle)
@@ -333,7 +337,7 @@ cache: npm
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom %} 托管的运行器。  更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 ## 常见任务示例
 

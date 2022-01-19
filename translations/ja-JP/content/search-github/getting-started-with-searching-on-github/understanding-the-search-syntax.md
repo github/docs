@@ -2,7 +2,7 @@
 title: 検索構文を理解する
 intro: '{% data variables.product.product_name %} の検索では、特定の数字や単語にマッチするクエリを作成できます。'
 redirect_from:
-  - /articles/search-syntax/
+  - /articles/search-syntax
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/understanding-the-search-syntax
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 shortTitle: Understand search syntax
@@ -72,10 +73,9 @@ shortTitle: Understand search syntax
 
 検索結果を絞り込む他の方法としては、一定のサブセットを除外することです。 `-` のプリフィックスを修飾子に付けることで、その修飾子にマッチする全ての結果を除外できます。
 
-| クエリ                        | サンプル                                                                                                                                                                                             |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>-<em>QUALIFIER</em></code> | **[cats stars:>10 -language:javascript](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** は、JavaScriptで書かれていない、Star が 10 を上回る、「cats」という単語のあるリポジトリにマッチします。 |
-|                            | **[mentions:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** は、GitHub の Organization のリポジトリにはない、@defunkt をメンションする Issue にマッチします。  |
+| クエリ                        | サンプル                                                                                                                                                                                                                    |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>-<em>QUALIFIER</em></code> | **[mentions:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization. |
 
 ## 空白のあるクエリに引用符を使う
 
@@ -86,7 +86,7 @@ shortTitle: Understand search syntax
 
 スペースなど、いくつかの英数字以外の記号は、引用符で囲ったコード検索クエリから省かれるので、結果が予想外のものになる場合があります。
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## ユーザ名によるクエリ
 
 検索クエリに、`user`、`actor`、`assignee`などユーザ名を必要とする修飾子が含まれる場合は、任意の {% data variables.product.product_name %} ユーザ名を使用して特定の個人を指定するか、`@me`を使用して現在のユーザを指定することができます。

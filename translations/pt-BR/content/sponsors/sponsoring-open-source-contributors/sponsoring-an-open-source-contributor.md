@@ -8,6 +8,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
@@ -28,7 +29,7 @@ Você pode patrocinar uma conta em nome de sua conta de usuário para investir e
 - Desenvolver a conscientização da marca como uma organização que valoriza o código aberto
 - Agradecer aos desenvolvedores de código aberto para a criação de bibliotecas que complementam os produtos que a sua organização oferece
 
-Você pode usar um cartão de crédito para patrocinar uma conta em {% data variables.product.product_name %}. If your organization wants to pay by invoice, you can read more at [Paying for {% data variables.product.prodname_sponsors %} via invoice](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
+Você pode usar um cartão de crédito para patrocinar uma conta em {% data variables.product.product_name %}. Se sua organização quiser pagar por fatura, você poderá ler mais em [Pagando por {% data variables.product.prodname_sponsors %} com fatura](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
 
 {% data reusables.sponsors.no-fees %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)".
 
@@ -44,7 +45,7 @@ Se a conta que você deseja patrocinar não tiver um perfil em {% data variables
 
 {% note %}
 
-**Nota:** O {% data variables.product.prodname_dotcom %} não é responsável por como os desenvolvedores representam a si mesmos nem {% data variables.product.prodname_dotcom %} endossa quaisquer projetos de código aberto patrocinados. As reivindicações são de responsabilidade exclusiva do desenvolvedor que recebe os fundos. Certifique-se de confiar em uma pessoa antes de oferecer um patrocínio. Para obter mais informações, consulte "[{% data variables.product.prodname_sponsors %} Termos Adicionais ](/github/site-policy/github-sponsors-additional-terms).
+**Nota:** O {% data variables.product.prodname_dotcom %} não é responsável por como os desenvolvedores representam a si mesmos nem {% data variables.product.prodname_dotcom %} endossa quaisquer projetos de código aberto patrocinados. As reivindicações são de responsabilidade exclusiva do desenvolvedor que recebe os fundos. Certifique-se de confiar em uma pessoa antes de oferecer um patrocínio. Para obter mais informações, consulte "[{% data variables.product.prodname_sponsors %} Termos Adicionais ](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
 
 {% endnote %}
 

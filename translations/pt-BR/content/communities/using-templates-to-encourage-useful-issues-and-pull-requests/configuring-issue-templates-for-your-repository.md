@@ -9,18 +9,19 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Configurar
 ---
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Criando modelos de problemas
 
@@ -35,10 +36,10 @@ shortTitle: Configurar
 7. Para definir automaticamente um título de problema padrão, atribua o problema a pessoas com acesso de leitura ao repositório ou aplique etiquetas ao modelo de problema. Informe esses detalhes em "Optional additional information" (Informações adicionais opcionais). Você também pode adicionar esses detalhes no modelo de problema com `title`, `labels` ou `assignees` em um formato de página inicial do YAML. ![Informações adicionais para modelo de problema](/assets/images/help/repository/additional-issue-template-info.png)
 8. Quando tiver terminado de editar e visualizar o modelo, clique em **Propose changes** (Propor alterações) no canto superior direito da página. ![Botão Propose changes (Propor alterações)](/assets/images/help/repository/propose-changes-button.png)
 9. Insira uma mensagem do commit descrevendo as alterações. ![Campo de mensagem do commit do modelo de problema](/assets/images/help/repository/issue-template-commit-message-field.png)
-10. Abaixo dos campos de mensagem do commit, decida se vai fazer commit do seu modelo diretamente no branch padrão ou se vai criar um branch e abrir uma pull request. Para obter mais informações sobre pull requests, consulte "[Sobre pull requests](/articles/about-pull-requests)". ![Commit do modelo de problema com opção para principal ou abrir pull request](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
+10. Abaixo dos campos de mensagem do commit, decida se vai fazer commit do seu modelo diretamente no branch padrão ou se vai criar um branch e abrir uma pull request. Para obter mais informações sobre pull requests, consulte "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)". ![Commit do modelo de problema com opção para principal ou abrir pull request](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. Clique em **Commit changes** (Fazer commit das alterações). Assim que essas alterações passarem por merge no branch padrão, o modelo será disponibilizado para os contribuidores usarem quando abrirem novos problemas no repositório.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Criando formulários de problema
 
@@ -61,7 +62,7 @@ Aqui está a versão renderizada do formulário de problema. ![Um formulário de
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 ## Configurando o seletor de modelos
 
 {% data reusables.repositories.issue-template-config %}

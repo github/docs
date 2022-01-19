@@ -3,8 +3,12 @@ title: Habilitar GitHub packages con AWS
 intro: 'Configura el {% data variables.product.prodname_registry %} con AWS como tu almacenamiento externo.'
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Packages
+  - Packages
 shortTitle: Habilitar los paquetes con AWS
 ---
 
@@ -36,14 +40,8 @@ Asegúrate de que la ID de tu clave y secreto de acceso de AWS tengan los siguie
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
-{% ifversion ghes = 2.22 %}
-1. Debajo de "AWS Service URL", teclea la URL de la terminal de S3 para la región de tu espacio. ![Campo de URL de servicio de AWS](/assets/images/enterprise/site-admin-settings/storage-service-url.png)
-1. Debajo de "AWS S3 Bucket", teclea el nombre del espacio de S3 que quieras utilizar para almacenar artefactos de los paquetes. ![Campo de espacio de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-bucket.png)
-1. Debajo de "AWS S3 Access Key", teclea tu clave de acceso para S3. ![Campo de clave de acceso de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-access-key.png)
-1. Debajo de "AWS S3 Secret Key", teclea tu clave secreta para S3. ![Campo de clave secreta de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-secret-key.png)
-1. Debajo de "AWS S3 Region", teclea tu región para S3. ![Campo de región de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
-{% endif %}
-{% ifversion ghes > 2.22 %}
+
+{% ifversion ghes %}
 1. Debajo de "Almacenamiento de Paquetes", selecciona **Amazon S3** e ingresa los detalles de tu bucket de almacenamiento:
     - **AWS Service URL:** La URL de servicio para tu bucket. Por ejemplo, si tu bucket de S3 se creó en la `us-west-2 region`, este valor deberá ser `https://s3.us-west-2.amazonaws.com`.
 

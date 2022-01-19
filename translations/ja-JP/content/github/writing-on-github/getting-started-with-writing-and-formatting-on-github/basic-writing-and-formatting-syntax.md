@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Basic formatting syntax
 ---
 
@@ -27,13 +28,13 @@ shortTitle: Basic formatting syntax
 
 コメントフィールドと `.md` ファイルでは、太字、斜体、または取り消し線のテキストで強調を示すことができます。
 
-| スタイル          | 構文                 | キーボードショートカット        | サンプル                      | 出力                      |
-| ------------- | ------------------ | ------------------- | ------------------------- | ----------------------- |
-| 太字            | `** **`もしくは`__ __` | command/control + b | `**これは太字のテキストです**`        | **これは太字のテキストです**        |
-| 斜体            | `* *`あるいは`_ _`     | command/control + i | `*このテキストは斜体です*`           | *このテキストは斜体です*           |
-| 取り消し線         | `~~ ~~`            |                     | `~~これは間違ったテキストでした~~`      | ~~これは間違ったテキストでした~~      |
-| 太字および太字中にある斜体 | `** **`及び`_ _`     |                     | `**このテキストは_きわめて_ 重要です**`  | **このテキストは_きわめて_重要です**   |
-| 全体が太字かつ斜体     | `*** ***`          |                     | `***すべてのテキストがきわめて重要です***` | ***すべてのテキストがきわめて重要です*** |
+| スタイル          | 構文                  | キーボードショートカット        | サンプル                      | 出力                      |
+| ------------- | ------------------- | ------------------- | ------------------------- | ----------------------- |
+| 太字            | `** **`もしくは`__ __`  | command/control + b | `**これは太字のテキストです**`        | **これは太字のテキストです**        |
+| 斜体            | `* *`あるいは`_ _`      | command/control + i | `*このテキストは斜体です*`           | *このテキストは斜体です*           |
+| 取り消し線         | `~~ ~~`             |                     | `~~これは間違ったテキストでした~~`      | ~~これは間違ったテキストでした~~      |
+| 太字および太字中にある斜体 | `** **`及び`_ _`      |                     | `**このテキストは_きわめて_ 重要です**`  | **このテキストは_きわめて_重要です**   |
+| 全体が太字かつ斜体     | `*** ***`           |                     | `***すべてのテキストがきわめて重要です***` | ***すべてのテキストがきわめて重要です*** |
 
 ## テキストの引用
 
@@ -55,7 +56,7 @@ Text that is not a quote
 
 ## コードの引用
 
-単一のバッククォートで文章内のコードやコマンドを引用できます。 The text within the backticks will not be formatted.{% ifversion fpt or ghae-next or ghes > 3.1 %} You can also press the `command` or `Ctrl` + `e` keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
+単一のバッククォートで文章内のコードやコマンドを引用できます。 The text within the backticks will not be formatted.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} You can also press the `command` or `Ctrl` + `e` keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
 
 ```markdown
 コミットされていない新しいもしくは修正されたすべてのファイルをリストするには `git status` を使ってください。
@@ -78,9 +79,11 @@ git commit
 
 詳しい情報については[コードブロックの作成とハイライト](/articles/creating-and-highlighting-code-blocks)を参照してください。
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
+
 ## リンク
 
-リンクのテキストをブラケット `[ ]` で囲み、URL をカッコ `( )` で囲めば、インラインのリンクを作成できます。 {% ifversion fpt or ghae-next or ghes > 3.1 %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}
+リンクのテキストをブラケット `[ ]` で囲み、URL をカッコ `( )` で囲めば、インラインのリンクを作成できます。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
 `このサイトは [GitHub Pages](https://pages.github.com/) を使って構築されています。`
 
@@ -108,7 +111,7 @@ You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then w
 
 ![Rendered Image](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
 
 {% tip %}
 
@@ -134,6 +137,18 @@ Here are some examples for using relative links to display an image.
 
 For more information, see "[Relative Links](#relative-links)."
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
+### Specifying the theme an image is shown to
+
+You can specify the theme an image is displayed to by appending `#gh-dark-mode-only` or `#gh-light-mode-only` to the end of an image URL, in Markdown.
+
+We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
+
+| コンテキスト      | URL                                                                      |
+| ----------- | ------------------------------------------------------------------------ |
+| Dark Theme  | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
+| Light Theme | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
+{% endif %}
 
 ## リスト
 
@@ -208,7 +223,7 @@ For more information, see "[Relative Links](#relative-links)."
 
 ## 人や Team のメンション
 
-{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% ifversion fpt or ghes or ghae %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
+{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% ifversion fpt or ghes or ghae or ghec %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
 
 `@github/support これらのアップデートについてどう思いますか？`
 
@@ -230,17 +245,18 @@ For more information, see "[Relative Links](#relative-links)."
 
 {% data reusables.repositories.autolink-references %}
 
+{% ifversion ghes < 3.4 %}
 ## コンテンツの添付
 
 Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} は、アプリケーションが提供した情報を Issue あるいはプルリクエストのボディもしくはコメント中の URL の下に表示します。
 
 ![コンテンツの添付](/assets/images/github-apps/content_reference_attachment.png)
 
-コンテンツの添付を見るには、リポジトリにインストールされた Content Attachments API を使う {% data variables.product.prodname_github_app %} が必要です。{% ifversion fpt %}詳細は「[個人アカウントでアプリケーションをインストールする](/articles/installing-an-app-in-your-personal-account)」および「[Organization でアプリケーションをインストールする](/articles/installing-an-app-in-your-organization)」を参照してください。{% endif %}
+コンテンツの添付を見るには、リポジトリにインストールされた Content Attachments API を使う {% data variables.product.prodname_github_app %} が必要です。{% ifversion fpt or ghec %}詳細は「[個人アカウントでアプリケーションをインストールする](/articles/installing-an-app-in-your-personal-account)」および「[Organization でアプリケーションをインストールする](/articles/installing-an-app-in-your-organization)」を参照してください。{% endif %}
 
 コンテンツの添付は、Markdown のリンクの一部になっている URL には表示されません。
 
-コンテンツの添付を利用する {% data variables.product.prodname_github_app %} の構築に関する詳しい情報については、「[コンテンツの添付を使用する](/apps/using-content-attachments)」を参照してください。
+For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."{% endif %}
 
 ## アセットをアップロードする
 
@@ -262,7 +278,7 @@ Some {% data variables.product.prodname_github_apps %} provide information in {%
 
 テキスト行の間に空白行を残すことで、新しいパラグラフを作成できます。
 
-{% ifversion fpt or ghae-next or ghes > 3.3 %}
+{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:
@@ -270,12 +286,27 @@ You can add footnotes to your content by using this bracket syntax:
 ```
 Here is a simple footnote[^1].
 
+A footnote can also have multiple lines[^2].  
+
+You can also use words, to fit your writing style more closely[^note].
+
 [^1]: My reference.
+[^2]: Every new line should be prefixed with 2 spaces.  
+  This allows you to have a footnote with multiple lines.
+[^note]:
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
+    This footnote also has been made with a different syntax using 4 spaces for new lines.
 ```
 
 The footnote will render like this:
 
 ![Rendered footnote](/assets/images/site/rendered-footnote.png)
+
+{% tip %}
+
+**Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+
+{% endtip %}
 {% endif %}
 
 ## Hiding content with comments
@@ -296,7 +327,7 @@ You can tell {% data variables.product.product_name %} to hide content from the 
 
 詳しい情報については Daring Fireball の [Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash) を参照してください。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
 ## Disabling Markdown rendering
 

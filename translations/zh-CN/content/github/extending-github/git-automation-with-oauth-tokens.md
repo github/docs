@@ -1,14 +1,15 @@
 ---
 title: 使用 OAuth 令牌实施 Git 自动化
 redirect_from:
-  - /articles/git-over-https-using-oauth-token/
-  - /articles/git-over-http-using-oauth-token/
+  - /articles/git-over-https-using-oauth-token
+  - /articles/git-over-http-using-oauth-token
   - /articles/git-automation-with-oauth-tokens
 intro: '你可以使用 OAuth 令牌通过自动化脚本与 {% data variables.product.product_name %} 交互。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 使用 OAuth 令牌实施自动化
 ---
 
@@ -18,7 +19,7 @@ shortTitle: 使用 OAuth 令牌实施自动化
 
 {% tip %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **提示：**
 - 您必须先验证您的电子邮件地址才能创建个人访问令牌。 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
@@ -28,7 +29,7 @@ shortTitle: 使用 OAuth 令牌实施自动化
 
 {% endtip %}
 
-{% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ## 第 2 步：克隆仓库
 

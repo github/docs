@@ -1,11 +1,11 @@
 ---
 title: 跳过工作流程运行
 intro: You can skip workflow runs triggered by the `push` and `pull_request` events by including a command in your commit message.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
-  ghae: ghae-next
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 shortTitle: Skip workflow runs
 ---
 

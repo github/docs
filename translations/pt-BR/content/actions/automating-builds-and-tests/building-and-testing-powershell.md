@@ -1,19 +1,19 @@
 ---
 title: Criar e testar PowerShell
 intro: É possível criar um fluxo de trabalho de integração contínua (CI) para criar e testar o seu projeto de PowerShell.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-powershell
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 authors:
   - potatoqualitee
 type: tutorial
 topics:
   - CI
-  - Powershell
+  - PowerShell
 shortTitle: Criar & testar o PowerShell
 ---
 
@@ -26,7 +26,8 @@ Este guia mostra como usar PowerShell para CI. Ele descreve como usar o Pester, 
 
 Executores hospedados em {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado que inclui PowerShell e Pester.
 
-{% ifversion ghae %}Para instruções instruções sobre como ter certeza de que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}Para obter uma lista completa do software atualizado e das versões pré-instaladas do PowerShell e Pester, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
@@ -72,7 +73,7 @@ jobs:
 * `run: Test-Path resultsfile.log` - Verifica se um arquivo denominado `resultsfile.log` está presente no diretório raiz do repositório.
 * `Should -Be $true` - Usa o Pester para definir um resultado esperado. Se o resultado for inesperado, {% data variables.product.prodname_actions %} irá sinalizar isso como um teste falho. Por exemplo:
 
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Falha no teste de Pester](/assets/images/help/repository/actions-failed-pester-test-updated.png)
   {% else %}
   ![Falha no teste de Pester](/assets/images/help/repository/actions-failed-pester-test.png)

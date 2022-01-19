@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 创建代码块
 ---
 
@@ -44,6 +45,7 @@ Look! You can see my backticks.
 
 ![使用倒引号块呈现的围栏代码](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
 
 ## 语法突显
 

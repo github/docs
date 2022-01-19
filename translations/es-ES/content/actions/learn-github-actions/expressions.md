@@ -2,11 +2,11 @@
 title: Expresiones
 shortTitle: Expresiones
 intro: Puedes evaluar las expresiones en los flujos de trabajo y acciones.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 ---
 
@@ -94,7 +94,7 @@ env:
 
 * Si los tipos no coinciden, {% data variables.product.prodname_dotcom %} fuerza el tipo a un número. {% data variables.product.prodname_dotcom %} fusiona los tipos de datos con un número usando estas conversiones:
 
-  | Type      | Resultado                                                                                                                      |
+  | Tipo      | Resultado                                                                                                                      |
   | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
   | Nulo      | `0`                                                                                                                            |
   | Booleano  | `verdadero` devuelve `1` <br /> `falso` devuelve `0`                                                                     |
@@ -109,7 +109,7 @@ env:
 
 {% data variables.product.prodname_dotcom %} ofrece un conjunto de funciones integradas que puedes usar en expresiones. Algunas funciones fusionan valores en una cadena para realizar las comparaciones. {% data variables.product.prodname_dotcom %} fusiona los tipos de datos con una cadena usando estas conversiones:
 
-| Type     | Resultado                                         |
+| Tipo     | Resultado                                         |
 | -------- | ------------------------------------------------- |
 | Nulo     | `''`                                              |
 | Booleano | `'verdadero'` o `'falso'`                         |
@@ -125,11 +125,11 @@ Arroja `true` si `search` contiene `item`. Si `search` es una matriz, esta funci
 
 #### Ejemplo usando una matriz
 
-`contains(github.event.issue.labels.*.name, 'bug')`
+`contains(github.event.issue.labels.*.name, 'bug')` devuelve la información de si la propuesta que está relacionada al evento tiene una etiqueta de "bug" o no.
 
 #### Ejemplo usando una cadena
 
-`contains('Hello world', 'llo')` devuelve `verdadero`
+`contains('Hello world', 'llo')` devuelve `verdadero`.
 
 ### startsWith
 
@@ -139,7 +139,7 @@ Arroja `true` cuando `searchString` empieza con `searchValue`. Esta función no 
 
 #### Ejemplo
 
-`startsWith('Hello world', 'He')` regresa a `verdadero`
+`startsWith('Hello world', 'He')` regresa a `verdadero`.
 
 ### endsWith
 
@@ -149,7 +149,7 @@ Arroja `true` si `searchString` termina con `searchValue`. Esta función no dist
 
 #### Ejemplo
 
-`endsWith('Hello world', 'He')` devuelve `verdadero`
+`endsWith('Hello world', 'He')` devuelve `verdadero`.
 
 ### format
 
@@ -159,19 +159,19 @@ Reemplaza valores en la `string`, con la variable `replaceValueN`. Las variables
 
 #### Ejemplo
 
-Arroja 'Hello Mona the Octocat'
-
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-#### Ejemplo de evasión de llaves
+Devuelve 'Hello Mona the Octocat'.
 
-Devuelve '{Hello Mona the Octocat!}'
+#### Ejemplo de evasión de llaves
 
 {% raw %}
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
+
+Devuelve '{Hello Mona the Octocat!}'.
 
 ### join
 
@@ -266,9 +266,9 @@ Crea un hash para cualquier archivo de `package-lock.json` y de `Gemfile.lock` e
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
-## Funciones de verificación del estado del trabajo
+## Funciones de verificación del estado
 
-Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if`. Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. Para obtener información sobre los condicionales `if`, consulta "[Sintaxis de flujo de trabajo para acciones de GitHub](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if`. Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. Para obtener más información sobre los condicionales `if`, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" y "[Sintaxis de metadatos para las Acciones Compuestas de GitHub](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
 
 ### success
 
@@ -305,7 +305,7 @@ if: {% raw %}${{ cancelled() }}{% endraw %}
 
 ### failure
 
-Arroja `true` cuando falla cualquiera de los pasos anteriores de un trabajo.
+Arroja `true` cuando falla cualquiera de los pasos anteriores de un trabajo. Si tienes una cadena de jobs dependientes, `failure()` devolverá el valor `true` en caso de que cualquier job ascendiente falle.
 
 #### Ejemplo
 
@@ -315,6 +315,32 @@ steps:
   - name: The job has failed
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
+
+### Evaluar los estados explícitamente
+
+En vez de utilizar alguno de los métodos anteriores, puedes evaluar el estado del job o de la acción compuesta que esté ejecutando el paso directamente:
+
+#### Ejemplo de un paso de flujo de trabajo
+
+```yaml
+steps:
+  ...
+  - name: The job has failed
+    if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
+```
+
+Esto es lo mismo que utilizar `if: failure()` en un paso de un job.
+
+#### Ejemplo de un paso de una acción compuesta
+
+```yaml
+steps:
+  ...
+  - name: The composite action has failed
+    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
+```
+
+Esto es lo mismo que utilizar `if: failure()` en un paso de acción compuesta.
 
 ## Filtros de objetos
 
@@ -330,4 +356,4 @@ Por ejemplo, considera una matriz de objetos llamada `fruits`.
 ]
 ```
 
-El filtro `fruits.*.name` arroja la matriz `[ "apple", "orange", "pear" ]`
+El filtro `fruits.*.name` devuelve la matriz `[ "apple", "orange", "pear" ]`

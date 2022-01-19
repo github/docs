@@ -2,15 +2,16 @@
 title: Requisitos para listar una app
 intro: 'Las apps que se encuentren en {% data variables.product.prodname_marketplace %} deben cumplir con los requisitos que se detallan en esta página antes de que se pueda publicar la lista.'
 redirect_from:
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
   - /marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
   - /developers/github-marketplace/requirements-for-listing-an-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Listar los requisitos
@@ -22,7 +23,7 @@ Los requisitos para listar una app en {% data variables.product.prodname_marketp
 
 ## Requisitos para todas las listas de {% data variables.product.prodname_marketplace %}
 
-Todas las listas de {% data variables.product.prodname_marketplace %} deben ser para las herramientas que proporcionen valor a la comunidad de {% data variables.product.product_name %}. Cuando emites tu lista para que se publique debes leer y aceptar las condiciones del [Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-developer-agreement/)".
+Todas las listas de {% data variables.product.prodname_marketplace %} deben ser para las herramientas que proporcionen valor a la comunidad de {% data variables.product.product_name %}. Cuando emites tu lista para que se publique debes leer y aceptar las condiciones del [Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)".
 
 ### Requisitos de la experiencia del usuario para todas las apps
 
@@ -74,7 +75,7 @@ Cuando estés listo para publicar la app en {% data variables.product.prodname_m
 
 Tu app no necesita administrar pagos, pero sí necesita utilizar los eventos de compra de {% data variables.product.prodname_marketplace %} para administrar las compras nuevas, mejoras, retrocesos, cancelaciones y pruebas gratuitas. Para obtener más información sobre cómo integrar estos eventos en tu app, consulta la sección "[Utilizar la API de {% data variables.product.prodname_marketplace %} en tu app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
-El utilizar la API de facturación de GitHub permite a los clientes comprar una app sin salir de GitHub y pagar por el servicio con el método de pago que ya está adjunto a su cuenta de {% data variables.product.product_name %}.
+El utilizar la API de facturación de GitHub permite a los clientes comprar una app sin salir de GitHub y pagar por el servicio con el método de pago que ya está adjunto a su cuenta de {% data variables.product.product_location %}.
 
 - Las apps deben permitir facturación mensual y anual para las compras de sus sucripciones de pago.
 - Los listados pueden ofrecer cualquier combienación de planes gratuitos y de pago. Los planes gratuitos son opcionales, pero se les fomenta. Para obtener más información, consulta la sección "[Configurar un plan de precios para los listados de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)".

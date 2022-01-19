@@ -3,6 +3,7 @@ title: Encontrar discussões entre vários repositórios
 intro: Você pode acessar facilmente todas as discussões que você criou ou participou de vários repositórios.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Encontrar discussões
 ---
 

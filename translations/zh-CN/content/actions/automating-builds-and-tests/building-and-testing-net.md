@@ -1,14 +1,14 @@
 ---
 title: 构建和测试 .NET
 intro: 您可以创建持续集成 (CI) 工作流程来构建和测试您的 .NET 项目。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-net
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Build & test .NET
+  ghec: '*'
+shortTitle: 构建和测试 .NET
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -18,7 +18,7 @@ shortTitle: Build & test .NET
 
 本指南介绍如何构建、测试和发布 .NET 包。
 
-{% ifversion ghae %} 要构建和测试您在 {% data variables.product.prodname_ghe_managed %} 上的 .NET 项目，则需要创建包含 .NET Core SDK 的自定义操作系统映像。 有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% ifversion ghae %} To build and test your .NET project on {% data variables.product.prodname_ghe_managed %}, the .NET Core SDK is required. {% data reusables.actions.self-hosted-runners-software %}
 {% else %} {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 .NET Core SDK。 有关最新版软件以及 .NET Core SDK 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 自托管运行器上安装的软件](/actions/reference/specifications-for-github-hosted-runners)。
 {% endif %}
 
@@ -28,11 +28,11 @@ shortTitle: Build & test .NET
 
 建议您对 .NET Core SDK 有个基本的了解。 更多信息请参阅“[开始使用 .NET](https://dotnet.microsoft.com/learn)”。
 
-## 从 .NET 工作流程模板开始
+## Using the .NET starter workflow
 
-{% data variables.product.prodname_dotcom %} 提供了一个 .NET 工作流程模板，该模板应适合大多数 .NET 项目，本指南包括演示如何自定义此模板的示例。 更多信息请参阅 [.NET 工作流程模板](https://github.com/actions/setup-dotnet)。
+{% data variables.product.prodname_dotcom %} provides a .NET starter workflow that should work for most .NET projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [.NET starter workflow](https://github.com/actions/setup-dotnet).
 
-要快速开始，请将模板添加到仓库的 `.github/workflows` 目录中。
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
 ```yaml
@@ -128,7 +128,7 @@ steps:
 ```
 {% endraw %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### 缓存依赖项
 
@@ -238,7 +238,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

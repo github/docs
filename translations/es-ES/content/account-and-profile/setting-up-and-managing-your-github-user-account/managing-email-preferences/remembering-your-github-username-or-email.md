@@ -2,14 +2,15 @@
 title: Recordar tu nombre de usuario o correo electrónico de GitHub
 intro: '¿Vas a iniciar sesión en {% data variables.product.product_location %} por primera vez después de un tiempo? Si es así, ¡bienvenido de nuevo! Si no puedes recordar tu {% data variables.product.product_name %} nombre de la cuenta de usuario, puedes intentar estos métodos para hacerlo.'
 redirect_from:
-  - /articles/oh-noes-i-ve-forgotten-my-username-email/
-  - /articles/oh-noes-i-ve-forgotten-my-username-or-email/
+  - /articles/oh-noes-i-ve-forgotten-my-username-email
+  - /articles/oh-noes-i-ve-forgotten-my-username-or-email
   - /articles/remembering-your-github-username-or-email
   - /github/setting-up-and-managing-your-github-user-account/remembering-your-github-username-or-email
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/remembering-your-github-username-or-email
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications
@@ -68,7 +69,7 @@ origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</e
 
 Tu nombre de usuario es lo que le sigue inmediatamente a `https://{% data variables.command_line.backticks %}/`.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Leer más
 
 - "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)"

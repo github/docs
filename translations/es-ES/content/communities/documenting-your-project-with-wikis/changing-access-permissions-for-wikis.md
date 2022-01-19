@@ -1,6 +1,6 @@
 ---
 title: Cambiar permisos de acceso para wikis
-intro: 'Solo los colaboradores de los repositorios pueden editar el wiki del mismo predeterminadamente, pero puedes permitir a cualquiera con una cuenta de {% data variables.product.product_name %} para que lo haga.'
+intro: 'Solo los colaboradores del repositorio pueden editar el wiki de un repositorio {% ifversion fpt or ghec or ghes %}público{% endif %}, pero puedes permitir que cualquiera que tenga una cuenta en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} edite dicho wiki.'
 product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/changing-access-permissions-for-wikis
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Cambiar los permisos de acceso

@@ -2,11 +2,12 @@
 title: GitHub の機能拡張およびインテグレーション
 intro: 'サードパーティアプリケーションの中でシームレスに{% data variables.product.product_name %}リポジトリ内で作業をするために、{% data variables.product.product_name %}機能拡張を使ってください。'
 redirect_from:
-  - /articles/about-github-extensions-for-third-party-applications/
+  - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Extensions & integrations
 ---
 
@@ -32,7 +33,7 @@ Atom、Unity、Visual Studio などのサードパーティのエディタツー
 
 ## プロジェクト管理ツール
 
-{% data variables.product.product_name %} の個人アカウントまたは Organization を Jira などのサードパーティのプロジェクト管理ツールと統合できます。
+You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party project management tools, such as Jira.
 
 ### Jira Cloud と {% data variables.product.product_name %}.com の統合
 
@@ -40,7 +41,7 @@ Jira Cloud を個人または Organization のアカウントに統合すると�
 
 ## チームコミュニケーションツール
 
-{% data variables.product.product_name %} の個人アカウントまたは Organization を Slack や Microsoft Teams などのサードパーティのコミュニケーションツールと統合できます。
+You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
 
 ### Slack と {% data variables.product.product_name %} の統合
 

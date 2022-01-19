@@ -2,14 +2,15 @@
 title: 关于自定义域名和 GitHub 页面
 intro: '{% data variables.product.prodname_pages %} 支持使用自定义域名，或者将网站的 URL 根目录从默认值（如 `octocat.github.io`）更改为您拥有的任何域名。'
 redirect_from:
-  - /articles/about-custom-domains-for-github-pages-sites/
-  - /articles/about-supported-custom-domains/
-  - /articles/custom-domain-redirects-for-your-github-pages-site/
+  - /articles/about-custom-domains-for-github-pages-sites
+  - /articles/about-supported-custom-domains
+  - /articles/custom-domain-redirects-for-your-github-pages-site
   - /articles/about-custom-domains-and-github-pages
   - /github/working-with-github-pages/about-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: 在 GitHub Pages 中自定义域
@@ -55,9 +56,9 @@ Apex 域配置通过 DNS 提供商使用 `A`, `ALAS` 或 `ANAME` 记录配置。
 
 {% data reusables.pages.www-and-apex-domain-recommendation %}更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)”。
 
-## 在 {% data variables.product.prodname_pages %} 站点禁用时更新自定义域
+## Securing the custom domain for your {% data variables.product.prodname_pages %} site
 
-如果您的 {% data variables.product.prodname_pages %} 站点设置了自定义域，并且站点已禁用，您应立即通过 DNS 提供商更新或删除 DNS 记录，以避免域接管的风险。 在您的网站被禁用时拥有通过 DNS 提供商配置的自定义域，可能会导致其他人在您的一个子域上托管网站。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
+{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)" and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
 有许多原因会导致您的网站被自动禁用。
 

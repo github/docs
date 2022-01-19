@@ -2,11 +2,11 @@
 title: Remover um colaborador de um repositório pessoal
 intro: 'Quando você remove um colaborador do projeto, ele perde o acesso de leitura/gravação ao repositório. Se o repositório for privado e o colaborador tiver criado uma bifurcação, essa bifurcação também será excluída.'
 redirect_from:
-  - /articles/how-do-i-remove-a-collaborator/
-  - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository/
-  - /articles/removing-a-collaborator-from-a-private-repository/
-  - /articles/deleting-a-private-fork-of-a-private-user-repository/
-  - /articles/how-do-i-delete-a-fork-of-my-private-repository/
+  - /articles/how-do-i-remove-a-collaborator
+  - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository
+  - /articles/removing-a-collaborator-from-a-private-repository
+  - /articles/deleting-a-private-fork-of-a-private-user-repository
+  - /articles/how-do-i-delete-a-fork-of-my-private-repository
   - /articles/removing-a-collaborator-from-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/removing-a-collaborator-from-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository
@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
@@ -29,7 +30,7 @@ Apesar de as bifurcações de repositórios privados serem excluídas quando um 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. À direita do colaborador que deseja remover, clique em {% octicon "trash" aria-label="The trash icon" %}. ![Botão para remover o colaborador](/assets/images/help/repository/collaborator-remove.png)
 {% else %}

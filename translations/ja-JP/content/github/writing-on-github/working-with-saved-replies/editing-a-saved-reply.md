@@ -2,13 +2,14 @@
 title: 返信テンプレートを編集する
 intro: 返信テンプレートのタイトルと本文を編集できます。
 redirect_from:
-  - /articles/changing-a-saved-reply/
+  - /articles/changing-a-saved-reply
   - /articles/editing-a-saved-reply
   - /github/writing-on-github/editing-a-saved-reply
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}

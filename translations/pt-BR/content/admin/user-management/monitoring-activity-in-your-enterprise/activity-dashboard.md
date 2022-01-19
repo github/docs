@@ -2,7 +2,7 @@
 title: Painel Atividade
 intro: O painel de atividades oferece uma visão geral de toda a atividade da sua empresa.
 redirect_from:
-  - /enterprise/admin/articles/activity-dashboard/
+  - /enterprise/admin/articles/activity-dashboard
   - /enterprise/admin/installation/activity-dashboard
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard

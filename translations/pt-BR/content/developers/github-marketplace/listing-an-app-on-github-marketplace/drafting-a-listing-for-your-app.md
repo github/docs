@@ -2,19 +2,20 @@
 title: Elaborar uma listagem para o seu aplicativo
 intro: 'Ao criar uma listagem do {% data variables.product.prodname_marketplace %}, o GitHub salva-na no modo rascunho até que você envie o aplicativo para aprovação. Sua listagem mostra aos clientes como podem usar seu aplicativo.'
 redirect_from:
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/listing-an-app-on-github-marketplace/
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/removing-a-listing-from-github-marketplace/
-  - /apps/marketplace/managing-github-marketplace-listings/removing-a-listing-from-github-marketplace/
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/editing-a-github-marketplace-listing/
-  - /apps/marketplace/managing-github-marketplace-listings/editing-a-github-marketplace-listing/
-  - /apps/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
+  - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/listing-an-app-on-github-marketplace
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/listing-an-app-on-github-marketplace
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/removing-a-listing-from-github-marketplace
+  - /apps/marketplace/managing-github-marketplace-listings/removing-a-listing-from-github-marketplace
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/editing-a-github-marketplace-listing
+  - /apps/marketplace/managing-github-marketplace-listings/editing-a-github-marketplace-listing
+  - /apps/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /developers/github-marketplace/drafting-a-listing-for-your-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Elabore um anúncio para aplicativos
@@ -59,7 +60,7 @@ Após criar um rascunho da listagem do {% data variables.product.prodname_market
 
 ## Enviar o seu aplicativo
 
-Após concluir a sua listagem do {% data variables.product.prodname_marketplace %}, você poderá enviá-la para revisão na página **Visão geral**. Você vai precisar ler e aceitar o "[{% data variables.product.prodname_marketplace %} Contrato de desenvolvedor](/articles/github-marketplace-developer-agreement/)" e, em seguida, você poderá clicar em **Enviar para revisão**. Depois de enviar seu aplicativo para análise, um especialista em integração entrará em contato com você com informações adicionais sobre o processo de integração.
+Após concluir a sua listagem do {% data variables.product.prodname_marketplace %}, você poderá enviá-la para revisão na página **Visão geral**. Você vai precisar ler e aceitar o "[{% data variables.product.prodname_marketplace %} Contrato de desenvolvedor](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)" e, em seguida, você poderá clicar em **Enviar para revisão**. Depois de enviar seu aplicativo para análise, um especialista em integração entrará em contato com você com informações adicionais sobre o processo de integração.
 
 ## Remover uma listagem do {% data variables.product.prodname_marketplace %}
 

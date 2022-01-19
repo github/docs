@@ -3,6 +3,7 @@ title: Conecte o sistema de gerenciamento de aprendizagem ao GitHub Classroom
 intro: 'Você pode configurar um sistema de gerenciamento de aprendizado compatível com LTI (LMS) para conectar a {% data variables.product.prodname_classroom %} a fim de importar uma lista de participantes para sua sala de aula.'
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configuring-a-learning-management-system-for-github-classroom
   - /education/manage-coursework-with-github-classroom/connect-to-lms
@@ -120,7 +121,7 @@ Você pode configurar {% data variables.product.prodname_classroom %} como uma a
 
 Você deve usar a versão 3.0 ou superior do Moodle.
 
-1. Efetue o login no [Moodle](https://moodle.org/login/index.php).
+1. Efetue o login no [Moodle](https://moodle.org/login/).
 1. Selecione o curso do Moodle a ser integrado com {% data variables.product.prodname_classroom %}.
 1. Clique em **Ativar a edição**.
 1. Sempre que você queira que {% data variables.product.prodname_classroom %} esteja disponível no Moodle, clique em **Adicionar uma atividade ou recurso**.

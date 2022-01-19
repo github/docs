@@ -24,9 +24,9 @@ Os dados do YAML são processados e classificados por `middleware/contextualizer
 
 ### Layouts
 
-The `context` object data is rendered by `components/release-notes`.
+Os dados do objeto `contexto` são interpretados por `components/release-notes`.
 
-The release notes page has a custom design with CSS in `stylesheets/release-notes.scss`.
+A página de notas de versão tem um design personalizado com CSS em `stylesheets/release-notes.scss`.
 
 ### Esquema
 

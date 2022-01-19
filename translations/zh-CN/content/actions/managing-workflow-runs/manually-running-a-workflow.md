@@ -1,11 +1,11 @@
 ---
 title: 手动运行工作流程
 intro: '当工作流程配置为在发生 `workflow_dispatch` 事件时运行时，您可以使用 {% data variables.product.prodname_dotcom %}、{% data variables.product.prodname_cli %} 或 REST API 上的 Actions 选项卡运行工作流程。'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 手动运行工作流程
 ---
 
@@ -19,8 +19,6 @@ shortTitle: 手动运行工作流程
 {% data reusables.repositories.permissions-statement-write %}
 
 ## 运行工作流程
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -72,4 +70,4 @@ gh run watch
 
 使用 REST API 时，应将 `inputs` 和 `ref` 配置为请求正文参数。 如果忽略输入，则使用工作流程文件中定义的默认值。
 
-有关使用 REST API 的更多信息，请参阅“[创建工作流程调度事件](/rest/reference/actions/#create-a-workflow-dispatch-event)”。
+For more information about using the REST API, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)."

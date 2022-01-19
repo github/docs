@@ -2,12 +2,13 @@
 title: Crear un servidor de IC
 intro: Crea tu propio sistema de IC utilizando la API de Estados.
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -83,7 +84,7 @@ Para probar esta prueba de concepto, haz algunos cambios en una rama de tu repos
 
 Ya que configuramos el servidor, estamos listos para comenzar con nuestro primer requisito, que es configurar (y actualizar) los estados de IC. Nota que en cualquier momento que actualices tu servidor, puedes dar clic en **Volver a entregar** para enviar la misma carga útil. ¡No necesitas hacer una solicitud de extracción cada que haces un cambio!
 
-Ya que estamos interactuando con la API de {% data variables.product.product_name %}, utilizaremos a [Octokit.rb][octokit.rb] para administrar nuestras interacciones. Configuraremos a ese cliente con
+Ya que estamos interactuando con la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, utilizaremos [Octokit.rb][octokit.rb] para administrar nuestras interacciones. Configuraremos a ese cliente con
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!

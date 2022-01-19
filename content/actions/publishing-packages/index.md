@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /actions/publishing-packages-with-github-actions
 children:
@@ -16,4 +17,3 @@ children:
   - /publishing-nodejs-packages
 ---
 
-{% data reusables.actions.ae-beta %}

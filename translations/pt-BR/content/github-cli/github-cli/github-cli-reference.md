@@ -5,15 +5,22 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - CLI
 type: reference
 ---
 
-Para ver todos os comandos de {% data variables.product.prodname_cli %}, consulte o manual [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_help_reference) ou use o comando `referência`.
+Para visualizar todos os comandos de {% data variables.product.prodname_cli %} de alto nível, consulte o manual de [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh) ou ligue para `gh` sem argumentos.
 
 ```shell
-gh reference
+gh
+```
+
+Para listar todos os comandos sob um grupo específico, use o comando de nível superior sem argumentos. Por exemplo, para listar [comandos para gerenciar repositórios](https://cli.github.com/manual/gh_repo):
+
+```shell
+gh repo
 ```
 
 Para ver as variáveis de ambiente que podem ser usadas com {% data variables.product.prodname_cli %}, consulte o [manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_help_environment) ou use o comando `ambiente`.

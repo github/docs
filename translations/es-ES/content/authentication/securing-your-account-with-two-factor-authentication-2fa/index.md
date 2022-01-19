@@ -1,14 +1,15 @@
 ---
 title: Asegurar tu cuenta con autenticación de dos factores (2FA)
-intro: 'Puedes configurar tu cuenta {% data variables.product.product_name %} para requerir un código de autenticación además de tu contraseña cuando te registras.'
+intro: 'Puedes configurar tu cuenta de {% data variables.product.product_location %} para que requiera un código de autenticación adicionalmente a tu contraseña cuando inicies sesión.'
 redirect_from:
-  - /categories/84/articles/
-  - /categories/two-factor-authentication-2fa/
+  - /categories/84/articles
+  - /categories/two-factor-authentication-2fa
   - /articles/securing-your-account-with-two-factor-authentication-2fa
-  - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/
+  - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 children:

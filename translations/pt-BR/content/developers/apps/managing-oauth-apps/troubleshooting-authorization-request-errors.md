@@ -2,13 +2,14 @@
 title: Solucionar problemas de erros de solicitação de autorização
 intro: '{% data reusables.shortdesc.troubleshooting_authorization_request_errors_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/troubleshooting-authorization-request-errors/
+  - /apps/building-integrations/managing-oauth-apps/troubleshooting-authorization-request-errors
   - /apps/managing-oauth-apps/troubleshooting-authorization-request-errors
   - /developers/apps/troubleshooting-authorization-request-errors
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Solucionar problemas de autorização

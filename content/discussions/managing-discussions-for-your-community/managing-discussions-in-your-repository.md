@@ -4,6 +4,7 @@ intro: 'You can categorize, spotlight, transfer, or delete the discussions in a 
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Manage discussions
 ---
 
@@ -80,7 +81,7 @@ Editing a pinned discussion will not change the discussion's category. For more 
 
 ## Transferring a discussion
 
-To transfer a discussion, you must have permissions to create discussions in the repository where you want to transfer the discussion.
+To transfer a discussion, you must have permissions to create discussions in the repository where you want to transfer the discussion. You can only transfer discussions between repositories owned by the same user or organization account. You can't transfer a discussion from a private repository to a public repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

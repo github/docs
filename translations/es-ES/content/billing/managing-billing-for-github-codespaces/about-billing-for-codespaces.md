@@ -5,6 +5,7 @@ intro: 'Ver los precios y cómo administrar la facturación de {% data variables
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
@@ -18,7 +19,14 @@ El uso de {% data variables.product.prodname_codespaces %} se factura para todas
 
 El uso de {% data variables.product.prodname_codespaces %} se cobra de acuerdo con las unidades de medida en la siguiente tabla:
 
- Producto              | SKU      | Unidad de medida| Precio| | ------------------- | -------- | --------------- | ----- | | Codespaces Compute  |  2 núcleos| 1 hora | $0.18 | |                     |  4 núcleos  | 1 hora          | $0.36 | |                     |  8 núcleos  | 1 hora          | $0.72 | |                     |  16 núcleos | 1 hora          | $1.44 | |                     |  32 núcleos | 1 hora          | $2.88 | | Codespaces Storage  |  Almacenamiento | 1 GB-mes      | $0.07 |
+| Producto                     | SKU            | Unidad de medida | Precio |
+| ---------------------------- | -------------- | ---------------- | ------ |
+| Cálculos de codespaces       | 2 núcleos      | 1 hora           | $0.18  |
+|                              | 4 núcleos      | 1 hora           | $0.36  |
+|                              | 8 núcleos      | 1 hora           | $0.72  |
+|                              | 16 núcleos     | 1 hora           | $1.44  |
+|                              | 32 núcleos     | 1 hora           | $2.88  |
+| Almacenamiento de codespaces | Almacenamiento | 1 GB-mes         | $0.07  |
 
 ## Acerca de la facturación para {% data variables.product.prodname_codespaces %}
 
@@ -26,7 +34,9 @@ El uso de {% data variables.product.prodname_codespaces %} se cobra de acuerdo c
 
 Tu uso de {% data variables.product.prodname_codespaces %} comparte la fecha de facturación, método de pago y recibo existente en tu cuenta. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
+{% ifversion ghec %}
+Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
+{% endif %}
 
 {% data reusables.dotcom_billing.pricing_cal %}
 
@@ -37,6 +47,12 @@ Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerd
 Para obtener más información sobre cómo administrar y cambiar el límite de gastos de tu organización, consulta la sección "[Administrar tu límite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
 
 {% data reusables.codespaces.exporting-changes %}
+
+## Limitar la elección de tipos de máquina
+
+El tipo de máquina que elija un usuario cuando crea un codespace afectará la carga por minuto del mismo, como se muestra anteriormente.
+
+Los propietarios de las organizaciones pueden crear una política para restringir los tipos de máquina que están disponibles para los usuarios. Para obtener más información, consulta la sección "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
 
 ## Cómo se maneja la facturación para los repositorios bifurcados
 

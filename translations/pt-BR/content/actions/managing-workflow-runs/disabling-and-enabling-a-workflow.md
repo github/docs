@@ -1,11 +1,11 @@
 ---
 title: Desabilitar e habilitar um fluxo de trabalho
 intro: 'Você pode desabilitar e habilitar novamente um fluxo de trabalho usando a interface do usuário de {% data variables.product.prodname_dotcom %}, a API REST, ou {% data variables.product.prodname_cli %}.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Desabilitar & habilitar um fluxo de trabalho
 ---
 
@@ -31,8 +31,6 @@ Também é possível desabilitar e habilitar um fluxo de trabalho usando a API R
 
 ## Desabilitar um fluxo de trabalho
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -56,8 +54,6 @@ gh workflow disable <em>workflow</em>
 {% endcli %}
 
 ## Habilitar um fluxo de trabalho
-
-{% include tool-switcher %}
 
 {% webui %}
 

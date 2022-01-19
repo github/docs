@@ -2,13 +2,14 @@
 title: 编辑已保存回复
 intro: 您可以编辑已保存回复的标题和正文。
 redirect_from:
-  - /articles/changing-a-saved-reply/
+  - /articles/changing-a-saved-reply
   - /articles/editing-a-saved-reply
   - /github/writing-on-github/editing-a-saved-reply
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}

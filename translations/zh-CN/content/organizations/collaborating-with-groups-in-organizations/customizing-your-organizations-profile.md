@@ -3,8 +3,9 @@ title: Customizing your organization's profile
 intro: You can share information about your organization by customizing your organization's profile
 versions:
   fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  ghec: '*'
+  ghes: '>3.3'
+  ghae: issue-4749
 topics:
   - Organizations
 shortTitle: Customize organization profile

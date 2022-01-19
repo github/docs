@@ -1,6 +1,6 @@
 ---
-title: Trabalhando com o registro do Docker
-intro: '{% ifversion fpt %}O registro do Docker foi substituído pelo {% data variables.product.prodname_container_registry %}.{% else %}Você pode fazer push e pull das imagens Docker usando o Docker de {% data variables.product.prodname_registry %}, que usa o namespace do pacote `https://docker.pkg.github.com`.{% endif %}'
+title: Working with the Docker registry
+intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.{% endif %}'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
@@ -13,15 +13,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Registro Docker
+  ghec: '*'
+shortTitle: Docker registry
 ---
 
 <!-- Main versioning block. Short page for dotcom -->
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-O registro do Docker d e{% data variables.product.prodname_dotcom %} (que usou o namespace `docker.pkg.github.com`) foi substituído por {% data variables.product.prodname_container_registry %} (que usa o namespace `https://ghcr.io`). O {% data variables.product.prodname_container_registry %} oferece benefícios como, por exemplo, permissões granulares e otimização de armazenamento para imagens Docker.
+{% data variables.product.prodname_dotcom %}'s Docker registry (which used the namespace `docker.pkg.github.com`) has been replaced by the {% data variables.product.prodname_container_registry %} (which uses the namespace `https://ghcr.io`). The {% data variables.product.prodname_container_registry %} offers benefits such as granular permissions and storage optimization for Docker images.
 
-As imagens do Docker armazenadas anteriormente no registro do Docker estão sendo automaticamente transferidas para {% data variables.product.prodname_container_registry %}. Para obter mais informações, consulte "[Fazendo a migração {% data variables.product.prodname_container_registry %} a partir do registro Docker](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" e "[Trabalhando com o {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
+Docker images previously stored in the Docker registry are being automatically migrated into the {% data variables.product.prodname_container_registry %}. For more information, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" and "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
 {% else %}
 <!-- The remainder of this article is displayed for releases that don't support the Container registry -->
@@ -29,33 +30,27 @@ As imagens do Docker armazenadas anteriormente no registro do Docker estão send
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-**Note:** When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-## Sobre o suporte ao Docker
+## About Docker support
 
-Ao instalar ou publicar uma imagem do Docker, o registro do Docker atualmente não é compatível com camadas externas como, por exemplo, as imagens do Windows.
+When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
 
-{% ifversion ghes = 2.22 %}
-
-Antes de poder usar o registro do Docker no {% data variables.product.prodname_registry %}, o administrador do site para {% data variables.product.product_location %} deve habilitar o suporte do Docker e o isolamento do subdomínio para a sua instância. Para obter mais informações, consulte "[Gerenciar pacotes do GitHub para a sua empresa](/enterprise/admin/packages)".
-
-{% endif %}
-
-## Autenticar-se no {% data variables.product.prodname_registry %}
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Efetuando a autenticação com um token de acesso pessoal
+### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
 
-Você pode efetuar a autenticação no {% data variables.product.prodname_registry %} usando o comando de login do `docker`.
+You can authenticate to {% data variables.product.prodname_registry %} with Docker using the `docker` login command.
 
-Para manter suas credenciais seguras, recomendamos que você salve seu token de acesso pessoal em um arquivo local no seu computador e use o sinalizador `--password-stdin` do Docker que lê o seu token a partir de um arquivo local.
+To keep your credentials secure, we recommend you save your personal access token in a local file on your computer and use Docker's `--password-stdin` flag, which reads your token from a local file.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% raw %}
   ```shell
   $ cat <em>~/TOKEN.txt</em> | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
@@ -64,16 +59,16 @@ Para manter suas credenciais seguras, recomendamos que você salve seu token de 
 {% endif %}
 
 {% ifversion ghes or ghae %}
-{% ifversion ghes > 2.22 %}
-Se sua instância tem o isolamento de subdomínio habilitado:
+{% ifversion ghes %}
+If your instance has subdomain isolation enabled:
 {% endif %}
 {% raw %}
  ```shell
  $ cat <em>~/TOKEN.txt</em> | docker login docker.HOSTNAME -u <em>USERNAME</em> --password-stdin
 ```
 {% endraw %}
-{% ifversion ghes > 2.22 %}
-Se sua instância tem o isolamento de subdomínio desabilitado:
+{% ifversion ghes %}
+If your instance has subdomain isolation disabled:
 
 {% raw %}
  ```shell
@@ -84,83 +79,83 @@ Se sua instância tem o isolamento de subdomínio desabilitado:
 
 {% endif %}
 
-Para usar este exemplo de comando de login, substitua `NOME DE USUÁRIO` pelo seu nome de usuário de {% data variables.product.product_name %} {% ifversion ghes or ghae %}, `NOME DE HOST` pela URL para {% data variables.product.product_location %},{% endif %} e `~/TOKEN. xt` pelo caminho do arquivo para o seu token de acesso pessoal para {% data variables.product.product_name %}.
+To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
-Para obter mais informações, consulte "[Login do Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)".
+For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
-## Publicar uma imagem
+## Publishing an image
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% note %}
 
-**Observação:** Os nomes de imagem devem usar apenas letras minúsculas.
+**Note:** Image names must only use lowercase letters.
 
 {% endnote %}
 
-O {% data variables.product.prodname_registry %} aceita várias imagens do Docker de nível superior por repositório. Um repositório pode ter qualquer número de tags de imagem. Você poderá conhecer uma publicação de serviço degradada ou instalar imagens do Docker com tamanho superior a 10 GB. As camadas são limitadas em 5 GB cada. Para obter mais informações, consulte "[Tag do Docker](https://docs.docker.com/engine/reference/commandline/tag/)" na documentação Docker.
+{% data variables.product.prodname_registry %} supports multiple top-level Docker images per repository. A repository can have any number of image tags. You may experience degraded service publishing or installing Docker images larger than 10GB, layers are capped at 5GB each. For more information, see "[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)" in the Docker documentation.
 
 {% data reusables.package_registry.viewing-packages %}
 
-1. Determine o nome da imagem e o ID da sua imagem do docker usando `imagens do docker`.
+1. Determine the image name and ID for your docker image using `docker images`.
   ```shell
   $ docker images
   > <&nbsp>
   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
-2. Ao usar o ID de imagem Docker, marque a imagem do docker, substituindo *OWNER* pelo nome do usuário ou conta de organização proprietária do repositório, *REPOSITORY* pelo nome do repositório que contém o seu projeto, *IMAGE_NAME* pelo nome do pacote ou imagem,{% ifversion ghes or ghae %} *HOSTNAME* pelo nome do host de {% data variables.product.product_location %}{% endif %} e *VERSION* pela versão do pacote no momento da compilação.
-  {% ifversion fpt %}
+2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
+  {% ifversion fpt or ghec %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
-  {% ifversion ghes > 2.22 %}
-  Se sua instância tem o isolamento de subdomínio habilitado:
+  {% ifversion ghes %}
+  If your instance has subdomain isolation enabled:
   {% endif %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% ifversion ghes > 2.22 %}
-  Se sua instância tem o isolamento de subdomínio desabilitado:
+  {% ifversion ghes %}
+  If your instance has subdomain isolation disabled:
   ```shell
   $ docker tag <em>IMAGE_ID</em> <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% endif %}
   {% endif %}
-3. Se você ainda não criou uma imagem d docker para o pacote, crie a imagem, substituindo *OWNER* pelo nome do usuário ou conta de organização proprietária do repositório, *REPOSITÓRIO* com o nome do repositório que contém o seu projeto, *IMAGE_NAME* com o nome do pacote ou imagem, *VERSÃO* com a versão do pacote na hora da compilação,{% ifversion ghes or ghae %} *HOSTNAME* com o nome do host de {% data variables.product.product_location %},{% endif %} e *PATH* para a imagem se não estiver no diretório de trabalho atual.
-  {% ifversion fpt %}
+3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
+  {% ifversion fpt or ghec %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% else %}
-  {% ifversion ghes > 2.22 %}
-  Se sua instância tem o isolamento de subdomínio habilitado:
+  {% ifversion ghes %}
+  If your instance has subdomain isolation enabled:
   {% endif %}
   ```shell
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
-  {% ifversion ghes > 2.22 %}
-  Se sua instância tem o isolamento de subdomínio desabilitado:
+  {% ifversion ghes %}
+  If your instance has subdomain isolation disabled:
   ```shell
   $ docker build -t <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% endif %}
   {% endif %}
-4. Publicar a imagem no {% data variables.product.prodname_registry %}.
-  {% ifversion fpt %}
+4. Publish the image to {% data variables.product.prodname_registry %}.
+  {% ifversion fpt or ghec %}
   ```shell
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
-  {% ifversion ghes > 2.22 %}
-  Se sua instância tem o isolamento de subdomínio habilitado:
+  {% ifversion ghes %}
+  If your instance has subdomain isolation enabled:
   {% endif %}
   ```shell
   $ docker push docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% ifversion ghes > 2.22 %}
-  Se sua instância tem o isolamento de subdomínio desabilitado:
+  {% ifversion ghes %}
+  If your instance has subdomain isolation disabled:
   ```shell
   $ docker push <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
@@ -168,19 +163,19 @@ O {% data variables.product.prodname_registry %} aceita várias imagens do Docke
   {% endif %}
   {% note %}
 
-  **Observação:** Você deve enviar sua imagem usando `IMAGE_NAME:VERSION` e não `IMAGE_NAME:SHA`.
+  **Note:** You must push your image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
   {% endnote %}
 
-### Exemplo de publicação de uma imagem do Docker
+### Example publishing a Docker image
 
-{% ifversion ghes > 2.22 %}
-Esses exemplos assumem que sua instância tem o isolamento de subdomínio habilitado.
+{% ifversion ghes %}
+These examples assume your instance has subdomain isolation enabled.
 {% endif %}
 
-Você pode publicar a versão 1.0 da imagem de `monalisa` para o repositório `octocat/octo-app` usando um ID de imagem.
+You can publish version 1.0 of the `monalisa` image to the `octocat/octo-app` repository using an image ID.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ```shell
 $ docker images
 
@@ -211,16 +206,15 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 {% endif %}
 
-Você pode publicar uma nova imagem do Docker pela primeira vez e nomeá-la como `monalisa`.
+You can publish a new Docker image for the first time and name it `monalisa`.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ```shell
 # Build the image with docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 .
-$ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 .
 
-# Faça push da imagem no {% data variables.product.prodname_registry %}
+# Push the image to {% data variables.product.prodname_registry %}
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 
@@ -235,26 +229,26 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
 {% endif %}
 
-## Fazer o download de uma imagem
+## Downloading an image
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-Você pode usar o comando `docker pull` para instalar uma imagem do docker a partir de {% data variables.product.prodname_registry %}, substituindo *OWNER* pelo nome do usuário ou conta de organização proprietária do repositório, *REPOSITÓRIO* pelo nome do repositório que contém seu projeto, *IMAGE_NAME* pelo nome do pacote ou da imagem, {% ifversion ghes or ghae %} *HOSTNAME* pelo nome do host {% data variables.product.product_location %}, {% endif %} e *TAG_NAME* éla tag para a imagem que você deseja instalar.
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %} and *TAG_NAME* with tag for the image you want to install.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ```shell
 $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% else %}
 <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
-{% ifversion ghes > 2.22 %}
-Se sua instância tem o isolamento de subdomínio habilitado:
+{% ifversion ghes %}
+If your instance has subdomain isolation enabled:
 {% endif %}
 ```shell
 $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
-{% ifversion ghes > 2.22 %}
-Se sua instância tem o isolamento de subdomínio desabilitado:
+{% ifversion ghes %}
+If your instance has subdomain isolation disabled:
 ```shell
 $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
@@ -263,12 +257,12 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 {% note %}
 
-**Nota:** Você deve fazer pull da imagem usando `IMAGE_NAME:VERSION` e não usar `IMAGE_NAME:SHA`.
+**Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
 {% endnote %}
 
-## Leia mais
+## Further reading
 
-- "{% ifversion fpt or ghes > 3.0 %}[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Excluir um pacote](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec or ghae %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
 
 {% endif %}  <!-- End of main versioning block -->

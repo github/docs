@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ![Respostas salvas](/assets/images/help/settings/saved-replies.png)

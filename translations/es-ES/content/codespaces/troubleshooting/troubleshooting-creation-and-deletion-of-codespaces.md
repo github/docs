@@ -4,6 +4,7 @@ intro: 'Este artículo te muestra los pasos para la solución de problemas comun
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces
@@ -53,4 +54,4 @@ Algunas opciones más destructivas:
 Este codespace se ejecuta acutalmente en modo de recuperación debido a un error del contenedor.
 ```
 
-Revisa las bitácoras de creación, actualiza la configuración como lo requieras y ejecuta **Codespaces: Rebuild Container** en la paleta de comandos para volver a intentarlo. Para obtener más información, consulta las secciones "[Bitácoras de codespaces](/codespaces/troubleshooting/codespaces-logs)" y "[Configurar {% data variables.product.prodname_codespaces %} en tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
+Revisa las bitácoras de creación, actualiza la configuración como lo requieras y ejecuta **Codespaces: Reconstruir Contenedor** en la {% data variables.product.prodname_vscode_command_palette %} para volver a intentarlo. Para obtener más información, consulta las secciones "[Bitácoras de codespaces](/codespaces/troubleshooting/codespaces-logs)" y "[Configurar {% data variables.product.prodname_codespaces %} en tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".

@@ -6,17 +6,18 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Primeiros passos com a API
 ---
 
-Para automatizar tarefas comuns, fazer backup dos seus dados ou criar integrações que estendem o {% data variables.product.product_name %}, você poderá usar a API do {% data variables.product.product_name %}.
+Para automatizar as tarefas comuns, fazer backup de seus dados ou criar integrações que estendem {% data variables.product.product_name %}, você pode usar a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.
 
-Para obter mais informações sobre a API, consulte a [API REST do GitHub](/rest) e [API do GraphQL do GitHub](/graphql). Também é possível atualizar-se sobre as notícias relacionadas a APIs seguindo o blog do desenvolvedor</a>
+Para obter mais informações sobre a API, consulte a [API REST do GitHub](/rest) e [API do GraphQL do GitHub]({% ifversion ghec %}/free-pro-team@latest/{% endif %}/graphql). Também é possível atualizar-se sobre as notícias relacionadas a APIs seguindo o blog do desenvolvedor</a>
 {% data variables.product.prodname_dotcom %}.</p> 
 
 
 
 ## Leia mais
 
-- "[Backup de um repositório](/articles/backing-up-a-repository)"{% ifversion fpt %}
+- "[Backup de um repositório](/articles/backing-up-a-repository)"{% ifversion fpt or ghec %}
 - "[Sobre integrações](/articles/about-integrations)"{% endif %}

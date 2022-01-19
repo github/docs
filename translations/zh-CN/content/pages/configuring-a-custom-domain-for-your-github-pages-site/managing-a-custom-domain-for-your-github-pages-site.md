@@ -2,18 +2,19 @@
 title: 管理 GitHub Pages 站点的自定义域
 intro: '您可以设置或更新某些 DNS 记录和仓库设置，以将 {% data variables.product.prodname_pages %} 站点的默认域指向自定义域。'
 redirect_from:
-  - /articles/quick-start-setting-up-a-custom-domain/
-  - /articles/setting-up-an-apex-domain/
-  - /articles/setting-up-a-www-subdomain/
-  - /articles/setting-up-a-custom-domain/
-  - /articles/setting-up-an-apex-domain-and-www-subdomain/
-  - /articles/adding-a-cname-file-to-your-repository/
-  - /articles/setting-up-your-pages-site-repository/
+  - /articles/quick-start-setting-up-a-custom-domain
+  - /articles/setting-up-an-apex-domain
+  - /articles/setting-up-a-www-subdomain
+  - /articles/setting-up-a-custom-domain
+  - /articles/setting-up-an-apex-domain-and-www-subdomain
+  - /articles/adding-a-cname-file-to-your-repository
+  - /articles/setting-up-your-pages-site-repository
   - /articles/managing-a-custom-domain-for-your-github-pages-site
   - /github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: 管理自定义域
@@ -70,7 +71,7 @@ shortTitle: 管理自定义域
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 4. 在 "Custom domain（自定义域）"下，输入自定义域，然后单击 **Save（保存）**。 这将创建一个在发布源根目录中添加 _CNAME _ 文件的提交。 ![保存自定义域按钮](/assets/images/help/pages/save-custom-apex-domain.png)
-5. 导航到 DNS 提供程序并创建一个 `ALIAS`、`ANAME` 或 `A` 记录。 You can also create `AAAA` records for IPv6 support. {% data reusables.pages.contact-dns-provider %}
+5. 导航到 DNS 提供程序并创建一个 `ALIAS`、`ANAME` 或 `A` 记录。 您也可以创建 `AAAA` 记录以获得 IPv6 支持。 {% data reusables.pages.contact-dns-provider %}
     - 要创建 `ALIAS` 或 `ANAME` 记录，请将 apex 域指向站点的默认域。 {% data reusables.pages.default-domain-information %}
     - 要创建 `A` 记录，请将 apex 域指向 {% data variables.product.prodname_pages %} 的 IP 地址。
       ```shell
@@ -79,7 +80,7 @@ shortTitle: 管理自定义域
       185.199.110.153
       185.199.111.153
       ```
-    - To create `AAAA` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
+    - 要创建 `AAAA` 记录，请将 apex 域指向 {% data variables.product.prodname_pages %} 的 IP 地址。
       ```shell
       2606:50c0:8000::153
       2606:50c0:8001::153
@@ -90,7 +91,7 @@ shortTitle: 管理自定义域
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. 要确认您的 DNS 记录配置正确，请使用 `dig` 命令，将 _EXAM.COM_ 替换为您的 apex 域。 确认结果与上面 {% data variables.product.prodname_pages %} 的 IP 地址相匹配。
-   - For `A` records.
+   - 对于 `A` 记录。
     ```shell
     $ dig <em>EXAMPLE.COM</em> +noall +answer -t A
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.108.153
@@ -98,7 +99,7 @@ shortTitle: 管理自定义域
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.110.153
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.111.153
     ```
-   - For `AAAA` records.
+   - 对于 `AAAA` 记录。
     ```shell
     $ dig <em>EXAMPLE.COM</em> +noall +answer -t AAAA
     > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8000::153
@@ -132,6 +133,10 @@ shortTitle: 管理自定义域
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 4. 在“Custom domain（自定义域）”下，单击 **Remove（删除）**。 ![保存自定义域按钮](/assets/images/help/pages/remove-custom-domain.png)
+
+## Securing your custom domain
+
+{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
 
 ## 延伸阅读
 

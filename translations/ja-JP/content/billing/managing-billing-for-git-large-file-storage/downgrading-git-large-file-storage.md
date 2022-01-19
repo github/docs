@@ -3,12 +3,13 @@ title: Git Large File Storage のダウングレード
 intro: '{% data variables.large_files.product_name_short %} のストレージと帯域幅を 1 月あたり 50GB 刻みでダウングレードできます。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-git-large-file-storage
-  - /articles/downgrading-storage-and-bandwidth-for-a-personal-account/
-  - /articles/downgrading-storage-and-bandwidth-for-an-organization/
+  - /articles/downgrading-storage-and-bandwidth-for-a-personal-account
+  - /articles/downgrading-storage-and-bandwidth-for-an-organization
   - /articles/downgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/downgrading-git-large-file-storage
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Downgrades

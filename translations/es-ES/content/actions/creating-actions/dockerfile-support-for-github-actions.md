@@ -2,13 +2,13 @@
 title: Soporte de Dockerfile para GitHub Actions
 shortTitle: Soporte para Dockerfile
 intro: 'Cuando creas un "Dockerfile" para una acción de un contenedor de Docker, debes estar consciente de cómo interactúan algunas instrucciones de Docker con GitHub Actions y con el archivo de metadatos de la acción.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 

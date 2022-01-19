@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/about-billing-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -15,7 +16,7 @@ topics:
 ## 有料の機能と製品
 
 個人アカウントや Organization は、いつでも有料プランにアップグレードできます。 {% data variables.product.prodname_marketplace %} からアプリケーションを購入したり、{% data variables.large_files.product_name_long %} のストレージや帯域をアップグレードしたりすることもできます。 詳しい情報については、以下を参照してください。
-- 「[{% data variables.product.product_name %} アカウントの支払いについて](/articles/about-billing-for-github-accounts)」
+- 「[{% data variables.product.prodname_dotcom %} アカウントの支払いについて](/articles/about-billing-for-github-accounts)」
 - [{% data variables.product.prodname_marketplace %} の支払いについて](/articles/about-billing-for-github-marketplace)
 - [{% data variables.large_files.product_name_long %} の支払いについて](/articles/about-billing-for-git-large-file-storage)
 - [{% data variables.product.prodname_sponsors %} の支払いについて](/articles/about-billing-for-github-sponsors)

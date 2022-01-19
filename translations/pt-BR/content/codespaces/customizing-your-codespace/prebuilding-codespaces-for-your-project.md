@@ -3,13 +3,14 @@ title: Codespaces de pré-criação para o seu projeto
 intro: Você pode configurar o seu projeto para pré-criar um codespace automaticamente cada vez que você fizer push de uma alteração no repositório.
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
   - Set up
   - Fundamentals
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: Codespace de pré-criação
+shortTitle: Codespaces pré-construídos
 ---
 
 {% note %}

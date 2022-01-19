@@ -1,6 +1,6 @@
 ---
 title: Agregar una llave GPG nueva a tu cuenta de GitHub
-intro: 'Para configurar tu cuenta de {% data variables.product.product_name %} a fin de usar una llave GPG nueva (o existente), también deberás agregarla a tu cuenta de {% data variables.product.product_name %}.'
+intro: 'Para configurar tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. para que utilice tu llave GPG nueva (o existente), también necesitarás la llave a tu cuenta.'
 redirect_from:
   - /articles/adding-a-new-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
 shortTitle: Agrega una llave GPG
 ---
 
-Antes de agregar una nueva llave GPG a tu cuenta de {% data variables.product.product_name %}, cerciórate de haber:
+Antes de agregar una llave GPG nueva a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}., debes tener:
 - [Comprobado tus llaves GPG existentes](/articles/checking-for-existing-gpg-keys)
 - [Generado y copiado una nueva llave GPG](/articles/generating-a-new-gpg-key)
 

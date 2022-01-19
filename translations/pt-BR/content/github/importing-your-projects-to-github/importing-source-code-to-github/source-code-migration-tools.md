@@ -2,17 +2,18 @@
 title: Ferramentas de migração de código-fonte
 intro: Você pode usar ferramentas externas para mover seus projetos para o GitHub.
 redirect_from:
-  - /articles/importing-from-subversion/
+  - /articles/importing-from-subversion
   - /articles/source-code-migration-tools
   - /github/importing-your-projects-to-github/source-code-migration-tools
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Ferramentas de migração de código
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Recomendamos usar o [Importador do GitHub](/articles/about-github-importer) para importar projetos de Subversion, Mercurial, Controle de versão do Team Foundation (TFVC) ou outro repositório Git. Você também pode usar essas ferramentas externas para converter o projeto em Git.
 
@@ -46,7 +47,7 @@ Para obter mais informações sobre como mudar do TFVC (um sistema centralizado 
 
 {% endtip %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Leia mais
 

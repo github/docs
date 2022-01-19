@@ -1,26 +1,28 @@
 ---
 title: GitHub のプランをアップグレードする
-intro: 'どのタイプの {% data variables.product.product_name %} アカウントのプランもいつでもアップグレードできます。'
+intro: 'You can upgrade the subscription for any type of account on {% data variables.product.product_location %} at any time.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
-  - /articles/upgrading-your-personal-account-s-billing-plan/
-  - /articles/upgrading-your-personal-account/
-  - /articles/upgrading-your-personal-account-from-free-to-a-paid-account/
-  - /articles/upgrading-your-personal-account-from-free-to-paid-with-a-credit-card/
-  - /articles/upgrading-your-personal-account-from-free-to-paid-with-paypal/
-  - /articles/500-error-while-upgrading/
-  - /articles/upgrading-your-organization-s-billing-plan/
-  - /articles/changing-your-organization-billing-plan/
-  - /articles/upgrading-your-organization-account-from-free-to-paid-with-a-credit-card/
-  - /articles/upgrading-your-organization-account-from-free-to-paid-with-paypal/
-  - /articles/upgrading-your-organization-account/
-  - /articles/switching-from-per-repository-to-per-user-pricing/
-  - /articles/adding-seats-to-your-organization/
-  - /articles/upgrading-your-github-billing-plan/
+  - /articles/upgrading-your-personal-account-s-billing-plan
+  - /articles/upgrading-your-personal-account
+  - /articles/upgrading-your-personal-account-from-free-to-a-paid-account
+  - /articles/upgrading-your-personal-account-from-free-to-paid-with-a-credit-card
+  - /articles/upgrading-your-personal-account-from-free-to-paid-with-paypal
+  - /articles/500-error-while-upgrading
+  - /articles/upgrading-your-organization-s-billing-plan
+  - /articles/changing-your-organization-billing-plan
+  - /articles/upgrading-your-organization-account-from-free-to-paid-with-a-credit-card
+  - /articles/upgrading-your-organization-account-from-free-to-paid-with-paypal
+  - /articles/upgrading-your-organization-account
+  - /articles/switching-from-per-repository-to-per-user-pricing
+  - /articles/adding-seats-to-your-organization
+  - /articles/upgrading-your-github-billing-plan
   - /articles/upgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -30,9 +32,15 @@ topics:
 shortTitle: サブスクリプションのアップグレード
 ---
 
+## About subscription upgrades
+
+{% data reusables.accounts.accounts-billed-separately %}
+
+When you upgrade the subscription for an account, the upgrade changes the paid features available for that account only, and not any other accounts you use.
+
 ## 個人アカウントのプランをアップグレードする
 
-個人アカウントを {% data variables.product.prodname_free_user %} から {% data variables.product.prodname_pro %} にアップグレードして、プライベートリポジトリの高度なコードレビューツールを手に入れることができます。 {% data reusables.gated-features.more-info %}
+You can upgrade your personal account from {% data variables.product.prodname_free_user %} to {% data variables.product.prodname_pro %} to get advanced code review tools on private repositories owned by your user account. Upgrading your personal account does not affect any organizations you may manage or repositories owned by those organizations. {% data reusables.gated-features.more-info %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -44,9 +52,13 @@ shortTitle: サブスクリプションのアップグレード
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-## Organization のプランをアップグレードする
+## Managing your organization's subscription
 
-Organization を {% data variables.product.prodname_free_team %} から {% data variables.product.prodname_team %} にアップグレードすると、チーム用の高度なコラボレーションおよび管理ツールにアクセスできます。また、{% data variables.product.prodname_ghe_cloud %} にアップグレードすると、セキュリティ、コンプライアンス、およびデプロイメントの管理を強化できます。 {% data reusables.gated-features.more-info-org-products %}
+You can upgrade your organization's subscription to a different product, add seats to your existing product, or switch from per-repository to per-user pricing.
+
+### Organization のプランをアップグレードする
+
+Organization を {% data variables.product.prodname_free_team %} から {% data variables.product.prodname_team %} にアップグレードすると、チーム用の高度なコラボレーションおよび管理ツールにアクセスできます。また、{% data variables.product.prodname_ghe_cloud %} にアップグレードすると、セキュリティ、コンプライアンス、およびデプロイメントの管理を強化できます。 Upgrading an organization does not affect your personal account or repositories owned by your personal account. {% data reusables.gated-features.more-info-org-products %}
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -61,11 +73,11 @@ Organization を {% data variables.product.prodname_free_team %} から {% data 
 
 ### {% data variables.product.prodname_ghe_cloud %} を使用する Organization の次のステップ
 
-Organization を {% data variables.product.prodname_ghe_cloud %} にアップグレードした場合は、ここで Organization の ID とアクセス管理を設定できます。 詳細は「[Organization で SAML シングルサインオンを管理する](/organizations/managing-saml-single-sign-on-for-your-organization)」を参照してください。
+Organization を {% data variables.product.prodname_ghe_cloud %} にアップグレードした場合は、ここで Organization の ID とアクセス管理を設定できます。 For more information, see "[Managing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-{% data variables.product.prodname_ghe_cloud %} で Enterprise アカウントを使いたい場合は、{% data variables.contact.contact_enterprise_sales %} に連絡してください。 詳細は「[Enterprise アカウントについて](/articles/about-enterprise-accounts)」を参照してください。
+{% data variables.product.prodname_ghe_cloud %} で Enterprise アカウントを使いたい場合は、{% data variables.contact.contact_enterprise_sales %} に連絡してください。 For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-## Organization にシートを追加する
+### Organization にシートを追加する
 
 {% data variables.product.prodname_team %} Organization のプライベートリポジトリにアクセスできるユーザを追加したい場合、いつでもシートを買い足すことができます。
 
@@ -74,7 +86,7 @@ Organization を {% data variables.product.prodname_ghe_cloud %} にアップグ
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
 
-## Organization をリポジトリごとからユーザごとに切り替える
+### Organization をリポジトリごとからユーザごとに切り替える
 
 {% data reusables.dotcom_billing.switch-legacy-billing %} 詳細は「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。
 

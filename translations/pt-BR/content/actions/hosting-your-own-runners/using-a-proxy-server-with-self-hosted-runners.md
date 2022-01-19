@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Servidores proxy
 ---
@@ -34,6 +35,8 @@ Se você precisar de um executor auto-hospedado para comunicar-se por meio de um
 As variáveis do ambiente proxy são lidas quando o aplicativo do executor auto-hospedado inicia. Portanto, você deve definir as variáveis do ambiente antes de configurar ou iniciar o aplicativo do executor auto-hospedado. Se a sua configuração de proxy for alterada, você deverá reiniciar o aplicativo do executor auto-hospedado.
 
 No Windows, os nomes da variável do ambiente proxy não diferenciam maiúsculas de minúsculas. Nos sistemas Linux e macOS, recomendamos que você use variáveis de ambiente em minúscula. Se você tiver uma variável de ambiente tanto maiúscula quanto minúscula no Linux ou macOS, como, por exemplo `https_proxy` e `HTTPS_PROXY`, o aplicativo executor auto-hospedado usará a variável minúscula do ambiente.
+
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
 
 ## Usar um arquivo .env para definir a configuração de proxy
 

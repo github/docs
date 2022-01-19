@@ -9,11 +9,9 @@ sections:
       heading: 'GitHub Actions beta'
       notes:
         - |
-          [Las {% data variables.product.prodname_actions %}](https://github.com/features/actions)son una solución poderosa y flexible de IC/DC y automatización de flujos de trabajo. Para obtener más información, consulta la sección "[Introducción a las {% data variables.product.prodname_actions %}](/actions/learn-github-actions/introduction-to-github-actions)."
+          [{% data variables.product.prodname_actions %}](https://github.com/features/actions) es una solución flexible y poderosa para la automatización de flujos de trabajo y de IC/DC. Para obtener más información, consulta la sección "[Introducción a las {% data variables.product.prodname_actions %}](/actions/learn-github-actions/introduction-to-github-actions)."
 
-          Las {% data variables.product.prodname_actions %} en {% data variables.product.product_name %} utilizan un [{% data variables.actions.hosted_runner %}] nuevo (/actions/using-github-hosted-runners/about-ae-hosted-runners), el cual solo se encuentra disponible para {% data variables.product.product_name %} y que te permite personalizar el tamaño, imágenes y configuración de red de los ejecutores. Estos ejecutores son un ambiente de cómputo de IC con servicios finalizados y que cuentan con auto-escalamiento y administración y que {% data variables.product.company_short %} administra en su totalidad. Durante el beta, usar los {% data variables.actions.hosted_runner %}s es gratuito. Para obtener más información, consulta la sección "[Agregar {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/adding-ae-hosted-runners)."
-
-          Por favor, toma en cuenta que cuando se habiliten las {% data variables.product.prodname_actions %} durante esta mejora, se mostrarán dos organizaciones llamadas "GitHub Actions" (@**actions** y @**github**) en {% data variables.product.product_location %}. {% data variables.product.prodname_actions %} requiere estas organizaciones. los usuarios de nombre @**ghost** y @**actions** aparecerán como los actores para la creación de estas organizaciones en la bitácora de auditoría.
+          Por favor, toma en cuenta que, cuando se habilitan las {% data variables.product.prodname_actions %} durante esta mejora, aparecerán dos organizaciones de nombre "GitHub Actions" (@**actions** and @**github**) en {% data variables.product.product_location %}. {% data variables.product.prodname_actions %} requiere estas organizaciones. Los usuarios de nombre @**ghost** y @**actions** se mostrarán como los actores para crear estas organizaciones en la bitácora de auditoría.
     - 
       heading: 'GitHub Packages beta'
       notes:

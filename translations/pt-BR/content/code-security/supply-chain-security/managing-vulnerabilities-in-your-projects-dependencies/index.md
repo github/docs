@@ -1,15 +1,17 @@
 ---
 title: Gerenciar vulnerabilidades nas dependências de seu projeto
-intro: 'Você pode acompanhar as dependências do seu repositório e receber alertas de segrurança de {% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}{% endif %} quando {% data variables.product.product_name %} detecta dependências vulneráveis.'
+intro: 'Você pode acompanhar as dependências do seu repositório e receber {% data variables.product.prodname_dependabot_alerts %} quando {% data variables.product.product_name %} detectar dependências vulneráveis.'
 redirect_from:
-  - /articles/updating-your-project-s-dependencies/
-  - /articles/updating-your-projects-dependencies/
-  - /articles/managing-security-vulnerabilities-in-your-projects-dependencies/
+  - /articles/updating-your-project-s-dependencies
+  - /articles/updating-your-projects-dependencies
+  - /articles/managing-security-vulnerabilities-in-your-projects-dependencies
   - /articles/managing-vulnerabilities-in-your-projects-dependencies
   - /github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
+  ghae: issue-4864
+  ghec: '*'
 topics:
   - Repositories
   - Dependabot

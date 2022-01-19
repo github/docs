@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -21,3 +22,6 @@ shortTitle: 部署密钥
 4. 在 Deploy keys（部署密钥）页面中，记下与您的帐户关联的部署密钥。 对于您无法识别或已过期的密钥，请单击 **Delete（删除）**。 如果有您要保留的有效部署密钥，请单击 **Approve（批准）**。 ![部署密钥列表](/assets/images/help/settings/settings-deploy-key-review.png)
 
 更多信息请参阅“[管理部署密钥](/guides/managing-deploy-keys)”。
+
+## 延伸阅读
+- [配置通知](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

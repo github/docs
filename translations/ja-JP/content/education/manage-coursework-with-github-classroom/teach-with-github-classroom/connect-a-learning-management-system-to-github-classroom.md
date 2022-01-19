@@ -3,6 +3,7 @@ title: 学習管理システムをGitHub Classroomに接続する
 intro: 'LTI準拠の学習管理システム (LMS) を{% data variables.product.prodname_classroom %}に接続するよう設定することで、クラスルームの名簿をインポートできます。'
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configuring-a-learning-management-system-for-github-classroom
   - /education/manage-coursework-with-github-classroom/connect-to-lms
@@ -99,7 +100,7 @@ LTIは、情報の安全性と機密性を保つために役立ちます。 LTI�
 
 Moodleのバージョンは3.0以上である必要があります。
 
-1. [Moodle](https://moodle.org/login/index.php)にサインインします。
+1. [Moodle](https://moodle.org/login/)にサインインします。
 1. {% data variables.product.prodname_classroom %}と連携するMoodleのコースを選択します。
 1. [**Turn editing on**] をクリックします。
 1. Moodleで{% data variables.product.prodname_classroom %}を使用するところで、[**Add an activity or resource**] をクリックします。

@@ -2,9 +2,9 @@
 title: 機密データをリポジトリから削除する
 intro: Git リポジトリへのパスワードや SSH キーといった機密データをコミットする場合、そのデータを履歴から削除することができます。 To entirely remove unwanted files from a repository's history you can use either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.
 redirect_from:
-  - /remove-sensitive-data/
-  - /removing-sensitive-data/
-  - /articles/remove-sensitive-data/
+  - /remove-sensitive-data
+  - /removing-sensitive-data
+  - /articles/remove-sensitive-data
   - /articles/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -24,7 +25,7 @@ The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's hi
 
 {% warning %}
 
-この記事では、機密データを含むコミットに {% data variables.product.product_name %} リポジトリのブランチやタグから到達できないようにする方法を説明しています。 ただし、こうしたコミットも、リポジトリのクローンやフォークからは、{% data variables.product.product_name %} でキャッシュされているビューの SHA-1 ハッシュによって直接、また参照元のプルリクエストによって、到達できる可能性があることに注意することが重要です。 You cannot remove sensitive data from other users' clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
+This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. ただし、こうしたコミットも、リポジトリのクローンやフォークからは、{% data variables.product.product_name %} でキャッシュされているビューの SHA-1 ハッシュによって直接、また参照元のプルリクエストによって、到達できる可能性があることに注意することが重要です。 You cannot remove sensitive data from other users' clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
 
 **Warning: Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised.** If you committed a password, change it! キーをコミットした場合は、新たに生成してください。 Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository. Consider these limitations in your decision to rewrite your repository's history.
 
@@ -50,7 +51,7 @@ $ bfg --delete-files <em>機密データを含むファイル</em>
 $ bfg --replace-text passwords.txt
 ```
 
-機密データが削除されたら、変更を {% data variables.product.product_name %} に強制的にプッシュする必要があります。
+機密データが削除されたら、変更を {% data variables.product.product_name %} に強制的にプッシュする必要があります。 Force pushing rewrites the repository history, which removes sensitive data from the commit history. If you force push, it may overwrite commits that other people have based their work on.
 
 ```shell
 $ git push --force
@@ -124,7 +125,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 6. リポジトリの履歴から削除対象をすべて削除したこと、すべてのブランチがチェックアウトされたことをダブルチェックします。
-7. リポジトリの状態が整ったら、ローカルでの変更をフォースプッシュして、{% data variables.product.product_name %} リポジトリと、プッシュしたすべてのブランチに上書きします。
+7. Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, as well as all the branches you've pushed up. A force push is required to remove sensitive data from your commit history.
   ```shell
   $ git push origin --force --all
   > Counting objects: 1074, done.
@@ -184,5 +185,5 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 ## 参考リンク
 
 - [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
-- [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History){% ifversion fpt or ghae or ghes > 2.22 %}
-- "[About Secret scanning](/code-security/secret-security/about-secret-scanning)"{% endif %}
+- [Pro Git：Git ツール - 履歴の書き換え](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
+- "[About Secret scanning](/code-security/secret-security/about-secret-scanning)"

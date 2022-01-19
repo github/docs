@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Fundamentals
@@ -25,8 +26,8 @@ shortTitle: 快速入门
 
 ## 创建第一个工作流程
 
-1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist.
-2. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
+1. 如果 `.github/workflows` 目录不存在，请在 {% data variables.product.prodname_dotcom %} 的仓库中创建此目录。
+2. 在 `.github/workflow` 目录中，创建一个名为 `github-actions-demo.yml` 的文件。 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
 3. 将以下 YAML 内容复制到 `github-actions-demo.yml` 文件中：
     {% raw %}
     ```yaml{:copy}
@@ -73,7 +74,7 @@ shortTitle: 快速入门
 
    例如，您可以在仓库中看到文件列表： ![示例操作详细信息](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-## 更多工作流程模板
+## 更多入门工作流程
 
 {% data reusables.actions.workflow-template-overview %}
 

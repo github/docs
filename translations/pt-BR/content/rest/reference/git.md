@@ -1,6 +1,6 @@
 ---
 title: Banco de dados do Git
-intro: 'The Git Database API enables you to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update Git references (branch heads and tags).'
+intro: 'A API de banco de dados do Git permite ler e escrever objetos do Git não processados no seu banco de dados do Git em {% data variables.product.product_name %} e anunciar e atualizar referências do Git (cabeçalhos de branch e tags).'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/git
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -38,7 +39,7 @@ La API de comentarios para debates de equipo te permite obtener, crear, editar y
 
 Esta API solo está disponible para los miembros autenticados de la organization del equipo. Los tokens de acceso de OAuth requieren el [alcance](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) `read:org`.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 {% note %}
 
 **Nota:** Cuando configuras la sincornizacion de equipos para un equipo con el proveedor de identidad (IdP) de tu organización, verás un error si intentas utilizar la API para hacer cambios en la membrecía de dicho equipo. Si tienes acceso para administrar las membrecías de usuario en tu IdP, puedes administrar la membrecía del equipo de GitHub a través de tu proveedor de identidad, lo cual agrega y elimina automáticamente a los miembros en una organización. Para obtener más información, consulta la sección "<a href="/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization" class="dotcom-only">Sincronizar equipos entre tu proveedor de identidad y GitHub</a>".
@@ -51,7 +52,31 @@ Esta API solo está disponible para los miembros autenticados de la organization
   {% if operation.subcategory == 'members' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes %}
+{% ifversion ghec or ghae %}
+## Grupos externos
+
+La API de grupos externos te permite ver los grupos de proveedor de identidad externos que están disponibles para tu organización, así como administrar la conexión entre los grupos externos y los equipos de tu organziación.
+
+Para utilizar esta API, el usuario autenticado debe ser un mantenedor del equipo o un propietario de la organización asociada con éste.
+
+{% ifversion ghec %}
+{% note %}
+
+**Notas:**
+
+- La API de grupos externos solo se encuentra disponible para aquellas organizaciones que sean parte de una empresa que utilice {% data variables.product.prodname_emus %}. Para obtener más información, consulta la sección "[Acerca de los Usuarios Empresariales Administrados](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
+- Si tu organización utiliza la sincronización de equipos, puedes usar la API de Sincronización de Equipos. Para obtener más información, consulta la "[API de sincronización de equipos](#team-synchronization)".
+
+{% endnote %}
+{% endif %}
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'external-groups' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% ifversion fpt or ghes or ghec %}
 ## Sincronización de equipos
 
 La API de sincronización de equipos te permite administrar las conexiones entre los equipos de {% data variables.product.product_name %} y los grupos del proveedor de identidad (IdP) externo. Para utilizar esta API, el usuario autenticado debe ser un mantenedor del equipo o un propietario de la organización asociada con éste. El token que utilizas para autenticarte también necesitará autorizarse para su uso con tu proveedor IdP (SSO). Para obtener más información, consulta la sección "<a href="/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on" class="dotcom-only">Autorizar un token de acceso personal para su uso con una organización que tiene inicio de sesión único de SAML</a>".
@@ -60,7 +85,7 @@ Puedes administrar a los miembros del equipo de GitHub a través de tu IdP con l
 
 {% note %}
 
-**Nota:** La API de sincronización de equipos no puede utilizarse con {% data variables.product.prodname_emus %}.
+**Nota:** La API de sincronización de equipos no puede utilizarse con {% data variables.product.prodname_emus %}. Para aprender más sobre cómo administrar una {% data variables.product.prodname_emu_org %}, consulta la sección "[API de grupos externos](/enterprise-cloud@latest/rest/reference/teams#external-groups)".
 
 {% endnote %}
 

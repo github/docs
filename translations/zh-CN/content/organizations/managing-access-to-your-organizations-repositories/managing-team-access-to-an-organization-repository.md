@@ -2,13 +2,14 @@
 title: 管理团队对组织仓库的访问
 intro: 您可以向团队授予仓库访问权限，删除团队的仓库访问权限，或者更改团队对仓库的权限级别。
 redirect_from:
-  - /articles/managing-team-access-to-an-organization-repository-early-access-program/
+  - /articles/managing-team-access-to-an-organization-repository-early-access-program
   - /articles/managing-team-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-repository
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -51,4 +52,4 @@ shortTitle: 管理团队访问
 
 ## 延伸阅读
 
-- "[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

@@ -31,4 +31,4 @@ We strongly recommend requiring your users to install and use a password manager
 
 セキュリティ侵害が生じた際の潜在的な攻撃対象を制限するために、ユーザには本当に作業に必要なTeamやリポジトリにのみアクセス権を与えることを強くおすすめします。 オーナーロールを持つメンバーはOrganization内のすべてのTeamとリポジトリにアクセスできるので、このTeamはできる限り小さく保つことを強くおすすめします。
 
-TeamとTeamの権限の設定に関する詳しい情報については[Organizationのリポジトリの権限レベル](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)を参照してください。
+For more information on configuring teams and team permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."

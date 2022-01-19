@@ -7,6 +7,7 @@ redirect_from:
   - /packages/guides/configuring-access-control-and-visibility-for-container-images
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 访问控制和可见性
 ---
 
@@ -85,6 +86,34 @@ shortTitle: 访问控制和可见性
 
 要进一步自定义对容器映像的访问，请参阅“[配置对组织的容器映像的访问](#configuring-access-to-container-images-for-an-organization)”。
 
+## Ensuring {% data variables.product.prodname_codespaces %} access to your package
+
+By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_dotcom %} Container Registry, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)."
+
+Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
+
+指定的仓库不需要是保存包源代码的仓库。 You can give codespaces in multiple repositories access to a package.
+
+Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
+
+1. In the right sidebar, click **Package settings**.
+
+   !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
+
+2. Under "Manage Codespaces access", click **Add repository**.
+
+   !["添加仓库"按钮](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
+
+3. Search for the repository you want to add.
+
+   !["添加仓库"按钮](/assets/images/help/package-registry/manage-codespaces-access-search.png)
+
+4. Repeat for any additional repositories you would like to allow access.
+
+5. If the codespaces for a repository no longer need access to an image, you can remove access.
+
+   !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
+
 ## 为个人帐户配置容器映像的可见性
 
 首次发布包时，默认可见性是私有的，只有您才能看到包。 您可以通过更改访问设置来修改私有或公共容器映像的访问权限。
@@ -111,7 +140,7 @@ shortTitle: 访问控制和可见性
 6. 在“Container creation（容器创建）”下，选择是要启用公共、私有或内部容器映像。
     - 要让组织成员创建公共容器映像，请单击 **Public（公共）**。
     - 要让组织成员创建只对其他组织成员可见的私有容器映像，请单击 **Private（私有）**。 您可以进一步自定义私有容器映像的可见性。
-    - **仅适用于 {% data variables.product.prodname_ghe_cloud %} ：**要让组织成员创建仅供其他组织成员可见的内部容器映像，请单击 **Internal（内部）**。 ![组织成员发布的容器图像的可见性选项](/assets/images/help/package-registry/container-creation-org-settings.png)
+    - To enable organization members to create internal container images that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the container images will be visible to all enterprise members. ![组织成员发布的容器图像的可见性选项](/assets/images/help/package-registry/container-creation-org-settings.png)
 
 ## 为组织配置容器映像的可见性
 

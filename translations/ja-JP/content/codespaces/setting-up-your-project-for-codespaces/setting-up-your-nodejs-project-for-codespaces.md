@@ -5,6 +5,7 @@ intro: 'カスタム開発コンテナを作成して、{% data variables.produc
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
 type: tutorial
@@ -13,6 +14,8 @@ topics:
   - Developer
   - Node
   - JavaScript
+hasExperimentalAlternative: true
+hidden: true
 ---
 
 
@@ -39,13 +42,13 @@ codespace を作成すると、プロジェクトは専用のリモート VM 上
 
 vCPU と RAM の量を調整したり、[ドットファイルを追加して環境をパーソナライズ](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)したり、インストールされているツールやスクリプトを変更したりして、codespace をカスタマイズできます。
 
-{% data variables.product.prodname_codespaces %} は、`devcontainer.json` というファイルを使用して設定を保存します。 起動時に、{% data variables.product.prodname_codespaces %} はファイルを使用して、プロジェクトに必要となる可能性のあるツール、依存関係、またはその他のセットアップをインストールします。 詳しい情報については、「[プロジェクトの Codespaces を設定する](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)」を参照してください。
+{% data variables.product.prodname_codespaces %} は、`devcontainer.json` というファイルを使用して設定を保存します。 起動時に、{% data variables.product.prodname_codespaces %} はファイルを使用して、プロジェクトに必要となる可能性のあるツール、依存関係、またはその他のセットアップをインストールします。 For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
 ## ステップ 2: テンプレートから codespace に開発コンテナを追加する
 
 デフォルトの Codespaces コンテナは、[vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) のような Node.js プロジェクトの実行をすぐにサポートします。 カスタムコンテナを設定することで、codespace 作成の一部として実行されるツールとスクリプトをカスタマイズし、リポジトリ内のすべての {% data variables.product.prodname_codespaces %} ユーザに完全に再現可能な環境を確保できます。
 
-カスタムコンテナを使用してプロジェクトを設定するには、`devcontainer.json` ファイルを使用して環境を定義する必要があります。 {% data variables.product.prodname_codespaces %} で、これをテンプレートから追加することも、独自に作成することもできます。 開発コンテナの詳細については、「[プロジェクトの Codespaces を設定する](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)」を参照してください。
+カスタムコンテナを使用してプロジェクトを設定するには、`devcontainer.json` ファイルを使用して環境を定義する必要があります。 {% data variables.product.prodname_codespaces %} で、これをテンプレートから追加することも、独自に作成することもできます。 For more information on dev containers, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
 {% data reusables.codespaces.command-palette-container %}
 3. この例では、[**Node.js**] をクリックします。  追加機能が必要な場合は、Node に固有の任意のコンテナ、または Node と MongoDB などのツールの組み合わせを選択できます。 ![リストから Node オプションを選択](/assets/images/help/codespaces/add-node-prebuilt-container.png)
@@ -104,7 +107,7 @@ Node.js 開発コンテナテンプレートを追加すると、次のファイ
   - **Terminal.integrated.shell.linux** - ここでは bash がデフォルトですが、これを変更することで他のターミナルシェルを使用できます。
 - **機能拡張** - これらはデフォルト設定で含まれている機能拡張です。
   - **Dbaeumer.vscode-eslint** - ES lint は lint の優れた機能拡張ですが、JavaScript の場合は、Marketplace の優れた機能拡張も多数含めることができます。
-- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。
+- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 - **postCreateCommand** - Dockerfileで定義されていない codespace への到達後に何らかの操作を実行する場合は、ここで実行できます。
 - **remoteUser** - デフォルト設定では、vscode ユーザとして実行していますが、オプションでこれを root に設定できます。
 

@@ -2,10 +2,10 @@
 title: Configurar el correo electrónico para notificaciones
 intro: 'Para que sea más fácil para los usuarios el responder rápidamente a la actividad de {% data variables.product.product_name %}, puedes configurar a {% data variables.product.product_location %} para que envíe notificaciones por correo electrónico para las propuestas, solicitudes de cambio y comentarios de las confirmaciones.'
 redirect_from:
-  - /enterprise/admin/guides/installation/email-configuration/
-  - /enterprise/admin/articles/configuring-email/
-  - /enterprise/admin/articles/troubleshooting-email/
-  - /enterprise/admin/articles/email-configuration-and-troubleshooting/
+  - /enterprise/admin/guides/installation/email-configuration
+  - /enterprise/admin/articles/configuring-email
+  - /enterprise/admin/articles/troubleshooting-email
+  - /enterprise/admin/articles/email-configuration-and-troubleshooting
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
 versions:

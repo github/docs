@@ -4,6 +4,7 @@ intro: 'Resumen de la arquitectura de seguridad de {% data variables.product.pro
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Security
@@ -56,6 +57,8 @@ Si necesitas permitir el acceso externo a los servicios que se ejecutan en un co
 Si necesitas conectarte a un servicio (tal como un servidor web de desarrollo) que se ejecute en tu codespace, puedes configurar el reenvío de puertos para hacer que el servicio esté disponible en la internet.
 
 **Puertos reenviados de forma privada**: Son accesibles mediante el internet, pero solo el creador del codespace puede acceder a ellos después de autenticarse en {% data variables.product.product_name %}.
+
+**Puertos reenviados públicamente dentro de tu organización**: Se puede acceder a ellos a través de la internet, pero solo pueden hacerlo los miembros de la misma organización, como el codespace, después de autenticarse en {% data variables.product.product_name %}.
 
 **Puertos reenviados de forma pública**: Se puede acceder a ellos desde internet y todos pueden acceder a ellos. No se necesita autenticación para acceder a los puertos públicos reenviados.
 

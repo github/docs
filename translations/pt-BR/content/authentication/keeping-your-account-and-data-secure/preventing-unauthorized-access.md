@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,7 +21,7 @@ Depois de alterar sua senha, você deve executar estas ações para confirmar qu
 
 - [Habilitar a autenticação de dois fatores](/articles/about-two-factor-authentication) em sua conta para que o acesso exija mais do que somente uma senha.
 - [Revisar suas chaves SSH](/articles/reviewing-your-ssh-keys), [chaves de implantação](/articles/reviewing-your-deploy-keys) e [integrações autorizadas](/articles/reviewing-your-authorized-integrations) e revogar acessos não autorizados ou desconhecidos em suas configurações de SSH e de aplicativos.
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - [Verificar todos os seus endereços de e-mail](/articles/verifying-your-email-address). Se um invasor adicionou o endereço de e-mail dele à sua conta, isso pode permitir que ele force uma reinicialização de senha indesejada.
 {% endif %}
 - [Revise o registro de segurança da sua conta](/github/authenticating-to-github/reviewing-your-security-log). O histórico apresenta uma uma visão geral sobre várias configurações feitas em seus repositórios. Por exemplo, você pode confirmar que nenhum repositório privado se tornou público ou foi transferido.

@@ -2,11 +2,12 @@
 title: Acerca de las restricciones de acceso a App OAuth
 intro: 'Las organizaciones pueden elegir qué {% data variables.product.prodname_oauth_apps %} tienen acceso a sus repositorios y otros recursos al activar las restricciones de acceso a {% data variables.product.prodname_oauth_app %}.'
 redirect_from:
-  - /articles/about-third-party-application-restrictions/
+  - /articles/about-third-party-application-restrictions
   - /articles/about-oauth-app-access-restrictions
   - /github/setting-up-and-managing-organizations-and-teams/about-oauth-app-access-restrictions
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,7 +26,9 @@ Cuando las restricciones de acceso a {% data variables.product.prodname_oauth_ap
 
 {% endtip %}
 
+{% ifversion fpt %}
 Para proteger los recursos de tu organización aún más, puedes mejorar a {% data variables.product.prodname_ghe_cloud %}, lo cual incluye características de seguridad como el inicio de sesión único de SAML. {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
 
 ## Configurar las restricciones de acceso a {% data variables.product.prodname_oauth_app %}
 

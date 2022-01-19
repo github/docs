@@ -1,8 +1,17 @@
 import path from 'path'
-import rest from '../../lib/rest/index.js'
+import getRest from '../../lib/rest/index.js'
 import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
 
-export default function restContext(req, res, next) {
+// Global cache to avoid calling getRest() more than once
+let rest = null
+
+export default async function restContext(req, res, next) {
+  // Bail early because these are pointless to contextualize
+  if (req.path.startsWith('/_next/static')) return next()
+
+  if (!rest) {
+    rest = await getRest()
+  }
   req.context.rest = rest
 
   // link to include in `Works with GitHub Apps` notes

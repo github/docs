@@ -2,9 +2,9 @@
 title: Gerenciar repositórios remotos
 intro: 'Aprenda a trabalhar com seus repositórios locais no seu computador e repositórios remotos hospedados no {% data variables.product.product_name %}.'
 redirect_from:
-  - /categories/18/articles/
-  - /remotes/
-  - /categories/managing-remotes/
+  - /categories/18/articles
+  - /remotes
+  - /categories/managing-remotes
   - /articles/managing-remote-repositories
   - /articles/adding-a-remote
   - /github/using-git/adding-a-remote
@@ -22,6 +22,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Gerenciar repositórios remotos
 ---
 
@@ -172,7 +173,7 @@ $ git remote -v
 
 ### Solução de problemas: Não foi possível renomear a seção de configuração 'remote.[old name]' para 'remote.[new name]'
 
-Esse erro informa que o nome do remote antigo que você inseriu não existe.
+Este erro significa que o nome remoto antigo digitado não existe.
 
 Você pode consultar os remotes existentes no momento com o comando `git remote -v`:
 

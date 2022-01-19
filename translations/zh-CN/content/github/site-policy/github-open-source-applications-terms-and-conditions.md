@@ -63,4 +63,4 @@ GitHub 保留随时和不时修改或停用（临时或永久）服务或其任�
 
 6. GitHub 政策的许可。 这些应用程序条款的许可采用[知识共享零许可](https://creativecommons.org/publicdomain/zero/1.0/)原则。 更多信息请参阅我们的[站点政策仓库](https://github.com/github/site-policy#license)。
 
-7. 联系我们。 对服务条款有疑问吗？ [Contact us](https://support.github.com/contact?tags=docs-policy).
+7. 联系我们。 对服务条款有疑问吗？ [联系我们](https://support.github.com/contact?tags=docs-policy)。

@@ -2,14 +2,15 @@
 title: Receber pagamento por compras de aplicativo
 intro: 'Ao final de cada mês, você receberá um pagamento pela sua listagem em {% data variables.product.prodname_marketplace %}.'
 redirect_from:
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/pricing-payments-and-free-trials/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings/
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/pricing-payments-and-free-trials/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
   - /marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
   - /developers/github-marketplace/receiving-payment-for-app-purchases
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Receber pagamentos
@@ -23,6 +24,6 @@ Para transações feitas antes de 1 de janeiro de 2021, {% data variables.produc
 
 {% note %}
 
-**Observação:** Para obter os detalhes dos preços atuais e dos termos de pagamento, consulte o "[ acordo do desenvolvedor de {% data variables.product.prodname_marketplace %}](/github/site-policy/github-marketplace-developer-agreement)".
+**Observação:** Para obter os detalhes dos preços atuais e dos termos de pagamento, consulte o "[ acordo do desenvolvedor de {% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)".
 
 {% endnote %}

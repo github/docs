@@ -3,13 +3,14 @@ title: Assinaturas com desconto para contas do GitHub
 intro: 'O {% data variables.product.product_name %} oferece descontos para estudantes, professores, instituições educacionais, organizações sem fins lucrativos e bibliotecas.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/discounted-subscriptions-for-github-accounts
-  - /articles/discounted-personal-accounts/
-  - /articles/discounted-organization-accounts/
-  - /articles/discounted-billing-plans/
+  - /articles/discounted-personal-accounts
+  - /articles/discounted-organization-accounts
+  - /articles/discounted-billing-plans
   - /articles/discounted-subscriptions-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Accounts
@@ -28,11 +29,11 @@ shortTitle: Assinaturas com desconto
 
 ## Descontos para contas pessoais
 
-Além de repositórios públicos e privados ilimitados para alunos e docentes com o {% data variables.product.prodname_free_user %}, os alunos confirmados podem se inscrever no {% data variables.product.prodname_student_pack %} para receber outros benefícios de parceiros do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Aplicar a um pacote de desenvolvedor para estudante](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)".
+Além de repositórios públicos e privados ilimitados para alunos e docentes com o {% data variables.product.prodname_free_user %}, os alunos confirmados podem se inscrever no {% data variables.product.prodname_student_pack %} para receber outros benefícios de parceiros do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Aplicar a um pacote de desenvolvedor para estudante](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)".
 
 ## Descontos para escolas e universidades
 
-Os docentes acadêmicos confirmados podem se inscrever na {% data variables.product.prodname_team %} para atividades de ensino ou pesquisa acadêmica. Para obter mais informações, consulte "[Usar {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquisa](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)". Também é possível solicitar brindes de material educacional para os alunos. Para obter mais informações, visite [{% data variables.product.prodname_education %}](https://education.github.com/).
+Os docentes acadêmicos confirmados podem se inscrever na {% data variables.product.prodname_team %} para atividades de ensino ou pesquisa acadêmica. Para obter mais informações, consulte "[Usar {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquisa](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)". Também é possível solicitar brindes de material educacional para os alunos. Para obter mais informações, visite [{% data variables.product.prodname_education %}](https://education.github.com/).
 
 ## Descontos para organizações sem fins lucrativos e bibliotecas
 
